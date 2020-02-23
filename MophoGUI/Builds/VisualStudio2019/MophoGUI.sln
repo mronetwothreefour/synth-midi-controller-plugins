@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2019
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI - VST3", "MophoGUI_VST3.vcxproj", "{ADB116F4-4E6A-269C-9143-AECE9EFEA48F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF5E405E-48CB-F009-8A9B-3051C652A2FB} = {AF5E405E-48CB-F009-8A9B-3051C652A2FB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI - Shared Code", "MophoGUI_SharedCode.vcxproj", "{AF5E405E-48CB-F009-8A9B-3051C652A2FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADB116F4-4E6A-269C-9143-AECE9EFEA48F}.Debug|x64.ActiveCfg = Debug|x64
+		{ADB116F4-4E6A-269C-9143-AECE9EFEA48F}.Debug|x64.Build.0 = Debug|x64
+		{ADB116F4-4E6A-269C-9143-AECE9EFEA48F}.Release|x64.ActiveCfg = Release|x64
+		{ADB116F4-4E6A-269C-9143-AECE9EFEA48F}.Release|x64.Build.0 = Release|x64
+		{AF5E405E-48CB-F009-8A9B-3051C652A2FB}.Debug|x64.ActiveCfg = Debug|x64
+		{AF5E405E-48CB-F009-8A9B-3051C652A2FB}.Debug|x64.Build.0 = Debug|x64
+		{AF5E405E-48CB-F009-8A9B-3051C652A2FB}.Release|x64.ActiveCfg = Release|x64
+		{AF5E405E-48CB-F009-8A9B-3051C652A2FB}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
