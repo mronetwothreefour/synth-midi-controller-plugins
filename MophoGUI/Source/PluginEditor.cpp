@@ -16,9 +16,9 @@ PluginEditor::~PluginEditor()
 //==============================================================================
 void PluginEditor::paint(Graphics& g)
 {
-    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
+    g.fillAll(Color::device);
 
-    g.setColour(Colours::white);
+    g.setColour(Color::black);
     g.setFont(15.0f);
     g.drawFittedText("Hello World!", getLocalBounds(), Justification::centred, 1);
 }
