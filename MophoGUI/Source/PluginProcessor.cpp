@@ -3,13 +3,8 @@
 
 PluginProcessor::PluginProcessor()
 {
-    apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, Identifier{ "publicParams" },
-        {
-            std::make_unique<AudioParameterInt> ("osc1Freq", "Oscillator 1 Frequency", 0, 120, 24),
-            std::make_unique<AudioParameterInt> ("osc1Fine", "Oscillator 1 Fine Tune", 0, 100, 49),
-            std::make_unique<AudioParameterInt> ("osc1Shape", "Oscillator 1 Shape/Pulse Width", 0, 103, 1)
-        }
-        ));
+    PublicParameters publicParams;
+    apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, Identifier{ "publicParams" }, publicParams.createLayout()));
 }
 
 PluginProcessor::~PluginProcessor()

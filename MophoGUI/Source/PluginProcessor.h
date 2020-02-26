@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "parameters/PublicParameters.h"
+
 class PluginProcessor : public AudioProcessor
 {
 public:

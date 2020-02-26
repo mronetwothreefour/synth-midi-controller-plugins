@@ -436,6 +436,9 @@
     <Filter Include="MophoGUI\Source\core">
       <UniqueIdentifier>{b7dda083-96a0-42fb-a409-a8a24f325c0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\parameters">
+      <UniqueIdentifier>{acded061-3f06-4c00-9976-a045dd557a87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4519,6 +4522,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>MophoGUI\Source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\PublicParameters.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
