@@ -56,11 +56,33 @@ public:
 		{
 			fineTuneChoices.add("+" + (String)(i - 50) + " cents");
 		}
+
+		// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
+		// 4..103 = "Pulse Width 0..99"
+		StringArray waveShapeChoices;
+		waveShapeChoices.add("Off");
+		waveShapeChoices.add("Sawtooth");
+		waveShapeChoices.add("Triangle");
+		waveShapeChoices.add("Saw/Tri Mix");
+		for (int i = 0; i != 100; ++i)
+		{
+			waveShapeChoices.add("Pulse Width " + (String)i);
+		}
+
+		// 0 = "Off"; 1 = "On"
+		StringArray offOnChoices;
+		{
+			offOnChoices.add("Off");
+			offOnChoices.add("On");
+		}
 		//==============================================================================
 
 		ParamLayout layout;
 		layout.add(std::make_unique<AudioParameterChoice>("osc1Pitch", "Oscillator 1 Pitch", pitchNameChoices, 24));
 		layout.add(std::make_unique<AudioParameterChoice>("osc1Fine", "Oscillator 1 Fine Tune", fineTuneChoices, 49));
+		layout.add(std::make_unique<AudioParameterChoice>("osc1Shape", "Oscillator 1 Wave Shape", waveShapeChoices, 1));
+		layout.add(std::make_unique<AudioParameterInt>("osc1Glide", "Oscillator 1 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("osc1KeyTrack", "Oscillator 1 Key Tracking", offOnChoices, 1));
 		return layout;
 	}
 
