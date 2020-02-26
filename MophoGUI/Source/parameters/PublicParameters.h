@@ -47,12 +47,14 @@ public:
 
 		// 0 = "-50 cents"; 50 = "Centered"; 100 = "+50 cents"
 		StringArray fineTuneChoices;
-		for (int i = 0; i != 50; ++i)
+		for (int i = 0; i != 49; ++i)
 		{
 			fineTuneChoices.add((String)(i - 50) + " cents");
 		}
+		fineTuneChoices.add("-1 cent");
 		fineTuneChoices.add("Centered");
-		for (int i = 51; i != 101; ++i)
+		fineTuneChoices.add("+1 cent");
+		for (int i = 52; i != 101; ++i)
 		{
 			fineTuneChoices.add("+" + (String)(i - 50) + " cents");
 		}
@@ -82,7 +84,15 @@ public:
 		layout.add(std::make_unique<AudioParameterChoice>("osc1Fine", "Oscillator 1 Fine Tune", fineTuneChoices, 49));
 		layout.add(std::make_unique<AudioParameterChoice>("osc1Shape", "Oscillator 1 Wave Shape", waveShapeChoices, 1));
 		layout.add(std::make_unique<AudioParameterInt>("osc1Glide", "Oscillator 1 Glide Rate", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("osc1KeyTrack", "Oscillator 1 Key Tracking", offOnChoices, 1));
+		layout.add(std::make_unique<AudioParameterChoice>("osc1KeyTrack", "Oscillator 1 Keyboard Tracking", offOnChoices, 1));
+		layout.add(std::make_unique<AudioParameterInt>("subOsc1Level", "Sub Oscillator 1 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("osc2Pitch", "Oscillator 2 Pitch", pitchNameChoices, 24));
+		layout.add(std::make_unique<AudioParameterChoice>("osc2Fine", "Oscillator 2 Fine Tune", fineTuneChoices, 51));
+		layout.add(std::make_unique<AudioParameterChoice>("osc2Shape", "Oscillator 2 Wave Shape", waveShapeChoices, 1));
+		layout.add(std::make_unique<AudioParameterInt>("osc2Glide", "Oscillator 2 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("osc2KeyTrack", "Oscillator 2 Keyboard Tracking", offOnChoices, 1));
+		layout.add(std::make_unique<AudioParameterInt>("subOsc2Level", "Sub Oscillator 2 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("oscSync", "Sync Oscillator 2 to Oscillator 1", offOnChoices, 0));
 		return layout;
 	}
 
