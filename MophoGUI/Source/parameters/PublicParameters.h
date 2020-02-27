@@ -77,6 +77,24 @@ public:
 			offOnChoices.add("Off");
 			offOnChoices.add("On");
 		}
+
+		StringArray glideModeChoices;
+		{
+			glideModeChoices.add("Fixed Rate");
+			glideModeChoices.add("Fixed Rate Auto");
+			glideModeChoices.add("Fixed Time");
+			glideModeChoices.add("Fixed Time Auto");
+		}
+
+		StringArray pitchBendChoices;
+		{
+			pitchBendChoices.add("Off");
+			pitchBendChoices.add("+/-1 semitone");
+			for (int i = 2; i != 13; ++i)
+			{
+				pitchBendChoices.add("+/-" + (String)i + " semitones");
+			}
+		}
 		//==============================================================================
 
 		ParamLayout layout;
@@ -93,6 +111,9 @@ public:
 		layout.add(std::make_unique<AudioParameterChoice>("osc2KeyTrack", "Oscillator 2 Keyboard Tracking", offOnChoices, 1));
 		layout.add(std::make_unique<AudioParameterInt>("subOsc2Level", "Sub Oscillator 2 Level", 0, 127, 0));
 		layout.add(std::make_unique<AudioParameterChoice>("oscSync", "Sync Oscillator 2 to Oscillator 1", offOnChoices, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("glideMode", "Glide Mode", glideModeChoices, 0));
+		layout.add(std::make_unique<AudioParameterInt>("oscSlop", "Oscillator Slop", 0, 5, 0));
+		layout.add(std::make_unique<AudioParameterChoice>("bendRange", "Pitch Bend Range", pitchBendChoices, 4));
 		return layout;
 	}
 
