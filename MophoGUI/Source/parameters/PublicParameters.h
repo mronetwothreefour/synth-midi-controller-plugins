@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "ParameterChoices.h"
+
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 // Has a createLayout() function which programmatically generates
@@ -17,103 +19,24 @@ public:
 	// This layout is then used to initialize the AudioProcessorValueTreeState.
 	ParamLayout createLayout()
 	{
-		//==============================================================================
-		// Define parameter choice StringArrays
-
-		// Used to present a MIDI note number as a pitch name / octave number String
-		// (e.g. note number 27 is presented as "D#2")
-		StringArray pitchNameChoices;
-		for (int i = 0; i != 121; ++i)
-		{
-			auto noteNum{ i % 12 };
-			auto octaveNum{ i / 12 };
-			switch (noteNum)
-			{
-			case 0 : pitchNameChoices.add("C"  + (String)octaveNum); break;
-			case 1 : pitchNameChoices.add("C#" + (String)octaveNum); break;
-			case 2 : pitchNameChoices.add("D"  + (String)octaveNum); break;
-			case 3 : pitchNameChoices.add("D#" + (String)octaveNum); break;
-			case 4 : pitchNameChoices.add("E"  + (String)octaveNum); break;
-			case 5 : pitchNameChoices.add("F"  + (String)octaveNum); break;
-			case 6 : pitchNameChoices.add("F#" + (String)octaveNum); break;
-			case 7 : pitchNameChoices.add("G"  + (String)octaveNum); break;
-			case 8 : pitchNameChoices.add("G#" + (String)octaveNum); break;
-			case 9 : pitchNameChoices.add("A"  + (String)octaveNum); break;
-			case 10: pitchNameChoices.add("A#" + (String)octaveNum); break;
-			case 11: pitchNameChoices.add("B"  + (String)octaveNum); break;
-			default: break;
-			}
-		}
-
-		// 0 = "-50 cents"; 50 = "Centered"; 100 = "+50 cents"
-		StringArray fineTuneChoices;
-		for (int i = 0; i != 49; ++i)
-		{
-			fineTuneChoices.add((String)(i - 50) + " cents");
-		}
-		fineTuneChoices.add("-1 cent");
-		fineTuneChoices.add("Centered");
-		fineTuneChoices.add("+1 cent");
-		for (int i = 52; i != 101; ++i)
-		{
-			fineTuneChoices.add("+" + (String)(i - 50) + " cents");
-		}
-
-		// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
-		// 4..103 = "Pulse Width 0..99"
-		StringArray waveShapeChoices;
-		waveShapeChoices.add("Off");
-		waveShapeChoices.add("Sawtooth");
-		waveShapeChoices.add("Triangle");
-		waveShapeChoices.add("Saw/Tri Mix");
-		for (int i = 0; i != 100; ++i)
-		{
-			waveShapeChoices.add("Pulse Width " + (String)i);
-		}
-
-		// 0 = "Off"; 1 = "On"
-		StringArray offOnChoices;
-		{
-			offOnChoices.add("Off");
-			offOnChoices.add("On");
-		}
-
-		StringArray glideModeChoices;
-		{
-			glideModeChoices.add("Fixed Rate");
-			glideModeChoices.add("Fixed Rate Auto");
-			glideModeChoices.add("Fixed Time");
-			glideModeChoices.add("Fixed Time Auto");
-		}
-
-		StringArray pitchBendChoices;
-		{
-			pitchBendChoices.add("Off");
-			pitchBendChoices.add("+/-1 semitone");
-			for (int i = 2; i != 13; ++i)
-			{
-				pitchBendChoices.add("+/-" + (String)i + " semitones");
-			}
-		}
-		//==============================================================================
-
 		ParamLayout layout;
-		layout.add(std::make_unique<AudioParameterChoice>("osc1Pitch", "Oscillator 1 Pitch", pitchNameChoices, 24));
-		layout.add(std::make_unique<AudioParameterChoice>("osc1Fine", "Oscillator 1 Fine Tune", fineTuneChoices, 49));
-		layout.add(std::make_unique<AudioParameterChoice>("osc1Shape", "Oscillator 1 Wave Shape", waveShapeChoices, 1));
-		layout.add(std::make_unique<AudioParameterInt>("osc1Glide", "Oscillator 1 Glide Rate", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("osc1KeyTrack", "Oscillator 1 Keyboard Tracking", offOnChoices, 1));
-		layout.add(std::make_unique<AudioParameterInt>("subOsc1Level", "Sub Oscillator 1 Level", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("osc2Pitch", "Oscillator 2 Pitch", pitchNameChoices, 24));
-		layout.add(std::make_unique<AudioParameterChoice>("osc2Fine", "Oscillator 2 Fine Tune", fineTuneChoices, 51));
-		layout.add(std::make_unique<AudioParameterChoice>("osc2Shape", "Oscillator 2 Wave Shape", waveShapeChoices, 1));
-		layout.add(std::make_unique<AudioParameterInt>("osc2Glide", "Oscillator 2 Glide Rate", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("osc2KeyTrack", "Oscillator 2 Keyboard Tracking", offOnChoices, 1));
-		layout.add(std::make_unique<AudioParameterInt>("subOsc2Level", "Sub Oscillator 2 Level", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("oscSync", "Sync Oscillator 2 to Oscillator 1", offOnChoices, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("glideMode", "Glide Mode", glideModeChoices, 0));
-		layout.add(std::make_unique<AudioParameterInt>("oscSlop", "Oscillator Slop", 0, 5, 0));
-		layout.add(std::make_unique<AudioParameterChoice>("bendRange", "Pitch Bend Range", pitchBendChoices, 4));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc1Pitch", "Oscillator 1 Pitch", choices.pitchNames, 24));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc1Fine", "Oscillator 1 Fine Tune", choices.fineTune, 49));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc1Shape", "Oscillator 1 Wave Shape", choices.waveShape, 1));
+		layout.add(std::make_unique<AudioParameterInt>		("osc1Glide", "Oscillator 1 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc1KeyTrack", "Oscillator 1 Keyboard Tracking", choices.offOn, 1));
+		layout.add(std::make_unique<AudioParameterInt>		("subOsc1Level", "Sub Oscillator 1 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc2Pitch", "Oscillator 2 Pitch", choices.pitchNames, 24));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc2Fine", "Oscillator 2 Fine Tune", choices.fineTune, 51));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc2Shape", "Oscillator 2 Wave Shape", choices.waveShape, 1));
+		layout.add(std::make_unique<AudioParameterInt>		("osc2Glide", "Oscillator 2 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("osc2KeyTrack", "Oscillator 2 Keyboard Tracking", choices.offOn, 1));
+		layout.add(std::make_unique<AudioParameterInt>		("subOsc2Level", "Sub Oscillator 2 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("oscSync", "Sync Oscillator 2 to Oscillator 1", choices.offOn, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("glideMode", "Glide Mode", choices.glideMode, 0));
+		layout.add(std::make_unique<AudioParameterInt>		("oscSlop", "Oscillator Slop", 0, 5, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	("bendRange", "Pitch Bend Range", choices.pitchBendRange, 4));
+		layout.add(std::make_unique<AudioParameterChoice>	("notePriority", "Note Priority", choices.notePriority, 0));
 		return layout;
 	}
 
