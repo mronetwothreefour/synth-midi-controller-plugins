@@ -20,23 +20,23 @@ public:
 	ParamLayout createLayout()
 	{
 		ParamLayout layout;
-		layout.add(std::make_unique<AudioParameterChoice>	("osc1Pitch", "Oscillator 1 Pitch", choices.pitchNames, 24));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc1Fine", "Oscillator 1 Fine Tune", choices.fineTune, 49));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc1Shape", "Oscillator 1 Wave Shape", choices.waveShape, 1));
-		layout.add(std::make_unique<AudioParameterInt>		("osc1Glide", "Oscillator 1 Glide Rate", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc1KeyTrack", "Oscillator 1 Keyboard Tracking", choices.offOn, 1));
-		layout.add(std::make_unique<AudioParameterInt>		("subOsc1Level", "Sub Oscillator 1 Level", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc2Pitch", "Oscillator 2 Pitch", choices.pitchNames, 24));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc2Fine", "Oscillator 2 Fine Tune", choices.fineTune, 51));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc2Shape", "Oscillator 2 Wave Shape", choices.waveShape, 1));
-		layout.add(std::make_unique<AudioParameterInt>		("osc2Glide", "Oscillator 2 Glide Rate", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("osc2KeyTrack", "Oscillator 2 Keyboard Tracking", choices.offOn, 1));
-		layout.add(std::make_unique<AudioParameterInt>		("subOsc2Level", "Sub Oscillator 2 Level", 0, 127, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("oscSync", "Sync Oscillator 2 to Oscillator 1", choices.offOn, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("glideMode", "Glide Mode", choices.glideMode, 0));
-		layout.add(std::make_unique<AudioParameterInt>		("oscSlop", "Oscillator Slop", 0, 5, 0));
-		layout.add(std::make_unique<AudioParameterChoice>	("bendRange", "Pitch Bend Range", choices.pitchBendRange, 4));
-		layout.add(std::make_unique<AudioParameterChoice>	("notePriority", "Note Priority", choices.notePriority, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Pitch.toString(), "Oscillator 1 Pitch", choices.pitchNames, 24));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Fine.toString(), "Oscillator 1 Fine Tune", choices.fineTune, 49));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Shape.toString(), "Oscillator 1 Wave Shape", choices.waveShape, 1));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::osc1Glide.toString(), "Oscillator 1 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1KeyTrack.toString(), "Oscillator 1 Keyboard Tracking", choices.offOn, 1));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::subOsc1Level.toString(), "Sub Oscillator 1 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Pitch.toString(), "Oscillator 2 Pitch", choices.pitchNames, 24));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Fine.toString(), "Oscillator 2 Fine Tune", choices.fineTune, 51));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Shape.toString(), "Oscillator 2 Wave Shape", choices.waveShape, 1));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::osc2Glide.toString(), "Oscillator 2 Glide Rate", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2KeyTrack.toString(), "Oscillator 2 Keyboard Tracking", choices.offOn, 1));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::subOsc2Level.toString(), "Sub Oscillator 2 Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::oscSync.toString(), "Sync Oscillator 2 to Oscillator 1", choices.offOn, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::glideMode.toString(), "Glide Mode", choices.glideMode, 0));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::oscSlop.toString(), "Oscillator Slop", 0, 5, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::bendRange.toString(), "Pitch Bend Range", choices.pitchBendRange, 4));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::notePriority.toString(), "Note Priority", choices.notePriority, 0));
 		return layout;
 	}
 

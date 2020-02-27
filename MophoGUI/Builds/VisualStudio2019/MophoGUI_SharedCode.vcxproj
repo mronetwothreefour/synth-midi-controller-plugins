@@ -1973,6 +1973,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
+    <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
     <ClInclude Include="..\..\Source\parameters\ParameterChoices.h" />
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />

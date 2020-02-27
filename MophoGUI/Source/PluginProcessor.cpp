@@ -4,7 +4,7 @@
 PluginProcessor::PluginProcessor()
 {
     PublicParameters publicParams;
-    apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, Identifier{ "publicParams" }, publicParams.createLayout()));
+    apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, publicParams.createLayout()));
 }
 
 PluginProcessor::~PluginProcessor()

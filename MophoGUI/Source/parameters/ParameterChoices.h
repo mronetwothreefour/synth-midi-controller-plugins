@@ -106,7 +106,7 @@ private:
 };
 
 // A collection of StringArrays holding choices for the various plugin parameters
-static const Choices choices;
+const Choices choices;
 
 //namespace Idx
 //{
