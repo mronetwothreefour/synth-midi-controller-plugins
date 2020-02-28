@@ -29,6 +29,9 @@ public:
 	// (e.g. 27 is presented as "D#2")
 	StringArray lpfFreq;
 
+	// 0 = "2-Pole"; 1 = "4-Pole"
+	StringArray lpfType;
+
 	Choices()
 	{
 		// initialize pitchNames
@@ -125,6 +128,10 @@ public:
 			default: break;
 			}
 		}
+
+		// initialize lpfType
+		lpfType.add("2-Pole");
+		lpfType.add("4-Pole");
 	}
 
 private:

@@ -41,6 +41,10 @@ public:
 		layout.add(std::make_unique<AudioParameterInt>		(ID::noiseLevel.toString(), "Noise Level", 0, 127, 0));
 		layout.add(std::make_unique<AudioParameterInt>		(ID::extInLevel.toString(), "External Audio Input Level", 0, 127, 0));
 		layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfFreq.toString(), "LPF Cutoff Frequency", choices.lpfFreq, 148));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::lpfReso.toString(), "LPF Resonance", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::lpfKeyAmount.toString(), "LPF Keyboard Amount", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::lpfOsc1FM.toString(), "LPF FM (By Oscillator 1)", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfType.toString(), "LPF Type", choices.lpfType, 148));
 		return layout;
 	}
 

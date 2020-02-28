@@ -27,4 +27,8 @@ namespace ID
 	const Identifier noiseLevel			{ "noiseLevel"		};
 	const Identifier extInLevel			{ "extInLevel"		};
 	const Identifier lpfFreq			{ "lpfFreq"			};
+	const Identifier lpfReso			{ "lpfReso"			};
+	const Identifier lpfKeyAmount		{ "lpfKeyAmount"	};
+	const Identifier lpfOsc1FM			{ "lpfOsc1FM"		};
+	const Identifier lpfType			{ "lpfType"			};
 } // namespace ID
