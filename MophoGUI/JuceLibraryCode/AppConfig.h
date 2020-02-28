@@ -362,7 +362,7 @@
  #define JucePlugin_ProducesMidiOutput     1
 #endif
 #ifndef  JucePlugin_IsMidiEffect
- #define JucePlugin_IsMidiEffect           0
+ #define JucePlugin_IsMidiEffect           1
 #endif
 #ifndef  JucePlugin_EditorRequiresKeyboardFocus
  #define JucePlugin_EditorRequiresKeyboardFocus  0

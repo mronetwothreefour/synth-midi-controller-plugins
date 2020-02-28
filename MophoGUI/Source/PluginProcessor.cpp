@@ -1,7 +1,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-PluginProcessor::PluginProcessor()
+PluginProcessor::PluginProcessor() : AudioProcessor(BusesProperties())
 {
     PublicParameters publicParams;
     apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, publicParams.createLayout()));
@@ -20,29 +20,17 @@ const String PluginProcessor::getName() const
 //==============================================================================
 bool PluginProcessor::acceptsMidi() const
 {
-   #if JucePlugin_WantsMidiInput
     return true;
-   #else
-    return false;
-   #endif
 }
 
 bool PluginProcessor::producesMidi() const
 {
-   #if JucePlugin_ProducesMidiOutput
     return true;
-   #else
-    return false;
-   #endif
 }
 
 bool PluginProcessor::isMidiEffect() const
 {
-   #if JucePlugin_IsMidiEffect
     return true;
-   #else
-    return false;
-   #endif
 }
 
 //==============================================================================
@@ -74,6 +62,12 @@ void PluginProcessor::changeProgramName(int index, const String& newName)
 }
 
 //==============================================================================
+bool PluginProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+{
+    ignoreUnused(layouts);
+    return true;
+}
+
 void PluginProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 {
     ignoreUnused(sampleRate, samplesPerBlock);
