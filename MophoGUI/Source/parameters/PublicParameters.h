@@ -37,6 +37,10 @@ public:
 		layout.add(std::make_unique<AudioParameterInt>		(ID::oscSlop.toString(), "Oscillator Slop", 0, 5, 0));
 		layout.add(std::make_unique<AudioParameterChoice>	(ID::bendRange.toString(), "Pitch Bend Range", choices.pitchBendRange, 4));
 		layout.add(std::make_unique<AudioParameterChoice>	(ID::notePriority.toString(), "Note Priority", choices.notePriority, 0));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::oscMix.toString(), "Oscillator 1 & 2 Mix", 0, 127, 64));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::noiseLevel.toString(), "Noise Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterInt>		(ID::extInLevel.toString(), "External Audio Input Level", 0, 127, 0));
+		layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfFreq.toString(), "LPF Cutoff Frequency", choices.lpfFreq, 148));
 		return layout;
 	}
 
