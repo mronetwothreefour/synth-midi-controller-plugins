@@ -12,87 +12,12 @@ PluginProcessor::~PluginProcessor()
 }
 
 //==============================================================================
-const String PluginProcessor::getName() const
-{
-    return JucePlugin_Name;
-}
-
-//==============================================================================
-bool PluginProcessor::acceptsMidi() const
-{
-    return true;
-}
-
-bool PluginProcessor::producesMidi() const
-{
-    return true;
-}
-
-bool PluginProcessor::isMidiEffect() const
-{
-    return true;
-}
-
-//==============================================================================
-int PluginProcessor::getNumPrograms()
-{
-    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
-                // so this should be at least 1, even if you're not really implementing programs.
-}
-
-int PluginProcessor::getCurrentProgram()
-{
-    return 0;
-}
-
-void PluginProcessor::setCurrentProgram(int index)
-{
-    ignoreUnused(index);
-}
-
-const String PluginProcessor::getProgramName(int index)
-{
-    ignoreUnused(index);
-    return {};
-}
-
-void PluginProcessor::changeProgramName(int index, const String& newName)
-{
-    ignoreUnused(index, newName);
-}
-
-//==============================================================================
-bool PluginProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
-{
-    ignoreUnused(layouts);
-    return true;
-}
-
-void PluginProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
-{
-    ignoreUnused(sampleRate, samplesPerBlock);
-}
-
-void PluginProcessor::releaseResources()
-{
-}
-
-double PluginProcessor::getTailLengthSeconds() const
-{
-    return 0.0;
-}
-
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     ignoreUnused(buffer, midiMessages);
 }
 
 //==============================================================================
-bool PluginProcessor::hasEditor() const
-{
-    return true;
-}
-
 AudioProcessorEditor* PluginProcessor::createEditor()
 {
     return new PluginEditor(*this);
