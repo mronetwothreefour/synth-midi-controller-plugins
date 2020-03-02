@@ -32,6 +32,9 @@ public:
 	// 0 = "2-Pole"; 1 = "4-Pole"
 	StringArray lpfType;
 
+	// 0 = "-127"; 254 = "+127"
+	StringArray modAmount;
+
 	Choices()
 	{
 		// initialize pitchNames
@@ -132,6 +135,13 @@ public:
 		// initialize lpfType
 		lpfType.add("2-Pole");
 		lpfType.add("4-Pole");
+
+		// initialize modAmnt
+		for (int i = 0; i != 255; ++i)
+		{
+			if (i < 128) modAmount.add((String)(i - 127));
+			else modAmount.add("+" + (String)(i - 127));
+		}
 	}
 
 private:
