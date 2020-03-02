@@ -14,7 +14,7 @@ public:
 	
 	// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
 	// 4..103 = "Pulse Width 0..99"
-	StringArray waveShape;
+	StringArray oscShape;
 
 	// 0 = "Off"; 1 = "On"
 	StringArray offOn;
@@ -34,6 +34,17 @@ public:
 
 	// 0 = "-127"; 254 = "+127"
 	StringArray modAmount;
+
+	// 0..89 = "Unsynced 0..89"
+	// 90..150 = "Pitched Frequency C0..C5"
+	// 151..156 = Sync to step sequencer
+	StringArray lfoFreq;
+
+	// 0 = "Triangle"; 1 = "Reverse Sawtooth";
+	// 2 = "Sawtooth" 3 = "Square"; 4 = "Random"
+	StringArray lfoShape;
+
+	StringArray modDestination;
 
 	Choices()
 	{
@@ -73,14 +84,14 @@ public:
 			fineTune.add("+" + (String)(i - 50) + " cents");
 		}
 
-		// initialize waveShape
-		waveShape.add("Off");
-		waveShape.add("Sawtooth");
-		waveShape.add("Triangle");
-		waveShape.add("Saw/Tri Mix");
+		// initialize oscShape
+		oscShape.add("Off");
+		oscShape.add("Sawtooth");
+		oscShape.add("Triangle");
+		oscShape.add("Saw/Tri Mix");
 		for (int i = 0; i != 100; ++i)
 		{
-			waveShape.add("Pulse Width " + (String)i);
+			oscShape.add("Pulse Width " + (String)i);
 		}
 
 		// initialize offOn
@@ -142,6 +153,105 @@ public:
 			if (i < 128) modAmount.add((String)(i - 127));
 			else modAmount.add("+" + (String)(i - 127));
 		}
+
+		// initialize lfoFreq
+		for (int i = 0; i != 151; ++i)
+		{
+			if (i < 90) lfoFreq.add("Un-synced " + (String)i);
+			if (i > 89)
+			{
+				auto noteNum{ (i - 90) % 12 };
+				auto octaveNum{ (i - 90) / 12 };
+				switch (noteNum)
+				{
+				case 0 : lfoFreq.add("Pitch Freq. C"  + (String)octaveNum); break;
+				case 1 : lfoFreq.add("Pitch Freq. C#" + (String)octaveNum); break;
+				case 2 : lfoFreq.add("Pitch Freq. D"  + (String)octaveNum); break;
+				case 3 : lfoFreq.add("Pitch Freq. D#" + (String)octaveNum); break;
+				case 4 : lfoFreq.add("Pitch Freq. E"  + (String)octaveNum); break;
+				case 5 : lfoFreq.add("Pitch Freq. F"  + (String)octaveNum); break;
+				case 6 : lfoFreq.add("Pitch Freq. F#" + (String)octaveNum); break;
+				case 7 : lfoFreq.add("Pitch Freq. G"  + (String)octaveNum); break;
+				case 8 : lfoFreq.add("Pitch Freq. G#" + (String)octaveNum); break;
+				case 9 : lfoFreq.add("Pitch Freq. A"  + (String)octaveNum); break;
+				case 10: lfoFreq.add("Pitch Freq. A#" + (String)octaveNum); break;
+				case 11: lfoFreq.add("Pitch Freq. B"  + (String)octaveNum); break;
+				default: break;
+				}
+			}
+		}
+		lfoFreq.add("Sync: 32 Steps");
+		lfoFreq.add("Sync: 16 Steps");
+		lfoFreq.add("Sync: 8 Steps");
+		lfoFreq.add("Sync: 6 Steps");
+		lfoFreq.add("Sync: 4 Steps");
+		lfoFreq.add("Sync: 3 Steps");
+		lfoFreq.add("Sync: 2 Steps");
+		lfoFreq.add("Sync: 1-1/2 Steps");
+		lfoFreq.add("Sync: 1 Step");
+		lfoFreq.add("Sync: 2/3 Step");
+		lfoFreq.add("Sync: 1/2 Step");
+		lfoFreq.add("Sync: 1/3 Step");
+		lfoFreq.add("Sync: 1/4 Step");
+		lfoFreq.add("Sync: 1/6 Step");
+		lfoFreq.add("Sync: 1/8 Step");
+		lfoFreq.add("Sync: 1/16 Step");
+
+		// initialize lfoShape
+		lfoShape.add("Triangle");
+		lfoShape.add("Reverse Sawtooth");
+		lfoShape.add("Sawtooth");
+		lfoShape.add("Square");
+		lfoShape.add("Random");
+
+		// initiaiize modDestination
+		/*0 */modDestination.add("Off");
+		/*1 */modDestination.add("Oscillator 1 Pitch");
+		/*2 */modDestination.add("Oscillator 2 Pitch");
+		/*3 */modDestination.add("Oscillator 1 & 2 Pitch");
+		/*4 */modDestination.add("Oscillator Mix");
+		/*5 */modDestination.add("Noise Level");
+		/*6 */modDestination.add("Osc. 1 Pulse Width");
+		/*7 */modDestination.add("Osc. 2 Pulse Width");
+		/*8 */modDestination.add("Osc. 1 & 2 Pulse Width");
+		/*9 */modDestination.add("LPF Cutoff Frequency");
+		/*10*/modDestination.add("LPF Resonance");
+		/*11*/modDestination.add("LPF FM Amount");
+		/*12*/modDestination.add("VCA Level");
+		/*13*/modDestination.add("Output Panning");
+		/*14*/modDestination.add("LFO 1 Frequency");
+		/*15*/modDestination.add("LFO 2 Frequency");
+		/*16*/modDestination.add("LFO 3 Frequency");
+		/*17*/modDestination.add("LFO 4 Frequency");
+		/*18*/modDestination.add("All LFO Frequencies");
+		/*19*/modDestination.add("LFO 1 Amount");
+		/*20*/modDestination.add("LFO 2 Amount");
+		/*21*/modDestination.add("LFO 3 Amount");
+		/*22*/modDestination.add("LFO 4 Amount");
+		/*23*/modDestination.add("All LFO Amounts");
+		/*24*/modDestination.add("LPF Envelope Amount");
+		/*25*/modDestination.add("VCA Envelope Amount");
+		/*26*/modDestination.add("Envelope 3 Amount");
+		/*27*/modDestination.add("All Envelope Amounts");
+		/*28*/modDestination.add("LPF Envelope Attack");
+		/*29*/modDestination.add("VCA Envelope Attack");
+		/*30*/modDestination.add("Envelope 3 Attack");
+		/*31*/modDestination.add("All Envelope Attacks");
+		/*32*/modDestination.add("LPF Envelope Decay");
+		/*33*/modDestination.add("VCA Envelope Decay");
+		/*34*/modDestination.add("Envelope 3 Decay");
+		/*35*/modDestination.add("All Envelope Decays");
+		/*36*/modDestination.add("LPF Envelope Release");
+		/*37*/modDestination.add("VCA Envelope Release");
+		/*38*/modDestination.add("Envelope 3 Release");
+		/*39*/modDestination.add("All Envelope Releases");
+		/*40*/modDestination.add("Modulator 1 Amount");
+		/*41*/modDestination.add("Modulator 2 Amount");
+		/*42*/modDestination.add("Modulator 3 Amount");
+		/*43*/modDestination.add("Modulator 4 Amount");
+		/*44*/modDestination.add("External Audio In Level");
+		/*45*/modDestination.add("Sub-Osc 1 Level");
+		/*46*/modDestination.add("Sub-Osc 2 Level");
 	}
 
 private:
