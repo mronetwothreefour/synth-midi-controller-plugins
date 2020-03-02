@@ -38,4 +38,13 @@ namespace ID
 	const Identifier lpfDecay			{ "lpfDecay"		};
 	const Identifier lpfSustain			{ "lpfSustain"		};
 	const Identifier lpfRelease			{ "lpfRelease"		};
+	const Identifier vcaInitLevel		{ "vcaInitLevel"	};
+	const Identifier vcaAmount			{ "vcaAmount"		};
+	const Identifier vcaVelAmount		{ "vcaVelAmount"	};
+	const Identifier vcaDelay			{ "vcaDelay"		};
+	const Identifier vcaAttack			{ "vcaAttack"		};
+	const Identifier vcaDecay			{ "vcaDecay"		};
+	const Identifier vcaSustain			{ "vcaSustain"		};
+	const Identifier vcaRelease			{ "vcaRelease"		};
+	const Identifier voiceVolume		{ "voiceVolume"		};
 } // namespace ID
