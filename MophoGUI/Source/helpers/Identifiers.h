@@ -72,4 +72,27 @@ namespace ID
 	const Identifier lfo4Amount			{ "lfo4Amount"		};
 	const Identifier lfo4Destination	{ "lfo4Destination"	};
 	const Identifier lfo4KeySync		{ "lfo4KeySync"		};
+
+	const Identifier env3Destination	{ "env3Destination"	};
+	const Identifier env3Amount			{ "env3Amount"		};
+	const Identifier env3VelAmount		{ "env3VelAmount"	};
+	const Identifier env3Delay			{ "env3Delay"		};
+	const Identifier env3Attack			{ "env3Attack"		};
+	const Identifier env3Decay			{ "env3Decay"		};
+	const Identifier env3Sustain		{ "env3Sustain"		};
+	const Identifier env3Release		{ "env3Release"		};
+	const Identifier env3Repeat			{ "env3Repeat"		};
+
+	const Identifier mod1Source			{ "mod1Source"		};
+	const Identifier mod1Amount			{ "mod1Amount"		};
+	const Identifier mod1Destination	{ "mod1Destination" };
+	const Identifier mod2Source			{ "mod2Source"		};
+	const Identifier mod2Amount			{ "mod2Amount"		};
+	const Identifier mod2Destination	{ "mod2Destination" };
+	const Identifier mod3Source			{ "mod3Source"		};
+	const Identifier mod3Amount			{ "mod3Amount"		};
+	const Identifier mod3Destination	{ "mod3Destination" };
+	const Identifier mod4Source			{ "mod4Source"		};
+	const Identifier mod4Amount			{ "mod4Amount"		};
+	const Identifier mod4Destination	{ "mod4Destination" };
 } // namespace ID
