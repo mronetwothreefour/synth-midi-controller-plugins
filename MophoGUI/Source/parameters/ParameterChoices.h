@@ -51,7 +51,7 @@ public:
 	Choices()
 	{
 		// initialize pitchNames
-		for (int i = 0; i != 121; ++i)
+		for (auto i = 0; i != 121; ++i)
 		{
 			auto noteNum{ i % 12 };
 			auto octaveNum{ i / 12 };
@@ -74,14 +74,14 @@ public:
 		}
 
 		// initialize fineTune
-		for (int i = 0; i != 49; ++i)
+		for (auto i = 0; i != 49; ++i)
 		{
 			fineTune.add((String)(i - 50) + " cents");
 		}
 		fineTune.add("-1 cent");
 		fineTune.add("Centered");
 		fineTune.add("+1 cent");
-		for (int i = 52; i != 101; ++i)
+		for (auto i = 52; i != 101; ++i)
 		{
 			fineTune.add("+" + (String)(i - 50) + " cents");
 		}
@@ -91,7 +91,7 @@ public:
 		oscShape.add("Sawtooth");
 		oscShape.add("Triangle");
 		oscShape.add("Saw/Tri Mix");
-		for (int i = 0; i != 100; ++i)
+		for (auto i = 0; i != 100; ++i)
 		{
 			oscShape.add("Pulse Width " + (String)i);
 		}
@@ -109,7 +109,7 @@ public:
 		// initialize pitchBendRange
 		pitchBendRange.add("Off");
 		pitchBendRange.add("+/-1 semitone");
-		for (int i = 2; i != 13; ++i)
+		for (auto i = 2; i != 13; ++i)
 		{
 			pitchBendRange.add("+/-" + (String)i + " semitones");
 		}
@@ -123,7 +123,7 @@ public:
 		notePriority.add("Last Note Hit (Re-trigger)");
 
 		// initialize lpfFreq
-		for (int i = 0; i != 165; ++i)
+		for (auto i = 0; i != 165; ++i)
 		{
 			auto noteNum{ i % 12 };
 			auto octaveNum{ i / 12 };
@@ -150,14 +150,14 @@ public:
 		lpfType.add("4-Pole");
 
 		// initialize modAmnt
-		for (int i = 0; i != 255; ++i)
+		for (auto i = 0; i != 255; ++i)
 		{
 			if (i < 128) modAmount.add((String)(i - 127));
 			else modAmount.add("+" + (String)(i - 127));
 		}
 
 		// initialize lfoFreq
-		for (int i = 0; i != 151; ++i)
+		for (auto i = 0; i != 151; ++i)
 		{
 			if (i < 90) lfoFreq.add("Un-synced " + (String)i);
 			if (i > 89)
