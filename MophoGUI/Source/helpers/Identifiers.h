@@ -95,4 +95,15 @@ namespace ID
 	const Identifier mod4Source			{ "mod4Source"		};
 	const Identifier mod4Amount			{ "mod4Amount"		};
 	const Identifier mod4Destination	{ "mod4Destination" };
+
+	const Identifier modWheelAmount		{ "modWheelAmount"	};
+	const Identifier modWheelDest		{ "modWheelDest"	};
+	const Identifier aftertouchAmount	{ "aftertouchAmount"};
+	const Identifier aftertouchDest		{ "aftertouchDest"	};
+	const Identifier breathAmount		{ "breathAmount"	};
+	const Identifier breathDest			{ "breathDest"		};
+	const Identifier velocityAmount		{ "velocityAmount"	};
+	const Identifier velocityDest		{ "velocityDest"	};
+	const Identifier footPedalAmount	{ "footPedalAmount"	};
+	const Identifier footPedalDest		{ "footPedalDest"	};
 } // namespace ID
