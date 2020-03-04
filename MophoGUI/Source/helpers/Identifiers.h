@@ -106,4 +106,11 @@ namespace ID
 	const Identifier velocityDest		{ "velocityDest"	};
 	const Identifier footPedalAmount	{ "footPedalAmount"	};
 	const Identifier footPedalDest		{ "footPedalDest"	};
+
+	const Identifier pushItPitch		{ "pushItPitch"		};
+	const Identifier pushItVelocity		{ "pushItVelocity"	};
+	const Identifier pushItMode			{ "pushItMode"		};
+
+	const Identifier clockTempo			{ "clockTempo"		};
+	const Identifier clockDivide		{ "clockDivide"		};
 } // namespace ID

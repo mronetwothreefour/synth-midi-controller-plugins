@@ -120,6 +120,14 @@ public:
 		/*89 */layout.add(std::make_unique<AudioParameterChoice>	(ID::velocityDest.toString(),		"Velocity Destination", choices.modDestination, 0));
 		/*90 */layout.add(std::make_unique<AudioParameterChoice>	(ID::footPedalAmount.toString(),	"Foot Pedal Amount", choices.modAmount, 127));
 		/*91 */layout.add(std::make_unique<AudioParameterChoice>	(ID::footPedalDest.toString(),		"Foot Pedal Destination", choices.modDestination, 0));
+
+		/*92 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItPitch.toString(),		"Push It! Switch Pitch", choices.pitchNames, 24));
+		/*93 */layout.add(std::make_unique<AudioParameterInt>		(ID::pushItVelocity.toString(),		"Push It! Switch Velocity", 0, 127, 100));
+		/*94 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItMode.toString(),			"Push It! Switch Mode", choices.pushItMode, 0));
+
+		/*95 */layout.add(std::make_unique<AudioParameterInt>		(ID::clockTempo.toString(),			"Clock Tempo (BPM)", 30, 250, 120));
+		/*96 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockDivide.toString(),		"Clock Divide", choices.clockDivide, 2));
+
 		return layout;
 	}
 

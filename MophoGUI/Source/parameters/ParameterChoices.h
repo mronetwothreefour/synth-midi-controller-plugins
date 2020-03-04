@@ -48,6 +48,12 @@ public:
 
 	StringArray modSource;
 
+	// 0 = "Normal"; 1 = "Toggle"; 
+	// 2 = "Audio In"
+	StringArray pushItMode;
+
+	StringArray clockDivide;
+
 	Choices()
 	{
 		// initialize pitchNames
@@ -279,6 +285,26 @@ public:
 		/*20*/modSource.add("Noise");
 		/*21*/modSource.add("Audio In Env. Follower");
 		/*22*/modSource.add("Audio In Peak Hold");
+
+		// initiaiize pushItMode
+		/*0 */pushItMode.add("Normal");
+		/*1 */pushItMode.add("Toggle");
+		/*2 */pushItMode.add("Audio In");
+
+		// initiaiize clockDivide
+		/*0 */clockDivide.add("Half Note");
+		/*1 */clockDivide.add("Quarter Note");
+		/*2 */clockDivide.add("8th Note");
+		/*3 */clockDivide.add("8th Note 1/2 Swing");
+		/*4 */clockDivide.add("8th Note Swing");
+		/*5 */clockDivide.add("8th Note Triplets");
+		/*6 */clockDivide.add("16th Note");
+		/*7 */clockDivide.add("16th Note 1/2 Swing");
+		/*8 */clockDivide.add("16th Note Swing");
+		/*9 */clockDivide.add("16th Note Triplets");
+		/*10*/clockDivide.add("32nd Note");
+		/*11*/clockDivide.add("32nd Note Triplets");
+		/*12*/clockDivide.add("64th Note Triplets");
 	}
 
 private:
