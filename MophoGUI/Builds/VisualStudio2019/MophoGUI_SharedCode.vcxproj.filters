@@ -4526,11 +4526,11 @@
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\ParameterChoices.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\Identifiers.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\PrivateParameters.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
