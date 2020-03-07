@@ -3,8 +3,9 @@
 
 PluginProcessor::PluginProcessor() : AudioProcessor(BusesProperties())
 {
-    PublicParameters publicParams;
     apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, publicParams.createLayout()));
+    for (auto* param : getParameters())
+        param->addListener(this);
 }
 
 PluginProcessor::~PluginProcessor()
@@ -14,7 +15,10 @@ PluginProcessor::~PluginProcessor()
 //==============================================================================
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    ignoreUnused(buffer, midiMessages);
+    buffer.clear();
+
+    midiMessages.swapWith(pluginMidiBuf);
+    pluginMidiBuf.clear();
 }
 
 //==============================================================================
@@ -32,6 +36,12 @@ void PluginProcessor::getStateInformation(MemoryBlock& destData)
 void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
     ignoreUnused(data, sizeInBytes);
+}
+
+void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
+{
+    auto nrpnIndex{ publicParams.getNRPN(parameterIndex) };
+    pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, roundToInt(newValue * (getParameterNumSteps(parameterIndex) - 1)), true, true);
 }
 
 //==============================================================================

@@ -758,6 +758,25 @@ public:
 		return layout;
 	}
 
+	// In many cases, the index number a parameter has when sending an 
+	// NRPN controller message to the hardware differs from the index number
+	// the parameter has in the plugin's AudioProcessorValueTreeState,
+	// program buffer dumps, and edit buffer dumps. Use this function
+	// to get the specified parameter's NRPN index number.
+	int getNRPN(int parameterIndex)
+	{
+		switch (parameterIndex)
+		{
+		case 0: return 0;
+		case 1: return 1;
+		case 2: return 2;
+		case 3: return 3;
+		case 4: return 4;
+		case 5: return 114;
+		default: return parameterIndex;
+		}
+	}
+
 private:
 
 	//==============================================================================
