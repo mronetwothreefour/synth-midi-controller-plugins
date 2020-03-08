@@ -40,8 +40,10 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
 
 void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 {
+    auto numSteps{ getParameters()[parameterIndex]->getNumSteps() };
     auto nrpnIndex{ publicParams.getNRPN(parameterIndex) };
-    pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, roundToInt(newValue * (getParameterNumSteps(parameterIndex) - 1)), true, true);
+    if (nrpnIndex > -1)
+        pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, roundToInt(newValue * (numSteps - 1)), true, true);
 }
 
 //==============================================================================
