@@ -29,18 +29,18 @@ public:
 			auto octaveNum{ i / 12 };
 			switch (noteNum)
 			{
-			case 0: pitchNames.add("C" + (String)octaveNum); break;
-			case 1: pitchNames.add("C#" + (String)octaveNum); break;
-			case 2: pitchNames.add("D" + (String)octaveNum); break;
-			case 3: pitchNames.add("D#" + (String)octaveNum); break;
-			case 4: pitchNames.add("E" + (String)octaveNum); break;
-			case 5: pitchNames.add("F" + (String)octaveNum); break;
-			case 6: pitchNames.add("F#" + (String)octaveNum); break;
-			case 7: pitchNames.add("G" + (String)octaveNum); break;
-			case 8: pitchNames.add("G#" + (String)octaveNum); break;
-			case 9: pitchNames.add("A" + (String)octaveNum); break;
-			case 10: pitchNames.add("A#" + (String)octaveNum); break;
-			case 11: pitchNames.add("B" + (String)octaveNum); break;
+			case 0 : pitchNames.add("C"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 1 : pitchNames.add("C#" + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 2 : pitchNames.add("D"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 3 : pitchNames.add("D#" + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 4 : pitchNames.add("E"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 5 : pitchNames.add("F"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 6 : pitchNames.add("F#" + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 7 : pitchNames.add("G"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 8 : pitchNames.add("G#" + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 9 : pitchNames.add("A"  + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 10: pitchNames.add("A#" + (String)octaveNum + " (" + (String)i + ")"); break;
+			case 11: pitchNames.add("B"  + (String)octaveNum + " (" + (String)i + ")"); break;
 			default: break;
 			}
 		}
@@ -107,18 +107,18 @@ public:
 			auto octaveNum{ i / 12 };
 			switch (noteNum)
 			{
-			case 0: lpfFreq.add("C" + (String)octaveNum); break;
-			case 1: lpfFreq.add("C#" + (String)octaveNum); break;
-			case 2: lpfFreq.add("D" + (String)octaveNum); break;
-			case 3: lpfFreq.add("D#" + (String)octaveNum); break;
-			case 4: lpfFreq.add("E" + (String)octaveNum); break;
-			case 5: lpfFreq.add("F" + (String)octaveNum); break;
-			case 6: lpfFreq.add("F#" + (String)octaveNum); break;
-			case 7: lpfFreq.add("G" + (String)octaveNum); break;
-			case 8: lpfFreq.add("G#" + (String)octaveNum); break;
-			case 9: lpfFreq.add("A" + (String)octaveNum); break;
-			case 10: lpfFreq.add("A#" + (String)octaveNum); break;
-			case 11: lpfFreq.add("B" + (String)octaveNum); break;
+			case 0 : lpfFreq.add((String)i + " (Pitch Freq. C"  + (String)octaveNum + ")"); break;
+			case 1 : lpfFreq.add((String)i + " (Pitch Freq. C#" + (String)octaveNum + ")"); break;
+			case 2 : lpfFreq.add((String)i + " (Pitch Freq. D"  + (String)octaveNum + ")"); break;
+			case 3 : lpfFreq.add((String)i + " (Pitch Freq. D#" + (String)octaveNum + ")"); break;
+			case 4 : lpfFreq.add((String)i + " (Pitch Freq. E"  + (String)octaveNum + ")"); break;
+			case 5 : lpfFreq.add((String)i + " (Pitch Freq. F"  + (String)octaveNum + ")"); break;
+			case 6 : lpfFreq.add((String)i + " (Pitch Freq. F#" + (String)octaveNum + ")"); break;
+			case 7 : lpfFreq.add((String)i + " (Pitch Freq. G"  + (String)octaveNum + ")"); break;
+			case 8 : lpfFreq.add((String)i + " (Pitch Freq. G#" + (String)octaveNum + ")"); break;
+			case 9 : lpfFreq.add((String)i + " (Pitch Freq. A"  + (String)octaveNum + ")"); break;
+			case 10: lpfFreq.add((String)i + " (Pitch Freq. A#" + (String)octaveNum + ")"); break;
+			case 11: lpfFreq.add((String)i + " (Pitch Freq. B"  + (String)octaveNum + ")"); break;
 			default: break;
 			}
 		}
@@ -149,18 +149,18 @@ public:
 				auto octaveNum{ (i - 90) / 12 };
 				switch (noteNum)
 				{
-				case 0: lfoFreq.add("Pitch Freq. C" + (String)octaveNum); break;
-				case 1: lfoFreq.add("Pitch Freq. C#" + (String)octaveNum); break;
-				case 2: lfoFreq.add("Pitch Freq. D" + (String)octaveNum); break;
-				case 3: lfoFreq.add("Pitch Freq. D#" + (String)octaveNum); break;
-				case 4: lfoFreq.add("Pitch Freq. E" + (String)octaveNum); break;
-				case 5: lfoFreq.add("Pitch Freq. F" + (String)octaveNum); break;
-				case 6: lfoFreq.add("Pitch Freq. F#" + (String)octaveNum); break;
-				case 7: lfoFreq.add("Pitch Freq. G" + (String)octaveNum); break;
-				case 8: lfoFreq.add("Pitch Freq. G#" + (String)octaveNum); break;
-				case 9: lfoFreq.add("Pitch Freq. A" + (String)octaveNum); break;
-				case 10: lfoFreq.add("Pitch Freq. A#" + (String)octaveNum); break;
-				case 11: lfoFreq.add("Pitch Freq. B" + (String)octaveNum); break;
+				case 0 : lfoFreq.add((String)i + " (Pitch Freq. C"  + (String)octaveNum + ")"); break;
+				case 1 : lfoFreq.add((String)i + " (Pitch Freq. C#" + (String)octaveNum + ")"); break;
+				case 2 : lfoFreq.add((String)i + " (Pitch Freq. D"  + (String)octaveNum + ")"); break;
+				case 3 : lfoFreq.add((String)i + " (Pitch Freq. D#" + (String)octaveNum + ")"); break;
+				case 4 : lfoFreq.add((String)i + " (Pitch Freq. E"  + (String)octaveNum + ")"); break;
+				case 5 : lfoFreq.add((String)i + " (Pitch Freq. F"  + (String)octaveNum + ")"); break;
+				case 6 : lfoFreq.add((String)i + " (Pitch Freq. F#" + (String)octaveNum + ")"); break;
+				case 7 : lfoFreq.add((String)i + " (Pitch Freq. G"  + (String)octaveNum + ")"); break;
+				case 8 : lfoFreq.add((String)i + " (Pitch Freq. G#" + (String)octaveNum + ")"); break;
+				case 9 : lfoFreq.add((String)i + " (Pitch Freq. A"  + (String)octaveNum + ")"); break;
+				case 10: lfoFreq.add((String)i + " (Pitch Freq. A#" + (String)octaveNum + ")"); break;
+				case 11: lfoFreq.add((String)i + " (Pitch Freq. B"  + (String)octaveNum + ")"); break;
 				default: break;
 				}
 			}
