@@ -2,10 +2,15 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-PluginEditor::PluginEditor(PluginProcessor& p) :
+PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams) :
     AudioProcessorEditor(&p), 
     processor(p)
 {
+    lookAndFeel_Knob.reset(new LaF_Knob);
+
+    knob_Osc1Pitch.reset(new KnobWidget_OscPitch("Pitch", publicParams, ID::osc1Pitch, lookAndFeel_Knob.get()));
+    addAndMakeVisible(knob_Osc1Pitch.get());
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
@@ -13,6 +18,9 @@ PluginEditor::PluginEditor(PluginProcessor& p) :
 
 PluginEditor::~PluginEditor()
 {
+    knob_Osc1Pitch = nullptr;
+
+    lookAndFeel_Knob = nullptr;
 }
 
 //==============================================================================
@@ -36,4 +44,5 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
+    knob_Osc1Pitch->setBounds(28, 30, knob_Osc1Pitch->getWidth(), knob_Osc1Pitch->getHeight());
 }

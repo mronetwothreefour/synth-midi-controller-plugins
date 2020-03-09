@@ -10,6 +10,9 @@ PluginProcessor::PluginProcessor() : AudioProcessor(BusesProperties())
 
 PluginProcessor::~PluginProcessor()
 {
+    // midiOutput = nullptr;
+
+    apvts = nullptr;
 }
 
 //==============================================================================
@@ -24,7 +27,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 //==============================================================================
 AudioProcessorEditor* PluginProcessor::createEditor()
 {
-    return new PluginEditor(*this);
+    return new PluginEditor(*this, apvts.get());
 }
 
 //==============================================================================

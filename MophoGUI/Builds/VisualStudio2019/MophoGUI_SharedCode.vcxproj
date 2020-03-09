@@ -1974,6 +1974,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
+    <ClInclude Include="..\..\Source\lookAndFeel\LaF_Knob.h" />
     <ClInclude Include="..\..\Source\parameters\PrivateParameters.h" />
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />
@@ -2711,6 +2712,7 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
+    <ClInclude Include="..\..\Source\widgets\KnobWidgets.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />

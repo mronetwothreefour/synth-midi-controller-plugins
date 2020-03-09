@@ -54,7 +54,7 @@ private:
 
     MidiBuffer pluginMidiBuf;
 
-    std::unique_ptr<MidiOutput> midiOutput;
+    // std::unique_ptr<MidiOutput> midiOutput;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
