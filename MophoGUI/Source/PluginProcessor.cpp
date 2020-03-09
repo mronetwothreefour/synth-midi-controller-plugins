@@ -17,8 +17,8 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 {
     buffer.clear();
 
-    //midiMessages.swapWith(pluginMidiBuf); // use when LegacyMidiOutEvent
-    //pluginMidiBuf.clear();                // is supported
+    midiMessages.swapWith(pluginMidiBuf); // use when LegacyMidiOutEvent
+    pluginMidiBuf.clear();                // is supported
 }
 
 //==============================================================================
@@ -45,10 +45,10 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
     if (nrpnIndex > -1)
         pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, roundToInt(newValue * (numSteps - 1)), true, true);
 
-    auto deviceIdentifier{ MidiOutput::getAvailableDevices()[1].identifier };
-    midiOutput = MidiOutput::openDevice(deviceIdentifier);
-    if (midiOutput != nullptr)
-        midiOutput->sendBlockOfMessagesNow(pluginMidiBuf);
+    //auto deviceIdentifier{ MidiOutput::getAvailableDevices()[1].identifier };
+    //midiOutput = MidiOutput::openDevice(deviceIdentifier);
+    //if (midiOutput != nullptr)
+    //    midiOutput->sendBlockOfMessagesNow(pluginMidiBuf);
 }
 
 //==============================================================================

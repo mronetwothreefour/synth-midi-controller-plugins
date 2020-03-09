@@ -6,7 +6,9 @@ PluginEditor::PluginEditor(PluginProcessor& p) :
     AudioProcessorEditor(&p), 
     processor(p)
 {
-    setSize(400, 300);
+    auto device_w{ 1273 };
+    auto device_h{ 626 };
+    setSize(device_w, device_h);
 }
 
 PluginEditor::~PluginEditor()
@@ -19,8 +21,17 @@ void PluginEditor::paint(Graphics& g)
     g.fillAll(Color::device);
 
     g.setColour(Color::black);
-    g.setFont(15.0f);
-    g.drawFittedText("Hello World!", getLocalBounds(), Justification::centred, 1);
+
+    // Draw section labels
+    //==============================================================================
+    Font sectionLabel{ "Arial", "Black", JUCE_LIVE_CONSTANT(18.0f) };
+    g.setFont(sectionLabel);
+
+    Rectangle<int> oscSectionLabelArea{ 15, 15, 105, 15 };
+    g.drawText("OSCILLATORS", oscSectionLabelArea, Justification::centredLeft);
+
+    Rectangle<int> lpfSectionLabelArea{ 15, 150, 30, 15 };
+    g.drawText("LPF", lpfSectionLabelArea, Justification::centredLeft);
 }
 
 void PluginEditor::resized()
