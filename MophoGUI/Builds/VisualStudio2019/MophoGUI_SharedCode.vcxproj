@@ -1970,11 +1970,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp" />
+    <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
     <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h" />
+    <ClInclude Include="..\..\Source\helpers\ValueConverters.h" />
     <ClInclude Include="..\..\Source\parameters\PrivateParameters.h" />
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />

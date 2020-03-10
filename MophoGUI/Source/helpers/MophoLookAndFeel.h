@@ -30,6 +30,15 @@ public:
 		g.fillPath(p);
 	};
 
+	void drawLabel(Graphics& g, Label& label) override
+	{
+		Font font("Arial", "Narrow", JUCE_LIVE_CONSTANT(13.0f));
+		g.setFont(font);
+		g.setColour(Color::controlText);
+		auto textArea = label.getLocalBounds();
+		g.drawText(label.getText(), textArea, Justification::centred, false);
+	}
+
 private:
 
 	//==============================================================================

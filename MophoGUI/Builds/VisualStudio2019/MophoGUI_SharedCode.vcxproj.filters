@@ -2316,6 +2316,9 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4539,6 +4542,9 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\ValueConverters.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
   </ItemGroup>

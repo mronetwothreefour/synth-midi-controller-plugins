@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/ValueConverters.h"
+
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 // Has a createLayout() function which programmatically generates
@@ -25,24 +27,8 @@ public:
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
 		{
-			auto noteNum{ i % 12 };
-			auto octaveNum{ i / 12 };
-			switch (noteNum)
-			{
-			case 0 : pitchNames.add("C"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 1 : pitchNames.add("C#" + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 2 : pitchNames.add("D"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 3 : pitchNames.add("D#" + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 4 : pitchNames.add("E"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 5 : pitchNames.add("F"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 6 : pitchNames.add("F#" + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 7 : pitchNames.add("G"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 8 : pitchNames.add("G#" + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 9 : pitchNames.add("A"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 10: pitchNames.add("A#" + (String)octaveNum + " (" + (String)i + ")"); break;
-			case 11: pitchNames.add("B"  + (String)octaveNum + " (" + (String)i + ")"); break;
-			default: break;
-			}
+			auto pitchName{ valueConverters.intToPitchName(i) };
+			pitchNames.add(pitchName + " (" + (String)i + ")");
 		}
 
 		// 0 = "-50 cents"; 50 = "Centered"; 100 = "+50 cents"
@@ -884,6 +870,7 @@ public:
 	}
 
 private:
+	ValueConverters valueConverters;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PublicParameters)
