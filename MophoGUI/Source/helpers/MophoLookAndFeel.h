@@ -4,14 +4,13 @@
 
 #include "../helpers/CustomColors.h"
 
-class LaF_Knob :
+class MophoLookAndFeel :
 	public LookAndFeel_V4
 {
 public:
-	LaF_Knob()
-	{}
+	MophoLookAndFeel() {}
 
-	~LaF_Knob() {}
+	~MophoLookAndFeel() {}
 
 	void drawRotarySlider(Graphics& g, int /*x*/, int y, int width, int /*height*/,
 		float sliderPos, const float rotaryStartAngle,
@@ -34,5 +33,5 @@ public:
 private:
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LaF_Knob)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MophoLookAndFeel)
 };

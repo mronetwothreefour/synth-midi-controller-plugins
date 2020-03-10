@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../lookAndFeel/LaF_Knob.h"
+#include "../helpers/MophoLookAndFeel.h"
 
 using Attachment = AudioProcessorValueTreeState::SliderAttachment;
 
@@ -43,15 +43,15 @@ public:
 		String knobName, 
 		AudioProcessorValueTreeState* apvts, 
 		Identifier paramID,
-		LaF_Knob* knobLookAndFeel
+		MophoLookAndFeel* mophoLaF
 	) :
 		sliderAttachment{*apvts, paramID.toString(), slider},
-		sliderLaF{ knobLookAndFeel }
+		mophoLaF{ mophoLaF }
 	{
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-		slider.setLookAndFeel(sliderLaF);
+		slider.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(slider);
 
 		auto knobWidget_w{ 40 };
@@ -79,7 +79,7 @@ public:
 private:
 	CustomSlider slider;
 	Attachment sliderAttachment;
-	LaF_Knob* sliderLaF;
+	MophoLookAndFeel* mophoLaF;
 
 	Label knobNameLabel;
 	Label valueDisplayLabel;

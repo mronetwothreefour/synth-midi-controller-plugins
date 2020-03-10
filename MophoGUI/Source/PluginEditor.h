@@ -5,8 +5,7 @@
 #include "PluginProcessor.h"
 
 #include "helpers/CustomColors.h"
-
-#include "lookAndFeel/LaF_Knob.h"
+#include "helpers/MophoLookAndFeel.h"
 
 #include "widgets/KnobWidgets.h"
 
@@ -25,7 +24,7 @@ private:
 
     std::unique_ptr<KnobWidget_OscPitch> knob_Osc1Pitch;
 
-    std::unique_ptr<LaF_Knob> lookAndFeel_Knob;
+    std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
 };

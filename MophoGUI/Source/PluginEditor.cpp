@@ -6,9 +6,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     AudioProcessorEditor(&p), 
     processor(p)
 {
-    lookAndFeel_Knob.reset(new LaF_Knob);
+    mophoLaF.reset(new MophoLookAndFeel());
 
-    knob_Osc1Pitch.reset(new KnobWidget_OscPitch("Pitch", publicParams, ID::osc1Pitch, lookAndFeel_Knob.get()));
+    knob_Osc1Pitch.reset(new KnobWidget_OscPitch("Pitch", publicParams, ID::osc1Pitch, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Pitch.get());
 
     auto device_w{ 1273 };
@@ -20,7 +20,7 @@ PluginEditor::~PluginEditor()
 {
     knob_Osc1Pitch = nullptr;
 
-    lookAndFeel_Knob = nullptr;
+    mophoLaF = nullptr;
 }
 
 //==============================================================================

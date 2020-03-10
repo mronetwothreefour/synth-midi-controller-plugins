@@ -442,9 +442,6 @@
     <Filter Include="MophoGUI\Source\widgets">
       <UniqueIdentifier>{aef0d1b2-2081-488b-9fa8-7c764b70eea8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI\lookAndFeel">
-      <UniqueIdentifier>{fb0dcc9d-bfae-47fc-b429-8478a0c42115}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4538,11 +4535,11 @@
     <ClInclude Include="..\..\Source\parameters\PrivateParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\lookAndFeel\LaF_Knob.h">
-      <Filter>MophoGUI\lookAndFeel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets\KnobWidgets.h">
       <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
