@@ -23,6 +23,7 @@ private:
     PluginProcessor& processor;
 
     std::unique_ptr<KnobWidget_OscPitch> knob_Osc1Pitch;
+    std::unique_ptr<KnobWidget_FineTune> knob_Osc1FineTune;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

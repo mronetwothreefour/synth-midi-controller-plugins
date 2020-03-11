@@ -39,6 +39,35 @@ public:
 		g.drawText(label.getText(), textArea, Justification::centred, false);
 	}
 
+	static TextLayout layoutTooltipText(const String& text, Colour colour) noexcept
+	{
+		Font tooltipFont("Arial", "Narrow Bold", 13.0f);
+		const int maxToolTipWidth = 400;
+
+		AttributedString s;
+		s.setJustification(Justification::centred);
+		s.append(text, tooltipFont, colour);
+
+		TextLayout tl;
+		tl.createLayout(s, (float)maxToolTipWidth);
+		return tl;
+	}
+
+	void drawTooltip(Graphics& g, const String& text, int width, int height) override
+	{
+		Rectangle<int> bounds(width, height);
+		auto cornerSize = 10.0f;
+
+		g.setColour(Color::black);
+		g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
+
+		g.setColour(Colours::white);
+		g.drawRoundedRectangle(bounds.toFloat().reduced(0.5f, 0.5f), cornerSize, 1.0f);
+
+		layoutTooltipText(text, findColour(TooltipWindow::textColourId))
+			.draw(g, { static_cast<float> (width), static_cast<float> (height) });
+	}
+
 private:
 
 	//==============================================================================

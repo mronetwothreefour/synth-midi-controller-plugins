@@ -22,28 +22,14 @@ public:
 		//==============================================================================
 		// First, create StringArrays that will be used to initialize choice parameters
 
-		// Presents MIDI note numbers as pitch name & octave number combinations
-		// (e.g. note number 27 is presented as "D#2")
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
-		{
-			auto pitchName{ valueConverters.intToPitchName(i) };
-			pitchNames.add(pitchName + " (" + (String)i + ")");
-		}
+			pitchNames.add(valueConverters.intToPitchName(i, true));
 
 		// 0 = "-50 cents"; 50 = "Centered"; 100 = "+50 cents"
 		StringArray fineTune;
-		for (auto i = 0; i != 49; ++i)
-		{
-			fineTune.add((String)(i - 50) + " cents");
-		}
-		fineTune.add("-1 cent");
-		fineTune.add("Centered");
-		fineTune.add("+1 cent");
-		for (auto i = 52; i != 101; ++i)
-		{
-			fineTune.add("+" + (String)(i - 50) + " cents");
-		}
+		for (auto i = 0; i != 101; ++i)
+			fineTune.add(valueConverters.intToFineTuneRange(i, true));
 
 		// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
 		// 4..103 = "Pulse Width 0..99"
