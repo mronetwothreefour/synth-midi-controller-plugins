@@ -37,7 +37,7 @@ struct ValueConverters
 			default: pitchName = "invalid"; break;
 			}
 			if (verbose)
-				pitchName += " (" + String(i) + ")";
+				pitchName += " (MIDI Note " + String(i) + ")";
 			return pitchName;
 		}
 		else return "range error";
@@ -53,7 +53,7 @@ struct ValueConverters
 		{
 			if (i < 49) return (String)(i - 50) + (verbose ? " cents" : "");
 			if (i == 49) return verbose ? "-1 cent" : "-1";
-			if (i == 50) return verbose ? "Centered" : "0";
+			if (i == 50) return verbose ? "No Detune" : "0";
 			if (i == 51) return verbose ? "+1 cent" : "+1";
 			if (i > 51) return "+" + (String)(i - 50) + (verbose ? " cents" : "");
 			else return "invalid";

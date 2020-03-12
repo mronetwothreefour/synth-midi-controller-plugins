@@ -36,7 +36,7 @@ void PluginEditor::paint(Graphics& g)
 
     // Draw section labels
     //==============================================================================
-    Font sectionLabel{ "Arial", "Black", JUCE_LIVE_CONSTANT(18.0f) };
+    Font sectionLabel{ "Arial", "Black", 18.0f };
     g.setFont(sectionLabel);
 
     Rectangle<int> oscSectionLabelArea{ 15, 15, 105, 15 };

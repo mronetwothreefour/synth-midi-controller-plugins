@@ -21,7 +21,7 @@ void KnobWidget_FineTune::drawValue(const double& currentValue)
 String KnobWidget_FineTune::createTooltipString(const double& currentValue) const
 {
 	String tooltip{ "Current Value: " + valueConverters.intToFineTuneRange(roundToInt(currentValue), true) + "\n" };
-	tooltip += "Fine tuning of the oscillator's base pitch\n";
+	tooltip += "Fine tunes the oscillator's base pitch\n";
 	tooltip += "Range: -50 cents to +50 cents\n";
 	tooltip += "0 = no detuning (centered)";
 	return tooltip;

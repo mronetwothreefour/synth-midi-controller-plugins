@@ -58,6 +58,7 @@ public:
 		slider.setLookAndFeel(mophoLaF);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
+		slider.setColour(TooltipWindow::backgroundColourId, Colours::lightblue);
 
 		valueDisplayLabel.setInterceptsMouseClicks(false, false);
 		valueDisplayLabel.setLookAndFeel(mophoLaF);
@@ -65,6 +66,7 @@ public:
 
 		tooltipWindow.setMillisecondsBeforeTipAppears(1000);
 		tooltipWindow.setLookAndFeel(mophoLaF);
+		tooltipWindow.setComponentEffect(nullptr);
 
 		auto knobWidget_w{ 40 };
 		auto knobWidget_h{ 50 };
@@ -84,7 +86,7 @@ public:
 		g.setColour(Color::black);
 		g.fillEllipse(5, 5, 30, 30);
 
-		Font controlLabel{ "Arial", "Narrow", 13.5f };
+		Font controlLabel{ "Arial", "Black", JUCE_LIVE_CONSTANT(13.0f) };
 		g.setFont(controlLabel);
 		Rectangle<int> controlLabelArea{ 0, 35, 40, 15 };
 		g.drawText(name, controlLabelArea, Justification::centred);
@@ -150,7 +152,7 @@ public:
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "Pitch", apvts, paramID, mophoLaF }
+		KnobWidget{ "PITCH", apvts, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		drawValue(getSliderValue());
@@ -189,7 +191,7 @@ public:
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "Fine", apvts, paramID, mophoLaF }
+		KnobWidget{ "FINE", apvts, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		drawValue(getSliderValue());

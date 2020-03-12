@@ -32,7 +32,7 @@ public:
 
 	void drawLabel(Graphics& g, Label& label) override
 	{
-		Font font("Arial", "Narrow", JUCE_LIVE_CONSTANT(13.0f));
+		Font font("Arial", "Narrow Bold", 13.0f);
 		g.setFont(font);
 		g.setColour(Color::controlText);
 		auto textArea = label.getLocalBounds();
@@ -53,16 +53,28 @@ public:
 		return tl;
 	}
 
+	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override
+	{
+		const TextLayout tl(layoutTooltipText(tipText, Colours::black));
+
+		auto w = (int)(tl.getWidth() + 16.0f);
+		auto h = (int)(tl.getHeight() + 14.0f);
+
+		return Rectangle<int>(screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
+			screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6,
+			w, h)
+			.constrainedWithin(parentArea);
+	}
+
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override
 	{
 		Rectangle<int> bounds(width, height);
-		auto cornerSize = 10.0f;
 
-		g.setColour(Color::black);
-		g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
+		g.setColour(Color::black.brighter(0.2f));
+		g.fillRect(bounds.toFloat());
 
 		g.setColour(Colours::white);
-		g.drawRoundedRectangle(bounds.toFloat().reduced(0.5f, 0.5f), cornerSize, 1.0f);
+		g.drawRect(bounds.toFloat(), 2.0f);
 
 		layoutTooltipText(text, findColour(TooltipWindow::textColourId))
 			.draw(g, { static_cast<float> (width), static_cast<float> (height) });
