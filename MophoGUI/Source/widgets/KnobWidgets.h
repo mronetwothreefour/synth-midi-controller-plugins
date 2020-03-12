@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/CustomColors.h"
 #include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 
@@ -31,8 +32,70 @@ public:
 	}
 
 private:
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSlider)
+};
+
+//==============================================================================
+// Creates graphical representations of various wave shapes.
+// Oscillator and LFO shape KnobWidgets use this to display their current values
+class WaveShapeRenderer : public Component
+{
+public:
+	WaveShapeRenderer() 
+	{
+		auto knob_diameter{ 30 };
+		setSize(knob_diameter, knob_diameter);
+	};
+
+	void paint(Graphics& g) override
+	{
+		g.setColour(Color::controlText);
+		Path path;
+		if (selectedShape == "sawtooth")
+		{
+			Line<float> line1{ 6.0f, 20.0f, 21.0f, 8.0f };
+			Line<float> line2{ 21.0f, 8.0f, 21.0f, 20.0f };
+			path.addLineSegment(line1, 0.5f);
+			path.addLineSegment(line2, 0.5f);
+			PathStrokeType strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded };
+			g.strokePath(path, strokeType);
+		}
+		if (selectedShape == "triangle")
+		{
+			Line<float> line1{ 7.0f, 20.0f, 15.0f, 9.0f };
+			Line<float> line2{ 15.0f, 9.0f, 23.0f, 20.0f };
+			path.addLineSegment(line1, 0.5f);
+			path.addLineSegment(line2, 0.5f);
+			PathStrokeType strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded };
+			g.strokePath(path, strokeType);
+		}
+		if (selectedShape == "sawTri")
+		{
+			Line<float> line1{ 5.0f, 15.0f, 15.0f, 7.0f };
+			Line<float> line2{ 15.0f, 7.0f, 15.0f, 15.0f };
+			Line<float> line3{ 15.0f, 15.0f, 20.0f, 22.0f };
+			Line<float> line4{ 20.0f, 22.0f, 25.0f, 15.0f };
+			path.addLineSegment(line1, 0.5f);
+			path.addLineSegment(line2, 0.5f);
+			path.addLineSegment(line3, 0.5f);
+			path.addLineSegment(line4, 0.5f);
+			PathStrokeType strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded };
+			g.strokePath(path, strokeType);
+		}
+	}
+
+	void clear() { selectedShape = "none"; repaint(); }
+	void drawSawtooth() { selectedShape = "sawtooth"; repaint(); }
+	void drawTriangle() { selectedShape = "triangle"; repaint(); }
+	void drawSawTri() { selectedShape = "sawTri"; repaint(); }
+
+private:
+	String selectedShape;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(WaveShapeRenderer)
 };
 
 //==============================================================================
@@ -86,7 +149,7 @@ public:
 		g.setColour(Color::black);
 		g.fillEllipse(5, 5, 30, 30);
 
-		Font controlLabel{ "Arial", "Black", JUCE_LIVE_CONSTANT(13.0f) };
+		Font controlLabel{ "Arial", "Black", 13.0f };
 		g.setFont(controlLabel);
 		Rectangle<int> controlLabelArea{ 0, 35, 40, 15 };
 		g.drawText(name, controlLabelArea, Justification::centred);
@@ -216,4 +279,50 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_FineTune)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling oscillator wave shape parameters.
+// Displays its value graphically using a WaveShapeRenderer
+class KnobWidget_OscShape : public KnobWidget
+{
+public:
+	KnobWidget_OscShape
+	(
+		AudioProcessorValueTreeState* apvts, 
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ "SHAPE", apvts, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+
+		shapeRenderer.setInterceptsMouseClicks(false, false);
+		shapeRenderer.setBounds(5, 5, shapeRenderer.getWidth(), shapeRenderer.getHeight());
+		addAndMakeVisible(shapeRenderer);
+
+		drawValue(getSliderValue());
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_OscShape()
+	{}
+
+private:
+	ValueConverters valueConverters;
+
+	WaveShapeRenderer shapeRenderer;
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const double& currentValue) override;
+
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscShape)
 };

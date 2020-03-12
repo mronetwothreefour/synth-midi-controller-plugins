@@ -14,6 +14,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_Osc1FineTune.reset(new KnobWidget_FineTune(publicParams, ID::osc1Fine, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1FineTune.get());
 
+    knob_Osc1Shape.reset(new KnobWidget_OscShape(publicParams, ID::osc1Shape, mophoLaF.get()));
+    addAndMakeVisible(knob_Osc1Shape.get());
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
@@ -21,6 +24,7 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 
 PluginEditor::~PluginEditor()
 {
+    knob_Osc1Shape = nullptr;
     knob_Osc1FineTune = nullptr;
     knob_Osc1Pitch = nullptr;
 
@@ -49,10 +53,12 @@ void PluginEditor::paint(Graphics& g)
 void PluginEditor::resized()
 {
     auto ctrl_col1_x{ 28 };
-    auto ctrl_col2_x{ 73 };
+    auto ctrl_col2_x{ ctrl_col1_x + 45 };
+    auto ctrl_col3_x{ ctrl_col2_x + 45 };
 
     auto ctrl_row1_y{ 30 };
 
     knob_Osc1Pitch->setBounds(ctrl_col1_x, ctrl_row1_y, knob_Osc1Pitch->getWidth(), knob_Osc1Pitch->getHeight());
     knob_Osc1FineTune->setBounds(ctrl_col2_x, ctrl_row1_y, knob_Osc1FineTune->getWidth(), knob_Osc1FineTune->getHeight());
+    knob_Osc1Shape->setBounds(ctrl_col3_x, ctrl_row1_y, knob_Osc1FineTune->getWidth(), knob_Osc1FineTune->getHeight());
 }
