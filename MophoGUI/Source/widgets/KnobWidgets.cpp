@@ -7,10 +7,10 @@ void KnobWidget_OscPitch::drawValue(const double& currentValue) noexcept
 	setValueDisplayLabelText(valueConverters.intToPitchName(roundToInt(currentValue), false));
 }
 
-String KnobWidget_OscPitch::createTooltipString(const double& currentValue) const
+String KnobWidget_OscPitch::createTooltipString(const double& currentValue) const noexcept
 {
 	String tooltip{ "Current Value: " + valueConverters.intToPitchName(roundToInt(currentValue), true) + "\n" };
-	tooltip += "Sets the oscillator's base pitch in semitone steps\n";
+	tooltip += "Sets the oscillator's base pitch in semitone steps.\n";
 	tooltip += "Range: C 0 to C 10. Middle C is C 3";
 	return tooltip;
 }
@@ -22,10 +22,10 @@ void KnobWidget_FineTune::drawValue(const double& currentValue) noexcept
 	setValueDisplayLabelText(valueConverters.intToFineTuneRange(roundToInt(currentValue), false));
 }
 
-String KnobWidget_FineTune::createTooltipString(const double& currentValue) const
+String KnobWidget_FineTune::createTooltipString(const double& currentValue) const noexcept
 {
 	String tooltip{ "Current Value: " + valueConverters.intToFineTuneRange(roundToInt(currentValue), true) + "\n" };
-	tooltip += "Fine tunes the oscillator's base pitch\n";
+	tooltip += "Fine tunes the oscillator's base pitch.\n";
 	tooltip += "Range: -50 cents to +50 cents\n";
 	tooltip += "0 = no detuning (centered)";
 	return tooltip;
@@ -71,7 +71,12 @@ void KnobWidget_OscShape::drawValue(const double& currentValue) noexcept
 	}
 }
 
-String KnobWidget_OscShape::createTooltipString(const double& currentValue) const
+String KnobWidget_OscShape::createTooltipString(const double& currentValue) const noexcept
 {
-	return String();
+	String tooltip{ "Current Value: " + valueConverters.intToOscWaveShape(roundToInt(currentValue)) + "\n" };
+	tooltip += "Selects the oscillator's wave shape.\n";
+	tooltip += "Available options: Off; Sawtooth; Triangle;\n";
+	tooltip += "Sawtooth/Triangle Mix; and Pulse (Width 0 to 99).\n";
+	tooltip += "A Pulse with width 50 is a square wave.";
+	return tooltip;
 }

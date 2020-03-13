@@ -61,6 +61,23 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..103 to a oscillator wave shape String
+	// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
+	// 4..103 = "Pulse Width 0..99"
+	String intToOscWaveShape(const int& i) const
+	{
+		if (i > -1 && i < 104)
+		{
+			if (i == 0) return "Oscillator Off";
+			if (i == 1) return "Sawtooth";
+			if (i == 2) return "Triangle";
+			if (i == 3) return "Sawtooth/Triangle Mix";
+			if (i > 3) return "Pulse (Width: " + String(i - 4) + ")";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

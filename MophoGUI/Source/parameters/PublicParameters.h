@@ -26,21 +26,14 @@ public:
 		for (auto i = 0; i != 121; ++i)
 			pitchNames.add(valueConverters.intToPitchName(i, true));
 
-		// 0 = "-50 cents"; 50 = "Centered"; 100 = "+50 cents"
 		StringArray fineTune;
 		for (auto i = 0; i != 101; ++i)
 			fineTune.add(valueConverters.intToFineTuneRange(i, true));
 
-		// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
-		// 4..103 = "Pulse Width 0..99"
 		StringArray oscShape;
-		oscShape.add("Off");
-		oscShape.add("Sawtooth");
-		oscShape.add("Triangle");
-		oscShape.add("Saw/Tri Mix");
-		for (auto i = 0; i != 100; ++i)
+		for (auto i = 0; i != 104; ++i)
 		{
-			oscShape.add("Pulse Width " + (String)i);
+			oscShape.add(valueConverters.intToOscWaveShape(i));
 		}
 
 		// 0 = "Off"; 1 = "On"

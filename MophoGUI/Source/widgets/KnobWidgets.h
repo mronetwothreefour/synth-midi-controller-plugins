@@ -73,10 +73,10 @@ public:
 		}
 		if (selectedShape == "sawTri")
 		{
-			Line<float> line1{ 5.0f, 15.0f, 15.0f, 7.0f };
-			Line<float> line2{ 15.0f, 7.0f, 15.0f, 15.0f };
-			Line<float> line3{ 15.0f, 15.0f, 20.0f, 22.0f };
-			Line<float> line4{ 20.0f, 22.0f, 25.0f, 15.0f };
+			Line<float> line1{ 5.0f, 15.0f, 10.0f, 8.0f };
+			Line<float> line2{ 10.0f, 8.0f, 15.0f, 15.0f };
+			Line<float> line3{ 15.0f, 15.0f, 15.0f, 23.0f };
+			Line<float> line4{ 15.0f, 23.0f, 25.0f, 15.0f };
 			path.addLineSegment(line1, 0.5f);
 			path.addLineSegment(line2, 0.5f);
 			path.addLineSegment(line3, 0.5f);
@@ -211,7 +211,7 @@ private:
 	// a verbose version of the current parameter value
 	// along with a parameter description, which will
 	// be used as the slider's tooltip
-	virtual String createTooltipString(const double& currentValue) const = 0;
+	virtual String createTooltipString(const double& currentValue) const noexcept = 0;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget)
@@ -250,7 +250,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const override;
+	String createTooltipString(const double& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscPitch)
@@ -289,7 +289,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const override;
+	String createTooltipString(const double& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_FineTune)
@@ -335,7 +335,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const override;
+	String createTooltipString(const double& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscShape)
