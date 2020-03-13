@@ -84,15 +84,37 @@ public:
 			PathStrokeType strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded };
 			g.strokePath(path, strokeType);
 		}
+		if (selectedShape == "pulse")
+		{
+			auto polaritySwitch_x{ 6.0f + (18.0f * (pulseWidth * .01f)) };
+			Line<float> line1{ 6.0f, 17.0f, 6.0f, 8.0f };
+			Line<float> line2{ 6.0f, 8.0f, polaritySwitch_x, 8.0f };
+			Line<float> line3{ polaritySwitch_x, 8.0f, polaritySwitch_x, 17.0f };
+			Line<float> line4{ polaritySwitch_x, 17.0f, 24.0f, 17.0f };
+			path.addLineSegment(line1, 0.5f);
+			path.addLineSegment(line2, 0.5f);
+			path.addLineSegment(line3, 0.5f);
+			path.addLineSegment(line4, 0.5f);
+			PathStrokeType strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded };
+			g.strokePath(path, strokeType);
+
+			Font pwText{ "Arial", "Narrow", 11.0f };
+			g.setFont(pwText);
+
+			Rectangle<int> pwTextArea{ 6, 18, 18, 11 };
+			g.drawText((String)(pulseWidth - 1), pwTextArea, Justification::centred);
+		}
 	}
 
-	void clear() { selectedShape = "none"; repaint(); }
-	void drawSawtooth() { selectedShape = "sawtooth"; repaint(); }
-	void drawTriangle() { selectedShape = "triangle"; repaint(); }
-	void drawSawTri() { selectedShape = "sawTri"; repaint(); }
+	void clear() noexcept { selectedShape = "none"; repaint(); }
+	void drawSawtooth() noexcept { selectedShape = "sawtooth"; repaint(); }
+	void drawTriangle() noexcept { selectedShape = "triangle"; repaint(); }
+	void drawSawTri() noexcept { selectedShape = "sawTri"; repaint(); }
+	void drawPulse(int width) noexcept { selectedShape = "pulse"; pulseWidth = width;  repaint(); }
 
 private:
-	String selectedShape;
+	String selectedShape{ "" };
+	int pulseWidth{ 50 };
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(WaveShapeRenderer)
@@ -121,15 +143,10 @@ public:
 		slider.setLookAndFeel(mophoLaF);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
-		slider.setColour(TooltipWindow::backgroundColourId, Colours::lightblue);
 
 		valueDisplayLabel.setInterceptsMouseClicks(false, false);
 		valueDisplayLabel.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(valueDisplayLabel);
-
-		tooltipWindow.setMillisecondsBeforeTipAppears(1000);
-		tooltipWindow.setLookAndFeel(mophoLaF);
-		tooltipWindow.setComponentEffect(nullptr);
 
 		auto knobWidget_w{ 40 };
 		auto knobWidget_h{ 50 };
@@ -138,7 +155,6 @@ public:
 
 	~KnobWidget()
 	{
-		tooltipWindow.setLookAndFeel(nullptr);
 		valueDisplayLabel.setLookAndFeel(nullptr);
 		slider.removeListener(this);
 		slider.setLookAndFeel(nullptr);
@@ -186,12 +202,10 @@ private:
 
 	String name;
 
-	TooltipWindow tooltipWindow;
-
 	//==============================================================================
 	// Override this function to define how the current
 	// parameter value is drawn on the knob
-	virtual void drawValue(const double& currentValue) = 0;
+	virtual void drawValue(const double& currentValue) noexcept = 0;
 
 	// Override this function to create a String with 
 	// a verbose version of the current parameter value
@@ -231,7 +245,7 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) override;
+	void drawValue(const double& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
@@ -270,7 +284,7 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) override;
+	void drawValue(const double& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
@@ -316,7 +330,7 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) override;
+	void drawValue(const double& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
