@@ -17,6 +17,10 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_Osc1Shape.reset(new KnobWidget_OscShape(publicParams, ID::osc1Shape, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Shape.get());
 
+    tooltipWindow.setMillisecondsBeforeTipAppears(1000);
+    tooltipWindow.setLookAndFeel(mophoLaF.get());
+    tooltipWindow.setComponentEffect(nullptr);
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
@@ -24,6 +28,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 
 PluginEditor::~PluginEditor()
 {
+    tooltipWindow.setLookAndFeel(nullptr);
+
     knob_Osc1Shape = nullptr;
     knob_Osc1FineTune = nullptr;
     knob_Osc1Pitch = nullptr;

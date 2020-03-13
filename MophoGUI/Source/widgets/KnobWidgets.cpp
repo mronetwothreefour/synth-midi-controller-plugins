@@ -2,7 +2,7 @@
 
 //==============================================================================
 
-void KnobWidget_OscPitch::drawValue(const double& currentValue)
+void KnobWidget_OscPitch::drawValue(const double& currentValue) noexcept
 {
 	setValueDisplayLabelText(valueConverters.intToPitchName(roundToInt(currentValue), false));
 }
@@ -17,7 +17,7 @@ String KnobWidget_OscPitch::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-void KnobWidget_FineTune::drawValue(const double& currentValue)
+void KnobWidget_FineTune::drawValue(const double& currentValue) noexcept
 {
 	setValueDisplayLabelText(valueConverters.intToFineTuneRange(roundToInt(currentValue), false));
 }
@@ -33,28 +33,41 @@ String KnobWidget_FineTune::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-void KnobWidget_OscShape::drawValue(const double& currentValue)
+void KnobWidget_OscShape::drawValue(const double& currentValue) noexcept
 {
 	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal == 0) // Off
+	if (currentVal > -1 && currentValue < 104)
+	{
+		if (currentVal == 0) // Off
+		{
+			shapeRenderer.clear();
+			setValueDisplayLabelText("OFF");
+		}
+		if (currentVal == 1) // Sawtooth
+		{
+			setValueDisplayLabelText("");
+			shapeRenderer.drawSawtooth();
+		}
+		if (currentVal == 2) // Triangle
+		{
+			setValueDisplayLabelText("");
+			shapeRenderer.drawTriangle();
+		}
+		if (currentVal == 3) // Sawtooth-Triangle Mix
+		{
+			setValueDisplayLabelText("");
+			shapeRenderer.drawSawTri();
+		}
+		if (currentVal > 3 && currentValue < 104) // Pulse
+		{
+			setValueDisplayLabelText("");
+			shapeRenderer.drawPulse(currentVal - 3);
+		}
+	}
+	else
 	{
 		shapeRenderer.clear();
-		setValueDisplayLabelText("OFF");
-	}
-	if (currentVal == 1) // Sawtooth
-	{
-		setValueDisplayLabelText("");
-		shapeRenderer.drawSawtooth();
-	}
-	if (currentVal == 2) // Triangle
-	{
-		setValueDisplayLabelText("");
-		shapeRenderer.drawTriangle();
-	}
-	if (currentVal == 3) // Sawtooth-Triangle Mix
-	{
-		setValueDisplayLabelText("");
-		shapeRenderer.drawSawTri();
+		setValueDisplayLabelText("ERR");
 	}
 }
 
