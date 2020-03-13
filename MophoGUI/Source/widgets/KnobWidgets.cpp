@@ -4,7 +4,10 @@
 
 void KnobWidget_OscPitch::drawValue(const double& currentValue) noexcept
 {
-	setValueDisplayLabelText(valueConverters.intToPitchName(roundToInt(currentValue), false));
+	auto currentVal{ roundToInt(currentValue) };
+	if (currentVal > -1 && currentValue < 121)
+		setValueDisplayLabelText(valueConverters.intToPitchName(currentVal, false));
+	else setValueDisplayLabelText("ERR");
 }
 
 String KnobWidget_OscPitch::createTooltipString(const double& currentValue) const noexcept
@@ -19,7 +22,10 @@ String KnobWidget_OscPitch::createTooltipString(const double& currentValue) cons
 
 void KnobWidget_FineTune::drawValue(const double& currentValue) noexcept
 {
-	setValueDisplayLabelText(valueConverters.intToFineTuneRange(roundToInt(currentValue), false));
+	auto currentVal{ roundToInt(currentValue) };
+	if (currentVal > -1 && currentValue < 101)
+		setValueDisplayLabelText(valueConverters.intToFineTuneRange(currentVal, false));
+	else setValueDisplayLabelText("ERR");
 }
 
 String KnobWidget_FineTune::createTooltipString(const double& currentValue) const noexcept
@@ -79,4 +85,17 @@ String KnobWidget_OscShape::createTooltipString(const double& currentValue) cons
 	tooltip += "Sawtooth/Triangle Mix; and Pulse (Width 0 to 99).\n";
 	tooltip += "A Pulse with width 50 is a square wave.";
 	return tooltip;
+}
+
+void KnobWidget_0to127::drawValue(const double& currentValue) noexcept
+{
+	auto currentVal{ roundToInt(currentValue) };
+	if (currentVal > -1 && currentValue < 128)
+		setValueDisplayLabelText(String(currentValue));
+	else setValueDisplayLabelText("ERR");
+}
+
+String KnobWidget_0to127::createTooltipString(const double& currentValue) const noexcept
+{
+	return String();
 }

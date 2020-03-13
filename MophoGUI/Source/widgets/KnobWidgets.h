@@ -340,3 +340,45 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscShape)
 };
+
+//==============================================================================
+// A knob widget appropriate for controlling any parameter
+// with a simple 7-bit MIDI value range (0 to 127)
+class KnobWidget_0to127 : public KnobWidget
+{
+public:
+	KnobWidget_0to127
+	(
+		AudioProcessorValueTreeState* apvts, 
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF,
+		String label
+	) :
+		KnobWidget{ label, apvts, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		drawValue(getSliderValue());
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_0to127()
+	{}
+
+private:
+	ValueConverters valueConverters;
+
+	WaveShapeRenderer shapeRenderer;
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const double& currentValue) noexcept override;
+
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_0to127)
+};
