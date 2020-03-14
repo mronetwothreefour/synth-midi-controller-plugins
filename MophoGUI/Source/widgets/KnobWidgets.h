@@ -379,8 +379,8 @@ private:
 };
 
 //==============================================================================
-// A knob widget appropriate for controlling any parameter
-// with a simple 7-bit MIDI value range (0 to 127)
+// A knob widget appropriate for controlling an oscillator's glide rate.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
 class KnobWidget_OscGlide : public KnobWidget_0to127
 {
 public:
@@ -409,4 +409,37 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscGlide)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling a sub-oscillator's level.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_SubOscLvl : public KnobWidget_0to127
+{
+public:
+	KnobWidget_SubOscLvl
+	(
+		AudioProcessorValueTreeState* apvts, 
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("SUB"), apvts, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_SubOscLvl() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_SubOscLvl)
 };

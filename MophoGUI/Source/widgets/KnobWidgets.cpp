@@ -106,3 +106,15 @@ String KnobWidget_OscGlide::createTooltipString(const double& currentValue) cons
 	tooltip += "Range: 0 (fastest) to 127 (slowest)";
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_SubOscLvl::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "Current Value: " + (String)(roundToInt(currentValue)) + "\n" };
+	tooltip += "Sets the level of the sub-oscillator,\n";
+	tooltip += "which generates a square wave pitched\n";
+	tooltip += "one octave below the oscillator.\n";
+	tooltip += "Range: 0 to 127.";
+	return tooltip;
+}

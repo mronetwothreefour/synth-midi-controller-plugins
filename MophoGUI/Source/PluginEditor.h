@@ -26,6 +26,7 @@ private:
     std::unique_ptr<KnobWidget_FineTune> knob_Osc1FineTune;
     std::unique_ptr<KnobWidget_OscShape> knob_Osc1Shape;
     std::unique_ptr<KnobWidget_OscGlide> knob_Osc1Glide;
+    std::unique_ptr<KnobWidget_SubOscLvl> knob_SubOsc1Lvl;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
