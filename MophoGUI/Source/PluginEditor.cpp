@@ -17,7 +17,7 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_Osc1Shape.reset(new KnobWidget_OscShape(publicParams, ID::osc1Shape, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Shape.get());
 
-    knob_Osc1Glide.reset(new KnobWidget_0to127(publicParams, ID::osc1Glide, mophoLaF.get(), "GLIDE"));
+    knob_Osc1Glide.reset(new KnobWidget_OscGlide(publicParams, ID::osc1Glide, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Glide.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears(1000);
