@@ -5,6 +5,7 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
+#include "../parameters/PrivateParameters.h"
 
 using Attachment = AudioProcessorValueTreeState::SliderAttachment;
 
@@ -126,14 +127,18 @@ private:
 class KnobWidget : public Component, public Slider::Listener
 {
 public:
+	PrivateParameters* privateParams;
+
 	KnobWidget
 	(
 		String knobName,
 		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
 		sliderAttachment{ *apvts, paramID.toString(), slider },
+		privateParams{ privateParameters },
 		mophoLaF{ mophoLaF },
 		name{ knobName }
 	{
@@ -225,11 +230,12 @@ class KnobWidget_OscPitch : public KnobWidget
 public:
 	KnobWidget_OscPitch
 	(
-		AudioProcessorValueTreeState* apvts, 
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "PITCH", apvts, paramID, mophoLaF }
+		KnobWidget{ "PITCH", apvts, privateParameters, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
@@ -264,11 +270,12 @@ class KnobWidget_FineTune : public KnobWidget
 public:
 	KnobWidget_FineTune
 	(
-		AudioProcessorValueTreeState* apvts, 
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "FINE", apvts, paramID, mophoLaF }
+		KnobWidget{ "FINE", apvts, privateParameters, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
@@ -303,11 +310,12 @@ class KnobWidget_OscShape : public KnobWidget
 public:
 	KnobWidget_OscShape
 	(
-		AudioProcessorValueTreeState* apvts, 
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "SHAPE", apvts, paramID, mophoLaF }
+		KnobWidget{ "SHAPE", apvts, privateParameters, paramID, mophoLaF }
 	{
 		shapeRenderer.setInterceptsMouseClicks(false, false);
 		shapeRenderer.setBounds(5, 5, shapeRenderer.getWidth(), shapeRenderer.getHeight());
@@ -350,10 +358,11 @@ public:
 	(
 		String label,
 		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ label, apvts, paramID, mophoLaF }
+		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
 	{
 		drawValue(getSliderValue());
 	}
@@ -386,11 +395,12 @@ class KnobWidget_OscGlide : public KnobWidget_0to127
 public:
 	KnobWidget_OscGlide
 	(
-		AudioProcessorValueTreeState* apvts, 
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget_0to127{ String("GLIDE"), apvts, paramID, mophoLaF }
+		KnobWidget_0to127{ String("GLIDE"), apvts, privateParameters, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -419,11 +429,12 @@ class KnobWidget_SubOscLvl : public KnobWidget_0to127
 public:
 	KnobWidget_SubOscLvl
 	(
-		AudioProcessorValueTreeState* apvts, 
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget_0to127{ String("SUB"), apvts, paramID, mophoLaF }
+		KnobWidget_0to127{ String("SUB"), apvts, privateParameters, paramID, mophoLaF }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };

@@ -6,13 +6,13 @@
 
 #include "helpers/CustomColors.h"
 #include "helpers/MophoLookAndFeel.h"
-
+#include "parameters/PrivateParameters.h"
 #include "widgets/KnobWidgets.h"
 
 class PluginEditor : public AudioProcessorEditor
 {
 public:
-    PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams);
+    PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams, PrivateParameters* privateParameters);
     ~PluginEditor();
 
     //==============================================================================
@@ -21,6 +21,8 @@ public:
 
 private:
     PluginProcessor& processor;
+
+    PrivateParameters* privateParams;
 
     std::unique_ptr<KnobWidget_OscPitch> knob_Osc1Pitch;
     std::unique_ptr<KnobWidget_FineTune> knob_Osc1FineTune;

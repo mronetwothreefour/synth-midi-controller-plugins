@@ -4,14 +4,16 @@
 PluginProcessor::PluginProcessor() : AudioProcessor(BusesProperties())
 {
     apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, publicParams.createLayout()));
-    for (auto* param : getParameters())
-        param->addListener(this);
+
+    for (auto* param : getParameters()) param->addListener(this);
+
+    privateParams.reset(new PrivateParameters());
 }
 
 PluginProcessor::~PluginProcessor()
 {
     // midiOutput = nullptr;
-
+    privateParams = nullptr;
     apvts = nullptr;
 }
 
@@ -27,7 +29,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 //==============================================================================
 AudioProcessorEditor* PluginProcessor::createEditor()
 {
-    return new PluginEditor(*this, apvts.get());
+    return new PluginEditor(*this, apvts.get(), privateParams.get());
 }
 
 //==============================================================================

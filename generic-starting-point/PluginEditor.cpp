@@ -3,8 +3,8 @@
 
 //==============================================================================
 PluginEditor::PluginEditor(PluginProcessor& p) :
-    AudioProcessorEditor(&p), 
-    processor(p)
+    AudioProcessorEditor{ &p }, 
+    processor{ p }
 {
     setSize(400, 300);
 }

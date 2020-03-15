@@ -5,6 +5,7 @@
 #include "helpers/Identifiers.h"
 
 #include "parameters/PublicParameters.h"
+#include "parameters/PrivateParameters.h"
 
 class PluginProcessor : 
     public AudioProcessor,
@@ -51,6 +52,8 @@ private:
     std::unique_ptr<AudioProcessorValueTreeState> apvts;
 
     PublicParameters publicParams;
+
+    std::unique_ptr <PrivateParameters> privateParams;
 
     MidiBuffer pluginMidiBuf;
 

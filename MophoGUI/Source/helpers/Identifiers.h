@@ -4,6 +4,7 @@
 
 namespace ID
 {
+	//==============================================================================
 	const Identifier publicParams		{ "publicParams"	};
 
 	const Identifier osc1Pitch			{ "osc1Pitch"		};
@@ -225,4 +226,12 @@ namespace ID
 	const Identifier nameChar14			{ "nameChar14"		};
 	const Identifier nameChar15			{ "nameChar15"		};
 	const Identifier nameChar16			{ "nameChar16"		};
+
+	//==============================================================================
+	const Identifier privateParams		{ "privateParams"	};
+
+	const Identifier tooltipOptions		{ "tooltipOptions"	};
+	const Identifier showCurrentVal		{ "showCurrentVal"	};
+	const Identifier showParamInfo		{ "showParamInfo"	};
+	const Identifier tooltipDelay		{ "tooltipDelay"	};
 } // namespace ID

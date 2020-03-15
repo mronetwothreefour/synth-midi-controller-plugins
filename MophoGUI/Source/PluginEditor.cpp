@@ -2,28 +2,29 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams) :
-    AudioProcessorEditor(&p), 
-    processor(p)
+PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams, PrivateParameters* privateParameters) :
+    AudioProcessorEditor{ &p },
+    processor{ p },
+    privateParams{ privateParameters }
 {
     mophoLaF.reset(new MophoLookAndFeel());
 
-    knob_Osc1Pitch.reset(new KnobWidget_OscPitch(publicParams, ID::osc1Pitch, mophoLaF.get()));
+    knob_Osc1Pitch.reset(new KnobWidget_OscPitch(publicParams, privateParams, ID::osc1Pitch, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Pitch.get());
 
-    knob_Osc1FineTune.reset(new KnobWidget_FineTune(publicParams, ID::osc1Fine, mophoLaF.get()));
+    knob_Osc1FineTune.reset(new KnobWidget_FineTune(publicParams, privateParams, ID::osc1Fine, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1FineTune.get());
 
-    knob_Osc1Shape.reset(new KnobWidget_OscShape(publicParams, ID::osc1Shape, mophoLaF.get()));
+    knob_Osc1Shape.reset(new KnobWidget_OscShape(publicParams, privateParams, ID::osc1Shape, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Shape.get());
 
-    knob_Osc1Glide.reset(new KnobWidget_OscGlide(publicParams, ID::osc1Glide, mophoLaF.get()));
+    knob_Osc1Glide.reset(new KnobWidget_OscGlide(publicParams, privateParams, ID::osc1Glide, mophoLaF.get()));
     addAndMakeVisible(knob_Osc1Glide.get());
 
-    knob_SubOsc1Lvl.reset(new KnobWidget_SubOscLvl(publicParams, ID::subOsc1Level, mophoLaF.get()));
+    knob_SubOsc1Lvl.reset(new KnobWidget_SubOscLvl(publicParams, privateParams, ID::subOsc1Level, mophoLaF.get()));
     addAndMakeVisible(knob_SubOsc1Lvl.get());
 
-    tooltipWindow.setMillisecondsBeforeTipAppears(1000);
+    tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
 
@@ -36,11 +37,11 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_SubOsc1Lvl = nullptr;
     knob_Osc1Glide = nullptr;
     knob_Osc1Shape = nullptr;
     knob_Osc1FineTune = nullptr;
     knob_Osc1Pitch = nullptr;
-    knob_SubOsc1Lvl = nullptr;
 
     mophoLaF = nullptr;
 }
@@ -74,12 +75,17 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
+    auto ctrl_w{ 40 };
+    auto ctrlGap{ 5 };
     auto ctrl_col1_x{ 28 };
-    auto ctrl_col2_x{ ctrl_col1_x + 45 };
-    auto ctrl_col3_x{ ctrl_col2_x + 45 };
-    auto ctrl_col4_x{ ctrl_col3_x + 45 };
-    auto ctrl_col5_x{ ctrl_col4_x + 45 };
-    auto ctrl_col6_x{ ctrl_col5_x + 45 };
+    auto ctrl_col2_x{ ctrl_col1_x + ctrl_w + ctrlGap };
+    auto ctrl_col3_x{ ctrl_col2_x + ctrl_w + ctrlGap };
+    auto ctrl_col4_x{ ctrl_col3_x + ctrl_w + ctrlGap };
+    auto ctrl_col5_x{ ctrl_col4_x + ctrl_w + ctrlGap };
+    auto ctrl_col6_x{ ctrl_col5_x + ctrl_w + ctrlGap };
+    auto ctrl_col7_x{ ctrl_col6_x + ctrl_w + ctrlGap };
+    auto ctrl_col8_x{ ctrl_col7_x + ctrl_w + ctrlGap };
+    auto ctrl_col9_x{ ctrl_col8_x + ctrl_w + ctrlGap };
 
     auto ctrl_row1_y{ 30 };
 
@@ -90,6 +96,5 @@ void PluginEditor::resized()
     knob_Osc1FineTune->setBounds    (ctrl_col2_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_Osc1Shape->setBounds       (ctrl_col3_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_Osc1Glide->setBounds       (ctrl_col4_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-
-    knob_SubOsc1Lvl->setBounds      (ctrl_col6_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
+    knob_SubOsc1Lvl->setBounds      (ctrl_col5_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
 }
