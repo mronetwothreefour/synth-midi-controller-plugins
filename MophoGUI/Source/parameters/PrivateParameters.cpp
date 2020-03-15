@@ -1,77 +1,62 @@
 #include "PrivateParameters.h"
 
 PrivateParameters::PrivateParameters() :
-	privateParamsTree{ ID::privateParams }
+	tooltipOptionsTree{ new ValueTree(ID::tooltipOptions) }
 {
-	ValueTree tooltipOptions{ ID::tooltipOptions };
-	privateParamsTree.addChild(tooltipOptions, -1, nullptr);
-	setPropertyValue(ID::tooltipOptions, ID::showCurrentVal, (bool)true);
-	setPropertyValue(ID::tooltipOptions, ID::showParamInfo, (bool)true);
-	setPropertyValue(ID::tooltipOptions, ID::tooltipDelay, 1000);
+	tooltipOptionsTree->setProperty(ID::showCurrentVal, (bool)true, nullptr);
+	tooltipOptionsTree->setProperty(ID::showParamInfo, (bool)true, nullptr);
+	tooltipOptionsTree->setProperty(ID::tooltipDelay, 1000, nullptr);
 }
 
 PrivateParameters::~PrivateParameters()
 {
+	tooltipOptionsTree = nullptr;
 }
 
 //==============================================================================
 
 bool PrivateParameters::shouldShowValueTip() const
 {
-	if (properyIsSet(ID::tooltipOptions, ID::showCurrentVal))
-		return (bool)getPropertyValue(ID::tooltipOptions, ID::showCurrentVal);
+	if (tooltipOptionsTree->hasProperty(ID::showCurrentVal))
+		return (bool)tooltipOptionsTree->getProperty(ID::showCurrentVal);
 	else return false;
 }
 
 bool PrivateParameters::setShouldShowValueTip(bool shouldShow)
 {
 	Value newValue{ shouldShow };
-	bool wasSet{ setPropertyValue(ID::tooltipOptions, ID::showCurrentVal, newValue) };
+	tooltipOptionsTree->setProperty(ID::showCurrentVal, newValue, nullptr);
+	bool wasSet{ tooltipOptionsTree->hasProperty(ID::showCurrentVal) };
 	return wasSet;
 }
 
 bool PrivateParameters::shouldShowInfoTip() const
 {
-	if (properyIsSet(ID::tooltipOptions, ID::showParamInfo))
-		return (bool)getPropertyValue(ID::tooltipOptions, ID::showParamInfo);
+	if (tooltipOptionsTree->hasProperty(ID::showParamInfo))
+		return (bool)tooltipOptionsTree->getProperty(ID::showParamInfo);
 	else return false;
 }
 
 bool PrivateParameters::setShouldShowInfoTip(bool shouldShow)
 {
 	Value newValue{ shouldShow };
-	bool wasSet{ setPropertyValue(ID::tooltipOptions, ID::showParamInfo, newValue) };
+	tooltipOptionsTree->setProperty(ID::showParamInfo, newValue, nullptr);
+	bool wasSet{ tooltipOptionsTree->hasProperty(ID::showParamInfo) };
 	return wasSet;
 }
 
 int PrivateParameters::getTooltipDelay() const
 {
-	if (properyIsSet(ID::tooltipOptions, ID::tooltipDelay))
-		return (int)getPropertyValue(ID::tooltipOptions, ID::tooltipDelay);
+	if (tooltipOptionsTree->hasProperty(ID::tooltipDelay))
+		return (int)tooltipOptionsTree->getProperty(ID::tooltipDelay);
 	else return -1;
 }
 
 bool PrivateParameters::setTooltipDelay(int delay)
 {
 	Value newValue{ delay };
-	bool wasSet{ setPropertyValue(ID::tooltipOptions, ID::showParamInfo, newValue) };
+	tooltipOptionsTree->setProperty(ID::tooltipDelay, newValue, nullptr);
+	bool wasSet{ tooltipOptionsTree->hasProperty(ID::tooltipDelay) };
 	return wasSet;
 }
 
-//==============================================================================
-
-bool PrivateParameters::properyIsSet(Identifier childID, Identifier propertyID) const
-{
-	return privateParamsTree.getChildWithName(childID).hasProperty(propertyID);
-}
-
-var PrivateParameters::getPropertyValue(Identifier childID, Identifier propertyID) const
-{
-	return privateParamsTree.getChildWithName(childID).getProperty(propertyID);
-}
-
-bool PrivateParameters::setPropertyValue(Identifier childID, Identifier propertyID, const juce::var& newValue)
-{
-	privateParamsTree.getChildWithName(childID).setProperty(propertyID, newValue, nullptr);
-	return properyIsSet(childID, propertyID);
-}

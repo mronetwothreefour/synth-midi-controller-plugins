@@ -228,8 +228,6 @@ namespace ID
 	const Identifier nameChar16			{ "nameChar16"		};
 
 	//==============================================================================
-	const Identifier privateParams		{ "privateParams"	};
-
 	const Identifier tooltipOptions		{ "tooltipOptions"	};
 	const Identifier showCurrentVal		{ "showCurrentVal"	};
 	const Identifier showParamInfo		{ "showParamInfo"	};

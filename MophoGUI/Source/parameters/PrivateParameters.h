@@ -42,20 +42,7 @@ public:
 	bool setTooltipDelay(int delay);
 
 private:
-	ValueTree privateParamsTree;
-
-	//==============================================================================
-	// Returns true if the specified property
-	// has been set in the specified child tree
-	bool properyIsSet(Identifier childID, Identifier propertyID) const;
-
-	// Returns the value of the specified property in the specified child tree.
-	// Returns a void variant if the property has not been set
-	var getPropertyValue(Identifier childID, Identifier propertyID) const;
-
-	// Sets the value of the specified property in the specified child tree.
-	// Returns true if the property was set successfully
-	bool setPropertyValue(Identifier childID, Identifier propertyID, const juce::var& newValue);
+	std::unique_ptr<ValueTree> tooltipOptionsTree;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PrivateParameters)
