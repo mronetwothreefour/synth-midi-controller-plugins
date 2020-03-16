@@ -29,6 +29,11 @@ private:
     std::unique_ptr<KnobWidget_OscShape> knob_Osc1Shape;
     std::unique_ptr<KnobWidget_OscGlide> knob_Osc1Glide;
     std::unique_ptr<KnobWidget_SubOscLvl> knob_SubOsc1Lvl;
+    std::unique_ptr<KnobWidget_OscPitch> knob_Osc2Pitch;
+    std::unique_ptr<KnobWidget_FineTune> knob_Osc2FineTune;
+    std::unique_ptr<KnobWidget_OscShape> knob_Osc2Shape;
+    std::unique_ptr<KnobWidget_OscGlide> knob_Osc2Glide;
+    std::unique_ptr<KnobWidget_SubOscLvl> knob_SubOsc2Lvl;
     std::unique_ptr<KnobWidget_OscSlop> knob_OscSlop;
     std::unique_ptr<KnobWidget_OscMix> knob_OscMix;
 
