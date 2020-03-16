@@ -524,3 +524,42 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscMix)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the pitch bend range parameter.
+// Displays its value in a range from 0 to +/-12
+class KnobWidget_BendRange : public KnobWidget
+{
+public:
+	KnobWidget_BendRange
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_BendRange()
+	{}
+
+private:
+	ValueConverters valueConverters;
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const double& currentValue) noexcept override;
+
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_BendRange)
+};
+

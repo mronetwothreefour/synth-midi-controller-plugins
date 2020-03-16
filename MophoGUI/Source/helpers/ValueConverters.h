@@ -61,7 +61,7 @@ struct ValueConverters
 		else return "range error";
 	}
 
-	// Converts integers 0..103 to a oscillator wave shape String
+	// Converts integers 0..103 to an oscillator wave shape String
 	// 0 = "Off"; 1 = "Sawtooth"; 2 = "Triangle"; 3 = "Saw/Tri Mix";
 	// 4..103 = "Pulse Width 0..99"
 	String intToOscWaveShape(const int& i) const
@@ -73,6 +73,19 @@ struct ValueConverters
 			if (i == 2) return "Triangle";
 			if (i == 3) return "Sawtooth/Triangle Mix";
 			if (i > 3) return "Pulse (Width: " + String(i - 4) + ")";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
+	// Converts integers 0..12 to a pitch bend range String
+	String intToBendRange(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 13)
+		{
+			if (i == 0) return verbose ? "No Bend" : "0";
+			if (i == 1) return verbose ? "+/-1 semitone" : "+/-1";
+			if (i > 1) return verbose ? "+/-" + (String)i + " semitones" : "+/-" + (String)i;
 			else return "invalid";
 		}
 		else return "range error";

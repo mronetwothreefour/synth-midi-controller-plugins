@@ -36,6 +36,7 @@ private:
     std::unique_ptr<KnobWidget_SubOscLvl> knob_SubOsc2Lvl;
     std::unique_ptr<KnobWidget_OscSlop> knob_OscSlop;
     std::unique_ptr<KnobWidget_OscMix> knob_OscMix;
+    std::unique_ptr<KnobWidget_BendRange> knob_BendRange;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

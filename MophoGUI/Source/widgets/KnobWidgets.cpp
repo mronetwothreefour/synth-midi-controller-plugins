@@ -180,3 +180,25 @@ String KnobWidget_OscMix::createTooltipString(const double& currentValue) const 
 	}
 	return tooltip;
 }
+
+void KnobWidget_BendRange::drawValue(const double& currentValue) noexcept
+{
+	auto currentVal{ roundToInt(currentValue) };
+	if (currentVal > -1 && currentValue < 13)
+		setValueDisplayLabelText(valueConverters.intToBendRange(currentVal, false));
+	else setValueDisplayLabelText("ERR");
+}
+
+String KnobWidget_BendRange::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToBendRange(roundToInt(currentValue), true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the maximum amount (in semitones) by which pitch wheel\n";
+		tooltip += "messages can raise or lower the pitches of the oscillators.\n";
+		tooltip += "Range: 0 (no bend) to +/-12 semitones.\n";
+	}
+	return tooltip;
+}
