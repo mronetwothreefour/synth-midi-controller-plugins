@@ -37,6 +37,8 @@ private:
     std::unique_ptr<KnobWidget_OscSlop> knob_OscSlop;
     std::unique_ptr<KnobWidget_OscMix> knob_OscMix;
     std::unique_ptr<KnobWidget_BendRange> knob_BendRange;
+    std::unique_ptr<KnobWidget_NoiseLevel> knob_NoiseLevel;
+    std::unique_ptr<KnobWidget_ExtInLevel> knob_ExtInLevel;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

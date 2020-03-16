@@ -57,6 +57,12 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_BendRange.reset(new KnobWidget_BendRange(publicParams, privateParams, mophoLaF.get()));
     addAndMakeVisible(knob_BendRange.get());
 
+    knob_NoiseLevel.reset(new KnobWidget_NoiseLevel(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_NoiseLevel.get());
+
+    knob_ExtInLevel.reset(new KnobWidget_ExtInLevel(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_ExtInLevel.get());
+
     //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
@@ -72,6 +78,8 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_ExtInLevel = nullptr;
+    knob_NoiseLevel = nullptr;
     knob_BendRange = nullptr;
     knob_OscMix = nullptr;
     knob_OscSlop = nullptr;
@@ -169,4 +177,6 @@ void PluginEditor::resized()
     knob_OscSlop->setBounds         (ctrl_col7_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_OscMix->setBounds          (ctrl_col8_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_BendRange->setBounds       (ctrl_col9_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
+    knob_NoiseLevel->setBounds      (ctrl_col7_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
+    knob_ExtInLevel->setBounds      (ctrl_col8_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
 }

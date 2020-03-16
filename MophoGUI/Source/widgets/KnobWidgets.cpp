@@ -112,8 +112,6 @@ void KnobWidget_0to127::drawValue(const double& currentValue) noexcept
 	else setValueDisplayLabelText("ERR");
 }
 
-//==============================================================================
-
 String KnobWidget_OscGlide::createTooltipString(const double& currentValue) const noexcept
 {
 	String tooltip{ "" };
@@ -144,6 +142,8 @@ String KnobWidget_SubOscLvl::createTooltipString(const double& currentValue) con
 	return tooltip;
 }
 
+//==============================================================================
+
 void KnobWidget_OscSlop::drawValue(const double& currentValue) noexcept
 {
 	auto currentVal{ roundToInt(currentValue) };
@@ -166,6 +166,8 @@ String KnobWidget_OscSlop::createTooltipString(const double& currentValue) const
 	return tooltip;
 }
 
+//==============================================================================
+
 String KnobWidget_OscMix::createTooltipString(const double& currentValue) const noexcept
 {
 	String tooltip{ "" };
@@ -180,6 +182,8 @@ String KnobWidget_OscMix::createTooltipString(const double& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
 
 void KnobWidget_BendRange::drawValue(const double& currentValue) noexcept
 {
@@ -199,6 +203,41 @@ String KnobWidget_BendRange::createTooltipString(const double& currentValue) con
 		tooltip += "Sets the maximum amount (in semitones) by which pitch wheel\n";
 		tooltip += "messages can raise or lower the pitches of the oscillators.\n";
 		tooltip += "Range: 0 (no bend) to +/-12 semitones.\n";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_NoiseLevel::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the level of white noise\n";
+		tooltip += "sent into the low-pass filter.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_ExtInLevel::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the level of external audio\n";
+		tooltip += "input sent into the low-pass filter.\n";
+		tooltip += "When nothing is connected to audio in,\n";
+		tooltip += "this controls the level of feedback\n";
+		tooltip += "from the left audio output.\n";
+		tooltip += "Range: 0 to 127.";
 	}
 	return tooltip;
 }

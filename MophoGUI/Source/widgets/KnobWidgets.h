@@ -563,3 +563,69 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_BendRange)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the noise level.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_NoiseLevel : public KnobWidget_0to127
+{
+public:
+	KnobWidget_NoiseLevel
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("NOISE"), apvts, privateParameters, ID::noiseLevel, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_NoiseLevel() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_NoiseLevel)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the external audio input level.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_ExtInLevel : public KnobWidget_0to127
+{
+public:
+	KnobWidget_ExtInLevel
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("EXT IN"), apvts, privateParameters, ID::extInLevel, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_ExtInLevel() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ExtInLevel)
+};
+
