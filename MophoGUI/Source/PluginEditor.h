@@ -29,6 +29,8 @@ private:
     std::unique_ptr<KnobWidget_OscShape> knob_Osc1Shape;
     std::unique_ptr<KnobWidget_OscGlide> knob_Osc1Glide;
     std::unique_ptr<KnobWidget_SubOscLvl> knob_SubOsc1Lvl;
+    std::unique_ptr<KnobWidget_OscSlop> knob_OscSlop;
+    std::unique_ptr<KnobWidget_OscMix> knob_OscMix;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

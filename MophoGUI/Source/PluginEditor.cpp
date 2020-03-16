@@ -24,6 +24,12 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_SubOsc1Lvl.reset(new KnobWidget_SubOscLvl(publicParams, privateParams, ID::subOsc1Level, mophoLaF.get()));
     addAndMakeVisible(knob_SubOsc1Lvl.get());
 
+    knob_OscSlop.reset(new KnobWidget_OscSlop(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_OscSlop.get());
+
+    knob_OscMix.reset(new KnobWidget_OscMix(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_OscMix.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
@@ -37,6 +43,8 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_OscMix = nullptr;
+    knob_OscSlop = nullptr;
     knob_SubOsc1Lvl = nullptr;
     knob_Osc1Glide = nullptr;
     knob_Osc1Shape = nullptr;
@@ -71,6 +79,16 @@ void PluginEditor::paint(Graphics& g)
 
     Rectangle<int> oscNumLabelArea{ 15, 35, 15, 30 };
     g.drawText("1", oscNumLabelArea, Justification::centredLeft);
+
+    // Draw oscillator number labels for mix knob
+    //==============================================================================
+    Font mixNumLabel{ "Arial", "Bold", 11.0f };
+    g.setFont(mixNumLabel);
+
+    Rectangle<int> mixNum1LabelArea{ 343, 59, 6, 13 };
+    g.drawText("1", mixNum1LabelArea, Justification::centred);
+    Rectangle<int> mixNum2LabelArea{ 378, 59, 6, 13 };
+    g.drawText("2", mixNum2LabelArea, Justification::centred);
 }
 
 void PluginEditor::resized()
@@ -97,4 +115,6 @@ void PluginEditor::resized()
     knob_Osc1Shape->setBounds       (ctrl_col3_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_Osc1Glide->setBounds       (ctrl_col4_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_SubOsc1Lvl->setBounds      (ctrl_col5_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
+    knob_OscSlop->setBounds         (ctrl_col7_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
+    knob_OscMix->setBounds          (ctrl_col8_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
 }

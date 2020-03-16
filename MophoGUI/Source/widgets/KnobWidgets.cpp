@@ -143,3 +143,40 @@ String KnobWidget_SubOscLvl::createTooltipString(const double& currentValue) con
 	}
 	return tooltip;
 }
+
+void KnobWidget_OscSlop::drawValue(const double& currentValue) noexcept
+{
+	auto currentVal{ roundToInt(currentValue) };
+	if (currentVal > -1 && currentValue < 6)
+		setValueDisplayLabelText(String(currentValue));
+	else setValueDisplayLabelText("ERR");
+}
+
+String KnobWidget_OscSlop::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Introduces subtle amounts of random oscillator\n";
+		tooltip += "frequency drift for a \"vintage analog\" sound.\n";
+		tooltip += "Range: 0 to 5.";
+	}
+	return tooltip;
+}
+
+String KnobWidget_OscMix::createTooltipString(const double& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Controls the level balance between oscillators 1 & 2.\n";
+		tooltip += "Range: 0 to 127. At 0, only oscillator 1 is heard.\n";
+		tooltip += "At 127, only oscillator 2 is heard. At 64, an equal\n";
+		tooltip += "mix of the two oscillators is heard.";
+	}
+	return tooltip;
+}

@@ -370,8 +370,6 @@ public:
 	~KnobWidget_0to127() {}
 
 private:
-	ValueConverters valueConverters;
-
 	WaveShapeRenderer shapeRenderer;
 
 	//==============================================================================
@@ -454,3 +452,75 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_SubOscLvl)
 };
+
+//==============================================================================
+// A knob widget appropriate for controlling the oscillator slop parameter.
+// Displays its value in a range from 0 to 5
+class KnobWidget_OscSlop : public KnobWidget
+{
+public:
+	KnobWidget_OscSlop
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ "SLOP", apvts, privateParameters, ID::oscSlop, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_OscSlop()
+	{}
+
+private:
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const double& currentValue) noexcept override;
+
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscSlop)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the balance of oscillators 1 & 2.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_OscMix : public KnobWidget_0to127
+{
+public:
+	KnobWidget_OscMix
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("MIX"), apvts, privateParameters, ID::oscMix, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_OscMix() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const double& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscMix)
+};
+

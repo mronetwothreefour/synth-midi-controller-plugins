@@ -24,8 +24,7 @@ bool PrivateParameters::shouldShowValueTip() const
 
 bool PrivateParameters::setShouldShowValueTip(bool shouldShow)
 {
-	Value newValue{ shouldShow };
-	tooltipOptionsTree->setProperty(ID::showCurrentVal, newValue, nullptr);
+	tooltipOptionsTree->setProperty(ID::showCurrentVal, shouldShow, nullptr);
 	bool wasSet{ tooltipOptionsTree->hasProperty(ID::showCurrentVal) };
 	return wasSet;
 }
@@ -39,8 +38,7 @@ bool PrivateParameters::shouldShowInfoTip() const
 
 bool PrivateParameters::setShouldShowInfoTip(bool shouldShow)
 {
-	Value newValue{ shouldShow };
-	tooltipOptionsTree->setProperty(ID::showParamInfo, newValue, nullptr);
+	tooltipOptionsTree->setProperty(ID::showParamInfo, shouldShow, nullptr);
 	bool wasSet{ tooltipOptionsTree->hasProperty(ID::showParamInfo) };
 	return wasSet;
 }
@@ -54,8 +52,7 @@ int PrivateParameters::getTooltipDelay() const
 
 bool PrivateParameters::setTooltipDelay(int delay)
 {
-	Value newValue{ delay };
-	tooltipOptionsTree->setProperty(ID::tooltipDelay, newValue, nullptr);
+	tooltipOptionsTree->setProperty(ID::tooltipDelay, delay, nullptr);
 	bool wasSet{ tooltipOptionsTree->hasProperty(ID::tooltipDelay) };
 	return wasSet;
 }
