@@ -2,6 +2,24 @@
 
 //==============================================================================
 
+void KnobWidget_0to127::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 128)
+		setValueDisplayLabelText(String(currentValue));
+	else setValueDisplayLabelText("ERR");
+}
+
+//==============================================================================
+
+void KnobWidget_PlusMinus127::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 255)
+		setValueDisplayLabelText(valueConverters.intToPlusMinus127(currentValue));
+	else setValueDisplayLabelText("ERR");
+}
+
+//==============================================================================
+
 void KnobWidget_OscPitch::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 121)
@@ -100,13 +118,6 @@ String KnobWidget_OscShape::createTooltipString(const int& currentValue) const n
 }
 
 //==============================================================================
-
-void KnobWidget_0to127::drawValue(const int& currentValue) noexcept
-{
-	if (currentValue > -1 && currentValue < 128)
-		setValueDisplayLabelText(String(currentValue));
-	else setValueDisplayLabelText("ERR");
-}
 
 String KnobWidget_OscGlide::createTooltipString(const int& currentValue) const noexcept
 {
@@ -255,6 +266,40 @@ String KnobWidget_LPFfreq::createTooltipString(const int& currentValue) const no
 		tooltip += "Sets the base cutoff frequency for the\n";
 		tooltip += "low-pass filter (in semitone steps).\n";
 		tooltip += "Range: 0 (C 0) to 164 (G# 13).\n";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_LPFreso::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the resonance level of the low-pass\n";
+		tooltip += "filter. When in 4-pole mode, high settings\n";
+		tooltip += "will cause the filter to self-oscillate.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_LPFenvAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToPlusMinus127(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which the LPF envelope\n";
+		tooltip += "modulates the filter's cutoff frequency.\n";
+		tooltip += "Negative values invert the envelope.\n";
+		tooltip += "Range: -127 to +127.";
 	}
 	return tooltip;
 }

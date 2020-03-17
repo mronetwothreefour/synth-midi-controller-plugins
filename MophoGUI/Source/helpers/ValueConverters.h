@@ -120,6 +120,19 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..254 to a -127..+127 range String
+	// 0 = "-127"; 127 = "0"; 254 = "+127"
+	String intToPlusMinus127(const int& i) const
+	{
+		if (i > -1 && i < 255)
+		{
+			if (i < 128) return (String)(i - 127);
+			if (i > 127) return "+" + (String)(i - 127);
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

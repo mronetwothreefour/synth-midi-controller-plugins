@@ -35,7 +35,7 @@ namespace ID
 	const Identifier lpfKeyAmount		{ "lpfKeyAmount"	};
 	const Identifier lpfOsc1FM			{ "lpfOsc1FM"		};
 	const Identifier lpfType			{ "lpfType"			};
-	const Identifier lpfAmount			{ "lpfAmount"		};
+	const Identifier lpfEnvAmount		{ "lpfEnvAmount"	};
 	const Identifier lpfVelAmount		{ "lpfVelAmount"	};
 	const Identifier lpfDelay			{ "lpfDelay"		};
 	const Identifier lpfAttack			{ "lpfAttack"		};

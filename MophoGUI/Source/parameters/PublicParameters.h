@@ -76,8 +76,7 @@ public:
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
 		{
-			if (i < 128) modAmount.add((String)(i - 127));
-			else modAmount.add("+" + (String)(i - 127));
+			modAmount.add(valueConverters.intToPlusMinus127(i));
 		}
 
 		// 0..89 = "Unsynced 0..89"
@@ -507,7 +506,7 @@ public:
 		/*22 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfKeyAmount.toString(),		"LPF Keyboard Amount", 0, 127, 0));
 		/*23 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfOsc1FM.toString(),			"LPF FM (By Oscillator 1)", 0, 127, 0));
 		/*24 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfType.toString(),			"LPF Type", lpfType, 148));
-		/*25 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfAmount.toString(),			"LPF Envelope Amount", modAmount, 127));
+		/*25 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfEnvAmount.toString(),			"LPF Envelope Amount", modAmount, 127));
 		/*26 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfVelAmount.toString(),		"LPF Envelope Velocity Amount", 0, 127, 0));
 		/*27 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfDelay.toString(),			"LPF Envelope Delay", 0, 127, 0));
 		/*28 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfAttack.toString(),			"LPF Envelope Attack", 0, 127, 0));

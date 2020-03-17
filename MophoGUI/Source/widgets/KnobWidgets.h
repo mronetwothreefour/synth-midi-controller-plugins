@@ -223,6 +223,81 @@ private:
 };
 
 //==============================================================================
+// A knob widget appropriate for controlling any parameter
+// with a simple 7-bit MIDI value range (0..127)
+class KnobWidget_0to127 : public KnobWidget
+{
+public:
+	KnobWidget_0to127
+	(
+		String label,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
+	{
+		drawValue(getSliderValue());
+	}
+
+	~KnobWidget_0to127() {}
+
+private:
+	WaveShapeRenderer shapeRenderer;
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const int& currentValue) noexcept override;
+
+	// KnobWidgets that derive from this class must 
+	// override this function to create a tooltip String 
+	// appropriate to the type of parameter they control
+	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_0to127)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling any
+// parameter with a value range of -127 to +127
+class KnobWidget_PlusMinus127 : public KnobWidget
+{
+public:
+	KnobWidget_PlusMinus127
+	(
+		String label,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
+	{
+		drawValue(getSliderValue());
+	}
+
+	~KnobWidget_PlusMinus127() {}
+
+	ValueConverters valueConverters;
+
+private:
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const int& currentValue) noexcept override;
+
+	// KnobWidgets that derive from this class must 
+	// override this function to create a tooltip String 
+	// appropriate to the type of parameter they control
+	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PlusMinus127)
+};
+
+//==============================================================================
 // A knob widget appropriate for controlling oscillator pitch parameters.
 // Displays its value as a pitch name + octave number combination
 class KnobWidget_OscPitch : public KnobWidget
@@ -346,43 +421,6 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscShape)
-};
-
-//==============================================================================
-// A knob widget appropriate for controlling any parameter
-// with a simple 7-bit MIDI value range (0 to 127)
-class KnobWidget_0to127 : public KnobWidget
-{
-public:
-	KnobWidget_0to127
-	(
-		String label,
-		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
-	) :
-		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
-	{
-		drawValue(getSliderValue());
-	}
-
-	~KnobWidget_0to127() {}
-
-private:
-	WaveShapeRenderer shapeRenderer;
-
-	//==============================================================================
-	// Draws the current parameter value on the knob
-	void drawValue(const int& currentValue) noexcept override;
-
-	// KnobWidgets that derive from this class must 
-	// override this function to create a tooltip String 
-	// appropriate to the type of parameter they control
-	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
-
-	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_0to127)
 };
 
 //==============================================================================
@@ -668,3 +706,67 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFfreq)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the LPF resonance parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_LPFreso : public KnobWidget_0to127
+{
+public:
+	KnobWidget_LPFreso
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("RESO"), apvts, privateParameters, ID::lpfReso, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LPFreso() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFreso)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the LPF envelope amount parameter.
+// Derives from KnobWidget_PlusMinus127 and overrides createTooltipString()
+class KnobWidget_LPFenvAmt : public KnobWidget_PlusMinus127
+{
+public:
+	KnobWidget_LPFenvAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_PlusMinus127{ String("ENV"), apvts, privateParameters, ID::lpfEnvAmount, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LPFenvAmt() {}
+
+private:
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFenvAmt)
+};
