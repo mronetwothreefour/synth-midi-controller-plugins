@@ -64,6 +64,12 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     addAndMakeVisible(knob_ExtInLevel.get());
 
     //==============================================================================
+    // Initialize low-pass filter controls
+
+    knob_LPFfreq.reset(new KnobWidget_LPFfreq(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFfreq.get());
+
+    //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
@@ -77,6 +83,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    knob_LPFfreq = nullptr;
 
     knob_ExtInLevel = nullptr;
     knob_NoiseLevel = nullptr;
@@ -114,7 +122,7 @@ void PluginEditor::paint(Graphics& g)
     Rectangle<int> oscSectionLabelArea{ 15, 15, 105, 15 };
     g.drawText("OSCILLATORS", oscSectionLabelArea, Justification::centredLeft);
 
-    Rectangle<int> lpfSectionLabelArea{ 15, 150, 30, 15 };
+    Rectangle<int> lpfSectionLabelArea{ 15, 154, 30, 15 };
     g.drawText("LPF", lpfSectionLabelArea, Justification::centredLeft);
 
     // Draw oscillator number labels
@@ -156,8 +164,9 @@ void PluginEditor::resized()
     auto ctrl_col8_x{ ctrl_col7_x + ctrl_w + ctrlGap };
     auto ctrl_col9_x{ ctrl_col8_x + ctrl_w + ctrlGap };
 
-    auto ctrl_row1_y{ 30 };
-    auto ctrl_row2_y{ 90 };
+    auto ctrl_row1_y{ 30  };
+    auto ctrl_row2_y{ 90  };
+    auto ctrl_row3_y{ 170 };
 
     auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
     auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
@@ -179,4 +188,6 @@ void PluginEditor::resized()
     knob_BendRange->setBounds       (ctrl_col9_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
     knob_NoiseLevel->setBounds      (ctrl_col7_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
     knob_ExtInLevel->setBounds      (ctrl_col8_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
+
+    knob_LPFfreq->setBounds         (ctrl_col1_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
 }

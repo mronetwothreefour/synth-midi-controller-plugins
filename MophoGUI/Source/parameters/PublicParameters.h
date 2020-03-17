@@ -63,30 +63,9 @@ public:
 		notePriority.add("Last Note Hit");
 		notePriority.add("Last Note Hit (Re-trigger)");
 
-		// Presents integer values as pitch name & octave number combinations
-		// (e.g. 27 is presented as "D#2")
 		StringArray lpfFreq;
 		for (auto i = 0; i != 165; ++i)
-		{
-			auto noteNum{ i % 12 };
-			auto octaveNum{ i / 12 };
-			switch (noteNum)
-			{
-			case 0 : lpfFreq.add((String)i + " (Pitch Freq. C"  + (String)octaveNum + ")"); break;
-			case 1 : lpfFreq.add((String)i + " (Pitch Freq. C#" + (String)octaveNum + ")"); break;
-			case 2 : lpfFreq.add((String)i + " (Pitch Freq. D"  + (String)octaveNum + ")"); break;
-			case 3 : lpfFreq.add((String)i + " (Pitch Freq. D#" + (String)octaveNum + ")"); break;
-			case 4 : lpfFreq.add((String)i + " (Pitch Freq. E"  + (String)octaveNum + ")"); break;
-			case 5 : lpfFreq.add((String)i + " (Pitch Freq. F"  + (String)octaveNum + ")"); break;
-			case 6 : lpfFreq.add((String)i + " (Pitch Freq. F#" + (String)octaveNum + ")"); break;
-			case 7 : lpfFreq.add((String)i + " (Pitch Freq. G"  + (String)octaveNum + ")"); break;
-			case 8 : lpfFreq.add((String)i + " (Pitch Freq. G#" + (String)octaveNum + ")"); break;
-			case 9 : lpfFreq.add((String)i + " (Pitch Freq. A"  + (String)octaveNum + ")"); break;
-			case 10: lpfFreq.add((String)i + " (Pitch Freq. A#" + (String)octaveNum + ")"); break;
-			case 11: lpfFreq.add((String)i + " (Pitch Freq. B"  + (String)octaveNum + ")"); break;
-			default: break;
-			}
-		}
+			lpfFreq.add(valueConverters.intToLPFfreq(i, true));
 
 		// 0 = "2-Pole"; 1 = "4-Pole"
 		StringArray lpfType;

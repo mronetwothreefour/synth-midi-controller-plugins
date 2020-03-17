@@ -2,19 +2,18 @@
 
 //==============================================================================
 
-void KnobWidget_OscPitch::drawValue(const double& currentValue) noexcept
+void KnobWidget_OscPitch::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 121)
-		setValueDisplayLabelText(valueConverters.intToPitchName(currentVal, false));
+	if (currentValue > -1 && currentValue < 121)
+		setValueDisplayLabelText(valueConverters.intToPitchName(currentValue, false));
 	else setValueDisplayLabelText("ERR");
 }
 
-String KnobWidget_OscPitch::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToPitchName(roundToInt(currentValue), true) + "\n" ;
+		tooltip += "Current Value: " + valueConverters.intToPitchName(currentValue, true) + "\n" ;
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the oscillator's base pitch in semitone steps.\n";
@@ -25,19 +24,18 @@ String KnobWidget_OscPitch::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-void KnobWidget_FineTune::drawValue(const double& currentValue) noexcept
+void KnobWidget_FineTune::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 101)
-		setValueDisplayLabelText(valueConverters.intToFineTuneRange(currentVal, false));
+	if (currentValue > -1 && currentValue < 101)
+		setValueDisplayLabelText(valueConverters.intToFineTuneRange(currentValue, false));
 	else setValueDisplayLabelText("ERR");
 }
 
-String KnobWidget_FineTune::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_FineTune::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToFineTuneRange(roundToInt(currentValue), true) + "\n" ;
+		tooltip += "Current Value: " + valueConverters.intToFineTuneRange(currentValue, true) + "\n" ;
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Fine tunes the oscillator's base pitch.\n";
@@ -49,35 +47,34 @@ String KnobWidget_FineTune::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-void KnobWidget_OscShape::drawValue(const double& currentValue) noexcept
+void KnobWidget_OscShape::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 104)
+	if (currentValue > -1 && currentValue < 104)
 	{
-		if (currentVal == 0) // Off
+		if (currentValue == 0) // Off
 		{
 			shapeRenderer.clear();
 			setValueDisplayLabelText("OFF");
 		}
-		if (currentVal == 1) // Sawtooth
+		if (currentValue == 1) // Sawtooth
 		{
 			setValueDisplayLabelText("");
 			shapeRenderer.drawSawtooth();
 		}
-		if (currentVal == 2) // Triangle
+		if (currentValue == 2) // Triangle
 		{
 			setValueDisplayLabelText("");
 			shapeRenderer.drawTriangle();
 		}
-		if (currentVal == 3) // Sawtooth-Triangle Mix
+		if (currentValue == 3) // Sawtooth-Triangle Mix
 		{
 			setValueDisplayLabelText("");
 			shapeRenderer.drawSawTri();
 		}
-		if (currentVal > 3 && currentValue < 104) // Pulse
+		if (currentValue > 3 && currentValue < 104) // Pulse
 		{
 			setValueDisplayLabelText("");
-			shapeRenderer.drawPulse(currentVal - 3);
+			shapeRenderer.drawPulse(currentValue - 3);
 		}
 	}
 	else
@@ -87,11 +84,11 @@ void KnobWidget_OscShape::drawValue(const double& currentValue) noexcept
 	}
 }
 
-String KnobWidget_OscShape::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_OscShape::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToOscWaveShape(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + valueConverters.intToOscWaveShape(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects the oscillator's wave shape.\n";
@@ -104,19 +101,18 @@ String KnobWidget_OscShape::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-void KnobWidget_0to127::drawValue(const double& currentValue) noexcept
+void KnobWidget_0to127::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 128)
+	if (currentValue > -1 && currentValue < 128)
 		setValueDisplayLabelText(String(currentValue));
 	else setValueDisplayLabelText("ERR");
 }
 
-String KnobWidget_OscGlide::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_OscGlide::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the oscillator's glide (portamento) rate.\n";
@@ -127,11 +123,11 @@ String KnobWidget_OscGlide::createTooltipString(const double& currentValue) cons
 
 //==============================================================================
 
-String KnobWidget_SubOscLvl::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_SubOscLvl::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the level of the sub-oscillator,\n";
@@ -144,19 +140,18 @@ String KnobWidget_SubOscLvl::createTooltipString(const double& currentValue) con
 
 //==============================================================================
 
-void KnobWidget_OscSlop::drawValue(const double& currentValue) noexcept
+void KnobWidget_OscSlop::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 6)
+	if (currentValue > -1 && currentValue < 6)
 		setValueDisplayLabelText(String(currentValue));
 	else setValueDisplayLabelText("ERR");
 }
 
-String KnobWidget_OscSlop::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_OscSlop::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Introduces subtle amounts of random oscillator\n";
@@ -168,11 +163,11 @@ String KnobWidget_OscSlop::createTooltipString(const double& currentValue) const
 
 //==============================================================================
 
-String KnobWidget_OscMix::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_OscMix::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Controls the level balance between oscillators 1 & 2.\n";
@@ -185,19 +180,18 @@ String KnobWidget_OscMix::createTooltipString(const double& currentValue) const 
 
 //==============================================================================
 
-void KnobWidget_BendRange::drawValue(const double& currentValue) noexcept
+void KnobWidget_BendRange::drawValue(const int& currentValue) noexcept
 {
-	auto currentVal{ roundToInt(currentValue) };
-	if (currentVal > -1 && currentValue < 13)
-		setValueDisplayLabelText(valueConverters.intToBendRange(currentVal, false));
+	if (currentValue > -1 && currentValue < 13)
+		setValueDisplayLabelText(valueConverters.intToBendRange(currentValue, false));
 	else setValueDisplayLabelText("ERR");
 }
 
-String KnobWidget_BendRange::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_BendRange::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToBendRange(roundToInt(currentValue), true) + "\n";
+		tooltip += "Current Value: " + valueConverters.intToBendRange(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the maximum amount (in semitones) by which pitch wheel\n";
@@ -209,11 +203,11 @@ String KnobWidget_BendRange::createTooltipString(const double& currentValue) con
 
 //==============================================================================
 
-String KnobWidget_NoiseLevel::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_NoiseLevel::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the level of white noise\n";
@@ -225,11 +219,11 @@ String KnobWidget_NoiseLevel::createTooltipString(const double& currentValue) co
 
 //==============================================================================
 
-String KnobWidget_ExtInLevel::createTooltipString(const double& currentValue) const noexcept
+String KnobWidget_ExtInLevel::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(roundToInt(currentValue)) + "\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the level of external audio\n";
@@ -238,6 +232,29 @@ String KnobWidget_ExtInLevel::createTooltipString(const double& currentValue) co
 		tooltip += "this controls the level of feedback\n";
 		tooltip += "from the left audio output.\n";
 		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+void KnobWidget_LPFfreq::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 165)
+		setValueDisplayLabelText(valueConverters.intToLPFfreq(currentValue, false));
+	else setValueDisplayLabelText("ERR");
+}
+
+String KnobWidget_LPFfreq::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToLPFfreq(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the base cutoff frequency for the\n";
+		tooltip += "low-pass filter (in semitone steps).\n";
+		tooltip += "Range: 0 (C 0) to 164 (G# 13).\n";
 	}
 	return tooltip;
 }

@@ -91,6 +91,35 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..164 to a LPF cutoff frequency String
+	String intToLPFfreq(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 165)
+		{
+			String pitchString{ "" };
+			auto noteNum{ i % 12 };
+			auto octaveNum{ i / 12 };
+			switch (noteNum)
+			{
+			case 0 :  pitchString = "C "  + (String)octaveNum; break;
+			case 1 :  pitchString = "C# " + (String)octaveNum; break;
+			case 2 :  pitchString = "D "  + (String)octaveNum; break;
+			case 3 :  pitchString = "D# " + (String)octaveNum; break;
+			case 4 :  pitchString = "E "  + (String)octaveNum; break;
+			case 5 :  pitchString = "F "  + (String)octaveNum; break;
+			case 6 :  pitchString = "F# " + (String)octaveNum; break;
+			case 7 :  pitchString = "G "  + (String)octaveNum; break;
+			case 8 :  pitchString = "G# " + (String)octaveNum; break;
+			case 9 :  pitchString = "A "  + (String)octaveNum; break;
+			case 10:  pitchString = "A# " + (String)octaveNum; break;
+			case 11:  pitchString = "B "  + (String)octaveNum; break;
+			default: break;
+			}
+			return verbose ? (String)i + " (Pitch Freq. " + pitchString + ")" : pitchString;
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

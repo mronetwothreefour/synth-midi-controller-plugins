@@ -23,9 +23,9 @@ public:
 	void mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) override
 	{
 		ignoreUnused(e);
-		float delta{ wheel.deltaY };
-		double currentValue{ getValue() };
-		double interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
+		auto delta{ wheel.deltaY };
+		auto currentValue{ getValue() };
+		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 		if (delta != 0.0f)
 		{
 			setValue(currentValue + interval);
@@ -170,7 +170,7 @@ public:
 		g.setColour(Color::black);
 		g.fillEllipse(5, 5, 30, 30);
 
-		Font controlLabel{ "Arial", "Black", 13.0f };
+		Font controlLabel{ "Arial", "Black", 12.0f };
 		g.setFont(controlLabel);
 		Rectangle<int> controlLabelArea{ 0, 35, 40, 15 };
 		g.drawText(name, controlLabelArea, Justification::centred);
@@ -182,18 +182,18 @@ public:
 		valueDisplayLabel.setBounds(5, 5, 30, 30);
 	}
 
+	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
 	void sliderValueChanged(Slider* sliderThatChanged)
 	{
 		if (sliderThatChanged == &slider)
 		{
-			auto currentValue{ slider.getValue() };
+			auto currentValue{ getSliderValue() };
 			drawValue(currentValue);
 			auto tooltip{ createTooltipString(currentValue) };
 			setSliderTooltip(tooltip);
 		}
 	}
-
-	auto getSliderValue() { return slider.getValue(); }
 
 	void setValueDisplayLabelText(String text) { valueDisplayLabel.setText(text, dontSendNotification); }
 	
@@ -210,13 +210,13 @@ private:
 	//==============================================================================
 	// Override this function to define how the current
 	// parameter value is drawn on the knob
-	virtual void drawValue(const double& currentValue) noexcept = 0;
+	virtual void drawValue(const int& currentValue) noexcept = 0;
 
 	// Override this function to create a String with 
 	// a verbose version of the current parameter value
 	// along with a parameter description, which will
 	// be used as the slider's tooltip
-	virtual String createTooltipString(const double& currentValue) const noexcept = 0;
+	virtual String createTooltipString(const int& currentValue) const noexcept = 0;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget)
@@ -251,12 +251,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscPitch)
@@ -291,12 +291,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_FineTune)
@@ -337,12 +337,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscShape)
@@ -374,12 +374,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// KnobWidgets that derive from this class must 
 	// override this function to create a tooltip String 
 	// appropriate to the type of parameter they control
-	String createTooltipString(const double& /*currentValue*/) const noexcept override { return ""; };
+	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_0to127)
@@ -413,7 +413,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscGlide)
@@ -447,7 +447,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_SubOscLvl)
@@ -480,12 +480,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscSlop)
@@ -518,7 +518,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscMix)
@@ -552,12 +552,12 @@ private:
 
 	//==============================================================================
 	// Draws the current parameter value on the knob
-	void drawValue(const double& currentValue) noexcept override;
+	void drawValue(const int& currentValue) noexcept override;
 
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_BendRange)
@@ -590,7 +590,7 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_NoiseLevel)
@@ -623,9 +623,48 @@ private:
 	// Draws a pop-up window with a parameter description and 
 	// a verbose version of the current parameter value when 
 	// the mouse hovers over the slider
-	String createTooltipString(const double& currentValue) const noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ExtInLevel)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the LPF cuttoff frequency parameter.
+// Displays its value in a range from 0 to 164
+class KnobWidget_LPFfreq : public KnobWidget
+{
+public:
+	KnobWidget_LPFfreq
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LPFfreq()
+	{}
+
+private:
+	ValueConverters valueConverters;
+
+	//==============================================================================
+	// Draws the current parameter value on the knob
+	void drawValue(const int& currentValue) noexcept override;
+
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFfreq)
 };
 
