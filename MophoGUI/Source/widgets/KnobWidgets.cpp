@@ -303,3 +303,19 @@ String KnobWidget_LPFenvAmt::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_VelAmount::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which MIDI note velocity\n";
+		tooltip += "modulates the amplitude of the envelope.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}

@@ -770,3 +770,38 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFenvAmt)
 };
+
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope velocity amount parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_VelAmount : public KnobWidget_0to127
+{
+public:
+	KnobWidget_VelAmount
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("VEL"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_VelAmount() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_VelAmount)
+};
+

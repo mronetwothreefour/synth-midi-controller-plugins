@@ -75,6 +75,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_LPFenvAmt.reset(new KnobWidget_LPFenvAmt(publicParams, privateParams, mophoLaF.get()));
     addAndMakeVisible(knob_LPFenvAmt.get());
 
+    knob_LPFvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::lpfVelAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFvelAmt.get());
+
     //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
@@ -90,6 +93,7 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_LPFvelAmt = nullptr;
     knob_LPFenvAmt = nullptr;
     knob_LPFreso = nullptr;
     knob_LPFfreq = nullptr;
@@ -175,6 +179,7 @@ void PluginEditor::resized()
     auto ctrl_row1_y{ 30  };
     auto ctrl_row2_y{ 90  };
     auto ctrl_row3_y{ 170 };
+    auto ctrl_row4_y{ 227 };
 
     auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
     auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
@@ -200,4 +205,5 @@ void PluginEditor::resized()
     knob_LPFfreq->setBounds         (ctrl_col1_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
     knob_LPFreso->setBounds         (ctrl_col2_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
     knob_LPFenvAmt->setBounds       (ctrl_col3_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
+    knob_LPFvelAmt->setBounds       (ctrl_col1_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
 }
