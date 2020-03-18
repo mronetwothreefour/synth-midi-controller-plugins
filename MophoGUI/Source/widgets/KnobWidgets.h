@@ -1107,3 +1107,36 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_VCAenvAmt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the program volume parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_PgmVolume : public KnobWidget_0to127
+{
+public:
+	KnobWidget_PgmVolume
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("VOLUME"), apvts, privateParameters, ID::pgmVolume, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_PgmVolume() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PgmVolume)
+};
+

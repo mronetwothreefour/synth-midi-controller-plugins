@@ -472,3 +472,16 @@ String KnobWidget_VCAenvAmt::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+String KnobWidget_PgmVolume::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the overall gain of the current program.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}

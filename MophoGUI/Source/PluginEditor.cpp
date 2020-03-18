@@ -111,6 +111,27 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_VCAvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::vcaVelAmount, mophoLaF.get()));
     addAndMakeVisible(knob_VCAvelAmt.get());
 
+    knob_PgmVolume.reset(new KnobWidget_PgmVolume(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_PgmVolume.get());
+
+    knob_VCAenvDelay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::vcaDelay, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvDelay.get());
+
+    knob_VCAenvAttack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::vcaAttack, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvAttack.get());
+
+    knob_VCAenvDecay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::vcaDecay, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvDecay.get());
+
+    knob_VCAenvSustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::vcaSustain, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvSustain.get());
+
+    knob_VCAenvRelease.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::vcaRelease, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvRelease.get());
+
+    //==============================================================================
+    // Initialize envelope 3 controls
+
     //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
@@ -126,6 +147,12 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_VCAenvRelease = nullptr;
+    knob_VCAenvSustain = nullptr;
+    knob_VCAenvDecay = nullptr;
+    knob_VCAenvAttack = nullptr;
+    knob_VCAenvDelay = nullptr;
+    knob_PgmVolume = nullptr;
     knob_VCAvelAmt = nullptr;
     knob_VCAenvAmt = nullptr;
     knob_VCAlevel = nullptr;
@@ -228,6 +255,7 @@ void PluginEditor::resized()
     auto ctrl_row3_y{ 170 };
     auto ctrl_row4_y{ 227 };
     auto ctrl_row5_y{ 308 };
+    auto ctrl_row6_y{ 365 };
 
     auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
     auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
@@ -265,4 +293,10 @@ void PluginEditor::resized()
     knob_VCAlevel->setBounds        (ctrl_col1_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
     knob_VCAenvAmt->setBounds       (ctrl_col2_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
     knob_VCAvelAmt->setBounds       (ctrl_col3_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
+    knob_PgmVolume->setBounds       (ctrl_col2_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvDelay->setBounds     (ctrl_col4_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvAttack->setBounds    (ctrl_col5_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvDecay->setBounds     (ctrl_col6_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvSustain->setBounds   (ctrl_col7_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvRelease->setBounds   (ctrl_col8_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
 }

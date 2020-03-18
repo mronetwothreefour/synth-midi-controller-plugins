@@ -522,7 +522,7 @@ public:
 		/*37 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaDecay.toString(),			"VCA Envelope Decay", 0, 127, 0));
 		/*38 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaSustain.toString(),			"VCA Envelope Sustain", 0, 127, 64));
 		/*39 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaRelease.toString(),			"VCA Envelope Release", 0, 127, 64));
-		/*40 */layout.add(std::make_unique<AudioParameterInt>		(ID::voiceVolume.toString(),		"Voice Volume", 0, 127, 120));
+		/*40 */layout.add(std::make_unique<AudioParameterInt>		(ID::pgmVolume.toString(),			"Program Volume", 0, 127, 120));
 
 		/*41 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lfo1Freq.toString(),			"LFO 1 Frequency", lfoFreq, 80));
 		/*42 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lfo1Shape.toString(),			"LFO 1 Wave Shape", lfoShape, 1));

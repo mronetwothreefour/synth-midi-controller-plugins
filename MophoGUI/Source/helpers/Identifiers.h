@@ -43,15 +43,15 @@ namespace ID
 	const Identifier lpfSustain			{ "lpfSustain"		};
 	const Identifier lpfRelease			{ "lpfRelease"		};
 
-	const Identifier vcaLevel		{ "vcaLevel"	};
-	const Identifier vcaEnvAmount			{ "vcaEnvAmount"		};
+	const Identifier vcaLevel			{ "vcaLevel"		};
+	const Identifier vcaEnvAmount		{ "vcaEnvAmount"	};
 	const Identifier vcaVelAmount		{ "vcaVelAmount"	};
 	const Identifier vcaDelay			{ "vcaDelay"		};
 	const Identifier vcaAttack			{ "vcaAttack"		};
 	const Identifier vcaDecay			{ "vcaDecay"		};
 	const Identifier vcaSustain			{ "vcaSustain"		};
 	const Identifier vcaRelease			{ "vcaRelease"		};
-	const Identifier voiceVolume		{ "voiceVolume"		};
+	const Identifier pgmVolume			{ "pgmVolume"		};
 
 	const Identifier lfo1Freq			{ "lfo1Freq"		};
 	const Identifier lfo1Shape			{ "lfo1Shape"		};

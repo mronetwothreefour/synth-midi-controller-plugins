@@ -57,6 +57,12 @@ private:
     std::unique_ptr<KnobWidget_VCAlevel>    knob_VCAlevel;
     std::unique_ptr<KnobWidget_VCAenvAmt>   knob_VCAenvAmt;
     std::unique_ptr<KnobWidget_VelAmount>   knob_VCAvelAmt;
+    std::unique_ptr<KnobWidget_PgmVolume>   knob_PgmVolume;
+    std::unique_ptr<KnobWidget_EnvDelay>    knob_VCAenvDelay;
+    std::unique_ptr<KnobWidget_EnvAttack>   knob_VCAenvAttack;
+    std::unique_ptr<KnobWidget_EnvDecay>    knob_VCAenvDecay;
+    std::unique_ptr<KnobWidget_EnvSustain>  knob_VCAenvSustain;
+    std::unique_ptr<KnobWidget_EnvRelease>  knob_VCAenvRelease;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
