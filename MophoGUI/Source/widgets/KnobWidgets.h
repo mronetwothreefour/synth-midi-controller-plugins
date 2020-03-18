@@ -871,3 +871,173 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFfmAmt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope delay length parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_EnvDelay : public KnobWidget_0to127
+{
+public:
+	KnobWidget_EnvDelay
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("DELAY"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_EnvDelay() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvDelay)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope attack length parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_EnvAttack : public KnobWidget_0to127
+{
+public:
+	KnobWidget_EnvAttack
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("ATTACK"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_EnvAttack() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvAttack)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope decay length parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_EnvDecay : public KnobWidget_0to127
+{
+public:
+	KnobWidget_EnvDecay
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("DECAY"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_EnvDecay() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvDecay)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope sustain level parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_EnvSustain : public KnobWidget_0to127
+{
+public:
+	KnobWidget_EnvSustain
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("SUST"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_EnvSustain() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvSustain)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling any of the envelope release length parameters.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_EnvRelease : public KnobWidget_0to127
+{
+public:
+	KnobWidget_EnvRelease
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("REL"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_EnvRelease() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvRelease)
+};
+

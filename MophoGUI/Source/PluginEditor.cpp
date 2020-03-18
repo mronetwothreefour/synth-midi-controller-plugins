@@ -84,6 +84,21 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_LPFfmAmt.reset(new KnobWidget_LPFfmAmt(publicParams, privateParams, mophoLaF.get()));
     addAndMakeVisible(knob_LPFfmAmt.get());
 
+    knob_LPFenvDelay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::lpfDelay, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFenvDelay.get());
+
+    knob_LPFenvAttack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::lpfAttack, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFenvAttack.get());
+
+    knob_LPFenvDecay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::lpfDecay, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFenvDecay.get());
+
+    knob_LPFenvSustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::lpfSustain, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFenvSustain.get());
+
+    knob_LPFenvRelease.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::lpfRelease, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFenvRelease.get());
+
     //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
@@ -99,6 +114,11 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_LPFenvRelease = nullptr;
+    knob_LPFenvSustain = nullptr;
+    knob_LPFenvDecay = nullptr;
+    knob_LPFenvAttack = nullptr;
+    knob_LPFenvDelay = nullptr;
     knob_LPFfmAmt = nullptr;
     knob_LPFvelAmt = nullptr;
     knob_LPFenvAmt = nullptr;
@@ -216,4 +236,9 @@ void PluginEditor::resized()
     knob_LPFenvAmt->setBounds       (ctrl_col1_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
     knob_LPFvelAmt->setBounds       (ctrl_col2_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
     knob_LPFfmAmt->setBounds        (ctrl_col3_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvDelay->setBounds     (ctrl_col4_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvAttack->setBounds    (ctrl_col5_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvDecay->setBounds     (ctrl_col6_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvSustain->setBounds   (ctrl_col7_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvRelease->setBounds   (ctrl_col8_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
 }

@@ -338,6 +338,8 @@ String KnobWidget_LPFkeyAmt::createTooltipString(const int& currentValue) const 
 	return tooltip;
 }
 
+//==============================================================================
+
 String KnobWidget_LPFfmAmt::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
@@ -348,6 +350,91 @@ String KnobWidget_LPFfmAmt::createTooltipString(const int& currentValue) const n
 		tooltip += "Sets the degree to which oscillator 1 modulates\n";
 		tooltip += "the low-pass filter's cutoff frequency. This is\n";
 		tooltip += "useful for generating bell-like FM sounds.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_EnvDelay::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the length of the envelope's delay segment\n";
+		tooltip += "(the amount of time that passes after the envelope\n";
+		tooltip += "is triggered before its attack segment begins).\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_EnvAttack::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the length of the envelope's attack segment\n";
+		tooltip += "(the amount of time it takes for the envelope's\n";
+		tooltip += "level to rise from minimum to maximum).\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_EnvDecay::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the length of the envelope's decay segment\n";
+		tooltip += "(the amount of time it takes for the envelope's\n";
+		tooltip += "level to fall from maximum to the sustain level).\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_EnvSustain::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the envelope's sustain level (once the\n";
+		tooltip += "decay segment completes, the envelope\n";
+		tooltip += "stays at this level until it is released).\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_EnvRelease::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the length of the envelope's release segment\n";
+		tooltip += "(the amount of time it takes to fall from the sustain\n";
+		tooltip += "level to minimum once the envelope is released).\n";
 		tooltip += "Range: 0 to 127.";
 	}
 	return tooltip;

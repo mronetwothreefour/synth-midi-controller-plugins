@@ -45,6 +45,11 @@ private:
     std::unique_ptr<KnobWidget_LPFenvAmt>   knob_LPFenvAmt;
     std::unique_ptr<KnobWidget_VelAmount>   knob_LPFvelAmt;
     std::unique_ptr<KnobWidget_LPFfmAmt>    knob_LPFfmAmt;
+    std::unique_ptr<KnobWidget_EnvDelay>    knob_LPFenvDelay;
+    std::unique_ptr<KnobWidget_EnvAttack>   knob_LPFenvAttack;
+    std::unique_ptr<KnobWidget_EnvDecay>    knob_LPFenvDecay;
+    std::unique_ptr<KnobWidget_EnvSustain>  knob_LPFenvSustain;
+    std::unique_ptr<KnobWidget_EnvRelease>  knob_LPFenvRelease;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
