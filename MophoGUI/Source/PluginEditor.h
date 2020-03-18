@@ -29,16 +29,19 @@ private:
     std::unique_ptr<KnobWidget_OscShape>    knob_Osc1Shape;
     std::unique_ptr<KnobWidget_OscGlide>    knob_Osc1Glide;
     std::unique_ptr<KnobWidget_SubOscLvl>   knob_SubOsc1Lvl;
+
     std::unique_ptr<KnobWidget_OscPitch>    knob_Osc2Pitch;
     std::unique_ptr<KnobWidget_FineTune>    knob_Osc2FineTune;
     std::unique_ptr<KnobWidget_OscShape>    knob_Osc2Shape;
     std::unique_ptr<KnobWidget_OscGlide>    knob_Osc2Glide;
     std::unique_ptr<KnobWidget_SubOscLvl>   knob_SubOsc2Lvl;
+
     std::unique_ptr<KnobWidget_OscSlop>     knob_OscSlop;
     std::unique_ptr<KnobWidget_OscMix>      knob_OscMix;
     std::unique_ptr<KnobWidget_BendRange>   knob_BendRange;
     std::unique_ptr<KnobWidget_NoiseLevel>  knob_NoiseLevel;
     std::unique_ptr<KnobWidget_ExtInLevel>  knob_ExtInLevel;
+
     std::unique_ptr<KnobWidget_LPFfreq>     knob_LPFfreq;
     std::unique_ptr<KnobWidget_LPFreso>     knob_LPFreso;
     std::unique_ptr<KnobWidget_LPFkeyAmt>   knob_LPFkeyAmt;
@@ -50,6 +53,10 @@ private:
     std::unique_ptr<KnobWidget_EnvDecay>    knob_LPFenvDecay;
     std::unique_ptr<KnobWidget_EnvSustain>  knob_LPFenvSustain;
     std::unique_ptr<KnobWidget_EnvRelease>  knob_LPFenvRelease;
+
+    std::unique_ptr<KnobWidget_VCAlevel>    knob_VCAlevel;
+    std::unique_ptr<KnobWidget_VCAenvAmt>   knob_VCAenvAmt;
+    std::unique_ptr<KnobWidget_VelAmount>   knob_VCAvelAmt;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

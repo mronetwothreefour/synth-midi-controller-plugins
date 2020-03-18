@@ -310,7 +310,7 @@ String KnobWidget_VelAmount::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the degree to which MIDI note velocity\n";
@@ -326,7 +326,7 @@ String KnobWidget_LPFkeyAmt::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the amount by which keyboard (MIDI) notes\n";
@@ -344,7 +344,7 @@ String KnobWidget_LPFfmAmt::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the degree to which oscillator 1 modulates\n";
@@ -361,7 +361,7 @@ String KnobWidget_EnvDelay::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the length of the envelope's delay segment\n";
@@ -378,7 +378,7 @@ String KnobWidget_EnvAttack::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the length of the envelope's attack segment\n";
@@ -395,7 +395,7 @@ String KnobWidget_EnvDecay::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the length of the envelope's decay segment\n";
@@ -412,7 +412,7 @@ String KnobWidget_EnvSustain::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the envelope's sustain level (once the\n";
@@ -429,12 +429,45 @@ String KnobWidget_EnvRelease::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the length of the envelope's release segment\n";
 		tooltip += "(the amount of time it takes to fall from the sustain\n";
 		tooltip += "level to minimum once the envelope is released).\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_VCAlevel::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the voltage-controlled amplifier's baseline level. Turn this\n";
+		tooltip += "up for droning sounds or when processing external audio input.\n";
+		tooltip += "When this level is set to 127, the VCA envelope has no effect.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_VCAenvAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which the VCA envelope\n";
+		tooltip += "modulates the voltage-controlled ampifier's level.\n";
 		tooltip += "Range: 0 to 127.";
 	}
 	return tooltip;

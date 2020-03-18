@@ -43,8 +43,8 @@ namespace ID
 	const Identifier lpfSustain			{ "lpfSustain"		};
 	const Identifier lpfRelease			{ "lpfRelease"		};
 
-	const Identifier vcaInitLevel		{ "vcaInitLevel"	};
-	const Identifier vcaAmount			{ "vcaAmount"		};
+	const Identifier vcaLevel		{ "vcaLevel"	};
+	const Identifier vcaEnvAmount			{ "vcaEnvAmount"		};
 	const Identifier vcaVelAmount		{ "vcaVelAmount"	};
 	const Identifier vcaDelay			{ "vcaDelay"		};
 	const Identifier vcaAttack			{ "vcaAttack"		};

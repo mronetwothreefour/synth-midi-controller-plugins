@@ -100,6 +100,18 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     addAndMakeVisible(knob_LPFenvRelease.get());
 
     //==============================================================================
+    // Initialize voltage-controlled amplifier controls
+
+    knob_VCAlevel.reset(new KnobWidget_VCAlevel(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAlevel.get());
+
+    knob_VCAenvAmt.reset(new KnobWidget_VCAenvAmt(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAenvAmt.get());
+
+    knob_VCAvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::vcaVelAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_VCAvelAmt.get());
+
+    //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
@@ -113,6 +125,10 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    knob_VCAvelAmt = nullptr;
+    knob_VCAenvAmt = nullptr;
+    knob_VCAlevel = nullptr;
 
     knob_LPFenvRelease = nullptr;
     knob_LPFenvSustain = nullptr;
@@ -165,6 +181,9 @@ void PluginEditor::paint(Graphics& g)
     Rectangle<int> lpfSectionLabelArea{ 15, 154, 30, 15 };
     g.drawText("LPF", lpfSectionLabelArea, Justification::centredLeft);
 
+    Rectangle<int> vcaSectionLabelArea{ 15, 292, 30, 15 };
+    g.drawText("VCA", vcaSectionLabelArea, Justification::centredLeft);
+
     // Draw oscillator number labels
     //==============================================================================
     Font oscNumLabel{ "Arial", "Black", 24.0f };
@@ -208,6 +227,7 @@ void PluginEditor::resized()
     auto ctrl_row2_y{ 90  };
     auto ctrl_row3_y{ 170 };
     auto ctrl_row4_y{ 227 };
+    auto ctrl_row5_y{ 308 };
 
     auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
     auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
@@ -241,4 +261,8 @@ void PluginEditor::resized()
     knob_LPFenvDecay->setBounds     (ctrl_col6_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
     knob_LPFenvSustain->setBounds   (ctrl_col7_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
     knob_LPFenvRelease->setBounds   (ctrl_col8_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+
+    knob_VCAlevel->setBounds        (ctrl_col1_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvAmt->setBounds       (ctrl_col2_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
+    knob_VCAvelAmt->setBounds       (ctrl_col3_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
 }

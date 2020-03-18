@@ -504,9 +504,9 @@ public:
 		/*20 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfFreq.toString(),			"LPF Cutoff Frequency", lpfFreq, 148));
 		/*21 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfReso.toString(),			"LPF Resonance", 0, 127, 0));
 		/*22 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfKeyAmount.toString(),		"LPF Keyboard Amount", 0, 127, 0));
-		/*23 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfFMamount.toString(),			"LPF FM (By Oscillator 1)", 0, 127, 0));
+		/*23 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfFMamount.toString(),		"LPF FM (By Oscillator 1)", 0, 127, 0));
 		/*24 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfType.toString(),			"LPF Type", lpfType, 148));
-		/*25 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfEnvAmount.toString(),			"LPF Envelope Amount", modAmount, 127));
+		/*25 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfEnvAmount.toString(),		"LPF Envelope Amount", modAmount, 127));
 		/*26 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfVelAmount.toString(),		"LPF Envelope Velocity Amount", 0, 127, 0));
 		/*27 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfDelay.toString(),			"LPF Envelope Delay", 0, 127, 0));
 		/*28 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfAttack.toString(),			"LPF Envelope Attack", 0, 127, 0));
@@ -514,8 +514,8 @@ public:
 		/*30 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfSustain.toString(),			"LPF Envelope Sustain", 0, 127, 0));
 		/*31 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfRelease.toString(),			"LPF Envelope Release", 0, 127, 0));
 
-		/*32 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaInitLevel.toString(),		"VCA Initial Level", 0, 127, 0));
-		/*33 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaAmount.toString(),			"VCA Envelope Amount", 0, 127, 127));
+		/*32 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaLevel.toString(),			"VCA Baseline Level", 0, 127, 0));
+		/*33 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaEnvAmount.toString(),		"VCA Envelope Amount", 0, 127, 127));
 		/*34 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaVelAmount.toString(),		"VCA Envelope Velocity Amount", 0, 127, 0));
 		/*35 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaDelay.toString(),			"VCA Envelope Delay", 0, 127, 0));
 		/*36 */layout.add(std::make_unique<AudioParameterInt>		(ID::vcaAttack.toString(),			"VCA Envelope Attack", 0, 127, 0));

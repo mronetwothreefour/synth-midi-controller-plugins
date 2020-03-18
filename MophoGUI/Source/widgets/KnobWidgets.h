@@ -1041,3 +1041,69 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_EnvRelease)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the VCA level parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_VCAlevel : public KnobWidget_0to127
+{
+public:
+	KnobWidget_VCAlevel
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("LEVEL"), apvts, privateParameters, ID::vcaLevel, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_VCAlevel() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_VCAlevel)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the VCA envelope amount parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_VCAenvAmt : public KnobWidget_0to127
+{
+public:
+	KnobWidget_VCAenvAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("ENV"), apvts, privateParameters, ID::vcaEnvAmount, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_VCAenvAmt() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_VCAenvAmt)
+};
+
