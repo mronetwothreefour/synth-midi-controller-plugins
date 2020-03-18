@@ -41,8 +41,10 @@ private:
     std::unique_ptr<KnobWidget_ExtInLevel>  knob_ExtInLevel;
     std::unique_ptr<KnobWidget_LPFfreq>     knob_LPFfreq;
     std::unique_ptr<KnobWidget_LPFreso>     knob_LPFreso;
+    std::unique_ptr<KnobWidget_LPFkeyAmt>   knob_LPFkeyAmt;
     std::unique_ptr<KnobWidget_LPFenvAmt>   knob_LPFenvAmt;
     std::unique_ptr<KnobWidget_VelAmount>   knob_LPFvelAmt;
+    std::unique_ptr<KnobWidget_LPFfmAmt>    knob_LPFfmAmt;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

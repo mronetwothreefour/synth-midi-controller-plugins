@@ -805,3 +805,69 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_VelAmount)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the LPF keyboard amount parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_LPFkeyAmt : public KnobWidget_0to127
+{
+public:
+	KnobWidget_LPFkeyAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("KEY"), apvts, privateParameters, ID::lpfKeyAmount, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LPFkeyAmt() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFkeyAmt)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the LPF FM amount parameter.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_LPFfmAmt : public KnobWidget_0to127
+{
+public:
+	KnobWidget_LPFfmAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("FM"), apvts, privateParameters, ID::lpfFMamount, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LPFfmAmt() {}
+
+private:
+
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LPFfmAmt)
+};
+

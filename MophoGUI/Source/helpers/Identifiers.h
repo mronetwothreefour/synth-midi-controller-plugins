@@ -33,7 +33,7 @@ namespace ID
 	const Identifier lpfFreq			{ "lpfFreq"			};
 	const Identifier lpfReso			{ "lpfReso"			};
 	const Identifier lpfKeyAmount		{ "lpfKeyAmount"	};
-	const Identifier lpfOsc1FM			{ "lpfOsc1FM"		};
+	const Identifier lpfFMamount			{ "lpfFMamount"		};
 	const Identifier lpfType			{ "lpfType"			};
 	const Identifier lpfEnvAmount		{ "lpfEnvAmount"	};
 	const Identifier lpfVelAmount		{ "lpfVelAmount"	};

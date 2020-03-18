@@ -319,3 +319,36 @@ String KnobWidget_VelAmount::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_LPFkeyAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the amount by which keyboard (MIDI) notes\n";
+		tooltip += "will shift the low-pass filter's cutoff frequency.\n";
+		tooltip += "Range: 0 to 127. At 64, cutoff is shifted by one\n";
+		tooltip += "semitone for each note. At 32, cutoff is shifted\n";
+		tooltip += "by one half-semitone for each note.";
+	}
+	return tooltip;
+}
+
+String KnobWidget_LPFfmAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which oscillator 1 modulates\n";
+		tooltip += "the low-pass filter's cutoff frequency. This is\n";
+		tooltip += "useful for generating bell-like FM sounds.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}

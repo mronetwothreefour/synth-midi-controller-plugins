@@ -504,7 +504,7 @@ public:
 		/*20 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfFreq.toString(),			"LPF Cutoff Frequency", lpfFreq, 148));
 		/*21 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfReso.toString(),			"LPF Resonance", 0, 127, 0));
 		/*22 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfKeyAmount.toString(),		"LPF Keyboard Amount", 0, 127, 0));
-		/*23 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfOsc1FM.toString(),			"LPF FM (By Oscillator 1)", 0, 127, 0));
+		/*23 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfFMamount.toString(),			"LPF FM (By Oscillator 1)", 0, 127, 0));
 		/*24 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfType.toString(),			"LPF Type", lpfType, 148));
 		/*25 */layout.add(std::make_unique<AudioParameterChoice>	(ID::lpfEnvAmount.toString(),			"LPF Envelope Amount", modAmount, 127));
 		/*26 */layout.add(std::make_unique<AudioParameterInt>		(ID::lpfVelAmount.toString(),		"LPF Envelope Velocity Amount", 0, 127, 0));

@@ -72,11 +72,17 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     knob_LPFreso.reset(new KnobWidget_LPFreso(publicParams, privateParams, mophoLaF.get()));
     addAndMakeVisible(knob_LPFreso.get());
 
+    knob_LPFkeyAmt.reset(new KnobWidget_LPFkeyAmt(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFkeyAmt.get());
+
     knob_LPFenvAmt.reset(new KnobWidget_LPFenvAmt(publicParams, privateParams, mophoLaF.get()));
     addAndMakeVisible(knob_LPFenvAmt.get());
 
     knob_LPFvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::lpfVelAmount, mophoLaF.get()));
     addAndMakeVisible(knob_LPFvelAmt.get());
+
+    knob_LPFfmAmt.reset(new KnobWidget_LPFfmAmt(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_LPFfmAmt.get());
 
     //==============================================================================
 
@@ -93,8 +99,10 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    knob_LPFfmAmt = nullptr;
     knob_LPFvelAmt = nullptr;
     knob_LPFenvAmt = nullptr;
+    knob_LPFkeyAmt = nullptr;
     knob_LPFreso = nullptr;
     knob_LPFfreq = nullptr;
 
@@ -204,6 +212,8 @@ void PluginEditor::resized()
 
     knob_LPFfreq->setBounds         (ctrl_col1_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
     knob_LPFreso->setBounds         (ctrl_col2_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvAmt->setBounds       (ctrl_col3_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
-    knob_LPFvelAmt->setBounds       (ctrl_col1_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFkeyAmt->setBounds       (ctrl_col3_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvAmt->setBounds       (ctrl_col1_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFvelAmt->setBounds       (ctrl_col2_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFfmAmt->setBounds        (ctrl_col3_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
 }
