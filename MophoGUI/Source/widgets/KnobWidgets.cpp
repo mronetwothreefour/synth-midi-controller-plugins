@@ -473,6 +473,8 @@ String KnobWidget_VCAenvAmt::createTooltipString(const int& currentValue) const 
 	return tooltip;
 }
 
+//==============================================================================
+
 String KnobWidget_PgmVolume::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
@@ -486,6 +488,8 @@ String KnobWidget_PgmVolume::createTooltipString(const int& currentValue) const 
 	return tooltip;
 }
 
+//==============================================================================
+
 String KnobWidget_Env3Amt::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
@@ -496,6 +500,23 @@ String KnobWidget_Env3Amt::createTooltipString(const int& currentValue) const no
 		tooltip += "Sets the degree to which Envelope 3\n";
 		tooltip += "modulates the destination parameter.\n";
 		tooltip += "Negative values invert the envelope.\n";
+		tooltip += "Range: -127 to +127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_ModAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToPlusMinus127(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which the source\n";
+		tooltip += "modulates the destination parameter.\n";
+		tooltip += "Negative values invert the modulation.\n";
 		tooltip += "Range: -127 to +127.";
 	}
 	return tooltip;

@@ -154,6 +154,21 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     addAndMakeVisible(knob_Env3Release.get());
 
     //==============================================================================
+    // Initialize modulator controls
+
+    knob_Mod1Amt.reset(new KnobWidget_ModAmt(publicParams, privateParams, ID::mod1Amount, mophoLaF.get()));
+    addAndMakeVisible(knob_Mod1Amt.get());
+
+    knob_Mod2Amt.reset(new KnobWidget_ModAmt(publicParams, privateParams, ID::mod2Amount, mophoLaF.get()));
+    addAndMakeVisible(knob_Mod2Amt.get());
+
+    knob_Mod3Amt.reset(new KnobWidget_ModAmt(publicParams, privateParams, ID::mod3Amount, mophoLaF.get()));
+    addAndMakeVisible(knob_Mod3Amt.get());
+
+    knob_Mod4Amt.reset(new KnobWidget_ModAmt(publicParams, privateParams, ID::mod4Amount, mophoLaF.get()));
+    addAndMakeVisible(knob_Mod4Amt.get());
+
+    //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
@@ -167,6 +182,11 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    knob_Mod4Amt = nullptr;
+    knob_Mod3Amt = nullptr;
+    knob_Mod2Amt = nullptr;
+    knob_Mod1Amt = nullptr;
 
     knob_Env3Release = nullptr;
     knob_Env3Sustain = nullptr;
@@ -243,6 +263,9 @@ void PluginEditor::paint(Graphics& g)
     Rectangle<int> env3SectionLabelArea{ 15, 470, 105, 15 };
     g.drawText("ENVELOPE 3", env3SectionLabelArea, Justification::centredLeft);
 
+    Rectangle<int> modSectionLabelArea{ 404, 154, 105, 15 };
+    g.drawText("MODULATORS", modSectionLabelArea, Justification::centredLeft);
+
     // Draw oscillator number labels
     //==============================================================================
     Font oscNumLabel{ "Arial", "Black", 24.0f };
@@ -270,6 +293,9 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
+    auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
+    auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
+
     auto knob_w{ 40 };
     auto knobGap{ 5 };
     auto knob_col1_x{ 28 };
@@ -290,9 +316,6 @@ void PluginEditor::resized()
     auto knob_row6_y{ 405 };
     auto knob_row7_y{ 511 };
     auto knob_row8_y{ 563 };
-
-    auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
-    auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
 
     knob_Osc1Pitch->setBounds       (knob_col1_x, knob_row1_y, knobWidget_w, knobWidget_h);
     knob_Osc1FineTune->setBounds    (knob_col2_x, knob_row1_y, knobWidget_w, knobWidget_h);
@@ -341,4 +364,15 @@ void PluginEditor::resized()
     knob_Env3Decay->setBounds       (knob_col6_x, knob_row8_y, knobWidget_w, knobWidget_h);
     knob_Env3Sustain->setBounds     (knob_col7_x, knob_row8_y, knobWidget_w, knobWidget_h);
     knob_Env3Release->setBounds     (knob_col8_x, knob_row8_y, knobWidget_w, knobWidget_h);
+
+    auto modKnobs_x{ 560 };
+    auto modKnob1_y{ 186 };
+    auto modKnob2_y{ modKnob1_y + 78 };
+    auto modKnob3_y{ modKnob2_y + 78 };
+    auto modKnob4_y{ modKnob3_y + 78 };
+
+    knob_Mod1Amt->setBounds(modKnobs_x, modKnob1_y, knobWidget_w, knobWidget_h);
+    knob_Mod2Amt->setBounds(modKnobs_x, modKnob2_y, knobWidget_w, knobWidget_h);
+    knob_Mod3Amt->setBounds(modKnobs_x, modKnob3_y, knobWidget_w, knobWidget_h);
+    knob_Mod4Amt->setBounds(modKnobs_x, modKnob4_y, knobWidget_w, knobWidget_h);
 }

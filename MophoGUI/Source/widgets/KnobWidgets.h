@@ -1172,3 +1172,36 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Env3Amt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the amount parameter for any of the modulators.
+// Derives from KnobWidget_PlusMinus127 and overrides createTooltipString()
+class KnobWidget_ModAmt : public KnobWidget_PlusMinus127
+{
+public:
+	KnobWidget_ModAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_ModAmt() {}
+
+private:
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ModAmt)
+};
+

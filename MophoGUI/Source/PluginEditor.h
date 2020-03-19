@@ -72,6 +72,11 @@ private:
     std::unique_ptr<KnobWidget_EnvSustain>  knob_Env3Sustain;
     std::unique_ptr<KnobWidget_EnvRelease>  knob_Env3Release;
 
+    std::unique_ptr<KnobWidget_ModAmt>      knob_Mod1Amt;
+    std::unique_ptr<KnobWidget_ModAmt>      knob_Mod2Amt;
+    std::unique_ptr<KnobWidget_ModAmt>      knob_Mod3Amt;
+    std::unique_ptr<KnobWidget_ModAmt>      knob_Mod4Amt;
+
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     TooltipWindow tooltipWindow;
