@@ -169,6 +169,24 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     addAndMakeVisible(knob_Mod4Amt.get());
 
     //==============================================================================
+    // Initialize MIDI modulator controls
+
+    knob_ModWheelAmt.reset(new KnobWidget_MidiModAmt(publicParams, privateParams, ID::modWheelAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_ModWheelAmt.get());
+
+    knob_AftertouchAmt.reset(new KnobWidget_MidiModAmt(publicParams, privateParams, ID::aftertouchAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_AftertouchAmt.get());
+
+    knob_BreathAmt.reset(new KnobWidget_MidiModAmt(publicParams, privateParams, ID::breathAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_BreathAmt.get());
+
+    knob_VelocityAmt.reset(new KnobWidget_MidiModAmt(publicParams, privateParams, ID::velocityAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_VelocityAmt.get());
+
+    knob_PedalAmt.reset(new KnobWidget_MidiModAmt(publicParams, privateParams, ID::footPedalAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_PedalAmt.get());
+
+    //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
@@ -182,6 +200,12 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    knob_PedalAmt = nullptr;
+    knob_VelocityAmt = nullptr;
+    knob_BreathAmt = nullptr;
+    knob_AftertouchAmt = nullptr;
+    knob_ModWheelAmt = nullptr;
 
     knob_Mod4Amt = nullptr;
     knob_Mod3Amt = nullptr;
@@ -265,6 +289,9 @@ void PluginEditor::paint(Graphics& g)
 
     Rectangle<int> modSectionLabelArea{ 404, 154, 105, 15 };
     g.drawText("MODULATORS", modSectionLabelArea, Justification::centredLeft);
+
+    Rectangle<int> midiModSectionLabelArea{ 617, 154, 150, 15 };
+    g.drawText("MIDI CONTROLLERS", midiModSectionLabelArea, Justification::centredLeft);
 
     // Draw oscillator number labels
     //==============================================================================
@@ -375,4 +402,17 @@ void PluginEditor::resized()
     knob_Mod2Amt->setBounds(modKnobs_x, modKnob2_y, knobWidget_w, knobWidget_h);
     knob_Mod3Amt->setBounds(modKnobs_x, modKnob3_y, knobWidget_w, knobWidget_h);
     knob_Mod4Amt->setBounds(modKnobs_x, modKnob4_y, knobWidget_w, knobWidget_h);
+
+    auto midiModKnobs_x{ 756 };
+    auto midiModKnob1_y{ 176 };
+    auto midiModKnob2_y{ midiModKnob1_y + 62 };
+    auto midiModKnob3_y{ midiModKnob2_y + 62 };
+    auto midiModKnob4_y{ midiModKnob3_y + 62 };
+    auto midiModKnob5_y{ midiModKnob4_y + 62 };
+
+    knob_ModWheelAmt->  setBounds(midiModKnobs_x, midiModKnob1_y, knobWidget_w, knobWidget_h);
+    knob_AftertouchAmt->setBounds(midiModKnobs_x, midiModKnob2_y, knobWidget_w, knobWidget_h);
+    knob_BreathAmt->    setBounds(midiModKnobs_x, midiModKnob3_y, knobWidget_w, knobWidget_h);
+    knob_VelocityAmt->  setBounds(midiModKnobs_x, midiModKnob4_y, knobWidget_w, knobWidget_h);
+    knob_PedalAmt->     setBounds(midiModKnobs_x, midiModKnob5_y, knobWidget_w, knobWidget_h);
 }

@@ -77,6 +77,12 @@ private:
     std::unique_ptr<KnobWidget_ModAmt>      knob_Mod3Amt;
     std::unique_ptr<KnobWidget_ModAmt>      knob_Mod4Amt;
 
+    std::unique_ptr<KnobWidget_MidiModAmt>  knob_ModWheelAmt;
+    std::unique_ptr<KnobWidget_MidiModAmt>  knob_AftertouchAmt;
+    std::unique_ptr<KnobWidget_MidiModAmt>  knob_BreathAmt;
+    std::unique_ptr<KnobWidget_MidiModAmt>  knob_VelocityAmt;
+    std::unique_ptr<KnobWidget_MidiModAmt>  knob_PedalAmt;
+
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     TooltipWindow tooltipWindow;

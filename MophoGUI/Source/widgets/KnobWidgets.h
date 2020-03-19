@@ -1205,3 +1205,36 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ModAmt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the amount parameter for any of the MIDI controllers.
+// Derives from KnobWidget_PlusMinus127 and overrides createTooltipString()
+class KnobWidget_MidiModAmt : public KnobWidget_PlusMinus127
+{
+public:
+	KnobWidget_MidiModAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_MidiModAmt() {}
+
+private:
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_MidiModAmt)
+};
+
