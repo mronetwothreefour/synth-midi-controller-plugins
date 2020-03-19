@@ -485,3 +485,18 @@ String KnobWidget_PgmVolume::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+String KnobWidget_Env3Amt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToPlusMinus127(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which Envelope 3\n";
+		tooltip += "modulates the destination parameter.\n";
+		tooltip += "Negative values invert the envelope.\n";
+		tooltip += "Range: -127 to +127.";
+	}
+	return tooltip;
+}

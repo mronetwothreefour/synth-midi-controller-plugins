@@ -132,6 +132,27 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     //==============================================================================
     // Initialize envelope 3 controls
 
+    knob_Env3Amt.reset(new KnobWidget_Env3Amt(publicParams, privateParams, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Amt.get());
+
+    knob_Env3VelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::env3VelAmount, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3VelAmt.get());
+
+    knob_Env3Delay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::env3Delay, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Delay.get());
+
+    knob_Env3Attack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::env3Attack, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Attack.get());
+
+    knob_Env3Decay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::env3Decay, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Decay.get());
+
+    knob_Env3Sustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::env3Sustain, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Sustain.get());
+
+    knob_Env3Release.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::env3Release, mophoLaF.get()));
+    addAndMakeVisible(knob_Env3Release.get());
+
     //==============================================================================
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
@@ -146,6 +167,14 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    knob_Env3Release = nullptr;
+    knob_Env3Sustain = nullptr;
+    knob_Env3Decay = nullptr;
+    knob_Env3Attack = nullptr;
+    knob_VCAenvDelay = nullptr;
+    knob_Env3VelAmt = nullptr;
+    knob_Env3Amt = nullptr;
 
     knob_VCAenvRelease = nullptr;
     knob_VCAenvSustain = nullptr;
@@ -208,8 +237,11 @@ void PluginEditor::paint(Graphics& g)
     Rectangle<int> lpfSectionLabelArea{ 15, 154, 30, 15 };
     g.drawText("LPF", lpfSectionLabelArea, Justification::centredLeft);
 
-    Rectangle<int> vcaSectionLabelArea{ 15, 292, 30, 15 };
+    Rectangle<int> vcaSectionLabelArea{ 15, 312, 30, 15 };
     g.drawText("VCA", vcaSectionLabelArea, Justification::centredLeft);
+
+    Rectangle<int> env3SectionLabelArea{ 15, 470, 105, 15 };
+    g.drawText("ENVELOPE 3", env3SectionLabelArea, Justification::centredLeft);
 
     // Draw oscillator number labels
     //==============================================================================
@@ -238,65 +270,75 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
-    auto ctrl_w{ 40 };
-    auto ctrlGap{ 5 };
-    auto ctrl_col1_x{ 28 };
-    auto ctrl_col2_x{ ctrl_col1_x + ctrl_w + ctrlGap };
-    auto ctrl_col3_x{ ctrl_col2_x + ctrl_w + ctrlGap };
-    auto ctrl_col4_x{ ctrl_col3_x + ctrl_w + ctrlGap };
-    auto ctrl_col5_x{ ctrl_col4_x + ctrl_w + ctrlGap };
-    auto ctrl_col6_x{ ctrl_col5_x + ctrl_w + ctrlGap };
-    auto ctrl_col7_x{ ctrl_col6_x + ctrl_w + ctrlGap };
-    auto ctrl_col8_x{ ctrl_col7_x + ctrl_w + ctrlGap };
-    auto ctrl_col9_x{ ctrl_col8_x + ctrl_w + ctrlGap };
+    auto knob_w{ 40 };
+    auto knobGap{ 5 };
+    auto knob_col1_x{ 28 };
+    auto knob_col2_x{ knob_col1_x + knob_w + knobGap };
+    auto knob_col3_x{ knob_col2_x + knob_w + knobGap };
+    auto knob_col4_x{ knob_col3_x + knob_w + knobGap };
+    auto knob_col5_x{ knob_col4_x + knob_w + knobGap };
+    auto knob_col6_x{ knob_col5_x + knob_w + knobGap };
+    auto knob_col7_x{ knob_col6_x + knob_w + knobGap };
+    auto knob_col8_x{ knob_col7_x + knob_w + knobGap };
+    auto knob_col9_x{ knob_col8_x + knob_w + knobGap };
 
-    auto ctrl_row1_y{ 30  };
-    auto ctrl_row2_y{ 90  };
-    auto ctrl_row3_y{ 170 };
-    auto ctrl_row4_y{ 227 };
-    auto ctrl_row5_y{ 308 };
-    auto ctrl_row6_y{ 365 };
+    auto knob_row1_y{ 30  };
+    auto knob_row2_y{ 90  };
+    auto knob_row3_y{ 195 };
+    auto knob_row4_y{ 247 };
+    auto knob_row5_y{ 353 };
+    auto knob_row6_y{ 405 };
+    auto knob_row7_y{ 511 };
+    auto knob_row8_y{ 563 };
 
     auto knobWidget_w{ knob_Osc1Pitch->getWidth() };
     auto knobWidget_h{ knob_Osc1Pitch->getHeight() };
 
-    knob_Osc1Pitch->setBounds       (ctrl_col1_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_Osc1FineTune->setBounds    (ctrl_col2_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_Osc1Shape->setBounds       (ctrl_col3_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_Osc1Glide->setBounds       (ctrl_col4_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_SubOsc1Lvl->setBounds      (ctrl_col5_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
+    knob_Osc1Pitch->setBounds       (knob_col1_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_Osc1FineTune->setBounds    (knob_col2_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_Osc1Shape->setBounds       (knob_col3_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_Osc1Glide->setBounds       (knob_col4_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_SubOsc1Lvl->setBounds      (knob_col5_x, knob_row1_y, knobWidget_w, knobWidget_h);
 
-    knob_Osc2Pitch->setBounds       (ctrl_col1_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
-    knob_Osc2FineTune->setBounds    (ctrl_col2_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
-    knob_Osc2Shape->setBounds       (ctrl_col3_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
-    knob_Osc2Glide->setBounds       (ctrl_col4_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
-    knob_SubOsc2Lvl->setBounds      (ctrl_col5_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
+    knob_Osc2Pitch->setBounds       (knob_col1_x, knob_row2_y, knobWidget_w, knobWidget_h);
+    knob_Osc2FineTune->setBounds    (knob_col2_x, knob_row2_y, knobWidget_w, knobWidget_h);
+    knob_Osc2Shape->setBounds       (knob_col3_x, knob_row2_y, knobWidget_w, knobWidget_h);
+    knob_Osc2Glide->setBounds       (knob_col4_x, knob_row2_y, knobWidget_w, knobWidget_h);
+    knob_SubOsc2Lvl->setBounds      (knob_col5_x, knob_row2_y, knobWidget_w, knobWidget_h);
 
-    knob_OscSlop->setBounds         (ctrl_col7_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_OscMix->setBounds          (ctrl_col8_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_BendRange->setBounds       (ctrl_col9_x, ctrl_row1_y, knobWidget_w, knobWidget_h);
-    knob_NoiseLevel->setBounds      (ctrl_col7_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
-    knob_ExtInLevel->setBounds      (ctrl_col8_x, ctrl_row2_y, knobWidget_w, knobWidget_h);
+    knob_OscSlop->setBounds         (knob_col7_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_OscMix->setBounds          (knob_col8_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_BendRange->setBounds       (knob_col9_x, knob_row1_y, knobWidget_w, knobWidget_h);
+    knob_NoiseLevel->setBounds      (knob_col7_x, knob_row2_y, knobWidget_w, knobWidget_h);
+    knob_ExtInLevel->setBounds      (knob_col8_x, knob_row2_y, knobWidget_w, knobWidget_h);
 
-    knob_LPFfreq->setBounds         (ctrl_col1_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
-    knob_LPFreso->setBounds         (ctrl_col2_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
-    knob_LPFkeyAmt->setBounds       (ctrl_col3_x, ctrl_row3_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvAmt->setBounds       (ctrl_col1_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFvelAmt->setBounds       (ctrl_col2_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFfmAmt->setBounds        (ctrl_col3_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvDelay->setBounds     (ctrl_col4_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvAttack->setBounds    (ctrl_col5_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvDecay->setBounds     (ctrl_col6_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvSustain->setBounds   (ctrl_col7_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
-    knob_LPFenvRelease->setBounds   (ctrl_col8_x, ctrl_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFfreq->setBounds         (knob_col1_x, knob_row3_y, knobWidget_w, knobWidget_h);
+    knob_LPFreso->setBounds         (knob_col2_x, knob_row3_y, knobWidget_w, knobWidget_h);
+    knob_LPFkeyAmt->setBounds       (knob_col3_x, knob_row3_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvAmt->setBounds       (knob_col1_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFvelAmt->setBounds       (knob_col2_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFfmAmt->setBounds        (knob_col3_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvDelay->setBounds     (knob_col4_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvAttack->setBounds    (knob_col5_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvDecay->setBounds     (knob_col6_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvSustain->setBounds   (knob_col7_x, knob_row4_y, knobWidget_w, knobWidget_h);
+    knob_LPFenvRelease->setBounds   (knob_col8_x, knob_row4_y, knobWidget_w, knobWidget_h);
 
-    knob_VCAlevel->setBounds        (ctrl_col1_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvAmt->setBounds       (ctrl_col2_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
-    knob_VCAvelAmt->setBounds       (ctrl_col3_x, ctrl_row5_y, knobWidget_w, knobWidget_h);
-    knob_PgmVolume->setBounds       (ctrl_col2_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvDelay->setBounds     (ctrl_col4_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvAttack->setBounds    (ctrl_col5_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvDecay->setBounds     (ctrl_col6_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvSustain->setBounds   (ctrl_col7_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
-    knob_VCAenvRelease->setBounds   (ctrl_col8_x, ctrl_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAlevel->setBounds        (knob_col1_x, knob_row5_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvAmt->setBounds       (knob_col2_x, knob_row5_y, knobWidget_w, knobWidget_h);
+    knob_VCAvelAmt->setBounds       (knob_col3_x, knob_row5_y, knobWidget_w, knobWidget_h);
+    knob_PgmVolume->setBounds       (knob_col2_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvDelay->setBounds     (knob_col4_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvAttack->setBounds    (knob_col5_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvDecay->setBounds     (knob_col6_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvSustain->setBounds   (knob_col7_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    knob_VCAenvRelease->setBounds   (knob_col8_x, knob_row6_y, knobWidget_w, knobWidget_h);
+
+    knob_Env3Amt->setBounds         (knob_col2_x, knob_row7_y, knobWidget_w, knobWidget_h);
+    knob_Env3VelAmt->setBounds      (knob_col3_x, knob_row7_y, knobWidget_w, knobWidget_h);
+    knob_Env3Delay->setBounds       (knob_col4_x, knob_row8_y, knobWidget_w, knobWidget_h);
+    knob_Env3Attack->setBounds      (knob_col5_x, knob_row8_y, knobWidget_w, knobWidget_h);
+    knob_Env3Decay->setBounds       (knob_col6_x, knob_row8_y, knobWidget_w, knobWidget_h);
+    knob_Env3Sustain->setBounds     (knob_col7_x, knob_row8_y, knobWidget_w, knobWidget_h);
+    knob_Env3Release->setBounds     (knob_col8_x, knob_row8_y, knobWidget_w, knobWidget_h);
 }

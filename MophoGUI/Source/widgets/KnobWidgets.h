@@ -1140,3 +1140,35 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PgmVolume)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the Envelope 3 amount parameter.
+// Derives from KnobWidget_PlusMinus127 and overrides createTooltipString()
+class KnobWidget_Env3Amt : public KnobWidget_PlusMinus127
+{
+public:
+	KnobWidget_Env3Amt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, ID::env3Amount, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_Env3Amt() {}
+
+private:
+	//==============================================================================
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the slider
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Env3Amt)
+};
+
