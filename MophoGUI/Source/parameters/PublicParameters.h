@@ -24,7 +24,7 @@ public:
 
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
-			pitchNames.add(valueConverters.intToPitchName(i, true));
+			pitchNames.add(valueConverters.intToOscPitchString(i, true));
 
 		StringArray fineTune;
 		for (auto i = 0; i != 101; ++i)

@@ -10,13 +10,8 @@ struct ValueConverters
 	ValueConverters() {}
 	~ValueConverters() {}
 
-	// Converts MIDI note numbers 0..120 to a pitch name + octave
-	// number String (e.g. note number 27 converts to "D# 2").
-	// If verbose is true, the note number is appended to the String
-	String intToPitchName(const int& i, bool verbose) const
+	String intToPitchName(const int& i) const
 	{
-		if (i > -1 && i < 121)
-		{
 			auto pitchNum{ i % 12 };
 			auto octaveNum{ i / 12 };
 			String pitchName;
@@ -36,6 +31,17 @@ struct ValueConverters
 			case 11: pitchName = "B "  + (String)octaveNum; break;
 			default: pitchName = "invalid"; break;
 			}
+			return pitchName;
+	}
+
+	// Converts MIDI note numbers 0..120 to a pitch name + octave
+	// number String (e.g. note number 27 converts to "D# 2").
+	// If verbose is true, the note number is appended to the String
+	String intToOscPitchString(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 121)
+		{
+			String pitchName{ intToPitchName(i) };
 			if (verbose)
 				pitchName += " (MIDI Note " + String(i) + ")";
 			return pitchName;
@@ -96,25 +102,7 @@ struct ValueConverters
 	{
 		if (i > -1 && i < 165)
 		{
-			String pitchString{ "" };
-			auto noteNum{ i % 12 };
-			auto octaveNum{ i / 12 };
-			switch (noteNum)
-			{
-			case 0 :  pitchString = "C "  + (String)octaveNum; break;
-			case 1 :  pitchString = "C# " + (String)octaveNum; break;
-			case 2 :  pitchString = "D "  + (String)octaveNum; break;
-			case 3 :  pitchString = "D# " + (String)octaveNum; break;
-			case 4 :  pitchString = "E "  + (String)octaveNum; break;
-			case 5 :  pitchString = "F "  + (String)octaveNum; break;
-			case 6 :  pitchString = "F# " + (String)octaveNum; break;
-			case 7 :  pitchString = "G "  + (String)octaveNum; break;
-			case 8 :  pitchString = "G# " + (String)octaveNum; break;
-			case 9 :  pitchString = "A "  + (String)octaveNum; break;
-			case 10:  pitchString = "A# " + (String)octaveNum; break;
-			case 11:  pitchString = "B "  + (String)octaveNum; break;
-			default: break;
-			}
+			String pitchString{ intToPitchName(i) };
 			return verbose ? (String)i + " (Pitch Freq. " + pitchString + ")" : pitchString;
 		}
 		else return "range error";

@@ -23,7 +23,7 @@ void KnobWidget_PlusMinus127::drawValue(const int& currentValue) noexcept
 void KnobWidget_OscPitch::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 121)
-		setValueDisplayLabelText(valueConverters.intToPitchName(currentValue, false));
+		setValueDisplayLabelText(valueConverters.intToOscPitchString(currentValue, false));
 	else setValueDisplayLabelText("ERR");
 }
 
@@ -31,7 +31,7 @@ String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToPitchName(currentValue, true) + "\n" ;
+		tooltip += "Current Value: " + valueConverters.intToOscPitchString(currentValue, true) + "\n" ;
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the oscillator's base pitch in semitone steps.\n";
