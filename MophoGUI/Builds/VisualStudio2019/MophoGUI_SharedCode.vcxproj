@@ -1974,6 +1974,7 @@
     <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h" />
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
     <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h" />

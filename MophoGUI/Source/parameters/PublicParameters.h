@@ -442,13 +442,13 @@ public:
 		/*2  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Shape.toString(),			"Oscillator 1 Wave Shape", oscShape, 1));
 		/*3  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1Glide.toString(),			"Oscillator 1 Glide Rate", 0, 127, 0));
 		/*4  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1KeyTrack.toString(),		"Oscillator 1 Keyboard Track On/Off", offOn, 1));
-		/*5  */layout.add(std::make_unique<AudioParameterInt>		(ID::subOsc1Level.toString(),		"Sub-Oscillator 1 Level", 0, 127, 0));
+		/*5  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1SubLevel.toString(),		"Sub-Oscillator 1 Level", 0, 127, 0));
 		/*6  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Pitch.toString(),			"Oscillator 2 Pitch", pitchNames, 24));
 		/*7  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Fine.toString(),			"Oscillator 2 Fine Tune", fineTune, 51));
 		/*8  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2Shape.toString(),			"Oscillator 2 Wave Shape", oscShape, 1));
 		/*9  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc2Glide.toString(),			"Oscillator 2 Glide Rate", 0, 127, 0));
 		/*10 */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc2KeyTrack.toString(),		"Oscillator 2 Keyboard Track On/Off", offOn, 1));
-		/*11 */layout.add(std::make_unique<AudioParameterInt>		(ID::subOsc2Level.toString(),		"Sub-Oscillator 2 Level", 0, 127, 0));
+		/*11 */layout.add(std::make_unique<AudioParameterInt>		(ID::osc2SubLevel.toString(),		"Sub-Oscillator 2 Level", 0, 127, 0));
 
 		/*12 */layout.add(std::make_unique<AudioParameterChoice>	(ID::oscSync.toString(),			"Sync Osc. 2 to Osc. 1 On/Off", offOn, 0));
 		/*13 */layout.add(std::make_unique<AudioParameterChoice>	(ID::glideMode.toString(),			"Glide Mode", glideMode, 0));

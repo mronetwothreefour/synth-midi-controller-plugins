@@ -134,7 +134,7 @@ String KnobWidget_OscGlide::createTooltipString(const int& currentValue) const n
 
 //==============================================================================
 
-String KnobWidget_SubOscLvl::createTooltipString(const int& currentValue) const noexcept
+String KnobWidget_OscSubLvl::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())

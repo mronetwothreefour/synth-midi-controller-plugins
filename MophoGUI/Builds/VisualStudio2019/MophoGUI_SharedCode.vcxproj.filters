@@ -442,6 +442,9 @@
     <Filter Include="MophoGUI\Source\widgets">
       <UniqueIdentifier>{aef0d1b2-2081-488b-9fa8-7c764b70eea8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\editorSections">
+      <UniqueIdentifier>{d7478785-051b-4a27-9313-066f9bf44ab3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4547,6 +4550,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\ValueConverters.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h">
+      <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

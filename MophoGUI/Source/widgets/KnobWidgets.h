@@ -460,10 +460,10 @@ private:
 //==============================================================================
 // A knob widget appropriate for controlling a sub-oscillator's level.
 // Derives from KnobWidget_0to127 and overrides createTooltipString()
-class KnobWidget_SubOscLvl : public KnobWidget_0to127
+class KnobWidget_OscSubLvl : public KnobWidget_0to127
 {
 public:
-	KnobWidget_SubOscLvl
+	KnobWidget_OscSubLvl
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
@@ -477,7 +477,7 @@ public:
 		setSliderTooltip(tooltip);
 	}
 
-	~KnobWidget_SubOscLvl() {}
+	~KnobWidget_OscSubLvl() {}
 
 private:
 
@@ -488,7 +488,7 @@ private:
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_SubOscLvl)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_OscSubLvl)
 };
 
 //==============================================================================
