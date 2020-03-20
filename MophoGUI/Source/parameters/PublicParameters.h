@@ -72,58 +72,17 @@ public:
 		lpfType.add("2-Pole");
 		lpfType.add("4-Pole");
 
-		// 0 = "-127"; 127 = "0"; 254 = "+127"
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
 		{
 			modAmount.add(valueConverters.intToPlusMinus127(i));
 		}
 
-		// 0..89 = "Unsynced 0..89"
-		// 90..150 = "Pitched Frequency C0..C5"
-		// 151..156 = Sync to step sequencer
 		StringArray lfoFreq;
-		for (auto i = 0; i != 151; ++i)
+		for (auto i = 0; i != 167; ++i)
 		{
-			if (i < 90) lfoFreq.add("Un-synced " + (String)i);
-			if (i > 89)
-			{
-				auto noteNum{ (i - 90) % 12 };
-				auto octaveNum{ (i - 90) / 12 };
-				switch (noteNum)
-				{
-				case 0 : lfoFreq.add((String)i + " (Pitch Freq. C"  + (String)octaveNum + ")"); break;
-				case 1 : lfoFreq.add((String)i + " (Pitch Freq. C#" + (String)octaveNum + ")"); break;
-				case 2 : lfoFreq.add((String)i + " (Pitch Freq. D"  + (String)octaveNum + ")"); break;
-				case 3 : lfoFreq.add((String)i + " (Pitch Freq. D#" + (String)octaveNum + ")"); break;
-				case 4 : lfoFreq.add((String)i + " (Pitch Freq. E"  + (String)octaveNum + ")"); break;
-				case 5 : lfoFreq.add((String)i + " (Pitch Freq. F"  + (String)octaveNum + ")"); break;
-				case 6 : lfoFreq.add((String)i + " (Pitch Freq. F#" + (String)octaveNum + ")"); break;
-				case 7 : lfoFreq.add((String)i + " (Pitch Freq. G"  + (String)octaveNum + ")"); break;
-				case 8 : lfoFreq.add((String)i + " (Pitch Freq. G#" + (String)octaveNum + ")"); break;
-				case 9 : lfoFreq.add((String)i + " (Pitch Freq. A"  + (String)octaveNum + ")"); break;
-				case 10: lfoFreq.add((String)i + " (Pitch Freq. A#" + (String)octaveNum + ")"); break;
-				case 11: lfoFreq.add((String)i + " (Pitch Freq. B"  + (String)octaveNum + ")"); break;
-				default: break;
-				}
-			}
+			lfoFreq.add(valueConverters.intToLFOfreq(i, true));
 		}
-		lfoFreq.add("Sync: 32 Steps");
-		lfoFreq.add("Sync: 16 Steps");
-		lfoFreq.add("Sync: 8 Steps");
-		lfoFreq.add("Sync: 6 Steps");
-		lfoFreq.add("Sync: 4 Steps");
-		lfoFreq.add("Sync: 3 Steps");
-		lfoFreq.add("Sync: 2 Steps");
-		lfoFreq.add("Sync: 1-1/2 Steps");
-		lfoFreq.add("Sync: 1 Step");
-		lfoFreq.add("Sync: 2/3 Step");
-		lfoFreq.add("Sync: 1/2 Step");
-		lfoFreq.add("Sync: 1/3 Step");
-		lfoFreq.add("Sync: 1/4 Step");
-		lfoFreq.add("Sync: 1/6 Step");
-		lfoFreq.add("Sync: 1/8 Step");
-		lfoFreq.add("Sync: 1/16 Step");
 
 
 		// 0 = "Triangle"; 1 = "Reverse Sawtooth";
