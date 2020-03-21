@@ -4554,6 +4554,12 @@
     <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\EnvelopeWidget.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\editorSections\LPFSection.h">
+      <Filter>MophoGUI\Source\editorSections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

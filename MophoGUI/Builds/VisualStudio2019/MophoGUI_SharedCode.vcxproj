@@ -1974,6 +1974,7 @@
     <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\editorSections\LPFSection.h" />
     <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h" />
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
@@ -2716,6 +2717,7 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
+    <ClInclude Include="..\..\Source\widgets\EnvelopeWidget.h" />
     <ClInclude Include="..\..\Source\widgets\KnobWidgets.h" />
   </ItemGroup>
   <ItemGroup>

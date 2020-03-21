@@ -12,41 +12,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionOsc.get());
 
-    ////==============================================================================
-    //// Initialize low-pass filter controls
-
-    //knob_LPFfreq.reset(new KnobWidget_LPFfreq(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFfreq.get());
-
-    //knob_LPFreso.reset(new KnobWidget_LPFreso(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFreso.get());
-
-    //knob_LPFkeyAmt.reset(new KnobWidget_LPFkeyAmt(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFkeyAmt.get());
-
-    //knob_LPFenvAmt.reset(new KnobWidget_LPFenvAmt(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvAmt.get());
-
-    //knob_LPFvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::lpfVelAmount, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFvelAmt.get());
-
-    //knob_LPFfmAmt.reset(new KnobWidget_LPFfmAmt(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFfmAmt.get());
-
-    //knob_LPFenvDelay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::lpfDelay, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvDelay.get());
-
-    //knob_LPFenvAttack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::lpfAttack, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvAttack.get());
-
-    //knob_LPFenvDecay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::lpfDecay, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvDecay.get());
-
-    //knob_LPFenvSustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::lpfSustain, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvSustain.get());
-
-    //knob_LPFenvRelease.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::lpfRelease, mophoLaF.get()));
-    //addAndMakeVisible(knob_LPFenvRelease.get());
+    sectionLPF.reset(new LPFSection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionLPF.get());
 
     ////==============================================================================
     //// Initialize voltage-controlled amplifier controls
@@ -63,21 +30,6 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     //knob_PgmVolume.reset(new KnobWidget_PgmVolume(publicParams, privateParams, mophoLaF.get()));
     //addAndMakeVisible(knob_PgmVolume.get());
 
-    //knob_VCAenvDelay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::vcaDelay, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvDelay.get());
-
-    //knob_VCAenvAttack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::vcaAttack, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvAttack.get());
-
-    //knob_VCAenvDecay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::vcaDecay, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvDecay.get());
-
-    //knob_VCAenvSustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::vcaSustain, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvSustain.get());
-
-    //knob_VCAenvRelease.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::vcaRelease, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvRelease.get());
-
     ////==============================================================================
     //// Initialize envelope 3 controls
 
@@ -86,21 +38,6 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 
     //knob_Env3VelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::env3VelAmount, mophoLaF.get()));
     //addAndMakeVisible(knob_Env3VelAmt.get());
-
-    //knob_Env3Delay.reset(new KnobWidget_EnvDelay(publicParams, privateParams, ID::env3Delay, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Delay.get());
-
-    //knob_Env3Attack.reset(new KnobWidget_EnvAttack(publicParams, privateParams, ID::env3Attack, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Attack.get());
-
-    //knob_Env3Decay.reset(new KnobWidget_EnvDecay(publicParams, privateParams, ID::env3Decay, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Decay.get());
-
-    //knob_Env3Sustain.reset(new KnobWidget_EnvSustain(publicParams, privateParams, ID::env3Sustain, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Sustain.get());
-
-    //knob_Env3Release.reset(new KnobWidget_EnvRelease(publicParams, privateParams, ID::env3Release, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Release.get());
 
     ////==============================================================================
     //// Initialize modulator controls
@@ -151,6 +88,7 @@ PluginEditor::~PluginEditor()
     tooltipWindow.setLookAndFeel(nullptr);
 
     sectionOsc = nullptr;
+    sectionLPF = nullptr;
 
     //knob_PedalAmt = nullptr;
     //knob_VelocityAmt = nullptr;
@@ -163,29 +101,14 @@ PluginEditor::~PluginEditor()
     //knob_Mod2Amt = nullptr;
     //knob_Mod1Amt = nullptr;
 
-    //knob_Env3Release = nullptr;
-    //knob_Env3Sustain = nullptr;
-    //knob_Env3Decay = nullptr;
-    //knob_Env3Attack = nullptr;
-    //knob_VCAenvDelay = nullptr;
     //knob_Env3VelAmt = nullptr;
     //knob_Env3Amt = nullptr;
 
-    //knob_VCAenvRelease = nullptr;
-    //knob_VCAenvSustain = nullptr;
-    //knob_VCAenvDecay = nullptr;
-    //knob_VCAenvAttack = nullptr;
-    //knob_VCAenvDelay = nullptr;
     //knob_PgmVolume = nullptr;
     //knob_VCAvelAmt = nullptr;
     //knob_VCAenvAmt = nullptr;
     //knob_VCAlevel = nullptr;
 
-    //knob_LPFenvRelease = nullptr;
-    //knob_LPFenvSustain = nullptr;
-    //knob_LPFenvDecay = nullptr;
-    //knob_LPFenvAttack = nullptr;
-    //knob_LPFenvDelay = nullptr;
     //knob_LPFfmAmt = nullptr;
     //knob_LPFvelAmt = nullptr;
     //knob_LPFenvAmt = nullptr;
@@ -209,9 +132,6 @@ void PluginEditor::paint(Graphics& g)
     Font sectionLabel{ "Arial", "Black", 18.0f };
     g.setFont(sectionLabel);
 
-    Rectangle<int> lpfSectionLabelArea{ 15, 154, 30, 15 };
-    g.drawText("LPF", lpfSectionLabelArea, Justification::centredLeft);
-
     Rectangle<int> vcaSectionLabelArea{ 15, 312, 30, 15 };
     g.drawText("VCA", vcaSectionLabelArea, Justification::centredLeft);
 
@@ -228,6 +148,7 @@ void PluginEditor::paint(Graphics& g)
 void PluginEditor::resized()
 {
     sectionOsc->setBounds(15, 15, sectionOsc->getWidth(), sectionOsc->getHeight());
+    sectionLPF->setBounds(15, 154, sectionLPF->getWidth(), sectionLPF->getHeight());
 
     //auto knobWidget_w{ 40 };
     //auto knobWidget_h{ 50 };
@@ -251,35 +172,13 @@ void PluginEditor::resized()
     //auto knob_row7_y{ 511 };
     //auto knob_row8_y{ 563 };
 
-    //knob_LPFfreq->setBounds         (knob_col1_x, knob_row3_y, knobWidget_w, knobWidget_h);
-    //knob_LPFreso->setBounds         (knob_col2_x, knob_row3_y, knobWidget_w, knobWidget_h);
-    //knob_LPFkeyAmt->setBounds       (knob_col3_x, knob_row3_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvAmt->setBounds       (knob_col1_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFvelAmt->setBounds       (knob_col2_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFfmAmt->setBounds        (knob_col3_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvDelay->setBounds     (knob_col4_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvAttack->setBounds    (knob_col5_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvDecay->setBounds     (knob_col6_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvSustain->setBounds   (knob_col7_x, knob_row4_y, knobWidget_w, knobWidget_h);
-    //knob_LPFenvRelease->setBounds   (knob_col8_x, knob_row4_y, knobWidget_w, knobWidget_h);
-
     //knob_VCAlevel->setBounds        (knob_col1_x, knob_row5_y, knobWidget_w, knobWidget_h);
     //knob_VCAenvAmt->setBounds       (knob_col2_x, knob_row5_y, knobWidget_w, knobWidget_h);
     //knob_VCAvelAmt->setBounds       (knob_col3_x, knob_row5_y, knobWidget_w, knobWidget_h);
     //knob_PgmVolume->setBounds       (knob_col2_x, knob_row6_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvDelay->setBounds     (knob_col4_x, knob_row6_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvAttack->setBounds    (knob_col5_x, knob_row6_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvDecay->setBounds     (knob_col6_x, knob_row6_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvSustain->setBounds   (knob_col7_x, knob_row6_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvRelease->setBounds   (knob_col8_x, knob_row6_y, knobWidget_w, knobWidget_h);
 
     //knob_Env3Amt->setBounds         (knob_col2_x, knob_row7_y, knobWidget_w, knobWidget_h);
     //knob_Env3VelAmt->setBounds      (knob_col3_x, knob_row7_y, knobWidget_w, knobWidget_h);
-    //knob_Env3Delay->setBounds       (knob_col4_x, knob_row8_y, knobWidget_w, knobWidget_h);
-    //knob_Env3Attack->setBounds      (knob_col5_x, knob_row8_y, knobWidget_w, knobWidget_h);
-    //knob_Env3Decay->setBounds       (knob_col6_x, knob_row8_y, knobWidget_w, knobWidget_h);
-    //knob_Env3Sustain->setBounds     (knob_col7_x, knob_row8_y, knobWidget_w, knobWidget_h);
-    //knob_Env3Release->setBounds     (knob_col8_x, knob_row8_y, knobWidget_w, knobWidget_h);
 
     //auto modKnobs_x{ 560 };
     //auto modKnob1_y{ 186 };

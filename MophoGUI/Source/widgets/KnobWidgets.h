@@ -48,7 +48,7 @@ public:
 	{
 		auto knob_diameter{ 30 };
 		setSize(knob_diameter, knob_diameter);
-	};
+	}
 
 	void paint(Graphics& g) override
 	{
