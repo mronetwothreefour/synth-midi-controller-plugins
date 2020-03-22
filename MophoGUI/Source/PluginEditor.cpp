@@ -15,20 +15,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionLPF.reset(new LPFSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionLPF.get());
 
-    ////==============================================================================
-    //// Initialize voltage-controlled amplifier controls
-
-    //knob_VCAlevel.reset(new KnobWidget_VCAlevel(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAlevel.get());
-
-    //knob_VCAenvAmt.reset(new KnobWidget_VCAenvAmt(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAenvAmt.get());
-
-    //knob_VCAvelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::vcaVelAmount, mophoLaF.get()));
-    //addAndMakeVisible(knob_VCAvelAmt.get());
-
-    //knob_PgmVolume.reset(new KnobWidget_PgmVolume(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_PgmVolume.get());
+    sectionVCA.reset(new VCASection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionVCA.get());
 
     ////==============================================================================
     //// Initialize envelope 3 controls
@@ -87,8 +75,9 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
-    sectionOsc = nullptr;
+    sectionVCA = nullptr;
     sectionLPF = nullptr;
+    sectionOsc = nullptr;
 
     //knob_PedalAmt = nullptr;
     //knob_VelocityAmt = nullptr;
@@ -103,18 +92,6 @@ PluginEditor::~PluginEditor()
 
     //knob_Env3VelAmt = nullptr;
     //knob_Env3Amt = nullptr;
-
-    //knob_PgmVolume = nullptr;
-    //knob_VCAvelAmt = nullptr;
-    //knob_VCAenvAmt = nullptr;
-    //knob_VCAlevel = nullptr;
-
-    //knob_LPFfmAmt = nullptr;
-    //knob_LPFvelAmt = nullptr;
-    //knob_LPFenvAmt = nullptr;
-    //knob_LPFkeyAmt = nullptr;
-    //knob_LPFreso = nullptr;
-    //knob_LPFfreq = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     mophoLaF = nullptr;
@@ -132,9 +109,6 @@ void PluginEditor::paint(Graphics& g)
     Font sectionLabel{ "Arial", "Black", 18.0f };
     g.setFont(sectionLabel);
 
-    Rectangle<int> vcaSectionLabelArea{ 15, 312, 30, 15 };
-    g.drawText("VCA", vcaSectionLabelArea, Justification::centredLeft);
-
     Rectangle<int> env3SectionLabelArea{ 15, 470, 105, 15 };
     g.drawText("ENVELOPE 3", env3SectionLabelArea, Justification::centredLeft);
 
@@ -149,33 +123,7 @@ void PluginEditor::resized()
 {
     sectionOsc->setBounds(15, 15, sectionOsc->getWidth(), sectionOsc->getHeight());
     sectionLPF->setBounds(15, 154, sectionLPF->getWidth(), sectionLPF->getHeight());
-
-    //auto knobWidget_w{ 40 };
-    //auto knobWidget_h{ 50 };
-
-    //auto knob_w{ 40 };
-    //auto knobGap{ 5 };
-    //auto knob_col1_x{ 28 };
-    //auto knob_col2_x{ knob_col1_x + knob_w + knobGap };
-    //auto knob_col3_x{ knob_col2_x + knob_w + knobGap };
-    //auto knob_col4_x{ knob_col3_x + knob_w + knobGap };
-    //auto knob_col5_x{ knob_col4_x + knob_w + knobGap };
-    //auto knob_col6_x{ knob_col5_x + knob_w + knobGap };
-    //auto knob_col7_x{ knob_col6_x + knob_w + knobGap };
-    //auto knob_col8_x{ knob_col7_x + knob_w + knobGap };
-    //auto knob_col9_x{ knob_col8_x + knob_w + knobGap };
-
-    //auto knob_row3_y{ 195 };
-    //auto knob_row4_y{ 247 };
-    //auto knob_row5_y{ 353 };
-    //auto knob_row6_y{ 405 };
-    //auto knob_row7_y{ 511 };
-    //auto knob_row8_y{ 563 };
-
-    //knob_VCAlevel->setBounds        (knob_col1_x, knob_row5_y, knobWidget_w, knobWidget_h);
-    //knob_VCAenvAmt->setBounds       (knob_col2_x, knob_row5_y, knobWidget_w, knobWidget_h);
-    //knob_VCAvelAmt->setBounds       (knob_col3_x, knob_row5_y, knobWidget_w, knobWidget_h);
-    //knob_PgmVolume->setBounds       (knob_col2_x, knob_row6_y, knobWidget_w, knobWidget_h);
+    sectionVCA->setBounds(15, 312, sectionLPF->getWidth(), sectionLPF->getHeight());
 
     //knob_Env3Amt->setBounds         (knob_col2_x, knob_row7_y, knobWidget_w, knobWidget_h);
     //knob_Env3VelAmt->setBounds      (knob_col3_x, knob_row7_y, knobWidget_w, knobWidget_h);

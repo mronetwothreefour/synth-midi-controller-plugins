@@ -9,6 +9,7 @@
 #include "parameters/PrivateParameters.h"
 #include "editorSections/LPFSection.h"
 #include "editorSections/OscillatorsSection.h"
+#include "editorSections/VCASection.h"
 #include "widgets/KnobWidgets.h"
 
 class PluginEditor : public AudioProcessorEditor
@@ -28,11 +29,7 @@ private:
 
     std::unique_ptr<OscillatorsSection> sectionOsc;
     std::unique_ptr<LPFSection> sectionLPF;
-
-    //std::unique_ptr<KnobWidget_VCAlevel>    knob_VCAlevel;
-    //std::unique_ptr<KnobWidget_VCAenvAmt>   knob_VCAenvAmt;
-    //std::unique_ptr<KnobWidget_VelAmount>   knob_VCAvelAmt;
-    //std::unique_ptr<KnobWidget_PgmVolume>   knob_PgmVolume;
+    std::unique_ptr<VCASection> sectionVCA;
 
     //std::unique_ptr<KnobWidget_Env3Amt>     knob_Env3Amt;
     //std::unique_ptr<KnobWidget_VelAmount>   knob_Env3VelAmt;
