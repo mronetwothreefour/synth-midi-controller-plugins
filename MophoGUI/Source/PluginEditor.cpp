@@ -18,14 +18,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionVCA.reset(new VCASection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionVCA.get());
 
-    ////==============================================================================
-    //// Initialize envelope 3 controls
-
-    //knob_Env3Amt.reset(new KnobWidget_Env3Amt(publicParams, privateParams, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3Amt.get());
-
-    //knob_Env3VelAmt.reset(new KnobWidget_VelAmount(publicParams, privateParams, ID::env3VelAmount, mophoLaF.get()));
-    //addAndMakeVisible(knob_Env3VelAmt.get());
+    sectionEnv3.reset(new Env3Section(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionEnv3.get());
 
     ////==============================================================================
     //// Initialize modulator controls
@@ -75,6 +69,7 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    sectionEnv3 = nullptr;
     sectionVCA = nullptr;
     sectionLPF = nullptr;
     sectionOsc = nullptr;
@@ -109,9 +104,6 @@ void PluginEditor::paint(Graphics& g)
     Font sectionLabel{ "Arial", "Black", 18.0f };
     g.setFont(sectionLabel);
 
-    Rectangle<int> env3SectionLabelArea{ 15, 470, 105, 15 };
-    g.drawText("ENVELOPE 3", env3SectionLabelArea, Justification::centredLeft);
-
     Rectangle<int> modSectionLabelArea{ 404, 154, 105, 15 };
     g.drawText("MODULATORS", modSectionLabelArea, Justification::centredLeft);
 
@@ -124,9 +116,7 @@ void PluginEditor::resized()
     sectionOsc->setBounds(15, 15, sectionOsc->getWidth(), sectionOsc->getHeight());
     sectionLPF->setBounds(15, 154, sectionLPF->getWidth(), sectionLPF->getHeight());
     sectionVCA->setBounds(15, 312, sectionLPF->getWidth(), sectionLPF->getHeight());
-
-    //knob_Env3Amt->setBounds         (knob_col2_x, knob_row7_y, knobWidget_w, knobWidget_h);
-    //knob_Env3VelAmt->setBounds      (knob_col3_x, knob_row7_y, knobWidget_w, knobWidget_h);
+    sectionEnv3->setBounds(15, 470, sectionLPF->getWidth(), sectionLPF->getHeight());
 
     //auto modKnobs_x{ 560 };
     //auto modKnob1_y{ 186 };

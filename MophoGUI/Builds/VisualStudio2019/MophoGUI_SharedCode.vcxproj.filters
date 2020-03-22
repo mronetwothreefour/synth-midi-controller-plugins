@@ -4563,6 +4563,9 @@
     <ClInclude Include="..\..\Source\editorSections\VCASection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\editorSections\Env3Section.h">
+      <Filter>MophoGUI\Source\editorSections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

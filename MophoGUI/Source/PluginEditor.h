@@ -7,6 +7,7 @@
 #include "helpers/CustomColors.h"
 #include "helpers/MophoLookAndFeel.h"
 #include "parameters/PrivateParameters.h"
+#include "editorSections/Env3Section.h"
 #include "editorSections/LPFSection.h"
 #include "editorSections/OscillatorsSection.h"
 #include "editorSections/VCASection.h"
@@ -30,9 +31,7 @@ private:
     std::unique_ptr<OscillatorsSection> sectionOsc;
     std::unique_ptr<LPFSection> sectionLPF;
     std::unique_ptr<VCASection> sectionVCA;
-
-    //std::unique_ptr<KnobWidget_Env3Amt>     knob_Env3Amt;
-    //std::unique_ptr<KnobWidget_VelAmount>   knob_Env3VelAmt;
+    std::unique_ptr<Env3Section> sectionEnv3;
 
     //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod1Amt;
     //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod2Amt;
