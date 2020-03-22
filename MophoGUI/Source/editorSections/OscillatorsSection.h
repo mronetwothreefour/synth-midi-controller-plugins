@@ -59,7 +59,7 @@ public:
 		//==============================================================================
 		Font trackLabel{ "Arial", "Black", 12.0f };
 		g.setFont(trackLabel);
-		Rectangle<int> trackLabelArea{ JUCE_LIVE_CONSTANT(239), 29, 36, 14 };
+		Rectangle<int> trackLabelArea{ 240, 29, 36, 14 };
 		g.drawText("TRACK", trackLabelArea, Justification::centred);
 	}
 
@@ -73,7 +73,7 @@ public:
 		auto knob3_x{ knob2_x + knobWidget_w + knobGap };
 		auto knob4_x{ knob3_x + knobWidget_w + knobGap };
 		auto knob5_x{ knob4_x + knobWidget_w + knobGap };
-		auto button_x{ knob5_x + knobWidget_w + knobGap + 12 };
+		auto button_x{ knob5_x + knobWidget_w + knobGap + 13 };
 		auto button_y{ 13 };
 		knob_OscPitch		.setBounds(knob1_x, 0, knobWidget_w, knobWidget_h);
 		knob_OscFineTune	.setBounds(knob2_x, 0, knobWidget_w, knobWidget_h);

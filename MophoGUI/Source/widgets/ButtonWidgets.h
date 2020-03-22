@@ -164,3 +164,44 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Track)
 };
+
+//==============================================================================
+// A button widget appropriate for controlling envelope 3's repeat parameter.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_Repeat : public ButtonWidget
+{
+public:
+	ButtonWidget_Repeat
+	(
+		String name,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) : 
+		ButtonWidget{ name, apvts, privateParameters, ID::env3Repeat, mophoLaF }
+	{}
+
+	~ButtonWidget_Repeat() {}
+
+private:
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the button
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "When repeat is on, envelope 3 loops through\n";
+			tooltip += "its delay, attack, decay, and sustain segments\n";
+			tooltip += "for as long as the envelope is gated on.\n";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Repeat)
+};
+
