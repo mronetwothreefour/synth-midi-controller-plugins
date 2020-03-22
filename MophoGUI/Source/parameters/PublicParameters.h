@@ -38,8 +38,8 @@ public:
 
 		// 0 = "Off"; 1 = "On"
 		StringArray offOn;
-		offOn.add("Off");
-		offOn.add("On");
+		for (auto i = 0; i != 2; ++i)
+			offOn.add(valueConverters.intToOffOn(i));
 
 		StringArray glideMode;
 		glideMode.add("Fixed Rate");

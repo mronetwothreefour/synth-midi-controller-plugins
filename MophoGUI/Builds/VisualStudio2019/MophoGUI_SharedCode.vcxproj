@@ -2719,6 +2719,7 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
+    <ClInclude Include="..\..\Source\widgets\ButtonWidgets.h" />
     <ClInclude Include="..\..\Source\widgets\EnvelopeWidget.h" />
     <ClInclude Include="..\..\Source\widgets\KnobWidgets.h" />
   </ItemGroup>

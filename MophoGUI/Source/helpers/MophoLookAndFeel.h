@@ -80,6 +80,37 @@ public:
 			.draw(g, { static_cast<float> (width), static_cast<float> (height) });
 	}
 
+	void drawToggleButton
+	(
+		Graphics& g,
+		ToggleButton& button,
+		bool shouldDrawButtonAsHighlighted,
+		bool shouldDrawButtonAsDown
+		) override
+	{
+		drawTickBox(g, button,
+			0.0f, 0.0f, (float)button.getWidth(), (float)button.getHeight(),
+			button.getToggleState(),
+			button.isEnabled(),
+			shouldDrawButtonAsHighlighted,
+			shouldDrawButtonAsDown);
+	}
+
+	void drawTickBox
+	(
+		Graphics& g,
+		Component& /*component*/,
+		float x, float y, float w, float h,
+		const bool ticked,
+		const bool /*isEnabled*/,
+		const bool /*shouldDrawButtonAsHighlighted*/,
+		const bool /*shouldDrawButtonAsDown*/
+		) override
+	{
+		g.setColour(ticked ? Color::switchOn : Color::switchOff);
+		g.fillEllipse(x, y, w, h);
+	}
+
 private:
 
 	//==============================================================================

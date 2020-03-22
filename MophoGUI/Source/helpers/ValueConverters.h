@@ -163,6 +163,18 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..1 to an "off" or "on" String
+	String intToOffOn(const int& i) const
+	{
+		if (i > -1 && i < 2)
+		{
+			if (i == 0) return "Off";
+			if (i == 1) return "On";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

@@ -7,7 +7,7 @@
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 
-using Attachment = AudioProcessorValueTreeState::SliderAttachment;
+using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 //==============================================================================
 // A class derived from Slider that simply
@@ -184,7 +184,7 @@ public:
 
 	auto getSliderValue() { return roundToInt(slider.getValue()); }
 
-	void sliderValueChanged(Slider* sliderThatChanged)
+	void sliderValueChanged(Slider* sliderThatChanged) override
 	{
 		if (sliderThatChanged == &slider)
 		{
@@ -201,7 +201,7 @@ public:
 	
 private:
 	CustomSlider slider;
-	Attachment sliderAttachment;
+	SliderAttachment sliderAttachment;
 	MophoLookAndFeel* mophoLaF;
 	Label valueDisplayLabel;
 

@@ -4,7 +4,9 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/MophoLookAndFeel.h"
+#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
+#include "../widgets/ButtonWidgets.h"
 #include "../widgets/KnobWidgets.h"
 
 // A set of controls for the parameters that are specific
@@ -92,6 +94,7 @@ public:
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
+		button_Sync{ "oscSync", publicParams, privateParams, ID::oscSync, mophoLaF },
 		osc1Controls{ 1, publicParams, privateParams, mophoLaF },
 		osc2Controls{ 2, publicParams, privateParams, mophoLaF },
 		knob_OscSlop{ publicParams, privateParams, mophoLaF },
@@ -100,6 +103,7 @@ public:
 		knob_NoiseLevel{ publicParams, privateParams, mophoLaF },
 		knob_ExtInLevel{ publicParams, privateParams, mophoLaF }
 	{
+		addAndMakeVisible(button_Sync);
 		addAndMakeVisible(osc1Controls);
 		addAndMakeVisible(osc2Controls);
 		addAndMakeVisible(knob_OscSlop);
@@ -113,15 +117,23 @@ public:
 		setSize(oscSection_w, oscSection_h);
 	}
 
-	~OscillatorsSection() {}
+	~OscillatorsSection() { button_Sync.setLookAndFeel(nullptr); }
 
 	void paint(Graphics& g) override
 	{
+		g.setColour(Color::black);
+
 		// Draw section label
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
 		Rectangle<int> sectionLabelArea{ 0, 0, 105, 15 };
 		g.drawText("OSCILLATORS", sectionLabelArea, Justification::centredLeft);
+
+		// Draw sync button label
+		Font syncLabel{ "Arial", "Black", 12.0f };
+		g.setFont(syncLabel);
+		Rectangle<int> syncLabelArea{ 218, 0, 30, 14 };
+		g.drawText("SYNC", syncLabelArea, Justification::centredRight);
 
 		// Draw oscillator dividing line
 		g.drawHorizontalLine(70, 0, 280);
@@ -137,6 +149,8 @@ public:
 
 	void resized() override
 	{
+		button_Sync.setBounds(251, 0, 14, 14);
+
 		auto knob_w{ knob_OscSlop.getWidth() };
 		auto knob_h{ knob_OscSlop.getHeight() };
 		auto knobGap{ 5 };
@@ -158,6 +172,8 @@ public:
 	}
 
 private:
+	ButtonWidget_Sync button_Sync;
+
 	OscillatorControls osc1Controls;
 	OscillatorControls osc2Controls;
 

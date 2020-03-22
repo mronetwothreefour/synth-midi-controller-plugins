@@ -42,6 +42,8 @@ public:
 
 	void paint(Graphics& g) override
 	{
+		g.setColour(Color::black);
+
 		// Draw section label
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
