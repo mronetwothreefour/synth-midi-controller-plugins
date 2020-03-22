@@ -7,13 +7,15 @@
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
 
+using Attachment = AudioProcessorValueTreeState::SliderAttachment;
+
 // Creates a graphical representation of an envelope,
 // derived from the current settings for its delay,
 // attack, decay, sustain, and release parameters.
 // For the envelopeID String, use "lpf", "vca", or "env3"
 class EnvelopeRenderer : 
 	public Component,
-	public AudioProcessorParameter::Listener
+	public Slider::Listener
 {
 public:
 	EnvelopeRenderer
@@ -21,17 +23,17 @@ public:
 		AudioProcessorValueTreeState* publicParams,
 		String envelopeID
 	) :
-		delayParam{publicParams->getParameter(envelopeID + "Delay")},
-		attackParam {publicParams->getParameter(envelopeID + "Attack")},
-		decayParam{ publicParams->getParameter(envelopeID + "Decay") },
-		sustainParam{ publicParams->getParameter(envelopeID + "Sustain") },
-		releaseParam{ publicParams->getParameter(envelopeID + "Release") }
+		delayAttachment{ *publicParams, envelopeID + "Delay", delay },
+		attackAttachment{ *publicParams, envelopeID + "Attack", attack },
+		decayAttachment{ *publicParams, envelopeID + "Decay", decay },
+		sustainAttachment{ *publicParams, envelopeID + "Sustain", sustain },
+		releaseAttachment{ *publicParams, envelopeID + "Release", release }
 	{
-		if(delayParam != nullptr) delayParam->addListener(this);
-		if(attackParam != nullptr) attackParam->addListener(this);
-		if(decayParam != nullptr) decayParam->addListener(this);
-		if(sustainParam != nullptr) sustainParam->addListener(this);
-		if(releaseParam != nullptr) releaseParam->addListener(this);
+		delay.addListener(this);
+		attack.addListener(this);
+		decay.addListener(this);
+		sustain.addListener(this);
+		release.addListener(this);
 
 		auto envelopeRenderer_w{ 210 };
 		auto envelopeRenderer_h{ 90 };
@@ -40,11 +42,11 @@ public:
 
 	~EnvelopeRenderer() 
 	{
-		releaseParam->removeListener(this);
-		sustainParam->removeListener(this);
-		decayParam->removeListener(this);
-		attackParam->removeListener(this);
-		delayParam->removeListener(this);
+		release.removeListener(this);
+		sustain.removeListener(this);
+		decay.removeListener(this);
+		attack.removeListener(this);
+		delay.removeListener(this);
 	}
 
 	void paint(Graphics& g) override
@@ -62,15 +64,15 @@ public:
 		auto sustainSegment_w{ 28.0f };
 		Path path;
 		auto envelopeStart_x{ 5.0f };
-		auto attackStart_x{ envelopeStart_x + (delayParam->getValue() * maxSegment_w) };
-		auto decayStart_x{ attackStart_x + (attackParam->getValue() * maxSegment_w) };
-		auto sustainStart_x{ decayStart_x + (decayParam->getValue() * maxSegment_w) };
+		auto attackStart_x{ envelopeStart_x + (((float)delay.getValue() / 127.0f) * maxSegment_w) };
+		auto decayStart_x{ attackStart_x + (((float)attack.getValue() / 127.0f) * maxSegment_w) };
+		auto sustainStart_x{ decayStart_x + (((float)decay.getValue() / 127.0f) * maxSegment_w) };
 		auto releaseStart_x{ sustainStart_x + sustainSegment_w };
-		auto releaseEnd_x{ releaseStart_x + (releaseParam->getValue() * maxSegment_w) };
+		auto releaseEnd_x{ releaseStart_x + (((float)release.getValue() / 127.0f) * maxSegment_w) };
 		auto envelopeEnd_x{ 205.0f };
 		auto minimum_y{ 75.0f };
 		auto maximum_y{ 15.0f };
-		auto sustain_y{ minimum_y - (sustainParam->getValue() * 60.0f) };
+		auto sustain_y{ minimum_y - (((float)sustain.getValue() / 127.0f) * 60.0f) };
 		path.startNewSubPath(envelopeStart_x, minimum_y);
 		path.lineTo(attackStart_x, minimum_y);
 		path.lineTo(decayStart_x, maximum_y);
@@ -82,19 +84,23 @@ public:
 		g.strokePath(path, strokeType);
 	}
 
-	void parameterValueChanged(int /*parameterIndex*/, float /*newValue*/) override
+	void sliderValueChanged(Slider* /*sliderThatChanged*/) override
 	{
 		repaint();
 	}
 
-	void parameterGestureChanged(int /*parameterIndex*/, bool /*gestureIsStarting*/) override {}
-
 private:
-	AudioProcessorParameter* delayParam;
-	AudioProcessorParameter* attackParam;
-	AudioProcessorParameter* decayParam;
-	AudioProcessorParameter* sustainParam;
-	AudioProcessorParameter* releaseParam;
+	Slider delay;
+	Slider attack;
+	Slider decay;
+	Slider sustain;
+	Slider release;
+
+	Attachment delayAttachment;
+	Attachment attackAttachment;
+	Attachment decayAttachment;
+	Attachment sustainAttachment;
+	Attachment releaseAttachment;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(EnvelopeRenderer)
