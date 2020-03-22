@@ -114,11 +114,53 @@ private:
 		{
 			tooltip += "Turns oscillator sync on or off. When\n";
 			tooltip += "turned on, every time oscillator 2 resets\n";
-			tooltip += "it forces oscillator 1 to reset as well.\n";
+			tooltip += "it forces oscillator 1 to reset as well.";
 		}
 		return tooltip;
 	}
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Sync)
+};
+
+//==============================================================================
+// A button widget appropriate for controlling an oscillator's keyboard tracking parameter.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_Track : public ButtonWidget
+{
+public:
+	ButtonWidget_Track
+	(
+		String name,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+	) : 
+		ButtonWidget{ name, apvts, privateParameters, paramID, mophoLaF }
+	{}
+
+	~ButtonWidget_Track() {}
+
+private:
+	// Draws a pop-up window with a parameter description and 
+	// a verbose version of the current parameter value when 
+	// the mouse hovers over the button
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "Turns the oscillator's keyboard tracking\n";
+			tooltip += "on or off. When turned off, the oscillator\n";
+			tooltip += "always produces its base pitch, unaffected\n";
+			tooltip += "by the pitch of incoming MIDI notes.\n";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Track)
 };

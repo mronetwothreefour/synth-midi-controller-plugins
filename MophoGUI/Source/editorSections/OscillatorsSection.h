@@ -27,13 +27,15 @@ public:
 		knob_OscFineTune	{ publicParams, privateParams, "osc" + oscNumString + "Fine", mophoLaF },
 		knob_OscShape		{ publicParams, privateParams, "osc" + oscNumString + "Shape", mophoLaF },
 		knob_OscGlide		{ publicParams, privateParams, "osc" + oscNumString + "Glide", mophoLaF },
-		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel",	mophoLaF }
+		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel",	mophoLaF },
+		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack",	mophoLaF }
 	{
 		addAndMakeVisible(knob_OscPitch);
 		addAndMakeVisible(knob_OscFineTune);
 		addAndMakeVisible(knob_OscShape);
 		addAndMakeVisible(knob_OscGlide);
 		addAndMakeVisible(knob_OscSubLvl);
+		addAndMakeVisible(button_Track);
 
 		auto oscillatorSection_w{ 280 };
 		auto oscillatorSection_h{ knob_OscPitch.getHeight() };
@@ -44,13 +46,21 @@ public:
 
 	void paint(Graphics& g) override
 	{
+		g.setColour(Color::black);
+
 		// Draw oscillator number label
 		//==============================================================================
-		g.setColour(Color::black);
 		Font oscNumLabel{ "Arial", "Black", 24.0f };
 		g.setFont(oscNumLabel);
 		Rectangle<int> oscNumLabelArea{ 0, 5, 15, 30 };
 		g.drawText(oscNumString, oscNumLabelArea, Justification::centredLeft);
+
+		// Draw track button label
+		//==============================================================================
+		Font trackLabel{ "Arial", "Black", 12.0f };
+		g.setFont(trackLabel);
+		Rectangle<int> trackLabelArea{ JUCE_LIVE_CONSTANT(239), 29, 36, 14 };
+		g.drawText("TRACK", trackLabelArea, Justification::centred);
 	}
 
 	void resized() override
@@ -63,11 +73,14 @@ public:
 		auto knob3_x{ knob2_x + knobWidget_w + knobGap };
 		auto knob4_x{ knob3_x + knobWidget_w + knobGap };
 		auto knob5_x{ knob4_x + knobWidget_w + knobGap };
+		auto button_x{ knob5_x + knobWidget_w + knobGap + 12 };
+		auto button_y{ 13 };
 		knob_OscPitch		.setBounds(knob1_x, 0, knobWidget_w, knobWidget_h);
 		knob_OscFineTune	.setBounds(knob2_x, 0, knobWidget_w, knobWidget_h);
 		knob_OscShape		.setBounds(knob3_x, 0, knobWidget_w, knobWidget_h);
 		knob_OscGlide		.setBounds(knob4_x, 0, knobWidget_w, knobWidget_h);
 		knob_OscSubLvl		.setBounds(knob5_x, 0, knobWidget_w, knobWidget_h);
+		button_Track		.setBounds(button_x, button_y, button_Track.getWidth(), button_Track.getHeight());
 	}
 
 private:
@@ -78,6 +91,8 @@ private:
 	KnobWidget_OscShape    knob_OscShape;
 	KnobWidget_OscGlide    knob_OscGlide;
 	KnobWidget_OscSubLvl   knob_OscSubLvl;
+
+	ButtonWidget_Track button_Track;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscillatorControls)
