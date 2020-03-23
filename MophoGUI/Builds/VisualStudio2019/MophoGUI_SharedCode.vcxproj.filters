@@ -2323,6 +2323,9 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\parameters\PrivateParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets\MenuWidgets.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4567,6 +4570,9 @@
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\ButtonWidgets.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\MenuWidgets.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/ButtonWidgets.h"
 #include "../widgets/KnobWidgets.h"
+#include "../widgets/MenuWidgets.h"
 
 // A set of controls for the parameters that are specific
 // to one of the oscillators: pitch, fine tune, wave shape,
@@ -117,7 +118,8 @@ public:
 		knob_BendRange{ publicParams, privateParams, mophoLaF },
 		knob_NoiseLevel{ publicParams, privateParams, mophoLaF },
 		knob_ExtInLevel{ publicParams, privateParams, mophoLaF },
-		button_Arpeg{ "arpeg", publicParams, privateParams, mophoLaF }
+		button_Arpeg{ "arpeg", publicParams, privateParams, mophoLaF },
+		menu_NotePriority{ publicParams, privateParams, mophoLaF, 123 }
 	{
 		addAndMakeVisible(button_Sync);
 		addAndMakeVisible(osc1Controls);
@@ -128,13 +130,14 @@ public:
 		addAndMakeVisible(knob_NoiseLevel);
 		addAndMakeVisible(knob_ExtInLevel);
 		addAndMakeVisible(button_Arpeg);
+		addAndMakeVisible(menu_NotePriority);
 
 		auto oscSection_w{ 550 };
 		auto oscSection_h{ 130 };
 		setSize(oscSection_w, oscSection_h);
 	}
 
-	~OscillatorsSection() { button_Sync.setLookAndFeel(nullptr); }
+	~OscillatorsSection() {}
 
 	void paint(Graphics& g) override
 	{
@@ -193,6 +196,14 @@ public:
 		knob_ExtInLevel	.setBounds(knob_col2_x, knob_row2_y, knob_w, knob_h);
 
 		button_Arpeg	.setBounds(knob_col3_x + 13, knob_row2_y + 13, button_diameter, button_diameter);
+
+		auto menuCol_x{ 424 };
+		auto menu1_y{ 15 };
+		auto menu2_y{ menu1_y + 40 };
+		auto menu3_y{ menu2_y + 40 };
+		auto menu_w{ menu_NotePriority.getWidth() };
+		auto menu_h{ menu_NotePriority.getHeight() };
+		menu_NotePriority.setBounds(menuCol_x, menu1_y, menu_w, menu_h);
 	}
 
 private:
@@ -207,6 +218,8 @@ private:
 	KnobWidget_BendRange   knob_BendRange;
 	KnobWidget_NoiseLevel  knob_NoiseLevel;
 	KnobWidget_ExtInLevel  knob_ExtInLevel;
+
+	MenuWidget_NotePriority menu_NotePriority;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscillatorsSection)

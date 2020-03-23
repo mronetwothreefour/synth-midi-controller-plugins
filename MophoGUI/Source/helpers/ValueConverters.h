@@ -175,6 +175,22 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..5 to a note priority menu choice String
+	String intToNotePriorityChoice(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 6)
+		{
+			if (i == 0) return verbose ? "Low Note Has Priority" : "Low Note";
+			if (i == 1) return verbose ? "Low Note Has Priority (Re-trigger)" : "Low Note (Re-trigger)";
+			if (i == 2) return verbose ? "High Note Has Priority" : "High Note";
+			if (i == 3) return verbose ? "High Note Has Priority (Re-trigger)" : "High Note (Re-trigger)";
+			if (i == 4) return verbose ? "Last Note Hit Has Priority" : "Last Note";
+			if (i == 5) return verbose ? "Last Note Hit Has Priority (Re-trigger)" : "Last Note (Re-trigger)";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

@@ -22,13 +22,13 @@ public:
 	ButtonWidget
 	(
 		String name,
-		AudioProcessorValueTreeState* apvts,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) :
 		button{ name },
-		buttonAttachment{ *apvts, paramID.toString(), button },
+		buttonAttachment{ *publicParameters, paramID.toString(), button },
 		privateParams{ privateParameters }
 	{
 		button.setLookAndFeel(mophoLaF);
@@ -89,11 +89,11 @@ public:
 	ButtonWidget_Sync
 	(
 		String name,
-		AudioProcessorValueTreeState* apvts,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, apvts, privateParameters, ID::oscSync, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, ID::oscSync, mophoLaF }
 	{}
 
 	~ButtonWidget_Sync() {}
@@ -126,12 +126,12 @@ public:
 	ButtonWidget_Track
 	(
 		String name,
-		AudioProcessorValueTreeState* apvts,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, apvts, privateParameters, paramID, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, paramID, mophoLaF }
 	{}
 
 	~ButtonWidget_Track() {}
@@ -165,11 +165,11 @@ public:
 	ButtonWidget_Repeat
 	(
 		String name,
-		AudioProcessorValueTreeState* apvts,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, apvts, privateParameters, ID::env3Repeat, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, ID::env3Repeat, mophoLaF }
 	{}
 
 	~ButtonWidget_Repeat() {}
@@ -202,11 +202,11 @@ public:
 	ButtonWidget_Arpeg
 	(
 		String name,
-		AudioProcessorValueTreeState* apvts,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, apvts, privateParameters, ID::arpegOnOff, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, ID::arpegOnOff, mophoLaF }
 	{}
 
 	~ButtonWidget_Arpeg() {}

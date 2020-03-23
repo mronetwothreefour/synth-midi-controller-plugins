@@ -56,12 +56,10 @@ public:
 		}
 
 		StringArray notePriority;
-		notePriority.add("Low Note");
-		notePriority.add("Low Note (Re-trigger)");
-		notePriority.add("High Note");
-		notePriority.add("High Note (Re-trigger)");
-		notePriority.add("Last Note Hit");
-		notePriority.add("Last Note Hit (Re-trigger)");
+		for (auto i = 0; i != 6; ++i)
+		{
+			notePriority.add(valueConverters.intToNotePriorityChoice(i, true));
+		}
 
 		StringArray lpfFreq;
 		for (auto i = 0; i != 165; ++i)

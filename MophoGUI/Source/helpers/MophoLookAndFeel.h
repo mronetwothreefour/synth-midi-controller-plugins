@@ -111,6 +111,37 @@ public:
 		g.fillEllipse(x, y, w, h);
 	}
 
+	void drawComboBox(Graphics& g, int width, int height, bool isButtonDown,
+		int buttonX, int buttonY, int buttonW, int buttonH, ComboBox& /*box*/) override
+	{
+		ignoreUnused(isButtonDown, buttonX, buttonY, buttonW, buttonH);
+
+		Rectangle<int> boxBounds(0, 0, width, height);
+
+		g.setColour(Color::black);
+		g.fillRect(boxBounds);
+
+		g.setColour(Color::device);
+		Path path;
+		path.addTriangle(float(width - 11), 6.0f, float(width - 3), 6.0f, float(width - 7), 10.0f);
+		g.fillPath(path);
+	}
+
+	void positionComboBoxText(ComboBox& box, Label& label) override
+	{
+		label.setBounds(-1, 1, box.getWidth() - 7, box.getHeight() - 2);
+		label.setColour(Label::textColourId, Color::controlText);
+		Font font("Arial", "Regular", 12.0f);
+		label.setFont(font);
+		label.setJustificationType(Justification::left);
+	};
+
+	void drawPopupMenuBackground(Graphics& g, int width, int height) override
+	{
+		ignoreUnused(width, height);
+		g.fillAll(Color::black.brighter(0.2f));
+	}
+
 private:
 
 	//==============================================================================
