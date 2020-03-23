@@ -416,8 +416,8 @@ String KnobWidget_EnvSustain::createTooltipString(const int& currentValue) const
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the envelope's sustain level (once the\n";
-		tooltip += "decay segment completes, the envelope\n";
-		tooltip += "stays at this level until it is released).\n";
+		tooltip += "decay segment completes, the envelope stays\n";
+		tooltip += "at this level until it is gated off).\n";
 		tooltip += "Range: 0 to 127.";
 	}
 	return tooltip;
@@ -434,7 +434,7 @@ String KnobWidget_EnvRelease::createTooltipString(const int& currentValue) const
 	{
 		tooltip += "Sets the length of the envelope's release segment\n";
 		tooltip += "(the amount of time it takes to fall from the sustain\n";
-		tooltip += "level to minimum once the envelope is released).\n";
+		tooltip += "level down to minimum once the envelope is gated off).\n";
 		tooltip += "Range: 0 to 127.";
 	}
 	return tooltip;

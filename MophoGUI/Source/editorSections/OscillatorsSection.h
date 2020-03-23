@@ -37,9 +37,9 @@ public:
 		addAndMakeVisible(knob_OscSubLvl);
 		addAndMakeVisible(button_Track);
 
-		auto oscillatorSection_w{ 280 };
-		auto oscillatorSection_h{ knob_OscPitch.getHeight() };
-		setSize(oscillatorSection_w, oscillatorSection_h);
+		auto oscControls_w{ 280 };
+		auto oscControls_h{ knob_OscPitch.getHeight() };
+		setSize(oscControls_w, oscControls_h);
 	}
 
 	~OscillatorControls() {}
@@ -109,14 +109,15 @@ public:
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
-		button_Sync{ "oscSync", publicParams, privateParams, ID::oscSync, mophoLaF },
+		button_Sync{ "oscSync", publicParams, privateParams, mophoLaF },
 		osc1Controls{ 1, publicParams, privateParams, mophoLaF },
 		osc2Controls{ 2, publicParams, privateParams, mophoLaF },
 		knob_OscSlop{ publicParams, privateParams, mophoLaF },
 		knob_OscMix{ publicParams, privateParams, mophoLaF },
 		knob_BendRange{ publicParams, privateParams, mophoLaF },
 		knob_NoiseLevel{ publicParams, privateParams, mophoLaF },
-		knob_ExtInLevel{ publicParams, privateParams, mophoLaF }
+		knob_ExtInLevel{ publicParams, privateParams, mophoLaF },
+		button_Arpeg{ "arpeg", publicParams, privateParams, mophoLaF }
 	{
 		addAndMakeVisible(button_Sync);
 		addAndMakeVisible(osc1Controls);
@@ -126,6 +127,7 @@ public:
 		addAndMakeVisible(knob_BendRange);
 		addAndMakeVisible(knob_NoiseLevel);
 		addAndMakeVisible(knob_ExtInLevel);
+		addAndMakeVisible(button_Arpeg);
 
 		auto oscSection_w{ 550 };
 		auto oscSection_h{ 130 };
@@ -145,10 +147,14 @@ public:
 		g.drawText("OSCILLATORS", sectionLabelArea, Justification::centredLeft);
 
 		// Draw sync button label
-		Font syncLabel{ "Arial", "Black", 12.0f };
-		g.setFont(syncLabel);
+		Font buttonLabel{ "Arial", "Black", 12.0f };
+		g.setFont(buttonLabel);
 		Rectangle<int> syncLabelArea{ 218, 0, 30, 14 };
 		g.drawText("SYNC", syncLabelArea, Justification::centredRight);
+
+		// Draw arpeggiator button label
+		Rectangle<int> arpegLabelArea{ 373, 104, 40, 14 };
+		g.drawText("ARPEG", arpegLabelArea, Justification::centred);
 
 		// Draw oscillator dividing line
 		g.drawHorizontalLine(70, 0, 280);
@@ -164,7 +170,8 @@ public:
 
 	void resized() override
 	{
-		button_Sync.setBounds(251, 0, 14, 14);
+		auto button_diameter{ button_Sync.getWidth() };
+		button_Sync.setBounds(251, 0, button_diameter, button_diameter);
 
 		auto knob_w{ knob_OscSlop.getWidth() };
 		auto knob_h{ knob_OscSlop.getHeight() };
@@ -184,10 +191,13 @@ public:
 		knob_BendRange	.setBounds(knob_col3_x, knob_row1_y, knob_w, knob_h);
 		knob_NoiseLevel	.setBounds(knob_col1_x, knob_row2_y, knob_w, knob_h);
 		knob_ExtInLevel	.setBounds(knob_col2_x, knob_row2_y, knob_w, knob_h);
+
+		button_Arpeg	.setBounds(knob_col3_x + 13, knob_row2_y + 13, button_diameter, button_diameter);
 	}
 
 private:
 	ButtonWidget_Sync button_Sync;
+	ButtonWidget_Arpeg button_Arpeg;
 
 	OscillatorControls osc1Controls;
 	OscillatorControls osc2Controls;

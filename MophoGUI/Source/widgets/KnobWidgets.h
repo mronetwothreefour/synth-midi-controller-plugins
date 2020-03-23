@@ -212,10 +212,8 @@ private:
 	// parameter value is drawn on the knob
 	virtual void drawValue(const int& currentValue) noexcept = 0;
 
-	// Override this function to create a String with 
-	// a verbose version of the current parameter value
-	// along with a parameter description, which will
-	// be used as the slider's tooltip
+	// Derived classes must override this function to create a tooltip String with a
+	// parameter description and/or a verbose version of the parameter's current value
 	virtual String createTooltipString(const int& currentValue) const noexcept = 0;
 
 	//==============================================================================
@@ -246,13 +244,10 @@ public:
 private:
 	WaveShapeRenderer shapeRenderer;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
 
-	// KnobWidgets that derive from this class must 
-	// override this function to create a tooltip String 
-	// appropriate to the type of parameter they control
+	// Derived classes must override this function to create a tooltip String with a
+	// parameter description and/or a verbose version of the parameter's current value
 	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
 
 	//==============================================================================
@@ -283,14 +278,10 @@ public:
 	ValueConverters valueConverters;
 
 private:
-
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
 
-	// KnobWidgets that derive from this class must 
-	// override this function to create a tooltip String 
-	// appropriate to the type of parameter they control
+	// Derived classes must override this function to create a tooltip String with a
+	// parameter description and/or a verbose version of the parameter's current value
 	String createTooltipString(const int& /*currentValue*/) const noexcept override { return ""; };
 
 	//==============================================================================
@@ -324,13 +315,7 @@ public:
 private:
 	ValueConverters valueConverters;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -364,13 +349,7 @@ public:
 private:
 	ValueConverters valueConverters;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -410,13 +389,7 @@ private:
 
 	WaveShapeRenderer shapeRenderer;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -446,11 +419,6 @@ public:
 	~KnobWidget_OscGlide() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -480,11 +448,6 @@ public:
 	~KnobWidget_OscSubLvl() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -515,14 +478,7 @@ public:
 	{}
 
 private:
-
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -551,11 +507,6 @@ public:
 	~KnobWidget_OscMix() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -588,13 +539,7 @@ public:
 private:
 	ValueConverters valueConverters;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -623,11 +568,6 @@ public:
 	~KnobWidget_NoiseLevel() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -656,11 +596,6 @@ public:
 	~KnobWidget_ExtInLevel() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -693,13 +628,7 @@ public:
 private:
 	ValueConverters valueConverters;
 
-	//==============================================================================
-	// Draws the current parameter value on the knob
 	void drawValue(const int& currentValue) noexcept override;
-
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -728,11 +657,6 @@ public:
 	~KnobWidget_LPFreso() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -761,10 +685,6 @@ public:
 	~KnobWidget_LPFenvAmt() {}
 
 private:
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -794,11 +714,6 @@ public:
 	~KnobWidget_VelAmount() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -827,11 +742,6 @@ public:
 	~KnobWidget_LPFkeyAmt() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -860,11 +770,6 @@ public:
 	~KnobWidget_LPFfmAmt() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -894,11 +799,6 @@ public:
 	~KnobWidget_EnvDelay() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -928,11 +828,6 @@ public:
 	~KnobWidget_EnvAttack() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -962,11 +857,6 @@ public:
 	~KnobWidget_EnvDecay() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -996,11 +886,6 @@ public:
 	~KnobWidget_EnvSustain() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1030,11 +915,6 @@ public:
 	~KnobWidget_EnvRelease() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1063,11 +943,6 @@ public:
 	~KnobWidget_VCAlevel() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1096,11 +971,6 @@ public:
 	~KnobWidget_VCAenvAmt() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1129,11 +999,6 @@ public:
 	~KnobWidget_PgmVolume() {}
 
 private:
-
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1162,10 +1027,6 @@ public:
 	~KnobWidget_Env3Amt() {}
 
 private:
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1195,10 +1056,6 @@ public:
 	~KnobWidget_ModAmt() {}
 
 private:
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
@@ -1228,10 +1085,6 @@ public:
 	~KnobWidget_MidiModAmt() {}
 
 private:
-	//==============================================================================
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the slider
 	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================

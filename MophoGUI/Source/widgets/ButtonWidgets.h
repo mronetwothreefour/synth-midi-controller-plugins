@@ -72,10 +72,8 @@ private:
 	ToggleButton button;
 	ButtonAttachment buttonAttachment;
 
-	// Override this function to create a String with 
-	// a verbose version of the current parameter value
-	// along with a parameter description, which will
-	// be used as the button's tooltip
+	// Override this function to create a tooltip String with a parameter
+	// description and/or a verbose version of the parameter's current value
 	virtual String createTooltipString(const int& currentValue) const noexcept = 0;
 
 	//==============================================================================
@@ -93,18 +91,14 @@ public:
 		String name,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, apvts, privateParameters, paramID, mophoLaF }
+		ButtonWidget{ name, apvts, privateParameters, ID::oscSync, mophoLaF }
 	{}
 
 	~ButtonWidget_Sync() {}
 
 private:
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the button
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
@@ -143,9 +137,6 @@ public:
 	~ButtonWidget_Track() {}
 
 private:
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the button
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
@@ -184,9 +175,6 @@ public:
 	~ButtonWidget_Repeat() {}
 
 private:
-	// Draws a pop-up window with a parameter description and 
-	// a verbose version of the current parameter value when 
-	// the mouse hovers over the button
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
@@ -203,5 +191,41 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Repeat)
+};
+
+//==============================================================================
+// A button widget appropriate for turning the Mopho's arpeggiator on and off.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_Arpeg : public ButtonWidget
+{
+public:
+	ButtonWidget_Arpeg
+	(
+		String name,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) : 
+		ButtonWidget{ name, apvts, privateParameters, ID::arpegOnOff, mophoLaF }
+	{}
+
+	~ButtonWidget_Arpeg() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "Turns the Mopho's arpeggiator on and off.\n";
+			tooltip += "Turning this on will turn off the sequencer.";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Arpeg)
 };
 
