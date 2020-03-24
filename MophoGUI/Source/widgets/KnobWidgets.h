@@ -149,10 +149,6 @@ public:
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
-		valueDisplayLabel.setInterceptsMouseClicks(false, false);
-		valueDisplayLabel.setLookAndFeel(mophoLaF);
-		addAndMakeVisible(valueDisplayLabel);
-
 		auto knobWidget_w{ 40 };
 		auto knobWidget_h{ 50 };
 		setSize(knobWidget_w, knobWidget_h);
@@ -160,26 +156,33 @@ public:
 
 	~KnobWidget()
 	{
-		valueDisplayLabel.setLookAndFeel(nullptr);
 		slider.removeListener(this);
 		slider.setLookAndFeel(nullptr);
 	}
 
 	void paint(Graphics& g) override
 	{
+		// draw knob circle
 		g.setColour(Color::black);
 		g.fillEllipse(5, 5, 30, 30);
 
-		Font controlLabel{ "Arial", "Black", 12.0f };
-		g.setFont(controlLabel);
-		Rectangle<int> controlLabelArea{ 0, 35, 40, 15 };
-		g.drawText(name, controlLabelArea, Justification::centred);
+		// draw knob name 
+		Font knobName{ "Arial", "Black", 12.0f };
+		g.setFont(knobName);
+		Rectangle<int> knobNameArea{ 0, 35, 40, 15 };
+		g.drawText(name, knobNameArea, Justification::centred);
+
+		// draw knob value
+		g.setColour(Color::controlText);
+		Font knobValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(knobValue);
+		Rectangle<int> knobValueArea{ 5, 5, 30, 30 };
+		g.drawText(currentValueText, knobValueArea, Justification::centred);
 	}
 
 	void resized() override
 	{
 		slider.setBounds(0, 0, 40, 40);
-		valueDisplayLabel.setBounds(5, 5, 30, 30);
 	}
 
 	auto getSliderValue() { return roundToInt(slider.getValue()); }
@@ -195,7 +198,7 @@ public:
 		}
 	}
 
-	void setValueDisplayLabelText(String text) { valueDisplayLabel.setText(text, dontSendNotification); }
+	void setCurrentValueText(String text) { currentValueText = text; repaint(); }
 	
 	void setSliderTooltip(String text) { slider.setTooltip(text); }
 	
@@ -203,9 +206,9 @@ private:
 	CustomSlider slider;
 	SliderAttachment sliderAttachment;
 	MophoLookAndFeel* mophoLaF;
-	Label valueDisplayLabel;
 
 	String name;
+	String currentValueText;
 
 	//==============================================================================
 	// Override this function to define how the current

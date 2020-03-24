@@ -21,7 +21,7 @@ public:
 		// draw pointer and rotate it according to the slider's value
 		auto angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
 		Line<float> l;
-		l.setStart(center);
+		l.setStart(center.x, float(y + 7));
 		l.setEnd(center.x, float(y + 1));
 		Path p;
 		p.addArrow(l, 1.0f, 8.0f, 6.0f);
@@ -32,7 +32,7 @@ public:
 
 	void drawLabel(Graphics& g, Label& label) override
 	{
-		Font font("Arial", "Narrow Bold", 13.0f);
+		Font font{ "Arial", "Narrow Bold", 13.0f };
 		g.setFont(font);
 		g.setColour(Color::controlText);
 		auto textArea = label.getLocalBounds();
@@ -86,7 +86,7 @@ public:
 		ToggleButton& button,
 		bool shouldDrawButtonAsHighlighted,
 		bool shouldDrawButtonAsDown
-		) override
+	) override
 	{
 		drawTickBox(g, button,
 			0.0f, 0.0f, (float)button.getWidth(), (float)button.getHeight(),
@@ -111,11 +111,9 @@ public:
 		g.fillEllipse(x, y, w, h);
 	}
 
-	void drawComboBox(Graphics& g, int width, int height, bool isButtonDown,
-		int buttonX, int buttonY, int buttonW, int buttonH, ComboBox& /*box*/) override
+	void drawComboBox(Graphics& g, int width, int height, bool /*isButtonDown*/,
+		int /*buttonX*/, int /*buttonY*/, int /*buttonW*/, int /*buttonH*/, ComboBox& /*box*/) override
 	{
-		ignoreUnused(isButtonDown, buttonX, buttonY, buttonW, buttonH);
-
 		Rectangle<int> boxBounds(0, 0, width, height);
 
 		g.setColour(Color::black);
@@ -129,16 +127,20 @@ public:
 
 	void positionComboBoxText(ComboBox& box, Label& label) override
 	{
-		label.setBounds(-1, 1, box.getWidth() - 7, box.getHeight() - 2);
-		label.setColour(Label::textColourId, Color::controlText);
-		Font font("Arial", "Regular", 12.0f);
-		label.setFont(font);
-		label.setJustificationType(Justification::left);
+		label.setBounds(0, 0, box.getWidth() - 11, box.getHeight());
 	};
 
-	void drawPopupMenuBackground(Graphics& g, int width, int height) override
+	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override
 	{
-		ignoreUnused(width, height);
+		return PopupMenu::Options().withTargetComponent(&box)
+			.withItemThatMustBeVisible(box.getSelectedId())
+			.withMinimumWidth(box.getWidth())
+			.withMaximumNumColumns(1)
+			.withStandardItemHeight(label.getHeight());
+	}
+
+	void drawPopupMenuBackground(Graphics& g, int /*width*/, int /*height*/) override
+	{
 		g.fillAll(Color::black.brighter(0.2f));
 	}
 

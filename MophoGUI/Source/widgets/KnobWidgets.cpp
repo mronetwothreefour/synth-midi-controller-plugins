@@ -5,8 +5,8 @@
 void KnobWidget_0to127::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 128)
-		setValueDisplayLabelText(String(currentValue));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(String(currentValue));
+	else setCurrentValueText("ERR");
 }
 
 //==============================================================================
@@ -14,8 +14,8 @@ void KnobWidget_0to127::drawValue(const int& currentValue) noexcept
 void KnobWidget_PlusMinus127::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 255)
-		setValueDisplayLabelText(valueConverters.intToPlusMinus127(currentValue));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(valueConverters.intToPlusMinus127(currentValue));
+	else setCurrentValueText("ERR");
 }
 
 //==============================================================================
@@ -23,8 +23,8 @@ void KnobWidget_PlusMinus127::drawValue(const int& currentValue) noexcept
 void KnobWidget_OscPitch::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 121)
-		setValueDisplayLabelText(valueConverters.intToOscPitchString(currentValue, false));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(valueConverters.intToOscPitchString(currentValue, false));
+	else setCurrentValueText("ERR");
 }
 
 String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const noexcept
@@ -45,8 +45,8 @@ String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const n
 void KnobWidget_FineTune::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 101)
-		setValueDisplayLabelText(valueConverters.intToFineTuneRange(currentValue, false));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(valueConverters.intToFineTuneRange(currentValue, false));
+	else setCurrentValueText("ERR");
 }
 
 String KnobWidget_FineTune::createTooltipString(const int& currentValue) const noexcept
@@ -72,33 +72,33 @@ void KnobWidget_OscShape::drawValue(const int& currentValue) noexcept
 		if (currentValue == 0) // Off
 		{
 			shapeRenderer.clear();
-			setValueDisplayLabelText("OFF");
+			setCurrentValueText("OFF");
 		}
 		if (currentValue == 1) // Sawtooth
 		{
-			setValueDisplayLabelText("");
+			setCurrentValueText("");
 			shapeRenderer.drawSawtooth();
 		}
 		if (currentValue == 2) // Triangle
 		{
-			setValueDisplayLabelText("");
+			setCurrentValueText("");
 			shapeRenderer.drawTriangle();
 		}
 		if (currentValue == 3) // Sawtooth-Triangle Mix
 		{
-			setValueDisplayLabelText("");
+			setCurrentValueText("");
 			shapeRenderer.drawSawTri();
 		}
 		if (currentValue > 3 && currentValue < 104) // Pulse
 		{
-			setValueDisplayLabelText("");
+			setCurrentValueText("");
 			shapeRenderer.drawPulse(currentValue - 3);
 		}
 	}
 	else
 	{
 		shapeRenderer.clear();
-		setValueDisplayLabelText("ERR");
+		setCurrentValueText("ERR");
 	}
 }
 
@@ -154,8 +154,8 @@ String KnobWidget_OscSubLvl::createTooltipString(const int& currentValue) const 
 void KnobWidget_OscSlop::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 6)
-		setValueDisplayLabelText(String(currentValue));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(String(currentValue));
+	else setCurrentValueText("ERR");
 }
 
 String KnobWidget_OscSlop::createTooltipString(const int& currentValue) const noexcept
@@ -194,8 +194,8 @@ String KnobWidget_OscMix::createTooltipString(const int& currentValue) const noe
 void KnobWidget_BendRange::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 13)
-		setValueDisplayLabelText(valueConverters.intToBendRange(currentValue, false));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(valueConverters.intToBendRange(currentValue, false));
+	else setCurrentValueText("ERR");
 }
 
 String KnobWidget_BendRange::createTooltipString(const int& currentValue) const noexcept
@@ -252,8 +252,8 @@ String KnobWidget_ExtInLevel::createTooltipString(const int& currentValue) const
 void KnobWidget_LPFfreq::drawValue(const int& currentValue) noexcept
 {
 	if (currentValue > -1 && currentValue < 165)
-		setValueDisplayLabelText(valueConverters.intToLPFfreq(currentValue, false));
-	else setValueDisplayLabelText("ERR");
+		setCurrentValueText(valueConverters.intToLPFfreq(currentValue, false));
+	else setCurrentValueText("ERR");
 }
 
 String KnobWidget_LPFfreq::createTooltipString(const int& currentValue) const noexcept
