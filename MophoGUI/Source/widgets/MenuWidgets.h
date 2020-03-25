@@ -108,6 +108,7 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget)
 };
 
+//==============================================================================
 // A MenuWidget appropriate for controlling the note priority parameter.
 // Derives from MenuWidget and overrides createChoices() and createTooltipString()
 class MenuWidget_NotePriority : public MenuWidget
@@ -133,5 +134,33 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_NotePriority)
+};
+
+//==============================================================================
+// A MenuWidget appropriate for controlling the glide mode parameter.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_GlideMode : public MenuWidget
+{
+public:
+	MenuWidget_GlideMode
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "GLIDE MODE", publicParameters, privateParameters, ID::glideMode, mophoLaF, width }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_GlideMode() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_GlideMode)
 };
 

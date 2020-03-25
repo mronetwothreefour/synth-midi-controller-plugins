@@ -42,18 +42,12 @@ public:
 			offOn.add(valueConverters.intToOffOn(i));
 
 		StringArray glideMode;
-		glideMode.add("Fixed Rate");
-		glideMode.add("Fixed Rate Auto");
-		glideMode.add("Fixed Time");
-		glideMode.add("Fixed Time Auto");
+		for (auto i = 0; i != 4; ++i)
+			glideMode.add(valueConverters.intToGlideMode(i));
 
 		StringArray pitchBendRange;
-		pitchBendRange.add("Off");
-		pitchBendRange.add("+/-1 semitone");
-		for (auto i = 2; i != 13; ++i)
-		{
-			pitchBendRange.add("+/-" + (String)i + " semitones");
-		}
+		for (auto i = 0; i != 13; ++i)
+			pitchBendRange.add(valueConverters.intToBendRange(i, true));
 
 		StringArray notePriority;
 		for (auto i = 0; i != 6; ++i)

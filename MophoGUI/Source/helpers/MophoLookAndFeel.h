@@ -132,16 +132,105 @@ public:
 
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override
 	{
-		return PopupMenu::Options().withTargetComponent(&box)
+		return PopupMenu::Options()
+			.withTargetComponent(&box)
 			.withItemThatMustBeVisible(box.getSelectedId())
 			.withMinimumWidth(box.getWidth())
-			.withMaximumNumColumns(1)
+			.withMaximumNumColumns(5)
 			.withStandardItemHeight(label.getHeight());
 	}
 
 	void drawPopupMenuBackground(Graphics& g, int /*width*/, int /*height*/) override
 	{
 		g.fillAll(Color::black.brighter(0.2f));
+	}
+
+	void drawPopupMenuItem
+	(
+		Graphics& g, 
+		const Rectangle<int>& area,
+		const bool /*isSeparator*/, 
+		const bool isActive,
+		const bool isHighlighted, 
+		const bool isTicked,
+		const bool hasSubMenu, 
+		const String& text,
+		const String& /*shortcutKeyText*/,
+		const Drawable* /*icon*/, 
+		const Colour* const /*textColourToUse*/
+	) override
+	{
+		auto textColour{ Color::controlText };
+		
+		auto r = area.reduced(1);
+
+		if (isHighlighted && isActive)
+		{
+			g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
+			g.fillRect(r);
+
+			g.setColour(findColour(PopupMenu::highlightedTextColourId));
+		}
+		else
+		{
+			g.setColour(textColour.withMultipliedAlpha(isActive ? 1.0f : 0.5f));
+		}
+
+		r.reduce(jmin(5, area.getWidth() / 20), 0);
+
+		Font font{ "Arial", "Narrow Bold", 12.0f };
+		g.setFont(font);
+
+		auto iconArea = r.removeFromLeft(8).toFloat();
+
+		if (isTicked)
+		{
+			auto tick{ getTickShape(8.0f) };
+			g.fillPath(tick, AffineTransform::translation(0.0f, 4.0f));
+		}
+
+		if (hasSubMenu)
+		{
+			auto arrowH = 0.6f * getPopupMenuFont().getAscent();
+
+			auto x = static_cast<float> (r.removeFromRight((int)arrowH).getX());
+			auto halfH = static_cast<float> (r.getCentreY());
+
+			Path path;
+			path.startNewSubPath(x, halfH - arrowH * 0.5f);
+			path.lineTo(x + arrowH * 0.6f, halfH);
+			path.lineTo(x, halfH + arrowH * 0.5f);
+
+			g.strokePath(path, PathStrokeType(2.0f));
+		}
+
+		r.removeFromRight(3);
+		g.drawFittedText(text, r, Justification::centredLeft, 1);
+	}
+
+	void getIdealPopupMenuItemSize
+	(
+		const String& /*text*/, 
+		const bool isSeparator,
+		int standardMenuItemHeight, 
+		int& idealWidth, 
+		int& idealHeight
+	) override
+	{
+		if (isSeparator)
+		{
+			idealWidth = 50;
+			idealHeight = standardMenuItemHeight > 0 ? standardMenuItemHeight / 10 : 10;
+		}
+		else
+		{
+			auto font = getPopupMenuFont();
+
+			if (standardMenuItemHeight > 0 && font.getHeight() > standardMenuItemHeight / 1.3f)
+				font.setHeight(standardMenuItemHeight / 1.3f);
+
+			idealHeight = standardMenuItemHeight > 0 ? standardMenuItemHeight : roundToInt(font.getHeight() * 1.3f);
+		}
 	}
 
 private:

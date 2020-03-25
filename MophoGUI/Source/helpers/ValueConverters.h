@@ -191,6 +191,20 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..3 to a glide mode menu choice String
+	String intToGlideMode(const int& i) const
+	{
+		if (i > -1 && i < 4)
+		{
+			if (i == 0) return "Fixed Rate";
+			if (i == 1) return "Fixed Rate Auto";
+			if (i == 2) return "Fixed Time";
+			if (i == 3) return "Fixed Time Auto";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================
