@@ -86,34 +86,13 @@ public:
 		lfoShape.add("Square");
 		lfoShape.add("Random");
 
+		StringArray modSource;
+		for (auto i = 0; i != 23; ++i)
+			modSource.add(valueConverters.intToModSource(i));
+
 		StringArray modDestination;
 		for (auto i = 0; i != 47; ++i)
 			modDestination.add(valueConverters.intToModDestination(i));
-
-		StringArray modSource;
-		/*0 */modSource.add("Off");
-		/*1 */modSource.add("Sequencer Track 1");
-		/*2 */modSource.add("Sequencer Track 2");
-		/*3 */modSource.add("Sequencer Track 3");
-		/*4 */modSource.add("Sequencer Track 4");
-		/*5 */modSource.add("LFO 1");
-		/*6 */modSource.add("LFO 2");
-		/*7 */modSource.add("LFO 3");
-		/*8 */modSource.add("LFO 4");
-		/*9 */modSource.add("LPF Envelope");
-		/*10*/modSource.add("VCA Envelope");
-		/*11*/modSource.add("Envelope 3");
-		/*12*/modSource.add("Pitch Bend");
-		/*13*/modSource.add("Mod Wheel");
-		/*14*/modSource.add("Pressure");
-		/*15*/modSource.add("MIDI Breath");
-		/*16*/modSource.add("MIDI Foot Pedal");
-		/*17*/modSource.add("MIDI Expression");
-		/*18*/modSource.add("Velocity");
-		/*19*/modSource.add("Note Number");
-		/*20*/modSource.add("Noise");
-		/*21*/modSource.add("Audio In Env. Follower");
-		/*22*/modSource.add("Audio In Peak Hold");
 
 		// 0 = "Normal"; 1 = "Toggle"; 
 		// 2 = "Audio In"

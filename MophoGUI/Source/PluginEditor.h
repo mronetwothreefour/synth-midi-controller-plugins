@@ -9,6 +9,7 @@
 #include "parameters/PrivateParameters.h"
 #include "editorSections/Env3Section.h"
 #include "editorSections/LPFSection.h"
+#include "editorSections/ModulatorsSection.h"
 #include "editorSections/OscillatorsSection.h"
 #include "editorSections/VCASection.h"
 #include "widgets/KnobWidgets.h"
@@ -32,17 +33,7 @@ private:
     std::unique_ptr<LPFSection> sectionLPF;
     std::unique_ptr<VCASection> sectionVCA;
     std::unique_ptr<Env3Section> sectionEnv3;
-
-    //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod1Amt;
-    //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod2Amt;
-    //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod3Amt;
-    //std::unique_ptr<KnobWidget_ModAmt>      knob_Mod4Amt;
-
-    //std::unique_ptr<KnobWidget_MidiModAmt>  knob_ModWheelAmt;
-    //std::unique_ptr<KnobWidget_MidiModAmt>  knob_AftertouchAmt;
-    //std::unique_ptr<KnobWidget_MidiModAmt>  knob_BreathAmt;
-    //std::unique_ptr<KnobWidget_MidiModAmt>  knob_VelocityAmt;
-    //std::unique_ptr<KnobWidget_MidiModAmt>  knob_PedalAmt;
+    std::unique_ptr<ModulatorsSection> sectionMod;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

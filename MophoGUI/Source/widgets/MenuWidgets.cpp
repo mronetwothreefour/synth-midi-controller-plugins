@@ -101,3 +101,27 @@ String MenuWidget_ModDestination::createTooltipString(const int& currentValue) c
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_ModSource::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 23; ++i)
+	{
+		choices.add(valueConverters.intToModSource(i));
+	}
+	return choices;
+}
+
+String MenuWidget_ModSource::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToModSource(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Selects the modulation source.";
+	}
+	return tooltip;
+}

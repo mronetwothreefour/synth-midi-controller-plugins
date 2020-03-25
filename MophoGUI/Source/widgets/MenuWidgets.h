@@ -221,3 +221,32 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ModDestination)
 };
 
+//==============================================================================
+// A MenuWidget appropriate for controlling any of the modulation source parameters.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_ModSource : public MenuWidget
+{
+public:
+	MenuWidget_ModSource
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "SOURCE", publicParameters, privateParameters, paramID, mophoLaF, width }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_ModSource() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ModSource)
+};
+
