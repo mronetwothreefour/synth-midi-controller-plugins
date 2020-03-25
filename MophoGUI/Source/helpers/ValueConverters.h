@@ -205,6 +205,20 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..3 to an arpeggiator mode menu choice String
+	String intToArpegMode(const int& i) const
+	{
+		if (i > -1 && i < 4)
+		{
+			if (i == 0) return "Up";
+			if (i == 1) return "Down";
+			if (i == 2) return "Up & Down";
+			if (i == 3) return "Assign";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

@@ -120,7 +120,8 @@ public:
 		knob_ExtInLevel{ publicParams, privateParams, mophoLaF },
 		button_Arpeg{ "arpeg", publicParams, privateParams, mophoLaF },
 		menu_NotePriority{ publicParams, privateParams, mophoLaF, 123 },
-		menu_GlideMode{ publicParams, privateParams, mophoLaF, 123 }
+		menu_GlideMode{ publicParams, privateParams, mophoLaF, 123 },
+		menu_ArpegMode{ publicParams, privateParams, mophoLaF, 123 }
 	{
 		addAndMakeVisible(button_Sync);
 		addAndMakeVisible(osc1Controls);
@@ -133,6 +134,7 @@ public:
 		addAndMakeVisible(button_Arpeg);
 		addAndMakeVisible(menu_NotePriority);
 		addAndMakeVisible(menu_GlideMode);
+		addAndMakeVisible(menu_ArpegMode);
 
 		auto oscSection_w{ 550 };
 		auto oscSection_h{ 130 };
@@ -207,6 +209,7 @@ public:
 		auto menu_h{ menu_NotePriority.getHeight() };
 		menu_NotePriority	.setBounds(menuCol_x, menu1_y, menu_w, menu_h);
 		menu_GlideMode		.setBounds(menuCol_x, menu2_y, menu_w, menu_h);
+		menu_ArpegMode		.setBounds(menuCol_x, menu3_y, menu_w, menu_h);
 	}
 
 private:
@@ -224,6 +227,7 @@ private:
 
 	MenuWidget_NotePriority menu_NotePriority;
 	MenuWidget_GlideMode	menu_GlideMode;
+	MenuWidget_ArpegMode	menu_ArpegMode;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscillatorsSection)

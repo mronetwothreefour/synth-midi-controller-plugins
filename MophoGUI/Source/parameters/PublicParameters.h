@@ -183,12 +183,10 @@ public:
 		/*12*/clockDivide.add("64th Note Triplets");
 
 		// 0 = "Up"; 1 = "Down";
-		// 2 = "Up/Down" 3 = "Assign"
+		// 2 = "Up & Down" 3 = "Assign"
 		StringArray arpegMode;
-		arpegMode.add("Up");
-		arpegMode.add("Down");
-		arpegMode.add("Up/Down");
-		arpegMode.add("Assign");
+		for (auto i = 0; i != 4; ++i)
+			arpegMode.add(valueConverters.intToArpegMode(i));
 
 		// 0 = "Normal"; 1 = "Normal, No Reset";
 		// 2 = "No Gate" 3 = "No Gate, No Reset";

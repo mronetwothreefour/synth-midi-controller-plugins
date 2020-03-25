@@ -164,3 +164,31 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_GlideMode)
 };
 
+//==============================================================================
+// A MenuWidget appropriate for controlling the arpeggiator mode parameter.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_ArpegMode : public MenuWidget
+{
+public:
+	MenuWidget_ArpegMode
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "ARPEGGIATOR MODE", publicParameters, privateParameters, ID::arpegMode, mophoLaF, width }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_ArpegMode() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ArpegMode)
+};
+

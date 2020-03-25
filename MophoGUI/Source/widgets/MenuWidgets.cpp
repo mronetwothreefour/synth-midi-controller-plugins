@@ -51,3 +51,29 @@ String MenuWidget_GlideMode::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_ArpegMode::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 4; ++i)
+	{
+		choices.add(valueConverters.intToArpegMode(i));
+	}
+	return choices;
+}
+
+String MenuWidget_ArpegMode::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToArpegMode(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the order in which the arpeggiator plays notes.\n";
+		tooltip += "Available options: Up, Down, Up & Down, and Assign\n";
+		tooltip += "(notes play in the order in which they were struck).";
+	}
+	return tooltip;
+}
