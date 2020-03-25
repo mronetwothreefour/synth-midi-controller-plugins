@@ -9,6 +9,7 @@
 #include "../widgets/ButtonWidgets.h"
 #include "../widgets/EnvelopeWidget.h"
 #include "../widgets/KnobWidgets.h"
+#include "../widgets/MenuWidgets.h"
 
 // A set of controls targeting the voltage-controlled amplifier
 // parameters: base level, envelope amount, velocity amount,
@@ -25,11 +26,13 @@ public:
 		button_Repeat{ "repeat", publicParams, privateParams, mophoLaF },
 		knob_Env3Amt{ publicParams, privateParams, mophoLaF },
 		knob_VelAmount{ publicParams, privateParams, ID::env3VelAmount, mophoLaF },
+		menu_Destination{ publicParams, privateParams, ID::env3Destination, mophoLaF, 126 },
 		envelopeWidget{ publicParams, privateParams, "env3", mophoLaF }
 	{
 		addAndMakeVisible(button_Repeat);
 		addAndMakeVisible(knob_Env3Amt);
 		addAndMakeVisible(knob_VelAmount);
+		addAndMakeVisible(menu_Destination);
 		addAndMakeVisible(envelopeWidget);
 
 		auto section_w{ 370 };
@@ -47,7 +50,7 @@ public:
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
 		Rectangle<int> sectionLabelArea{ 0, 0, 150, 15 };
-		g.drawText("ENVELOPE 3", sectionLabelArea, Justification::centredLeft);
+		g.drawText("ENVELOPE 3", sectionLabelArea, Justification::left);
 
 		// Draw repeat button label
 		Font repeatLabel{ "Arial", "Black", 12.0f };
@@ -67,10 +70,11 @@ public:
 		auto knob_col3_x{ knob_col2_x + knob_w + knobGap };
 		auto knob_row1_y{ 41 };
 		auto button_y{ knob_row1_y + 13 };
-		//auto knob_row2_y{ 93 };
 		button_Repeat.setBounds(button_x, button_y, button_Repeat.getWidth(), button_Repeat.getHeight());
 		knob_Env3Amt.setBounds(knob_col2_x, knob_row1_y, knob_w, knob_h);
 		knob_VelAmount.setBounds(knob_col3_x, knob_row1_y, knob_w, knob_h);
+
+		menu_Destination.setBounds(15, 105, menu_Destination.getWidth(), menu_Destination.getHeight());
 
 		envelopeWidget.setBounds(148, 0, envelopeWidget.getWidth(), envelopeWidget.getHeight());
 	}
@@ -80,6 +84,8 @@ private:
 
 	KnobWidget_Env3Amt knob_Env3Amt;
 	KnobWidget_VelAmount knob_VelAmount;
+
+	MenuWidget_ModDestination menu_Destination;
 
 	EnvelopeWidget envelopeWidget;
 

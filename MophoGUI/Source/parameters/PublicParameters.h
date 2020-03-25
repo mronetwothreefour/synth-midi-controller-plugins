@@ -61,8 +61,8 @@ public:
 
 		// 0 = "2-Pole"; 1 = "4-Pole"
 		StringArray lpfType;
-		lpfType.add("2-Pole");
-		lpfType.add("4-Pole");
+		for (auto i = 0; i != 2; ++i)
+			lpfType.add(valueConverters.intToLPFtype(i));
 
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
@@ -87,53 +87,8 @@ public:
 		lfoShape.add("Random");
 
 		StringArray modDestination;
-		/*0 */modDestination.add("Off");
-		/*1 */modDestination.add("Oscillator 1 Pitch");
-		/*2 */modDestination.add("Oscillator 2 Pitch");
-		/*3 */modDestination.add("Oscillator 1 & 2 Pitch");
-		/*4 */modDestination.add("Oscillator Mix");
-		/*5 */modDestination.add("Noise Level");
-		/*6 */modDestination.add("Osc. 1 Pulse Width");
-		/*7 */modDestination.add("Osc. 2 Pulse Width");
-		/*8 */modDestination.add("Osc. 1 & 2 Pulse Width");
-		/*9 */modDestination.add("LPF Cutoff Frequency");
-		/*10*/modDestination.add("LPF Resonance");
-		/*11*/modDestination.add("LPF FM Amount");
-		/*12*/modDestination.add("VCA Level");
-		/*13*/modDestination.add("Output Panning");
-		/*14*/modDestination.add("LFO 1 Frequency");
-		/*15*/modDestination.add("LFO 2 Frequency");
-		/*16*/modDestination.add("LFO 3 Frequency");
-		/*17*/modDestination.add("LFO 4 Frequency");
-		/*18*/modDestination.add("All LFO Frequencies");
-		/*19*/modDestination.add("LFO 1 Amount");
-		/*20*/modDestination.add("LFO 2 Amount");
-		/*21*/modDestination.add("LFO 3 Amount");
-		/*22*/modDestination.add("LFO 4 Amount");
-		/*23*/modDestination.add("All LFO Amounts");
-		/*24*/modDestination.add("LPF Envelope Amount");
-		/*25*/modDestination.add("VCA Envelope Amount");
-		/*26*/modDestination.add("Envelope 3 Amount");
-		/*27*/modDestination.add("All Envelope Amounts");
-		/*28*/modDestination.add("LPF Envelope Attack");
-		/*29*/modDestination.add("VCA Envelope Attack");
-		/*30*/modDestination.add("Envelope 3 Attack");
-		/*31*/modDestination.add("All Envelope Attacks");
-		/*32*/modDestination.add("LPF Envelope Decay");
-		/*33*/modDestination.add("VCA Envelope Decay");
-		/*34*/modDestination.add("Envelope 3 Decay");
-		/*35*/modDestination.add("All Envelope Decays");
-		/*36*/modDestination.add("LPF Envelope Release");
-		/*37*/modDestination.add("VCA Envelope Release");
-		/*38*/modDestination.add("Envelope 3 Release");
-		/*39*/modDestination.add("All Envelope Releases");
-		/*40*/modDestination.add("Modulator 1 Amount");
-		/*41*/modDestination.add("Modulator 2 Amount");
-		/*42*/modDestination.add("Modulator 3 Amount");
-		/*43*/modDestination.add("Modulator 4 Amount");
-		/*44*/modDestination.add("External Audio In Level");
-		/*45*/modDestination.add("Sub-Osc 1 Level");
-		/*46*/modDestination.add("Sub-Osc 2 Level");
+		for (auto i = 0; i != 47; ++i)
+			modDestination.add(valueConverters.intToModDestination(i));
 
 		StringArray modSource;
 		/*0 */modSource.add("Off");

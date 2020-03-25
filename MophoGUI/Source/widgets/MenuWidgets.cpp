@@ -77,3 +77,27 @@ String MenuWidget_ArpegMode::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_ModDestination::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 47; ++i)
+	{
+		choices.add(valueConverters.intToModDestination(i));
+	}
+	return choices;
+}
+
+String MenuWidget_ModDestination::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToModDestination(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Selects the target parameter for modulation.";
+	}
+	return tooltip;
+}

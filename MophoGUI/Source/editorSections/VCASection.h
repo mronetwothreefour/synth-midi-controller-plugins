@@ -48,7 +48,7 @@ public:
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
 		Rectangle<int> sectionLabelArea{ 0, 0, 30, 15 };
-		g.drawText("VCA", sectionLabelArea, Justification::centredLeft);
+		g.drawText("VCA", sectionLabelArea, Justification::left);
 	}
 
 	void resized() override

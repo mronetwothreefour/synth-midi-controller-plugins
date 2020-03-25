@@ -229,3 +229,40 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_Arpeg)
 };
 
+//==============================================================================
+// A button widget appropriate for selecting the low-pass filter type.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_LPFtype : public ButtonWidget
+{
+public:
+	ButtonWidget_LPFtype
+	(
+		String name,
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) : 
+		ButtonWidget{ name, publicParameters, privateParameters, ID::lpfType, mophoLaF }
+	{}
+
+	~ButtonWidget_LPFtype() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToLPFtype(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
+			tooltip += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
+			tooltip += "slope and more pronounced resonance.";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_LPFtype)
+};
+

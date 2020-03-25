@@ -150,13 +150,13 @@ public:
 		// Draw section label
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
-		Rectangle<int> sectionLabelArea{ 0, 0, 105, 15 };
-		g.drawText("OSCILLATORS", sectionLabelArea, Justification::centredLeft);
+		Rectangle<int> sectionLabelArea{ 0, 0, 105, 10 };
+		g.drawText("OSCILLATORS", sectionLabelArea, Justification::left);
 
 		// Draw sync button label
 		Font buttonLabel{ "Arial", "Black", 12.0f };
 		g.setFont(buttonLabel);
-		Rectangle<int> syncLabelArea{ 218, 0, 30, 14 };
+		Rectangle<int> syncLabelArea{ 218, 2, 30, 14 };
 		g.drawText("SYNC", syncLabelArea, Justification::centredRight);
 
 		// Draw arpeggiator button label
@@ -178,7 +178,7 @@ public:
 	void resized() override
 	{
 		auto button_diameter{ button_Sync.getWidth() };
-		button_Sync.setBounds(251, 0, button_diameter, button_diameter);
+		button_Sync.setBounds(251, 2, button_diameter, button_diameter);
 
 		auto knob_w{ knob_OscSlop.getWidth() };
 		auto knob_h{ knob_OscSlop.getHeight() };
