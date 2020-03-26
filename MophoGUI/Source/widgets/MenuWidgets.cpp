@@ -125,3 +125,28 @@ String MenuWidget_ModSource::createTooltipString(const int& currentValue) const 
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_MidiDestination::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 47; ++i)
+	{
+		choices.add(valueConverters.intToModDestination(i));
+	}
+	return choices;
+}
+
+String MenuWidget_MidiDestination::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToModDestination(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Selects the target parameter for\n";
+		tooltip += "modulation by the MIDI controller.";
+	}
+	return tooltip;
+}

@@ -198,7 +198,7 @@ private:
 };
 
 //==============================================================================
-// A MenuWidget appropriate for controlling any of the modulation destination parameters.
+// A MenuWidget appropriate for controlling most of the modulation destination parameters.
 // Derives from MenuWidget and overrides createChoices() and createTooltipString()
 class MenuWidget_ModDestination : public MenuWidget
 {
@@ -254,5 +254,35 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ModSource)
+};
+
+//==============================================================================
+// A MenuWidget appropriate for controlling any of the MIDI controller destination parameters.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_MidiDestination : public MenuWidget
+{
+public:
+	MenuWidget_MidiDestination
+	(
+		String controllerName,
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ controllerName + " DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, false }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_MidiDestination() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_MidiDestination)
 };
 

@@ -9,6 +9,7 @@
 #include "parameters/PrivateParameters.h"
 #include "editorSections/Env3Section.h"
 #include "editorSections/LPFSection.h"
+#include "editorSections/MidiControllersSection.h"
 #include "editorSections/ModulatorsSection.h"
 #include "editorSections/OscillatorsSection.h"
 #include "editorSections/VCASection.h"
@@ -34,6 +35,7 @@ private:
     std::unique_ptr<VCASection> sectionVCA;
     std::unique_ptr<Env3Section> sectionEnv3;
     std::unique_ptr<ModulatorsSection> sectionMod;
+    std::unique_ptr<MidiControllersSection> sectionMidi;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

@@ -24,6 +24,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionMod.reset(new ModulatorsSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionMod.get());
 
+    sectionMidi.reset(new MidiControllersSection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionMidi.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
@@ -37,6 +40,7 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    sectionMidi = nullptr;
     sectionMod = nullptr;
     sectionEnv3 = nullptr;
     sectionVCA = nullptr;
@@ -234,9 +238,10 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
-    sectionOsc->setBounds(15, 15, sectionOsc->getWidth(), sectionOsc->getHeight());
-    sectionLPF->setBounds(15, 154, sectionLPF->getWidth(), sectionLPF->getHeight());
-    sectionVCA->setBounds(15, 312, sectionLPF->getWidth(), sectionLPF->getHeight());
-    sectionEnv3->setBounds(15, 470, sectionLPF->getWidth(), sectionLPF->getHeight());
-    sectionMod->setBounds(404, 154, sectionMod->getWidth(), sectionMod->getHeight());
+    sectionOsc ->setBounds(15 , 15 , sectionOsc ->getWidth(), sectionOsc ->getHeight());
+    sectionLPF ->setBounds(15 , 154, sectionLPF ->getWidth(), sectionLPF ->getHeight());
+    sectionVCA ->setBounds(15 , 312, sectionLPF ->getWidth(), sectionLPF ->getHeight());
+    sectionEnv3->setBounds(15 , 470, sectionEnv3->getWidth(), sectionEnv3->getHeight());
+    sectionMod ->setBounds(404, 154, sectionMod ->getWidth(), sectionMod ->getHeight());
+    sectionMidi->setBounds(612, 154, sectionMidi->getWidth(), sectionMidi->getHeight());
 }
