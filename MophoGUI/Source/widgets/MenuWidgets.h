@@ -26,13 +26,15 @@ public:
 		PrivateParameters* privateParameters,
 		Identifier parameterID,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		bool placelabelAboveMenu
 	) :
 		name{ menuName },
 		paramID{ parameterID },
 		menu{ name },
 		privateParams{ privateParameters },
-		publicParams{ publicParameters }
+		publicParams{ publicParameters },
+		labelIsAboveMenu{ placelabelAboveMenu }
 	{
 		menu.setLookAndFeel(mophoLaF);
 		menu.addListener(this);
@@ -56,13 +58,15 @@ public:
 		g.setColour(Color::black);
 		Font menuLabel{ "Arial", "Black", 12.0f };
 		g.setFont(menuLabel);
-		Rectangle<int> menuLabelArea{ 0, 16, getWidth(), 14 };
+		auto label_y{ labelIsAboveMenu ? 0 : 16};
+		Rectangle<int> menuLabelArea{ 0, label_y, getWidth(), 14 };
 		g.drawText(name, menuLabelArea, Justification::centred);
 	}
 
 	void resized() override
 	{
-		menu.setBounds(0, 0, getWidth(), 16);
+		auto menu_y{ labelIsAboveMenu ? 14 : 0 };
+		menu.setBounds(0, menu_y, getWidth(), 16);
 	}
 
 	void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override
@@ -90,11 +94,12 @@ private:
 	String name;
 	Identifier paramID;
 
+	AudioProcessorValueTreeState* publicParams;
+
 	ComboBox menu;
 	std::unique_ptr<MenuAttachment> menuAttachment;
 
-	AudioProcessorValueTreeState* publicParams;
-
+	bool labelIsAboveMenu;
 
 	// Override this funtion to create the list of
 	// choices that will be displayed in the menu
@@ -121,7 +126,7 @@ public:
 		MophoLookAndFeel* mophoLaF,
 		int width
 	) :
-		MenuWidget{ "NOTE PRIORITY", publicParameters, privateParameters, ID::notePriority, mophoLaF, width }
+		MenuWidget{ "NOTE PRIORITY", publicParameters, privateParameters, ID::notePriority, mophoLaF, width, false }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -149,7 +154,7 @@ public:
 		MophoLookAndFeel* mophoLaF,
 		int width
 	) :
-		MenuWidget{ "GLIDE MODE", publicParameters, privateParameters, ID::glideMode, mophoLaF, width }
+		MenuWidget{ "GLIDE MODE", publicParameters, privateParameters, ID::glideMode, mophoLaF, width, false }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -177,7 +182,7 @@ public:
 		MophoLookAndFeel* mophoLaF,
 		int width
 	) :
-		MenuWidget{ "ARPEGGIATOR MODE", publicParameters, privateParameters, ID::arpegMode, mophoLaF, width }
+		MenuWidget{ "ARPEGGIATOR MODE", publicParameters, privateParameters, ID::arpegMode, mophoLaF, width, false }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -204,9 +209,10 @@ public:
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		bool labelIsAboveMenu
 	) :
-		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width }
+		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, labelIsAboveMenu }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -235,7 +241,7 @@ public:
 		MophoLookAndFeel* mophoLaF,
 		int width
 	) :
-		MenuWidget{ "SOURCE", publicParameters, privateParameters, paramID, mophoLaF, width }
+		MenuWidget{ "SOURCE", publicParameters, privateParameters, paramID, mophoLaF, width, false }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);

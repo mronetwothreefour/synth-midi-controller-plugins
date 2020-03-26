@@ -26,7 +26,7 @@ public:
 		button_Repeat{ "repeat", publicParams, privateParams, mophoLaF },
 		knob_Env3Amt{ publicParams, privateParams, mophoLaF },
 		knob_VelAmount{ publicParams, privateParams, ID::env3VelAmount, mophoLaF },
-		menu_Destination{ publicParams, privateParams, ID::env3Destination, mophoLaF, 126 },
+		menu_Destination{ publicParams, privateParams, ID::env3Destination, mophoLaF, 126, false },
 		envelopeWidget{ publicParams, privateParams, "env3", mophoLaF }
 	{
 		addAndMakeVisible(button_Repeat);

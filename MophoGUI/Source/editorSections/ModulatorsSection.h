@@ -23,7 +23,7 @@ public:
 	) :
 		modNumString{ modNum },
 		menu_Source{ publicParams, privateParams, "mod" + modNumString + "Source", mophoLaF, 126 },
-		menu_Destination{ publicParams, privateParams, "mod" + modNumString + "Destination", mophoLaF, 126 },
+		menu_Destination{ publicParams, privateParams, "mod" + modNumString + "Destination", mophoLaF, 126, false },
 		knob_Amount{ publicParams, privateParams, "mod" + modNumString + "Amount", mophoLaF }
 	{
 		addAndMakeVisible(menu_Source);
