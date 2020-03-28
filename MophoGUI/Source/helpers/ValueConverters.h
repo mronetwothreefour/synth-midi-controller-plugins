@@ -122,9 +122,9 @@ struct ValueConverters
 	}
 
 	// Converts integers 0..150 into an LFO frequency setting String
-	// 0..89 = "Unsynced 0..89"
+	// 0..89 = "Un-synced 0..89"
 	// 90..150 = "Pitched Frequency C0..C5"
-	// 151..156 = Sync to step sequencer
+	// 151..156 = Synced to step sequencer
 	String intToLFOfreq(const int& i, bool verbose) const
 	{
 		if (i > -1 && i < 167)
@@ -316,6 +316,20 @@ struct ValueConverters
 			if (i == 44) return "External Audio In Level";
 			if (i == 45) return "Sub-Osc 1 Level";
 			if (i == 46) return "Sub-Osc 2 Level";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
+	// Converts integers 1..3 to an LFO type String
+	// 1 = "Un-synced"; 2 = "Pitch"; 3 = "Synced"
+	String intToLFOtype(const int& i) const
+	{
+		if (i > 0 && i < 4)
+		{
+			if (i == 1) return "Un-synced";
+			if (i == 2) return "Pitch";
+			if (i == 3) return "Synced";
 			else return "invalid";
 		}
 		else return "range error";

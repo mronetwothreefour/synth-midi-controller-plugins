@@ -4,6 +4,8 @@ PrivateParameters::PrivateParameters() :
 	lfoOptionsTree		{ new ValueTree(ID::lfoOptions)		},
 	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) }
 {
+	updateFromPreset = (bool)false;
+
 	for (int i = 1; i != 5; ++i)
 	{
 		setLfoType(i, unSynced);
@@ -25,7 +27,7 @@ PrivateParameters::~PrivateParameters()
 
 //==============================================================================
 
-int PrivateParameters::getLfoType(int lfoNumber) const
+int PrivateParameters::getLfoType(int& lfoNumber) const
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	Identifier propertyID{ "lfo" + (String)lfoNumber + "Type" };
@@ -34,10 +36,10 @@ int PrivateParameters::getLfoType(int lfoNumber) const
 	else return -1;
 }
 
-bool PrivateParameters::setLfoType(int lfoNumber, int newType)
+bool PrivateParameters::setLfoType(int& lfoNumber, int newType)
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
-	jassert(newType > -1 && newType < 3); // LFO type must be 0, 1, or 2
+	jassert(newType > 0 && newType < 4); // LFO type must be 1, 2, or 3
 	if (lfoNumber > 0 && lfoNumber < 5 && newType > -1 && newType < 3)
 	{
 		Identifier propertyID{ "lfo" + (String)lfoNumber + "Type" };
@@ -48,7 +50,7 @@ bool PrivateParameters::setLfoType(int lfoNumber, int newType)
 	else return false;
 }
 
-int PrivateParameters::getLfoUnSyncedValue(int lfoNumber) const
+int PrivateParameters::getLfoUnSyncedValue(int& lfoNumber) const
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	Identifier propertyID{ "lfo" + (String)lfoNumber + "UnSyncedVal" };
@@ -57,7 +59,7 @@ int PrivateParameters::getLfoUnSyncedValue(int lfoNumber) const
 	else return -1;
 }
 
-bool PrivateParameters::setLfoUnSyncedValue(int lfoNumber, int newValue)
+bool PrivateParameters::setLfoUnSyncedValue(int& lfoNumber, int newValue)
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	jassert(newValue > -1 && newValue < 90); // Un-Synced LFO value range is 0..89 
@@ -71,7 +73,7 @@ bool PrivateParameters::setLfoUnSyncedValue(int lfoNumber, int newValue)
 	else return false;
 }
 
-int PrivateParameters::getLfoPitchValue(int lfoNumber) const
+int PrivateParameters::getLfoPitchValue(int& lfoNumber) const
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	Identifier propertyID{ "lfo" + (String)lfoNumber + "PitchVal" };
@@ -80,7 +82,7 @@ int PrivateParameters::getLfoPitchValue(int lfoNumber) const
 	else return -1;
 }
 
-bool PrivateParameters::setLfoPitchValue(int lfoNumber, int newValue)
+bool PrivateParameters::setLfoPitchValue(int& lfoNumber, int newValue)
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	jassert(newValue > 89 && newValue < 151); // Pitch LFO value range is 90..150 
@@ -94,7 +96,7 @@ bool PrivateParameters::setLfoPitchValue(int lfoNumber, int newValue)
 	else return false;
 }
 
-int PrivateParameters::getLfoSyncedValue(int lfoNumber) const
+int PrivateParameters::getLfoSyncedValue(int& lfoNumber) const
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	Identifier propertyID{ "lfo" + (String)lfoNumber + "SyncedVal" };
@@ -103,7 +105,7 @@ int PrivateParameters::getLfoSyncedValue(int lfoNumber) const
 	else return -1;
 }
 
-bool PrivateParameters::setLfoSyncedValue(int lfoNumber, int newValue)
+bool PrivateParameters::setLfoSyncedValue(int& lfoNumber, int newValue)
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
 	jassert(newValue > 150 && newValue < 167); // Synced LFO value range is 151..166 

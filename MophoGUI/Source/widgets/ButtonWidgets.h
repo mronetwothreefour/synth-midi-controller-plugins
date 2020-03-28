@@ -60,11 +60,11 @@ public:
 		{
 			auto currentValue{ getButtonState() };
 			auto tooltip{ createTooltipString(currentValue) };
-			setSliderTooltip(tooltip);
+			setButtonTooltip(tooltip);
 		}
 	}
 
-	void setSliderTooltip(String text) { button.setTooltip(text); }
+	void setButtonTooltip(String text) { button.setTooltip(text); }
 
 private:
 	String name;

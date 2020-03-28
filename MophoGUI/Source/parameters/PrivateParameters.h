@@ -14,44 +14,53 @@ public:
 	~PrivateParameters();
 
 	//==============================================================================
-	enum lfoType
+	void addistenerToUpdateFromPreset(Value::Listener* listener) { updateFromPreset.addListener(listener); }
+	void removeListenerFromUpdateFromPreset(Value::Listener* listener) { updateFromPreset.removeListener(listener); }
+
+	// Returns whether GUI controls that are linked to private paramaeters need to
+	// update their display values, specifically after a plugin preset is loaded
+	bool shouldUpdateFromPreset() { return (bool)updateFromPreset.getValue(); }
+	void setUpdateFromPreset(bool shouldUpdate) { updateFromPreset.setValue(shouldUpdate); }
+
+	//==============================================================================
+	enum LfoType
 	{
-		unSynced = 0,
+		unSynced = 1,
 		pitch,
 		synced
 	};
 
 	// Returns the specified LFO's type
-	// (0 = unSynced, 1 = pitch, 2 = synced)
-	int getLfoType(int lfoNumber) const;
+	// (1 = unSynced, 2 = pitch, 3 = synced)
+	int getLfoType(int& lfoNumber) const;
 
 	// Sets the specified LFO's type
-	// (0 = unSynced, 1 = pitch, 2 = synced)
-	bool setLfoType(int lfoNumber, int newType);
+	// (1 = unSynced, 2 = pitch, 3 = synced)
+	bool setLfoType(int& lfoNumber, int newType);
 
 	// Returns the specified LFO's value
 	// for the un-synced type (0..89)
-	int getLfoUnSyncedValue(int lfoNumber) const;
+	int getLfoUnSyncedValue(int& lfoNumber) const;
 
 	// Sets the specified LFO's value
 	// for the un-synced type (0..89)
-	bool setLfoUnSyncedValue(int lfoNumber, int newValue);
+	bool setLfoUnSyncedValue(int& lfoNumber, int newValue);
 
 	// Returns the specified LFO's value
 	// for the pitch type (90..150)
-	int getLfoPitchValue(int lfoNumber) const;
+	int getLfoPitchValue(int& lfoNumber) const;
 
 	// Sets the specified LFO's value
 	// for the pitch type (90..150)
-	bool setLfoPitchValue(int lfoNumber, int newValue);
+	bool setLfoPitchValue(int& lfoNumber, int newValue);
 
 	// Returns the specified LFO's value
 	// for the synced type (151..166)
-	int getLfoSyncedValue(int lfoNumber) const;
+	int getLfoSyncedValue(int& lfoNumber) const;
 
 	// Sets the specified LFO's value
 	// for the synced type (151..166)
-	bool setLfoSyncedValue(int lfoNumber, int newValue);
+	bool setLfoSyncedValue(int& lfoNumber, int newValue);
 
 	//==============================================================================
 	// Returns whether a verbose version of a control's current
@@ -84,6 +93,8 @@ public:
 private:
 	std::unique_ptr<ValueTree> lfoOptionsTree;
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
+
+	Value updateFromPreset;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PrivateParameters)
