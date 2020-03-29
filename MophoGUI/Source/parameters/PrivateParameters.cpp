@@ -39,7 +39,7 @@ int PrivateParameters::getLfoType(int& lfoNumber) const
 bool PrivateParameters::setLfoType(int& lfoNumber, int newType)
 {
 	jassert(lfoNumber > 0 && lfoNumber < 5); // LFO number must be 1, 2, 3, or 4
-	jassert(newType > 0 && newType < 4); // LFO type must be 1, 2, or 3
+	jassert(newType > -1 && newType < 3); // LFO type must be 0, 1, or 2
 	if (lfoNumber > 0 && lfoNumber < 5 && newType > -1 && newType < 3)
 	{
 		Identifier propertyID{ "lfo" + (String)lfoNumber + "Type" };

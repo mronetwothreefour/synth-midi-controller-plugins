@@ -325,11 +325,11 @@ struct ValueConverters
 	// 1 = "Un-synced"; 2 = "Pitch"; 3 = "Synced"
 	String intToLFOtype(const int& i) const
 	{
-		if (i > 0 && i < 4)
+		if (i > -1 && i < 3)
 		{
-			if (i == 1) return "Un-synced";
-			if (i == 2) return "Pitch";
-			if (i == 3) return "Synced";
+			if (i == 0) return "Un-synced";
+			if (i == 1) return "Pitch";
+			if (i == 2) return "Synced";
 			else return "invalid";
 		}
 		else return "range error";

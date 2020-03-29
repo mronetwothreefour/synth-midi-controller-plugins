@@ -43,10 +43,10 @@ public:
 
 		// Draw modulator number label
 		//==============================================================================
-		Font oscNumLabel{ "Arial", "Black", 24.0f };
-		g.setFont(oscNumLabel);
-		Rectangle<int> oscNumLabelArea{ 0, 0, 15, 50 };
-		g.drawText(modNumString, oscNumLabelArea, Justification::centredLeft);
+		Font modNumLabel{ "Arial", "Black", 24.0f };
+		g.setFont(modNumLabel);
+		Rectangle<int> modNumLabelArea{ 0, 0, 15, 50 };
+		g.drawText(modNumString, modNumLabelArea, Justification::centredLeft);
 	}
 
 	void resized() override

@@ -8,6 +8,7 @@
 #include "helpers/MophoLookAndFeel.h"
 #include "parameters/PrivateParameters.h"
 #include "editorSections/Env3Section.h"
+#include "editorSections/LFOSection.h"
 #include "editorSections/LPFSection.h"
 #include "editorSections/MidiControllersSection.h"
 #include "editorSections/ModulatorsSection.h"
@@ -36,6 +37,7 @@ private:
     std::unique_ptr<Env3Section> sectionEnv3;
     std::unique_ptr<ModulatorsSection> sectionMod;
     std::unique_ptr<MidiControllersSection> sectionMidi;
+    std::unique_ptr<LFOSection> sectionLFO;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

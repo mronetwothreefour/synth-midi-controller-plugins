@@ -538,3 +538,19 @@ String KnobWidget_MidiModAmt::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_LFOAmt::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)(currentValue)+"\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the degree to which the LFO\n";
+		tooltip += "modulates the destination parameter.\n";
+		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}

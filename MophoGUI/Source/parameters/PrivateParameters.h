@@ -25,17 +25,17 @@ public:
 	//==============================================================================
 	enum LfoType
 	{
-		unSynced = 1,
+		unSynced = 0,
 		pitch,
 		synced
 	};
 
 	// Returns the specified LFO's type
-	// (1 = unSynced, 2 = pitch, 3 = synced)
+	// (0 = unSynced, 1 = pitch, 2 = synced)
 	int getLfoType(int& lfoNumber) const;
 
 	// Sets the specified LFO's type
-	// (1 = unSynced, 2 = pitch, 3 = synced)
+	// (0 = unSynced, 1 = pitch, 2 = synced)
 	bool setLfoType(int& lfoNumber, int newType);
 
 	// Returns the specified LFO's value

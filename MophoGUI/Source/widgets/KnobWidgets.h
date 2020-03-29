@@ -1094,3 +1094,32 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_MidiModAmt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling a low-frequency oscillator's amount.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_LFOAmt : public KnobWidget_0to127
+{
+public:
+	KnobWidget_LFOAmt
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF
+		) :
+		KnobWidget_0to127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_LFOAmt() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOAmt)
+};
+

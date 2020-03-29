@@ -4581,6 +4581,9 @@
     <ClInclude Include="..\..\Source\editorSections\MidiControllersSection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\editorSections\LFOSection.h">
+      <Filter>MophoGUI\Source\editorSections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

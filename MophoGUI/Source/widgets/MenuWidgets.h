@@ -360,7 +360,10 @@ public:
 	void valueChanged(Value& /*valueThatChanged*/) override
 	{
 		if (privateParams->shouldUpdateFromPreset())
+		{
 			menu.setSelectedItemIndex(privateParams->getLfoType(lfoNumber));
+			privateParams->setUpdateFromPreset(false);
+		}
 	}
 
 	void setMenuTooltip(String text) { menu.setTooltip(text); }
