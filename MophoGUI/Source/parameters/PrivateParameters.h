@@ -30,6 +30,9 @@ public:
 		synced
 	};
 
+	void addListenerToLFOoptions(ValueTree::Listener* listener) { lfoOptionsTree->addListener(listener); }
+	void removeListenerFromLFOoptions(ValueTree::Listener* listener) { lfoOptionsTree->removeListener(listener); }
+
 	// Returns the specified LFO's type
 	// (0 = unSynced, 1 = pitch, 2 = synced)
 	int getLfoType(int& lfoNumber) const;

@@ -528,7 +528,7 @@ String KnobWidget_MidiModAmt::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToPlusMinus127(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters.intToLFOfreq(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the degree to which the MIDI controller\n";
@@ -551,6 +551,32 @@ String KnobWidget_LFOAmt::createTooltipString(const int& currentValue) const noe
 		tooltip += "Sets the degree to which the LFO\n";
 		tooltip += "modulates the destination parameter.\n";
 		tooltip += "Range: 0 to 127.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+void KnobWidget_LFOfreq::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 167)
+		setCurrentValueText(valueConverters.intToLFOfreq(currentValue, false));
+	else setCurrentValueText("ERR");
+}
+
+String KnobWidget_LFOfreq::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToLFOfreq(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the LFO speed, with a range depending on the LFO type selected.\n";
+		tooltip += "Un-synced: Range: 0 (1 cycle lasts 30 seconds) to 89 (~8 Hz\n";
+		tooltip += "Pitch: Cycles at an audible pitch frequency. Range: C 0 to C 3.\n";
+		tooltip += "Synced: The LFO is synced to the sequencer. The value displayed on\n";
+		tooltip += "the knob is formatted as (number of cycles) : (number of steps).\n";
+		tooltip += "Range: 32 steps per cycle to 16 cycles per step.\n";
 	}
 	return tooltip;
 }

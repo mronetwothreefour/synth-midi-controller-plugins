@@ -132,7 +132,7 @@ struct ValueConverters
 			if (i < 90) return verbose ? "Un-synced " + (String)(i) : (String)(i);
 			if (i > 89 && i < 151)
 			{
-				String pitchString{ intToPitchName(i) };
+				String pitchString{ intToPitchName(i - 90) };
 				return verbose ? (String)i + " (Pitch Freq. " + pitchString + ")" : pitchString;
 			}
 			if (i > 150 && i < 167)

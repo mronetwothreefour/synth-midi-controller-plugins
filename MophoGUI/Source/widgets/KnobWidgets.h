@@ -1123,3 +1123,180 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOAmt)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling a low-frequency oscillator's frequency.
+// The widget has two sliders: an invisible one that is attached to the public parameter,
+// and a visible one that sets its value range and how its current value is displayed
+// according to the type selected for the LFO (un-synced, pitch, or synced)
+class KnobWidget_LFOfreq : 
+	public Component, 
+	public Slider::Listener,
+	public ValueTree::Listener
+{
+public:
+	PrivateParameters* privateParams;
+
+	KnobWidget_LFOfreq
+	(
+		int lfoNumber,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		lfoNum{ lfoNumber },
+		sliderAttachment{ *apvts, "lfo" + (String)lfoNum + "Freq", attachedSlider },
+		privateParams{ privateParameters },
+		mophoLaF{ mophoLaF }
+	{
+		privateParams->addListenerToLFOoptions(this);
+
+		attachedSlider.addListener(this);
+		slider.addListener(this);
+
+		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+		setSliderRange();
+		slider.setLookAndFeel(mophoLaF);
+		addAndMakeVisible(slider);
+
+		auto knobWidget_w{ 40 };
+		auto knobWidget_h{ 50 };
+		setSize(knobWidget_w, knobWidget_h);
+	}
+
+	~KnobWidget_LFOfreq()
+	{
+		slider.setLookAndFeel(nullptr);
+		slider.removeListener(this);
+		attachedSlider.removeListener(this);
+	}
+
+	void paint(Graphics& g) override
+	{
+		// draw knob circle
+		g.setColour(Color::black);
+		g.fillEllipse(5, 5, 30, 30);
+
+		// draw knob name 
+		Font knobName{ "Arial", "Black", 12.0f };
+		g.setFont(knobName);
+		Rectangle<int> knobNameArea{ 0, 35, 40, 15 };
+		g.drawText("FREQ", knobNameArea, Justification::centred);
+
+		// draw knob value
+		g.setColour(Color::controlText);
+		Font knobValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(knobValue);
+		Rectangle<int> knobValueArea{ 5, 5, 30, 30 };
+		g.drawText(currentValueText, knobValueArea, Justification::centred);
+	}
+
+	void resized() override
+	{
+		slider.setBounds(0, 0, 40, 40);
+	}
+
+	void sliderValueChanged(Slider* sliderThatChanged) override
+	{
+		if (sliderThatChanged == &attachedSlider)
+		{
+			auto currentValue{ roundToInt(attachedSlider.getValue()) };
+			if (currentValue < 90)
+			{
+				privateParams->setLfoType(lfoNum, PrivateParameters::LfoType::unSynced);
+				privateParams->setLfoUnSyncedValue(lfoNum, currentValue);
+			};
+			if (currentValue > 89 && currentValue < 151)
+			{
+				privateParams->setLfoType(lfoNum, PrivateParameters::LfoType::pitch);
+				privateParams->setLfoPitchValue(lfoNum, currentValue);
+			};
+			if (currentValue > 150)
+			{
+				privateParams->setLfoType(lfoNum, PrivateParameters::LfoType::synced);
+				privateParams->setLfoSyncedValue(lfoNum, currentValue);
+			};
+			slider.setValue(currentValue, dontSendNotification);
+		}
+
+		if (sliderThatChanged == &slider)
+		{
+			auto currentValue{ slider.getValue() };
+			attachedSlider.setValue(currentValue);
+			drawValue(roundToInt(currentValue));
+			auto tooltip{ createTooltipString(roundToInt(currentValue)) };
+			setSliderTooltip(tooltip);
+		}
+	}
+
+	void valueTreePropertyChanged(ValueTree& /*treeWhosePropertyHasChanged*/, const Identifier& property) override
+	{
+		if (property.toString() == "lfo" + (String)lfoNum + "Type")
+		{
+			setSliderRange();
+			auto currentValue{ roundToInt(slider.getValue()) };
+			setCurrentValueText(valueConverters.intToLFOfreq(currentValue, false));
+		}
+	}
+	void valueTreeChildAdded(ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/) override {};
+	void valueTreeChildRemoved(ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int /*indexFromWhichChildWasRemoved*/) override {}
+	void valueTreeChildOrderChanged(ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int /*oldIndex*/, int /*newIndex*/) override {}
+	void valueTreeParentChanged(ValueTree& /*treeWhoseParentHasChanged*/) override {}
+	void valueTreeRedirected(ValueTree& /*treeWhichHasBeenChanged*/) override {}
+
+private:
+	int lfoNum;
+
+	Slider attachedSlider;
+	SliderAttachment sliderAttachment;
+
+	CustomSlider slider;
+
+	MophoLookAndFeel* mophoLaF;
+
+	String currentValueText;
+
+	ValueConverters valueConverters;
+
+	// Sets the range of the visible slider
+	// according to the selected LFO type
+	void setSliderRange()
+	{
+		int lfoType{ privateParams->getLfoType(lfoNum) };
+		switch (lfoType)
+		{
+		case PrivateParameters::LfoType::unSynced:
+			slider.setRange(0.0, 89.0, 1.0); 
+			slider.setValue(privateParams->getLfoUnSyncedValue(lfoNum));
+			break;
+		case PrivateParameters::LfoType::pitch:
+			slider.setRange(90.0, 150.0, 1.0);
+			slider.setValue(privateParams->getLfoPitchValue(lfoNum));
+			break;
+		case PrivateParameters::LfoType::synced:
+			slider.setRange(151.0, 166.0, 1.0);
+			slider.setValue(privateParams->getLfoSyncedValue(lfoNum));
+			break;
+		default: break;
+		}
+
+	}
+
+	void setCurrentValueText(String text) { currentValueText = text; repaint(); }
+
+	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+	//==============================================================================
+	// Override this function to define how the current
+	// parameter value is drawn on the knob
+	virtual void drawValue(const int& currentValue) noexcept;
+
+	// Derived classes must override this function to create a tooltip String with a
+	// parameter description and/or a verbose version of the parameter's current value
+	virtual String createTooltipString(const int& currentValue) const noexcept;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOfreq)
+};
+

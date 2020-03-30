@@ -24,10 +24,12 @@ public:
 		MophoLookAndFeel* mophoLaF
 	) :
 		lfoNameString{ "LFO " + (String)lfoNum },
+		knob_Frequency{ lfoNum, publicParams, privateParams, mophoLaF },
 		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount", mophoLaF },
-		menu_Type{ 1, privateParams, mophoLaF },
+		menu_Type{ lfoNum, privateParams, mophoLaF },
 		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 138, false }
 	{
+		addAndMakeVisible(knob_Frequency);
 		addAndMakeVisible(knob_Amount);
 		addAndMakeVisible(menu_Type);
 		addAndMakeVisible(menu_Destination);
@@ -66,8 +68,10 @@ public:
 		auto knob1_x{ 0 };
 		auto knob2_x{ knob1_x + knobWidget_w + knobGap };
 		auto knob3_x{ knob2_x + knobWidget_w + knobGap };
+		auto knob_y{ 16 };
 		auto menu_h{ menu_Type.getHeight() };
-		knob_Amount.setBounds(knob3_x, 0, knobWidget_w, knobWidget_h);
+		knob_Frequency.setBounds(knob1_x, knob_y, knobWidget_w, knobWidget_h);
+		knob_Amount.setBounds(knob3_x, knob_y, knobWidget_w, knobWidget_h);
 		menu_Type.setBounds(0, 73, menu_Type.getWidth(), menu_h);
 		menu_Destination.setBounds(0, 107, menu_Destination.getWidth(), menu_h);
 	}
@@ -75,6 +79,7 @@ public:
 private:
 	String lfoNameString;
 
+	KnobWidget_LFOfreq knob_Frequency;
 	KnobWidget_LFOAmt knob_Amount;
 
 	MenuWidget_LFOtype menu_Type;
