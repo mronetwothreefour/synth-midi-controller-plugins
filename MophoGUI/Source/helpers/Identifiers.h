@@ -228,24 +228,6 @@ namespace ID
 	const Identifier nameChar16			{ "nameChar16"		};
 
 	//==============================================================================
-	const Identifier lfoOptions			{ "lfoOptions"		};
-	const Identifier lfo1Type			{ "lfo1Type"		};
-	const Identifier lfo2Type			{ "lfo2Type"		};
-	const Identifier lfo3Type			{ "lfo3Type"		};
-	const Identifier lfo4Type			{ "lfo4Type"		};
-	const Identifier lfo1UnSyncedVal	{ "lfo1UnSyncedVal"	};
-	const Identifier lfo2UnSyncedVal	{ "lfo2UnSyncedVal"	};
-	const Identifier lfo3UnSyncedVal	{ "lfo3UnSyncedVal"	};
-	const Identifier lfo4UnSyncedVal	{ "lfo4UnSyncedVal"	};
-	const Identifier lfo1PitchVal		{ "lfo1PitchVal"	};
-	const Identifier lfo2PitchVal		{ "lfo2PitchVal"	};
-	const Identifier lfo3PitchVal		{ "lfo3PitchVal"	};
-	const Identifier lfo4PitchVal		{ "lfo4PitchVal"	};
-	const Identifier lfo1SyncedVal		{ "lfo1PitchVal"	};
-	const Identifier lfo2SyncedVal		{ "lfo2PitchVal"	};
-	const Identifier lfo3SyncedVal		{ "lfo3PitchVal"	};
-	const Identifier lfo4SyncedVal		{ "lfo4PitchVal"	};
-
 	const Identifier tooltipOptions		{ "tooltipOptions"	};
 	const Identifier showCurrentVal		{ "showCurrentVal"	};
 	const Identifier showParamInfo		{ "showParamInfo"	};

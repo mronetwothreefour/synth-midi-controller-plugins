@@ -26,12 +26,14 @@ public:
 		lfoNameString{ "LFO " + (String)lfoNum },
 		knob_Frequency{ lfoNum, publicParams, privateParams, mophoLaF },
 		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount", mophoLaF },
-		menu_Type{ lfoNum, privateParams, mophoLaF },
-		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 138, false }
+		button_KeySync{ lfoNum, publicParams, privateParams, mophoLaF },
+		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", mophoLaF, 134 },
+		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 134, false }
 	{
 		addAndMakeVisible(knob_Frequency);
 		addAndMakeVisible(knob_Amount);
-		addAndMakeVisible(menu_Type);
+		addAndMakeVisible(button_KeySync);
+		addAndMakeVisible(menu_Shape);
 		addAndMakeVisible(menu_Destination);
 
 		auto lfoControls_w{ menu_Destination.getWidth() };
@@ -49,15 +51,17 @@ public:
 		//==============================================================================
 		Font lfoLabel{ "Arial", "Black", 18.0f };
 		g.setFont(lfoLabel);
-		Rectangle<int> lfoLabelLabelArea{ 0, 0, 45, 10 };
-		g.drawText(lfoNameString, lfoLabelLabelArea, Justification::left);
+		Rectangle<int> lfoLabelArea{ 0, 0, 45, 10 };
+		g.drawText(lfoNameString, lfoLabelArea, Justification::left);
 
 		// Draw key sync button label
 		//==============================================================================
 		Font keySyncLabel{ "Arial", "Black", 12.0f };
 		g.setFont(keySyncLabel);
-		Rectangle<int> keySyncLabelArea{ 108, 88, 20, 14 };
-		g.drawText("KEY", keySyncLabelArea, Justification::centred);
+		Rectangle<int> keyLabelArea{ 91, 43, 40, 14 };
+		g.drawText("KEY", keyLabelArea, Justification::centred);
+		Rectangle<int> syncLabelArea{ 91, 52, 40, 14 };
+		g.drawText("SYNC", syncLabelArea, Justification::centred);
 	}
 
 	void resized() override
@@ -66,13 +70,16 @@ public:
 		auto knobWidget_h{ knob_Amount.getHeight() };
 		auto knobGap{ 5 };
 		auto knob1_x{ 0 };
-		auto knob2_x{ knob1_x + knobWidget_w + knobGap };
-		auto knob3_x{ knob2_x + knobWidget_w + knobGap };
 		auto knob_y{ 16 };
-		auto menu_h{ menu_Type.getHeight() };
+		auto knob2_x{ knob1_x + knobWidget_w + knobGap };
+		auto button_x{ 104 };
+		auto button_y{ 29 };
+		auto button_diameter{ button_KeySync.getWidth() };
+		auto menu_h{ menu_Destination.getHeight() };
 		knob_Frequency.setBounds(knob1_x, knob_y, knobWidget_w, knobWidget_h);
-		knob_Amount.setBounds(knob3_x, knob_y, knobWidget_w, knobWidget_h);
-		menu_Type.setBounds(0, 73, menu_Type.getWidth(), menu_h);
+		knob_Amount.setBounds(knob2_x, knob_y, knobWidget_w, knobWidget_h);
+		button_KeySync.setBounds(button_x, button_y, button_diameter, button_diameter);
+		menu_Shape.setBounds(0, 73, menu_Shape.getWidth(), menu_h);
 		menu_Destination.setBounds(0, 107, menu_Destination.getWidth(), menu_h);
 	}
 
@@ -82,7 +89,9 @@ private:
 	KnobWidget_LFOfreq knob_Frequency;
 	KnobWidget_LFOAmt knob_Amount;
 
-	MenuWidget_LFOtype menu_Type;
+	ButtonWidget_LFOkeySync button_KeySync;
+
+	MenuWidget_LFOshape menu_Shape;
 	MenuWidget_ModDestination menu_Destination;
 
 	//==============================================================================

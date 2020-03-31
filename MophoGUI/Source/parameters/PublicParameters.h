@@ -76,15 +76,11 @@ public:
 			lfoFreq.add(valueConverters.intToLFOfreq(i, true));
 		}
 
-
 		// 0 = "Triangle"; 1 = "Reverse Sawtooth";
 		// 2 = "Sawtooth" 3 = "Square"; 4 = "Random"
 		StringArray lfoShape;
-		lfoShape.add("Triangle");
-		lfoShape.add("Reverse Sawtooth");
-		lfoShape.add("Sawtooth");
-		lfoShape.add("Square");
-		lfoShape.add("Random");
+		for (auto i = 0; i != 5; ++i)
+			lfoShape.add(valueConverters.intToLFOshape(i));
 
 		StringArray modSource;
 		for (auto i = 0; i != 23; ++i)

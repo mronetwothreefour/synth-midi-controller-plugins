@@ -266,3 +266,39 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_LPFtype)
 };
 
+//==============================================================================
+// A button widget appropriate for turning an LFO's key sync parameter on and off.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_LFOkeySync : public ButtonWidget
+{
+public:
+	ButtonWidget_LFOkeySync
+	(
+		int lfoNumber,
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) : 
+		ButtonWidget{ "lfo" + (String)lfoNumber + "KeySync", publicParameters, privateParameters, "lfo" + (String)lfoNumber + "KeySync", mophoLaF }
+	{}
+
+	~ButtonWidget_LFOkeySync() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "When on, the LFO cycle re-starts\n";
+			tooltip += "each time a new note is played.";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_LFOkeySync)
+};
+

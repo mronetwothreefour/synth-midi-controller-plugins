@@ -139,22 +139,22 @@ struct ValueConverters
 			{
 				switch (i)
 				{
-				case 151: return verbose ? "Sequencer Sync: 32 steps" : "1:32";
-				case 152: return verbose ? "Sequencer Sync: 16 steps" : "1:16";
-				case 153: return verbose ? "Sequencer Sync: 8 steps" : "1:8";
-				case 154: return verbose ? "Sequencer Sync: 6 steps" : "1:6";
-				case 155: return verbose ? "Sequencer Sync: 4 steps" : "1:4";
-				case 156: return verbose ? "Sequencer Sync: 3 steps" : "1:3";
-				case 157: return verbose ? "Sequencer Sync: 2 steps" : "1:2";
-				case 158: return verbose ? "Sequencer Sync: 1-1/2 steps" : "1:1.5";
-				case 159: return verbose ? "Sequencer Sync: 1 step" : "1:1";
-				case 160: return verbose ? "Sequencer Sync: 2/3 step" : "3:2";
-				case 161: return verbose ? "Sequencer Sync: 1/2 step" : "2:1";
-				case 162: return verbose ? "Sequencer Sync: 1/3 step" : "3:1";
-				case 163: return verbose ? "Sequencer Sync: 1/4 step" : "4:1";
-				case 164: return verbose ? "Sequencer Sync: 1/6 step" : "6:1";
-				case 165: return verbose ? "Sequencer Sync: 1/8 step" : "8:1";
-				case 166: return verbose ? "Sequencer Sync: 1/16 step" : "16:1";
+				case 151: return verbose ? "Synced " + String(i) +": 1 cycle lasts 32 steps" : "1:32";
+				case 152: return verbose ? "Synced " + String(i) +": 1 cycle lasts 16 steps" : "1:16";
+				case 153: return verbose ? "Synced " + String(i) +": 1 cycle lasts 8 steps" : "1:8";
+				case 154: return verbose ? "Synced " + String(i) +": 1 cycle lasts 6 steps" : "1:6";
+				case 155: return verbose ? "Synced " + String(i) +": 1 cycle lasts 4 steps" : "1:4";
+				case 156: return verbose ? "Synced " + String(i) +": 1 cycle lasts 3 steps" : "1:3";
+				case 157: return verbose ? "Synced " + String(i) +": 1 cycle lasts 2 steps" : "1:2";
+				case 158: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1-1/2 steps" : "1:1.5";
+				case 159: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1 step" : "1:1";
+				case 160: return verbose ? "Synced " + String(i) +": 1 cycle lasts 2/3 step" : "3:2";
+				case 161: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/2 step" : "2:1";
+				case 162: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/3 step" : "3:1";
+				case 163: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/4 step" : "4:1";
+				case 164: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/6 step" : "6:1";
+				case 165: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/8 step" : "8:1";
+				case 166: return verbose ? "Synced " + String(i) +": 1 cycle lasts 1/16 step" : "16:1";
 				default: return "invalid"; break;
 				}
 			}
@@ -330,6 +330,23 @@ struct ValueConverters
 			if (i == 0) return "Un-synced";
 			if (i == 1) return "Pitch";
 			if (i == 2) return "Synced";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
+	// Converts integers 0..4 to a low-frequency oscillator wave shape String
+	// 0 = "Triangle"; 1 = "Reverse Sawtooth"; 2 = "Sawtooth"; 3 = "Square Wave";
+	// 4 = "Random"
+	String intToLFOshape(const int& i) const
+	{
+		if (i > -1 && i < 5)
+		{
+			if (i == 0) return "Triangle";
+			if (i == 1) return "Reverse Sawtooth";
+			if (i == 2) return "Sawtooth";
+			if (i == 3) return "Square Wave";
+			if (i == 4) return "Random";
 			else return "invalid";
 		}
 		else return "range error";

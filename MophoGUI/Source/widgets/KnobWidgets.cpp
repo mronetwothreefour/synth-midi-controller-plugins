@@ -571,12 +571,12 @@ String KnobWidget_LFOfreq::createTooltipString(const int& currentValue) const no
 		tooltip += "Current Value: " + valueConverters.intToLFOfreq(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
-		tooltip += "Sets the LFO speed, with a range depending on the LFO type selected.\n";
-		tooltip += "Un-synced: Range: 0 (1 cycle lasts 30 seconds) to 89 (~8 Hz\n";
-		tooltip += "Pitch: Cycles at an audible pitch frequency. Range: C 0 to C 3.\n";
-		tooltip += "Synced: The LFO is synced to the sequencer. The value displayed on\n";
-		tooltip += "the knob is formatted as (number of cycles) : (number of steps).\n";
-		tooltip += "Range: 32 steps per cycle to 16 cycles per step.\n";
+		tooltip += "Sets the LFO speed. Range: 0 to 166.\n";
+		tooltip += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
+		tooltip += "From 90 to 150, the frequency is an audible pitch,\n";
+		tooltip += "increasing in semitones steps from C 0 up to C 5.\n";
+		tooltip += "Above 150, the LFO is synced with the step sequencer,\n";
+		tooltip += "displayed as [number of cycles] : [length in steps].\n";
 	}
 	return tooltip;
 }

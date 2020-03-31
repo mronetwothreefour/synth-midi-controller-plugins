@@ -287,103 +287,31 @@ private:
 };
 
 //==============================================================================
-// A MenuWidget appropriate for setting the type of any of the low-frequency oscillators.
-// This property is stored in the private parameters (lfoOptionsTree)
-class MenuWidget_LFOtype : 
-	public Component, 
-	public ComboBox::Listener,
-	public Value::Listener
+// A MenuWidget appropriate for selecting a low-frequency oscillator's wave shape.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_LFOshape : public MenuWidget
 {
 public:
-	PrivateParameters* privateParams;
-
-	ValueConverters valueConverters;
-
-	MenuWidget_LFOtype
+	MenuWidget_LFOshape
 	(
-		int lfoNum,
+		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
-	) :
-		lfoNumber{ lfoNum },
-		paramID{ "lfo" + (String)lfoNum + "Type" },
-		menu{ "lfo" + (String)lfoNum + "Type" },
-		privateParams{ privateParameters }
+		Identifier paramID,
+		MophoLookAndFeel* mophoLaF,
+		int width
+		) :
+		MenuWidget{ "WAVE SHAPE", publicParameters, privateParameters, paramID, mophoLaF, width, false }
 	{
-		privateParams->addistenerToUpdateFromPreset(this);
-
-		menu.setLookAndFeel(mophoLaF);
-		menu.addListener(this);
 		auto choices{ createChoices() };
-		menu.addItemList(choices, 1);
-		menu.setSelectedItemIndex(privateParams->getLfoType(lfoNumber));
-		addAndMakeVisible(menu);
-
-		auto menuWidget_w{ 94 };
-		auto menuWidget_h{ 35 };
-		setSize(menuWidget_w, menuWidget_h);
+		addChoicesToMenuAndAttach(choices);
 	}
-
-	~MenuWidget_LFOtype()
-	{
-		menu.removeListener(this);
-		menu.setLookAndFeel(nullptr);
-		privateParams->removeListenerFromUpdateFromPreset(this);
-	}
-
-	void paint(Graphics& g) override
-	{
-		// Draw menu label
-		g.setColour(Color::black);
-		Font menuLabel{ "Arial", "Black", 12.0f };
-		g.setFont(menuLabel);
-		Rectangle<int> menuLabelArea{ 0, 16, getWidth(), 14 };
-		g.drawText("TYPE", menuLabelArea, Justification::centred);
-	}
-
-	void resized() override
-	{
-		menu.setBounds(0, 0, getWidth(), 16);
-	}
-
-	void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override
-	{
-		if (comboBoxThatHasChanged == &menu)
-		{
-			auto currentValue{ menu.getSelectedItemIndex() };
-			privateParams->setLfoType(lfoNumber, currentValue);
-			auto tooltip{ createTooltipString(currentValue) };
-			setMenuTooltip(tooltip);
-		}
-	}
-
-	void valueChanged(Value& /*valueThatChanged*/) override
-	{
-		if (privateParams->shouldUpdateFromPreset())
-		{
-			menu.setSelectedItemIndex(privateParams->getLfoType(lfoNumber));
-			privateParams->setUpdateFromPreset(false);
-		}
-	}
-
-	void setMenuTooltip(String text) { menu.setTooltip(text); }
+	~MenuWidget_LFOshape() {}
 
 private:
-	int lfoNumber;
-
-	Identifier paramID;
-
-	ComboBox menu;
-
-	// Creates the list of choices that
-	// will be displayed in the menu
-	virtual StringArray createChoices() const;
-
-	// Creates a tooltip String with a parameter description
-	// and/or a verbose version of the parameter's current value
-	virtual String createTooltipString(const int& currentValue) const noexcept;
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_LFOtype)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_LFOshape)
 };
 

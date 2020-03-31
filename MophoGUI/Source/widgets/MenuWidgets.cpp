@@ -153,27 +153,24 @@ String MenuWidget_MidiDestination::createTooltipString(const int& currentValue) 
 
 //==============================================================================
 
-StringArray MenuWidget_LFOtype::createChoices() const
+StringArray MenuWidget_LFOshape::createChoices() const
 {
 	StringArray choices;
-	for (auto i = 0; i != 3; ++i)
+	for (auto i = 0; i != 5; ++i)
 	{
-		choices.add(valueConverters.intToLFOtype(i));
+		choices.add(valueConverters.intToLFOshape(i));
 	}
 	return choices;
 }
 
-String MenuWidget_LFOtype::createTooltipString(const int& currentValue) const noexcept
+String MenuWidget_LFOshape::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToLFOtype(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters.intToLFOshape(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
-		tooltip += "Selects the LFO's frequency type.\n";
-		tooltip += "Un-synced: LFO cycles freely.\n";
-		tooltip += "Pitch: LFO cycles at an audible frequency.\n";
-		tooltip += "Synced: LFO cycles in sync with the sequencer.\n";
+		tooltip += "Selects the low-frequency oscillator's wave shape.\n";
 	}
 	return tooltip;
 }

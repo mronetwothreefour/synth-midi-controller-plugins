@@ -23,49 +23,6 @@ public:
 	void setUpdateFromPreset(bool shouldUpdate) { updateFromPreset.setValue(shouldUpdate); }
 
 	//==============================================================================
-	enum LfoType
-	{
-		unSynced = 0,
-		pitch,
-		synced
-	};
-
-	void addListenerToLFOoptions(ValueTree::Listener* listener) { lfoOptionsTree->addListener(listener); }
-	void removeListenerFromLFOoptions(ValueTree::Listener* listener) { lfoOptionsTree->removeListener(listener); }
-
-	// Returns the specified LFO's type
-	// (0 = unSynced, 1 = pitch, 2 = synced)
-	int getLfoType(int& lfoNumber) const;
-
-	// Sets the specified LFO's type
-	// (0 = unSynced, 1 = pitch, 2 = synced)
-	bool setLfoType(int& lfoNumber, int newType);
-
-	// Returns the specified LFO's value
-	// for the un-synced type (0..89)
-	int getLfoUnSyncedValue(int& lfoNumber) const;
-
-	// Sets the specified LFO's value
-	// for the un-synced type (0..89)
-	bool setLfoUnSyncedValue(int& lfoNumber, int newValue);
-
-	// Returns the specified LFO's value
-	// for the pitch type (90..150)
-	int getLfoPitchValue(int& lfoNumber) const;
-
-	// Sets the specified LFO's value
-	// for the pitch type (90..150)
-	bool setLfoPitchValue(int& lfoNumber, int newValue);
-
-	// Returns the specified LFO's value
-	// for the synced type (151..166)
-	int getLfoSyncedValue(int& lfoNumber) const;
-
-	// Sets the specified LFO's value
-	// for the synced type (151..166)
-	bool setLfoSyncedValue(int& lfoNumber, int newValue);
-
-	//==============================================================================
 	// Returns whether a verbose version of a control's current
 	// value should show when the mouse hovers over the control
 	bool shouldShowValueTip() const;
@@ -94,7 +51,6 @@ public:
 	bool setTooltipDelay(int delay);
 
 private:
-	std::unique_ptr<ValueTree> lfoOptionsTree;
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
 
 	Value updateFromPreset;
