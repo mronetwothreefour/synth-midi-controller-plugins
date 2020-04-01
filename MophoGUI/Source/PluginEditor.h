@@ -13,6 +13,7 @@
 #include "editorSections/MidiControllersSection.h"
 #include "editorSections/ModulatorsSection.h"
 #include "editorSections/OscillatorsSection.h"
+#include "editorSections/SequencerSection.h"
 #include "editorSections/VCASection.h"
 #include "widgets/KnobWidgets.h"
 
@@ -38,6 +39,7 @@ private:
     std::unique_ptr<ModulatorsSection> sectionMod;
     std::unique_ptr<MidiControllersSection> sectionMidi;
     std::unique_ptr<LFOSection> sectionLFO;
+    std::unique_ptr<SequencerSection> sectionSeq;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

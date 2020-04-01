@@ -30,6 +30,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionLFO.reset(new LFOSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionLFO.get());
 
+    sectionSeq.reset(new SequencerSection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionSeq.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
@@ -43,6 +46,7 @@ PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
 
+    sectionSeq = nullptr;
     sectionLFO = nullptr;
     sectionMidi = nullptr;
     sectionMod = nullptr;
@@ -249,4 +253,5 @@ void PluginEditor::resized()
     sectionMod ->setBounds(404, 154, sectionMod ->getWidth(), sectionMod ->getHeight());
     sectionMidi->setBounds(612, 154, sectionMidi->getWidth(), sectionMidi->getHeight());
     sectionLFO ->setBounds(396, 478, sectionLFO ->getWidth(), sectionLFO ->getHeight());
+    sectionSeq ->setBounds(812, 102, sectionSeq ->getWidth(), sectionSeq ->getHeight());
 }

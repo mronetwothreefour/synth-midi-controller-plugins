@@ -88,12 +88,11 @@ class ButtonWidget_Sync : public ButtonWidget
 public:
 	ButtonWidget_Sync
 	(
-		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::oscSync, mophoLaF }
+		ButtonWidget{ "oscSync", publicParameters, privateParameters, ID::oscSync, mophoLaF }
 	{}
 
 	~ButtonWidget_Sync() {}
@@ -201,12 +200,11 @@ class ButtonWidget_Arpeg : public ButtonWidget
 public:
 	ButtonWidget_Arpeg
 	(
-		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::arpegOnOff, mophoLaF }
+		ButtonWidget{ "arpeg", publicParameters, privateParameters, ID::arpegOnOff, mophoLaF }
 	{}
 
 	~ButtonWidget_Arpeg() {}
@@ -300,5 +298,40 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_LFOkeySync)
+};
+
+//==============================================================================
+// A button widget appropriate for turning the Mopho's sequencer on and off.
+// Derives from ButtonWidget and overrides createTooltipString()
+class ButtonWidget_SequencerOffOn : public ButtonWidget
+{
+public:
+	ButtonWidget_SequencerOffOn
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+		) :
+		ButtonWidget{ "sequencer", publicParameters, privateParameters, ID::sequencerOnOff, mophoLaF }
+	{}
+
+	~ButtonWidget_SequencerOffOn() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override
+	{
+		String tooltip{ "" };
+		if (privateParams->shouldShowValueTip())
+			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+		if (privateParams->shouldShowInfoTip())
+		{
+			tooltip += "Turns the Mopho's sequencer on and off.\n";
+			tooltip += "Turning this on will turn off the arpeggiator.";
+		}
+		return tooltip;
+	}
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget_SequencerOffOn)
 };
 

@@ -110,7 +110,7 @@ public:
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
-		button_Sync{ "oscSync", publicParams, privateParams, mophoLaF },
+		button_Sync{ publicParams, privateParams, mophoLaF },
 		osc1Controls{ 1, publicParams, privateParams, mophoLaF },
 		osc2Controls{ 2, publicParams, privateParams, mophoLaF },
 		knob_OscSlop{ publicParams, privateParams, mophoLaF },
@@ -118,7 +118,7 @@ public:
 		knob_BendRange{ publicParams, privateParams, mophoLaF },
 		knob_NoiseLevel{ publicParams, privateParams, mophoLaF },
 		knob_ExtInLevel{ publicParams, privateParams, mophoLaF },
-		button_Arpeg{ "arpeg", publicParams, privateParams, mophoLaF },
+		button_Arpeg{ publicParams, privateParams, mophoLaF },
 		menu_NotePriority{ publicParams, privateParams, mophoLaF, 123 },
 		menu_GlideMode{ publicParams, privateParams, mophoLaF, 123 },
 		menu_ArpegMode{ publicParams, privateParams, mophoLaF, 123 }

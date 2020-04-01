@@ -1981,6 +1981,7 @@
     <ClInclude Include="..\..\Source\editorSections\MidiControllersSection.h" />
     <ClInclude Include="..\..\Source\editorSections\ModulatorsSection.h" />
     <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h" />
+    <ClInclude Include="..\..\Source\editorSections\SequencerSection.h" />
     <ClInclude Include="..\..\Source\editorSections\VCASection.h" />
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />

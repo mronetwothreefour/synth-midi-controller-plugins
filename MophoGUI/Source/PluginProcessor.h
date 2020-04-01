@@ -51,9 +51,9 @@ public:
 private:
     std::unique_ptr<AudioProcessorValueTreeState> apvts;
 
-    PublicParameters publicParams;
+    std::unique_ptr<PublicParameters> publicParams;
 
-    std::unique_ptr <PrivateParameters> privateParams;
+    std::unique_ptr<PrivateParameters> privateParams;
 
     MidiBuffer pluginMidiBuf;
 
