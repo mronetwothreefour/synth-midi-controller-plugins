@@ -174,3 +174,37 @@ String MenuWidget_LFOshape::createTooltipString(const int& currentValue) const n
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_SeqTrigger::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 6; ++i)
+	{
+		choices.add(valueConverters.intToSeqTrigger(i));
+	}
+	return choices;
+}
+
+String MenuWidget_SeqTrigger::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToSeqTrigger(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Normal: New notes reset the sequencer to the first step.\n";
+		tooltip += "  The envelopes are re-triggered with each step.\n";
+		tooltip += "Normal, No Reset: New notes do not reset the sequencer to the\n";
+		tooltip += "  first step. The envelopes are re-triggered with each step.\n";
+		tooltip += "No Gate: New notes reset the sequencer to the first step. New\n";
+		tooltip += "  notes re-trigger the envelopes, but sequencer steps do not.\n";
+		tooltip += "No Gate, No Reset: New notes do not reset the sequencer to the\n";
+		tooltip += "  first step. Sequencer steps do not re-trigger the envelopes.\n";
+		tooltip += "Key Step: Each new note advances the sequencer one step.\n";
+		tooltip += "Audio Input: The sequencer advances one step every time the\n";
+		tooltip += "  external audio input level surpasses a certain threshold.";
+	}
+	return tooltip;
+}

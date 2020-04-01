@@ -120,14 +120,10 @@ public:
 
 		// 0 = "Normal"; 1 = "Normal, No Reset";
 		// 2 = "No Gate" 3 = "No Gate, No Reset";
-		// 4 = "Key Step"; 5 = "Audio In"
+		// 4 = "Key Step"; 5 = "Audio Input"
 		StringArray sequencerTrig;
-		sequencerTrig.add("Normal");
-		sequencerTrig.add("Normal, No Reset");
-		sequencerTrig.add("No Gate");
-		sequencerTrig.add("No Gate, No Reset");
-		sequencerTrig.add("Key Step");
-		sequencerTrig.add("Audio In");
+		for (auto i = 0; i != 6; ++i)
+			sequencerTrig.add(valueConverters.intToSeqTrigger(i));
 
 		// A list of the names of all
 		// the Mopho's parameters
@@ -468,7 +464,7 @@ public:
 		/*97 */layout.add(std::make_unique<AudioParameterChoice>	(ID::arpegMode.toString(),			"Arpeggiator Mode", arpegMode, 0));
 		/*98 */layout.add(std::make_unique<AudioParameterChoice>	(ID::arpegOnOff.toString(),			"Arpeggiator On/Off", offOn, 0));
 
-		/*99 */layout.add(std::make_unique<AudioParameterChoice>	(ID::sequencerTrig.toString(),		"Sequencer Trigger", sequencerTrig, 0));
+		/*99 */layout.add(std::make_unique<AudioParameterChoice>	(ID::sequencerTrig.toString(),		"Sequencer Trigger Mode", sequencerTrig, 0));
 		/*100*/layout.add(std::make_unique<AudioParameterChoice>	(ID::sequencerOnOff.toString(),		"Sequencer On/Off", offOn, 0));
 		/*101*/layout.add(std::make_unique<AudioParameterChoice>	(ID::seqTrack1Dest.toString(),		"Sequencer Track 1 Destination", modDestination, 1));
 		/*102*/layout.add(std::make_unique<AudioParameterChoice>	(ID::seqTrack2Dest.toString(),		"Sequencer Track 2 Destination", modDestination, 2));

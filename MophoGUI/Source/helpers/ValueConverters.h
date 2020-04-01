@@ -352,6 +352,24 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..5 to a sequencer trigger mode String
+	// 0 = "Normal"; 1 = "Normal, No Reset"; 2 = "No Gate"; 3 = "No Gate, No Reset";
+	// 4 = "Key Step"; 5 = "Audio Input"
+	String intToSeqTrigger(const int& i) const
+	{
+		if (i > -1 && i < 6)
+		{
+			if (i == 0) return "Normal";
+			if (i == 1) return "Normal, No Reset";
+			if (i == 2) return "No Gate";
+			if (i == 3) return "No Gate, No Reset";
+			if (i == 4) return "Key Step";
+			if (i == 5) return "Audio Input";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

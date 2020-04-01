@@ -20,9 +20,11 @@ public:
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
-		button_SequencerOffOn{publicParams, privateParams, mophoLaF}
+		button_SequencerOffOn{ publicParams, privateParams, mophoLaF },
+		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114 }
 	{
 		addAndMakeVisible(button_SequencerOffOn);
+		addAndMakeVisible(menu_TriggerMode);
 
 		auto seqSection_w{ 450 };
 		auto seqSection_h{ 370 };
@@ -38,17 +40,21 @@ public:
 		// Draw section label
 		Font sectionLabel{ "Arial", "Black", 18.0f };
 		g.setFont(sectionLabel);
-		Rectangle<int> sectionLabelArea{ 18, 18, 90, 10 };
+		Rectangle<int> sectionLabelArea{ 18, 15, 90, 10 };
 		g.drawText("SEQUENCER", sectionLabelArea, Justification::left);
 	}
 
 	void resized() override
 	{
-		button_SequencerOffOn.setBounds(0, 16, button_SequencerOffOn.getWidth(), button_SequencerOffOn.getHeight());
+		auto menu_h{ menu_TriggerMode.getHeight() };
+		button_SequencerOffOn.setBounds(0, 13, button_SequencerOffOn.getWidth(), button_SequencerOffOn.getHeight());
+		menu_TriggerMode.setBounds(129, 12, menu_TriggerMode.getWidth(), menu_h);
 	}
 
 private:
 	ButtonWidget_SequencerOffOn button_SequencerOffOn;
+
+	MenuWidget_SeqTrigger menu_TriggerMode;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SequencerSection)

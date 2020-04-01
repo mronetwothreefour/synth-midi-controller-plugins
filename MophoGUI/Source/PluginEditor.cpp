@@ -253,5 +253,5 @@ void PluginEditor::resized()
     sectionMod ->setBounds(404, 154, sectionMod ->getWidth(), sectionMod ->getHeight());
     sectionMidi->setBounds(612, 154, sectionMidi->getWidth(), sectionMidi->getHeight());
     sectionLFO ->setBounds(396, 478, sectionLFO ->getWidth(), sectionLFO ->getHeight());
-    sectionSeq ->setBounds(812, 102, sectionSeq ->getWidth(), sectionSeq ->getHeight());
+    sectionSeq ->setBounds(812, 106, sectionSeq ->getWidth(), sectionSeq ->getHeight());
 }

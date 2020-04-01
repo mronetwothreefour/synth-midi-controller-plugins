@@ -27,21 +27,21 @@ public:
 		Identifier parameterID,
 		MophoLookAndFeel* mophoLaF,
 		int width,
-		bool placelabelAboveMenu
+		bool placelabelBesideMenu
 	) :
 		name{ menuName },
 		paramID{ parameterID },
 		menu{ name },
 		privateParams{ privateParameters },
 		publicParams{ publicParameters },
-		labelIsAboveMenu{ placelabelAboveMenu }
+		labelIsBesideMenu{ placelabelBesideMenu }
 	{
 		menu.setLookAndFeel(mophoLaF);
 		menu.addListener(this);
 		addAndMakeVisible(menu);
 
-		auto menuWidget_w{ width };
-		auto menuWidget_h{ 35 };
+		auto menuWidget_w{ labelIsBesideMenu ? width + 75 : width };
+		auto menuWidget_h{ labelIsBesideMenu ? 16 : 35 };
 		setSize(menuWidget_w, menuWidget_h);
 	}
 
@@ -58,15 +58,24 @@ public:
 		g.setColour(Color::black);
 		Font menuLabel{ "Arial", "Black", 12.0f };
 		g.setFont(menuLabel);
-		auto label_y{ labelIsAboveMenu ? 0 : 16};
-		Rectangle<int> menuLabelArea{ 0, label_y, getWidth(), 14 };
-		g.drawText(name, menuLabelArea, Justification::centred);
+		if (labelIsBesideMenu)
+		{
+			Rectangle<int> menuLabelArea{ 0, 0, 70, 16 };
+			g.drawText(name, menuLabelArea, Justification::centredRight);
+		}
+		else
+		{
+			Rectangle<int> menuLabelArea{ 0, 16, getWidth(), 14 };
+			g.drawText(name, menuLabelArea, Justification::centred);
+		}
 	}
 
 	void resized() override
 	{
-		auto menu_y{ labelIsAboveMenu ? 14 : 0 };
-		menu.setBounds(0, menu_y, getWidth(), 16);
+		auto menu_x{ labelIsBesideMenu ? 75 : 0 };
+		auto menu_y{ 0 };
+		auto menu_w{ labelIsBesideMenu ? getWidth() - 75 : getWidth() };
+		menu.setBounds(menu_x, menu_y, menu_w, 16);
 	}
 
 	void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override
@@ -99,7 +108,7 @@ private:
 	ComboBox menu;
 	std::unique_ptr<MenuAttachment> menuAttachment;
 
-	bool labelIsAboveMenu;
+	bool labelIsBesideMenu;
 
 	// Override this funtion to create the list of
 	// choices that will be displayed in the menu
@@ -210,9 +219,9 @@ public:
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
 		int width,
-		bool labelIsAboveMenu
+		bool labelIsBesideMenu
 	) :
-		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, labelIsAboveMenu }
+		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, labelIsBesideMenu }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -313,5 +322,33 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_LFOshape)
+};
+
+//==============================================================================
+// A MenuWidget appropriate for selecting the sequencer's trigger mode.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_SeqTrigger : public MenuWidget
+{
+public:
+	MenuWidget_SeqTrigger
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "TRIGGER MODE", publicParameters, privateParameters, ID::sequencerTrig, mophoLaF, width, false }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_SeqTrigger() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_SeqTrigger)
 };
 
