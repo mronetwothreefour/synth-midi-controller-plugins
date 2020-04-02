@@ -370,6 +370,29 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..12 to a clock division String
+	String intToClockDiv(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 13)
+		{
+			if (i == 0 ) return verbose ? "Half Note (BPM / 2)" : "Half Note";
+			if (i == 1 ) return verbose ? "Quarter Note (BPM x 1)" : "Quarter Note";
+			if (i == 2 ) return verbose ? "8th Note (BPM x 2)" : "8th Note";
+			if (i == 3 ) return verbose ? "8th Note, 1/2 Swing (BPM x 2)" : "8th Note, 1/2 Swing";
+			if (i == 4 ) return verbose ? "8th Note, Full Swing (BPM x 2)" : "8th Note, Full Swing";
+			if (i == 5 ) return verbose ? "8th Note Triplets (BPM x 3)" : "8th Note Triplets";
+			if (i == 6 ) return verbose ? "16th Note (BPM x 4)" : "16th Note";
+			if (i == 7 ) return verbose ? "16th Note, 1/2 Swing (BPM x 4)" : "16th Note, 1/2 Swing";
+			if (i == 8 ) return verbose ? "16th Note, Full Swing (BPM x 4)" : "16th Note, Full Swing";
+			if (i == 9 ) return verbose ? "16th Note Triplets (BPM x 6)" : "16th Note Triplets";
+			if (i == 10) return verbose ? "32nd Note (BPM x 8)" : "32nd Note";
+			if (i == 11) return verbose ? "32nd Note Triplets (BPM x 12)" : "32nd Note Triplets";
+			if (i == 12) return verbose ? "64th Note Triplets (BPM x 24)" : "64th Note Triplets";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

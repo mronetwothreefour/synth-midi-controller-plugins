@@ -208,3 +208,28 @@ String MenuWidget_SeqTrigger::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_ClockDiv::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 13; ++i)
+	{
+		choices.add(valueConverters.intToClockDiv(i, false));
+	}
+	return choices;
+}
+
+String MenuWidget_ClockDiv::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToClockDiv(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the rate at which the sequencer and\n";
+		tooltip += "arpeggiator advance, relative to the BPM.";
+	}
+	return tooltip;
+}

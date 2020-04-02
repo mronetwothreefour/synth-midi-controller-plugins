@@ -352,3 +352,31 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_SeqTrigger)
 };
 
+//==============================================================================
+// A MenuWidget appropriate for selecting a step length for the sequencer and arpeggiator.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_ClockDiv : public MenuWidget
+{
+public:
+	MenuWidget_ClockDiv
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "CLOCK DIVISION", publicParameters, privateParameters, ID::clockDivide, mophoLaF, width, false }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_ClockDiv() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ClockDiv)
+};
+
