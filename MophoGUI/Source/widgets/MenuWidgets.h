@@ -365,7 +365,7 @@ public:
 		MophoLookAndFeel* mophoLaF,
 		int width
 	) :
-		MenuWidget{ "CLOCK DIVISION", publicParameters, privateParameters, ID::clockDivide, mophoLaF, width, false }
+		MenuWidget{ "CLOCK DIVIDE", publicParameters, privateParameters, ID::clockDivide, mophoLaF, width, false }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);

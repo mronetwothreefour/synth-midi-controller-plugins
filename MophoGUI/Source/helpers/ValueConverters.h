@@ -393,6 +393,17 @@ struct ValueConverters
 		else return "range error";
 	}
 
+
+	// Converts integers 0..220 to a clock tempo String ("30".."250")
+	String intToClockTempo(const int& i) const
+	{
+		if (i > -1 && i < 221)
+		{
+			return (String)(i + 30);
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

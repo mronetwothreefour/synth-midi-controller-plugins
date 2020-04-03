@@ -51,7 +51,11 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
     auto numSteps{ getParameters()[parameterIndex]->getNumSteps() };
     auto nrpnIndex{ publicParams->getNRPN(parameterIndex) };
     if (nrpnIndex > -1)
-        pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, roundToInt(newValue * (numSteps - 1)), true, true);
+    {
+        auto outputValue{ roundToInt(newValue * (numSteps - 1)) };
+        if (parameterIndex == 95) outputValue += 30; // clock tempo parameter range is offset by 30
+        pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, outputValue, true, true);
+    }
 
     // The arpeggiator (#98) and the sequencer (#100) cannot both be on
     if (parameterIndex == 98 && newValue == 1.0f)

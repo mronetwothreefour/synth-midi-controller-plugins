@@ -580,3 +580,24 @@ String KnobWidget_LFOfreq::createTooltipString(const int& currentValue) const no
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+void KnobWidget_ClockTempo::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 221)
+		setCurrentValueText(valueConverters.intToClockTempo(currentValue));
+	else setCurrentValueText("ERR");
+}
+
+String KnobWidget_ClockTempo::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToClockTempo(currentValue) + " beats per minute\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the tempo for the sequencer and the arpeggiator.";
+	}
+	return tooltip;
+}

@@ -97,6 +97,10 @@ public:
 		/*1 */pushItMode.add("Toggle");
 		/*2 */pushItMode.add("Audio In");
 
+		StringArray clockTempo;
+		for (auto i = 0; i != 221; ++i)
+			clockTempo.add(valueConverters.intToClockTempo(i));
+
 		StringArray clockDivide;
 		for (auto i = 0; i != 13; ++i)
 			clockDivide.add(valueConverters.intToClockDiv(i, true));
@@ -447,7 +451,7 @@ public:
 		/*93 */layout.add(std::make_unique<AudioParameterInt>		(ID::pushItVelocity.toString(),		"Push It! Switch Velocity", 0, 127, 100));
 		/*94 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItMode.toString(),			"Push It! Switch Mode", pushItMode, 0));
 
-		/*95 */layout.add(std::make_unique<AudioParameterInt>		(ID::clockTempo.toString(),			"Clock Tempo (BPM)", 30, 250, 120));
+		/*95 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockTempo.toString(),			"Clock Tempo (BPM)", clockTempo, 90));
 		/*96 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockDivide.toString(),		"Clock Divide", clockDivide, 2));
 
 		/*97 */layout.add(std::make_unique<AudioParameterChoice>	(ID::arpegMode.toString(),			"Arpeggiator Mode", arpegMode, 0));

@@ -22,11 +22,13 @@ public:
 	) :
 		button_SequencerOffOn{ publicParams, privateParams, mophoLaF },
 		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114 },
-		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124 }
+		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124 },
+		knob_ClockTempo{ publicParams, privateParams, mophoLaF }
 	{
 		addAndMakeVisible(button_SequencerOffOn);
 		addAndMakeVisible(menu_TriggerMode);
 		addAndMakeVisible(menu_ClockDiv);
+		addAndMakeVisible(knob_ClockTempo);
 
 		auto seqSection_w{ 450 };
 		auto seqSection_h{ 370 };
@@ -52,10 +54,13 @@ public:
 		button_SequencerOffOn.setBounds(0, 13, button_SequencerOffOn.getWidth(), button_SequencerOffOn.getHeight());
 		menu_TriggerMode.setBounds(129, 12, menu_TriggerMode.getWidth(), menu_h);
 		menu_ClockDiv.setBounds(265, 12, menu_ClockDiv.getWidth(), menu_h);
+		knob_ClockTempo.setBounds(404, 0, knob_ClockTempo.getWidth(), knob_ClockTempo.getHeight());
 	}
 
 private:
 	ButtonWidget_SequencerOffOn button_SequencerOffOn;
+
+	KnobWidget_ClockTempo knob_ClockTempo;
 
 	MenuWidget_SeqTrigger menu_TriggerMode;
 	MenuWidget_ClockDiv menu_ClockDiv;

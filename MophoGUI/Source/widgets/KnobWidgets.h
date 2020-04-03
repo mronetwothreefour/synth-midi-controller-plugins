@@ -1157,3 +1157,36 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOfreq)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the clock tempo parameter.
+// Derives from KnobWidget and overrides drawValue() and createTooltipString()
+class KnobWidget_ClockTempo : public KnobWidget
+{
+public:
+	KnobWidget_ClockTempo
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_ClockTempo()
+	{}
+
+private:
+	ValueConverters valueConverters;
+
+	void drawValue(const int& currentValue) noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ClockTempo)
+};
+
