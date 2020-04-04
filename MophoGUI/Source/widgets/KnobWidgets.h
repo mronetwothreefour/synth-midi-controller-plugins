@@ -10,19 +10,15 @@
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 //==============================================================================
-// A class derived from Slider that simply
-// modifies mouseWheelMove() so that the
-// slider's value is changed by a single
-// interval with each wheel move
-class CustomSlider :
-	public Slider
+// A class derived from Slider that simply modifies mouseWheelMove() so that
+// the slider's value is changed by a single interval with each wheel move
+class CustomSlider : public Slider
 {
 public:
 	CustomSlider() {}
 
-	void mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) override
+	void mouseWheelMove(const MouseEvent& /*e*/, const MouseWheelDetails& wheel) override
 	{
-		ignoreUnused(e);
 		auto delta{ wheel.deltaY };
 		auto currentValue{ getValue() };
 		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
@@ -36,6 +32,53 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSlider)
+};
+
+//==============================================================================
+// A special slider used for setting the values of steps in sequences 2, 3, and 4
+// Derives from CustomSlider and overrides mouseDown() so that the slider's value
+// changes to 126 (sequence reset) when it is clicked while the CTRL key is down
+class CustomSliderForSeq2to4Steps : public CustomSlider
+{
+public:
+	CustomSliderForSeq2to4Steps() {}
+
+	void mouseDown(const MouseEvent& e) override
+	{
+		if (e.mods.isCtrlDown())
+			setValue(126, sendNotification);
+		else Slider::mouseDown(e);
+	}
+
+private:
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForSeq2to4Steps)
+};
+
+//==============================================================================
+// A special slider used for setting the values of steps in sequence 1
+// Derives from CustomSlider and overrides mouseDown() so that the slider's value
+// changes to 126 (sequence reset) when it is clicked while the CTRL key is down,
+// and to 127 (rest) when it is clicked while the ALT key is down
+class CustomSliderForSeq1Steps : public CustomSlider
+{
+public:
+	CustomSliderForSeq1Steps() {}
+
+	void mouseDown(const MouseEvent& e) override
+	{
+		if (e.mods.isCtrlDown())
+			setValue(126, sendNotification);
+		if (e.mods.isAltDown())
+			setValue(127, sendNotification);
+		else Slider::mouseDown(e);
+	}
+
+private:
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForSeq1Steps)
 };
 
 //==============================================================================
