@@ -1233,3 +1233,127 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_ClockTempo)
 };
 
+//==============================================================================
+// Base class for knob widgets. Derived classes must
+// override drawValue() and createTooltipString()
+class KnobWidget_Seq1Step : public Component, public Slider::Listener
+{
+public:
+	PrivateParameters* privateParams;
+
+	KnobWidget_Seq1Step
+	(
+		int stepNumber,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		sliderAttachment{ *apvts, "seq1Step" + (String)stepNumber, slider },
+		privateParams{ privateParameters },
+		mophoLaF{ mophoLaF },
+		name{ (String)stepNumber },
+		isPitch{ true }
+	{
+		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+		slider.setLookAndFeel(mophoLaF);
+		slider.setAlpha(0.0f);
+		slider.addListener(this);
+		addAndMakeVisible(slider);
+
+		auto knobWidget_w{ 26 };
+		auto knobWidget_h{ 40 };
+		setSize(knobWidget_w, knobWidget_h);
+	}
+
+	~KnobWidget_Seq1Step()
+	{
+		slider.removeListener(this);
+		slider.setLookAndFeel(nullptr);
+	}
+
+	void paint(Graphics& g) override
+	{
+		//draw step square
+		g.setColour(Color::black);
+		g.fillRect(0, 0, 26, 26);
+
+		// draw step name 
+		Font knobName{ "Arial", "Black", 12.0f };
+		g.setFont(knobName);
+		Rectangle<int> knobNameArea{ 0, 27, getWidth(), 10 };
+		g.drawText(name, knobNameArea, Justification::centredTop);
+
+		// draw step value
+		g.setColour(Color::controlText);
+		Font knobValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(knobValue);
+		Rectangle<int> knobValueArea{ 0, 0, 26, 26 };
+		auto currentValue{ roundToInt(slider.getValue()) };
+		if (currentValue < 126)
+		{
+			if (isPitch)
+			{
+				if (currentValue < 121)
+					g.drawText(valueConverters.intToPitchName(currentValue), knobValueArea, Justification::centred);
+				else g.drawText("--", knobValueArea, Justification::centred);
+			}
+			else g.drawText((String)currentValue, knobValueArea, Justification::centred);
+		}
+		if (currentValue == 126) // sequence reset
+		{
+			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
+			g.drawArrow(l, 5.0f, 10.0f, 8.0f);
+		}
+		if (currentValue == 127) // est
+		{
+			g.fillEllipse(10.0f, 10.0f, 6.0f, 6.0f);
+		}
+	}
+
+	void resized() override
+	{
+		slider.setBounds(0, 0, 26, 26);
+	}
+
+	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
+	void sliderValueChanged(Slider* sliderThatChanged) override
+	{
+		if (sliderThatChanged == &slider)
+		{
+			auto currentValue{ getSliderValue() };
+			auto tooltip{ createTooltipString(currentValue) };
+			setSliderTooltip(tooltip);
+			repaint();
+		}
+	}
+
+	void drawValueAsPitch(bool shouldDrawAsPitch)
+	{
+		isPitch = shouldDrawAsPitch;
+		repaint();
+	}
+
+	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+private:
+	CustomSliderForSeq1Steps slider;
+	SliderAttachment sliderAttachment;
+	MophoLookAndFeel* mophoLaF;
+
+	String name;
+
+	bool isPitch;
+
+	ValueConverters valueConverters;
+
+	// Creates a tooltip String with a parameter description
+	// a verbose version of the parameter's current value
+	String createTooltipString(const int& currentValue) const noexcept;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Seq1Step)
+};
+

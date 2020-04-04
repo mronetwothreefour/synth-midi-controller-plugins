@@ -601,3 +601,10 @@ String KnobWidget_ClockTempo::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_Seq1Step::createTooltipString(const int& currentValue) const noexcept
+{
+	return String();
+}

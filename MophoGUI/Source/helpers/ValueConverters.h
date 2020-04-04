@@ -404,6 +404,20 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..127 to a sequencer step value String
+	// 0..125; 126 = "Reset Sequence"; 127 = "Rest"
+	String intToStepValue(const int& i) const
+	{
+		if (i > -1 && i < 128)
+		{
+			if (i < 126) return (String)(i);
+			else if (i == 126) return (String)("Reset Sequence");
+			else if (i == 127) return (String)("Rest");
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================
