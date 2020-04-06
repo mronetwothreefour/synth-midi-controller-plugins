@@ -124,10 +124,6 @@ namespace ID
 	const Identifier track2Dest			{ "track2Dest"		};
 	const Identifier track3Dest			{ "track3Dest"		};
 	const Identifier track4Dest			{ "track4Dest"		};
-	const Identifier track1DestMenu		{ "track1DestMenu"	};
-	const Identifier track2DestMenu		{ "track2DestMenu"	};
-	const Identifier track3DestMenu		{ "track3DestMenu"	};
-	const Identifier track4DestMenu		{ "track4DestMenu"	};
 
 	const Identifier assignKnob1		{ "assignKnob1"		};
 	const Identifier assignKnob2		{ "assignKnob2"		};

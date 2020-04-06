@@ -624,3 +624,24 @@ String KnobWidget_Track1Step::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+String KnobWidget_Tracks2_3_4Step::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: ";
+	tooltip += isPitch ? valueConverters.intToStepValue(currentValue, true) + "\n" : (String)currentValue + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		if (isPitch)
+		{
+			tooltip += "Each step in the track sets the pitch of the target oscillator. Range C0 to D5+.\n";
+			tooltip += "A \"+\" indicates that the pitch is a quarter tone higher than the displayed note.\n";
+		}
+		else tooltip += "Each step in the track sets the value of the destination parameter. Range 0 to 125.\n";
+		tooltip += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
+	}
+	return tooltip;
+}

@@ -38,10 +38,10 @@ private:
 // A special slider used for setting the values of steps in sequencer tracks 2, 3, and 4.
 // Derives from CustomSlider and overrides mouseDown() so that the slider's value
 // changes to 126 (sequencer track reset) if it is clicked while the CTRL key is down
-class CustomSliderForTracks2to4Steps : public CustomSlider
+class CustomSliderForTracks2_3_4Steps : public CustomSlider
 {
 public:
-	CustomSliderForTracks2to4Steps() {}
+	CustomSliderForTracks2_3_4Steps() {}
 
 	void mouseDown(const MouseEvent& e) override
 	{
@@ -53,7 +53,7 @@ public:
 private:
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForTracks2to4Steps)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForTracks2_3_4Steps)
 };
 
 //==============================================================================
@@ -1282,25 +1282,25 @@ public:
 		g.fillRect(0, 0, 26, 26);
 
 		// draw step name 
-		Font knobName{ "Arial", "Black", 12.0f };
-		g.setFont(knobName);
-		Rectangle<int> knobNameArea{ 0, 27, getWidth(), 10 };
-		g.drawText(name, knobNameArea, Justification::centredTop);
+		Font stepName{ "Arial", "Black", 12.0f };
+		g.setFont(stepName);
+		Rectangle<int> stepNameArea{ 0, 27, getWidth(), 10 };
+		g.drawText(name, stepNameArea, Justification::centredTop);
 
 		// draw step value
 		g.setColour(Color::controlText);
-		Font knobValue{ "Arial", "Narrow Bold", 13.0f };
-		g.setFont(knobValue);
-		Rectangle<int> knobValueArea{ 0, 0, 26, 26 };
+		Font stepValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(stepValue);
+		Rectangle<int> stepValueArea{ 0, 0, 26, 26 };
 		auto currentValue{ roundToInt(slider.getValue()) };
 		if (currentValue < 126)
-			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), knobValueArea, Justification::centred);
+			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
 		if (currentValue == 126) // sequencer track reset
 		{
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
 			g.drawArrow(l, 5.0f, 10.0f, 8.0f);
 		}
-		if (currentValue == 127) // est
+		if (currentValue == 127) // rest
 		{
 			g.fillEllipse(10.0f, 10.0f, 6.0f, 6.0f);
 		}
@@ -1352,5 +1352,123 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Track1Step)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling a step in sequencer track 2, 3, or 4.
+class KnobWidget_Tracks2_3_4Step : public Component, public Slider::Listener
+{
+public:
+	PrivateParameters* privateParams;
+
+	KnobWidget_Tracks2_3_4Step
+	(
+		int trackNumber,
+		int stepNumber,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		sliderAttachment{ *apvts, "track" + (String)trackNumber + "Step" + (String)stepNumber, slider },
+		privateParams{ privateParameters },
+		mophoLaF{ mophoLaF },
+		name{ (String)stepNumber },
+		isPitch{ true }
+	{
+		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+		slider.setLookAndFeel(mophoLaF);
+		slider.setAlpha(0.0f);
+		slider.addListener(this);
+		addAndMakeVisible(slider);
+
+		auto tooltip{ createTooltipString(roundToInt(slider.getValue())) };
+		setSliderTooltip(tooltip);
+
+		auto knobWidget_w{ 26 };
+		auto knobWidget_h{ 40 };
+		setSize(knobWidget_w, knobWidget_h);
+	}
+
+	~KnobWidget_Tracks2_3_4Step()
+	{
+		slider.removeListener(this);
+		slider.setLookAndFeel(nullptr);
+	}
+
+	void paint(Graphics& g) override
+	{
+		//draw step square
+		g.setColour(Color::black);
+		g.fillRect(0, 0, 26, 26);
+
+		// draw step name 
+		Font stepName{ "Arial", "Black", 12.0f };
+		g.setFont(stepName);
+		Rectangle<int> stepNameArea{ 0, 27, getWidth(), 10 };
+		g.drawText(name, stepNameArea, Justification::centredTop);
+
+		// draw step value
+		g.setColour(Color::controlText);
+		Font stepValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(stepValue);
+		Rectangle<int> stepValueArea{ 0, 0, 26, 26 };
+		auto currentValue{ roundToInt(slider.getValue()) };
+		if (currentValue < 126)
+			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
+		if (currentValue == 126) // sequencer track reset
+		{
+			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
+			g.drawArrow(l, 5.0f, 10.0f, 8.0f);
+		}
+	}
+
+	void resized() override
+	{
+		slider.setBounds(0, 0, 26, 26);
+	}
+
+	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
+	void sliderValueChanged(Slider* sliderThatChanged) override
+	{
+		if (sliderThatChanged == &slider)
+		{
+			auto currentValue{ getSliderValue() };
+			auto tooltip{ createTooltipString(currentValue) };
+			setSliderTooltip(tooltip);
+			repaint();
+		}
+	}
+
+	void drawValueAsPitch(bool shouldDrawAsPitch)
+	{
+		isPitch = shouldDrawAsPitch;
+		repaint();
+		sliderValueChanged(&slider);
+	}
+
+	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+	void setToZero() { slider.setValue(0.0, sendNotification); }
+
+private:
+	CustomSliderForTracks2_3_4Steps slider;
+	SliderAttachment sliderAttachment;
+	MophoLookAndFeel* mophoLaF;
+
+	String name;
+
+	bool isPitch;
+
+	ValueConverters valueConverters;
+
+	// Creates a tooltip String with a parameter description
+	// a verbose version of the parameter's current value
+	String createTooltipString(const int& currentValue) const noexcept;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Tracks2_3_4Step)
 };
 

@@ -102,6 +102,8 @@ public:
 	void addMenuListener(ComboBox::Listener* listener) { menu.addListener(listener); }
 	void removeMenuListener(ComboBox::Listener* listener) { menu.removeListener(listener); }
 
+	ComboBox* getMenuPointer() { return &menu; }
+
 private:
 	String name;
 	Identifier paramID;
@@ -401,7 +403,6 @@ public:
 		listener{ menuListener }
 	{
 		addMenuListener(listener);
-		setComponentID("track" + (String)trackNum + "DestMenu");
 	}
 
 	~MenuWidget_TrackDestination() 
