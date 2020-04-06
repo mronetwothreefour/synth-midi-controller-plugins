@@ -46,6 +46,7 @@ struct ValueConverters
 				pitchName += " (MIDI Note " + String(i) + ")";
 			return pitchName;
 		}
+		else if (i > 120 && i < 126) return "--";
 		else return "range error";
 	}
 
@@ -404,13 +405,49 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	String intToSeqStepPitchName(const int& i) const
+	{
+			auto pitchNum{ i % 24 };
+			auto octaveNum{ i / 24 };
+			String pitchName;
+			switch (pitchNum)
+			{
+			case 0 : pitchName = "C"  + (String)octaveNum; break;
+			case 1 : pitchName = "C"  + (String)octaveNum + "+"; break;
+			case 2 : pitchName = "C#" + (String)octaveNum; break;
+			case 3 : pitchName = "C#" + (String)octaveNum + "+"; break;
+			case 4 : pitchName = "D"  + (String)octaveNum; break;
+			case 5 : pitchName = "D"  + (String)octaveNum + "+"; break;
+			case 6 : pitchName = "D#" + (String)octaveNum; break;
+			case 7 : pitchName = "D#" + (String)octaveNum + "+"; break;
+			case 8 : pitchName = "E"  + (String)octaveNum; break;
+			case 9 : pitchName = "E"  + (String)octaveNum + "+"; break;
+			case 10: pitchName = "F"  + (String)octaveNum; break;
+			case 11: pitchName = "F"  + (String)octaveNum + "+"; break;
+			case 12: pitchName = "F#" + (String)octaveNum; break;
+			case 13: pitchName = "F#" + (String)octaveNum + "+"; break;
+			case 14: pitchName = "G"  + (String)octaveNum; break;
+			case 15: pitchName = "G"  + (String)octaveNum + "+"; break;
+			case 16: pitchName = "G#" + (String)octaveNum; break;
+			case 17: pitchName = "G#" + (String)octaveNum + "+"; break;
+			case 18: pitchName = "A"  + (String)octaveNum; break;
+			case 19: pitchName = "A"  + (String)octaveNum + "+"; break;
+			case 20: pitchName = "A#" + (String)octaveNum; break;
+			case 21: pitchName = "A#" + (String)octaveNum + "+"; break;
+			case 22: pitchName = "B"  + (String)octaveNum; break;
+			case 23: pitchName = "B"  + (String)octaveNum + "+"; break;
+			default: pitchName = "invalid"; break;
+			}
+			return pitchName;
+	}
+
 	// Converts integers 0..127 to a sequencer step value String
-	// 0..125; 126 = "Reset Sequence"; 127 = "Rest"
-	String intToStepValue(const int& i) const
+	// 0..125 (C0..D5+); 126 = "Reset Sequence"; 127 = "Rest"
+	String intToStepValue(const int& i, bool isPitch) const
 	{
 		if (i > -1 && i < 128)
 		{
-			if (i < 126) return (String)(i);
+			if (i < 126) return isPitch ? intToSeqStepPitchName(i) : (String)(i);
 			else if (i == 126) return (String)("Reset Sequence");
 			else if (i == 127) return (String)("Rest");
 			else return "invalid";

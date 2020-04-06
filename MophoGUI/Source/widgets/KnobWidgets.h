@@ -1262,6 +1262,9 @@ public:
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
+		auto tooltip{ createTooltipString(roundToInt(slider.getValue())) };
+		setSliderTooltip(tooltip);
+
 		auto knobWidget_w{ 26 };
 		auto knobWidget_h{ 40 };
 		setSize(knobWidget_w, knobWidget_h);
@@ -1292,15 +1295,7 @@ public:
 		Rectangle<int> knobValueArea{ 0, 0, 26, 26 };
 		auto currentValue{ roundToInt(slider.getValue()) };
 		if (currentValue < 126)
-		{
-			if (isPitch)
-			{
-				if (currentValue < 121)
-					g.drawText(valueConverters.intToPitchName(currentValue), knobValueArea, Justification::centred);
-				else g.drawText("--", knobValueArea, Justification::centred);
-			}
-			else g.drawText((String)currentValue, knobValueArea, Justification::centred);
-		}
+			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), knobValueArea, Justification::centred);
 		if (currentValue == 126) // sequence reset
 		{
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
@@ -1334,6 +1329,7 @@ public:
 	{
 		isPitch = shouldDrawAsPitch;
 		repaint();
+		sliderValueChanged(&slider);
 	}
 
 	void setSliderTooltip(String text) { slider.setTooltip(text); }

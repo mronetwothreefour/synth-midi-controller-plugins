@@ -120,10 +120,14 @@ namespace ID
 
 	const Identifier sequencerTrig		{ "sequencerTrig"	};
 	const Identifier sequencerOnOff		{ "sequencerOnOff"	};
-	const Identifier seqTrack1Dest		{ "seqTrack1Dest"	};
-	const Identifier seqTrack2Dest		{ "seqTrack2Dest"	};
-	const Identifier seqTrack3Dest		{ "seqTrack3Dest"	};
-	const Identifier seqTrack4Dest		{ "seqTrack4Dest"	};
+	const Identifier sequence1Dest		{ "sequence1Dest"	};
+	const Identifier sequence2Dest		{ "sequence2Dest"	};
+	const Identifier sequence3Dest		{ "sequence3Dest"	};
+	const Identifier sequence4Dest		{ "sequence4Dest"	};
+	const Identifier seq1DestMenu		{ "seq1DestMenu"	};
+	const Identifier seq2DestMenu		{ "seq2DestMenu"	};
+	const Identifier seq3DestMenu		{ "seq3DestMenu"	};
+	const Identifier seq4DestMenu		{ "seq4DestMenu"	};
 
 	const Identifier assignKnob1		{ "assignKnob1"		};
 	const Identifier assignKnob2		{ "assignKnob2"		};

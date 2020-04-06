@@ -99,6 +99,9 @@ public:
 
 	void setMenuTooltip(String text) { menu.setTooltip(text); }
 
+	void addMenuListener(ComboBox::Listener* listener) { menu.addListener(listener); }
+	void removeMenuListener(ComboBox::Listener* listener) { menu.removeListener(listener); }
+
 private:
 	String name;
 	Identifier paramID;
@@ -378,5 +381,38 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_ClockDiv)
+};
+
+//==============================================================================
+// A MenuWidget appropriate for selecting a sequencer destination parameter.
+// Derives from MenuWidget_ModDestination and adds a specified listener to the menu.
+class MenuWidget_SeqDestination : public MenuWidget_ModDestination
+{
+public:
+	MenuWidget_SeqDestination
+	(
+		int sequenceNum,
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		ComboBox::Listener* menuListener
+	) :
+		MenuWidget_ModDestination{ publicParameters, privateParameters, "sequence" + (String)sequenceNum + "Dest", mophoLaF, 126, true },
+		listener{ menuListener }
+	{
+		addMenuListener(listener);
+		setComponentID("seq" + (String)sequenceNum + "DestMenu");
+	}
+
+	~MenuWidget_SeqDestination() 
+	{
+		removeMenuListener(listener);
+	}
+
+private:
+	ComboBox::Listener* listener;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_SeqDestination)
 };
 

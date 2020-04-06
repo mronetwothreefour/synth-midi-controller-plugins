@@ -12,7 +12,7 @@
 
 // A set of controls for the parameters that are specific to sequence 1:
 // destination, steps 1 to 16, and a clear sequence button
-class Sequence1Controls : public Component
+class Sequence1Controls : public Component, public ComboBox::Listener
 {
 public:
 	Sequence1Controls
@@ -21,6 +21,7 @@ public:
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
+		menu_destination{ 1, publicParams, privateParams, mophoLaF, this },
 		knob_Step01{ 1 , publicParams, privateParams, mophoLaF },
 		knob_Step02{ 2 , publicParams, privateParams, mophoLaF },
 		knob_Step03{ 3 , publicParams, privateParams, mophoLaF },
@@ -38,6 +39,8 @@ public:
 		knob_Step15{ 15, publicParams, privateParams, mophoLaF },
 		knob_Step16{ 16, publicParams, privateParams, mophoLaF }
 	{
+		addAndMakeVisible(menu_destination);
+
 		addAndMakeVisible(knob_Step01);
 		addAndMakeVisible(knob_Step02);
 		addAndMakeVisible(knob_Step03);
@@ -76,6 +79,8 @@ public:
 
 	void resized() override
 	{
+		menu_destination.setBounds(115, 0, menu_destination.getWidth(), menu_destination.getHeight());
+
 		auto step_w{ knob_Step01.getWidth() };
 		auto step_h{ knob_Step01.getHeight() };
 		auto stepGap{ 2 };
@@ -114,7 +119,35 @@ public:
 		knob_Step16.setBounds(step16_x, step_y, step_w, step_h);
 	}
 
+	void comboBoxChanged(ComboBox* comboBox) override
+	{
+		// Tell steps to draw their values as pitches if the
+		// destination is set to an oscillator pitch parameter
+		bool shouldDrawAsPitch;
+		if (comboBox->getSelectedItemIndex() > 0 && comboBox->getSelectedItemIndex() < 4)
+			shouldDrawAsPitch = true;
+		else shouldDrawAsPitch = false;
+		knob_Step01.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step02.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step03.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step04.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step05.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step06.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step07.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step08.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step09.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step10.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step11.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step12.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step13.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step14.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step15.drawValueAsPitch(shouldDrawAsPitch);
+		knob_Step16.drawValueAsPitch(shouldDrawAsPitch);
+	}
+
 private:
+	MenuWidget_SeqDestination menu_destination;
+
 	KnobWidget_Seq1Step knob_Step01;
 	KnobWidget_Seq1Step knob_Step02;
 	KnobWidget_Seq1Step knob_Step03;

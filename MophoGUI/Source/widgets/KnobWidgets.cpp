@@ -606,5 +606,21 @@ String KnobWidget_ClockTempo::createTooltipString(const int& currentValue) const
 
 String KnobWidget_Seq1Step::createTooltipString(const int& currentValue) const noexcept
 {
-	return String();
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: ";
+		tooltip += isPitch ? valueConverters.intToStepValue(currentValue, true) + "\n" : (String)currentValue + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		if (isPitch)
+		{
+			tooltip += "Each sequence step sets the pitch of the target oscillator. Range C0 to D5+.\n";
+			tooltip += "A \"+\" indicates that the pitch is a quarter tone higher than the displayed note.\n";
+		}
+		else tooltip += "Each sequence step sets the value of the destination parameter. Range 0 to 125.\n";
+		tooltip += "Reset (126): Restarts the sequence from step 1. CTRL-click the step to set it to reset.\n";
+		tooltip += "Rest (127): The step produces no output. ALT-click the step to make it a rest\n";
+		tooltip += "(This setting is only available for sequence 1 steps).";
+	}
+	return tooltip;
 }
