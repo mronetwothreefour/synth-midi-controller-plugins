@@ -80,6 +80,42 @@ public:
 			.draw(g, { static_cast<float> (width), static_cast<float> (height) });
 	}
 
+	void drawButtonBackground
+	(
+		Graphics& g, 
+		Button& button, 
+		const Colour& /*backgroundColour*/, 
+		bool /*shouldDrawButtonAsHighlighted*/, 
+		bool shouldDrawButtonAsDown
+	) override
+	{
+		auto baseColour{ Color::button };
+
+		if (shouldDrawButtonAsDown)
+			baseColour = baseColour.darker(0.5f);
+
+		g.setColour(baseColour);
+
+		g.fillAll(baseColour);
+		LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 3, 
+			shouldDrawButtonAsDown ? Color::button.darker(1.5f) : Color::button.brighter(0.75f),
+			shouldDrawButtonAsDown ? Color::button.brighter(0.55f) : Color::button.darker(1.5f));
+	}
+
+	void drawButtonText
+	(
+		Graphics& g, 
+		TextButton& button,
+		bool /*shouldDrawButtonAsHighlighted*/, 
+		bool shouldDrawButtonAsDown
+	) override
+	{
+		Font font{ "Arial", "Black", 11.0f };
+		g.setFont(font);
+		g.setColour(shouldDrawButtonAsDown ? Color::controlText.darker(0.5f) : Color::controlText);
+		g.drawFittedText(button.getButtonText(), 0, 0, button.getWidth(), button.getHeight(), Justification::centred, 1);
+	}
+
 	void drawToggleButton
 	(
 		Graphics& g,

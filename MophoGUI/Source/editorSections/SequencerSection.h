@@ -48,6 +48,7 @@ public:
 
 		addAndMakeVisible(menu_destination);
 
+		button_Clear.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Clear);
 
 		addAndMakeVisible(knob_Step01);
@@ -74,6 +75,7 @@ public:
 
 	~Track1Controls() 
 	{
+		button_Clear.setLookAndFeel(nullptr);
 		button_Clear.removeListener(this);
 	}
 
