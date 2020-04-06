@@ -384,27 +384,27 @@ private:
 };
 
 //==============================================================================
-// A MenuWidget appropriate for selecting a sequencer destination parameter.
+// A MenuWidget appropriate for selecting a sequencer track destination parameter.
 // Derives from MenuWidget_ModDestination and adds a specified listener to the menu.
-class MenuWidget_SeqDestination : public MenuWidget_ModDestination
+class MenuWidget_TrackDestination : public MenuWidget_ModDestination
 {
 public:
-	MenuWidget_SeqDestination
+	MenuWidget_TrackDestination
 	(
-		int sequenceNum,
+		int trackNum,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
 		ComboBox::Listener* menuListener
 	) :
-		MenuWidget_ModDestination{ publicParameters, privateParameters, "sequence" + (String)sequenceNum + "Dest", mophoLaF, 126, true },
+		MenuWidget_ModDestination{ publicParameters, privateParameters, "track" + (String)trackNum + "Dest", mophoLaF, 126, true },
 		listener{ menuListener }
 	{
 		addMenuListener(listener);
-		setComponentID("seq" + (String)sequenceNum + "DestMenu");
+		setComponentID("track" + (String)trackNum + "DestMenu");
 	}
 
-	~MenuWidget_SeqDestination() 
+	~MenuWidget_TrackDestination() 
 	{
 		removeMenuListener(listener);
 	}
@@ -413,6 +413,6 @@ private:
 	ComboBox::Listener* listener;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_SeqDestination)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_TrackDestination)
 };
 

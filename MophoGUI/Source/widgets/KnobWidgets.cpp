@@ -604,7 +604,7 @@ String KnobWidget_ClockTempo::createTooltipString(const int& currentValue) const
 
 //==============================================================================
 
-String KnobWidget_Seq1Step::createTooltipString(const int& currentValue) const noexcept
+String KnobWidget_Track1Step::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
@@ -614,13 +614,13 @@ String KnobWidget_Seq1Step::createTooltipString(const int& currentValue) const n
 	{
 		if (isPitch)
 		{
-			tooltip += "Each sequence step sets the pitch of the target oscillator. Range C0 to D5+.\n";
+			tooltip += "Each step in the track sets the pitch of the target oscillator. Range C0 to D5+.\n";
 			tooltip += "A \"+\" indicates that the pitch is a quarter tone higher than the displayed note.\n";
 		}
-		else tooltip += "Each sequence step sets the value of the destination parameter. Range 0 to 125.\n";
-		tooltip += "Reset (126): Restarts the sequence from step 1. CTRL-click the step to set it to reset.\n";
-		tooltip += "Rest (127): The step produces no output. ALT-click the step to make it a rest\n";
-		tooltip += "(This setting is only available for sequence 1 steps).";
+		else tooltip += "Each step in the track sets the value of the destination parameter. Range 0 to 125.\n";
+		tooltip += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.\n";
+		tooltip += "Rest (127): The step produces no output. ALT-click a step to make it a rest\n";
+		tooltip += "(The rest setting is only available for the steps in sequencer track 1).";
 	}
 	return tooltip;
 }

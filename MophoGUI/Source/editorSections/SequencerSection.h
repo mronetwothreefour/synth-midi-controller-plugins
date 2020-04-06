@@ -10,18 +10,23 @@
 #include "../widgets/KnobWidgets.h"
 #include "../widgets/MenuWidgets.h"
 
-// A set of controls for the parameters that are specific to sequence 1:
-// destination, steps 1 to 16, and a clear sequence button
-class Sequence1Controls : public Component, public ComboBox::Listener
+// A set of controls for the parameters that are specific to sequencer
+// track 1: destination, steps 1 to 16, and a clear steps button
+class Track1Controls :
+	public Component,
+	public ComboBox::Listener,
+	public Button::Listener,
+	private Timer
 {
 public:
-	Sequence1Controls
+	Track1Controls
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF
 	) :
 		menu_destination{ 1, publicParams, privateParams, mophoLaF, this },
+		button_Clear{ "CLEAR", "Sets all steps to \"Rest.\""},
 		knob_Step01{ 1 , publicParams, privateParams, mophoLaF },
 		knob_Step02{ 2 , publicParams, privateParams, mophoLaF },
 		knob_Step03{ 3 , publicParams, privateParams, mophoLaF },
@@ -39,7 +44,11 @@ public:
 		knob_Step15{ 15, publicParams, privateParams, mophoLaF },
 		knob_Step16{ 16, publicParams, privateParams, mophoLaF }
 	{
+		button_Clear.addListener(this);
+
 		addAndMakeVisible(menu_destination);
+
+		addAndMakeVisible(button_Clear);
 
 		addAndMakeVisible(knob_Step01);
 		addAndMakeVisible(knob_Step02);
@@ -58,28 +67,33 @@ public:
 		addAndMakeVisible(knob_Step15);
 		addAndMakeVisible(knob_Step16);
 
-		auto seqControls_w{ 446 };
-		auto seqControls_h{ 62 };
-		setSize(seqControls_w, seqControls_h);
+		auto trackControls_w{ 446 };
+		auto trackControls_h{ 62 };
+		setSize(trackControls_w, trackControls_h);
 	}
 
-	~Sequence1Controls() {}
+	~Track1Controls() 
+	{
+		button_Clear.removeListener(this);
+	}
 
 	void paint(Graphics& g) override
 	{
 		g.setColour(Color::black);
 
-		// Draw sequence label
+		// Draw track label
 		//==============================================================================
 		Font oscNumLabel{ "Arial", "Black", 18.0f };
 		g.setFont(oscNumLabel);
 		Rectangle<int> oscNumLabelArea{ 0, 0, 95, 16 };
-		g.drawText("SEQUENCE 1", oscNumLabelArea, Justification::centredLeft);
+		g.drawText("TRACK 1", oscNumLabelArea, Justification::topLeft);
 	}
 
 	void resized() override
 	{
-		menu_destination.setBounds(115, 0, menu_destination.getWidth(), menu_destination.getHeight());
+		menu_destination.setBounds(105, 0, menu_destination.getWidth(), menu_destination.getHeight());
+
+		button_Clear.setBounds(354, 0, 42, 16);
 
 		auto step_w{ knob_Step01.getWidth() };
 		auto step_h{ knob_Step01.getHeight() };
@@ -145,33 +159,78 @@ public:
 		knob_Step16.drawValueAsPitch(shouldDrawAsPitch);
 	}
 
-private:
-	MenuWidget_SeqDestination menu_destination;
+	void buttonClicked(Button* buttonThatWasClicked) override 
+	{
+		if (buttonThatWasClicked == &button_Clear)
+		{
+			knob_Step01.setToRest();
+			stepCounter = 2;
+			startTimer(timerInterval);
+		}
+	}
 
-	KnobWidget_Seq1Step knob_Step01;
-	KnobWidget_Seq1Step knob_Step02;
-	KnobWidget_Seq1Step knob_Step03;
-	KnobWidget_Seq1Step knob_Step04;
-	KnobWidget_Seq1Step knob_Step05;
-	KnobWidget_Seq1Step knob_Step06;
-	KnobWidget_Seq1Step knob_Step07;
-	KnobWidget_Seq1Step knob_Step08;
-	KnobWidget_Seq1Step knob_Step09;
-	KnobWidget_Seq1Step knob_Step10;
-	KnobWidget_Seq1Step knob_Step11;
-	KnobWidget_Seq1Step knob_Step12;
-	KnobWidget_Seq1Step knob_Step13;
-	KnobWidget_Seq1Step knob_Step14;
-	KnobWidget_Seq1Step knob_Step15;
-	KnobWidget_Seq1Step knob_Step16;
+	void timerCallback() override
+	{
+		stopTimer();
+		switch (stepCounter)
+		{
+		case 2 : knob_Step02.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 3 : knob_Step03.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 4 : knob_Step04.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 5 : knob_Step05.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 6 : knob_Step06.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 7 : knob_Step07.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 8 : knob_Step08.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 9 : knob_Step09.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 10: knob_Step10.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 11: knob_Step11.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 12: knob_Step12.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 13: knob_Step13.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 14: knob_Step14.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 15: knob_Step15.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		case 16: knob_Step16.setToRest(); ++stepCounter; startTimer(timerInterval); break;
+		default:
+			break;
+		}
+	}
+
+
+	void buttonStateChanged(Button* /*buttonThatChanged*/) override {}
+
+private:
+	MenuWidget_TrackDestination menu_destination;
+
+	TextButton button_Clear;
+
+	KnobWidget_Track1Step knob_Step01;
+	KnobWidget_Track1Step knob_Step02;
+	KnobWidget_Track1Step knob_Step03;
+	KnobWidget_Track1Step knob_Step04;
+	KnobWidget_Track1Step knob_Step05;
+	KnobWidget_Track1Step knob_Step06;
+	KnobWidget_Track1Step knob_Step07;
+	KnobWidget_Track1Step knob_Step08;
+	KnobWidget_Track1Step knob_Step09;
+	KnobWidget_Track1Step knob_Step10;
+	KnobWidget_Track1Step knob_Step11;
+	KnobWidget_Track1Step knob_Step12;
+	KnobWidget_Track1Step knob_Step13;
+	KnobWidget_Track1Step knob_Step14;
+	KnobWidget_Track1Step knob_Step15;
+	KnobWidget_Track1Step knob_Step16;
+
+	int stepCounter{ 1 };
+	int timerInterval{ 10 };
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Sequence1Controls)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Track1Controls)
 };
 
 
 
-// Groups together the controls for the sequencer
+// Groups together the controls for the sequencer:
+// sequencer off/on, trigger mode, clock division, BPM,
+// and controls for 4 sequencer tracks.
 class SequencerSection : public Component
 {
 public:
@@ -185,13 +244,13 @@ public:
 		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114 },
 		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124 },
 		knob_ClockTempo{ publicParams, privateParams, mophoLaF },
-		sequence1Controls{ publicParams, privateParams, mophoLaF }
+		track1Controls{ publicParams, privateParams, mophoLaF }
 	{
 		addAndMakeVisible(button_SequencerOffOn);
 		addAndMakeVisible(menu_TriggerMode);
 		addAndMakeVisible(menu_ClockDiv);
 		addAndMakeVisible(knob_ClockTempo);
-		addAndMakeVisible(sequence1Controls);
+		addAndMakeVisible(track1Controls);
 
 		auto seqSection_w{ 450 };
 		auto seqSection_h{ 370 };
@@ -218,7 +277,7 @@ public:
 		menu_TriggerMode.setBounds(129, 12, menu_TriggerMode.getWidth(), menu_h);
 		menu_ClockDiv.setBounds(265, 12, menu_ClockDiv.getWidth(), menu_h);
 		knob_ClockTempo.setBounds(404, 0, knob_ClockTempo.getWidth(), knob_ClockTempo.getHeight());
-		sequence1Controls.setBounds(0, 47, sequence1Controls.getWidth(), sequence1Controls.getHeight());
+		track1Controls.setBounds(0, 47, track1Controls.getWidth(), track1Controls.getHeight());
 	}
 
 private:
@@ -229,7 +288,7 @@ private:
 	MenuWidget_SeqTrigger menu_TriggerMode;
 	MenuWidget_ClockDiv menu_ClockDiv;
 
-	Sequence1Controls sequence1Controls;
+	Track1Controls track1Controls;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SequencerSection)

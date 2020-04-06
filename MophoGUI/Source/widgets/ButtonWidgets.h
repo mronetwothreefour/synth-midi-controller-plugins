@@ -10,8 +10,8 @@
 using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
 
 //==============================================================================
-// Base class for button widgets. Derived
-// classes must override createTooltipString()
+// Base class for button widgets which use a toggle button and attach to a public parameter.
+// Has a createTooltipString() function that derived classes must override.
 class ButtonWidget : public Component, public Button::Listener
 {
 public:

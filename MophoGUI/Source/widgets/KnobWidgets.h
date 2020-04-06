@@ -35,13 +35,13 @@ private:
 };
 
 //==============================================================================
-// A special slider used for setting the values of steps in sequences 2, 3, and 4
+// A special slider used for setting the values of steps in sequencer tracks 2, 3, and 4.
 // Derives from CustomSlider and overrides mouseDown() so that the slider's value
-// changes to 126 (sequence reset) when it is clicked while the CTRL key is down
-class CustomSliderForSeq2to4Steps : public CustomSlider
+// changes to 126 (sequencer track reset) if it is clicked while the CTRL key is down
+class CustomSliderForTracks2to4Steps : public CustomSlider
 {
 public:
-	CustomSliderForSeq2to4Steps() {}
+	CustomSliderForTracks2to4Steps() {}
 
 	void mouseDown(const MouseEvent& e) override
 	{
@@ -53,32 +53,32 @@ public:
 private:
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForSeq2to4Steps)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForTracks2to4Steps)
 };
 
 //==============================================================================
-// A special slider used for setting the values of steps in sequence 1
+// A special slider used for setting the values of steps in sequence 1.
 // Derives from CustomSlider and overrides mouseDown() so that the slider's value
-// changes to 126 (sequence reset) when it is clicked while the CTRL key is down,
-// and to 127 (rest) when it is clicked while the ALT key is down
-class CustomSliderForSeq1Steps : public CustomSlider
+// changes to 126 (sequencer track reset) if it is clicked while the CTRL key is down,
+// and to 127 (rest) if it is clicked while the ALT key is down
+class CustomSliderForTrack1Steps : public CustomSlider
 {
 public:
-	CustomSliderForSeq1Steps() {}
+	CustomSliderForTrack1Steps() {}
 
 	void mouseDown(const MouseEvent& e) override
 	{
 		if (e.mods.isCtrlDown())
-			setValue(126, sendNotification);
+			setValue(126.0, sendNotification);
 		if (e.mods.isAltDown())
-			setValue(127, sendNotification);
+			setValue(127.0, sendNotification);
 		else Slider::mouseDown(e);
 	}
 
 private:
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForSeq1Steps)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CustomSliderForTrack1Steps)
 };
 
 //==============================================================================
@@ -1234,21 +1234,20 @@ private:
 };
 
 //==============================================================================
-// Base class for knob widgets. Derived classes must
-// override drawValue() and createTooltipString()
-class KnobWidget_Seq1Step : public Component, public Slider::Listener
+// A knob widget appropriate for controlling a step in sequencer track 1.
+class KnobWidget_Track1Step : public Component, public Slider::Listener
 {
 public:
 	PrivateParameters* privateParams;
 
-	KnobWidget_Seq1Step
+	KnobWidget_Track1Step
 	(
 		int stepNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) :
-		sliderAttachment{ *apvts, "seq1Step" + (String)stepNumber, slider },
+		sliderAttachment{ *apvts, "track1Step" + (String)stepNumber, slider },
 		privateParams{ privateParameters },
 		mophoLaF{ mophoLaF },
 		name{ (String)stepNumber },
@@ -1270,7 +1269,7 @@ public:
 		setSize(knobWidget_w, knobWidget_h);
 	}
 
-	~KnobWidget_Seq1Step()
+	~KnobWidget_Track1Step()
 	{
 		slider.removeListener(this);
 		slider.setLookAndFeel(nullptr);
@@ -1296,7 +1295,7 @@ public:
 		auto currentValue{ roundToInt(slider.getValue()) };
 		if (currentValue < 126)
 			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), knobValueArea, Justification::centred);
-		if (currentValue == 126) // sequence reset
+		if (currentValue == 126) // sequencer track reset
 		{
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
 			g.drawArrow(l, 5.0f, 10.0f, 8.0f);
@@ -1334,8 +1333,10 @@ public:
 
 	void setSliderTooltip(String text) { slider.setTooltip(text); }
 
+	void setToRest() { slider.setValue(127.0, sendNotification); }
+
 private:
-	CustomSliderForSeq1Steps slider;
+	CustomSliderForTrack1Steps slider;
 	SliderAttachment sliderAttachment;
 	MophoLookAndFeel* mophoLaF;
 
@@ -1350,6 +1351,6 @@ private:
 	String createTooltipString(const int& currentValue) const noexcept;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Seq1Step)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Track1Step)
 };
 
