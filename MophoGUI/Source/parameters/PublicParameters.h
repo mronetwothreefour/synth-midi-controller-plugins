@@ -93,9 +93,8 @@ public:
 		// 0 = "Normal"; 1 = "Toggle"; 
 		// 2 = "Audio In"
 		StringArray pushItMode;
-		/*0 */pushItMode.add("Normal");
-		/*1 */pushItMode.add("Toggle");
-		/*2 */pushItMode.add("Audio In");
+		for (auto i = 0; i != 3; ++i)
+			pushItMode.add(valueConverters.intToPushItMode(i));
 
 		StringArray clockTempo;
 		for (auto i = 0; i != 221; ++i)
@@ -443,7 +442,7 @@ public:
 		/*90 */layout.add(std::make_unique<AudioParameterChoice>	(ID::footPedalAmount.toString(),	"Foot Pedal Amount", modAmount, 127));
 		/*91 */layout.add(std::make_unique<AudioParameterChoice>	(ID::footPedalDest.toString(),		"Foot Pedal Destination", modDestination, 0));
 
-		/*92 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItPitch.toString(),		"Push It! Switch Pitch", pitchNames, 24));
+		/*92 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItPitch.toString(),		"Push It! Switch Pitch", pitchNames, 36));
 		/*93 */layout.add(std::make_unique<AudioParameterInt>		(ID::pushItVelocity.toString(),		"Push It! Switch Velocity", 0, 127, 100));
 		/*94 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItMode.toString(),			"Push It! Switch Mode", pushItMode, 0));
 
@@ -494,22 +493,22 @@ public:
 		/*134*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track1Step15.toString(),		"Sequencer Track 1 Step 15", track1Steps, 72));
 		/*135*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track1Step16.toString(),		"Sequencer Track 1 Step 16", track1Steps, 72));
 		
-		/*136*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step1 .toString(),		"Sequencer Track 2 Step 1",  track2_3_4Steps, 0));
-		/*137*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step2 .toString(),		"Sequencer Track 2 Step 2",  track2_3_4Steps, 0));
-		/*138*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step3 .toString(),		"Sequencer Track 2 Step 3",  track2_3_4Steps, 0));
-		/*139*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step4 .toString(),		"Sequencer Track 2 Step 4",  track2_3_4Steps, 0));
-		/*140*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step5 .toString(),		"Sequencer Track 2 Step 5",  track2_3_4Steps, 0));
-		/*141*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step6 .toString(),		"Sequencer Track 2 Step 6",  track2_3_4Steps, 0));
-		/*142*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step7 .toString(),		"Sequencer Track 2 Step 7",  track2_3_4Steps, 0));
-		/*143*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step8 .toString(),		"Sequencer Track 2 Step 8",  track2_3_4Steps, 0));
-		/*144*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step9 .toString(),		"Sequencer Track 2 Step 9",  track2_3_4Steps, 0));
-		/*145*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step10.toString(),		"Sequencer Track 2 Step 10", track2_3_4Steps, 0));
-		/*146*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step11.toString(),		"Sequencer Track 2 Step 11", track2_3_4Steps, 0));
-		/*147*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step12.toString(),		"Sequencer Track 2 Step 12", track2_3_4Steps, 0));
-		/*148*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step13.toString(),		"Sequencer Track 2 Step 13", track2_3_4Steps, 0));
-		/*149*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step14.toString(),		"Sequencer Track 2 Step 14", track2_3_4Steps, 0));
-		/*150*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step15.toString(),		"Sequencer Track 2 Step 15", track2_3_4Steps, 0));
-		/*151*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step16.toString(),		"Sequencer Track 2 Step 16", track2_3_4Steps, 0));
+		/*136*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step1 .toString(),		"Sequencer Track 2 Step 1",  track2_3_4Steps, 72));
+		/*137*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step2 .toString(),		"Sequencer Track 2 Step 2",  track2_3_4Steps, 72));
+		/*138*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step3 .toString(),		"Sequencer Track 2 Step 3",  track2_3_4Steps, 72));
+		/*139*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step4 .toString(),		"Sequencer Track 2 Step 4",  track2_3_4Steps, 72));
+		/*140*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step5 .toString(),		"Sequencer Track 2 Step 5",  track2_3_4Steps, 72));
+		/*141*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step6 .toString(),		"Sequencer Track 2 Step 6",  track2_3_4Steps, 72));
+		/*142*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step7 .toString(),		"Sequencer Track 2 Step 7",  track2_3_4Steps, 72));
+		/*143*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step8 .toString(),		"Sequencer Track 2 Step 8",  track2_3_4Steps, 72));
+		/*144*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step9 .toString(),		"Sequencer Track 2 Step 9",  track2_3_4Steps, 72));
+		/*145*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step10.toString(),		"Sequencer Track 2 Step 10", track2_3_4Steps, 72));
+		/*146*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step11.toString(),		"Sequencer Track 2 Step 11", track2_3_4Steps, 72));
+		/*147*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step12.toString(),		"Sequencer Track 2 Step 12", track2_3_4Steps, 72));
+		/*148*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step13.toString(),		"Sequencer Track 2 Step 13", track2_3_4Steps, 72));
+		/*149*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step14.toString(),		"Sequencer Track 2 Step 14", track2_3_4Steps, 72));
+		/*150*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step15.toString(),		"Sequencer Track 2 Step 15", track2_3_4Steps, 72));
+		/*151*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track2Step16.toString(),		"Sequencer Track 2 Step 16", track2_3_4Steps, 72));
 		
 		/*152*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track3Step1 .toString(),		"Sequencer Track 3 Step 1",  track2_3_4Steps, 0));
 		/*153*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track3Step2 .toString(),		"Sequencer Track 3 Step 2",  track2_3_4Steps, 0));

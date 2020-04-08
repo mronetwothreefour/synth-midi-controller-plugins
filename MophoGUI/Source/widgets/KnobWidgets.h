@@ -244,6 +244,8 @@ public:
 	void setCurrentValueText(String text) { currentValueText = text; repaint(); }
 	
 	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+	void setKnobSensitivity(int sensitivity) { slider.setMouseDragSensitivity(sensitivity); }
 	
 private:
 	CustomSlider slider;
@@ -282,6 +284,7 @@ public:
 	) :
 		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
 	{
+		setKnobSensitivity(175);
 		drawValue(getSliderValue());
 	}
 
@@ -316,6 +319,7 @@ public:
 	) :
 		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
 	{
+		setKnobSensitivity(275);
 		drawValue(getSliderValue());
 	}
 
@@ -349,6 +353,7 @@ public:
 	) :
 		KnobWidget{ "PITCH", apvts, privateParameters, paramID, mophoLaF }
 	{
+		setKnobSensitivity(175);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -383,6 +388,7 @@ public:
 	) :
 		KnobWidget{ "FINE", apvts, privateParameters, paramID, mophoLaF }
 	{
+		setKnobSensitivity(150);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -421,6 +427,7 @@ public:
 		shapeRenderer.setBounds(5, 5, shapeRenderer.getWidth(), shapeRenderer.getHeight());
 		addAndMakeVisible(shapeRenderer);
 
+		setKnobSensitivity(160);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -514,6 +521,7 @@ public:
 	) :
 		KnobWidget{ "SLOP", apvts, privateParameters, ID::oscSlop, mophoLaF }
 	{
+		setKnobSensitivity(75);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -573,6 +581,7 @@ public:
 	) :
 		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange, mophoLaF }
 	{
+		setKnobSensitivity(80);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -662,6 +671,7 @@ public:
 	) :
 		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq, mophoLaF }
 	{
+		setKnobSensitivity(200);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1181,6 +1191,7 @@ public:
 	) :
 		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF }
 	{
+		setKnobSensitivity(200);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1214,6 +1225,7 @@ public:
 	) :
 		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo, mophoLaF }
 	{
+		setKnobSensitivity(250);
 		auto currentValue{ getSliderValue() };
 		drawValue(currentValue);
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1258,6 +1270,7 @@ public:
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
 		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
+		slider.setMouseDragSensitivity(175);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
@@ -1380,6 +1393,7 @@ public:
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
 		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
+		slider.setMouseDragSensitivity(175);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
@@ -1470,5 +1484,59 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_Tracks2_3_4Step)
+};
+
+//==============================================================================
+// A knob widget appropriate for setting the Push It! switch's pitch.
+// Derives from KnobWidget_OscPitch and overrides createTooltipString()
+class KnobWidget_PushItPitch : public KnobWidget_OscPitch
+{
+public:
+	KnobWidget_PushItPitch
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_OscPitch{ apvts, privateParameters, ID::pushItPitch, mophoLaF } 
+	{}
+
+	~KnobWidget_PushItPitch() {}
+
+private:
+	ValueConverters valueConverters;
+
+	String createTooltipString(const int& currentValue) const noexcept;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PushItPitch)
+};
+
+//==============================================================================
+// A knob widget appropriate for setting the Push It! switch's velocity.
+// Derives from KnobWidget_0to127 and overrides createTooltipString()
+class KnobWidget_PushItVelo : public KnobWidget_0to127
+{
+public:
+	KnobWidget_PushItVelo
+	(
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		KnobWidget_0to127{ String("VELO"), apvts, privateParameters, ID::pushItVelocity, mophoLaF }
+	{
+		auto currentValue{ getSliderValue() };
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~KnobWidget_PushItVelo() {}
+
+private:
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PushItVelo)
 };
 

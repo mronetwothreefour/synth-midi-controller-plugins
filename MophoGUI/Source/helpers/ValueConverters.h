@@ -455,6 +455,20 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..2 to a Push It! switch mode String
+	// 0 = "Normal"; 1 = "Toggle"; 2 = "Audio In"
+	String intToPushItMode(const int& i) const
+	{
+		if (i > -1 && i < 3)
+		{
+			if (i == 0) return "Normal";
+			if (i == 1) return "Toggle";
+			if (i == 2) return "Audio In";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

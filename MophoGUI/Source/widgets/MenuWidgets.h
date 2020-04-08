@@ -417,3 +417,31 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_TrackDestination)
 };
 
+//==============================================================================
+// A MenuWidget appropriate for selecting the mode for the Push It! switch.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_PushItMode : public MenuWidget
+{
+public:
+	MenuWidget_PushItMode
+	(
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		MenuWidget{ "SWITCH MODE", publicParameters, privateParameters, ID::pushItMode, mophoLaF, width, false }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_PushItMode() {}
+
+private:
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_PushItMode)
+};
+

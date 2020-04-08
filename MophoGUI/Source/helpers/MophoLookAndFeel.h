@@ -97,9 +97,9 @@ public:
 		g.setColour(baseColour);
 
 		g.fillAll(baseColour);
-		LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 3, 
-			shouldDrawButtonAsDown ? Color::button.darker(1.5f) : Color::button.brighter(0.75f),
-			shouldDrawButtonAsDown ? Color::button.brighter(0.55f) : Color::button.darker(1.5f));
+		LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 2, 
+			shouldDrawButtonAsDown ? Color::button.darker(1.5f) : Color::button.brighter(0.6f),
+			shouldDrawButtonAsDown ? Color::button.brighter(0.55f) : Color::button.darker(1.5f), false);
 	}
 
 	void drawButtonText

@@ -195,16 +195,16 @@ String MenuWidget_SeqTrigger::createTooltipString(const int& currentValue) const
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Normal: New notes reset the sequencer to the first step.\n";
-		tooltip += "  The envelopes are re-triggered with each step.\n";
+		tooltip += "The envelopes are re-triggered with each step.\n";
 		tooltip += "Normal, No Reset: New notes do not reset the sequencer to the\n";
-		tooltip += "  first step. The envelopes are re-triggered with each step.\n";
+		tooltip += "first step. The envelopes are re-triggered with each step.\n";
 		tooltip += "No Gate: New notes reset the sequencer to the first step. New\n";
-		tooltip += "  notes re-trigger the envelopes, but sequencer steps do not.\n";
+		tooltip += "notes re-trigger the envelopes, but sequencer steps do not.\n";
 		tooltip += "No Gate, No Reset: New notes do not reset the sequencer to the\n";
-		tooltip += "  first step. Sequencer steps do not re-trigger the envelopes.\n";
+		tooltip += "first step. Sequencer steps do not re-trigger the envelopes.\n";
 		tooltip += "Key Step: Each new note advances the sequencer one step.\n";
 		tooltip += "Audio Input: The sequencer advances one step every time the\n";
-		tooltip += "  external audio input level surpasses a certain threshold.";
+		tooltip += "external audio input level surpasses a certain threshold.";
 	}
 	return tooltip;
 }
@@ -230,6 +230,36 @@ String MenuWidget_ClockDiv::createTooltipString(const int& currentValue) const n
 	{
 		tooltip += "Sets the rate at which the sequencer and\n";
 		tooltip += "arpeggiator advance, relative to the BPM.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+StringArray MenuWidget_PushItMode::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 3; ++i)
+	{
+		choices.add(valueConverters.intToPushItMode(i));
+	}
+	return choices;
+}
+
+String MenuWidget_PushItMode::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToPushItMode(currentValue) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the operating mode for the Mopho's Push It! switch.\n";
+		tooltip += "Normal: The selected note is gated on when the switch is\n";
+		tooltip += "pressed and gated off when the switch is released.\n";
+		tooltip += "Toggle: The selected note is gated on when the switch is\n";
+		tooltip += "pressed and remains on until the switch is pressed again.\n";
+		tooltip += "Audio In: The selected note is gated on for as long as the\n";
+		tooltip += "external audio input level is above a certain threshold.";
 	}
 	return tooltip;
 }

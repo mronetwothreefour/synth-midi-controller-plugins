@@ -35,7 +35,7 @@ String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const n
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the oscillator's base pitch in semitone steps.\n";
-		tooltip += "Range: C 0 to C 10. Middle C is C 3.";
+		tooltip += "Range: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.";
 	}
 	return tooltip;
 }
@@ -642,6 +642,36 @@ String KnobWidget_Tracks2_3_4Step::createTooltipString(const int& currentValue) 
 		}
 		else tooltip += "Each step in the track sets the value of the destination parameter. Range 0 to 125.\n";
 		tooltip += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_PushItPitch::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToOscPitchString(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the note that plays when\n";
+		tooltip += "the Push It! switch is pressed.";
+	}
+	return tooltip;
+}
+
+//==============================================================================
+
+String KnobWidget_PushItVelo::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)currentValue + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the velocity of the note that plays\n";
+		tooltip += "when the Push It! switch is pressed.";
 	}
 	return tooltip;
 }
