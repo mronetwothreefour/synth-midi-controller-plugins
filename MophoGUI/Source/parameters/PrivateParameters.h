@@ -4,7 +4,7 @@
 
 #include "../helpers/Identifiers.h"
 
-// Contains a ValueTree in which plugin parameters that are not 
+// Contains ValueTrees in which plugin parameters that are not 
 // exposed to the host are stored, as well as tools for 
 // accessing and manipulating the stored data.
 class PrivateParameters
@@ -50,8 +50,26 @@ public:
 	// Returns true if the property was set successfully
 	bool setTooltipDelay(int delay);
 
+	//==============================================================================
+	enum lfoFreqRanges
+	{
+		full = 0,
+		unSynced,
+		pitch,
+		synced
+	};
+
+	int getLFOfreqRange(int lfoNumber) const;
+
+	bool setLFOfreqRange(int lfoNumber, int range);
+
+	double getLastValueForRange(int lfoNumber, int range) const;
+
+	bool setValueForRange(int lfoNumber, int range, double newValue);
+
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
+	std::unique_ptr<ValueTree> lfoOptionsTree;
 
 	Value updateFromPreset;
 

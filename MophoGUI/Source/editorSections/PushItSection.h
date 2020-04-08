@@ -22,7 +22,7 @@ public:
 	) :
 		knob_Pitch{ publicParams, privateParams, mophoLaF },
 		knob_Velocity{ publicParams, privateParams, mophoLaF },
-		menu_Mode{ publicParams, privateParams, mophoLaF, 80 }
+		menu_Mode{ publicParams, privateParams, mophoLaF, 87 }
 	{
 		addAndMakeVisible(knob_Pitch);
 		addAndMakeVisible(knob_Velocity);
@@ -49,7 +49,7 @@ public:
 	void resized() override
 	{
 		knob_Pitch.setBounds(0, 20, knob_Pitch.getWidth(), knob_Pitch.getHeight());
-		knob_Velocity.setBounds(50, 20, knob_Velocity.getWidth(), knob_Velocity.getHeight());
+		knob_Velocity.setBounds(47, 20, knob_Velocity.getWidth(), knob_Velocity.getHeight());
 		menu_Mode.setBounds(0, 81, menu_Mode.getWidth(), menu_Mode.getHeight());
 	}
 

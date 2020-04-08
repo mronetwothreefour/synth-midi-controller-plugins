@@ -232,4 +232,23 @@ namespace ID
 	const Identifier showCurrentVal		{ "showCurrentVal"	};
 	const Identifier showParamInfo		{ "showParamInfo"	};
 	const Identifier tooltipDelay		{ "tooltipDelay"	};
+
+	//==============================================================================
+	const Identifier lfoOptions			{ "lfoOptions"			};
+	const Identifier lfo1FreqRange		{ "lfo1FreqRange"		};
+	const Identifier lfo2FreqRange		{ "lfo2FreqRange"		};
+	const Identifier lfo3FreqRange		{ "lfo3FreqRange"		};
+	const Identifier lfo4FreqRange		{ "lfo4FreqRange"		};
+	const Identifier lfo1Range1LastVal	{ "lfo1Range1LastVal"	}; // un-synced
+	const Identifier lfo2Range1LastVal	{ "lfo2Range1LastVal"	}; // un-synced
+	const Identifier lfo3Range1LastVal	{ "lfo3Range1LastVal"	}; // un-synced
+	const Identifier lfo4Range1LastVal	{ "lfo4Range1LastVal"	}; // un-synced
+	const Identifier lfo1Range2LastVal	{ "lfo1Range2LastVal"	}; // pitch
+	const Identifier lfo2Range2LastVal	{ "lfo2Range2LastVal"	}; // pitch
+	const Identifier lfo3Range2LastVal	{ "lfo3Range2LastVal"	}; // pitch
+	const Identifier lfo4Range2LastVal	{ "lfo4Range2LastVal"	}; // pitch
+	const Identifier lfo1Range3LastVal	{ "lfo1Range3LastVal"	}; // synced
+	const Identifier lfo2Range3LastVal	{ "lfo2Range3LastVal"	}; // synced
+	const Identifier lfo3Range3LastVal	{ "lfo3Range3LastVal"	}; // synced
+	const Identifier lfo4Range3LastVal	{ "lfo4Range3LastVal"	}; // synced
 } // namespace ID
