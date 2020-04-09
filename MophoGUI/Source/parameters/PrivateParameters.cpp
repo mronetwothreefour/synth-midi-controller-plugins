@@ -1,22 +1,13 @@
 #include "PrivateParameters.h"
 
 PrivateParameters::PrivateParameters() :
-	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) },
-	lfoOptionsTree	{ new ValueTree(ID::lfoOptions) }
+	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) }
 {
 	updateFromPreset = (bool)false;
 
 	setShouldShowValueTip(true);
 	setShouldShowInfoTip(true);
 	setTooltipDelay(1000);
-
-	for (int i = 1; i != 5; ++i)
-	{
-		setLFOfreqRange(i, unSynced);
-		setLastValueForLFORange(i, unSynced, 80);
-		setLastValueForLFORange(i, pitch, 90); // C0
-		setLastValueForLFORange(i, synced, 159); // 1 : 1
-	}
 }
 
 PrivateParameters::~PrivateParameters()
@@ -68,36 +59,3 @@ bool PrivateParameters::setTooltipDelay(int delay)
 	return wasSet;
 }
 
-//==============================================================================
-
-int PrivateParameters::getLFOfreqRange(int lfoNumber) const
-{
-	Identifier propertyID{ "lfo" + (String)lfoNumber + "FreqRange" };
-	if (lfoOptionsTree->hasProperty(propertyID))
-		return (int)lfoOptionsTree->getProperty(propertyID);
-	else return -1;
-}
-
-bool PrivateParameters::setLFOfreqRange(int lfoNumber, int range)
-{
-	Identifier propertyID{ "lfo" + (String)lfoNumber + "FreqRange" };
-	lfoOptionsTree->setProperty(propertyID, range, nullptr);
-	bool wasSet{ lfoOptionsTree->hasProperty(propertyID) };
-	return wasSet;
-}
-
-double PrivateParameters::getLastValueForRange(int lfoNumber, int range) const
-{
-	Identifier propertyID{ "lfo" + (String)lfoNumber + "Range" + (String)range + "LastVal" };
-	if (lfoOptionsTree->hasProperty(propertyID))
-		return (double)lfoOptionsTree->getProperty(propertyID);
-	else return -1.0;
-}
-
-bool PrivateParameters::setLastValueForLFORange(int lfoNumber, int range, int newValue)
-{
-	Identifier propertyID{ "lfo" + (String)lfoNumber + "Range" + (String)range + "LastVal" };
-	lfoOptionsTree->setProperty(propertyID, newValue, nullptr);
-	bool wasSet{ lfoOptionsTree->hasProperty(propertyID) };
-	return wasSet;
-}

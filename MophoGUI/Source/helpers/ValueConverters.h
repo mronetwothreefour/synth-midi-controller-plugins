@@ -469,19 +469,6 @@ struct ValueConverters
 		else return "range error";
 	}
 
-	String intToLFOfreqRange(const int& i) const
-	{
-		if (i > -1 && i < 4)
-		{
-			if (i == 0) return "Full";
-			if (i == 1) return "Un-Synced";
-			if (i == 2) return "Pitch";
-			if (i == 3) return "Synced";
-			else return "invalid";
-		}
-		else return "range error";
-	}
-
 private:
 
 	//==============================================================================

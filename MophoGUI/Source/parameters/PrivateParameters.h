@@ -50,26 +50,8 @@ public:
 	// Returns true if the property was set successfully
 	bool setTooltipDelay(int delay);
 
-	//==============================================================================
-	enum lfoFreqRanges
-	{
-		full = 0,
-		unSynced,
-		pitch,
-		synced
-	};
-
-	int getLFOfreqRange(int lfoNumber) const;
-
-	bool setLFOfreqRange(int lfoNumber, int range);
-
-	double getLastValueForRange(int lfoNumber, int range) const;
-
-	bool setLastValueForLFORange(int lfoNumber, int range, int newValue);
-
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
-	std::unique_ptr<ValueTree> lfoOptionsTree;
 
 	Value updateFromPreset;
 
