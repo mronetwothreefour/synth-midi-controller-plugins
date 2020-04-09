@@ -65,7 +65,7 @@ public:
 
 	double getLastValueForRange(int lfoNumber, int range) const;
 
-	bool setValueForRange(int lfoNumber, int range, double newValue);
+	bool setLastValueForLFORange(int lfoNumber, int range, int newValue);
 
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;

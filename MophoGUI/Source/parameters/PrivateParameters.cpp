@@ -9,6 +9,14 @@ PrivateParameters::PrivateParameters() :
 	setShouldShowValueTip(true);
 	setShouldShowInfoTip(true);
 	setTooltipDelay(1000);
+
+	for (int i = 1; i != 5; ++i)
+	{
+		setLFOfreqRange(i, unSynced);
+		setLastValueForLFORange(i, unSynced, 80);
+		setLastValueForLFORange(i, pitch, 90); // C0
+		setLastValueForLFORange(i, synced, 159); // 1 : 1
+	}
 }
 
 PrivateParameters::~PrivateParameters()
@@ -86,7 +94,7 @@ double PrivateParameters::getLastValueForRange(int lfoNumber, int range) const
 	else return -1.0;
 }
 
-bool PrivateParameters::setValueForRange(int lfoNumber, int range, double newValue)
+bool PrivateParameters::setLastValueForLFORange(int lfoNumber, int range, int newValue)
 {
 	Identifier propertyID{ "lfo" + (String)lfoNumber + "Range" + (String)range + "LastVal" };
 	lfoOptionsTree->setProperty(propertyID, newValue, nullptr);

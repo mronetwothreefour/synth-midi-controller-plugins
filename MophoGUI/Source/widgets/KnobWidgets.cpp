@@ -559,25 +559,25 @@ String KnobWidget_LFOAmt::createTooltipString(const int& currentValue) const noe
 
 void KnobWidget_LFOfreq::drawValue(const int& currentValue) noexcept
 {
-	if (currentValue > -1 && currentValue < 167)
-		setCurrentValueText(valueConverters.intToLFOfreq(currentValue, false));
-	else setCurrentValueText("ERR");
+	//if (currentValue > -1 && currentValue < 167)
+	//	setCurrentValueText(valueConverters.intToLFOfreq(currentValue, false));
+	//else setCurrentValueText("ERR");
 }
 
 String KnobWidget_LFOfreq::createTooltipString(const int& currentValue) const noexcept
 {
 	String tooltip{ "" };
-	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToLFOfreq(currentValue, true) + "\n";
-	if (privateParams->shouldShowInfoTip())
-	{
-		tooltip += "Sets the LFO speed. Range: 0 to 166.\n";
-		tooltip += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
-		tooltip += "From 90 to 150, the frequency is an audible pitch,\n";
-		tooltip += "increasing in semitones steps from C 0 up to C 5.\n";
-		tooltip += "Above 150, the LFO is synced with the step sequencer,\n";
-		tooltip += "displayed as [number of cycles] : [length in steps].\n";
-	}
+	//if (privateParams->shouldShowValueTip())
+	//	tooltip += "Current Value: " + valueConverters.intToLFOfreq(currentValue, true) + "\n";
+	//if (privateParams->shouldShowInfoTip())
+	//{
+	//	tooltip += "Sets the LFO speed. Range: 0 to 166.\n";
+	//	tooltip += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
+	//	tooltip += "From 90 to 150, the frequency is an audible pitch,\n";
+	//	tooltip += "increasing in semitones steps from C 0 up to C 5.\n";
+	//	tooltip += "Above 150, the LFO is synced with the step sequencer,\n";
+	//	tooltip += "displayed as [number of cycles] : [length in steps].\n";
+	//}
 	return tooltip;
 }
 

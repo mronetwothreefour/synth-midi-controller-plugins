@@ -1176,10 +1176,50 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOAmt)
 };
 
+////==============================================================================
+//// A knob widget appropriate for controlling a low-frequency oscillator's frequency.
+//// Derives from KnobWidget and overrides drawValue() and createTooltipString()
+//class KnobWidget_LFOfreq : public KnobWidget
+//{
+//public:
+//	KnobWidget_LFOfreq
+//	(
+//		int lfoNumber,
+//		AudioProcessorValueTreeState* apvts,
+//		PrivateParameters* privateParameters,
+//		MophoLookAndFeel* mophoLaF
+//	) :
+//		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF }
+//	{
+//		setKnobSensitivity(200);
+//		auto currentValue{ getSliderValue() };
+//		drawValue(currentValue);
+//		auto tooltip{ createTooltipString(currentValue) };
+//		setSliderTooltip(tooltip);
+//	}
+//
+//	~KnobWidget_LFOfreq()
+//	{}
+//
+//private:
+//	ValueConverters valueConverters;
+//
+//	void drawValue(const int& currentValue) noexcept override;
+//	String createTooltipString(const int& currentValue) const noexcept override;
+//
+//	//==============================================================================
+//	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOfreq)
+//};
+
 //==============================================================================
 // A knob widget appropriate for controlling a low-frequency oscillator's frequency.
-// Derives from KnobWidget and overrides drawValue() and createTooltipString()
-class KnobWidget_LFOfreq : public KnobWidget
+// Has a menu for selecting different parts of the value range to display (full,
+// un-synced, pitch, and synced), four sliders that are hidden or revealed depending on 
+// the selected range, and an  invisible slider which is attached to the public parameter
+class KnobWidget_LFOfreq : 
+	public Component/*, 
+	public Slider::Listener,
+	public ComboBox::Listener*/
 {
 public:
 	KnobWidget_LFOfreq
@@ -1189,23 +1229,88 @@ public:
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) :
-		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF }
+		lfoNum{ lfoNumber },
+		privateParams{ privateParameters },
+		sliderAttachment{ *apvts, "lfo" + (String)lfoNum + "Freq", attachedSlider }
 	{
-		setKnobSensitivity(200);
-		auto currentValue{ getSliderValue() };
-		drawValue(currentValue);
-		auto tooltip{ createTooltipString(currentValue) };
-		setSliderTooltip(tooltip);
+		//attachedSlider.addListener(this);
+		//menu_FreqRange.addListener(this);
+		//knob_fullRange.addListener(this);
+		//knob_unSynced .addListener(this);
+		//knob_pitch    .addListener(this);
+		//knob_synced   .addListener(this);
+
+		auto selectedFreqRange{ privateParams->getLFOfreqRange(lfoNum) };
+
+		for (int i = 0; i != 4; ++i)
+		{
+			menu_FreqRange.addItem(valueConverters.intToLFOfreqRange(i), i + 1);
+		}
+		menu_FreqRange.setSelectedItemIndex(selectedFreqRange, dontSendNotification);
+		menu_FreqRange.setLookAndFeel(mophoLaF);
+		addAndMakeVisible(menu_FreqRange);
+
+		knob_fullRange.setLookAndFeel(mophoLaF);
+		knob_fullRange.setRange(0.0, 166, 1.0);
+		knob_fullRange.setValue(attachedSlider.getValue());
+		knob_fullRange.setMouseDragSensitivity(200);
+		addChildComponent(knob_fullRange);
+
+		addChildComponent(knob_unSynced);
+		addChildComponent(knob_pitch);
+		addChildComponent(knob_synced);
+
+		selectWhichRangeKnobIsShown(selectedFreqRange);
+
+		setSize(64, 84);
 	}
 
 	~KnobWidget_LFOfreq()
-	{}
+	{
+		menu_FreqRange.setLookAndFeel(nullptr);
+
+		//knob_synced   .removeListener(this);
+		//knob_pitch    .removeListener(this);
+		//knob_unSynced .removeListener(this);
+		//knob_fullRange.removeListener(this);
+		//menu_FreqRange.removeListener(this);
+		//attachedSlider.removeListener(this);
+	}
 
 private:
+	int lfoNum;
+
+	PrivateParameters* privateParams;
+
+	Slider attachedSlider;
+	SliderAttachment sliderAttachment;
+
+	CustomSlider knob_fullRange;
+	CustomSlider knob_unSynced;
+	CustomSlider knob_pitch;
+	CustomSlider knob_synced;
+
+	ComboBox menu_FreqRange;
+
 	ValueConverters valueConverters;
 
-	void drawValue(const int& currentValue) noexcept override;
-	String createTooltipString(const int& currentValue) const noexcept override;
+	void selectWhichRangeKnobIsShown(int selectedRange)
+	{
+		auto ifFullIsSelected{ selectedRange == PrivateParameters::lfoFreqRanges::full ? true : false };
+		auto ifUnSyncedIsSelected{ selectedRange == PrivateParameters::lfoFreqRanges::unSynced ? true : false };
+		auto ifPitchIsSelected{ selectedRange == PrivateParameters::lfoFreqRanges::pitch ? true : false };
+		auto ifSyncedIsSelected{ selectedRange == PrivateParameters::lfoFreqRanges::synced ? true : false };
+		knob_fullRange.setVisible(ifFullIsSelected);
+		knob_fullRange.setEnabled(ifFullIsSelected);
+		knob_unSynced.setVisible(ifUnSyncedIsSelected);
+		knob_unSynced.setEnabled(ifUnSyncedIsSelected);
+		knob_pitch.setVisible(ifPitchIsSelected);
+		knob_synced.setEnabled(ifSyncedIsSelected);
+		knob_synced.setEnabled(ifSyncedIsSelected);
+	}
+
+	void drawValue(const int& currentValue) noexcept;
+	String createTooltipString(const int& currentValue) const noexcept;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_LFOfreq)

@@ -57,6 +57,22 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
         pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, outputValue, true, true);
     }
 
+    if (parameterIndex == 41 || parameterIndex == 46 || parameterIndex == 51 || parameterIndex == 56) // LFO 1, 2, 3, and 4 frequency
+    {
+        auto lfoNum{ (parameterIndex % 36) / 5 };
+        auto selectedRange{ privateParams->getLFOfreqRange(lfoNum) };
+        if (privateParams->getLFOfreqRange(lfoNum) != PrivateParameters::lfoFreqRanges::full)
+        {
+            auto newFreqValue{ roundToInt(newValue * (165)) };
+            if (newFreqValue < 90)
+                privateParams->setLFOfreqRange(lfoNum, PrivateParameters::lfoFreqRanges::unSynced);
+            if (newFreqValue > 89 && newFreqValue < 151)
+                privateParams->setLFOfreqRange(lfoNum, PrivateParameters::lfoFreqRanges::pitch);
+            if (newFreqValue < 150)
+                privateParams->setLFOfreqRange(lfoNum, PrivateParameters::lfoFreqRanges::synced);
+        }
+    }
+
     // The arpeggiator (#98) and the sequencer (#100) cannot both be on
     if (parameterIndex == 98 && newValue == 1.0f)
         getParameters()[100]->setValueNotifyingHost(0.0f);
