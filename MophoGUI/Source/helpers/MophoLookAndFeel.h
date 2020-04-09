@@ -172,7 +172,7 @@ public:
 			.withTargetComponent(&box)
 			.withItemThatMustBeVisible(box.getSelectedId())
 			.withMinimumWidth(box.getWidth())
-			.withMaximumNumColumns(5)
+			.withMaximumNumColumns(1)
 			.withStandardItemHeight(label.getHeight());
 	}
 

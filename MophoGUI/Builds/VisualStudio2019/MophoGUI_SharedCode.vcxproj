@@ -1976,6 +1976,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\editorSections\Env3Section.h" />
+    <ClInclude Include="..\..\Source\editorSections\KnobAssignSection.h" />
     <ClInclude Include="..\..\Source\editorSections\LFOSection.h" />
     <ClInclude Include="..\..\Source\editorSections\LPFSection.h" />
     <ClInclude Include="..\..\Source\editorSections\MidiControllersSection.h" />

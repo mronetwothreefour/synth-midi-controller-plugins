@@ -2322,9 +2322,11 @@
     <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\PrivateParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets\MenuWidgets.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\PrivateParameters.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4587,8 +4589,11 @@
     <ClInclude Include="..\..\Source\editorSections\SequencerSection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\editorSections\KnobAssignSection.h">
+      <Filter>MophoGUI\Source\editorSections</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\editorSections\PushItSection.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
+      <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

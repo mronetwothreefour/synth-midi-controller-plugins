@@ -129,7 +129,7 @@ public:
 	void resized() override
 	{
 		auto lfoControls_w{ lfo1Controls.getWidth() };
-		auto lfoGap{ 15 };
+		auto lfoGap{ 19 };
 		auto lfo1Controls_x{ 0 };
 		auto lfo2Controls_x{ lfo1Controls_x + lfoControls_w + lfoGap };
 		auto lfo3Controls_x{ lfo2Controls_x + lfoControls_w + lfoGap };

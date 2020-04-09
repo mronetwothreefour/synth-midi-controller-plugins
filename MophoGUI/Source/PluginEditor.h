@@ -8,6 +8,7 @@
 #include "helpers/MophoLookAndFeel.h"
 #include "parameters/PrivateParameters.h"
 #include "editorSections/Env3Section.h"
+#include "editorSections/KnobAssignSection.h"
 #include "editorSections/LFOSection.h"
 #include "editorSections/LPFSection.h"
 #include "editorSections/MidiControllersSection.h"
@@ -41,6 +42,7 @@ private:
     std::unique_ptr<MidiControllersSection> sectionMidi;
     std::unique_ptr<LFOSection> sectionLFO;
     std::unique_ptr<SequencerSection> sectionSeq;
+    std::unique_ptr<KnobAssignSection> sectionKnobAssign;
     std::unique_ptr<PushItSection> sectionPushIt;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;

@@ -445,3 +445,34 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_PushItMode)
 };
 
+//==============================================================================
+// A MenuWidget appropriate for selecting the target parameter for one of the Mopho's assignable knobs.
+// Derives from MenuWidget and overrides createChoices() and createTooltipString()
+class MenuWidget_KnobAssign : public MenuWidget
+{
+public:
+	MenuWidget_KnobAssign
+	(
+		int knobNumber,
+		AudioProcessorValueTreeState* publicParameters,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF,
+		int width
+	) :
+		knobNum{ knobNumber },
+		MenuWidget{ "", publicParameters, privateParameters, "assignKnob" + (String)knobNumber, mophoLaF, width, false }
+	{
+		auto choices{ createChoices() };
+		addChoicesToMenuAndAttach(choices);
+	}
+	~MenuWidget_KnobAssign() {}
+
+private:
+	int knobNum;
+	StringArray createChoices() const override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MenuWidget_KnobAssign)
+};
+

@@ -53,6 +53,10 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
     if (nrpnIndex > -1)
     {
         auto outputValue{ roundToInt(newValue * (numSteps - 1)) };
+
+        if (parameterIndex > 104 && parameterIndex < 109) // knob assignment
+            if (outputValue > 104) outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
+
         if (parameterIndex == 95) outputValue += 30; // clock tempo parameter range is offset by 30
         pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, outputValue, true, true);
     }

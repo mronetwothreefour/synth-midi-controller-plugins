@@ -469,6 +469,190 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..184 to a parameter name String
+	String intToParamName(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 169)
+		{
+			/*0  */if (i == 0  ) return verbose ? "Oscillator 1 Pitch"				: "Osc 1 Pitch";
+			/*1  */if (i == 1  ) return verbose ? "Oscillator 1 Fine Tune"			: "Osc 1 Fine Tune";
+			/*2  */if (i == 2  ) return verbose ? "Oscillator 1 Wave Shape"			: "Osc 1 Wave Shape";
+			/*3  */if (i == 3  ) return verbose ? "Oscillator 1 Glide Rate"			: "Osc 1 Glide Rate";
+			/*4  */if (i == 4  ) return verbose ? "Oscillator 1 Key Track"			: "Osc 1 Key Track";
+			/*5  */if (i == 5  ) return verbose ? "Sub-Oscillator 1 Level"			: "Sub-Osc 1 Level";
+			/*6  */if (i == 6  ) return verbose ? "Oscillator 2 Pitch"				: "Osc 2 Pitch";
+			/*7  */if (i == 7  ) return verbose ? "Oscillator 2 Fine Tune"			: "Osc 2 Fine Tune";
+			/*8  */if (i == 8  ) return verbose ? "Oscillator 2 Wave Shape"			: "Osc 2 Wave Shape";
+			/*9  */if (i == 9  ) return verbose ? "Oscillator 2 Glide Rate"			: "Osc 2 Glide Rate";
+			/*10 */if (i == 10 ) return verbose ? "Oscillator 2 Key Track"			: "Osc 2 Key Track";
+			/*11 */if (i == 11 ) return verbose ? "Sub-Oscillator 2 Level"			: "Sub-Osc 2 Level";
+			/*12 */if (i == 12 ) return verbose ? "Hard Sync Oscillators"			: "Osc Sync";
+			/*13 */if (i == 13 ) return verbose ? "Glide Mode"						: "Glide Mode";
+			/*14 */if (i == 14 ) return verbose ? "Oscillator Slop"					: "Osc Slop";
+			/*15 */if (i == 15 ) return verbose ? "Pitch Bend Range"				: "Bend Range";
+			/*16 */if (i == 16 ) return verbose ? "Keyed Note Priority"				: "Note Priority";
+			/*17 */if (i == 17 ) return verbose ? "Oscillators 1 & 2 Mix"			: "Osc 1 & 2 Mix";
+			/*18 */if (i == 18 ) return verbose ? "Noise Level"						: "Noise Level";
+			/*19 */if (i == 19 ) return verbose ? "External Audio Input Level"		: "Audio In Level";
+			/*20 */if (i == 20 ) return verbose ? "LPF Cutoff Frequency"			: "LPF Cutoff Freq";
+			/*21 */if (i == 21 ) return verbose ? "LPF Resonance"					: "LPF Resonance";
+			/*22 */if (i == 22 ) return verbose ? "LPF Keyboard Amount"				: "LPF Key Amnt";
+			/*23 */if (i == 23 ) return verbose ? "LPF Freq. Mod. (By Osc 1)"		: "LPF Freq Mod";
+			/*24 */if (i == 24 ) return verbose ? "LPF Type"						: "LPF Type";
+			/*25 */if (i == 25 ) return verbose ? "LPF Envelope Amount"				: "LPF Env Amount";
+			/*26 */if (i == 26 ) return verbose ? "LPF Envelope Velocity Amount"	: "LPF Env Vel Amt";
+			/*27 */if (i == 27 ) return verbose ? "LPF Envelope Delay"				: "LPF Env Delay";
+			/*28 */if (i == 28 ) return verbose ? "LPF Envelope Attack"				: "LPF Env Attack";
+			/*29 */if (i == 29 ) return verbose ? "LPF Envelope Decay"				: "LPF Env Decay";
+			/*30 */if (i == 30 ) return verbose ? "LPF Envelope Sustain"			: "LPF Env Sustain";
+			/*31 */if (i == 31 ) return verbose ? "LPF Envelope Release"			: "LPF Env Release";
+			/*32 */if (i == 32 ) return verbose ? "VCA Initial Level"				: "VCA Init Level";
+			/*33 */if (i == 33 ) return verbose ? "VCA Envelope Amount"				: "VCA Env Amount";
+			/*34 */if (i == 34 ) return verbose ? "VCA Envelope Velocity Amount"	: "VCA Env Vel Amnt";
+			/*35 */if (i == 35 ) return verbose ? "VCA Envelope Delay"				: "VCA Env Delay";
+			/*36 */if (i == 36 ) return verbose ? "VCA Envelope Attack"				: "VCA Env Attack";
+			/*37 */if (i == 37 ) return verbose ? "VCA Envelope Decay"				: "VCA Env Decay";
+			/*38 */if (i == 38 ) return verbose ? "VCA Envelope Sustain"			: "VCA Env Sustain";
+			/*39 */if (i == 39 ) return verbose ? "VCA Envelope Release"			: "VCA Env Release";
+			/*40 */if (i == 40 ) return verbose ? "Voice Volume"					: "Voice Volume";
+			/*41 */if (i == 41 ) return verbose ? "LFO 1 Frequency"					: "LFO 1 Frequency";
+			/*42 */if (i == 42 ) return verbose ? "LFO 1 Wave Shape"				: "LFO 1 Shape";
+			/*43 */if (i == 43 ) return verbose ? "LFO 1 Amount"					: "LFO 1 Amount";
+			/*44 */if (i == 44 ) return verbose ? "LFO 1 Modulation Destination"	: "LFO 1 Mod Dest";
+			/*45 */if (i == 45 ) return verbose ? "LFO 1 Key Sync"					: "LFO 1 Key Sync";
+			/*46 */if (i == 46 ) return verbose ? "LFO 2 Frequency"					: "LFO 2 Frequency";
+			/*47 */if (i == 47 ) return verbose ? "LFO 2 Wave Shape"				: "LFO 2 Shape";
+			/*48 */if (i == 48 ) return verbose ? "LFO 2 Amount"					: "LFO 2 Amount";
+			/*49 */if (i == 49 ) return verbose ? "LFO 2 Modulation Destination"	: "LFO 2 Mod Dest";
+			/*50 */if (i == 50 ) return verbose ? "LFO 2 Key Sync"					: "LFO 2 Key Sync";
+			/*51 */if (i == 51 ) return verbose ? "LFO 3 Frequency"					: "LFO 3 Frequency";
+			/*52 */if (i == 52 ) return verbose ? "LFO 3 Wave Shape"				: "LFO 3 Shape";
+			/*53 */if (i == 53 ) return verbose ? "LFO 3 Amount"					: "LFO 3 Amount";
+			/*54 */if (i == 54 ) return verbose ? "LFO 3 Modulation Destination"	: "LFO 3 Mod Dest";
+			/*55 */if (i == 55 ) return verbose ? "LFO 3 Key Sync"					: "LFO 3 Key Sync";
+			/*56 */if (i == 56 ) return verbose ? "LFO 4 Frequency"					: "LFO 4 Frequency";
+			/*57 */if (i == 57 ) return verbose ? "LFO 4 Wave Shape"				: "LFO 4 Shape";
+			/*58 */if (i == 58 ) return verbose ? "LFO 4 Amount"					: "LFO 4 Amount";
+			/*59 */if (i == 59 ) return verbose ? "LFO 4 Modulation Destination"	: "LFO 4 Mod Dest";
+			/*60 */if (i == 60 ) return verbose ? "LFO 4 Key Sync"					: "LFO 4 Key Sync";
+			/*61 */if (i == 61 ) return verbose ? "Envelope 3 Mod. Destination"		: "Env 3 Mod Dest";
+			/*62 */if (i == 62 ) return verbose ? "Envelope 3 Amount"				: "Env 3 Amount";
+			/*63 */if (i == 63 ) return verbose ? "Envelope 3 Velocity Amount"		: "Env 3 Vel Amt";
+			/*64 */if (i == 64 ) return verbose ? "Envelope 3 Delay"				: "Env 3 Delay";
+			/*65 */if (i == 65 ) return verbose ? "Envelope 3 Attack"				: "Env 3 Attack";
+			/*66 */if (i == 66 ) return verbose ? "Envelope 3 Decay"				: "Env 3 Decay";
+			/*67 */if (i == 67 ) return verbose ? "Envelope 3 Sustain"				: "Env 3 Sustain";
+			/*68 */if (i == 68 ) return verbose ? "Envelope 3 Release"				: "Env 3 Release";
+			/*69 */if (i == 69 ) return verbose ? "Envelope 3 Repeat"				: "Env 3 Repeat";
+			/*70 */if (i == 70 ) return verbose ? "Modulator 1 Source"				: "Mod 1 Source";
+			/*71 */if (i == 71 ) return verbose ? "Modulator 1 Amount"				: "Mod 1 Amount";
+			/*72 */if (i == 72 ) return verbose ? "Modulator 1 Destination"			: "Mod 1 Dest";
+			/*73 */if (i == 73 ) return verbose ? "Modulator 2 Source"				: "Mod 2 Source";
+			/*74 */if (i == 74 ) return verbose ? "Modulator 2 Amount"				: "Mod 2 Amount";
+			/*75 */if (i == 75 ) return verbose ? "Modulator 2 Destination"			: "Mod 2 Dest";
+			/*76 */if (i == 76 ) return verbose ? "Modulator 3 Source"				: "Mod 3 Source";
+			/*77 */if (i == 77 ) return verbose ? "Modulator 3 Amount"				: "Mod 3 Amount";
+			/*78 */if (i == 78 ) return verbose ? "Modulator 3 Destination"			: "Mod 3 Dest";
+			/*79 */if (i == 79 ) return verbose ? "Modulator 4 Source"				: "Mod 4 Source";
+			/*80 */if (i == 80 ) return verbose ? "Modulator 4 Amount"				: "Mod 4 Amount";
+			/*81 */if (i == 81 ) return verbose ? "Modulator 4 Destination"			: "Mod 4 Dest";
+			/*82 */if (i == 82 ) return verbose ? "Modulation Wheel Amount"			: "Wheel Amount";
+			/*83 */if (i == 83 ) return verbose ? "Modulation Wheel Destination"	: "Wheel Dest";
+			/*84 */if (i == 84 ) return verbose ? "Aftertouch Amount"				: "Aftertouch Amt";
+			/*85 */if (i == 85 ) return verbose ? "Aftertouch Destination"			: "Aftertouch Dst";
+			/*86 */if (i == 86 ) return verbose ? "Breath Controller Amount"		: "Breath Amt";
+			/*87 */if (i == 87 ) return verbose ? "Breath Controller Destination"	: "Breath Dest";
+			/*88 */if (i == 88 ) return verbose ? "Velocity Amount"					: "Velocity Amt";
+			/*89 */if (i == 89 ) return verbose ? "Velocity Destination"			: "Velocity Dest";
+			/*90 */if (i == 90 ) return verbose ? "Foot Pedal Amount"				: "Foot Pedal Amt";
+			/*91 */if (i == 91 ) return verbose ? "Foot Pedal Destination"			: "Foot Pedal Dest";
+			/*92 */if (i == 92 ) return verbose ? "Push It! Switch Pitch"			: "Push It! Pitch";
+			/*93 */if (i == 93 ) return verbose ? "Push It! Switch Velocity"		: "Push It! Velo";
+			/*94 */if (i == 94 ) return verbose ? "Push It! Switch Mode"			: "Push It! Mode";
+			/*95 */if (i == 95 ) return verbose ? "Clock Tempo (BPM)"				: "Clock Tempo";
+			/*96 */if (i == 96 ) return verbose ? "Clock Divide"					: "Clock Divide";
+			/*97 */if (i == 97 ) return verbose ? "Arpeggiator Mode"				: "Arpeg Mode";
+			/*98 */if (i == 98 ) return verbose ? "Arpeggiator On/Off"				: "Arpeg On/Off";
+			/*99 */if (i == 99 ) return verbose ? "Sequencer Trigger Mode"			: "Seq Trigger";
+			/*100*/if (i == 100) return verbose ? "Sequencer On/Off"				: "Seq On/Off";
+			/*101*/if (i == 101) return verbose ? "Sequencer Track 1 Destination"	: "Seq 1 Dest";
+			/*102*/if (i == 102) return verbose ? "Sequencer Track 2 Destination"	: "Seq 2 Dest";
+			/*103*/if (i == 103) return verbose ? "Sequencer Track 3 Destination"	: "Seq 3 Dest";
+			/*104*/if (i == 104) return verbose ? "Sequencer Track 4 Destination"	: "Seq 4 Dest";
+			// Parameters 105..108 used for assigning parameters to the
+			// hardware knobs and parameters 109..119 are unassigned.
+			// These parameters are left out and the parameter number discrepancy
+			// is handled by the processor in parameterValueChanged()
+			/*120*/if (i == 105) return verbose ? "Sequencer Track 1 Step 1"		: "Seq 1 Step 1";
+			/*121*/if (i == 106) return verbose ? "Sequencer Track 1 Step 2"		: "Seq 1 Step 2";
+			/*122*/if (i == 107) return verbose ? "Sequencer Track 1 Step 3"		: "Seq 1 Step 3";
+			/*123*/if (i == 108) return verbose ? "Sequencer Track 1 Step 4"		: "Seq 1 Step 4";
+			/*124*/if (i == 109) return verbose ? "Sequencer Track 1 Step 5"		: "Seq 1 Step 5";
+			/*125*/if (i == 110) return verbose ? "Sequencer Track 1 Step 6"		: "Seq 1 Step 6";
+			/*126*/if (i == 111) return verbose ? "Sequencer Track 1 Step 7"		: "Seq 1 Step 7";
+			/*127*/if (i == 112) return verbose ? "Sequencer Track 1 Step 8"		: "Seq 1 Step 8";
+			/*128*/if (i == 113) return verbose ? "Sequencer Track 1 Step 9"		: "Seq 1 Step 9";
+			/*129*/if (i == 114) return verbose ? "Sequencer Track 1 Step 10"		: "Seq 1 Step 10";
+			/*130*/if (i == 115) return verbose ? "Sequencer Track 1 Step 11"		: "Seq 1 Step 11";
+			/*131*/if (i == 116) return verbose ? "Sequencer Track 1 Step 12"		: "Seq 1 Step 12";
+			/*132*/if (i == 117) return verbose ? "Sequencer Track 1 Step 13"		: "Seq 1 Step 13";
+			/*133*/if (i == 118) return verbose ? "Sequencer Track 1 Step 14"		: "Seq 1 Step 14";
+			/*134*/if (i == 119) return verbose ? "Sequencer Track 1 Step 15"		: "Seq 1 Step 15";
+			/*135*/if (i == 120) return verbose ? "Sequencer Track 1 Step 16"		: "Seq 1 Step 16";
+			/*136*/if (i == 121) return verbose ? "Sequencer Track 2 Step 1"		: "Seq 2 Step 1";
+			/*137*/if (i == 122) return verbose ? "Sequencer Track 2 Step 2"		: "Seq 2 Step 2";
+			/*138*/if (i == 123) return verbose ? "Sequencer Track 2 Step 3"		: "Seq 2 Step 3";
+			/*139*/if (i == 124) return verbose ? "Sequencer Track 2 Step 4"		: "Seq 2 Step 4";
+			/*140*/if (i == 125) return verbose ? "Sequencer Track 2 Step 5"		: "Seq 2 Step 5";
+			/*141*/if (i == 126) return verbose ? "Sequencer Track 2 Step 6"		: "Seq 2 Step 6";
+			/*142*/if (i == 127) return verbose ? "Sequencer Track 2 Step 7"		: "Seq 2 Step 7";
+			/*143*/if (i == 128) return verbose ? "Sequencer Track 2 Step 8"		: "Seq 2 Step 8";
+			/*144*/if (i == 129) return verbose ? "Sequencer Track 2 Step 9"		: "Seq 2 Step 9";
+			/*145*/if (i == 130) return verbose ? "Sequencer Track 2 Step 10"		: "Seq 2 Step 10";
+			/*146*/if (i == 131) return verbose ? "Sequencer Track 2 Step 11"		: "Seq 2 Step 11";
+			/*147*/if (i == 132) return verbose ? "Sequencer Track 2 Step 12"		: "Seq 2 Step 12";
+			/*148*/if (i == 133) return verbose ? "Sequencer Track 2 Step 13"		: "Seq 2 Step 13";
+			/*149*/if (i == 134) return verbose ? "Sequencer Track 2 Step 14"		: "Seq 2 Step 14";
+			/*150*/if (i == 135) return verbose ? "Sequencer Track 2 Step 15"		: "Seq 2 Step 15";
+			/*151*/if (i == 136) return verbose ? "Sequencer Track 2 Step 16"		: "Seq 2 Step 16";
+			/*152*/if (i == 137) return verbose ? "Sequencer Track 3 Step 1"		: "Seq 3 Step 1";
+			/*153*/if (i == 138) return verbose ? "Sequencer Track 3 Step 2"		: "Seq 3 Step 2";
+			/*154*/if (i == 139) return verbose ? "Sequencer Track 3 Step 3"		: "Seq 3 Step 3";
+			/*155*/if (i == 140) return verbose ? "Sequencer Track 3 Step 4"		: "Seq 3 Step 4";
+			/*156*/if (i == 141) return verbose ? "Sequencer Track 3 Step 5"		: "Seq 3 Step 5";
+			/*157*/if (i == 142) return verbose ? "Sequencer Track 3 Step 6"		: "Seq 3 Step 6";
+			/*158*/if (i == 143) return verbose ? "Sequencer Track 3 Step 7"		: "Seq 3 Step 7";
+			/*159*/if (i == 144) return verbose ? "Sequencer Track 3 Step 8"		: "Seq 3 Step 8";
+			/*160*/if (i == 145) return verbose ? "Sequencer Track 3 Step 9"		: "Seq 3 Step 9";
+			/*161*/if (i == 146) return verbose ? "Sequencer Track 3 Step 10"		: "Seq 3 Step 10";
+			/*162*/if (i == 147) return verbose ? "Sequencer Track 3 Step 11"		: "Seq 3 Step 11";
+			/*163*/if (i == 148) return verbose ? "Sequencer Track 3 Step 12"		: "Seq 3 Step 12";
+			/*164*/if (i == 149) return verbose ? "Sequencer Track 3 Step 13"		: "Seq 3 Step 13";
+			/*165*/if (i == 150) return verbose ? "Sequencer Track 3 Step 14"		: "Seq 3 Step 14";
+			/*166*/if (i == 151) return verbose ? "Sequencer Track 3 Step 15"		: "Seq 3 Step 15";
+			/*167*/if (i == 152) return verbose ? "Sequencer Track 3 Step 16"		: "Seq 3 Step 16";
+			/*168*/if (i == 153) return verbose ? "Sequencer Track 4 Step 1"		: "Seq 4 Step 1";
+			/*169*/if (i == 154) return verbose ? "Sequencer Track 4 Step 2"		: "Seq 4 Step 2";
+			/*170*/if (i == 155) return verbose ? "Sequencer Track 4 Step 3"		: "Seq 4 Step 3";
+			/*171*/if (i == 156) return verbose ? "Sequencer Track 4 Step 4"		: "Seq 4 Step 4";
+			/*172*/if (i == 157) return verbose ? "Sequencer Track 4 Step 5"		: "Seq 4 Step 5";
+			/*173*/if (i == 158) return verbose ? "Sequencer Track 4 Step 6"		: "Seq 4 Step 6";
+			/*174*/if (i == 159) return verbose ? "Sequencer Track 4 Step 7"		: "Seq 4 Step 7";
+			/*175*/if (i == 160) return verbose ? "Sequencer Track 4 Step 8"		: "Seq 4 Step 8";
+			/*176*/if (i == 161) return verbose ? "Sequencer Track 4 Step 9"		: "Seq 4 Step 9";
+			/*177*/if (i == 162) return verbose ? "Sequencer Track 4 Step 10"		: "Seq 4 Step 10";
+			/*178*/if (i == 163) return verbose ? "Sequencer Track 4 Step 11"		: "Seq 4 Step 11";
+			/*179*/if (i == 164) return verbose ? "Sequencer Track 4 Step 12"		: "Seq 4 Step 12";
+			/*180*/if (i == 165) return verbose ? "Sequencer Track 4 Step 13"		: "Seq 4 Step 13";
+			/*181*/if (i == 166) return verbose ? "Sequencer Track 4 Step 14"		: "Seq 4 Step 14";
+			/*182*/if (i == 167) return verbose ? "Sequencer Track 4 Step 15"		: "Seq 4 Step 15";
+			/*183*/if (i == 168) return verbose ? "Sequencer Track 4 Step 16"		: "Seq 4 Step 16";
+			// Parameters 184..199 are program name characters and cannot be assigned to a knob
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

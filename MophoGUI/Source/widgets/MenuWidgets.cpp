@@ -263,3 +263,28 @@ String MenuWidget_PushItMode::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+//==============================================================================
+
+StringArray MenuWidget_KnobAssign::createChoices() const
+{
+	StringArray choices;
+	for (auto i = 0; i != 169; ++i)
+	{
+		choices.add(valueConverters.intToParamName(i, false));
+	}
+	return choices;
+}
+
+String MenuWidget_KnobAssign::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters.intToParamName(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Selects a target parameter for the\n";
+		tooltip += "Mopho's assignable hardware knob " + (String)knobNum + ".";
+	}
+	return tooltip;
+}

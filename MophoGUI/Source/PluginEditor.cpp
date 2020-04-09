@@ -33,6 +33,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionSeq.reset(new SequencerSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionSeq.get());
 
+    sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionKnobAssign.get());
+
     sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionPushIt.get());
 
@@ -50,6 +53,7 @@ PluginEditor::~PluginEditor()
     tooltipWindow.setLookAndFeel(nullptr);
 
     sectionPushIt = nullptr;
+    sectionKnobAssign = nullptr;
     sectionSeq = nullptr;
     sectionLFO = nullptr;
     sectionMidi = nullptr;
@@ -250,13 +254,14 @@ void PluginEditor::paint(Graphics& g)
 
 void PluginEditor::resized()
 {
-    sectionOsc      ->setBounds(15  , 15 , sectionOsc   ->getWidth(), sectionOsc   ->getHeight());
-    sectionLPF      ->setBounds(15  , 154, sectionLPF   ->getWidth(), sectionLPF   ->getHeight());
-    sectionVCA      ->setBounds(15  , 312, sectionLPF   ->getWidth(), sectionLPF   ->getHeight());
-    sectionEnv3     ->setBounds(15  , 470, sectionEnv3  ->getWidth(), sectionEnv3  ->getHeight());
-    sectionMod      ->setBounds(404 , 154, sectionMod   ->getWidth(), sectionMod   ->getHeight());
-    sectionMidi     ->setBounds(612 , 154, sectionMidi  ->getWidth(), sectionMidi  ->getHeight());
-    sectionLFO      ->setBounds(396 , 478, sectionLFO   ->getWidth(), sectionLFO   ->getHeight());
-    sectionSeq      ->setBounds(812 , 106, sectionSeq   ->getWidth(), sectionSeq   ->getHeight());
-    sectionPushIt   ->setBounds(1171, 487, sectionPushIt->getWidth(), sectionPushIt->getHeight());
+    sectionOsc          ->setBounds(15  , 15 , sectionOsc       ->getWidth(), sectionOsc       ->getHeight());
+    sectionLPF          ->setBounds(15  , 154, sectionLPF       ->getWidth(), sectionLPF       ->getHeight());
+    sectionVCA          ->setBounds(15  , 312, sectionLPF       ->getWidth(), sectionLPF       ->getHeight());
+    sectionEnv3         ->setBounds(15  , 470, sectionEnv3      ->getWidth(), sectionEnv3      ->getHeight());
+    sectionMod          ->setBounds(404 , 154, sectionMod       ->getWidth(), sectionMod       ->getHeight());
+    sectionMidi         ->setBounds(612 , 154, sectionMidi      ->getWidth(), sectionMidi      ->getHeight());
+    sectionLFO          ->setBounds(396 , 478, sectionLFO       ->getWidth(), sectionLFO       ->getHeight());
+    sectionSeq          ->setBounds(812 , 106, sectionSeq       ->getWidth(), sectionSeq       ->getHeight());
+    sectionKnobAssign   ->setBounds(1003, 487, sectionKnobAssign->getWidth(), sectionKnobAssign->getHeight());
+    sectionPushIt       ->setBounds(1171, 487, sectionPushIt    ->getWidth(), sectionPushIt    ->getHeight());
 }
