@@ -39,6 +39,14 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionPushIt.get());
 
+    String button_ReadTooltip{ "" };
+    button_ReadTooltip += "Requests a program edit buffer dump from\n";
+    button_ReadTooltip += "the Mopho and applies it to the plugin GUI.";
+    button_Read.reset(new TextButton("READ", button_ReadTooltip));
+    button_Read->addListener(this);
+    button_Read->setLookAndFeel(mophoLaF.get());
+    addAndMakeVisible(button_Read.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
@@ -51,6 +59,10 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    button_Read->setLookAndFeel(nullptr);
+    button_Read->removeListener(this);
+    button_Read = nullptr;
 
     sectionPushIt = nullptr;
     sectionKnobAssign = nullptr;
@@ -264,4 +276,19 @@ void PluginEditor::resized()
     sectionSeq          ->setBounds(812 , 106, sectionSeq       ->getWidth(), sectionSeq       ->getHeight());
     sectionKnobAssign   ->setBounds(1003, 487, sectionKnobAssign->getWidth(), sectionKnobAssign->getHeight());
     sectionPushIt       ->setBounds(1171, 487, sectionPushIt    ->getWidth(), sectionPushIt    ->getHeight());
+    auto utilityButtons_y{ 84 };
+    auto utilityButtons_w{ 48 };
+    auto utilityButtons_h{ 21 };
+    auto utilityButtonsGap{ 7 };
+    auto utilityButton1_x{ 584 };
+    auto utilityButton2_x{ utilityButton1_x + utilityButtons_w + utilityButtonsGap };
+    auto utilityButton3_x{ utilityButton2_x + utilityButtons_w + utilityButtonsGap };
+    auto utilityButton4_x{ utilityButton3_x + utilityButtons_w + utilityButtonsGap };
+    button_Read->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+}
+
+void PluginEditor::buttonClicked(Button* buttonThatWasClicked)
+{
+    if (buttonThatWasClicked == button_Read.get())
+        processor.sendEditBufferDumpRequest();
 }

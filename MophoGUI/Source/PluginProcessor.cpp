@@ -45,6 +45,7 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
     ignoreUnused(data, sizeInBytes);
 }
 
+//==============================================================================
 void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 {
     auto numSteps{ getParameters()[parameterIndex]->getNumSteps() };
@@ -66,6 +67,13 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
         getParameters()[100]->setValueNotifyingHost(0.0f);
     if (parameterIndex == 100 && newValue == 1.0f)
         getParameters()[98]->setValueNotifyingHost(0.0f);
+}
+
+//==============================================================================
+void PluginProcessor::sendEditBufferDumpRequest()
+{
+    const char sysExData[]{ 1, 37, 6 };
+    pluginMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
 //==============================================================================

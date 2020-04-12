@@ -45,8 +45,14 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
+    //==============================================================================
     void parameterValueChanged(int parameterIndex, float newValue) override;
     void parameterGestureChanged(int /*parameterIndex*/, bool /*gestureIsStarting*/) override {}
+
+    //==============================================================================
+    // Sends a SysEx message to the hardware requesting a dump of the
+    // parameter data currently in the Mopho's program edit buffer
+    void sendEditBufferDumpRequest();
 
 private:
     std::unique_ptr<AudioProcessorValueTreeState> apvts;

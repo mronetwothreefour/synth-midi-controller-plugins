@@ -19,7 +19,7 @@
 #include "editorSections/VCASection.h"
 #include "widgets/KnobWidgets.h"
 
-class PluginEditor : public AudioProcessorEditor
+class PluginEditor : public AudioProcessorEditor, public Button::Listener
 {
 public:
     PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams, PrivateParameters* privateParameters);
@@ -28,6 +28,9 @@ public:
     //==============================================================================
     void paint(Graphics& g) override;
     void resized() override;
+
+    //==============================================================================
+    void buttonClicked(Button* buttonThatWasClicked) override;
 
 private:
     PluginProcessor& processor;
@@ -44,6 +47,8 @@ private:
     std::unique_ptr<SequencerSection> sectionSeq;
     std::unique_ptr<KnobAssignSection> sectionKnobAssign;
     std::unique_ptr<PushItSection> sectionPushIt;
+
+    std::unique_ptr<TextButton> button_Read;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
