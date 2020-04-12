@@ -14,7 +14,6 @@ PluginProcessor::PluginProcessor() : AudioProcessor(BusesProperties())
 
 PluginProcessor::~PluginProcessor()
 {
-    // midiOutput = nullptr;
     privateParams = nullptr;
     apvts = nullptr;
     publicParams = nullptr;
@@ -25,8 +24,8 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 {
     buffer.clear();
 
-    midiMessages.swapWith(pluginMidiBuf); // use when LegacyMidiOutEvent
-    pluginMidiBuf.clear();                // is supported
+    midiMessages.swapWith(pluginMidiBuf);
+    pluginMidiBuf.clear();
 }
 
 //==============================================================================
@@ -58,6 +57,7 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
             if (outputValue > 104) outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
 
         if (parameterIndex == 95) outputValue += 30; // clock tempo parameter range is offset by 30
+
         pluginMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, outputValue, true, true);
     }
 
@@ -66,11 +66,6 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
         getParameters()[100]->setValueNotifyingHost(0.0f);
     if (parameterIndex == 100 && newValue == 1.0f)
         getParameters()[98]->setValueNotifyingHost(0.0f);
-
-    //auto deviceIdentifier{ MidiOutput::getAvailableDevices()[1].identifier };
-    //midiOutput = MidiOutput::openDevice(deviceIdentifier);
-    //if (midiOutput != nullptr)
-    //    midiOutput->sendBlockOfMessagesNow(pluginMidiBuf);
 }
 
 //==============================================================================
