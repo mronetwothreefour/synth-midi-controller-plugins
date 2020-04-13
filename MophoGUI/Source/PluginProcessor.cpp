@@ -24,7 +24,18 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 {
     buffer.clear();
 
-    midiMessages.swapWith(pluginMidiBuf);
+
+    int time;
+    MidiMessage m;
+
+    if (!pluginMidiBuf.isEmpty())
+    {
+        for (MidiBuffer::Iterator i(pluginMidiBuf); i.getNextEvent(m, time);)
+        {
+            midiMessages.addEvent(m, time);
+        }
+    }
+
     pluginMidiBuf.clear();
 }
 
