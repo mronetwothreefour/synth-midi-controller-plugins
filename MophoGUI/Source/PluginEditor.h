@@ -49,6 +49,7 @@ private:
     std::unique_ptr<PushItSection> sectionPushIt;
 
     std::unique_ptr<TextButton> button_Read;
+    std::unique_ptr<TextButton> button_Write;
 
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 

@@ -54,6 +54,14 @@ public:
     // parameter data currently in the Mopho's program edit buffer
     void sendPgmEditBufferDumpRequest();
 
+    // Collects the plugin's current settings for all the program parameters into a SysEx
+    // message which tells the Mopho to load the data into its program edit buffer
+    void sendDumpToEditBuffer();
+
+    // Adds a program data dump to a SysEx message which tells the Mopho
+    // to store the data in the specified bank and program storage slot
+    void sendDumpToStorageSlot(int bank, int pgmSlot);
+
 private:
     std::unique_ptr<AudioProcessorValueTreeState> apvts;
 
@@ -76,18 +84,6 @@ private:
     // the Mopho and applies them to the plugin's parameter settings
     // (without sending parameter change messages back to the Mopho)
     void applyPgmDumpDataToPlugin(const uint8* dumpData);
-
-    // Collects the plugin's current settings for all the program parameters
-    // into a data array that can be read by the Mopho.
-    void createPgmDataDump();
-
-    // Adds a program data dump to a SysEx message which tells
-    // the Mopho to load the data into its program edit buffer
-    void sendDumpToEditBuffer(const uint8* dumpData);
-
-    // Adds a program data dump to a SysEx message which tells the Mopho
-    // to store the data in the specified bank and program storage slot
-    void sendDumpToStorageSlot(int bank, int pgmSlot, const uint8* dumpData);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

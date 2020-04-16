@@ -47,6 +47,14 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     button_Read->setLookAndFeel(mophoLaF.get());
     addAndMakeVisible(button_Read.get());
 
+    String button_WriteTooltip{ "" };
+    button_WriteTooltip += "Sends the plugin's parameter settings\n";
+    button_WriteTooltip += "to the Mopho's program edit buffer.";
+    button_Write.reset(new TextButton("WRITE", button_WriteTooltip));
+    button_Write->addListener(this);
+    button_Write->setLookAndFeel(mophoLaF.get());
+    addAndMakeVisible(button_Write.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
@@ -59,6 +67,10 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
+
+    button_Write->setLookAndFeel(nullptr);
+    button_Write->removeListener(this);
+    button_Write = nullptr;
 
     button_Read->setLookAndFeel(nullptr);
     button_Read->removeListener(this);
@@ -284,11 +296,15 @@ void PluginEditor::resized()
     auto utilityButton2_x{ utilityButton1_x + utilityButtons_w + utilityButtonsGap };
     auto utilityButton3_x{ utilityButton2_x + utilityButtons_w + utilityButtonsGap };
     auto utilityButton4_x{ utilityButton3_x + utilityButtons_w + utilityButtonsGap };
-    button_Read->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_Read ->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_Write->setBounds(utilityButton1_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
 }
 
 void PluginEditor::buttonClicked(Button* buttonThatWasClicked)
 {
     if (buttonThatWasClicked == button_Read.get())
         processor.sendPgmEditBufferDumpRequest();
+
+    if (buttonThatWasClicked == button_Write.get())
+        processor.sendDumpToEditBuffer();
 }

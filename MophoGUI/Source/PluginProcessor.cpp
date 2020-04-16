@@ -117,6 +117,47 @@ void PluginProcessor::sendPgmEditBufferDumpRequest()
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
+void PluginProcessor::sendDumpToEditBuffer()
+{
+    uint8 sysExData[296]{};
+
+    *(sysExData)       = 1;    // DSI manufacturer ID
+    *(sysExData + 1)   = 37;   // Mopho device ID
+    *(sysExData + 2)   = 3;    // dump type ID (to edit buffer)
+    auto dataOffset{ 3 };      // index of first parameter data byte
+
+    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
+    {
+        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
+        {
+            auto param{ getParameters()[paramIndex] };
+            auto paramValue{ roundToInt(param->getValue() * (param->getNumSteps() - 1)) };
+
+            // Index of the data byte that will hold the MS bit for the parameter's value
+            auto msbIndex{ (paramIndex / 7) * 8 + dataOffset };
+
+            auto paramOffset{ paramIndex % 7 + 1 };
+
+            // Index of the data byte that contains the parameter's LSB value
+            auto lsbIndex{ msbIndex + paramOffset };
+
+            // If a parameter has a value above 127, store its 8th bit 
+            // in the MSB data byte for the packet the parameter is in
+            if (paramValue > 127) 
+                *(sysExData + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
+
+            // Store the LSB value of the parameter in the appropriate data byte
+            *(sysExData + lsbIndex) = paramValue % 127;
+        }
+    }
+
+    internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+}
+
+void PluginProcessor::sendDumpToStorageSlot(int bank, int pgmSlot)
+{
+}
+
 void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
 {
     // prevent NRPN messages from being sent back to
@@ -127,43 +168,30 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
     // the program data dump is organized into 36 8-byte packets:
     // Bytes 2 through 7 in each packet hold the LSB values for 7 parameters,
     // The first byte in the packet holds the MS bits for those 7 parameters
-    for (int paramNum = 0; paramNum != 200; ++paramNum)
+    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
     {
-        if (paramNum < 109 || paramNum > 119) // skip unassigned parameter numbers
+        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
         {
-            // Index of the data byte that holds the MS bit for the parameter
-            auto msbByte{ (paramNum / 7) * 8 };
+            // Index of the data byte that holds the MS bit for the parameter's value
+            auto msbIndex{ (paramIndex / 7) * 8 };
 
-            auto offset{ paramNum % 7 + 1 };
-
-            // associated LSB value byte (increases by one with each 8-byte packet)
-            auto lsbByte{ msbByte + offset };
-            
-            int bitMask{ (int)pow(2, offset - 1) };
+            auto offset{ paramIndex % 7 + 1 };
 
             // Extract the MS bit value for the parameter (0 or 1)
-            auto msbitValue{ *(dumpData + msbByte) & bitMask };
+            int bitMask{ roundToInt(pow(2, offset - 1)) };
+            auto msbitValue{ *(dumpData + msbIndex) & bitMask };
 
-            auto newParamValue{ *(dumpData + lsbByte) + (msbitValue > 0 ? 128 : 0) };
-            auto param{ getParameters()[paramNum] };
+            // Index of the data byte that contains the parameter's LSB value
+            auto lsbIndex{ msbIndex + offset };
+            
+            auto newParamValue{ *(dumpData + lsbIndex) + (msbitValue > 0 ? 128 : 0) };
+            auto param{ getParameters()[paramIndex] };
             param->setValueNotifyingHost((1.0f / (param->getNumSteps() - 1)) * newParamValue);
         }
     }
 
     // resume sending NRPN messages to the Mopho when parameters change
     outputIsAllowed = true;
-}
-
-void PluginProcessor::createPgmDataDump()
-{
-}
-
-void PluginProcessor::sendDumpToEditBuffer(const uint8* dumpData)
-{
-}
-
-void PluginProcessor::sendDumpToStorageSlot(int bank, int pgmSlot, const uint8* dumpData)
-{
 }
 
 //==============================================================================
