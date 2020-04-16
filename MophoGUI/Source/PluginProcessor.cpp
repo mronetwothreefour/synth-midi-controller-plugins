@@ -124,23 +124,27 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
     outputIsAllowed = false;
 
     // To allow for parameters with value ranges beyond MIDI's 7-bit limit (127),
-    // the parameter value data is organized into 36 8-byte packets:
+    // the program data dump is organized into 36 8-byte packets:
     // Bytes 2 through 7 in each packet hold the LSB values for 7 parameters,
-    // The first packet byte holds the MS bits for all 7 parameters
+    // The first byte in the packet holds the MS bits for those 7 parameters
     for (int paramNum = 0; paramNum != 200; ++paramNum)
     {
         if (paramNum < 109 || paramNum > 119) // skip unassigned parameter numbers
         {
             // Index of the data byte that holds the MS bit for the parameter
             auto msbByte{ (paramNum / 7) * 8 };
-            // How much the parameter's index number is offset from the index of its
+
+            auto offset{ paramNum % 7 + 1 };
+
             // associated LSB value byte (increases by one with each 8-byte packet)
-            auto offset{ (paramNum % 7) + 1 };
-            // Index of the data byte that holds the LSB value for the parameter
             auto lsbByte{ msbByte + offset };
+            
+            int bitMask{ (int)pow(2, offset - 1) };
+
             // Extract the MS bit value for the parameter (0 or 1)
-            auto msbValue{ *(dumpData + msbByte) % (int)pow(2, offset) / offset };
-            auto newParamValue{ *(dumpData + lsbByte) + (msbValue * 128) };
+            auto msbitValue{ *(dumpData + msbByte) & bitMask };
+
+            auto newParamValue{ *(dumpData + lsbByte) + (msbitValue > 0 ? 128 : 0) };
             auto param{ getParameters()[paramNum] };
             param->setValueNotifyingHost((1.0f / (param->getNumSteps() - 1)) * newParamValue);
         }
@@ -148,6 +152,18 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
 
     // resume sending NRPN messages to the Mopho when parameters change
     outputIsAllowed = true;
+}
+
+void PluginProcessor::createPgmDataDump()
+{
+}
+
+void PluginProcessor::sendDumpToEditBuffer(const uint8* dumpData)
+{
+}
+
+void PluginProcessor::sendDumpToStorageSlot(int bank, int pgmSlot, const uint8* dumpData)
+{
 }
 
 //==============================================================================
