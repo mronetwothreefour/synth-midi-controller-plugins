@@ -75,7 +75,7 @@ private:
     // Extracts the parameter values from a program data dump from
     // the Mopho and applies them to the plugin's parameter settings
     // (without sending parameter change messages back to the Mopho)
-    void applyPgmDumpDataToGUI(const uint8* dumpData);
+    void applyPgmDumpDataToPlugin(const uint8* dumpData);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

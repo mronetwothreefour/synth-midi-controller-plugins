@@ -44,7 +44,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
                     // handle incoming program edit buffer data dumps
                     if (*(sysExData + 3) == 3)
                     {
-                        applyPgmDumpDataToGUI(sysExData + 4);
+                        applyPgmDumpDataToPlugin(sysExData + 4);
                     }
                 }
             }
@@ -117,7 +117,7 @@ void PluginProcessor::sendPgmEditBufferDumpRequest()
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
-void PluginProcessor::applyPgmDumpDataToGUI(const uint8* dumpData)
+void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
 {
     // prevent NRPN messages from being sent back to
     // the Mopho while the parameters are being updated
