@@ -290,5 +290,5 @@ void PluginEditor::resized()
 void PluginEditor::buttonClicked(Button* buttonThatWasClicked)
 {
     if (buttonThatWasClicked == button_Read.get())
-        processor.sendEditBufferDumpRequest();
+        processor.sendPgmEditBufferDumpRequest();
 }
