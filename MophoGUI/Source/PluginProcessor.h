@@ -77,13 +77,15 @@ private:
     // Used to block parameter change messages from being sent out when a program
     // is being read into the GUI from the hardware and when parameter change
     // messages are received from the Mopho's hardware knobs.
-    bool outputIsAllowed;
+    bool nrpnOutputIsAllowed;
 
     //==============================================================================
     // Extracts the parameter values from a program data dump from
     // the Mopho and applies them to the plugin's parameter settings
     // (without sending parameter change messages back to the Mopho)
     void applyPgmDumpDataToPlugin(const uint8* dumpData);
+
+    void addParamDataToDumpBuffer(uint8* buffer, int offset);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

@@ -3,7 +3,7 @@
 
 PluginProcessor::PluginProcessor() : 
     AudioProcessor(BusesProperties()),
-    outputIsAllowed{ true }
+    nrpnOutputIsAllowed{ true }
 {
     publicParams.reset(new PublicParameters());
 
@@ -86,7 +86,7 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
 //==============================================================================
 void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 {
-    if (outputIsAllowed)
+    if (nrpnOutputIsAllowed)
     {
         auto numSteps{ getParameters()[parameterIndex]->getNumSteps() };
         auto nrpnIndex{ publicParams->getNRPN(parameterIndex) };
@@ -124,32 +124,8 @@ void PluginProcessor::sendDumpToEditBuffer()
     *(sysExData)       = 1;    // DSI manufacturer ID
     *(sysExData + 1)   = 37;   // Mopho device ID
     *(sysExData + 2)   = 3;    // dump type ID (to edit buffer)
-    auto dataOffset{ 3 };      // index of first parameter data byte
 
-    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
-    {
-        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
-        {
-            auto param{ getParameters()[paramIndex] };
-            auto paramValue{ roundToInt(param->getValue() * (param->getNumSteps() - 1)) };
-
-            // Index of the data byte that will hold the MS bit for the parameter's value
-            auto msbIndex{ (paramIndex / 7) * 8 + dataOffset };
-
-            auto paramOffset{ paramIndex % 7 + 1 };
-
-            // Index of the data byte that contains the parameter's LSB value
-            auto lsbIndex{ msbIndex + paramOffset };
-
-            // If a parameter has a value above 127, store its 8th bit 
-            // in the MSB data byte for the packet the parameter is in
-            if (paramValue > 127) 
-                *(sysExData + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
-
-            // Store the LSB value of the parameter in the appropriate data byte
-            *(sysExData + lsbIndex) = paramValue % 127;
-        }
-    }
+    addParamDataToDumpBuffer(sysExData, 3);
 
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
@@ -162,7 +138,7 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
 {
     // prevent NRPN messages from being sent back to
     // the Mopho while the parameters are being updated
-    outputIsAllowed = false;
+    nrpnOutputIsAllowed = false;
 
     // To allow for parameters with value ranges beyond MIDI's 7-bit limit (127),
     // the program data dump is organized into 36 8-byte packets:
@@ -191,7 +167,43 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
     }
 
     // resume sending NRPN messages to the Mopho when parameters change
-    outputIsAllowed = true;
+    nrpnOutputIsAllowed = true;
+}
+
+void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
+{
+    nrpnOutputIsAllowed = false;
+
+    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
+    {
+        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
+        {
+            auto param{ getParameters()[paramIndex] };
+            auto paramValue{ roundToInt(param->getValue() * (param->getNumSteps() - 1)) };
+            if (paramIndex == 95) paramValue += 30; // clock tempo parameter range is offset by 30
+
+            // Index of the data byte that will hold the MS bit for the parameter's value
+            auto msbIndex{ (paramIndex / 7) * 8 + offset };
+
+            auto paramOffset{ paramIndex % 7 + 1 };
+
+            // Index of the data byte that contains the parameter's LSB value
+            auto lsbIndex{ msbIndex + paramOffset };
+
+            // If a parameter has a value above 127, store its 8th bit 
+            // in the MSB data byte for the packet the parameter is in
+            if (paramValue > 127)
+            {
+                *(buffer + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
+                auto dingle{ *(buffer + msbIndex) };
+            }
+
+            // Store the LSB value of the parameter in the appropriate data byte
+            *(buffer + lsbIndex) = paramValue % 128;
+        }
+    }
+
+    nrpnOutputIsAllowed = true;
 }
 
 //==============================================================================
