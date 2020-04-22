@@ -271,7 +271,7 @@ void PluginEditor::paint(Graphics& g)
     logoData.loadPathFromData(pathData, sizeof(pathData));
 
     g.setColour(Color::black);
-    Path logo;
+    Path logo; // This second path is just used to translate the logo path to its correct location in the GUI
     logo.addPath(logoData, AffineTransform::translation(849.0f, 13.3022f));
     g.fillPath(logo);
 }

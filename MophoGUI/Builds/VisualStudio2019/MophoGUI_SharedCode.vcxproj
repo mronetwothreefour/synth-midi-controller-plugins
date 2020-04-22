@@ -2729,6 +2729,7 @@
     <ClInclude Include="..\..\Source\widgets\ButtonWidgets.h" />
     <ClInclude Include="..\..\Source\widgets\EnvelopeWidget.h" />
     <ClInclude Include="..\..\Source\widgets\KnobWidgets.h" />
+    <ClInclude Include="..\..\Source\widgets\LCDcharacterRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\MenuWidgets.h" />
   </ItemGroup>
   <ItemGroup>

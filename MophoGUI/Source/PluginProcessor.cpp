@@ -195,7 +195,6 @@ void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
             if (paramValue > 127)
             {
                 *(buffer + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
-                auto dingle{ *(buffer + msbIndex) };
             }
 
             // Store the LSB value of the parameter in the appropriate data byte

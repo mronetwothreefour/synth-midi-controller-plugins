@@ -54,12 +54,12 @@ public:
     // parameter data currently in the Mopho's program edit buffer
     void sendPgmEditBufferDumpRequest();
 
-    // Collects the plugin's current settings for all the program parameters into a SysEx
-    // message which tells the Mopho to load the data into its program edit buffer
+    // Creates a SysEx message which tells the Mopho to load the
+    // enclosed parameter data into its program edit buffer
     void sendDumpToEditBuffer();
 
-    // Adds a program data dump to a SysEx message which tells the Mopho
-    // to store the data in the specified bank and program storage slot
+    // Creates a SysEx message which tells the Mopho to load the enclosed
+    // parameter data into the specified bank and program storage slot
     void sendDumpToStorageSlot(int bank, int pgmSlot);
 
 private:
@@ -80,11 +80,13 @@ private:
     bool nrpnOutputIsAllowed;
 
     //==============================================================================
-    // Extracts the parameter values from a program data dump from
-    // the Mopho and applies them to the plugin's parameter settings
+    // Extracts the parameter values from a program data dump received
+    // from the Mopho and applies them to the plugin's parameter settings
     // (without sending parameter change messages back to the Mopho)
     void applyPgmDumpDataToPlugin(const uint8* dumpData);
 
+    // Calculates LSB and MS bit values for each parameter and adds them to the
+    // appropriate bytes in the buffer, starting from the byte specified by offset
     void addParamDataToDumpBuffer(uint8* buffer, int offset);
 
     //==============================================================================

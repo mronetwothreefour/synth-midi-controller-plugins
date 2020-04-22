@@ -133,12 +133,8 @@ public:
 			track2_3_4Steps.add(valueConverters.intToStepValue(i, false));
 
 		StringArray nameChars;
-		for (auto i = 0; i != 32; ++i)
-			nameChars.add("");
-		nameChars.add("Space");
-		for (auto i = 33; i != 127; ++i)
-			nameChars.add(std::string(1, char(i)));
-		nameChars.add("Delete");
+		for (auto i = 0; i != 128; ++i)
+			nameChars.add(valueConverters.intToPgmNameChar(i));
 
 		//==============================================================================
 		// Then, create the public parameter layout and return it
@@ -347,15 +343,15 @@ public:
 		/*182*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track4Step15.toString(),		"Sequencer Track 4 Step 15", track2_3_4Steps, 0));
 		/*183*/layout.add(std::make_unique<AudioParameterChoice>	(ID::track4Step16.toString(),		"Sequencer Track 4 Step 16", track2_3_4Steps, 0));
 
-		/*184*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar01.toString(),			"Program Name Character 1",  nameChars, 77));
-		/*185*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar02.toString(),			"Program Name Character 2",  nameChars, 111));
-		/*186*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar03.toString(),			"Program Name Character 3",  nameChars, 112));
-		/*187*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar04.toString(),			"Program Name Character 4",  nameChars, 104));
-		/*188*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar05.toString(),			"Program Name Character 5",  nameChars, 111));
-		/*189*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar06.toString(),			"Program Name Character 6",  nameChars, 32));
-		/*190*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar07.toString(),			"Program Name Character 7",  nameChars, 71));
-		/*191*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar08.toString(),			"Program Name Character 8",  nameChars, 111));
-		/*192*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar09.toString(),			"Program Name Character 9",  nameChars, 111));
+		/*184*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar1 .toString(),			"Program Name Character 1",  nameChars, 77));
+		/*185*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar2 .toString(),			"Program Name Character 2",  nameChars, 111));
+		/*186*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar3 .toString(),			"Program Name Character 3",  nameChars, 112));
+		/*187*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar4 .toString(),			"Program Name Character 4",  nameChars, 104));
+		/*188*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar5 .toString(),			"Program Name Character 5",  nameChars, 111));
+		/*189*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar6 .toString(),			"Program Name Character 6",  nameChars, 32));
+		/*190*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar7 .toString(),			"Program Name Character 7",  nameChars, 71));
+		/*191*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar8 .toString(),			"Program Name Character 8",  nameChars, 111));
+		/*192*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar9 .toString(),			"Program Name Character 9",  nameChars, 111));
 		/*193*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar10.toString(),			"Program Name Character 10", nameChars, 101));
 		/*194*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar11.toString(),			"Program Name Character 11", nameChars, 121));
 		/*195*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar12.toString(),			"Program Name Character 12", nameChars, 33));

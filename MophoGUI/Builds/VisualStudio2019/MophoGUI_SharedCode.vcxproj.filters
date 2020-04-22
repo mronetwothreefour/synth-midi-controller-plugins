@@ -4595,6 +4595,9 @@
     <ClInclude Include="..\..\Source\editorSections\PushItSection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\LCDcharacterRenderer.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

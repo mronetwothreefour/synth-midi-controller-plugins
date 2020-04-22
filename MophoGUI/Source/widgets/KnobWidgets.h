@@ -6,6 +6,7 @@
 #include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
+#include "LCDcharacterRenderer.h"
 
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
@@ -83,7 +84,7 @@ private:
 
 //==============================================================================
 // Creates graphical representations of various wave shapes.
-// Oscillator and LFO shape KnobWidgets use this to display their current values
+// Oscillator KnobWidgets use this to display their current values
 class WaveShapeRenderer : public Component
 {
 public:
@@ -1539,4 +1540,88 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PushItVelo)
 };
+
+//==============================================================================
+// A knob widget appropriate for setting one of the program name characters.
+class KnobWidget_PgmNameChar : public Component, public Slider::Listener
+{
+public:
+	PrivateParameters* privateParams;
+
+	KnobWidget_PgmNameChar
+	(
+		int charNumber,
+		AudioProcessorValueTreeState* apvts,
+		PrivateParameters* privateParameters,
+		MophoLookAndFeel* mophoLaF
+	) :
+		sliderAttachment{ *apvts, "nameChar" + (String)charNumber, slider },
+		privateParams{ privateParameters },
+		mophoLaF{ mophoLaF }
+	{
+		addAndMakeVisible(charRenderer);
+
+		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+		slider.setLookAndFeel(mophoLaF);
+		slider.setAlpha(0.0f);
+		slider.setMouseDragSensitivity(175);
+		slider.addListener(this);
+		addAndMakeVisible(slider);
+
+		sliderValueChanged(&slider);
+
+		auto tooltip{ createTooltipString(roundToInt(slider.getValue())) };
+		setSliderTooltip(tooltip);
+
+		auto char_w{ 12 };
+		auto char_h{ 17 };
+		setSize(char_w, char_h);
+	}
+
+	~KnobWidget_PgmNameChar()
+	{
+		slider.removeListener(this);
+		slider.setLookAndFeel(nullptr);
+	}
+
+	void resized() override
+	{
+		slider.setBounds(0, 0, 26, 26);
+	}
+
+	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
+	void sliderValueChanged(Slider* sliderThatChanged) override
+	{
+		if (sliderThatChanged == &slider)
+		{
+			auto currentValue{ getSliderValue() };
+			auto tooltip{ createTooltipString(currentValue) };
+			setSliderTooltip(tooltip);
+			charRenderer.drawChar(currentValue);
+		}
+	}
+
+	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+private:
+	CustomSlider slider;
+	SliderAttachment sliderAttachment;
+
+	MophoLookAndFeel* mophoLaF;
+
+	LCDcharacterRenderer charRenderer;
+
+	// Creates a tooltip String with a parameter description
+	// a verbose version of the parameter's current value
+	String createTooltipString(const int& currentValue) const noexcept;
+
+	ValueConverters valueConverters;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PgmNameChar)
+};
+
 

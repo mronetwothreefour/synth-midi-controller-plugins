@@ -675,3 +675,16 @@ String KnobWidget_PushItVelo::createTooltipString(const int& currentValue) const
 	}
 	return tooltip;
 }
+
+String KnobWidget_PgmNameChar::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + (String)currentValue + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the velocity of the note that plays\n";
+		tooltip += "when the Push It! switch is pressed.";
+	}
+	return tooltip;
+}

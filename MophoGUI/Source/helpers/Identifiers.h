@@ -210,15 +210,15 @@ namespace ID
 	const Identifier track4Step15		{ "track4Step15"	};
 	const Identifier track4Step16		{ "track4Step16"	};
 
-	const Identifier nameChar01 		{ "nameChar01"		};
-	const Identifier nameChar02 		{ "nameChar02"		};
-	const Identifier nameChar03 		{ "nameChar03"		};
-	const Identifier nameChar04 		{ "nameChar04"		};
-	const Identifier nameChar05 		{ "nameChar05"		};
-	const Identifier nameChar06 		{ "nameChar06"		};
-	const Identifier nameChar07 		{ "nameChar07"		};
-	const Identifier nameChar08 		{ "nameChar08"		};
-	const Identifier nameChar09 		{ "nameChar09"		};
+	const Identifier nameChar1 			{ "nameChar1"		};
+	const Identifier nameChar2 			{ "nameChar2"		};
+	const Identifier nameChar3 			{ "nameChar3"		};
+	const Identifier nameChar4 			{ "nameChar4"		};
+	const Identifier nameChar5 			{ "nameChar5"		};
+	const Identifier nameChar6 			{ "nameChar6"		};
+	const Identifier nameChar7 			{ "nameChar7"		};
+	const Identifier nameChar8 			{ "nameChar8"		};
+	const Identifier nameChar9 			{ "nameChar9"		};
 	const Identifier nameChar10			{ "nameChar10"		};
 	const Identifier nameChar11			{ "nameChar11"		};
 	const Identifier nameChar12			{ "nameChar12"		};

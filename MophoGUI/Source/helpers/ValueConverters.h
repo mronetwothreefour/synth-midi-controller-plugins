@@ -653,6 +653,30 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..127 to a program name character String
+	String intToPgmNameChar(const int& i) const
+	{
+		if (i > -1 && i < 128)
+		{
+			if (i > 31)
+			{
+				String character;
+				switch (i)
+				{
+				case 32: character = "Space"; break;
+				case 92: character = "Yen Symbol"; break;
+				case 126: character = "Right Arrow"; break;
+				case 127: character = "Left Arrow"; break;
+				default: character = std::string(1, char(i)); break;
+				}
+				character += " (" + String(i) + ")";
+				return character;
+			}
+			else return "Control Character (" + String(i) + ")";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================
