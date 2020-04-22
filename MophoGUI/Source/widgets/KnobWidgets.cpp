@@ -680,11 +680,11 @@ String KnobWidget_PgmNameChar::createTooltipString(const int& currentValue) cons
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + (String)currentValue + "\n";
+		tooltip += "Current Value: " + valueConverters.intToPgmNameChar(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
-		tooltip += "Sets the velocity of the note that plays\n";
-		tooltip += "when the Push It! switch is pressed.";
+		tooltip += "To change a single program name character,\n";
+		tooltip += "click-and-drag it or use the mouse wheel.";
 	}
 	return tooltip;
 }

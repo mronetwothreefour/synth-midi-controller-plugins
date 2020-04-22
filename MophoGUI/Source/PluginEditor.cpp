@@ -39,6 +39,9 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionPushIt.get());
 
+    sectionPgmName.reset(new ProgramNameSection(publicParams, privateParameters, mophoLaF.get()));
+    addAndMakeVisible(sectionPgmName.get());
+
     String button_ReadTooltip{ "" };
     button_ReadTooltip += "Requests a program edit buffer dump from\n";
     button_ReadTooltip += "the Mopho and applies it to the plugin GUI.";
@@ -76,6 +79,7 @@ PluginEditor::~PluginEditor()
     button_Read->removeListener(this);
     button_Read = nullptr;
 
+    sectionPgmName = nullptr;
     sectionPushIt = nullptr;
     sectionKnobAssign = nullptr;
     sectionSeq = nullptr;
@@ -288,16 +292,16 @@ void PluginEditor::resized()
     sectionSeq          ->setBounds(812 , 106, sectionSeq       ->getWidth(), sectionSeq       ->getHeight());
     sectionKnobAssign   ->setBounds(1003, 487, sectionKnobAssign->getWidth(), sectionKnobAssign->getHeight());
     sectionPushIt       ->setBounds(1171, 487, sectionPushIt    ->getWidth(), sectionPushIt    ->getHeight());
-    auto utilityButtons_y{ 84 };
+    sectionPgmName      ->setBounds(584 , 13 , sectionPgmName   ->getWidth(), sectionPgmName   ->getHeight());
+    auto utilityButtons_y{ 90 };
     auto utilityButtons_w{ 48 };
     auto utilityButtons_h{ 21 };
-    auto utilityButtonsGap{ 7 };
     auto utilityButton1_x{ 584 };
-    auto utilityButton2_x{ utilityButton1_x + utilityButtons_w + utilityButtonsGap };
-    auto utilityButton3_x{ utilityButton2_x + utilityButtons_w + utilityButtonsGap };
-    auto utilityButton4_x{ utilityButton3_x + utilityButtons_w + utilityButtonsGap };
-    button_Read ->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    auto utilityButton2_x{ 645 };
+    auto utilityButton3_x{ 706 };
+    auto utilityButton4_x{ 766 };
     button_Write->setBounds(utilityButton1_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_Read ->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
 }
 
 void PluginEditor::buttonClicked(Button* buttonThatWasClicked)

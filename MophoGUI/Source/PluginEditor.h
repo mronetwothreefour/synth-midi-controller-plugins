@@ -14,6 +14,7 @@
 #include "editorSections/MidiControllersSection.h"
 #include "editorSections/ModulatorsSection.h"
 #include "editorSections/OscillatorsSection.h"
+#include "editorSections/ProgramNameSection.h"
 #include "editorSections/PushItSection.h"
 #include "editorSections/SequencerSection.h"
 #include "editorSections/VCASection.h"
@@ -47,6 +48,7 @@ private:
     std::unique_ptr<SequencerSection> sectionSeq;
     std::unique_ptr<KnobAssignSection> sectionKnobAssign;
     std::unique_ptr<PushItSection> sectionPushIt;
+    std::unique_ptr<ProgramNameSection> sectionPgmName;
 
     std::unique_ptr<TextButton> button_Read;
     std::unique_ptr<TextButton> button_Write;

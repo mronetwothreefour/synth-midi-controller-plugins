@@ -1982,6 +1982,7 @@
     <ClInclude Include="..\..\Source\editorSections\MidiControllersSection.h" />
     <ClInclude Include="..\..\Source\editorSections\ModulatorsSection.h" />
     <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h" />
+    <ClInclude Include="..\..\Source\editorSections\ProgramNameSection.h" />
     <ClInclude Include="..\..\Source\editorSections\PushItSection.h" />
     <ClInclude Include="..\..\Source\editorSections\SequencerSection.h" />
     <ClInclude Include="..\..\Source\editorSections\VCASection.h" />
