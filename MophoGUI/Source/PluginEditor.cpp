@@ -39,24 +39,8 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
     sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionPushIt.get());
 
-    sectionPgmName.reset(new ProgramNameSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionPgmName.get());
-
-    String button_ReadTooltip{ "" };
-    button_ReadTooltip += "Requests a program edit buffer dump from\n";
-    button_ReadTooltip += "the Mopho and applies it to the plugin GUI.";
-    button_Read.reset(new TextButton("READ", button_ReadTooltip));
-    button_Read->addListener(this);
-    button_Read->setLookAndFeel(mophoLaF.get());
-    addAndMakeVisible(button_Read.get());
-
-    String button_WriteTooltip{ "" };
-    button_WriteTooltip += "Sends the plugin's parameter settings\n";
-    button_WriteTooltip += "to the Mopho's program edit buffer.";
-    button_Write.reset(new TextButton("WRITE", button_WriteTooltip));
-    button_Write->addListener(this);
-    button_Write->setLookAndFeel(mophoLaF.get());
-    addAndMakeVisible(button_Write.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setLookAndFeel(mophoLaF.get());
@@ -70,14 +54,6 @@ PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* pub
 PluginEditor::~PluginEditor()
 {
     tooltipWindow.setLookAndFeel(nullptr);
-
-    button_Write->setLookAndFeel(nullptr);
-    button_Write->removeListener(this);
-    button_Write = nullptr;
-
-    button_Read->setLookAndFeel(nullptr);
-    button_Read->removeListener(this);
-    button_Read = nullptr;
 
     sectionPgmName = nullptr;
     sectionPushIt = nullptr;
@@ -293,22 +269,4 @@ void PluginEditor::resized()
     sectionKnobAssign   ->setBounds(1003, 487, sectionKnobAssign->getWidth(), sectionKnobAssign->getHeight());
     sectionPushIt       ->setBounds(1171, 487, sectionPushIt    ->getWidth(), sectionPushIt    ->getHeight());
     sectionPgmName      ->setBounds(584 , 13 , sectionPgmName   ->getWidth(), sectionPgmName   ->getHeight());
-    auto utilityButtons_y{ 90 };
-    auto utilityButtons_w{ 48 };
-    auto utilityButtons_h{ 21 };
-    auto utilityButton1_x{ 584 };
-    auto utilityButton2_x{ 645 };
-    auto utilityButton3_x{ 706 };
-    auto utilityButton4_x{ 766 };
-    button_Write->setBounds(utilityButton1_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_Read ->setBounds(utilityButton2_x, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-}
-
-void PluginEditor::buttonClicked(Button* buttonThatWasClicked)
-{
-    if (buttonThatWasClicked == button_Read.get())
-        processor.sendPgmEditBufferDumpRequest();
-
-    if (buttonThatWasClicked == button_Write.get())
-        processor.sendDumpToEditBuffer();
 }

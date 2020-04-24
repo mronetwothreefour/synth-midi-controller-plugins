@@ -1567,6 +1567,7 @@ public:
 		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
 		slider.setMouseDragSensitivity(175);
+		slider.setRange(32.0, 127.0, 1.0);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
@@ -1592,6 +1593,12 @@ public:
 	}
 
 	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
+	void setCharValue(int newValue) 
+	{ 
+		slider.setValue(32.0, sendNotification);
+		slider.setValue((double)newValue, sendNotification);
+	}
 
 	void sliderValueChanged(Slider* sliderThatChanged) override
 	{

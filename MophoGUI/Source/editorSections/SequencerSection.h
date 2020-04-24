@@ -414,12 +414,11 @@ public:
 		case 13: knob_Step13.setToZero(); ++stepCounter; startTimer(timerInterval); break;
 		case 14: knob_Step14.setToZero(); ++stepCounter; startTimer(timerInterval); break;
 		case 15: knob_Step15.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 16: knob_Step16.setToZero(); ++stepCounter; startTimer(timerInterval); break;
+		case 16: knob_Step16.setToZero(); break;
 		default:
 			break;
 		}
 	}
-
 
 	void buttonStateChanged(Button* /*buttonThatChanged*/) override {}
 
