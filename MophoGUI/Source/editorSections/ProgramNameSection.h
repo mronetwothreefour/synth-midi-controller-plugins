@@ -21,10 +21,11 @@ public:
 	(
 		PluginProcessor& p,
 		AudioProcessorValueTreeState* publicParams,
-		PrivateParameters* privateParams,
+		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF
 	) :
 		processor{ p },
+		privateParams{ privateParameters },
 		knob_NameChar01{ 1 , publicParams, privateParams, mophoLaF },
 		knob_NameChar02{ 2 , publicParams, privateParams, mophoLaF },
 		knob_NameChar03{ 3 , publicParams, privateParams, mophoLaF },
@@ -84,7 +85,7 @@ public:
 
 		setPgmBankAndSlotDisplay();
 
-		pgmNameEditor.setInterceptsMouseClicks(false, false);
+		pgmNameEditor.setInterceptsMouseClicks(false, true);
 		Font editorFont{ "Arial", "Black", 18.0f };
 		pgmNameEditor.setFont(editorFont);
 		pgmNameEditor.setJustificationType(Justification::centredLeft);
@@ -99,43 +100,55 @@ public:
 		addAndMakeVisible(pgmNameEditor);
 
 		String button_EditTooltip{ "" };
-		button_EditTooltip += "Opens an editor where you can type a new name for the program (up to 16 characters).\n";
-		button_EditTooltip += "Hit Enter to apply it, hit Esc to cancel. The Mopho's hardware LCD characters use the\n";
-		button_EditTooltip += "basic ASCII character set, with a few exceptions: '\\' is a yen sign and '~' is a right arrow.\n";
-		button_EditTooltip += "The 'delete' character (127) is a left arrow; obviously, you can't type that in the editor.\n";
-		button_EditTooltip += "However, you can access it by clicking and dragging the individual character.";
+		if (privateParams->shouldShowInfoTip())
+		{
+			button_EditTooltip += "Opens an editor where you can\n";
+			button_EditTooltip += "type in a new program name.";
+		}
 		button_Edit.setTooltip(button_EditTooltip);
 		button_Edit.addListener(this);
 		button_Edit.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Edit);
 
 		String button_ReadTooltip{ "" };
-		button_ReadTooltip += "Requests a program edit buffer dump from\n";
-		button_ReadTooltip += "the Mopho and applies it to the plugin GUI.";
+		if (privateParams->shouldShowInfoTip())
+		{
+			button_ReadTooltip += "Requests a program edit buffer dump from\n";
+			button_ReadTooltip += "the Mopho and applies it to the plugin GUI.";
+		}
 		button_Read.setTooltip(button_ReadTooltip);
 		button_Read.addListener(this);
 		button_Read.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Read);
 
 		String button_WriteTooltip{ "" };
-		button_WriteTooltip += "Sends the plugin's parameter settings\n";
-		button_WriteTooltip += "to the Mopho's program edit buffer.";
+		if (privateParams->shouldShowInfoTip())
+		{
+			button_WriteTooltip += "Sends the plugin's parameter settings\n";
+			button_WriteTooltip += "to the Mopho's program edit buffer.";
+		}
 		button_Write.setTooltip(button_WriteTooltip);
 		button_Write.addListener(this);
 		button_Write.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Write);
 
 		String button_BanksTooltip{ "" };
-		button_BanksTooltip += "Opens a window where you can manage the\n";
-		button_BanksTooltip += "three storage banks for program presets.";
+		if (privateParams->shouldShowInfoTip())
+		{
+			button_BanksTooltip += "Opens a window where you can manage the\n";
+			button_BanksTooltip += "three storage banks for program presets.";
+		}
 		button_Banks.setTooltip(button_BanksTooltip);
 		button_Banks.addListener(this);
 		button_Banks.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Banks);
 
 		String button_GlobalTooltip{ "" };
-		button_GlobalTooltip += "Opens a window where you can change\n";
-		button_GlobalTooltip += "the Mopho's global parameter settings.";
+		if (privateParams->shouldShowInfoTip())
+		{
+			button_GlobalTooltip += "Opens a window where you can change\n";
+			button_GlobalTooltip += "the Mopho's global parameter settings.";
+		}
 		button_Global.setTooltip(button_GlobalTooltip);
 		button_Global.addListener(this);
 		button_Global.setLookAndFeel(mophoLaF);
@@ -312,7 +325,21 @@ public:
 		if (buttonThatWasClicked == &button_Edit)
 		{
 			pgmNameEditor.showEditor();
-			pgmNameEditor.getCurrentTextEditor()->setInputRestrictions(16);
+			// restrict editor input to basic ASCII, 16 characters maximum
+			pgmNameEditor.getCurrentTextEditor()->setInputRestrictions(16,
+				" !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~");
+			String nameEditorTooltip{ "" };
+			if (privateParams->shouldShowInfoTip())
+			{
+				nameEditorTooltip += "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
+				nameEditorTooltip += "Hit Esc to cancel. The Mopho's hardware LCD characters use the basic ASCII character\n";
+				nameEditorTooltip += "set, with a few exceptions: 'backslash' becomes a yen sign and 'tilde' becomes a\n";
+				nameEditorTooltip += "right arrow. The 'delete' character becomes a left arrow; obviously, you can't type\n";
+				nameEditorTooltip += "that in the editor. However, you can access it by clicking-and-dragging an individual\n";
+				nameEditorTooltip += "character in the GUI's name display. The hardware display will not be updated with the\n";
+				nameEditorTooltip += "new name until the Program Mode button is pressed on the Mopho.";
+			}
+			pgmNameEditor.getCurrentTextEditor()->setTooltip(nameEditorTooltip);
 		}
 
 		if (buttonThatWasClicked == &button_Read)
@@ -335,6 +362,8 @@ public:
 
 private:
 	PluginProcessor& processor;
+
+	PrivateParameters* privateParams;
 
 	LCDcharacterRenderer pgmBankAndSlotChar01;
 	LCDcharacterRenderer pgmBankAndSlotChar02;
