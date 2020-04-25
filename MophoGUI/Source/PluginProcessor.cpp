@@ -206,6 +206,49 @@ void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
 }
 
 //==============================================================================
+void PluginProcessor::updateProgramName(String newName)
+{
+    programName = newName;
+    for (auto i = 0; i != 16; ++i)
+    {
+        auto parameterIndex{ 184 + i }; // program name character parameters start at index 184
+        auto normalizedValue{ 0.007874f * (char)programName[i] }; // convert 0..127 to normalized value
+        nrpnOutputIsAllowed = false;
+        auto param{ getParameters()[parameterIndex] }; // program name character parameters start at index 184
+        param->setValueNotifyingHost(normalizedValue);
+        nrpnOutputIsAllowed = true;
+        nameCharCounter = 0;
+        startTimer(timerInterval);
+    }
+}
+
+void PluginProcessor::timerCallback()
+{
+		stopTimer();
+		switch (nameCharCounter)
+		{
+		case 0 : parameterValueChanged(184, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 1 : parameterValueChanged(185, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 2 : parameterValueChanged(186, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 3 : parameterValueChanged(187, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 4 : parameterValueChanged(188, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 5 : parameterValueChanged(189, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 6 : parameterValueChanged(190, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 7 : parameterValueChanged(191, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 8 : parameterValueChanged(192, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 9 : parameterValueChanged(193, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 10: parameterValueChanged(194, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 11: parameterValueChanged(195, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 12: parameterValueChanged(196, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 13: parameterValueChanged(197, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 14: parameterValueChanged(198, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(timerInterval); break;
+		case 15: parameterValueChanged(199, 0.007874f * (char)programName[nameCharCounter]); break;
+		default:
+			break;
+		}
+}
+
+//==============================================================================
 // This creates new instances of the plugin
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {

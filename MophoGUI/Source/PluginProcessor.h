@@ -9,7 +9,8 @@
 
 class PluginProcessor : 
     public AudioProcessor,
-    public AudioProcessorParameter::Listener
+    public AudioProcessorParameter::Listener,
+    public Timer
 {
 public:
     PluginProcessor();
@@ -62,6 +63,15 @@ public:
     // parameter data into the specified bank and program storage slot
     void sendDumpToStorageSlot(int bank, int pgmSlot);
 
+    //==============================================================================
+    // This ensures that, when the program name is changed, NRPN update messages
+    // are sent to the Mopho for all the characters in the name, including any  
+    // characters that were not actually changed.
+    void updateProgramName(String newName);
+
+    //==============================================================================
+    void timerCallback() override;
+
 private:
     std::unique_ptr<AudioProcessorValueTreeState> apvts;
 
@@ -74,10 +84,16 @@ private:
     // add the messages that are in it to the outgoing MIDI buffer.
     MidiBuffer internalMidiBuf;
 
-    // Used to block parameter change messages from being sent out when a program
-    // is being read into the GUI from the hardware and when parameter change
-    // messages are received from the Mopho's hardware knobs.
+    // Used to block parameter change messages from being sent out (e.g. when a
+    // program dump from the hardware is being applied to the GUI or when parameter
+    // change messages are received from the Mopho's hardware knobs).
     bool nrpnOutputIsAllowed;
+
+    // Used in timerCallback() to space out sending the NRPN messages
+    // for updating the individual name characters
+    int nameCharCounter{ 0 };
+    int timerInterval{ 20 };
+    String programName{ "Mopho Gooey!!!!!" };
 
     //==============================================================================
     // Extracts the parameter values from a program data dump received

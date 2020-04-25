@@ -14,8 +14,7 @@
 class ProgramNameSection : 
 	public Component,
 	public Label::Listener,
-	public Button::Listener,
-	private Timer
+	public Button::Listener
 {
 public:
 	ProgramNameSection
@@ -308,38 +307,6 @@ public:
 		return pgmName;
 	}
 
-	void setPgmName()
-	{
-		charCounter = 1;
-		startTimer(timerInterval);
-	}
-
-	void timerCallback() override
-	{
-		stopTimer();
-		switch (charCounter)
-		{
-		case 1 : knob_NameChar01.setCharValue(charBuffer[0 ]); ++charCounter; startTimer(timerInterval); break;
-		case 2 : knob_NameChar02.setCharValue(charBuffer[1 ]); ++charCounter; startTimer(timerInterval); break;
-		case 3 : knob_NameChar03.setCharValue(charBuffer[2 ]); ++charCounter; startTimer(timerInterval); break;
-		case 4 : knob_NameChar04.setCharValue(charBuffer[3 ]); ++charCounter; startTimer(timerInterval); break;
-		case 5 : knob_NameChar05.setCharValue(charBuffer[4 ]); ++charCounter; startTimer(timerInterval); break;
-		case 6 : knob_NameChar06.setCharValue(charBuffer[5 ]); ++charCounter; startTimer(timerInterval); break;
-		case 7 : knob_NameChar07.setCharValue(charBuffer[6 ]); ++charCounter; startTimer(timerInterval); break;
-		case 8 : knob_NameChar08.setCharValue(charBuffer[7 ]); ++charCounter; startTimer(timerInterval); break;
-		case 9 : knob_NameChar09.setCharValue(charBuffer[8 ]); ++charCounter; startTimer(timerInterval); break;
-		case 10: knob_NameChar10.setCharValue(charBuffer[9 ]); ++charCounter; startTimer(timerInterval); break;
-		case 11: knob_NameChar11.setCharValue(charBuffer[10]); ++charCounter; startTimer(timerInterval); break;
-		case 12: knob_NameChar12.setCharValue(charBuffer[11]); ++charCounter; startTimer(timerInterval); break;
-		case 13: knob_NameChar13.setCharValue(charBuffer[12]); ++charCounter; startTimer(timerInterval); break;
-		case 14: knob_NameChar14.setCharValue(charBuffer[13]); ++charCounter; startTimer(timerInterval); break;
-		case 15: knob_NameChar15.setCharValue(charBuffer[14]); ++charCounter; startTimer(timerInterval); break;
-		case 16: knob_NameChar16.setCharValue(charBuffer[15]); break;
-		default:
-			break;
-		}
-	}
-
 	void buttonClicked(Button* buttonThatWasClicked) override
 	{
 		if (buttonThatWasClicked == &button_Edit)
@@ -359,12 +326,10 @@ public:
 	{
 		if (labelThatHasChanged == &pgmNameEditor)
 		{
-			for (auto i = 0; i != 16; ++i)
-				charBuffer[i] = ' ';
 			String newName{ labelThatHasChanged->getText() };
-			for (auto i = 0; i != newName.length(); ++i)
-				charBuffer[i] = (char)newName[i];
-			setPgmName();
+			for (auto i = newName.length(); i < 16; ++i)
+				newName += " ";
+			processor.updateProgramName(newName);
 		}
 	}
 
