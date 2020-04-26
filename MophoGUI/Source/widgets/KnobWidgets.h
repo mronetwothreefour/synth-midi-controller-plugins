@@ -310,23 +310,25 @@ private:
 class KnobWidget_PlusMinus127 : public KnobWidget
 {
 public:
+	ValueConverters* valueConverters;
+
 	KnobWidget_PlusMinus127
 	(
 		String label,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(275);
 		drawValue(getSliderValue());
 	}
 
 	~KnobWidget_PlusMinus127() {}
-
-	ValueConverters valueConverters;
 
 private:
 	void drawValue(const int& currentValue) noexcept override;
@@ -350,9 +352,11 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "PITCH", apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget{ "PITCH", apvts, privateParameters, paramID, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(175);
 		auto currentValue{ getSliderValue() };
@@ -365,8 +369,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -385,9 +390,11 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "FINE", apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget{ "FINE", apvts, privateParameters, paramID, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(150);
 		auto currentValue{ getSliderValue() };
@@ -400,8 +407,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -420,9 +428,11 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "SHAPE", apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget{ "SHAPE", apvts, privateParameters, paramID, mophoLaF },
+		valueConverters{ vc }
 	{
 		shapeRenderer.setInterceptsMouseClicks(false, false);
 		shapeRenderer.setBounds(5, 5, shapeRenderer.getWidth(), shapeRenderer.getHeight());
@@ -439,8 +449,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	WaveShapeRenderer shapeRenderer;
 
 	void drawValue(const int& currentValue) noexcept override;
@@ -578,9 +589,11 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange, mophoLaF }
+		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(80);
 		auto currentValue{ getSliderValue() };
@@ -593,8 +606,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -668,9 +682,11 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq, mophoLaF }
+		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(200);
 		auto currentValue{ getSliderValue() };
@@ -683,8 +699,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -730,9 +747,10 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("ENV"), apvts, privateParameters, ID::lpfEnvAmount, mophoLaF }
+		KnobWidget_PlusMinus127{ String("ENV"), apvts, privateParameters, ID::lpfEnvAmount, mophoLaF, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1072,9 +1090,10 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, ID::env3Amount, mophoLaF }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, ID::env3Amount, mophoLaF, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1101,9 +1120,10 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1130,9 +1150,10 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1188,9 +1209,11 @@ public:
 		int lfoNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF }
+		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(200);
 		auto currentValue{ getSliderValue() };
@@ -1203,8 +1226,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -1222,9 +1246,11 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo, mophoLaF }
+		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo, mophoLaF },
+		valueConverters{ vc }
 	{
 		setKnobSensitivity(250);
 		auto currentValue{ getSliderValue() };
@@ -1237,8 +1263,9 @@ public:
 	{}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	void drawValue(const int& currentValue) noexcept override;
 	String createTooltipString(const int& currentValue) const noexcept override;
 
@@ -1258,13 +1285,15 @@ public:
 		int stepNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "track1Step" + (String)stepNumber, slider },
 		privateParams{ privateParameters },
 		mophoLaF{ mophoLaF },
 		name{ (String)stepNumber },
-		isPitch{ true }
+		isPitch{ true },
+		valueConverters{ vc }
 	{
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
@@ -1308,7 +1337,7 @@ public:
 		Rectangle<int> stepValueArea{ 0, 0, 26, 26 };
 		auto currentValue{ roundToInt(slider.getValue()) };
 		if (currentValue < 126)
-			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
+			g.drawText(valueConverters->intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
 		if (currentValue == 126) // sequencer track reset
 		{
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
@@ -1358,8 +1387,9 @@ private:
 
 	bool isPitch;
 
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	// Creates a tooltip String with a parameter description
 	// a verbose version of the parameter's current value
 	String createTooltipString(const int& currentValue) const noexcept;
@@ -1381,13 +1411,15 @@ public:
 		int stepNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "track" + (String)trackNumber + "Step" + (String)stepNumber, slider },
 		privateParams{ privateParameters },
 		mophoLaF{ mophoLaF },
 		name{ (String)stepNumber },
-		isPitch{ true }
+		isPitch{ true },
+		valueConverters{ vc }
 	{
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
@@ -1431,7 +1463,7 @@ public:
 		Rectangle<int> stepValueArea{ 0, 0, 26, 26 };
 		auto currentValue{ roundToInt(slider.getValue()) };
 		if (currentValue < 126)
-			g.drawText(valueConverters.intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
+			g.drawText(valueConverters->intToStepValue(currentValue, isPitch), stepValueArea, Justification::centred);
 		if (currentValue == 126) // sequencer track reset
 		{
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
@@ -1477,8 +1509,9 @@ private:
 
 	bool isPitch;
 
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	// Creates a tooltip String with a parameter description
 	// a verbose version of the parameter's current value
 	String createTooltipString(const int& currentValue) const noexcept;
@@ -1497,16 +1530,19 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		KnobWidget_OscPitch{ apvts, privateParameters, ID::pushItPitch, mophoLaF } 
+		KnobWidget_OscPitch{ apvts, privateParameters, ID::pushItPitch, mophoLaF, vc },
+		valueConverters{ vc }
 	{}
 
 	~KnobWidget_PushItPitch() {}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept;
 
 	//==============================================================================
@@ -1553,11 +1589,13 @@ public:
 		int charNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "nameChar" + (String)charNumber, slider },
 		privateParams{ privateParameters },
-		mophoLaF{ mophoLaF }
+		mophoLaF{ mophoLaF },
+		valueConverters{ vc }
 	{
 		addAndMakeVisible(charRenderer);
 
@@ -1621,11 +1659,12 @@ private:
 
 	LCDcharacterRenderer charRenderer;
 
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	// Creates a tooltip String with a parameter description
 	// a verbose version of the parameter's current value
 	String createTooltipString(const int& currentValue) const noexcept;
-
-	ValueConverters valueConverters;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PgmNameChar)

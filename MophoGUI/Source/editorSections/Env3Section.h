@@ -5,6 +5,7 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
 #include "../helpers/MophoLookAndFeel.h"
+#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/ButtonWidgets.h"
 #include "../widgets/EnvelopeWidget.h"
@@ -21,12 +22,13 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		button_Repeat{ "repeat", publicParams, privateParams, mophoLaF },
-		knob_Env3Amt{ publicParams, privateParams, mophoLaF },
+		button_Repeat{ "repeat", publicParams, privateParams, mophoLaF, vc },
+		knob_Env3Amt{ publicParams, privateParams, mophoLaF, vc },
 		knob_VelAmount{ publicParams, privateParams, ID::env3VelAmount, mophoLaF },
-		menu_Destination{ publicParams, privateParams, ID::env3Destination, mophoLaF, 126, false },
+		menu_Destination{ publicParams, privateParams, ID::env3Destination, mophoLaF, 126, false, vc },
 		envelopeWidget{ publicParams, privateParams, "env3", mophoLaF }
 	{
 		addAndMakeVisible(button_Repeat);

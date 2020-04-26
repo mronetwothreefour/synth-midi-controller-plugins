@@ -6,6 +6,7 @@
 
 #include "parameters/PublicParameters.h"
 #include "parameters/PrivateParameters.h"
+#include "helpers/ValueConverters.h"
 
 class PluginProcessor : 
     public AudioProcessor,
@@ -78,6 +79,8 @@ private:
     std::unique_ptr<PublicParameters> publicParams;
 
     std::unique_ptr<PrivateParameters> privateParams;
+
+    std::unique_ptr<ValueConverters> valueConverters;
 
     enum timerIDs
     {

@@ -6,6 +6,7 @@
 
 #include "helpers/CustomColors.h"
 #include "helpers/MophoLookAndFeel.h"
+#include "helpers/ValueConverters.h"
 #include "parameters/PrivateParameters.h"
 #include "editorSections/Env3Section.h"
 #include "editorSections/KnobAssignSection.h"
@@ -23,7 +24,14 @@
 class PluginEditor : public AudioProcessorEditor
 {
 public:
-    PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams, PrivateParameters* privateParameters);
+    PluginEditor
+    (
+        PluginProcessor& p, 
+        AudioProcessorValueTreeState* publicParams, 
+        PrivateParameters* privateParameters,
+        ValueConverters* vc
+    );
+
     ~PluginEditor();
 
     //==============================================================================
@@ -34,6 +42,8 @@ private:
     PluginProcessor& processor;
 
     PrivateParameters* privateParams;
+
+    ValueConverters* valueConverters;
 
     std::unique_ptr<OscillatorsSection> sectionOsc;
     std::unique_ptr<LPFSection> sectionLPF;

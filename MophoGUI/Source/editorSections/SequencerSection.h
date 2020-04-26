@@ -23,26 +23,27 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		menu_destination{ 1, publicParams, privateParams, mophoLaF, this },
+		menu_destination{ 1, publicParams, privateParams, mophoLaF, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to \"Rest.\""},
-		knob_Step01{ 1 , publicParams, privateParams, mophoLaF },
-		knob_Step02{ 2 , publicParams, privateParams, mophoLaF },
-		knob_Step03{ 3 , publicParams, privateParams, mophoLaF },
-		knob_Step04{ 4 , publicParams, privateParams, mophoLaF },
-		knob_Step05{ 5 , publicParams, privateParams, mophoLaF },
-		knob_Step06{ 6 , publicParams, privateParams, mophoLaF },
-		knob_Step07{ 7 , publicParams, privateParams, mophoLaF },
-		knob_Step08{ 8 , publicParams, privateParams, mophoLaF },
-		knob_Step09{ 9 , publicParams, privateParams, mophoLaF },
-		knob_Step10{ 10, publicParams, privateParams, mophoLaF },
-		knob_Step11{ 11, publicParams, privateParams, mophoLaF },
-		knob_Step12{ 12, publicParams, privateParams, mophoLaF },
-		knob_Step13{ 13, publicParams, privateParams, mophoLaF },
-		knob_Step14{ 14, publicParams, privateParams, mophoLaF },
-		knob_Step15{ 15, publicParams, privateParams, mophoLaF },
-		knob_Step16{ 16, publicParams, privateParams, mophoLaF }
+		knob_Step01{ 1 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step02{ 2 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step03{ 3 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step04{ 4 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step05{ 5 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step06{ 6 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step07{ 7 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step08{ 8 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step09{ 9 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step10{ 10, publicParams, privateParams, mophoLaF, vc },
+		knob_Step11{ 11, publicParams, privateParams, mophoLaF, vc },
+		knob_Step12{ 12, publicParams, privateParams, mophoLaF, vc },
+		knob_Step13{ 13, publicParams, privateParams, mophoLaF, vc },
+		knob_Step14{ 14, publicParams, privateParams, mophoLaF, vc },
+		knob_Step15{ 15, publicParams, privateParams, mophoLaF, vc },
+		knob_Step16{ 16, publicParams, privateParams, mophoLaF, vc }
 	{
 		button_Clear.addListener(this);
 
@@ -244,27 +245,28 @@ public:
 		int trackNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
 		trackNumber{ trackNum },
-		menu_destination{ trackNumber, publicParams, privateParams, mophoLaF, this },
+		menu_destination{ trackNumber, publicParams, privateParams, mophoLaF, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to 0 (C0)"},
-		knob_Step01{ trackNumber, 1 , publicParams, privateParams, mophoLaF },
-		knob_Step02{ trackNumber, 2 , publicParams, privateParams, mophoLaF },
-		knob_Step03{ trackNumber, 3 , publicParams, privateParams, mophoLaF },
-		knob_Step04{ trackNumber, 4 , publicParams, privateParams, mophoLaF },
-		knob_Step05{ trackNumber, 5 , publicParams, privateParams, mophoLaF },
-		knob_Step06{ trackNumber, 6 , publicParams, privateParams, mophoLaF },
-		knob_Step07{ trackNumber, 7 , publicParams, privateParams, mophoLaF },
-		knob_Step08{ trackNumber, 8 , publicParams, privateParams, mophoLaF },
-		knob_Step09{ trackNumber, 9 , publicParams, privateParams, mophoLaF },
-		knob_Step10{ trackNumber, 10, publicParams, privateParams, mophoLaF },
-		knob_Step11{ trackNumber, 11, publicParams, privateParams, mophoLaF },
-		knob_Step12{ trackNumber, 12, publicParams, privateParams, mophoLaF },
-		knob_Step13{ trackNumber, 13, publicParams, privateParams, mophoLaF },
-		knob_Step14{ trackNumber, 14, publicParams, privateParams, mophoLaF },
-		knob_Step15{ trackNumber, 15, publicParams, privateParams, mophoLaF },
-		knob_Step16{ trackNumber, 16, publicParams, privateParams, mophoLaF }
+		knob_Step01{ trackNumber, 1 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step02{ trackNumber, 2 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step03{ trackNumber, 3 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step04{ trackNumber, 4 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step05{ trackNumber, 5 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step06{ trackNumber, 6 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step07{ trackNumber, 7 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step08{ trackNumber, 8 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step09{ trackNumber, 9 , publicParams, privateParams, mophoLaF, vc },
+		knob_Step10{ trackNumber, 10, publicParams, privateParams, mophoLaF, vc },
+		knob_Step11{ trackNumber, 11, publicParams, privateParams, mophoLaF, vc },
+		knob_Step12{ trackNumber, 12, publicParams, privateParams, mophoLaF, vc },
+		knob_Step13{ trackNumber, 13, publicParams, privateParams, mophoLaF, vc },
+		knob_Step14{ trackNumber, 14, publicParams, privateParams, mophoLaF, vc },
+		knob_Step15{ trackNumber, 15, publicParams, privateParams, mophoLaF, vc },
+		knob_Step16{ trackNumber, 16, publicParams, privateParams, mophoLaF, vc }
 	{
 		button_Clear.addListener(this);
 
@@ -463,16 +465,17 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		button_SequencerOffOn{ publicParams, privateParams, mophoLaF },
-		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114 },
-		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124 },
-		knob_ClockTempo{ publicParams, privateParams, mophoLaF },
-		track1Controls{ publicParams, privateParams, mophoLaF },
-		track2Controls{ 2, publicParams, privateParams, mophoLaF },
-		track3Controls{ 3, publicParams, privateParams, mophoLaF },
-		track4Controls{ 4, publicParams, privateParams, mophoLaF }
+		button_SequencerOffOn{ publicParams, privateParams, mophoLaF, vc },
+		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114, vc },
+		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124, vc },
+		knob_ClockTempo{ publicParams, privateParams, mophoLaF, vc },
+		track1Controls{ publicParams, privateParams, mophoLaF, vc },
+		track2Controls{ 2, publicParams, privateParams, mophoLaF, vc },
+		track3Controls{ 3, publicParams, privateParams, mophoLaF, vc },
+		track4Controls{ 4, publicParams, privateParams, mophoLaF, vc }
 	{
 		addAndMakeVisible(button_SequencerOffOn);
 		addAndMakeVisible(menu_TriggerMode);

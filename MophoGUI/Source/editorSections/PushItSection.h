@@ -5,6 +5,7 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
 #include "../helpers/MophoLookAndFeel.h"
+#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/MenuWidgets.h"
 #include "../widgets/KnobWidgets.h"
@@ -18,11 +19,12 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		knob_Pitch{ publicParams, privateParams, mophoLaF },
+		knob_Pitch{ publicParams, privateParams, mophoLaF, vc },
 		knob_Velocity{ publicParams, privateParams, mophoLaF },
-		menu_Mode{ publicParams, privateParams, mophoLaF, 87 }
+		menu_Mode{ publicParams, privateParams, mophoLaF, 87, vc }
 	{
 		addAndMakeVisible(knob_Pitch);
 		addAndMakeVisible(knob_Velocity);

@@ -11,7 +11,8 @@ using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 class PublicParameters
 {
 public:
-	PublicParameters() = default;
+	PublicParameters(ValueConverters* vc) : valueConverters{ vc }
+	{}
 
 	~PublicParameters() = default;
 
@@ -24,117 +25,117 @@ public:
 
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
-			pitchNames.add(valueConverters.intToOscPitchString(i, true));
+			pitchNames.add(valueConverters->intToOscPitchString(i, true));
 
 		StringArray fineTune;
 		for (auto i = 0; i != 101; ++i)
-			fineTune.add(valueConverters.intToFineTuneRange(i, true));
+			fineTune.add(valueConverters->intToFineTuneRange(i, true));
 
 		StringArray oscShape;
 		for (auto i = 0; i != 104; ++i)
 		{
-			oscShape.add(valueConverters.intToOscWaveShape(i));
+			oscShape.add(valueConverters->intToOscWaveShape(i));
 		}
 
 		// 0 = "Off"; 1 = "On"
 		StringArray offOn;
 		for (auto i = 0; i != 2; ++i)
-			offOn.add(valueConverters.intToOffOn(i));
+			offOn.add(valueConverters->intToOffOn(i));
 
 		StringArray glideMode;
 		for (auto i = 0; i != 4; ++i)
-			glideMode.add(valueConverters.intToGlideMode(i));
+			glideMode.add(valueConverters->intToGlideMode(i));
 
 		StringArray pitchBendRange;
 		for (auto i = 0; i != 13; ++i)
-			pitchBendRange.add(valueConverters.intToBendRange(i, true));
+			pitchBendRange.add(valueConverters->intToBendRange(i, true));
 
 		StringArray notePriority;
 		for (auto i = 0; i != 6; ++i)
 		{
-			notePriority.add(valueConverters.intToNotePriorityChoice(i, true));
+			notePriority.add(valueConverters->intToNotePriorityChoice(i, true));
 		}
 
 		StringArray lpfFreq;
 		for (auto i = 0; i != 165; ++i)
-			lpfFreq.add(valueConverters.intToLPFfreq(i, true));
+			lpfFreq.add(valueConverters->intToLPFfreq(i, true));
 
 		// 0 = "2-Pole"; 1 = "4-Pole"
 		StringArray lpfType;
 		for (auto i = 0; i != 2; ++i)
-			lpfType.add(valueConverters.intToLPFtype(i));
+			lpfType.add(valueConverters->intToLPFtype(i));
 
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
 		{
-			modAmount.add(valueConverters.intToPlusMinus127(i));
+			modAmount.add(valueConverters->intToPlusMinus127(i));
 		}
 
 		StringArray lfoFreq;
 		for (auto i = 0; i != 167; ++i)
 		{
-			lfoFreq.add(valueConverters.intToLFOfreq(i, true));
+			lfoFreq.add(valueConverters->intToLFOfreq(i, true));
 		}
 
 		// 0 = "Triangle"; 1 = "Reverse Sawtooth";
 		// 2 = "Sawtooth" 3 = "Square"; 4 = "Random"
 		StringArray lfoShape;
 		for (auto i = 0; i != 5; ++i)
-			lfoShape.add(valueConverters.intToLFOshape(i));
+			lfoShape.add(valueConverters->intToLFOshape(i));
 
 		StringArray modSource;
 		for (auto i = 0; i != 23; ++i)
-			modSource.add(valueConverters.intToModSource(i));
+			modSource.add(valueConverters->intToModSource(i));
 
 		StringArray modDestination;
 		for (auto i = 0; i != 47; ++i)
-			modDestination.add(valueConverters.intToModDestination(i));
+			modDestination.add(valueConverters->intToModDestination(i));
 
 		// 0 = "Normal"; 1 = "Toggle"; 
 		// 2 = "Audio In"
 		StringArray pushItMode;
 		for (auto i = 0; i != 3; ++i)
-			pushItMode.add(valueConverters.intToPushItMode(i));
+			pushItMode.add(valueConverters->intToPushItMode(i));
 
 		StringArray clockTempo;
 		for (auto i = 0; i != 221; ++i)
-			clockTempo.add(valueConverters.intToClockTempo(i));
+			clockTempo.add(valueConverters->intToClockTempo(i));
 
 		StringArray clockDivide;
 		for (auto i = 0; i != 13; ++i)
-			clockDivide.add(valueConverters.intToClockDiv(i, true));
+			clockDivide.add(valueConverters->intToClockDiv(i, true));
 
 		// 0 = "Up"; 1 = "Down";
 		// 2 = "Up & Down" 3 = "Assign"
 		StringArray arpegMode;
 		for (auto i = 0; i != 4; ++i)
-			arpegMode.add(valueConverters.intToArpegMode(i));
+			arpegMode.add(valueConverters->intToArpegMode(i));
 
 		// 0 = "Normal"; 1 = "Normal, No Reset";
 		// 2 = "No Gate" 3 = "No Gate, No Reset";
 		// 4 = "Key Step"; 5 = "Audio Input"
 		StringArray sequencerTrig;
 		for (auto i = 0; i != 6; ++i)
-			sequencerTrig.add(valueConverters.intToSeqTrigger(i));
+			sequencerTrig.add(valueConverters->intToSeqTrigger(i));
 
 		// A list of the names of 
 		// the Mopho's parameters
 		// (excludes parameters 105..119, 184..199) 
 		StringArray mophoParams;
 		for (auto i = 0; i != 169; ++i)
-			mophoParams.add(valueConverters.intToParamName(i, true));
+			mophoParams.add(valueConverters->intToParamName(i, true));
 
 		StringArray track1Steps;
 		for (auto i = 0; i != 128; ++i)
-			track1Steps.add(valueConverters.intToStepValue(i, false));
+			track1Steps.add(valueConverters->intToStepValue(i, false));
 
 		StringArray track2_3_4Steps;
 		for (auto i = 0; i != 127; ++i)
-			track2_3_4Steps.add(valueConverters.intToStepValue(i, false));
+			track2_3_4Steps.add(valueConverters->intToStepValue(i, false));
 
 		StringArray nameChars;
 		for (auto i = 0; i != 128; ++i)
-			nameChars.add(valueConverters.intToPgmNameChar(i));
+			nameChars.add(valueConverters->intToPgmNameChar(i));
 
 		//==============================================================================
 		// Then, create the public parameter layout and return it
@@ -489,7 +490,7 @@ public:
 	}
 
 private:
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PublicParameters)

@@ -5,6 +5,7 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
 #include "../helpers/MophoLookAndFeel.h"
+#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/MenuWidgets.h"
 
@@ -17,12 +18,13 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		menu_Assign1{ 1, publicParams, privateParams, mophoLaF, 134 },
-		menu_Assign2{ 2, publicParams, privateParams, mophoLaF, 134 },
-		menu_Assign3{ 3, publicParams, privateParams, mophoLaF, 134 },
-		menu_Assign4{ 4, publicParams, privateParams, mophoLaF, 134 }
+		menu_Assign1{ 1, publicParams, privateParams, mophoLaF, 134, vc },
+		menu_Assign2{ 2, publicParams, privateParams, mophoLaF, 134, vc },
+		menu_Assign3{ 3, publicParams, privateParams, mophoLaF, 134, vc },
+		menu_Assign4{ 4, publicParams, privateParams, mophoLaF, 134, vc }
 	{
 		addAndMakeVisible(menu_Assign1);
 		addAndMakeVisible(menu_Assign2);

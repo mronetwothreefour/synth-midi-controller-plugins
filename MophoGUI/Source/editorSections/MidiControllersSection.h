@@ -21,10 +21,11 @@ public:
 		PrivateParameters* privateParams,
 		Identifier destinationParamID,
 		Identifier amountParamID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		menu_Destination{ controllerName, publicParams, privateParams, destinationParamID, mophoLaF, 136 },
-		knob_Amount{ publicParams, privateParams, amountParamID, mophoLaF }
+		menu_Destination{ controllerName, publicParams, privateParams, destinationParamID, mophoLaF, 136, vc },
+		knob_Amount{ publicParams, privateParams, amountParamID, mophoLaF, vc }
 	{
 		addAndMakeVisible(menu_Destination);
 		addAndMakeVisible(knob_Amount);
@@ -58,13 +59,14 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		modWheelControls{ "MOD WHEEL", publicParams, privateParams, ID::modWheelDest, ID::modWheelAmount, mophoLaF },
-		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::aftertouchDest, ID::aftertouchAmount, mophoLaF },
-		breathControls{ "BREATH", publicParams, privateParams, ID::breathDest, ID::breathAmount, mophoLaF },
-		velocityControls{ "VELOCITY", publicParams, privateParams, ID::velocityDest, ID::velocityAmount, mophoLaF },
-		footControls{ "FOOT PEDAL", publicParams, privateParams, ID::footPedalDest, ID::footPedalAmount, mophoLaF }
+		modWheelControls{ "MOD WHEEL", publicParams, privateParams, ID::modWheelDest, ID::modWheelAmount, mophoLaF, vc },
+		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::aftertouchDest, ID::aftertouchAmount, mophoLaF, vc },
+		breathControls{ "BREATH", publicParams, privateParams, ID::breathDest, ID::breathAmount, mophoLaF, vc },
+		velocityControls{ "VELOCITY", publicParams, privateParams, ID::velocityDest, ID::velocityAmount, mophoLaF, vc },
+		footControls{ "FOOT PEDAL", publicParams, privateParams, ID::footPedalDest, ID::footPedalAmount, mophoLaF, vc }
 	{
 		addAndMakeVisible(modWheelControls);
 		addAndMakeVisible(aftertouchControls);

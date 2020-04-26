@@ -17,7 +17,7 @@ class MenuWidget : public Component, public ComboBox::Listener
 public:
 	PrivateParameters* privateParams;
 
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
 	MenuWidget
 	(
@@ -27,14 +27,16 @@ public:
 		Identifier parameterID,
 		MophoLookAndFeel* mophoLaF,
 		int width,
-		bool placelabelBesideMenu
+		bool placelabelBesideMenu,
+		ValueConverters* vc
 	) :
 		name{ menuName },
 		paramID{ parameterID },
 		menu{ name },
 		privateParams{ privateParameters },
 		publicParams{ publicParameters },
-		labelIsBesideMenu{ placelabelBesideMenu }
+		labelIsBesideMenu{ placelabelBesideMenu },
+		valueConverters{ vc }
 	{
 		menu.setLookAndFeel(mophoLaF);
 		menu.addListener(this);
@@ -138,9 +140,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "NOTE PRIORITY", publicParameters, privateParameters, ID::notePriority, mophoLaF, width, false }
+		MenuWidget{ "NOTE PRIORITY", publicParameters, privateParameters, ID::notePriority, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -166,9 +169,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "GLIDE MODE", publicParameters, privateParameters, ID::glideMode, mophoLaF, width, false }
+		MenuWidget{ "GLIDE MODE", publicParameters, privateParameters, ID::glideMode, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -194,9 +198,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "ARPEGGIATOR MODE", publicParameters, privateParameters, ID::arpegMode, mophoLaF, width, false }
+		MenuWidget{ "ARPEGGIATOR MODE", publicParameters, privateParameters, ID::arpegMode, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -224,9 +229,10 @@ public:
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
 		int width,
-		bool labelIsBesideMenu
+		bool labelIsBesideMenu,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, labelIsBesideMenu }
+		MenuWidget{ "DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, labelIsBesideMenu, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -253,9 +259,10 @@ public:
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "SOURCE", publicParameters, privateParameters, paramID, mophoLaF, width, false }
+		MenuWidget{ "SOURCE", publicParameters, privateParameters, paramID, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -283,9 +290,10 @@ public:
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ controllerName + " DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, false }
+		MenuWidget{ controllerName + " DESTINATION", publicParameters, privateParameters, paramID, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -312,9 +320,10 @@ public:
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 		) :
-		MenuWidget{ "WAVE SHAPE", publicParameters, privateParameters, paramID, mophoLaF, width, false }
+		MenuWidget{ "WAVE SHAPE", publicParameters, privateParameters, paramID, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -340,9 +349,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "TRIGGER MODE", publicParameters, privateParameters, ID::sequencerTrig, mophoLaF, width, false }
+		MenuWidget{ "TRIGGER MODE", publicParameters, privateParameters, ID::sequencerTrig, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -368,9 +378,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "CLOCK DIVIDE", publicParameters, privateParameters, ID::clockDivide, mophoLaF, width, false }
+		MenuWidget{ "CLOCK DIVIDE", publicParameters, privateParameters, ID::clockDivide, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -397,9 +408,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		ComboBox::Listener* menuListener
+		ComboBox::Listener* menuListener,
+		ValueConverters* vc
 	) :
-		MenuWidget_ModDestination{ publicParameters, privateParameters, "track" + (String)trackNum + "Dest", mophoLaF, 126, true },
+		MenuWidget_ModDestination{ publicParameters, privateParameters, "track" + (String)trackNum + "Dest", mophoLaF, 126, true, vc },
 		listener{ menuListener }
 	{
 		addMenuListener(listener);
@@ -428,9 +440,10 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
-		MenuWidget{ "SWITCH MODE", publicParameters, privateParameters, ID::pushItMode, mophoLaF, width, false }
+		MenuWidget{ "SWITCH MODE", publicParameters, privateParameters, ID::pushItMode, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);
@@ -457,10 +470,11 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		MophoLookAndFeel* mophoLaF,
-		int width
+		int width,
+		ValueConverters* vc
 	) :
 		knobNum{ knobNumber },
-		MenuWidget{ "", publicParameters, privateParameters, "assignKnob" + (String)knobNumber, mophoLaF, width, false }
+		MenuWidget{ "", publicParameters, privateParameters, "assignKnob" + (String)knobNumber, mophoLaF, width, false, vc }
 	{
 		auto choices{ createChoices() };
 		addChoicesToMenuAndAttach(choices);

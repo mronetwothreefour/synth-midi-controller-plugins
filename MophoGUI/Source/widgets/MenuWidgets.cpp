@@ -5,7 +5,7 @@ StringArray MenuWidget_NotePriority::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 6; ++i)
 	{
-		choices.add(valueConverters.intToNotePriorityChoice(i, false));
+		choices.add(valueConverters->intToNotePriorityChoice(i, false));
 	}
 	return choices;
 }
@@ -14,7 +14,7 @@ String MenuWidget_NotePriority::createTooltipString(const int& currentValue) con
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToNotePriorityChoice(currentValue, true) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToNotePriorityChoice(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects which note is given priority when multiple\n";
@@ -32,7 +32,7 @@ StringArray MenuWidget_GlideMode::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 4; ++i)
 	{
-		choices.add(valueConverters.intToGlideMode(i));
+		choices.add(valueConverters->intToGlideMode(i));
 	}
 	return choices;
 }
@@ -41,7 +41,7 @@ String MenuWidget_GlideMode::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToGlideMode(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToGlideMode(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Fixed Rate: The actual glide time depends on the size of the note interval.\n";
@@ -59,7 +59,7 @@ StringArray MenuWidget_ArpegMode::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 4; ++i)
 	{
-		choices.add(valueConverters.intToArpegMode(i));
+		choices.add(valueConverters->intToArpegMode(i));
 	}
 	return choices;
 }
@@ -68,7 +68,7 @@ String MenuWidget_ArpegMode::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToArpegMode(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToArpegMode(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the order in which the arpeggiator plays notes.\n";
@@ -85,7 +85,7 @@ StringArray MenuWidget_ModDestination::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 47; ++i)
 	{
-		choices.add(valueConverters.intToModDestination(i));
+		choices.add(valueConverters->intToModDestination(i));
 	}
 	return choices;
 }
@@ -94,7 +94,7 @@ String MenuWidget_ModDestination::createTooltipString(const int& currentValue) c
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToModDestination(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToModDestination(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects the target parameter for modulation.";
@@ -109,7 +109,7 @@ StringArray MenuWidget_ModSource::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 23; ++i)
 	{
-		choices.add(valueConverters.intToModSource(i));
+		choices.add(valueConverters->intToModSource(i));
 	}
 	return choices;
 }
@@ -118,7 +118,7 @@ String MenuWidget_ModSource::createTooltipString(const int& currentValue) const 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToModSource(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToModSource(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects the modulation source.";
@@ -133,7 +133,7 @@ StringArray MenuWidget_MidiDestination::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 47; ++i)
 	{
-		choices.add(valueConverters.intToModDestination(i));
+		choices.add(valueConverters->intToModDestination(i));
 	}
 	return choices;
 }
@@ -142,7 +142,7 @@ String MenuWidget_MidiDestination::createTooltipString(const int& currentValue) 
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToModDestination(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToModDestination(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects the target parameter for\n";
@@ -158,7 +158,7 @@ StringArray MenuWidget_LFOshape::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 5; ++i)
 	{
-		choices.add(valueConverters.intToLFOshape(i));
+		choices.add(valueConverters->intToLFOshape(i));
 	}
 	return choices;
 }
@@ -167,7 +167,7 @@ String MenuWidget_LFOshape::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToLFOshape(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToLFOshape(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects the low-frequency oscillator's wave shape.\n";
@@ -182,7 +182,7 @@ StringArray MenuWidget_SeqTrigger::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 6; ++i)
 	{
-		choices.add(valueConverters.intToSeqTrigger(i));
+		choices.add(valueConverters->intToSeqTrigger(i));
 	}
 	return choices;
 }
@@ -191,7 +191,7 @@ String MenuWidget_SeqTrigger::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToSeqTrigger(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToSeqTrigger(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Normal: New notes reset the sequencer to the first step.\n";
@@ -216,7 +216,7 @@ StringArray MenuWidget_ClockDiv::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 13; ++i)
 	{
-		choices.add(valueConverters.intToClockDiv(i, false));
+		choices.add(valueConverters->intToClockDiv(i, false));
 	}
 	return choices;
 }
@@ -225,7 +225,7 @@ String MenuWidget_ClockDiv::createTooltipString(const int& currentValue) const n
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToClockDiv(currentValue, true) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToClockDiv(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the rate at which the sequencer and\n";
@@ -241,7 +241,7 @@ StringArray MenuWidget_PushItMode::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 3; ++i)
 	{
-		choices.add(valueConverters.intToPushItMode(i));
+		choices.add(valueConverters->intToPushItMode(i));
 	}
 	return choices;
 }
@@ -250,7 +250,7 @@ String MenuWidget_PushItMode::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToPushItMode(currentValue) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToPushItMode(currentValue) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Sets the operating mode for the Mopho's Push It! switch.\n";
@@ -271,7 +271,7 @@ StringArray MenuWidget_KnobAssign::createChoices() const
 	StringArray choices;
 	for (auto i = 0; i != 169; ++i)
 	{
-		choices.add(valueConverters.intToParamName(i, false));
+		choices.add(valueConverters->intToParamName(i, false));
 	}
 	return choices;
 }
@@ -280,7 +280,7 @@ String MenuWidget_KnobAssign::createTooltipString(const int& currentValue) const
 {
 	String tooltip{ "" };
 	if (privateParams->shouldShowValueTip())
-		tooltip += "Current Value: " + valueConverters.intToParamName(currentValue, true) + "\n";
+		tooltip += "Current Value: " + valueConverters->intToParamName(currentValue, true) + "\n";
 	if (privateParams->shouldShowInfoTip())
 	{
 		tooltip += "Selects a target parameter for the\n";

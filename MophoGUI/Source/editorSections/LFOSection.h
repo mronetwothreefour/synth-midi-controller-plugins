@@ -21,14 +21,15 @@ public:
 		int lfoNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
 		lfoNameString{ "LFO " + (String)lfoNum },
-		knob_Frequency{ lfoNum, publicParams, privateParams, mophoLaF },
+		knob_Frequency{ lfoNum, publicParams, privateParams, mophoLaF, vc },
 		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount", mophoLaF },
-		button_KeySync{ lfoNum, publicParams, privateParams, mophoLaF },
-		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", mophoLaF, 134 },
-		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 134, false }
+		button_KeySync{ lfoNum, publicParams, privateParams, mophoLaF, vc },
+		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", mophoLaF, 134, vc },
+		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 134, false, vc }
 	{
 		addAndMakeVisible(knob_Frequency);
 		addAndMakeVisible(knob_Amount);
@@ -107,12 +108,13 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) :
-		lfo1Controls{ 1, publicParams, privateParams, mophoLaF },
-		lfo2Controls{ 2, publicParams, privateParams, mophoLaF },
-		lfo3Controls{ 3, publicParams, privateParams, mophoLaF },
-		lfo4Controls{ 4, publicParams, privateParams, mophoLaF }
+		lfo1Controls{ 1, publicParams, privateParams, mophoLaF, vc },
+		lfo2Controls{ 2, publicParams, privateParams, mophoLaF, vc },
+		lfo3Controls{ 3, publicParams, privateParams, mophoLaF, vc },
+		lfo4Controls{ 4, publicParams, privateParams, mophoLaF, vc }
 	{
 		addAndMakeVisible(lfo1Controls);
 		addAndMakeVisible(lfo2Controls);

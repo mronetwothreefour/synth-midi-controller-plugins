@@ -17,8 +17,6 @@ class ButtonWidget : public Component, public Button::Listener
 public:
 	PrivateParameters* privateParams;
 
-	ValueConverters valueConverters;
-
 	ButtonWidget
 	(
 		String name,
@@ -90,19 +88,24 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ "oscSync", publicParameters, privateParameters, ID::oscSync, mophoLaF }
+		ButtonWidget{ "oscSync", publicParameters, privateParameters, ID::oscSync, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_Sync() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "Turns oscillator sync on or off. When\n";
@@ -128,19 +131,24 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, paramID, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, paramID, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_Track() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "Turns the oscillator's keyboard tracking\n";
@@ -166,19 +174,24 @@ public:
 		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::env3Repeat, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, ID::env3Repeat, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_Repeat() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "When repeat is on, envelope 3 loops through\n";
@@ -202,19 +215,24 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ "arpeg", publicParameters, privateParameters, ID::arpegOnOff, mophoLaF }
+		ButtonWidget{ "arpeg", publicParameters, privateParameters, ID::arpegOnOff, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_Arpeg() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "Turns the Mopho's arpeggiator on and off.\n";
@@ -238,19 +256,24 @@ public:
 		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::lpfType, mophoLaF }
+		ButtonWidget{ name, publicParameters, privateParameters, ID::lpfType, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_LPFtype() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToLPFtype(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToLPFtype(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
@@ -275,19 +298,24 @@ public:
 		int lfoNumber,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
 	) : 
-		ButtonWidget{ "lfo" + (String)lfoNumber + "KeySync", publicParameters, privateParameters, "lfo" + (String)lfoNumber + "KeySync", mophoLaF }
+		ButtonWidget{ "lfo" + (String)lfoNumber + "KeySync", publicParameters, privateParameters, "lfo" + (String)lfoNumber + "KeySync", mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_LFOkeySync() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "When on, the LFO cycle re-starts\n";
@@ -310,19 +338,24 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
-		) :
-		ButtonWidget{ "sequencer", publicParameters, privateParameters, ID::sequencerOnOff, mophoLaF }
+		MophoLookAndFeel* mophoLaF,
+		ValueConverters* vc
+	) :
+		ButtonWidget{ "sequencer", publicParameters, privateParameters, ID::sequencerOnOff, mophoLaF },
+		valueConverters{ vc }
 	{}
 
 	~ButtonWidget_SequencerOffOn() {}
 
 private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
 	String createTooltipString(const int& currentValue) const noexcept override
 	{
 		String tooltip{ "" };
 		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + valueConverters.intToOffOn(currentValue) + "\n";
+			tooltip += "Current Value: " + valueConverters->intToOffOn(currentValue) + "\n";
 		if (privateParams->shouldShowInfoTip())
 		{
 			tooltip += "Turns the Mopho's sequencer on and off.\n";

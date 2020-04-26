@@ -5,17 +5,20 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor(BusesProperties()),
     nrpnOutputIsAllowed{ true }
 {
-    publicParams.reset(new PublicParameters());
+    publicParams.reset(new PublicParameters(valueConverters.get()));
 
     apvts.reset(new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, publicParams->createLayout()));
 
     for (auto* param : getParameters()) param->addListener(this);
 
     privateParams.reset(new PrivateParameters());
+
+    valueConverters.reset(new ValueConverters());
 }
 
 PluginProcessor::~PluginProcessor()
 {
+    valueConverters = nullptr;
     privateParams = nullptr;
     apvts = nullptr;
     publicParams = nullptr;
@@ -69,7 +72,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 //==============================================================================
 AudioProcessorEditor* PluginProcessor::createEditor()
 {
-    return new PluginEditor(*this, apvts.get(), privateParams.get());
+    return new PluginEditor(*this, apvts.get(), privateParams.get(), valueConverters.get());
 }
 
 //==============================================================================

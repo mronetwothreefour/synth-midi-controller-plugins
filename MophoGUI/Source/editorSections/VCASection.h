@@ -5,6 +5,7 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
 #include "../helpers/MophoLookAndFeel.h"
+#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/EnvelopeWidget.h"
 #include "../widgets/KnobWidgets.h"

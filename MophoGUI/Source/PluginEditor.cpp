@@ -2,44 +2,51 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-PluginEditor::PluginEditor(PluginProcessor& p, AudioProcessorValueTreeState* publicParams, PrivateParameters* privateParameters) :
+PluginEditor::PluginEditor
+(
+    PluginProcessor& p,
+    AudioProcessorValueTreeState* publicParams,
+    PrivateParameters* privateParameters,
+    ValueConverters* vc
+) :
     AudioProcessorEditor{ &p },
     processor{ p },
-    privateParams{ privateParameters }
+    privateParams{ privateParameters },
+    valueConverters{ vc }
 {
     mophoLaF.reset(new MophoLookAndFeel());
 
-    sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionOsc.get());
 
-    sectionLPF.reset(new LPFSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionLPF.reset(new LPFSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionLPF.get());
 
     sectionVCA.reset(new VCASection(publicParams, privateParameters, mophoLaF.get()));
     addAndMakeVisible(sectionVCA.get());
 
-    sectionEnv3.reset(new Env3Section(publicParams, privateParameters, mophoLaF.get()));
+    sectionEnv3.reset(new Env3Section(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionEnv3.get());
 
-    sectionMod.reset(new ModulatorsSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionMod.reset(new ModulatorsSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionMod.get());
 
-    sectionMidi.reset(new MidiControllersSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionMidi.reset(new MidiControllersSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionMidi.get());
 
-    sectionLFO.reset(new LFOSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionLFO.reset(new LFOSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionLFO.get());
 
-    sectionSeq.reset(new SequencerSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionSeq.reset(new SequencerSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionSeq.get());
 
-    sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionKnobAssign.get());
 
-    sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get()));
+    sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionPushIt.get());
 
-    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, mophoLaF.get()));
+    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionPgmName.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
