@@ -171,7 +171,7 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
     }
 
     // resume sending NRPN messages to the Mopho when parameters change
-    nrpnOutputIsAllowed = true;
+    callAfterDelay(100, [this] { nrpnOutputIsAllowed = true; });
 }
 
 void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
@@ -221,21 +221,12 @@ void PluginProcessor::clearSequencerTrack(int trackNum)
 {
     if (trackNum > 0 && trackNum < 5)
     {
-        nrpnOutputIsAllowed = false;
-        for (auto i = 120; i != 136; ++i) // sequencer step parameters start at index 120
-        {
-            auto parameterIndex{ (trackNum - 1) * 16 + i }; // offset the parameter index by the track number
-            auto param{ getParameters()[parameterIndex] };
-            param->setValueNotifyingHost(trackNum == 1 ? 1.0f : 0.0f); // set track 1 steps to 'rest,' set steps in other tracks to 0
-        }
-        nrpnOutputIsAllowed = true;
-
         switch (trackNum)
         {
-        case 1: track1StepCounter = -1; MultiTimer::startTimer(sequencerTrack1StepTimer, sequencerStepTimerInterval); break;
-        case 2: track2StepCounter = -1; MultiTimer::startTimer(sequencerTrack2StepTimer, sequencerStepTimerInterval); break;
-        case 3: track3StepCounter = -1; MultiTimer::startTimer(sequencerTrack3StepTimer, sequencerStepTimerInterval); break;
-        case 4: track4StepCounter = -1; MultiTimer::startTimer(sequencerTrack4StepTimer, sequencerStepTimerInterval); break;
+        case 1: track1StepCounter = 0; MultiTimer::startTimer(sequencerTrack1StepTimer, sequencerStepTimerInterval); break;
+        case 2: track2StepCounter = 0; MultiTimer::startTimer(sequencerTrack2StepTimer, sequencerStepTimerInterval); break;
+        case 3: track3StepCounter = 0; MultiTimer::startTimer(sequencerTrack3StepTimer, sequencerStepTimerInterval); break;
+        case 4: track4StepCounter = 0; MultiTimer::startTimer(sequencerTrack4StepTimer, sequencerStepTimerInterval); break;
         default: break;
         }
     }
@@ -249,52 +240,55 @@ void PluginProcessor::timerCallback(int timerID)
     {
         if (nameCharCounter > -1 && nameCharCounter < 16)
         {
-            auto parameterIndex{ 184 + nameCharCounter }; // program name character parameters start at index 184
             auto normalizedValue{ 0.007874f * (char)programName[nameCharCounter] }; // convert 0..127 to normalized value
-            auto param{ getParameters()[parameterIndex] };
+            auto param{ getParameters()[184 + nameCharCounter] }; // program name character parameters start at index 184
             param->setValueNotifyingHost(normalizedValue);
-            if (nameCharCounter < 16)
-            {
-                ++nameCharCounter;
-                MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval);
-            }
+            if (nameCharCounter < 16) { ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); }
             else nameCharCounter = 0;
         }
-        else return;
     }
 
-    if (timerID == sequencerTrack1StepTimer || timerID == sequencerTrack2StepTimer || timerID == sequencerTrack3StepTimer || timerID == sequencerTrack4StepTimer)
+    if (timerID == sequencerTrack1StepTimer)
     {
-        int indexOffset;
-        switch (timerID)
+        if (track1StepCounter > -1 && track1StepCounter < 16)
         {
-        case sequencerTrack1StepTimer: indexOffset = 0;
-        case sequencerTrack2StepTimer: indexOffset = 16;
-        case sequencerTrack3StepTimer: indexOffset = 32;
-        case sequencerTrack4StepTimer: indexOffset = 48;
-        default: break;
+            auto param{ getParameters()[120 + track1StepCounter] }; // sequencer track 1 parameters start at index 120
+            param->setValueNotifyingHost(1.0f); // set all steps to 'rest'
+            if (track1StepCounter < 16) { ++track1StepCounter; MultiTimer::startTimer(sequencerTrack1StepTimer, sequencerStepTimerInterval); }
+            else track1StepCounter = 0;
         }
+    }
 
-        switch (nameCharCounter)
+    if (timerID == sequencerTrack2StepTimer)
+    {
+        if (track2StepCounter > -1 && track2StepCounter < 16)
         {
-        case -1 : ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 0 : parameterValueChanged(184, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 1 : parameterValueChanged(185, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 2 : parameterValueChanged(186, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 3 : parameterValueChanged(187, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 4 : parameterValueChanged(188, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 5 : parameterValueChanged(189, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 6 : parameterValueChanged(190, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 7 : parameterValueChanged(191, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 8 : parameterValueChanged(192, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 9 : parameterValueChanged(193, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 10: parameterValueChanged(194, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 11: parameterValueChanged(195, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 12: parameterValueChanged(196, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 13: parameterValueChanged(197, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 14: parameterValueChanged(198, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
-        case 15: parameterValueChanged(199, 0.007874f * (char)programName[nameCharCounter]); break;
-        default: break;
+            auto param{ getParameters()[136 + track2StepCounter] }; // sequencer track 2 parameters start at index 136
+            param->setValueNotifyingHost(0.0f); // set all steps to 0
+            if (track2StepCounter < 16) { ++track2StepCounter; MultiTimer::startTimer(sequencerTrack2StepTimer, sequencerStepTimerInterval); }
+            else track2StepCounter = 0;
+        }
+    }
+
+    if (timerID == sequencerTrack3StepTimer)
+    {
+        if (track3StepCounter > -1 && track3StepCounter < 16)
+        {
+            auto param{ getParameters()[152 + track3StepCounter] }; // sequencer track 3 parameters start at index 152
+            param->setValueNotifyingHost(0.0f); // set all steps to 0
+            if (track3StepCounter < 16) { ++track3StepCounter; MultiTimer::startTimer(sequencerTrack3StepTimer, sequencerStepTimerInterval); }
+            else track3StepCounter = 0;
+        }
+    }
+
+    if (timerID == sequencerTrack4StepTimer)
+    {
+        if (track4StepCounter > -1 && track4StepCounter < 16)
+        {
+            auto param{ getParameters()[168 + track4StepCounter] }; // sequencer track 4 parameters start at index 168
+            param->setValueNotifyingHost(0.0f); // set all steps to 0
+            if (track4StepCounter < 16) { ++track4StepCounter; MultiTimer::startTimer(sequencerTrack4StepTimer, sequencerStepTimerInterval); }
+            else track4StepCounter = 0;
         }
     }
 }

@@ -37,7 +37,7 @@ PluginEditor::PluginEditor
     sectionLFO.reset(new LFOSection(publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionLFO.get());
 
-    sectionSeq.reset(new SequencerSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionSeq.reset(new SequencerSection(processor, publicParams, privateParameters, mophoLaF.get(), vc));
     addAndMakeVisible(sectionSeq.get());
 
     sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, mophoLaF.get(), vc));

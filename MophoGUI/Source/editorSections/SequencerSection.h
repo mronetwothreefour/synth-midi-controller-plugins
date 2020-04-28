@@ -15,17 +15,18 @@
 class Track1Controls :
 	public Component,
 	public ComboBox::Listener,
-	public Button::Listener,
-	private Timer
+	public Button::Listener
 {
 public:
 	Track1Controls
 	(
+		PluginProcessor& p,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
+		processor{ p },
 		menu_destination{ 1, publicParams, privateParams, mophoLaF, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to \"Rest.\""},
 		knob_Step01{ 1 , publicParams, privateParams, mophoLaF, vc },
@@ -167,42 +168,14 @@ public:
 	void buttonClicked(Button* buttonThatWasClicked) override 
 	{
 		if (buttonThatWasClicked == &button_Clear)
-		{
-			knob_Step01.setToRest();
-			stepCounter = 2;
-			startTimer(timerInterval);
-		}
+			processor.clearSequencerTrack(1);
 	}
-
-	void timerCallback() override
-	{
-		stopTimer();
-		switch (stepCounter)
-		{
-		case 2 : knob_Step02.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 3 : knob_Step03.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 4 : knob_Step04.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 5 : knob_Step05.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 6 : knob_Step06.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 7 : knob_Step07.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 8 : knob_Step08.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 9 : knob_Step09.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 10: knob_Step10.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 11: knob_Step11.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 12: knob_Step12.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 13: knob_Step13.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 14: knob_Step14.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 15: knob_Step15.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		case 16: knob_Step16.setToRest(); ++stepCounter; startTimer(timerInterval); break;
-		default:
-			break;
-		}
-	}
-
 
 	void buttonStateChanged(Button* /*buttonThatChanged*/) override {}
 
 private:
+	PluginProcessor& processor;
+
 	MenuWidget_TrackDestination menu_destination;
 
 	TextButton button_Clear;
@@ -224,9 +197,6 @@ private:
 	KnobWidget_Track1Step knob_Step15;
 	KnobWidget_Track1Step knob_Step16;
 
-	int stepCounter{ 1 };
-	int timerInterval{ 10 };
-
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Track1Controls)
 };
@@ -236,19 +206,20 @@ private:
 class Tracks2_3_4Controls :
 	public Component,
 	public ComboBox::Listener,
-	public Button::Listener,
-	private Timer
+	public Button::Listener
 {
 public:
 	Tracks2_3_4Controls
 	(
 		int trackNum,
+		PluginProcessor& p,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		trackNumber{ trackNum },
+		processor{ p },
 		menu_destination{ trackNumber, publicParams, privateParams, mophoLaF, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to 0 (C0)"},
 		knob_Step01{ trackNumber, 1 , publicParams, privateParams, mophoLaF, vc },
@@ -390,41 +361,14 @@ public:
 	void buttonClicked(Button* buttonThatWasClicked) override 
 	{
 		if (buttonThatWasClicked == &button_Clear)
-		{
-			knob_Step01.setToZero();
-			stepCounter = 2;
-			startTimer(timerInterval);
-		}
-	}
-
-	void timerCallback() override
-	{
-		stopTimer();
-		switch (stepCounter)
-		{
-		case 2 : knob_Step02.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 3 : knob_Step03.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 4 : knob_Step04.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 5 : knob_Step05.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 6 : knob_Step06.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 7 : knob_Step07.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 8 : knob_Step08.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 9 : knob_Step09.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 10: knob_Step10.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 11: knob_Step11.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 12: knob_Step12.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 13: knob_Step13.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 14: knob_Step14.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 15: knob_Step15.setToZero(); ++stepCounter; startTimer(timerInterval); break;
-		case 16: knob_Step16.setToZero(); break;
-		default:
-			break;
-		}
+			processor.clearSequencerTrack(trackNumber);
 	}
 
 	void buttonStateChanged(Button* /*buttonThatChanged*/) override {}
 
 private:
+	PluginProcessor& processor;
+
 	int trackNumber;
 
 	MenuWidget_TrackDestination menu_destination;
@@ -448,9 +392,6 @@ private:
 	KnobWidget_Tracks2_3_4Step knob_Step15;
 	KnobWidget_Tracks2_3_4Step knob_Step16;
 
-	int stepCounter{ 1 };
-	int timerInterval{ 10 };
-
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tracks2_3_4Controls)
 };
@@ -463,6 +404,7 @@ class SequencerSection : public Component
 public:
 	SequencerSection
 	(
+		PluginProcessor& processor,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
 		MophoLookAndFeel* mophoLaF,
@@ -472,10 +414,10 @@ public:
 		menu_TriggerMode{ publicParams, privateParams, mophoLaF, 114, vc },
 		menu_ClockDiv{ publicParams, privateParams, mophoLaF, 124, vc },
 		knob_ClockTempo{ publicParams, privateParams, mophoLaF, vc },
-		track1Controls{ publicParams, privateParams, mophoLaF, vc },
-		track2Controls{ 2, publicParams, privateParams, mophoLaF, vc },
-		track3Controls{ 3, publicParams, privateParams, mophoLaF, vc },
-		track4Controls{ 4, publicParams, privateParams, mophoLaF, vc }
+		track1Controls{ processor, publicParams, privateParams, mophoLaF, vc },
+		track2Controls{ 2, processor, publicParams, privateParams, mophoLaF, vc },
+		track3Controls{ 3, processor, publicParams, privateParams, mophoLaF, vc },
+		track4Controls{ 4, processor, publicParams, privateParams, mophoLaF, vc }
 	{
 		addAndMakeVisible(button_SequencerOffOn);
 		addAndMakeVisible(menu_TriggerMode);

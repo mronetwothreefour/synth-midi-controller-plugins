@@ -116,8 +116,8 @@ private:
     int track2StepCounter{ 0 };
     int track3StepCounter{ 0 };
     int track4StepCounter{ 0 };
-    int pgmNameTimerInterval{ 40 };
-    int sequencerStepTimerInterval{ 20 };
+    int pgmNameTimerInterval{ 80 };
+    int sequencerStepTimerInterval{ 80 };
     String programName{ "Mopho Gooey!!!!!" };
 
     //==============================================================================
