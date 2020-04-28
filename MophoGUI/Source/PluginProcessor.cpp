@@ -111,6 +111,7 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
         if (parameterIndex == 100 && newValue == 1.0f)
             getParameters()[98]->setValueNotifyingHost(0.0f);
     }
+    else return;
 }
 
 //==============================================================================
@@ -212,47 +213,90 @@ void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
 void PluginProcessor::updateProgramName(String newName)
 {
     programName = newName;
-    for (auto i = 0; i != 16; ++i)
+    nameCharCounter = 0;
+    MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval);
+}
+
+void PluginProcessor::clearSequencerTrack(int trackNum)
+{
+    if (trackNum > 0 && trackNum < 5)
     {
-        auto parameterIndex{ 184 + i }; // program name character parameters start at index 184
-        auto normalizedValue{ 0.007874f * (char)programName[i] }; // convert 0..127 to normalized value
         nrpnOutputIsAllowed = false;
-        auto param{ getParameters()[parameterIndex] }; // program name character parameters start at index 184
-        param->setValueNotifyingHost(normalizedValue);
+        for (auto i = 120; i != 136; ++i) // sequencer step parameters start at index 120
+        {
+            auto parameterIndex{ (trackNum - 1) * 16 + i }; // offset the parameter index by the track number
+            auto param{ getParameters()[parameterIndex] };
+            param->setValueNotifyingHost(trackNum == 1 ? 1.0f : 0.0f); // set track 1 steps to 'rest,' set steps in other tracks to 0
+        }
         nrpnOutputIsAllowed = true;
-        nameCharCounter = 0;
-        startTimer(programNameTimer, pgmNameTimerInterval);
+
+        switch (trackNum)
+        {
+        case 1: track1StepCounter = -1; MultiTimer::startTimer(sequencerTrack1StepTimer, sequencerStepTimerInterval); break;
+        case 2: track2StepCounter = -1; MultiTimer::startTimer(sequencerTrack2StepTimer, sequencerStepTimerInterval); break;
+        case 3: track3StepCounter = -1; MultiTimer::startTimer(sequencerTrack3StepTimer, sequencerStepTimerInterval); break;
+        case 4: track4StepCounter = -1; MultiTimer::startTimer(sequencerTrack4StepTimer, sequencerStepTimerInterval); break;
+        default: break;
+        }
     }
 }
 
 void PluginProcessor::timerCallback(int timerID)
 {
-		stopTimer(timerID);
+    MultiTimer::stopTimer(timerID);
 
-        if (timerID == programNameTimer)
+    if (timerID == programNameTimer)
+    {
+        if (nameCharCounter > -1 && nameCharCounter < 16)
         {
-            switch (nameCharCounter)
+            auto parameterIndex{ 184 + nameCharCounter }; // program name character parameters start at index 184
+            auto normalizedValue{ 0.007874f * (char)programName[nameCharCounter] }; // convert 0..127 to normalized value
+            auto param{ getParameters()[parameterIndex] };
+            param->setValueNotifyingHost(normalizedValue);
+            if (nameCharCounter < 16)
             {
-            case 0 : parameterValueChanged(184, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 1 : parameterValueChanged(185, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 2 : parameterValueChanged(186, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 3 : parameterValueChanged(187, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 4 : parameterValueChanged(188, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 5 : parameterValueChanged(189, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 6 : parameterValueChanged(190, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 7 : parameterValueChanged(191, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 8 : parameterValueChanged(192, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 9 : parameterValueChanged(193, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 10: parameterValueChanged(194, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 11: parameterValueChanged(195, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 12: parameterValueChanged(196, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 13: parameterValueChanged(197, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 14: parameterValueChanged(198, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; startTimer(programNameTimer, pgmNameTimerInterval); break;
-            case 15: parameterValueChanged(199, 0.007874f * (char)programName[nameCharCounter]); break;
-            default:
-                break;
+                ++nameCharCounter;
+                MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval);
             }
+            else nameCharCounter = 0;
         }
+        else return;
+    }
+
+    if (timerID == sequencerTrack1StepTimer || timerID == sequencerTrack2StepTimer || timerID == sequencerTrack3StepTimer || timerID == sequencerTrack4StepTimer)
+    {
+        int indexOffset;
+        switch (timerID)
+        {
+        case sequencerTrack1StepTimer: indexOffset = 0;
+        case sequencerTrack2StepTimer: indexOffset = 16;
+        case sequencerTrack3StepTimer: indexOffset = 32;
+        case sequencerTrack4StepTimer: indexOffset = 48;
+        default: break;
+        }
+
+        switch (nameCharCounter)
+        {
+        case -1 : ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 0 : parameterValueChanged(184, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 1 : parameterValueChanged(185, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 2 : parameterValueChanged(186, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 3 : parameterValueChanged(187, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 4 : parameterValueChanged(188, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 5 : parameterValueChanged(189, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 6 : parameterValueChanged(190, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 7 : parameterValueChanged(191, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 8 : parameterValueChanged(192, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 9 : parameterValueChanged(193, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 10: parameterValueChanged(194, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 11: parameterValueChanged(195, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 12: parameterValueChanged(196, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 13: parameterValueChanged(197, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 14: parameterValueChanged(198, 0.007874f * (char)programName[nameCharCounter]); ++nameCharCounter; MultiTimer::startTimer(programNameTimer, pgmNameTimerInterval); break;
+        case 15: parameterValueChanged(199, 0.007874f * (char)programName[nameCharCounter]); break;
+        default: break;
+        }
+    }
 }
 
 //==============================================================================
