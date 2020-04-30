@@ -4601,6 +4601,9 @@
     <ClInclude Include="..\..\Source\editorSections\ProgramNameSection.h">
       <Filter>MophoGUI\Source\editorSections</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\DefaultProgramBanks.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

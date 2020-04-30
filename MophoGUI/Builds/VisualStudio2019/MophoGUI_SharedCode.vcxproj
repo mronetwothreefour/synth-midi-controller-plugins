@@ -1990,6 +1990,7 @@
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
     <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\ValueConverters.h" />
+    <ClInclude Include="..\..\Source\parameters\DefaultProgramBanks.h" />
     <ClInclude Include="..\..\Source\parameters\PrivateParameters.h" />
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />

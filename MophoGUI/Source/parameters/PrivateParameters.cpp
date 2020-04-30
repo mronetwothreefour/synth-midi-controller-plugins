@@ -1,13 +1,18 @@
 #include "PrivateParameters.h"
 
 PrivateParameters::PrivateParameters() :
-	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) }
+	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) },
+	programBankATree	{ new ValueTree(ID::programBankA)   },
+	programBankBTree	{ new ValueTree(ID::programBankB)   },
+	programBankCTree	{ new ValueTree(ID::programBankC)   }
 {
 	updateFromPreset = (bool)false;
 
 	setShouldShowValueTip(true);
 	setShouldShowInfoTip(true);
 	setTooltipDelay(1000);
+
+	setProgramBanksToDefaults();
 }
 
 PrivateParameters::~PrivateParameters()
@@ -57,5 +62,17 @@ bool PrivateParameters::setTooltipDelay(int delay)
 	tooltipOptionsTree->setProperty(ID::tooltipDelay, delay, nullptr);
 	bool wasSet{ tooltipOptionsTree->hasProperty(ID::tooltipDelay) };
 	return wasSet;
+}
+
+//==============================================================================
+
+void PrivateParameters::setProgramBanksToDefaults()
+{
+	for (auto i = 0; i != 128; ++i)
+	{
+		programBankATree->setProperty("pgm" + String(i), DefaultProgamBanks::bankA[i], nullptr);
+		programBankBTree->setProperty("pgm" + String(i), DefaultProgamBanks::bankB[i], nullptr);
+		programBankCTree->setProperty("pgm" + String(i), DefaultProgamBanks::bankC[i], nullptr);
+	}
 }
 

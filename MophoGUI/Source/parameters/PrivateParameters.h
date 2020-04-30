@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "DefaultProgramBanks.h"
 #include "../helpers/Identifiers.h"
 
 // Contains ValueTrees in which plugin parameters that are not 
@@ -50,8 +51,17 @@ public:
 	// Returns true if the property was set successfully
 	bool setTooltipDelay(int delay);
 
+	//==============================================================================
+	// Resets all the programs stored in the three
+	// program banks to the factory defaults
+	void setProgramBanksToDefaults();
+
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
+
+	std::unique_ptr<ValueTree> programBankATree;
+	std::unique_ptr<ValueTree> programBankBTree;
+	std::unique_ptr<ValueTree> programBankCTree;
 
 	Value updateFromPreset;
 

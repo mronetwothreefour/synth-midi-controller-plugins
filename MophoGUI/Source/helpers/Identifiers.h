@@ -233,4 +233,8 @@ namespace ID
 	const Identifier showParamInfo		{ "showParamInfo"	};
 	const Identifier tooltipDelay		{ "tooltipDelay"	};
 
+	const Identifier programBankA		{ "programBankA" };
+	const Identifier programBankB		{ "programBankB" };
+	const Identifier programBankC		{ "programBankC" };
+
 } // namespace ID
