@@ -70,9 +70,50 @@ void PrivateParameters::setProgramBanksToDefaults()
 {
 	for (auto i = 0; i != 128; ++i)
 	{
-		programBankATree->setProperty("pgm" + String(i), DefaultProgamBanks::bankA[i], nullptr);
-		programBankBTree->setProperty("pgm" + String(i), DefaultProgamBanks::bankB[i], nullptr);
-		programBankCTree->setProperty("pgm" + String(i), DefaultProgamBanks::bankC[i], nullptr);
+		programBankATree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankA[i], nullptr);
+		programBankBTree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankB[i], nullptr);
+		programBankCTree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankC[i], nullptr);
 	}
+}
+
+String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
+{
+	if (bank >= A && bank <= C)
+	{
+		if (pgmSlot > -1 && pgmSlot < 128)
+		{
+			String programDataString{ "" };
+			if (bank == A) { programDataString = programBankATree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == B) { programDataString = programBankBTree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == C) { programDataString = programBankCTree->getProperty("pgm" + (String)pgmSlot); }
+			return programDataString;
+		}
+		else return "invalid slot";
+	}
+	else return "invalid bank";
+}
+
+String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
+{
+	if (bank >= A && bank <= C)
+	{
+		if (pgmSlot > -1 && pgmSlot < 128)
+		{
+			auto programData{ getProgramDataString(bank, pgmSlot) };
+			String programName{ "" };
+			for (auto i = 422; i != 459; i += 2) // name character parameters start at character 422 in the storage string
+			{
+				if (i != 432 && i != 448) // skip the bytes that hold MS bit information, as they are irrelevant for name characters
+				{
+					auto hexValueString{ programData.substring(i, i + 2) };
+					auto charValue{ hexValueString.getHexValue32() };
+					programName += (String)std::string(1, (char)charValue);
+				}
+			}
+			return programName;
+		}
+		else return "invalid slot";
+	}
+	else return "invalid bank";
 }
 

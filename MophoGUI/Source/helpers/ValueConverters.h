@@ -667,12 +667,12 @@ struct ValueConverters
 				case 92: character = "Yen Symbol"; break;
 				case 126: character = "Right Arrow"; break;
 				case 127: character = "Left Arrow"; break;
-				default: character = std::string(1, char(i)); break;
+				default: character = std::string(1, (char)i); break;
 				}
-				character += " (" + String(i) + ")";
+				character += " (" + (String)i + ")";
 				return character;
 			}
-			else return "Control Character (" + String(i) + ")";
+			else return "Control Character (" + (String)i + ")";
 		}
 		else return "range error";
 	}
