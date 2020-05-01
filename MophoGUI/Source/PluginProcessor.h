@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "helpers/Identifiers.h"
-
 #include "parameters/PublicParameters.h"
 #include "parameters/PrivateParameters.h"
 #include "helpers/ValueConverters.h"
