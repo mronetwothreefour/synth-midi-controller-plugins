@@ -22,10 +22,9 @@ ProgramSlotsWidget::ProgramSlotsWidget
 		if (i < 10) slotNumber = "00" + (String)i;
 		if (i > 9 && i < 100) slotNumber = "0" + (String)i;
 		if (i > 99) slotNumber = (String)i;
-		programSlotButtons[i].setName(bankLetter + slotNumber);
-		programSlotButtons[i].setButtonText(bankLetter + slotNumber + " " + privateParameters->getStoredProgramName(pgmBank, i));
+		programSlotButtons[i].setName(bankLetter + slotNumber + " " + privateParameters->getStoredProgramName(pgmBank, i));
 		programSlotButtons[i].setLookAndFeel(mophoLaF);
-		programSlotButtons[i].setComponentID("pgmSlotToggle");
+		programSlotButtons[i].setComponentID(ID::pgmSlotToggle.toString());
 		programSlotButtons[i].setRadioGroupId(1);
 		addAndMakeVisible(programSlotButtons[i]);
 	}
@@ -55,11 +54,15 @@ void ProgramSlotsWidget::resized()
 
 //==============================================================================
 
-ProgramBanksWidget::ProgramBanksWidget
+ProgramBanksTab::ProgramBanksTab
 (
+	int pgmBank,
 	PluginProcessor& p,
 	PrivateParameters* privateParameters,
 	MophoLookAndFeel* mophoLaF
-)
+) :
+	bank{ pgmBank },
+	privateParams{ privateParameters },
+	programSlots{ bank, privateParams, mophoLaF }
 {
 }

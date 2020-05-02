@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
+#include "../helpers/Identifiers.h"
 #include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
@@ -29,6 +30,7 @@ public:
 		buttonAttachment{ *publicParameters, paramID.toString(), button },
 		privateParams{ privateParameters }
 	{
+		button.setComponentID(ID::paramToggle.toString());
 		button.setLookAndFeel(mophoLaF);
 		button.addListener(this);
 		addAndMakeVisible(button);

@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
+#include "../helpers/Identifiers.h"
 
 class MophoLookAndFeel :
 	public LookAndFeel_V4
@@ -135,16 +136,33 @@ public:
 	void drawTickBox
 	(
 		Graphics& g,
-		Component& /*component*/,
+		Component& component,
 		float x, float y, float w, float h,
 		const bool ticked,
 		const bool /*isEnabled*/,
-		const bool /*shouldDrawButtonAsHighlighted*/,
+		const bool shouldDrawButtonAsHighlighted,
 		const bool /*shouldDrawButtonAsDown*/
 		) override
 	{
-		g.setColour(ticked ? Color::switchOn : Color::switchOff);
-		g.fillEllipse(x, y, w, h);
+		if (component.getComponentID() == ID::paramToggle.toString())
+		{
+			g.setColour(ticked ? Color::switchOn : Color::switchOff);
+			g.fillEllipse(x, y, w, h);
+		}
+
+		if (component.getComponentID() == ID::pgmSlotToggle.toString())
+		{
+			auto buttonColor{ Color::device };
+			if (shouldDrawButtonAsHighlighted) buttonColor = buttonColor.brighter(0.4f);
+			if (ticked) buttonColor = buttonColor.brighter(0.7f);
+			g.setColour(buttonColor);
+			g.fillRect(x, y, w, h);
+			g.setColour(Color::black);
+			Font font{ "Arial", "Regular", 10.0f };
+			g.setFont(font);
+			Rectangle<float> textArea{ x + 3, y, w - 3, h };
+			g.drawText(component.getName(), textArea, Justification::centredLeft);
+		}
 	}
 
 	void drawComboBox(Graphics& g, int width, int height, bool /*isButtonDown*/,

@@ -40,21 +40,27 @@ private:
 };
 
 //==============================================================================
-// Contains a tabbed component holding 3 program storage banks and
-// controls for reading/writing individual programs or entire banks
-// and for adjusting the transfer time between the GUI and the hardware
-class ProgramBanksWidget
+// A component holding a program storage bank widget plus buttons for
+// reading/writing individual programs or entire banks and a slider for
+// adjusting the transfer time between the GUI and the hardware
+class ProgramBanksTab
 {
 public:
-    ProgramBanksWidget
+    ProgramBanksTab
     (
+        int pgmBank,
         PluginProcessor& p,
         PrivateParameters* privateParameters,
         MophoLookAndFeel* mophoLaF
     );
 
 private:
+    int bank;
+
+    PrivateParameters* privateParams;
+
+    ProgramSlotsWidget programSlots;
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksWidget)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTab)
 };

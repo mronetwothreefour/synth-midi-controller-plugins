@@ -228,6 +228,10 @@ namespace ID
 	const Identifier nameChar16			{ "nameChar16"		};
 
 	//==============================================================================
+	const Identifier paramToggle		{ "paramToggle"		};
+	const Identifier pgmSlotToggle		{ "pgmSlotToggle"	};
+
+	//==============================================================================
 	const Identifier tooltipOptions		{ "tooltipOptions"	};
 	const Identifier showCurrentVal		{ "showCurrentVal"	};
 	const Identifier showParamInfo		{ "showParamInfo"	};
