@@ -18,6 +18,9 @@ ProgramSlotsWidget::ProgramSlotsWidget
 	}
 	for (auto i = 0; i != 128; ++i)
 	{
+		setComponentID("ProgramSlotsWidget");
+
+		addAndMakeVisible(programSlotButtons[i]);
 		String slotNumber;
 		if (i < 10) slotNumber = "00" + (String)i;
 		if (i > 9 && i < 100) slotNumber = "0" + (String)i;
@@ -26,7 +29,6 @@ ProgramSlotsWidget::ProgramSlotsWidget
 		programSlotButtons[i].setLookAndFeel(mophoLaF);
 		programSlotButtons[i].setComponentID(ID::pgmSlotToggle.toString());
 		programSlotButtons[i].setRadioGroupId(1);
-		addAndMakeVisible(programSlotButtons[i]);
 	}
 
 	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonGap };
@@ -65,4 +67,44 @@ ProgramBanksTab::ProgramBanksTab
 	privateParams{ privateParameters },
 	programSlots{ bank, privateParams, mophoLaF }
 {
+	setComponentID("ProgramBanksTab");
+
+	addAndMakeVisible(programSlots);
+
+	auto programBanksTab_w{ 1015 };
+	auto programBanksTab_h{ 320 };
+	setSize(programBanksTab_w, programBanksTab_h);
+}
+
+ProgramBanksTab::~ProgramBanksTab()
+{
+}
+
+void ProgramBanksTab::resized()
+{
+	programSlots.setBounds(10, 10, programSlots.getWidth(), programSlots.getHeight());
+}
+
+//==============================================================================
+
+ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
+(
+	PluginProcessor& p,
+	PrivateParameters* privateParameters,
+	MophoLookAndFeel* mophoLaF
+) :
+	TabbedComponent(TabbedButtonBar::TabsAtLeft),
+	bankA{ PrivateParameters::programBank::A, p, privateParameters, mophoLaF },
+	bankB{ PrivateParameters::programBank::B, p, privateParameters, mophoLaF },
+	bankC{ PrivateParameters::programBank::C, p, privateParameters, mophoLaF }
+{
+	setTabBarDepth(30);
+	setOutline(0);
+	addTab("A", Color::device, &bankA, true, 1);
+	addTab("B", Color::device, &bankB, true, 2);
+	addTab("C", Color::device, &bankC, true, 3);
+
+	auto tab_w{ 1015 };
+	auto tab_h{ 320 };
+	setSize(tab_w + getTabBarDepth(), tab_h);
 }

@@ -101,7 +101,7 @@ String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 		{
 			auto programData{ getProgramDataString(bank, pgmSlot) };
 			String programName{ "" };
-			for (auto i = 422; i != 459; i += 2) // name character parameters start at character 422 in the storage string
+			for (auto i = 422; i != 460; i += 2) // name character parameters start at character 422 in the storage string
 			{
 				if (i != 432 && i != 448) // skip the bytes that hold MS bit information, as they are irrelevant for name characters
 				{

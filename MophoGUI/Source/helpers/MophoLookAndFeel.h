@@ -158,7 +158,7 @@ public:
 			g.setColour(buttonColor);
 			g.fillRect(x, y, w, h);
 			g.setColour(Color::black);
-			Font font{ "Arial", "Regular", 10.0f };
+			Font font{ "Arial", "Regular", 11.0f };
 			g.setFont(font);
 			Rectangle<float> textArea{ x + 3, y, w - 3, h };
 			g.drawText(component.getName(), textArea, Justification::centredLeft);
@@ -285,6 +285,150 @@ public:
 
 			idealHeight = standardMenuItemHeight > 0 ? standardMenuItemHeight : roundToInt(font.getHeight() * 1.3f);
 		}
+	}
+
+	//==============================================================================
+	class LookAndFeel_V4_DocumentWindowButton : public Button
+	{
+	public:
+		LookAndFeel_V4_DocumentWindowButton(const String& name, Colour c, const Path& normal, const Path& toggled)
+			: Button(name), colour(c), normalShape(normal), toggledShape(toggled)
+		{
+		}
+
+		void paintButton(Graphics& g, bool shouldDrawButtonAsHighlighted, bool /*shouldDrawButtonAsDown*/) override
+		{
+			auto background = Color::black;
+
+			g.fillAll(shouldDrawButtonAsHighlighted ? background.brighter(0.34f) : background);
+
+			g.setColour(Color::controlText);
+
+			auto& p = normalShape;
+
+			auto reducedRect = Justification(Justification::centred)
+				.appliedToRectangle(Rectangle<int>(getHeight(), getHeight()), getLocalBounds())
+				.toFloat()
+				.reduced(getHeight() * 0.3f);
+
+			g.fillPath(p, p.getTransformToScaleToFit(reducedRect, true));
+		}
+
+	private:
+		Colour colour;
+		Path normalShape, toggledShape;
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LookAndFeel_V4_DocumentWindowButton)
+	};
+
+	Button* createDocumentWindowButton(int buttonType) override
+	{
+		Path shape;
+		auto crossThickness = 0.25f;
+
+		if (buttonType == DocumentWindow::closeButton)
+		{
+			shape.addLineSegment({ 0.0f, 0.0f, 1.0f, 1.0f }, crossThickness);
+			shape.addLineSegment({ 1.0f, 0.0f, 0.0f, 1.0f }, crossThickness);
+
+			return new LookAndFeel_V4_DocumentWindowButton("close", Color::controlText, shape, shape);
+		}
+
+		jassertfalse;
+		return nullptr;
+	}
+
+	void positionDocumentWindowButtons
+	(
+		DocumentWindow&,
+		int titleBarX, int titleBarY,
+		int titleBarW, int titleBarH,
+		Button* minimiseButton,
+		Button* maximiseButton,
+		Button* closeButton,
+		bool positionTitleBarButtonsOnLeft
+	) override
+	{
+		titleBarH = jmin(titleBarH, titleBarH - titleBarY);
+
+		auto buttonW = static_cast<int> (titleBarH * 1.2);
+
+		auto x = positionTitleBarButtonsOnLeft ? titleBarX
+			: titleBarX + titleBarW - buttonW;
+
+		if (closeButton != nullptr)
+		{
+			closeButton->setBounds(x, titleBarY, buttonW, titleBarH);
+			x += positionTitleBarButtonsOnLeft ? buttonW : -buttonW;
+		}
+
+		if (positionTitleBarButtonsOnLeft)
+			std::swap(minimiseButton, maximiseButton);
+
+		if (maximiseButton != nullptr)
+		{
+			maximiseButton->setBounds(x, titleBarY, buttonW, titleBarH);
+			x += positionTitleBarButtonsOnLeft ? buttonW : -buttonW;
+		}
+
+		if (minimiseButton != nullptr)
+			minimiseButton->setBounds(x, titleBarY, buttonW, titleBarH);
+	}
+
+	void drawDocumentWindowTitleBar
+	(
+		DocumentWindow& window, 
+		Graphics& g,
+		int w, 
+		int h, 
+		int titleSpaceX, 
+		int titleSpaceW,
+		const Image* icon, 
+		bool drawTitleTextOnLeft
+	) override
+	{
+		if (w * h == 0)
+			return;
+
+		auto isActive = window.isActiveWindow();
+
+		g.fillAll(Color::black);
+
+		Font font("Arial", "Black", 18.0f);
+		g.setFont(font);
+
+		auto textW = font.getStringWidth(window.getName());
+		auto iconW = 0;
+		auto iconH = 0;
+
+		if (icon != nullptr)
+		{
+			iconH = static_cast<int> (font.getHeight());
+			iconW = icon->getWidth() * iconH / icon->getHeight() + 4;
+		}
+
+		textW = jmin(titleSpaceW, textW + iconW);
+		auto textX = drawTitleTextOnLeft ? titleSpaceX
+			: jmax(titleSpaceX, (w - textW) / 2);
+
+		if (textX + textW > titleSpaceX + titleSpaceW)
+			textX = titleSpaceX + titleSpaceW - textW;
+
+		if (icon != nullptr)
+		{
+			g.setOpacity(isActive ? 1.0f : 0.6f);
+			g.drawImageWithin(*icon, textX, (h - iconH) / 2, iconW, iconH,
+				RectanglePlacement::centred, false);
+			textX += iconW;
+			textW -= iconW;
+		}
+
+		if (window.isColourSpecified(DocumentWindow::textColourId) || isColourSpecified(DocumentWindow::textColourId))
+			g.setColour(window.findColour(DocumentWindow::textColourId));
+		else
+			g.setColour(getCurrentColourScheme().getUIColour(ColourScheme::defaultText));
+
+		g.drawText(window.getName(), textX, 0, textW, h, Justification::centredLeft, true);
 	}
 
 private:

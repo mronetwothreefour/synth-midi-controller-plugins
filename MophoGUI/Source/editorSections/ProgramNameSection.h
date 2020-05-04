@@ -9,6 +9,7 @@
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
 #include "../widgets/LCDcharacterRenderer.h"
+#include "../widgets/ProgramBanksWindow.h"
 
 // A set of controls targeting the program name characters
 class ProgramNameSection : 
@@ -27,6 +28,7 @@ public:
 	) :
 		processor{ p },
 		privateParams{ privateParameters },
+		mophoLookAndFeel{ mophoLaF },
 		knob_NameChar01{ 1 , publicParams, privateParams, mophoLaF, vc },
 		knob_NameChar02{ 2 , publicParams, privateParams, mophoLaF, vc },
 		knob_NameChar03{ 3 , publicParams, privateParams, mophoLaF, vc },
@@ -142,6 +144,7 @@ public:
 		button_Banks.setTooltip(button_BanksTooltip);
 		button_Banks.addListener(this);
 		button_Banks.setLookAndFeel(mophoLaF);
+		button_Banks.onClick = [this] { showProgramBanksWindow(); };
 		addAndMakeVisible(button_Banks);
 
 		String button_GlobalTooltip{ "" };
@@ -162,6 +165,15 @@ public:
 
 	~ProgramNameSection() 
 	{
+		if (programBanksDialogWindow != nullptr)
+		{
+			programBanksDialogWindow->exitModalState(0);
+			delete programBanksDialogWindow;
+		}
+
+		programBanksOptions = nullptr;
+		programBanksWindow = nullptr;
+
 		button_Banks.setLookAndFeel(nullptr);
 		button_Banks.removeListener(this);
 
@@ -366,6 +378,8 @@ private:
 
 	PrivateParameters* privateParams;
 
+	MophoLookAndFeel* mophoLookAndFeel;
+
 	LCDcharacterRenderer pgmBankAndSlotChar01;
 	LCDcharacterRenderer pgmBankAndSlotChar02;
 	LCDcharacterRenderer pgmBankAndSlotChar03;
@@ -414,6 +428,36 @@ private:
 
 	int charCounter{ 1 };
 	int timerInterval{ 10 };
+
+	SafePointer<DialogWindow> programBanksDialogWindow;
+	std::unique_ptr<DialogWindow::LaunchOptions> programBanksOptions;
+	std::unique_ptr<ProgramBanksWindow> programBanksWindow;
+
+	void showProgramBanksWindow()
+	{
+		programBanksWindow.reset(new ProgramBanksWindow(processor, privateParams, mophoLookAndFeel));
+		programBanksOptions.reset(new DialogWindow::LaunchOptions());
+		programBanksOptions->content.setNonOwned(programBanksWindow->contentComponent.get());
+		programBanksOptions->dialogTitle = "PROGRAM STORAGE BANKS";
+		programBanksOptions->escapeKeyTriggersCloseButton = true;
+		programBanksOptions->useNativeTitleBar = false;
+		programBanksOptions->dialogBackgroundColour = Color::device;
+		programBanksOptions->resizable = false;
+		programBanksOptions->content->setInterceptsMouseClicks(true, true);
+		programBanksDialogWindow = programBanksOptions->launchAsync();
+
+		if (programBanksDialogWindow != nullptr)
+		{
+			programBanksDialogWindow->setLookAndFeel(mophoLookAndFeel);
+			programBanksDialogWindow->setTitleBarHeight(30);
+			programBanksDialogWindow->setTitleBarTextCentred(false);
+
+			static const int dialogWindow_w{ programBanksWindow->contentComponent->getWidth() };
+			static const int dialogWindow_h{ programBanksWindow->contentComponent->getHeight() + programBanksDialogWindow->getTitleBarHeight() };
+			programBanksDialogWindow->centreAroundComponent(getParentComponent(), dialogWindow_w, dialogWindow_h);
+			programBanksDialogWindow->setResizeLimits(dialogWindow_w, dialogWindow_h, dialogWindow_w, dialogWindow_h);
+		}
+	}
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramNameSection)
