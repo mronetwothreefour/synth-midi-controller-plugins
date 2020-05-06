@@ -56,8 +56,6 @@ public:
 	// program banks to the factory defaults
 	void setProgramBanksToDefaults();
 
-	enum programBank { A = 0, B, C };
-
 	// Returns all the parameter values for the program stored
 	// in the specified bank and slot as a hex String
 	String getProgramDataString(int bank, int pgmSlot);
@@ -70,9 +68,9 @@ public:
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
 
-	std::unique_ptr<ValueTree> programBankATree;
-	std::unique_ptr<ValueTree> programBankBTree;
-	std::unique_ptr<ValueTree> programBankCTree;
+	std::unique_ptr<ValueTree> programBank1Tree;
+	std::unique_ptr<ValueTree> programBank2Tree;
+	std::unique_ptr<ValueTree> programBank3Tree;
 
 	Value updateFromPreset;
 

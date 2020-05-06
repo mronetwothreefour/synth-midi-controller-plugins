@@ -56,13 +56,27 @@ public:
     // parameter data currently in the Mopho's program edit buffer
     void sendPgmEditBufferDumpRequest();
 
-    // Creates a SysEx message which tells the Mopho to load the
-    // enclosed parameter data into its program edit buffer
-    void sendDumpToEditBuffer();
+    // Creates a SysEx message which tells the Mopho hardware to load
+    // the enclosed parameter data into its program edit buffer
+    void sendPgmEditBufferDump();
 
-    // Creates a SysEx message which tells the Mopho to load the enclosed
-    // parameter data into the specified bank and program storage slot
-    void sendDumpToStorageSlot(int bank, int pgmSlot);
+    // The program data in the specified slot in the plugin's storage banks is applied to
+    // the plugin's public parameters and also sent to the Mopho's program edit buffer
+    void loadProgramFromStorage(int bank, int pgmSlot);
+
+    // Saves the current settings for the plugin's public parameters 
+    // in the specified slot in the plugin's storage banks.
+    void saveProgramToStorage(int bank, int pgmSlot);
+
+    // Creates a SysEx message from the program settings stored in the
+    // specified slot in the plugin's storage banks. This is sent to the Mopho,
+    // and the program is stored in the corresponding hardware storage slot.
+    void pushpProgramToHardwareStorage(int bank, int pgmSlot);
+
+    // A request is sent to the Mopho for a dump of the program data stored in the
+    // specified hardware storage slot. The program data is extracted from the dump
+    // and saved in the corresponding slot in the plugin's storage banks.
+    void pullProgramFromHardwareStorage(int bank, int pgmSlot);
 
     //==============================================================================
     // This ensures that, when the program name is changed, NRPN update messages

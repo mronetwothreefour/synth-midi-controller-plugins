@@ -359,7 +359,7 @@ public:
 			processor.sendPgmEditBufferDumpRequest();
 
 		if (buttonThatWasClicked == &button_Write)
-			processor.sendDumpToEditBuffer();
+			processor.sendPgmEditBufferDump();
 	}
 
 	void labelTextChanged(Label* labelThatHasChanged) override

@@ -115,13 +115,14 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 }
 
 //==============================================================================
+
 void PluginProcessor::sendPgmEditBufferDumpRequest()
 {
     const char sysExData[]{ 1, 37, 6 };
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
-void PluginProcessor::sendDumpToEditBuffer()
+void PluginProcessor::sendPgmEditBufferDump()
 {
     uint8 sysExData[296]{};
 
@@ -134,79 +135,37 @@ void PluginProcessor::sendDumpToEditBuffer()
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
-void PluginProcessor::sendDumpToStorageSlot(int bank, int pgmSlot)
+void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
+{
+    auto programDataString{ privateParams->getProgramDataString(bank, pgmSlot) };
+    uint8 programData[293];
+
+    // convert the hex string values to integer values and add them to the data array
+    for (auto i = 0; i != 460; i += 2)
+    {
+        auto hexValueString{ programDataString.substring(i, i + 2) };
+        programData[i / 2] = (uint8)hexValueString.getHexValue32();
+    }
+
+    // there are 33 empty bytes added at the end of program dump messages
+    for (auto i = 260; i != 293; ++i)
+        programData[i] = 0;
+
+    applyPgmDumpDataToPlugin(programData);
+
+    callAfterDelay(100, [this] { sendPgmEditBufferDump(); });
+}
+
+void PluginProcessor::saveProgramToStorage(int bank, int pgmSlot)
 {
 }
 
-void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
+void PluginProcessor::pushpProgramToHardwareStorage(int bank, int pgmSlot)
 {
-    // prevent NRPN messages from being sent back to
-    // the Mopho while the parameters are being updated
-    nrpnOutputIsAllowed = false;
-
-    // To allow for parameters with value ranges beyond MIDI's 7-bit limit (127),
-    // the program data dump is organized into 36 8-byte packets:
-    // Bytes 2 through 7 in each packet hold the LSB values for 7 parameters,
-    // The first byte in the packet holds the MS bits for those 7 parameters
-    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
-    {
-        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
-        {
-            // Index of the data byte that holds the MS bit for the parameter's value
-            auto msbIndex{ (paramIndex / 7) * 8 };
-
-            auto offset{ paramIndex % 7 + 1 };
-
-            // Extract the MS bit value for the parameter (0 or 1)
-            int bitMask{ roundToInt(pow(2, offset - 1)) };
-            auto msbitValue{ *(dumpData + msbIndex) & bitMask };
-
-            // Index of the data byte that contains the parameter's LSB value
-            auto lsbIndex{ msbIndex + offset };
-            
-            auto newParamValue{ *(dumpData + lsbIndex) + (msbitValue > 0 ? 128 : 0) };
-            auto param{ getParameters()[paramIndex] };
-            param->setValueNotifyingHost((1.0f / (param->getNumSteps() - 1)) * newParamValue);
-        }
-    }
-
-    // resume sending NRPN messages to the Mopho when parameters change
-    callAfterDelay(100, [this] { nrpnOutputIsAllowed = true; });
 }
 
-void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
+void PluginProcessor::pullProgramFromHardwareStorage(int bank, int pgmSlot)
 {
-    nrpnOutputIsAllowed = false;
-
-    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
-    {
-        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
-        {
-            auto param{ getParameters()[paramIndex] };
-            auto paramValue{ roundToInt(param->getValue() * (param->getNumSteps() - 1)) };
-            if (paramIndex == 95) paramValue += 30; // clock tempo parameter range is offset by 30
-
-            // Index of the data byte that will hold the MS bit for the parameter's value
-            auto msbIndex{ (paramIndex / 7) * 8 + offset };
-
-            auto paramOffset{ paramIndex % 7 + 1 };
-
-            // Index of the data byte that contains the parameter's LSB value
-            auto lsbIndex{ msbIndex + paramOffset };
-
-            // If a parameter has a value above 127, store its 8th bit 
-            // in the MSB data byte for the packet the parameter is in
-            if (paramValue > 127)
-            {
-                *(buffer + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
-            }
-
-            // Store the LSB value of the parameter in the appropriate data byte
-            *(buffer + lsbIndex) = paramValue % 128;
-        }
-    }
-
-    nrpnOutputIsAllowed = true;
 }
 
 //==============================================================================
@@ -294,6 +253,80 @@ void PluginProcessor::timerCallback(int timerID)
 }
 
 //==============================================================================
+
+void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
+{
+    // prevent NRPN messages from being sent back to
+    // the Mopho while the parameters are being updated
+    nrpnOutputIsAllowed = false;
+
+    // To allow for parameters with value ranges beyond MIDI's 7-bit limit (127),
+    // the program data dump is organized into 36 8-byte packets:
+    // Bytes 2 through 7 in each packet hold the LSB values for 7 parameters,
+    // The first byte in the packet holds the MS bits for those 7 parameters
+    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
+    {
+        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
+        {
+            // Index of the data byte that holds the MS bit for the parameter's value
+            auto msbIndex{ (paramIndex / 7) * 8 };
+
+            auto offset{ paramIndex % 7 + 1 };
+
+            // Extract the MS bit value for the parameter (0 or 1)
+            int bitMask{ roundToInt(pow(2, offset - 1)) };
+            auto msbitValue{ *(dumpData + msbIndex) & bitMask };
+
+            // Index of the data byte that contains the parameter's LSB value
+            auto lsbIndex{ msbIndex + offset };
+
+            auto newParamValue{ *(dumpData + lsbIndex) + (msbitValue > 0 ? 128 : 0) };
+            auto param{ getParameters()[paramIndex] };
+            param->setValueNotifyingHost((1.0f / (param->getNumSteps() - 1)) * newParamValue);
+        }
+    }
+
+    // resume sending NRPN messages to the Mopho when parameters change
+    callAfterDelay(100, [this] { nrpnOutputIsAllowed = true; });
+}
+
+void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
+{
+    nrpnOutputIsAllowed = false;
+
+    for (int paramIndex = 0; paramIndex != 200; ++paramIndex)
+    {
+        if (paramIndex < 109 || paramIndex > 119) // skip unassigned parameter numbers
+        {
+            auto param{ getParameters()[paramIndex] };
+            auto paramValue{ roundToInt(param->getValue() * (param->getNumSteps() - 1)) };
+            if (paramIndex == 95) paramValue += 30; // clock tempo parameter range is offset by 30
+
+            // Index of the data byte that will hold the MS bit for the parameter's value
+            auto msbIndex{ (paramIndex / 7) * 8 + offset };
+
+            auto paramOffset{ paramIndex % 7 + 1 };
+
+            // Index of the data byte that contains the parameter's LSB value
+            auto lsbIndex{ msbIndex + paramOffset };
+
+            // If a parameter has a value above 127, store its 8th bit 
+            // in the MSB data byte for the packet the parameter is in
+            if (paramValue > 127)
+            {
+                *(buffer + msbIndex) += (uint8)roundToInt(pow(2, paramOffset - 1));
+            }
+
+            // Store the LSB value of the parameter in the appropriate data byte
+            *(buffer + lsbIndex) = paramValue % 128;
+        }
+    }
+
+    nrpnOutputIsAllowed = true;
+}
+
+//==============================================================================
+
 // This creates new instances of the plugin
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {

@@ -2,9 +2,9 @@
 
 PrivateParameters::PrivateParameters() :
 	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) },
-	programBankATree	{ new ValueTree(ID::programBankA)   },
-	programBankBTree	{ new ValueTree(ID::programBankB)   },
-	programBankCTree	{ new ValueTree(ID::programBankC)   }
+	programBank1Tree	{ new ValueTree(ID::programBank1)   },
+	programBank2Tree	{ new ValueTree(ID::programBank2)   },
+	programBank3Tree	{ new ValueTree(ID::programBank3)   }
 {
 	updateFromPreset = (bool)false;
 
@@ -70,22 +70,22 @@ void PrivateParameters::setProgramBanksToDefaults()
 {
 	for (auto i = 0; i != 128; ++i)
 	{
-		programBankATree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankA[i], nullptr);
-		programBankBTree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankB[i], nullptr);
-		programBankCTree->setProperty("pgm" + (String)i, DefaultProgamBanks::bankC[i], nullptr);
+		programBank1Tree->setProperty("pgm" + (String)i, DefaultProgamBanks::bank1[i], nullptr);
+		programBank2Tree->setProperty("pgm" + (String)i, DefaultProgamBanks::bank2[i], nullptr);
+		programBank3Tree->setProperty("pgm" + (String)i, DefaultProgamBanks::bank3[i], nullptr);
 	}
 }
 
 String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
 {
-	if (bank >= A && bank <= C)
+	if (bank >= 1 && bank <= 3)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{
 			String programDataString{ "" };
-			if (bank == A) { programDataString = programBankATree->getProperty("pgm" + (String)pgmSlot); }
-			if (bank == B) { programDataString = programBankBTree->getProperty("pgm" + (String)pgmSlot); }
-			if (bank == C) { programDataString = programBankCTree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 1) { programDataString = programBank1Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 2) { programDataString = programBank2Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 3) { programDataString = programBank3Tree->getProperty("pgm" + (String)pgmSlot); }
 			return programDataString;
 		}
 		else return "invalid slot";
@@ -95,7 +95,7 @@ String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
 
 String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 {
-	if (bank >= A && bank <= C)
+	if (bank >= 1 && bank <= 3)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{

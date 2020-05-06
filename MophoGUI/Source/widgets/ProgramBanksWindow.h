@@ -14,6 +14,8 @@
 class ProgramSlotsWidget : public Component
 {
 public:
+    int selectedSlot{ -1 };
+
     ProgramSlotsWidget
     (
         int pgmBank,
@@ -62,9 +64,18 @@ public:
 private:
     int bank;
 
+    PluginProcessor& processor;
+
     PrivateParameters* privateParams;
 
     ProgramSlotsWidget programSlots;
+
+    TextButton button_Load;
+    TextButton button_Save;
+    TextButton button_Push;
+    TextButton button_Pull;
+    TextButton button_PushBank;
+    TextButton button_PullBank;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTab)
@@ -84,9 +95,9 @@ public:
     );
 
 private:
-    ProgramBanksTab bankA;
-    ProgramBanksTab bankB;
-    ProgramBanksTab bankC;
+    ProgramBanksTab bank1;
+    ProgramBanksTab bank2;
+    ProgramBanksTab bank3;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTabbedComponent)
