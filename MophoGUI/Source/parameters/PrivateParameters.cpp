@@ -93,6 +93,20 @@ String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
 	else return "invalid bank";
 }
 
+void PrivateParameters::setProgramDataString(const uint8* data, int bank, int pgmSlot)
+{
+	if (bank >= 1 && bank <= 3)
+	{
+		if (pgmSlot > -1 && pgmSlot < 128)
+		{
+			String programDataString{ String::toHexString(data, 293, 0) };
+			if (bank == 1) { programBank1Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+			if (bank == 2) { programBank2Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+			if (bank == 3) { programBank3Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+		}
+	}
+}
+
 String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 {
 	if (bank >= 1 && bank <= 3)

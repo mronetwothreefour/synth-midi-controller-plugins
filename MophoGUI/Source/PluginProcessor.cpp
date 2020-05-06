@@ -130,7 +130,7 @@ void PluginProcessor::sendPgmEditBufferDump()
     *(sysExData + 1)   = 37;   // Mopho device ID
     *(sysExData + 2)   = 3;    // dump type ID (to edit buffer)
 
-    addParamDataToDumpBuffer(sysExData, 3);
+    addParamDataToBuffer(sysExData, 3);
 
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
@@ -138,7 +138,7 @@ void PluginProcessor::sendPgmEditBufferDump()
 void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
 {
     auto programDataString{ privateParams->getProgramDataString(bank, pgmSlot) };
-    uint8 programData[293];
+    uint8 programData[293]{};
 
     // convert the hex string values to integer values and add them to the data array
     for (auto i = 0; i != 460; i += 2)
@@ -147,10 +147,6 @@ void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
         programData[i / 2] = (uint8)hexValueString.getHexValue32();
     }
 
-    // there are 33 empty bytes added at the end of program dump messages
-    for (auto i = 260; i != 293; ++i)
-        programData[i] = 0;
-
     applyPgmDumpDataToPlugin(programData);
 
     callAfterDelay(100, [this] { sendPgmEditBufferDump(); });
@@ -158,9 +154,14 @@ void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
 
 void PluginProcessor::saveProgramToStorage(int bank, int pgmSlot)
 {
+    uint8 programData[293]{};
+
+    addParamDataToBuffer(programData, 0);
+
+    privateParams->setProgramDataString(programData, bank, pgmSlot);
 }
 
-void PluginProcessor::pushpProgramToHardwareStorage(int bank, int pgmSlot)
+void PluginProcessor::pushProgramToHardwareStorage(int bank, int pgmSlot)
 {
 }
 
@@ -290,7 +291,7 @@ void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
     callAfterDelay(100, [this] { nrpnOutputIsAllowed = true; });
 }
 
-void PluginProcessor::addParamDataToDumpBuffer(uint8* buffer, int offset)
+void PluginProcessor::addParamDataToBuffer(uint8* buffer, int offset)
 {
     nrpnOutputIsAllowed = false;
 

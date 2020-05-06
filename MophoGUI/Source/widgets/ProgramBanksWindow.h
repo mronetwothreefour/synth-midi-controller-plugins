@@ -28,11 +28,14 @@ public:
     //==============================================================================
     void resized() override;
 
+    void setNameForProgramSlotButton(int slot);
+
 private:
     PrivateParameters* privateParams;
 
     ToggleButton programSlotButtons[128];
 
+    int bankNum;
     int buttton_w{ 120 };
     int buttton_h{ 17 };
     int buttonGap{ 5 };

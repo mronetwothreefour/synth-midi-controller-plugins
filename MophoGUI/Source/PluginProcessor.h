@@ -71,7 +71,7 @@ public:
     // Creates a SysEx message from the program settings stored in the
     // specified slot in the plugin's storage banks. This is sent to the Mopho,
     // and the program is stored in the corresponding hardware storage slot.
-    void pushpProgramToHardwareStorage(int bank, int pgmSlot);
+    void pushProgramToHardwareStorage(int bank, int pgmSlot);
 
     // A request is sent to the Mopho for a dump of the program data stored in the
     // specified hardware storage slot. The program data is extracted from the dump
@@ -141,7 +141,7 @@ private:
 
     // Calculates LSB and MS bit values for each parameter and adds them to the
     // appropriate bytes in the buffer, starting from the byte specified by offset
-    void addParamDataToDumpBuffer(uint8* buffer, int offset);
+    void addParamDataToBuffer(uint8* buffer, int offset);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

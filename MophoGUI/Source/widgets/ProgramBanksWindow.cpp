@@ -6,18 +6,15 @@ ProgramSlotsWidget::ProgramSlotsWidget
     PrivateParameters* privateParameters,
     MophoLookAndFeel* mophoLaF
 ) :
-	privateParams{ privateParameters }
+	privateParams{ privateParameters },
+	bankNum{ pgmBank }
 {
 	for (auto i = 0; i != 128; ++i)
 	{
 		setComponentID("ProgramSlotsWidget");
 
 		addAndMakeVisible(programSlotButtons[i]);
-		String slotNumber;
-		if (i < 10) slotNumber = "00" + (String)i;
-		if (i > 9 && i < 100) slotNumber = "0" + (String)i;
-		if (i > 99) slotNumber = (String)i;
-		programSlotButtons[i].setName(slotNumber + " " + privateParameters->getStoredProgramName(pgmBank, i));
+		setNameForProgramSlotButton(i);
 		programSlotButtons[i].setLookAndFeel(mophoLaF);
 		programSlotButtons[i].setComponentID(ID::pgmSlotToggle.toString());
 		programSlotButtons[i].setRadioGroupId(1);
@@ -45,6 +42,15 @@ void ProgramSlotsWidget::resized()
 		auto row_y{ (i % 16) * buttton_h };
 		programSlotButtons[i].setBounds(col_x, row_y, buttton_w, buttton_h);
 	}
+}
+
+void ProgramSlotsWidget::setNameForProgramSlotButton(int slot)
+{
+	String slotNumber;
+	if (slot < 10) slotNumber = "00" + (String)slot;
+	if (slot > 9 && slot < 100) slotNumber = "0" + (String)slot;
+	if (slot > 99) slotNumber = (String)slot;
+	programSlotButtons[slot].setName(slotNumber + " " + privateParams->getStoredProgramName(bankNum, slot));
 }
 
 //==============================================================================
@@ -77,6 +83,26 @@ ProgramBanksTab::ProgramBanksTab
 	button_Load.onClick = [this] { if (programSlots.selectedSlot != -1) processor.loadProgramFromStorage(bank, programSlots.selectedSlot); };
 	addAndMakeVisible(button_Load);
 
+	String button_SaveTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		button_SaveTooltip += "Saves the plugin GUI's current settings\n";
+		button_SaveTooltip += "in the selected program storage slot.";
+	}
+	button_Save.setTooltip(button_SaveTooltip);
+	button_Save.setButtonText("SAVE");
+	button_Save.setLookAndFeel(mophoLaF);
+	button_Save.onClick = [this] 
+		{ 
+			if (programSlots.selectedSlot != -1)
+			{
+				processor.saveProgramToStorage(bank, programSlots.selectedSlot);
+				programSlots.setNameForProgramSlotButton(programSlots.selectedSlot);
+				repaint();
+			}
+		};
+	addAndMakeVisible(button_Save);
+
 	auto programBanksTab_w{ 1015 };
 	auto programBanksTab_h{ 325 };
 	setSize(programBanksTab_w, programBanksTab_h);
@@ -92,7 +118,8 @@ void ProgramBanksTab::resized()
 	auto button_y{ 294 };
 	auto button_w{ 50 };
 	auto button_h{ 21 };
-	button_Load.setBounds(208, button_y, button_w, button_h);
+	button_Load.setBounds(178, button_y, button_w, button_h);
+	button_Save.setBounds(238, button_y, button_w, button_h);
 }
 
 //==============================================================================
