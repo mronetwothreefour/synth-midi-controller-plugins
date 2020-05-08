@@ -42,10 +42,23 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 
                 // The first two bytes of SysEx messages from the Mopho
                 // are the DSI ID# (1) and the Mopho device ID# (37)
-                if (*(sysExData + 1) == 1 && *(sysExData + 2) == 37)
+                if (sysExData[1] == 1 && sysExData[2] == 37)
                 {
-                    // handle incoming program edit buffer data dumps
-                    if (*(sysExData + 3) == 3)
+                    // save incoming program data dumps to the plugin
+                    // storage bank and slot specified in the dump
+                    if (sysExData[3] == 2)
+                    {
+                        auto bank = sysExData[4] + 1;
+                        auto pgmSlot = sysExData[5];
+                        uint8 programData[293]{};
+                        for (auto j = 0; j != 293; ++j)
+                            programData[j] = sysExData[j + 6];
+                        privateParams->setProgramDataString(programData, bank, pgmSlot);
+                    }
+
+                    // apply incoming program edit buffer
+                    // data dumps to the plugin's GUI
+                    if (sysExData[3] == 3)
                     {
                         applyProgramDataToPlugin(sysExData + 4);
                     }
@@ -135,6 +148,32 @@ void PluginProcessor::sendPgmEditBufferDump()
     internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
+void PluginProcessor::sendProgramDumpRequest(int bank, int pgmSlot)
+{
+    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+    {
+        const char sysExData[]{ 1, 37, 5, (char)bank - 1, (char)pgmSlot };
+        internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+    }
+}
+
+void PluginProcessor::sendProgramDump(int bank, int pgmSlot)
+{
+    uint8 sysExData[298]{};
+
+    sysExData[0] = 1;               // DSI manufacturer ID
+    sysExData[1] = 37;              // Mopho device ID
+    sysExData[2] = 2;               // dump type ID (to storage slot)
+    sysExData[3] = (char)bank - 1;  // bank number (0..2)
+    sysExData[4] = (char)pgmSlot;   // bank number (0..127)
+
+    auto programData{ privateParams->getProgramDataFromStorageString(bank, pgmSlot) };
+    for (auto i = 0; i != 293; ++i)
+        sysExData[i + 5] = programData[i];
+
+    internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+}
+
 void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
 {
     auto programData{ privateParams->getProgramDataFromStorageString(bank, pgmSlot) };
@@ -155,10 +194,14 @@ void PluginProcessor::saveProgramToStorage(int bank, int pgmSlot)
 
 void PluginProcessor::pushProgramToHardwareStorage(int bank, int pgmSlot)
 {
+    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+        sendProgramDump(bank, pgmSlot);
 }
 
 void PluginProcessor::pullProgramFromHardwareStorage(int bank, int pgmSlot)
 {
+    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+        sendProgramDumpRequest(bank, pgmSlot);
 }
 
 //==============================================================================

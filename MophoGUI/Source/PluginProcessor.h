@@ -57,8 +57,16 @@ public:
     void sendPgmEditBufferDumpRequest();
 
     // Creates a SysEx message which tells the Mopho hardware to load
-    // the enclosed parameter data into its program edit buffer
+    // the enclosed program data into its program edit buffer
     void sendPgmEditBufferDump();
+
+    // Sends a SysEx message to the hardware requesting a dump of the
+    // program data stored in the specified bank and storage slot
+    void sendProgramDumpRequest(int bank, int pgmSlot);
+
+    // Creates a SysEx message which tells the Mopho hardware to save
+    // the enclosed program data in the specified bank and storage slot
+    void sendProgramDump(int bank, int pgmSlot);
 
     // The program data in the specified slot in the plugin's storage banks is applied to
     // the plugin's public parameters and also sent to the Mopho's program edit buffer

@@ -48,7 +48,7 @@ private:
 // A component holding a program storage bank widget plus buttons for
 // reading/writing individual programs or entire banks and a slider for
 // adjusting the transfer time between the GUI and the hardware
-class ProgramBanksTab : public Component
+class ProgramBanksTab : public Component, public Timer
 {
 public:
     ProgramBanksTab
@@ -63,6 +63,8 @@ public:
 
     //==============================================================================
     void resized() override;
+
+    void timerCallback() override {}
 
 private:
     int bank;

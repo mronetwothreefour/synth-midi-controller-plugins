@@ -47,9 +47,9 @@ void ProgramSlotsWidget::resized()
 void ProgramSlotsWidget::setNameForProgramSlotButton(int slot)
 {
 	String slotNumber;
-	if (slot < 10) slotNumber = "00" + (String)slot;
-	if (slot > 9 && slot < 100) slotNumber = "0" + (String)slot;
-	if (slot > 99) slotNumber = (String)slot;
+	if (slot < 10) slotNumber = "00" + (String)(slot + 1);
+	if (slot > 9 && slot < 100) slotNumber = "0" + (String)(slot + 1);
+	if (slot > 99) slotNumber = (String)(slot + 1);
 	programSlotButtons[slot].setName(slotNumber + " " + privateParams->getStoredProgramName(bankNum, slot));
 }
 
@@ -103,6 +103,43 @@ ProgramBanksTab::ProgramBanksTab
 		};
 	addAndMakeVisible(button_Save);
 
+	String button_PushTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		button_PushTooltip += "Push the data in the selected program storage slot\n";
+		button_PushTooltip += "to the corresponding storage slot in the Mopho hardware.";
+	}
+	button_Push.setTooltip(button_PushTooltip);
+	button_Push.setButtonText("PUSH");
+	button_Push.setLookAndFeel(mophoLaF);
+	button_Push.onClick = [this] 
+		{ 
+			if (programSlots.selectedSlot != -1)
+			{
+				processor.pushProgramToHardwareStorage(bank, programSlots.selectedSlot);
+			}
+		};
+	addAndMakeVisible(button_Push);
+
+	String button_PullTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		button_PullTooltip += "Pull the data from the selected program storage slot in the Mopho hardware\n";
+		button_PullTooltip += "and save it in the corresponding storage slot in the plugin.";
+	}
+	button_Pull.setTooltip(button_PullTooltip);
+	button_Pull.setButtonText("PULL");
+	button_Pull.setLookAndFeel(mophoLaF);
+	button_Pull.onClick = [this] 
+		{ 
+			if (programSlots.selectedSlot != -1)
+			{
+				processor.pullProgramFromHardwareStorage(bank, programSlots.selectedSlot);
+				callAfterDelay(300, [this] { programSlots.setNameForProgramSlotButton(programSlots.selectedSlot); programSlots.repaint(); });
+			}
+		};
+	addAndMakeVisible(button_Pull);
+
 	auto programBanksTab_w{ 1015 };
 	auto programBanksTab_h{ 325 };
 	setSize(programBanksTab_w, programBanksTab_h);
@@ -120,6 +157,8 @@ void ProgramBanksTab::resized()
 	auto button_h{ 21 };
 	button_Load.setBounds(178, button_y, button_w, button_h);
 	button_Save.setBounds(238, button_y, button_w, button_h);
+	button_Push.setBounds(298, button_y, button_w, button_h);
+	button_Pull.setBounds(358, button_y, button_w, button_h);
 }
 
 //==============================================================================
