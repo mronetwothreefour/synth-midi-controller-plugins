@@ -78,14 +78,14 @@ void PrivateParameters::setProgramBanksToDefaults()
 
 const uint8* PrivateParameters::getProgramDataFromStorageString(int bank, int pgmSlot)
 {
-	if (bank >= 1 && bank <= 3)
+	if (bank > -1 && bank < 3)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{
 			String programDataString{ "" };
-			if (bank == 1) { programDataString = programBank1Tree->getProperty("pgm" + (String)pgmSlot); }
-			if (bank == 2) { programDataString = programBank2Tree->getProperty("pgm" + (String)pgmSlot); }
-			if (bank == 3) { programDataString = programBank3Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 0) { programDataString = programBank1Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 1) { programDataString = programBank2Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 2) { programDataString = programBank3Tree->getProperty("pgm" + (String)pgmSlot); }
 
 			static uint8 programData[293]{};
 
@@ -105,21 +105,21 @@ const uint8* PrivateParameters::getProgramDataFromStorageString(int bank, int pg
 
 void PrivateParameters::setProgramDataString(const uint8* data, int bank, int pgmSlot)
 {
-	if (bank >= 1 && bank <= 3)
+	if (bank > -1 && bank < 3)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{
 			String programDataString{ String::toHexString(data, 293, 0) };
-			if (bank == 1) { programBank1Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
-			if (bank == 2) { programBank2Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
-			if (bank == 3) { programBank3Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+			if (bank == 0) { programBank1Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+			if (bank == 1) { programBank2Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
+			if (bank == 2) { programBank3Tree->setProperty("pgm" + (String)pgmSlot, programDataString, nullptr); }
 		}
 	}
 }
 
 String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 {
-	if (bank >= 1 && bank <= 3)
+	if (bank > -1 && bank < 3)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{

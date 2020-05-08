@@ -170,9 +170,9 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
 	MophoLookAndFeel* mophoLaF
 ) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
-	bank1{ 1, p, privateParameters, mophoLaF },
-	bank2{ 2, p, privateParameters, mophoLaF },
-	bank3{ 3, p, privateParameters, mophoLaF }
+	bank1{ 0, p, privateParameters, mophoLaF },
+	bank2{ 1, p, privateParameters, mophoLaF },
+	bank3{ 2, p, privateParameters, mophoLaF }
 {
 	setTabBarDepth(30);
 	setOutline(0);

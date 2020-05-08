@@ -48,7 +48,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
                     // storage bank and slot specified in the dump
                     if (sysExData[3] == 2)
                     {
-                        auto bank = sysExData[4] + 1;
+                        auto bank = sysExData[4];
                         auto pgmSlot = sysExData[5];
                         uint8 programData[293]{};
                         for (auto j = 0; j != 293; ++j)
@@ -150,9 +150,9 @@ void PluginProcessor::sendPgmEditBufferDump()
 
 void PluginProcessor::sendProgramDumpRequest(int bank, int pgmSlot)
 {
-    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+    if (bank > -1 && bank < 3 && pgmSlot > -1 && pgmSlot < 128)
     {
-        const char sysExData[]{ 1, 37, 5, (char)bank - 1, (char)pgmSlot };
+        const char sysExData[]{ 1, 37, 5, (char)bank, (char)pgmSlot };
         internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
     }
 }
@@ -164,7 +164,7 @@ void PluginProcessor::sendProgramDump(int bank, int pgmSlot)
     sysExData[0] = 1;               // DSI manufacturer ID
     sysExData[1] = 37;              // Mopho device ID
     sysExData[2] = 2;               // dump type ID (to storage slot)
-    sysExData[3] = (char)bank - 1;  // bank number (0..2)
+    sysExData[3] = (char)bank;      // bank number (0..2)
     sysExData[4] = (char)pgmSlot;   // bank number (0..127)
 
     auto programData{ privateParams->getProgramDataFromStorageString(bank, pgmSlot) };
@@ -194,13 +194,13 @@ void PluginProcessor::saveProgramToStorage(int bank, int pgmSlot)
 
 void PluginProcessor::pushProgramToHardwareStorage(int bank, int pgmSlot)
 {
-    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+    if (bank > -1 && bank < 3 && pgmSlot > -1 && pgmSlot < 128)
         sendProgramDump(bank, pgmSlot);
 }
 
 void PluginProcessor::pullProgramFromHardwareStorage(int bank, int pgmSlot)
 {
-    if (bank > 0 && bank < 4 && pgmSlot > -1 && pgmSlot < 128)
+    if (bank > -1 && bank < 3 && pgmSlot > -1 && pgmSlot < 128)
         sendProgramDumpRequest(bank, pgmSlot);
 }
 
