@@ -58,7 +58,7 @@ public:
 
 	// Returns all the parameter values for the program stored
 	// in the specified bank and slot as a hex String
-	String getProgramDataString(int bank, int pgmSlot);
+	const uint8* getProgramDataFromStorageString(int bank, int pgmSlot);
 
 	// Saves a program data buffer as a hex value String in the specified bank and storage slot
 	void setProgramDataString(const uint8* data, int bank, int pgmSlot);

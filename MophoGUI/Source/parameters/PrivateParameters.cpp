@@ -76,7 +76,7 @@ void PrivateParameters::setProgramBanksToDefaults()
 	}
 }
 
-String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
+const uint8* PrivateParameters::getProgramDataFromStorageString(int bank, int pgmSlot)
 {
 	if (bank >= 1 && bank <= 3)
 	{
@@ -86,11 +86,21 @@ String PrivateParameters::getProgramDataString(int bank, int pgmSlot)
 			if (bank == 1) { programDataString = programBank1Tree->getProperty("pgm" + (String)pgmSlot); }
 			if (bank == 2) { programDataString = programBank2Tree->getProperty("pgm" + (String)pgmSlot); }
 			if (bank == 3) { programDataString = programBank3Tree->getProperty("pgm" + (String)pgmSlot); }
-			return programDataString;
+
+			static uint8 programData[293]{};
+
+			// convert the hex string values to integer values and add them to the data array
+			for (auto i = 0; i != 460; i += 2)
+			{
+				auto hexValueString{ programDataString.substring(i, i + 2) };
+				programData[i / 2] = (uint8)hexValueString.getHexValue32();
+			}
+
+			return programData;
 		}
-		else return "invalid slot";
+		else return nullptr;
 	}
-	else return "invalid bank";
+	else return nullptr;
 }
 
 void PrivateParameters::setProgramDataString(const uint8* data, int bank, int pgmSlot)
@@ -113,18 +123,20 @@ String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 	{
 		if (pgmSlot > -1 && pgmSlot < 128)
 		{
-			auto programData{ getProgramDataString(bank, pgmSlot) };
-			String programName{ "" };
-			for (auto i = 422; i != 460; i += 2) // name character parameters start at character 422 in the storage string
+			auto programData{ getProgramDataFromStorageString(bank, pgmSlot) };
+			if (programData != nullptr)
 			{
-				if (i != 432 && i != 448) // skip the bytes that hold MS bit information, as they are irrelevant for name characters
+				String programName{ "" };
+				for (auto i = 211; i != 230; i += 1) // name character parameters start at character 422 in the storage string
 				{
-					auto hexValueString{ programData.substring(i, i + 2) };
-					auto charValue{ hexValueString.getHexValue32() };
-					programName += (String)std::string(1, (char)charValue);
+					if (i != 216 && i != 224) // skip the bytes that hold MS bit information, as they are irrelevant for name characters
+					{
+						programName += (String)std::string(1, (char)*(programData + i));
+					}
 				}
+				return programName;
 			}
-			return programName;
+			else return "invalid data";
 		}
 		else return "invalid slot";
 	}

@@ -47,7 +47,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
                     // handle incoming program edit buffer data dumps
                     if (*(sysExData + 3) == 3)
                     {
-                        applyPgmDumpDataToPlugin(sysExData + 4);
+                        applyProgramDataToPlugin(sysExData + 4);
                     }
                 }
             }
@@ -126,9 +126,9 @@ void PluginProcessor::sendPgmEditBufferDump()
 {
     uint8 sysExData[296]{};
 
-    *(sysExData)       = 1;    // DSI manufacturer ID
-    *(sysExData + 1)   = 37;   // Mopho device ID
-    *(sysExData + 2)   = 3;    // dump type ID (to edit buffer)
+    sysExData[0] = 1;    // DSI manufacturer ID
+    sysExData[1] = 37;   // Mopho device ID
+    sysExData[2] = 3;    // dump type ID (to edit buffer)
 
     addParamDataToBuffer(sysExData, 3);
 
@@ -137,17 +137,9 @@ void PluginProcessor::sendPgmEditBufferDump()
 
 void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
 {
-    auto programDataString{ privateParams->getProgramDataString(bank, pgmSlot) };
-    uint8 programData[293]{};
-
-    // convert the hex string values to integer values and add them to the data array
-    for (auto i = 0; i != 460; i += 2)
-    {
-        auto hexValueString{ programDataString.substring(i, i + 2) };
-        programData[i / 2] = (uint8)hexValueString.getHexValue32();
-    }
-
-    applyPgmDumpDataToPlugin(programData);
+    auto programData{ privateParams->getProgramDataFromStorageString(bank, pgmSlot) };
+    if (programData != nullptr)
+        applyProgramDataToPlugin(programData);
 
     callAfterDelay(100, [this] { sendPgmEditBufferDump(); });
 }
@@ -255,7 +247,7 @@ void PluginProcessor::timerCallback(int timerID)
 
 //==============================================================================
 
-void PluginProcessor::applyPgmDumpDataToPlugin(const uint8* dumpData)
+void PluginProcessor::applyProgramDataToPlugin(const uint8* dumpData)
 {
     // prevent NRPN messages from being sent back to
     // the Mopho while the parameters are being updated

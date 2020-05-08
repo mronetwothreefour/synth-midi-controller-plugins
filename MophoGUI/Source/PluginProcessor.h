@@ -137,7 +137,7 @@ private:
     // Extracts the parameter values from a program data dump received
     // from the Mopho and applies them to the plugin's parameter settings
     // (without sending parameter change messages back to the Mopho)
-    void applyPgmDumpDataToPlugin(const uint8* dumpData);
+    void applyProgramDataToPlugin(const uint8* dumpData);
 
     // Calculates LSB and MS bit values for each parameter and adds them to the
     // appropriate bytes in the buffer, starting from the byte specified by offset
