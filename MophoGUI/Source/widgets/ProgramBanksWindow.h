@@ -48,9 +48,18 @@ private:
 // A component holding a program storage bank widget plus buttons for
 // reading/writing individual programs or entire banks and a slider for
 // adjusting the transfer time between the GUI and the hardware
-class ProgramBanksTab : public Component, public Timer
+class ProgramBanksTab :
+    public Component,
+    public Timer,
+    public ApplicationCommandTarget
 {
 public:
+    enum commandChoices
+    {
+        copyProgram = 1,
+        pasteProgram
+    };
+
     ProgramBanksTab
     (
         int pgmBank,
@@ -65,6 +74,14 @@ public:
     void resized() override;
 
     void timerCallback() override {}
+
+    ApplicationCommandTarget* getNextCommandTarget() override { return nullptr; }
+
+    void getAllCommands(Array<CommandID>& commands) override;
+
+    void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
+
+    bool perform(const InvocationInfo& info) override;
 
 private:
     int bank;
@@ -81,6 +98,8 @@ private:
     TextButton button_Pull;
     TextButton button_PushBank;
     TextButton button_PullBank;
+
+    ApplicationCommandManager commandManager;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTab)

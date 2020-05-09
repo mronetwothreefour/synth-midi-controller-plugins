@@ -143,3 +143,33 @@ String PrivateParameters::getStoredProgramName(int bank, int pgmSlot)
 	else return "invalid bank";
 }
 
+void PrivateParameters::copySelectedProgramToBuffer(int bank, int pgmSlot)
+{
+	if (bank > -1 && bank < 3)
+	{
+		if (pgmSlot > -1 && pgmSlot < 128)
+		{
+			if (bank == 0) { programBuffer = programBank1Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 1) { programBuffer = programBank2Tree->getProperty("pgm" + (String)pgmSlot); }
+			if (bank == 2) { programBuffer = programBank3Tree->getProperty("pgm" + (String)pgmSlot); }
+		}
+	}
+	else programBuffer = "";
+}
+
+void PrivateParameters::replaceSelectedProgramWithBuffer(int bank, int pgmSlot)
+{
+	if (programBuffer != "")
+	{
+		if (bank > -1 && bank < 3)
+		{
+			if (pgmSlot > -1 && pgmSlot < 128)
+			{
+				if (bank == 0) { programBank1Tree->setProperty("pgm" + (String)pgmSlot, programBuffer, nullptr); }
+				if (bank == 1) { programBank2Tree->setProperty("pgm" + (String)pgmSlot, programBuffer, nullptr); }
+				if (bank == 2) { programBank3Tree->setProperty("pgm" + (String)pgmSlot, programBuffer, nullptr); }
+			}
+		}
+	}
+}
+

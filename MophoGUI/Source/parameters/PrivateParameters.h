@@ -68,6 +68,12 @@ public:
 	// and slot and combines them into a String
 	String getStoredProgramName(int bank, int pgmSlot);
 
+	// Copies the String for the selected program to a buffer
+	void copySelectedProgramToBuffer(int bank, int pgmSlot);
+
+	// Replaces the selected program String with the String in the buffer
+	void replaceSelectedProgramWithBuffer(int bank, int pgmSlot);
+
 private:
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
 
@@ -76,6 +82,8 @@ private:
 	std::unique_ptr<ValueTree> programBank3Tree;
 
 	Value updateFromPreset;
+
+	String programBuffer{ "" };
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PrivateParameters)

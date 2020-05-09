@@ -140,6 +140,9 @@ ProgramBanksTab::ProgramBanksTab
 		};
 	addAndMakeVisible(button_Pull);
 
+	commandManager.registerAllCommandsForTarget(this);
+	addKeyListener(commandManager.getKeyMappings());
+
 	auto programBanksTab_w{ 1015 };
 	auto programBanksTab_h{ 325 };
 	setSize(programBanksTab_w, programBanksTab_h);
@@ -147,6 +150,7 @@ ProgramBanksTab::ProgramBanksTab
 
 ProgramBanksTab::~ProgramBanksTab()
 {
+	removeKeyListener(commandManager.getKeyMappings());
 }
 
 void ProgramBanksTab::resized()
@@ -159,6 +163,54 @@ void ProgramBanksTab::resized()
 	button_Save.setBounds(238, button_y, button_w, button_h);
 	button_Push.setBounds(298, button_y, button_w, button_h);
 	button_Pull.setBounds(358, button_y, button_w, button_h);
+}
+
+void ProgramBanksTab::getAllCommands(Array<CommandID>& commands)
+{
+	Array<CommandID> ids{ copyProgram, pasteProgram };
+	commands.addArray(ids);
+}
+
+void ProgramBanksTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result)
+{
+	switch (commandID)
+	{
+	case copyProgram:
+		result.setInfo("Copy Program", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
+		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
+		break;
+	case pasteProgram:
+		result.setInfo("Paste Program", "Replace the program in the selected storage slot with the program in the clipboard", "CopyAndPaste", 0);
+		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
+		break;
+	default:
+		break;
+	}
+}
+
+bool ProgramBanksTab::perform(const InvocationInfo& info)
+{
+	switch (info.commandID)
+	{
+	case copyProgram:
+		if (programSlots.selectedSlot != -1)
+		{
+			privateParams->copySelectedProgramToBuffer(bank, programSlots.selectedSlot);
+			return true;
+		}
+		else return false;
+	case pasteProgram:
+		if (programSlots.selectedSlot != -1)
+		{
+			privateParams->replaceSelectedProgramWithBuffer(bank, programSlots.selectedSlot);
+			programSlots.setNameForProgramSlotButton(programSlots.selectedSlot);
+			repaint();
+			return true;
+		}
+		else return false;
+	default:
+		return false;
+	}
 }
 
 //==============================================================================
