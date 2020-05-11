@@ -232,6 +232,9 @@ namespace ID
 	const Identifier pgmSlotToggle		{ "pgmSlotToggle"	};
 
 	//==============================================================================
+	const Identifier globalOptions		{ "globalOptions"	};
+	const Identifier transmitTime		{ "transmitTime"	};
+
 	const Identifier tooltipOptions		{ "tooltipOptions"	};
 	const Identifier showCurrentVal		{ "showCurrentVal"	};
 	const Identifier showParamInfo		{ "showParamInfo"	};

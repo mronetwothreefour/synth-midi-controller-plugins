@@ -55,6 +55,63 @@ void ProgramSlotsWidget::setNameForProgramSlotButton(int slot)
 
 //==============================================================================
 
+PushBankThread::PushBankThread
+(
+	int bankNum,
+	PluginProcessor& p,
+	PrivateParameters* privateParameters
+) :
+	ThreadWithProgressWindow{ "Pushing program bank " + (String)bankNum + " to Mopho hardware...", true, true, 5000, "STOP" },
+	bank{ bankNum },
+	processor{ p },
+	privateParams{ privateParameters }
+{
+	setStatusMessage("Preparing to push...");
+}
+
+void PushBankThread::run()
+{
+	setProgress(-1.0); // spinning progress bar
+	wait(1000);
+
+	auto numberOfPrograms{ 128 };
+	auto transmitTime{ privateParams->getProgramTransmitTime() };
+
+	for (auto i = 0; i < numberOfPrograms; ++i)
+	{
+		if (threadShouldExit()) return; // check if user has cancelled the push
+
+		setProgress((double)i / numberOfPrograms);
+		setStatusMessage("Pushing program " + (String)i);
+		processor.sendProgramDump(bank, i);
+
+		wait(transmitTime);
+	}
+}
+
+void PushBankThread::threadComplete(bool userPressedCancel)
+{
+	// User interrupted push
+	if (userPressedCancel)
+	{
+		AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
+			"Progress window",
+			"You stopped the push!");
+	}
+	else // Push finished normally
+	{
+		AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
+			"Progress window",
+			"All programs pushed!");
+	}
+
+	// Clean up by deleting the thread object
+	delete this;
+}
+
+
+//==============================================================================
+
 ProgramBanksTab::ProgramBanksTab
 (
 	int pgmBank,
@@ -140,6 +197,21 @@ ProgramBanksTab::ProgramBanksTab
 		};
 	addAndMakeVisible(button_Pull);
 
+	String button_PushBankTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		button_PushBankTooltip += "Push all the programs stored in this bank to the\n";
+		button_PushBankTooltip += "corresponding storage bank in the Mopho hardware.";
+	}
+	button_PushBank.setTooltip(button_PushBankTooltip);
+	button_PushBank.setButtonText("PUSH");
+	button_PushBank.setLookAndFeel(mophoLaF);
+	button_PushBank.onClick = [this] 
+		{ 
+			(new PushBankThread(bank, processor, privateParams))->launchThread();
+		};
+	addAndMakeVisible(button_PushBank);
+
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
@@ -163,6 +235,7 @@ void ProgramBanksTab::resized()
 	button_Save.setBounds(238, button_y, button_w, button_h);
 	button_Push.setBounds(298, button_y, button_w, button_h);
 	button_Pull.setBounds(358, button_y, button_w, button_h);
+	button_PushBank.setBounds(592, button_y, button_w, button_h);
 }
 
 void ProgramBanksTab::getAllCommands(Array<CommandID>& commands)

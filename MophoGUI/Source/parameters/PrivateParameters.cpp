@@ -1,12 +1,15 @@
 #include "PrivateParameters.h"
 
 PrivateParameters::PrivateParameters() :
+	globalOptionsTree	{ new ValueTree(ID::globalOptions)	},
 	tooltipOptionsTree	{ new ValueTree(ID::tooltipOptions) },
 	programBank1Tree	{ new ValueTree(ID::programBank1)   },
 	programBank2Tree	{ new ValueTree(ID::programBank2)   },
 	programBank3Tree	{ new ValueTree(ID::programBank3)   }
 {
 	updateFromPreset = (bool)false;
+
+	setProgramTransmitTime(300);
 
 	setShouldShowValueTip(true);
 	setShouldShowInfoTip(true);
@@ -61,6 +64,22 @@ bool PrivateParameters::setTooltipDelay(int delay)
 {
 	tooltipOptionsTree->setProperty(ID::tooltipDelay, delay, nullptr);
 	bool wasSet{ tooltipOptionsTree->hasProperty(ID::tooltipDelay) };
+	return wasSet;
+}
+
+//==============================================================================
+
+int PrivateParameters::getProgramTransmitTime()
+{
+	if (globalOptionsTree->hasProperty(ID::transmitTime))
+		return (int)globalOptionsTree->getProperty(ID::transmitTime);
+	else return -1;
+}
+
+bool PrivateParameters::setProgramTransmitTime(int txTimeInMilliseconds)
+{
+	globalOptionsTree->setProperty(ID::transmitTime, txTimeInMilliseconds, nullptr);
+	bool wasSet{ globalOptionsTree->hasProperty(ID::transmitTime) };
 	return wasSet;
 }
 

@@ -52,6 +52,15 @@ public:
 	bool setTooltipDelay(int delay);
 
 	//==============================================================================
+	// Returns the amount of time (in milliseconds) necessary for the complete
+	// transmission of a program between the plugin and the hardware. 
+	int getProgramTransmitTime();
+
+	// Sets the amount of time (in milliseconds) necessary for the complete
+	// transmission of a program between the plugin and the hardware. 
+	bool setProgramTransmitTime(int txTimeInMilliseconds);
+
+	//==============================================================================
 	// Resets all the programs stored in the three
 	// program banks to the factory defaults
 	void setProgramBanksToDefaults();
@@ -75,8 +84,8 @@ public:
 	void replaceSelectedProgramWithBuffer(int bank, int pgmSlot);
 
 private:
+	std::unique_ptr<ValueTree> globalOptionsTree;
 	std::unique_ptr<ValueTree> tooltipOptionsTree;
-
 	std::unique_ptr<ValueTree> programBank1Tree;
 	std::unique_ptr<ValueTree> programBank2Tree;
 	std::unique_ptr<ValueTree> programBank3Tree;

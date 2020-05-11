@@ -45,6 +45,37 @@ private:
 };
 
 //==============================================================================
+// When a command is sent to transmit all the programs stored in one of the
+// plugin's storage banks to the corresponding bank in the Mopho hardware,
+// this opens a progress window showing which program is being transmitted
+// and also allows the user to stop the transmission.
+class PushBankThread : public ThreadWithProgressWindow
+{
+public:
+    PushBankThread
+    (
+        int bankNum,
+        PluginProcessor& p,
+        PrivateParameters* privateParameters
+    );
+
+    //==============================================================================
+    void run() override;
+
+    void threadComplete(bool userPressedCancel) override;
+
+private:
+    int bank;
+
+    PluginProcessor& processor;
+
+    PrivateParameters* privateParams;
+
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PushBankThread)
+};
+
+//==============================================================================
 // A component holding a program storage bank widget plus buttons for
 // reading/writing individual programs or entire banks and a slider for
 // adjusting the transfer time between the GUI and the hardware
