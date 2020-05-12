@@ -542,6 +542,8 @@ public:
 		AlertWindow::AlertIconType iconType,
 		int numButtons, Component* associatedComponent)
 	{
+		setColour(AlertWindow::textColourId, Color::black);
+
 		auto boundsOffset = 50;
 
 		auto* aw = LookAndFeel_V2::createAlertWindow(title, message, button1, button2, button3,
@@ -553,7 +555,10 @@ public:
 
 		for (auto* child : aw->getChildren())
 			if (auto* button = dynamic_cast<TextButton*> (child))
+			{
+				button->setSize(50, 21);
 				button->setBounds(button->getBounds() + Point<int>(25, 40));
+			}
 
 		return aw;
 	}
@@ -561,16 +566,14 @@ public:
 	void drawAlertBox(Graphics& g, AlertWindow& alert,
 		const Rectangle<int>& textArea, TextLayout& textLayout)
 	{
-		auto cornerSize = 4.0f;
-
-		g.setColour(alert.findColour(AlertWindow::outlineColourId));
-		g.drawRoundedRectangle(alert.getLocalBounds().toFloat(), cornerSize, 2.0f);
+		g.setColour(Color::black);
+		g.drawRect(alert.getLocalBounds().toFloat(), 2.0f);
 
 		auto bounds = alert.getLocalBounds().reduced(1);
 		g.reduceClipRegion(bounds);
 
 		g.setColour(Color::device);
-		g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
+		g.fillRect(bounds.toFloat());
 
 		auto iconSpaceUsed = 0;
 
@@ -623,26 +626,21 @@ public:
 			iconSpaceUsed = iconWidth;
 		}
 
-		g.setColour(alert.findColour(AlertWindow::textColourId));
-
 		Rectangle<int> alertBounds(bounds.getX() + iconSpaceUsed, 30,
 			bounds.getWidth(), bounds.getHeight() - getAlertWindowButtonHeight() - 20);
 
 		textLayout.draw(g, alertBounds.toFloat());
 	}
 
-	int getAlertWindowButtonHeight() { return 40; }
-	Font getAlertWindowTitleFont() { return { 18.0f, Font::bold }; }
-	Font getAlertWindowMessageFont() { return { 16.0f }; }
-	Font getAlertWindowFont() { return { 14.0f }; }
+	int getAlertWindowButtonHeight() { return 21; }
+	Font getAlertWindowTitleFont() { return { "Arial", "Black", 18.0f }; }
+	Font getAlertWindowMessageFont() { return { "Arial", "Bold", 14.0f }; }
+	Font getAlertWindowFont() { return { "Arial", "Bold", 14.0f }; }
 
 	//==============================================================================
 	void drawProgressBar(Graphics& g, ProgressBar& progressBar,
 		int width, int height, double progress, const String& textToShow)
 	{
-		if (width == height)
-			drawCircularProgressBar(g, progressBar, textToShow);
-		else
 			drawLinearProgressBar(g, progressBar, width, height, progress, textToShow);
 	}
 
@@ -702,67 +700,6 @@ public:
 			g.setFont(height * 0.6f);
 
 			g.drawText(textToShow, 0, 0, width, height, Justification::centred, false);
-		}
-	}
-
-	void drawCircularProgressBar(Graphics& g, ProgressBar& progressBar, const String& progressText)
-	{
-		auto background = progressBar.findColour(ProgressBar::backgroundColourId);
-		auto foreground = progressBar.findColour(ProgressBar::foregroundColourId);
-
-		auto barBounds = progressBar.getLocalBounds().reduced(2, 2).toFloat();
-
-		auto rotationInDegrees = static_cast<float> ((Time::getMillisecondCounter() / 10) % 360);
-		auto normalisedRotation = rotationInDegrees / 360.0f;
-
-		auto rotationOffset = 22.5f;
-		auto maxRotation = 315.0f;
-
-		auto startInDegrees = rotationInDegrees;
-		auto endInDegrees = startInDegrees + rotationOffset;
-
-		if (normalisedRotation >= 0.25f && normalisedRotation < 0.5f)
-		{
-			auto rescaledRotation = (normalisedRotation * 4.0f) - 1.0f;
-			endInDegrees = startInDegrees + rotationOffset + (maxRotation * rescaledRotation);
-		}
-		else if (normalisedRotation >= 0.5f && normalisedRotation <= 1.0f)
-		{
-			endInDegrees = startInDegrees + rotationOffset + maxRotation;
-			auto rescaledRotation = 1.0f - ((normalisedRotation * 2.0f) - 1.0f);
-			startInDegrees = endInDegrees - rotationOffset - (maxRotation * rescaledRotation);
-		}
-
-		g.setColour(background);
-		Path arcPath2;
-		arcPath2.addCentredArc(barBounds.getCentreX(),
-			barBounds.getCentreY(),
-			barBounds.getWidth() * 0.5f,
-			barBounds.getHeight() * 0.5f, 0.0f,
-			0.0f,
-			MathConstants<float>::twoPi,
-			true);
-		g.strokePath(arcPath2, PathStrokeType(4.0f));
-
-		g.setColour(foreground);
-		Path arcPath;
-		arcPath.addCentredArc(barBounds.getCentreX(),
-			barBounds.getCentreY(),
-			barBounds.getWidth() * 0.5f,
-			barBounds.getHeight() * 0.5f,
-			0.0f,
-			degreesToRadians(startInDegrees),
-			degreesToRadians(endInDegrees),
-			true);
-
-		arcPath.applyTransform(AffineTransform::rotation(normalisedRotation * MathConstants<float>::pi * 2.25f, barBounds.getCentreX(), barBounds.getCentreY()));
-		g.strokePath(arcPath, PathStrokeType(4.0f));
-
-		if (progressText.isNotEmpty())
-		{
-			g.setColour(progressBar.findColour(TextButton::textColourOffId));
-			g.setFont({ 12.0f, Font::italic });
-			g.drawText(progressText, barBounds, Justification::centred, false);
 		}
 	}
 

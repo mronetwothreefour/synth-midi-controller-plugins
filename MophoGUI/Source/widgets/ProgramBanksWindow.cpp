@@ -55,7 +55,7 @@ PushBankThread::PushBankThread
 	PluginProcessor& p,
 	PrivateParameters* privateParameters
 ) :
-	ThreadWithProgressWindow{ "Pushing program bank " + (String)(bankNum + 1) + " to Mopho hardware...", true, true, 5000, "STOP" },
+	ThreadWithProgressWindow{ "PUSHING PROGRAM BANK " + (String)(bankNum + 1) + " TO HARDWARE...", true, true, 5000, "STOP" },
 	bank{ bankNum },
 	processor{ p },
 	privateParams{ privateParameters }
@@ -66,7 +66,7 @@ PushBankThread::PushBankThread
 void PushBankThread::run()
 {
 	setProgress(-1.0); // spinning progress bar
-	wait(1000);
+	wait(2000);
 
 	auto numberOfPrograms{ 128 };
 	auto transmitTime{ privateParams->getProgramTransmitTime() };
@@ -76,7 +76,7 @@ void PushBankThread::run()
 		if (threadShouldExit()) return; // check if user has cancelled the push
 
 		setProgress((double)i / numberOfPrograms);
-		setStatusMessage("Pushing program " + (String)i);
+		setStatusMessage("PUSHING PROGRAM " + (String)i);
 		processor.sendProgramDump(bank, i);
 
 		wait(transmitTime);
@@ -88,17 +88,71 @@ void PushBankThread::threadComplete(bool userPressedCancel)
 	// User interrupted push
 	if (userPressedCancel)
 	{
-		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "Progress window", "You stopped the push");
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "PUSH CANCELLED", "");
 	}
 	else // Push finished normally
 	{
-		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "Progress window", "All programs pushed");
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "ALL PROGRAMS PUSHED", "");
 	}
 
 	// Clean up by deleting the thread object
 	delete this;
 }
 
+//==============================================================================
+
+PullBankThread::PullBankThread
+(
+	int bankNum,
+	PluginProcessor& p,
+	PrivateParameters* privateParameters,
+	ProgramSlotsWidget& slots
+) :
+	ThreadWithProgressWindow{ "PULLING PROGRAM BANK " + (String)(bankNum + 1) + " FROM HARDWARE...", true, true, 5000, "STOP" },
+	bank{ bankNum },
+	processor{ p },
+	privateParams{ privateParameters },
+	programSlots{ slots }
+{
+	setStatusMessage("Preparing to pull...");
+}
+
+void PullBankThread::run()
+{
+	setProgress(-1.0); // spinning progress bar
+	wait(2000);
+
+	auto numberOfPrograms{ 128 };
+	auto transmitTime{ privateParams->getProgramTransmitTime() };
+
+	for (auto i = 0; i < numberOfPrograms; ++i)
+	{
+		if (threadShouldExit()) return; // check if user has cancelled the push
+
+		setProgress((double)i / numberOfPrograms);
+		setStatusMessage("PULLING PROGRAM " + (String)i);
+		processor.pullProgramFromHardwareStorage(bank, i);
+
+		wait(transmitTime);
+		programSlots.setNameForProgramSlotButton(i); programSlots.repaint();
+	}
+}
+
+void PullBankThread::threadComplete(bool userPressedCancel)
+{
+	// User interrupted pull
+	if (userPressedCancel)
+	{
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "PULL CANCELLED", "");
+	}
+	else // Pull finished normally
+	{
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "ALL PROGRAMS PULLED", "");
+	}
+
+	// Clean up by deleting the thread object
+	delete this;
+}
 
 //==============================================================================
 
@@ -177,7 +231,8 @@ ProgramBanksTab::ProgramBanksTab
 			if (programSlots.selectedSlot != -1)
 			{
 				processor.pullProgramFromHardwareStorage(bank, programSlots.selectedSlot);
-				callAfterDelay(300, [this] { programSlots.setNameForProgramSlotButton(programSlots.selectedSlot); programSlots.repaint(); });
+				callAfterDelay(privateParams->getProgramTransmitTime(), 
+					[this] { programSlots.setNameForProgramSlotButton(programSlots.selectedSlot); programSlots.repaint(); });
 			}
 		};
 	addAndMakeVisible(button_Pull);
@@ -195,6 +250,20 @@ ProgramBanksTab::ProgramBanksTab
 			(new PushBankThread(bank, processor, privateParams))->launchThread();
 		};
 	addAndMakeVisible(button_PushBank);
+
+	String button_PullBankTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		button_PullBankTooltip += "Pull all the programs stored in the storage bank in\n";
+		button_PullBankTooltip += "the Mopho hardware into this plugin storage bank.";
+	}
+	button_PullBank.setTooltip(button_PullBankTooltip);
+	button_PullBank.setButtonText("PULL");
+	button_PullBank.onClick = [this] 
+		{ 
+			(new PullBankThread(bank, processor, privateParams, programSlots))->launchThread();
+		};
+	addAndMakeVisible(button_PullBank);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -219,7 +288,8 @@ void ProgramBanksTab::resized()
 	button_Save.setBounds(238, button_y, button_w, button_h);
 	button_Push.setBounds(298, button_y, button_w, button_h);
 	button_Pull.setBounds(358, button_y, button_w, button_h);
-	button_PushBank.setBounds(592, button_y, button_w, button_h);
+	button_PushBank.setBounds(562, button_y, button_w, button_h);
+	button_PullBank.setBounds(622, button_y, button_w, button_h);
 }
 
 void ProgramBanksTab::getAllCommands(Array<CommandID>& commands)
@@ -292,3 +362,4 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
 	auto tab_h{ 325 };
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
+
