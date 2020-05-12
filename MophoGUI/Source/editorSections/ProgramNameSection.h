@@ -4,7 +4,6 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
@@ -23,28 +22,26 @@ public:
 		PluginProcessor& p,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		processor{ p },
 		privateParams{ privateParameters },
-		mophoLookAndFeel{ mophoLaF },
-		knob_NameChar01{ 1 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar02{ 2 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar03{ 3 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar04{ 4 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar05{ 5 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar06{ 6 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar07{ 7 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar08{ 8 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar09{ 9 , publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar10{ 10, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar11{ 11, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar12{ 12, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar13{ 13, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar14{ 14, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar15{ 15, publicParams, privateParams, mophoLaF, vc },
-		knob_NameChar16{ 16, publicParams, privateParams, mophoLaF, vc },
+		knob_NameChar01{ 1 , publicParams, privateParams, vc },
+		knob_NameChar02{ 2 , publicParams, privateParams, vc },
+		knob_NameChar03{ 3 , publicParams, privateParams, vc },
+		knob_NameChar04{ 4 , publicParams, privateParams, vc },
+		knob_NameChar05{ 5 , publicParams, privateParams, vc },
+		knob_NameChar06{ 6 , publicParams, privateParams, vc },
+		knob_NameChar07{ 7 , publicParams, privateParams, vc },
+		knob_NameChar08{ 8 , publicParams, privateParams, vc },
+		knob_NameChar09{ 9 , publicParams, privateParams, vc },
+		knob_NameChar10{ 10, publicParams, privateParams, vc },
+		knob_NameChar11{ 11, publicParams, privateParams, vc },
+		knob_NameChar12{ 12, publicParams, privateParams, vc },
+		knob_NameChar13{ 13, publicParams, privateParams, vc },
+		knob_NameChar14{ 14, publicParams, privateParams, vc },
+		knob_NameChar15{ 15, publicParams, privateParams, vc },
+		knob_NameChar16{ 16, publicParams, privateParams, vc },
 		button_Edit{ "EDIT" },
 		button_Write{ "WRITE" },
 		button_Read{ "READ" },
@@ -89,11 +86,11 @@ public:
 		setPgmBankAndSlotDisplay();
 
 		pgmNameEditor.setInterceptsMouseClicks(false, true);
+		pgmNameEditor.setComponentID("pgmNameEditor");
 		Font editorFont{ "Arial", "Black", 18.0f };
 		pgmNameEditor.setFont(editorFont);
 		pgmNameEditor.setJustificationType(Justification::centredLeft);
 		pgmNameEditor.setText(getPgmName(), dontSendNotification);
-		pgmNameEditor.setColour(Label::textColourId, Colours::transparentWhite);
 		pgmNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
 		pgmNameEditor.setColour(Label::outlineColourId, Colours::transparentBlack);
 		pgmNameEditor.setColour(Label::textWhenEditingColourId, Color::controlText);
@@ -110,7 +107,6 @@ public:
 		}
 		button_Edit.setTooltip(button_EditTooltip);
 		button_Edit.addListener(this);
-		button_Edit.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Edit);
 
 		String button_ReadTooltip{ "" };
@@ -121,7 +117,6 @@ public:
 		}
 		button_Read.setTooltip(button_ReadTooltip);
 		button_Read.addListener(this);
-		button_Read.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Read);
 
 		String button_WriteTooltip{ "" };
@@ -132,7 +127,6 @@ public:
 		}
 		button_Write.setTooltip(button_WriteTooltip);
 		button_Write.addListener(this);
-		button_Write.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Write);
 
 		String button_BanksTooltip{ "" };
@@ -143,7 +137,6 @@ public:
 		}
 		button_Banks.setTooltip(button_BanksTooltip);
 		button_Banks.addListener(this);
-		button_Banks.setLookAndFeel(mophoLaF);
 		button_Banks.onClick = [this] { showProgramBanksWindow(); };
 		addAndMakeVisible(button_Banks);
 
@@ -155,7 +148,6 @@ public:
 		}
 		button_Global.setTooltip(button_GlobalTooltip);
 		button_Global.addListener(this);
-		button_Global.setLookAndFeel(mophoLaF);
 		addAndMakeVisible(button_Global);
 
 		auto section_w{ 230 };
@@ -174,19 +166,10 @@ public:
 		programBanksOptions = nullptr;
 		programBanksWindow = nullptr;
 
-		button_Banks.setLookAndFeel(nullptr);
 		button_Banks.removeListener(this);
-
-		button_Banks.setLookAndFeel(nullptr);
 		button_Banks.removeListener(this);
-
-		button_Write.setLookAndFeel(nullptr);
 		button_Write.removeListener(this);
-
-		button_Read.setLookAndFeel(nullptr);
 		button_Read.removeListener(this);
-
-		button_Edit.setLookAndFeel(nullptr);
 		button_Edit.removeListener(this);
 
 		pgmNameEditor.removeListener(this);
@@ -378,8 +361,6 @@ private:
 
 	PrivateParameters* privateParams;
 
-	MophoLookAndFeel* mophoLookAndFeel;
-
 	LCDcharacterRenderer pgmBankAndSlotChar01;
 	LCDcharacterRenderer pgmBankAndSlotChar02;
 	LCDcharacterRenderer pgmBankAndSlotChar03;
@@ -435,7 +416,7 @@ private:
 
 	void showProgramBanksWindow()
 	{
-		programBanksWindow.reset(new ProgramBanksWindow(processor, privateParams, mophoLookAndFeel));
+		programBanksWindow.reset(new ProgramBanksWindow(processor, privateParams));
 		programBanksOptions.reset(new DialogWindow::LaunchOptions());
 		programBanksOptions->content.setNonOwned(programBanksWindow->contentComponent.get());
 		programBanksOptions->dialogTitle = "PROGRAM STORAGE BANKS";
@@ -448,7 +429,6 @@ private:
 
 		if (programBanksDialogWindow != nullptr)
 		{
-			programBanksDialogWindow->setLookAndFeel(mophoLookAndFeel);
 			programBanksDialogWindow->setTitleBarHeight(30);
 			programBanksDialogWindow->setTitleBarTextCentred(false);
 

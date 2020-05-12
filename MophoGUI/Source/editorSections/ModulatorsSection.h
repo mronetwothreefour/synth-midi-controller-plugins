@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
@@ -19,13 +18,12 @@ public:
 		int modNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		modNumString{ modNum },
-		menu_Source{ publicParams, privateParams, "mod" + modNumString + "Source", mophoLaF, 126, vc },
-		menu_Destination{ publicParams, privateParams, "mod" + modNumString + "Destination", mophoLaF, 126, false, vc },
-		knob_Amount{ publicParams, privateParams, "mod" + modNumString + "Amount", mophoLaF, vc }
+		menu_Source{ publicParams, privateParams, "mod" + modNumString + "Source", 126, vc },
+		menu_Destination{ publicParams, privateParams, "mod" + modNumString + "Destination", 126, false, vc },
+		knob_Amount{ publicParams, privateParams, "mod" + modNumString + "Amount", vc }
 	{
 		addAndMakeVisible(menu_Source);
 		addAndMakeVisible(menu_Destination);
@@ -76,13 +74,12 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		modControls1{ 1, publicParams, privateParams, mophoLaF, vc },
-		modControls2{ 2, publicParams, privateParams, mophoLaF, vc },
-		modControls3{ 3, publicParams, privateParams, mophoLaF, vc },
-		modControls4{ 4, publicParams, privateParams, mophoLaF, vc }
+		modControls1{ 1, publicParams, privateParams, vc },
+		modControls2{ 2, publicParams, privateParams, vc },
+		modControls3{ 3, publicParams, privateParams, vc },
+		modControls4{ 4, publicParams, privateParams, vc }
 	{
 		addAndMakeVisible(modControls1);
 		addAndMakeVisible(modControls2);

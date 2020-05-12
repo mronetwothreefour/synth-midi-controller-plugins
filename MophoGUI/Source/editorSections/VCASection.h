@@ -4,7 +4,6 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/EnvelopeWidget.h"
@@ -19,14 +18,13 @@ public:
 	VCASection
 	(
 		AudioProcessorValueTreeState* publicParams,
-		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParams
 	) :
-		knob_VCAlevel{ publicParams, privateParams, mophoLaF },
-		knob_VCAenvAmt{ publicParams, privateParams, mophoLaF },
-		knob_VelAmount{ publicParams, privateParams, ID::vcaVelAmount, mophoLaF },
-		knob_PgmVolume{ publicParams, privateParams, mophoLaF },
-		envelopeWidget{ publicParams, privateParams, "vca", mophoLaF }
+		knob_VCAlevel{ publicParams, privateParams },
+		knob_VCAenvAmt{ publicParams, privateParams },
+		knob_VelAmount{ publicParams, privateParams, ID::vcaVelAmount },
+		knob_PgmVolume{ publicParams, privateParams },
+		envelopeWidget{ publicParams, privateParams, "vca" }
 	{
 		addAndMakeVisible(knob_VCAlevel);
 		addAndMakeVisible(knob_VCAenvAmt);

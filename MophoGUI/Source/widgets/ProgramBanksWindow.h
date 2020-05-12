@@ -5,7 +5,6 @@
 #include "../PluginProcessor.h"
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../parameters/PrivateParameters.h"
 
 // An array of 128 toggle buttons in a radio group, used in
@@ -19,8 +18,7 @@ public:
     ProgramSlotsWidget
     (
         int pgmBank,
-        PrivateParameters* privateParameters,
-        MophoLookAndFeel* mophoLaF
+        PrivateParameters* privateParameters
     );
 
     ~ProgramSlotsWidget();
@@ -95,8 +93,7 @@ public:
     (
         int pgmBank,
         PluginProcessor& p,
-        PrivateParameters* privateParameters,
-        MophoLookAndFeel* mophoLaF
+        PrivateParameters* privateParameters
     );
 
     ~ProgramBanksTab();
@@ -145,8 +142,7 @@ public:
     ProgramBanksTabbedComponent
     (
         PluginProcessor& p,
-        PrivateParameters* privateParameters,
-        MophoLookAndFeel* mophoLaF
+        PrivateParameters* privateParameters
     );
 
 private:
@@ -165,12 +161,11 @@ public:
     ProgramBanksWindow
     (
         PluginProcessor& p,
-        PrivateParameters* privateParameters,
-        MophoLookAndFeel* mophoLaF
+        PrivateParameters* privateParameters
     ) :
         DialogWindow{ "Program Banks", Color::device, true, false }
     {
-        contentComponent.reset(new ProgramBanksTabbedComponent(p, privateParameters, mophoLaF));
+        contentComponent.reset(new ProgramBanksTabbedComponent(p, privateParameters));
         contentComponent->setVisible(true);
     }
 

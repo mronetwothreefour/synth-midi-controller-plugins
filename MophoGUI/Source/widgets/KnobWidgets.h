@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "LCDcharacterRenderer.h"
@@ -178,18 +177,15 @@ public:
 		String knobName,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
 		sliderAttachment{ *apvts, paramID.toString(), slider },
 		privateParams{ privateParameters },
-		mophoLaF{ mophoLaF },
 		name{ knobName }
 	{
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-		slider.setLookAndFeel(mophoLaF);
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
@@ -201,7 +197,6 @@ public:
 	~KnobWidget()
 	{
 		slider.removeListener(this);
-		slider.setLookAndFeel(nullptr);
 	}
 
 	void paint(Graphics& g) override
@@ -251,7 +246,6 @@ public:
 private:
 	CustomSlider slider;
 	SliderAttachment sliderAttachment;
-	MophoLookAndFeel* mophoLaF;
 
 	String name;
 	String currentValueText;
@@ -280,10 +274,9 @@ public:
 		String label,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget{ label, apvts, privateParameters, paramID }
 	{
 		setKnobSensitivity(175);
 		drawValue(getSliderValue());
@@ -318,10 +311,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ label, apvts, privateParameters, paramID, mophoLaF },
+		KnobWidget{ label, apvts, privateParameters, paramID },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(275);
@@ -352,10 +344,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "PITCH", apvts, privateParameters, paramID, mophoLaF },
+		KnobWidget{ "PITCH", apvts, privateParameters, paramID },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(175);
@@ -390,10 +381,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "FINE", apvts, privateParameters, paramID, mophoLaF },
+		KnobWidget{ "FINE", apvts, privateParameters, paramID },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(150);
@@ -428,10 +418,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "SHAPE", apvts, privateParameters, paramID, mophoLaF },
+		KnobWidget{ "SHAPE", apvts, privateParameters, paramID },
 		valueConverters{ vc }
 	{
 		shapeRenderer.setInterceptsMouseClicks(false, false);
@@ -471,10 +460,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("GLIDE"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("GLIDE"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -500,10 +488,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("SUB"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("SUB"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -528,10 +515,9 @@ public:
 	KnobWidget_OscSlop
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget{ "SLOP", apvts, privateParameters, ID::oscSlop, mophoLaF }
+		KnobWidget{ "SLOP", apvts, privateParameters, ID::oscSlop }
 	{
 		setKnobSensitivity(75);
 		auto currentValue{ getSliderValue() };
@@ -560,10 +546,9 @@ public:
 	KnobWidget_OscMix
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("MIX"), apvts, privateParameters, ID::oscMix, mophoLaF }
+		KnobWidget_0to127{ String("MIX"), apvts, privateParameters, ID::oscMix }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -589,10 +574,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange, mophoLaF },
+		KnobWidget{ "BEND", apvts, privateParameters, ID::bendRange },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(80);
@@ -625,10 +609,9 @@ public:
 	KnobWidget_NoiseLevel
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("NOISE"), apvts, privateParameters, ID::noiseLevel, mophoLaF }
+		KnobWidget_0to127{ String("NOISE"), apvts, privateParameters, ID::noiseLevel }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -653,10 +636,9 @@ public:
 	KnobWidget_ExtInLevel
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("EXT IN"), apvts, privateParameters, ID::extInLevel, mophoLaF }
+		KnobWidget_0to127{ String("EXT IN"), apvts, privateParameters, ID::extInLevel }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -682,10 +664,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq, mophoLaF },
+		KnobWidget{ "CUTOFF", apvts, privateParameters, ID::lpfFreq },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(200);
@@ -718,10 +699,9 @@ public:
 	KnobWidget_LPFreso
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("RESO"), apvts, privateParameters, ID::lpfReso, mophoLaF }
+		KnobWidget_0to127{ String("RESO"), apvts, privateParameters, ID::lpfReso }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -747,10 +727,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("ENV"), apvts, privateParameters, ID::lpfEnvAmount, mophoLaF, vc }
+		KnobWidget_PlusMinus127{ String("ENV"), apvts, privateParameters, ID::lpfEnvAmount, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -776,10 +755,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("VELO"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("VELO"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -804,10 +782,9 @@ public:
 	KnobWidget_LPFkeyAmt
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("KEY"), apvts, privateParameters, ID::lpfKeyAmount, mophoLaF }
+		KnobWidget_0to127{ String("KEY"), apvts, privateParameters, ID::lpfKeyAmount }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -832,10 +809,9 @@ public:
 	KnobWidget_LPFfmAmt
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("FM"), apvts, privateParameters, ID::lpfFMamount, mophoLaF }
+		KnobWidget_0to127{ String("FM"), apvts, privateParameters, ID::lpfFMamount }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -861,10 +837,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("DELAY"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("DELAY"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -890,10 +865,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("ATTACK"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("ATTACK"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -919,10 +893,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("DECAY"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("DECAY"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -948,10 +921,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("SUST"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("SUST"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -977,10 +949,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
-		KnobWidget_0to127{ String("REL"), apvts, privateParameters, paramID, mophoLaF }
+		KnobWidget_0to127{ String("REL"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1005,10 +976,9 @@ public:
 	KnobWidget_VCAlevel
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("LEVEL"), apvts, privateParameters, ID::vcaLevel, mophoLaF }
+		KnobWidget_0to127{ String("LEVEL"), apvts, privateParameters, ID::vcaLevel }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1033,10 +1003,9 @@ public:
 	KnobWidget_VCAenvAmt
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("ENV"), apvts, privateParameters, ID::vcaEnvAmount, mophoLaF }
+		KnobWidget_0to127{ String("ENV"), apvts, privateParameters, ID::vcaEnvAmount }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1061,10 +1030,9 @@ public:
 	KnobWidget_PgmVolume
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("VOLUME"), apvts, privateParameters, ID::pgmVolume, mophoLaF }
+		KnobWidget_0to127{ String("VOLUME"), apvts, privateParameters, ID::pgmVolume }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1090,10 +1058,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, ID::env3Amount, mophoLaF, vc }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, ID::env3Amount, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1120,10 +1087,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF, vc }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1150,10 +1116,9 @@ public:
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF, vc }
+		KnobWidget_PlusMinus127{ String("AMT"), apvts, privateParameters, paramID, vc }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1179,10 +1144,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
-		) :
-		KnobWidget_0to127{ String("AMT"), apvts, privateParameters, paramID, mophoLaF }
+		Identifier paramID
+	) :
+		KnobWidget_0to127{ String("AMT"), apvts, privateParameters, paramID }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1209,10 +1173,9 @@ public:
 		int lfoNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq", mophoLaF },
+		KnobWidget{ "FREQ", apvts, privateParameters, "lfo" + (String)lfoNumber + "Freq" },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(200);
@@ -1246,10 +1209,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo, mophoLaF },
+		KnobWidget{ "BPM", apvts, privateParameters, ID::clockTempo },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(250);
@@ -1285,12 +1247,10 @@ public:
 		int stepNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "track1Step" + (String)stepNumber, slider },
 		privateParams{ privateParameters },
-		mophoLaF{ mophoLaF },
 		name{ (String)stepNumber },
 		isPitch{ true },
 		valueConverters{ vc }
@@ -1298,7 +1258,6 @@ public:
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
 		slider.setMouseDragSensitivity(175);
 		slider.addListener(this);
@@ -1315,7 +1274,6 @@ public:
 	~KnobWidget_Track1Step()
 	{
 		slider.removeListener(this);
-		slider.setLookAndFeel(nullptr);
 	}
 
 	void paint(Graphics& g) override
@@ -1381,7 +1339,6 @@ public:
 private:
 	CustomSliderForTrack1Steps slider;
 	SliderAttachment sliderAttachment;
-	MophoLookAndFeel* mophoLaF;
 
 	String name;
 
@@ -1411,12 +1368,10 @@ public:
 		int stepNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "track" + (String)trackNumber + "Step" + (String)stepNumber, slider },
 		privateParams{ privateParameters },
-		mophoLaF{ mophoLaF },
 		name{ (String)stepNumber },
 		isPitch{ true },
 		valueConverters{ vc }
@@ -1424,7 +1379,6 @@ public:
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
 		slider.setMouseDragSensitivity(175);
 		slider.addListener(this);
@@ -1441,7 +1395,6 @@ public:
 	~KnobWidget_Tracks2_3_4Step()
 	{
 		slider.removeListener(this);
-		slider.setLookAndFeel(nullptr);
 	}
 
 	void paint(Graphics& g) override
@@ -1503,7 +1456,6 @@ public:
 private:
 	CustomSliderForTracks2_3_4Steps slider;
 	SliderAttachment sliderAttachment;
-	MophoLookAndFeel* mophoLaF;
 
 	String name;
 
@@ -1530,10 +1482,9 @@ public:
 	(
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		KnobWidget_OscPitch{ apvts, privateParameters, ID::pushItPitch, mophoLaF, vc },
+		KnobWidget_OscPitch{ apvts, privateParameters, ID::pushItPitch, vc },
 		valueConverters{ vc }
 	{}
 
@@ -1558,10 +1509,9 @@ public:
 	KnobWidget_PushItVelo
 	(
 		AudioProcessorValueTreeState* apvts,
-		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF
+		PrivateParameters* privateParameters
 	) :
-		KnobWidget_0to127{ String("VELO"), apvts, privateParameters, ID::pushItVelocity, mophoLaF }
+		KnobWidget_0to127{ String("VELO"), apvts, privateParameters, ID::pushItVelocity }
 	{
 		auto currentValue{ getSliderValue() };
 		auto tooltip{ createTooltipString(currentValue) };
@@ -1589,12 +1539,10 @@ public:
 		int charNumber,
 		AudioProcessorValueTreeState* apvts,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		sliderAttachment{ *apvts, "nameChar" + (String)charNumber, slider },
 		privateParams{ privateParameters },
-		mophoLaF{ mophoLaF },
 		valueConverters{ vc }
 	{
 		addAndMakeVisible(charRenderer);
@@ -1602,7 +1550,6 @@ public:
 		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-		slider.setLookAndFeel(mophoLaF);
 		slider.setAlpha(0.0f);
 		slider.setMouseDragSensitivity(175);
 		slider.setRange(32.0, 127.0, 1.0);
@@ -1622,7 +1569,6 @@ public:
 	~KnobWidget_PgmNameChar()
 	{
 		slider.removeListener(this);
-		slider.setLookAndFeel(nullptr);
 	}
 
 	void resized() override
@@ -1654,8 +1600,6 @@ public:
 private:
 	CustomSlider slider;
 	SliderAttachment sliderAttachment;
-
-	MophoLookAndFeel* mophoLaF;
 
 	LCDcharacterRenderer charRenderer;
 

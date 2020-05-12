@@ -3,8 +3,7 @@
 ProgramSlotsWidget::ProgramSlotsWidget
 (
     int pgmBank,
-    PrivateParameters* privateParameters,
-    MophoLookAndFeel* mophoLaF
+    PrivateParameters* privateParameters
 ) :
 	privateParams{ privateParameters },
 	bankNum{ pgmBank }
@@ -15,7 +14,6 @@ ProgramSlotsWidget::ProgramSlotsWidget
 
 		addAndMakeVisible(programSlotButtons[i]);
 		setNameForProgramSlotButton(i);
-		programSlotButtons[i].setLookAndFeel(mophoLaF);
 		programSlotButtons[i].setComponentID(ID::pgmSlotToggle.toString());
 		programSlotButtons[i].setRadioGroupId(1);
 		programSlotButtons[i].onClick = [this, i] {selectedSlot = i; };
@@ -28,10 +26,6 @@ ProgramSlotsWidget::ProgramSlotsWidget
 
 ProgramSlotsWidget::~ProgramSlotsWidget()
 {
-	for (auto i = 0; i != 128; ++i)
-	{
-		programSlotButtons[i].setLookAndFeel(nullptr);
-	}
 }
 
 void ProgramSlotsWidget::resized()
@@ -61,7 +55,7 @@ PushBankThread::PushBankThread
 	PluginProcessor& p,
 	PrivateParameters* privateParameters
 ) :
-	ThreadWithProgressWindow{ "Pushing program bank " + (String)bankNum + " to Mopho hardware...", true, true, 5000, "STOP" },
+	ThreadWithProgressWindow{ "Pushing program bank " + (String)(bankNum + 1) + " to Mopho hardware...", true, true, 5000, "STOP" },
 	bank{ bankNum },
 	processor{ p },
 	privateParams{ privateParameters }
@@ -94,15 +88,11 @@ void PushBankThread::threadComplete(bool userPressedCancel)
 	// User interrupted push
 	if (userPressedCancel)
 	{
-		AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
-			"Progress window",
-			"You stopped the push!");
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "Progress window", "You stopped the push");
 	}
 	else // Push finished normally
 	{
-		AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
-			"Progress window",
-			"All programs pushed!");
+		AlertWindow::showMessageBoxAsync(AlertWindow::NoIcon, "Progress window", "All programs pushed");
 	}
 
 	// Clean up by deleting the thread object
@@ -116,13 +106,12 @@ ProgramBanksTab::ProgramBanksTab
 (
 	int pgmBank,
 	PluginProcessor& p,
-	PrivateParameters* privateParameters,
-	MophoLookAndFeel* mophoLaF
+	PrivateParameters* privateParameters
 ) :
 	processor{ p },
 	bank{ pgmBank },
 	privateParams{ privateParameters },
-	programSlots{ bank, privateParams, mophoLaF }
+	programSlots{ bank, privateParams }
 {
 	setComponentID("ProgramBanksTab");
 
@@ -136,7 +125,6 @@ ProgramBanksTab::ProgramBanksTab
 	}
 	button_Load.setTooltip(button_LoadTooltip);
 	button_Load.setButtonText("LOAD");
-	button_Load.setLookAndFeel(mophoLaF);
 	button_Load.onClick = [this] { if (programSlots.selectedSlot != -1) processor.loadProgramFromStorage(bank, programSlots.selectedSlot); };
 	addAndMakeVisible(button_Load);
 
@@ -148,7 +136,6 @@ ProgramBanksTab::ProgramBanksTab
 	}
 	button_Save.setTooltip(button_SaveTooltip);
 	button_Save.setButtonText("SAVE");
-	button_Save.setLookAndFeel(mophoLaF);
 	button_Save.onClick = [this] 
 		{ 
 			if (programSlots.selectedSlot != -1)
@@ -168,7 +155,6 @@ ProgramBanksTab::ProgramBanksTab
 	}
 	button_Push.setTooltip(button_PushTooltip);
 	button_Push.setButtonText("PUSH");
-	button_Push.setLookAndFeel(mophoLaF);
 	button_Push.onClick = [this] 
 		{ 
 			if (programSlots.selectedSlot != -1)
@@ -186,7 +172,6 @@ ProgramBanksTab::ProgramBanksTab
 	}
 	button_Pull.setTooltip(button_PullTooltip);
 	button_Pull.setButtonText("PULL");
-	button_Pull.setLookAndFeel(mophoLaF);
 	button_Pull.onClick = [this] 
 		{ 
 			if (programSlots.selectedSlot != -1)
@@ -205,7 +190,6 @@ ProgramBanksTab::ProgramBanksTab
 	}
 	button_PushBank.setTooltip(button_PushBankTooltip);
 	button_PushBank.setButtonText("PUSH");
-	button_PushBank.setLookAndFeel(mophoLaF);
 	button_PushBank.onClick = [this] 
 		{ 
 			(new PushBankThread(bank, processor, privateParams))->launchThread();
@@ -291,13 +275,12 @@ bool ProgramBanksTab::perform(const InvocationInfo& info)
 ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
 (
 	PluginProcessor& p,
-	PrivateParameters* privateParameters,
-	MophoLookAndFeel* mophoLaF
+	PrivateParameters* privateParameters
 ) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
-	bank1{ 0, p, privateParameters, mophoLaF },
-	bank2{ 1, p, privateParameters, mophoLaF },
-	bank3{ 2, p, privateParameters, mophoLaF }
+	bank1{ 0, p, privateParameters },
+	bank2{ 1, p, privateParameters },
+	bank3{ 2, p, privateParameters }
 {
 	setTabBarDepth(30);
 	setOutline(0);

@@ -15,42 +15,42 @@ PluginEditor::PluginEditor
     valueConverters{ vc }
 {
     mophoLaF.reset(new MophoLookAndFeel());
+    LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
 
-    sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionOsc.get());
 
-    sectionLPF.reset(new LPFSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionLPF.reset(new LPFSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionLPF.get());
 
-    sectionVCA.reset(new VCASection(publicParams, privateParameters, mophoLaF.get()));
+    sectionVCA.reset(new VCASection(publicParams, privateParameters));
     addAndMakeVisible(sectionVCA.get());
 
-    sectionEnv3.reset(new Env3Section(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionEnv3.reset(new Env3Section(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionEnv3.get());
 
-    sectionMod.reset(new ModulatorsSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionMod.reset(new ModulatorsSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionMod.get());
 
-    sectionMidi.reset(new MidiControllersSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionMidi.reset(new MidiControllersSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionMidi.get());
 
-    sectionLFO.reset(new LFOSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionLFO.reset(new LFOSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionLFO.get());
 
-    sectionSeq.reset(new SequencerSection(processor, publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionSeq.reset(new SequencerSection(processor, publicParams, privateParameters, vc));
     addAndMakeVisible(sectionSeq.get());
 
-    sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionKnobAssign.reset(new KnobAssignSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionKnobAssign.get());
 
-    sectionPushIt.reset(new PushItSection(publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionPushIt.reset(new PushItSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionPushIt.get());
 
-    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, mophoLaF.get(), vc));
+    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, vc));
     addAndMakeVisible(sectionPgmName.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
-    tooltipWindow.setLookAndFeel(mophoLaF.get());
     tooltipWindow.setComponentEffect(nullptr);
 
     auto device_w{ 1273 };
@@ -60,8 +60,6 @@ PluginEditor::PluginEditor
 
 PluginEditor::~PluginEditor()
 {
-    tooltipWindow.setLookAndFeel(nullptr);
-
     sectionPgmName = nullptr;
     sectionPushIt = nullptr;
     sectionKnobAssign = nullptr;
@@ -74,8 +72,8 @@ PluginEditor::~PluginEditor()
     sectionLPF = nullptr;
     sectionOsc = nullptr;
 
-    LookAndFeel::setDefaultLookAndFeel(nullptr);
     mophoLaF = nullptr;
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
 }
 
 //==============================================================================

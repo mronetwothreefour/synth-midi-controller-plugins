@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/ButtonWidgets.h"
@@ -21,16 +20,15 @@ public:
 		int oscNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		oscNumString{ (String)oscNum },
-		knob_OscPitch		{ publicParams, privateParams, "osc" + oscNumString + "Pitch", mophoLaF, vc },
-		knob_OscFineTune	{ publicParams, privateParams, "osc" + oscNumString + "Fine", mophoLaF, vc },
-		knob_OscShape		{ publicParams, privateParams, "osc" + oscNumString + "Shape", mophoLaF, vc },
-		knob_OscGlide		{ publicParams, privateParams, "osc" + oscNumString + "Glide", mophoLaF },
-		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel", mophoLaF },
-		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack",	mophoLaF, vc }
+		knob_OscPitch		{ publicParams, privateParams, "osc" + oscNumString + "Pitch", vc },
+		knob_OscFineTune	{ publicParams, privateParams, "osc" + oscNumString + "Fine", vc },
+		knob_OscShape		{ publicParams, privateParams, "osc" + oscNumString + "Shape", vc },
+		knob_OscGlide		{ publicParams, privateParams, "osc" + oscNumString + "Glide" },
+		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel" },
+		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack", vc }
 	{
 		addAndMakeVisible(knob_OscPitch);
 		addAndMakeVisible(knob_OscFineTune);
@@ -109,21 +107,20 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		button_Sync{ publicParams, privateParams, mophoLaF, vc },
-		osc1Controls{ 1, publicParams, privateParams, mophoLaF, vc },
-		osc2Controls{ 2, publicParams, privateParams, mophoLaF, vc },
-		knob_OscSlop{ publicParams, privateParams, mophoLaF },
-		knob_OscMix{ publicParams, privateParams, mophoLaF },
-		knob_BendRange{ publicParams, privateParams, mophoLaF, vc },
-		knob_NoiseLevel{ publicParams, privateParams, mophoLaF },
-		knob_ExtInLevel{ publicParams, privateParams, mophoLaF },
-		button_Arpeg{ publicParams, privateParams, mophoLaF, vc },
-		menu_NotePriority{ publicParams, privateParams, mophoLaF, 123, vc },
-		menu_GlideMode{ publicParams, privateParams, mophoLaF, 123, vc },
-		menu_ArpegMode{ publicParams, privateParams, mophoLaF, 123, vc }
+		button_Sync{ publicParams, privateParams, vc },
+		osc1Controls{ 1, publicParams, privateParams, vc },
+		osc2Controls{ 2, publicParams, privateParams, vc },
+		knob_OscSlop{ publicParams, privateParams },
+		knob_OscMix{ publicParams, privateParams },
+		knob_BendRange{ publicParams, privateParams, vc },
+		knob_NoiseLevel{ publicParams, privateParams },
+		knob_ExtInLevel{ publicParams, privateParams },
+		button_Arpeg{ publicParams, privateParams, vc },
+		menu_NotePriority{ publicParams, privateParams, 123, vc },
+		menu_GlideMode{ publicParams, privateParams, 123, vc },
+		menu_ArpegMode{ publicParams, privateParams, 123, vc }
 	{
 		addAndMakeVisible(button_Sync);
 		addAndMakeVisible(osc1Controls);

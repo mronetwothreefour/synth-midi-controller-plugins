@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
 
@@ -117,15 +116,14 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParameters,
-		String envelopeID,
-		MophoLookAndFeel* mophoLaF
+		String envelopeID
 	) :
 		envelopeRenderer{publicParams, envelopeID},
-		knob_Delay{ publicParams, privateParameters, envelopeID + "Delay", mophoLaF },
-		knob_Attack{ publicParams, privateParameters, envelopeID + "Attack", mophoLaF },
-		knob_Decay{ publicParams, privateParameters, envelopeID + "Decay", mophoLaF },
-		knob_Sustain{ publicParams, privateParameters, envelopeID + "Sustain", mophoLaF },
-		knob_Release{ publicParams, privateParameters, envelopeID + "Release", mophoLaF }
+		knob_Delay{ publicParams, privateParameters, envelopeID + "Delay" },
+		knob_Attack{ publicParams, privateParameters, envelopeID + "Attack" },
+		knob_Decay{ publicParams, privateParameters, envelopeID + "Decay" },
+		knob_Sustain{ publicParams, privateParameters, envelopeID + "Sustain" },
+		knob_Release{ publicParams, privateParameters, envelopeID + "Release" }
 	{
 		addAndMakeVisible(envelopeRenderer);
 		addAndMakeVisible(knob_Delay);

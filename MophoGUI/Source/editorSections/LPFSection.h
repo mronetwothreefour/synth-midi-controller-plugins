@@ -4,7 +4,6 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/EnvelopeWidget.h"
@@ -20,17 +19,16 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		button_LPFtype{ "lpfType", publicParams, privateParams, mophoLaF, vc },
-		knob_LPFfreq{ publicParams, privateParams, mophoLaF, vc },
-		knob_LPFreso{ publicParams, privateParams, mophoLaF },
-		knob_LPFkeyAmt{ publicParams, privateParams, mophoLaF },
-		knob_LPFenvAmt{ publicParams, privateParams, mophoLaF, vc },
-		knob_LPFvelAmt{ publicParams, privateParams, ID::lpfVelAmount, mophoLaF },
-		knob_LPFfmAmt{ publicParams, privateParams, mophoLaF },
-		envelopeWidget{ publicParams, privateParams, "lpf", mophoLaF }
+		button_LPFtype{ "lpfType", publicParams, privateParams, vc },
+		knob_LPFfreq{ publicParams, privateParams, vc },
+		knob_LPFreso{ publicParams, privateParams },
+		knob_LPFkeyAmt{ publicParams, privateParams },
+		knob_LPFenvAmt{ publicParams, privateParams, vc },
+		knob_LPFvelAmt{ publicParams, privateParams, ID::lpfVelAmount },
+		knob_LPFfmAmt{ publicParams, privateParams },
+		envelopeWidget{ publicParams, privateParams, "lpf" }
 	{
 		addAndMakeVisible(button_LPFtype);
 		addAndMakeVisible(knob_LPFfreq);

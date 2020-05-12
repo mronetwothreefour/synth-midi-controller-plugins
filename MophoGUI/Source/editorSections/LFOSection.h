@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/ButtonWidgets.h"
@@ -21,15 +20,14 @@ public:
 		int lfoNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
 		lfoNameString{ "LFO " + (String)lfoNum },
-		knob_Frequency{ lfoNum, publicParams, privateParams, mophoLaF, vc },
-		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount", mophoLaF },
-		button_KeySync{ lfoNum, publicParams, privateParams, mophoLaF, vc },
-		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", mophoLaF, 134, vc },
-		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", mophoLaF, 134, false, vc }
+		knob_Frequency{ lfoNum, publicParams, privateParams, vc },
+		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount" },
+		button_KeySync{ lfoNum, publicParams, privateParams, vc },
+		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", 134, vc },
+		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", 134, false, vc }
 	{
 		addAndMakeVisible(knob_Frequency);
 		addAndMakeVisible(knob_Amount);
@@ -108,13 +106,12 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		lfo1Controls{ 1, publicParams, privateParams, mophoLaF, vc },
-		lfo2Controls{ 2, publicParams, privateParams, mophoLaF, vc },
-		lfo3Controls{ 3, publicParams, privateParams, mophoLaF, vc },
-		lfo4Controls{ 4, publicParams, privateParams, mophoLaF, vc }
+		lfo1Controls{ 1, publicParams, privateParams, vc },
+		lfo2Controls{ 2, publicParams, privateParams, vc },
+		lfo3Controls{ 3, publicParams, privateParams, vc },
+		lfo4Controls{ 4, publicParams, privateParams, vc }
 	{
 		addAndMakeVisible(lfo1Controls);
 		addAndMakeVisible(lfo2Controls);

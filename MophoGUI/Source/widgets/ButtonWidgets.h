@@ -4,7 +4,6 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
-#include "../helpers/MophoLookAndFeel.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 
@@ -23,15 +22,13 @@ public:
 		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		Identifier paramID,
-		MophoLookAndFeel* mophoLaF
+		Identifier paramID
 	) :
 		button{ name },
 		buttonAttachment{ *publicParameters, paramID.toString(), button },
 		privateParams{ privateParameters }
 	{
 		button.setComponentID(ID::paramToggle.toString());
-		button.setLookAndFeel(mophoLaF);
 		button.addListener(this);
 		addAndMakeVisible(button);
 
@@ -42,7 +39,6 @@ public:
 	~ButtonWidget()
 	{
 		button.removeListener(this);
-		button.setLookAndFeel(nullptr);
 	}
 
 	void resized() override
@@ -90,10 +86,9 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ "oscSync", publicParameters, privateParameters, ID::oscSync, mophoLaF },
+		ButtonWidget{ "oscSync", publicParameters, privateParameters, ID::oscSync },
 		valueConverters{ vc }
 	{}
 
@@ -133,10 +128,9 @@ public:
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, paramID, mophoLaF },
+		ButtonWidget{ name, publicParameters, privateParameters, paramID },
 		valueConverters{ vc }
 	{}
 
@@ -176,10 +170,9 @@ public:
 		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::env3Repeat, mophoLaF },
+		ButtonWidget{ name, publicParameters, privateParameters, ID::env3Repeat },
 		valueConverters{ vc }
 	{}
 
@@ -217,10 +210,9 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ "arpeg", publicParameters, privateParameters, ID::arpegOnOff, mophoLaF },
+		ButtonWidget{ "arpeg", publicParameters, privateParameters, ID::arpegOnOff },
 		valueConverters{ vc }
 	{}
 
@@ -258,10 +250,9 @@ public:
 		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ name, publicParameters, privateParameters, ID::lpfType, mophoLaF },
+		ButtonWidget{ name, publicParameters, privateParameters, ID::lpfType },
 		valueConverters{ vc }
 	{}
 
@@ -300,10 +291,9 @@ public:
 		int lfoNumber,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) : 
-		ButtonWidget{ "lfo" + (String)lfoNumber + "KeySync", publicParameters, privateParameters, "lfo" + (String)lfoNumber + "KeySync", mophoLaF },
+		ButtonWidget{ "lfo" + (String)lfoNumber + "KeySync", publicParameters, privateParameters, "lfo" + (String)lfoNumber + "KeySync" },
 		valueConverters{ vc }
 	{}
 
@@ -340,10 +330,9 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
-		MophoLookAndFeel* mophoLaF,
 		ValueConverters* vc
 	) :
-		ButtonWidget{ "sequencer", publicParameters, privateParameters, ID::sequencerOnOff, mophoLaF },
+		ButtonWidget{ "sequencer", publicParameters, privateParameters, ID::sequencerOnOff },
 		valueConverters{ vc }
 	{}
 
