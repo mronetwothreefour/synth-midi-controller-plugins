@@ -33,12 +33,23 @@ public:
 
 	void drawLabel(Graphics& g, Label& label) override
 	{
+		if (label.getComponentID() == "label_txTime")
+			g.fillAll(Color::black);
+		Font pgmNameEditorFont{ "Arial", "Black", 18.0f };
 		Font font{ "Arial", "Narrow Bold", 13.0f };
-		g.setFont(font);
+		label.setFont(label.getComponentID() == "pgmNameEditor" ? pgmNameEditorFont : font);
+		g.setFont(label.getComponentID() == "pgmNameEditor" ? pgmNameEditorFont : font);
 		g.setColour(label.getComponentID() == "pgmNameEditor" ? Colours::transparentBlack : Color::controlText);
 		auto textArea = label.getLocalBounds();
 		g.drawText(label.getText(), textArea, Justification::centred, false);
 	}
+
+	void fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) override
+	{
+		g.fillAll(Color::black);
+	}
+
+	void drawTextEditorOutline(Graphics& /*g*/, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) override {}
 
 	static TextLayout layoutTooltipText(const String& text, Colour colour) noexcept
 	{

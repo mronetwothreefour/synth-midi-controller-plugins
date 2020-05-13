@@ -265,6 +265,20 @@ ProgramBanksTab::ProgramBanksTab
 		};
 	addAndMakeVisible(button_PullBank);
 
+	String label_txTimeTooltip{ "" };
+	if (privateParams->shouldShowInfoTip())
+	{
+		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
+		label_txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
+		label_txTimeTooltip += "this value if programs are getting lost during pushes or pulls.";
+	}
+	label_txTime.setTooltip(label_txTimeTooltip);
+	label_txTime.addListener(this);
+	label_txTime.setComponentID("label_txTime");
+	label_txTime.setEditable(true);
+	labelTextChanged(&label_txTime);
+	addAndMakeVisible(label_txTime);
+
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
@@ -276,20 +290,43 @@ ProgramBanksTab::ProgramBanksTab
 ProgramBanksTab::~ProgramBanksTab()
 {
 	removeKeyListener(commandManager.getKeyMappings());
+	label_txTime.removeListener(this);
+}
+
+void ProgramBanksTab::paint(Graphics& g)
+{
+	g.setColour(Color::black);
+	Font labelFont{ "Arial", "Black", 18.0f };
+	g.setFont(labelFont);
+	auto label_y{ 290 };
+	auto label_h{ 21 };
+
+	// Draw selected program label
+	Rectangle<int> selectedPgmLabelArea{ 5, label_y, 165, label_h };
+	g.drawText("SELECTED PROGRAM :", selectedPgmLabelArea, Justification::right);
+
+	// Draw entire bank label
+	Rectangle<int> entireBankLabelArea{ 445, label_y, 110, label_h };
+	g.drawText("ENTIRE BANK :", entireBankLabelArea, Justification::right);
+
+	// Draw transmit time label
+	Rectangle<int> txTimeLabelArea{ 715, label_y, 125, label_h };
+	g.drawText("TRANSMIT TIME :", txTimeLabelArea, Justification::right);
 }
 
 void ProgramBanksTab::resized()
 {
 	programSlots.setBounds(10, 10, programSlots.getWidth(), programSlots.getHeight());
-	auto button_y{ 294 };
+	auto button_y{ 290 };
 	auto button_w{ 50 };
 	auto button_h{ 21 };
-	button_Load.setBounds(178, button_y, button_w, button_h);
-	button_Save.setBounds(238, button_y, button_w, button_h);
-	button_Push.setBounds(298, button_y, button_w, button_h);
-	button_Pull.setBounds(358, button_y, button_w, button_h);
-	button_PushBank.setBounds(562, button_y, button_w, button_h);
-	button_PullBank.setBounds(622, button_y, button_w, button_h);
+	button_Load.setBounds(175, button_y, button_w, button_h);
+	button_Save.setBounds(235, button_y, button_w, button_h);
+	button_Push.setBounds(295, button_y, button_w, button_h);
+	button_Pull.setBounds(355, button_y, button_w, button_h);
+	button_PushBank.setBounds(560, button_y, button_w, button_h);
+	button_PullBank.setBounds(620, button_y, button_w, button_h);
+	label_txTime.setBounds(845, button_y, button_w, button_h);
 }
 
 void ProgramBanksTab::getAllCommands(Array<CommandID>& commands)
@@ -338,6 +375,27 @@ bool ProgramBanksTab::perform(const InvocationInfo& info)
 	default:
 		return false;
 	}
+}
+
+void ProgramBanksTab::labelTextChanged(Label* label)
+{
+	if (label == &label_txTime)
+	{
+		if (label->getText().isNotEmpty())
+		{
+			auto newValue{ label->getText().getIntValue() };
+			if (newValue > -1 && newValue < 10000)
+				privateParams->setProgramTransmitTime(newValue);
+		}
+
+		label->setText((String)privateParams->getProgramTransmitTime() + " ms", dontSendNotification);
+	}
+}
+
+void ProgramBanksTab::editorShown(Label* label, TextEditor& editor)
+{
+	// Restrict transmit time input to 4 or fewer numerals
+	if (label == &label_txTime) editor.setInputRestrictions(4, "0123456789");
 }
 
 //==============================================================================

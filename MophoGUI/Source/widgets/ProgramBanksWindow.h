@@ -114,7 +114,8 @@ private:
 class ProgramBanksTab :
     public Component,
     public Timer,
-    public ApplicationCommandTarget
+    public ApplicationCommandTarget,
+    public Label::Listener
 {
 public:
     enum commandChoices
@@ -133,17 +134,19 @@ public:
     ~ProgramBanksTab();
 
     //==============================================================================
+    void paint(Graphics& g) override;
+
     void resized() override;
 
     void timerCallback() override {}
 
     ApplicationCommandTarget* getNextCommandTarget() override { return nullptr; }
-
     void getAllCommands(Array<CommandID>& commands) override;
-
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
-
     bool perform(const InvocationInfo& info) override;
+
+    void labelTextChanged(Label* label) override;
+    void editorShown(Label* label, TextEditor& editor) override;
 
 private:
     int bank;
@@ -162,6 +165,8 @@ private:
     TextButton button_PullBank;
 
     ApplicationCommandManager commandManager;
+
+    Label label_txTime;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTab)

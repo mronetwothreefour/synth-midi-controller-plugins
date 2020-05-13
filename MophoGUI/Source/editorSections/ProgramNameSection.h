@@ -87,8 +87,6 @@ public:
 
 		pgmNameEditor.setInterceptsMouseClicks(false, true);
 		pgmNameEditor.setComponentID("pgmNameEditor");
-		Font editorFont{ "Arial", "Black", 18.0f };
-		pgmNameEditor.setFont(editorFont);
 		pgmNameEditor.setJustificationType(Justification::centredLeft);
 		pgmNameEditor.setText(getPgmName(), dontSendNotification);
 		pgmNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
