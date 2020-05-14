@@ -10,9 +10,8 @@ PluginProcessor::~PluginProcessor()
 }
 
 //==============================================================================
-void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void PluginProcessor::processBlock(AudioBuffer<float>& /* buffer */, MidiBuffer& /* midiMessages */)
 {
-    ignoreUnused(buffer, midiMessages);
 }
 
 //==============================================================================
@@ -22,14 +21,12 @@ AudioProcessorEditor* PluginProcessor::createEditor()
 }
 
 //==============================================================================
-void PluginProcessor::getStateInformation(MemoryBlock& destData)
+void PluginProcessor::getStateInformation(MemoryBlock& /* destData */)
 {
-    ignoreUnused(destData);
 }
 
-void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
+void PluginProcessor::setStateInformation(const void* /* data */, int /* sizeInBytes */)
 {
-    ignoreUnused(data, sizeInBytes);
 }
 
 //==============================================================================

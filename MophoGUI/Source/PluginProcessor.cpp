@@ -89,14 +89,12 @@ AudioProcessorEditor* PluginProcessor::createEditor()
 }
 
 //==============================================================================
-void PluginProcessor::getStateInformation(MemoryBlock& destData)
+void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/)
 {
-    ignoreUnused(destData);
 }
 
-void PluginProcessor::setStateInformation(const void* data, int sizeInBytes)
+void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/)
 {
-    ignoreUnused(data, sizeInBytes);
 }
 
 //==============================================================================
@@ -178,9 +176,10 @@ void PluginProcessor::loadProgramFromStorage(int bank, int pgmSlot)
 {
     auto programData{ privateParams->getProgramDataFromStorageString(bank, pgmSlot) };
     if (programData != nullptr)
+    {
         applyProgramDataToPlugin(programData);
-
-    callAfterDelay(100, [this] { sendPgmEditBufferDump(); });
+        callAfterDelay(100, [this] { sendPgmEditBufferDump(); });
+    }
 }
 
 void PluginProcessor::saveProgramToStorage(int bank, int pgmSlot)

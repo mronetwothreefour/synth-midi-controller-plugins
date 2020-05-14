@@ -49,23 +49,6 @@ public:
 		button_Global{ "GLOBAL" },
 		pgmNameEditor{ "pgmNameEditor", "" }
 	{
-		addAndMakeVisible(pgmBankAndSlotChar01);
-		addAndMakeVisible(pgmBankAndSlotChar02);
-		addAndMakeVisible(pgmBankAndSlotChar03);
-		addAndMakeVisible(pgmBankAndSlotChar04);
-		addAndMakeVisible(pgmBankAndSlotChar05);
-		addAndMakeVisible(pgmBankAndSlotChar06);
-		addAndMakeVisible(pgmBankAndSlotChar07);
-		addAndMakeVisible(pgmBankAndSlotChar08);
-		addAndMakeVisible(pgmBankAndSlotChar09);
-		addAndMakeVisible(pgmBankAndSlotChar10);
-		addAndMakeVisible(pgmBankAndSlotChar11);
-		addAndMakeVisible(pgmBankAndSlotChar12);
-		addAndMakeVisible(pgmBankAndSlotChar13);
-		addAndMakeVisible(pgmBankAndSlotChar14);
-		addAndMakeVisible(pgmBankAndSlotChar15);
-		addAndMakeVisible(pgmBankAndSlotChar16);
-
 		addAndMakeVisible(knob_NameChar01);
 		addAndMakeVisible(knob_NameChar02);
 		addAndMakeVisible(knob_NameChar03);
@@ -83,7 +66,7 @@ public:
 		addAndMakeVisible(knob_NameChar15);
 		addAndMakeVisible(knob_NameChar16);
 
-		setPgmBankAndSlotDisplay();
+		
 
 		pgmNameEditor.setInterceptsMouseClicks(false, true);
 		pgmNameEditor.setComponentID("pgmNameEditor");
@@ -148,8 +131,8 @@ public:
 		button_Global.addListener(this);
 		addAndMakeVisible(button_Global);
 
-		auto section_w{ 230 };
-		auto section_h{ 98 };
+		auto section_w{ 242 };
+		auto section_h{ 90 };
 		setSize(section_w, section_h);
 	}
 
@@ -184,7 +167,7 @@ public:
 		g.drawText("PROGRAM NAME", sectionLabelArea, Justification::left);
 
 		// draw LCD background
-		g.fillRect(0, 20, 230, 52);
+		g.fillRect(0, 22, 242, 37);
 	}
 
 	void resized() override
@@ -194,7 +177,7 @@ public:
 		auto char_w{ knob_NameChar01.getWidth() };
 		auto char_h{ knob_NameChar01.getHeight() };
 		auto charGap{ 2 };
-		auto char01_x{ 4 };
+		auto char01_x{ 10 };
 		auto char02_x{ char01_x + char_w + charGap };
 		auto char03_x{ char02_x + char_w + charGap };
 		auto char04_x{ char03_x + char_w + charGap };
@@ -210,48 +193,31 @@ public:
 		auto char14_x{ char13_x + char_w + charGap };
 		auto char15_x{ char14_x + char_w + charGap };
 		auto char16_x{ char15_x + char_w + charGap };
-		auto charRow1_y{ 27 };
-		auto charRow2_y{ 49 };
-		pgmBankAndSlotChar01.setBounds(char01_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar02.setBounds(char02_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar03.setBounds(char03_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar04.setBounds(char04_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar05.setBounds(char05_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar06.setBounds(char06_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar07.setBounds(char07_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar08.setBounds(char08_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar09.setBounds(char09_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar10.setBounds(char10_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar11.setBounds(char11_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar12.setBounds(char12_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar13.setBounds(char13_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar14.setBounds(char14_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar15.setBounds(char15_x, charRow1_y, char_w, char_h);
-		pgmBankAndSlotChar16.setBounds(char16_x, charRow1_y, char_w, char_h);
+		auto charRow_y{ 32 };
 
-		knob_NameChar01.setBounds(char01_x, charRow2_y, char_w, char_h);
-		knob_NameChar02.setBounds(char02_x, charRow2_y, char_w, char_h);
-		knob_NameChar03.setBounds(char03_x, charRow2_y, char_w, char_h);
-		knob_NameChar04.setBounds(char04_x, charRow2_y, char_w, char_h);
-		knob_NameChar05.setBounds(char05_x, charRow2_y, char_w, char_h);
-		knob_NameChar06.setBounds(char06_x, charRow2_y, char_w, char_h);
-		knob_NameChar07.setBounds(char07_x, charRow2_y, char_w, char_h);
-		knob_NameChar08.setBounds(char08_x, charRow2_y, char_w, char_h);
-		knob_NameChar09.setBounds(char09_x, charRow2_y, char_w, char_h);
-		knob_NameChar10.setBounds(char10_x, charRow2_y, char_w, char_h);
-		knob_NameChar11.setBounds(char11_x, charRow2_y, char_w, char_h);
-		knob_NameChar12.setBounds(char12_x, charRow2_y, char_w, char_h);
-		knob_NameChar13.setBounds(char13_x, charRow2_y, char_w, char_h);
-		knob_NameChar14.setBounds(char14_x, charRow2_y, char_w, char_h);
-		knob_NameChar15.setBounds(char15_x, charRow2_y, char_w, char_h);
-		knob_NameChar16.setBounds(char16_x, charRow2_y, char_w, char_h);
+		knob_NameChar01.setBounds(char01_x, charRow_y, char_w, char_h);
+		knob_NameChar02.setBounds(char02_x, charRow_y, char_w, char_h);
+		knob_NameChar03.setBounds(char03_x, charRow_y, char_w, char_h);
+		knob_NameChar04.setBounds(char04_x, charRow_y, char_w, char_h);
+		knob_NameChar05.setBounds(char05_x, charRow_y, char_w, char_h);
+		knob_NameChar06.setBounds(char06_x, charRow_y, char_w, char_h);
+		knob_NameChar07.setBounds(char07_x, charRow_y, char_w, char_h);
+		knob_NameChar08.setBounds(char08_x, charRow_y, char_w, char_h);
+		knob_NameChar09.setBounds(char09_x, charRow_y, char_w, char_h);
+		knob_NameChar10.setBounds(char10_x, charRow_y, char_w, char_h);
+		knob_NameChar11.setBounds(char11_x, charRow_y, char_w, char_h);
+		knob_NameChar12.setBounds(char12_x, charRow_y, char_w, char_h);
+		knob_NameChar13.setBounds(char13_x, charRow_y, char_w, char_h);
+		knob_NameChar14.setBounds(char14_x, charRow_y, char_w, char_h);
+		knob_NameChar15.setBounds(char15_x, charRow_y, char_w, char_h);
+		knob_NameChar16.setBounds(char16_x, charRow_y, char_w, char_h);
 
-		pgmNameEditor.setBounds(char01_x, 47, 222, 22);
+		pgmNameEditor.setBounds(char01_x, 30, 222, 22);
 
-		auto utilityButtons_y{ 77 };
+		auto utilityButtons_y{ 69 };
 		auto utilityButtons_w{ 50 };
 		auto utilityButtons_h{ 21 };
-		auto utilityButtonsGap{ 10 };
+		auto utilityButtonsGap{ 14 };
 		auto utilityButton1_x{ 0 };
 		auto utilityButton2_x{ utilityButton1_x + utilityButtons_w + utilityButtonsGap };
 		auto utilityButton3_x{ utilityButton2_x + utilityButtons_w + utilityButtonsGap };
@@ -263,33 +229,6 @@ public:
 	}
 
 	//==============================================================================
-
-	// Default setting is "Edit Buffer"
-	void setPgmBankAndSlotDisplay
-	(
-		char char01 = 'E', char char02 = 'd', char char03 = 'i', char char04 = 't',
-		char char05 = ' ', char char06 = 'B', char char07 = 'u', char char08 = 'f',
-		char char09 = 'f', char char10 = 'e', char char11 = 'r', char char12 = ' ',
-		char char13 = ' ', char char14 = ' ', char char15 = ' ', char char16 = ' '
-	)
-	{
-		pgmBankAndSlotChar01.drawChar(char01);
-		pgmBankAndSlotChar02.drawChar(char02);
-		pgmBankAndSlotChar03.drawChar(char03);
-		pgmBankAndSlotChar04.drawChar(char04);
-		pgmBankAndSlotChar05.drawChar(char05);
-		pgmBankAndSlotChar06.drawChar(char06);
-		pgmBankAndSlotChar07.drawChar(char07);
-		pgmBankAndSlotChar08.drawChar(char08);
-		pgmBankAndSlotChar09.drawChar(char09);
-		pgmBankAndSlotChar10.drawChar(char10);
-		pgmBankAndSlotChar11.drawChar(char11);
-		pgmBankAndSlotChar12.drawChar(char12);
-		pgmBankAndSlotChar13.drawChar(char13);
-		pgmBankAndSlotChar14.drawChar(char14);
-		pgmBankAndSlotChar15.drawChar(char15);
-		pgmBankAndSlotChar16.drawChar(char16);
-	}
 
 	String getPgmName()
 	{
@@ -358,24 +297,7 @@ private:
 	PluginProcessor& processor;
 
 	PrivateParameters* privateParams;
-
-	LCDcharacterRenderer pgmBankAndSlotChar01;
-	LCDcharacterRenderer pgmBankAndSlotChar02;
-	LCDcharacterRenderer pgmBankAndSlotChar03;
-	LCDcharacterRenderer pgmBankAndSlotChar04;
-	LCDcharacterRenderer pgmBankAndSlotChar05;
-	LCDcharacterRenderer pgmBankAndSlotChar06;
-	LCDcharacterRenderer pgmBankAndSlotChar07;
-	LCDcharacterRenderer pgmBankAndSlotChar08;
-	LCDcharacterRenderer pgmBankAndSlotChar09;
-	LCDcharacterRenderer pgmBankAndSlotChar10;
-	LCDcharacterRenderer pgmBankAndSlotChar11;
-	LCDcharacterRenderer pgmBankAndSlotChar12;
-	LCDcharacterRenderer pgmBankAndSlotChar13;
-	LCDcharacterRenderer pgmBankAndSlotChar14;
-	LCDcharacterRenderer pgmBankAndSlotChar15;
-	LCDcharacterRenderer pgmBankAndSlotChar16;
-
+	
 	KnobWidget_PgmNameChar	knob_NameChar01;
 	KnobWidget_PgmNameChar	knob_NameChar02;
 	KnobWidget_PgmNameChar	knob_NameChar03;

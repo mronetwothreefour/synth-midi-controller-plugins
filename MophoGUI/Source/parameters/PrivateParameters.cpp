@@ -192,3 +192,4 @@ void PrivateParameters::replaceSelectedProgramWithBuffer(int bank, int pgmSlot)
 	}
 }
 
+
