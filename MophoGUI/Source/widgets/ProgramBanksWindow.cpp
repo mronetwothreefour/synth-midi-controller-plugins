@@ -398,6 +398,13 @@ void ProgramBanksTab::editorShown(Label* label, TextEditor& editor)
 	if (label == &label_txTime) editor.setInputRestrictions(4, "0123456789");
 }
 
+void ProgramBanksTab::setNamesForAllProgramSlotButtons()
+{
+	for (auto i = 0; i != 128; ++i)
+		programSlots.setNameForProgramSlotButton(i);
+	programSlots.repaint();
+}
+
 //==============================================================================
 
 ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
@@ -416,8 +423,29 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent
 	addTab("2", Color::device, &bank2, true, 2);
 	addTab("3", Color::device, &bank3, true, 3);
 
+	String button_ResetTooltip{ "" };
+	if (privateParameters->shouldShowInfoTip())
+	{
+		button_ResetTooltip += "Restores the factory default programs\n";
+		button_ResetTooltip += "to all three of the plugin storage banks.";
+	}
+	button_Reset.setTooltip(button_ResetTooltip);
+	button_Reset.setButtonText("RESET");
+	button_Reset.onClick = [this, privateParameters]
+	{
+		privateParameters->setProgramBanksToDefaults();
+		bank1.setNamesForAllProgramSlotButtons();
+		bank2.setNamesForAllProgramSlotButtons();
+		bank3.setNamesForAllProgramSlotButtons();
+	};
+	addAndMakeVisible(button_Reset);
+
+	button_Reset.setBounds(978, 290, 50, 21);
+	button_Reset.setAlwaysOnTop(true);
+
 	auto tab_w{ 1015 };
 	auto tab_h{ 325 };
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
+
 

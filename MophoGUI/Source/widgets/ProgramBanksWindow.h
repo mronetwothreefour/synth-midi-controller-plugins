@@ -148,6 +148,8 @@ public:
     void labelTextChanged(Label* label) override;
     void editorShown(Label* label, TextEditor& editor) override;
 
+    void setNamesForAllProgramSlotButtons();
+
 private:
     int bank;
 
@@ -188,6 +190,8 @@ private:
     ProgramBanksTab bank1;
     ProgramBanksTab bank2;
     ProgramBanksTab bank3;
+
+    TextButton button_Reset;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTabbedComponent)
