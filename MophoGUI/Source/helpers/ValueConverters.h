@@ -676,6 +676,24 @@ struct ValueConverters
 		}
 		else return "range error";
 	}
+	 
+	// Converts integers 0..24 to a master transpose range String ("-12".."+12")
+	String intToMasterTranspose(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 25)
+		{
+			auto transposition = i - 12;
+			if (transposition > -13 && transposition < -1)
+				return verbose ? (String)transposition + " semitones" : (String)transposition;
+			if (transposition == -1) return verbose ? "-1 semitone" : "-1";
+			if (transposition == 0) return verbose ? "No Transpose" : "0";
+			if (transposition == 1) return verbose ? "+1 semitone" : "+1";
+			if (transposition > 1 && transposition < 13) 
+				return verbose ? "+" + (String)transposition + " semitones" : "+" + (String)transposition;
+			else return "invalid";
+		}
+		else return "range error";
+	}
 
 private:
 

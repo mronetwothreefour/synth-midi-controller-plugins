@@ -87,6 +87,11 @@ public:
     void pullProgramFromHardwareStorage(int bank, int pgmSlot);
 
     //==============================================================================
+    // Sends a SysEx message to the hardware requesting a dump
+    // of the Mopho hardware's current global parameter settings
+    void sendGlobalParametersDumpRequest();
+
+    //==============================================================================
     // This ensures that, when the program name is changed, NRPN update messages
     // are sent to the Mopho for all the characters in the name, including any  
     // characters that were not actually changed.
@@ -150,6 +155,11 @@ private:
     // Calculates LSB and MS bit values for each parameter and adds them to the
     // appropriate bytes in the buffer, starting from the byte specified by offset
     void addParamDataToBuffer(uint8* buffer, int offset);
+
+    // Extracts the parameter values from a global parameters data dump received
+    // from the Mopho and applies them to the plugin's global parameter settings
+    // (without sending parameter change messages back to the Mopho)
+    void applyGlobalParameterDataToPlugin(const uint8* dumpData);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

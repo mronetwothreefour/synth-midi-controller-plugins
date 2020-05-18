@@ -50,6 +50,11 @@ PluginEditor::PluginEditor
     sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, vc));
     addAndMakeVisible(sectionPgmName.get());
 
+    URL link{ "https://programming.mr1234.com/" };
+    button_Link.reset(new HyperlinkButton("", link));
+    button_Link->setComponentID("button_Link");
+    addAndMakeVisible(button_Link.get());
+
     tooltipWindow.setMillisecondsBeforeTipAppears(privateParams->getTooltipDelay());
     tooltipWindow.setComponentEffect(nullptr);
 
@@ -60,6 +65,7 @@ PluginEditor::PluginEditor
 
 PluginEditor::~PluginEditor()
 {
+    button_Link = nullptr;
     sectionPgmName = nullptr;
     sectionPushIt = nullptr;
     sectionKnobAssign = nullptr;
@@ -259,6 +265,12 @@ void PluginEditor::paint(Graphics& g)
     Path logo; // This second path is just used to translate the logo path to its correct location in the GUI
     logo.addPath(logoData, AffineTransform::translation(849.0f, 13.3022f));
     g.fillPath(logo);
+
+    // Draw info line
+    Font font{ "Arial", "Regular", 12.0f };
+    g.setFont(font);
+    Rectangle<int> infoLineArea{ 580, 118, 227, 16 };
+    g.drawText("Build 1.0.0  |  Mister 1-2-3-4 Programming", infoLineArea, Justification::centred);
 }
 
 void PluginEditor::resized()
@@ -274,4 +286,5 @@ void PluginEditor::resized()
     sectionKnobAssign   ->setBounds(1003, 487, sectionKnobAssign->getWidth(), sectionKnobAssign->getHeight());
     sectionPushIt       ->setBounds(1171, 487, sectionPushIt    ->getWidth(), sectionPushIt    ->getHeight());
     sectionPgmName      ->setBounds(584 , 13 , sectionPgmName   ->getWidth(), sectionPgmName   ->getHeight());
+    button_Link         ->setBounds(656, 117, 140, 16);
 }

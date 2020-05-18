@@ -62,6 +62,13 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
                     {
                         applyProgramDataToPlugin(sysExData + 4);
                     }
+
+                    // apply incoming global parameter
+                    // data dumps to the plugin's globalOptionsTree
+                    if (sysExData[3] == 15)
+                    {
+                        applyGlobalParameterDataToPlugin(sysExData + 4);
+                    }
                 }
             }
         }
@@ -201,6 +208,13 @@ void PluginProcessor::pullProgramFromHardwareStorage(int bank, int pgmSlot)
 {
     if (bank > -1 && bank < 3 && pgmSlot > -1 && pgmSlot < 128)
         sendProgramDumpRequest(bank, pgmSlot);
+}
+
+//==============================================================================
+void PluginProcessor::sendGlobalParametersDumpRequest()
+{
+    const char sysExData[]{ 1, 37, 14 };
+    internalMidiBuf.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
 }
 
 //==============================================================================
@@ -358,6 +372,12 @@ void PluginProcessor::addParamDataToBuffer(uint8* buffer, int offset)
     }
 
     nrpnOutputIsAllowed = true;
+}
+
+void PluginProcessor::applyGlobalParameterDataToPlugin(const uint8* dumpData)
+{
+    auto masterTranspose{ (int)dumpData[0] + (dumpData[1] * 16) };
+    privateParams->setGlobalOptionsProperty(ID::masterTranspose, masterTranspose);
 }
 
 //==============================================================================

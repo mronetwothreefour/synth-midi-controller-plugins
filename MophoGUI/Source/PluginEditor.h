@@ -57,6 +57,8 @@ private:
     std::unique_ptr<PushItSection> sectionPushIt;
     std::unique_ptr<ProgramNameSection> sectionPgmName;
 
+    std::unique_ptr<HyperlinkButton> button_Link;
+
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     TooltipWindow tooltipWindow;

@@ -2331,6 +2331,9 @@
     <ClCompile Include="..\..\Source\widgets\ProgramBanksWindow.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\GlobalOptionsWindow.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4608,6 +4611,9 @@
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\ProgramBanksWindow.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\GlobalOptionsWindow.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>

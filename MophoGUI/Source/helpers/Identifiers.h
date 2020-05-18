@@ -233,6 +233,13 @@ namespace ID
 
 	//==============================================================================
 	const Identifier globalOptions		{ "globalOptions"	};
+	const Identifier hardwareLink		{ "hardwareLink"	};
+	const Identifier masterTranspose	{ "masterTranspose"	};
+	const Identifier masterFineTune		{ "masterFineTune"	};
+	const Identifier midiChannel		{ "midiChannel"		};
+	const Identifier midiClock			{ "midiClock"		};
+	const Identifier nrpnSend			{ "nrpnSend"		};
+	const Identifier nrpnReceive		{ "nrpnReceive"		};
 	const Identifier transmitTime		{ "transmitTime"	};
 
 	const Identifier tooltipOptions		{ "tooltipOptions"	};

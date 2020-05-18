@@ -8,6 +8,7 @@
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
 #include "../widgets/LCDcharacterRenderer.h"
+#include "../widgets/GlobalOptionsWindow.h"
 #include "../widgets/ProgramBanksWindow.h"
 
 // A set of controls targeting the program name characters
@@ -47,7 +48,8 @@ public:
 		button_Read{ "READ" },
 		button_Banks{ "BANKS" },
 		button_Global{ "GLOBAL" },
-		pgmNameEditor{ "pgmNameEditor", "" }
+		pgmNameEditor{ "pgmNameEditor", "" },
+		valueConverters{ vc }
 	{
 		addAndMakeVisible(knob_NameChar01);
 		addAndMakeVisible(knob_NameChar02);
@@ -65,8 +67,6 @@ public:
 		addAndMakeVisible(knob_NameChar14);
 		addAndMakeVisible(knob_NameChar15);
 		addAndMakeVisible(knob_NameChar16);
-
-		
 
 		pgmNameEditor.setInterceptsMouseClicks(false, true);
 		pgmNameEditor.setComponentID("pgmNameEditor");
@@ -129,6 +129,11 @@ public:
 		}
 		button_Global.setTooltip(button_GlobalTooltip);
 		button_Global.addListener(this);
+		button_Global.onClick = [this] 
+		{ 
+			processor.sendGlobalParametersDumpRequest();
+			showGlobalOptionsWindow(); 
+		};
 		addAndMakeVisible(button_Global);
 
 		auto section_w{ 242 };
@@ -138,6 +143,15 @@ public:
 
 	~ProgramNameSection() 
 	{
+		if (globalOptionsDialogWindow != nullptr)
+		{
+			globalOptionsDialogWindow->exitModalState(0);
+			delete globalOptionsDialogWindow;
+		}
+
+		globalOptionsLaunchOptions = nullptr;
+		globalOptionsWindow = nullptr;
+
 		if (programBanksDialogWindow != nullptr)
 		{
 			programBanksDialogWindow->exitModalState(0);
@@ -323,7 +337,7 @@ private:
 	TextButton button_Banks;
 	TextButton button_Global;
 
-	ValueConverters valueConverters;
+	ValueConverters* valueConverters;
 
 	char charBuffer[16];
 
@@ -356,6 +370,35 @@ private:
 			static const int dialogWindow_h{ programBanksWindow->contentComponent->getHeight() + programBanksDialogWindow->getTitleBarHeight() };
 			programBanksDialogWindow->centreAroundComponent(getParentComponent(), dialogWindow_w, dialogWindow_h);
 			programBanksDialogWindow->setResizeLimits(dialogWindow_w, dialogWindow_h, dialogWindow_w, dialogWindow_h);
+		}
+	}
+
+	SafePointer<DialogWindow> globalOptionsDialogWindow;
+	std::unique_ptr<DialogWindow::LaunchOptions> globalOptionsLaunchOptions;
+	std::unique_ptr<GlobalOptionsWindow> globalOptionsWindow;
+
+	void showGlobalOptionsWindow()
+	{
+		globalOptionsWindow.reset(new GlobalOptionsWindow(processor, privateParams, valueConverters));
+		globalOptionsLaunchOptions.reset(new DialogWindow::LaunchOptions());
+		globalOptionsLaunchOptions->content.setNonOwned(globalOptionsWindow->contentComponent.get());
+		globalOptionsLaunchOptions->dialogTitle = "GLOBAL OPTIONS";
+		globalOptionsLaunchOptions->escapeKeyTriggersCloseButton = true;
+		globalOptionsLaunchOptions->useNativeTitleBar = false;
+		globalOptionsLaunchOptions->dialogBackgroundColour = Color::device;
+		globalOptionsLaunchOptions->resizable = false;
+		globalOptionsLaunchOptions->content->setInterceptsMouseClicks(true, true);
+		globalOptionsDialogWindow = globalOptionsLaunchOptions->launchAsync();
+
+		if (globalOptionsDialogWindow != nullptr)
+		{
+			globalOptionsDialogWindow->setTitleBarHeight(30);
+			globalOptionsDialogWindow->setTitleBarTextCentred(false);
+
+			static const int dialogWindow_w{ globalOptionsWindow->contentComponent->getWidth() };
+			static const int dialogWindow_h{ globalOptionsWindow->contentComponent->getHeight() + globalOptionsWindow->getTitleBarHeight() };
+			globalOptionsDialogWindow->centreAroundComponent(getParentComponent(), dialogWindow_w, dialogWindow_h);
+			globalOptionsDialogWindow->setResizeLimits(dialogWindow_w, dialogWindow_h, dialogWindow_w, dialogWindow_h);
 		}
 	}
 

@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../PluginProcessor.h"
 #include "../helpers/CustomColors.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
@@ -251,7 +252,7 @@ private:
 	String currentValueText;
 
 	//==============================================================================
-	// Override this function to define how the current
+	// Derived classes must override this function to define how the current
 	// parameter value is drawn on the knob
 	virtual void drawValue(const int& currentValue) noexcept = 0;
 
@@ -1612,6 +1613,174 @@ private:
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWidget_PgmNameChar)
+};
+
+//==============================================================================
+// Base class for knob widgets in the global options window. 
+// These knobs are not attached to a public parameter. Derived classes
+// must override drawValue() and createTooltipString()
+class GlobalKnobWidget : 
+	public Component, 
+	public Slider::Listener,
+	public ValueTree::Listener
+{
+public:
+	PrivateParameters* privateParams;
+
+	GlobalKnobWidget
+	(
+		String knobNameLine1,
+		String knobNameLine2,
+		PluginProcessor& p,
+		PrivateParameters* privateParameters,
+		Identifier parameterID,
+		int maximum
+	) :
+		paramID{ parameterID },
+		processor{ p },
+		privateParams{ privateParameters },
+		nameLine1{ knobNameLine1 },
+		nameLine2{ knobNameLine2 },
+		maxValue{ maximum }
+	{
+		privateParams->addListenerToGlobalOptions(this);
+
+		slider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+		slider.setRange(0.0, (double)maxValue, 1.0);
+		slider.addListener(this);
+		addAndMakeVisible(slider);
+
+		auto knobWidget_w{ 70 };
+		auto knobWidget_h{ 65 };
+		setSize(knobWidget_w, knobWidget_h);
+	}
+
+	~GlobalKnobWidget()
+	{
+		slider.removeListener(this);
+		privateParams->removeListenerFromGlobalOptions(this);
+	}
+
+	void paint(Graphics& g) override
+	{
+		// draw knob circle
+		g.setColour(Color::black);
+		g.fillEllipse(20, 5, 30, 30);
+
+		// draw knob name 
+		Font knobName{ "Arial", "Black", 12.0f };
+		g.setFont(knobName);
+		Rectangle<int> knobNameArea1{ 0, 35, 70, 15 };
+		g.drawText(nameLine1, knobNameArea1, Justification::centred);
+		Rectangle<int> knobNameArea2{ 0, 45, 70, 15 };
+		g.drawText(nameLine2, knobNameArea2, Justification::centred);
+
+		// draw knob value
+		g.setColour(Color::controlText);
+		Font knobValue{ "Arial", "Narrow Bold", 13.0f };
+		g.setFont(knobValue);
+		Rectangle<int> knobValueArea{ 20, 5, 30, 30 };
+		g.drawText(currentValueText, knobValueArea, Justification::centred);
+	}
+
+	void resized() override
+	{
+		slider.setBounds(15, 0, 40, 40);
+	}
+
+	auto getSliderValue() { return roundToInt(slider.getValue()); }
+
+	void sliderValueChanged(Slider* sliderThatChanged) override
+	{
+		if (sliderThatChanged == &slider)
+		{
+			auto currentValue{ getSliderValue() };
+			privateParams->setGlobalOptionsProperty(paramID, currentValue);
+			drawValue(currentValue);
+			auto tooltip{ createTooltipString(currentValue) };
+			setSliderTooltip(tooltip);
+		}
+	}
+
+	void setCurrentValueText(String text) { currentValueText = text; repaint(); }
+
+	void setSliderTooltip(String text) { slider.setTooltip(text); }
+
+	void setKnobSensitivity(int sensitivity) { slider.setMouseDragSensitivity(sensitivity); }
+
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override
+	{
+		if (property == paramID)
+		{
+			auto currentValue{ privateParams->getGlobalOptionsProperty(property) };
+			slider.setValue((double)currentValue, dontSendNotification);
+			drawValue(currentValue);
+			auto tooltip{ createTooltipString(currentValue) };
+			setSliderTooltip(tooltip);
+		}
+	}
+
+private:
+	PluginProcessor& processor;
+
+	Identifier paramID;
+
+	CustomSlider slider;
+
+	String nameLine1;
+	String nameLine2;
+	String currentValueText;
+
+	int maxValue;
+
+	//==============================================================================
+	// Derived classes must override this function to define how the current
+	// parameter value is drawn on the knob
+	virtual void drawValue(const int& currentValue) noexcept = 0;
+
+	// Derived classes must override this function to create a tooltip String with a
+	// parameter description and/or a verbose version of the parameter's current value
+	virtual String createTooltipString(const int& currentValue) const noexcept = 0;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalKnobWidget)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the master transpose parameter
+// in the global options window. Displays its value in a range from -12 to +12
+class GlobalKnobWidget_MasterTranspose : public GlobalKnobWidget
+{
+public:
+	GlobalKnobWidget_MasterTranspose
+	(
+		PluginProcessor& p,
+		PrivateParameters* privateParameters,
+		ValueConverters* vc
+	) :
+		GlobalKnobWidget{ "MASTER", "TRANSPOSE", p, privateParameters, ID::masterTranspose, 24 },
+		valueConverters{ vc }
+	{
+		setKnobSensitivity(90);
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~GlobalKnobWidget_MasterTranspose() {}
+
+private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
+	void drawValue(const int& currentValue) noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalKnobWidget_MasterTranspose)
 };
 
 

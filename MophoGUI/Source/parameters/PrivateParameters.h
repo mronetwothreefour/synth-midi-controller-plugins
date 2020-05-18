@@ -24,6 +24,12 @@ public:
 	void setUpdateFromPreset(bool shouldUpdate) { updateFromPreset.setValue(shouldUpdate); }
 
 	//==============================================================================
+	void addListenerToGlobalOptions(ValueTree::Listener* listener) { globalOptionsTree->addListener(listener); }
+	void removeListenerFromGlobalOptions(ValueTree::Listener* listener) { globalOptionsTree->removeListener(listener); }
+	const var& getGlobalOptionsProperty(const Identifier& propertyID) const { return globalOptionsTree->getProperty(propertyID); }
+	void setGlobalOptionsProperty(const Identifier& propertyID, const var& newValue) const 
+		{ globalOptionsTree->setProperty(propertyID, newValue, nullptr); }
+
 	// Returns whether a verbose version of a control's current
 	// value should show when the mouse hovers over the control
 	bool shouldShowValueTip() const;

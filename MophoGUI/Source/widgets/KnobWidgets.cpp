@@ -207,7 +207,7 @@ String KnobWidget_BendRange::createTooltipString(const int& currentValue) const 
 	{
 		tooltip += "Sets the maximum amount (in semitones) by which pitch wheel\n";
 		tooltip += "messages can raise or lower the pitches of the oscillators.\n";
-		tooltip += "Range: 0 (no bend) to +/-12 semitones.\n";
+		tooltip += "Range: 0 (no bend) to +/-12 semitones.";
 	}
 	return tooltip;
 }
@@ -685,6 +685,27 @@ String KnobWidget_PgmNameChar::createTooltipString(const int& currentValue) cons
 	{
 		tooltip += "To change a single program name character,\n";
 		tooltip += "click-and-drag it or use the mouse wheel.";
+	}
+	return tooltip;
+}
+
+void GlobalKnobWidget_MasterTranspose::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 25)
+		setCurrentValueText(valueConverters->intToMasterTranspose(currentValue, false));
+	else setCurrentValueText("ERR");
+}
+
+String GlobalKnobWidget_MasterTranspose::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters->intToMasterTranspose(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "The base oscillator pitches for all programs.\n";
+		tooltip += "are raised or lowered by this amount.\n";
+		tooltip += "Range: -12 to +12 semitones.";
 	}
 	return tooltip;
 }
