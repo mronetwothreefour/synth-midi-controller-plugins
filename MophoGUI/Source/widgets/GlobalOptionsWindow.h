@@ -34,6 +34,8 @@ private:
     PrivateParameters* privateParams;
 
     GlobalKnobWidget_MasterTranspose knob_Transpose;
+    GlobalKnobWidget_MasterFineTune knob_FineTune;
+    GlobalKnobWidget_MIDIchannel knob_MIDIchannel;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalOptionsComponent)

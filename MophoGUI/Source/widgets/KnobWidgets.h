@@ -1783,4 +1783,75 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalKnobWidget_MasterTranspose)
 };
 
+//==============================================================================
+// A knob widget appropriate for controlling the master fine tune parameter
+// in the global options window. Displays its value in a range from -50 to +50
+class GlobalKnobWidget_MasterFineTune : public GlobalKnobWidget
+{
+public:
+	GlobalKnobWidget_MasterFineTune
+	(
+		PluginProcessor& p,
+		PrivateParameters* privateParameters,
+		ValueConverters* vc
+	) :
+		GlobalKnobWidget{ "MASTER", "FINE TUNE", p, privateParameters, ID::masterFineTune, 100 },
+		valueConverters{ vc }
+	{
+		setKnobSensitivity(150);
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~GlobalKnobWidget_MasterFineTune() {}
+
+private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
+	void drawValue(const int& currentValue) noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalKnobWidget_MasterFineTune)
+};
+
+//==============================================================================
+// A knob widget appropriate for controlling the MIDI channel parameter
+// in the global options window. Displays its value in a range from 0 to 16
+// (0 = "All Channels")
+class GlobalKnobWidget_MIDIchannel : public GlobalKnobWidget
+{
+public:
+	GlobalKnobWidget_MIDIchannel
+	(
+		PluginProcessor& p,
+		PrivateParameters* privateParameters,
+		ValueConverters* vc
+	) :
+		GlobalKnobWidget{ "MIDI", "CHANNEL", p, privateParameters, ID::midiChannel, 16 },
+		valueConverters{ vc }
+	{
+		setKnobSensitivity(80);
+		auto currentValue{ getSliderValue() };
+		drawValue(currentValue);
+		auto tooltip{ createTooltipString(currentValue) };
+		setSliderTooltip(tooltip);
+	}
+
+	~GlobalKnobWidget_MIDIchannel() {}
+
+private:
+	ValueConverters* valueConverters;
+
+	//==============================================================================
+	void drawValue(const int& currentValue) noexcept override;
+	String createTooltipString(const int& currentValue) const noexcept override;
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalKnobWidget_MIDIchannel)
+};
+
 

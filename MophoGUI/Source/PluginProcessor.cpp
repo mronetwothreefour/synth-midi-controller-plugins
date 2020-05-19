@@ -376,8 +376,42 @@ void PluginProcessor::addParamDataToBuffer(uint8* buffer, int offset)
 
 void PluginProcessor::applyGlobalParameterDataToPlugin(const uint8* dumpData)
 {
+    // prevent NRPN messages from being sent back to
+    // the Mopho while the parameters are being updated
+    nrpnOutputIsAllowed = false;
+
     auto masterTranspose{ (int)dumpData[0] + (dumpData[1] * 16) };
     privateParams->setGlobalOptionsProperty(ID::masterTranspose, masterTranspose);
+
+    auto masterFineTune{ (int)dumpData[2] + (dumpData[3] * 16) };
+    privateParams->setGlobalOptionsProperty(ID::masterFineTune, masterFineTune);
+
+    auto midiChannel{ (int)dumpData[4] };
+    privateParams->setGlobalOptionsProperty(ID::midiChannel, midiChannel);
+
+    auto midiClock{ (int)dumpData[6] };
+    privateParams->setGlobalOptionsProperty(ID::midiClock, midiClock);
+
+    auto parameterSend{ (int)dumpData[8] };
+    privateParams->setGlobalOptionsProperty(ID::parameterSend, parameterSend);
+
+    auto parameterReceive{ (int)dumpData[10] };
+    privateParams->setGlobalOptionsProperty(ID::parameterReceive, parameterReceive);
+
+    auto midiControllers{ (bool)dumpData[12] };
+    privateParams->setGlobalOptionsProperty(ID::midiControllers, midiControllers);
+
+    // Since this plugin depends on SysEx to communicate with the hardware,
+    // the option for turning SysEx send/receive off is not included
+
+    auto stereoAudioOut{ (bool)dumpData[16] };
+    privateParams->setGlobalOptionsProperty(ID::stereoAudioOut, stereoAudioOut);
+
+    auto midiThru{ (bool)dumpData[18] };
+    privateParams->setGlobalOptionsProperty(ID::midiThru, midiThru);
+
+    // resume sending NRPN messages to the Mopho when parameters change
+    callAfterDelay(100, [this] { nrpnOutputIsAllowed = true; });
 }
 
 //==============================================================================

@@ -238,8 +238,11 @@ namespace ID
 	const Identifier masterFineTune		{ "masterFineTune"	};
 	const Identifier midiChannel		{ "midiChannel"		};
 	const Identifier midiClock			{ "midiClock"		};
-	const Identifier nrpnSend			{ "nrpnSend"		};
-	const Identifier nrpnReceive		{ "nrpnReceive"		};
+	const Identifier parameterSend		{ "parameterSend"	};
+	const Identifier parameterReceive	{ "parameterReceive"};
+	const Identifier midiControllers	{ "midiControllers"	};
+	const Identifier stereoAudioOut		{ "stereoAudioOut"	};
+	const Identifier midiThru			{ "midiThru"		};
 	const Identifier transmitTime		{ "transmitTime"	};
 
 	const Identifier tooltipOptions		{ "tooltipOptions"	};

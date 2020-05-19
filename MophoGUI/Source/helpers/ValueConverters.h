@@ -695,6 +695,18 @@ struct ValueConverters
 		else return "range error";
 	}
 
+	// Converts integers 0..16 to a MIDI channel String (0 = "All Channels")
+	String intToMIDIchannel(const int& i, bool verbose) const
+	{
+		if (i > -1 && i < 17)
+		{
+			if (i == 0) return verbose ? "All Channels" : "ALL";
+			if (i > 0 && i < 17) return verbose ? "Channel " + (String)i : (String)i;
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 private:
 
 	//==============================================================================

@@ -709,3 +709,45 @@ String GlobalKnobWidget_MasterTranspose::createTooltipString(const int& currentV
 	}
 	return tooltip;
 }
+
+void GlobalKnobWidget_MasterFineTune::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 101)
+		setCurrentValueText(valueConverters->intToFineTuneRange(currentValue, false));
+	else setCurrentValueText("ERR");
+}
+
+String GlobalKnobWidget_MasterFineTune::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters->intToFineTuneRange(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "The base oscillator pitches for all programs.\n";
+		tooltip += "are raised or lowered by this amount.\n";
+		tooltip += "Range: -50 to +50 cents.";
+	}
+	return tooltip;
+}
+
+void GlobalKnobWidget_MIDIchannel::drawValue(const int& currentValue) noexcept
+{
+	if (currentValue > -1 && currentValue < 17)
+		setCurrentValueText(valueConverters->intToMIDIchannel(currentValue, false));
+	else setCurrentValueText("ERR");
+}
+
+String GlobalKnobWidget_MIDIchannel::createTooltipString(const int& currentValue) const noexcept
+{
+	String tooltip{ "" };
+	if (privateParams->shouldShowValueTip())
+		tooltip += "Current Value: " + valueConverters->intToMIDIchannel(currentValue, true) + "\n";
+	if (privateParams->shouldShowInfoTip())
+	{
+		tooltip += "Sets the channel which the Mopho hardware\n";
+		tooltip += "uses to send and receive MIDI messages.\n";
+		tooltip += "Range: All Channels, Channel 1 to 16";
+	}
+	return tooltip;
+}
