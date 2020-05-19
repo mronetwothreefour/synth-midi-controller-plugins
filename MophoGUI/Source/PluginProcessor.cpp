@@ -120,7 +120,7 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 
             if (parameterIndex == 95) outputValue += 30; // clock tempo parameter range is offset by 30
 
-            internalMidiBuf = MidiRPNGenerator::generate(1, nrpnIndex, outputValue, true, true);
+            addNRPNmessagesToBuffer(nrpnIndex, outputValue);
         }
 
         // The arpeggiator (#98) and the sequencer (#100) cannot both be on
@@ -133,6 +133,19 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 }
 
 //==============================================================================
+
+void PluginProcessor::addNRPNmessagesToBuffer(int paramIndex, int newValue)
+{
+    // **need to add code for channel number**
+    MidiMessage nrpnIndexMSB{ 176, 99, paramIndex / 128 };
+    internalMidiBuf.addEvent(nrpnIndexMSB, 0);
+    MidiMessage nrpnIndexLSB{ 176, 98, paramIndex % 128 };
+    internalMidiBuf.addEvent(nrpnIndexLSB, 0);
+    MidiMessage nrpnValueMSB{ 176, 6, newValue / 128 };
+    internalMidiBuf.addEvent(nrpnValueMSB, 0);
+    MidiMessage nrpnValueLSB{ 176, 38, newValue % 128 };
+    internalMidiBuf.addEvent(nrpnValueLSB, 0);
+}
 
 void PluginProcessor::sendPgmEditBufferDumpRequest()
 {

@@ -52,6 +52,10 @@ public:
     void parameterGestureChanged(int /*parameterIndex*/, bool /*gestureIsStarting*/) override {}
 
     //==============================================================================
+    // Creates a set of NRPN messages for changing the specified hardware
+    // parameter to the specified value and adds them to internalMidiBuf
+    void addNRPNmessagesToBuffer(int paramIndex, int newValue);
+
     // Sends a SysEx message to the hardware requesting a dump of the
     // parameter data currently in the Mopho's program edit buffer
     void sendPgmEditBufferDumpRequest();
