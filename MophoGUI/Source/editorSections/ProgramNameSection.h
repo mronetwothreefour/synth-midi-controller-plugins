@@ -132,7 +132,7 @@ public:
 		button_Global.onClick = [this] 
 		{ 
 			processor.sendGlobalParametersDumpRequest();
-			showGlobalOptionsWindow(); 
+			showGlobalOptionsWindow();
 		};
 		addAndMakeVisible(button_Global);
 

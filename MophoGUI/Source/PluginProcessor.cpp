@@ -14,6 +14,8 @@ PluginProcessor::PluginProcessor() :
     privateParams.reset(new PrivateParameters());
 
     valueConverters.reset(new ValueConverters());
+
+    sendGlobalParametersDumpRequest();
 }
 
 PluginProcessor::~PluginProcessor()
@@ -136,15 +138,35 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 
 void PluginProcessor::addNRPNmessagesToBuffer(int paramIndex, int newValue)
 {
-    // **need to add code for channel number**
-    MidiMessage nrpnIndexMSB{ 176, 99, paramIndex / 128 };
-    internalMidiBuf.addEvent(nrpnIndexMSB, 0);
-    MidiMessage nrpnIndexLSB{ 176, 98, paramIndex % 128 };
-    internalMidiBuf.addEvent(nrpnIndexLSB, 0);
-    MidiMessage nrpnValueMSB{ 176, 6, newValue / 128 };
-    internalMidiBuf.addEvent(nrpnValueMSB, 0);
-    MidiMessage nrpnValueLSB{ 176, 38, newValue % 128 };
-    internalMidiBuf.addEvent(nrpnValueLSB, 0);
+    if (paramIndex == 386) // Send MIDI channel change messages out on all channels
+    {
+        for (auto i = 0; i != 16; ++i)
+        {
+            auto firstByte{ 176 + i };
+            MidiMessage nrpnIndexMSB{ firstByte, 99, paramIndex / 128 };
+            internalMidiBuf.addEvent(nrpnIndexMSB, 0);
+            MidiMessage nrpnIndexLSB{ firstByte, 98, paramIndex % 128 };
+            internalMidiBuf.addEvent(nrpnIndexLSB, 0);
+            MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
+            internalMidiBuf.addEvent(nrpnValueMSB, 0);
+            MidiMessage nrpnValueLSB{ firstByte, 38, newValue % 128 };
+            internalMidiBuf.addEvent(nrpnValueLSB, 0);
+        }
+    }
+    else
+    {
+        auto midiChannel{ (int)privateParams->getGlobalOptionsProperty(ID::midiChannel) };
+        if (midiChannel > 0) midiChannel -= 1;
+        auto firstByte{ 176 + midiChannel };
+        MidiMessage nrpnIndexMSB{ firstByte, 99, paramIndex / 128 };
+        internalMidiBuf.addEvent(nrpnIndexMSB, 0);
+        MidiMessage nrpnIndexLSB{ firstByte, 98, paramIndex % 128 };
+        internalMidiBuf.addEvent(nrpnIndexLSB, 0);
+        MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
+        internalMidiBuf.addEvent(nrpnValueMSB, 0);
+        MidiMessage nrpnValueLSB{ firstByte, 38, newValue % 128 };
+        internalMidiBuf.addEvent(nrpnValueLSB, 0);
+    }
 }
 
 void PluginProcessor::sendPgmEditBufferDumpRequest()
@@ -399,7 +421,7 @@ void PluginProcessor::applyGlobalParameterDataToPlugin(const uint8* dumpData)
     auto masterFineTune{ (int)dumpData[2] + (dumpData[3] * 16) };
     privateParams->setGlobalOptionsProperty(ID::masterFineTune, masterFineTune);
 
-    auto midiChannel{ (int)dumpData[4] };
+    auto midiChannel{ (int)dumpData[4] + (dumpData[5] * 16) };
     privateParams->setGlobalOptionsProperty(ID::midiChannel, midiChannel);
 
     auto midiClock{ (int)dumpData[6] };

@@ -1634,6 +1634,7 @@ public:
 		PluginProcessor& p,
 		PrivateParameters* privateParameters,
 		Identifier parameterID,
+		int nrpn,
 		int maximum
 	) :
 		paramID{ parameterID },
@@ -1641,6 +1642,7 @@ public:
 		privateParams{ privateParameters },
 		nameLine1{ knobNameLine1 },
 		nameLine2{ knobNameLine2 },
+		nrpnIndex{ nrpn },
 		maxValue{ maximum }
 	{
 		privateParams->addListenerToGlobalOptions(this);
@@ -1649,6 +1651,7 @@ public:
 		slider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		slider.setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
 		slider.setRange(0.0, (double)maxValue, 1.0);
+		slider.setValue((double)privateParams->getGlobalOptionsProperty(paramID));
 		slider.addListener(this);
 		addAndMakeVisible(slider);
 
@@ -1698,6 +1701,7 @@ public:
 		{
 			auto currentValue{ getSliderValue() };
 			privateParams->setGlobalOptionsProperty(paramID, currentValue);
+			processor.addNRPNmessagesToBuffer(nrpnIndex, currentValue);
 			drawValue(currentValue);
 			auto tooltip{ createTooltipString(currentValue) };
 			setSliderTooltip(tooltip);
@@ -1710,7 +1714,7 @@ public:
 
 	void setKnobSensitivity(int sensitivity) { slider.setMouseDragSensitivity(sensitivity); }
 
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override
+	void valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) override
 	{
 		if (property == paramID)
 		{
@@ -1733,6 +1737,7 @@ private:
 	String nameLine2;
 	String currentValueText;
 
+	int nrpnIndex;
 	int maxValue;
 
 	//==============================================================================
@@ -1760,7 +1765,7 @@ public:
 		PrivateParameters* privateParameters,
 		ValueConverters* vc
 	) :
-		GlobalKnobWidget{ "MASTER", "TRANSPOSE", p, privateParameters, ID::masterTranspose, 24 },
+		GlobalKnobWidget{ "MASTER", "TRANSPOSE", p, privateParameters, ID::masterTranspose, 384, 24 },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(90);
@@ -1795,7 +1800,7 @@ public:
 		PrivateParameters* privateParameters,
 		ValueConverters* vc
 	) :
-		GlobalKnobWidget{ "MASTER", "FINE TUNE", p, privateParameters, ID::masterFineTune, 100 },
+		GlobalKnobWidget{ "MASTER", "FINE TUNE", p, privateParameters, ID::masterFineTune, 385, 100 },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(150);
@@ -1831,7 +1836,7 @@ public:
 		PrivateParameters* privateParameters,
 		ValueConverters* vc
 	) :
-		GlobalKnobWidget{ "MIDI", "CHANNEL", p, privateParameters, ID::midiChannel, 16 },
+		GlobalKnobWidget{ "MIDI", "CHANNEL", p, privateParameters, ID::midiChannel, 386, 16 },
 		valueConverters{ vc }
 	{
 		setKnobSensitivity(80);
