@@ -5,6 +5,7 @@
 #include "../PluginProcessor.h"
 #include "../helpers/CustomColors.h"
 #include "../helpers/InfoStrings.h"
+#include "../helpers/ParameterTools.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "LCDcharacterRenderer.h"

@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/ParameterTools.h"
 #include "../helpers/ValueConverters.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
@@ -25,17 +26,15 @@ public:
 
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
-			pitchNames.add(valueConverters->intToOscPitchString(i, true));
+			pitchNames.add(MophoParameter::generateValueString(MophoParameterType::oscPitch, i, true));
 
 		StringArray fineTune;
 		for (auto i = 0; i != 101; ++i)
-			fineTune.add(valueConverters->intToFineTuneRange(i, true));
+			fineTune.add(MophoParameter::generateValueString(MophoParameterType::oscFineTune, i, true));
 
 		StringArray oscShape;
 		for (auto i = 0; i != 104; ++i)
-		{
-			oscShape.add(valueConverters->intToOscWaveShape(i));
-		}
+			oscShape.add(MophoParameter::generateValueString(MophoParameterType::oscShape, i, true));
 
 		// 0 = "Off"; 1 = "On"
 		StringArray offOn;
@@ -68,7 +67,7 @@ public:
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
 		{
-			modAmount.add(valueConverters->intToPlusMinus127(i));
+			modAmount.add(MophoParameter::generateValueString(MophoParameterType::rangeNeg127toPos127, i, true));
 		}
 
 		StringArray lfoFreq;
