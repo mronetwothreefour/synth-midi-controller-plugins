@@ -34,8 +34,7 @@ String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const n
 		tooltip += "Current Value: " + valueConverters->intToOscPitchString(currentValue, true) + "\n" ;
 	if (privateParams->shouldShowInfoTip())
 	{
-		tooltip += "Sets the oscillator's base pitch in semitone steps.\n";
-		tooltip += "Range: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.";
+		tooltip += InfoStrings::KnobWidget_OscPitch;
 	}
 	return tooltip;
 }

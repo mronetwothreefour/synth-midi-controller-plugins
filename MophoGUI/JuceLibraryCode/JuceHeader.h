@@ -50,7 +50,7 @@ namespace ProjectInfo
 {
     const char* const  projectName    = "MophoGUI";
     const char* const  companyName    = "Mister 1-2-3-4 Programming";
-    const char* const  versionString  = "0.1.0";
-    const int          versionNumber  = 0x100;
+    const char* const  versionString  = "1.0.0";
+    const int          versionNumber  = 0x10000;
 }
 #endif

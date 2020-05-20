@@ -270,7 +270,7 @@ void PluginEditor::paint(Graphics& g)
     Font font{ "Arial", "Regular", 12.0f };
     g.setFont(font);
     Rectangle<int> infoLineArea{ 580, 118, 227, 16 };
-    g.drawText("Build 1.0.0  |  Mister 1-2-3-4 Programming", infoLineArea, Justification::centred);
+    g.drawText("Build " + (String)ProjectInfo::versionString + "  |  Mister 1-2-3-4 Programming", infoLineArea, Justification::centred);
 }
 
 void PluginEditor::resized()
