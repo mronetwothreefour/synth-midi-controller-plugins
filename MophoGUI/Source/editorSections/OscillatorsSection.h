@@ -28,7 +28,10 @@ public:
 		knob_OscShape		{ publicParams, privateParams, "osc" + oscNumString + "Shape", vc },
 		knob_OscGlide		{ publicParams, privateParams, "osc" + oscNumString + "Glide" },
 		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel" },
-		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack", vc }
+		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack", 
+							  oscNum == 1 ? MophoParameterIndex::osc1KeyTrack : MophoParameterIndex::osc2KeyTrack, 
+							  MophoParameterType::offOn 
+							}
 	{
 		addAndMakeVisible(knob_OscPitch);
 		addAndMakeVisible(knob_OscFineTune);
@@ -92,7 +95,7 @@ private:
 	KnobWidget_OscGlide    knob_OscGlide;
 	KnobWidget_OscSubLvl   knob_OscSubLvl;
 
-	ButtonWidget_Track button_Track;
+	ButtonWidget button_Track;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OscillatorControls)
@@ -109,7 +112,7 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_Sync{ publicParams, privateParams, vc },
+		button_Sync{ "oscSync", publicParams, privateParams, ID::oscSync, MophoParameterIndex::oscSync, MophoParameterType::offOn },
 		osc1Controls{ 1, publicParams, privateParams, vc },
 		osc2Controls{ 2, publicParams, privateParams, vc },
 		knob_OscSlop{ publicParams, privateParams },
@@ -117,7 +120,7 @@ public:
 		knob_BendRange{ publicParams, privateParams, vc },
 		knob_NoiseLevel{ publicParams, privateParams },
 		knob_ExtInLevel{ publicParams, privateParams },
-		button_Arpeg{ publicParams, privateParams, vc },
+		button_Arpeg{ "arpegOnOff", publicParams, privateParams, ID::arpegOnOff, MophoParameterIndex::arpegOnOff, MophoParameterType::offOn },
 		menu_NotePriority{ publicParams, privateParams, 123, vc },
 		menu_GlideMode{ publicParams, privateParams, 123, vc },
 		menu_ArpegMode{ publicParams, privateParams, 123, vc }
@@ -212,8 +215,8 @@ public:
 	}
 
 private:
-	ButtonWidget_Sync button_Sync;
-	ButtonWidget_Arpeg button_Arpeg;
+	ButtonWidget button_Sync;
+	ButtonWidget button_Arpeg;
 
 	OscillatorControls osc1Controls;
 	OscillatorControls osc2Controls;

@@ -642,6 +642,15 @@ int PluginProcessor::getNRPN(int parameterIndex)
 		case MophoParameterIndex::nameChar14		: return MophoParameterNRPN::nameChar14			;
 		case MophoParameterIndex::nameChar15		: return MophoParameterNRPN::nameChar15			;
 		case MophoParameterIndex::nameChar16		: return MophoParameterNRPN::nameChar16			;
+		case MophoParameterIndex::masterTranspose	: return MophoParameterNRPN::masterTranspose	;
+		case MophoParameterIndex::masterFineTune	: return MophoParameterNRPN::masterFineTune     ;
+		case MophoParameterIndex::midiChannel		: return MophoParameterNRPN::midiChannel    	;
+		case MophoParameterIndex::midiClock		    : return MophoParameterNRPN::midiClock          ;
+		case MophoParameterIndex::paramSend		    : return MophoParameterNRPN::paramSend          ;
+		case MophoParameterIndex::paramReceive		: return MophoParameterNRPN::paramReceive		;
+		case MophoParameterIndex::midiControllers	: return MophoParameterNRPN::midiControllers    ;
+		case MophoParameterIndex::stereoOut 		: return MophoParameterNRPN::stereoOut          ;
+		case MophoParameterIndex::midiOut   		: return MophoParameterNRPN::midiOut			;
 		default: return -1;
 		}
 }

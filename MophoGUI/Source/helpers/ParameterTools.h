@@ -39,7 +39,9 @@ namespace MophoParameterIndex
 		track4Step1, track4Step2, track4Step3, track4Step4, track4Step5, track4Step6, track4Step7, track4Step8, 
 		track4Step9, track4Step10, track4Step11, track4Step12, track4Step13, track4Step14, track4Step15, track4Step16,
 		nameChar1, nameChar2, nameChar3, nameChar4, nameChar5, nameChar6, nameChar7, nameChar8,
-		nameChar9, nameChar10, nameChar11, nameChar12, nameChar13, nameChar14, nameChar15, nameChar16
+		nameChar9, nameChar10, nameChar11, nameChar12, nameChar13, nameChar14, nameChar15, nameChar16,
+		masterTranspose = 384, masterFineTune, midiChannel, midiClock = 388,
+		paramSend = 390, paramReceive, midiControllers = 394, stereoOut = 405, midiOut
 	};
 }
 

@@ -21,7 +21,7 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_LPFtype{ "lpfType", publicParams, privateParams, vc },
+		button_LPFtype{ "lpfType", publicParams, privateParams, ID::lpfType, MophoParameterIndex::lpfType, MophoParameterType::lpfType },
 		knob_LPFfreq{ publicParams, privateParams, vc },
 		knob_LPFreso{ publicParams, privateParams },
 		knob_LPFkeyAmt{ publicParams, privateParams },
@@ -87,7 +87,7 @@ public:
 	}
 
 private:
-	ButtonWidget_LPFtype button_LPFtype;
+	ButtonWidget button_LPFtype;
 
 	KnobWidget_LPFfreq     knob_LPFfreq;
 	KnobWidget_LPFreso     knob_LPFreso;

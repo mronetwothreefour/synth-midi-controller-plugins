@@ -23,7 +23,7 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_Repeat{ "repeat", publicParams, privateParams, vc },
+		button_Repeat{ "repeat", publicParams, privateParams, ID::env3Repeat, MophoParameterIndex::env3Repeat, MophoParameterType::offOn },
 		knob_Env3Amt{ publicParams, privateParams, vc },
 		knob_VelAmount{ publicParams, privateParams, ID::env3VelAmount },
 		menu_Destination{ publicParams, privateParams, ID::env3Destination, 126, false, vc },
@@ -80,7 +80,7 @@ public:
 	}
 
 private:
-	ButtonWidget_Repeat button_Repeat;
+	ButtonWidget button_Repeat;
 
 	KnobWidget_Env3Amt knob_Env3Amt;
 	KnobWidget_VelAmount knob_VelAmount;

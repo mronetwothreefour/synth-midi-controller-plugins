@@ -34,7 +34,6 @@ String KnobWidget_OscPitch::createTooltipString(const int& currentValue) const n
 		tooltip += "Current Value: " + convertIntToValueString(MophoParameterType::oscPitch, currentValue, true) + "\n" ;
 	if (privateParams->shouldShowInfoTip())
 	{
-		tooltip += InfoStrings::KnobWidget_OscPitch;
 	}
 	return tooltip;
 }
