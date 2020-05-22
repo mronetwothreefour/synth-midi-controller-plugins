@@ -9,7 +9,7 @@ using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 // Has a createLayout() function which programmatically generates
 // an AudioProcessorValueTreeState::ParameterLayout
-class PublicParameters
+class PublicParameters : public MophoParameterValueConverter
 {
 public:
 	PublicParameters(ValueConverters* vc) : valueConverters{ vc }
@@ -26,115 +26,95 @@ public:
 
 		StringArray pitchNames;
 		for (auto i = 0; i != 121; ++i)
-			pitchNames.add(MophoParameter::generateValueString(MophoParameterType::oscPitch, i, true));
+			pitchNames.add(convertIntToValueString(MophoParameterType::oscPitch, i, true));
 
 		StringArray fineTune;
 		for (auto i = 0; i != 101; ++i)
-			fineTune.add(MophoParameter::generateValueString(MophoParameterType::oscFineTune, i, true));
+			fineTune.add(convertIntToValueString(MophoParameterType::oscFineTune, i, true));
 
 		StringArray oscShape;
 		for (auto i = 0; i != 104; ++i)
-			oscShape.add(MophoParameter::generateValueString(MophoParameterType::oscShape, i, true));
+			oscShape.add(convertIntToValueString(MophoParameterType::oscShape, i, true));
 
-		// 0 = "Off"; 1 = "On"
 		StringArray offOn;
 		for (auto i = 0; i != 2; ++i)
-			offOn.add(valueConverters->intToOffOn(i));
+			offOn.add(convertIntToValueString(MophoParameterType::offOn, i, true));
 
 		StringArray glideMode;
 		for (auto i = 0; i != 4; ++i)
-			glideMode.add(valueConverters->intToGlideMode(i));
+			glideMode.add(convertIntToValueString(MophoParameterType::glideMode, i, true));
 
 		StringArray pitchBendRange;
 		for (auto i = 0; i != 13; ++i)
-			pitchBendRange.add(valueConverters->intToBendRange(i, true));
+			pitchBendRange.add(convertIntToValueString(MophoParameterType::pitchBendRange, i, true));
 
 		StringArray notePriority;
 		for (auto i = 0; i != 6; ++i)
-		{
-			notePriority.add(valueConverters->intToNotePriorityChoice(i, true));
-		}
+			notePriority.add(convertIntToValueString(MophoParameterType::notePriority, i, true));
 
 		StringArray lpfFreq;
 		for (auto i = 0; i != 165; ++i)
-			lpfFreq.add(valueConverters->intToLPFfreq(i, true));
+			lpfFreq.add(convertIntToValueString(MophoParameterType::lpfFreq, i, true));
 
-		// 0 = "2-Pole"; 1 = "4-Pole"
 		StringArray lpfType;
 		for (auto i = 0; i != 2; ++i)
-			lpfType.add(valueConverters->intToLPFtype(i));
+			lpfType.add(convertIntToValueString(MophoParameterType::lpfType, i, true));
 
 		StringArray modAmount;
 		for (auto i = 0; i != 255; ++i)
-		{
-			modAmount.add(MophoParameter::generateValueString(MophoParameterType::rangeNeg127toPos127, i, true));
-		}
+			modAmount.add(convertIntToValueString(MophoParameterType::modAmount, i, true));
 
 		StringArray lfoFreq;
 		for (auto i = 0; i != 167; ++i)
-		{
-			lfoFreq.add(valueConverters->intToLFOfreq(i, true));
-		}
+			lfoFreq.add(convertIntToValueString(MophoParameterType::lfoFreq, i, true));
 
-		// 0 = "Triangle"; 1 = "Reverse Sawtooth";
-		// 2 = "Sawtooth" 3 = "Square"; 4 = "Random"
 		StringArray lfoShape;
 		for (auto i = 0; i != 5; ++i)
-			lfoShape.add(valueConverters->intToLFOshape(i));
+			lfoShape.add(convertIntToValueString(MophoParameterType::lfoShape, i, true));
 
 		StringArray modSource;
 		for (auto i = 0; i != 23; ++i)
-			modSource.add(valueConverters->intToModSource(i));
+			modSource.add(convertIntToValueString(MophoParameterType::modSource, i, true));
 
 		StringArray modDestination;
 		for (auto i = 0; i != 47; ++i)
-			modDestination.add(valueConverters->intToModDestination(i));
+			modDestination.add(convertIntToValueString(MophoParameterType::modDestination, i, true));
 
-		// 0 = "Normal"; 1 = "Toggle"; 
-		// 2 = "Audio In"
 		StringArray pushItMode;
 		for (auto i = 0; i != 3; ++i)
-			pushItMode.add(valueConverters->intToPushItMode(i));
+			pushItMode.add(convertIntToValueString(MophoParameterType::pushItMode, i, true));
 
 		StringArray clockTempo;
 		for (auto i = 0; i != 221; ++i)
-			clockTempo.add(valueConverters->intToClockTempo(i));
+			clockTempo.add(convertIntToValueString(MophoParameterType::clockTempo, i, true));
 
 		StringArray clockDivide;
 		for (auto i = 0; i != 13; ++i)
-			clockDivide.add(valueConverters->intToClockDiv(i, true));
+			clockDivide.add(convertIntToValueString(MophoParameterType::clockDivide, i, true));
 
-		// 0 = "Up"; 1 = "Down";
-		// 2 = "Up & Down" 3 = "Assign"
 		StringArray arpegMode;
 		for (auto i = 0; i != 4; ++i)
-			arpegMode.add(valueConverters->intToArpegMode(i));
+			arpegMode.add(convertIntToValueString(MophoParameterType::arpegMode, i, true));
 
-		// 0 = "Normal"; 1 = "Normal, No Reset";
-		// 2 = "No Gate" 3 = "No Gate, No Reset";
-		// 4 = "Key Step"; 5 = "Audio Input"
 		StringArray sequencerTrig;
 		for (auto i = 0; i != 6; ++i)
-			sequencerTrig.add(valueConverters->intToSeqTrigger(i));
+			sequencerTrig.add(convertIntToValueString(MophoParameterType::sequencerTrig, i, true));
 
-		// A list of the names of 
-		// the Mopho's parameters
-		// (excludes parameters 105..119, 184..199) 
 		StringArray mophoParams;
 		for (auto i = 0; i != 169; ++i)
-			mophoParams.add(valueConverters->intToParamName(i, true));
+			mophoParams.add(convertIntToValueString(MophoParameterType::mophoParamList, i, true));
 
 		StringArray track1Steps;
 		for (auto i = 0; i != 128; ++i)
-			track1Steps.add(valueConverters->intToStepValue(i, false));
+			track1Steps.add(convertIntToValueString(MophoParameterType::stepValue, i, true));
 
 		StringArray track2_3_4Steps;
 		for (auto i = 0; i != 127; ++i)
-			track2_3_4Steps.add(valueConverters->intToStepValue(i, false));
+			track2_3_4Steps.add(convertIntToValueString(MophoParameterType::stepValue, i, true));
 
 		StringArray nameChars;
 		for (auto i = 0; i != 128; ++i)
-			nameChars.add(valueConverters->intToPgmNameChar(i));
+			nameChars.add(convertIntToValueString(MophoParameterType::pgmNameChar, i, true));
 
 		//==============================================================================
 		// Then, create the public parameter layout and return it
@@ -245,7 +225,7 @@ public:
 		/*93 */layout.add(std::make_unique<AudioParameterInt>		(ID::pushItVelocity.toString(),		"Push It! Switch Velocity", 0, 127, 100));
 		/*94 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pushItMode.toString(),			"Push It! Switch Mode", pushItMode, 0));
 
-		/*95 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockTempo.toString(),			"Clock Tempo (BPM)", clockTempo, 90));
+		/*95 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockTempo.toString(),			"Clock Tempo", clockTempo, 90));
 		/*96 */layout.add(std::make_unique<AudioParameterChoice>	(ID::clockDivide.toString(),		"Clock Divide", clockDivide, 2));
 
 		/*97 */layout.add(std::make_unique<AudioParameterChoice>	(ID::arpegMode.toString(),			"Arpeggiator Mode", arpegMode, 0));
@@ -361,131 +341,6 @@ public:
 		/*199*/layout.add(std::make_unique<AudioParameterChoice>	(ID::nameChar16.toString(),			"Program Name Character 16", nameChars, 33));
 
 		return layout;
-	}
-
-	// In many cases, the index number a parameter has when sending an 
-	// NRPN controller message to the hardware differs from the index number
-	// the parameter has in the plugin's AudioProcessorValueTreeState,
-	// the program buffer dumps, and the edit buffer dumps. Use this function
-	// to get the specified parameter's NRPN index number. A few parameters
-	// that are unused by the Mopho will return -1
-	int getNRPN(int parameterIndex)
-	{
-		switch (parameterIndex)
-		{
-		case 5  : return 114;
-		case 6  : return 5  ;
-		case 7  : return 6  ;
-		case 8  : return 7  ;
-		case 9  : return 8  ;
-		case 10 : return 9  ;
-		case 11 : return 115;
-		case 12 : return 10 ;
-		case 13 : return 11 ;
-		case 14 : return 12 ;
-		case 15 : return 93 ;
-		case 16 : return 96 ;
-		case 17 : return 13 ;
-		case 18 : return 14 ;
-		case 19 : return 116;
-		case 20 : return 15 ;
-		case 21 : return 16 ;
-		case 22 : return 17 ;
-		case 23 : return 18 ;
-		case 24 : return 19 ;
-		case 25 : return 20 ;
-		case 26 : return 21 ;
-		case 27 : return 22 ;
-		case 28 : return 23 ;
-		case 29 : return 24 ;
-		case 30 : return 25 ;
-		case 31 : return 26 ;
-		case 32 : return 27 ;
-		case 33 : return 30 ;
-		case 34 : return 31 ;
-		case 35 : return 32 ;
-		case 36 : return 33 ;
-		case 37 : return 34 ;
-		case 38 : return 35 ;
-		case 39 : return 36 ;
-		case 40 : return 29 ;
-		case 41 : return 37 ;
-		case 42 : return 38 ;
-		case 43 : return 39 ;
-		case 44 : return 40 ;
-		case 45 : return 41 ;
-		case 46 : return 42 ;
-		case 47 : return 43 ;
-		case 48 : return 44 ;
-		case 49 : return 45 ;
-		case 50 : return 46 ;
-		case 51 : return 47 ;
-		case 52 : return 48 ;
-		case 53 : return 49 ;
-		case 54 : return 50 ;
-		case 55 : return 51 ;
-		case 56 : return 52 ;
-		case 57 : return 53 ;
-		case 58 : return 54 ;
-		case 59 : return 55 ;
-		case 60 : return 56 ;
-		case 61 : return 57 ;
-		case 62 : return 58 ;
-		case 63 : return 59 ;
-		case 64 : return 60 ;
-		case 65 : return 61 ;
-		case 66 : return 62 ;
-		case 67 : return 63 ;
-		case 68 : return 64 ;
-		case 69 : return 98 ;
-		case 70 : return 65 ;
-		case 71 : return 66 ;
-		case 72 : return 67 ;
-		case 73 : return 68 ;
-		case 74 : return 69 ;
-		case 75 : return 70 ;
-		case 76 : return 71 ;
-		case 77 : return 72 ;
-		case 78 : return 73 ;
-		case 79 : return 74 ;
-		case 80 : return 75 ;
-		case 81 : return 76 ;
-		case 82 : return 81 ;
-		case 83 : return 82 ;
-		case 84 : return 83 ;
-		case 85 : return 84 ;
-		case 86 : return 85 ;
-		case 87 : return 86 ;
-		case 88 : return 87 ;
-		case 89 : return 88 ;
-		case 90 : return 89 ;
-		case 91 : return 90 ;
-		case 92 : return 111;
-		case 93 : return 112;
-		case 94 : return 113;
-		case 95 : return 91 ;
-		case 96 : return 92 ;
-		case 97 : return 97 ;
-		case 98 : return 100;
-		case 99 : return 94 ;
-		case 100: return 101;
-		case 101: return 77 ;
-		case 102: return 78 ;
-		case 103: return 79 ;
-		case 104: return 80 ;
-		case 109: return -1 ;
-		case 110: return -1 ;
-		case 111: return -1 ;
-		case 112: return -1 ;
-		case 113: return -1 ;
-		case 114: return -1 ;
-		case 115: return -1 ;
-		case 116: return -1 ;
-		case 117: return -1 ;
-		case 118: return -1 ;
-		case 119: return -1 ;
-		default: return parameterIndex;
-		}
 	}
 
 private:

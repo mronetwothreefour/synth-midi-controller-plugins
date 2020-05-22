@@ -11,7 +11,8 @@ class PluginProcessor :
     public AudioProcessor,
     public AudioProcessorParameter::Listener,
     public Timer,
-    public MultiTimer
+    public MultiTimer,
+    public MophoParameterValueConverter
 {
 public:
     PluginProcessor();
@@ -165,6 +166,9 @@ private:
     // (without sending parameter change messages back to the Mopho)
     void applyGlobalParameterDataToPlugin(const uint8* dumpData);
 
+    // Looks up the NRPN associated with the specified parameter
+    int getNRPN(int parameterIndex);
+        
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
 };

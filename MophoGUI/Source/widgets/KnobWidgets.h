@@ -5,7 +5,6 @@
 #include "../PluginProcessor.h"
 #include "../helpers/CustomColors.h"
 #include "../helpers/InfoStrings.h"
-#include "../helpers/ParameterTools.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "LCDcharacterRenderer.h"
@@ -170,7 +169,10 @@ private:
 //==============================================================================
 // Base class for knob widgets. Derived classes must
 // override drawValue() and createTooltipString()
-class KnobWidget : public Component, public Slider::Listener
+class KnobWidget : 
+	public Component, 
+	public Slider::Listener,
+	public MophoParameterValueConverter
 {
 public:
 	PrivateParameters* privateParams;
