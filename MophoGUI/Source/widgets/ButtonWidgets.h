@@ -5,7 +5,6 @@
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
 #include "../helpers/InfoStrings.h"
-#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 
 using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
@@ -18,21 +17,20 @@ class ButtonWidget :
 	public Button::Listener,
 	public ValueTree::Listener,
 	public MophoParameterValueConverter,
-	public MophoParameterInfoStringGenerator
+	public MophoParameterTooltipGenerator
 {
 public:
 	PrivateParameters* privateParams;
 
 	ButtonWidget
 	(
-		String name,
 		AudioProcessorValueTreeState* publicParameters,
 		PrivateParameters* privateParameters,
 		Identifier paramID,
 		int index,
 		int type
 	) :
-		button{ name },
+		button{ paramID.toString() },
 		buttonAttachment{ *publicParameters, paramID.toString(), button },
 		privateParams{ privateParameters },
 		paramIndex{ index },
@@ -67,8 +65,7 @@ public:
 	{
 		if (buttonThatChanged == &button)
 		{
-			auto currentValue{ getButtonState() };
-			auto tooltip{ createTooltipString(currentValue) };
+			auto tooltip{ createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip, privateParams->shouldShowInfoTip) };
 			setButtonTooltip(tooltip);
 		}
 	}
@@ -79,7 +76,7 @@ public:
 	{
 		if (property == ID::showCurrentVal || property == ID::showParamInfo)
 		{
-			setButtonTooltip(createTooltipString(getButtonState()));
+			setButtonTooltip(createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip, privateParams->shouldShowInfoTip));
 		}
 	}
 
@@ -91,20 +88,6 @@ private:
 
 	ToggleButton button;
 	ButtonAttachment buttonAttachment;
-
-	// Override this function to create a tooltip String with a parameter
-	// description and/or a verbose version of the parameter's current value
-	virtual String createTooltipString(const int& currentValue) const noexcept
-	{
-		String tooltip{ "" };
-		if (privateParams->shouldShowValueTip())
-			tooltip += "Current Value: " + convertIntToValueString(paramType, currentValue, true) + "\n";
-		if (privateParams->shouldShowInfoTip())
-		{
-			tooltip += getInfoString(paramIndex);
-		}
-		return tooltip;
-	}
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonWidget)

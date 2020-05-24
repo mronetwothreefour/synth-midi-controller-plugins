@@ -24,9 +24,9 @@ public:
 		int paramIndex
 	) :
 		lfoNameString{ "LFO " + (String)lfoNum },
-		knob_Frequency{ lfoNum, publicParams, privateParams, vc },
-		knob_Amount{ publicParams, privateParams, "lfo" + (String)lfoNum + "Amount" },
-		button_KeySync{ "lfo" + (String)lfoNum + "KeySync", publicParams, privateParams, "lfo" + (String)lfoNum + "KeySync", paramIndex, MophoParameterType::offOn },
+		knob_Frequency{ "FREQ", publicParams, privateParams, "lfo" + (String)lfoNum + "Freq", paramIndex, MophoParameterType::lfoFreq, MophoKnobSensitivity::lfoFreq },
+		knob_Amount{ "AMT", publicParams, privateParams, "lfo" + (String)lfoNum + "Amount", paramIndex, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		button_KeySync{ publicParams, privateParams, "lfo" + (String)lfoNum + "KeySync", paramIndex, MophoParameterType::offOn },
 		menu_Shape{ publicParams, privateParams, "lfo" + (String)lfoNum + "Shape", 134, vc },
 		menu_Destination{ publicParams, privateParams, "lfo" + (String)lfoNum + "Destination", 134, false, vc }
 	{
@@ -86,8 +86,8 @@ public:
 private:
 	String lfoNameString;
 
-	KnobWidget_LFOfreq knob_Frequency;
-	KnobWidget_LFOAmt knob_Amount;
+	KnobWidget knob_Frequency;
+	KnobWidget knob_Amount;
 
 	ButtonWidget button_KeySync;
 

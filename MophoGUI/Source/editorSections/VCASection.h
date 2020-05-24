@@ -20,11 +20,11 @@ public:
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams
 	) :
-		knob_VCAlevel{ publicParams, privateParams },
-		knob_VCAenvAmt{ publicParams, privateParams },
-		knob_VelAmount{ publicParams, privateParams, ID::vcaVelAmount },
-		knob_PgmVolume{ publicParams, privateParams },
-		envelopeWidget{ publicParams, privateParams, "vca" }
+		knob_VCAlevel{ "LEVEL", publicParams, privateParams, ID::vcaLevel, MophoParameterIndex::vcaLevel, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_VCAenvAmt{ "ENV", publicParams, privateParams, ID::vcaEnvAmount, MophoParameterIndex::vcaEnvAmount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_VelAmount{ "VELO", publicParams, privateParams, ID::vcaVelAmount, MophoParameterIndex::vcaVelAmount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_PgmVolume{ "VOLUME", publicParams, privateParams, ID::pgmVolume, MophoParameterIndex::pgmVolume, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		envelopeWidget{ publicParams, privateParams, "vca", MophoParameterIndex::vcaDelay }
 	{
 		addAndMakeVisible(knob_VCAlevel);
 		addAndMakeVisible(knob_VCAenvAmt);
@@ -69,10 +69,10 @@ public:
 	}
 
 private:
-	KnobWidget_VCAlevel knob_VCAlevel;
-	KnobWidget_VCAenvAmt knob_VCAenvAmt;
-	KnobWidget_VelAmount knob_VelAmount;
-	KnobWidget_PgmVolume knob_PgmVolume;
+	KnobWidget knob_VCAlevel;
+	KnobWidget knob_VCAenvAmt;
+	KnobWidget knob_VelAmount;
+	KnobWidget knob_PgmVolume;
 
 	EnvelopeWidget envelopeWidget;
 

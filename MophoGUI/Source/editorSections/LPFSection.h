@@ -21,14 +21,14 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_LPFtype{ "lpfType", publicParams, privateParams, ID::lpfType, MophoParameterIndex::lpfType, MophoParameterType::lpfType },
-		knob_LPFfreq{ publicParams, privateParams, vc },
-		knob_LPFreso{ publicParams, privateParams },
-		knob_LPFkeyAmt{ publicParams, privateParams },
-		knob_LPFenvAmt{ publicParams, privateParams, vc },
-		knob_LPFvelAmt{ publicParams, privateParams, ID::lpfVelAmount },
-		knob_LPFfmAmt{ publicParams, privateParams },
-		envelopeWidget{ publicParams, privateParams, "lpf" }
+		button_LPFtype{ publicParams, privateParams, ID::lpfType, MophoParameterIndex::lpfType, MophoParameterType::lpfType },
+		knob_LPFfreq{ "CUTOFF", publicParams, privateParams, ID::lpfFreq, MophoParameterIndex::lpfFreq, MophoParameterType::lpfFreq, MophoKnobSensitivity::lpfFreq },
+		knob_LPFreso{ "RESO", publicParams, privateParams, ID::lpfReso, MophoParameterIndex::lpfReso, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_LPFkeyAmt{ "KEY", publicParams, privateParams, ID::lpfKeyAmount, MophoParameterIndex::lpfKeyAmount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_LPFenvAmt{ "ENV", publicParams, privateParams, ID::lpfEnvAmount, MophoParameterIndex::lpfEnvAmount, MophoParameterType::modAmount, MophoKnobSensitivity::modAmount },
+		knob_LPFvelAmt{ "VELO", publicParams, privateParams, ID::lpfVelAmount, MophoParameterIndex::lpfVelAmount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_LPFfmAmt{ "FM", publicParams, privateParams, ID::lpfFMamount, MophoParameterIndex::lpfFMamount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		envelopeWidget{ publicParams, privateParams, "lpf", MophoParameterIndex::lpfDelay }
 	{
 		addAndMakeVisible(button_LPFtype);
 		addAndMakeVisible(knob_LPFfreq);
@@ -89,12 +89,12 @@ public:
 private:
 	ButtonWidget button_LPFtype;
 
-	KnobWidget_LPFfreq     knob_LPFfreq;
-	KnobWidget_LPFreso     knob_LPFreso;
-	KnobWidget_LPFkeyAmt   knob_LPFkeyAmt;
-	KnobWidget_LPFenvAmt   knob_LPFenvAmt;
-	KnobWidget_VelAmount   knob_LPFvelAmt;
-	KnobWidget_LPFfmAmt    knob_LPFfmAmt;
+	KnobWidget knob_LPFfreq;
+	KnobWidget knob_LPFreso;
+	KnobWidget knob_LPFkeyAmt;
+	KnobWidget knob_LPFenvAmt;
+	KnobWidget knob_LPFvelAmt;
+	KnobWidget knob_LPFfmAmt;
 
 	EnvelopeWidget envelopeWidget;
 

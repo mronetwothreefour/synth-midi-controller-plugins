@@ -18,12 +18,13 @@ public:
 		int modNum,
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParams,
-		ValueConverters* vc
+		ValueConverters* vc,
+		int modAmountParamIndex
 	) :
 		modNumString{ modNum },
 		menu_Source{ publicParams, privateParams, "mod" + modNumString + "Source", 126, vc },
 		menu_Destination{ publicParams, privateParams, "mod" + modNumString + "Destination", 126, false, vc },
-		knob_Amount{ publicParams, privateParams, "mod" + modNumString + "Amount", vc }
+		knob_Amount{ "AMT", publicParams, privateParams, "mod" + modNumString + "Amount", modAmountParamIndex, MophoParameterType::modAmount, MophoKnobSensitivity::modAmount }
 	{
 		addAndMakeVisible(menu_Source);
 		addAndMakeVisible(menu_Destination);
@@ -61,7 +62,7 @@ private:
 	MenuWidget_ModSource menu_Source;
 	MenuWidget_ModDestination menu_Destination;
 
-	KnobWidget_ModAmt knob_Amount;
+	KnobWidget knob_Amount;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModulatorControls)
@@ -76,10 +77,10 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		modControls1{ 1, publicParams, privateParams, vc },
-		modControls2{ 2, publicParams, privateParams, vc },
-		modControls3{ 3, publicParams, privateParams, vc },
-		modControls4{ 4, publicParams, privateParams, vc }
+		modControls1{ 1, publicParams, privateParams, vc, MophoParameterIndex::mod1Amount },
+		modControls2{ 2, publicParams, privateParams, vc, MophoParameterIndex::mod2Amount },
+		modControls3{ 3, publicParams, privateParams, vc, MophoParameterIndex::mod3Amount },
+		modControls4{ 4, publicParams, privateParams, vc, MophoParameterIndex::mod4Amount }
 	{
 		addAndMakeVisible(modControls1);
 		addAndMakeVisible(modControls2);

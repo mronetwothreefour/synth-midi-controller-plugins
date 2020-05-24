@@ -402,7 +402,7 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_SequencerOffOn{ "sequencerOnOff", publicParams, privateParams, ID::sequencerOnOff, MophoParameterIndex::sequencerOnOff, MophoParameterType::offOn },
+		button_SequencerOffOn{ publicParams, privateParams, ID::sequencerOnOff, MophoParameterIndex::sequencerOnOff, MophoParameterType::offOn },
 		menu_TriggerMode{ publicParams, privateParams, 114, vc },
 		menu_ClockDiv{ publicParams, privateParams, 124, vc },
 		knob_ClockTempo{ publicParams, privateParams, vc },

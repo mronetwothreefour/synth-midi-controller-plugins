@@ -116,14 +116,15 @@ public:
 	(
 		AudioProcessorValueTreeState* publicParams,
 		PrivateParameters* privateParameters,
-		String envelopeID
+		String envelopeID,
+		int delayParamIndex
 	) :
 		envelopeRenderer{publicParams, envelopeID},
-		knob_Delay{ publicParams, privateParameters, envelopeID + "Delay" },
-		knob_Attack{ publicParams, privateParameters, envelopeID + "Attack" },
-		knob_Decay{ publicParams, privateParameters, envelopeID + "Decay" },
-		knob_Sustain{ publicParams, privateParameters, envelopeID + "Sustain" },
-		knob_Release{ publicParams, privateParameters, envelopeID + "Release" }
+		knob_Delay{ "DELAY", publicParams, privateParameters, envelopeID + "Delay", delayParamIndex, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_Attack{ "ATTACK", publicParams, privateParameters, envelopeID + "Attack", delayParamIndex + 1, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_Decay{ "DECAY", publicParams, privateParameters, envelopeID + "Decay", delayParamIndex + 2, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_Sustain{ "SUST", publicParams, privateParameters, envelopeID + "Sustain", delayParamIndex + 3, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_Release{ "REL", publicParams, privateParameters, envelopeID + "Release", delayParamIndex + 4, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 }
 	{
 		addAndMakeVisible(envelopeRenderer);
 		addAndMakeVisible(knob_Delay);
@@ -161,11 +162,11 @@ public:
 private:
 	EnvelopeRenderer envelopeRenderer;
 
-	KnobWidget_EnvDelay    knob_Delay;
-	KnobWidget_EnvAttack   knob_Attack;
-	KnobWidget_EnvDecay    knob_Decay;
-	KnobWidget_EnvSustain  knob_Sustain;
-	KnobWidget_EnvRelease  knob_Release;
+	KnobWidget knob_Delay;
+	KnobWidget knob_Attack;
+	KnobWidget knob_Decay;
+	KnobWidget knob_Sustain;
+	KnobWidget knob_Release;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(EnvelopeWidget)

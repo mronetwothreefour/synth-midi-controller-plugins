@@ -23,12 +23,27 @@ public:
 		ValueConverters* vc
 	) :
 		oscNumString{ (String)oscNum },
-		knob_OscPitch		{ publicParams, privateParams, "osc" + oscNumString + "Pitch", vc },
-		knob_OscFineTune	{ publicParams, privateParams, "osc" + oscNumString + "Fine", vc },
-		knob_OscShape		{ publicParams, privateParams, "osc" + oscNumString + "Shape", vc },
-		knob_OscGlide		{ publicParams, privateParams, "osc" + oscNumString + "Glide" },
-		knob_OscSubLvl		{ publicParams, privateParams, "osc" + oscNumString + "SubLevel" },
-		button_Track		{ "track", publicParams, privateParams, "osc" + oscNumString + "KeyTrack", 
+		knob_OscPitch		{ "PITCH", publicParams, privateParams, "osc" + oscNumString + "Pitch",
+							  oscNum == 1 ? MophoParameterIndex::osc1Pitch : MophoParameterIndex::osc2Pitch,
+							  MophoParameterType::oscPitch, MophoKnobSensitivity::oscPitch
+							},
+		knob_OscFineTune	{ "FINE", publicParams, privateParams, "osc" + oscNumString + "Fine",
+							  oscNum == 1 ? MophoParameterIndex::osc1Fine : MophoParameterIndex::osc2Fine,
+							  MophoParameterType::oscFineTune, MophoKnobSensitivity::oscFineTune
+							},
+		knob_OscShape		{ publicParams, privateParams,
+							  oscNum == 1 ? ID::osc1Shape : ID::osc2Shape,
+							  oscNum == 1 ? MophoParameterIndex::osc1Shape : MophoParameterIndex::osc2Shape,
+							},
+		knob_OscGlide		{ "GLIDE", publicParams, privateParams, "osc" + oscNumString + "Glide",
+							  oscNum == 1 ? MophoParameterIndex::osc1Glide : MophoParameterIndex::osc2Glide,
+							  MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127
+							},
+		knob_OscSubLvl		{ "SUB", publicParams, privateParams, "osc" + oscNumString + "SubLevel",
+							  oscNum == 1 ? MophoParameterIndex::osc1SubLevel : MophoParameterIndex::osc2SubLevel,
+							  MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127
+							},
+		button_Track		{ publicParams, privateParams, "osc" + oscNumString + "KeyTrack",
 							  oscNum == 1 ? MophoParameterIndex::osc1KeyTrack : MophoParameterIndex::osc2KeyTrack, 
 							  MophoParameterType::offOn 
 							}
@@ -89,11 +104,13 @@ public:
 private:
 	String oscNumString;
 
-	KnobWidget_OscPitch    knob_OscPitch;
-	KnobWidget_FineTune    knob_OscFineTune;
-	KnobWidget_OscShape    knob_OscShape;
-	KnobWidget_OscGlide    knob_OscGlide;
-	KnobWidget_OscSubLvl   knob_OscSubLvl;
+	KnobWidget knob_OscPitch;
+	KnobWidget knob_OscFineTune;
+	KnobWidget knob_OscGlide;
+	KnobWidget knob_OscSubLvl;
+
+	KnobWidget_OscShape knob_OscShape;
+
 
 	ButtonWidget button_Track;
 
@@ -112,15 +129,15 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_Sync{ "oscSync", publicParams, privateParams, ID::oscSync, MophoParameterIndex::oscSync, MophoParameterType::offOn },
+		button_Sync{ publicParams, privateParams, ID::oscSync, MophoParameterIndex::oscSync, MophoParameterType::offOn },
 		osc1Controls{ 1, publicParams, privateParams, vc },
 		osc2Controls{ 2, publicParams, privateParams, vc },
-		knob_OscSlop{ publicParams, privateParams },
-		knob_OscMix{ publicParams, privateParams },
-		knob_BendRange{ publicParams, privateParams, vc },
-		knob_NoiseLevel{ publicParams, privateParams },
-		knob_ExtInLevel{ publicParams, privateParams },
-		button_Arpeg{ "arpegOnOff", publicParams, privateParams, ID::arpegOnOff, MophoParameterIndex::arpegOnOff, MophoParameterType::offOn },
+		knob_OscSlop{ "SLOP", publicParams, privateParams, ID::oscSlop, MophoParameterIndex::oscSlop, MophoParameterType::plainInteger, MophoKnobSensitivity::oscSlop },
+		knob_OscMix{ "MIX", publicParams, privateParams, ID::oscMix, MophoParameterIndex::oscMix, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_BendRange{ "BEND", publicParams, privateParams, ID::oscMix, MophoParameterIndex::bendRange, MophoParameterType::pitchBendRange, MophoKnobSensitivity::bendRange },
+		knob_NoiseLevel{ "NOISE", publicParams, privateParams, ID::noiseLevel, MophoParameterIndex::noiseLevel, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		knob_ExtInLevel{ "EXT IN", publicParams, privateParams, ID::extInLevel, MophoParameterIndex::extInLevel, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
+		button_Arpeg{ publicParams, privateParams, ID::arpegOnOff, MophoParameterIndex::arpegOnOff, MophoParameterType::offOn },
 		menu_NotePriority{ publicParams, privateParams, 123, vc },
 		menu_GlideMode{ publicParams, privateParams, 123, vc },
 		menu_ArpegMode{ publicParams, privateParams, 123, vc }
@@ -221,11 +238,11 @@ private:
 	OscillatorControls osc1Controls;
 	OscillatorControls osc2Controls;
 
-	KnobWidget_OscSlop     knob_OscSlop;
-	KnobWidget_OscMix      knob_OscMix;
-	KnobWidget_BendRange   knob_BendRange;
-	KnobWidget_NoiseLevel  knob_NoiseLevel;
-	KnobWidget_ExtInLevel  knob_ExtInLevel;
+	KnobWidget  knob_OscSlop;
+	KnobWidget  knob_OscMix;
+	KnobWidget  knob_BendRange;
+	KnobWidget  knob_NoiseLevel;
+	KnobWidget  knob_ExtInLevel;
 
 	MenuWidget_NotePriority menu_NotePriority;
 	MenuWidget_GlideMode	menu_GlideMode;

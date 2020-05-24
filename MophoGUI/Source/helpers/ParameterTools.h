@@ -119,6 +119,22 @@ namespace MophoParameterType
 	};
 }
 
+// A collection of knob sensitivity levels for various parameter types
+namespace MophoKnobSensitivity
+{
+	enum KnobSensitivity
+	{
+		oscSlop = 75,
+		bendRange = 80,
+		oscPitch = 150,
+		oscFineTune = 150,
+		zeroTo127 = 175,
+		lpfFreq = 200,
+		lfoFreq = 200,
+		modAmount = 275
+	};
+}
+
 // Provides functionality for converting a Mopho parameter's
 // raw integer value to a human-readable display String
 struct MophoParameterValueConverter

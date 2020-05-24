@@ -23,11 +23,11 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		button_Repeat{ "repeat", publicParams, privateParams, ID::env3Repeat, MophoParameterIndex::env3Repeat, MophoParameterType::offOn },
-		knob_Env3Amt{ publicParams, privateParams, vc },
-		knob_VelAmount{ publicParams, privateParams, ID::env3VelAmount },
+		button_Repeat{ publicParams, privateParams, ID::env3Repeat, MophoParameterIndex::env3Repeat, MophoParameterType::offOn },
+		knob_Env3Amt{ "AMT", publicParams, privateParams, ID:: env3Amount, MophoParameterIndex::env3Amount, MophoParameterType::modAmount, MophoKnobSensitivity::modAmount },
+		knob_VelAmount{ "VELO", publicParams, privateParams, ID::env3VelAmount, MophoParameterIndex::env3VelAmount, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
 		menu_Destination{ publicParams, privateParams, ID::env3Destination, 126, false, vc },
-		envelopeWidget{ publicParams, privateParams, "env3" }
+		envelopeWidget{ publicParams, privateParams, "env3", MophoParameterIndex::env3Delay }
 	{
 		addAndMakeVisible(button_Repeat);
 		addAndMakeVisible(knob_Env3Amt);
@@ -82,8 +82,8 @@ public:
 private:
 	ButtonWidget button_Repeat;
 
-	KnobWidget_Env3Amt knob_Env3Amt;
-	KnobWidget_VelAmount knob_VelAmount;
+	KnobWidget knob_Env3Amt;
+	KnobWidget knob_VelAmount;
 
 	MenuWidget_ModDestination menu_Destination;
 

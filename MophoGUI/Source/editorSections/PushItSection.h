@@ -20,8 +20,8 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		knob_Pitch{ publicParams, privateParams, vc },
-		knob_Velocity{ publicParams, privateParams },
+		knob_Pitch{ "PITCH", publicParams, privateParams, ID::pushItPitch, MophoParameterIndex::pushItPitch, MophoParameterType::oscPitch, MophoKnobSensitivity::oscPitch },
+		knob_Velocity{ "VELO", publicParams, privateParams, ID::pushItVelocity, MophoParameterIndex::pushItVelocity, MophoParameterType::plainInteger, MophoKnobSensitivity::zeroTo127 },
 		menu_Mode{ publicParams, privateParams, 87, vc }
 	{
 		addAndMakeVisible(knob_Pitch);
@@ -54,8 +54,8 @@ public:
 	}
 
 private:
-	KnobWidget_PushItPitch	knob_Pitch;
-	KnobWidget_PushItVelo	knob_Velocity;
+	KnobWidget knob_Pitch;
+	KnobWidget knob_Velocity;
 
 	MenuWidget_PushItMode menu_Mode;
 

@@ -2319,9 +2319,6 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets\KnobWidgets.cpp">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets\MenuWidgets.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>

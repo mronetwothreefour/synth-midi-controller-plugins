@@ -20,10 +20,11 @@ public:
 		PrivateParameters* privateParams,
 		Identifier destinationParamID,
 		Identifier amountParamID,
+		int amountParamIndex,
 		ValueConverters* vc
 	) :
 		menu_Destination{ controllerName, publicParams, privateParams, destinationParamID, 136, vc },
-		knob_Amount{ publicParams, privateParams, amountParamID, vc }
+		knob_Amount{ "AMT", publicParams, privateParams, amountParamID, amountParamIndex, MophoParameterType::modAmount, MophoKnobSensitivity::modAmount }
 	{
 		addAndMakeVisible(menu_Destination);
 		addAndMakeVisible(knob_Amount);
@@ -44,7 +45,7 @@ public:
 private:
 	MenuWidget_MidiDestination menu_Destination;
 
-	KnobWidget_ModAmt knob_Amount;
+	KnobWidget knob_Amount;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MidiControllerControls)
@@ -59,11 +60,11 @@ public:
 		PrivateParameters* privateParams,
 		ValueConverters* vc
 	) :
-		modWheelControls{ "MOD WHEEL", publicParams, privateParams, ID::modWheelDest, ID::modWheelAmount, vc },
-		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::aftertouchDest, ID::aftertouchAmount, vc },
-		breathControls{ "BREATH", publicParams, privateParams, ID::breathDest, ID::breathAmount, vc },
-		velocityControls{ "VELOCITY", publicParams, privateParams, ID::velocityDest, ID::velocityAmount, vc },
-		footControls{ "FOOT PEDAL", publicParams, privateParams, ID::footPedalDest, ID::footPedalAmount, vc }
+		modWheelControls{ "MOD WHEEL", publicParams, privateParams, ID::modWheelDest, ID::modWheelAmount, MophoParameterIndex::modWheelAmount, vc },
+		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::aftertouchDest, ID::aftertouchAmount, MophoParameterIndex::aftertouchAmount, vc },
+		breathControls{ "BREATH", publicParams, privateParams, ID::breathDest, ID::breathAmount, MophoParameterIndex::breathAmount, vc },
+		velocityControls{ "VELOCITY", publicParams, privateParams, ID::velocityDest, ID::velocityAmount, MophoParameterIndex::velocityAmount, vc },
+		footControls{ "FOOT PEDAL", publicParams, privateParams, ID::footPedalDest, ID::footPedalAmount, MophoParameterIndex::footPedalAmount, vc }
 	{
 		addAndMakeVisible(modWheelControls);
 		addAndMakeVisible(aftertouchControls);

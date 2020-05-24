@@ -4,7 +4,7 @@
 
 // Provides functionality for generating a description 
 // of what a control does, used when creating tooltips
-struct MophoParameterInfoStringGenerator
+struct MophoParameterTooltipGenerator : MophoParameterValueConverter
 {
 	// Returns a description of what the specified
 	// control does as well as its range (for knob controls)
@@ -53,5 +53,17 @@ struct MophoParameterInfoStringGenerator
 		//{
 		//	"Sets the oscillator's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5."
 		//};
+	}
+
+	String createTooltipString(int paramIndex, int paramType, const int& currentValue, const bool& shouldShowValueTip, const bool& shouldShowInfoTip) const noexcept
+	{
+		String tooltip{ "" };
+		if (shouldShowValueTip)
+			tooltip += "Current Value: " + convertIntToValueString(paramType, currentValue, true) + "\n";
+		if (shouldShowInfoTip)
+		{
+			tooltip += getInfoString(paramIndex);
+		}
+		return tooltip;
 	}
 };
