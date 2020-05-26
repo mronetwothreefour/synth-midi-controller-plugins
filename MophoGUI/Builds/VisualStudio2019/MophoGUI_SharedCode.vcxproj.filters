@@ -4619,6 +4619,9 @@
     <ClInclude Include="..\..\Source\helpers\ParameterTools.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\WaveShapeRenderer.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

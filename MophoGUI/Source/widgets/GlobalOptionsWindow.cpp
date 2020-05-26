@@ -3,14 +3,13 @@
 GlobalOptionsComponent::GlobalOptionsComponent
 (
 	PluginProcessor& p,
-	PrivateParameters* privateParameters,
-	ValueConverters* vc
+	PrivateParameters* privateParameters
 ) :
 	processor{ p },
 	privateParams{ privateParameters },
-	knob_Transpose{ p, privateParameters, vc},
-	knob_FineTune{ p, privateParameters, vc},
-	knob_MIDIchannel{ p, privateParameters, vc}
+	knob_Transpose{ "MASTER", "TRANSPOSE", p, privateParameters, ID::masterTranspose, MophoParameterIndex::masterTranspose, MophoParameterType::masterTranspose, MophoParameterNRPN::masterTranspose, 24, MophoKnobSensitivity::masterTranspose },
+	knob_FineTune{ "MASTER", "FINE TUNE", p, privateParameters, ID::masterFineTune, MophoParameterIndex::masterFineTune, MophoParameterType::oscFineTune, MophoParameterNRPN::masterFineTune, 100, MophoKnobSensitivity::oscFineTune },
+	knob_MIDIchannel{ "MIDI", "CHANNEL", p, privateParameters, ID::midiChannel, MophoParameterIndex::midiChannel, MophoParameterType::midiChannel, MophoParameterNRPN::midiChannel, 16, MophoKnobSensitivity::midiChannel }
 {
 	addAndMakeVisible(knob_Transpose);
 	addAndMakeVisible(knob_FineTune);

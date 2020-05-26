@@ -18,8 +18,7 @@ public:
 	LPFSection
 	(
 		AudioProcessorValueTreeState* publicParams,
-		PrivateParameters* privateParams,
-		ValueConverters* vc
+		PrivateParameters* privateParams
 	) :
 		button_LPFtype{ publicParams, privateParams, ID::lpfType, MophoParameterIndex::lpfType, MophoParameterType::lpfType },
 		knob_LPFfreq{ "CUTOFF", publicParams, privateParams, ID::lpfFreq, MophoParameterIndex::lpfFreq, MophoParameterType::lpfFreq, MophoKnobSensitivity::lpfFreq },

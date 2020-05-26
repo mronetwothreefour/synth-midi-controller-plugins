@@ -537,8 +537,8 @@ int PluginProcessor::getNRPN(int parameterIndex)
 		case MophoParameterIndex::mod4Destination	: return MophoParameterNRPN::mod4Destination	;	
 		case MophoParameterIndex::modWheelAmount	: return MophoParameterNRPN::modWheelAmount		;
 		case MophoParameterIndex::modWheelDest		: return MophoParameterNRPN::modWheelDest		;	
-		case MophoParameterIndex::aftertouchAmount	: return MophoParameterNRPN::aftertouchAmount	;	
-		case MophoParameterIndex::aftertouchDest	: return MophoParameterNRPN::aftertouchDest		;
+		case MophoParameterIndex::pressureAmount	: return MophoParameterNRPN::pressureAmount	;	
+		case MophoParameterIndex::pressureDest	: return MophoParameterNRPN::pressureDest		;
 		case MophoParameterIndex::breathAmount		: return MophoParameterNRPN::breathAmount		;	
 		case MophoParameterIndex::breathDest		: return MophoParameterNRPN::breathDest			;
 		case MophoParameterIndex::velocityAmount	: return MophoParameterNRPN::velocityAmount		;

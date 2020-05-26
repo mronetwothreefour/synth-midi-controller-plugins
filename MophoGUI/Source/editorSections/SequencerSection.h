@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/CustomColors.h"
+#include "../helpers/Identifiers.h"
 #include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/ButtonWidgets.h"
@@ -27,22 +28,22 @@ public:
 		processor{ p },
 		menu_destination{ 1, publicParams, privateParams, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to \"Rest.\""},
-		knob_Step01{ 1 , publicParams, privateParams, vc },
-		knob_Step02{ 2 , publicParams, privateParams, vc },
-		knob_Step03{ 3 , publicParams, privateParams, vc },
-		knob_Step04{ 4 , publicParams, privateParams, vc },
-		knob_Step05{ 5 , publicParams, privateParams, vc },
-		knob_Step06{ 6 , publicParams, privateParams, vc },
-		knob_Step07{ 7 , publicParams, privateParams, vc },
-		knob_Step08{ 8 , publicParams, privateParams, vc },
-		knob_Step09{ 9 , publicParams, privateParams, vc },
-		knob_Step10{ 10, publicParams, privateParams, vc },
-		knob_Step11{ 11, publicParams, privateParams, vc },
-		knob_Step12{ 12, publicParams, privateParams, vc },
-		knob_Step13{ 13, publicParams, privateParams, vc },
-		knob_Step14{ 14, publicParams, privateParams, vc },
-		knob_Step15{ 15, publicParams, privateParams, vc },
-		knob_Step16{ 16, publicParams, privateParams, vc }
+		knob_Step01{ 1 , publicParams, privateParams, MophoParameterIndex::track1Step1  },
+		knob_Step02{ 2 , publicParams, privateParams, MophoParameterIndex::track1Step2  },
+		knob_Step03{ 3 , publicParams, privateParams, MophoParameterIndex::track1Step3  },
+		knob_Step04{ 4 , publicParams, privateParams, MophoParameterIndex::track1Step4  },
+		knob_Step05{ 5 , publicParams, privateParams, MophoParameterIndex::track1Step5  },
+		knob_Step06{ 6 , publicParams, privateParams, MophoParameterIndex::track1Step6  },
+		knob_Step07{ 7 , publicParams, privateParams, MophoParameterIndex::track1Step7  },
+		knob_Step08{ 8 , publicParams, privateParams, MophoParameterIndex::track1Step8  },
+		knob_Step09{ 9 , publicParams, privateParams, MophoParameterIndex::track1Step9  },
+		knob_Step10{ 10, publicParams, privateParams, MophoParameterIndex::track1Step10 },
+		knob_Step11{ 11, publicParams, privateParams, MophoParameterIndex::track1Step11 },
+		knob_Step12{ 12, publicParams, privateParams, MophoParameterIndex::track1Step12 },
+		knob_Step13{ 13, publicParams, privateParams, MophoParameterIndex::track1Step13 },
+		knob_Step14{ 14, publicParams, privateParams, MophoParameterIndex::track1Step14 },
+		knob_Step15{ 15, publicParams, privateParams, MophoParameterIndex::track1Step15 },
+		knob_Step16{ 16, publicParams, privateParams, MophoParameterIndex::track1Step16 }
 	{
 		button_Clear.addListener(this);
 
@@ -217,22 +218,22 @@ public:
 		processor{ p },
 		menu_destination{ trackNumber, publicParams, privateParams, this, vc },
 		button_Clear{ "CLEAR", "Sets all steps to 0 (C0)"},
-		knob_Step01{ trackNumber, 1 , publicParams, privateParams, vc },
-		knob_Step02{ trackNumber, 2 , publicParams, privateParams, vc },
-		knob_Step03{ trackNumber, 3 , publicParams, privateParams, vc },
-		knob_Step04{ trackNumber, 4 , publicParams, privateParams, vc },
-		knob_Step05{ trackNumber, 5 , publicParams, privateParams, vc },
-		knob_Step06{ trackNumber, 6 , publicParams, privateParams, vc },
-		knob_Step07{ trackNumber, 7 , publicParams, privateParams, vc },
-		knob_Step08{ trackNumber, 8 , publicParams, privateParams, vc },
-		knob_Step09{ trackNumber, 9 , publicParams, privateParams, vc },
-		knob_Step10{ trackNumber, 10, publicParams, privateParams, vc },
-		knob_Step11{ trackNumber, 11, publicParams, privateParams, vc },
-		knob_Step12{ trackNumber, 12, publicParams, privateParams, vc },
-		knob_Step13{ trackNumber, 13, publicParams, privateParams, vc },
-		knob_Step14{ trackNumber, 14, publicParams, privateParams, vc },
-		knob_Step15{ trackNumber, 15, publicParams, privateParams, vc },
-		knob_Step16{ trackNumber, 16, publicParams, privateParams, vc }
+		knob_Step01{ trackNumber, 1 , publicParams, privateParams, MophoParameterIndex::track2Step1  + ((trackNumber - 2) * 16) },
+		knob_Step02{ trackNumber, 2 , publicParams, privateParams, MophoParameterIndex::track2Step2  + ((trackNumber - 2) * 16) },
+		knob_Step03{ trackNumber, 3 , publicParams, privateParams, MophoParameterIndex::track2Step3  + ((trackNumber - 2) * 16) },
+		knob_Step04{ trackNumber, 4 , publicParams, privateParams, MophoParameterIndex::track2Step4  + ((trackNumber - 2) * 16) },
+		knob_Step05{ trackNumber, 5 , publicParams, privateParams, MophoParameterIndex::track2Step5  + ((trackNumber - 2) * 16) },
+		knob_Step06{ trackNumber, 6 , publicParams, privateParams, MophoParameterIndex::track2Step6  + ((trackNumber - 2) * 16) },
+		knob_Step07{ trackNumber, 7 , publicParams, privateParams, MophoParameterIndex::track2Step7  + ((trackNumber - 2) * 16) },
+		knob_Step08{ trackNumber, 8 , publicParams, privateParams, MophoParameterIndex::track2Step8  + ((trackNumber - 2) * 16) },
+		knob_Step09{ trackNumber, 9 , publicParams, privateParams, MophoParameterIndex::track2Step9  + ((trackNumber - 2) * 16) },
+		knob_Step10{ trackNumber, 10, publicParams, privateParams, MophoParameterIndex::track2Step10 + ((trackNumber - 2) * 16) },
+		knob_Step11{ trackNumber, 11, publicParams, privateParams, MophoParameterIndex::track2Step11 + ((trackNumber - 2) * 16) },
+		knob_Step12{ trackNumber, 12, publicParams, privateParams, MophoParameterIndex::track2Step12 + ((trackNumber - 2) * 16) },
+		knob_Step13{ trackNumber, 13, publicParams, privateParams, MophoParameterIndex::track2Step13 + ((trackNumber - 2) * 16) },
+		knob_Step14{ trackNumber, 14, publicParams, privateParams, MophoParameterIndex::track2Step14 + ((trackNumber - 2) * 16) },
+		knob_Step15{ trackNumber, 15, publicParams, privateParams, MophoParameterIndex::track2Step15 + ((trackNumber - 2) * 16) },
+		knob_Step16{ trackNumber, 16, publicParams, privateParams, MophoParameterIndex::track2Step16 + ((trackNumber - 2) * 16) }
 	{
 		button_Clear.addListener(this);
 
@@ -405,7 +406,7 @@ public:
 		button_SequencerOffOn{ publicParams, privateParams, ID::sequencerOnOff, MophoParameterIndex::sequencerOnOff, MophoParameterType::offOn },
 		menu_TriggerMode{ publicParams, privateParams, 114, vc },
 		menu_ClockDiv{ publicParams, privateParams, 124, vc },
-		knob_ClockTempo{ publicParams, privateParams, vc },
+		knob_ClockTempo{ "BPM", publicParams, privateParams, ID::clockTempo, MophoParameterIndex::clockTempo, MophoParameterType::clockTempo, MophoKnobSensitivity::clockTempo },
 		track1Controls{ processor, publicParams, privateParams, vc },
 		track2Controls{ 2, processor, publicParams, privateParams, vc },
 		track3Controls{ 3, processor, publicParams, privateParams, vc },
@@ -461,7 +462,7 @@ public:
 private:
 	ButtonWidget button_SequencerOffOn;
 
-	KnobWidget_ClockTempo knob_ClockTempo;
+	KnobWidget knob_ClockTempo;
 
 	MenuWidget_SeqTrigger menu_TriggerMode;
 	MenuWidget_ClockDiv menu_ClockDiv;

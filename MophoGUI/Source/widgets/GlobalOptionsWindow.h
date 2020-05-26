@@ -19,8 +19,7 @@ public:
     GlobalOptionsComponent
     (
         PluginProcessor& p,
-        PrivateParameters* privateParameters,
-        ValueConverters* vc
+        PrivateParameters* privateParameters
     );
 
     //==============================================================================
@@ -33,9 +32,9 @@ private:
 
     PrivateParameters* privateParams;
 
-    GlobalKnobWidget_MasterTranspose knob_Transpose;
-    GlobalKnobWidget_MasterFineTune knob_FineTune;
-    GlobalKnobWidget_MIDIchannel knob_MIDIchannel;
+    KnobWidget_GlobalOptions knob_Transpose;
+    KnobWidget_GlobalOptions knob_FineTune;
+    KnobWidget_GlobalOptions knob_MIDIchannel;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalOptionsComponent)
@@ -48,12 +47,11 @@ public:
     GlobalOptionsWindow
     (
         PluginProcessor& p,
-        PrivateParameters* privateParameters,
-        ValueConverters* vc
+        PrivateParameters* privateParameters
     ) :
         DialogWindow{ "Global Options", Color::device, true, false }
     {
-        contentComponent.reset(new GlobalOptionsComponent(p, privateParameters, vc));
+        contentComponent.reset(new GlobalOptionsComponent(p, privateParameters));
         contentComponent->setVisible(true);
     }
 

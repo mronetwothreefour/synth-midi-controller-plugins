@@ -21,7 +21,7 @@ namespace MophoParameterIndex
 		env3Delay, env3Attack, env3Decay, env3Sustain, env3Release, env3Repeat,
 		mod1Source, mod1Amount, mod1Destination, mod2Source, mod2Amount, mod2Destination,
 		mod3Source, mod3Amount, mod3Destination, mod4Source, mod4Amount, mod4Destination,
-		modWheelAmount, modWheelDest, aftertouchAmount, aftertouchDest,
+		modWheelAmount, modWheelDest, pressureAmount, pressureDest,
 		breathAmount, breathDest, velocityAmount, velocityDest, footPedalAmount, footPedalDest,
 		pushItPitch, pushItVelocity, pushItMode,
 		clockTempo, clockDivide,
@@ -65,7 +65,7 @@ namespace MophoParameterNRPN
 		mod1Source, mod1Amount, mod1Destination, mod2Source, mod2Amount, mod2Destination,
 		mod3Source, mod3Amount, mod3Destination, mod4Source, mod4Amount, mod4Destination,
 		track1Dest, track2Dest, track3Dest, track4Dest,
-		modWheelAmount, modWheelDest, aftertouchAmount, aftertouchDest,
+		modWheelAmount, modWheelDest, pressureAmount, pressureDest,
 		breathAmount, breathDest, velocityAmount, velocityDest, footPedalAmount, footPedalDest,
 		clockTempo, clockDivide, bendRange, sequencerTrig, notePriority = 96,
 		arpegMode, env3Repeat, arpegOnOff = 100, sequencerOnOff,
@@ -126,12 +126,28 @@ namespace MophoKnobSensitivity
 	{
 		oscSlop = 75,
 		bendRange = 80,
+		midiChannel = 80,
+		masterTranspose = 90,
 		oscPitch = 150,
 		oscFineTune = 150,
 		zeroTo127 = 175,
 		lpfFreq = 200,
 		lfoFreq = 200,
+		clockTempo = 250,
 		modAmount = 275
+	};
+}
+
+namespace MophoOscWaveShape
+{
+	enum OscWaveShape
+	{
+		off = 0,
+		sawtooth,
+		triangle,
+		sawTriMix,
+		pulse,
+		pulseMaxWidth = 103
 	};
 }
 
@@ -144,6 +160,9 @@ struct MophoParameterValueConverter
 	{
 		switch (paramType)
 		{
+		case MophoParameterType::plainInteger:
+			return String(value);
+
 		case MophoParameterType::modAmount:
 			if (value > -1 && value < 255)
 			{

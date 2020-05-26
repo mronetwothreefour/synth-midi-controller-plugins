@@ -4,7 +4,6 @@
 
 #include "../helpers/CustomColors.h"
 #include "../helpers/Identifiers.h"
-#include "../helpers/ValueConverters.h"
 #include "../parameters/PrivateParameters.h"
 #include "../widgets/KnobWidgets.h"
 #include "../widgets/LCDcharacterRenderer.h"
@@ -22,34 +21,32 @@ public:
 	(
 		PluginProcessor& p,
 		AudioProcessorValueTreeState* publicParams,
-		PrivateParameters* privateParameters,
-		ValueConverters* vc
+		PrivateParameters* privateParameters
 	) :
 		processor{ p },
 		privateParams{ privateParameters },
-		knob_NameChar01{ 1 , publicParams, privateParams, vc },
-		knob_NameChar02{ 2 , publicParams, privateParams, vc },
-		knob_NameChar03{ 3 , publicParams, privateParams, vc },
-		knob_NameChar04{ 4 , publicParams, privateParams, vc },
-		knob_NameChar05{ 5 , publicParams, privateParams, vc },
-		knob_NameChar06{ 6 , publicParams, privateParams, vc },
-		knob_NameChar07{ 7 , publicParams, privateParams, vc },
-		knob_NameChar08{ 8 , publicParams, privateParams, vc },
-		knob_NameChar09{ 9 , publicParams, privateParams, vc },
-		knob_NameChar10{ 10, publicParams, privateParams, vc },
-		knob_NameChar11{ 11, publicParams, privateParams, vc },
-		knob_NameChar12{ 12, publicParams, privateParams, vc },
-		knob_NameChar13{ 13, publicParams, privateParams, vc },
-		knob_NameChar14{ 14, publicParams, privateParams, vc },
-		knob_NameChar15{ 15, publicParams, privateParams, vc },
-		knob_NameChar16{ 16, publicParams, privateParams, vc },
+		knob_NameChar01{ 1 , publicParams, privateParams, MophoParameterIndex::nameChar1  },
+		knob_NameChar02{ 2 , publicParams, privateParams, MophoParameterIndex::nameChar2  },
+		knob_NameChar03{ 3 , publicParams, privateParams, MophoParameterIndex::nameChar3  },
+		knob_NameChar04{ 4 , publicParams, privateParams, MophoParameterIndex::nameChar4  },
+		knob_NameChar05{ 5 , publicParams, privateParams, MophoParameterIndex::nameChar5  },
+		knob_NameChar06{ 6 , publicParams, privateParams, MophoParameterIndex::nameChar6  },
+		knob_NameChar07{ 7 , publicParams, privateParams, MophoParameterIndex::nameChar7  },
+		knob_NameChar08{ 8 , publicParams, privateParams, MophoParameterIndex::nameChar8  },
+		knob_NameChar09{ 9 , publicParams, privateParams, MophoParameterIndex::nameChar9  },
+		knob_NameChar10{ 10, publicParams, privateParams, MophoParameterIndex::nameChar10 },
+		knob_NameChar11{ 11, publicParams, privateParams, MophoParameterIndex::nameChar11 },
+		knob_NameChar12{ 12, publicParams, privateParams, MophoParameterIndex::nameChar12 },
+		knob_NameChar13{ 13, publicParams, privateParams, MophoParameterIndex::nameChar13 },
+		knob_NameChar14{ 14, publicParams, privateParams, MophoParameterIndex::nameChar14 },
+		knob_NameChar15{ 15, publicParams, privateParams, MophoParameterIndex::nameChar15 },
+		knob_NameChar16{ 16, publicParams, privateParams, MophoParameterIndex::nameChar16 },
 		button_Edit{ "EDIT" },
 		button_Write{ "WRITE" },
 		button_Read{ "READ" },
 		button_Banks{ "BANKS" },
 		button_Global{ "GLOBAL" },
-		pgmNameEditor{ "pgmNameEditor", "" },
-		valueConverters{ vc }
+		pgmNameEditor{ "pgmNameEditor", "" }
 	{
 		addAndMakeVisible(knob_NameChar01);
 		addAndMakeVisible(knob_NameChar02);
@@ -337,8 +334,6 @@ private:
 	TextButton button_Banks;
 	TextButton button_Global;
 
-	ValueConverters* valueConverters;
-
 	char charBuffer[16];
 
 	int charCounter{ 1 };
@@ -379,7 +374,7 @@ private:
 
 	void showGlobalOptionsWindow()
 	{
-		globalOptionsWindow.reset(new GlobalOptionsWindow(processor, privateParams, valueConverters));
+		globalOptionsWindow.reset(new GlobalOptionsWindow(processor, privateParams));
 		globalOptionsLaunchOptions.reset(new DialogWindow::LaunchOptions());
 		globalOptionsLaunchOptions->content.setNonOwned(globalOptionsWindow->contentComponent.get());
 		globalOptionsLaunchOptions->dialogTitle = "GLOBAL OPTIONS";

@@ -11,12 +11,10 @@ using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
 
 //==============================================================================
 // Base class for button widgets which use a toggle button and attach to a public parameter.
-// Has a createTooltipString() function that derived classes must override.
 class ButtonWidget : 
 	public Component, 
 	public Button::Listener,
 	public ValueTree::Listener,
-	public MophoParameterValueConverter,
 	public MophoParameterTooltipGenerator
 {
 public:
@@ -41,6 +39,7 @@ public:
 		button.setComponentID(ID::paramToggle.toString());
 		button.addListener(this);
 		addAndMakeVisible(button);
+		buttonStateChanged(&button);
 
 		auto buttonWidget_diameter{ 14 };
 		setSize(buttonWidget_diameter, buttonWidget_diameter);
@@ -64,20 +63,13 @@ public:
 	void buttonStateChanged(Button* buttonThatChanged) override
 	{
 		if (buttonThatChanged == &button)
-		{
-			auto tooltip{ createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip, privateParams->shouldShowInfoTip) };
-			setButtonTooltip(tooltip);
-		}
+			button.setTooltip(createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip(), privateParams->shouldShowInfoTip()));
 	}
-
-	void setButtonTooltip(String text) { button.setTooltip(text); }
 
 	void valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) override
 	{
 		if (property == ID::showCurrentVal || property == ID::showParamInfo)
-		{
-			setButtonTooltip(createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip, privateParams->shouldShowInfoTip));
-		}
+			button.setTooltip(createTooltipString(paramIndex, paramType, getButtonState(), privateParams->shouldShowValueTip(), privateParams->shouldShowInfoTip()));
 	}
 
 private:

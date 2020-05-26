@@ -61,7 +61,7 @@ public:
 		ValueConverters* vc
 	) :
 		modWheelControls{ "MOD WHEEL", publicParams, privateParams, ID::modWheelDest, ID::modWheelAmount, MophoParameterIndex::modWheelAmount, vc },
-		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::aftertouchDest, ID::aftertouchAmount, MophoParameterIndex::aftertouchAmount, vc },
+		aftertouchControls{ "AFTERTOUCH", publicParams, privateParams, ID::pressureDest, ID::pressureAmount, MophoParameterIndex::pressureAmount, vc },
 		breathControls{ "BREATH", publicParams, privateParams, ID::breathDest, ID::breathAmount, MophoParameterIndex::breathAmount, vc },
 		velocityControls{ "VELOCITY", publicParams, privateParams, ID::velocityDest, ID::velocityAmount, MophoParameterIndex::velocityAmount, vc },
 		footControls{ "FOOT PEDAL", publicParams, privateParams, ID::footPedalDest, ID::footPedalAmount, MophoParameterIndex::footPedalAmount, vc }

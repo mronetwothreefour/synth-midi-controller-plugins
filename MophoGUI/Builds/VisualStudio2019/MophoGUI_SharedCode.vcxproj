@@ -2738,6 +2738,7 @@
     <ClInclude Include="..\..\Source\widgets\LCDcharacterRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\MenuWidgets.h" />
     <ClInclude Include="..\..\Source\widgets\ProgramBanksWindow.h" />
+    <ClInclude Include="..\..\Source\widgets\WaveShapeRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />

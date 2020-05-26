@@ -212,8 +212,8 @@ public:
 
 		/*82 */layout.add(std::make_unique<AudioParameterChoice>	(ID::modWheelAmount.toString(),		"Modulation Wheel Amount", modAmount, 127));
 		/*83 */layout.add(std::make_unique<AudioParameterChoice>	(ID::modWheelDest.toString(),		"Modulation Wheel Destination", modDestination, 0));
-		/*84 */layout.add(std::make_unique<AudioParameterChoice>	(ID::aftertouchAmount.toString(),	"Aftertouch Amount", modAmount, 127));
-		/*85 */layout.add(std::make_unique<AudioParameterChoice>	(ID::aftertouchDest.toString(),		"Aftertouch Destination", modDestination, 0));
+		/*84 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pressureAmount.toString(),	"Aftertouch Amount", modAmount, 127));
+		/*85 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pressureDest.toString(),		"Aftertouch Destination", modDestination, 0));
 		/*86 */layout.add(std::make_unique<AudioParameterChoice>	(ID::breathAmount.toString(),		"Breath Amount", modAmount, 127));
 		/*87 */layout.add(std::make_unique<AudioParameterChoice>	(ID::breathDest.toString(),			"Breath Destination", modDestination, 0));
 		/*88 */layout.add(std::make_unique<AudioParameterChoice>	(ID::velocityAmount.toString(),		"Velocity Amount", modAmount, 127));

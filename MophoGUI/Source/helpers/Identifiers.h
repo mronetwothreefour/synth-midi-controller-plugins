@@ -99,8 +99,8 @@ namespace ID
 
 	const Identifier modWheelAmount		{ "modWheelAmount"	};
 	const Identifier modWheelDest		{ "modWheelDest"	};
-	const Identifier aftertouchAmount	{ "aftertouchAmount"};
-	const Identifier aftertouchDest		{ "aftertouchDest"	};
+	const Identifier pressureAmount		{ "pressureAmount"	};
+	const Identifier pressureDest		{ "pressureDest"	};
 	const Identifier breathAmount		{ "breathAmount"	};
 	const Identifier breathDest			{ "breathDest"		};
 	const Identifier velocityAmount		{ "velocityAmount"	};

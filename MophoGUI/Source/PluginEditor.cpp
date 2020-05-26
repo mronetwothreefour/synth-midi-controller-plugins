@@ -20,7 +20,7 @@ PluginEditor::PluginEditor
     sectionOsc.reset(new OscillatorsSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionOsc.get());
 
-    sectionLPF.reset(new LPFSection(publicParams, privateParameters, vc));
+    sectionLPF.reset(new LPFSection(publicParams, privateParameters));
     addAndMakeVisible(sectionLPF.get());
 
     sectionVCA.reset(new VCASection(publicParams, privateParameters));
@@ -47,7 +47,7 @@ PluginEditor::PluginEditor
     sectionPushIt.reset(new PushItSection(publicParams, privateParameters, vc));
     addAndMakeVisible(sectionPushIt.get());
 
-    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters, vc));
+    sectionPgmName.reset(new ProgramNameSection(processor, publicParams, privateParameters));
     addAndMakeVisible(sectionPgmName.get());
 
     URL link{ "https://programming.mr1234.com/" };
