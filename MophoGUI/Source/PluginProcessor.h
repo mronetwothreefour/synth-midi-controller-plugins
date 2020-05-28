@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "helpers/Identifiers.h"
+#include "parameters/HardwareParameters.h"
 #include "parameters/PublicParameters.h"
 #include "parameters/PrivateParameters.h"
 #include "helpers/ValueConverters.h"
@@ -12,7 +13,8 @@ class PluginProcessor :
     public AudioProcessorParameter::Listener,
     public Timer,
     public MultiTimer,
-    public MophoParameterValueConverter
+    public MophoParameterValueConverter,
+    HardwareParameters
 {
 public:
     PluginProcessor();
@@ -166,9 +168,6 @@ private:
     // (without sending parameter change messages back to the Mopho)
     void applyGlobalParameterDataToPlugin(const uint8* dumpData);
 
-    // Looks up the NRPN associated with the specified parameter
-    int getNRPN(int parameterIndex);
-        
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
 };

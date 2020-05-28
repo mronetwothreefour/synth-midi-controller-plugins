@@ -1994,6 +1994,7 @@
     <ClInclude Include="..\..\Source\helpers\ParameterTools.h" />
     <ClInclude Include="..\..\Source\helpers\ValueConverters.h" />
     <ClInclude Include="..\..\Source\parameters\DefaultProgramBanks.h" />
+    <ClInclude Include="..\..\Source\parameters\HardwareParameters.h" />
     <ClInclude Include="..\..\Source\parameters\PrivateParameters.h" />
     <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />
