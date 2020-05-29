@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/ParameterStringSets.h"
 #include "../helpers/ParameterTools.h"
 #include "../helpers/ValueConverters.h"
 
@@ -9,7 +10,7 @@ using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 // Has a createLayout() function which programmatically generates
 // an AudioProcessorValueTreeState::ParameterLayout
-class PublicParameters : public MophoParameterValueConverter
+class PublicParameters : public MophoParameterValueConverter, ParameterStrings
 {
 public:
 	PublicParameters(ValueConverters* vc) : valueConverters{ vc }
@@ -120,9 +121,9 @@ public:
 		// Then, create the public parameter layout and return it
 
 		ParamLayout layout;
-		/*0  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Pitch.toString(),			"Oscillator 1 Pitch", pitchNames, 24));
-		/*1  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Fine.toString(),			"Oscillator 1 Fine Tune", fineTune, 49));
-		/*2  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Shape.toString(),			"Oscillator 1 Wave Shape", oscShape, 1));
+		/*0  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Pitch.toString(),			stringsForParameter[0].displayName, pitchNames, 24));
+		/*1  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Fine.toString(),			stringsForParameter[1].displayName, fineTune, 49));
+		/*2  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Shape.toString(),			stringsForParameter[2].displayName, oscShape, 1));
 		/*3  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1Glide.toString(),			"Oscillator 1 Glide Rate", 0, 127, 0));
 		/*4  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1KeyTrack.toString(),		"Oscillator 1 Keyboard Track On/Off", offOn, 1));
 		/*5  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1SubLevel.toString(),		"Sub-Oscillator 1 Level", 0, 127, 0));
@@ -212,7 +213,7 @@ public:
 
 		/*82 */layout.add(std::make_unique<AudioParameterChoice>	(ID::modWheelAmount.toString(),		"Modulation Wheel Amount", modAmount, 127));
 		/*83 */layout.add(std::make_unique<AudioParameterChoice>	(ID::modWheelDest.toString(),		"Modulation Wheel Destination", modDestination, 0));
-		/*84 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pressureAmount.toString(),	"Aftertouch Amount", modAmount, 127));
+		/*84 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pressureAmount.toString(),		"Aftertouch Amount", modAmount, 127));
 		/*85 */layout.add(std::make_unique<AudioParameterChoice>	(ID::pressureDest.toString(),		"Aftertouch Destination", modDestination, 0));
 		/*86 */layout.add(std::make_unique<AudioParameterChoice>	(ID::breathAmount.toString(),		"Breath Amount", modAmount, 127));
 		/*87 */layout.add(std::make_unique<AudioParameterChoice>	(ID::breathDest.toString(),			"Breath Destination", modDestination, 0));

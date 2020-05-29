@@ -14,8 +14,8 @@ namespace CtrlType
 };
 
 // Stores immutable information for the device's hard-wired parameters.
-// The data is treated as properties of a HardwareParameter and can be
-// accessed using the format param.data  (e.g. osc1Pitch.nrpn). 
+// The data are treated as properties of a HardwareParameter and can be
+// accessed using the format param.string  (e.g. osc1Pitch.nrpn). 
 // The data cannot be altered at runtime.
 class HardwareParameter
 {
