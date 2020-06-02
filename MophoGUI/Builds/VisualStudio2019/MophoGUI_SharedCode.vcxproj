@@ -130,9 +130,6 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\parameters\PrivateParameters.cpp" />
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp" />
-    <ClCompile Include="..\..\Source\PluginEditor.cpp" />
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1971,36 +1968,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp" />
-    <ClCompile Include="..\..\Source\widgets\GlobalOptionsWindow.cpp" />
-    <ClCompile Include="..\..\Source\widgets\MenuWidgets.cpp" />
-    <ClCompile Include="..\..\Source\widgets\ProgramBanksWindow.cpp" />
+    <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
+    <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\editorSections\Env3Section.h" />
-    <ClInclude Include="..\..\Source\editorSections\KnobAssignSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\LFOSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\LPFSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\MidiControllersSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\ModulatorsSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\OscillatorsSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\ProgramNameSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\PushItSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\SequencerSection.h" />
-    <ClInclude Include="..\..\Source\editorSections\VCASection.h" />
-    <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
-    <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
-    <ClInclude Include="..\..\Source\helpers\InfoStrings.h" />
-    <ClInclude Include="..\..\Source\helpers\IntToStringConverters.h" />
-    <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h" />
-    <ClInclude Include="..\..\Source\helpers\ParameterStringSets.h" />
-    <ClInclude Include="..\..\Source\helpers\ParameterTools.h" />
-    <ClInclude Include="..\..\Source\helpers\ValueConverters.h" />
-    <ClInclude Include="..\..\Source\parameters\DefaultProgramBanks.h" />
-    <ClInclude Include="..\..\Source\parameters\HardwareParameters.h" />
-    <ClInclude Include="..\..\Source\parameters\PrivateParameters.h" />
-    <ClInclude Include="..\..\Source\parameters\PublicParameters.h" />
-    <ClInclude Include="..\..\Source\PluginProcessor.h" />
-    <ClInclude Include="..\..\Source\PluginEditor.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h" />
@@ -2734,14 +2705,8 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
-    <ClInclude Include="..\..\Source\widgets\ButtonWidgets.h" />
-    <ClInclude Include="..\..\Source\widgets\EnvelopeWidget.h" />
-    <ClInclude Include="..\..\Source\widgets\GlobalOptionsWindow.h" />
-    <ClInclude Include="..\..\Source\widgets\KnobWidgets.h" />
-    <ClInclude Include="..\..\Source\widgets\LCDcharacterRenderer.h" />
-    <ClInclude Include="..\..\Source\widgets\MenuWidgets.h" />
-    <ClInclude Include="..\..\Source\widgets\ProgramBanksWindow.h" />
-    <ClInclude Include="..\..\Source\widgets\WaveShapeRenderer.h" />
+    <ClInclude Include="..\..\Source\core_PluginEditor.h" />
+    <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />
