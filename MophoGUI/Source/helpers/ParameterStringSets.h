@@ -35,9 +35,9 @@ public:
 	__declspec(property(get = get_ctrlLabelText, put = set_ctrlLabelText)) String ctrlLabelText;
 
 private:
-	String displayName_;
-	String ctrlLabelText_;
-	String description_;
+	const String displayName_;
+	const String ctrlLabelText_;
+	const String description_;
 };
 
 struct ParameterStrings

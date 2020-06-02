@@ -5,12 +5,13 @@
 #include "../helpers/ParameterStringSets.h"
 #include "../helpers/ParameterTools.h"
 #include "../helpers/ValueConverters.h"
+#include "../parameters/HardwareParameters.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 // Has a createLayout() function which programmatically generates
 // an AudioProcessorValueTreeState::ParameterLayout
-class PublicParameters : public MophoParameterValueConverter, ParameterStrings
+class PublicParameters : public MophoParameterValueConverter, HardwareParameters, ParameterStrings
 {
 public:
 	PublicParameters(ValueConverters* vc) : valueConverters{ vc }
@@ -119,11 +120,10 @@ public:
 
 		//==============================================================================
 		// Then, create the public parameter layout and return it
-
 		ParamLayout layout;
-		/*0  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Pitch.toString(),			stringsForParameter[0].displayName, pitchNames, 24));
-		/*1  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Fine.toString(),			stringsForParameter[1].displayName, fineTune, 49));
-		/*2  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1Shape.toString(),			stringsForParameter[2].displayName, oscShape, 1));
+		/*0   osc1pitch		*/layout.add(std::make_unique<AudioParameterChoice>	(propertiesForParameter[0  ].identifier.toString(), stringsForParameter[0  ].displayName, pitchNames, 24));
+		/*1   osc1Fine		*/layout.add(std::make_unique<AudioParameterChoice>	(propertiesForParameter[1  ].identifier.toString(), stringsForParameter[1  ].displayName, fineTune, 49));
+		/*2   osc1Shape		*/layout.add(std::make_unique<AudioParameterChoice>	(propertiesForParameter[2  ].identifier.toString(),	stringsForParameter[2  ].displayName, oscShape, 1));
 		/*3  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1Glide.toString(),			"Oscillator 1 Glide Rate", 0, 127, 0));
 		/*4  */layout.add(std::make_unique<AudioParameterChoice>	(ID::osc1KeyTrack.toString(),		"Oscillator 1 Keyboard Track On/Off", offOn, 1));
 		/*5  */layout.add(std::make_unique<AudioParameterInt>		(ID::osc1SubLevel.toString(),		"Sub-Oscillator 1 Level", 0, 127, 0));

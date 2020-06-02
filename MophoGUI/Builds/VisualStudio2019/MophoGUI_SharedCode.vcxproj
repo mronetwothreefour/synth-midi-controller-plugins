@@ -1990,6 +1990,7 @@
     <ClInclude Include="..\..\Source\helpers\CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\Identifiers.h" />
     <ClInclude Include="..\..\Source\helpers\InfoStrings.h" />
+    <ClInclude Include="..\..\Source\helpers\IntToStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\ParameterStringSets.h" />
     <ClInclude Include="..\..\Source\helpers\ParameterTools.h" />

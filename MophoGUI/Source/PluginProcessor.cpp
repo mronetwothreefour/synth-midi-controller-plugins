@@ -111,10 +111,10 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 {
     if (nrpnOutputIsAllowed)
     {
-        auto nrpnIndex{ hardwareParameters[parameterIndex].nrpn };
+        auto nrpnIndex{ propertiesForParameter[parameterIndex].nrpn };
         if (nrpnIndex > -1)
         {
-            auto outputValue{ roundToInt(newValue * (hardwareParameters[parameterIndex].numberOfSteps - 1)) };
+            auto outputValue{ roundToInt(newValue * (propertiesForParameter[parameterIndex].numberOfSteps - 1)) };
 
             if (parameterIndex > 104 && parameterIndex < 109) // knob assignment
                 if (outputValue > 104) outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
