@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "helpers/helper_Identifiers.h"
+
 class PluginProcessor : public AudioProcessor
 {
 public:

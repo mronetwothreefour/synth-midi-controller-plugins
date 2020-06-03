@@ -1,7 +1,9 @@
 #pragma once
 
 #include <JuceHeader.h>
+
 #include "core_PluginProcessor.h"
+#include "helpers/helper_Identifiers.h"
 
 class PluginEditor : public AudioProcessorEditor
 {
@@ -16,5 +18,6 @@ public:
 private:
     PluginProcessor& processor;
 
+    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
 };

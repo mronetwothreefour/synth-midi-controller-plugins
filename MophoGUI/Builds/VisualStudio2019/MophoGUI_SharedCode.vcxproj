@@ -2707,6 +2707,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_Enums.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_Hardware.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />
