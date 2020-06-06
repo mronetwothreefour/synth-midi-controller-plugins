@@ -4544,6 +4544,9 @@
     <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_publicName.h">
       <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_intToStringConverters.h">
+      <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

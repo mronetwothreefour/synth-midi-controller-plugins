@@ -20,7 +20,7 @@ void PluginEditor::paint(Graphics& g)
 
     g.setColour(Colours::white);
     g.setFont(15.0f);
-    g.drawFittedText(SynthParamPropertiesDB::get().get_publicName_forSynthParam(0), getLocalBounds(), Justification::centred, 1);
+    g.drawFittedText(SynthParamPropertiesDB::get().get_intToStringConverter_forSynthParam(1)->convert(34, true), getLocalBounds(), Justification::centred, 1);
 }
 
 void PluginEditor::resized()
