@@ -4,6 +4,8 @@
 
 #include "helpers/helper_Identifiers.h"
 
+//#include "helpers/helper_scratchPad.h"
+
 class PluginProcessor : public AudioProcessor
 {
 public:

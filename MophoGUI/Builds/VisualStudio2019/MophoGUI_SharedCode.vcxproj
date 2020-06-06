@@ -2709,7 +2709,11 @@
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Enums.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_Hardware.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_Synth.h" />
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_ID.h" />
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_NRPN.h" />
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_publicName.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />
