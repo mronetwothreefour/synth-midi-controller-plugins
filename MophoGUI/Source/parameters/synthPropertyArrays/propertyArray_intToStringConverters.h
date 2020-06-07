@@ -80,10 +80,8 @@ public:
 	static IntToFineTune* get() { static IntToFineTune intToFineTune; return &intToFineTune; }
 };
 
-// Each hardware synth parameter gets a reference to a type of
-// int-to-String converter (used for displying a parameter's raw
-// value as a more meaningful String in GUI controls and tooltips,
-// and for generating choices Strings for the public parameters)
+// Takes an Array<IntToStringConverter*> and fills it with pointers to the
+// appropriate IntToStringConverter for each of the hardware synthesizer's parameters
 struct IntToStringConverterArrayFactory
 {
 	static void fillArray(Array<IntToStringConverter*>& nrpnArray)

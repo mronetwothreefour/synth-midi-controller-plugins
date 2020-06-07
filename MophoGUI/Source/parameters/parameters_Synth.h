@@ -7,6 +7,7 @@
 #include "synthPropertyArrays/propertyArray_ID.h"
 #include "synthPropertyArrays/propertyArray_intToStringConverters.h"
 #include "synthPropertyArrays/propertyArray_NRPN.h"
+#include "synthPropertyArrays/propertyArray_numberOfSteps.h"
 #include "synthPropertyArrays/propertyArray_publicName.h"
 
 // A Singleton set of hardware synth parameter property arrays.
@@ -17,6 +18,7 @@ class SynthParamPropertiesDB
 	Array<int> nrpnArray_;
 	Array<String> publicNameArray_;
 	Array<IntToStringConverter*> intToStringConverterArray_;
+	Array<int> numberOfStepsArray_;
 
 	SynthParamPropertiesDB()
 	{
@@ -24,6 +26,7 @@ class SynthParamPropertiesDB
 		NRPNarrayFactory::fillArray(nrpnArray_);
 		PublicNameArrayFactory::fillArray(publicNameArray_);
 		IntToStringConverterArrayFactory::fillArray(intToStringConverterArray_);
+		NumberOfStepsArrayFactory::fillArray(numberOfStepsArray_)
 	}
 
 public:
@@ -41,5 +44,7 @@ public:
 	int get_NRPN_forSynthParam(int index) const noexcept { return nrpnArray_[index]; }
 	String get_publicName_forSynthParam(int index) const noexcept { return publicNameArray_[index]; }
 	IntToStringConverter* get_intToStringConverter_forSynthParam(int index) const noexcept { return intToStringConverterArray_[index]; }
+	int get_numberOfSteps_forSynthParam(int index) const noexcept { return numberOfStepsArray_[index]; }
+	int get_maxValue_forSynthParam(int index) const noexcept { return numberOfStepsArray_[index] - 1; }
 };
 
