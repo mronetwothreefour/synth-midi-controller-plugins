@@ -4,6 +4,8 @@
 
 namespace ID
 {
+	static const Identifier publicParamState { "publicParamState" };
+
 	// synth program parameters ==============================================
 	/*0  */ static const Identifier pitchOsc1			{ "pitchOsc1"		};
 	/*1  */ static const Identifier fineTuneOsc1		{ "fineTuneOsc1"	};

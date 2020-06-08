@@ -4544,10 +4544,13 @@
     <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_publicName.h">
       <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_intToStringConverters.h">
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_numberOfSteps.h">
       <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_numberOfSteps.h">
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\intToStringConverters.h">
+      <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_intToStringConverters.h">
       <Filter>MophoGUI\Source\parameters\synthPropertyArrays</Filter>
     </ClInclude>
   </ItemGroup>

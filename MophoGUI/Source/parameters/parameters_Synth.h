@@ -26,7 +26,7 @@ class SynthParamPropertiesDB
 		NRPNarrayFactory::fillArray(nrpnArray_);
 		PublicNameArrayFactory::fillArray(publicNameArray_);
 		IntToStringConverterArrayFactory::fillArray(intToStringConverterArray_);
-		NumberOfStepsArrayFactory::fillArray(numberOfStepsArray_)
+		NumberOfStepsArrayFactory::fillArray(numberOfStepsArray_);
 	}
 
 public:

@@ -1,7 +1,8 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-PluginProcessor::PluginProcessor()
+PluginProcessor::PluginProcessor() :
+    AudioProcessor(BusesProperties())
 {
 }
 
