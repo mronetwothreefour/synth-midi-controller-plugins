@@ -6,7 +6,7 @@
 // that each of the hardware synthesizer's parameters has
 struct NumberOfStepsArrayFactory
 {
-	static void fillArray(Array<int>& numberOfStepsArray)
+	static void fillArray(Array<uint8>& numberOfStepsArray)
 	{
 		/*0  */ numberOfStepsArray.add(121);	// pitchOsc1		
 		/*1  */ numberOfStepsArray.add(101);	// fineTuneOsc1		

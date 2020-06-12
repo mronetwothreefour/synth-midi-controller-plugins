@@ -15,10 +15,10 @@
 class SynthParamPropertiesDB
 {
 	Array<Identifier> idArray_;
-	Array<int> nrpnArray_;
+	Array<uint16> nrpnArray_;
 	Array<String> publicNameArray_;
 	Array<IntToStringConverter*> intToStringConverterArray_;
-	Array<int> numberOfStepsArray_;
+	Array<uint8> numberOfStepsArray_;
 
 	SynthParamPropertiesDB()
 	{
@@ -40,11 +40,11 @@ public:
 	SynthParamPropertiesDB& operator=(SynthParamPropertiesDB const&) = delete;
 	SynthParamPropertiesDB& operator=(SynthParamPropertiesDB&&) = delete;
 
-	Identifier get_ID_forSynthParam(int index) const noexcept { return idArray_[index]; }
-	int get_NRPN_forSynthParam(int index) const noexcept { return nrpnArray_[index]; }
-	String get_publicName_forSynthParam(int index) const noexcept { return publicNameArray_[index]; }
-	IntToStringConverter* get_intToStringConverter_forSynthParam(int index) const noexcept { return intToStringConverterArray_[index]; }
-	int get_numberOfSteps_forSynthParam(int index) const noexcept { return numberOfStepsArray_[index]; }
-	int get_maxValue_forSynthParam(int index) const noexcept { return numberOfStepsArray_[index] - 1; }
+	Identifier get_ID_forSynthParam(uint8 index) const noexcept { return idArray_[index]; }
+	uint16 get_NRPN_forSynthParam(uint8 index) const noexcept { return nrpnArray_[index]; }
+	String get_publicName_forSynthParam(uint8 index) const noexcept { return publicNameArray_[index]; }
+	IntToStringConverter* get_intToStringConverter_forSynthParam(uint8 index) const noexcept { return intToStringConverterArray_[index]; }
+	uint8 get_numberOfSteps_forSynthParam(uint8 index) const noexcept { return numberOfStepsArray_[index]; }
+	uint8 get_maxValue_forSynthParam(uint8 index) const noexcept { return numberOfStepsArray_[index] - 1; }
 };
 

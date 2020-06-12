@@ -6,7 +6,7 @@
 // each of the hardware synthesizer's parameters
 struct NRPNarrayFactory
 {
-	static void fillArray(Array<int>& nrpnArray)
+	static void fillArray(Array<uint16>& nrpnArray)
 	{
 		/*0  */ nrpnArray.add(0  );	// pitchOsc1			
 		/*1  */ nrpnArray.add(1  );	// fineTuneOsc1		

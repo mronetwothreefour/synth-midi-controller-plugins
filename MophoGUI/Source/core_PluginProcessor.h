@@ -6,7 +6,8 @@
 
 //#include "helpers/helper_scratchPad.h"
 
-class PluginProcessor : public AudioProcessor
+class PluginProcessor : 
+    public AudioProcessor
 {
 public:
     PluginProcessor();
@@ -43,6 +44,8 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
 private:
+    AudioProcessorValueTreeState publicParams;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
 };

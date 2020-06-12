@@ -5,7 +5,7 @@
 // Converts an integer to a note name / octave combination (e.g. "C# 2")
 struct IntToPitchName
 {
-	static String convert(const int& i) noexcept
+	static String convert(const uint8& i) noexcept
 	{
 			auto pitchNum{ i % 12 };
 			auto octaveNum{ i / 12 };
@@ -35,10 +35,10 @@ struct IntToPitchName
 struct IntToStringConverter
 {
 protected:
-	virtual String conversionAlgorithm(int, bool) const noexcept = 0;
+	virtual String conversionAlgorithm(uint8 i, bool) const noexcept = 0;
 
 public:
-	String convert(int i, bool isVerbose) const noexcept { return conversionAlgorithm(i, isVerbose); }
+	String convert(uint8 i, bool isVerbose) const noexcept { return conversionAlgorithm(i, isVerbose); }
 };
 
 //===========================================================================
@@ -46,7 +46,7 @@ public:
 struct IntToPlainValue : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept { return (String)i; }
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept { return (String)i; }
 
 public:
 	static IntToPlainValue* get() { static IntToPlainValue converter; return &converter; }
@@ -57,9 +57,9 @@ public:
 struct IntToOscPitch : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 121)
+		if (i < 121)
 		{
 			String pitchName{ IntToPitchName::convert(i) };
 			if (isVerbose)
@@ -79,9 +79,9 @@ public:
 struct IntToFineTune : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 101)
+		if (i < 101)
 		{
 			if (i < 49) return (String)(i - 50) + (isVerbose ? " cents" : "");
 			if (i == 49) return isVerbose ? "-1 cent" : "-1";
@@ -102,9 +102,9 @@ public:
 struct IntToOscWaveShape : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 104)
+		if (i < 104)
 		{
 			if (i == 0) return "Oscillator Off";
 			if (i == 1) return "Sawtooth";
@@ -125,9 +125,9 @@ public:
 struct IntToBendRange : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 13)
+		if (i < 13)
 		{
 			if (i == 0) return isVerbose ? "No Bend" : "0";
 			if (i == 1) return isVerbose ? "+/-1 semitone" : "+/-1";
@@ -146,9 +146,9 @@ public:
 struct IntToLPFfreq : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 165)
+		if (i < 165)
 		{
 			String pitchString{ IntToPitchName::convert(i) };
 			return isVerbose ? (String)i + " (Pitch Freq. " + pitchString + ")" : pitchString;
@@ -165,9 +165,9 @@ public:
 struct IntToPlusMinus127 : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 255)
+		if (i < 255)
 		{
 			if (i < 128) return (String)(i - 127);
 			if (i > 127 && i < 255) return "+" + (String)(i - 127);
@@ -185,9 +185,9 @@ public:
 struct IntToLFOfreq : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 167)
+		if (i < 167)
 		{
 			if (i < 90) return isVerbose ? "Un-synced " + (String)(i) : (String)(i);
 			if (i > 89 && i < 151)
@@ -232,9 +232,9 @@ public:
 struct IntToOffOn : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 2)
+		if (i < 2)
 		{
 			if (i == 0) return "Off";
 			if (i == 1) return "On";
@@ -252,9 +252,9 @@ public:
 struct IntToNotePriority : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 6)
+		if (i < 6)
 		{
 			if (i == 0) return isVerbose ? "Low Note Has Priority" : "Low Note";
 			if (i == 1) return isVerbose ? "Low Note Has Priority (Re-trigger)" : "Low Note (Re-trigger)";
@@ -276,9 +276,9 @@ public:
 struct IntToGlideMode : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 4)
+		if (i < 4)
 		{
 			if (i == 0) return "Fixed Rate";
 			if (i == 1) return "Fixed Rate Auto";
@@ -298,9 +298,9 @@ public:
 struct IntToArpegMode : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 4)
+		if (i < 4)
 		{
 			if (i == 0) return "Up";
 			if (i == 1) return "Down";
@@ -320,9 +320,9 @@ public:
 struct IntToLPFtype : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 2)
+		if (i < 2)
 		{
 			if (i == 0) return "2-Pole";
 			if (i == 1) return "4-Pole";
@@ -340,9 +340,9 @@ public:
 struct IntToModSource : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 23)
+		if (i < 23)
 		{
 			if (i == 0 ) return "Off";
 			if (i == 1 ) return "Sequencer Track 1";
@@ -381,9 +381,9 @@ public:
 struct IntToModDestination : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 47)
+		if (i < 47)
 		{
 			if (i == 0 ) return "Off";
 			if (i == 1 ) return "Oscillator 1 Pitch";
@@ -446,9 +446,9 @@ public:
 struct IntToLFOtype : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 3)
+		if (i < 3)
 		{
 			if (i == 0) return "Un-synced";
 			if (i == 1) return "Pitch";
@@ -467,9 +467,9 @@ public:
 struct IntToLFOshape : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 5)
+		if (i < 5)
 		{
 			if (i == 0) return "Triangle";
 			if (i == 1) return "Reverse Sawtooth";
@@ -490,9 +490,9 @@ public:
 struct IntToSeqTrigger : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 6)
+		if (i < 6)
 		{
 			if (i == 0) return "Normal";
 			if (i == 1) return "Normal, No Reset";
@@ -514,9 +514,9 @@ public:
 struct IntToClockDiv : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 13)
+		if (i < 13)
 		{
 			if (i == 0 ) return isVerbose ? "Half Note (BPM / 2)" : "Half Note";
 			if (i == 1 ) return isVerbose ? "Quarter Note (BPM x 1)" : "Quarter Note";
@@ -545,9 +545,9 @@ public:
 struct IntToClockTempo : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 221)
+		if (i < 221)
 		{
 			return (String)(i + 30);
 		}
@@ -604,9 +604,9 @@ struct IntToSeqStepPitchName
 struct IntToStepValue : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isPitch) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isPitch) const noexcept override
 	{
-		if (i > -1 && i < 128)
+		if (i < 128)
 		{
 			if (i < 126) return isPitch ? IntToSeqStepPitchName::convert(i) : (String)(i);
 			else if (i == 126) return (String)("Reset Sequence");
@@ -625,9 +625,9 @@ public:
 struct IntToPushItMode : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 3)
+		if (i < 3)
 		{
 			if (i == 0) return "Normal";
 			if (i == 1) return "Toggle";
@@ -646,9 +646,9 @@ public:
 struct IntToParamName : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 169)
+		if (i < 169)
 		{
 			/*0  */if (i == 0  ) return "Oscillator 1 Pitch";
 			/*1  */if (i == 1  ) return "Oscillator 1 Fine Tune";
@@ -838,9 +838,9 @@ public:
 struct IntToPgmNameChar : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool /*isVerbose*/) const noexcept override
+	String conversionAlgorithm(uint8 i, bool /*isVerbose*/) const noexcept override
 	{
-		if (i > -1 && i < 128)
+		if (i < 128)
 		{
 			if (i > 31)
 			{
@@ -870,9 +870,9 @@ public:
 struct IntToMasterTranspose : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 25)
+		if (i < 25)
 		{
 			auto transposition = i - 12;
 			if (transposition > -13 && transposition < -1)
@@ -896,9 +896,9 @@ public:
 struct IntToMIDIchannel : IntToStringConverter
 {
 protected:
-	String conversionAlgorithm(int i, bool isVerbose) const noexcept override
+	String conversionAlgorithm(uint8 i, bool isVerbose) const noexcept override
 	{
-		if (i > -1 && i < 17)
+		if (i < 17)
 		{
 			if (i == 0) return isVerbose ? "All Channels" : "ALL";
 			if (i > 0 && i < 17) return isVerbose ? "Channel " + (String)i : (String)i;

@@ -2,7 +2,15 @@
 #include "core_PluginEditor.h"
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor(BusesProperties())
+    AudioProcessor(BusesProperties()),
+    publicParams
+    {
+        *this, nullptr, ID::publicParams,
+        {
+            std::make_unique<AudioParameterBool>("dingle", "Dingle", false),
+            std::make_unique<AudioParameterBool>("dongle", "Dongle", false)
+        }
+    }
 {
 }
 
