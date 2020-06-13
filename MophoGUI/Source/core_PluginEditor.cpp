@@ -11,6 +11,7 @@ PluginEditor::PluginEditor(PluginProcessor& p) :
 
 PluginEditor::~PluginEditor()
 {
+    
 }
 
 //==============================================================================

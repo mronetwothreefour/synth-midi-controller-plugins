@@ -119,17 +119,17 @@ struct IntToStringConverterArrayFactory
 		/*106*/ converterArray.add(IntToParamName		::get());	// assignKnob2		
 		/*107*/ converterArray.add(IntToParamName		::get());	// assignKnob3		
 		/*108*/ converterArray.add(IntToParamName		::get());	// assignKnob4		
-		/*109*/ converterArray.add(nullptr					   );	// unassigned109	
-		/*110*/ converterArray.add(nullptr					   );	// unassigned110	
-		/*111*/ converterArray.add(nullptr					   );	// unassigned111	
-		/*112*/ converterArray.add(nullptr					   );	// unassigned112	
-		/*113*/ converterArray.add(nullptr					   );	// unassigned113	
-		/*114*/ converterArray.add(nullptr					   );	// unassigned114	
-		/*115*/ converterArray.add(nullptr					   );	// unassigned115	
-		/*116*/ converterArray.add(nullptr					   );	// unassigned116	
-		/*117*/ converterArray.add(nullptr					   );	// unassigned117	
-		/*118*/ converterArray.add(nullptr					   );	// unassigned118	
-		/*119*/ converterArray.add(nullptr					   );	// unassigned119	
+		/*109*/ converterArray.add(IntToPlainValue		::get());	// unassigned109	
+		/*110*/ converterArray.add(IntToPlainValue		::get());	// unassigned110	
+		/*111*/ converterArray.add(IntToPlainValue		::get());	// unassigned111	
+		/*112*/ converterArray.add(IntToPlainValue		::get());	// unassigned112	
+		/*113*/ converterArray.add(IntToPlainValue		::get());	// unassigned113	
+		/*114*/ converterArray.add(IntToPlainValue		::get());	// unassigned114	
+		/*115*/ converterArray.add(IntToPlainValue		::get());	// unassigned115	
+		/*116*/ converterArray.add(IntToPlainValue		::get());	// unassigned116	
+		/*117*/ converterArray.add(IntToPlainValue		::get());	// unassigned117	
+		/*118*/ converterArray.add(IntToPlainValue		::get());	// unassigned118	
+		/*119*/ converterArray.add(IntToPlainValue		::get());	// unassigned119	
 		/*120*/ converterArray.add(IntToStepValue		::get());	// track1Step1  	
 		/*121*/ converterArray.add(IntToStepValue		::get());	// track1Step2  	
 		/*122*/ converterArray.add(IntToStepValue		::get());	// track1Step3  	

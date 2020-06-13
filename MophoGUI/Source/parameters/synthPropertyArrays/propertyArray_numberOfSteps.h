@@ -117,17 +117,17 @@ struct NumberOfStepsArrayFactory
 		/*106*/ numberOfStepsArray.add(184);	// assignKnob2		
 		/*107*/ numberOfStepsArray.add(184);	// assignKnob3		
 		/*108*/ numberOfStepsArray.add(184);	// assignKnob4		
-		/*109*/ numberOfStepsArray.add(0  );	// unassigned109	
-		/*110*/ numberOfStepsArray.add(0  );	// unassigned110	
-		/*111*/ numberOfStepsArray.add(0  );	// unassigned111	
-		/*112*/ numberOfStepsArray.add(0  );	// unassigned112	
-		/*113*/ numberOfStepsArray.add(0  );	// unassigned113	
-		/*114*/ numberOfStepsArray.add(0  );	// unassigned114	
-		/*115*/ numberOfStepsArray.add(0  );	// unassigned115	
-		/*116*/ numberOfStepsArray.add(0  );	// unassigned116	
-		/*117*/ numberOfStepsArray.add(0  );	// unassigned117	
-		/*118*/ numberOfStepsArray.add(0  );	// unassigned118	
-		/*119*/ numberOfStepsArray.add(0  );	// unassigned119	
+		/*109*/ numberOfStepsArray.add(128);	// unassigned109	
+		/*110*/ numberOfStepsArray.add(128);	// unassigned110	
+		/*111*/ numberOfStepsArray.add(128);	// unassigned111	
+		/*112*/ numberOfStepsArray.add(128);	// unassigned112	
+		/*113*/ numberOfStepsArray.add(128);	// unassigned113	
+		/*114*/ numberOfStepsArray.add(128);	// unassigned114	
+		/*115*/ numberOfStepsArray.add(128);	// unassigned115	
+		/*116*/ numberOfStepsArray.add(128);	// unassigned116	
+		/*117*/ numberOfStepsArray.add(128);	// unassigned117	
+		/*118*/ numberOfStepsArray.add(128);	// unassigned118	
+		/*119*/ numberOfStepsArray.add(128);	// unassigned119	
 		/*120*/ numberOfStepsArray.add(128);	// track1Step1  	
 		/*121*/ numberOfStepsArray.add(128);	// track1Step2  	
 		/*122*/ numberOfStepsArray.add(128);	// track1Step3  	

@@ -2,40 +2,32 @@
 
 #include <JuceHeader.h>
 
-#include "../core_PluginProcessor.h"
+#include "parameters_Synth.h"
 
-class PublicParameters
+using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
+
+struct PublicParametersLayout
 {
-	std::unique_ptr<AudioProcessorValueTreeState> publicParameters;
-
-	PublicParameters() {}
-	~PublicParameters() {}
-
-public:
-	void build(AudioProcessor* processor)
+	static ParamLayout get()
 	{
-		if (publicParameters == nullptr)
+		ParamLayout layout;
+		SynthParamPropertiesDB& paramsDB{ SynthParamPropertiesDB::get() };
+		auto numberOfPublicParams{ paramsDB.get_numberOfPublicSynthParams() };
+		for (uint8 index = 0; index != numberOfPublicParams; ++index)
 		{
-			publicParameters.reset
-			(new AudioProcessorValueTreeState
-				(*processor, nullptr, ID::publicParams,
-					{
-						std::make_unique<AudioParameterBool>("dingle", "Dingle", false),
-						std::make_unique<AudioParameterBool>("dongle", "Dongle", false)
-					}
-				)
-			);
+			auto ID{ paramsDB.get_ID_forSynthParam(index).toString() };
+			auto publicName{ paramsDB.get_publicName_forSynthParam(index) };
+			StringArray choices{};
+			auto numberOfSteps{ paramsDB.get_numberOfSteps_forSynthParam(index) };
+			auto converter{ paramsDB.get_intToStringConverter_forSynthParam(index) };
+			for (uint8 i = 0; i != numberOfSteps; ++i)
+			{
+				choices.add(converter->convert(i, true));
+			}
+
+			layout.add(std::make_unique<AudioParameterChoice>(ID, publicName, choices, 0));
 		}
+
+		return layout;
 	}
-
-	AudioProcessorValueTreeState* get() { return publicParameters.get(); }
-};
-
-class PublicParametersBuilder
-{
-	static PublicParameters publicParameters;
-
-public:
-	static void build(AudioProcessor* processor) { publicParameters.build(processor); }
-	static AudioProcessorValueTreeState* get() { return publicParameters.get(); }
 };

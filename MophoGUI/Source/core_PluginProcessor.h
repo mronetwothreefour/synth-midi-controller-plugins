@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "helpers/helper_Identifiers.h"
+#include "parameters/parameters_Public.h"
 
 //#include "helpers/helper_scratchPad.h"
 
@@ -10,6 +11,8 @@ class PluginProcessor :
     public AudioProcessor
 {
 public:
+    std::unique_ptr<AudioProcessorValueTreeState> publicParams;
+
     PluginProcessor();
     ~PluginProcessor();
 
@@ -44,7 +47,6 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
 private:
-    AudioProcessorValueTreeState publicParams;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)

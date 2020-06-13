@@ -2,15 +2,8 @@
 #include "core_PluginEditor.h"
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor(BusesProperties()),
-    publicParams
-    {
-        *this, nullptr, ID::publicParams,
-        {
-            std::make_unique<AudioParameterBool>("dingle", "Dingle", false),
-            std::make_unique<AudioParameterBool>("dongle", "Dongle", false)
-        }
-    }
+    AudioProcessor{ BusesProperties() },
+    publicParams{ new AudioProcessorValueTreeState(*this, nullptr, ID::publicParams, PublicParametersLayout::get()) }
 {
 }
 
