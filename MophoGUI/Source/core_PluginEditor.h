@@ -4,7 +4,7 @@
 
 #include "core_PluginProcessor.h"
 #include "helpers/helper_Identifiers.h"
-#include "parameters/parameters_Synth.h"
+#include "parameters/parameters_SynthParametersDB.h"
 
 class PluginEditor : public AudioProcessorEditor
 {

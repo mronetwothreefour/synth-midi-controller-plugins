@@ -2707,17 +2707,13 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
-    <ClInclude Include="..\..\Source\helpers\helper_Enums.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_IntToStringConverters.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_Property.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_Public.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_Synth.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_intToStringConverters.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_numberOfSteps.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_ID.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\intToStringConverters.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_NRPN.h" />
-    <ClInclude Include="..\..\Source\parameters\synthPropertyArrays\propertyArray_publicName.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_PublicParametersLayout.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersDB.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />

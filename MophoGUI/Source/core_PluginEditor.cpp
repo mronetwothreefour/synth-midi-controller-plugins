@@ -21,7 +21,9 @@ void PluginEditor::paint(Graphics& g)
 
     g.setColour(Colours::white);
     g.setFont(15.0f);
-    g.drawFittedText(SynthParamPropertiesDB::get().get_intToStringConverter_forSynthParam(1)->convert(34, true), getLocalBounds(), Justification::centred, 1);
+    auto& paramDB{ SynthParametersDatabase::get() };
+    auto param{ paramDB.getSynthParameter(1) };
+    g.drawFittedText(param.publicName, getLocalBounds(), Justification::centred, 1);
 }
 
 void PluginEditor::resized()
