@@ -17,9 +17,10 @@ struct PublicParametersLayout
 		{
 			auto param{ paramsDB.getSynthParameter(index) };
 			StringArray choices{};
+			IntToStringConverter* converter{ param.converter };
 			for (uint8 i = 0; i != uint16(param.numberOfSteps); ++i)
 			{
-				choices.add(IntToStringConverters::convertInt(i, param.converterType, true));
+				choices.add(converter->convert(i, true));
 			}
 			layout.add(std::make_unique<AudioParameterChoice>(Identifier(param.ID).toString(), param.publicName, choices, 0));
 		}

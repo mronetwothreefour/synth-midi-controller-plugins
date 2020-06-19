@@ -7,26 +7,26 @@ struct SynthParameter
 	StaticProperty<Identifier> ID;
 	StaticProperty<String> publicName;
 	StaticProperty<uint16> NRPN;
-	StaticProperty<int> converterType;
+	StaticProperty<IntToStringConverter*> converter;
 	StaticProperty<uint8> maxValue;
 	StaticProperty<uint16> numberOfSteps{ maxValue + 1 };
 
 	SynthParameter() :
-		ID{ "default" },
-		publicName{ "default" },
+		ID{ "null" },
+		publicName{ "null" },
 		NRPN{ 16383 },
-		converterType{ IntToStringConverters::ToPlainValue },
+		converter{ IntToNullString::get() },
 		maxValue{ 0 }
 	{}
 
 	SynthParameter
 	(
-		Identifier ID, String publicName, uint16 NRPN, int converterType, uint8 maxValue
+		Identifier ID, String publicName, uint16 NRPN, IntToStringConverter* converter, uint8 maxValue
 	) :
 		ID{ ID },
 		publicName{ publicName },
 		NRPN{ NRPN },
-		converterType{ converterType },
+		converter{ converter },
 		maxValue{ maxValue }
 	{}
 };
@@ -37,16 +37,14 @@ struct SynthParameterArrayFactory
 	{
 		int firstNonPublicParam{ 0 };
 
-		synthParamArray.clear();
-
 		/*0*/SynthParameter pitchOsc1{
 			ID::pitchOsc1, "Oscillator 1 Pitch", 0,
-			IntToStringConverters::ToOscPitch, 120 };
+			IntToOscPitchString::get(), 120 };
 		synthParamArray.add(pitchOsc1); ++firstNonPublicParam;
 
 		/*1*/SynthParameter fineTuneOsc1{
 			ID::fineTuneOsc1, "Oscillator 1 Fine Tune", 1,
-			IntToStringConverters::ToFineTune, 100 };
+			IntToFineTuneString::get(), 100 };
 		synthParamArray.add(fineTuneOsc1); ++firstNonPublicParam;
 
 		return firstNonPublicParam;
