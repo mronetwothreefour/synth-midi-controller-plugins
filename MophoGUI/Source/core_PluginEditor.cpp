@@ -6,26 +6,32 @@ PluginEditor::PluginEditor(PluginProcessor& p) :
     AudioProcessorEditor{ &p }, 
     processor{ p }
 {
-    setSize(400, 300);
+    mophoLaF.reset(new MophoLookAndFeel());
+    LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
+
+    div_Logo.reset(new MainWindowDivision_Logo());
+    addAndMakeVisible(div_Logo.get());
+
+    auto device_w{ 1273 };
+    auto device_h{ 626 };
+    setSize(device_w, device_h);
 }
 
 PluginEditor::~PluginEditor()
 {
-    
+    div_Logo = nullptr;
+
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
+    mophoLaF = nullptr;
 }
 
 //==============================================================================
 void PluginEditor::paint(Graphics& g)
 {
-    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
-
-    g.setColour(Colours::white);
-    g.setFont(15.0f);
-    auto& paramDB{ SynthParametersDatabase::get() };
-    auto param{ paramDB.getSynthParameter(1) };
-    g.drawFittedText(param.publicName, getLocalBounds(), Justification::centred, 1);
+    g.fillAll(Color::device);
 }
 
 void PluginEditor::resized()
 {
+    div_Logo->setBounds(836, 0, div_Logo->getWidth(), div_Logo->getHeight());
 }

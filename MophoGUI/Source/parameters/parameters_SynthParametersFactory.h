@@ -21,7 +21,8 @@ struct SynthParameter
 
 	SynthParameter
 	(
-		Identifier ID, String publicName, uint16 NRPN, IntToStringConverter* converter, uint8 maxValue
+		Identifier ID, String publicName, uint16 NRPN, 
+		IntToStringConverter* converter, uint8 maxValue
 	) :
 		ID{ ID },
 		publicName{ publicName },
