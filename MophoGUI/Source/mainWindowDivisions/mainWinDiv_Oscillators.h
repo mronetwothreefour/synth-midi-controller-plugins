@@ -16,7 +16,7 @@ public:
 		//auto& controlDB{ ControlWithPublicParameterAttacherDatabase::get() };
 		//auto* control{ controlDB.getControl(0) };
 		//addAndMakeVisible(control);
-		//control->attachToPublicParameter(processor.publicParams.get(), ID::pitchOsc1);
+		//control->attachToPublicParameter(processor.exposedParams.get(), ID::pitchOsc1);
 		//control->setCentrePosition(33, 35);
 
 		auto div_Oscillators_w{ 437 };

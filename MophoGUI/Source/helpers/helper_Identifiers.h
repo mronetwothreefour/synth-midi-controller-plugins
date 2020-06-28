@@ -4,7 +4,7 @@
 
 namespace ID
 {
-	static const Identifier publicParams { "publicParams" };
+	static const Identifier exposedParams { "exposedParams" };
 
 	// synth program parameters ==============================================
 	/*0  */ static const Identifier pitchOsc1			{ "pitchOsc1"		};

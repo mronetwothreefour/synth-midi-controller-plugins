@@ -27,7 +27,8 @@ private:
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     std::unique_ptr<MainWindowDivision_Logo> div_Logo;
-    std::unique_ptr<MainWindowDivision_Oscillators> div_Osc;
+
+    KnobWithValueStringDisplay pitchOsc1;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)

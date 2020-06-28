@@ -13,6 +13,9 @@ enum class ControlType
 	knobWithWaveShapeDisplay
 };
 
+// Constructor arguments order:
+// ID, publicName, controlType, 
+// NRPN, converter, maxValue, defaultValue, centerPoint
 struct SynthParameter
 {
 	StaticProperty<Identifier> ID;

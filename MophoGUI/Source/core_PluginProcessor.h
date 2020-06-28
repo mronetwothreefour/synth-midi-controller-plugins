@@ -13,7 +13,7 @@ class PluginProcessor :
     std::unique_ptr<UndoManager> undoManager{ new UndoManager() };
 
 public:
-    std::unique_ptr<AudioProcessorValueTreeState> publicParams;
+    std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
 
     PluginProcessor();
     ~PluginProcessor();

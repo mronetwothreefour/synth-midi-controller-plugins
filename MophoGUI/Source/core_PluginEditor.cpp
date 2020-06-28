@@ -12,8 +12,22 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     div_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(div_Logo.get());
 
-    div_Osc.reset(new MainWindowDivision_Oscillators(processor));
-    addAndMakeVisible(div_Osc.get());
+    addAndMakeVisible(pitchOsc1);
+    pitchOsc1.setCentrePosition(33, 35);
+    pitchOsc1.attachToPublicParameter(processor.exposedParams.get(), ID::pitchOsc1);
+    //auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
+    //for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
+    //{
+    //    auto param{ exposedParamsDB.getSynthParameter(index) };
+        //auto controlType{ ControlType(param.controlType) };
+        //if (controlType == ControlType::knobWithValueStringDisplay)
+        //{
+        //    KnobWithValueStringDisplay knobWithValueStringDisplay;
+        //    addAndMakeVisible(knobWithValueStringDisplay);
+        //    knobWithValueStringDisplay.attachToPublicParameter(processor.exposedParams.get(), Identifier(param.ID));
+        //    knobWithValueStringDisplay.setCentrePosition(Point<int>(33, 35));
+        //}
+    //}
 
     auto device_w{ 1273 };
     auto device_h{ 626 };
@@ -22,7 +36,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
 
 PluginEditor::~PluginEditor()
 {
-    div_Osc = nullptr;
     div_Logo = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
@@ -38,5 +51,4 @@ void PluginEditor::paint(Graphics& g)
 void PluginEditor::resized()
 {
     div_Logo->setBounds(836, 0, div_Logo->getWidth(), div_Logo->getHeight());
-    div_Osc->setBounds(0, 0, div_Osc->getWidth(), div_Osc->getHeight());
 }

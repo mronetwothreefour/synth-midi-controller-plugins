@@ -12,10 +12,10 @@ struct ExposedParametersLayoutFactory
 	static ParamLayout build()
 	{
 		ParamLayout layout;
-		auto& paramsDB{ ExposedSynthParametersDatabase::get() };
-		for (uint8 index = 0; index != paramsDB.size(); ++index)
+		auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
+		for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
 		{
-			auto param{ paramsDB.getSynthParameter(index) };
+			auto param{ exposedParamsDB.getSynthParameter(index) };
 			auto choices{ buildChoicesStringArray(param) };
 			layout.add(std::make_unique<AudioParameterChoice>(Identifier(param.ID).toString(), param.publicName, choices, uint8(param.defaultValue)));
 		}
