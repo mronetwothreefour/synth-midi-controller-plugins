@@ -2319,6 +2319,9 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
       <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\parameters_SynthParameters.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4532,15 +4535,6 @@
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_PublicParametersLayout.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersDB.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersFactory.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_Property.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
@@ -4564,6 +4558,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

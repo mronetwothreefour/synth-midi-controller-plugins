@@ -4,13 +4,6 @@
 
 #include "../helpers/helper_CustomColors.h"
 
-enum class ControlType
-{
-	nullControl = -1,
-	knobWithValueStringDisplay,
-	knobWithWaveShapeDisplay
-};
-
 //==============================================================================
 // A class derived from Slider that simply overrides mouseWheelMove() so that
 // each wheel move event increments the slider's value by a single interval

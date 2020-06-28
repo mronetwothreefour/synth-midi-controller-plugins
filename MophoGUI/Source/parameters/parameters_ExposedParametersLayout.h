@@ -2,25 +2,27 @@
 
 #include <JuceHeader.h>
 
-#include "parameters_SynthParametersDB.h"
+#include "parameters_SynthParameters.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
-struct PublicParametersLayout
+// Parameters that are exposed to the plugin host
+struct ExposedParametersLayoutFactory
 {
 	static ParamLayout build()
 	{
 		ParamLayout layout;
-		auto& paramsDB{ SynthParametersDatabase::get() };
-		for (uint8 index = 0; index != paramsDB.firstNonPublicParam; ++index)
+		auto& paramsDB{ ExposedSynthParametersDatabase::get() };
+		for (uint8 index = 0; index != paramsDB.size(); ++index)
 		{
 			auto param{ paramsDB.getSynthParameter(index) };
 			auto choices{ buildChoicesStringArray(param) };
-			layout.add(std::make_unique<AudioParameterChoice>(Identifier(param.ID).toString(), param.publicName, choices, 0));
+			layout.add(std::make_unique<AudioParameterChoice>(Identifier(param.ID).toString(), param.publicName, choices, uint8(param.defaultValue)));
 		}
 		return layout;
 	}
 
+private:
 	static StringArray buildChoicesStringArray(SynthParameter param)
 	{
 		StringArray choices{};

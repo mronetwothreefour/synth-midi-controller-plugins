@@ -1970,6 +1970,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
+    <ClCompile Include="..\..\Source\parameters\parameters_SynthParameters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2716,9 +2717,8 @@
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
     <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Logo.h" />
     <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Oscillators.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_PublicParametersLayout.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersDB.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersFactory.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
   </ItemGroup>
   <ItemGroup>

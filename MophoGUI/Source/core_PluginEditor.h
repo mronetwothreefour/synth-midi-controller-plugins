@@ -9,7 +9,7 @@
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "mainWindowDivisions/mainWinDiv_Logo.h"
 #include "mainWindowDivisions/mainWinDiv_Oscillators.h"
-#include "parameters/parameters_SynthParametersDB.h"
+#include "parameters/parameters_SynthParameters.h"
 
 class PluginEditor : public AudioProcessorEditor
 {
