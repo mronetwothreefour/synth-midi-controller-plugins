@@ -2,9 +2,9 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-PluginEditor::PluginEditor(PluginProcessor& p) :
-    AudioProcessorEditor{ &p }, 
-    processor{ p }
+PluginEditor::PluginEditor(PluginProcessor& processor) :
+    AudioProcessorEditor{ &processor }, 
+    processor{ processor }
 {
     setSize(400, 300);
 }

@@ -7,7 +7,7 @@ struct SynthParameter
 	StaticProperty<Identifier> ID;
 	StaticProperty<String> publicName;
 	StaticProperty<uint16> NRPN;
-	StaticProperty<IntToStringConverter*> converter;
+	StaticProperty<IntToContextualStringConverter*> converter;
 	StaticProperty<uint8> maxValue;
 	StaticProperty<uint16> numberOfSteps{ maxValue + 1 };
 
@@ -22,7 +22,7 @@ struct SynthParameter
 	SynthParameter
 	(
 		Identifier ID, String publicName, uint16 NRPN, 
-		IntToStringConverter* converter, uint8 maxValue
+		IntToContextualStringConverter* converter, uint8 maxValue
 	) :
 		ID{ ID },
 		publicName{ publicName },

@@ -8,12 +8,13 @@
 #include "helpers/helper_Identifiers.h"
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "mainWindowDivisions/mainWinDiv_Logo.h"
+#include "mainWindowDivisions/mainWinDiv_Oscillators.h"
 #include "parameters/parameters_SynthParametersDB.h"
 
 class PluginEditor : public AudioProcessorEditor
 {
 public:
-    PluginEditor(PluginProcessor& p);
+    PluginEditor(PluginProcessor& processor);
     ~PluginEditor();
 
     //==============================================================================
@@ -26,6 +27,7 @@ private:
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     std::unique_ptr<MainWindowDivision_Logo> div_Logo;
+    std::unique_ptr<MainWindowDivision_Oscillators> div_Osc;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)

@@ -31,22 +31,26 @@ struct IntToPitchName
 
 //===========================================================================
 
-struct IntToStringConverter
+struct IntToContextualStringConverter
 {
 protected:
-	virtual String conversionAlgorithm(const uint8& /*i*/, bool /*isVerbose*/) = 0;
+	virtual String conversionAlgorithm(const uint8& /*i*/) = 0;
+	virtual String verboseConversionAlgorithm(const uint8& /*i*/) = 0;
 
 public:
-	String convert(const uint8& i, bool isVerbose) { return conversionAlgorithm(i, isVerbose); }
+	String convert(const uint8& i) { return conversionAlgorithm(i); }
+	String verboseConvert(const uint8& i) { return verboseConversionAlgorithm(i); }
 };
 
 //===========================================================================
 
 struct IntToNullString : 
-	public IntToStringConverter
+	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& /*i*/, bool /*isVerbose*/) override { return "null"; }
+	String conversionAlgorithm(const uint8& /*i*/) override { return "null"; }
+	String verboseConversionAlgorithm(const uint8& /*i*/) override { return "null"; }
+
 public:
 	static IntToNullString* get() { static IntToNullString converter; return &converter; }
 };
@@ -54,10 +58,12 @@ public:
 //===========================================================================
 
 struct IntToPlainValueString : 
-	public IntToStringConverter
+	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i, bool /*isVerbose*/) override { return (String)i; }
+	String conversionAlgorithm(const uint8& i) override { return (String)i; }
+	String verboseConversionAlgorithm(const uint8& i) override { return (String)i; }
+
 public:
 	static IntToPlainValueString* get() { static IntToPlainValueString converter; return &converter; }
 };
@@ -65,21 +71,32 @@ public:
 //===========================================================================
 
 struct IntToOscPitchString : 
-	public IntToStringConverter
+	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i, bool isVerbose) override 
+	String conversionAlgorithm(const uint8& i) override 
 	{ 
 		if (i < 121)
 		{
 			String pitchName{ IntToPitchName::convert(i) };
-			if (isVerbose)
-				pitchName += " (MIDI Note " + String(i) + ")";
 			return pitchName;
 		}
 		else if (i > 120 && i < 126) return "--";
 		else return "range error";
 	}
+
+	String verboseConversionAlgorithm(const uint8& i) override
+	{ 
+		if (i < 121)
+		{
+			String pitchName{ IntToPitchName::convert(i) };
+			pitchName += " (MIDI Note " + String(i) + ")";
+			return pitchName;
+		}
+		else if (i > 120 && i < 126) return "--";
+		else return "range error";
+	}
+
 public:
 	static IntToOscPitchString* get() { static IntToOscPitchString converter; return &converter; }
 };
@@ -87,22 +104,34 @@ public:
 //===========================================================================
 
 struct IntToFineTuneString : 
-	public IntToStringConverter
+	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i, bool isVerbose) override 
+	String conversionAlgorithm(const uint8& i) override 
 	{
 		if (i < 101)
 		{
-			if (i < 49) return (String)(i - 50) + (isVerbose ? " cents" : "");
-			if (i == 49) return isVerbose ? "-1 cent" : "-1";
-			if (i == 50) return isVerbose ? "No Detune" : "0";
-			if (i == 51) return isVerbose ? "+1 cent" : "+1";
-			if (i > 51 && i < 101) return "+" + (String)(i - 50) + (isVerbose ? " cents" : "");
+			if (i < 51) return (String)(i - 50);
+			if (i > 50 && i < 101) return "+" + (String)(i - 50);
 			else return "invalid";
 		}
 		else return "range error";
 	}
+
+	String verboseConversionAlgorithm(const uint8& i) override
+	{
+		if (i < 101)
+		{
+			if (i < 49) return (String)(i - 50) + " cents";
+			if (i == 49) return "-1 cent";
+			if (i == 50) return "No Detune";
+			if (i == 51) return "+1 cent";
+			if (i > 51 && i < 101) return "+" + (String)(i - 50) + " cents";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
 public:
 	static IntToFineTuneString* get() { static IntToFineTuneString converter; return &converter; }
 };

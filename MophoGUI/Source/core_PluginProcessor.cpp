@@ -3,7 +3,7 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    publicParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), ID::publicParams, PublicParametersLayout::get()) }
+    publicParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), ID::publicParams, PublicParametersLayout::build()) }
 {
 }
 

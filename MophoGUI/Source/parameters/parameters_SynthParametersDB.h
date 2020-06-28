@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/helper_Identifiers.h"
-#include "../helpers/helper_IntToStringConverters.h"
+#include "../helpers/helper_IntToContextualStringConverters.h"
 #include "../helpers/helper_Property.h"
 #include "parameters_SynthParametersFactory.h"
 
@@ -13,22 +13,24 @@ class SynthParametersDatabase
 
 	SynthParametersDatabase() : 
 		firstNonPublicParam { SynthParameterArrayFactory::fillArray(synthParamArray_) }
-	{}
+	{
+	}
 
 	~SynthParametersDatabase() {}
 
 public:
 	const int firstNonPublicParam;
 
+	SynthParametersDatabase(SynthParametersDatabase const&) = delete;
+	SynthParametersDatabase(SynthParametersDatabase&&) = delete;
+	SynthParametersDatabase& operator=(SynthParametersDatabase const&) = delete;
+	SynthParametersDatabase& operator=(SynthParametersDatabase&&) = delete;
+
 	static SynthParametersDatabase& get()
 	{
 		static SynthParametersDatabase synthParameterDatabase;
 		return synthParameterDatabase;
 	}
-	SynthParametersDatabase(SynthParametersDatabase const&) = delete;
-	SynthParametersDatabase(SynthParametersDatabase&&) = delete;
-	SynthParametersDatabase& operator=(SynthParametersDatabase const&) = delete;
-	SynthParametersDatabase& operator=(SynthParametersDatabase&&) = delete;
 
 	SynthParameter getSynthParameter(uint16 index) const { return synthParamArray_[index]; }
 };

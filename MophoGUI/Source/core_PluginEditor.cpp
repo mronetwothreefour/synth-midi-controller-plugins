@@ -2,15 +2,18 @@
 #include "core_PluginEditor.h"
 
 //==============================================================================
-PluginEditor::PluginEditor(PluginProcessor& p) :
-    AudioProcessorEditor{ &p }, 
-    processor{ p }
+PluginEditor::PluginEditor(PluginProcessor& processor) :
+    AudioProcessorEditor{ &processor },
+    processor{ processor }
 {
     mophoLaF.reset(new MophoLookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
 
     div_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(div_Logo.get());
+
+    div_Osc.reset(new MainWindowDivision_Oscillators(processor));
+    addAndMakeVisible(div_Osc.get());
 
     auto device_w{ 1273 };
     auto device_h{ 626 };
@@ -19,6 +22,7 @@ PluginEditor::PluginEditor(PluginProcessor& p) :
 
 PluginEditor::~PluginEditor()
 {
+    div_Osc = nullptr;
     div_Logo = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
@@ -34,4 +38,5 @@ void PluginEditor::paint(Graphics& g)
 void PluginEditor::resized()
 {
     div_Logo->setBounds(836, 0, div_Logo->getWidth(), div_Logo->getHeight());
+    div_Osc->setBounds(0, 0, div_Osc->getWidth(), div_Osc->getHeight());
 }

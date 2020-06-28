@@ -6,7 +6,7 @@
 class PluginEditor : public AudioProcessorEditor
 {
 public:
-    PluginEditor(PluginProcessor& p);
+    PluginEditor(PluginProcessor& processor);
     ~PluginEditor();
 
     //==============================================================================

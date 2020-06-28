@@ -2710,14 +2710,16 @@
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
-    <ClInclude Include="..\..\Source\helpers\helper_IntToStringConverters.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Property.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
     <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Logo.h" />
+    <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Oscillators.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_PublicParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersDB.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_SynthParametersFactory.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt" />
