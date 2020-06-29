@@ -4,18 +4,14 @@
 
 #include "../helpers/helper_CustomColors.h"
 
+using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
+
 //==============================================================================
-// A class derived from Slider that simply overrides mouseWheelMove() so that
-// each wheel move event increments the slider's value by a single interval
-class SliderWithWheelMod : public Slider
+// Overrides Slider's mouseWheelMove() operation so that each wheel move event
+// increments/decrements the slider's value by a single interval (step)
+class SliderWithMouseWheelMod : public Slider
 {
 public:
-	SliderWithWheelMod() :
-		Slider{ Slider::RotaryHorizontalVerticalDrag, Slider::NoTextBox }
-	{
-		setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-	}
-
 	void mouseWheelMove(const MouseEvent& /*e*/, const MouseWheelDetails& wheel) override
 	{
 		auto delta{ wheel.deltaY };
@@ -28,14 +24,27 @@ public:
 	}
 };
 
+//==============================================================================
+class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
+{
+public:
+	RotarySliderWithMouseWheelMod()
+	{
+		setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+		setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+	}
+	~RotarySliderWithMouseWheelMod() {}
+};
+
+//==============================================================================
 struct TooltipSetter
 {};
 
-using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
-
+//==============================================================================
 class Knob : public Component
 {
-	SliderWithWheelMod knob;
+	RotarySliderWithMouseWheelMod knob;
 	std::unique_ptr<SliderAttachment> attachment;
 
 	TooltipSetter tooltipSetter;
@@ -44,29 +53,26 @@ public:
 	Knob()
 	{
 		addAndMakeVisible(knob);
+		knob.setComponentID(ID::component_Knob.toString());
 
 		auto knob_diam{ 40 };
 		setSize(knob_diam, knob_diam);
 		knob.setBounds(getLocalBounds());
 	}
 
-	~Knob() 
-	{
-		attachment = nullptr;
-	}
+	~Knob() {}
 
-	void paint(Graphics& g) override
-	{
-		g.setColour(Color::black);
-		g.fillEllipse(getLocalBounds().reduced(5, 5).toFloat());
-	}
-
-	void attachToPublicParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
 	{
 		attachment.reset(new SliderAttachment(*exposedParams, paramID.toString(), knob));
 	}
 
 	void attachToPrivateParameter() {}
+
+	void deleteAttachment()
+	{
+		attachment = nullptr;
+	}
 };
 
 class KnobWithValueStringDisplay : public Component
@@ -77,16 +83,17 @@ public:
 	KnobWithValueStringDisplay()
 	{
 		addAndMakeVisible(knob);
-
 		setSize(knob.getWidth(), knob.getHeight());
 	}
 
 	~KnobWithValueStringDisplay() {}
 
-	void attachToPublicParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
 	{
-		knob.attachToPublicParameter(exposedParams, paramID);
+		knob.attachToExposedParameter(exposedParams, paramID);
 	}
+
+	void deleteAttachment() { knob.deleteAttachment(); }
 };
 
 
@@ -117,18 +124,26 @@ public:
 		knobWithValueStringDisplay = nullptr;
 	}
 
-	void attachToPublicParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
 	{
 		switch (controlType)
 		{
 		case ControlType::knobWithValueStringDisplay:
 			if (knobWithValueStringDisplay != nullptr)
-				knobWithValueStringDisplay->attachToPublicParameter(exposedParams, paramID);
+				knobWithValueStringDisplay->attachToExposedParameter(exposedParams, paramID);
 			break;
 		default: break;
 		}
 	}
 
+	void deleteAttachment()
+	{
+		knobWithValueStringDisplay->deleteAttachment();
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlWithPublicParameterAttacher)
 };
 
 struct ControlWithPublicParameterAttacherArrayFactory

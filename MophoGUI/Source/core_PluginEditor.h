@@ -7,8 +7,8 @@
 #include "helpers/helper_Fonts.h"
 #include "helpers/helper_Identifiers.h"
 #include "helpers/helper_MophoLookAndFeel.h"
-#include "mainWindowDivisions/mainWinDiv_Logo.h"
-#include "mainWindowDivisions/mainWinDiv_Oscillators.h"
+#include "widgets/widget_Logo.h"
+#include "widgets/widget_Sliders.h"
 #include "parameters/parameters_SynthParameters.h"
 
 class PluginEditor : public AudioProcessorEditor
@@ -27,8 +27,6 @@ private:
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
 
     std::unique_ptr<MainWindowDivision_Logo> div_Logo;
-
-    KnobWithValueStringDisplay pitchOsc1;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)

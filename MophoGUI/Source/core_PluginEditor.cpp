@@ -12,22 +12,16 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     div_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(div_Logo.get());
 
-    addAndMakeVisible(pitchOsc1);
-    pitchOsc1.setCentrePosition(33, 35);
-    pitchOsc1.attachToPublicParameter(processor.exposedParams.get(), ID::pitchOsc1);
-    //auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
-    //for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
-    //{
-    //    auto param{ exposedParamsDB.getSynthParameter(index) };
-        //auto controlType{ ControlType(param.controlType) };
-        //if (controlType == ControlType::knobWithValueStringDisplay)
-        //{
-        //    KnobWithValueStringDisplay knobWithValueStringDisplay;
-        //    addAndMakeVisible(knobWithValueStringDisplay);
-        //    knobWithValueStringDisplay.attachToPublicParameter(processor.exposedParams.get(), Identifier(param.ID));
-        //    knobWithValueStringDisplay.setCentrePosition(Point<int>(33, 35));
-        //}
-    //}
+    auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
+    auto& controlDB{ ControlWithPublicParameterAttacherDatabase::get() };
+    for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
+    {
+        auto param{ exposedParamsDB.getSynthParameter(index) };
+        auto control{ controlDB.getControl(index) };
+        addAndMakeVisible(control);
+        control->attachToExposedParameter(processor.exposedParams.get(), param.ID);
+        control->setCentrePosition(param.centerPoint);
+    }
 
     auto device_w{ 1273 };
     auto device_h{ 626 };
@@ -36,6 +30,14 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
 
 PluginEditor::~PluginEditor()
 {
+    auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
+    auto& controlDB{ ControlWithPublicParameterAttacherDatabase::get() };
+    for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
+    {
+        auto control{ controlDB.getControl(index) };
+        control->deleteAttachment();
+    }
+
     div_Logo = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);

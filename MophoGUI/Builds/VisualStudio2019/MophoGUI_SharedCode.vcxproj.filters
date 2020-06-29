@@ -439,9 +439,6 @@
     <Filter Include="MophoGUI\Source\parameters">
       <UniqueIdentifier>{60e41b0d-34af-4d37-b5bd-fbbc3f3bea7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI\Source\mainWindowDivisions">
-      <UniqueIdentifier>{aeb88037-7baf-46d5-8275-e5cdc488a986}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MophoGUI\Source\widgets">
       <UniqueIdentifier>{0d37f2e3-e2ba-4eed-bf83-cd9d8054d82c}</UniqueIdentifier>
     </Filter>
@@ -4547,12 +4544,6 @@
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Logo.h">
-      <Filter>MophoGUI\Source\mainWindowDivisions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Oscillators.h">
-      <Filter>MophoGUI\Source\mainWindowDivisions</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
@@ -4564,6 +4555,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_Logo.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

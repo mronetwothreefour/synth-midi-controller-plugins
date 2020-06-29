@@ -2715,10 +2715,9 @@
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Property.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
-    <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Logo.h" />
-    <ClInclude Include="..\..\Source\mainWindowDivisions\mainWinDiv_Oscillators.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
   </ItemGroup>
   <ItemGroup>

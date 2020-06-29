@@ -15,9 +15,15 @@ public:
 
 	void drawRotarySlider(Graphics& g, int /*x*/, int y, int width, int /*height*/,
 		float sliderPos, const float rotaryStartAngle,
-		const float rotaryEndAngle, Slider& /*slider*/) override
+		const float rotaryEndAngle, Slider& slider) override
 	{
 		Point<float> center{ float(width) / 2.0f, float(width) / 2.0f };
+
+		if (slider.getComponentID() == ID::component_Knob.toString())
+		{
+			g.setColour(Color::black);
+			g.fillEllipse(slider.getLocalBounds().reduced(5, 5).toFloat());
+		}
 
 		// draw pointer and rotate it according to the slider's value
 		auto angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
