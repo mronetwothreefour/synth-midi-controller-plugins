@@ -2,16 +2,10 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/helper_ControlTypes.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../helpers/helper_IntToContextualStringConverters.h"
 #include "../helpers/helper_Property.h"
-
-enum class ControlType
-{
-	nullControl = -1,
-	knobWithValueStringDisplay,
-	knobWithWaveShapeDisplay
-};
 
 // Constructor arguments order:
 // ID, publicName, controlType, 
@@ -55,28 +49,28 @@ struct SynthParameter
 	{}
 };
 
-class ExposedSynthParametersDatabase
+class ExposedSynthParameters_Database
 {
 	Array<SynthParameter> ExposedSynthParamArray{};
 
 	void fillExposedSynthParamArray();
 
-	ExposedSynthParametersDatabase()
+	ExposedSynthParameters_Database()
 	{
 		fillExposedSynthParamArray();
 	}
 
-	~ExposedSynthParametersDatabase() {}
+	~ExposedSynthParameters_Database() {}
 
 public:
-	ExposedSynthParametersDatabase(ExposedSynthParametersDatabase const&) = delete;
-	ExposedSynthParametersDatabase(ExposedSynthParametersDatabase&&) = delete;
-	ExposedSynthParametersDatabase& operator=(ExposedSynthParametersDatabase const&) = delete;
-	ExposedSynthParametersDatabase& operator=(ExposedSynthParametersDatabase&&) = delete;
+	ExposedSynthParameters_Database(ExposedSynthParameters_Database const&) = delete;
+	ExposedSynthParameters_Database(ExposedSynthParameters_Database&&) = delete;
+	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database const&) = delete;
+	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database&&) = delete;
 
-	static ExposedSynthParametersDatabase& get()
+	static ExposedSynthParameters_Database& get()
 	{
-		static ExposedSynthParametersDatabase synthParameterDatabase;
+		static ExposedSynthParameters_Database synthParameterDatabase;
 		return synthParameterDatabase;
 	}
 

@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../helpers/helper_CustomColors.h"
+#include "../helpers/helper_Identifiers.h"
 
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
@@ -67,8 +67,6 @@ public:
 		attachment.reset(new SliderAttachment(*exposedParams, paramID.toString(), knob));
 	}
 
-	void attachToPrivateParameter() {}
-
 	void deleteAttachment()
 	{
 		attachment = nullptr;
@@ -96,90 +94,3 @@ public:
 	void deleteAttachment() { knob.deleteAttachment(); }
 };
 
-
-class ControlWithPublicParameterAttacher : public Component
-{
-	ControlType controlType;
-
-	std::unique_ptr<KnobWithValueStringDisplay> knobWithValueStringDisplay;
-
-	ControlWithPublicParameterAttacher() : controlType{ ControlType::nullControl } {}
-
-public:
-	explicit ControlWithPublicParameterAttacher(ControlType controlType) :
-		controlType{ controlType }
-	{
-		switch (controlType)
-		{
-		case ControlType::knobWithValueStringDisplay:
-			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay());
-			addAndMakeVisible(*knobWithValueStringDisplay);
-			setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
-		default: break;
-		}
-	}
-
-	~ControlWithPublicParameterAttacher()
-	{
-		knobWithValueStringDisplay = nullptr;
-	}
-
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
-	{
-		switch (controlType)
-		{
-		case ControlType::knobWithValueStringDisplay:
-			if (knobWithValueStringDisplay != nullptr)
-				knobWithValueStringDisplay->attachToExposedParameter(exposedParams, paramID);
-			break;
-		default: break;
-		}
-	}
-
-	void deleteAttachment()
-	{
-		knobWithValueStringDisplay->deleteAttachment();
-	}
-
-private:
-	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlWithPublicParameterAttacher)
-};
-
-struct ControlWithPublicParameterAttacherArrayFactory
-{
-	static void fillVector(std::vector<std::unique_ptr<ControlWithPublicParameterAttacher>>& controlVector)
-	{
-		controlVector.push_back(std::make_unique<ControlWithPublicParameterAttacher>(ControlType::knobWithValueStringDisplay));
-		controlVector.push_back(std::make_unique<ControlWithPublicParameterAttacher>(ControlType::knobWithValueStringDisplay));
-	}
-};
-
-class ControlWithPublicParameterAttacherDatabase
-{
-	std::vector<std::unique_ptr<ControlWithPublicParameterAttacher>> controlVector_{};
-
-	ControlWithPublicParameterAttacherDatabase()
-	{
-		ControlWithPublicParameterAttacherArrayFactory::fillVector(controlVector_);
-	}
-
-	~ControlWithPublicParameterAttacherDatabase() 
-	{
-		controlVector_.clear();
-	}
-
-public:
-	ControlWithPublicParameterAttacherDatabase(ControlWithPublicParameterAttacherDatabase const&) = delete;
-	ControlWithPublicParameterAttacherDatabase(ControlWithPublicParameterAttacherDatabase&&) = delete;
-	ControlWithPublicParameterAttacherDatabase& operator=(ControlWithPublicParameterAttacherDatabase const&) = delete;
-	ControlWithPublicParameterAttacherDatabase& operator=(ControlWithPublicParameterAttacherDatabase&&) = delete;
-
-	static ControlWithPublicParameterAttacherDatabase& get()
-	{
-		static ControlWithPublicParameterAttacherDatabase controlDatabase;
-		return controlDatabase;
-	}
-
-	ControlWithPublicParameterAttacher* getControl(uint16 index) const { return controlVector_[index].get(); }
-};

@@ -442,6 +442,9 @@
     <Filter Include="MophoGUI\Source\widgets">
       <UniqueIdentifier>{0d37f2e3-e2ba-4eed-bf83-cd9d8054d82c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\guiControls">
+      <UniqueIdentifier>{e3dd08ae-69ce-4470-8eca-def8380796ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4558,6 +4561,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h">
       <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParameterAttachment.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment_DB.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

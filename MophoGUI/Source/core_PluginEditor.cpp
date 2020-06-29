@@ -12,8 +12,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     div_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(div_Logo.get());
 
-    auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
-    auto& controlDB{ ControlWithPublicParameterAttacherDatabase::get() };
+    auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+    auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
     for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
     {
         auto param{ exposedParamsDB.getSynthParameter(index) };
@@ -30,8 +30,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
 
 PluginEditor::~PluginEditor()
 {
-    auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
-    auto& controlDB{ ControlWithPublicParameterAttacherDatabase::get() };
+    auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+    auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
     for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
     {
         auto control{ controlDB.getControl(index) };

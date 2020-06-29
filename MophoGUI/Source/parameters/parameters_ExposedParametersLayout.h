@@ -12,7 +12,7 @@ struct ExposedParametersLayoutFactory
 	static ParamLayout build()
 	{
 		ParamLayout layout;
-		auto& exposedParamsDB{ ExposedSynthParametersDatabase::get() };
+		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
 		for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
 		{
 			auto param{ exposedParamsDB.getSynthParameter(index) };

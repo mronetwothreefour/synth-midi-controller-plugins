@@ -2708,6 +2708,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment_DB.h" />
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParameterAttachment.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h" />
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />

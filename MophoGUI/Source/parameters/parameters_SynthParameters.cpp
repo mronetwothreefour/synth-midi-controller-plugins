@@ -1,6 +1,6 @@
 #include "parameters_SynthParameters.h"
 
-void ExposedSynthParametersDatabase::fillExposedSynthParamArray()
+void ExposedSynthParameters_Database::fillExposedSynthParamArray()
 {
 	/*0*/SynthParameter xpsdParam_PitchOsc1{
 		ID::xpsdParam_PitchOsc1, "Oscillator 1 Pitch", ControlType::knobWithValueStringDisplay,

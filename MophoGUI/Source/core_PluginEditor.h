@@ -3,12 +3,12 @@
 #include <JuceHeader.h>
 
 #include "core_PluginProcessor.h"
+#include "guiControls/guiControl_WithExposedParamAttachment_DB.h"
 #include "helpers/helper_CustomColors.h"
 #include "helpers/helper_Fonts.h"
 #include "helpers/helper_Identifiers.h"
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "widgets/widget_Logo.h"
-#include "widgets/widget_Sliders.h"
 #include "parameters/parameters_SynthParameters.h"
 
 class PluginEditor : public AudioProcessorEditor
