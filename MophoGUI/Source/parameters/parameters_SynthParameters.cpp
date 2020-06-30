@@ -16,4 +16,9 @@ void ExposedSynthParameters_Database::fillExposedSynthParamArray()
 		ID::xpsdParam_ShapeOsc1, "Oscillator 1 Wave Shape", ControlType::knobWithWaveShapeDisplay,
 		/*NRPN*/ 2, IntToOscWaveShape::get(), /*maxValue*/ 103, /*default*/ 1, Point<int>(138, 50) };
 	exposedSynthParamArray.add(xpsdParam_ShapeOsc1);
+
+	/*3*/SynthParameter xpsdParam_GlideOsc1{
+		ID::xpsdParam_GlideOsc1, "Oscillator 1 Glide Rate", ControlType::knobWithValueStringDisplay,
+		/*NRPN*/ 3, IntToPlainValueString::get(), /*maxValue*/ 127, /*default*/ 0, Point<int>(183, 50) };
+	exposedSynthParamArray.add(xpsdParam_GlideOsc1);
 }
