@@ -25,7 +25,7 @@ class ControlWithExposedParameterAttachment_Database
 		for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
 		{
 			auto param{ exposedParamsDB.getSynthParameter(index) };
-			controlVector.push_back(std::make_unique<ControlWithExposedParameterAttachment>(param.controlType));
+			controlVector.push_back(std::make_unique<ControlWithExposedParameterAttachment>(param));
 		}
 	}
 

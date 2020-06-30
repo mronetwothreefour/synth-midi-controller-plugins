@@ -209,8 +209,8 @@ namespace ID
 	/*199*/ static const Identifier xpsdParam_PgmNameChar16		{ "xpsdParam_PgmNameChar16"		};
 
 	// component IDs =============================================================
-	static const Identifier component_Knob			{ "component_Knob"			};
-	static const Identifier component_SeqStep		{ "component_SeqStep"		};
-	static const Identifier component_PgmNameChar	{ "component_PgmNameChar"	};
+	static const Identifier component_Knob				{ "component_Knob"				};
+	static const Identifier component_SeqStep			{ "component_SeqStep"			};
+	static const Identifier component_PgmNameChar		{ "component_PgmNameChar"		};
 }
 

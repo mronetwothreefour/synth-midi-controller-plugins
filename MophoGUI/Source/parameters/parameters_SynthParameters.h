@@ -51,7 +51,7 @@ struct SynthParameter
 
 class ExposedSynthParameters_Database
 {
-	Array<SynthParameter> ExposedSynthParamArray{};
+	Array<SynthParameter> exposedSynthParamArray{};
 
 	void fillExposedSynthParamArray();
 
@@ -74,6 +74,7 @@ public:
 		return synthParameterDatabase;
 	}
 
-	SynthParameter getSynthParameter(uint16 index) const { return ExposedSynthParamArray[index]; }
-	int size() const noexcept { return ExposedSynthParamArray.size(); }
+	int size() const noexcept { return exposedSynthParamArray.size(); }
+
+	SynthParameter getSynthParameter(uint16 index) const { return exposedSynthParamArray[index]; }
 };

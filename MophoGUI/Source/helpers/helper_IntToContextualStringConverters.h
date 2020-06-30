@@ -136,3 +136,37 @@ public:
 	static IntToFineTuneString* get() { static IntToFineTuneString converter; return &converter; }
 };
 
+
+//===========================================================================
+
+struct IntToOscWaveShape :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) override 
+	{
+		if (i < 104)
+		{
+			return verboseConversionAlgorithm(i);
+		}
+		else return "range error";
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) override
+	{
+		if (i < 104)
+		{
+			if (i == 0) return "Oscillator Off";
+			if (i == 1) return "Sawtooth";
+			if (i == 2) return "Triangle";
+			if (i == 3) return "Sawtooth/Triangle Mix";
+			if (i > 3 && i < 104) return "Pulse (Width: " + String(i - 4) + ")";
+			else return "invalid";
+		}
+		else return "range error";
+	}
+
+public:
+	static IntToOscWaveShape* get() { static IntToOscWaveShape converter; return &converter; }
+};
+
