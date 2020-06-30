@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/helper_ControlTypes.h"
-#include "../widgets/widget_Sliders.h"
+#include "../widgets/widget_Knobs.h"
 
 class ControlWithExposedParameterAttachment : public Component
 {

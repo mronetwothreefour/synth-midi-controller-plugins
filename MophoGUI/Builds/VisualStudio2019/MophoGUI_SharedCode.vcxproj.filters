@@ -4571,6 +4571,12 @@
     <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment_DB.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_Knobs.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

@@ -9,7 +9,8 @@
 
 // Constructor arguments order:
 // ID, publicName, controlType, 
-// NRPN, converter, maxValue, defaultValue, centerPoint
+// NRPN, converter, maxValue, defaultValue, 
+// width, height, centerPoint
 struct SynthParameter
 {
 	StaticProperty<Identifier> ID;
@@ -20,6 +21,8 @@ struct SynthParameter
 	StaticProperty<uint8> maxValue;
 	StaticProperty<uint16> numberOfSteps{ maxValue + 1 };
 	StaticProperty<uint8> defaultValue;
+	StaticProperty<uint8> width;
+	StaticProperty<uint8> height;
 	StaticProperty<Point<int>> centerPoint;
 
 	SynthParameter() :
@@ -30,13 +33,16 @@ struct SynthParameter
 		converter{ IntToNullString::get() },
 		maxValue{ 0 },
 		defaultValue{ 0 },
+		width{ 0 },
+		height{ 0 },
 		centerPoint{ Point<int>(0, 0) }
 	{}
 
 	SynthParameter
 	(
 		Identifier ID, String publicName, ControlType controlType, uint16 NRPN,
-		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue, Point<int> centerPoint
+		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue, 
+		uint8 width, uint8 height, Point<int> centerPoint
 	) :
 		ID{ ID },
 		publicName{ publicName },
@@ -45,6 +51,8 @@ struct SynthParameter
 		converter{ converter },
 		maxValue{ maxValue },
 		defaultValue{ defaultValue },
+		width{ width },
+		height{ height },
 		centerPoint{ centerPoint }
 	{}
 };
