@@ -3,7 +3,7 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), ID::exposedParams, ExposedParametersLayoutFactory::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
 {
 }
 

@@ -17,7 +17,7 @@ struct ExposedParametersLayoutFactory
 		{
 			auto param{ exposedParamsDB.getSynthParameter(index) };
 			auto choices{ buildChoicesStringArray(param) };
-			layout.add(std::make_unique<AudioParameterChoice>(Identifier(param.ID).toString(), param.publicName, choices, uint8(param.defaultValue)));
+			layout.add(std::make_unique<AudioParameterChoice>(param.ID, param.publicName, choices, uint8(param.defaultValue)));
 		}
 		return layout;
 	}

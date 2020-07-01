@@ -15,7 +15,7 @@
 // width, height, centerPoint
 struct SynthParameter
 {
-	StaticProperty<Identifier> ID;
+	StaticProperty<String> ID;
 	StaticProperty<String> publicName;
 	StaticProperty<ControlType> controlType;
 	StaticProperty<uint16> NRPN;
@@ -42,7 +42,7 @@ struct SynthParameter
 
 	SynthParameter
 	(
-		Identifier ID, String publicName, ControlType controlType, uint16 NRPN,
+		String ID, String publicName, ControlType controlType, uint16 NRPN,
 		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue, 
 		uint8 width, uint8 height, Point<int> centerPoint
 	) :

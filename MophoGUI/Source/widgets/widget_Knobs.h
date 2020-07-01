@@ -24,9 +24,9 @@ public:
 
 	~Knob() {}
 
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, Identifier paramID)
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, String paramID)
 	{
-		attachment.reset(new SliderAttachment(*exposedParams, paramID.toString(), slider));
+		attachment.reset(new SliderAttachment(*exposedParams, paramID, slider));
 	}
 
 	void deleteAttachment() { attachment = nullptr; }
