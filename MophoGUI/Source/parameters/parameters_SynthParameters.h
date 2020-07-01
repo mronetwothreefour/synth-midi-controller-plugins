@@ -7,6 +7,8 @@
 #include "../helpers/helper_IntToContextualStringConverters.h"
 #include "../helpers/helper_Property.h"
 
+
+
 // Constructor arguments order:
 // ID, publicName, controlType, 
 // NRPN, converter, maxValue, defaultValue, 
@@ -56,6 +58,8 @@ struct SynthParameter
 		centerPoint{ centerPoint }
 	{}
 };
+
+
 
 class ExposedSynthParameters_Database
 {

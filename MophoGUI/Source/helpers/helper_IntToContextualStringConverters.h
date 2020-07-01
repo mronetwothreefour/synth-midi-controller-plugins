@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+
+
 struct IntToPitchName
 {
 	static String convert(const uint8& i) noexcept
@@ -29,7 +31,7 @@ struct IntToPitchName
 	}
 };
 
-//===========================================================================
+
 
 struct IntToContextualStringConverter
 {
@@ -42,7 +44,7 @@ public:
 	String verboseConvert(const uint8& i) { return verboseConversionAlgorithm(i); }
 };
 
-//===========================================================================
+
 
 struct IntToNullString : 
 	public IntToContextualStringConverter
@@ -55,7 +57,7 @@ public:
 	static IntToNullString* get() { static IntToNullString converter; return &converter; }
 };
 
-//===========================================================================
+
 
 struct IntToPlainValueString : 
 	public IntToContextualStringConverter
@@ -68,7 +70,7 @@ public:
 	static IntToPlainValueString* get() { static IntToPlainValueString converter; return &converter; }
 };
 
-//===========================================================================
+
 
 struct IntToOscPitchString : 
 	public IntToContextualStringConverter
@@ -101,7 +103,7 @@ public:
 	static IntToOscPitchString* get() { static IntToOscPitchString converter; return &converter; }
 };
 
-//===========================================================================
+
 
 struct IntToFineTuneString : 
 	public IntToContextualStringConverter
@@ -137,7 +139,7 @@ public:
 };
 
 
-//===========================================================================
+
 
 struct IntToOscWaveShape :
 	public IntToContextualStringConverter
