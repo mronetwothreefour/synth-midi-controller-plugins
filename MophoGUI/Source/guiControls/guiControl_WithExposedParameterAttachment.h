@@ -46,11 +46,11 @@ public:
 		{
 		case ControlType::knobWithValueStringDisplay:
 			if (knobWithValueStringDisplay != nullptr)
-				knobWithValueStringDisplay->attachToExposedParameter(exposedParams, paramID);
+				knobWithValueStringDisplay->attachToExposedParameter(exposedParams);
 			break;
 		case ControlType::knobWithWaveShapeDisplay:
 			if (knobWithWaveShapeDisplay != nullptr)
-				knobWithWaveShapeDisplay->attachToExposedParameter(exposedParams, paramID);
+				knobWithWaveShapeDisplay->attachToExposedParameter(exposedParams);
 			break;
 		default: break;
 		}

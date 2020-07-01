@@ -14,19 +14,24 @@ class Knob : public Component
 protected:
 	RotarySliderWithMouseWheelMod slider;
 	std::unique_ptr<SliderAttachment> attachment;
+	SynthParameter param;
 
 public:
-	Knob()
+	Knob() = delete;
+
+	explicit Knob(SynthParameter param) :
+		param{ param }
 	{
 		addAndMakeVisible(slider);
+		slider.setMouseDragSensitivity(80 + param.numberOfSteps / 2);
 		slider.setComponentID(ID::component_Knob.toString());
 	}
 
 	~Knob() {}
 
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, String paramID)
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams)
 	{
-		attachment.reset(new SliderAttachment(*exposedParams, paramID, slider));
+		attachment.reset(new SliderAttachment(*exposedParams, param.ID, slider));
 	}
 
 	void deleteAttachment() { attachment = nullptr; }
@@ -42,6 +47,7 @@ class KnobWithValueStringDisplay : public Knob
 
 public:
 	explicit KnobWithValueStringDisplay(SynthParameter param) :
+		Knob{ param },
 		valueStringDisplay{ &slider, param }
 	{
 		setSize(param.width, param.height);
@@ -64,6 +70,7 @@ class KnobWithWaveShapeDisplay : public Knob
 
 public:
 	explicit KnobWithWaveShapeDisplay(SynthParameter param) :
+		Knob{ param },
 		waveShapeRenderer{ &slider }
 	{
 		setSize(param.width, param.height);

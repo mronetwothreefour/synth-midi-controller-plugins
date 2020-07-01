@@ -78,25 +78,17 @@ struct IntToOscPitchString :
 protected:
 	String conversionAlgorithm(const uint8& i) override 
 	{ 
-		if (i < 121)
-		{
-			String pitchName{ IntToPitchName::convert(i) };
-			return pitchName;
-		}
-		else if (i > 120 && i < 126) return "--";
-		else return "range error";
+		jassert(i < 121);
+		String pitchName{ IntToPitchName::convert(i) };
+		return pitchName;
 	}
 
 	String verboseConversionAlgorithm(const uint8& i) override
 	{ 
-		if (i < 121)
-		{
-			String pitchName{ IntToPitchName::convert(i) };
-			pitchName += " (MIDI Note " + String(i) + ")";
-			return pitchName;
-		}
-		else if (i > 120 && i < 126) return "--";
-		else return "range error";
+		jassert(i < 121);
+		String pitchName{ IntToPitchName::convert(i) };
+		pitchName += " (MIDI Note " + String(i) + ")";
+		return pitchName;
 	}
 
 public:
@@ -111,26 +103,20 @@ struct IntToFineTuneString :
 protected:
 	String conversionAlgorithm(const uint8& i) override 
 	{
-		if (i < 101)
-		{
-			if (i < 51) return (String)(i - 50);
-			if (i > 50 && i < 101) return "+" + (String)(i - 50);
-			else return "invalid";
-		}
-		else return "range error";
+		jassert(i < 101);
+		if (i < 51) return (String)(i - 50);
+		if (i > 50 && i < 101) return "+" + (String)(i - 50);
+		else return "err";
 	}
 
 	String verboseConversionAlgorithm(const uint8& i) override
 	{
-		if (i < 101)
-		{
-			if (i < 49) return (String)(i - 50) + " cents";
-			if (i == 49) return "-1 cent";
-			if (i == 50) return "No Detune";
-			if (i == 51) return "+1 cent";
-			if (i > 51 && i < 101) return "+" + (String)(i - 50) + " cents";
-			else return "invalid";
-		}
+		jassert(i < 101);
+		if (i < 49) return (String)(i - 50) + " cents";
+		if (i == 49) return "-1 cent";
+		if (i == 50) return "No Detune";
+		if (i == 51) return "+1 cent";
+		if (i > 51 && i < 101) return "+" + (String)(i - 50) + " cents";
 		else return "range error";
 	}
 
@@ -147,24 +133,18 @@ struct IntToOscWaveShape :
 protected:
 	String conversionAlgorithm(const uint8& i) override 
 	{
-		if (i < 104)
-		{
-			return verboseConversionAlgorithm(i);
-		}
-		else return "range error";
+		jassert(i < 104);
+		return verboseConversionAlgorithm(i);
 	}
 
 	String verboseConversionAlgorithm(const uint8& i) override
 	{
-		if (i < 104)
-		{
-			if (i == 0) return "Oscillator Off";
-			if (i == 1) return "Sawtooth";
-			if (i == 2) return "Triangle";
-			if (i == 3) return "Sawtooth/Triangle Mix";
-			if (i > 3 && i < 104) return "Pulse (Width: " + String(i - 4) + ")";
-			else return "invalid";
-		}
+		jassert(i < 104);
+		if (i == 0) return "Oscillator Off";
+		if (i == 1) return "Sawtooth";
+		if (i == 2) return "Triangle";
+		if (i == 3) return "Sawtooth/Triangle Mix";
+		if (i > 3 && i < 104) return "Pulse (Width: " + String(i - 4) + ")";
 		else return "range error";
 	}
 
