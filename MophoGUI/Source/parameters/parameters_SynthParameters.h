@@ -38,7 +38,8 @@ struct SynthParameter
 		width{ 0 },
 		height{ 0 },
 		centerPoint{ Point<int>(0, 0) }
-	{}
+	{
+	}
 
 	SynthParameter
 	(
@@ -56,23 +57,20 @@ struct SynthParameter
 		width{ width },
 		height{ height },
 		centerPoint{ centerPoint }
-	{}
+	{
+	}
 };
 
 
 
 class ExposedSynthParameters_Database
 {
-	Array<SynthParameter> exposedSynthParamArray{};
+	Array<SynthParameter> exposedSynthParamArray;
+
+	ExposedSynthParameters_Database();
+	~ExposedSynthParameters_Database();
 
 	void fillExposedSynthParamArray();
-
-	ExposedSynthParameters_Database()
-	{
-		fillExposedSynthParamArray();
-	}
-
-	~ExposedSynthParameters_Database() {}
 
 public:
 	ExposedSynthParameters_Database(ExposedSynthParameters_Database const&) = delete;
@@ -80,13 +78,7 @@ public:
 	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database const&) = delete;
 	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database&&) = delete;
 
-	static ExposedSynthParameters_Database& get()
-	{
-		static ExposedSynthParameters_Database synthParameterDatabase;
-		return synthParameterDatabase;
-	}
-
-	int size() const noexcept { return exposedSynthParamArray.size(); }
-
-	SynthParameter getSynthParameter(uint16 index) const { return exposedSynthParamArray[index]; }
+	static ExposedSynthParameters_Database& get();
+	int size() const noexcept;
+	SynthParameter getSynthParameter(uint16 index);
 };

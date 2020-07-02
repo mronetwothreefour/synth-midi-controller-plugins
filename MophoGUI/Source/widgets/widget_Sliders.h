@@ -9,15 +9,12 @@
 class SliderWithMouseWheelMod : public Slider
 {
 public:
-	void mouseWheelMove(const MouseEvent& /*event*/, const MouseWheelDetails& wheel) override
-	{
+	void mouseWheelMove(const MouseEvent& /*event*/, const MouseWheelDetails& wheel) override {
 		auto delta{ wheel.deltaY };
 		auto currentValue{ getValue() };
 		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 		if (delta != 0.0f)
-		{
 			setValue(currentValue + interval);
-		}
 	}
 };
 
@@ -26,12 +23,13 @@ public:
 class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
 {
 public:
-	RotarySliderWithMouseWheelMod()
-	{
+	RotarySliderWithMouseWheelMod() {
 		setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 		setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 		setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
 	}
-	~RotarySliderWithMouseWheelMod() {}
+
+	~RotarySliderWithMouseWheelMod() {
+	}
 };
 

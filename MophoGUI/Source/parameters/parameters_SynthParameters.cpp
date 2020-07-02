@@ -1,5 +1,12 @@
 #include "parameters_SynthParameters.h"
 
+ExposedSynthParameters_Database::ExposedSynthParameters_Database() {
+	fillExposedSynthParamArray();
+}
+
+ExposedSynthParameters_Database::~ExposedSynthParameters_Database() {
+}
+
 void ExposedSynthParameters_Database::fillExposedSynthParamArray()
 {
 	const uint8 knob_diameter{ 40 };
@@ -35,4 +42,17 @@ void ExposedSynthParameters_Database::fillExposedSynthParamArray()
 		/*width*/ knob_diameter, /*height*/ knob_diameter, Point<int>(183, 50)
 	};
 	exposedSynthParamArray.add(xpsdParam_GlideOsc1);
+}
+
+ExposedSynthParameters_Database& ExposedSynthParameters_Database::get() {
+	static ExposedSynthParameters_Database synthParameterDatabase;
+	return synthParameterDatabase;
+}
+
+int ExposedSynthParameters_Database::size() const noexcept {
+	return exposedSynthParamArray.size();
+}
+
+SynthParameter ExposedSynthParameters_Database::getSynthParameter(uint16 index) {
+	return exposedSynthParamArray[index];
 }

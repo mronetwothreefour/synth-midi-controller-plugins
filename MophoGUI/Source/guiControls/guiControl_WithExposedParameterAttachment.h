@@ -5,28 +5,31 @@
 #include "../helpers/helper_ControlTypes.h"
 #include "../widgets/widget_Knobs.h"
 
+
+
 class ControlWithExposedParameterAttachment : public Component
 {
 	ControlType controlType;
-
 	std::unique_ptr<KnobWithValueStringDisplay> knobWithValueStringDisplay;
 	std::unique_ptr<KnobWithWaveShapeDisplay> knobWithWaveShapeDisplay;
 
-	ControlWithExposedParameterAttachment() : controlType{ ControlType::nullControl } {}
+	ControlWithExposedParameterAttachment() : 
+		controlType{ ControlType::nullControl } 
+	{
+	}
 
 public:
-	explicit ControlWithExposedParameterAttachment(SynthParameter param) :
-		controlType{ param.controlType }
+	explicit ControlWithExposedParameterAttachment(uint16 paramIndex) :
+		controlType{ ExposedSynthParameters_Database::get().getSynthParameter(paramIndex).controlType }
 	{
-		switch (controlType)
-		{
+		switch (controlType) {
 		case ControlType::knobWithValueStringDisplay:
-			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(param));
+			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(paramIndex));
 			addAndMakeVisible(*knobWithValueStringDisplay);
 			setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
 			break;
 		case ControlType::knobWithWaveShapeDisplay:
-			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(param));
+			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(paramIndex));
 			addAndMakeVisible(*knobWithWaveShapeDisplay);
 			setSize(knobWithWaveShapeDisplay->getWidth(), knobWithWaveShapeDisplay->getHeight());
 			break;
@@ -34,14 +37,12 @@ public:
 		}
 	}
 
-	~ControlWithExposedParameterAttachment()
-	{
+	~ControlWithExposedParameterAttachment() {
 		knobWithValueStringDisplay = nullptr;
 		knobWithWaveShapeDisplay = nullptr;
 	}
 
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, String paramID) const
-	{
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, String paramID) const {
 		switch (controlType)
 		{
 		case ControlType::knobWithValueStringDisplay:
@@ -56,8 +57,7 @@ public:
 		}
 	}
 
-	void deleteAttachment() const
-	{
+	void deleteAttachment() const {
 		if (knobWithValueStringDisplay != nullptr)
 			knobWithValueStringDisplay->deleteAttachment();
 		if (knobWithWaveShapeDisplay != nullptr)

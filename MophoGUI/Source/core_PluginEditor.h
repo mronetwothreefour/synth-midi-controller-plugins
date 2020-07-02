@@ -21,7 +21,6 @@ public:
     PluginEditor(PluginProcessor& processor);
     ~PluginEditor();
 
-    //==============================================================================
     void paint(Graphics& g) override;
     void resized() override;
 
