@@ -1,7 +1,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-//==============================================================================
+
+
 PluginEditor::PluginEditor(PluginProcessor& processor) :
     AudioProcessorEditor{ &processor }, 
     processor{ processor }
@@ -9,13 +10,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     setSize(400, 300);
 }
 
-PluginEditor::~PluginEditor()
-{
+PluginEditor::~PluginEditor() {
 }
 
-//==============================================================================
-void PluginEditor::paint(Graphics& g)
-{
+void PluginEditor::paint(Graphics& g) {
     g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
 
     g.setColour(Colours::white);
@@ -23,6 +21,5 @@ void PluginEditor::paint(Graphics& g)
     g.drawFittedText("Hello World!", getLocalBounds(), Justification::centred, 1);
 }
 
-void PluginEditor::resized()
-{
+void PluginEditor::resized() {
 }

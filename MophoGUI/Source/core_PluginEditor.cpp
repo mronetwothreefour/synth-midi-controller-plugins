@@ -1,7 +1,8 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-//==============================================================================
+
+
 PluginEditor::PluginEditor(PluginProcessor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
@@ -28,8 +29,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     setSize(device_w, device_h);
 }
 
-PluginEditor::~PluginEditor()
-{
+PluginEditor::~PluginEditor() {
     auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
     auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
     for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
@@ -44,13 +44,10 @@ PluginEditor::~PluginEditor()
     mophoLaF = nullptr;
 }
 
-//==============================================================================
-void PluginEditor::paint(Graphics& g)
-{
+void PluginEditor::paint(Graphics& g) {
     g.fillAll(Color::device);
 }
 
-void PluginEditor::resized()
-{
+void PluginEditor::resized() {
     div_Logo->setBounds(836, 0, div_Logo->getWidth(), div_Logo->getHeight());
 }

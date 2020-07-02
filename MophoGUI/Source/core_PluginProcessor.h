@@ -5,12 +5,12 @@
 #include "helpers/helper_Identifiers.h"
 #include "parameters/parameters_ExposedParametersLayout.h"
 
-//#include "helpers/helper_scratchPad.h"
+
 
 class PluginProcessor : 
     public AudioProcessor
 {
-    std::unique_ptr<UndoManager> undoManager{ new UndoManager() };
+    std::unique_ptr<UndoManager> undoManager;
 
 public:
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
@@ -18,38 +18,31 @@ public:
     PluginProcessor();
     ~PluginProcessor();
 
-    //==============================================================================
-    const String getName() const override { return JucePlugin_Name; }
+    const String getName() const override;
 
-    //==============================================================================
-    bool acceptsMidi() const override { return true; }
-    bool producesMidi() const override { return true; }
-    bool isMidiEffect() const override { return true; }
+    bool acceptsMidi() const override;
+    bool producesMidi() const override;
+    bool isMidiEffect() const override;
     
-    //==============================================================================
-    int getNumPrograms() override { return 1; }
-    int getCurrentProgram() override { return 0; }
-    void setCurrentProgram(int /*index*/) override {}
-    const String getProgramName(int /*index*/) override { return {}; }
-    void changeProgramName(int /*index*/, const String& /*newName*/) override {}
+    int getNumPrograms() override;
+    int getCurrentProgram() override;
+    void setCurrentProgram(int index) override;
+    const String getProgramName(int index) override;
+    void changeProgramName(int index, const String& newName) override;
 
-    //==============================================================================
-    bool isBusesLayoutSupported(const BusesLayout& /*layouts*/) const override { return true; }
-    void prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/) override {}
-    void releaseResources() override {}
-    double getTailLengthSeconds() const override { return 0.0; }
-    void processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+    void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+    bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
+    void prepareToPlay(double sampleRate, int samplesPerBlock) override;
+    void releaseResources() override;
+    double getTailLengthSeconds() const override;
 
-    //==============================================================================
-    bool hasEditor() const override { return true; }
+    bool hasEditor() const override;
     AudioProcessorEditor* createEditor() override;
 
-    //==============================================================================
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
 private:
-
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
 };

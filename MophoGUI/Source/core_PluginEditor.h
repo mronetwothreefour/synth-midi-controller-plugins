@@ -13,6 +13,10 @@
 
 class PluginEditor : public AudioProcessorEditor
 {
+    PluginProcessor& processor;
+    std::unique_ptr<MophoLookAndFeel> mophoLaF;
+    std::unique_ptr<MainWindowDivision_Logo> div_Logo;
+
 public:
     PluginEditor(PluginProcessor& processor);
     ~PluginEditor();
@@ -22,12 +26,6 @@ public:
     void resized() override;
 
 private:
-    PluginProcessor& processor;
-
-    std::unique_ptr<MophoLookAndFeel> mophoLaF;
-
-    std::unique_ptr<MainWindowDivision_Logo> div_Logo;
-
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
 };
