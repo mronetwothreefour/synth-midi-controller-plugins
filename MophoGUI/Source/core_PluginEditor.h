@@ -18,7 +18,7 @@ class PluginEditor : public AudioProcessorEditor
     std::unique_ptr<MainWindowDivision_Logo> div_Logo;
 
 public:
-    PluginEditor(PluginProcessor& processor);
+    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams);
     ~PluginEditor();
 
     void paint(Graphics& g) override;

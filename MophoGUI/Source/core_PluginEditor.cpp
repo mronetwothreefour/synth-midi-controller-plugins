@@ -3,7 +3,7 @@
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
@@ -20,7 +20,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
         auto param{ exposedParamsDB.getSynthParameter(index) };
         auto control{ controlDB.getControl(index) };
         addAndMakeVisible(control);
-        control->attachToExposedParameter(processor.exposedParams.get(), param.ID);
+        control->attachToExposedParameter(exposedParams);
         control->setCentrePosition(param.centerPoint);
     }
 

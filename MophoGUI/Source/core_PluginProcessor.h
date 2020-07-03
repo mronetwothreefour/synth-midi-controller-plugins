@@ -4,6 +4,7 @@
 
 #include "helpers/helper_Identifiers.h"
 #include "parameters/parameters_ExposedParametersLayout.h"
+#include "parameters/parameters_UnexposedParameters.h"
 
 
 
@@ -11,10 +12,9 @@ class PluginProcessor :
     public AudioProcessor
 {
     std::unique_ptr<UndoManager> undoManager;
-
-public:
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
 
+public:
     PluginProcessor();
     ~PluginProcessor();
 

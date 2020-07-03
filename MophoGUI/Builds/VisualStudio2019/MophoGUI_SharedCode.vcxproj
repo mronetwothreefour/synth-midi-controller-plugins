@@ -2848,6 +2848,7 @@
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />

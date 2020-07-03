@@ -42,7 +42,7 @@ public:
 		knobWithWaveShapeDisplay = nullptr;
 	}
 
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams, String paramID) const {
+	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const {
 		switch (controlType)
 		{
 		case ControlType::knobWithValueStringDisplay:
