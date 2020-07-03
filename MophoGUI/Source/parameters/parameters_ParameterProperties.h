@@ -1,11 +1,22 @@
 #pragma once
 
-#include <JuceHeader.h>
 
-#include "../helpers/helper_ControlTypes.h"
-#include "../helpers/helper_Identifiers.h"
-#include "../helpers/helper_IntToContextualStringConverters.h"
-#include "../helpers/helper_Property.h"
+
+template <typename T>
+struct StaticProperty
+{
+	T value;
+
+	explicit StaticProperty(const T initial_value) { 
+		value = initial_value; 
+	}
+
+	operator T() { 
+		return value; 
+	}
+
+	T operator = (T new_value) = delete; // the value of a static property cannot be modified
+};
 
 
 
@@ -13,7 +24,7 @@
 // ID, publicName, controlType, 
 // NRPN, converter, maxValue, defaultValue, 
 // width, height, centerPoint
-struct SynthParameter
+struct ParameterProperties
 {
 	StaticProperty<String> ID;
 	StaticProperty<String> publicName;
@@ -27,7 +38,7 @@ struct SynthParameter
 	StaticProperty<uint8> height;
 	StaticProperty<Point<int>> centerPoint;
 
-	SynthParameter() :
+	ParameterProperties() :
 		ID{ "null" },
 		publicName{ "null" },
 		controlType{ ControlType::nullControl },
@@ -41,10 +52,10 @@ struct SynthParameter
 	{
 	}
 
-	SynthParameter
+	ParameterProperties
 	(
 		String ID, String publicName, ControlType controlType, uint16 NRPN,
-		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue, 
+		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue,
 		uint8 width, uint8 height, Point<int> centerPoint
 	) :
 		ID{ ID },
@@ -63,22 +74,3 @@ struct SynthParameter
 
 
 
-class ExposedSynthParameters_Database
-{
-	Array<SynthParameter> exposedSynthParamArray;
-
-	ExposedSynthParameters_Database();
-	~ExposedSynthParameters_Database();
-
-	void fillExposedSynthParamArray();
-
-public:
-	ExposedSynthParameters_Database(ExposedSynthParameters_Database const&) = delete;
-	ExposedSynthParameters_Database(ExposedSynthParameters_Database&&) = delete;
-	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database const&) = delete;
-	ExposedSynthParameters_Database& operator=(ExposedSynthParameters_Database&&) = delete;
-
-	static ExposedSynthParameters_Database& get();
-	int size() const noexcept;
-	SynthParameter getSynthParameter(uint16 index);
-};

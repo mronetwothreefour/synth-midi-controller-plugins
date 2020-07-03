@@ -19,7 +19,7 @@ class ValueStringRendererForKnobs :
 public:
 	ValueStringRendererForKnobs(Slider* knob, uint16 paramIndex) :
 		knob{ knob },
-		converter{ ExposedSynthParameters_Database::get().getSynthParameter(paramIndex).converter }
+		converter{ ExposedParameters_Database::get().getSynthParameter(paramIndex).converter }
 	{
 		knob->addListener(this);
 		sliderValueChanged(knob);

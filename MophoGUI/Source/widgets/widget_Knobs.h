@@ -22,7 +22,7 @@ public:
 	explicit Knob(uint16 paramIndex) :
 		paramIndex{ paramIndex }
 	{
-		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+		auto& exposedParamsDB{ ExposedParameters_Database::get() };
 		auto param{ exposedParamsDB.getSynthParameter(paramIndex) };
 		addAndMakeVisible(slider);
 		slider.setMouseDragSensitivity(80 + param.numberOfSteps / 2);
@@ -33,7 +33,7 @@ public:
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
-		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+		auto& exposedParamsDB{ ExposedParameters_Database::get() };
 		auto param{ exposedParamsDB.getSynthParameter(paramIndex) };
 		attachment.reset(new SliderAttachment(*exposedParams, param.ID, slider));
 	}
@@ -58,7 +58,7 @@ public:
 		Knob{ paramIndex },
 		valueStringDisplay{ &slider, paramIndex }
 	{
-		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+		auto& exposedParamsDB{ ExposedParameters_Database::get() };
 		auto param{ exposedParamsDB.getSynthParameter(paramIndex) };
 		setSize(param.width, param.height);
 		slider.setSize(param.width, param.height);
@@ -82,7 +82,7 @@ public:
 		Knob{ paramIndex },
 		waveShapeRenderer{ &slider }
 	{
-		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+		auto& exposedParamsDB{ ExposedParameters_Database::get() };
 		auto param{ exposedParamsDB.getSynthParameter(paramIndex) };
 		setSize(param.width, param.height);
 		slider.setSize(param.width, param.height);

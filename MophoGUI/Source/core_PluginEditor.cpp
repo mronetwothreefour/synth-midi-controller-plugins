@@ -13,7 +13,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     div_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(div_Logo.get());
 
-    auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+    auto& exposedParamsDB{ ExposedParameters_Database::get() };
     auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
     for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
     {
@@ -30,7 +30,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 }
 
 PluginEditor::~PluginEditor() {
-    auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+    auto& exposedParamsDB{ ExposedParameters_Database::get() };
     auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
     for (uint8 index = 0; index != exposedParamsDB.size(); ++index)
     {

@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "guiControl_WithExposedParameterAttachment.h"
-#include "../parameters/parameters_SynthParameters.h"
 
 class ControlWithExposedParameterAttachment_Database
 {
@@ -18,7 +17,7 @@ class ControlWithExposedParameterAttachment_Database
 	}
 
 	void fillControlVector() {
-		auto& exposedParamsDB{ ExposedSynthParameters_Database::get() };
+		auto& exposedParamsDB{ ExposedParameters_Database::get() };
 		for (uint16 index = 0; index != exposedParamsDB.size(); ++index) {
 			controlVector.push_back(std::make_unique<ControlWithExposedParameterAttachment>(index));
 		}

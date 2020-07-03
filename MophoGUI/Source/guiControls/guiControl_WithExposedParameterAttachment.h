@@ -20,7 +20,7 @@ class ControlWithExposedParameterAttachment : public Component
 
 public:
 	explicit ControlWithExposedParameterAttachment(uint16 paramIndex) :
-		controlType{ ExposedSynthParameters_Database::get().getSynthParameter(paramIndex).controlType }
+		controlType{ ExposedParameters_Database::get().getSynthParameter(paramIndex).controlType }
 	{
 		switch (controlType) {
 		case ControlType::knobWithValueStringDisplay:

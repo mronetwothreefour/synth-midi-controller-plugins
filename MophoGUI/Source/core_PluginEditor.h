@@ -9,7 +9,6 @@
 #include "helpers/helper_Identifiers.h"
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "widgets/widget_Logo.h"
-#include "parameters/parameters_SynthParameters.h"
 
 class PluginEditor : public AudioProcessorEditor
 {

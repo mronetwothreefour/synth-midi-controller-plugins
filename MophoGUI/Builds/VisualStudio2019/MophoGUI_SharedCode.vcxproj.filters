@@ -2436,7 +2436,7 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
       <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\parameters_SynthParameters.cpp">
+    <ClCompile Include="..\..\Source\parameters\parameters_ExposedParameters_DB.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4757,16 +4757,10 @@
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_Property.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_SynthParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h">
@@ -4782,6 +4776,12 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ParameterProperties.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameters_DB.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
