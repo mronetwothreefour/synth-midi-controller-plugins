@@ -22,10 +22,10 @@ public:
 	explicit Knob(uint16 paramIndex) :
 		paramIndex{ paramIndex }
 	{
-		auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
-		auto param{ paramInfoArray[paramIndex] };
+		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto paramInfo{ allParamsInfo[paramIndex] };
 		addAndMakeVisible(slider);
-		slider.setMouseDragSensitivity(80 + param.numberOfSteps / 2);
+		slider.setMouseDragSensitivity(80 + paramInfo.numberOfSteps / 2);
 		slider.setComponentID(ID::component_Knob.toString());
 	}
 
@@ -33,9 +33,9 @@ public:
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
-		auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
-		auto param{ paramInfoArray[paramIndex] };
-		attachment.reset(new SliderAttachment(*exposedParams, param.ID, slider));
+		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto paramInfo{ allParamsInfo[paramIndex] };
+		attachment.reset(new SliderAttachment(*exposedParams, paramInfo.ID, slider));
 	}
 
 	void deleteAttachment() { 
@@ -58,9 +58,10 @@ public:
 		Knob{ paramIndex },
 		valueStringDisplay{ &slider, paramIndex }
 	{
-		auto param{ ExposedParamInfoArray_Singleton::get()[paramIndex] };
-		setSize(param.width, param.height);
-		slider.setSize(param.width, param.height);
+		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto paramInfo{ allParamsInfo[paramIndex] };
+		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
+		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
 		addAndMakeVisible(valueStringDisplay);
 		valueStringDisplay.setInterceptsMouseClicks(false, false);
 		valueStringDisplay.setBounds(getLocalBounds());
@@ -81,9 +82,10 @@ public:
 		Knob{ paramIndex },
 		waveShapeRenderer{ &slider }
 	{
-		auto param{ ExposedParamInfoArray_Singleton::get()[paramIndex] };
-		setSize(param.width, param.height);
-		slider.setSize(param.width, param.height);
+		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto paramInfo{ allParamsInfo[paramIndex] };
+		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
+		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
 		addAndMakeVisible(waveShapeRenderer);
 		waveShapeRenderer.setInterceptsMouseClicks(false, false);
 		waveShapeRenderer.setBounds(getLocalBounds().reduced(5));

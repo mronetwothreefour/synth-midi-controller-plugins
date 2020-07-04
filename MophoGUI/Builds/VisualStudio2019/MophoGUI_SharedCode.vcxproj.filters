@@ -2436,7 +2436,7 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
       <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\parameters_ExposedParamInfoArray_Singleton.cpp">
+    <ClCompile Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4775,14 +4775,14 @@
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameterInfo.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamInfoArray_Singleton.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

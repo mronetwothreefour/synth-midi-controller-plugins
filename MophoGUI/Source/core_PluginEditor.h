@@ -14,7 +14,7 @@ class PluginEditor : public AudioProcessorEditor
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
-    std::unique_ptr<MainWindowDivision_Logo> div_Logo;
+    std::unique_ptr<MainWindowDivision_Logo> widget_Logo;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams);

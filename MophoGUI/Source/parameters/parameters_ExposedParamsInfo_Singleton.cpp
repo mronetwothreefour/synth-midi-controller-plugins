@@ -1,13 +1,13 @@
-#include "parameters_ExposedParamInfoArray_Singleton.h"
+#include "parameters_ExposedParamsInfo_Singleton.h"
 
-ExposedParamInfoArray_Singleton::ExposedParamInfoArray_Singleton() {
+ExposedParamsInfo_Singleton::ExposedParamsInfo_Singleton() {
 	fillExposedSynthParamArray();
 }
 
-ExposedParamInfoArray_Singleton::~ExposedParamInfoArray_Singleton() {
+ExposedParamsInfo_Singleton::~ExposedParamsInfo_Singleton() {
 }
 
-void ExposedParamInfoArray_Singleton::fillExposedSynthParamArray()
+void ExposedParamsInfo_Singleton::fillExposedSynthParamArray()
 {
 	const uint8 knob_diameter{ 40 };
 
@@ -44,8 +44,8 @@ void ExposedParamInfoArray_Singleton::fillExposedSynthParamArray()
 	exposedParamInfoArray.add(xpsdParam_GlideOsc1);
 }
 
-Array<ExposedParameterInfo>& ExposedParamInfoArray_Singleton::get() {
-	static ExposedParamInfoArray_Singleton synthParameterDatabase;
+Array<ExposedParameterInfo>& ExposedParamsInfo_Singleton::get() {
+	static ExposedParamsInfo_Singleton synthParameterDatabase;
 	return synthParameterDatabase.exposedParamInfoArray;
 }
 

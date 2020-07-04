@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "parameters_ExposedParamInfoArray_Singleton.h"
+#include "parameters_ExposedParamsInfo_Singleton.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
@@ -13,20 +13,20 @@ struct ExposedParametersLayoutFactory
 {
 	static ParamLayout build() {
 		ParamLayout layout;
-		auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
-		for (uint8 index = 0; index != paramInfoArray.size(); ++index) {
-			auto param{ paramInfoArray[index] };
-			auto choices{ buildChoicesStringArray(param) };
-			layout.add(std::make_unique<AudioParameterChoice>(param.ID, param.publicName, choices, uint8(param.defaultValue)));
+		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		for (uint8 index = 0; index != allParamsInfo.size(); ++index) {
+			auto paramInfo{ allParamsInfo[index] };
+			auto choices{ buildChoicesStringArray(paramInfo) };
+			layout.add(std::make_unique<AudioParameterChoice>(paramInfo.ID, paramInfo.publicName, choices, uint8(paramInfo.defaultValue)));
 		}
 		return layout;
 	}
 
 private:
-	static StringArray buildChoicesStringArray(ExposedParameterInfo param) {
+	static StringArray buildChoicesStringArray(ExposedParameterInfo paramInfo) {
 		StringArray choices{};
-		IntToContextualStringConverter* converter{ param.converter };
-		for (uint8 i = 0; i != uint16(param.numberOfSteps); ++i) {
+		IntToContextualStringConverter* converter{ paramInfo.converter };
+		for (uint8 i = 0; i != uint16(paramInfo.numberOfSteps); ++i) {
 			choices.add(converter->verboseConvert(i));
 		}
 		return choices;

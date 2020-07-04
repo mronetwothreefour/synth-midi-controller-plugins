@@ -10,19 +10,17 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     mophoLaF.reset(new MophoLookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
 
-    div_Logo.reset(new MainWindowDivision_Logo());
-    addAndMakeVisible(div_Logo.get());
-
+    widget_Logo.reset(new MainWindowDivision_Logo());
+    addAndMakeVisible(widget_Logo.get());
 
     auto& controls{ ControlsForExposedParameters_Singleton::get() };
-    for (uint8 index = 0; index != controls.size(); ++index)
-    {
-        auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
-        auto param{ paramInfoArray[index] };
+    auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+    for (uint8 index = 0; index != controls.size(); ++index) {
+        auto paramInfo{ allParamsInfo[index] };
         auto control{ controls[index].get() };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
-        control->setCentrePosition(param.centerPoint);
+        control->setCentrePosition(paramInfo.ctrlCenterPoint);
     }
 
     auto device_w{ 1273 };
@@ -31,15 +29,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 }
 
 PluginEditor::~PluginEditor() {
-    auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
     auto& controls{ ControlsForExposedParameters_Singleton::get() };
-    for (uint8 index = 0; index != paramInfoArray.size(); ++index)
-    {
+    for (uint8 index = 0; index != controls.size(); ++index) {
         auto control{ controls[index].get() };
         control->deleteAttachment();
     }
 
-    div_Logo = nullptr;
+    widget_Logo = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     mophoLaF = nullptr;
@@ -50,5 +46,5 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
-    div_Logo->setBounds(836, 0, div_Logo->getWidth(), div_Logo->getHeight());
+    widget_Logo->setBounds(836, 0, widget_Logo->getWidth(), widget_Logo->getHeight());
 }
