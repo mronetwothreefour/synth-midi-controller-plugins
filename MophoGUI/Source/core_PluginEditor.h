@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "core_PluginProcessor.h"
-#include "guiControls/guiControl_WithExposedParamAttachment_DB.h"
+#include "guiControls/ControlsForExposedParameters_Singleton.h"
 #include "helpers/helper_CustomColors.h"
 #include "helpers/helper_Fonts.h"
 #include "helpers/helper_Identifiers.h"

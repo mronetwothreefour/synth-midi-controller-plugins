@@ -14,12 +14,12 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(div_Logo.get());
 
 
-    auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
-    for (uint8 index = 0; index != ExposedParamInfoArray_Singleton::get().size(); ++index)
+    auto& controls{ ControlsForExposedParameters_Singleton::get() };
+    for (uint8 index = 0; index != controls.size(); ++index)
     {
         auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
         auto param{ paramInfoArray[index] };
-        auto control{ controlDB.getControl(index) };
+        auto control{ controls[index].get() };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
         control->setCentrePosition(param.centerPoint);
@@ -32,10 +32,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 
 PluginEditor::~PluginEditor() {
     auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
-    auto& controlDB{ ControlWithExposedParameterAttachment_Database::get() };
+    auto& controls{ ControlsForExposedParameters_Singleton::get() };
     for (uint8 index = 0; index != paramInfoArray.size(); ++index)
     {
-        auto control{ controlDB.getControl(index) };
+        auto control{ controls[index].get() };
         control->deleteAttachment();
     }
 

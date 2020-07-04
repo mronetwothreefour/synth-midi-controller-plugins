@@ -4727,12 +4727,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment_DB.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParameterAttachment.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>MophoGUI\Source\core</Filter>
     </ClInclude>
@@ -4783,6 +4777,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamInfoArray_Singleton.h">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
