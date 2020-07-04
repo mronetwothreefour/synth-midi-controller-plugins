@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "parameters_ExposedParameters_DB.h"
+#include "parameters_ExposedParamInfoArray_Singleton.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
@@ -13,9 +13,9 @@ struct ExposedParametersLayoutFactory
 {
 	static ParamLayout build() {
 		ParamLayout layout;
-		auto& exposedParamsDB{ ExposedParameters_Database::get() };
-		for (uint8 index = 0; index != exposedParamsDB.size(); ++index) {
-			auto param{ exposedParamsDB.getSynthParameter(index) };
+		auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
+		for (uint8 index = 0; index != paramInfoArray.size(); ++index) {
+			auto param{ paramInfoArray[index] };
 			auto choices{ buildChoicesStringArray(param) };
 			layout.add(std::make_unique<AudioParameterChoice>(param.ID, param.publicName, choices, uint8(param.defaultValue)));
 		}
@@ -23,7 +23,7 @@ struct ExposedParametersLayoutFactory
 	}
 
 private:
-	static StringArray buildChoicesStringArray(ParameterProperties param) {
+	static StringArray buildChoicesStringArray(ExposedParameterInfo param) {
 		StringArray choices{};
 		IntToContextualStringConverter* converter{ param.converter };
 		for (uint8 i = 0; i != uint16(param.numberOfSteps); ++i) {

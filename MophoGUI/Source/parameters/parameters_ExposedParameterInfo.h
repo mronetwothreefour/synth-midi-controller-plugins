@@ -20,11 +20,7 @@ struct StaticProperty
 
 
 
-// Constructor arguments order:
-// ID, publicName, controlType, 
-// NRPN, converter, maxValue, defaultValue, 
-// width, height, centerPoint
-struct ParameterProperties
+struct ExposedParameterInfo
 {
 	StaticProperty<String> ID;
 	StaticProperty<String> publicName;
@@ -38,7 +34,7 @@ struct ParameterProperties
 	StaticProperty<uint8> height;
 	StaticProperty<Point<int>> centerPoint;
 
-	ParameterProperties() :
+	ExposedParameterInfo() :
 		ID{ "null" },
 		publicName{ "null" },
 		controlType{ ControlType::nullControl },
@@ -52,7 +48,7 @@ struct ParameterProperties
 	{
 	}
 
-	ParameterProperties
+	ExposedParameterInfo
 	(
 		String ID, String publicName, ControlType controlType, uint16 NRPN,
 		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue,

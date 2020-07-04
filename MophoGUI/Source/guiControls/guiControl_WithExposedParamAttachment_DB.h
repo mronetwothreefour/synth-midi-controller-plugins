@@ -17,8 +17,8 @@ class ControlWithExposedParameterAttachment_Database
 	}
 
 	void fillControlVector() {
-		auto& exposedParamsDB{ ExposedParameters_Database::get() };
-		for (uint16 index = 0; index != exposedParamsDB.size(); ++index) {
+		auto& paramInfoArray{ ExposedParamInfoArray_Singleton::get() };
+		for (uint16 index = 0; index != paramInfoArray.size(); ++index) {
 			controlVector.push_back(std::make_unique<ControlWithExposedParameterAttachment>(index));
 		}
 	}
