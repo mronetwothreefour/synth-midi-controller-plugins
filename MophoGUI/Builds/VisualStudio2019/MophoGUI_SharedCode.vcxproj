@@ -2845,7 +2845,7 @@
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParametersLayout.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameterInfo.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h" />
@@ -2853,6 +2853,7 @@
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

@@ -23,12 +23,21 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
         control->setCentrePosition(paramInfo.ctrlCenterPoint);
     }
 
+    auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+    tooltipOptions.addListener(this);
+    auto tooltipsDelay{ (int)tooltipOptions.getProperty(ID::tooltips_DelayInMilliseconds) };
+    tooltipWindow.setMillisecondsBeforeTipAppears(tooltipsDelay);
+    tooltipWindow.setComponentEffect(nullptr);
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
 }
 
 PluginEditor::~PluginEditor() {
+    auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+    tooltipOptions.removeListener(this);
+
     auto& controls{ ControlsForExposedParameters_Singleton::get() };
     for (uint8 index = 0; index != controls.size(); ++index) {
         auto control{ controls[index].get() };
@@ -47,4 +56,13 @@ void PluginEditor::paint(Graphics& g) {
 
 void PluginEditor::resized() {
     widget_Logo->setBounds(836, 0, widget_Logo->getWidth(), widget_Logo->getHeight());
+}
+
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)
+{
+    if (property == ID::tooltips_DelayInMilliseconds) {
+        auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+        auto tooltipsDelay{ (int)tooltipOptions.getProperty(property) };
+        tooltipWindow.setMillisecondsBeforeTipAppears(tooltipsDelay);
+    }
 }

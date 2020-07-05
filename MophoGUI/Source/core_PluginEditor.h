@@ -10,11 +10,14 @@
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "widgets/widget_Logo.h"
 
-class PluginEditor : public AudioProcessorEditor
+class PluginEditor : 
+    public AudioProcessorEditor,
+    public ValueTree::Listener
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
     std::unique_ptr<MainWindowDivision_Logo> widget_Logo;
+    TooltipWindow tooltipWindow;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams);
@@ -22,6 +25,8 @@ public:
 
     void paint(Graphics& g) override;
     void resized() override;
+
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
     //==============================================================================

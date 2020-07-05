@@ -30,6 +30,7 @@ struct ExposedParameterInfo
 	StaticProperty<uint8> maxValue;
 	StaticProperty<uint16> numberOfSteps{ maxValue + 1 };
 	StaticProperty<uint8> defaultValue;
+	StaticProperty<String> description;
 	StaticProperty<uint8> ctrlWidth;
 	StaticProperty<uint8> ctrlHeight;
 	StaticProperty<Point<int>> ctrlCenterPoint;
@@ -42,6 +43,7 @@ struct ExposedParameterInfo
 		converter{ IntToNullString::get() },
 		maxValue{ 0 },
 		defaultValue{ 0 },
+		description{ "null" },
 		ctrlWidth{ 0 },
 		ctrlHeight{ 0 },
 		ctrlCenterPoint{ Point<int>(0, 0) }
@@ -52,7 +54,7 @@ struct ExposedParameterInfo
 	(
 		String ID, String publicName, ControlType controlType, uint16 NRPN,
 		IntToContextualStringConverter* converter, uint8 maxValue, uint8 defaultValue,
-		uint8 ctrlWidth, uint8 ctrlHeight, Point<int> ctrlCenterPoint
+		String description, uint8 ctrlWidth, uint8 ctrlHeight, Point<int> ctrlCenterPoint
 	) :
 		ID{ ID },
 		publicName{ publicName },
@@ -61,6 +63,7 @@ struct ExposedParameterInfo
 		converter{ converter },
 		maxValue{ maxValue },
 		defaultValue{ defaultValue },
+		description{ description },
 		ctrlWidth{ ctrlWidth },
 		ctrlHeight{ ctrlHeight },
 		ctrlCenterPoint{ ctrlCenterPoint }

@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "helpers/helper_Identifiers.h"
-#include "parameters/parameters_ExposedParametersLayout.h"
+#include "parameters/parameters_ExposedParamsLayout.h"
 #include "parameters/parameters_UnexposedParameters.h"
 
 

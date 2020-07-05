@@ -13,9 +13,7 @@ struct ExposedParamsInfo_Singleton
 {
 	Array<ExposedParameterInfo> exposedParamInfoArray;
 
-	ExposedParamsInfo_Singleton(ExposedParamsInfo_Singleton const&) = delete;
 	ExposedParamsInfo_Singleton(ExposedParamsInfo_Singleton&&) = delete;
-	ExposedParamsInfo_Singleton& operator=(ExposedParamsInfo_Singleton const&) = delete;
 	ExposedParamsInfo_Singleton& operator=(ExposedParamsInfo_Singleton&&) = delete;
 
 	static Array<ExposedParameterInfo>& get();
@@ -25,4 +23,7 @@ private:
 	~ExposedParamsInfo_Singleton();
 
 	void fillExposedSynthParamArray();
+
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamsInfo_Singleton)
 };

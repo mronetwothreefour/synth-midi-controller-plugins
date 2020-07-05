@@ -4,6 +4,7 @@
 
 #include "widget_KnobValueRenderers.h"
 #include "widget_Sliders.h"
+#include "widget_TooltipSetters.h"
 
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
@@ -15,12 +16,14 @@ protected:
 	RotarySliderWithMouseWheelMod slider;
 	std::unique_ptr<SliderAttachment> attachment;
 	uint16 paramIndex;
+	TooltipSetterForExposedParamSliders tooltipSetter;
 
 public:
 	Knob() = delete;
 
 	explicit Knob(uint16 paramIndex) :
-		paramIndex{ paramIndex }
+		paramIndex{ paramIndex },
+		tooltipSetter{ slider, paramIndex }
 	{
 		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
 		auto paramInfo{ allParamsInfo[paramIndex] };
