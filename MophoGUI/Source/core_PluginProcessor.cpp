@@ -3,12 +3,12 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    undoManager{ new UndoManager() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, nullptr, "exposedParams", ExposedParametersLayoutFactory::build()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
+    exposedParams = nullptr;
 }
 
 const String PluginProcessor::getName() const {
