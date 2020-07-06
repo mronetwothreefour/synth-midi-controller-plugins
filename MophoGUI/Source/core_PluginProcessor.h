@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "core_UndoManager_Singleton.h"
 #include "helpers/helper_Identifiers.h"
 #include "parameters/parameters_ExposedParamsLayout.h"
 #include "parameters/parameters_UnexposedParameters.h"

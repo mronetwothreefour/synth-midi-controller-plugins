@@ -4787,6 +4787,9 @@
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h">
+      <Filter>MophoGUI\Source\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

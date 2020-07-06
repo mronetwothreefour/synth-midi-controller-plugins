@@ -3,11 +3,13 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, nullptr, "exposedParams", ExposedParametersLayoutFactory::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
+    auto undoManager{ UndoManager_Singleton::get() };
+    undoManager->clearUndoHistory();
     exposedParams = nullptr;
 }
 

@@ -2836,6 +2836,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
+    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h" />
