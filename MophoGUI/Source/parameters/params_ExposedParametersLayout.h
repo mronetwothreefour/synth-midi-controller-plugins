@@ -13,7 +13,7 @@ struct ExposedParametersLayoutFactory
 {
 	static ParamLayout build() {
 		ParamLayout layout;
-		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
 		for (uint8 index = 0; index != allParamsInfo.size(); ++index) {
 			auto paramInfo{ allParamsInfo[index] };
 			auto choices{ buildChoicesStringArray(paramInfo) };

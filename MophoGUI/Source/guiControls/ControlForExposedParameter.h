@@ -20,7 +20,7 @@ class ControlForExposedParameter : public Component
 
 public:
 	explicit ControlForExposedParameter(uint16 paramIndex) :
-		controlType{ ExposedParamsInfo_Singleton::get()[paramIndex].controlType }
+		controlType{ InfoForExposedParameters_Singleton::get()[paramIndex].controlType }
 	{
 		switch (controlType) {
 		case ControlType::knobWithValueStringDisplay:

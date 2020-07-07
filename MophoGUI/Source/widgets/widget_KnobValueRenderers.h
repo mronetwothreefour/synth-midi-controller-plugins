@@ -19,7 +19,7 @@ class ValueStringRendererForKnobs :
 public:
 	ValueStringRendererForKnobs(Slider* knob, uint16 paramIndex) :
 		knob{ knob },
-		converter{ ExposedParamsInfo_Singleton::get()[paramIndex].converter }
+		converter{ InfoForExposedParameters_Singleton::get()[paramIndex].converter }
 	{
 		knob->addListener(this);
 		sliderValueChanged(knob);

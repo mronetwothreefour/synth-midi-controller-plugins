@@ -16,8 +16,8 @@ class TooltipSetterForExposedParamSliders :
 public:
 	TooltipSetterForExposedParamSliders(Slider& slider, uint16 paramIndex) :
 		slider{ slider },
-		converter{ ExposedParamsInfo_Singleton::get()[paramIndex].converter },
-		description{ ExposedParamsInfo_Singleton::get()[paramIndex].description },
+		converter{ InfoForExposedParameters_Singleton::get()[paramIndex].converter },
+		description{ InfoForExposedParameters_Singleton::get()[paramIndex].description },
 		tooltipOptions{ TooltipOptions_Singleton::get() }
 	{
 		slider.addListener(this);

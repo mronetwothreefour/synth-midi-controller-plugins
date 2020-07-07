@@ -30,7 +30,7 @@ private:
 	}
 
 	void fillControlsVector() {
-		auto& paramInfoArray{ ExposedParamsInfo_Singleton::get() };
+		auto& paramInfoArray{ InfoForExposedParameters_Singleton::get() };
 		for (uint16 index = 0; index != paramInfoArray.size(); ++index) {
 			controlsVector.push_back(std::make_unique<ControlForExposedParameter>(index));
 		}

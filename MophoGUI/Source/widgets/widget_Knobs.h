@@ -25,7 +25,7 @@ public:
 		paramIndex{ paramIndex },
 		tooltipSetter{ slider, paramIndex }
 	{
-		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
 		auto paramInfo{ allParamsInfo[paramIndex] };
 		addAndMakeVisible(slider);
 		slider.setMouseDragSensitivity(80 + paramInfo.numberOfSteps / 2);
@@ -36,7 +36,7 @@ public:
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
-		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
 		auto paramInfo{ allParamsInfo[paramIndex] };
 		attachment.reset(new SliderAttachment(*exposedParams, paramInfo.ID, slider));
 	}
@@ -61,7 +61,7 @@ public:
 		Knob{ paramIndex },
 		valueStringDisplay{ &slider, paramIndex }
 	{
-		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
 		auto paramInfo{ allParamsInfo[paramIndex] };
 		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
 		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
@@ -85,7 +85,7 @@ public:
 		Knob{ paramIndex },
 		waveShapeRenderer{ &slider }
 	{
-		auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
 		auto paramInfo{ allParamsInfo[paramIndex] };
 		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
 		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);

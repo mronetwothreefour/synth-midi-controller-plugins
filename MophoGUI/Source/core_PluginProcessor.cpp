@@ -103,7 +103,7 @@ void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
 {
     if (nrpnOutputIsAllowed)
     {
-        auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+        auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
         auto paramInfo{ allParamsInfo[parameterIndex] };
         auto nrpnIndex{ uint16(paramInfo.NRPN) };
         auto outputValue{ (uint8)roundToInt(newValue * (paramInfo.numberOfSteps - 1)) };

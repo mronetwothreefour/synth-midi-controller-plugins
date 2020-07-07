@@ -14,7 +14,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(widget_Logo.get());
 
     auto& controls{ ControlsForExposedParameters_Singleton::get() };
-    auto& allParamsInfo{ ExposedParamsInfo_Singleton::get() };
+    auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
     for (uint8 index = 0; index != controls.size(); ++index) {
         auto paramInfo{ allParamsInfo[index] };
         auto control{ controls[index].get() };
