@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="Hk48Gj" name="MophoGUI" projectType="audioplug" jucerVersion="5.4.7"
-              version="0.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+<JUCERPROJECT id="Hk48Gj" name="MophoGUI" projectType="audioplug" version="0.1.0"
+              companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
               companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
               pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Lets you control the DSI Mopho synthesizer from your DAW"
               pluginManufacturerCode="TimD" pluginChannelConfigs="{0, 0}" pluginVST3Category="Tools"
-              reportAppUsage="0">
+              reportAppUsage="0" jucerFormatVersion="1">
   <MAINGROUP id="O0kAUk" name="MophoGUI">
     <GROUP id="{48399BDB-F4C1-4382-DB7C-F80C8FD4B76A}" name="Source">
       <FILE id="GqQpn7" name="PluginProcessor.cpp" compile="1" resource="0"

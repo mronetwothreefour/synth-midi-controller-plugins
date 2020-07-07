@@ -2837,8 +2837,9 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h" />
-    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h" />
+    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h" />
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment.h" />
     <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h" />
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />
@@ -2846,9 +2847,9 @@
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameterInfo.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.h" />
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsLayout.h" />
     <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />

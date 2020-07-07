@@ -448,20 +448,20 @@
     <Filter Include="JUCE Library Code">
       <UniqueIdentifier>{7ED5A90E-41AF-A1EF-659B-37CEEAB9BA61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI\Source\guiControls">
-      <UniqueIdentifier>{71867f53-6c09-4f2a-909f-60449a3cb4da}</UniqueIdentifier>
+    <Filter Include="MophoGUI\Source\_core">
+      <UniqueIdentifier>{a0864cef-1dac-4a07-a47c-b75a96ed254f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI\Source\core">
-      <UniqueIdentifier>{2d3c7752-8009-47ce-9c7f-cccc39d8772f}</UniqueIdentifier>
+    <Filter Include="MophoGUI\Source\guiControls">
+      <UniqueIdentifier>{ba16da04-f84a-4811-b509-59f6329e868d}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI\Source\helpers">
-      <UniqueIdentifier>{09323a49-d5bb-4b09-b7f5-9d10688acc18}</UniqueIdentifier>
+      <UniqueIdentifier>{115650ec-44bf-4af8-b025-a2cf27c779b5}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI\Source\parameters">
-      <UniqueIdentifier>{0dd3ab49-d92b-4ceb-a015-578daeb84626}</UniqueIdentifier>
+      <UniqueIdentifier>{23bbca4c-0c0d-4b89-a177-cb4d2e962181}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI\Source\widgets">
-      <UniqueIdentifier>{7ece1704-3de2-44b0-b7c4-d0f8ac49f019}</UniqueIdentifier>
+      <UniqueIdentifier>{74758f8d-438e-4e4f-9c88-1402156ac9d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2431,10 +2431,10 @@
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
-      <Filter>MophoGUI\Source\core</Filter>
+      <Filter>MophoGUI\Source\_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
-      <Filter>MophoGUI\Source\core</Filter>
+      <Filter>MophoGUI\Source\_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
@@ -4728,31 +4728,55 @@
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
-      <Filter>MophoGUI\Source\core</Filter>
+      <Filter>MophoGUI\Source\_core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
-      <Filter>MophoGUI\Source\core</Filter>
+      <Filter>MophoGUI\Source\_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
+    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h">
+      <Filter>MophoGUI\Source\_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
+    <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_Fonts.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
+    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h">
-      <Filter>MophoGUI\Source\helpers</Filter>
+    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h">
+    <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h">
+    <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_Fonts.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameterInfo.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsLayout.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h">
       <Filter>MophoGUI\Source\widgets</Filter>
@@ -4766,29 +4790,8 @@
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParameterInfo.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsInfo_Singleton.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_ExposedParamsLayout.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\parameters_UnexposedParameters.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h">
       <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h">
-      <Filter>MophoGUI\Source\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
