@@ -57,10 +57,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 
     // Handle incoming MIDI messages
     if (!midiMessages.isEmpty()) {
-        auto internalMidiBuffer{ internalMidiBuffers->removeAndReturn(0) };
-        int time;
-        MidiMessage m;
-        for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);) {
+        for (auto event : midiMessages) {
             // TODO : code for handling incoming sysex messages
         }
     }
@@ -68,10 +65,8 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
     // Add internally-generated MIDI messages to output stream
     if (!internalMidiBuffers->isEmpty()) {
         auto internalMidiBuffer{ internalMidiBuffers->removeAndReturn(0) };
-        int time;
-        MidiMessage m;
-        for (MidiBuffer::Iterator i(internalMidiBuffer); i.getNextEvent(m, time);) {
-            midiMessages.addEvent(m, time);
+        for (auto event : internalMidiBuffer) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
     }
 }
