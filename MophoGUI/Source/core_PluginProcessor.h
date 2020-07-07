@@ -10,9 +10,12 @@
 
 
 class PluginProcessor : 
-    public AudioProcessor
+    public AudioProcessor,
+    public AudioProcessorParameter::Listener
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
+    std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
+    bool nrpnOutputIsAllowed;
 
 public:
     PluginProcessor();
@@ -41,6 +44,10 @@ public:
 
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
+
+    void parameterValueChanged(int parameterIndex, float newValue) override;
+    void addNRPNmessageBuffer(uint16 paramIndex, uint8 newValue);
+    void parameterGestureChanged(int parameterIndex, bool gestureIsStarting) override;
 
 private:
     //==============================================================================
