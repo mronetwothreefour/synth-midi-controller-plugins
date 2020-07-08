@@ -8,6 +8,9 @@ enum class ControlType
 {
 	nullControl = -1,
 	knobWithValueStringDisplay,
-	knobWithWaveShapeDisplay
+	knobWithWaveShapeDisplay,
+	toggleButton,
+	pgmSlotRadioButton,
+	utilityButton
 };
 

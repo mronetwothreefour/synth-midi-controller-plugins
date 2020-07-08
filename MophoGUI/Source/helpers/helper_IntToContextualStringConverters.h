@@ -60,15 +60,15 @@ struct IntToPitchName
 struct IntToContextualStringConverter
 {
 protected:
-	virtual String conversionAlgorithm(const uint8& /*i*/) = 0;
-	virtual String verboseConversionAlgorithm(const uint8& /*i*/) = 0;
+	virtual String conversionAlgorithm(const uint8& /*i*/) noexcept = 0;
+	virtual String verboseConversionAlgorithm(const uint8& /*i*/) noexcept = 0;
 
 public:
-	String convert(const uint8& i) { 
+	String convert(const uint8& i) noexcept {
 		return conversionAlgorithm(i); 
 	}
 
-	String verboseConvert(const uint8& i) {
+	String verboseConvert(const uint8& i) noexcept {
 		return verboseConversionAlgorithm(i); 
 	}
 };
@@ -79,16 +79,16 @@ struct IntToNullString :
 	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& /*i*/) override { 
+	String conversionAlgorithm(const uint8& /*i*/) noexcept override {
 		return "null"; 
 	}
 
-	String verboseConversionAlgorithm(const uint8& /*i*/) override { 
+	String verboseConversionAlgorithm(const uint8& /*i*/) noexcept override {
 		return "null"; 
 	}
 
 public:
-	static IntToNullString* get() { 
+	static IntToNullString* get() noexcept {
 		static IntToNullString converter; 
 		return &converter; 
 	}
@@ -100,16 +100,16 @@ struct IntToPlainValueString :
 	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i) override {
+	String conversionAlgorithm(const uint8& i) noexcept override {
 		return (String)i; 
 	}
 
-	String verboseConversionAlgorithm(const uint8& i) override {
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
 		return (String)i; 
 	}
 
 public:
-	static IntToPlainValueString* get() { 
+	static IntToPlainValueString* get() noexcept {
 		static IntToPlainValueString converter; 
 		return &converter; 
 	}
@@ -121,13 +121,13 @@ struct IntToOscPitchString :
 	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i) override { 
+	String conversionAlgorithm(const uint8& i) noexcept override {
 		jassert(i < 121);
 		String pitchName{ IntToPitchName::convert(i) };
 		return pitchName;
 	}
 
-	String verboseConversionAlgorithm(const uint8& i) override { 
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
 		jassert(i < 121);
 		String pitchName{ IntToPitchName::convert(i) };
 		pitchName += " (MIDI Note " + String(i) + ")";
@@ -135,7 +135,7 @@ protected:
 	}
 
 public:
-	static IntToOscPitchString* get() { 
+	static IntToOscPitchString* get() noexcept {
 		static IntToOscPitchString converter; 
 		return &converter; 
 	}
@@ -147,14 +147,14 @@ struct IntToFineTuneString :
 	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i) override {
+	String conversionAlgorithm(const uint8& i) noexcept override {
 		jassert(i < 101);
 		if (i < 51) return (String)(i - 50);
 		if (i > 50 && i < 101) return "+" + (String)(i - 50);
 		else return "err";
 	}
 
-	String verboseConversionAlgorithm(const uint8& i) override {
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
 		jassert(i < 101);
 		if (i < 49) return (String)(i - 50) + " cents";
 		if (i == 49) return "-1 cent";
@@ -165,7 +165,7 @@ protected:
 	}
 
 public:
-	static IntToFineTuneString* get() { 
+	static IntToFineTuneString* get() noexcept {
 		static IntToFineTuneString converter; 
 		return &converter; 
 	}
@@ -174,16 +174,16 @@ public:
 
 
 
-struct IntToOscWaveShape :
+struct IntToOscWaveShapeString :
 	public IntToContextualStringConverter
 {
 protected:
-	String conversionAlgorithm(const uint8& i) override  {
+	String conversionAlgorithm(const uint8& i) noexcept override  {
 		jassert(i < 104);
 		return verboseConversionAlgorithm(i);
 	}
 
-	String verboseConversionAlgorithm(const uint8& i) override {
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
 		jassert(i < 104);
 		if (i == 0) return "Oscillator Off";
 		if (i == 1) return "Sawtooth";
@@ -194,8 +194,32 @@ protected:
 	}
 
 public:
-	static IntToOscWaveShape* get() { 
-		static IntToOscWaveShape converter; 
+	static IntToOscWaveShapeString* get() noexcept {
+		static IntToOscWaveShapeString converter; 
+		return &converter; 
+	}
+};
+
+
+
+
+struct IntToOffOnString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		jassert(i < 2);
+		return i == 0 ? "Off" : "On";
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 2);
+		return i == 0 ? "Off" : "On";
+	}
+
+public:
+	static IntToOffOnString* get() noexcept {
+		static IntToOffOnString converter;
 		return &converter; 
 	}
 };

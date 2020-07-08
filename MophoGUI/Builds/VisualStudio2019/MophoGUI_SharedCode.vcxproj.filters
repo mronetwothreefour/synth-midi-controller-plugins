@@ -4742,9 +4742,6 @@
     <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
@@ -4789,6 +4786,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_Buttons.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

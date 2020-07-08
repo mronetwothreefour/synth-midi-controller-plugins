@@ -2839,7 +2839,6 @@
     <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h" />
-    <ClInclude Include="..\..\Source\guiControls\guiControl_WithExposedParamAttachment.h" />
     <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h" />
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />
@@ -2850,6 +2849,7 @@
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_Buttons.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />

@@ -10,7 +10,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class Knob : public Component
+class KnobWithExposedParamAttacher : public Component
 {
 protected:
 	RotarySliderWithMouseWheelMod slider;
@@ -19,9 +19,9 @@ protected:
 	TooltipSetterForExposedParamSliders tooltipSetter;
 
 public:
-	Knob() = delete;
+	KnobWithExposedParamAttacher() = delete;
 
-	explicit Knob(uint8 param) :
+	explicit KnobWithExposedParamAttacher(uint8 param) :
 		param{ param },
 		tooltipSetter{ slider, param }
 	{
@@ -30,7 +30,7 @@ public:
 		slider.setComponentID(ID::component_Knob.toString());
 	}
 
-	~Knob() {
+	~KnobWithExposedParamAttacher() {
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
@@ -40,21 +40,17 @@ public:
 	void deleteAttachment() { 
 		attachment = nullptr; 
 	}
-
-	Slider* getSlider() { 
-		return &slider; 
-	}
 };
 
 
 
-class KnobWithValueStringDisplay : public Knob
+class KnobWithValueStringDisplay : public KnobWithExposedParamAttacher
 {
 	ValueStringRendererForKnobs valueStringDisplay;
 
 public:
 	explicit KnobWithValueStringDisplay(uint8 param) :
-		Knob{ param },
+		KnobWithExposedParamAttacher{ param },
 		valueStringDisplay{ &slider, param }
 	{
 		auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
@@ -72,13 +68,13 @@ public:
 
 
 
-class KnobWithWaveShapeDisplay : public Knob
+class KnobWithWaveShapeDisplay : public KnobWithExposedParamAttacher
 {
 	WaveShapeRendererForKnobs waveShapeRenderer;
 
 public:
 	explicit KnobWithWaveShapeDisplay(uint8 param) :
-		Knob{ param },
+		KnobWithExposedParamAttacher{ param },
 		waveShapeRenderer{ &slider }
 	{
 		auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };

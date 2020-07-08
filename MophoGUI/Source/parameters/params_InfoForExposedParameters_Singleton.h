@@ -11,7 +11,7 @@
 class InfoForExposedParameters
 {
 	Array<Identifier> identifiers;
-	Array<String> publicNames;
+	Array<String> exposedNames;
 	Array<ControlType> controlTypes;
 	Array<uint16> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
@@ -25,7 +25,7 @@ class InfoForExposedParameters
 	InfoForExposedParameters();
 	~InfoForExposedParameters();
 
-	void fillAllInfoContainers();
+	void fillAllInfoContainers() noexcept;
 
 public:
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;
@@ -34,7 +34,7 @@ public:
 	static InfoForExposedParameters& get() noexcept;
 	int numberOfExposedParameters() noexcept;
 	Identifier IDfor(uint8 paramIndex) noexcept;
-	String publicNameFor(uint8 paramIndex) noexcept;
+	String exposedNameFor(uint8 paramIndex) noexcept;
 	ControlType controlTypeFor(uint8 paramIndex) noexcept;
 	uint16 NRPNfor(uint8 paramIndex) noexcept;
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) noexcept;
