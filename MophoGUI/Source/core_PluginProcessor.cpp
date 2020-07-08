@@ -7,11 +7,15 @@ PluginProcessor::PluginProcessor() :
     internalMidiBuffers{ new Array<MidiBuffer> },
     nrpnOutputIsAllowed{ true }
 {
-    for (auto* param : getParameters()) param->addListener(this);
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.numberOfExposedParameters(); ++param)
+        exposedParams->addParameterListener(info.IDfor(param), this);
 }
 
 PluginProcessor::~PluginProcessor() {
-    for (auto* param : getParameters()) param->removeListener(this);
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.numberOfExposedParameters(); ++param)
+        exposedParams->removeParameterListener(info.IDfor(param), this);
     internalMidiBuffers = nullptr;
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
@@ -99,40 +103,37 @@ void PluginProcessor::getStateInformation(MemoryBlock& /* destData */) {
 void PluginProcessor::setStateInformation(const void* /* data */, int /* sizeInBytes */) {
 }
 
-void PluginProcessor::parameterValueChanged(int parameterIndex, float newValue)
-{
+void PluginProcessor::parameterChanged(const String& parameterID, float newValue) {
     if (nrpnOutputIsAllowed)
     {
-        auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-        auto paramInfo{ allParamsInfo[parameterIndex] };
-        auto nrpnIndex{ uint16(paramInfo.NRPN) };
-        auto outputValue{ (uint8)roundToInt(newValue * (paramInfo.numberOfSteps - 1)) };
-        if (parameterIndex > 104 && parameterIndex < 109) // knob assignment
-            if (outputValue > 104) 
-                outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
-        if (parameterIndex == 95) 
+        auto& info{ InfoForExposedParameters::get() };
+        auto param{ info.getIndexFor(parameterID) };
+        auto nrpn{ info.NRPNfor(param) };
+        auto outputValue{ (uint8)roundToInt(newValue) };
+        if (param > 104 && param < 109 && outputValue > 104) // knob assignment
+            outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
+        if (param == 95)
             outputValue += 30; // clock tempo parameter range is offset by 30
-        addNRPNmessageBuffer(nrpnIndex, outputValue);
+        addNRPNmessageBuffer(nrpn, (uint8)outputValue);
         // The arpeggiator (#98) and the sequencer (#100) cannot both be on
-        if (parameterIndex == 98 && newValue == 1.0f && getParameters()[100]->getValue() != 0.0f)
+        if (param == 98 && newValue == 1.0f && getParameters()[100]->getValue() != 0.0f)
             getParameters()[100]->setValueNotifyingHost(0.0f);
-        if (parameterIndex == 100 && newValue == 1.0f && getParameters()[98]->getValue() != 0.0f)
+        if (param == 100 && newValue == 1.0f && getParameters()[98]->getValue() != 0.0f)
             getParameters()[98]->setValueNotifyingHost(0.0f);
     }
     else return;
 }
 
-void PluginProcessor::addNRPNmessageBuffer(uint16 paramIndex, uint8 newValue)
-{
+void PluginProcessor::addNRPNmessageBuffer(uint16 nrpn, uint8 newValue) {
     MidiBuffer internalMidiBuf;
-    if (paramIndex == 386) // Send MIDI channel change messages out on all channels
+    if (nrpn == 386) // Send MIDI channel change messages out on all channels
     {
         for (auto i = 0; i != 16; ++i)
         {
             auto firstByte{ 176 + i };
-            MidiMessage nrpnIndexMSB{ firstByte, 99, paramIndex / 128 };
+            MidiMessage nrpnIndexMSB{ firstByte, 99, nrpn / 128 };
             internalMidiBuf.addEvent(nrpnIndexMSB, 0);
-            MidiMessage nrpnIndexLSB{ firstByte, 98, paramIndex % 128 };
+            MidiMessage nrpnIndexLSB{ firstByte, 98, nrpn % 128 };
             internalMidiBuf.addEvent(nrpnIndexLSB, 0);
             MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
             internalMidiBuf.addEvent(nrpnValueMSB, 0);
@@ -145,9 +146,9 @@ void PluginProcessor::addNRPNmessageBuffer(uint16 paramIndex, uint8 newValue)
         auto midiChannel{ 1 };
         if (midiChannel > 0) midiChannel -= 1;
         auto firstByte{ 176 + midiChannel };
-        MidiMessage nrpnIndexMSB{ firstByte, 99, paramIndex / 128 };
+        MidiMessage nrpnIndexMSB{ firstByte, 99, nrpn / 128 };
         internalMidiBuf.addEvent(nrpnIndexMSB, 0);
-        MidiMessage nrpnIndexLSB{ firstByte, 98, paramIndex % 128 };
+        MidiMessage nrpnIndexLSB{ firstByte, 98, nrpn % 128 };
         internalMidiBuf.addEvent(nrpnIndexLSB, 0);
         MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
         internalMidiBuf.addEvent(nrpnValueMSB, 0);
@@ -155,9 +156,6 @@ void PluginProcessor::addNRPNmessageBuffer(uint16 paramIndex, uint8 newValue)
         internalMidiBuf.addEvent(nrpnValueLSB, 0);
     }
     internalMidiBuffers->add(internalMidiBuf);
-}
-
-void PluginProcessor::parameterGestureChanged(int /*parameterIndex*/, bool /*gestureIsStarting*/) {
 }
 
 //==============================================================================

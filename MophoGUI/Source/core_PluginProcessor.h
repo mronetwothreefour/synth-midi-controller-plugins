@@ -4,14 +4,14 @@
 
 #include "core_UndoManager_Singleton.h"
 #include "helpers/helper_Identifiers.h"
-#include "parameters/parameters_ExposedParamsLayout.h"
-#include "parameters/parameters_UnexposedParameters.h"
+#include "parameters/params_ExposedParametersLayout.h"
+#include "parameters/params_UnexposedParameters.h"
 
 
 
 class PluginProcessor : 
     public AudioProcessor,
-    public AudioProcessorParameter::Listener
+    public AudioProcessorValueTreeState::Listener
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
@@ -45,9 +45,8 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
-    void parameterValueChanged(int parameterIndex, float newValue) override;
-    void addNRPNmessageBuffer(uint16 paramIndex, uint8 newValue);
-    void parameterGestureChanged(int parameterIndex, bool gestureIsStarting) override;
+    void parameterChanged(const String& parameterID, float newValue) override;
+    void addNRPNmessageBuffer(uint16 nrpn, uint8 newValue);
 
 private:
     //==============================================================================

@@ -19,17 +19,17 @@ class ControlForExposedParameter : public Component
 	}
 
 public:
-	explicit ControlForExposedParameter(uint16 paramIndex) :
-		controlType{ InfoForExposedParameters_Singleton::get()[paramIndex].controlType }
+	explicit ControlForExposedParameter(uint8 param) :
+		controlType{ InfoForExposedParameters::get().controlTypeFor(param) }
 	{
 		switch (controlType) {
 		case ControlType::knobWithValueStringDisplay:
-			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(paramIndex));
+			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(param));
 			addAndMakeVisible(*knobWithValueStringDisplay);
 			setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
 			break;
 		case ControlType::knobWithWaveShapeDisplay:
-			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(paramIndex));
+			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(param));
 			addAndMakeVisible(*knobWithWaveShapeDisplay);
 			setSize(knobWithWaveShapeDisplay->getWidth(), knobWithWaveShapeDisplay->getHeight());
 			break;

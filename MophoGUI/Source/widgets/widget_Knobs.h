@@ -15,20 +15,18 @@ class Knob : public Component
 protected:
 	RotarySliderWithMouseWheelMod slider;
 	std::unique_ptr<SliderAttachment> attachment;
-	uint16 paramIndex;
+	uint8 param;
 	TooltipSetterForExposedParamSliders tooltipSetter;
 
 public:
 	Knob() = delete;
 
-	explicit Knob(uint16 paramIndex) :
-		paramIndex{ paramIndex },
-		tooltipSetter{ slider, paramIndex }
+	explicit Knob(uint8 param) :
+		param{ param },
+		tooltipSetter{ slider, param }
 	{
-		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-		auto paramInfo{ allParamsInfo[paramIndex] };
 		addAndMakeVisible(slider);
-		slider.setMouseDragSensitivity(80 + paramInfo.numberOfSteps / 2);
+		slider.setMouseDragSensitivity(80 + InfoForExposedParameters::get().numberOfStepsFor(param) / 2);
 		slider.setComponentID(ID::component_Knob.toString());
 	}
 
@@ -36,9 +34,7 @@ public:
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
-		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-		auto paramInfo{ allParamsInfo[paramIndex] };
-		attachment.reset(new SliderAttachment(*exposedParams, paramInfo.ID, slider));
+		attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(param).toString(), slider));
 	}
 
 	void deleteAttachment() { 
@@ -57,14 +53,14 @@ class KnobWithValueStringDisplay : public Knob
 	ValueStringRendererForKnobs valueStringDisplay;
 
 public:
-	explicit KnobWithValueStringDisplay(uint16 paramIndex) :
-		Knob{ paramIndex },
-		valueStringDisplay{ &slider, paramIndex }
+	explicit KnobWithValueStringDisplay(uint8 param) :
+		Knob{ param },
+		valueStringDisplay{ &slider, param }
 	{
-		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-		auto paramInfo{ allParamsInfo[paramIndex] };
-		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
-		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
+		auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
+		auto ctrlHeight{ InfoForExposedParameters::get().ctrlHeightFor(param) };
+		setSize(ctrlWidth, ctrlHeight);
+		slider.setSize(ctrlWidth, ctrlHeight);
 		addAndMakeVisible(valueStringDisplay);
 		valueStringDisplay.setInterceptsMouseClicks(false, false);
 		valueStringDisplay.setBounds(getLocalBounds());
@@ -81,14 +77,14 @@ class KnobWithWaveShapeDisplay : public Knob
 	WaveShapeRendererForKnobs waveShapeRenderer;
 
 public:
-	explicit KnobWithWaveShapeDisplay(uint16 paramIndex) :
-		Knob{ paramIndex },
+	explicit KnobWithWaveShapeDisplay(uint8 param) :
+		Knob{ param },
 		waveShapeRenderer{ &slider }
 	{
-		auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-		auto paramInfo{ allParamsInfo[paramIndex] };
-		setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
-		slider.setSize(paramInfo.ctrlWidth, paramInfo.ctrlHeight);
+		auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
+		auto ctrlHeight{ InfoForExposedParameters::get().ctrlHeightFor(param) };
+		setSize(ctrlWidth, ctrlHeight);
+		slider.setSize(ctrlWidth, ctrlHeight);
 		addAndMakeVisible(waveShapeRenderer);
 		waveShapeRenderer.setInterceptsMouseClicks(false, false);
 		waveShapeRenderer.setBounds(getLocalBounds().reduced(5));

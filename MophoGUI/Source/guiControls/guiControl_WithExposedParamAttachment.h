@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/helper_ControlTypes.h"
+#include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../widgets/widget_Knobs.h"
 
 
@@ -19,17 +20,17 @@ class ControlWithExposedParameterAttachment : public Component
 	}
 
 public:
-	explicit ControlWithExposedParameterAttachment(uint16 paramIndex) :
-		controlType{ ExposedParamInfoArray_Singleton::get()[paramIndex].controlType }
+	explicit ControlWithExposedParameterAttachment(uint8 param) :
+		controlType{ InfoForExposedParameters::get().controlTypeFor(param) }
 	{
 		switch (controlType) {
 		case ControlType::knobWithValueStringDisplay:
-			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(paramIndex));
+			knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(param));
 			addAndMakeVisible(*knobWithValueStringDisplay);
 			setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
 			break;
 		case ControlType::knobWithWaveShapeDisplay:
-			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(paramIndex));
+			knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(param));
 			addAndMakeVisible(*knobWithWaveShapeDisplay);
 			setSize(knobWithWaveShapeDisplay->getWidth(), knobWithWaveShapeDisplay->getHeight());
 			break;

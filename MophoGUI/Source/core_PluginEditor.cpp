@@ -13,14 +13,12 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     widget_Logo.reset(new MainWindowDivision_Logo());
     addAndMakeVisible(widget_Logo.get());
 
-    auto& controls{ ControlsForExposedParameters_Singleton::get() };
-    auto& allParamsInfo{ InfoForExposedParameters_Singleton::get() };
-    for (uint8 index = 0; index != controls.size(); ++index) {
-        auto paramInfo{ allParamsInfo[index] };
-        auto control{ controls[index].get() };
+    auto& controls{ ControlsForExposedParameters::get() };
+    for (uint8 param = 0; param != controls.size(); ++param) {
+        auto control{ controls[param].get() };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
-        control->setCentrePosition(paramInfo.ctrlCenterPoint);
+        control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
     }
 
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
@@ -38,7 +36,7 @@ PluginEditor::~PluginEditor() {
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.removeListener(this);
 
-    auto& controls{ ControlsForExposedParameters_Singleton::get() };
+    auto& controls{ ControlsForExposedParameters::get() };
     for (uint8 index = 0; index != controls.size(); ++index) {
         auto control{ controls[index].get() };
         control->deleteAttachment();

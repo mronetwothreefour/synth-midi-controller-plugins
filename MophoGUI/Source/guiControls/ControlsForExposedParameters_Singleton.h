@@ -6,33 +6,32 @@
 
 
 
-struct ControlsForExposedParameters_Singleton
+struct ControlsForExposedParameters
 {
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
-	ControlsForExposedParameters_Singleton(ControlsForExposedParameters_Singleton const&) = delete;
-	ControlsForExposedParameters_Singleton(ControlsForExposedParameters_Singleton&&) = delete;
-	ControlsForExposedParameters_Singleton& operator=(ControlsForExposedParameters_Singleton const&) = delete;
-	ControlsForExposedParameters_Singleton& operator=(ControlsForExposedParameters_Singleton&&) = delete;
+	ControlsForExposedParameters(ControlsForExposedParameters const&) = delete;
+	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
+	ControlsForExposedParameters& operator=(ControlsForExposedParameters const&) = delete;
+	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
 
 	static std::vector<std::unique_ptr<ControlForExposedParameter>>& get() {
-		static ControlsForExposedParameters_Singleton controlDatabase;
+		static ControlsForExposedParameters controlDatabase;
 		return controlDatabase.controlsVector;
 	}
 
 private:
-	ControlsForExposedParameters_Singleton() {
+	ControlsForExposedParameters() {
 		fillControlsVector();
 	}
 
-	~ControlsForExposedParameters_Singleton() {
+	~ControlsForExposedParameters() {
 		controlsVector.clear();
 	}
 
 	void fillControlsVector() {
-		auto& paramInfoArray{ InfoForExposedParameters_Singleton::get() };
-		for (uint16 index = 0; index != paramInfoArray.size(); ++index) {
-			controlsVector.push_back(std::make_unique<ControlForExposedParameter>(index));
+		for (uint8 param = 0; param != InfoForExposedParameters::get().numberOfExposedParameters(); ++param) {
+			controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param));
 		}
 	}
 };

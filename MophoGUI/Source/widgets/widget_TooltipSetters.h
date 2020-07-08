@@ -9,15 +9,14 @@ class TooltipSetterForExposedParamSliders :
 	public ValueTree::Listener
 {
 	Slider& slider;
+	uint8 param;
 	IntToContextualStringConverter* converter;
-	String description;
 	ValueTree& tooltipOptions;
 
 public:
-	TooltipSetterForExposedParamSliders(Slider& slider, uint16 paramIndex) :
+	TooltipSetterForExposedParamSliders(Slider& slider, uint8 param) :
 		slider{ slider },
-		converter{ InfoForExposedParameters_Singleton::get()[paramIndex].converter },
-		description{ InfoForExposedParameters_Singleton::get()[paramIndex].description },
+		converter{ InfoForExposedParameters::get().converterFor(param) },
 		tooltipOptions{ TooltipOptions_Singleton::get() }
 	{
 		slider.addListener(this);
@@ -51,9 +50,8 @@ public:
 			auto sliderValue{ (uint8)roundToInt(slider.getValue()) };
 			tooltipText += ("Current Value: " + converter->verboseConvert(sliderValue) + "\n");
 		}
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription)) {
-			tooltipText += description;
-		}
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription)) 
+			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
 		return tooltipText;
 	}
 

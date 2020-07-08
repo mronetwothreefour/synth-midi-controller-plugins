@@ -17,9 +17,9 @@ class ValueStringRendererForKnobs :
 	IntToContextualStringConverter* converter;
 
 public:
-	ValueStringRendererForKnobs(Slider* knob, uint16 paramIndex) :
+	ValueStringRendererForKnobs(Slider* knob, uint8 param) :
 		knob{ knob },
-		converter{ InfoForExposedParameters_Singleton::get()[paramIndex].converter }
+		converter{ InfoForExposedParameters::get().converterFor(param) }
 	{
 		knob->addListener(this);
 		sliderValueChanged(knob);
