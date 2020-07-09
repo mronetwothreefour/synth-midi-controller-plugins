@@ -14,7 +14,7 @@ struct ExposedParametersLayoutFactory
 	static ParamLayout build() {
 		ParamLayout layout;
 		auto& info{ InfoForExposedParameters::get() };
-		for (uint8 param = 0; param != info.numberOfExposedParameters(); ++param) {
+		for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 			auto choices{ buildChoicesStringArray(param) };
 			layout.add(std::make_unique<AudioParameterChoice>(info.IDfor(param).toString(), info.exposedNameFor(param), choices, info.defaultValueFor(param)));
 		}

@@ -32,7 +32,7 @@ public:
 	InfoForExposedParameters& operator=(InfoForExposedParameters&&) = delete;
 
 	static InfoForExposedParameters& get() noexcept;
-	int numberOfExposedParameters() noexcept;
+	int paramOutOfRange() noexcept;
 	Identifier IDfor(uint8 paramIndex) noexcept;
 	String exposedNameFor(uint8 paramIndex) noexcept;
 	ControlType controlTypeFor(uint8 paramIndex) noexcept;
@@ -45,7 +45,7 @@ public:
 	Point<int> ctrlCenterPointFor(uint8 paramIndex) noexcept;
 	int ctrlWidthFor(uint8 paramIndex) noexcept;
 	int ctrlHeightFor(uint8 paramIndex) noexcept;
-	uint8 getIndexFor(const String& parameterID) noexcept;
+	uint8 indexFor(const String& parameterID) noexcept;
 
 private:
 	//==============================================================================

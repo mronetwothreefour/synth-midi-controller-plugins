@@ -4790,6 +4790,9 @@
     <ClInclude Include="..\..\Source\widgets\widget_Buttons.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_NRPNgenerator.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

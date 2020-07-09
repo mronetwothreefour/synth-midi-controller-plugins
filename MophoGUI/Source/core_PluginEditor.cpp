@@ -14,8 +14,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(widget_Logo.get());
 
     auto& controls{ ControlsForExposedParameters::get() };
-    for (uint8 param = 0; param != controls.size(); ++param) {
-        auto control{ controls[param].get() };
+    for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
+        auto control{ controls.controlFor(param) };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
         control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
@@ -37,8 +37,8 @@ PluginEditor::~PluginEditor() {
     tooltipOptions.removeListener(this);
 
     auto& controls{ ControlsForExposedParameters::get() };
-    for (uint8 index = 0; index != controls.size(); ++index) {
-        auto control{ controls[index].get() };
+    for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
+        auto control{ controls.controlFor(param) };
         control->deleteAttachment();
     }
 

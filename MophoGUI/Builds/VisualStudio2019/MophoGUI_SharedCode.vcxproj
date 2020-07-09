@@ -2845,6 +2845,7 @@
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_NRPNgenerator.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />

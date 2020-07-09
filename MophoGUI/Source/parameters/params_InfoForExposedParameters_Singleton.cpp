@@ -12,7 +12,7 @@ InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
 	return exposedParamsInfo;
 }
 
-int InfoForExposedParameters::numberOfExposedParameters() noexcept {
+int InfoForExposedParameters::paramOutOfRange() noexcept {
 	return identifiers.size();
 }
 
@@ -65,7 +65,7 @@ int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) noexcept {
 	return ctrlHeights[paramIndex];
 }
 
-uint8 InfoForExposedParameters::getIndexFor(const String& parameterID) noexcept {
+uint8 InfoForExposedParameters::indexFor(const String& parameterID) noexcept {
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }
 

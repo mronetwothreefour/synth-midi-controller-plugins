@@ -6,21 +6,10 @@
 
 
 
-struct ControlsForExposedParameters
+class ControlsForExposedParameters
 {
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
-	ControlsForExposedParameters(ControlsForExposedParameters const&) = delete;
-	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
-	ControlsForExposedParameters& operator=(ControlsForExposedParameters const&) = delete;
-	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
-
-	static std::vector<std::unique_ptr<ControlForExposedParameter>>& get() {
-		static ControlsForExposedParameters controlDatabase;
-		return controlDatabase.controlsVector;
-	}
-
-private:
 	ControlsForExposedParameters() {
 		fillControlsVector();
 	}
@@ -30,8 +19,29 @@ private:
 	}
 
 	void fillControlsVector() {
-		for (uint8 param = 0; param != InfoForExposedParameters::get().numberOfExposedParameters(); ++param) {
+		auto& info{ InfoForExposedParameters::get() };
+		for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 			controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param));
-		}
 	}
+
+public:
+	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
+	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
+
+	static ControlsForExposedParameters& get() {
+		static ControlsForExposedParameters controlsForExposedParameters;
+		return controlsForExposedParameters;
+	}
+
+	ControlForExposedParameter* controlFor(uint8 paramIndex) {
+		return controlsVector[paramIndex].get();
+	}
+
+	int paramOutOfRange() {
+		return (int)controlsVector.size();
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlsForExposedParameters)
 };

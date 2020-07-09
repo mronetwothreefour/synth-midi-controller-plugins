@@ -4,6 +4,7 @@
 
 #include "core_UndoManager_Singleton.h"
 #include "helpers/helper_Identifiers.h"
+#include "helpers/helper_NRPNgenerator.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_UnexposedParameters.h"
 
@@ -48,7 +49,11 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
     void parameterChanged(const String& parameterID, float newValue) override;
-    void addNRPNmessageBuffer(uint16 nrpn, uint8 newValue);
+    void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
+
+    // Combines all MidiBuffers that get created within a
+    // 10 ms slice of time into a single MidiBuffer
+    void combineMidiBuffers(MidiBuffer& midiBuffer);
 
     void timerCallback() override;
 
