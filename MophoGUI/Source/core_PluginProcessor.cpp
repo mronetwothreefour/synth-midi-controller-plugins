@@ -97,10 +97,29 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor(*this, exposedParams.get());
 }
 
-void PluginProcessor::getStateInformation(MemoryBlock& /* destData */) {
+void PluginProcessor::getStateInformation(MemoryBlock& destData) {
+    auto pluginStateXml{ saveStateToXML() };
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
 }
 
-void PluginProcessor::setStateInformation(const void* /* data */, int /* sizeInBytes */) {
+std::unique_ptr<XmlElement> PluginProcessor::saveStateToXML() {
+    auto exposedParamsStateTree{ exposedParams->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    std::unique_ptr<XmlElement> pluginStateXml{ new XmlElement("pluginStateXml") };
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
+    return pluginStateXml;
+}
+
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    auto pluginStateXml{ getXmlFromBinary(data, sizeInBytes) };
+    if (pluginStateXml != nullptr)
+        restoreStateFromXml(pluginStateXml.get());
+}
+
+void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
+    exposedParams->replaceState(ValueTree::fromXml(*sourceXml->getChildElement(0)));
 }
 
 void PluginProcessor::parameterChanged(const String& parameterID, float newValue) {

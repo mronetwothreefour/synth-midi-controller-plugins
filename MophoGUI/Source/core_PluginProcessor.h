@@ -46,7 +46,9 @@ public:
     AudioProcessorEditor* createEditor() override;
 
     void getStateInformation(MemoryBlock& destData) override;
+    std::unique_ptr<XmlElement> saveStateToXML();
     void setStateInformation(const void* data, int sizeInBytes) override;
+    void restoreStateFromXml(XmlElement* sourceXml);
 
     void parameterChanged(const String& parameterID, float newValue) override;
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
