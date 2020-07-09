@@ -52,7 +52,7 @@ class TooltipSetterForExposedParamSliders :
 		String tooltipText{ "" };
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
 			auto sliderValue{ (uint8)roundToInt(slider.getValue()) };
-			tooltipText += ("Current Value: " + converter->verboseConvert(sliderValue) + "\n");
+			tooltipText += ("Current Setting: " + converter->verboseConvert(sliderValue) + "\n");
 		}
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
 			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
@@ -102,7 +102,7 @@ class TooltipSetterForExposedParamToggles :
 		String tooltipText{ "" };
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
 			auto toggleState{ (uint8)toggle.getToggleState() };
-			tooltipText += ("Current Value: " + converter->verboseConvert(toggleState) + "\n");
+			tooltipText += ("Current Setting: " + converter->verboseConvert(toggleState) + "\n");
 		}
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
 			tooltipText += InfoForExposedParameters::get().descriptionFor(param);

@@ -28,16 +28,16 @@ public:
 	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
 	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
 
-	static ControlsForExposedParameters& get() {
+	static ControlsForExposedParameters& get() noexcept {
 		static ControlsForExposedParameters controlsForExposedParameters;
 		return controlsForExposedParameters;
 	}
 
-	ControlForExposedParameter* controlFor(uint8 paramIndex) {
+	ControlForExposedParameter* controlFor(uint8 paramIndex) const {
 		return controlsVector[paramIndex].get();
 	}
 
-	int paramOutOfRange() {
+	int paramOutOfRange() const noexcept {
 		return (int)controlsVector.size();
 	}
 

@@ -25,27 +25,27 @@ class InfoForExposedParameters
 	InfoForExposedParameters();
 	~InfoForExposedParameters();
 
-	void fillAllInfoContainers() noexcept;
+	void fillAllInfoContainers();
 
 public:
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;
 	InfoForExposedParameters& operator=(InfoForExposedParameters&&) = delete;
 
 	static InfoForExposedParameters& get() noexcept;
-	int paramOutOfRange() noexcept;
-	Identifier IDfor(uint8 paramIndex) noexcept;
-	String exposedNameFor(uint8 paramIndex) noexcept;
-	ControlType controlTypeFor(uint8 paramIndex) noexcept;
-	uint16 NRPNfor(uint8 paramIndex) noexcept;
-	IntToContextualStringConverter* converterFor(uint8 paramIndex) noexcept;
-	uint8 maxValueFor(uint8 paramIndex) noexcept;
-	uint8 defaultValueFor(uint8 paramIndex) noexcept;
-	uint16 numberOfStepsFor(uint8 paramIndex) noexcept;
-	String descriptionFor(uint8 paramIndex) noexcept;
-	Point<int> ctrlCenterPointFor(uint8 paramIndex) noexcept;
-	int ctrlWidthFor(uint8 paramIndex) noexcept;
-	int ctrlHeightFor(uint8 paramIndex) noexcept;
-	uint8 indexFor(const String& parameterID) noexcept;
+	int paramOutOfRange() const noexcept;
+	Identifier IDfor(uint8 paramIndex) const;
+	String exposedNameFor(uint8 paramIndex) const;
+	ControlType controlTypeFor(uint8 paramIndex) const;
+	uint16 NRPNfor(uint8 paramIndex) const;
+	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
+	uint8 maxValueFor(uint8 paramIndex) const;
+	uint8 defaultValueFor(uint8 paramIndex) const;
+	uint16 numberOfStepsFor(uint8 paramIndex) const;
+	String descriptionFor(uint8 paramIndex) const;
+	Point<int> ctrlCenterPointFor(uint8 paramIndex) const;
+	int ctrlWidthFor(uint8 paramIndex) const;
+	int ctrlHeightFor(uint8 paramIndex) const;
+	uint8 indexFor(const String& parameterID) const noexcept;
 
 private:
 	//==============================================================================

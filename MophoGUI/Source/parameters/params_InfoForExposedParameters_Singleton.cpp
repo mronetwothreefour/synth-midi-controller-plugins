@@ -12,64 +12,64 @@ InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
 	return exposedParamsInfo;
 }
 
-int InfoForExposedParameters::paramOutOfRange() noexcept {
+int InfoForExposedParameters::paramOutOfRange() const noexcept {
 	return identifiers.size();
 }
 
-Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) noexcept {
+Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
 
 	return identifiers[paramIndex];
 }
 
-String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) noexcept {
+String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	return exposedNames[paramIndex];
 }
 
-ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) noexcept {
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	return controlTypes[paramIndex];
 }
 
-uint16 InfoForExposedParameters::NRPNfor(uint8 paramIndex) noexcept {
+uint16 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 	return NRPNs[paramIndex];
 }
 
-IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) noexcept {
+IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
 	return converters[paramIndex];
 }
 
-uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) noexcept {
+uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
 	return maxValues[paramIndex];
 }
 
-uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) noexcept {
+uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
 	return defaultValues[paramIndex];
 }
 
-uint16 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) noexcept {
+uint16 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
 	return maxValues[paramIndex] + 1;
 }
 
-String InfoForExposedParameters::descriptionFor(uint8 paramIndex) noexcept {
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
 	return descriptions[paramIndex];
 }
 
-Point<int> InfoForExposedParameters::ctrlCenterPointFor(uint8 paramIndex) noexcept {
+Point<int> InfoForExposedParameters::ctrlCenterPointFor(uint8 paramIndex) const {
 	return ctrlCenterPoints[paramIndex];
 }
 
-int InfoForExposedParameters::ctrlWidthFor(uint8 paramIndex) noexcept {
+int InfoForExposedParameters::ctrlWidthFor(uint8 paramIndex) const {
 	return ctrlWidths[paramIndex];
 }
 
-int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) noexcept {
+int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) const {
 	return ctrlHeights[paramIndex];
 }
 
-uint8 InfoForExposedParameters::indexFor(const String& parameterID) noexcept {
+uint8 InfoForExposedParameters::indexFor(const String& parameterID) const noexcept {
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }
 
-void InfoForExposedParameters::fillAllInfoContainers() noexcept {
+void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 knob_diameter{ 40 };
 	const uint8 toggle_diameter{ 14 };
 
@@ -216,6 +216,18 @@ void InfoForExposedParameters::fillAllInfoContainers() noexcept {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(228, 110));
+
+	identifiers.add("oscSync"); // 12
+	exposedNames.add("Hard Oscillator Sync On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)10);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("Turns hard oscillator sync on or off. When\nturned on, every time oscillator 2 resets,\nit forces oscillator 1 to reset as well.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(273, 22));
 }
 
 
