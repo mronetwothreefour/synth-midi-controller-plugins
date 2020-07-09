@@ -11,11 +11,13 @@
 
 class PluginProcessor : 
     public AudioProcessor,
-    public AudioProcessorValueTreeState::Listener
+    public AudioProcessorValueTreeState::Listener,
+    public Timer
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
     bool nrpnOutputIsAllowed;
+    MidiBuffer internalMidiBuf;
 
 public:
     PluginProcessor();
@@ -47,6 +49,8 @@ public:
 
     void parameterChanged(const String& parameterID, float newValue) override;
     void addNRPNmessageBuffer(uint16 nrpn, uint8 newValue);
+
+    void timerCallback() override;
 
 private:
     //==============================================================================

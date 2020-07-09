@@ -125,20 +125,22 @@ void PluginProcessor::parameterChanged(const String& parameterID, float newValue
 }
 
 void PluginProcessor::addNRPNmessageBuffer(uint16 nrpn, uint8 newValue) {
-    MidiBuffer internalMidiBuf;
+    MidiBuffer nrpnMessageBuf;
+
     if (nrpn == 386) // Send MIDI channel change messages out on all channels
     {
         for (auto i = 0; i != 16; ++i)
         {
             auto firstByte{ 176 + i };
             MidiMessage nrpnIndexMSB{ firstByte, 99, nrpn / 128 };
-            internalMidiBuf.addEvent(nrpnIndexMSB, 0);
+            nrpnMessageBuf.addEvent(nrpnIndexMSB, 0);
             MidiMessage nrpnIndexLSB{ firstByte, 98, nrpn % 128 };
-            internalMidiBuf.addEvent(nrpnIndexLSB, 0);
+            nrpnMessageBuf.addEvent(nrpnIndexLSB, 0);
             MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
-            internalMidiBuf.addEvent(nrpnValueMSB, 0);
+            nrpnMessageBuf.addEvent(nrpnValueMSB, 0);
             MidiMessage nrpnValueLSB{ firstByte, 38, newValue % 128 };
-            internalMidiBuf.addEvent(nrpnValueLSB, 0);
+            nrpnMessageBuf.addEvent(nrpnValueLSB, 0);
+            internalMidiBuf.addEvents(nrpnMessageBuf, 0, -1, 0);
         }
     }
     else
@@ -147,15 +149,24 @@ void PluginProcessor::addNRPNmessageBuffer(uint16 nrpn, uint8 newValue) {
         if (midiChannel > 0) midiChannel -= 1;
         auto firstByte{ 176 + midiChannel };
         MidiMessage nrpnIndexMSB{ firstByte, 99, nrpn / 128 };
-        internalMidiBuf.addEvent(nrpnIndexMSB, 0);
+        nrpnMessageBuf.addEvent(nrpnIndexMSB, 0);
         MidiMessage nrpnIndexLSB{ firstByte, 98, nrpn % 128 };
-        internalMidiBuf.addEvent(nrpnIndexLSB, 0);
+        nrpnMessageBuf.addEvent(nrpnIndexLSB, 0);
         MidiMessage nrpnValueMSB{ firstByte, 6, newValue / 128 };
-        internalMidiBuf.addEvent(nrpnValueMSB, 0);
+        nrpnMessageBuf.addEvent(nrpnValueMSB, 0);
         MidiMessage nrpnValueLSB{ firstByte, 38, newValue % 128 };
-        internalMidiBuf.addEvent(nrpnValueLSB, 0);
+        nrpnMessageBuf.addEvent(nrpnValueLSB, 0);
+        internalMidiBuf.addEvents(nrpnMessageBuf, 0, -1, 0);
     }
-    internalMidiBuffers->add(internalMidiBuf);
+    if (!isTimerRunning()) {
+        internalMidiBuffers->add(internalMidiBuf);
+        internalMidiBuf.clear();
+        startTimer(10);
+    }
+}
+
+void PluginProcessor::timerCallback() {
+    stopTimer();
 }
 
 //==============================================================================
