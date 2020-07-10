@@ -107,6 +107,7 @@ std::unique_ptr<XmlElement> PluginProcessor::saveStateToXML() {
     auto exposedParamsStateTree{ exposedParams->copyState() };
     auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
     std::unique_ptr<XmlElement> pluginStateXml{ new XmlElement("pluginStateXml") };
+    // TODO: code for saving unexposed parameters state
     if (exposedParamsStateXml != nullptr)
         pluginStateXml->addChildElement(exposedParamsStateXml.release());
     return pluginStateXml;
@@ -120,6 +121,7 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
 
 void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
     exposedParams->replaceState(ValueTree::fromXml(*sourceXml->getChildElement(0)));
+    // TODO: code for restoring unexposed parameters state
 }
 
 void PluginProcessor::parameterChanged(const String& parameterID, float newValue) {

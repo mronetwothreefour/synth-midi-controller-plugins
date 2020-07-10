@@ -2439,6 +2439,9 @@
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4791,6 +4794,12 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_NRPNgenerator.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_InfoForLabels_Singleton.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
   </ItemGroup>

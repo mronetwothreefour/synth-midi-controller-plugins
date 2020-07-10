@@ -4,71 +4,6 @@ InfoForExposedParameters::InfoForExposedParameters() {
 	fillAllInfoContainers();
 }
 
-InfoForExposedParameters::~InfoForExposedParameters() {
-}
-
-InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
-	static InfoForExposedParameters exposedParamsInfo;
-	return exposedParamsInfo;
-}
-
-int InfoForExposedParameters::paramOutOfRange() const noexcept {
-	return identifiers.size();
-}
-
-Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
-
-	return identifiers[paramIndex];
-}
-
-String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
-	return exposedNames[paramIndex];
-}
-
-ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
-	return controlTypes[paramIndex];
-}
-
-uint16 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
-	return NRPNs[paramIndex];
-}
-
-IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
-	return converters[paramIndex];
-}
-
-uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
-	return maxValues[paramIndex];
-}
-
-uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
-	return defaultValues[paramIndex];
-}
-
-uint16 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
-	return maxValues[paramIndex] + 1;
-}
-
-String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
-	return descriptions[paramIndex];
-}
-
-Point<int> InfoForExposedParameters::ctrlCenterPointFor(uint8 paramIndex) const {
-	return ctrlCenterPoints[paramIndex];
-}
-
-int InfoForExposedParameters::ctrlWidthFor(uint8 paramIndex) const {
-	return ctrlWidths[paramIndex];
-}
-
-int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) const {
-	return ctrlHeights[paramIndex];
-}
-
-uint8 InfoForExposedParameters::indexFor(const String& parameterID) const noexcept {
-	return (uint8)identifiers.indexOf(Identifier(parameterID));
-}
-
 void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 knob_diameter{ 40 };
 	const uint8 toggle_diameter{ 14 };
@@ -229,6 +164,72 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(273, 22));
 }
+
+InfoForExposedParameters::~InfoForExposedParameters() {
+}
+
+InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
+	static InfoForExposedParameters exposedParamsInfo;
+	return exposedParamsInfo;
+}
+
+int InfoForExposedParameters::paramOutOfRange() const noexcept {
+	return identifiers.size();
+}
+
+Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
+
+	return identifiers[paramIndex];
+}
+
+String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
+	return exposedNames[paramIndex];
+}
+
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
+	return controlTypes[paramIndex];
+}
+
+uint16 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
+	return NRPNs[paramIndex];
+}
+
+IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
+	return converters[paramIndex];
+}
+
+uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
+	return maxValues[paramIndex];
+}
+
+uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
+	return defaultValues[paramIndex];
+}
+
+uint16 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
+	return maxValues[paramIndex] + 1;
+}
+
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
+	return descriptions[paramIndex];
+}
+
+Point<int> InfoForExposedParameters::ctrlCenterPointFor(uint8 paramIndex) const {
+	return ctrlCenterPoints[paramIndex];
+}
+
+int InfoForExposedParameters::ctrlWidthFor(uint8 paramIndex) const {
+	return ctrlWidths[paramIndex];
+}
+
+int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) const {
+	return ctrlHeights[paramIndex];
+}
+
+uint8 InfoForExposedParameters::indexFor(const String& parameterID) const noexcept {
+	return (uint8)identifiers.indexOf(Identifier(parameterID));
+}
+
 
 
 

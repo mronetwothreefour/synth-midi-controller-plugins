@@ -23,9 +23,8 @@ class InfoForExposedParameters
 	Array<int> ctrlHeights;
 
 	InfoForExposedParameters();
-	~InfoForExposedParameters();
-
 	void fillAllInfoContainers();
+	~InfoForExposedParameters();
 
 public:
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;

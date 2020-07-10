@@ -50,6 +50,16 @@ PluginEditor::~PluginEditor() {
 
 void PluginEditor::paint(Graphics& g) {
     g.fillAll(Color::device);
+    g.setColour(Color::controlLabelText);
+    auto& info{ InfoForMainWindowLabels::get() };
+    for (uint16 label = 0; label != info.labelOutOfRange(); ++label) {
+        Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, info.fontSizeFor(label) };
+        g.setFont(font);
+        Rectangle<int> labelArea{ info.widthFor(label), info.heightFor(label) };
+        labelArea.setCentre(info.centerPointFor(label));
+        g.drawFittedText(info.textFor(label), labelArea, info.justificationFlagFor(label), 1, 1.0f);
+    }
+    g.drawHorizontalLine(85, 15.0f, 295.0f);
 }
 
 void PluginEditor::resized() {
