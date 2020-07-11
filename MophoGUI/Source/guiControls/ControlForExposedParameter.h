@@ -4,6 +4,7 @@
 
 #include "../helpers/helper_ControlTypes.h"
 #include "../widgets/widget_Buttons.h"
+#include "../widgets/widget_ComboBoxes.h"
 #include "../widgets/widget_Knobs.h"
 
 
@@ -14,6 +15,7 @@ class ControlForExposedParameter : public Component
 	std::unique_ptr<KnobWithValueStringDisplay> knobWithValueStringDisplay;
 	std::unique_ptr<KnobWithWaveShapeDisplay> knobWithWaveShapeDisplay;
 	std::unique_ptr<ToggleButtonWithWithExposedParamAttacher> toggleButton;
+	std::unique_ptr<ComboBoxWithExposedParamAttacher> comboBox;
 
 	ControlForExposedParameter() : 
 		controlType{ ControlType::nullControl } 
@@ -41,6 +43,10 @@ public:
 			toggleButton->setComponentID(ID::component_ToggleButton.toString());
 			setSize(toggleButton->getWidth(), toggleButton->getHeight());
 			break;
+		case ControlType::comboBox:
+			comboBox.reset(new ComboBoxWithExposedParamAttacher(param));
+			addAndMakeVisible(*comboBox);
+			setSize(comboBox->getWidth(), comboBox->getHeight());
 		default: 
 			break;
 		}
@@ -50,6 +56,7 @@ public:
 		knobWithValueStringDisplay = nullptr;
 		knobWithWaveShapeDisplay = nullptr;
 		toggleButton = nullptr;
+		comboBox = nullptr;
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const noexcept {
@@ -67,6 +74,9 @@ public:
 			if (toggleButton != nullptr)
 				toggleButton->attachToExposedParameter(exposedParams);
 			break;
+		case ControlType::comboBox:
+			if (comboBox != nullptr)
+				comboBox->attachToExposedParameter(exposedParams);
 		default: break;
 		}
 	}
@@ -78,6 +88,8 @@ public:
 			knobWithWaveShapeDisplay->deleteAttachment();
 		if (toggleButton != nullptr)
 			toggleButton->deleteAttachment();
+		if (comboBox != nullptr)
+			comboBox->deleteAttachment();
 	}
 
 private:

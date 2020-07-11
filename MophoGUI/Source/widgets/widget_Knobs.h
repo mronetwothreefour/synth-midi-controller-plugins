@@ -40,6 +40,10 @@ public:
 	void deleteAttachment() { 
 		attachment = nullptr; 
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWithExposedParamAttacher)
 };
 
 
@@ -64,6 +68,10 @@ public:
 
 	~KnobWithValueStringDisplay() {
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWithValueStringDisplay)
 };
 
 
@@ -88,6 +96,10 @@ public:
 
 	~KnobWithWaveShapeDisplay() {
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobWithWaveShapeDisplay)
 };
 
 

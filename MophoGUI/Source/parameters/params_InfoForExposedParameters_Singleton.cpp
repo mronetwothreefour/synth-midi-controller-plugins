@@ -7,6 +7,7 @@ InfoForExposedParameters::InfoForExposedParameters() {
 void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 knob_diameter{ 40 };
 	const uint8 toggle_diameter{ 14 };
+	const uint8 comboBox_h{ 16 };
 
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
@@ -163,6 +164,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(273, 22));
+
+	identifiers.add("glideMode"); // 13
+	exposedNames.add("Glide Mode");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)11);
+	converters.add(IntToGlideModeString::get());
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptions.add("Fixed Rate: The actual glide time depends on the size of the note interval.\nFixed Time: The glide time is constant, regardless of the interval size.\nThe Auto modes only apply glide when a note is played legato\n(the new note is played before the previous note is released).");
+	ctrlWidths.add(124);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(500, 78));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

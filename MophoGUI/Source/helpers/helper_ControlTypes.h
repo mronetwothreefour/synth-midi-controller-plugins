@@ -11,6 +11,7 @@ enum class ControlType
 	knobWithWaveShapeDisplay,
 	toggleButton,
 	pgmSlotRadioButton,
-	utilityButton
+	utilityButton,
+	comboBox
 };
 

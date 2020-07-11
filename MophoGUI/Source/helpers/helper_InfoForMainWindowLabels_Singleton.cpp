@@ -6,7 +6,7 @@ InfoForMainWindowLabels::InfoForMainWindowLabels() {
 
 void InfoForMainWindowLabels::fillAllInfoContainers() {
 	auto knobLabel_w{ 44 };
-	auto knobLabel_h{ 14 };
+	auto ctrlLabel_h{ 14 };
 
 	labelTexts.add("OSCILLATORS");
 	centerPoints.add(Point<int>(67, 19));
@@ -18,7 +18,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("HARD SYNC");
 	centerPoints.add(Point<int>(231, 22));
 	widths.add(62);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centredRight);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
@@ -41,48 +41,48 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("PITCH");
 	centerPoints.add(Point<int>(48, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("FINE");
 	centerPoints.add(Point<int>(93, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("SHAPE");
 	centerPoints.add(Point<int>(138, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("GLIDE");
 	centerPoints.add(Point<int>(183, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("SUB");
 	centerPoints.add(Point<int>(228, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("KEY");
 	centerPoints.add(Point<int>(273, 65));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 	labelTexts.add("TRACK");
 	centerPoints.add(Point<int>(273, 74));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
@@ -91,48 +91,55 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("PITCH");
 	centerPoints.add(Point<int>(48, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("FINE");
 	centerPoints.add(Point<int>(93, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("SHAPE");
 	centerPoints.add(Point<int>(138, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("GLIDE");
 	centerPoints.add(Point<int>(183, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("SUB");
 	centerPoints.add(Point<int>(228, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("KEY");
 	centerPoints.add(Point<int>(273, 125));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 	labelTexts.add("TRACK");
 	centerPoints.add(Point<int>(273, 134));
 	widths.add(knobLabel_w);
-	heights.add(knobLabel_h);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("GLIDE MODE");
+	centerPoints.add(Point<int>(500, 93));
+	widths.add(124);
+	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 }

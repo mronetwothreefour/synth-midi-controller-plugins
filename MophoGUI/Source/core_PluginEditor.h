@@ -13,7 +13,8 @@
 
 class PluginEditor : 
     public AudioProcessorEditor,
-    public ValueTree::Listener
+    public ValueTree::Listener,
+    public Timer
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
@@ -28,6 +29,8 @@ public:
     void resized() override;
 
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+
+    void timerCallback() override {}
 
 private:
     //==============================================================================

@@ -173,13 +173,11 @@ public:
 
 
 
-
 struct IntToOscWaveShapeString :
 	public IntToContextualStringConverter
 {
 protected:
 	String conversionAlgorithm(const uint8& i) noexcept override  {
-		jassert(i < 104);
 		return verboseConversionAlgorithm(i);
 	}
 
@@ -202,14 +200,12 @@ public:
 
 
 
-
 struct IntToOffOnString :
 	public IntToContextualStringConverter
 {
 protected:
 	String conversionAlgorithm(const uint8& i) noexcept override  {
-		jassert(i < 2);
-		return i == 0 ? "Off" : "On";
+		return verboseConversionAlgorithm(i);
 	}
 
 	String verboseConversionAlgorithm(const uint8& i) noexcept override {
@@ -220,6 +216,32 @@ protected:
 public:
 	static IntToOffOnString* get() noexcept {
 		static IntToOffOnString converter;
+		return &converter; 
+	}
+};
+
+
+
+struct IntToGlideModeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 4);
+		if (i == 0) return "Fixed Rate";
+		if (i == 1) return "Fixed Rate Auto";
+		if (i == 2) return "Fixed Time";
+		if (i == 3) return "Fixed Time Auto";
+		else return "range error";
+	}
+
+public:
+	static IntToGlideModeString* get() noexcept {
+		static IntToGlideModeString converter;
 		return &converter; 
 	}
 };

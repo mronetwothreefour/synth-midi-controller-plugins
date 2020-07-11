@@ -11,11 +11,9 @@ class ControlsForExposedParameters
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
 	ControlsForExposedParameters() {
-		fillControlsVector();
 	}
 
 	~ControlsForExposedParameters() {
-		controlsVector.clear();
 	}
 
 	void fillControlsVector() {
@@ -39,6 +37,15 @@ public:
 
 	int paramOutOfRange() const noexcept {
 		return (int)controlsVector.size();
+	}
+
+	void clear() {
+		controlsVector.clear();
+	}
+
+	void rebuildControls(){
+		controlsVector.clear();
+		fillControlsVector();
 	}
 
 private:

@@ -116,7 +116,6 @@ public:
 		converter{ InfoForExposedParameters::get().converterFor(param) }
 	{
 		toggle.addListener(this);
-		setTooltip();
 	}
 
 	~TooltipSetterForExposedParamToggles() {
@@ -134,6 +133,55 @@ public:
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TooltipSetterForExposedParamToggles)
+};
+
+
+
+class TooltipSetterForExposedParamComboBoxes :
+	public TooltipSetter,
+	public ComboBox::Listener
+{
+	ComboBox& comboBox;
+	uint8 param;
+	IntToContextualStringConverter* converter;
+
+	void setTooltip() noexcept override {
+		auto tooltipText{ generateTooltipText() };
+		comboBox.setTooltip(tooltipText);
+	}
+
+	String generateTooltipText() noexcept override {
+		String tooltipText{ "" };
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
+			auto selectedItem{ (uint8)comboBox.getSelectedItemIndex() };
+			tooltipText += ("Current Setting: " + converter->verboseConvert(selectedItem) + "\n");
+		}
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
+			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
+		return tooltipText;
+	}
+
+public:
+	TooltipSetterForExposedParamComboBoxes(ComboBox& comboBox, uint8 param) :
+		comboBox{ comboBox },
+		param{ param },
+		converter{ InfoForExposedParameters::get().converterFor(param) }
+	{
+		comboBox.addListener(this);
+	}
+
+	~TooltipSetterForExposedParamComboBoxes() {
+		comboBox.removeListener(this);
+	}
+
+	void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override {
+		if (comboBoxThatHasChanged == &comboBox)
+			setTooltip();
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TooltipSetterForExposedParamComboBoxes)
 };
 
 

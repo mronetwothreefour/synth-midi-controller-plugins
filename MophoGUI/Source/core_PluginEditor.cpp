@@ -14,6 +14,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(widget_Logo.get());
 
     auto& controls{ ControlsForExposedParameters::get() };
+    controls.rebuildControls();
     for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
         auto control{ controls.controlFor(param) };
         addAndMakeVisible(control);
@@ -41,6 +42,8 @@ PluginEditor::~PluginEditor() {
         auto control{ controls.controlFor(param) };
         control->deleteAttachment();
     }
+
+    controls.clear();
 
     widget_Logo = nullptr;
 
