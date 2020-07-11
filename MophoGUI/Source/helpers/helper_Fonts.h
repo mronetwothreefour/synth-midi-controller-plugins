@@ -37,5 +37,6 @@ namespace FontsDB
 	static const float size_ForPulseWidthText{ 11.0f };
 	static const float size_ForSectionLabels{ 18.0f };
 	static const float size_ForTabText{ 18.0f };
-	static const float size_ForTooltipText{ 13.0f };
+	static const float size_ForTooltipText{ 14.0f };
+	static const float size_ForOscMix1and2Labels{ 13.0f };
 };

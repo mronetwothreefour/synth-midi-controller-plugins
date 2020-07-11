@@ -153,7 +153,42 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
+	labelTexts.add("MIX");
+	centerPoints.add(Point<int>(labelsCol8_x, oscCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("1");
+	centerPoints.add(Point<int>(347, 68));
+	widths.add(10);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForOscMix1and2Labels);
+
+	labelTexts.add("2");
+	centerPoints.add(Point<int>(379, 68));
+	widths.add(10);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForOscMix1and2Labels);
+
+	labelTexts.add("BEND");
+	centerPoints.add(Point<int>(labelsCol9_x, oscCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
 	labelTexts.add("GLIDE MODE");
+	centerPoints.add(Point<int>(500, 53));
+	widths.add(124);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("NOTE PRIORITY");
 	centerPoints.add(Point<int>(500, 93));
 	widths.add(124);
 	heights.add(ctrlLabel_h);

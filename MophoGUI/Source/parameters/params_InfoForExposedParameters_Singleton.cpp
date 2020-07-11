@@ -200,6 +200,42 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow1_y));
+
+	identifiers.add("bendRange"); // 15
+	exposedNames.add("Pitch Bend Range");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)93);
+	converters.add(IntToBendRangeString::get());
+	maxValues.add((uint8)12);
+	defaultValues.add((uint8)4);
+	descriptions.add("Sets the maximum amount (in semitones) by which pitch wheel\nmessages can raise or lower the pitches of the oscillators.\nRange: 0 (no bend) to +/-12 semitones.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow1_y));
+
+	identifiers.add("notePriority"); // 16
+	exposedNames.add("Note Priority (Key Assign)");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)96);
+	converters.add(IntToNotePriorityString::get());
+	maxValues.add((uint8)5);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects which note is given priority when multiple\nnotes are played, and whether the envelopes are\nre-triggered when a note is played legato (before\nthe previous note has been released).");
+	ctrlWidths.add(124);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(500, 38));
+
+	identifiers.add("oscMix"); // 17
+	exposedNames.add("Oscillator 1 & 2 Mix");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)13);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)64);
+	descriptions.add("Controls the level balance between oscillators 1 & 2.\nRange: 0 to 127. At 0, only oscillator 1 is heard.\nAt 127, only oscillator 2 is heard. At 64, an equal\nmix of the two oscillators is heard.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol8_x, oscControlsRow1_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

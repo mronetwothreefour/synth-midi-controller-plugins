@@ -246,3 +246,66 @@ public:
 	}
 };
 
+
+
+struct IntToBendRangeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		jassert(i < 13);
+		if (i == 0) return "0";
+		if (i > 0 && i < 13) return "+/-" + (String)i;
+		else return "range error";
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 13);
+		if (i == 0) return "No Bend";
+		if (i == 1) return "+/-1 semitone";
+		if (i > 1 && i < 13) return "+/-" + (String)i + " semitones";
+		else return "range error";
+	}
+
+public:
+	static IntToBendRangeString* get() noexcept {
+		static IntToBendRangeString converter;
+		return &converter; 
+	}
+};
+
+
+
+struct IntToNotePriorityString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		jassert(i < 6);
+		if (i == 0) return "Low Note";
+		if (i == 1) return "Low Note (Re-trigger)";
+		if (i == 2) return "High Note";
+		if (i == 3) return "High Note (Re-trigger)";
+		if (i == 4) return "Last Note";
+		if (i == 5) return "Last Note (Re-trigger)";
+		else return "range error";
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 6);
+		if (i == 0) return "Low Note Has Priority";
+		if (i == 1) return "Low Note Has Priority (Re-trigger)";
+		if (i == 2) return "High Note Has Priority";
+		if (i == 3) return "High Note Has Priority (Re-trigger)";
+		if (i == 4) return "Last Note Hit Has Priority";
+		if (i == 5) return "Last Note Hit Has Priority (Re-trigger)";
+		else return "range error";
+	}
+
+public:
+	static IntToNotePriorityString* get() noexcept {
+		static IntToNotePriorityString converter;
+		return &converter; 
+	}
+};
+

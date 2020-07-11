@@ -28,7 +28,7 @@ public:
 		StringArray choices;
 		auto converter{ InfoForExposedParameters::get().converterFor(param) };
 		for (uint8 i = 0; i != InfoForExposedParameters::get().numberOfStepsFor(param); ++i) {
-			choices.add(converter->verboseConvert(i));
+			choices.add(converter->convert(i));
 		}
 		comboBox.addItemList(choices, 1);
 		addAndMakeVisible(comboBox);
