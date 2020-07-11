@@ -8,6 +8,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 knob_diameter{ 40 };
 	const uint8 toggle_diameter{ 14 };
 	const uint8 comboBox_h{ 16 };
+	const auto oscControlsRow1_y{ 50 };
+	const auto oscControlsRow2_y{ 110 };
+	const auto horizGapBtwnControls{ 5 };
+	const auto controlsCol1_x{ 48 };
+	const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol3_x{ controlsCol2_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol4_x{ controlsCol3_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol5_x{ controlsCol4_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol6_x{ controlsCol5_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol7_x{ controlsCol6_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol8_x{ controlsCol7_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
 
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
@@ -19,7 +31,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets oscillator 1's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(48, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow1_y));
 
 	identifiers.add("osc1Fine"); // 1
 	exposedNames.add("Oscillator 1 Fine Tune");
@@ -31,7 +43,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Fine tunes oscillator 1's base pitch.\nRange: -50 cents to +50 cents.\n0 = no detuning (centered).");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(93, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, oscControlsRow1_y));
 
 	identifiers.add("osc1Shape"); // 2
 	exposedNames.add("Oscillator 1 Wave Shape");
@@ -43,7 +55,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Selects oscillator 1's wave shape.\nAvailable options: Off; Sawtooth; Triangle;\nSawtooth/Triangle Mix; Pulse (Width 0 to 99).\nA Pulse with width 50 is a square wave.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(138, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, oscControlsRow1_y));
 
 	identifiers.add("osc1Glide"); // 3
 	exposedNames.add("Oscillator 1 Glide Rate");
@@ -55,7 +67,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets oscillator 1's glide (portamento) rate.\nRange: 0 (instantaneous) to 127 (very slow)");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(183, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol4_x, oscControlsRow1_y));
 
 	identifiers.add("osc1KeyTrack"); // 4
 	exposedNames.add("Oscillator 1 Keyboard Track On/Off");
@@ -67,7 +79,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Turns keyboard tracking for oscillator 1\non or off. When turned off, oscillator 1\nalways produces its base pitch, unaffected\nby the pitch of incoming MIDI notes.");
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
-	ctrlCenterPoints.add(Point<int>(273, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, oscControlsRow1_y));
 
 	identifiers.add("osc1SubLevel"); // 5
 	exposedNames.add("Sub-Oscillator 1 Level");
@@ -79,7 +91,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets the level of sub-oscillator 1,\nwhich generates a square wave pitched\none octave lower than oscillator 1.\nRange: 0 to 127.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(228, 50));
+	ctrlCenterPoints.add(Point<int>(controlsCol5_x, 50));
 
 	identifiers.add("osc2Pitch"); // 6
 	exposedNames.add("Oscillator 2 Pitch");
@@ -91,7 +103,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets oscillator 2's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(48, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow2_y));
 
 	identifiers.add("osc2Fine"); // 7
 	exposedNames.add("Oscillator 2 Fine Tune");
@@ -103,7 +115,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Fine tunes oscillator 2's base pitch.\nRange: -50 cents to +50 cents.\n0 = no detuning (centered).");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(93, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, oscControlsRow2_y));
 
 	identifiers.add("osc2Shape"); // 8
 	exposedNames.add("Oscillator 2 Wave Shape");
@@ -115,7 +127,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Selects oscillator 2's wave shape.\nAvailable options: Off; Sawtooth; Triangle;\nSawtooth/Triangle Mix; Pulse (Width 0 to 99).\nA Pulse with width 50 is a square wave.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(138, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, oscControlsRow2_y));
 
 	identifiers.add("osc2Glide"); // 9
 	exposedNames.add("Oscillator 2 Glide Rate");
@@ -127,7 +139,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets oscillator 2's glide (portamento) rate.\nRange: 0 (instantaneous) to 127 (very slow)");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(183, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol4_x, oscControlsRow2_y));
 
 	identifiers.add("osc2KeyTrack"); // 10
 	exposedNames.add("Oscillator 2 Keyboard Track On/Off");
@@ -139,7 +151,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Turns keyboard tracking for oscillator 2\non or off. When turned off, oscillator 1\nalways produces its base pitch, unaffected\nby the pitch of incoming MIDI notes.");
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
-	ctrlCenterPoints.add(Point<int>(273, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, oscControlsRow2_y));
 
 	identifiers.add("osc2SubLevel"); // 11
 	exposedNames.add("Sub-Oscillator 2 Level");
@@ -151,7 +163,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Sets the level of sub-oscillator 2,\nwhich generates a square wave pitched\none octave lower than oscillator 2.\nRange: 0 to 127.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
-	ctrlCenterPoints.add(Point<int>(228, 110));
+	ctrlCenterPoints.add(Point<int>(controlsCol5_x, oscControlsRow2_y));
 
 	identifiers.add("oscSync"); // 12
 	exposedNames.add("Hard Oscillator Sync On/Off");
@@ -163,7 +175,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Turns hard oscillator sync on or off. When\nturned on, every time oscillator 2 resets,\nit forces oscillator 1 to reset as well.");
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
-	ctrlCenterPoints.add(Point<int>(273, 22));
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, 22));
 
 	identifiers.add("glideMode"); // 13
 	exposedNames.add("Glide Mode");
@@ -176,6 +188,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(500, 78));
+
+	identifiers.add("oscSlop"); // 14
+	exposedNames.add("Oscillator Slop");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)12);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)5);
+	defaultValues.add((uint8)2);
+	descriptions.add("Introduces a subtle amount of random oscillator\npitch drift for a \"vintage analog\" sound.\nRange: 0 to 5.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow1_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
