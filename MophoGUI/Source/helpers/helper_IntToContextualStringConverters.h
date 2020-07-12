@@ -309,3 +309,28 @@ public:
 	}
 };
 
+
+
+struct IntToLPFfreqString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		jassert(i < 165);
+		String pitchString{ IntToPitchName::convert(i) };
+		return pitchString;
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 165);
+		String pitchString{ IntToPitchName::convert(i) };
+		return (String)i + " (Pitch Freq. " + pitchString + ")";
+	}
+
+public:
+	static IntToLPFfreqString* get() noexcept {
+		static IntToLPFfreqString converter;
+		return &converter; 
+	}
+};
+

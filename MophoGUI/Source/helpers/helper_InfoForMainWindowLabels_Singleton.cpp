@@ -7,6 +7,23 @@ InfoForMainWindowLabels::InfoForMainWindowLabels() {
 void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto ctrlLabel_h{ 14 };
 
+	const auto knobLabel_w{ 44 };
+	const auto horizGapBtwnLabels{ 1 };
+	const auto labelsCol1_x{ 48 };
+	const auto labelsCol2_x{ labelsCol1_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol3_x{ labelsCol2_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol4_x{ labelsCol3_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol5_x{ labelsCol4_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol6_x{ labelsCol5_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol7_x{ labelsCol6_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol8_x{ labelsCol7_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol9_x{ labelsCol8_x + knobLabel_w + horizGapBtwnLabels };
+	const auto oscCtrlLabelsRow1_y{ 73 };
+	const auto oscCtrlLabelsRow2_y{ 133 };
+	const auto lpfCtrlLabelsRow1_y{ 176 };
+	const auto lpfCtrlLabelsRow2_y{ 238 };
+	const auto lpfCtrlLabelsRow3_y{ 290 };
+
 	labelTexts.add("OSCILLATORS");
 	centerPoints.add(Point<int>(67, 19));
 	widths.add(104);
@@ -34,19 +51,6 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(26);
 	justificationFlags.add(Justification::centredLeft);
 	fontSizes.add(FontsDB::size_ForOscNumLabels);
-
-	const auto knobLabel_w{ 44 };
-	const auto horizGapBtwnLabels{ 1 };
-	const auto labelsCol1_x{ 48 };
-	const auto labelsCol2_x{ labelsCol1_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol3_x{ labelsCol2_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol4_x{ labelsCol3_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol5_x{ labelsCol4_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol6_x{ labelsCol5_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol7_x{ labelsCol6_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol8_x{ labelsCol7_x + knobLabel_w + horizGapBtwnLabels };
-	const auto labelsCol9_x{ labelsCol8_x + knobLabel_w + horizGapBtwnLabels };
-	const auto oscCtrlLabelsRow1_y{ 73 };
 
 	labelTexts.add("PITCH");
 	centerPoints.add(Point<int>(labelsCol1_x, oscCtrlLabelsRow1_y));
@@ -95,8 +99,6 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
-
-	const auto oscCtrlLabelsRow2_y{ 133 };
 
 	labelTexts.add("PITCH");
 	centerPoints.add(Point<int>(labelsCol1_x, oscCtrlLabelsRow2_y));
@@ -186,6 +188,13 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
+	labelTexts.add("EXT IN");
+	centerPoints.add(Point<int>(labelsCol8_x, oscCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
 	labelTexts.add("GLIDE MODE");
 	centerPoints.add(Point<int>(500, 53));
 	widths.add(124);
@@ -196,6 +205,22 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("NOTE PRIORITY");
 	centerPoints.add(Point<int>(500, 93));
 	widths.add(124);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("LPF");
+	centerPoints.add(Point<int>(30, 161));
+	widths.add(30);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("FREQ");
+	centerPoints.add(Point<int>(labelsCol1_x, lpfCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);

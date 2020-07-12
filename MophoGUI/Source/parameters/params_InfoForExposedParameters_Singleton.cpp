@@ -10,6 +10,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 comboBox_h{ 16 };
 	const auto oscControlsRow1_y{ 50 };
 	const auto oscControlsRow2_y{ 110 };
+	const auto lpfControlsRow1_y{ 161 };
+	const auto lpfControlsRow2_y{ 215 };
+	const auto lpfControlsRow3_y{ 267 };
 	const auto horizGapBtwnControls{ 5 };
 	const auto controlsCol1_x{ 48 };
 	const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
@@ -248,6 +251,32 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow2_y));
+
+	identifiers.add("extInLevel"); // 19
+	exposedNames.add("External Audio Input Level");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)116);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the level of external audio\ninput sent into the low-pass filter.\nWhen nothing is connected to audio in,\nthis controls the level of feedback\nfrom the left audio output.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol8_x, oscControlsRow2_y));
+
+	//======================================================
+
+	identifiers.add("lpfFreq"); // 20
+	exposedNames.add("LPF Cutoff Frequency");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)15);
+	converters.add(IntToLPFfreqString::get());
+	maxValues.add((uint8)164);
+	defaultValues.add((uint8)148);
+	descriptions.add("Sets the base cutoff frequency for the\nlow-pass filter (in semitone steps).\nRange: 0 (C 0) to 164 (G# 13).");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, lpfControlsRow2_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
