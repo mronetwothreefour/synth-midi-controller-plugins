@@ -277,6 +277,54 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol1_x, lpfControlsRow2_y));
+
+	identifiers.add("lpfReso"); // 21
+	exposedNames.add("LPF Resonance");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)16);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the resonance level of the low-pass\nfilter. When in 4-pole mode, high settings\nwill cause the filter to self-oscillate.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow2_y));
+
+	identifiers.add("lpfKeyAmount"); // 22
+	exposedNames.add("LPF Keyboard Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)17);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the amount by which keyboard (MIDI) notes\nwill shift the low-pass filter's cutoff frequency.\nRange: 0 to 127. At 64, cutoff is shifted by one\nsemitone for each note. At 32, cutoff is shifted\nby one half-semitone for each note.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, lpfControlsRow2_y));
+
+	identifiers.add("lpfFMamount"); // 23
+	exposedNames.add("LPF FM (By Oscillator 1)");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)18);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which oscillator 1 modulates\nthe low-pass filter's cutoff frequency. This is\nuseful for generating bell-like sounds.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfType"); // 24
+	exposedNames.add("LPF Type");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)19);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)1);
+	descriptions.add("Switches the low-pass filter type between 2-Pole and 4-Pole.\nWhen set to 4-pole, the filter has a steeper cutoff frequency\nslope and more pronounced resonance.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow1_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

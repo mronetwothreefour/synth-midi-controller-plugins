@@ -218,8 +218,36 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
+	labelTexts.add("4-POLE");
+	centerPoints.add(Point<int>(labelsCol2_x, lpfCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
 	labelTexts.add("FREQ");
 	centerPoints.add(Point<int>(labelsCol1_x, lpfCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("RESO");
+	centerPoints.add(Point<int>(labelsCol2_x, lpfCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("KEY");
+	centerPoints.add(Point<int>(labelsCol3_x, lpfCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("FM");
+	centerPoints.add(Point<int>(labelsCol3_x, lpfCtrlLabelsRow3_y));
 	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);

@@ -334,3 +334,25 @@ public:
 	}
 };
 
+
+
+struct IntToLPFtypeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 2);
+		return i == 0 ? "2-Pole" : "4-Pole";
+	}
+
+public:
+	static IntToLPFtypeString* get() noexcept {
+		static IntToLPFtypeString converter;
+		return &converter; 
+	}
+};
+
