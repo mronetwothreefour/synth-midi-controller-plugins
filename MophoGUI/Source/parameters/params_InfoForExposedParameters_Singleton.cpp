@@ -236,6 +236,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol8_x, oscControlsRow1_y));
+
+	identifiers.add("noiseLevel"); // 18
+	exposedNames.add("Noise Level");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)14);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the level of white noise\nsent into the low-pass filter.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow2_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

@@ -159,14 +159,12 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
-
 	labelTexts.add("1");
 	centerPoints.add(Point<int>(347, 68));
 	widths.add(10);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForOscMix1and2Labels);
-
 	labelTexts.add("2");
 	centerPoints.add(Point<int>(379, 68));
 	widths.add(10);
@@ -176,6 +174,13 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 
 	labelTexts.add("BEND");
 	centerPoints.add(Point<int>(labelsCol9_x, oscCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("NOISE");
+	centerPoints.add(Point<int>(labelsCol7_x, oscCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
