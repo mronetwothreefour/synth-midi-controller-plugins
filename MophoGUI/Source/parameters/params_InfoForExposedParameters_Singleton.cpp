@@ -13,6 +13,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto lpfControlsRow1_y{ 161 };
 	const auto lpfControlsRow2_y{ 215 };
 	const auto lpfControlsRow3_y{ 267 };
+	const auto vcaControlsRow1_y{ 373 };
+	const auto vcaControlsRow2_y{ 425 };
 	const auto horizGapBtwnControls{ 5 };
 	const auto controlsCol1_x{ 48 };
 	const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
@@ -409,6 +411,116 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol8_x, lpfControlsRow3_y));
+
+	//======================================================
+
+	identifiers.add("vcaLevel"); // 32
+	exposedNames.add("VCA Baseline Level");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)27);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the voltage-controlled amplifier's baseline level. Turn this\nup for droning sounds or when processing external audio input.\nWhen this level is set to 127, the VCA envelope has no effect.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, vcaControlsRow1_y));
+
+	identifiers.add("vcaEnvAmount"); // 33
+	exposedNames.add("VCA Envelope Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)30);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which the VCA envelope\nmodulates the voltage-controlled ampifier's level.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, vcaControlsRow1_y));
+
+	identifiers.add("vcaVelAmount"); // 34
+	exposedNames.add("VCA Envelope Velocity Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)31);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which MIDI note velocity modulates\nthe amplitude of the voltage-controlled ampifier's envelope.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, vcaControlsRow1_y));
+
+	identifiers.add("vcaDelay"); // 35
+	exposedNames.add("VCA Envelope Delay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)32);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the VCA envelope's delay segment\n(the amount of time that passes after the envelope\nis triggered before its attack segment begins).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol4_x, vcaControlsRow2_y));
+
+	identifiers.add("vcaAttack"); // 36
+	exposedNames.add("VCA Envelope Attack");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)33);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the VCA envelope's attack segment\n(the amount of time it takes for the envelope's\nlevel to rise from minimum to maximum).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol5_x, vcaControlsRow2_y));
+
+	identifiers.add("vcaDecay"); // 37
+	exposedNames.add("VCA Envelope Decay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)34);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the VCA envelope's decay segment\n(the amount of time it takes for the envelope's\nlevel to fall from maximum to the sustain level).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, vcaControlsRow2_y));
+
+	identifiers.add("vcaSustain"); // 38
+	exposedNames.add("VCA Envelope Sustain");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)35);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)64);
+	descriptions.add("Sets the VCA envelope's sustain level (once the\ndecay segment completes, the envelope stays\nat this level until it is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol7_x, vcaControlsRow2_y));
+
+	identifiers.add("vcaRelease"); // 39
+	exposedNames.add("VCA Envelope Release");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)36);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)64);
+	descriptions.add("Sets the length of the VCA envelope's release segment\n(the amount of time it takes to fall from the sustain\nlevel down to minimum once the envelope is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol8_x, vcaControlsRow2_y));
+
+	identifiers.add("pgmVolume"); // 40
+	exposedNames.add("Program Volume");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)29);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)120);
+	descriptions.add("Sets the overall gain of the current program.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, vcaControlsRow2_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

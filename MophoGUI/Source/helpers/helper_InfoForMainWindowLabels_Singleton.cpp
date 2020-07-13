@@ -23,6 +23,8 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto lpfCtrlLabelsRow1_y{ 176 };
 	const auto lpfCtrlLabelsRow2_y{ 238 };
 	const auto lpfCtrlLabelsRow3_y{ 290 };
+	const auto vcaCtrlLabelsRow1_y{ 396 };
+	const auto vcaCtrlLabelsRow2_y{ 448 };
 
 	labelTexts.add("OSCILLATORS");
 	centerPoints.add(Point<int>(67, 19));
@@ -297,6 +299,78 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 
 	labelTexts.add("RELEASE");
 	centerPoints.add(Point<int>(labelsCol8_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("VCA");
+	centerPoints.add(Point<int>(30, 319));
+	widths.add(34);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("LEVEL");
+	centerPoints.add(Point<int>(labelsCol1_x, vcaCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("ENV");
+	centerPoints.add(Point<int>(labelsCol2_x, vcaCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("VELO");
+	centerPoints.add(Point<int>(labelsCol3_x, vcaCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("VOLUME");
+	centerPoints.add(Point<int>(labelsCol2_x, vcaCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DELAY");
+	centerPoints.add(Point<int>(labelsCol4_x, vcaCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("ATTACK");
+	centerPoints.add(Point<int>(labelsCol5_x, vcaCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DECAY");
+	centerPoints.add(Point<int>(labelsCol6_x, vcaCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SUST");
+	centerPoints.add(Point<int>(labelsCol7_x, vcaCtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("RELEASE");
+	centerPoints.add(Point<int>(labelsCol8_x, vcaCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
