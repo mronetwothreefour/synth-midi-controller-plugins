@@ -349,6 +349,66 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfDelay"); // 27
+	exposedNames.add("LPF Envelope Delay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)22);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the LPF envelope's delay segment\n(the amount of time that passes after the envelope\nis triggered before its attack segment begins).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol4_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfAttack"); // 28
+	exposedNames.add("LPF Envelope Attack");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)23);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the LPF envelope's attack segment\n(the amount of time it takes for the envelope's\nlevel to rise from minimum to maximum).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol5_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfDecay"); // 29
+	exposedNames.add("LPF Envelope Decay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)24);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the LPF envelope's decay segment\n(the amount of time it takes for the envelope's\nlevel to fall from maximum to the sustain level).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfSustain"); // 30
+	exposedNames.add("LPF Envelope Sustain");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)25);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the LPF envelope's sustain level (once the\ndecay segment completes, the envelope stays\nat this level until it is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol7_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfRelease"); // 31
+	exposedNames.add("LPF Envelope Release");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)26);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of the LPF envelope's release segment\n(the amount of time it takes to fall from the sustain\nlevel down to minimum once the envelope is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol8_x, lpfControlsRow3_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

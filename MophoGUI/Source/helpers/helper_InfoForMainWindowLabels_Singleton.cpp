@@ -266,6 +266,41 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DELAY");
+	centerPoints.add(Point<int>(labelsCol4_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("ATTACK");
+	centerPoints.add(Point<int>(labelsCol5_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DECAY");
+	centerPoints.add(Point<int>(labelsCol6_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SUST");
+	centerPoints.add(Point<int>(labelsCol7_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("RELEASE");
+	centerPoints.add(Point<int>(labelsCol8_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
 }
 
 InfoForMainWindowLabels::~InfoForMainWindowLabels() {
