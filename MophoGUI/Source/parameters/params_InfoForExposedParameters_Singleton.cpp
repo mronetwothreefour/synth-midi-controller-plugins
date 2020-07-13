@@ -8,13 +8,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const uint8 knob_diameter{ 40 };
 	const uint8 toggle_diameter{ 14 };
 	const uint8 comboBox_h{ 16 };
-	const auto oscControlsRow1_y{ 50 };
-	const auto oscControlsRow2_y{ 110 };
-	const auto lpfControlsRow1_y{ 161 };
-	const auto lpfControlsRow2_y{ 215 };
-	const auto lpfControlsRow3_y{ 267 };
-	const auto vcaControlsRow1_y{ 373 };
-	const auto vcaControlsRow2_y{ 425 };
 	const auto horizGapBtwnControls{ 5 };
 	const auto controlsCol1_x{ 48 };
 	const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
@@ -25,6 +18,16 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto controlsCol7_x{ controlsCol6_x + knob_diameter + horizGapBtwnControls };
 	const auto controlsCol8_x{ controlsCol7_x + knob_diameter + horizGapBtwnControls };
 	const auto controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
+	const auto oscControlsRow1_y{ 50 };
+	const auto oscControlsRow2_y{ 110 };
+	const auto lpfControlsRow1_y{ 161 };
+	const auto lpfControlsRow2_y{ 215 };
+	const auto lpfControlsRow3_y{ 267 };
+	const auto vcaControlsRow1_y{ 373 };
+	const auto vcaControlsRow2_y{ 425 };
+	const auto lfoControlsRow1_y{ 515 };
+	const auto lfoControlsRow2_y{ 560 };
+	const auto lfoControlsRow3_y{ 594 };
 
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
@@ -320,7 +323,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	exposedNames.add("LPF Type");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint16)19);
-	converters.add(IntToPlainValueString::get());
+	converters.add(IntToLPFtypeString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)1);
 	descriptions.add("Switches the low-pass filter type between 2-Pole and 4-Pole.\nWhen set to 4-pole, the filter has a steeper cutoff frequency\nslope and more pronounced resonance.");
@@ -521,6 +524,254 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol2_x, vcaControlsRow2_y));
+
+	//======================================================
+
+	identifiers.add("lfo1Freq"); // 41
+	exposedNames.add("LFO 1 Frequency");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)37);
+	converters.add(IntToLFOfreqString::get());
+	maxValues.add((uint8)166);
+	defaultValues.add((uint8)80);
+	descriptions.add("Sets LFO 1's cycle speed. Range: 0 to 166.\nAt 0, 1 cycle lasts 30 sec. At 89, the frequency is almost 8 Hz.\nFrom 90 to 150, LFO 1 has a pitched frequency, increasing\nin semitones steps from C 0 (8 Hz) up to C 5 (261 Hz).\nAbove 150, LFO 1 is synced with the step sequencer,\ndisplayed as [number of cycles] : [length in steps].");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(416, lfoControlsRow1_y));
+
+	identifiers.add("lfo1Shape"); // 42
+	exposedNames.add("LFO 1 Wave Shape");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)38);
+	converters.add(IntToLFOshapeString::get());
+	maxValues.add((uint8)4);
+	defaultValues.add((uint8)1);
+	descriptions.add("Selects LFO 1's wave shape.\n");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(463, lfoControlsRow2_y));
+
+	identifiers.add("lfo1Amount"); // 43
+	exposedNames.add("LFO 1 Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)39);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which LFO 1\nmodulates the destination parameter.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(461, lfoControlsRow1_y));
+
+	identifiers.add("lfo1Destination"); // 44
+	exposedNames.add("LFO 1 Modulation Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)40);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for modulation by LFO 1.");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(463, lfoControlsRow3_y));
+
+	identifiers.add("lfo1KeySync"); // 45
+	exposedNames.add("LFO 1 Key Sync On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)41);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("When on, LFO 1's cycle will reset\neach time a new note is played.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(507, lfoControlsRow1_y));
+
+	//======================================================
+
+	identifiers.add("lfo2Freq"); // 46
+	exposedNames.add("LFO 2 Frequency");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)42);
+	converters.add(IntToLFOfreqString::get());
+	maxValues.add((uint8)166);
+	defaultValues.add((uint8)80);
+	descriptions.add("Sets LFO 2's cycle speed. Range: 0 to 166.\nAt 0, 1 cycle lasts 30 sec. At 89, the frequency is almost 8 Hz.\nFrom 90 to 150, LFO 1 has a pitched frequency, increasing\nin semitones steps from C 0 (8 Hz) up to C 5 (261 Hz).\nAbove 150, LFO 1 is synced with the step sequencer,\ndisplayed as [number of cycles] : [length in steps].");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(571, lfoControlsRow1_y));
+
+	identifiers.add("lfo2Shape"); // 47
+	exposedNames.add("LFO 2 Wave Shape");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)43);
+	converters.add(IntToLFOshapeString::get());
+	maxValues.add((uint8)4);
+	defaultValues.add((uint8)1);
+	descriptions.add("Selects LFO 2's wave shape.\n");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(618, lfoControlsRow2_y));
+
+	identifiers.add("lfo2Amount"); // 48
+	exposedNames.add("LFO 1 Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)44);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which LFO 2\nmodulates the destination parameter.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(616, lfoControlsRow1_y));
+
+	identifiers.add("lfo2Destination"); // 49
+	exposedNames.add("LFO 2 Modulation Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)45);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for modulation by LFO 2.");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(618, lfoControlsRow3_y));
+
+	identifiers.add("lfo2KeySync"); // 50
+	exposedNames.add("LFO 2 Key Sync On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)46);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("When on, LFO 2's cycle will reset\neach time a new note is played.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(662, lfoControlsRow1_y));
+
+	//======================================================
+
+	identifiers.add("lfo3Freq"); // 51
+	exposedNames.add("LFO 3 Frequency");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)47);
+	converters.add(IntToLFOfreqString::get());
+	maxValues.add((uint8)166);
+	defaultValues.add((uint8)80);
+	descriptions.add("Sets LFO 3's cycle speed. Range: 0 to 166.\nAt 0, 1 cycle lasts 30 sec. At 89, the frequency is almost 8 Hz.\nFrom 90 to 150, LFO 1 has a pitched frequency, increasing\nin semitones steps from C 0 (8 Hz) up to C 5 (261 Hz).\nAbove 150, LFO 1 is synced with the step sequencer,\ndisplayed as [number of cycles] : [length in steps].");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(724, lfoControlsRow1_y));
+
+	identifiers.add("lfo3Shape"); // 52
+	exposedNames.add("LFO 3 Wave Shape");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)48);
+	converters.add(IntToLFOshapeString::get());
+	maxValues.add((uint8)4);
+	defaultValues.add((uint8)1);
+	descriptions.add("Selects LFO 3's wave shape.\n");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(771, lfoControlsRow2_y));
+
+	identifiers.add("lfo3Amount"); // 53
+	exposedNames.add("LFO 3 Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)49);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which LFO 3\nmodulates the destination parameter.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(769, lfoControlsRow1_y));
+
+	identifiers.add("lfo3Destination"); // 54
+	exposedNames.add("LFO 3 Modulation Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)50);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for modulation by LFO 3.");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(771, lfoControlsRow3_y));
+
+	identifiers.add("lfo3KeySync"); // 55
+	exposedNames.add("LFO 3 Key Sync On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)51);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("When on, LFO 3's cycle will reset\neach time a new note is played.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(815, lfoControlsRow1_y));
+
+	//======================================================
+
+	identifiers.add("lfo4Freq"); // 56
+	exposedNames.add("LFO 4 Frequency");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)52);
+	converters.add(IntToLFOfreqString::get());
+	maxValues.add((uint8)166);
+	defaultValues.add((uint8)80);
+	descriptions.add("Sets LFO 4's cycle speed. Range: 0 to 166.\nAt 0, 1 cycle lasts 30 sec. At 89, the frequency is almost 8 Hz.\nFrom 90 to 150, LFO 1 has a pitched frequency, increasing\nin semitones steps from C 0 (8 Hz) up to C 5 (261 Hz).\nAbove 150, LFO 1 is synced with the step sequencer,\ndisplayed as [number of cycles] : [length in steps].");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(877, lfoControlsRow1_y));
+
+	identifiers.add("lfo4Shape"); // 57
+	exposedNames.add("LFO 4 Wave Shape");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)53);
+	converters.add(IntToLFOshapeString::get());
+	maxValues.add((uint8)4);
+	defaultValues.add((uint8)1);
+	descriptions.add("Selects LFO 4's wave shape.\n");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(924, lfoControlsRow2_y));
+
+	identifiers.add("lfo4Amount"); // 58
+	exposedNames.add("LFO 4 Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)54);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which LFO 4\nmodulates the destination parameter.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(922, lfoControlsRow1_y));
+
+	identifiers.add("lfo4Destination"); // 59
+	exposedNames.add("LFO 4 Modulation Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)55);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for modulation by LFO 4.");
+	ctrlWidths.add(134);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(924, lfoControlsRow3_y));
+
+	identifiers.add("lfo4KeySync"); // 60
+	exposedNames.add("LFO 4 Key Sync On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)56);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("When on, LFO 4's cycle will reset\neach time a new note is played.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(968, lfoControlsRow1_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

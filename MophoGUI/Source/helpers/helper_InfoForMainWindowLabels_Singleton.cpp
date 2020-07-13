@@ -25,6 +25,12 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto lpfCtrlLabelsRow3_y{ 290 };
 	const auto vcaCtrlLabelsRow1_y{ 396 };
 	const auto vcaCtrlLabelsRow2_y{ 448 };
+	const auto lfoSectionLabels_y{ 485 };
+	const auto lfoCtrlLabelsRow1_y{ 538 };
+	const auto lfoCtrlLabelsRow2_y{ 575 };
+	const auto lfoCtrlLabelsRow3_y{ 609 };
+	const auto lfoKeyLabels_y{ 530 };
+	const auto lfoSyncLabels_y{ 539 };
 
 	labelTexts.add("OSCILLATORS");
 	centerPoints.add(Point<int>(67, 19));
@@ -372,6 +378,206 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("RELEASE");
 	centerPoints.add(Point<int>(labelsCol8_x, vcaCtrlLabelsRow2_y));
 	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("LFO 1");
+	centerPoints.add(Point<int>(418, lfoSectionLabels_y));
+	widths.add(44);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("FREQ");
+	centerPoints.add(Point<int>(416, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(461, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("KEY");
+	centerPoints.add(Point<int>(507, lfoKeyLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+	labelTexts.add("SYNC");
+	centerPoints.add(Point<int>(507, lfoSyncLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SHAPE");
+	centerPoints.add(Point<int>(463, lfoCtrlLabelsRow2_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(463, lfoCtrlLabelsRow3_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("LFO 2");
+	centerPoints.add(Point<int>(573, lfoSectionLabels_y));
+	widths.add(44);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("FREQ");
+	centerPoints.add(Point<int>(571, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(616, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("KEY");
+	centerPoints.add(Point<int>(662, lfoKeyLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+	labelTexts.add("SYNC");
+	centerPoints.add(Point<int>(662, lfoSyncLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SHAPE");
+	centerPoints.add(Point<int>(618, lfoCtrlLabelsRow2_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(618, lfoCtrlLabelsRow3_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("LFO 3");
+	centerPoints.add(Point<int>(726, lfoSectionLabels_y));
+	widths.add(44);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("FREQ");
+	centerPoints.add(Point<int>(724, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(769, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("KEY");
+	centerPoints.add(Point<int>(815, lfoKeyLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+	labelTexts.add("SYNC");
+	centerPoints.add(Point<int>(815, lfoSyncLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SHAPE");
+	centerPoints.add(Point<int>(771, lfoCtrlLabelsRow2_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(771, lfoCtrlLabelsRow3_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("LFO 4");
+	centerPoints.add(Point<int>(879, lfoSectionLabels_y));
+	widths.add(44);
+	heights.add(20);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("FREQ");
+	centerPoints.add(Point<int>(877, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(922, lfoCtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("KEY");
+	centerPoints.add(Point<int>(968, lfoKeyLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+	labelTexts.add("SYNC");
+	centerPoints.add(Point<int>(968, lfoSyncLabels_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SHAPE");
+	centerPoints.add(Point<int>(924, lfoCtrlLabelsRow2_y));
+	widths.add(134);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(924, lfoCtrlLabelsRow3_y));
+	widths.add(134);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);

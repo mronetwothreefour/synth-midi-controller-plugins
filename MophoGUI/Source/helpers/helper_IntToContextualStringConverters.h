@@ -378,3 +378,173 @@ public:
 	}
 };
 
+
+
+struct IntToLFOfreqString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 167);
+		if (i < 90) return (String)(i);
+		if (i > 89 && i < 151) {
+			return IntToPitchName::convert(i - 90);
+		}
+		else {
+			switch (i)
+			{
+			case 151: return "1:32";
+			case 152: return "1:16";
+			case 153: return "1:8";
+			case 154: return "1:6";
+			case 155: return "1:4";
+			case 156: return "1:3";
+			case 157: return "1:2";
+			case 158: return "1:1.5";
+			case 159: return "1:1";
+			case 160: return "3:2";
+			case 161: return "2:1";
+			case 162: return "3:1";
+			case 163: return "4:1";
+			case 164: return "6:1";
+			case 165: return "8:1";
+			case 166: return "16:1";
+			default: return "err";
+			}
+		}
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 167);
+		if (i < 90) return "Un-synced " + (String)(i);
+		if (i > 89 && i < 151) {
+			String pitchString{ IntToPitchName::convert(i - 90) };
+			return (String)i + " (Pitch Freq. " + pitchString + ")";
+		}
+		else {
+			switch (i)
+			{
+			case 151: return "Synced " + String(i) + ": 1 cycle lasts 32 steps";
+			case 152: return "Synced " + String(i) + ": 1 cycle lasts 16 steps";
+			case 153: return "Synced " + String(i) + ": 1 cycle lasts 8 steps";
+			case 154: return "Synced " + String(i) + ": 1 cycle lasts 6 steps";
+			case 155: return "Synced " + String(i) + ": 1 cycle lasts 4 steps";
+			case 156: return "Synced " + String(i) + ": 1 cycle lasts 3 steps";
+			case 157: return "Synced " + String(i) + ": 1 cycle lasts 2 steps";
+			case 158: return "Synced " + String(i) + ": 1 cycle lasts 1-1/2 steps";
+			case 159: return "Synced " + String(i) + ": 1 cycle lasts 1 step";
+			case 160: return "Synced " + String(i) + ": 1 cycle lasts 2/3 step";
+			case 161: return "Synced " + String(i) + ": 1 cycle lasts 1/2 step";
+			case 162: return "Synced " + String(i) + ": 1 cycle lasts 1/3 step";
+			case 163: return "Synced " + String(i) + ": 1 cycle lasts 1/4 step";
+			case 164: return "Synced " + String(i) + ": 1 cycle lasts 1/6 step";
+			case 165: return "Synced " + String(i) + ": 1 cycle lasts 1/8 step";
+			case 166: return "Synced " + String(i) + ": 1 cycle lasts 1/16 step";
+			default: return "range error";
+			}
+		}
+	}
+
+public:
+	static IntToLFOfreqString* get() noexcept {
+		static IntToLFOfreqString converter;
+		return &converter;
+	}
+};
+
+
+
+struct IntToLFOshapeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 5);
+		if (i == 0) return "Triangle";
+		if (i == 1) return "Reverse Sawtooth";
+		if (i == 2) return "Sawtooth";
+		if (i == 3) return "Square Wave";
+		if (i == 4) return "Random";
+		else return "range error";
+	}
+
+public:
+	static IntToLFOshapeString* get() noexcept {
+		static IntToLFOshapeString converter;
+		return &converter;
+	}
+};
+
+
+
+struct IntToModDestinationString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 47);
+		if (i == 0 ) return "Off";
+		if (i == 1 ) return "Oscillator 1 Pitch";
+		if (i == 2 ) return "Oscillator 2 Pitch";
+		if (i == 3 ) return "Oscillator 1 & 2 Pitch";
+		if (i == 4 ) return "Oscillator Mix";
+		if (i == 5 ) return "Noise Level";
+		if (i == 6 ) return "Oscillator 1 Pulse Width";
+		if (i == 7 ) return "Oscillator 2 Pulse Width";
+		if (i == 8 ) return "Oscillator 1 & 2 PW";
+		if (i == 9 ) return "LPF Cutoff Frequency";
+		if (i == 10) return "LPF Resonance";
+		if (i == 11) return "LPF FM Amount";
+		if (i == 12) return "VCA Level";
+		if (i == 13) return "Output Panning";
+		if (i == 14) return "LFO 1 Frequency";
+		if (i == 15) return "LFO 2 Frequency";
+		if (i == 16) return "LFO 3 Frequency";
+		if (i == 17) return "LFO 4 Frequency";
+		if (i == 18) return "All LFO Frequencies";
+		if (i == 19) return "LFO 1 Amount";
+		if (i == 20) return "LFO 2 Amount";
+		if (i == 21) return "LFO 3 Amount";
+		if (i == 22) return "LFO 4 Amount";
+		if (i == 23) return "All LFO Amounts";
+		if (i == 24) return "LPF Envelope Amount";
+		if (i == 25) return "VCA Envelope Amount";
+		if (i == 26) return "Envelope 3 Amount";
+		if (i == 27) return "All Envelope Amounts";
+		if (i == 28) return "LPF Envelope Attack";
+		if (i == 29) return "VCA Envelope Attack";
+		if (i == 30) return "Envelope 3 Attack";
+		if (i == 31) return "All Envelope Attacks";
+		if (i == 32) return "LPF Envelope Decay";
+		if (i == 33) return "VCA Envelope Decay";
+		if (i == 34) return "Envelope 3 Decay";
+		if (i == 35) return "All Envelope Decays";
+		if (i == 36) return "LPF Envelope Release";
+		if (i == 37) return "VCA Envelope Release";
+		if (i == 38) return "Envelope 3 Release";
+		if (i == 39) return "All Envelope Releases";
+		if (i == 40) return "Modulator 1 Amount";
+		if (i == 41) return "Modulator 2 Amount";
+		if (i == 42) return "Modulator 3 Amount";
+		if (i == 43) return "Modulator 4 Amount";
+		if (i == 44) return "External Audio In Level";
+		if (i == 45) return "Sub-Osc 1 Level";
+		if (i == 46) return "Sub-Osc 2 Level";
+		else return "range error";
+	}
+
+public:
+	static IntToModDestinationString* get() noexcept {
+		static IntToModDestinationString converter;
+		return &converter;
+	}
+};
+
