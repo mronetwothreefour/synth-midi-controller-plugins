@@ -246,6 +246,20 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
+	labelTexts.add("ENV");
+	centerPoints.add(Point<int>(labelsCol1_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("VELO");
+	centerPoints.add(Point<int>(labelsCol2_x, lpfCtrlLabelsRow3_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
 	labelTexts.add("FM");
 	centerPoints.add(Point<int>(labelsCol3_x, lpfCtrlLabelsRow3_y));
 	widths.add(knobLabel_w);

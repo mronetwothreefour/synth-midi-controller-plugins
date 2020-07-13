@@ -356,3 +356,25 @@ public:
 	}
 };
 
+
+
+struct IntToPlusMinus127String :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override  {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 255);
+		return (i > 127 ? "+" : "") + (String)(i - 127);
+	}
+
+public:
+	static IntToPlusMinus127String* get() noexcept {
+		static IntToPlusMinus127String converter;
+		return &converter; 
+	}
+};
+

@@ -325,6 +325,30 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow1_y));
+
+	identifiers.add("lpfEnvAmount"); // 25
+	exposedNames.add("LPF Envelope Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)20);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which the LPF envelope\nmodulates the filter's cutoff frequency.\nNegative values invert the envelope.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, lpfControlsRow3_y));
+
+	identifiers.add("lpfVelAmount"); // 26
+	exposedNames.add("LPF Envelope Velocity Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)21);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which MIDI note velocity modulates\nthe amplitude of the low-pass filter's envelope.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow3_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
