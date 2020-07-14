@@ -6,7 +6,7 @@ InfoForMainWindowLabels::InfoForMainWindowLabels() {
 
 void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto ctrlLabel_h{ 14 };
-
+	const auto sectionLabel_h{ 20 };
 	const auto knobLabel_w{ 44 };
 	const auto horizGapBtwnLabels{ 1 };
 	const auto labelsCol1_x{ 48 };
@@ -25,6 +25,8 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto lpfCtrlLabelsRow3_y{ 290 };
 	const auto vcaCtrlLabelsRow1_y{ 396 };
 	const auto vcaCtrlLabelsRow2_y{ 448 };
+	const auto env3CtrlLabelsRow1_y{ 554 };
+	const auto env3CtrlLabelsRow2_y{ 606 };
 	const auto lfoSectionLabels_y{ 485 };
 	const auto lfoCtrlLabelsRow1_y{ 538 };
 	const auto lfoCtrlLabelsRow2_y{ 575 };
@@ -32,10 +34,12 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto lfoKeyLabels_y{ 530 };
 	const auto lfoSyncLabels_y{ 539 };
 
+	//======================================================
+
 	labelTexts.add("OSCILLATORS");
 	centerPoints.add(Point<int>(67, 19));
 	widths.add(104);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -156,6 +160,8 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
+	//======================================================
+
 	labelTexts.add("SLOP");
 	centerPoints.add(Point<int>(labelsCol7_x, oscCtrlLabelsRow1_y));
 	widths.add(knobLabel_w);
@@ -222,7 +228,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("LPF");
 	centerPoints.add(Point<int>(30, 161));
 	widths.add(30);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -315,7 +321,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("VCA");
 	centerPoints.add(Point<int>(30, 319));
 	widths.add(34);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -384,10 +390,82 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 
 	//======================================================
 
+	labelTexts.add("ENVELOPE 3");
+	centerPoints.add(Point<int>(63, 477));
+	widths.add(96);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("REPEAT");
+	centerPoints.add(Point<int>(labelsCol1_x, 546));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(labelsCol2_x, env3CtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("VELO");
+	centerPoints.add(Point<int>(labelsCol3_x, env3CtrlLabelsRow1_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(labelsCol2_x, 598));
+	widths.add(126);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DELAY");
+	centerPoints.add(Point<int>(labelsCol4_x, env3CtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("ATTACK");
+	centerPoints.add(Point<int>(labelsCol5_x, env3CtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("DECAY");
+	centerPoints.add(Point<int>(labelsCol6_x, env3CtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("SUST");
+	centerPoints.add(Point<int>(labelsCol7_x, env3CtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("RELEASE");
+	centerPoints.add(Point<int>(labelsCol8_x, env3CtrlLabelsRow2_y));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
 	labelTexts.add("LFO 1");
 	centerPoints.add(Point<int>(418, lfoSectionLabels_y));
 	widths.add(44);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -437,7 +515,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("LFO 2");
 	centerPoints.add(Point<int>(573, lfoSectionLabels_y));
 	widths.add(44);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -487,7 +565,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("LFO 3");
 	centerPoints.add(Point<int>(726, lfoSectionLabels_y));
 	widths.add(44);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
@@ -537,7 +615,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("LFO 4");
 	centerPoints.add(Point<int>(879, lfoSectionLabels_y));
 	widths.add(44);
-	heights.add(20);
+	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 

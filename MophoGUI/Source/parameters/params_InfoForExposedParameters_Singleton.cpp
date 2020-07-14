@@ -28,6 +28,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto lfoControlsRow1_y{ 515 };
 	const auto lfoControlsRow2_y{ 560 };
 	const auto lfoControlsRow3_y{ 594 };
+	const auto env3ControlsRow1_y{ 531 };
+	const auto env3ControlsRow2_y{ 583 };
+
+	//======================================================
 
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
@@ -184,6 +188,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol6_x, 22));
+
+	//======================================================
 
 	identifiers.add("glideMode"); // 13
 	exposedNames.add("Glide Mode");
@@ -772,6 +778,116 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(968, lfoControlsRow1_y));
+
+	//======================================================
+
+	identifiers.add("env3Destination"); // 61
+	exposedNames.add("Envelope 3 Modulation Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)57);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for modulation by envelope 3");
+	ctrlWidths.add(126);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Amount"); // 62
+	exposedNames.add("Envelope 3 Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)58);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which envelope 3\nmodulates the destination parameter.\nNegative values invert the envelope.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol2_x, env3ControlsRow1_y));
+
+	identifiers.add("env3VelAmount"); // 63
+	exposedNames.add("Envelope 3 Velocity Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)59);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the degree to which MIDI note velocity\nmodulates the amplitude of envelope 3.\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol3_x, env3ControlsRow1_y));
+
+	identifiers.add("env3Delay"); // 64
+	exposedNames.add("Envelope 3 Delay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)60);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of envelope 3's delay segment\n(the amount of time that passes after the envelope\nis triggered before its attack segment begins).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol4_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Attack"); // 65
+	exposedNames.add("Envelope 3 Attack");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)61);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of envelope 3's attack segment\n(the amount of time it takes for the envelope's\nlevel to rise from minimum to maximum).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol5_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Decay"); // 66
+	exposedNames.add("Envelope 3 Decay");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)62);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of envelope 3's decay segment\n(the amount of time it takes for the envelope's\nlevel to fall from maximum to the sustain level).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol6_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Sustain"); // 67
+	exposedNames.add("Envelope 3 Sustain");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)63);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets envelope 3's sustain level (once the\ndecay segment completes, the envelope stays\nat this level until it is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol7_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Release"); // 68
+	exposedNames.add("Envelope 3 Release");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)64);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the length of envelope 3's release segment\n(the amount of time it takes to fall from the sustain\nlevel down to minimum once the envelope is gated off).\nRange: 0 to 127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol8_x, env3ControlsRow2_y));
+
+	identifiers.add("env3Repeat"); // 69
+	exposedNames.add("Envelope 3 Repeat On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)98);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("When repeat is on, envelope 3 loops through\nits delay, attack, decay, and sustain segments\nfor as long as the envelope is gated on.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol1_x, env3ControlsRow1_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
