@@ -30,7 +30,7 @@ namespace FontsDB
 	static const float size_ForDocumentWindowTitleBar{ 18.0f };
 	static const float size_ForKnobValueDisplay{ 13.0f };
 	static const float size_ForLabelText{ 13.0f };
-	static const float size_ForOscNumLabels{ 24.0f };
+	static const float size_ForLargeNumLabels{ 24.0f };
 	static const float size_ForPgmNameEditorText{ 18.0f };
 	static const float size_ForPopupMenuItem{ 12.0f };
 	static const float size_ForPgmSlotButtonText{ 11.0f };

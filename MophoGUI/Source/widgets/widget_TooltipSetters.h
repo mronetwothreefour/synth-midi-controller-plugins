@@ -50,12 +50,12 @@ class TooltipSetterForExposedParamSliders :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
+			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
 			auto sliderValue{ (uint8)roundToInt(slider.getValue()) };
-			tooltipText += ("Current Setting: " + converter->verboseConvert(sliderValue) + "\n");
+			tooltipText += ("Current Setting: " + converter->verboseConvert(sliderValue));
 		}
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
 		return tooltipText;
 	}
 
@@ -100,12 +100,12 @@ class TooltipSetterForExposedParamToggles :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
+			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
 			auto toggleState{ (uint8)toggle.getToggleState() };
-			tooltipText += ("Current Setting: " + converter->verboseConvert(toggleState) + "\n");
+			tooltipText += ("Current Setting: " + converter->verboseConvert(toggleState));
 		}
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
 		return tooltipText;
 	}
 
@@ -152,12 +152,12 @@ class TooltipSetterForExposedParamComboBoxes :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
+		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
+			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
 		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
 			auto selectedItem{ (uint8)comboBox.getSelectedItemIndex() };
-			tooltipText += ("Current Setting: " + converter->verboseConvert(selectedItem) + "\n");
+			tooltipText += ("Current Setting: " + converter->verboseConvert(selectedItem));
 		}
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param);
 		return tooltipText;
 	}
 

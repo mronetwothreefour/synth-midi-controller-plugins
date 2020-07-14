@@ -548,3 +548,48 @@ public:
 	}
 };
 
+
+
+struct IntToModSourceString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 23);
+		if (i == 0) return "Off";
+		if (i == 1) return "Sequencer Track 1";
+		if (i == 2) return "Sequencer Track 2";
+		if (i == 3) return "Sequencer Track 3";
+		if (i == 4) return "Sequencer Track 4";
+		if (i == 5) return "LFO 1";
+		if (i == 6) return "LFO 2";
+		if (i == 7) return "LFO 3";
+		if (i == 8) return "LFO 4";
+		if (i == 9) return "LPF Envelope";
+		if (i == 10) return "VCA Envelope";
+		if (i == 11) return "Envelope 3";
+		if (i == 12) return "Pitch Bend";
+		if (i == 13) return "Mod Wheel";
+		if (i == 14) return "Pressure (Aftertouch)";
+		if (i == 15) return "MIDI Breath";
+		if (i == 16) return "MIDI Foot Pedal";
+		if (i == 17) return "MIDI Expression";
+		if (i == 18) return "Velocity";
+		if (i == 19) return "Note Number";
+		if (i == 20) return "Noise";
+		if (i == 21) return "Audio In Env. Follower";
+		if (i == 22) return "Audio In Peak Hold";
+		else return "range error";
+	}
+
+public:
+	static IntToModSourceString* get() noexcept {
+		static IntToModSourceString converter;
+		return &converter;
+	}
+};
+
