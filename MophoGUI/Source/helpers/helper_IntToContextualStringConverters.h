@@ -593,3 +593,100 @@ public:
 	}
 };
 
+
+
+struct IntToPushItModeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 3);
+		if (i == 0) return "Normal";
+		if (i == 1) return "Toggle";
+		if (i == 2) return "Audio In";
+		else return "range error";
+	}
+
+public:
+	static IntToPushItModeString* get() noexcept {
+		static IntToPushItModeString converter;
+		return &converter;
+	}
+};
+
+
+
+struct IntToClockTempoString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 221);
+		return (String)(i + 30);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 221);
+		return (String)(i + 30) + " BPM";
+	}
+
+public:
+	static IntToClockTempoString* get() noexcept {
+		static IntToClockTempoString converter;
+		return &converter;
+	}
+};
+
+
+
+struct IntToClockDivString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 13);
+		if (i == 0 ) return "Half Note";
+		if (i == 1 ) return "Quarter Note";
+		if (i == 2 ) return "8th Note";
+		if (i == 3 ) return "8th Note, 1/2 Swing";
+		if (i == 4 ) return "8th Note, Full Swing";
+		if (i == 5 ) return "8th Note Triplets";
+		if (i == 6 ) return "16th Note";
+		if (i == 7 ) return "16th Note, 1/2 Swing";
+		if (i == 8 ) return "16th Note, Full Swing";
+		if (i == 9 ) return "16th Note Triplets";
+		if (i == 10) return "32nd Note";
+		if (i == 11) return "32nd Note Triplets";
+		if (i == 12) return "64th Note Triplets";
+		else return "range error";
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 13);
+		if (i == 0 ) return "Half Note (BPM / 2)";
+		if (i == 1 ) return "Quarter Note (BPM x 1)";
+		if (i == 2 ) return "8th Note (BPM x 2)";
+		if (i == 3 ) return "8th Note, 1/2 Swing (BPM x 2)";
+		if (i == 4 ) return "8th Note, Full Swing (BPM x 2)";
+		if (i == 5 ) return "8th Note Triplets (BPM x 3)";
+		if (i == 6 ) return "16th Note (BPM x 4)";
+		if (i == 7 ) return "16th Note, 1/2 Swing (BPM x 4)";
+		if (i == 8 ) return "16th Note, Full Swing (BPM x 4)";
+		if (i == 9 ) return "16th Note Triplets (BPM x 6)";
+		if (i == 10) return "32nd Note (BPM x 8)";
+		if (i == 11) return "32nd Note Triplets (BPM x 12)";
+		if (i == 12) return "64th Note Triplets (BPM x 24)";
+		else return "range error";
+	}
+
+public:
+	static IntToClockDivString* get() noexcept {
+		static IntToClockDivString converter;
+		return &converter;
+	}
+};
+

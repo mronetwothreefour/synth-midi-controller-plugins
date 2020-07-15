@@ -46,7 +46,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOscPitchString::get()); 
 	maxValues.add((uint8)120); 
 	defaultValues.add((uint8)24);
-	descriptions.add("Sets oscillator 1's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.");
+	descriptions.add("Sets oscillator 1's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow1_y));
@@ -118,7 +118,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOscPitchString::get()); 
 	maxValues.add((uint8)120); 
 	defaultValues.add((uint8)24);
-	descriptions.add("Sets oscillator 2's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8 KHz). Middle C is C 5.");
+	descriptions.add("Sets oscillator 2's base pitch in semitone steps.\nRange: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.");
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow2_y));
@@ -1166,6 +1166,70 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(midiControllerComboBox_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 439));
+
+	//======================================================
+
+	identifiers.add("pushItPitch"); // 92
+	exposedNames.add("Push It! Switch Pitch");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)111);
+	converters.add(IntToOscPitchString::get());
+	maxValues.add((uint8)120);
+	defaultValues.add((uint8)60);
+	descriptions.add("Sets the note that plays when\nthe Push It! switch is pressed.\nRange: C 0 (8 Hz) to C 10 (8.2 KHz).\nMiddle C is C 5.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(1191, 528));
+
+	identifiers.add("pushItVelocity"); // 93
+	exposedNames.add("Push It! Switch Velocity");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)112);
+	converters.add(IntToPlainValueString::get());
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)100);
+	descriptions.add("Sets the velocity of the note that plays\nwhen the Push It! switch is pressed.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(1238, 528));
+
+	identifiers.add("pushItMode"); // 94
+	exposedNames.add("Push It! Switch Mode");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)113);
+	converters.add(IntToPushItModeString::get());
+	maxValues.add((uint8)2);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the operating mode for the Mopho's Push It! switch.\nNormal: The selected note is gated on when the switch is\npressed and gated off when the switch is released.\nToggle: The selected note is gated on when the switch is\npressed and remains on until the switch is pressed again.\nAudio In: The selected note is gated on for as long as the\nexternal audio input level is above a certain threshold.");
+	ctrlWidths.add(88);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(1215, 577));
+
+	//======================================================
+
+	identifiers.add("clockTempo"); // 95
+	exposedNames.add("Clock Tempo");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)91);
+	converters.add(IntToClockTempoString::get());
+	maxValues.add((uint8)220);
+	defaultValues.add((uint8)90);
+	descriptions.add("Sets the tempo in beats per minute\nfor the sequencer and the arpeggiator.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(1236, 126));
+
+	identifiers.add("clockDivision"); // 96
+	exposedNames.add("Clock Division");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)92);
+	converters.add(IntToClockDivString::get());
+	maxValues.add((uint8)12);
+	defaultValues.add((uint8)2);
+	descriptions.add("Sets the rate at which the sequencer and\narpeggiator advance, relative to the tempo.");
+	ctrlWidths.add(124);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(1139, 126));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
