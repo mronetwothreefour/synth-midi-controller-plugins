@@ -5,10 +5,11 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-	const uint8 knob_diameter{ 40 };
-	const uint8 toggle_diameter{ 14 };
-	const uint8 modulatorComboBox_w{ 126 };
-	const uint8 comboBox_h{ 16 };
+	const auto knob_diameter{ 40 };
+	const auto toggle_diameter{ 14 };
+	const auto modulatorComboBox_w{ 126 };
+	const auto midiControllerComboBox_w{ 136 };
+	const auto comboBox_h{ 16 };
 	const auto horizGapBtwnControls{ 5 };
 	const auto controlsCol1_x{ 48 };
 	const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
@@ -21,6 +22,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
 	const auto modulatorControlsCol1_x{ 486 };
 	const auto modulatorControlsCol2_x{ 575 };
+	const auto midiControllerssCol1_x{ 680 };
+	const auto midiControllerssCol2_x{ 776 };
 	const auto oscControlsRow1_y{ 50 };
 	const auto oscControlsRow2_y{ 110 };
 	const auto lpfControlsRow1_y{ 161 };
@@ -1041,6 +1044,128 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(modulatorComboBox_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 452));
+
+	//======================================================
+
+	identifiers.add("modWheelAmount"); // 82
+	exposedNames.add("Modulation Wheel Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)81);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which MIDI modulation wheel controller\nmessages (CC#1) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 191));
+
+	identifiers.add("modWheelDest"); // 83
+	exposedNames.add("Modulation Wheel Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)82);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add(modDestinationDescription);
+	ctrlWidths.add(midiControllerComboBox_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 191));
+
+	identifiers.add("pressureAmount"); // 84
+	exposedNames.add("Pressure (Aftertouch) Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)83);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which MIDI channel pressure\n(aftertouch) messages modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 253));
+
+	identifiers.add("pressureDest"); // 85
+	exposedNames.add("Pressure (Aftertouch) Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)84);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add(modDestinationDescription);
+	ctrlWidths.add(midiControllerComboBox_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 253));
+
+	identifiers.add("breathAmount"); // 86
+	exposedNames.add("Breath Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)85);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which MIDI breath controller\nmessages (CC#2) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 315));
+
+	identifiers.add("breathDest"); // 87
+	exposedNames.add("Breath Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)86);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add(modDestinationDescription);
+	ctrlWidths.add(midiControllerComboBox_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 315));
+
+	identifiers.add("velocityAmount"); // 88
+	exposedNames.add("Note Velocity Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)87);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which MIDI note velocity\nmessages modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 377));
+
+	identifiers.add("velocityDest"); // 89
+	exposedNames.add("Note Velocity Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)88);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add(modDestinationDescription);
+	ctrlWidths.add(midiControllerComboBox_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 377));
+
+	identifiers.add("footPedalAmount"); // 90
+	exposedNames.add("Foot Pedal Amount");
+	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	NRPNs.add((uint16)89);
+	converters.add(IntToPlusMinus127String::get());
+	maxValues.add((uint8)254);
+	defaultValues.add((uint8)127);
+	descriptions.add("Sets the degree to which MIDI foot pedal controller\nmessages (CC#4) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	ctrlWidths.add(knob_diameter);
+	ctrlHeights.add(knob_diameter);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 439));
+
+	identifiers.add("footPedalDest"); // 91
+	exposedNames.add("Foot Pedal Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)90);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add(modDestinationDescription);
+	ctrlWidths.add(midiControllerComboBox_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(midiControllerssCol1_x, 439));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

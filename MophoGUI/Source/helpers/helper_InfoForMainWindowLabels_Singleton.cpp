@@ -39,6 +39,9 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto modulatorLabelsCol1_x{ 486 };
 	const auto modulatorLabelsCol2_x{ 575 };
 	const auto modulatorComboBoxLabels_w{ 126 };
+	const auto midiControllerLabelsCol1_x{ 680 };
+	const auto midiControllerLabelsCol2_x{ 776 };
+	const auto midiControllerComboBoxLabels_w{ 1326 };
 
 	//======================================================
 
@@ -783,6 +786,85 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	labelTexts.add("DESTINATION");
 	centerPoints.add(Point<int>(modulatorLabelsCol1_x, 467));
 	widths.add(modulatorComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("MIDI CONTROLLERS");
+	centerPoints.add(Point<int>(687, 161));
+	widths.add(150);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("MOD WHEEL DESTINATION");
+	centerPoints.add(Point<int>(midiControllerLabelsCol1_x, 206));
+	widths.add(midiControllerComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(midiControllerLabelsCol2_x, 214));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("PRESSURE DESTINATION");
+	centerPoints.add(Point<int>(midiControllerLabelsCol1_x, 268));
+	widths.add(midiControllerComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(midiControllerLabelsCol2_x, 276));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("BREATH DESTINATION");
+	centerPoints.add(Point<int>(midiControllerLabelsCol1_x, 330));
+	widths.add(midiControllerComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(midiControllerLabelsCol2_x, 338));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("VELOCITY DESTINATION");
+	centerPoints.add(Point<int>(midiControllerLabelsCol1_x, 392));
+	widths.add(midiControllerComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(midiControllerLabelsCol2_x, 400));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("FOOT PEDAL DESTINATION");
+	centerPoints.add(Point<int>(midiControllerLabelsCol1_x, 454));
+	widths.add(midiControllerComboBoxLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("AMT");
+	centerPoints.add(Point<int>(midiControllerLabelsCol2_x, 462));
+	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
