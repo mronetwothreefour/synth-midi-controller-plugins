@@ -716,3 +716,31 @@ public:
 	}
 };
 
+
+
+struct IntToSeqTrigModeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 6);
+		if (i == 0) return "Normal";
+		if (i == 1) return "Normal, No Reset";
+		if (i == 2) return "No Gate";
+		if (i == 3) return "No Gate, No Reset";
+		if (i == 4) return "Key Step";
+		if (i == 5) return "Audio Input";
+		else return "range error";
+	}
+
+public:
+	static IntToSeqTrigModeString* get() noexcept {
+		static IntToSeqTrigModeString converter;
+		return &converter;
+	}
+};
+

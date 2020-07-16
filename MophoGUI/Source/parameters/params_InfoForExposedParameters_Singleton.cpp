@@ -37,6 +37,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto lfoControlsRow3_y{ 594 };
 	const auto env3ControlsRow1_y{ 531 };
 	const auto env3ControlsRow2_y{ 583 };
+	const auto seqTrackDestComboBoxes_x{ 1055 };
+	const auto seqTrackDestComboBoxes_w{ 126 };
 
 	//======================================================
 
@@ -1257,6 +1259,78 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow2_y));
+
+	identifiers.add("sequencerTrig"); // 99
+	exposedNames.add("Sequencer Trigger Mode");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)94);
+	converters.add(IntToSeqTrigModeString::get());
+	maxValues.add((uint8)5);
+	defaultValues.add((uint8)0);
+	descriptions.add("Normal: New notes reset the sequencer to the first step.\nThe envelopes are re-triggered with each step.\nNormal, No Reset: New notes do not reset the sequencer to the\nfirst step. The envelopes are re-triggered with each step.\nNo Gate: New notes reset the sequencer to the first step. New\nnotes re-trigger the envelopes, but sequencer steps do not.\nNo Gate, No Reset: New notes do not reset the sequencer to the\nfirst step. Sequencer steps do not re-trigger the envelopes.\nKey Step: Each new note advances the sequencer one step.\nAudio Input: The sequencer advances one step every time the\nexternal audio input level surpasses a certain threshold.");
+	ctrlWidths.add(114);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(998, 126));
+
+	identifiers.add("sequencerOnOff"); // 100
+	exposedNames.add("Sequencer On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)101);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("Turns the Mopho's internal sequencer on and off.\nTurning this on will turn off the arpeggiator.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(819, 126));
+
+	identifiers.add("seqTrack1Dest"); // 101
+	exposedNames.add("Sequencer Track 1 Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)77);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)1);
+	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 1.");
+	ctrlWidths.add(seqTrackDestComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 169));
+
+	identifiers.add("seqTrack2Dest"); // 102
+	exposedNames.add("Sequencer Track 2 Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)78);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)2);
+	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 2.");
+	ctrlWidths.add(seqTrackDestComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 252));
+
+	identifiers.add("seqTrack3Dest"); // 103
+	exposedNames.add("Sequencer Track 3 Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)79);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)9);
+	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 3.");
+	ctrlWidths.add(seqTrackDestComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 335));
+
+	identifiers.add("seqTrack4Dest"); // 104
+	exposedNames.add("Sequencer Track 4 Destination");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)80);
+	converters.add(IntToModDestinationString::get());
+	maxValues.add((uint8)46);
+	defaultValues.add((uint8)0);
+	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 4.");
+	ctrlWidths.add(seqTrackDestComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 418));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

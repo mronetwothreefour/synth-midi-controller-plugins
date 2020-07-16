@@ -140,10 +140,10 @@ void PluginProcessor::parameterChanged(const String& parameterID, float newValue
 }
 
 uint8 PluginProcessor::addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue) {
-    if (param > 104 && param < 109 && outputValue > 104) // knob assignment parameters
-        outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
     if (param == 95)
         outputValue += 30; // clock tempo parameter range is offset by 30
+    if (param > 104 && param < 109 && outputValue > 104) // knob assignment parameters
+        outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
     return outputValue;
 }
 

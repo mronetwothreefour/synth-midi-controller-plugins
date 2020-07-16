@@ -30,12 +30,6 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto vcaCtrlLabelsRow2_y{ 448 };
 	const auto env3CtrlLabelsRow1_y{ 554 };
 	const auto env3CtrlLabelsRow2_y{ 606 };
-	const auto lfoSectionLabels_y{ 485 };
-	const auto lfoCtrlLabelsRow1_y{ 538 };
-	const auto lfoCtrlLabelsRow2_y{ 575 };
-	const auto lfoCtrlLabelsRow3_y{ 609 };
-	const auto lfoKeyLabels_y{ 530 };
-	const auto lfoSyncLabels_y{ 539 };
 	const auto modulatorNumLabel_x{ 412 };
 	const auto modulatorLabelsCol1_x{ 486 };
 	const auto modulatorLabelsCol2_x{ 575 };
@@ -43,6 +37,16 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto midiControllerLabelsCol1_x{ 680 };
 	const auto midiControllerLabelsCol2_x{ 776 };
 	const auto midiControllerComboBoxLabels_w{ 1326 };
+	const auto seqTrackLabels_x{ 846 };
+	const auto seqTrackLabels_w{ 68 };
+	const auto seqTrackDestLabels_x{ 951 };
+	const auto seqTrackDestLabels_w{ 74 };
+	const auto lfoSectionLabels_y{ 485 };
+	const auto lfoCtrlLabelsRow1_y{ 538 };
+	const auto lfoCtrlLabelsRow2_y{ 575 };
+	const auto lfoCtrlLabelsRow3_y{ 609 };
+	const auto lfoKeyLabels_y{ 530 };
+	const auto lfoSyncLabels_y{ 539 };
 
 	//======================================================
 
@@ -686,9 +690,23 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 
 	//======================================================
 
-	labelTexts.add("CLOCK DIVISION");
+	labelTexts.add("SEQUENCER");
+	centerPoints.add(Point<int>(877, 127));
+	widths.add(94);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("TRIGGER MODE");
 	centerPoints.add(Point<int>(1139, 141));
 	widths.add(124);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("CLOCK DIVISION");
+	centerPoints.add(Point<int>(998, 141));
+	widths.add(114);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
@@ -698,6 +716,62 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	widths.add(knobLabel_w);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("TRACK 1");
+	centerPoints.add(Point<int>(seqTrackLabels_x, 170));
+	widths.add(seqTrackLabels_w);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(seqTrackDestLabels_x, 169));
+	widths.add(seqTrackDestLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centredRight);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("TRACK 2");
+	centerPoints.add(Point<int>(seqTrackLabels_x, 253));
+	widths.add(seqTrackLabels_w);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(seqTrackDestLabels_x, 252));
+	widths.add(seqTrackDestLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centredRight);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("TRACK 3");
+	centerPoints.add(Point<int>(seqTrackLabels_x, 336));
+	widths.add(seqTrackLabels_w);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(seqTrackDestLabels_x, 335));
+	widths.add(seqTrackDestLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centredRight);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("TRACK 4");
+	centerPoints.add(Point<int>(seqTrackLabels_x, 419));
+	widths.add(seqTrackLabels_w);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("DESTINATION");
+	centerPoints.add(Point<int>(seqTrackDestLabels_x, 418));
+	widths.add(seqTrackDestLabels_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centredRight);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	//======================================================
