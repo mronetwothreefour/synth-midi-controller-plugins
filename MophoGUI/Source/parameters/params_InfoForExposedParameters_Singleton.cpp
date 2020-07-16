@@ -39,6 +39,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto env3ControlsRow2_y{ 583 };
 	const auto seqTrackDestComboBoxes_x{ 1055 };
 	const auto seqTrackDestComboBoxes_w{ 126 };
+	const auto knobAssignComboBoxes_x{ 1089 };
+	const auto knobAssignComboBoxes_w{ 134 };
 
 	//======================================================
 
@@ -1331,6 +1333,56 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 418));
+
+	//======================================================
+
+	identifiers.add("assignKnob1"); // 105
+	exposedNames.add("Assign Parameter to Knob 1");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)105);
+	converters.add(IntToParamNameString::get());
+	maxValues.add((uint8)168);
+	defaultValues.add((uint8)5);
+	descriptions.add("Selects a target parameter for\nassignable hardware knob 1.");
+	ctrlWidths.add(knobAssignComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 521));
+
+	identifiers.add("assignKnob2"); // 106
+	exposedNames.add("Assign Parameter to Knob 2");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)106);
+	converters.add(IntToParamNameString::get());
+	maxValues.add((uint8)168);
+	defaultValues.add((uint8)11);
+	descriptions.add("Selects a target parameter for\nassignable hardware knob 2.");
+	ctrlWidths.add(knobAssignComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 549));
+
+	identifiers.add("assignKnob3"); // 107
+	exposedNames.add("Assign Parameter to Knob 3");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)107);
+	converters.add(IntToParamNameString::get());
+	maxValues.add((uint8)168);
+	defaultValues.add((uint8)43);
+	descriptions.add("Selects a target parameter for\nassignable hardware knob 3.");
+	ctrlWidths.add(knobAssignComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 577));
+
+	identifiers.add("assignKnob4"); // 108
+	exposedNames.add("Assign Parameter to Knob 4");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)108);
+	converters.add(IntToParamNameString::get());
+	maxValues.add((uint8)168);
+	defaultValues.add((uint8)23);
+	descriptions.add("Selects a target parameter for\nassignable hardware knob 4.");
+	ctrlWidths.add(knobAssignComboBoxes_w);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 605));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

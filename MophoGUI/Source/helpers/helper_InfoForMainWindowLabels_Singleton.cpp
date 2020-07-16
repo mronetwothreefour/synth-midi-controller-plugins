@@ -47,6 +47,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto lfoCtrlLabelsRow3_y{ 609 };
 	const auto lfoKeyLabels_y{ 530 };
 	const auto lfoSyncLabels_y{ 539 };
+	const auto knobAssignLargeNumLabels_x{ 1011 };
 
 	//======================================================
 
@@ -973,6 +974,43 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("KNOB ASSIGN");
+	centerPoints.add(Point<int>(1056, 494));
+	widths.add(106);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
+
+	labelTexts.add("1");
+	centerPoints.add(Point<int>(knobAssignLargeNumLabels_x, 520));
+	widths.add(largeNumLabel_w);
+	heights.add(largeNumLabel_h);
+	justificationFlags.add(Justification::centredLeft);
+	fontSizes.add(FontsDB::size_ForLargeNumLabels);
+
+	labelTexts.add("2");
+	centerPoints.add(Point<int>(knobAssignLargeNumLabels_x, 548));
+	widths.add(largeNumLabel_w);
+	heights.add(largeNumLabel_h);
+	justificationFlags.add(Justification::centredLeft);
+	fontSizes.add(FontsDB::size_ForLargeNumLabels);
+
+	labelTexts.add("3");
+	centerPoints.add(Point<int>(knobAssignLargeNumLabels_x, 576));
+	widths.add(largeNumLabel_w);
+	heights.add(largeNumLabel_h);
+	justificationFlags.add(Justification::centredLeft);
+	fontSizes.add(FontsDB::size_ForLargeNumLabels);
+
+	labelTexts.add("4");
+	centerPoints.add(Point<int>(knobAssignLargeNumLabels_x, 604));
+	widths.add(largeNumLabel_w);
+	heights.add(largeNumLabel_h);
+	justificationFlags.add(Justification::centredLeft);
+	fontSizes.add(FontsDB::size_ForLargeNumLabels);
 
 	//======================================================
 
