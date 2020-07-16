@@ -51,7 +51,9 @@ public:
     void restoreStateFromXml(XmlElement* sourceXml);
 
     void parameterChanged(const String& parameterID, float newValue) override;
+    uint8 addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue);
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
+    void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
 
     // Combines all MidiBuffers that get created within a
     // 10 ms slice of time into a single MidiBuffer

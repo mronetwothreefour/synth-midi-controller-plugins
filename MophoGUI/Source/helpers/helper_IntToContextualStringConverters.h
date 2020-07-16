@@ -690,3 +690,29 @@ public:
 	}
 };
 
+
+
+struct IntToArpegModeString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 4);
+		if (i == 0) return "Up";
+		if (i == 1) return "Down";
+		if (i == 2) return "Up & Down";
+		if (i == 3) return "Assign";
+		else return "range error";
+	}
+
+public:
+	static IntToArpegModeString* get() noexcept {
+		static IntToArpegModeString converter;
+		return &converter;
+	}
+};
+

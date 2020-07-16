@@ -20,6 +20,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto labelsCol7_x{ labelsCol6_x + knobLabel_w + horizGapBtwnLabels };
 	const auto labelsCol8_x{ labelsCol7_x + knobLabel_w + horizGapBtwnLabels };
 	const auto labelsCol9_x{ labelsCol8_x + knobLabel_w + horizGapBtwnLabels };
+	const auto labelsCol10_x{ 500 };
 	const auto oscCtrlLabelsRow1_y{ 73 };
 	const auto oscCtrlLabelsRow2_y{ 133 };
 	const auto lpfCtrlLabelsRow1_y{ 176 };
@@ -218,15 +219,29 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
+	labelTexts.add("ARPEG");
+	centerPoints.add(Point<int>(labelsCol9_x, 125));
+	widths.add(knobLabel_w);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
 	labelTexts.add("GLIDE MODE");
-	centerPoints.add(Point<int>(500, 53));
+	centerPoints.add(Point<int>(labelsCol10_x, 53));
 	widths.add(124);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("NOTE PRIORITY");
-	centerPoints.add(Point<int>(500, 93));
+	centerPoints.add(Point<int>(labelsCol10_x, 93));
+	widths.add(124);
+	heights.add(ctrlLabel_h);
+	justificationFlags.add(Justification::centred);
+	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	labelTexts.add("ARPEGGIATOR MODE");
+	centerPoints.add(Point<int>(labelsCol10_x, 133));
 	widths.add(124);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);

@@ -131,23 +131,25 @@ void PluginProcessor::parameterChanged(const String& parameterID, float newValue
         auto param{ info.indexFor(parameterID) };
         auto nrpn{ info.NRPNfor(param) };
         auto outputValue{ (uint8)roundToInt(newValue) };
-        if (param > 104 && param < 109 && outputValue > 104) // knob assignment
-            outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
-        if (param == 95)
-            outputValue += 30; // clock tempo parameter range is offset by 30
-        addParamChangedMessageToMidiBuffer(nrpn, (uint8)outputValue);
-        // The arpeggiator (#98) and the sequencer (#100) cannot both be on
-        if (param == 98 && newValue == 1.0f && getParameters()[100]->getValue() != 0.0f)
-            getParameters()[100]->setValueNotifyingHost(0.0f);
-        if (param == 100 && newValue == 1.0f && getParameters()[98]->getValue() != 0.0f)
-            getParameters()[98]->setValueNotifyingHost(0.0f);
+        outputValue = addAnyParamSpecificOffsetsToOutputValue(param, outputValue);
+        addParamChangedMessageToMidiBuffer(nrpn, outputValue);
+        if ((param == 98 || param == 100) && outputValue == 1)
+            arpeggiatorAndSequencerCannotBothBeOn(param);
     }
     else return;
 }
 
+uint8 PluginProcessor::addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue) {
+    if (param > 104 && param < 109 && outputValue > 104) // knob assignment parameters
+        outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
+    if (param == 95)
+        outputValue += 30; // clock tempo parameter range is offset by 30
+    return outputValue;
+}
+
 void PluginProcessor::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue) {
-    if (paramNRPN == 386) // Send MIDI channel change messages out on all channels
-    {
+    // Send MIDI channel change messages out on all channels
+    if (paramNRPN == 386) { 
         for (uint8 midiChannel = 0; midiChannel != 16; ++midiChannel) {
             auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
             combineMidiBuffers(nrpnBuffer);
@@ -159,6 +161,15 @@ void PluginProcessor::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8
         auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
         combineMidiBuffers(nrpnBuffer);
     }
+}
+
+void PluginProcessor::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
+    if (paramTurnedOn == 98 && getParameters()[100] != nullptr)
+        if (getParameters()[100]->getValue() != 0.0f)
+            getParameters()[100]->setValueNotifyingHost(0.0f);
+    if (paramTurnedOn == 100 && getParameters()[98] != nullptr)
+        if (getParameters()[98]->getValue() != 0.0f)
+            getParameters()[98]->setValueNotifyingHost(0.0f);
 }
 
 void PluginProcessor::combineMidiBuffers(MidiBuffer& midiBuffer) {

@@ -20,6 +20,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto controlsCol7_x{ controlsCol6_x + knob_diameter + horizGapBtwnControls };
 	const auto controlsCol8_x{ controlsCol7_x + knob_diameter + horizGapBtwnControls };
 	const auto controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
+	const auto controlsCol10_x{ 500 };
 	const auto modulatorControlsCol1_x{ 486 };
 	const auto modulatorControlsCol2_x{ 575 };
 	const auto midiControllerssCol1_x{ 680 };
@@ -207,7 +208,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Fixed Rate: The actual glide time depends on the size of the note interval.\nFixed Time: The glide time is constant, regardless of the interval size.\nThe Auto modes only apply glide when a note is played legato\n(the new note is played before the previous note is released).");
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
-	ctrlCenterPoints.add(Point<int>(500, 78));
+	ctrlCenterPoints.add(Point<int>(controlsCol10_x, 78));
 
 	identifiers.add("oscSlop"); // 14
 	exposedNames.add("Oscillator Slop");
@@ -243,7 +244,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add("Selects which note is given priority when multiple\nnotes are played, and whether the envelopes are\nre-triggered when a note is played legato (before\nthe previous note has been released).");
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
-	ctrlCenterPoints.add(Point<int>(500, 38));
+	ctrlCenterPoints.add(Point<int>(controlsCol10_x, 38));
 
 	identifiers.add("oscMix"); // 17
 	exposedNames.add("Oscillator 1 & 2 Mix");
@@ -1230,6 +1231,32 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(1139, 126));
+
+	//======================================================
+
+	identifiers.add("arpegMode"); // 97
+	exposedNames.add("Arpeggiator Mode");
+	controlTypes.add(ControlType::comboBox);
+	NRPNs.add((uint16)97);
+	converters.add(IntToArpegModeString::get());
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptions.add("Sets the order in which the arpeggiator plays notes.\nAssign mode: notes play in the order in which they were struck.");
+	ctrlWidths.add(124);
+	ctrlHeights.add(comboBox_h);
+	ctrlCenterPoints.add(Point<int>(controlsCol10_x, 118));
+
+	identifiers.add("arpegOnOff"); // 98
+	exposedNames.add("Arpeggiator On/Off");
+	controlTypes.add(ControlType::toggleButton);
+	NRPNs.add((uint16)100);
+	converters.add(IntToOffOnString::get());
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptions.add("Turns the Mopho's arpeggiator on and off.\nTurning this on will turn off the sequencer.");
+	ctrlWidths.add(toggle_diameter);
+	ctrlHeights.add(toggle_diameter);
+	ctrlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow2_y));
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
