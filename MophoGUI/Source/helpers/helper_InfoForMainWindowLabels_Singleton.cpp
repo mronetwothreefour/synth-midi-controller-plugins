@@ -237,14 +237,14 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
-	labelTexts.add("GLIDE MODE");
+	labelTexts.add("NOTE PRIORITY");
 	centerPoints.add(Point<int>(labelsCol10_x, 53));
 	widths.add(124);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
-	labelTexts.add("NOTE PRIORITY");
+	labelTexts.add("GLIDE MODE");
 	centerPoints.add(Point<int>(labelsCol10_x, 93));
 	widths.add(124);
 	heights.add(ctrlLabel_h);
