@@ -625,7 +625,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString = "Sets the length of the VCA envelope's attack segment\n";
+	descriptionString =  "Sets the length of the VCA envelope's attack segment\n";
 	descriptionString += "(the amount of time it takes for the envelope's\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -1009,7 +1009,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which envelope 3\nmodulates the destination parameter.\nNegative values invert the envelope.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which envelope 3\n";
+	descriptionString += "modulates the destination parameter.\n";
+	descriptionString += "Negative values invert the envelope.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol2_x, env3ControlsRow1_y));
@@ -1021,7 +1025,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the degree to which MIDI note velocity\nmodulates the amplitude of envelope 3.\nRange: 0 to 127.");
+	descriptionString =  "Sets the degree to which MIDI note velocity\n";
+	descriptionString += "modulates the amplitude of envelope 3.\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol3_x, env3ControlsRow1_y));
@@ -1033,7 +1040,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the length of envelope 3's delay segment\n(the amount of time that passes after the envelope\nis triggered before its attack segment begins).\nRange: 0 to 127.");
+	descriptionString =  "Sets the length of envelope 3's delay segment\n";
+	descriptionString += "(the amount of time that passes after the envelope\n";
+	descriptionString += "is triggered before its attack segment begins).\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol4_x, env3ControlsRow2_y));
@@ -1045,7 +1056,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the length of envelope 3's attack segment\n(the amount of time it takes for the envelope's\nlevel to rise from minimum to maximum).\nRange: 0 to 127.");
+	descriptionString =  "Sets the length of envelope 3's attack segment\n";
+	descriptionString += "(the amount of time it takes for the envelope's\n";
+	descriptionString += "level to rise from minimum to maximum).\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol5_x, env3ControlsRow2_y));
@@ -1057,7 +1072,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the length of envelope 3's decay segment\n(the amount of time it takes for the envelope's\nlevel to fall from maximum to the sustain level).\nRange: 0 to 127.");
+	descriptionString =  "Sets the length of the envelope 3's decay segment\n";
+	descriptionString += "(the amount of time it takes for the envelope's\n";
+	descriptionString += "level to fall from maximum to the sustain level).\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol6_x, env3ControlsRow2_y));
@@ -1069,7 +1088,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets envelope 3's sustain level (once the\ndecay segment completes, the envelope stays\nat this level until it is gated off).\nRange: 0 to 127.");
+	descriptionString =  "Sets envelope 3's sustain level (once the\n";
+	descriptionString += "decay segment completes, the envelope stays\n";
+	descriptionString += "at this level until it is gated off).\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol7_x, env3ControlsRow2_y));
@@ -1081,7 +1104,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the length of envelope 3's release segment\n(the amount of time it takes to fall from the sustain\nlevel down to minimum once the envelope is gated off).\nRange: 0 to 127.");
+	descriptionString =  "Sets the length of envelope 3's release segment\n";
+	descriptionString += "(the amount of time it takes to fall from the sustain\n";
+	descriptionString += "level down to minimum once the envelope is gated off).\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol8_x, env3ControlsRow2_y));
@@ -1093,16 +1120,21 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptions.add("When repeat is on, envelope 3 loops through\nits delay, attack, decay, and sustain segments\nfor as long as the envelope is gated on.");
+	descriptionString =  "When repeat is on, envelope 3 loops through\n";
+	descriptionString += "its delay, attack, decay, and sustain segments\n";
+	descriptionString += "for as long as the envelope is gated on.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol1_x, env3ControlsRow1_y));
 
 	//======================================================
 
-	const String modSourceDescription{ "Selects the modulation source." };
-	const String modAmountDescription{ "Sets the degree to which the selected source\nmodulates the selected destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127." };
-	const String modDestinationDescription{ "Selects the target parameter for modulation." };
+	String modSourceDescription{ "Selects the modulation source." };
+	String modAmountDescription = "Sets the degree to which the selected source\n";
+	modAmountDescription += "modulates the selected destination parameter.\n";
+	modAmountDescription += "Negative values invert the modulation.\nRange: -127 to +127.";
+	String modDestinationDescription{ "Selects the target parameter for modulation." };
 
 	identifiers.add("mod1Source"); // 70
 	exposedNames.add("Modulator 1 Source");
@@ -1257,7 +1289,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which MIDI modulation wheel controller\nmessages (CC#1) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which MIDI modulation wheel controller\n";
+	descriptionString += "messages (CC#1) modulate the destination parameter.\n";
+	descriptionString += "Negative values invert the modulation.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 191));
@@ -1281,7 +1317,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which MIDI channel pressure\n(aftertouch) messages modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which MIDI channel pressure\n";
+	descriptionString += "(aftertouch) messages modulate the destination parameter.\n";
+	descriptionString += "Negative values invert the modulation.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 253));
@@ -1305,7 +1345,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which MIDI breath controller\nmessages (CC#2) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which MIDI breath controller\n";
+	descriptionString += "messages (CC#2) modulate the destination parameter.\n";
+	descriptionString += "Negative values invert the modulation.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 315));
@@ -1329,7 +1373,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which MIDI note velocity\nmessages modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which MIDI note velocity\n";
+	descriptionString += "messages modulate the destination parameter.\n";
+	descriptionString += "Negative values invert the modulation.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 377));
@@ -1353,7 +1401,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
-	descriptions.add("Sets the degree to which MIDI foot pedal controller\nmessages (CC#4) modulate the destination parameter.\nNegative values invert the modulation.\nRange: -127 to +127.");
+	descriptionString =  "Sets the degree to which MIDI foot pedal controller\n";
+	descriptionString += "messages (CC#4) modulate the destination parameter.\n";
+	descriptionString += "Negative values invert the modulation.\n";
+	descriptionString += "Range: -127 to +127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(midiControllerssCol2_x, 439));
@@ -1379,7 +1431,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOscPitchString::get());
 	maxValues.add((uint8)120);
 	defaultValues.add((uint8)60);
-	descriptions.add("Sets the note that plays when\nthe Push It! switch is pressed.\nRange: C 0 (8 Hz) to C 10 (8.2 KHz).\nMiddle C is C 5.");
+	descriptionString =  "Sets the note that plays when\n";
+	descriptionString += "the Push It! switch is pressed.\n";
+	descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz).\n";
+	descriptionString += "Middle C is C 5.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(1191, 528));
@@ -1391,7 +1447,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)100);
-	descriptions.add("Sets the velocity of the note that plays\nwhen the Push It! switch is pressed.");
+	descriptionString =  "Sets the velocity of the note that plays\n";
+	descriptionString += "when the Push It! switch is pressed.\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(1238, 528));
@@ -1403,7 +1462,14 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPushItModeString::get());
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the operating mode for the Mopho's Push It! switch.\nNormal: The selected note is gated on when the switch is\npressed and gated off when the switch is released.\nToggle: The selected note is gated on when the switch is\npressed and remains on until the switch is pressed again.\nAudio In: The selected note is gated on for as long as the\nexternal audio input level is above a certain threshold.");
+	descriptionString =  "Sets the operating mode for the Mopho's Push It! switch.\n";
+	descriptionString += "Normal: The selected note is gated on when the switch is\n";
+	descriptionString += "pressed and gated off when the switch is released.\n";
+	descriptionString += "Toggle: The selected note is gated on when the switch is\n";
+	descriptionString += "pressed and remains on until the switch is pressed again.\n";
+	descriptionString += "Audio In: The selected note is gated on for as long as the\n";
+	descriptionString += "external audio input level is above a certain threshold.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(88);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(1215, 577));
@@ -1417,7 +1483,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToClockTempoString::get());
 	maxValues.add((uint8)220);
 	defaultValues.add((uint8)90);
-	descriptions.add("Sets the tempo in beats per minute\nfor the sequencer and the arpeggiator.");
+	descriptionString =  "Sets the tempo (in beats per minute)\n";
+	descriptionString += "for the sequencer and the arpeggiator.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knob_diameter);
 	ctrlHeights.add(knob_diameter);
 	ctrlCenterPoints.add(Point<int>(1236, 126));
@@ -1429,7 +1497,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToClockDivString::get());
 	maxValues.add((uint8)12);
 	defaultValues.add((uint8)2);
-	descriptions.add("Sets the rate at which the sequencer and\narpeggiator advance, relative to the tempo.");
+	descriptionString =  "Sets the rate at which the sequencer and\n";
+	descriptionString += "arpeggiator advance, relative to the tempo.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(1139, 126));
@@ -1443,7 +1513,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToArpegModeString::get());
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
-	descriptions.add("Sets the order in which the arpeggiator plays notes.\nAssign mode: notes play in the order in which they were struck.");
+	descriptionString =  "Sets the order in which the arpeggiator plays notes.\n";
+	descriptionString += "Assign mode: notes play in the order in which they were struck.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(124);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(controlsCol10_x, 118));
@@ -1455,19 +1527,32 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptions.add("Turns the Mopho's arpeggiator on and off.\nTurning this on will turn off the sequencer.");
+	descriptionString =  "Turns the Mopho's arpeggiator on and off.\n";
+	descriptionString += "Turning this on will turn off the sequencer.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow2_y));
 
-	identifiers.add("sequencerTrig"); // 99
+	identifiers.add("sequencerTrigMode"); // 99
 	exposedNames.add("Sequencer Trigger Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint16)94);
 	converters.add(IntToSeqTrigModeString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)0);
-	descriptions.add("Normal: New notes reset the sequencer to the first step.\nThe envelopes are re-triggered with each step.\nNormal, No Reset: New notes do not reset the sequencer to the\nfirst step. The envelopes are re-triggered with each step.\nNo Gate: New notes reset the sequencer to the first step. New\nnotes re-trigger the envelopes, but sequencer steps do not.\nNo Gate, No Reset: New notes do not reset the sequencer to the\nfirst step. Sequencer steps do not re-trigger the envelopes.\nKey Step: Each new note advances the sequencer one step.\nAudio Input: The sequencer advances one step every time the\nexternal audio input level surpasses a certain threshold.");
+	descriptionString =  "Normal: New notes reset the sequencer to the first step.\n";
+	descriptionString += "The envelopes are re-triggered with each step.\n";
+	descriptionString += "Normal, No Reset: New notes do not reset the sequencer to the\n";
+	descriptionString += "first step. The envelopes are re-triggered with each step.\n";
+	descriptionString += "No Gate: New notes reset the sequencer to the first step. New\n";
+	descriptionString += "notes re-trigger the envelopes, but sequencer steps do not.\n";
+	descriptionString += "No Gate, No Reset: New notes do not reset the sequencer to the\n";
+	descriptionString += "first step. Sequencer steps do not re-trigger the envelopes.\n";
+	descriptionString += "Key Step: Each new note advances the sequencer one step.\n";
+	descriptionString += "Audio Input: The sequencer advances one step every time the\n";
+	descriptionString += "external audio input level surpasses a certain threshold.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(114);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(998, 126));
@@ -1479,7 +1564,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptions.add("Turns the Mopho's internal sequencer on and off.\nTurning this on will turn off the arpeggiator.");
+	descriptionString =  "Turns the Mopho's internal sequencer on and off.\n";
+	descriptionString += "Turning this on will turn off the arpeggiator.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(toggle_diameter);
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(819, 126));
@@ -1491,7 +1578,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)1);
-	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 1.");
+	descriptionString =  "Selects the target parameter for\n";
+	descriptionString += "modulation by sequencer track 1.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 169));
@@ -1503,7 +1592,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)2);
-	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 2.");
+	descriptionString = "Selects the target parameter for\n";
+	descriptionString += "modulation by sequencer track 2.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 252));
@@ -1515,7 +1606,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)9);
-	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 3.");
+	descriptionString = "Selects the target parameter for\n";
+	descriptionString += "modulation by sequencer track 3.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 335));
@@ -1527,7 +1620,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
-	descriptions.add("Selects the target parameter for\nmodulation by sequencer track 4.");
+	descriptionString = "Selects the target parameter for\n";
+	descriptionString += "modulation by sequencer track 4.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 418));
@@ -1541,7 +1636,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)5);
-	descriptions.add("Selects a target parameter for\nassignable hardware knob 1.");
+	descriptionString =  "Selects a target parameter for\n";
+	descriptionString += "assignable hardware knob 1.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knobAssignComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 521));
@@ -1553,7 +1650,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)11);
-	descriptions.add("Selects a target parameter for\nassignable hardware knob 2.");
+	descriptionString =  "Selects a target parameter for\n";
+	descriptionString += "assignable hardware knob 2.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knobAssignComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 549));
@@ -1565,7 +1664,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)43);
-	descriptions.add("Selects a target parameter for\nassignable hardware knob 3.");
+	descriptionString =  "Selects a target parameter for\n";
+	descriptionString += "assignable hardware knob 3.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knobAssignComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 577));
@@ -1577,7 +1678,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)23);
-	descriptions.add("Selects a target parameter for\nassignable hardware knob 4.");
+	descriptionString =  "Selects a target parameter for\n";
+	descriptionString += "assignable hardware knob 4.";
+	descriptions.add(descriptionString);
 	ctrlWidths.add(knobAssignComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 605));
@@ -1600,7 +1703,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
-			descriptions.add("Sets the value that sequencer track " + trackString + "'s destination parameter has at step " + stepString + ",\nRange: 0 to 125. If the destination is an oscillator pitch, the range is C0 to D5+.\nA \"+\" indicates that the pitch is a quarter tone higher than the displayed note.\nReset (126): Restarts the track from step 1. CTRL-click a step to set it to reset." + (track == 0 ? "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n(Rests are only available for the steps in sequencer track 1)." : ""));
+			descriptionString =  "Sets the value that sequencer track " + trackString + "'s destination parameter has at step " + stepString + ",\n";
+			descriptionString += "Range: 0 to 125. If the destination is an oscillator pitch, the range is C0 to D5+.\n";
+			descriptionString += "A \"+\" indicates that the pitch is a quarter-tone higher than the displayed note.\n";
+			descriptionString += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
+			if (track == 0) {
+				descriptionString += "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n";
+				descriptionString += "(Rests are only available for the steps in sequencer track 1).";
+			}
+			descriptions.add(descriptionString);
 			ctrlWidths.add(seqSteps_w);
 			ctrlHeights.add(seqSteps_h);
 			ctrlCenterPoints.add(Point<int>(sequencerStep1_x + step * sequencerStepsHorizontalSpacer, sequencerTrack1Steps_y + track * sequencerTracksVerticalSpacer));

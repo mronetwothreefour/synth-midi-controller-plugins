@@ -705,14 +705,14 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	fontSizes.add(FontsDB::size_ForSectionLabels);
 
 	labelTexts.add("TRIGGER MODE");
-	centerPoints.add(Point<int>(1139, 141));
+	centerPoints.add(Point<int>(998, 141));
 	widths.add(124);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
 
 	labelTexts.add("CLOCK DIVISION");
-	centerPoints.add(Point<int>(998, 141));
+	centerPoints.add(Point<int>(1139, 141));
 	widths.add(114);
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
