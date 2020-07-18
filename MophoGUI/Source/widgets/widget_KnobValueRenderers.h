@@ -43,6 +43,10 @@ public:
 			repaint();
 		}
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ValueStringRendererForKnobs)
 };
 
 
@@ -145,5 +149,9 @@ public:
 		if (slider == knob) 
 			repaint(); 
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(WaveShapeRendererForKnobs)
 };
 

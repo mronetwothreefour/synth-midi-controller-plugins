@@ -1111,3 +1111,66 @@ public:
 	}
 };
 
+
+
+struct IntToSeqStepPitchName
+{
+	static String convert(const uint8& i) noexcept {
+		auto pitchNum{ i % 24 };
+		auto octaveNumString{ String(i / 24) };
+		switch (pitchNum)
+		{
+		case 0 : return "C"  + octaveNumString;
+		case 1 : return "C"  + octaveNumString + "+";
+		case 2 : return "C#" + octaveNumString;
+		case 3 : return "C#" + octaveNumString + "+";
+		case 4 : return "D"  + octaveNumString;
+		case 5 : return "D"  + octaveNumString + "+";
+		case 6 : return "D#" + octaveNumString;
+		case 7 : return "D#" + octaveNumString + "+";
+		case 8 : return "E"  + octaveNumString;
+		case 9 : return "E"  + octaveNumString + "+";
+		case 10: return "F"  + octaveNumString;
+		case 11: return "F"  + octaveNumString + "+";
+		case 12: return "F#" + octaveNumString;
+		case 13: return "F#" + octaveNumString + "+";
+		case 14: return "G"  + octaveNumString;
+		case 15: return "G"  + octaveNumString + "+";
+		case 16: return "G#" + octaveNumString;
+		case 17: return "G#" + octaveNumString + "+";
+		case 18: return "A"  + octaveNumString;
+		case 19: return "A"  + octaveNumString + "+";
+		case 20: return "A#" + octaveNumString;
+		case 21: return "A#" + octaveNumString + "+";
+		case 22: return "B"  + octaveNumString;
+		case 23: return "B"  + octaveNumString + "+";
+		default: return "err";
+		}
+	}
+};
+
+
+
+struct IntToSeqStepValueString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 128);
+		if (i < 126) return (String)i + " (" + IntToSeqStepPitchName::convert(i) + ")";
+		if (i == 126) return "Reset Sequence";
+		if (i == 127) return "Rest";
+		else return "range error";
+	}
+
+public:
+	static IntToSeqStepValueString* get() noexcept {
+		static IntToSeqStepValueString converter;
+		return &converter;
+	}
+};
+

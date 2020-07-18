@@ -31,6 +31,9 @@ public:
 			g.setColour(Color::black);
 			g.fillEllipse(slider.getLocalBounds().reduced(5, 5).toFloat());
 		}
+		if (slider.getComponentID() == ID::component_SeqStep.toString()) {
+			g.fillAll(Color::black);
+		}
 
 		// Draw pointer and rotate it according to the slider's position
 		Point<float> center{ float(width) / 2.0f, float(width) / 2.0f };

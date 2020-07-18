@@ -6,6 +6,7 @@
 #include "../widgets/widget_Buttons.h"
 #include "../widgets/widget_ComboBoxes.h"
 #include "../widgets/widget_Knobs.h"
+#include "../widgets/widget_SequencerSteps.h"
 
 
 
@@ -16,6 +17,8 @@ class ControlForExposedParameter : public Component
 	std::unique_ptr<KnobWithWaveShapeDisplay> knobWithWaveShapeDisplay;
 	std::unique_ptr<ToggleButtonWithWithExposedParamAttacher> toggleButton;
 	std::unique_ptr<ComboBoxWithExposedParamAttacher> comboBox;
+	std::unique_ptr<SeqTrack1StepWithExposedParamAttacher> stepForSeqTrack1;
+	std::unique_ptr<SeqTracks2_3_4StepWithExposedParamAttacher> stepForSeqTracks2_3_4;
 
 	ControlForExposedParameter() : 
 		controlType{ ControlType::nullControl } 
@@ -47,7 +50,18 @@ public:
 			comboBox.reset(new ComboBoxWithExposedParamAttacher(param));
 			addAndMakeVisible(*comboBox);
 			setSize(comboBox->getWidth(), comboBox->getHeight());
-		default: 
+			break;
+		case ControlType::stepForSeqTrack1:
+			stepForSeqTrack1.reset(new SeqTrack1StepWithExposedParamAttacher(param));
+			addAndMakeVisible(*stepForSeqTrack1);
+			setSize(stepForSeqTrack1->getWidth(), stepForSeqTrack1->getHeight());
+			break;
+		case ControlType::stepForSeqTracks2_3_4:
+			stepForSeqTracks2_3_4.reset(new SeqTracks2_3_4StepWithExposedParamAttacher(param));
+			addAndMakeVisible(*stepForSeqTracks2_3_4);
+			setSize(stepForSeqTracks2_3_4->getWidth(), stepForSeqTracks2_3_4->getHeight());
+			break;
+		default:
 			break;
 		}
 	}
@@ -57,6 +71,8 @@ public:
 		knobWithWaveShapeDisplay = nullptr;
 		toggleButton = nullptr;
 		comboBox = nullptr;
+		stepForSeqTrack1 = nullptr;
+		stepForSeqTracks2_3_4 = nullptr;
 	}
 
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const noexcept {
@@ -77,6 +93,15 @@ public:
 		case ControlType::comboBox:
 			if (comboBox != nullptr)
 				comboBox->attachToExposedParameter(exposedParams);
+			break;
+		case ControlType::stepForSeqTrack1:
+			if (stepForSeqTrack1 != nullptr)
+				stepForSeqTrack1->attachToExposedParameter(exposedParams);
+			break;
+		case ControlType::stepForSeqTracks2_3_4:
+			if (stepForSeqTracks2_3_4 != nullptr)
+				stepForSeqTracks2_3_4->attachToExposedParameter(exposedParams);
+			break;
 		default: break;
 		}
 	}
@@ -90,6 +115,10 @@ public:
 			toggleButton->deleteAttachment();
 		if (comboBox != nullptr)
 			comboBox->deleteAttachment();
+		if (stepForSeqTrack1 != nullptr)
+			stepForSeqTrack1->deleteAttachment();
+		if (stepForSeqTracks2_3_4 != nullptr)
+			stepForSeqTracks2_3_4->deleteAttachment();
 	}
 
 private:

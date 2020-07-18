@@ -4805,6 +4805,12 @@
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

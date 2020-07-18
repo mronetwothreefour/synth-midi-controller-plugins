@@ -9,6 +9,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto toggle_diameter{ 14 };
 	const auto modulatorComboBox_w{ 126 };
 	const auto midiControllerComboBox_w{ 136 };
+	const auto seqTrackDestComboBoxes_w{ 126 };
+	const auto seqSteps_w{ 26 };
+	const auto seqSteps_h{ 26 };
+	const auto knobAssignComboBoxes_w{ 134 };
 	const auto comboBox_h{ 16 };
 	const auto horizGapBtwnControls{ 5 };
 	const auto controlsCol1_x{ 48 };
@@ -38,9 +42,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto env3ControlsRow1_y{ 531 };
 	const auto env3ControlsRow2_y{ 583 };
 	const auto seqTrackDestComboBoxes_x{ 1055 };
-	const auto seqTrackDestComboBoxes_w{ 126 };
 	const auto knobAssignComboBoxes_x{ 1089 };
-	const auto knobAssignComboBoxes_w{ 134 };
+	const auto sequencerStep1_x{ 825 };
+	const auto sequencerStepsHorizontalSpacer{ 28 };
+	const auto sequencerTrack1Steps_y{ 196 };
+	const auto sequencerTracksVerticalSpacer{ 83 };
 
 	//======================================================
 
@@ -1383,6 +1389,31 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlWidths.add(knobAssignComboBoxes_w);
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 605));
+
+	//======================================================
+
+	// Parameters 109-119 are unused
+
+	//======================================================
+
+	// 120-183
+	for (auto track = 0; track != 4; ++track) {
+		for (auto step = 0; step != 16; ++step) {
+			auto trackString{ (String)(track + 1) };
+			auto stepString{ (String)(step + 1) };
+			identifiers.add("track" + trackString + "Step" + stepString);
+			exposedNames.add("Sequencer Track " + trackString + " Step " + stepString);
+			controlTypes.add(track == 0 ? ControlType::stepForSeqTrack1 : ControlType::stepForSeqTracks2_3_4);
+			NRPNs.add((uint16)(120 + (16 * track) + step));
+			converters.add(IntToSeqStepValueString::get());
+			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
+			defaultValues.add((uint8)0);
+			descriptions.add("Sets the value that sequencer track " + trackString + "'s destination parameter has at step " + stepString + ",\nRange: 0 to 125. If the destination is an oscillator pitch, the range is C0 to D5+.\nA \"+\" indicates that the pitch is a quarter tone higher than the displayed note.\nReset (126): Restarts the track from step 1. CTRL-click a step to set it to reset." + (track == 0 ? "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n(Rests are only available for the steps in sequencer track 1)." : ""));
+			ctrlWidths.add(seqSteps_w);
+			ctrlHeights.add(seqSteps_h);
+			ctrlCenterPoints.add(Point<int>(sequencerStep1_x + step * sequencerStepsHorizontalSpacer, sequencerTrack1Steps_y + track * sequencerTracksVerticalSpacer));
+		}
+	}
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

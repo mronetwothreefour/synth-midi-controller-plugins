@@ -41,6 +41,12 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	const auto seqTrackLabels_w{ 68 };
 	const auto seqTrackDestLabels_x{ 951 };
 	const auto seqTrackDestLabels_w{ 74 };
+	const auto seqStepLabels_w{ 26 };
+	const auto seqStepLabels_h{ 14 };
+	const auto seqStep1Labels_x{ 825 };
+	const auto sequencerStepLabelsHorizontalSpacer{ 28 };
+	const auto seqTrack1StepLabels_y{ 216 };
+	const auto sequencerTracksVerticalSpacer{ 83 };
 	const auto lfoSectionLabels_y{ 485 };
 	const auto lfoCtrlLabelsRow1_y{ 538 };
 	const auto lfoCtrlLabelsRow2_y{ 575 };
@@ -774,6 +780,19 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centredRight);
 	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	for (auto track = 0; track != 4; ++track) {
+		for (auto step = 0; step != 16; ++step) {
+			labelTexts.add((String)(step + 1));
+			auto label_x{ seqStep1Labels_x + (step * sequencerStepLabelsHorizontalSpacer) };
+			auto label_y{ seqTrack1StepLabels_y + (track * sequencerTracksVerticalSpacer) };
+			centerPoints.add(Point<int>(label_x, label_y));
+			widths.add(seqStepLabels_w);
+			heights.add(seqStepLabels_h);
+			justificationFlags.add(Justification::centred);
+			fontSizes.add(FontsDB::size_ForSeqStepLabels);
+		}
+	}
 
 	//======================================================
 

@@ -2858,6 +2858,8 @@
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h" />
   </ItemGroup>

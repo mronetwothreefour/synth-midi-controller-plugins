@@ -38,3 +38,37 @@ public:
 	}
 };
 
+
+
+// A custom slider used for setting the values of steps in sequencer track 1.
+// The mouseDown() function is overridden so that the slider's value
+// changes to 126 (sequencer track reset) when clicked while the CTRL
+// key is down, and to 127 (rest) when clicked while the ALT key is down.
+class SliderForTrack1Steps : public RotarySliderWithMouseWheelMod
+{
+public:
+	void mouseDown(const MouseEvent& e) override {
+		if (e.mods.isCtrlDown())
+			setValue(126.0, sendNotification);
+		if (e.mods.isAltDown())
+			setValue(127.0, sendNotification);
+		else Slider::mouseDown(e);
+	}
+};
+
+
+
+// A custom slider used for setting the values of steps in sequencer tracks 2, 3, and 4.
+// The mouseDown() function is overridden so that the slider's value changes to 126
+// (sequencer track reset) when clicked while the CTRL key is down
+class SliderForTracks2_3_4Steps : public RotarySliderWithMouseWheelMod
+{
+public:
+	void mouseDown(const MouseEvent& e) override {
+		if (e.mods.isCtrlDown())
+			setValue(126, sendNotification);
+		else Slider::mouseDown(e);
+	}
+};
+
+
