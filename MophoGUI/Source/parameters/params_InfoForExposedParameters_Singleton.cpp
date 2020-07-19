@@ -1698,7 +1698,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			auto stepString{ (String)(step + 1) };
 			identifiers.add("track" + trackString + "Step" + stepString);
 			exposedNames.add("Sequencer Track " + trackString + " Step " + stepString);
-			controlTypes.add(track == 0 ? ControlType::stepForSeqTrack1 : ControlType::stepForSeqTracks2_3_4);
+			controlTypes.add(ControlType::sequencerStep);
 			NRPNs.add((uint16)(120 + (16 * track) + step));
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
