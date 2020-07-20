@@ -124,6 +124,12 @@ void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
     // TODO: code for restoring unexposed parameters state
 }
 
+void PluginProcessor::updateProgramName(String newName) {
+    programName = newName;
+    nameCharCounter = 0;
+    MultiTimer::startTimer(pgmNameTimer, pgmNameTimerInterval);
+}
+
 void PluginProcessor::parameterChanged(const String& parameterID, float newValue) {
     if (nrpnOutputIsAllowed)
     {
@@ -174,15 +180,30 @@ void PluginProcessor::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn)
 
 void PluginProcessor::combineMidiBuffers(MidiBuffer& midiBuffer) {
     internalMidiBuf.addEvents(midiBuffer, 0, -1, 0);
-    if (!isTimerRunning()) {
+    if (!isTimerRunning(midiBufferTimer)) {
         internalMidiBuffers->add(internalMidiBuf);
         internalMidiBuf.clear();
-        startTimer(10);
+        startTimer(midiBufferTimer, 10);
     }
 }
 
-void PluginProcessor::timerCallback() {
-    stopTimer();
+void PluginProcessor::timerCallback(int timerID) {
+    stopTimer(timerID);
+    if (timerID == pgmNameTimer) {
+        // convert nameChar's ASCII value (0..127) to a normalized value (0.0f..1.0f)
+        auto normalizedValue{ (char)programName[nameCharCounter] / 127.0f };
+        auto& info{ InfoForExposedParameters::get() };
+        auto paramIndex{ info.indexFor("nameChar" + (String)(nameCharCounter + 1)) };
+        auto param{ getParameters()[paramIndex] };
+        if (param != nullptr)
+            param->setValueNotifyingHost(normalizedValue);
+        if (nameCharCounter < 16) {
+            ++nameCharCounter;
+            startTimer(pgmNameTimer, pgmNameTimerInterval);
+        }
+        else
+            nameCharCounter = 0;
+    }
 }
 
 //==============================================================================

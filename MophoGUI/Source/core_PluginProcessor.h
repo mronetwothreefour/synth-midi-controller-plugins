@@ -13,12 +13,17 @@
 class PluginProcessor : 
     public AudioProcessor,
     public AudioProcessorValueTreeState::Listener,
-    public Timer
+    public MultiTimer
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
     bool nrpnOutputIsAllowed;
     MidiBuffer internalMidiBuf;
+    int nameCharCounter{ 0 };
+    int pgmNameTimerInterval{ 80 };
+    String programName{ "Basic Patch     " };
+
+    enum TimerType{ midiBufferTimer, pgmNameTimer };
 
 public:
     PluginProcessor();
@@ -50,6 +55,7 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
     void restoreStateFromXml(XmlElement* sourceXml);
 
+    void updateProgramName(String newName);
     void parameterChanged(const String& parameterID, float newValue) override;
     uint8 addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue);
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
@@ -59,7 +65,7 @@ public:
     // 10 ms slice of time into a single MidiBuffer
     void combineMidiBuffers(MidiBuffer& midiBuffer);
 
-    void timerCallback() override;
+    void timerCallback(int timerID) override;
 
 private:
     //==============================================================================

@@ -15,15 +15,20 @@
 class PluginEditor : 
     public AudioProcessorEditor,
     public ValueTree::Listener,
-    public Timer
+    public Label::Listener
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
     std::unique_ptr<MainWindowDivision_Logo> mophoguiLogo;
-    std::unique_ptr<EnvelopeRenderer> lpfEnvelopeRenderer;
-    std::unique_ptr<EnvelopeRenderer> vcaEnvelopeRenderer;
-    std::unique_ptr<EnvelopeRenderer> env3EnvelopeRenderer;
+    std::unique_ptr<EnvelopeRenderer> envelopeRenderer_LPF;
+    std::unique_ptr<EnvelopeRenderer> envelopeRenderer_VCA;
+    std::unique_ptr<EnvelopeRenderer> envelopeRenderer_Env3;
+    std::unique_ptr<Label>pgmNameEditor;
+    std::unique_ptr<TextButton> button_EditPgmName;
     TooltipWindow tooltipWindow;
+
+    String getPgmName();
+    void showPgmNameEditor();
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams);
@@ -32,7 +37,7 @@ public:
     void paint(Graphics& g) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-    void timerCallback() override {}
+    void labelTextChanged(Label* labelThatHasChanged) override;
 
 private:
     //==============================================================================
