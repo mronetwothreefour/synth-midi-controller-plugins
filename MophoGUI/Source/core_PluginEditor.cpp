@@ -10,8 +10,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     mophoLaF.reset(new MophoLookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
 
-    widget_Logo.reset(new MainWindowDivision_Logo());
-    addAndMakeVisible(widget_Logo.get());
+    mophoguiLogo.reset(new MainWindowDivision_Logo());
+    addAndMakeVisible(mophoguiLogo.get());
 
     auto& controls{ ControlsForExposedParameters::get() };
     controls.rebuildControls();
@@ -21,6 +21,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
         control->attachToExposedParameter(exposedParams);
         control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
     }
+
+    lpfEnvelopeRenderer.reset(new EnvelopeRenderer("lpf", exposedParams));
+    vcaEnvelopeRenderer.reset(new EnvelopeRenderer("vca", exposedParams));
+    env3EnvelopeRenderer.reset(new EnvelopeRenderer("env3", exposedParams));
+    addAndMakeVisible(lpfEnvelopeRenderer.get());
+    addAndMakeVisible(vcaEnvelopeRenderer.get());
+    addAndMakeVisible(env3EnvelopeRenderer.get());
 
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.addListener(this);
@@ -38,6 +45,10 @@ PluginEditor::~PluginEditor() {
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.removeListener(this);
 
+    env3EnvelopeRenderer = nullptr;
+    vcaEnvelopeRenderer = nullptr;
+    lpfEnvelopeRenderer = nullptr;
+
     auto& controls{ ControlsForExposedParameters::get() };
     for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
         auto control{ controls.controlFor(param) };
@@ -46,7 +57,7 @@ PluginEditor::~PluginEditor() {
 
     controls.clear();
 
-    widget_Logo = nullptr;
+    mophoguiLogo = nullptr;
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     mophoLaF = nullptr;
@@ -69,7 +80,11 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
-    widget_Logo->setBounds(836, 0, widget_Logo->getWidth(), widget_Logo->getHeight());
+    mophoguiLogo->setBounds(836, 0, mophoguiLogo->getWidth(), mophoguiLogo->getHeight());
+    auto envelopeRenderers_x{ 168 };
+    lpfEnvelopeRenderer->setBounds(envelopeRenderers_x, 154, lpfEnvelopeRenderer->getWidth(), lpfEnvelopeRenderer->getHeight());
+    vcaEnvelopeRenderer->setBounds(envelopeRenderers_x, 312, vcaEnvelopeRenderer->getWidth(), vcaEnvelopeRenderer->getHeight());
+    env3EnvelopeRenderer->setBounds(envelopeRenderers_x, 470, env3EnvelopeRenderer->getWidth(), env3EnvelopeRenderer->getHeight());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)

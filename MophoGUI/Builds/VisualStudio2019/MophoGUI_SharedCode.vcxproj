@@ -2855,6 +2855,7 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Buttons.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_EnvelopeRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />

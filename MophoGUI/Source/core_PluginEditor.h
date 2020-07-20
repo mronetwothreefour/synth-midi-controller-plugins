@@ -9,6 +9,7 @@
 #include "helpers/helper_Identifiers.h"
 #include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
 #include "helpers/helper_MophoLookAndFeel.h"
+#include "widgets/widget_EnvelopeRenderer.h"
 #include "widgets/widget_Logo.h"
 
 class PluginEditor : 
@@ -18,7 +19,10 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
-    std::unique_ptr<MainWindowDivision_Logo> widget_Logo;
+    std::unique_ptr<MainWindowDivision_Logo> mophoguiLogo;
+    std::unique_ptr<EnvelopeRenderer> lpfEnvelopeRenderer;
+    std::unique_ptr<EnvelopeRenderer> vcaEnvelopeRenderer;
+    std::unique_ptr<EnvelopeRenderer> env3EnvelopeRenderer;
     TooltipWindow tooltipWindow;
 
 public:
