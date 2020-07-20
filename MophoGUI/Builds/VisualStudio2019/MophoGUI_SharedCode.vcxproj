@@ -2070,6 +2070,7 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2844,9 +2845,9 @@
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Identifiers.h" />
-    <ClInclude Include="..\..\Source\helpers\helper_InfoForLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\helpers\helper_NRPNgenerator.h" />
     <ClInclude Include="..\..\Source\helpers\helper_scratchPad.h" />
@@ -2858,6 +2859,7 @@
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ProgramNameCharacters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />

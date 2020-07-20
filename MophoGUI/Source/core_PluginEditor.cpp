@@ -31,6 +31,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
+    setResizable(false, false);
 }
 
 PluginEditor::~PluginEditor() {
@@ -63,6 +64,8 @@ void PluginEditor::paint(Graphics& g) {
         g.drawFittedText(info.textFor(label), labelArea, info.justificationFlagFor(label), 1, 1.0f);
     }
     g.drawHorizontalLine(85, 15.0f, 295.0f);
+    Rectangle<int> pgmNameBackground{ 580, 33, 242, 37 };
+    g.fillRect(pgmNameBackground);
 }
 
 void PluginEditor::resized() {

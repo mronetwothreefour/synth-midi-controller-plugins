@@ -1,5 +1,7 @@
 #include "helper_InfoForMainWindowLabels_Singleton.h"
 
+
+
 InfoForMainWindowLabels::InfoForMainWindowLabels() {
 	fillAllInfoContainers();
 }
@@ -257,6 +259,15 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	heights.add(ctrlLabel_h);
 	justificationFlags.add(Justification::centred);
 	fontSizes.add(FontsDB::size_ForControlLabels);
+
+	//======================================================
+
+	labelTexts.add("PROGRAM NAME");
+	centerPoints.add(Point<int>(642, 19));
+	widths.add(124);
+	heights.add(sectionLabel_h);
+	justificationFlags.add(Justification::topLeft);
+	fontSizes.add(FontsDB::size_ForSectionLabels);
 
 	//======================================================
 

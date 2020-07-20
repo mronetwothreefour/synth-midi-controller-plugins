@@ -27,9 +27,7 @@ public:
 
     void paint(Graphics& g) override;
     void resized() override;
-
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-
     void timerCallback() override {}
 
 private:

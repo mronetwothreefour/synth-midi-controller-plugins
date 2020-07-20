@@ -1174,3 +1174,48 @@ public:
 	}
 };
 
+
+
+struct IntToPgmNameCharString :
+	public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override {
+		return verboseConversionAlgorithm(i);
+	}
+
+	String verboseConversionAlgorithm(const uint8& i) noexcept override {
+		jassert(i < 128);
+		if (i > 31)
+		{
+			String character;
+			switch (i)
+			{
+			case 32:
+				character = "Space";
+				break;
+			case 92:
+				character = "Yen Symbol";
+				break;
+			case 126:
+				character = "Right Arrow";
+				break;
+			case 127:
+				character = "Left Arrow";
+				break;
+			default:
+				character = std::string(1, (char)i);
+				break;
+			}
+			character += " (" + (String)i + ")";
+			return character;
+		}
+		else return "Control Character (" + (String)i + ")";
+	}
+
+public:
+	static IntToPgmNameCharString* get() noexcept {
+		static IntToPgmNameCharString converter;
+		return &converter;
+	}
+};

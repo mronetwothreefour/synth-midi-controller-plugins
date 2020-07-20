@@ -47,6 +47,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	const auto sequencerStepsHorizontalSpacer{ 28 };
 	const auto sequencerTrack1Steps_y{ 196 };
 	const auto sequencerTracksVerticalSpacer{ 83 };
+	const auto pgmNameCharacter1_x{ 596 };
+	const auto pgmNameCharactersHorizontalSpacer{ 14 };
+	const auto pgmNameCharacters_w{ 12 };
+	const auto pgmNameCharacters_h{ 17 };
+	const auto pgmNameCharacters_y{ 52 };
 
 	String descriptionString;
 
@@ -1571,7 +1576,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlHeights.add(toggle_diameter);
 	ctrlCenterPoints.add(Point<int>(819, 126));
 
-	identifiers.add("seqTrack1Dest"); // 101
+	identifiers.add(ID::param_SeqTrack1Dest); // 101
 	exposedNames.add("Sequencer Track 1 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint16)77);
@@ -1585,7 +1590,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 169));
 
-	identifiers.add("seqTrack2Dest"); // 102
+	identifiers.add(ID::param_SeqTrack2Dest); // 102
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint16)78);
@@ -1599,7 +1604,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 252));
 
-	identifiers.add("seqTrack3Dest"); // 103
+	identifiers.add(ID::param_SeqTrack3Dest); // 103
 	exposedNames.add("Sequencer Track 3 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint16)79);
@@ -1613,7 +1618,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	ctrlHeights.add(comboBox_h);
 	ctrlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 335));
 
-	identifiers.add("seqTrack4Dest"); // 104
+	identifiers.add(ID::param_SeqTrack4Dest); // 104
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint16)80);
@@ -1691,7 +1696,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	// 120-183
+	// 120..183
 	for (auto track = 0; track != 4; ++track) {
 		for (auto step = 0; step != 16; ++step) {
 			auto trackString{ (String)(track + 1) };
@@ -1717,6 +1722,43 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ctrlCenterPoints.add(Point<int>(sequencerStep1_x + step * sequencerStepsHorizontalSpacer, sequencerTrack1Steps_y + track * sequencerTracksVerticalSpacer));
 		}
 	}
+
+	//======================================================
+
+	// 184..199
+	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto charNumString{ (String)(charNum + 1) };
+		identifiers.add("nameChar" + charNumString);
+		exposedNames.add("Program Name Character " + charNumString);
+		controlTypes.add(ControlType::pgmNameChar);
+		NRPNs.add((uint16)(184 + charNum));
+		converters.add(IntToPgmNameCharString::get());
+		maxValues.add((uint8)127);
+		descriptionString =  "To change character " + charNumString + " of the program's name,\n";
+		descriptionString += "click-and-drag the character or hover over\n";
+		descriptionString += "it and turn the mouse wheel. Click the edit\n";
+		descriptionString += "button above to type in the entire name.";
+		descriptions.add(descriptionString);
+		ctrlWidths.add(pgmNameCharacters_w);
+		ctrlHeights.add(pgmNameCharacters_h);
+		ctrlCenterPoints.add(Point<int>(pgmNameCharacter1_x + (charNum * pgmNameCharactersHorizontalSpacer), pgmNameCharacters_y));
+	}
+	defaultValues.add((uint8)66);	// B
+	defaultValues.add((uint8)97);	// a
+	defaultValues.add((uint8)115);	// s
+	defaultValues.add((uint8)105);	// i
+	defaultValues.add((uint8)99);	// c
+	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)80);	// P
+	defaultValues.add((uint8)97);	// a
+	defaultValues.add((uint8)116);	// t
+	defaultValues.add((uint8)99);	// c
+	defaultValues.add((uint8)104);	// h
+	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)32);	// space
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {

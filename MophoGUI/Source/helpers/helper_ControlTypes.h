@@ -13,6 +13,7 @@ enum class ControlType
 	pgmSlotRadioButton,
 	utilityButton,
 	comboBox,
-	sequencerStep
+	sequencerStep,
+	pgmNameChar
 };
 

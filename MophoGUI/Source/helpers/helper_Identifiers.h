@@ -12,6 +12,11 @@ namespace ID
 	static const Identifier component_SeqStep{ "component_SeqStep" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 
+	static const Identifier param_SeqTrack1Dest{ "seqTrack1Dest" };
+	static const Identifier param_SeqTrack2Dest{ "seqTrack2Dest" };
+	static const Identifier param_SeqTrack3Dest{ "seqTrack3Dest" };
+	static const Identifier param_SeqTrack4Dest{ "seqTrack4Dest" };
+
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };

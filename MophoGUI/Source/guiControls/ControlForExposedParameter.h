@@ -6,6 +6,7 @@
 #include "../widgets/widget_Buttons.h"
 #include "../widgets/widget_ComboBoxes.h"
 #include "../widgets/widget_Knobs.h"
+#include "../widgets/widget_ProgramNameCharacters.h"
 #include "../widgets/widget_SequencerSteps.h"
 
 
@@ -18,6 +19,7 @@ class ControlForExposedParameter : public Component
 	std::unique_ptr<ToggleButtonWithWithExposedParamAttacher> toggleButton;
 	std::unique_ptr<ComboBoxWithExposedParamAttacher> comboBox;
 	std::unique_ptr<SequencerStepWithExposedParamAttacher> sequencerStep;
+	std::unique_ptr<PgmNameCharWithExposedParamAttacher> pgmNameChar;
 
 	ControlForExposedParameter() : 
 		controlType{ ControlType::nullControl } 
@@ -62,6 +64,11 @@ public:
 			addAndMakeVisible(*sequencerStep);
 			setSize(sequencerStep->getWidth(), sequencerStep->getHeight());
 			break;
+		case ControlType::pgmNameChar:
+			pgmNameChar.reset(new PgmNameCharWithExposedParamAttacher(param));
+			addAndMakeVisible(*pgmNameChar);
+			setSize(pgmNameChar->getWidth(), pgmNameChar->getHeight());
+			break;
 		default:
 			break;
 		}
@@ -98,6 +105,10 @@ public:
 			if (sequencerStep != nullptr)
 				sequencerStep->attachToExposedParameter(exposedParams);
 			break;
+		case ControlType::pgmNameChar:
+			if (pgmNameChar != nullptr)
+				pgmNameChar->attachToExposedParameter(exposedParams);
+			break;
 		default: break;
 		}
 	}
@@ -113,6 +124,8 @@ public:
 			comboBox->deleteAttachment();
 		if (sequencerStep != nullptr)
 			sequencerStep->deleteAttachment();
+		if (pgmNameChar != nullptr)
+			pgmNameChar->deleteAttachment();
 	}
 
 private:

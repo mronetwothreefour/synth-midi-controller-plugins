@@ -57,16 +57,16 @@ public:
 		switch (sequencerTrack)
 		{
 		case 1:
-			destinationAttachment.reset(new SliderAttachment(*exposedParams, "seqTrack1Dest", trackDestination));
+			destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::param_SeqTrack1Dest.toString(), trackDestination));
 			break;
 		case 2:
-			destinationAttachment.reset(new SliderAttachment(*exposedParams, "seqTrack2Dest", trackDestination));
+			destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::param_SeqTrack2Dest.toString(), trackDestination));
 			break;
 		case 3:
-			destinationAttachment.reset(new SliderAttachment(*exposedParams, "seqTrack3Dest", trackDestination));
+			destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::param_SeqTrack3Dest.toString(), trackDestination));
 			break;
 		case 4:
-			destinationAttachment.reset(new SliderAttachment(*exposedParams, "seqTrack4Dest", trackDestination));
+			destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::param_SeqTrack4Dest.toString(), trackDestination));
 			break;
 		default:
 			break;
