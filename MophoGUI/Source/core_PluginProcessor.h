@@ -20,7 +20,7 @@ class PluginProcessor :
     bool nrpnOutputIsAllowed;
     MidiBuffer internalMidiBuf;
     int nameCharCounter{ 0 };
-    int pgmNameTimerInterval{ 80 };
+    int pgmNameTimerInterval{ 10 };
     String programName{ "Basic Patch     " };
 
     enum TimerType{ midiBufferTimer, pgmNameTimer };

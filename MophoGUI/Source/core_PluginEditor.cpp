@@ -29,25 +29,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(envelopeRenderer_VCA.get());
     addAndMakeVisible(envelopeRenderer_Env3.get());
 
-    pgmNameEditor.reset(new Label("pgmNameEditor", getPgmName()));
-    pgmNameEditor->setInterceptsMouseClicks(false, true);
-    pgmNameEditor->setComponentID("pgmNameEditor");
-    pgmNameEditor->setJustificationType(Justification::centredLeft);
-    pgmNameEditor->setColour(Label::backgroundColourId, Colours::transparentBlack);
-    pgmNameEditor->setColour(Label::outlineColourId, Colours::transparentBlack);
-    pgmNameEditor->setColour(Label::textWhenEditingColourId, Color::controlText);
-    pgmNameEditor->setColour(Label::backgroundWhenEditingColourId, Color::black);
-    pgmNameEditor->setColour(Label::outlineWhenEditingColourId, Color::black);
-    pgmNameEditor->addListener(this);
-    addAndMakeVisible(pgmNameEditor.get());
-
-    button_EditPgmName.reset(new TextButton("EDIT"));
-    addAndMakeVisible(button_EditPgmName.get());
-    String tooltipString;
-    tooltipString =  "Opens an editor where you can\n";
-    tooltipString += "type in a new program name.\n";
-    button_EditPgmName->setTooltip(tooltipString);
-    button_EditPgmName->onClick = [this] { showPgmNameEditor(); };
+    button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(processor));
+    addAndMakeVisible(button_ForEditingPgmName.get());
 
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.addListener(this);
@@ -65,10 +48,7 @@ PluginEditor::~PluginEditor() {
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.removeListener(this);
 
-    pgmNameEditor->removeListener(this);
-
-    button_EditPgmName = nullptr;
-    pgmNameEditor = nullptr;
+    button_ForEditingPgmName = nullptr;
     envelopeRenderer_Env3 = nullptr;
     envelopeRenderer_VCA = nullptr;
     envelopeRenderer_LPF = nullptr;
@@ -85,33 +65,6 @@ PluginEditor::~PluginEditor() {
 
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     mophoLaF = nullptr;
-}
-
-String PluginEditor::getPgmName() {
-    auto& info{ InfoForExposedParameters::get() };
-    std::string pgmName{ "" };
-    for (auto i = 1; i != 17; ++i) {
-        auto paramIndex{ info.indexFor("nameChar" + (String)i) };
-        auto param{ processor.getParameters()[paramIndex] };
-        pgmName += std::string(1, char(roundToInt(param->getValue() * 127)));
-    }
-    return pgmName;
-}
-
-void PluginEditor::showPgmNameEditor() {
-    pgmNameEditor->showEditor();
-    // restrict editor input to maximum 16 basic ASCII characters
-    pgmNameEditor->getCurrentTextEditor()->setInputRestrictions(16,
-        " !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~");
-    String nameEditorTooltip;
-    nameEditorTooltip =  "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
-    nameEditorTooltip += "Hit Esc to cancel. The Mopho's hardware LCD characters use the basic ASCII\n";
-    nameEditorTooltip += "character set, with a few exceptions: 'backslash' becomes a yen sign and 'tilde'\n";
-    nameEditorTooltip += "becomes a right arrow. The 'delete' character becomes a left arrow; obviously,\n";
-    nameEditorTooltip += "you can't type that in the editor. However, you can access it by changing a\n";
-    nameEditorTooltip += "character in the GUI's name display with the mouse. The hardware name display\n";
-    nameEditorTooltip += "will not update immediately - press the Program Mode button to see the new name.";
-    pgmNameEditor->getCurrentTextEditor()->setTooltip(nameEditorTooltip);
 }
 
 void PluginEditor::paint(Graphics& g) {
@@ -136,8 +89,7 @@ void PluginEditor::resized() {
     envelopeRenderer_LPF->setBounds(envelopeRenderers_x, 154, envelopeRenderer_LPF->getWidth(), envelopeRenderer_LPF->getHeight());
     envelopeRenderer_VCA->setBounds(envelopeRenderers_x, 312, envelopeRenderer_VCA->getWidth(), envelopeRenderer_VCA->getHeight());
     envelopeRenderer_Env3->setBounds(envelopeRenderers_x, 470, envelopeRenderer_Env3->getWidth(), envelopeRenderer_Env3->getHeight());
-    pgmNameEditor->setBounds(590, 43, 222, 18);
-    button_EditPgmName->setBounds(705, 11, 42, 16);
+    button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)
@@ -149,14 +101,3 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
     }
 }
 
-void PluginEditor::labelTextChanged(Label* labelThatHasChanged) {
-    if (labelThatHasChanged == pgmNameEditor.get())
-    {
-        String newName{ labelThatHasChanged->getText() };
-        // if newName is less than 16 characters long, append
-        // enough space characters to make the total length 16. 
-        for (auto i = newName.length(); i < 16; ++i)
-            newName += " ";
-        processor.updateProgramName(newName);
-    }
-}

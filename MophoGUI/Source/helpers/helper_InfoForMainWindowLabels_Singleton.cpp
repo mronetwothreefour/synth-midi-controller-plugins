@@ -263,7 +263,7 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	//======================================================
 
 	labelTexts.add("PROGRAM NAME");
-	centerPoints.add(Point<int>(642, 19));
+	centerPoints.add(Point<int>(642, 20));
 	widths.add(124);
 	heights.add(sectionLabel_h);
 	justificationFlags.add(Justification::topLeft);
