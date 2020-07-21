@@ -2445,6 +2445,9 @@
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\helpers\helper_MidiHandler.cpp">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4816,6 +4819,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_EnvelopeRenderer.h">
       <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_MidiHandler.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

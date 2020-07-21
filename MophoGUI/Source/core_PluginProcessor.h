@@ -3,27 +3,18 @@
 #include <JuceHeader.h>
 
 #include "core_UndoManager_Singleton.h"
-#include "helpers/helper_Identifiers.h"
-#include "helpers/helper_NRPNgenerator.h"
+#include "helpers/helper_MidiHandler.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_UnexposedParameters.h"
 
 
 
 class PluginProcessor : 
-    public AudioProcessor,
-    public AudioProcessorValueTreeState::Listener,
-    public MultiTimer
+    public AudioProcessor
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
-    bool nrpnOutputIsAllowed;
-    MidiBuffer internalMidiBuf;
-    int nameCharCounter{ 0 };
-    int pgmNameTimerInterval{ 10 };
-    String programName{ "Basic Patch     " };
-
-    enum TimerType{ midiBufferTimer, pgmNameTimer };
+    std::unique_ptr<MidiHandler> midiHandler;
 
 public:
     PluginProcessor();
@@ -55,17 +46,7 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
     void restoreStateFromXml(XmlElement* sourceXml);
 
-    void updateProgramName(String newName);
-    void parameterChanged(const String& parameterID, float newValue) override;
-    uint8 addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue);
-    void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
-    void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
-
-    // Combines all MidiBuffers that get created within a
-    // 10 ms slice of time into a single MidiBuffer
-    void combineMidiBuffers(MidiBuffer& midiBuffer);
-
-    void timerCallback(int timerID) override;
+    void updateProgramNameOnHardware(String newName);
 
 private:
     //==============================================================================

@@ -93,7 +93,7 @@ class ButtonAndLabelForEditingPgmName :
 			for (auto i = newNameLength; i != 16; ++i)
 				newName += " ";
 		}
-		processor.updateProgramName(newName);
+		processor.updateProgramNameOnHardware(newName);
 	}
 
 public:

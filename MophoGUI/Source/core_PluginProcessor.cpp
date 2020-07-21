@@ -5,17 +5,12 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     internalMidiBuffers{ new Array<MidiBuffer> },
-    nrpnOutputIsAllowed{ true }
+    midiHandler{ new MidiHandler(exposedParams.get(), internalMidiBuffers.get()) }
 {
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-        exposedParams->addParameterListener(info.IDfor(param), this);
 }
 
 PluginProcessor::~PluginProcessor() {
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-        exposedParams->removeParameterListener(info.IDfor(param), this);
+    midiHandler = nullptr;
     internalMidiBuffers = nullptr;
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
@@ -68,8 +63,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 
     // Add internally-generated MIDI messages to output stream
     if (!internalMidiBuffers->isEmpty()) {
-        auto internalMidiBuffer{ internalMidiBuffers->removeAndReturn(0) };
-        for (auto event : internalMidiBuffer) {
+        for (auto event : internalMidiBuffers->removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
     }
@@ -124,86 +118,8 @@ void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
     // TODO: code for restoring unexposed parameters state
 }
 
-void PluginProcessor::updateProgramName(String newName) {
-    programName = newName;
-    nameCharCounter = 0;
-    MultiTimer::startTimer(pgmNameTimer, pgmNameTimerInterval);
-}
-
-void PluginProcessor::parameterChanged(const String& parameterID, float newValue) {
-    if (nrpnOutputIsAllowed)
-    {
-        auto& info{ InfoForExposedParameters::get() };
-        auto param{ info.indexFor(parameterID) };
-        auto nrpn{ info.NRPNfor(param) };
-        auto outputValue{ (uint8)roundToInt(newValue) };
-        outputValue = addAnyParamSpecificOffsetsToOutputValue(param, outputValue);
-        addParamChangedMessageToMidiBuffer(nrpn, outputValue);
-        if ((param == 98 || param == 100) && outputValue == 1)
-            arpeggiatorAndSequencerCannotBothBeOn(param);
-    }
-    else return;
-}
-
-uint8 PluginProcessor::addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue) {
-    if (param == 95)
-        outputValue += 30; // clock tempo parameter range is offset by 30
-    if (param > 104 && param < 109 && outputValue > 104) // knob assignment parameters
-        outputValue += 15; // offset to account for unassignable Mopho parameters 105..119
-    return outputValue;
-}
-
-void PluginProcessor::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue) {
-    // Send MIDI channel change messages out on all channels
-    if (paramNRPN == 386) { 
-        for (uint8 midiChannel = 0; midiChannel != 16; ++midiChannel) {
-            auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
-            combineMidiBuffers(nrpnBuffer);
-        }
-    }
-    else {
-        // TODO: get current MIDI channel from global options
-        auto midiChannel{ (uint8)1 };
-        auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
-        combineMidiBuffers(nrpnBuffer);
-    }
-}
-
-void PluginProcessor::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
-    if (paramTurnedOn == 98 && getParameters()[100] != nullptr)
-        if (getParameters()[100]->getValue() != 0.0f)
-            getParameters()[100]->setValueNotifyingHost(0.0f);
-    if (paramTurnedOn == 100 && getParameters()[98] != nullptr)
-        if (getParameters()[98]->getValue() != 0.0f)
-            getParameters()[98]->setValueNotifyingHost(0.0f);
-}
-
-void PluginProcessor::combineMidiBuffers(MidiBuffer& midiBuffer) {
-    internalMidiBuf.addEvents(midiBuffer, 0, -1, 0);
-    if (!isTimerRunning(midiBufferTimer)) {
-        internalMidiBuffers->add(internalMidiBuf);
-        internalMidiBuf.clear();
-        startTimer(midiBufferTimer, 10);
-    }
-}
-
-void PluginProcessor::timerCallback(int timerID) {
-    stopTimer(timerID);
-    if (timerID == pgmNameTimer) {
-        // convert nameChar's ASCII value (0..127) to a normalized value (0.0f..1.0f)
-        auto normalizedValue{ (char)programName[nameCharCounter] / 127.0f };
-        auto& info{ InfoForExposedParameters::get() };
-        auto paramIndex{ info.indexFor("nameChar" + (String)(nameCharCounter + 1)) };
-        auto param{ getParameters()[paramIndex] };
-        if (param != nullptr)
-            param->setValueNotifyingHost(normalizedValue);
-        if (nameCharCounter < 16) {
-            ++nameCharCounter;
-            startTimer(pgmNameTimer, pgmNameTimerInterval);
-        }
-        else
-            nameCharCounter = 0;
-    }
+void PluginProcessor::updateProgramNameOnHardware(String newName) {
+    midiHandler->updateProgramNameOnHardware(newName);
 }
 
 //==============================================================================
