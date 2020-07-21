@@ -137,3 +137,34 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonAndLabelForEditingPgmName)
 };
+
+
+
+class ButtonForClearingSequencerTrack :
+	public TextButton
+{
+	int trackNum;
+	PluginProcessor& processor;
+
+	void clearSequencerTrack() {
+		processor.clearSequencerTrack(trackNum);
+	}
+
+public:
+	ButtonForClearingSequencerTrack() = delete;
+
+	ButtonForClearingSequencerTrack(int trackNum, PluginProcessor& processor) :
+		TextButton{ "CLEAR" },
+		trackNum{ trackNum },
+		processor{ processor }
+	{
+		onClick = [this] { clearSequencerTrack(); };
+	}
+
+	~ButtonForClearingSequencerTrack() {
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForClearingSequencerTrack)
+};

@@ -32,6 +32,15 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(processor));
     addAndMakeVisible(button_ForEditingPgmName.get());
 
+    button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, processor));
+    button_ForClearingSequencerTrack2.reset(new ButtonForClearingSequencerTrack(2, processor));
+    button_ForClearingSequencerTrack3.reset(new ButtonForClearingSequencerTrack(3, processor));
+    button_ForClearingSequencerTrack4.reset(new ButtonForClearingSequencerTrack(4, processor));
+    addAndMakeVisible(button_ForClearingSequencerTrack1.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack2.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack3.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack4.get());
+
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.addListener(this);
     auto tooltipsDelay{ (int)tooltipOptions.getProperty(ID::tooltips_DelayInMilliseconds) };
@@ -48,6 +57,10 @@ PluginEditor::~PluginEditor() {
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.removeListener(this);
 
+    button_ForClearingSequencerTrack4 = nullptr;
+    button_ForClearingSequencerTrack3 = nullptr;
+    button_ForClearingSequencerTrack2 = nullptr;
+    button_ForClearingSequencerTrack1 = nullptr;
     button_ForEditingPgmName = nullptr;
     envelopeRenderer_Env3 = nullptr;
     envelopeRenderer_VCA = nullptr;
@@ -90,6 +103,13 @@ void PluginEditor::resized() {
     envelopeRenderer_VCA->setBounds(envelopeRenderers_x, 312, envelopeRenderer_VCA->getWidth(), envelopeRenderer_VCA->getHeight());
     envelopeRenderer_Env3->setBounds(envelopeRenderers_x, 470, envelopeRenderer_Env3->getWidth(), envelopeRenderer_Env3->getHeight());
     button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
+    auto clearSeqTrackButtons_x{ 1166 };
+    auto clearSeqTrackButtons_w{ 42 };
+    auto clearSeqTrackButtons_h{ 16 };
+    button_ForClearingSequencerTrack1->setBounds(clearSeqTrackButtons_x, 161, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack2->setBounds(clearSeqTrackButtons_x, 244, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack3->setBounds(clearSeqTrackButtons_x, 327, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack4->setBounds(clearSeqTrackButtons_x, 410, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)

@@ -47,6 +47,7 @@ public:
     void restoreStateFromXml(XmlElement* sourceXml);
 
     void updateProgramNameOnHardware(String newName);
+    void clearSequencerTrack(int trackNum);
 
 private:
     //==============================================================================

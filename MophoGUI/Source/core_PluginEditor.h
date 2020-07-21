@@ -23,6 +23,10 @@ class PluginEditor :
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_VCA;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_Env3;
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
     TooltipWindow tooltipWindow;
 
 public:

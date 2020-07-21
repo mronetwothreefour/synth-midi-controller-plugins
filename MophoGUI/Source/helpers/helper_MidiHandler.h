@@ -17,6 +17,10 @@ class MidiHandler  :
     bool nrpnOutputIsAllowed;
     MidiBuffer internalMidiBuffer;
     int nameCharCounter;
+    int track1StepCounter;
+    int track2StepCounter;
+    int track3StepCounter;
+    int track4StepCounter;
     const int millisecondsBtwnParamChanges;
     String programName;
 
@@ -37,6 +41,7 @@ class MidiHandler  :
     // 10 ms slice of time into a single MidiBuffer
     void combineMidiBuffers(MidiBuffer& midiBuffer);
     void timerCallback(int timerID) override;
+    void clearSequencerStepOnTrack(int stepNum, int trackNum);
 
 public:
     MidiHandler() = delete;
@@ -46,6 +51,7 @@ public:
     ~MidiHandler();
 
     void updateProgramNameOnHardware(String newName);
+    void clearSequencerTrack(int trackNum);
 
 private:
     //==============================================================================
