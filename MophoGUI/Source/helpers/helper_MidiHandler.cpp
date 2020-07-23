@@ -3,7 +3,7 @@
 MidiHandler::MidiHandler(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers) :
 	exposedParams{ exposedParams },
     internalMidiBuffers{ internalMidiBuffers },
-    nrpnOutputIsAllowed{ true },
+    paramChangeEchoIsBlocked{ false },
     nameCharCounter{ 0 },
     track1StepCounter{ 0 },
     track2StepCounter{ 0 },
@@ -53,8 +53,13 @@ void MidiHandler::clearSequencerTrack(int trackNum) {
     }
 }
 
+void MidiHandler::sendProgramEditBufferDump() {
+    MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
+    combineMidiBuffers(localMidiBuffer);
+}
+
 void MidiHandler::parameterChanged(const String& parameterID, float newValue) {
-    if (nrpnOutputIsAllowed) {
+    if (!paramChangeEchoIsBlocked) {
         auto& info{ InfoForExposedParameters::get() };
         auto param{ info.indexFor(parameterID) };
         auto nrpn{ info.NRPNfor(param) };
@@ -101,6 +106,36 @@ void MidiHandler::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
     if (paramTurnedOn == 100 && arpegParam != nullptr)
         if (arpegParam->getValue() != 0.0f)
             arpegParam->setValueNotifyingHost(0.0f);
+}
+
+MidiBuffer MidiHandler::createPgmEditBufferDump() {
+    uint8 sysExData[296]{};
+
+    sysExData[0] = 1;    // DSI manufacturer ID
+    sysExData[1] = 37;   // Mopho device ID
+    sysExData[2] = 3;    // dump type ID (to edit buffer)
+    addParamValueBytesToBufferStartingAtOffset(sysExData, 3);
+    MidiBuffer localMidiBuffer;
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+    return localMidiBuffer;
+}
+
+void MidiHandler::addParamValueBytesToBufferStartingAtOffset(uint8* buffer, int dataOffset) {
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex)
+    {
+        auto paramID{ info.IDfor(paramIndex) };
+        auto param{ exposedParams->getParameter(paramID) };
+        auto paramValue{ roundToInt(param->getValue() * info.maxValueFor(paramIndex)) };
+        if (paramIndex == 95) // clock tempo parameter range is offset by 30
+            paramValue += 30;
+        auto msbIndex{ info.msBitPackedByteLocationFor(paramIndex) + dataOffset };
+        auto lsbIndex{ info.lsByteLocationFor(paramIndex) + dataOffset };
+        if (paramValue > 127) {
+            *(buffer + msbIndex) += info.msBitMaskFor(paramIndex);
+        }
+        *(buffer + lsbIndex) = paramValue % 128;
+    }
 }
 
 void MidiHandler::combineMidiBuffers(MidiBuffer& midiBuffer) {

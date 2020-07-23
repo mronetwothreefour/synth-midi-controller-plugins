@@ -48,6 +48,7 @@ public:
 
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
+    void sendProgramEditBufferDump();
 
 private:
     //==============================================================================

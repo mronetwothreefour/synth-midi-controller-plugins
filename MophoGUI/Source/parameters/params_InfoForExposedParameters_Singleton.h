@@ -13,7 +13,7 @@ class InfoForExposedParameters
 	Array<Identifier> identifiers;
 	Array<String> exposedNames;
 	Array<ControlType> controlTypes;
-	Array<uint16> NRPNs;
+	Array<uint8> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
 	Array<uint8> maxValues;
 	Array<uint8> defaultValues;
@@ -21,6 +21,9 @@ class InfoForExposedParameters
 	Array<Point<int>> ctrlCenterPoints;
 	Array<int> ctrlWidths;
 	Array<int> ctrlHeights;
+	Array<uint16> msBitPackedByteLocations;
+	Array<uint16> lsByteLocations;
+	Array<uint8> msBitMasks;
 
 	InfoForExposedParameters();
 	void fillAllInfoContainers();
@@ -35,7 +38,7 @@ public:
 	Identifier IDfor(uint8 paramIndex) const;
 	String exposedNameFor(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;
-	uint16 NRPNfor(uint8 paramIndex) const;
+	uint8 NRPNfor(uint8 paramIndex) const;
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
 	uint8 maxValueFor(uint8 paramIndex) const;
 	uint8 defaultValueFor(uint8 paramIndex) const;
@@ -45,6 +48,9 @@ public:
 	int ctrlWidthFor(uint8 paramIndex) const;
 	int ctrlHeightFor(uint8 paramIndex) const;
 	uint8 indexFor(const String& parameterID) const noexcept;
+	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
+	uint16 lsByteLocationFor(uint8 paramIndex) const;
+	uint8 msBitMaskFor(uint8 paramIndex) const;
 
 private:
 	//==============================================================================

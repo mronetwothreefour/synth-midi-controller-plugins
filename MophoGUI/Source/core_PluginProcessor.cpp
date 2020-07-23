@@ -126,6 +126,10 @@ void PluginProcessor::clearSequencerTrack(int trackNum) {
     midiHandler->clearSequencerTrack(trackNum);
 }
 
+void PluginProcessor::sendProgramEditBufferDump() {
+    midiHandler->sendProgramEditBufferDump();
+}
+
 //==============================================================================
 // This creates new instances of the plugin
 AudioProcessor* JUCE_CALLTYPE createPluginFilter() {

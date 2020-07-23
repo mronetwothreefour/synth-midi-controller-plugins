@@ -2,12 +2,12 @@
 
 #include <JuceHeader.h>
 
-class MainWindowDivision_Logo : public Component
+class MophoLogo : public Component
 {
 public:
-    MainWindowDivision_Logo()
+    MophoLogo()
     {
-        auto div_Logo_w{ 437 };
+        auto div_Logo_w{ 393 };
         auto div_Logo_h{ 106 };
         setSize(div_Logo_w, div_Logo_h);
     }

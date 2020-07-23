@@ -60,7 +60,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)0); 
+	NRPNs.add((uint8)0); 
 	converters.add(IntToOscPitchString::get()); 
 	maxValues.add((uint8)120); 
 	defaultValues.add((uint8)24);
@@ -74,7 +74,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1Fine"); // 1
 	exposedNames.add("Oscillator 1 Fine Tune");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)1); 
+	NRPNs.add((uint8)1); 
 	converters.add(IntToFineTuneString::get());
 	maxValues.add((uint8)100); 
 	defaultValues.add((uint8)49);
@@ -89,7 +89,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1Shape"); // 2
 	exposedNames.add("Oscillator 1 Wave Shape");
 	controlTypes.add(ControlType::knobWithWaveShapeDisplay);
-	NRPNs.add((uint16)2); 
+	NRPNs.add((uint8)2); 
 	converters.add(IntToOscWaveShapeString::get());
 	maxValues.add((uint8)103); 
 	defaultValues.add((uint8)1);
@@ -105,7 +105,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1Glide"); // 3
 	exposedNames.add("Oscillator 1 Glide Rate");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)3); 
+	NRPNs.add((uint8)3); 
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127); 
 	defaultValues.add((uint8)0);
@@ -119,7 +119,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1KeyTrack"); // 4
 	exposedNames.add("Oscillator 1 Keyboard Track On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)4); 
+	NRPNs.add((uint8)4); 
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1); 
 	defaultValues.add((uint8)1);
@@ -135,7 +135,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc1SubLevel"); // 5
 	exposedNames.add("Sub-Oscillator 1 Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)114); 
+	NRPNs.add((uint8)114); 
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127); 
 	defaultValues.add((uint8)0);
@@ -151,7 +151,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2Pitch"); // 6
 	exposedNames.add("Oscillator 2 Pitch");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)5); 
+	NRPNs.add((uint8)5); 
 	converters.add(IntToOscPitchString::get()); 
 	maxValues.add((uint8)120); 
 	defaultValues.add((uint8)24);
@@ -165,7 +165,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2Fine"); // 7
 	exposedNames.add("Oscillator 2 Fine Tune");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)6); 
+	NRPNs.add((uint8)6); 
 	converters.add(IntToFineTuneString::get());
 	maxValues.add((uint8)100); 
 	defaultValues.add((uint8)51);
@@ -180,7 +180,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2Shape"); // 8
 	exposedNames.add("Oscillator 2 Wave Shape");
 	controlTypes.add(ControlType::knobWithWaveShapeDisplay);
-	NRPNs.add((uint16)7); 
+	NRPNs.add((uint8)7); 
 	converters.add(IntToOscWaveShapeString::get());
 	maxValues.add((uint8)103); 
 	defaultValues.add((uint8)1);
@@ -196,7 +196,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2Glide"); // 9
 	exposedNames.add("Oscillator 2 Glide Rate");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)8); 
+	NRPNs.add((uint8)8); 
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127); 
 	defaultValues.add((uint8)0);
@@ -210,7 +210,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2KeyTrack"); // 10
 	exposedNames.add("Oscillator 2 Keyboard Track On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)9); 
+	NRPNs.add((uint8)9); 
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1); 
 	defaultValues.add((uint8)1);
@@ -226,7 +226,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("osc2SubLevel"); // 11
 	exposedNames.add("Sub-Oscillator 2 Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)115); 
+	NRPNs.add((uint8)115); 
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127); 
 	defaultValues.add((uint8)0);
@@ -242,7 +242,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("oscSync"); // 12
 	exposedNames.add("Hard Oscillator Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)10);
+	NRPNs.add((uint8)10);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -259,7 +259,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("glideMode"); // 13
 	exposedNames.add("Glide Mode");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)11);
+	NRPNs.add((uint8)11);
 	converters.add(IntToGlideModeString::get());
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
@@ -275,7 +275,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("oscSlop"); // 14
 	exposedNames.add("Oscillator Slop");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)12);
+	NRPNs.add((uint8)12);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)2);
@@ -290,7 +290,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("bendRange"); // 15
 	exposedNames.add("Pitch Bend Range");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)93);
+	NRPNs.add((uint8)93);
 	converters.add(IntToBendRangeString::get());
 	maxValues.add((uint8)12);
 	defaultValues.add((uint8)4);
@@ -305,7 +305,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("notePriority"); // 16
 	exposedNames.add("Note Priority (Key Assign)");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)96);
+	NRPNs.add((uint8)96);
 	converters.add(IntToNotePriorityString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)0);
@@ -321,7 +321,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("oscMix"); // 17
 	exposedNames.add("Oscillator 1 & 2 Mix");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)13);
+	NRPNs.add((uint8)13);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -337,7 +337,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("noiseLevel"); // 18
 	exposedNames.add("Noise Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)14);
+	NRPNs.add((uint8)14);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -352,7 +352,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("extInLevel"); // 19
 	exposedNames.add("External Audio Input Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)116);
+	NRPNs.add((uint8)116);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -372,7 +372,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfFreq"); // 20
 	exposedNames.add("LPF Cutoff Frequency");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)15);
+	NRPNs.add((uint8)15);
 	converters.add(IntToLPFfreqString::get());
 	maxValues.add((uint8)164);
 	defaultValues.add((uint8)148);
@@ -387,7 +387,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfReso"); // 21
 	exposedNames.add("LPF Resonance");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)16);
+	NRPNs.add((uint8)16);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -403,7 +403,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfKeyAmount"); // 22
 	exposedNames.add("LPF Keyboard Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)17);
+	NRPNs.add((uint8)17);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -420,7 +420,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfFMamount"); // 23
 	exposedNames.add("LPF FM (By Oscillator 1)");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)18);
+	NRPNs.add((uint8)18);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -436,7 +436,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfType"); // 24
 	exposedNames.add("LPF Type");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)19);
+	NRPNs.add((uint8)19);
 	converters.add(IntToLPFtypeString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)1);
@@ -451,7 +451,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfEnvAmount"); // 25
 	exposedNames.add("LPF Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)20);
+	NRPNs.add((uint8)20);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -467,7 +467,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfVelAmount"); // 26
 	exposedNames.add("LPF Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)21);
+	NRPNs.add((uint8)21);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -482,7 +482,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfDelay"); // 27
 	exposedNames.add("LPF Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)22);
+	NRPNs.add((uint8)22);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -498,7 +498,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfAttack"); // 28
 	exposedNames.add("LPF Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)23);
+	NRPNs.add((uint8)23);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -514,7 +514,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfDecay"); // 29
 	exposedNames.add("LPF Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)24);
+	NRPNs.add((uint8)24);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -530,7 +530,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfSustain"); // 30
 	exposedNames.add("LPF Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)25);
+	NRPNs.add((uint8)25);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -546,7 +546,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lpfRelease"); // 31
 	exposedNames.add("LPF Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)26);
+	NRPNs.add((uint8)26);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -564,7 +564,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaLevel"); // 32
 	exposedNames.add("VCA Baseline Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)27);
+	NRPNs.add((uint8)27);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -580,7 +580,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaEnvAmount"); // 33
 	exposedNames.add("VCA Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)30);
+	NRPNs.add((uint8)30);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)127);
@@ -595,7 +595,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaVelAmount"); // 34
 	exposedNames.add("VCA Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)31);
+	NRPNs.add((uint8)31);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -610,7 +610,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaDelay"); // 35
 	exposedNames.add("VCA Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)32);
+	NRPNs.add((uint8)32);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -626,7 +626,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaAttack"); // 36
 	exposedNames.add("VCA Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)33);
+	NRPNs.add((uint8)33);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -642,7 +642,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaDecay"); // 37
 	exposedNames.add("VCA Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)34);
+	NRPNs.add((uint8)34);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -658,7 +658,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaSustain"); // 38
 	exposedNames.add("VCA Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)35);
+	NRPNs.add((uint8)35);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -674,7 +674,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("vcaRelease"); // 39
 	exposedNames.add("VCA Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)36);
+	NRPNs.add((uint8)36);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -690,7 +690,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pgmVolume"); // 40
 	exposedNames.add("Program Volume");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)29);
+	NRPNs.add((uint8)29);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)120);
@@ -706,7 +706,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo1Freq"); // 41
 	exposedNames.add("LFO 1 Frequency");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)37);
+	NRPNs.add((uint8)37);
 	converters.add(IntToLFOfreqString::get());
 	maxValues.add((uint8)166);
 	defaultValues.add((uint8)80);
@@ -724,7 +724,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo1Shape"); // 42
 	exposedNames.add("LFO 1 Wave Shape");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)38);
+	NRPNs.add((uint8)38);
 	converters.add(IntToLFOshapeString::get());
 	maxValues.add((uint8)4);
 	defaultValues.add((uint8)1);
@@ -736,7 +736,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo1Amount"); // 43
 	exposedNames.add("LFO 1 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)39);
+	NRPNs.add((uint8)39);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -751,7 +751,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo1Destination"); // 44
 	exposedNames.add("LFO 1 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)40);
+	NRPNs.add((uint8)40);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -763,7 +763,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo1KeySync"); // 45
 	exposedNames.add("LFO 1 Key Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)41);
+	NRPNs.add((uint8)41);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -779,7 +779,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo2Freq"); // 46
 	exposedNames.add("LFO 2 Frequency");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)42);
+	NRPNs.add((uint8)42);
 	converters.add(IntToLFOfreqString::get());
 	maxValues.add((uint8)166);
 	defaultValues.add((uint8)80);
@@ -797,7 +797,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo2Shape"); // 47
 	exposedNames.add("LFO 2 Wave Shape");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)43);
+	NRPNs.add((uint8)43);
 	converters.add(IntToLFOshapeString::get());
 	maxValues.add((uint8)4);
 	defaultValues.add((uint8)1);
@@ -809,7 +809,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo2Amount"); // 48
 	exposedNames.add("LFO 1 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)44);
+	NRPNs.add((uint8)44);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -824,7 +824,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo2Destination"); // 49
 	exposedNames.add("LFO 2 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)45);
+	NRPNs.add((uint8)45);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -836,7 +836,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo2KeySync"); // 50
 	exposedNames.add("LFO 2 Key Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)46);
+	NRPNs.add((uint8)46);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -852,7 +852,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo3Freq"); // 51
 	exposedNames.add("LFO 3 Frequency");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)47);
+	NRPNs.add((uint8)47);
 	converters.add(IntToLFOfreqString::get());
 	maxValues.add((uint8)166);
 	defaultValues.add((uint8)80);
@@ -870,7 +870,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo3Shape"); // 52
 	exposedNames.add("LFO 3 Wave Shape");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)48);
+	NRPNs.add((uint8)48);
 	converters.add(IntToLFOshapeString::get());
 	maxValues.add((uint8)4);
 	defaultValues.add((uint8)1);
@@ -882,7 +882,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo3Amount"); // 53
 	exposedNames.add("LFO 3 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)49);
+	NRPNs.add((uint8)49);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -897,7 +897,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo3Destination"); // 54
 	exposedNames.add("LFO 3 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)50);
+	NRPNs.add((uint8)50);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -909,7 +909,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo3KeySync"); // 55
 	exposedNames.add("LFO 3 Key Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)51);
+	NRPNs.add((uint8)51);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -925,7 +925,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo4Freq"); // 56
 	exposedNames.add("LFO 4 Frequency");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)52);
+	NRPNs.add((uint8)52);
 	converters.add(IntToLFOfreqString::get());
 	maxValues.add((uint8)166);
 	defaultValues.add((uint8)80);
@@ -943,7 +943,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo4Shape"); // 57
 	exposedNames.add("LFO 4 Wave Shape");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)53);
+	NRPNs.add((uint8)53);
 	converters.add(IntToLFOshapeString::get());
 	maxValues.add((uint8)4);
 	defaultValues.add((uint8)1);
@@ -955,7 +955,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo4Amount"); // 58
 	exposedNames.add("LFO 4 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)54);
+	NRPNs.add((uint8)54);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -970,7 +970,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo4Destination"); // 59
 	exposedNames.add("LFO 4 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)55);
+	NRPNs.add((uint8)55);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -982,7 +982,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("lfo4KeySync"); // 60
 	exposedNames.add("LFO 4 Key Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)56);
+	NRPNs.add((uint8)56);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -998,7 +998,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Destination"); // 61
 	exposedNames.add("Envelope 3 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)57);
+	NRPNs.add((uint8)57);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1010,7 +1010,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Amount"); // 62
 	exposedNames.add("Envelope 3 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)58);
+	NRPNs.add((uint8)58);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1026,7 +1026,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3VelAmount"); // 63
 	exposedNames.add("Envelope 3 Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)59);
+	NRPNs.add((uint8)59);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1041,7 +1041,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Delay"); // 64
 	exposedNames.add("Envelope 3 Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)60);
+	NRPNs.add((uint8)60);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1057,7 +1057,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Attack"); // 65
 	exposedNames.add("Envelope 3 Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)61);
+	NRPNs.add((uint8)61);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1073,7 +1073,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Decay"); // 66
 	exposedNames.add("Envelope 3 Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)62);
+	NRPNs.add((uint8)62);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1089,7 +1089,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Sustain"); // 67
 	exposedNames.add("Envelope 3 Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)63);
+	NRPNs.add((uint8)63);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1105,7 +1105,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Release"); // 68
 	exposedNames.add("Envelope 3 Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)64);
+	NRPNs.add((uint8)64);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1121,7 +1121,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("env3Repeat"); // 69
 	exposedNames.add("Envelope 3 Repeat On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)98);
+	NRPNs.add((uint8)98);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1144,7 +1144,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod1Source"); // 70
 	exposedNames.add("Modulator 1 Source");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)65);
+	NRPNs.add((uint8)65);
 	converters.add(IntToModSourceString::get());
 	maxValues.add((uint8)22);
 	defaultValues.add((uint8)0);
@@ -1156,7 +1156,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod1Amount"); // 71
 	exposedNames.add("Modulator 1 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)66);
+	NRPNs.add((uint8)66);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1168,7 +1168,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod1Destination"); // 72
 	exposedNames.add("Modulator 1 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)67);
+	NRPNs.add((uint8)67);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1180,7 +1180,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod2Source"); // 73
 	exposedNames.add("Modulator 2 Source");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)68);
+	NRPNs.add((uint8)68);
 	converters.add(IntToModSourceString::get());
 	maxValues.add((uint8)22);
 	defaultValues.add((uint8)0);
@@ -1192,7 +1192,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod2Amount"); // 74
 	exposedNames.add("Modulator 2 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)69);
+	NRPNs.add((uint8)69);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1204,7 +1204,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod2Destination"); // 75
 	exposedNames.add("Modulator 2 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)70);
+	NRPNs.add((uint8)70);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1216,7 +1216,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod3Source"); // 76
 	exposedNames.add("Modulator 3 Source");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)71);
+	NRPNs.add((uint8)71);
 	converters.add(IntToModSourceString::get());
 	maxValues.add((uint8)22);
 	defaultValues.add((uint8)0);
@@ -1228,7 +1228,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod3Amount"); // 77
 	exposedNames.add("Modulator 3 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)72);
+	NRPNs.add((uint8)72);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1240,7 +1240,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod3Destination"); // 78
 	exposedNames.add("Modulator 3 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)73);
+	NRPNs.add((uint8)73);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1252,7 +1252,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod4Source"); // 79
 	exposedNames.add("Modulator 4 Source");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)74);
+	NRPNs.add((uint8)74);
 	converters.add(IntToModSourceString::get());
 	maxValues.add((uint8)22);
 	defaultValues.add((uint8)0);
@@ -1264,7 +1264,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod4Amount"); // 80
 	exposedNames.add("Modulator 4 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)75);
+	NRPNs.add((uint8)75);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1276,7 +1276,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("mod4Destination"); // 81
 	exposedNames.add("Modulator 4 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)76);
+	NRPNs.add((uint8)76);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1290,7 +1290,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("modWheelAmount"); // 82
 	exposedNames.add("Modulation Wheel Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)81);
+	NRPNs.add((uint8)81);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1306,7 +1306,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("modWheelDest"); // 83
 	exposedNames.add("Modulation Wheel Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)82);
+	NRPNs.add((uint8)82);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1318,7 +1318,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pressureAmount"); // 84
 	exposedNames.add("Pressure (Aftertouch) Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)83);
+	NRPNs.add((uint8)83);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1334,7 +1334,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pressureDest"); // 85
 	exposedNames.add("Pressure (Aftertouch) Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)84);
+	NRPNs.add((uint8)84);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1346,7 +1346,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("breathAmount"); // 86
 	exposedNames.add("Breath Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)85);
+	NRPNs.add((uint8)85);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1362,7 +1362,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("breathDest"); // 87
 	exposedNames.add("Breath Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)86);
+	NRPNs.add((uint8)86);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1374,7 +1374,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("velocityAmount"); // 88
 	exposedNames.add("Note Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)87);
+	NRPNs.add((uint8)87);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1390,7 +1390,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("velocityDest"); // 89
 	exposedNames.add("Note Velocity Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)88);
+	NRPNs.add((uint8)88);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1402,7 +1402,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("footPedalAmount"); // 90
 	exposedNames.add("Foot Pedal Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)89);
+	NRPNs.add((uint8)89);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1418,7 +1418,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("footPedalDest"); // 91
 	exposedNames.add("Foot Pedal Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)90);
+	NRPNs.add((uint8)90);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1432,7 +1432,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pushItPitch"); // 92
 	exposedNames.add("Push It! Switch Pitch");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)111);
+	NRPNs.add((uint8)111);
 	converters.add(IntToOscPitchString::get());
 	maxValues.add((uint8)120);
 	defaultValues.add((uint8)60);
@@ -1448,7 +1448,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pushItVelocity"); // 93
 	exposedNames.add("Push It! Switch Velocity");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)112);
+	NRPNs.add((uint8)112);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)100);
@@ -1463,7 +1463,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("pushItMode"); // 94
 	exposedNames.add("Push It! Switch Mode");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)113);
+	NRPNs.add((uint8)113);
 	converters.add(IntToPushItModeString::get());
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)0);
@@ -1484,7 +1484,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("clockTempo"); // 95
 	exposedNames.add("Clock Tempo");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint16)91);
+	NRPNs.add((uint8)91);
 	converters.add(IntToClockTempoString::get());
 	maxValues.add((uint8)220);
 	defaultValues.add((uint8)90);
@@ -1498,7 +1498,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("clockDivision"); // 96
 	exposedNames.add("Clock Division");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)92);
+	NRPNs.add((uint8)92);
 	converters.add(IntToClockDivString::get());
 	maxValues.add((uint8)12);
 	defaultValues.add((uint8)2);
@@ -1514,7 +1514,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("arpegMode"); // 97
 	exposedNames.add("Arpeggiator Mode");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)97);
+	NRPNs.add((uint8)97);
 	converters.add(IntToArpegModeString::get());
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
@@ -1528,7 +1528,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("arpegOnOff"); // 98
 	exposedNames.add("Arpeggiator On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)100);
+	NRPNs.add((uint8)100);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1542,7 +1542,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("sequencerTrigMode"); // 99
 	exposedNames.add("Sequencer Trigger Mode");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)94);
+	NRPNs.add((uint8)94);
 	converters.add(IntToSeqTrigModeString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)0);
@@ -1565,7 +1565,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("sequencerOnOff"); // 100
 	exposedNames.add("Sequencer On/Off");
 	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint16)101);
+	NRPNs.add((uint8)101);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1579,7 +1579,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add(ID::param_SeqTrack1Dest); // 101
 	exposedNames.add("Sequencer Track 1 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)77);
+	NRPNs.add((uint8)77);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)1);
@@ -1593,7 +1593,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add(ID::param_SeqTrack2Dest); // 102
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)78);
+	NRPNs.add((uint8)78);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)2);
@@ -1607,7 +1607,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add(ID::param_SeqTrack3Dest); // 103
 	exposedNames.add("Sequencer Track 3 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)79);
+	NRPNs.add((uint8)79);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)9);
@@ -1621,7 +1621,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add(ID::param_SeqTrack4Dest); // 104
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)80);
+	NRPNs.add((uint8)80);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1637,7 +1637,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("assignKnob1"); // 105
 	exposedNames.add("Assign Parameter to Knob 1");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)105);
+	NRPNs.add((uint8)105);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)5);
@@ -1651,7 +1651,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("assignKnob2"); // 106
 	exposedNames.add("Assign Parameter to Knob 2");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)106);
+	NRPNs.add((uint8)106);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)11);
@@ -1665,7 +1665,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("assignKnob3"); // 107
 	exposedNames.add("Assign Parameter to Knob 3");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)107);
+	NRPNs.add((uint8)107);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)43);
@@ -1679,7 +1679,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	identifiers.add("assignKnob4"); // 108
 	exposedNames.add("Assign Parameter to Knob 4");
 	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint16)108);
+	NRPNs.add((uint8)108);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)23);
@@ -1704,7 +1704,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			identifiers.add("track" + trackString + "Step" + stepString);
 			exposedNames.add("Sequencer Track " + trackString + " Step " + stepString);
 			controlTypes.add(ControlType::sequencerStep);
-			NRPNs.add((uint16)(120 + (16 * track) + step));
+			NRPNs.add((uint8)(120 + (16 * track) + step));
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
@@ -1731,7 +1731,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		identifiers.add("nameChar" + charNumString);
 		exposedNames.add("Program Name Character " + charNumString);
 		controlTypes.add(ControlType::pgmNameChar);
-		NRPNs.add((uint16)(184 + charNum));
+		NRPNs.add((uint8)(184 + charNum));
 		converters.add(IntToPgmNameCharString::get());
 		maxValues.add((uint8)127);
 		descriptionString =  "To change character " + charNumString + " of the program's name,\n";
@@ -1759,6 +1759,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	defaultValues.add((uint8)32);	// space
 	defaultValues.add((uint8)32);	// space
 	defaultValues.add((uint8)32);	// space
+
+	for (uint16 param = 0; param != 189; ++param) {
+		// account for unassigned parameters 109..120, which
+		// are not included in the exposed parameters containers
+		auto offsetParam{ param < 109 ? param : param + 11 };
+		uint16 msBitPackedByteLocation{ (uint16)((offsetParam / 7) * 8) };
+		msBitPackedByteLocations.add(msBitPackedByteLocation);
+		uint16 lsByteLocation{ (uint16)(msBitPackedByteLocation + offsetParam % 7 + 1) };
+		lsByteLocations.add(lsByteLocation);
+		uint8 msBitMask{ (uint8)(roundToInt(pow(2, offsetParam % 7))) };
+		msBitMasks.add(msBitMask);
+	}
 }
 
 InfoForExposedParameters::~InfoForExposedParameters() {
@@ -1786,7 +1798,7 @@ ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	return controlTypes[paramIndex];
 }
 
-uint16 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
+uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 	return NRPNs[paramIndex];
 }
 
@@ -1824,6 +1836,18 @@ int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) const {
 
 uint8 InfoForExposedParameters::indexFor(const String& parameterID) const noexcept {
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
+}
+
+uint16 InfoForExposedParameters::msBitPackedByteLocationFor(uint8 paramIndex) const {
+	return msBitPackedByteLocations[paramIndex];
+}
+
+uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
+	return lsByteLocations[paramIndex];
+}
+
+uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
+	return msBitMasks[paramIndex];
 }
 
 

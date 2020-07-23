@@ -18,11 +18,12 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
-    std::unique_ptr<MainWindowDivision_Logo> mophoguiLogo;
+    std::unique_ptr<MophoLogo> mophoguiLogo;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_LPF;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_VCA;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_Env3;
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
+    std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;

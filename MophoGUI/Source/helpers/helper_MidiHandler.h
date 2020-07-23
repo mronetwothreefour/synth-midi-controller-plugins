@@ -14,7 +14,7 @@ class MidiHandler  :
 {
     AudioProcessorValueTreeState* exposedParams;
     Array<MidiBuffer>* internalMidiBuffers;
-    bool nrpnOutputIsAllowed;
+    bool paramChangeEchoIsBlocked;
     MidiBuffer internalMidiBuffer;
     int nameCharCounter;
     int track1StepCounter;
@@ -37,6 +37,8 @@ class MidiHandler  :
     uint8 addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue);
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
     void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
+    MidiBuffer createPgmEditBufferDump();
+    void addParamValueBytesToBufferStartingAtOffset(uint8* buffer, int offset);
     // Combines all MidiBuffers that get created within a
     // 10 ms slice of time into a single MidiBuffer
     void combineMidiBuffers(MidiBuffer& midiBuffer);
@@ -45,13 +47,13 @@ class MidiHandler  :
 
 public:
     MidiHandler() = delete;
-
     MidiHandler(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers);
-
     ~MidiHandler();
 
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
+    void sendProgramEditBufferDump();
+
 
 private:
     //==============================================================================

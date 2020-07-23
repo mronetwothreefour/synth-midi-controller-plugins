@@ -168,3 +168,31 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForClearingSequencerTrack)
 };
+
+
+class ButtonForSendingProgramEditBufferDump :
+	public TextButton
+{
+	PluginProcessor& processor;
+
+	void sendProgramEditBufferDump() {
+		processor.sendProgramEditBufferDump();
+	}
+
+public:
+	ButtonForSendingProgramEditBufferDump() = delete;
+
+	explicit ButtonForSendingProgramEditBufferDump(PluginProcessor& processor) :
+		TextButton{ "WRITE" },
+		processor{ processor }
+	{
+		onClick = [this] { sendProgramEditBufferDump(); };
+	}
+
+	~ButtonForSendingProgramEditBufferDump() {
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingProgramEditBufferDump)
+};
