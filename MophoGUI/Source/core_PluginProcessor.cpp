@@ -63,11 +63,9 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
 
     // Add internally-generated MIDI messages to output stream
     if (!internalMidiBuffers->isEmpty()) {
-        midiMessages.addEvent(MidiMessage::noteOff(1, 24), 0);
-        internalMidiBuffers->clear();
-        //for (auto event : internalMidiBuffers->removeAndReturn(0)) {
-            //midiMessages.addEvent(event.getMessage(), event.samplePosition);
-        //}
+        for (auto event : internalMidiBuffers->removeAndReturn(0)) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
+        }
     }
 }
 
