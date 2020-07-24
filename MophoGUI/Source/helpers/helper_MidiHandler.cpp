@@ -90,7 +90,7 @@ void MidiHandler::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 new
     }
     else {
         // TODO: get current MIDI channel from global options
-        auto midiChannel{ (uint8)1 };
+        auto midiChannel{ (uint8)0 };
         auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
         combineMidiBuffers(nrpnBuffer);
     }
