@@ -32,8 +32,11 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(processor));
     addAndMakeVisible(button_ForEditingPgmName.get());
 
-    button_ForSendingProgramEditBufferDump.reset(new ButtonForSendingProgramEditBufferDump(processor));
-    addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
+    button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(processor));
+    addAndMakeVisible(button_ForSendingPgmEditBufDump.get());
+
+    button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(processor));
+    addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
     button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, processor));
     button_ForClearingSequencerTrack2.reset(new ButtonForClearingSequencerTrack(2, processor));
@@ -64,7 +67,8 @@ PluginEditor::~PluginEditor() {
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
     button_ForClearingSequencerTrack1 = nullptr;
-    button_ForSendingProgramEditBufferDump = nullptr;
+    button_ForSendingPgmEditBufDumpRequest = nullptr;
+    button_ForSendingPgmEditBufDump = nullptr;
     button_ForEditingPgmName = nullptr;
     envelopeRenderer_Env3 = nullptr;
     envelopeRenderer_VCA = nullptr;
@@ -110,7 +114,8 @@ void PluginEditor::resized() {
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
     auto utilityButtons_h{ 21 };
-    button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForSendingPgmEditBufDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForSendingPgmEditBufDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto clearSeqTrackButtons_x{ 1166 };
     auto clearSeqTrackButtons_w{ 42 };
     auto clearSeqTrackButtons_h{ 16 };

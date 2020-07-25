@@ -53,6 +53,13 @@ void MidiHandler::clearSequencerTrack(int trackNum) {
     }
 }
 
+void MidiHandler::sendProgramEditBufferDumpRequest() {
+    const char sysExData[]{ 1, 37, 6 };
+    MidiBuffer localMidiBuffer;
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+    combineMidiBuffers(localMidiBuffer);
+}
+
 void MidiHandler::sendProgramEditBufferDump() {
     MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
     combineMidiBuffers(localMidiBuffer);

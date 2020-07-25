@@ -170,6 +170,7 @@ private:
 };
 
 
+
 class ButtonForSendingProgramEditBufferDump :
 	public TextButton
 {
@@ -195,4 +196,33 @@ public:
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingProgramEditBufferDump)
+};
+
+
+
+class ButtonForSendingProgramEditBufferDumpRequest :
+	public TextButton
+{
+	PluginProcessor& processor;
+
+	void sendProgramEditBufferDumpRequest() {
+		processor.sendProgramEditBufferDumpRequest();
+	}
+
+public:
+	ButtonForSendingProgramEditBufferDumpRequest() = delete;
+
+	explicit ButtonForSendingProgramEditBufferDumpRequest(PluginProcessor& processor) :
+		TextButton{ "READ" },
+		processor{ processor }
+	{
+		onClick = [this] { sendProgramEditBufferDumpRequest(); };
+	}
+
+	~ButtonForSendingProgramEditBufferDumpRequest() {
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingProgramEditBufferDumpRequest)
 };

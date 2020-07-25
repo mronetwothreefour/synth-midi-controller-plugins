@@ -126,6 +126,10 @@ void PluginProcessor::clearSequencerTrack(int trackNum) {
     midiHandler->clearSequencerTrack(trackNum);
 }
 
+void PluginProcessor::sendProgramEditBufferDumpRequest() {
+    midiHandler->sendProgramEditBufferDumpRequest();
+}
+
 void PluginProcessor::sendProgramEditBufferDump() {
     midiHandler->sendProgramEditBufferDump();
 }
