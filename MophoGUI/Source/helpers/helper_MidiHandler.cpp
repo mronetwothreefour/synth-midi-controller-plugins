@@ -10,7 +10,9 @@ MidiHandler::MidiHandler(AudioProcessorValueTreeState* exposedParams, Array<Midi
     track3StepCounter{ 0 },
     track4StepCounter{ 0 },
     millisecondsBtwnParamChanges{ 10 },
-    programName{ "Basic Patch     " }
+    programName{ "Basic Patch     " },
+    sysExManufacturerID{ 1 }, // Dave Smith Instruments
+    sysExDeviceID{ 37 } // Mopho
 {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
@@ -51,18 +53,6 @@ void MidiHandler::clearSequencerTrack(int trackNum) {
     default: 
         break;
     }
-}
-
-void MidiHandler::sendProgramEditBufferDumpRequest() {
-    const char sysExData[]{ 1, 37, 6 };
-    MidiBuffer localMidiBuffer;
-    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
-    combineMidiBuffers(localMidiBuffer);
-}
-
-void MidiHandler::sendProgramEditBufferDump() {
-    MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
-    combineMidiBuffers(localMidiBuffer);
 }
 
 void MidiHandler::parameterChanged(const String& parameterID, float newValue) {
@@ -115,12 +105,24 @@ void MidiHandler::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
             arpegParam->setValueNotifyingHost(0.0f);
 }
 
+void MidiHandler::sendProgramEditBufferDumpRequest() {
+    const char sysExData[]{ sysExManufacturerID, sysExDeviceID, programEditBufferDumpRequest };
+    MidiBuffer localMidiBuffer;
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+    combineMidiBuffers(localMidiBuffer);
+}
+
+void MidiHandler::sendProgramEditBufferDump() {
+    MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
+    combineMidiBuffers(localMidiBuffer);
+}
+
 MidiBuffer MidiHandler::createPgmEditBufferDump() {
     uint8 sysExData[296]{};
 
-    sysExData[0] = 1;    // DSI manufacturer ID
-    sysExData[1] = 37;   // Mopho device ID
-    sysExData[2] = 3;    // dump type ID (to edit buffer)
+    sysExData[0] = sysExManufacturerID;
+    sysExData[1] = sysExDeviceID;
+    sysExData[2] = programEditBufferDump;
     addParamValueBytesToBufferStartingAtOffset(sysExData, 3);
     MidiBuffer localMidiBuffer;
     localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
@@ -133,9 +135,11 @@ void MidiHandler::addParamValueBytesToBufferStartingAtOffset(uint8* buffer, int 
     {
         auto paramID{ info.IDfor(paramIndex) };
         auto param{ exposedParams->getParameter(paramID) };
-        auto paramValue{ roundToInt(param->getValue() * info.maxValueFor(paramIndex)) };
+        auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
         if (paramIndex == 95) // clock tempo parameter range is offset by 30
             paramValue += 30;
+        if (isKnobAssignParameter(paramIndex))
+            paramValue = addUnusedParamsOffsetToKnobAssignValue(paramValue);
         auto msbIndex{ info.msBitPackedByteLocationFor(paramIndex) + dataOffset };
         auto lsbIndex{ info.lsByteLocationFor(paramIndex) + dataOffset };
         if (paramValue > 127) {
@@ -143,6 +147,14 @@ void MidiHandler::addParamValueBytesToBufferStartingAtOffset(uint8* buffer, int 
         }
         *(buffer + lsbIndex) = paramValue % 128;
     }
+}
+
+bool MidiHandler::isKnobAssignParameter(uint8 paramIndex) {
+    return paramIndex > 104 && paramIndex < 109;
+}
+
+uint8 MidiHandler::addUnusedParamsOffsetToKnobAssignValue(uint8 paramValue) {
+    return paramValue > 104 ? paramValue + 15 : paramValue;
 }
 
 void MidiHandler::combineMidiBuffers(MidiBuffer& midiBuffer) {
@@ -223,4 +235,52 @@ void MidiHandler::timerCallback(int timerID) {
 void MidiHandler::clearSequencerStepOnTrack(int stepNum, int trackNum) {
     auto param{ exposedParams->getParameter("track" + (String) trackNum + "Step" + (String)stepNum) };
     param->setValueNotifyingHost(trackNum == 1 ? 1.0f : 0.0f); // set track 1 steps to 127 ('rest'), steps on other tracks to 0
+}
+
+MidiBuffer MidiHandler::handleIncomingMidiMessages(const MidiBuffer & midiMessages) {
+    MidiBuffer handledMidiMessages;
+    for (auto event : midiMessages) {
+        auto midiMessage{ event.getMessage() };
+        if (isSysExFromDSIMopho(midiMessage))
+            handleIncomingSysEx(midiMessage.getSysExData());
+        else handledMidiMessages.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+    }
+    return handledMidiMessages;
+}
+
+bool MidiHandler::isSysExFromDSIMopho(const MidiMessage & midiMessage) {
+    if (midiMessage.isSysEx()) {
+        auto sysExData{ midiMessage.getSysExData() };
+        return (sysExData[1] == sysExManufacturerID && sysExData[2] == sysExDeviceID);
+    }
+    else
+        return false;
+}
+
+void MidiHandler::handleIncomingSysEx(const uint8* sysExData) {
+    if (sysExData[3] == programEditBufferDump)
+        applyProgramDumpToPlugin(sysExData + 4);
+}
+
+void MidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
+    paramChangeEchoIsBlocked = true;
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+        auto paramID{ info.IDfor(param) };
+        auto lsByteLocation{ info.lsByteLocationFor(param) };
+        auto msBitLocation{ info.msBitPackedByteLocationFor(param) };
+        auto msBitMask{ info.msBitMaskFor(param) };
+        auto newValue{ *(dumpData + lsByteLocation) };
+        if (*(dumpData + msBitLocation) & msBitMask)
+            newValue += 128;
+        if (isKnobAssignParameter(param))
+            newValue = subtractUnusedParamsOffsetFromKnobAssignValue(newValue);
+        auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
+        exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
+    }
+    paramChangeEchoIsBlocked = false;
+}
+
+uint8 MidiHandler::subtractUnusedParamsOffsetFromKnobAssignValue(uint8 paramValue) {
+    return paramValue > 119 ? paramValue - 15 : paramValue;
 }

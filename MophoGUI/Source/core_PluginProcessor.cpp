@@ -54,14 +54,11 @@ void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
 
-    // Handle incoming MIDI messages
     if (!midiMessages.isEmpty()) {
-        for (auto event : midiMessages) {
-            // TODO : code for handling incoming messages
-        }
+        auto handledMidiMessages{ midiHandler->handleIncomingMidiMessages(midiMessages) };
+        midiMessages.swapWith(handledMidiMessages);
     }
 
-    // Add internally-generated MIDI messages to output stream
     if (!internalMidiBuffers->isEmpty()) {
         for (auto event : internalMidiBuffers->removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
