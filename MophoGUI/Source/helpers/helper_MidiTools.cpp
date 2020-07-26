@@ -1,0 +1,298 @@
+#include "helper_MidiTools.h"
+
+IncomingMidiHandler::IncomingMidiHandler(AudioProcessorValueTreeState* exposedParams) :
+	exposedParams{ exposedParams }
+{
+}
+
+IncomingMidiHandler::~IncomingMidiHandler() {
+}
+
+MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
+    MidiBuffer handledMidiMessages;
+    for (auto event : midiMessages) {
+        auto midiMessage{ event.getMessage() };
+        if (isSysExFromDSIMopho(midiMessage))
+            handleIncomingSysEx(midiMessage.getSysExData());
+        else handledMidiMessages.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+    }
+    return handledMidiMessages;
+}
+
+bool IncomingMidiHandler::isSysExFromDSIMopho(const MidiMessage& midiMessage) {
+    if (midiMessage.isSysEx()) {
+        auto sysExData{ midiMessage.getSysExData() };
+        return (sysExData[1] == (uint8)SysExID::Manufacturer && sysExData[2] == (uint8)SysExID::Device);
+    }
+    else
+        return false;
+}
+
+void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
+    if (sysExData[3] == (uint8)SysExMessageType::programEditBufferDump)
+        applyProgramDumpToPlugin(sysExData + 4);
+}
+
+void IncomingMidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
+    auto& midiParams{ MidiParameters_Singleton::get() };
+    midiParams.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)true, nullptr);
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+        auto paramID{ info.IDfor(param) };
+        auto lsByteLocation{ info.lsByteLocationFor(param) };
+        auto msBitLocation{ info.msBitPackedByteLocationFor(param) };
+        auto msBitMask{ info.msBitMaskFor(param) };
+        auto newValue{ *(dumpData + lsByteLocation) };
+        if (*(dumpData + msBitLocation) & msBitMask)
+            newValue += 128;
+        if (isKnobAssignParameter(param))
+            newValue = subtractUnusedParamsOffsetFromKnobAssignValue(newValue);
+        auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
+        exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
+    }
+    midiParams.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)false, nullptr);
+}
+
+uint8 IncomingMidiHandler::subtractUnusedParamsOffsetFromKnobAssignValue(uint8 paramValue) {
+    return paramValue > 119 ? paramValue - 15 : paramValue;
+}
+
+bool IncomingMidiHandler::isKnobAssignParameter(uint8 paramIndex) {
+    return paramIndex > 104 && paramIndex < 109;
+}
+
+//================================================================================
+
+MidiGenerator::MidiGenerator(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers) :
+	exposedParams{ exposedParams },
+    internalMidiBuffers{ internalMidiBuffers },
+    nameCharCounter{ 0 },
+    track1StepCounter{ 0 },
+    track2StepCounter{ 0 },
+    track3StepCounter{ 0 },
+    track4StepCounter{ 0 },
+    millisecondsBtwnParamChanges{ 10 }
+{
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
+        exposedParams->addParameterListener(info.IDfor(param), this);
+}
+
+MidiGenerator::~MidiGenerator() {
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
+        exposedParams->removeParameterListener(info.IDfor(param), this);
+}
+
+void MidiGenerator::sendProgramEditBufferDumpRequest() {
+    const char sysExData[]{ (char)SysExID::Manufacturer, (char)SysExID::Device, (char)SysExMessageType::programEditBufferDumpRequest };
+    MidiBuffer localMidiBuffer;
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
+    combineMidiBuffers(localMidiBuffer);
+}
+
+void MidiGenerator::sendProgramEditBufferDump() {
+    MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
+    combineMidiBuffers(localMidiBuffer);
+}
+
+MidiBuffer MidiGenerator::createPgmEditBufferDump() {
+    uint8 sysExBuffer[296]{};
+    sysExBuffer[0] = (uint8)SysExID::Manufacturer;
+    sysExBuffer[1] = (uint8)SysExID::Device;
+    sysExBuffer[2] = (uint8)SysExMessageType::programEditBufferDump;
+    addPgmDataToBufferStartingAtByte(sysExBuffer, 3);
+    MidiBuffer localMidiBuffer;
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExBuffer, numElementsInArray(sysExBuffer)), 0);
+    return localMidiBuffer;
+}
+
+void MidiGenerator::addPgmDataToBufferStartingAtByte(uint8* buffer, int startByte) {
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex)
+    {
+        auto paramID{ info.IDfor(paramIndex) };
+        auto param{ exposedParams->getParameter(paramID) };
+        auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
+        if (paramIndex == 95) // clock tempo parameter range is offset by 30
+            paramValue += 30;
+        if (isKnobAssignParameter(paramIndex))
+            paramValue = addUnusedParamsOffsetToKnobAssignValue(paramValue);
+        auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) + startByte };
+        auto lsbLocation{ info.lsByteLocationFor(paramIndex) + startByte };
+        if (paramValue > 127) {
+            *(buffer + msbLocation) += info.msBitMaskFor(paramIndex);
+        }
+        *(buffer + lsbLocation) = paramValue % 128;
+    }
+}
+
+void MidiGenerator::parameterChanged(const String& parameterID, float newValue) {
+    auto& midiParams{ MidiParameters_Singleton::get() };
+    if (!(bool)midiParams.getProperty(ID::midi_ParamChangeEchoIsBlocked)) {
+        auto& info{ InfoForExposedParameters::get() };
+        auto param{ info.indexFor(parameterID) };
+        auto nrpn{ info.NRPNfor(param) };
+        auto outputValue{ (uint8)roundToInt(newValue) };
+        outputValue = addAnyParamSpecificOffsetsToOutputValue(param, outputValue);
+        addParamChangedMessageToMidiBuffer(nrpn, outputValue);
+        if ((param == 98 || param == 100) && outputValue == 1)
+            arpeggiatorAndSequencerCannotBothBeOn(param);
+    }
+    else return;
+}
+
+uint8 MidiGenerator::addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue) {
+    if (isClockTempoParameter(param))
+        outputValue = addOffsetToClockTempoValue(outputValue);
+    if (isKnobAssignParameter(param))
+        outputValue = addUnusedParamsOffsetToKnobAssignValue(outputValue);
+    return outputValue;
+}
+
+bool MidiGenerator::isClockTempoParameter(uint8 paramIndex) {
+    return paramIndex == 95;
+}
+
+uint8 MidiGenerator::addOffsetToClockTempoValue(uint8 paramValue) {
+    uint8 clockTempoOffset{ 30 };
+    return paramValue + clockTempoOffset;
+}
+
+bool MidiGenerator::isKnobAssignParameter(uint8 paramIndex) {
+    return paramIndex > 104 && paramIndex < 109;
+}
+
+uint8 MidiGenerator::addUnusedParamsOffsetToKnobAssignValue(uint8 paramValue) {
+    return paramValue > 104 ? paramValue + 15 : paramValue;
+}
+
+void MidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
+    auto& info{ InfoForExposedParameters::get() };
+    auto arpegParam{ exposedParams->getParameter(info.IDfor(98)) };
+    auto sequencerParam{ exposedParams->getParameter(info.IDfor(100)) };
+    if (paramTurnedOn == 98 && sequencerParam != nullptr)
+        if (sequencerParam->getValue() != 0.0f)
+            sequencerParam->setValueNotifyingHost(0.0f);
+    if (paramTurnedOn == 100 && arpegParam != nullptr)
+        if (arpegParam->getValue() != 0.0f)
+            arpegParam->setValueNotifyingHost(0.0f);
+}
+
+void MidiGenerator::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue) {
+    // Send MIDI channel change messages out on all channels
+    if (paramNRPN == 386) {
+        for (uint8 midiChannel = 0; midiChannel != 16; ++midiChannel) {
+            auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
+            combineMidiBuffers(nrpnBuffer);
+        }
+    }
+    else {
+        auto& midiParams{ MidiParameters_Singleton::get() };
+        auto midiChannel{ (uint8)(int)midiParams.getProperty(ID::midi_Channel) };
+        auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
+        combineMidiBuffers(nrpnBuffer);
+    }
+}
+
+void MidiGenerator::combineMidiBuffers(MidiBuffer& midiBuffer) {
+    internalMidiBuffer.addEvents(midiBuffer, 0, -1, 0);
+    if (!isTimerRunning(timerID::midiBuffer)) {
+        internalMidiBuffers->add(internalMidiBuffer);
+        internalMidiBuffer.clear();
+        startTimer(timerID::midiBuffer, 10);
+    }
+}
+
+void MidiGenerator::updateProgramNameOnHardware(String newName) {
+    programName = newName;
+    nameCharCounter = 0;
+    MultiTimer::startTimer(timerID::pgmName, millisecondsBtwnParamChanges);
+}
+
+void MidiGenerator::clearSequencerTrack(int trackNum) {
+    jassert(trackNum > 0 && trackNum < 5);
+    switch (trackNum) {
+    case 1:
+        track1StepCounter = 0;
+        startTimer(timerID::clearSeqTrack1, millisecondsBtwnParamChanges);
+        break;
+    case 2:
+        track2StepCounter = 0;
+        startTimer(timerID::clearSeqTrack2, millisecondsBtwnParamChanges);
+        break;
+    case 3:
+        track3StepCounter = 0;
+        startTimer(timerID::clearSeqTrack3, millisecondsBtwnParamChanges);
+        break;
+    case 4:
+        track4StepCounter = 0;
+        startTimer(timerID::clearSeqTrack4, millisecondsBtwnParamChanges);
+        break;
+    default:
+        break;
+    }
+}
+
+void MidiGenerator::timerCallback(int timerID) {
+    stopTimer(timerID);
+    if (timerID == timerID::pgmName) {
+        auto normalizedValue{ (char)programName[nameCharCounter] / 127.0f };
+        auto param{ exposedParams->getParameter("nameChar" + (String)(nameCharCounter + 1)) };
+        if (param != nullptr)
+            param->setValueNotifyingHost(normalizedValue);
+        if (nameCharCounter < 16) {
+            ++nameCharCounter;
+            startTimer(timerID::pgmName, millisecondsBtwnParamChanges);
+        }
+        else
+            nameCharCounter = 0;
+    }
+    if (timerID == timerID::clearSeqTrack1) {
+        if (track1StepCounter > -1 && track1StepCounter < 16) {
+            clearSequencerStepOnTrack(track1StepCounter + 1, 1);
+            if (track1StepCounter < 16) {
+                ++track1StepCounter;
+                MultiTimer::startTimer(timerID::clearSeqTrack1, millisecondsBtwnParamChanges);
+            }
+            else track1StepCounter = 0;
+        }
+    }
+    if (timerID == timerID::clearSeqTrack2) {
+        if (track2StepCounter > -1 && track2StepCounter < 16) {
+            clearSequencerStepOnTrack(track2StepCounter + 1, 2);
+            if (track2StepCounter < 16) {
+                ++track2StepCounter;
+                MultiTimer::startTimer(timerID::clearSeqTrack2, millisecondsBtwnParamChanges);
+            }
+            else track2StepCounter = 0;
+        }
+    }
+    if (timerID == timerID::clearSeqTrack3) {
+        if (track3StepCounter > -1 && track3StepCounter < 16) {
+            clearSequencerStepOnTrack(track3StepCounter + 1, 3);
+            if (track3StepCounter < 16) {
+                ++track3StepCounter;
+                MultiTimer::startTimer(timerID::clearSeqTrack3, millisecondsBtwnParamChanges);
+            }
+            else track3StepCounter = 0;
+        }
+    }
+    if (timerID == timerID::clearSeqTrack4) {
+        if (track4StepCounter > -1 && track4StepCounter < 16) {
+            clearSequencerStepOnTrack(track4StepCounter + 1, 4);
+            if (track4StepCounter < 16) {
+                ++track4StepCounter;
+                MultiTimer::startTimer(timerID::clearSeqTrack4, millisecondsBtwnParamChanges);
+            }
+            else track4StepCounter = 0;
+        }
+    }
+}
+
+void MidiGenerator::clearSequencerStepOnTrack(int stepNum, int trackNum) {
+    auto param{ exposedParams->getParameter("track" + (String)trackNum + "Step" + (String)stepNum) };
+    param->setValueNotifyingHost(trackNum == 1 ? 1.0f : 0.0f); // set track 1 steps to 127 ('rest'), steps on other tracks to 0
+}
+
+

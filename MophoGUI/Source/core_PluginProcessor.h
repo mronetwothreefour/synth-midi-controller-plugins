@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "core_UndoManager_Singleton.h"
-#include "helpers/helper_MidiHandler.h"
+#include "helpers/helper_MidiTools.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_UnexposedParameters.h"
 
@@ -14,7 +14,8 @@ class PluginProcessor :
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
-    std::unique_ptr<MidiHandler> midiHandler;
+    std::unique_ptr<IncomingMidiHandler> incomingMidiHandler;
+    std::unique_ptr<MidiGenerator> midiGenerator;
 
 public:
     PluginProcessor();

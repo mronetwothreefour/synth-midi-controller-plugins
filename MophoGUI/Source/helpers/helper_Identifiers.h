@@ -21,5 +21,9 @@ namespace ID
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
 	static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
+	static const Identifier midi_Channel{ "midi_Channel" };
+	static const Identifier midi_ParamChangeEchoIsBlocked{ "midi_ParamChangeEchoIsBlocked" };
+	static const Identifier midi_Parameters{ "midi_Parameters" };
 }
 

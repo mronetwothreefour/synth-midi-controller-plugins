@@ -5,12 +5,14 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     internalMidiBuffers{ new Array<MidiBuffer> },
-    midiHandler{ new MidiHandler(exposedParams.get(), internalMidiBuffers.get()) }
+    incomingMidiHandler{ new IncomingMidiHandler(exposedParams.get()) },
+    midiGenerator{ new MidiGenerator(exposedParams.get(), internalMidiBuffers.get()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
-    midiHandler = nullptr;
+    midiGenerator = nullptr;
+    incomingMidiHandler = nullptr;
     internalMidiBuffers = nullptr;
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
@@ -55,7 +57,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
     buffer.clear();
 
     if (!midiMessages.isEmpty()) {
-        auto handledMidiMessages{ midiHandler->handleIncomingMidiMessages(midiMessages) };
+        auto handledMidiMessages{ incomingMidiHandler->handle(midiMessages) };
         midiMessages.swapWith(handledMidiMessages);
     }
 
@@ -116,19 +118,19 @@ void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
 }
 
 void PluginProcessor::updateProgramNameOnHardware(String newName) {
-    midiHandler->updateProgramNameOnHardware(newName);
+    midiGenerator->updateProgramNameOnHardware(newName);
 }
 
 void PluginProcessor::clearSequencerTrack(int trackNum) {
-    midiHandler->clearSequencerTrack(trackNum);
+    midiGenerator->clearSequencerTrack(trackNum);
 }
 
 void PluginProcessor::sendProgramEditBufferDumpRequest() {
-    midiHandler->sendProgramEditBufferDumpRequest();
+    midiGenerator->sendProgramEditBufferDumpRequest();
 }
 
 void PluginProcessor::sendProgramEditBufferDump() {
-    midiHandler->sendProgramEditBufferDump();
+    midiGenerator->sendProgramEditBufferDump();
 }
 
 //==============================================================================
