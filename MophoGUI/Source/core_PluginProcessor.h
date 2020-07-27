@@ -15,7 +15,7 @@ class PluginProcessor :
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
     std::unique_ptr<IncomingMidiHandler> incomingMidiHandler;
-    std::unique_ptr<MidiGenerator> midiGenerator;
+    std::unique_ptr<OutgoingMidiGenerator> midiGenerator;
 
 public:
     PluginProcessor();

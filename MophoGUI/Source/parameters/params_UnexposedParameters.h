@@ -51,7 +51,7 @@ struct MidiParameters_Singleton
 	}
 
 	void addMidiParametersProperties() {
-		midiParametersTree.setProperty(ID::midi_Channel, 1, nullptr);
+		midiParametersTree.setProperty(ID::midi_Channel, 0, nullptr);
 		midiParametersTree.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)false, nullptr);
 	}
 

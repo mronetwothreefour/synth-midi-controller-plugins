@@ -6,7 +6,7 @@ PluginProcessor::PluginProcessor() :
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     internalMidiBuffers{ new Array<MidiBuffer> },
     incomingMidiHandler{ new IncomingMidiHandler(exposedParams.get()) },
-    midiGenerator{ new MidiGenerator(exposedParams.get(), internalMidiBuffers.get()) }
+    midiGenerator{ new OutgoingMidiGenerator(exposedParams.get(), internalMidiBuffers.get()) }
 {
 }
 

@@ -2851,7 +2851,6 @@
     <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MidiTools.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
-    <ClInclude Include="..\..\Source\helpers\helper_NRPNgenerator.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />

@@ -3,10 +3,8 @@
 #include <JuceHeader.h>
 
 #include "helper_Identifiers.h"
-#include "helper_NRPNgenerator.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_UnexposedParameters.h"
-
 
 
 enum class SysExID {
@@ -30,10 +28,8 @@ class IncomingMidiHandler
     AudioProcessorValueTreeState* exposedParams;
 
     void handleIncomingSysEx(const uint8* sysExData);
-    bool isKnobAssignParameter(uint8 paramIndex);
     bool isSysExFromDSIMopho(const MidiMessage & midiMessage);
     void applyProgramDumpToPlugin(const uint8* dumpData);
-    uint8 subtractUnusedParamsOffsetFromKnobAssignValue(uint8 paramValue);
 
 public:
     IncomingMidiHandler() = delete;
@@ -49,7 +45,7 @@ private:
 
 
 
-class MidiGenerator :
+class OutgoingMidiGenerator :
     private AudioProcessorValueTreeState::Listener,
     public MultiTimer
 {
@@ -76,11 +72,6 @@ class MidiGenerator :
     MidiBuffer createPgmEditBufferDump();
     void addPgmDataToBufferStartingAtByte(uint8* buffer, int startByte);
     void parameterChanged(const String& parameterID, float newValue) override;
-    uint8 addAnyParamSpecificOffsetsToOutputValue(uint8 param, uint8 outputValue);
-    bool isClockTempoParameter(uint8 paramIndex);
-    uint8 addOffsetToClockTempoValue(uint8 paramValue);
-    bool isKnobAssignParameter(uint8 paramIndex);
-    uint8 addUnusedParamsOffsetToKnobAssignValue(uint8 paramValue);
     void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
 
@@ -92,9 +83,9 @@ class MidiGenerator :
     void clearSequencerStepOnTrack(int stepNum, int trackNum);
 
 public:
-    MidiGenerator() = delete;
-    MidiGenerator(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers);
-    ~MidiGenerator();
+    OutgoingMidiGenerator() = delete;
+    OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers);
+    ~OutgoingMidiGenerator();
 
     void sendProgramEditBufferDumpRequest();
     void sendProgramEditBufferDump();
@@ -103,5 +94,32 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MidiGenerator)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OutgoingMidiGenerator)
+};
+
+
+
+struct ParameterSpecificValueOffsets
+{
+    static uint8 applyToOutgoing(uint8 param, uint8 paramValue);
+    static uint8 applyToIncoming(uint8 param, uint8 paramValue);
+    static bool isClockTempoParameter(uint8 param);
+    static bool isKnobAssignParameter(uint8 param);
+};
+
+
+
+// In the MidiBuffer created by Juce's MidiRPNGenerator, the LSB
+// messages come before the MSB messages. However, the Mopho sends
+// out NRPN messages with the MSBs before the LSBs, and I think the
+// NRPN messages sent to it should be ordered in the same way.
+struct NRPNbufferWithLeadingMSBsGenerator
+{
+    static MidiBuffer generateFrom_NRPNindex_NewValue_andChannel(uint16 paramNRPN, uint8 newValue, uint8 midiChannel);
+
+private:
+    static MidiMessage createNRPNindexMSBmessageForMidiChannel(uint16 paramNRPN, uint8 midiChannel);
+    static MidiMessage createNRPNindexLSBmessageForMidiChannel(uint16 paramNRPN, uint8 midiChannel);
+    static MidiMessage createNRPNvalueMSBmessageForMidiChannel(uint8 newValue, uint8 midiChannel);
+    static MidiMessage createNRPNvalueLSBmessageForMidiChannel(uint8 newValue, uint8 midiChannel);
 };
