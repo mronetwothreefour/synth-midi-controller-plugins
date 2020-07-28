@@ -2449,6 +2449,9 @@
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4820,6 +4823,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_MidiTools.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
