@@ -7,15 +7,13 @@
 class TooltipSetter : public ValueTree::Listener
 {
 protected:
-	ValueTree& tooltipOptions;
-
-	TooltipSetter() :
-		tooltipOptions{ TooltipOptions_Singleton::get() }
-	{
+	TooltipSetter() {
+		auto& tooltipOptions{ TooltipOptions_Singleton::get() };
 		tooltipOptions.addListener(this);
 	}
 
 	~TooltipSetter() {
+		auto& tooltipOptions{ TooltipOptions_Singleton::get() };
 		tooltipOptions.removeListener(this);
 	}
 
@@ -50,9 +48,11 @@ class TooltipSetterForExposedParamSliders :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
+		auto& tooltips{ TooltipOptions_Singleton::get() };
+		auto& info{ InfoForExposedParameters::get() };
+		if (tooltips.shouldShowDescription())
+			tooltipText += info.descriptionFor(param) + "\n";
+		if (tooltips.shouldShowCurrentValue()) {
 			auto sliderValue{ (uint8)roundToInt(slider.getValue()) };
 			tooltipText += ("Current Setting: " + converter->verboseConvert(sliderValue));
 		}
@@ -100,9 +100,11 @@ class TooltipSetterForExposedParamToggles :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
+		auto& tooltips{ TooltipOptions_Singleton::get() };
+		auto& info{ InfoForExposedParameters::get() };
+		if (tooltips.shouldShowDescription())
+			tooltipText += info.descriptionFor(param) + "\n";
+		if (tooltips.shouldShowCurrentValue()) {
 			auto toggleState{ (uint8)toggle.getToggleState() };
 			tooltipText += ("Current Setting: " + converter->verboseConvert(toggleState));
 		}
@@ -152,9 +154,11 @@ class TooltipSetterForExposedParamComboBoxes :
 
 	String generateTooltipText() noexcept override {
 		String tooltipText{ "" };
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowDescription))
-			tooltipText += InfoForExposedParameters::get().descriptionFor(param) + "\n";
-		if ((bool)tooltipOptions.getProperty(ID::tooltips_ShouldShowCurrentValue)) {
+		auto& tooltips{ TooltipOptions_Singleton::get() };
+		auto& info{ InfoForExposedParameters::get() };
+		if (tooltips.shouldShowDescription())
+			tooltipText += info.descriptionFor(param) + "\n";
+		if (tooltips.shouldShowCurrentValue()) {
 			auto selectedItem{ (uint8)comboBox.getSelectedItemIndex() };
 			tooltipText += ("Current Setting: " + converter->verboseConvert(selectedItem));
 		}

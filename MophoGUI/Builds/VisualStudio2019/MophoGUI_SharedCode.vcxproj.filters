@@ -2448,6 +2448,7 @@
     <ClCompile Include="..\..\Source\helpers\helper_MidiTools.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

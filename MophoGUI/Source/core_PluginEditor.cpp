@@ -47,10 +47,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());
     addAndMakeVisible(button_ForClearingSequencerTrack4.get());
 
-    auto& tooltipOptions{ TooltipOptions_Singleton::get() };
-    tooltipOptions.addListener(this);
-    auto tooltipsDelay{ (int)tooltipOptions.getProperty(ID::tooltips_DelayInMilliseconds) };
-    tooltipWindow.setMillisecondsBeforeTipAppears(tooltipsDelay);
+    auto& tooltips{ TooltipOptions_Singleton::get() };
+    tooltips.addListener(this);
+    tooltipWindow.setMillisecondsBeforeTipAppears(tooltips.delayInMilliseconds());
     tooltipWindow.setComponentEffect(nullptr);
 
     auto device_w{ 1273 };
@@ -128,9 +127,8 @@ void PluginEditor::resized() {
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)
 {
     if (property == ID::tooltips_DelayInMilliseconds) {
-        auto& tooltipOptions{ TooltipOptions_Singleton::get() };
-        auto tooltipsDelay{ (int)tooltipOptions.getProperty(property) };
-        tooltipWindow.setMillisecondsBeforeTipAppears(tooltipsDelay);
+        auto& tooltips{ TooltipOptions_Singleton::get() };
+        tooltipWindow.setMillisecondsBeforeTipAppears(tooltips.delayInMilliseconds());
     }
 }
 

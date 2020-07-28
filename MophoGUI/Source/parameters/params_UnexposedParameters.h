@@ -2,35 +2,34 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/helper_Identifiers.h"
+
 
 // TODO make tooltipOptionsTree with public 
-struct TooltipOptions_Singleton
+class TooltipOptions_Singleton
 {
-	TooltipOptions_Singleton() :
-		tooltipOptionsTree{ ID::tooltips_Options }
-	{
-		addTooltipOptionsProperties();
-	}
-
-	~TooltipOptions_Singleton() {
-	}
-
-	void addTooltipOptionsProperties() {
-		tooltipOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentValue, (bool)true, nullptr);
-		tooltipOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, (bool)true, nullptr);
-		tooltipOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, 1000, nullptr);
-	}
-
-public:
 	ValueTree tooltipOptionsTree;
 
+	TooltipOptions_Singleton();
+	~TooltipOptions_Singleton();
+
+	void addTooltipOptionsProperties();
+
+public:
 	TooltipOptions_Singleton(TooltipOptions_Singleton&&) = delete;
 	TooltipOptions_Singleton& operator=(TooltipOptions_Singleton&&) = delete;
 
-	static ValueTree& get() {
-		static TooltipOptions_Singleton tooltipOptions_Singleton;
-		return tooltipOptions_Singleton.tooltipOptionsTree;
-	}
+	static TooltipOptions_Singleton& get();
+	void addListener(ValueTree::Listener* listener);
+	void removeListener(ValueTree::Listener* listener);
+	bool shouldShowCurrentValue();
+	bool shouldShowDescription();
+	void setShouldShowCurrentValue();
+	void setShouldNotShowCurrentValue();
+	void setShouldShowDescription();
+	void setShouldNotShowDescription();
+	int delayInMilliseconds();
+	void setDelayInMilliseconds(int newDelay);
 
 private:
 	//==============================================================================
@@ -39,32 +38,27 @@ private:
 
 
 
-struct MidiParameters_Singleton
+class MidiParameters_Singleton
 {
-	MidiParameters_Singleton() :
-		midiParametersTree{ ID::midi_Parameters }
-	{
-		addMidiParametersProperties();
-	}
-
-	~MidiParameters_Singleton() {
-	}
-
-	void addMidiParametersProperties() {
-		midiParametersTree.setProperty(ID::midi_Channel, 0, nullptr);
-		midiParametersTree.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)false, nullptr);
-	}
-
-public:
 	ValueTree midiParametersTree;
 
+	MidiParameters_Singleton();
+	~MidiParameters_Singleton();
+
+	void addMidiParametersProperties();
+
+public:
 	MidiParameters_Singleton(MidiParameters_Singleton&&) = delete;
 	MidiParameters_Singleton& operator=(MidiParameters_Singleton&&) = delete;
 
-	static ValueTree& get() {
-		static MidiParameters_Singleton midiParameters_Singleton;
-		return midiParameters_Singleton.midiParametersTree;
-	}
+	static MidiParameters_Singleton& get();
+	void addListener(ValueTree::Listener* listener);
+	void removeListener(ValueTree::Listener* listener);
+	uint8 channel();
+	void setChannel(uint8 newChannel);
+	bool paramChangeEchosAreNotBlocked();
+	void setParamChangeEchosAreBlocked();
+	void setParamChangeEchosAreNotBlocked();
 
 private:
 	//==============================================================================

@@ -118,7 +118,7 @@ public:
 		addAndMakeVisible(button);
 		String tooltipString;
 		tooltipString =  "Opens an editor where you can\n";
-		tooltipString += "type in a new program name.\n";
+		tooltipString += "type in a new program name.";
 		button.setTooltip(tooltipString);
 		button.onClick = [this] { showPgmNameEditor(); };
 
@@ -158,6 +158,13 @@ public:
 		trackNum{ trackNum },
 		processor{ processor }
 	{
+		String tipString;
+		tipString = "Sets all steps in sequencer\n";
+		if (trackNum == 1)
+			tipString += "track 1 to 127 (\"rest\")";
+		else 
+			tipString += "track " + (String)trackNum + " to 0 (C0)";
+		setTooltip(tipString);
 		onClick = [this] { clearSequencerTrack(); };
 	}
 
@@ -187,6 +194,10 @@ public:
 		TextButton{ "WRITE" },
 		processor{ processor }
 	{
+		String tipString;
+		tipString =  "Writes the plugin's current program settings\n";
+		tipString += "into the Mopho hardware's program edit buffer.";
+		setTooltip(tipString);
 		onClick = [this] { sendProgramEditBufferDump(); };
 	}
 
@@ -216,6 +227,10 @@ public:
 		TextButton{ "READ" },
 		processor{ processor }
 	{
+		String tipString;
+		tipString =  "Requests a program edit buffer dump from the Mopho hardware\n";
+		tipString += "and applies it to the plugin's program settings.";
+		setTooltip(tipString);
 		onClick = [this] { sendProgramEditBufferDumpRequest(); };
 	}
 

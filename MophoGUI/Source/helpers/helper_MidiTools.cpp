@@ -37,7 +37,7 @@ void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
 
 void IncomingMidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
     auto& midiParams{ MidiParameters_Singleton::get() };
-    midiParams.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)true, nullptr);
+    midiParams.setParamChangeEchosAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
@@ -51,7 +51,7 @@ void IncomingMidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
         auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
         exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     }
-    midiParams.setProperty(ID::midi_ParamChangeEchoIsBlocked, (bool)false, nullptr);
+    midiParams.setParamChangeEchosAreNotBlocked();
 }
 
 
@@ -121,7 +121,7 @@ void OutgoingMidiGenerator::addPgmDataToBufferStartingAtByte(uint8* buffer, int 
 
 void OutgoingMidiGenerator::parameterChanged(const String& parameterID, float newValue) {
     auto& midiParams{ MidiParameters_Singleton::get() };
-    if (!(bool)midiParams.getProperty(ID::midi_ParamChangeEchoIsBlocked)) {
+    if (midiParams.paramChangeEchosAreNotBlocked()) {
         auto& info{ InfoForExposedParameters::get() };
         auto param{ info.indexFor(parameterID) };
         auto nrpn{ info.NRPNfor(param) };
@@ -147,19 +147,10 @@ void OutgoingMidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTur
 }
 
 void OutgoingMidiGenerator::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue) {
-    // Send MIDI channel change messages out on all channels
-    if (paramNRPN == 386) {
-        for (uint8 midiChannel = 0; midiChannel != 16; ++midiChannel) {
-            auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
-            combineMidiBuffers(nrpnBuffer);
-        }
-    }
-    else {
-        auto& midiParams{ MidiParameters_Singleton::get() };
-        auto midiChannel{ (uint8)(int)midiParams.getProperty(ID::midi_Channel) };
-        auto nrpnBuffer{ NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiChannel) };
-        combineMidiBuffers(nrpnBuffer);
-    }
+    auto& midiParams{ MidiParameters_Singleton::get() };
+    MidiBuffer nrpnBuffer;
+    nrpnBuffer = NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiParams.channel());
+    combineMidiBuffers(nrpnBuffer);
 }
 
 void OutgoingMidiGenerator::combineMidiBuffers(MidiBuffer& midiBuffer) {
