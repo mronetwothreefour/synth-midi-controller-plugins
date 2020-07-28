@@ -2448,9 +2448,14 @@
     <ClCompile Include="..\..\Source\helpers\helper_MidiTools.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ProgramBanksWindow.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4826,6 +4831,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.h">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ProgramBanksWindow.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

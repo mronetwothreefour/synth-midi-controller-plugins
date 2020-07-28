@@ -2075,6 +2075,7 @@
     <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ProgramBanksWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2863,6 +2864,7 @@
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ProgramBanksWindow.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ProgramNameCharacters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />

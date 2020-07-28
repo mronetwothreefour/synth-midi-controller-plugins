@@ -38,6 +38,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(processor));
     addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
+    button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow(processor));
+    addAndMakeVisible(button_ForOpeningProgramBanksWindow.get());
+
     button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, processor));
     button_ForClearingSequencerTrack2.reset(new ButtonForClearingSequencerTrack(2, processor));
     button_ForClearingSequencerTrack3.reset(new ButtonForClearingSequencerTrack(3, processor));
@@ -66,6 +69,7 @@ PluginEditor::~PluginEditor() {
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
     button_ForClearingSequencerTrack1 = nullptr;
+    button_ForOpeningProgramBanksWindow = nullptr;
     button_ForSendingPgmEditBufDumpRequest = nullptr;
     button_ForSendingPgmEditBufDump = nullptr;
     button_ForEditingPgmName = nullptr;
@@ -115,6 +119,7 @@ void PluginEditor::resized() {
     auto utilityButtons_h{ 21 };
     button_ForSendingPgmEditBufDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingPgmEditBufDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForOpeningProgramBanksWindow->setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto clearSeqTrackButtons_x{ 1166 };
     auto clearSeqTrackButtons_w{ 42 };
     auto clearSeqTrackButtons_h{ 16 };
