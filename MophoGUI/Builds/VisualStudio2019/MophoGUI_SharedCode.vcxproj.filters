@@ -463,6 +463,9 @@
     <Filter Include="MophoGUI\Source\widgets">
       <UniqueIdentifier>{74758f8d-438e-4e4f-9c88-1402156ac9d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\banksWindow">
+      <UniqueIdentifier>{9aaa81a1-56e0-428b-8166-c0501aa927d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2448,17 +2451,23 @@
     <ClCompile Include="..\..\Source\helpers\helper_MidiTools.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets\widget_ProgramBanksWindow.cpp">
-      <Filter>MophoGUI\Source\widgets</Filter>
+    <ClCompile Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.cpp">
-      <Filter>MophoGUI\Source\parameters</Filter>
+    <ClCompile Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBankTab.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4832,14 +4841,20 @@
     <ClInclude Include="..\..\Source\helpers\helper_MidiTools.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
+    <ClInclude Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_ProgramBanksWindow.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
+    <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

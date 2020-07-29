@@ -1,4 +1,4 @@
-#include "params_PluginProgramBanks_Singleton.h"
+#include "banks_PluginProgramBanks_Singleton.h"
 
 
 

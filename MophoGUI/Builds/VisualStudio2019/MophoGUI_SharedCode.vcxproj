@@ -2067,16 +2067,18 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBankTab.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_MidiTools.cpp" />
-    <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
-    <ClCompile Include="..\..\Source\widgets\widget_ProgramBanksWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2841,6 +2843,11 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h" />
@@ -2855,10 +2862,8 @@
     <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MidiTools.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
-    <ClInclude Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
-    <ClInclude Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Buttons.h" />
     <ClInclude Include="..\..\Source\widgets\widget_EnvelopeRenderer.h" />
@@ -2866,7 +2871,6 @@
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h" />
-    <ClInclude Include="..\..\Source\widgets\widget_ProgramBanksWindow.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ProgramNameCharacters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />

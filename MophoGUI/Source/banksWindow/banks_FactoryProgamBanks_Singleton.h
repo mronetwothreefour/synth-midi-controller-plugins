@@ -20,7 +20,7 @@ public:
 
 	static FactoryProgramBanks& get() noexcept;
 	int programSlotOutOfRange();
-	const String& getProgramStringFromBankSlot(uint8 bank, uint8 slot);
+	const String getProgramStringFromBankSlot(uint8 bank, uint8 slot);
 
 private:
 	//==============================================================================

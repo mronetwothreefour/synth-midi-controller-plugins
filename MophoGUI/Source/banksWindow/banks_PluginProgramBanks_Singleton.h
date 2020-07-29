@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "params_FactoryProgamBanks_Singleton.h"
+#include "banks_FactoryProgamBanks_Singleton.h"
 
 
 

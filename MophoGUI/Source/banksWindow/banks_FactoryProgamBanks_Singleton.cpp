@@ -1,4 +1,4 @@
-#include "params_FactoryProgamBanks_Singleton.h"
+#include "banks_FactoryProgamBanks_Singleton.h"
 
 
 
@@ -407,7 +407,7 @@ int FactoryProgramBanks::programSlotOutOfRange() {
 	return factoryProgramBank1.size();
 }
 
-const String& FactoryProgramBanks::getProgramStringFromBankSlot(uint8 bank, uint8 slot) {
+const String FactoryProgramBanks::getProgramStringFromBankSlot(uint8 bank, uint8 slot) {
 	jassert(bank < 3);
 	jassert(slot < 128);
 	switch (bank)

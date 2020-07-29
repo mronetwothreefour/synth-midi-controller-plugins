@@ -5,7 +5,7 @@
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
-#include "widget_ProgramBanksWindow.h"
+#include "../banksWindow/banks_ProgramBanksWindow.h"
 #include "widget_TooltipSetters.h"
 
 using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
