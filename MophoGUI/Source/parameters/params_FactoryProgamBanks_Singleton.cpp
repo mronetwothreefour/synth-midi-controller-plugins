@@ -402,3 +402,23 @@ FactoryProgramBanks& FactoryProgramBanks::get() noexcept {
 	static FactoryProgramBanks factoryProgramBanks;
 	return factoryProgramBanks;
 }
+
+int FactoryProgramBanks::programSlotOutOfRange() {
+	return factoryProgramBank1.size();
+}
+
+const String& FactoryProgramBanks::getProgramStringFromBankSlot(uint8 bank, uint8 slot) {
+	jassert(bank < 3);
+	jassert(slot < 128);
+	switch (bank)
+	{
+	case 0:
+		return factoryProgramBank1.getReference(slot);
+	case 1:
+		return factoryProgramBank2.getReference(slot);
+	case 2:
+		return factoryProgramBank3.getReference(slot);
+	default:
+		return (String)"bank does not exist";
+	}
+}

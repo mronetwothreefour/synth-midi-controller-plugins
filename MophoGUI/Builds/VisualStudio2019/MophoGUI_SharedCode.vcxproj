@@ -2074,6 +2074,7 @@
     <ClCompile Include="..\..\Source\helpers\helper_MidiTools.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ProgramBanksWindow.cpp" />
   </ItemGroup>
@@ -2857,6 +2858,7 @@
     <ClInclude Include="..\..\Source\parameters\params_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
+    <ClInclude Include="..\..\Source\parameters\params_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Buttons.h" />
     <ClInclude Include="..\..\Source\widgets\widget_EnvelopeRenderer.h" />
