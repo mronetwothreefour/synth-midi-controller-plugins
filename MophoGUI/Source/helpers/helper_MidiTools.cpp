@@ -10,6 +10,10 @@ IncomingMidiHandler::IncomingMidiHandler(AudioProcessorValueTreeState* exposedPa
 IncomingMidiHandler::~IncomingMidiHandler() {
 }
 
+void IncomingMidiHandler::applyStoredProgramDataToPlugin(const uint8* programData) {
+    applyProgramDumpToPlugin(programData);
+}
+
 MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
     MidiBuffer handledMidiMessages;
     for (auto event : midiMessages) {

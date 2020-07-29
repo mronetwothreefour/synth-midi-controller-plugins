@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../core_PluginProcessor.h"
+#include "banks_ProgramBanksButtons.h"
 #include "banks_ProgramSlotsWidget.h"
 
 
@@ -14,8 +15,9 @@ class ProgramBankTab :
     public Label::Listener
 {
     uint8 bank;
-    ProgramSlotsWidget programSlots;
     PluginProcessor& processor;
+    ProgramSlotsWidget programSlots;
+    ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ApplicationCommandManager commandManager;
 
 public:

@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "banks_ProgramBankTab.h"
+#include "banks_ProgramBanksButtons.h"
 #include "../helpers/helper_CustomColors.h"
 
 

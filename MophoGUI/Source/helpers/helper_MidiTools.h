@@ -37,6 +37,7 @@ public:
     ~IncomingMidiHandler();
 
     MidiBuffer handle(const MidiBuffer& midiMessages);
+    void applyStoredProgramDataToPlugin(const uint8* programData);
 
 private:
     //==============================================================================

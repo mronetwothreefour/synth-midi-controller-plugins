@@ -2843,6 +2843,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.h" />

@@ -63,13 +63,19 @@ void PluginProgramBanks::storeProgramDataAsHexStringInBankSlot(const uint8* data
 }
 
 const String PluginProgramBanks::getNameForProgramStoredInBankSlot(uint8 bank, uint8 slot) {
+	auto programDataBuffer{ getProgramDataStoredInBankSlot(bank, slot) };
+	String programName{ extractProgramNameFromDataBuffer(programDataBuffer) };
+	return programName;
+}
+
+const uint8* PluginProgramBanks::getProgramDataStoredInBankSlot(uint8 bank, uint8 slot) {
 	jassert(bank < 3);
 	jassert(slot < 128);
 	const auto& hexString{ getProgramHexStringFromBankSlot(bank, slot) };
 	auto programDataBuffer{ convertProgramHexStringToDataBuffer(hexString) };
-	String programName{ extractProgramNameFromDataBuffer(programDataBuffer) };
-	return programName;
+	return programDataBuffer;
 }
+
 
 const String PluginProgramBanks::getProgramHexStringFromBankSlot(uint8 bank, uint8 slot) const {
 	jassert(bank < 3);

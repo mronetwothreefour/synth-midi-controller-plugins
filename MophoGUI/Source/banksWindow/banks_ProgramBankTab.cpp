@@ -4,10 +4,12 @@
 
 ProgramBankTab::ProgramBankTab(uint8 bank, PluginProcessor& processor) :
 	bank{ bank },
-	programSlots{ bank },
-	processor{ processor }
+	processor{ processor },
+	programSlots{ bank, processor },
+	button_ForLoadingSelectedProgram{ programSlots }
 {
 	addAndMakeVisible(programSlots);
+	addAndMakeVisible(button_ForLoadingSelectedProgram);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -26,6 +28,10 @@ void ProgramBankTab::paint(Graphics& g) {
 
 void ProgramBankTab::resized() {
 	programSlots.setBounds(10, 10, programSlots.getWidth(), programSlots.getHeight());
+	auto buttons_y{ 290 };
+	auto buttons_w{ 50 };
+	auto buttons_h{ 21 };
+	button_ForLoadingSelectedProgram.setBounds(175, buttons_y, buttons_w, buttons_h);
 }
 
 void ProgramBankTab::timerCallback() {

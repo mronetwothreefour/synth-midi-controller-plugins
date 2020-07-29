@@ -4856,6 +4856,9 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

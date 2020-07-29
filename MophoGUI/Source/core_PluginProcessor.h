@@ -10,7 +10,8 @@
 
 
 class PluginProcessor : 
-    public AudioProcessor
+    public AudioProcessor,
+    public Timer
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
@@ -50,7 +51,10 @@ public:
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
     void sendProgramEditBufferDumpRequest();
+    void loadProgramFromStoredData(const uint8* programData);
     void sendProgramEditBufferDump();
+
+    void timerCallback() override;
 
 private:
     //==============================================================================

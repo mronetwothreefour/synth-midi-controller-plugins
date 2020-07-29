@@ -129,8 +129,16 @@ void PluginProcessor::sendProgramEditBufferDumpRequest() {
     midiGenerator->sendProgramEditBufferDumpRequest();
 }
 
+void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
+    incomingMidiHandler->applyStoredProgramDataToPlugin(programData);
+    callAfterDelay(100, [this] { sendProgramEditBufferDump(); });
+}
+
 void PluginProcessor::sendProgramEditBufferDump() {
     midiGenerator->sendProgramEditBufferDump();
+}
+
+void PluginProcessor::timerCallback() {
 }
 
 //==============================================================================

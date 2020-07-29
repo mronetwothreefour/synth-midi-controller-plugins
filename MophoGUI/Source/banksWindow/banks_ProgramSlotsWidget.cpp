@@ -2,12 +2,13 @@
 
 
 
-ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank) :
+ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, PluginProcessor& processor) :
 	bank{ bank },
+	processor{ processor },
 	buttton_w{ 120 },
 	buttton_h{ 17 },
 	buttonGap{ 5 },
-	selectedSlot{ -1 }
+	selectedSlot{ 128 }
 {
 	auto& pgmBanks{ PluginProgramBanks::get() };
 	for (uint8 slot = 0; slot != pgmBanks.programSlotOutOfRange(); ++slot) {
@@ -42,6 +43,14 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 	if (slot > 99) slotNumber = (String)(slot + 1);
 	auto& pgmBanks{ PluginProgramBanks::get() };
 	programSlotButtons[slot].setName(slotNumber + " " + pgmBanks.getNameForProgramStoredInBankSlot(bank, slot));
+}
+
+void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
+	if (selectedSlot < 128) {
+		auto& pgmBanks{ PluginProgramBanks::get() };
+		auto programData{ pgmBanks.getProgramDataStoredInBankSlot(bank, selectedSlot) };
+		processor.loadProgramFromStoredData(programData);
+	}
 }
 
 

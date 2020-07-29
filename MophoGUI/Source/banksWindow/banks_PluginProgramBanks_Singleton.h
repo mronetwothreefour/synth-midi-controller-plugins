@@ -30,6 +30,7 @@ public:
 	void resetAllProgramBanksToFactoryDefaults();
 	void storeProgramDataInBankSlot(const uint8* data, uint8 bank, uint8 slot);
 	const String getNameForProgramStoredInBankSlot(uint8 bank, uint8 slot);
+	const uint8* getProgramDataStoredInBankSlot(uint8 bank, uint8 slot);
 
 private:
 	//==============================================================================
