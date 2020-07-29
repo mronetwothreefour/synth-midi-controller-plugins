@@ -20,10 +20,13 @@ void PluginProgramBanks::resetAllProgramBanksToFactoryDefaults() {
 
 void PluginProgramBanks::fillProgramBanksWithFactoryDefaultPrograms() {
 	auto& factoryBanks{ FactoryProgramBanks::get() };
+	auto& factoryBank1{ factoryBanks.getFactoryBank1() };
+	auto& factoryBank2{ factoryBanks.getFactoryBank2() };
+	auto& factoryBank3{ factoryBanks.getFactoryBank3() };
 	for (uint8 programSlot = 0; programSlot != factoryBanks.programSlotOutOfRange(); ++programSlot) {
-		programBank1.setProperty("pgm" + (String)programSlot, factoryBanks.getProgramStringFromBankSlot(0, programSlot), nullptr);
-		programBank2.setProperty("pgm" + (String)programSlot, factoryBanks.getProgramStringFromBankSlot(1, programSlot), nullptr);
-		programBank3.setProperty("pgm" + (String)programSlot, factoryBanks.getProgramStringFromBankSlot(2, programSlot), nullptr);
+		programBank1.setProperty("pgm" + (String)programSlot, factoryBank1[programSlot], nullptr);
+		programBank2.setProperty("pgm" + (String)programSlot, factoryBank2[programSlot], nullptr);
+		programBank3.setProperty("pgm" + (String)programSlot, factoryBank3[programSlot], nullptr);
 	}
 }
 

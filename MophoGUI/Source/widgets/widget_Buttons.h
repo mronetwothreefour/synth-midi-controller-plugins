@@ -292,6 +292,13 @@ public:
 	}
 
 	~ButtonForOpeningProgramBanksWindow() {
+		if (programBanksDialogWindow != nullptr)
+		{
+			programBanksDialogWindow->exitModalState(0);
+			delete programBanksDialogWindow;
+		}
+		programBanksOptions = nullptr;
+		programBanksWindow = nullptr;
 	}
 
 private:
