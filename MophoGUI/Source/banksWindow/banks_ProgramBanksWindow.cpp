@@ -19,6 +19,12 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(PluginProcessor& proces
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
+void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
+}
+
+void ProgramBanksTabbedComponent::editorShown(Label* label, TextEditor& editor) {
+}
+
 
 //================================================================================
 

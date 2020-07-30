@@ -36,3 +36,36 @@ private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedProgram)
 };
+
+
+
+class ButtonForSavingProgramInSelectedSlot :
+	public TextButton
+{
+	ProgramSlotsWidget& programSlots;
+
+	void saveProgramToSelectedSlot() {
+		programSlots.storeProgramInSelectedSlot();
+	}
+
+public:
+	ButtonForSavingProgramInSelectedSlot() = delete;
+
+	explicit ButtonForSavingProgramInSelectedSlot(ProgramSlotsWidget& programSlots) :
+		TextButton{ "SAVE" },
+		programSlots{ programSlots }
+	{
+		String tipString;
+		tipString =  "Saves the plugin GUI's current settings\n";
+		tipString += "in the selected program storage slot.";
+		setTooltip(tipString);
+		onClick = [this] { saveProgramToSelectedSlot(); };
+	}
+
+	~ButtonForSavingProgramInSelectedSlot() {
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingProgramInSelectedSlot)
+};

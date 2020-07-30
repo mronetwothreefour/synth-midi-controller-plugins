@@ -2,22 +2,24 @@
 
 #include <JuceHeader.h>
 
-#include "../core_PluginProcessor.h"
 #include "banks_ProgramBanksButtons.h"
 #include "banks_ProgramSlotsWidget.h"
+#include "../core_PluginProcessor.h"
+#include "../helpers/helper_CustomColors.h"
+#include "../helpers/helper_Fonts.h"
 
 
 
 class ProgramBankTab :
     public Component,
     public Timer,
-    public ApplicationCommandTarget,
-    public Label::Listener
+    public ApplicationCommandTarget
 {
     uint8 bank;
     PluginProcessor& processor;
     ProgramSlotsWidget programSlots;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
+    ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
     ApplicationCommandManager commandManager;
 
 public:
@@ -36,8 +38,6 @@ public:
     void getAllCommands(Array<CommandID>& commands) override;
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
     bool perform(const InvocationInfo& info) override;
-    void labelTextChanged(Label* label) override;
-    void editorShown(Label* label, TextEditor& editor) override;
 
 private:
     //==============================================================================

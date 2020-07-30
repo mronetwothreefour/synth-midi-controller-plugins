@@ -52,6 +52,7 @@ public:
     void clearSequencerTrack(int trackNum);
     void sendProgramEditBufferDumpRequest();
     void loadProgramFromStoredData(const uint8* programData);
+    void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
     void sendProgramEditBufferDump();
 
     void timerCallback() override;

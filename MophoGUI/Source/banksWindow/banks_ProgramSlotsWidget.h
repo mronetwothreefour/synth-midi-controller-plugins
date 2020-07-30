@@ -26,6 +26,7 @@ public:
     void resized() override;
     void setTextForProgramSlotToggleButton(uint8 slot);
     void loadProgramFromSelectedSlot();
+    void storeProgramInSelectedSlot();
 
 private:
     //==============================================================================

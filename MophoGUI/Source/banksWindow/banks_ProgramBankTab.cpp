@@ -6,10 +6,13 @@ ProgramBankTab::ProgramBankTab(uint8 bank, PluginProcessor& processor) :
 	bank{ bank },
 	processor{ processor },
 	programSlots{ bank, processor },
-	button_ForLoadingSelectedProgram{ programSlots }
+	button_ForLoadingSelectedProgram{ programSlots },
+	button_ForSavingProgramInSelectedSlot{ programSlots }
 {
 	addAndMakeVisible(programSlots);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
+	button_ForLoadingSelectedProgram.setAlwaysOnTop(true);
+	addAndMakeVisible(button_ForSavingProgramInSelectedSlot);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -24,6 +27,17 @@ ProgramBankTab::~ProgramBankTab() {
 }
 
 void ProgramBankTab::paint(Graphics& g) {
+	g.setColour(Color::black);
+	Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForSectionLabels };
+	g.setFont(font);
+	auto label_y{ 290 };
+	auto label_h{ 21 };
+	Rectangle<int> selectedPgmLabelArea{ 5, label_y, 165, label_h };
+	g.drawText("SELECTED PROGRAM :", selectedPgmLabelArea, Justification::right);
+	Rectangle<int> entireBankLabelArea{ 445, label_y, 110, label_h };
+	g.drawText("ENTIRE BANK :", entireBankLabelArea, Justification::right);
+	Rectangle<int> txTimeLabelArea{ 715, label_y, 125, label_h };
+	g.drawText("TRANSMIT TIME :", txTimeLabelArea, Justification::right);
 }
 
 void ProgramBankTab::resized() {
@@ -32,6 +46,7 @@ void ProgramBankTab::resized() {
 	auto buttons_w{ 50 };
 	auto buttons_h{ 21 };
 	button_ForLoadingSelectedProgram.setBounds(175, buttons_y, buttons_w, buttons_h);
+	button_ForSavingProgramInSelectedSlot.setBounds(235, buttons_y, buttons_w, buttons_h);
 }
 
 void ProgramBankTab::timerCallback() {
@@ -64,10 +79,4 @@ void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo&
 
 bool ProgramBankTab::perform(const InvocationInfo& info) {
 	return false;
-}
-
-void ProgramBankTab::labelTextChanged(Label* label) {
-}
-
-void ProgramBankTab::editorShown(Label* label, TextEditor& editor) {
 }

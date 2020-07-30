@@ -8,7 +8,9 @@
 
 
 
-class ProgramBanksTabbedComponent : public TabbedComponent
+class ProgramBanksTabbedComponent : 
+    public TabbedComponent,
+    public Label::Listener
 {
     ProgramBankTab bank1;
     ProgramBankTab bank2;
@@ -16,6 +18,8 @@ class ProgramBanksTabbedComponent : public TabbedComponent
 
 public:
     explicit ProgramBanksTabbedComponent(PluginProcessor& processor);
+    void labelTextChanged(Label* label) override;
+    void editorShown(Label* label, TextEditor& editor) override;
 
 private:
     //==============================================================================

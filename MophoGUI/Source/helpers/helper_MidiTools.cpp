@@ -196,6 +196,13 @@ void OutgoingMidiGenerator::clearSequencerTrack(int trackNum) {
     }
 }
 
+void OutgoingMidiGenerator::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
+    uint8 programData[293]{};
+    addPgmDataToBufferStartingAtByte(programData, 0);
+    auto& pgmBanks{ PluginProgramBanks::get() };
+    pgmBanks.storeProgramDataInBankSlot(programData, bank, slot);
+}
+
 void OutgoingMidiGenerator::timerCallback(int timerID) {
     stopTimer(timerID);
     if (timerID == timerID::pgmName) {

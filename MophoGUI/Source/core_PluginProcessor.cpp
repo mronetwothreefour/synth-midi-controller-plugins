@@ -134,6 +134,10 @@ void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
     callAfterDelay(100, [this] { sendProgramEditBufferDump(); });
 }
 
+void PluginProcessor::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
+    midiGenerator->saveProgramToStorageBankSlot(bank, slot);
+}
+
 void PluginProcessor::sendProgramEditBufferDump() {
     midiGenerator->sendProgramEditBufferDump();
 }

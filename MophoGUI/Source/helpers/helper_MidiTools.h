@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "helper_Identifiers.h"
+#include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_UnexposedParameters.h"
 
@@ -92,6 +93,7 @@ public:
     void sendProgramEditBufferDump();
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
+    void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
 
 private:
     //==============================================================================

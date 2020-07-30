@@ -53,4 +53,12 @@ void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	}
 }
 
+void ProgramSlotsWidget::storeProgramInSelectedSlot() {
+	if (selectedSlot < 128) {
+		processor.saveProgramToStorageBankSlot(bank, selectedSlot);
+		setTextForProgramSlotToggleButton(selectedSlot);
+		repaint();
+	}
+}
+
 
