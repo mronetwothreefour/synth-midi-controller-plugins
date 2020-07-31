@@ -2466,7 +2466,7 @@
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBankTab.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.cpp">
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4853,10 +4853,10 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksWindow.h">
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h">
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
   </ItemGroup>

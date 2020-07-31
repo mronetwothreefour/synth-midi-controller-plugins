@@ -17,8 +17,8 @@ ProgramBankTab::ProgramBankTab(uint8 bank, PluginProcessor& processor) :
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
-	auto programBanksTab_w{ 1015 };
-	auto programBanksTab_h{ 325 };
+	auto programBanksTab_w{ 1065 };
+	auto programBanksTab_h{ 370 };
 	setSize(programBanksTab_w, programBanksTab_h);
 }
 
@@ -28,25 +28,27 @@ ProgramBankTab::~ProgramBankTab() {
 
 void ProgramBankTab::paint(Graphics& g) {
 	g.setColour(Color::black);
-	Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForSectionLabels };
+	Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForPgmBanksWindowLabels };
 	g.setFont(font);
-	auto label_y{ 290 };
+	auto label_y{ 334 };
 	auto label_h{ 21 };
-	Rectangle<int> selectedPgmLabelArea{ 5, label_y, 165, label_h };
+	Rectangle<int> selectedPgmLabelArea{ 15, label_y, 164, label_h };
 	g.drawText("SELECTED PROGRAM :", selectedPgmLabelArea, Justification::right);
 	Rectangle<int> entireBankLabelArea{ 445, label_y, 110, label_h };
 	g.drawText("ENTIRE BANK :", entireBankLabelArea, Justification::right);
-	Rectangle<int> txTimeLabelArea{ 715, label_y, 125, label_h };
+	Rectangle<int> txTimeLabelArea{ 692, label_y, 130, label_h };
 	g.drawText("TRANSMIT TIME :", txTimeLabelArea, Justification::right);
+	Rectangle<int> allBanksLabelArea{ 899, label_y, 96, label_h };
+	g.drawText("ALL BANKS :", allBanksLabelArea, Justification::right);
 }
 
 void ProgramBankTab::resized() {
-	programSlots.setBounds(10, 10, programSlots.getWidth(), programSlots.getHeight());
-	auto buttons_y{ 290 };
+	programSlots.setBounds(15, 14, programSlots.getWidth(), programSlots.getHeight());
+	auto buttons_y{ 334 };
 	auto buttons_w{ 50 };
 	auto buttons_h{ 21 };
-	button_ForLoadingSelectedProgram.setBounds(175, buttons_y, buttons_w, buttons_h);
-	button_ForSavingProgramInSelectedSlot.setBounds(235, buttons_y, buttons_w, buttons_h);
+	button_ForLoadingSelectedProgram.setBounds(184, buttons_y, buttons_w, buttons_h);
+	button_ForSavingProgramInSelectedSlot.setBounds(244, buttons_y, buttons_w, buttons_h);
 }
 
 void ProgramBankTab::timerCallback() {

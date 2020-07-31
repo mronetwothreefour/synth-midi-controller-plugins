@@ -5,9 +5,9 @@
 ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, PluginProcessor& processor) :
 	bank{ bank },
 	processor{ processor },
-	buttton_w{ 120 },
-	buttton_h{ 17 },
-	buttonGap{ 5 },
+	buttton_w{ 125 },
+	buttton_h{ 19 },
+	buttonHorizontalGap{ 7 },
 	selectedSlot{ 128 }
 {
 	auto& pgmBanks{ PluginProgramBanks::get() };
@@ -20,7 +20,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, PluginProcessor& processor) :
 		programSlotButtons[slot].onClick = [this, slot] {selectedSlot = slot; };
 	}
 
-	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonGap };
+	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonHorizontalGap };
 	auto programSlotsWidget_h{ 16 * buttton_h };
 	setSize(programSlotsWidget_w, programSlotsWidget_h);
 }
@@ -30,8 +30,8 @@ ProgramSlotsWidget::~ProgramSlotsWidget() {
 
 void ProgramSlotsWidget::resized() {
 	for (auto i = 0; i != 128; ++i) {
-		auto col_x{ (i / 16) * (buttton_w + buttonGap) };
-		auto row_y{ (i % 16) * buttton_h };
+		auto col_x{ (i / 16) * (buttton_w + buttonHorizontalGap) };
+		auto row_y{ (i % 16) * (buttton_h) };
 		programSlotButtons[i].setBounds(col_x, row_y, buttton_w, buttton_h);
 	}
 }

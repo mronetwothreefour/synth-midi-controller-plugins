@@ -38,7 +38,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(processor));
     addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
-    button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow(processor));
+    button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow());
+    button_ForOpeningProgramBanksWindow->onClick = [this] {showProgramBanksComponent(); };
     addAndMakeVisible(button_ForOpeningProgramBanksWindow.get());
 
     button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, processor));
@@ -65,6 +66,7 @@ PluginEditor::~PluginEditor() {
     auto& tooltipOptions{ TooltipOptions_Singleton::get() };
     tooltipOptions.removeListener(this);
 
+    programBanksComponent = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
@@ -134,6 +136,14 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
     if (property == ID::tooltips_DelayInMilliseconds) {
         auto& tooltips{ TooltipOptions_Singleton::get() };
         tooltipWindow.setMillisecondsBeforeTipAppears(tooltips.delayInMilliseconds());
+    }
+}
+
+void PluginEditor::showProgramBanksComponent() {
+    programBanksComponent.reset(new ProgramBanksComponent(processor));
+    if (programBanksComponent != nullptr) {
+        addAndMakeVisible(programBanksComponent.get());
+        programBanksComponent->setBounds(getLocalBounds());
     }
 }
 

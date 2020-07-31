@@ -34,7 +34,8 @@ namespace FontsDB
 	static const float size_ForLargeNumLabels{ 24.0f };
 	static const float size_ForPgmNameEditorText{ 18.0f };
 	static const float size_ForPopupMenuItem{ 12.0f };
-	static const float size_ForPgmSlotButtonText{ 11.0f };
+	static const float size_ForPgmSlotButtonText{ 12.0f };
+	static const float size_ForPgmBanksWindowLabels{ 18.0f };
 	static const float size_ForPulseWidthText{ 11.0f };
 	static const float size_ForSectionLabels{ 18.0f };
 	static const float size_ForSeqStepLabels{ 12.0f };

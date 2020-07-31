@@ -15,7 +15,8 @@ class ProgramSlotsWidget : public Component
     PluginProcessor& processor;
     int buttton_w;
     int buttton_h;
-    int buttonGap;
+    int buttonHorizontalGap;
+    int buttonVerticalGap;
 
 public:
     uint8 selectedSlot;

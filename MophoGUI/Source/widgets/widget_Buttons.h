@@ -5,7 +5,6 @@
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
-#include "../banksWindow/banks_ProgramBanksWindow.h"
 #include "widget_TooltipSetters.h"
 
 using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
@@ -248,57 +247,18 @@ private:
 class ButtonForOpeningProgramBanksWindow :
 	public TextButton
 {
-	PluginProcessor& processor;
-	SafePointer<DialogWindow> programBanksDialogWindow;
-	std::unique_ptr<DialogWindow::LaunchOptions> programBanksOptions;
-	std::unique_ptr<ProgramBanksWindow> programBanksWindow;
-
-	void openProgramBanksWindow() {
-		programBanksWindow.reset(new ProgramBanksWindow(processor));
-		programBanksOptions.reset(new DialogWindow::LaunchOptions());
-		programBanksOptions->content.setNonOwned(&programBanksWindow->contentComponent);
-		programBanksOptions->dialogTitle = "PROGRAM STORAGE BANKS";
-		programBanksOptions->escapeKeyTriggersCloseButton = true;
-		programBanksOptions->useNativeTitleBar = false;
-		programBanksOptions->dialogBackgroundColour = Color::device;
-		programBanksOptions->resizable = false;
-		programBanksOptions->content->setInterceptsMouseClicks(true, true);
-		programBanksDialogWindow = programBanksOptions->launchAsync();
-
-		if (programBanksDialogWindow != nullptr)
-		{
-			programBanksDialogWindow->setTitleBarHeight(30);
-			programBanksDialogWindow->setTitleBarTextCentred(false);
-
-			static const int dialogWindow_w{ programBanksWindow->contentComponent.getWidth() };
-			static const int dialogWindow_h{ programBanksWindow->contentComponent.getHeight() + programBanksDialogWindow->getTitleBarHeight() };
-			programBanksDialogWindow->centreAroundComponent(getParentComponent(), dialogWindow_w, dialogWindow_h);
-			programBanksDialogWindow->setResizeLimits(dialogWindow_w, dialogWindow_h, dialogWindow_w, dialogWindow_h);
-		}
-	}
 
 public:
-	ButtonForOpeningProgramBanksWindow() = delete;
-
-	explicit ButtonForOpeningProgramBanksWindow(PluginProcessor& processor) :
-		TextButton{ "BANKS" },
-		processor{ processor }
+	ButtonForOpeningProgramBanksWindow() :
+		TextButton{ "BANKS" }
 	{
 		String tipString;
 		tipString =  "Opens a window where you can manage the\n";
 		tipString += "three storage banks for program presets.";
 		setTooltip(tipString);
-		onClick = [this] { openProgramBanksWindow(); };
 	}
 
 	~ButtonForOpeningProgramBanksWindow() {
-		if (programBanksDialogWindow != nullptr)
-		{
-			programBanksDialogWindow->exitModalState(0);
-			delete programBanksDialogWindow;
-		}
-		programBanksOptions = nullptr;
-		programBanksWindow = nullptr;
 	}
 
 private:

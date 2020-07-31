@@ -17,7 +17,10 @@ class ProgramBanksTabbedComponent :
     ProgramBankTab bank3;
 
 public:
+    ProgramBanksTabbedComponent() = delete;
+
     explicit ProgramBanksTabbedComponent(PluginProcessor& processor);
+
     void labelTextChanged(Label* label) override;
     void editorShown(Label* label, TextEditor& editor) override;
 
@@ -28,15 +31,17 @@ private:
 
 
 
-class ProgramBanksWindow : public DialogWindow
+class ProgramBanksComponent : public Component
 {
+    ProgramBanksTabbedComponent tabbedComponent;
+    TextButton button_ForClosingProgramBanks;
+
+    void hideThisComponent();
+
 public:
-    ProgramBanksTabbedComponent contentComponent;
+    ProgramBanksComponent() = delete;
+    explicit ProgramBanksComponent(PluginProcessor& processor);
+    ~ProgramBanksComponent();
 
-    explicit ProgramBanksWindow(PluginProcessor& processor);
-    ~ProgramBanksWindow();
-
-private:
-    //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksWindow)
+    void paint(Graphics& g) override;
 };

@@ -4,6 +4,7 @@
 
 #include "core_PluginProcessor.h"
 #include "guiControls/ControlsForExposedParameters_Singleton.h"
+#include "banksWindow/banks_ProgramBanksComponent.h"
 #include "helpers/helper_CustomColors.h"
 #include "helpers/helper_Fonts.h"
 #include "helpers/helper_Identifiers.h"
@@ -30,6 +31,7 @@ class PluginEditor :
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
+    std::unique_ptr<ProgramBanksComponent> programBanksComponent;
     TooltipWindow tooltipWindow;
 
 public:
@@ -39,6 +41,7 @@ public:
     void paint(Graphics& g) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+    void showProgramBanksComponent();
 
 private:
     //==============================================================================
