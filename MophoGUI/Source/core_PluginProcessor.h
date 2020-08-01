@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "core_UndoManager_Singleton.h"
-#include "helpers/helper_MidiTools.h"
+#include "midiTools/helper_MidiTools.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_UnexposedParameters.h"
 

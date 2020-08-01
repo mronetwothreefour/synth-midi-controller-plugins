@@ -2,25 +2,11 @@
 
 #include <JuceHeader.h>
 
-#include "helper_Identifiers.h"
+#include "midi_SysExHelpers.h"
+#include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_UnexposedParameters.h"
-
-
-enum class SysExID {
-    Manufacturer = (char)1,   // Dave Smith Instruments
-    Device = (char)37         // Mopho
-};
-
-
-
-enum class SysExMessageType {
-    programDump = 2,
-    programEditBufferDump = 3,
-    programDumpRequest = 5,
-    programEditBufferDumpRequest = 6
-};
 
 
 
@@ -29,7 +15,6 @@ class IncomingMidiHandler
     AudioProcessorValueTreeState* exposedParams;
 
     void handleIncomingSysEx(const uint8* sysExData);
-    bool isSysExFromDSIMopho(const MidiMessage & midiMessage);
     void applyProgramDumpToPlugin(const uint8* dumpData);
 
 public:

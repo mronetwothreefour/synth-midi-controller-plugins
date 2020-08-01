@@ -18,20 +18,11 @@ MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
     MidiBuffer handledMidiMessages;
     for (auto event : midiMessages) {
         auto midiMessage{ event.getMessage() };
-        if (isSysExFromDSIMopho(midiMessage))
+        if (SysExID::matchesTargetDevice(midiMessage))
             handleIncomingSysEx(midiMessage.getSysExData());
         else handledMidiMessages.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
     }
     return handledMidiMessages;
-}
-
-bool IncomingMidiHandler::isSysExFromDSIMopho(const MidiMessage& midiMessage) {
-    if (midiMessage.isSysEx()) {
-        auto sysExData{ midiMessage.getSysExData() };
-        return (sysExData[1] == (uint8)SysExID::Manufacturer && sysExData[2] == (uint8)SysExID::Device);
-    }
-    else
-        return false;
 }
 
 void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
@@ -84,7 +75,7 @@ OutgoingMidiGenerator::~OutgoingMidiGenerator() {
 }
 
 void OutgoingMidiGenerator::sendProgramEditBufferDumpRequest() {
-    const char sysExData[]{ (char)SysExID::Manufacturer, (char)SysExID::Device, (char)SysExMessageType::programEditBufferDumpRequest };
+    const char sysExData[]{ (char)SysExID::TargetDevice::Manufacturer, (char)SysExID::TargetDevice::Device, (char)SysExMessageType::programEditBufferDumpRequest };
     MidiBuffer localMidiBuffer;
     localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
     combineMidiBuffers(localMidiBuffer);
@@ -97,8 +88,8 @@ void OutgoingMidiGenerator::sendProgramEditBufferDump() {
 
 MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump() {
     uint8 sysExBuffer[296]{};
-    sysExBuffer[0] = (uint8)SysExID::Manufacturer;
-    sysExBuffer[1] = (uint8)SysExID::Device;
+    sysExBuffer[0] = (uint8)SysExID::TargetDevice::Manufacturer;
+    sysExBuffer[1] = (uint8)SysExID::TargetDevice::Device;
     sysExBuffer[2] = (uint8)SysExMessageType::programEditBufferDump;
     addPgmDataToBufferStartingAtByte(sysExBuffer, 3);
     MidiBuffer localMidiBuffer;
