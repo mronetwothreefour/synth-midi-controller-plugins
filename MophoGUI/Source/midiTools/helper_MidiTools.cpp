@@ -42,7 +42,7 @@ void IncomingMidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
         auto newValue{ *(dumpData + lsByteLocation) };
         if (*(dumpData + msBitLocation) & msBitMask)
             newValue += 128;
-        newValue = ParameterSpecificValueOffsets::applyToIncoming(param, newValue);
+        newValue = SpecialValueOffsets::subtractWhenReadingFromData(param, newValue);
         auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
         exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     }
@@ -104,7 +104,7 @@ void OutgoingMidiGenerator::addPgmDataToBufferStartingAtByte(uint8* buffer, int 
         auto paramID{ info.IDfor(paramIndex) };
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
-        paramValue = ParameterSpecificValueOffsets::applyToOutgoing(paramIndex, paramValue);
+        paramValue = SpecialValueOffsets::addWhenWritingToData(paramIndex, paramValue);
         auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) + startByte };
         auto lsbLocation{ info.lsByteLocationFor(paramIndex) + startByte };
         if (paramValue > 127) {
@@ -121,7 +121,7 @@ void OutgoingMidiGenerator::parameterChanged(const String& parameterID, float ne
         auto param{ info.indexFor(parameterID) };
         auto nrpn{ info.NRPNfor(param) };
         auto outputValue{ (uint8)roundToInt(newValue) };
-        outputValue = ParameterSpecificValueOffsets::applyToOutgoing(param, outputValue);
+        outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
         addParamChangedMessageToMidiBuffer(nrpn, outputValue);
         if ((param == 98 || param == 100) && outputValue == 1)
             arpeggiatorAndSequencerCannotBothBeOn(param);
@@ -253,36 +253,6 @@ void OutgoingMidiGenerator::timerCallback(int timerID) {
 void OutgoingMidiGenerator::clearSequencerStepOnTrack(int stepNum, int trackNum) {
     auto param{ exposedParams->getParameter("track" + (String)trackNum + "Step" + (String)stepNum) };
     param->setValueNotifyingHost(trackNum == 1 ? 1.0f : 0.0f); // set track 1 steps to 127 ('rest'), steps on other tracks to 0
-}
-
-
-//================================================================================
-
-
-bool ParameterSpecificValueOffsets::isClockTempoParameter(uint8 param) {
-    return param == 95;
-}
-
-bool ParameterSpecificValueOffsets::isKnobAssignParameter(uint8 param) {
-    return param > 104 && param < 109;
-}
-
-uint8 ParameterSpecificValueOffsets::applyToOutgoing(uint8 param, uint8 paramValue) {
-    if (isClockTempoParameter(param))
-        return paramValue + 30;
-    else if (isKnobAssignParameter(param) && paramValue > 119)
-        return paramValue + 15;
-    else
-        return paramValue;
-}
-
-uint8 ParameterSpecificValueOffsets::applyToIncoming(uint8 param, uint8 paramValue) {
-    if (isClockTempoParameter(param))
-        return paramValue - 30;
-    else if (isKnobAssignParameter(param) && paramValue > 104)
-        return paramValue - 15;
-    else
-        return paramValue;
 }
 
 

@@ -6,6 +6,7 @@
 #include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
+#include "../parameters/params_SpecialValueOffsets.h"
 #include "../parameters/params_UnexposedParameters.h"
 
 
@@ -83,16 +84,6 @@ public:
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OutgoingMidiGenerator)
-};
-
-
-
-struct ParameterSpecificValueOffsets
-{
-    static uint8 applyToOutgoing(uint8 param, uint8 paramValue);
-    static uint8 applyToIncoming(uint8 param, uint8 paramValue);
-    static bool isClockTempoParameter(uint8 param);
-    static bool isKnobAssignParameter(uint8 param);
 };
 
 
