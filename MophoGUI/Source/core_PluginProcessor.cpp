@@ -130,7 +130,7 @@ void PluginProcessor::sendProgramEditBufferDumpRequest() {
 }
 
 void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
-    incomingMidiHandler->applyStoredProgramDataToPlugin(programData);
+    ProgramData::applyToExposedParameters(programData, exposedParams.get());
     callAfterDelay(100, [this] { sendProgramEditBufferDump(); });
 }
 

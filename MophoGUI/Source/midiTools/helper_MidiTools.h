@@ -5,6 +5,7 @@
 #include "midi_SysExHelpers.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
+#include "../banksWindow/banks_ProgramData.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_SpecialValueOffsets.h"
 #include "../parameters/params_UnexposedParameters.h"
@@ -16,7 +17,6 @@ class IncomingMidiHandler
     AudioProcessorValueTreeState* exposedParams;
 
     void handleIncomingSysEx(const uint8* sysExData);
-    void applyProgramDumpToPlugin(const uint8* dumpData);
 
 public:
     IncomingMidiHandler() = delete;
@@ -24,7 +24,6 @@ public:
     ~IncomingMidiHandler();
 
     MidiBuffer handle(const MidiBuffer& midiMessages);
-    void applyStoredProgramDataToPlugin(const uint8* programData);
 
 private:
     //==============================================================================

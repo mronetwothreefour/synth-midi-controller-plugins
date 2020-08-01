@@ -2848,6 +2848,7 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramData.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />

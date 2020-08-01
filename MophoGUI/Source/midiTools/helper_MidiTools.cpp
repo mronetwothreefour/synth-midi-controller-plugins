@@ -10,10 +10,6 @@ IncomingMidiHandler::IncomingMidiHandler(AudioProcessorValueTreeState* exposedPa
 IncomingMidiHandler::~IncomingMidiHandler() {
 }
 
-void IncomingMidiHandler::applyStoredProgramDataToPlugin(const uint8* programData) {
-    applyProgramDumpToPlugin(programData);
-}
-
 MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
     MidiBuffer handledMidiMessages;
     for (auto event : midiMessages) {
@@ -27,26 +23,7 @@ MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
 
 void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
     if (sysExData[3] == (uint8)SysExMessageType::programEditBufferDump)
-        applyProgramDumpToPlugin(sysExData + 4);
-}
-
-void IncomingMidiHandler::applyProgramDumpToPlugin(const uint8* dumpData) {
-    auto& midiParams{ MidiParameters_Singleton::get() };
-    midiParams.setParamChangeEchosAreBlocked();
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-        auto paramID{ info.IDfor(param) };
-        auto lsByteLocation{ info.lsByteLocationFor(param) };
-        auto msBitLocation{ info.msBitPackedByteLocationFor(param) };
-        auto msBitMask{ info.msBitMaskFor(param) };
-        auto newValue{ *(dumpData + lsByteLocation) };
-        if (*(dumpData + msBitLocation) & msBitMask)
-            newValue += 128;
-        newValue = SpecialValueOffsets::subtractWhenReadingFromData(param, newValue);
-        auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
-        exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
-    }
-    midiParams.setParamChangeEchosAreNotBlocked();
+        ProgramData::applyToExposedParameters(sysExData + 4, exposedParams);
 }
 
 
