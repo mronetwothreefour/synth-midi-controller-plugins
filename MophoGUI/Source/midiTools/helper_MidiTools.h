@@ -5,7 +5,7 @@
 #include "midi_SysExHelpers.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
-#include "../banksWindow/banks_ProgramData.h"
+#include "../banksWindow/banks_RawProgramData.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_SpecialValueOffsets.h"
 #include "../parameters/params_UnexposedParameters.h"
@@ -57,7 +57,6 @@ class OutgoingMidiGenerator :
     };
 
     MidiBuffer createPgmEditBufferDump();
-    void addPgmDataToBufferStartingAtByte(uint8* buffer, int startByte);
     void parameterChanged(const String& parameterID, float newValue) override;
     void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);

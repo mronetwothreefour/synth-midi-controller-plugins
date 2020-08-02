@@ -8,7 +8,9 @@
 
 
 
-struct ProgramData {
+struct RawProgramData {
+    static const int rawProgramDataSize{ 293 };
+
     static void applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams) {
         auto& midiParams{ MidiParameters_Singleton::get() };
         midiParams.setParamChangeEchosAreBlocked();
@@ -26,5 +28,26 @@ struct ProgramData {
             exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
         }
         midiParams.setParamChangeEchosAreNotBlocked();
+    }
+
+    static const std::vector<uint8> extractFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {
+        std::vector<uint8> programData;
+        for (auto i = 0; i != rawProgramDataSize; ++i) {
+            programData.push_back((uint8)0);
+        }
+        auto& info{ InfoForExposedParameters::get() };
+        for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
+            auto paramID{ info.IDfor(paramIndex) };
+            auto param{ exposedParams->getParameter(paramID) };
+            auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
+            paramValue = SpecialValueOffsets::addWhenWritingToData(paramIndex, paramValue);
+            auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) };
+            auto lsbLocation{ info.lsByteLocationFor(paramIndex) };
+            if (paramValue > 127) {
+                programData[msbLocation] += info.msBitMaskFor(paramIndex);
+            }
+            programData[lsbLocation] = paramValue % 128;
+        }
+        return programData;
     }
 };

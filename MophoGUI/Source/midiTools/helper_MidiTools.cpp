@@ -23,7 +23,7 @@ MidiBuffer IncomingMidiHandler::handle(const MidiBuffer& midiMessages) {
 
 void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
     if (sysExData[3] == (uint8)SysExMessageType::programEditBufferDump)
-        ProgramData::applyToExposedParameters(sysExData + 4, exposedParams);
+        RawProgramData::applyToExposedParameters(sysExData + 4, exposedParams);
 }
 
 
@@ -64,31 +64,16 @@ void OutgoingMidiGenerator::sendProgramEditBufferDump() {
 }
 
 MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump() {
-    uint8 sysExBuffer[296]{};
-    sysExBuffer[0] = (uint8)SysExID::TargetDevice::Manufacturer;
-    sysExBuffer[1] = (uint8)SysExID::TargetDevice::Device;
-    sysExBuffer[2] = (uint8)SysExMessageType::programEditBufferDump;
-    addPgmDataToBufferStartingAtByte(sysExBuffer, 3);
+    std::vector<uint8> sysExHeader;
+    sysExHeader.push_back((uint8)SysExID::TargetDevice::Manufacturer);
+    sysExHeader.push_back((uint8)SysExID::TargetDevice::Device);
+    sysExHeader.push_back((uint8)SysExMessageType::programEditBufferDump);
+    auto rawProgramData{ RawProgramData::extractFromExposedParameters(exposedParams) };
+    for (auto dataByte : rawProgramData)
+        sysExHeader.push_back(dataByte);
     MidiBuffer localMidiBuffer;
-    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExBuffer, numElementsInArray(sysExBuffer)), 0);
+    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExHeader.data(), (int)sysExHeader.size()), 0);
     return localMidiBuffer;
-}
-
-void OutgoingMidiGenerator::addPgmDataToBufferStartingAtByte(uint8* buffer, int startByte) {
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex)
-    {
-        auto paramID{ info.IDfor(paramIndex) };
-        auto param{ exposedParams->getParameter(paramID) };
-        auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
-        paramValue = SpecialValueOffsets::addWhenWritingToData(paramIndex, paramValue);
-        auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) + startByte };
-        auto lsbLocation{ info.lsByteLocationFor(paramIndex) + startByte };
-        if (paramValue > 127) {
-            *(buffer + msbLocation) += info.msBitMaskFor(paramIndex);
-        }
-        *(buffer + lsbLocation) = paramValue % 128;
-    }
 }
 
 void OutgoingMidiGenerator::parameterChanged(const String& parameterID, float newValue) {
@@ -165,10 +150,9 @@ void OutgoingMidiGenerator::clearSequencerTrack(int trackNum) {
 }
 
 void OutgoingMidiGenerator::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
-    uint8 programData[293]{};
-    addPgmDataToBufferStartingAtByte(programData, 0);
+    auto programData{ RawProgramData::extractFromExposedParameters(exposedParams) };
     auto& pgmBanks{ PluginProgramBanks::get() };
-    pgmBanks.storeProgramDataInBankSlot(programData, bank, slot);
+    pgmBanks.storeProgramDataInBankSlot(programData.data(), bank, slot);
 }
 
 void OutgoingMidiGenerator::timerCallback(int timerID) {

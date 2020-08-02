@@ -4,7 +4,7 @@
 
 #include "core_UndoManager_Singleton.h"
 #include "midiTools/helper_MidiTools.h"
-#include "banksWindow/banks_ProgramData.h"
+#include "banksWindow/banks_RawProgramData.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_UnexposedParameters.h"
 

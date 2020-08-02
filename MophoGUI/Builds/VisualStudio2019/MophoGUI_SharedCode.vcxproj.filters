@@ -4868,7 +4868,7 @@
     <ClInclude Include="..\..\Source\parameters\params_SpecialValueOffsets.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramData.h">
+    <ClInclude Include="..\..\Source\banksWindow\banks_RawProgramData.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
   </ItemGroup>
