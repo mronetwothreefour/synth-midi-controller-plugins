@@ -60,6 +60,22 @@ public:
 		return programName;
 	}
 
+	void storeProgramNameInBankSlot(uint8 bank, uint8 programSlot) {
+		auto& programBanks{ PluginProgramBanks::get() };
+		auto programName{ programBanks.getProgramNameFromDataStoredInBankSlot(bank, programSlot) };
+		switch (bank) {
+		case 0:
+			bank1ProgramNames.setProperty("pgm" + (String)programSlot + "Name", programName, nullptr);
+			break;
+		case 1:
+			bank2ProgramNames.setProperty("pgm" + (String)programSlot + "Name", programName, nullptr);
+			break;
+		case 2:
+			bank3ProgramNames.setProperty("pgm" + (String)programSlot + "Name", programName, nullptr);
+			break;
+		};
+	}
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramNameStrings)

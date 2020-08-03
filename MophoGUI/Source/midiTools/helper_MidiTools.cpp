@@ -74,12 +74,6 @@ void OutgoingMidiGenerator::clearSequencerTrack(int trackNum) {
     }
 }
 
-void OutgoingMidiGenerator::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
-    auto programData{ RawProgramData::extractFromExposedParameters(exposedParams) };
-    auto& pgmBanks{ PluginProgramBanks::get() };
-    pgmBanks.storeProgramDataInBankSlot(programData.data(), bank, slot);
-}
-
 void OutgoingMidiGenerator::timerCallback(int timerID) {
     stopTimer(timerID);
     if (timerID == timerID::pgmName) {

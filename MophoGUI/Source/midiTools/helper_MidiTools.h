@@ -5,6 +5,7 @@
 #include "midi_SysExHelpers.h"
 #include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
+#include "../banksWindow/banks_ProgramNameStrings_Singleton.h"
 #include "../banksWindow/banks_RawProgramData.h"
 #include "../midiTools/midi_InternalMidiBuffers_Singleton.h"
 #include "../midiTools/midi_NRPNbufferWithLeadingMSBs.h"
@@ -64,7 +65,6 @@ public:
 
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
-    void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
 
 private:
     //==============================================================================

@@ -5,7 +5,8 @@
 
 PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }
+    processor{ processor },
+    exposedParams{ exposedParams }
 {
     mophoLaF.reset(new MophoLookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
@@ -140,7 +141,7 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
 }
 
 void PluginEditor::showProgramBanksComponent() {
-    programBanksComponent.reset(new ProgramBanksComponent(processor));
+    programBanksComponent.reset(new ProgramBanksComponent(exposedParams));
     if (programBanksComponent != nullptr) {
         addAndMakeVisible(programBanksComponent.get());
         programBanksComponent->setBounds(getLocalBounds());

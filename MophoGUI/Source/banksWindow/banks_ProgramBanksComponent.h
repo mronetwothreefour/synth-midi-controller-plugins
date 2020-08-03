@@ -19,7 +19,7 @@ class ProgramBanksTabbedComponent :
 public:
     ProgramBanksTabbedComponent() = delete;
 
-    explicit ProgramBanksTabbedComponent(PluginProcessor& processor);
+    explicit ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams);
 
     void labelTextChanged(Label* label) override;
     void editorShown(Label* label, TextEditor& editor) override;
@@ -40,7 +40,7 @@ class ProgramBanksComponent : public Component
 
 public:
     ProgramBanksComponent() = delete;
-    explicit ProgramBanksComponent(PluginProcessor& processor);
+    explicit ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams);
     ~ProgramBanksComponent();
 
     void paint(Graphics& g) override;

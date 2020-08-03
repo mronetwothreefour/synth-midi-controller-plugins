@@ -2,9 +2,12 @@
 
 
 
-ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, PluginProcessor& processor) :
+void ProgramSlotsWidget::timerCallback() {
+}
+
+ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams) :
 	bank{ bank },
-	processor{ processor },
+	exposedParams{ exposedParams },
 	buttton_w{ 125 },
 	buttton_h{ 19 },
 	buttonHorizontalGap{ 7 },
@@ -49,13 +52,18 @@ void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto& pgmBanks{ PluginProgramBanks::get() };
 		auto programData{ pgmBanks.getProgramDataStoredInBankSlot(bank, selectedSlot) };
-		processor.loadProgramFromStoredData(programData);
+		RawProgramData::applyToExposedParameters(programData, exposedParams);
+		callAfterDelay(100, [this] { ProgramEditBufferDump::send(exposedParams); });
 	}
 }
 
-void ProgramSlotsWidget::storeProgramInSelectedSlot() {
+void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 	if (selectedSlot < 128) {
-		processor.saveProgramToStorageBankSlot(bank, selectedSlot);
+		auto programData{ RawProgramData::extractFromExposedParameters(exposedParams) };
+		auto& programBanks{ PluginProgramBanks::get() };
+		programBanks.storeProgramDataInBankSlot(programData.data(), bank, selectedSlot);
+		auto& programNames{ ProgramNameStrings::get() };
+		programNames.storeProgramNameInBankSlot(bank, selectedSlot);
 		setTextForProgramSlotToggleButton(selectedSlot);
 		repaint();
 	}

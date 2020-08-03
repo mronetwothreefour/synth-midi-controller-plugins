@@ -44,8 +44,8 @@ class ButtonForSavingProgramInSelectedSlot :
 {
 	ProgramSlotsWidget& programSlots;
 
-	void saveProgramToSelectedSlot() {
-		programSlots.storeProgramInSelectedSlot();
+	void storeCurrentProgramSettingsInSelectedSlot() {
+		programSlots.storeCurrentProgramSettingsInSelectedSlot();
 	}
 
 public:
@@ -59,7 +59,7 @@ public:
 		tipString =  "Saves the plugin GUI's current settings\n";
 		tipString += "in the selected program storage slot.";
 		setTooltip(tipString);
-		onClick = [this] { saveProgramToSelectedSlot(); };
+		onClick = [this] { storeCurrentProgramSettingsInSelectedSlot(); };
 	}
 
 	~ButtonForSavingProgramInSelectedSlot() {

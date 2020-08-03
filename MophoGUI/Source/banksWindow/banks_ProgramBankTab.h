@@ -16,7 +16,6 @@ class ProgramBankTab :
     public ApplicationCommandTarget
 {
     uint8 bank;
-    PluginProcessor& processor;
     ProgramSlotsWidget programSlots;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
@@ -28,7 +27,7 @@ public:
         pasteProgram
     };
 
-    ProgramBankTab(uint8 bank, PluginProcessor& processor);
+    ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams);
     ~ProgramBankTab();
 
     void paint(Graphics& g) override;

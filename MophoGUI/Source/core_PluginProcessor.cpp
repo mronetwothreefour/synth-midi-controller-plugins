@@ -126,18 +126,6 @@ void PluginProcessor::clearSequencerTrack(int trackNum) {
     midiGenerator->clearSequencerTrack(trackNum);
 }
 
-void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
-    RawProgramData::applyToExposedParameters(programData, exposedParams.get());
-    callAfterDelay(100, [this] { ProgramEditBufferDump::send(exposedParams.get()); });
-}
-
-void PluginProcessor::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
-    midiGenerator->saveProgramToStorageBankSlot(bank, slot);
-}
-
-void PluginProcessor::timerCallback() {
-}
-
 //==============================================================================
 // This creates new instances of the plugin
 AudioProcessor* JUCE_CALLTYPE createPluginFilter() {

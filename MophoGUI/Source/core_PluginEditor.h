@@ -18,6 +18,7 @@ class PluginEditor :
     public ValueTree::Listener
 {
     PluginProcessor& processor;
+    AudioProcessorValueTreeState* exposedParams;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
     std::unique_ptr<MophoLogo> mophoguiLogo;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_LPF;

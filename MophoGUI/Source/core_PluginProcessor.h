@@ -13,9 +13,7 @@
 
 
 
-class PluginProcessor : 
-    public AudioProcessor,
-    public Timer
+class PluginProcessor : public AudioProcessor
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
@@ -54,10 +52,6 @@ public:
 
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
-    void loadProgramFromStoredData(const uint8* programData);
-    void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
-
-    void timerCallback() override;
 
 private:
     //==============================================================================

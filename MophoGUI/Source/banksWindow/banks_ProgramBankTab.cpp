@@ -2,10 +2,9 @@
 
 
 
-ProgramBankTab::ProgramBankTab(uint8 bank, PluginProcessor& processor) :
+ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams) :
 	bank{ bank },
-	processor{ processor },
-	programSlots{ bank, processor },
+	programSlots{ bank, exposedParams },
 	button_ForLoadingSelectedProgram{ programSlots },
 	button_ForSavingProgramInSelectedSlot{ programSlots }
 {

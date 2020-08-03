@@ -2,11 +2,11 @@
 
 
 
-ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(PluginProcessor& processor) :
+ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
-	bank1{ 0, processor },
-	bank2{ 1, processor },
-	bank3{ 2, processor }
+	bank1{ 0, exposedParams },
+	bank2{ 1, exposedParams },
+	bank3{ 2, exposedParams }
 {
 	setTabBarDepth(30);
 	setOutline(0);
@@ -33,8 +33,8 @@ void ProgramBanksComponent::hideThisComponent() {
 	setVisible(false);
 }
 
-ProgramBanksComponent::ProgramBanksComponent(PluginProcessor& processor) :
-	tabbedComponent{ processor },
+ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams) :
+	tabbedComponent{ exposedParams },
 	button_ForClosingProgramBanks{ "CLOSE" }
 {
 	addAndMakeVisible(tabbedComponent);
