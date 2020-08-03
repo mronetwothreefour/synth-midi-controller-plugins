@@ -44,24 +44,6 @@ OutgoingMidiGenerator::OutgoingMidiGenerator(AudioProcessorValueTreeState* expos
 OutgoingMidiGenerator::~OutgoingMidiGenerator() {
 }
 
-void OutgoingMidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
-    auto& info{ InfoForExposedParameters::get() };
-    auto arpegParam{ exposedParams->getParameter(info.IDfor(98)) };
-    auto sequencerParam{ exposedParams->getParameter(info.IDfor(100)) };
-    if (paramTurnedOn == 98 && sequencerParam != nullptr)
-        if (sequencerParam->getValue() != 0.0f)
-            sequencerParam->setValueNotifyingHost(0.0f);
-    if (paramTurnedOn == 100 && arpegParam != nullptr)
-        if (arpegParam->getValue() != 0.0f)
-            arpegParam->setValueNotifyingHost(0.0f);
-}
-
-void OutgoingMidiGenerator::addParamChangedMessageToMidiBuffer(uint16 NRPNtype, uint8 newValue) {
-    auto& midiParams{ MidiParameters_Singleton::get() };
-    auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(midiParams.channel(), NRPNtype, newValue) };
-    InternalMidiBuffers::get().aggregateMidiBuffers(nrpnBuffer);
-}
-
 void OutgoingMidiGenerator::updateProgramNameOnHardware(String newName) {
     programName = newName;
     nameCharCounter = 0;

@@ -20,21 +20,21 @@ struct NRPNbufferWithLeadingMSBs
     }
 
 private:
-    static const int firstByte{ 176 };
+    static const int nrpnFlag{ 0xB0 };
 
     static MidiMessage NRPNmessage1_Channel_TypeMSB(uint8 midiChannel, uint16 NRPNtype) {
-        return MidiMessage(firstByte + midiChannel, 99, NRPNtype / 128);
+        return MidiMessage(nrpnFlag + midiChannel, 99, NRPNtype / 128);
     }
 
     static MidiMessage NRPNmessage2_Channel_TypeLSB(uint8 midiChannel, uint16 NRPNtype) {
-        return MidiMessage(firstByte + midiChannel, 98, NRPNtype % 128);
+        return MidiMessage(nrpnFlag + midiChannel, 98, NRPNtype % 128);
     }
 
     static MidiMessage NRPNmessage3_Channel_ValueMSB(uint8 midiChannel, uint8 newValue) {
-        return MidiMessage(firstByte + midiChannel, 6, newValue / 128);
+        return MidiMessage(nrpnFlag + midiChannel, 6, newValue / 128);
     }
 
     static MidiMessage NRPNmessage4_Channel_ValueLSB(uint8 midiChannel, uint8 newValue) {
-        return MidiMessage(firstByte + midiChannel, 38, newValue % 128);
+        return MidiMessage(nrpnFlag + midiChannel, 38, newValue % 128);
     }
 };

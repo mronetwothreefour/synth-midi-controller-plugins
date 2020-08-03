@@ -62,8 +62,6 @@ public:
     OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams);
     ~OutgoingMidiGenerator();
 
-    void addParamChangedMessageToMidiBuffer(uint16 NRPNtype, uint8 newValue);
-    void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
     void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);

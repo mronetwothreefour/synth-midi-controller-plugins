@@ -4883,6 +4883,9 @@
     <ClInclude Include="..\..\Source\midiTools\midi_NRPNbufferWithLeadingMSBs.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_ParameterChangeMessage.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
