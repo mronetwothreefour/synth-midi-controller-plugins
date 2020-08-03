@@ -56,11 +56,10 @@ void OutgoingMidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTur
             arpegParam->setValueNotifyingHost(0.0f);
 }
 
-void OutgoingMidiGenerator::addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue) {
+void OutgoingMidiGenerator::addParamChangedMessageToMidiBuffer(uint16 NRPNtype, uint8 newValue) {
     auto& midiParams{ MidiParameters_Singleton::get() };
-    MidiBuffer nrpnBuffer;
-    nrpnBuffer = NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiParams.channel());
-    InternalMidiBuffers::get().combineMidiBuffers(nrpnBuffer);
+    auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(midiParams.channel(), NRPNtype, newValue) };
+    InternalMidiBuffers::get().aggregateMidiBuffers(nrpnBuffer);
 }
 
 void OutgoingMidiGenerator::updateProgramNameOnHardware(String newName) {
@@ -161,34 +160,3 @@ void OutgoingMidiGenerator::clearSequencerStepOnTrack(int stepNum, int trackNum)
 }
 
 
-//================================================================================
-
-
-MidiBuffer NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(uint16 paramNRPN, uint8 newValue, uint8 midiChannel) {
-    MidiBuffer nrpnBuffer;
-    nrpnBuffer.addEvent(createNRPNindexMSBmessageForMidiChannel(paramNRPN, midiChannel), 0);
-    nrpnBuffer.addEvent(createNRPNindexLSBmessageForMidiChannel(paramNRPN, midiChannel), 1);
-    nrpnBuffer.addEvent(createNRPNvalueMSBmessageForMidiChannel(newValue, midiChannel), 2);
-    nrpnBuffer.addEvent(createNRPNvalueLSBmessageForMidiChannel(newValue, midiChannel), 3);
-    return nrpnBuffer;
-}
-
-MidiMessage NRPNbufferWithLeadingMSBsGenerator::createNRPNindexMSBmessageForMidiChannel(uint16 paramNRPN, uint8 midiChannel) {
-    auto firstByte{ 176 + midiChannel };
-    return MidiMessage(firstByte, 99, paramNRPN / 128);
-}
-
-MidiMessage NRPNbufferWithLeadingMSBsGenerator::createNRPNindexLSBmessageForMidiChannel(uint16 paramNRPN, uint8 midiChannel) {
-    auto firstByte{ 176 + midiChannel };
-    return MidiMessage(firstByte, 98, paramNRPN % 128);
-}
-
-MidiMessage NRPNbufferWithLeadingMSBsGenerator::createNRPNvalueMSBmessageForMidiChannel(uint8 newValue, uint8 midiChannel) {
-    auto firstByte{ 176 + midiChannel };
-    return MidiMessage(firstByte, 6, newValue / 128);
-}
-
-MidiMessage NRPNbufferWithLeadingMSBsGenerator::createNRPNvalueLSBmessageForMidiChannel(uint8 newValue, uint8 midiChannel) {
-    auto firstByte{ 176 + midiChannel };
-    return MidiMessage(firstByte, 38, newValue % 128);
-}

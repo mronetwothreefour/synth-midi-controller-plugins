@@ -32,7 +32,7 @@ public:
 
 	// Combines all MidiBuffers that get created within a
 	// 10 ms slice of time into a single MidiBuffer
-	void combineMidiBuffers(MidiBuffer& midiBuffer) {
+	void aggregateMidiBuffers(MidiBuffer& midiBuffer) {
 		internalMidiBuffer.addEvents(midiBuffer, 0, -1, 0);
 		if (!isTimerRunning()) {
 			aggregatedBuffers.add(internalMidiBuffer);
