@@ -6,6 +6,7 @@
 #include "../helpers/helper_Identifiers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "../banksWindow/banks_RawProgramData.h"
+#include "../midiTools/midi_InternalMidiBuffers_Singleton.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "../parameters/params_SpecialValueOffsets.h"
 #include "../parameters/params_UnexposedParameters.h"
@@ -33,12 +34,9 @@ private:
 
 
 class OutgoingMidiGenerator :
-    private AudioProcessorValueTreeState::Listener,
     public MultiTimer
 {
     AudioProcessorValueTreeState* exposedParams;
-    Array<MidiBuffer>* internalMidiBuffers;
-    MidiBuffer internalMidiBuffer;
     int nameCharCounter;
     int track1StepCounter;
     int track2StepCounter;
@@ -48,7 +46,6 @@ class OutgoingMidiGenerator :
     String programName;
 
     enum timerID { 
-        midiBuffer, 
         pgmName, 
         clearSeqTrack1, 
         clearSeqTrack2, 
@@ -56,25 +53,19 @@ class OutgoingMidiGenerator :
         clearSeqTrack4 
     };
 
-    MidiBuffer createPgmEditBufferDump();
-    void parameterChanged(const String& parameterID, float newValue) override;
-    void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
-    void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
-
-    // Combines all MidiBuffers that get created within a
-    // 10 ms slice of time into a single MidiBuffer
-    void combineMidiBuffers(MidiBuffer& midiBuffer);
-
+    static MidiBuffer createPgmEditBufferDump(AudioProcessorValueTreeState* exposedParams);
     void timerCallback(int timerID) override;
     void clearSequencerStepOnTrack(int stepNum, int trackNum);
 
 public:
     OutgoingMidiGenerator() = delete;
-    OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers);
+    OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams);
     ~OutgoingMidiGenerator();
 
+    void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
+    void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
     void sendProgramEditBufferDumpRequest();
-    void sendProgramEditBufferDump();
+    static void sendProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams);
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
     void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);

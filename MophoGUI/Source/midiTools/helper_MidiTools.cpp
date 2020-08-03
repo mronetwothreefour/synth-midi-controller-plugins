@@ -30,9 +30,8 @@ void IncomingMidiHandler::handleIncomingSysEx(const uint8* sysExData) {
 //================================================================================
 
 
-OutgoingMidiGenerator::OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams, Array<MidiBuffer>* internalMidiBuffers) :
+OutgoingMidiGenerator::OutgoingMidiGenerator(AudioProcessorValueTreeState* exposedParams) :
 	exposedParams{ exposedParams },
-    internalMidiBuffers{ internalMidiBuffers },
     nameCharCounter{ 0 },
     track1StepCounter{ 0 },
     track2StepCounter{ 0 },
@@ -40,30 +39,24 @@ OutgoingMidiGenerator::OutgoingMidiGenerator(AudioProcessorValueTreeState* expos
     track4StepCounter{ 0 },
     millisecondsBtwnParamChanges{ 10 }
 {
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-        exposedParams->addParameterListener(info.IDfor(param), this);
 }
 
 OutgoingMidiGenerator::~OutgoingMidiGenerator() {
-    auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-        exposedParams->removeParameterListener(info.IDfor(param), this);
 }
 
 void OutgoingMidiGenerator::sendProgramEditBufferDumpRequest() {
     const char sysExData[]{ (char)SysExID::TargetDevice::Manufacturer, (char)SysExID::TargetDevice::Device, (char)SysExMessageType::programEditBufferDumpRequest };
     MidiBuffer localMidiBuffer;
     localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
-    combineMidiBuffers(localMidiBuffer);
+    InternalMidiBuffers::get().combineMidiBuffers(localMidiBuffer);
 }
 
-void OutgoingMidiGenerator::sendProgramEditBufferDump() {
-    MidiBuffer localMidiBuffer{ createPgmEditBufferDump() };
-    combineMidiBuffers(localMidiBuffer);
+void OutgoingMidiGenerator::sendProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams) {
+    MidiBuffer localMidiBuffer{ createPgmEditBufferDump(exposedParams) };
+    InternalMidiBuffers::get().combineMidiBuffers(localMidiBuffer);
 }
 
-MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump() {
+MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump(AudioProcessorValueTreeState* exposedParams) {
     std::vector<uint8> sysExHeader;
     sysExHeader.push_back((uint8)SysExID::TargetDevice::Manufacturer);
     sysExHeader.push_back((uint8)SysExID::TargetDevice::Device);
@@ -74,21 +67,6 @@ MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump() {
     MidiBuffer localMidiBuffer;
     localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExHeader.data(), (int)sysExHeader.size()), 0);
     return localMidiBuffer;
-}
-
-void OutgoingMidiGenerator::parameterChanged(const String& parameterID, float newValue) {
-    auto& midiParams{ MidiParameters_Singleton::get() };
-    if (midiParams.paramChangeEchosAreNotBlocked()) {
-        auto& info{ InfoForExposedParameters::get() };
-        auto param{ info.indexFor(parameterID) };
-        auto nrpn{ info.NRPNfor(param) };
-        auto outputValue{ (uint8)roundToInt(newValue) };
-        outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
-        addParamChangedMessageToMidiBuffer(nrpn, outputValue);
-        if ((param == 98 || param == 100) && outputValue == 1)
-            arpeggiatorAndSequencerCannotBothBeOn(param);
-    }
-    else return;
 }
 
 void OutgoingMidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
@@ -107,16 +85,7 @@ void OutgoingMidiGenerator::addParamChangedMessageToMidiBuffer(uint16 paramNRPN,
     auto& midiParams{ MidiParameters_Singleton::get() };
     MidiBuffer nrpnBuffer;
     nrpnBuffer = NRPNbufferWithLeadingMSBsGenerator::generateFrom_NRPNindex_NewValue_andChannel(paramNRPN, newValue, midiParams.channel());
-    combineMidiBuffers(nrpnBuffer);
-}
-
-void OutgoingMidiGenerator::combineMidiBuffers(MidiBuffer& midiBuffer) {
-    internalMidiBuffer.addEvents(midiBuffer, 0, -1, 0);
-    if (!isTimerRunning(timerID::midiBuffer)) {
-        internalMidiBuffers->add(internalMidiBuffer);
-        internalMidiBuffer.clear();
-        startTimer(timerID::midiBuffer, 10);
-    }
+    InternalMidiBuffers::get().combineMidiBuffers(nrpnBuffer);
 }
 
 void OutgoingMidiGenerator::updateProgramNameOnHardware(String newName) {

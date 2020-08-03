@@ -32,7 +32,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(processor));
     addAndMakeVisible(button_ForEditingPgmName.get());
 
-    button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(processor));
+    button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(exposedParams));
     addAndMakeVisible(button_ForSendingPgmEditBufDump.get());
 
     button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(processor));

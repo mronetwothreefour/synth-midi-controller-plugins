@@ -4871,6 +4871,12 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_RawProgramData.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\params_ExposedParametersListener.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

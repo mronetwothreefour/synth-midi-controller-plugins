@@ -6,6 +6,7 @@
 #include "midiTools/helper_MidiTools.h"
 #include "banksWindow/banks_RawProgramData.h"
 #include "parameters/params_ExposedParametersLayout.h"
+#include "parameters/params_ExposedParametersListener.h"
 #include "parameters/params_UnexposedParameters.h"
 
 
@@ -15,7 +16,7 @@ class PluginProcessor :
     public Timer
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
-    std::unique_ptr<Array<MidiBuffer>> internalMidiBuffers;
+    std::unique_ptr<ExposedParametersListener> exposedParamsListener;
     std::unique_ptr<IncomingMidiHandler> incomingMidiHandler;
     std::unique_ptr<OutgoingMidiGenerator> midiGenerator;
 
@@ -54,7 +55,6 @@ public:
     void sendProgramEditBufferDumpRequest();
     void loadProgramFromStoredData(const uint8* programData);
     void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
-    void sendProgramEditBufferDump();
 
     void timerCallback() override;
 

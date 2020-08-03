@@ -2864,7 +2864,9 @@
     <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
     <ClInclude Include="..\..\Source\midiTools\helper_MidiTools.h" />
+    <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_SysExHelpers.h" />
+    <ClInclude Include="..\..\Source\parameters\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_SpecialValueOffsets.h" />

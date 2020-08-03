@@ -4,18 +4,18 @@
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
-    internalMidiBuffers{ new Array<MidiBuffer> },
+    exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) },
     incomingMidiHandler{ new IncomingMidiHandler(exposedParams.get()) },
-    midiGenerator{ new OutgoingMidiGenerator(exposedParams.get(), internalMidiBuffers.get()) }
+    midiGenerator{ new OutgoingMidiGenerator(exposedParams.get()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
     midiGenerator = nullptr;
     incomingMidiHandler = nullptr;
-    internalMidiBuffers = nullptr;
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
+    exposedParamsListener = nullptr;
     exposedParams = nullptr;
 }
 
@@ -61,8 +61,8 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
         midiMessages.swapWith(handledMidiMessages);
     }
 
-    if (!internalMidiBuffers->isEmpty()) {
-        for (auto event : internalMidiBuffers->removeAndReturn(0)) {
+    if (!InternalMidiBuffers::get().internalMidiBuffers.isEmpty()) {
+        for (auto event : InternalMidiBuffers::get().internalMidiBuffers.removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
     }
@@ -131,15 +131,11 @@ void PluginProcessor::sendProgramEditBufferDumpRequest() {
 
 void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
     RawProgramData::applyToExposedParameters(programData, exposedParams.get());
-    callAfterDelay(100, [this] { sendProgramEditBufferDump(); });
+    callAfterDelay(100, [this] { OutgoingMidiGenerator::sendProgramEditBufferDump(exposedParams.get()); });
 }
 
 void PluginProcessor::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {
     midiGenerator->saveProgramToStorageBankSlot(bank, slot);
-}
-
-void PluginProcessor::sendProgramEditBufferDump() {
-    midiGenerator->sendProgramEditBufferDump();
 }
 
 void PluginProcessor::timerCallback() {

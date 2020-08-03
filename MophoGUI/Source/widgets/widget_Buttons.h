@@ -4,6 +4,7 @@
 
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Identifiers.h"
+#include "../midiTools/helper_MidiTools.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "widget_TooltipSetters.h"
 
@@ -181,18 +182,18 @@ private:
 class ButtonForSendingProgramEditBufferDump :
 	public TextButton
 {
-	PluginProcessor& processor;
+	AudioProcessorValueTreeState* exposedParams;
 
 	void sendProgramEditBufferDump() {
-		processor.sendProgramEditBufferDump();
+		OutgoingMidiGenerator::sendProgramEditBufferDump(exposedParams);
 	}
 
 public:
 	ButtonForSendingProgramEditBufferDump() = delete;
 
-	explicit ButtonForSendingProgramEditBufferDump(PluginProcessor& processor) :
+	explicit ButtonForSendingProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams) :
 		TextButton{ "WRITE" },
-		processor{ processor }
+		exposedParams{ exposedParams }
 	{
 		String tipString;
 		tipString =  "Writes the plugin's current program settings\n";
