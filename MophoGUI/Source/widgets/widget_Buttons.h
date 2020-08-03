@@ -4,7 +4,7 @@
 
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Identifiers.h"
-#include "../midiTools/helper_MidiTools.h"
+#include "../midiTools/midi_ProgramEditBufferDump.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
 #include "widget_TooltipSetters.h"
 
@@ -185,7 +185,7 @@ class ButtonForSendingProgramEditBufferDump :
 	AudioProcessorValueTreeState* exposedParams;
 
 	void sendProgramEditBufferDump() {
-		OutgoingMidiGenerator::sendProgramEditBufferDump(exposedParams);
+		ProgramEditBufferDump::send(exposedParams);
 	}
 
 public:
@@ -215,18 +215,13 @@ private:
 class ButtonForSendingProgramEditBufferDumpRequest :
 	public TextButton
 {
-	PluginProcessor& processor;
-
 	void sendProgramEditBufferDumpRequest() {
-		processor.sendProgramEditBufferDumpRequest();
+		ProgramEditBufferDump::request();
 	}
 
 public:
-	ButtonForSendingProgramEditBufferDumpRequest() = delete;
-
-	explicit ButtonForSendingProgramEditBufferDumpRequest(PluginProcessor& processor) :
-		TextButton{ "READ" },
-		processor{ processor }
+	ButtonForSendingProgramEditBufferDumpRequest() :
+		TextButton{ "READ" }
 	{
 		String tipString;
 		tipString =  "Requests a program edit buffer dump from the Mopho hardware\n";

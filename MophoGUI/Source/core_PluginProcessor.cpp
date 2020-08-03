@@ -61,8 +61,9 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
         midiMessages.swapWith(handledMidiMessages);
     }
 
-    if (!InternalMidiBuffers::get().internalMidiBuffers.isEmpty()) {
-        for (auto event : InternalMidiBuffers::get().internalMidiBuffers.removeAndReturn(0)) {
+    auto& aggregatedBuffers{ InternalMidiBuffers::get().aggregatedBuffers };
+    if (!aggregatedBuffers.isEmpty()) {
+        for (auto event : aggregatedBuffers.removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
     }
@@ -125,13 +126,9 @@ void PluginProcessor::clearSequencerTrack(int trackNum) {
     midiGenerator->clearSequencerTrack(trackNum);
 }
 
-void PluginProcessor::sendProgramEditBufferDumpRequest() {
-    midiGenerator->sendProgramEditBufferDumpRequest();
-}
-
 void PluginProcessor::loadProgramFromStoredData(const uint8* programData) {
     RawProgramData::applyToExposedParameters(programData, exposedParams.get());
-    callAfterDelay(100, [this] { OutgoingMidiGenerator::sendProgramEditBufferDump(exposedParams.get()); });
+    callAfterDelay(100, [this] { ProgramEditBufferDump::send(exposedParams.get()); });
 }
 
 void PluginProcessor::saveProgramToStorageBankSlot(uint8 bank, uint8 slot) {

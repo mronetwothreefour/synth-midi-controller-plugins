@@ -44,31 +44,6 @@ OutgoingMidiGenerator::OutgoingMidiGenerator(AudioProcessorValueTreeState* expos
 OutgoingMidiGenerator::~OutgoingMidiGenerator() {
 }
 
-void OutgoingMidiGenerator::sendProgramEditBufferDumpRequest() {
-    const char sysExData[]{ (char)SysExID::TargetDevice::Manufacturer, (char)SysExID::TargetDevice::Device, (char)SysExMessageType::programEditBufferDumpRequest };
-    MidiBuffer localMidiBuffer;
-    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExData, numElementsInArray(sysExData)), 0);
-    InternalMidiBuffers::get().combineMidiBuffers(localMidiBuffer);
-}
-
-void OutgoingMidiGenerator::sendProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams) {
-    MidiBuffer localMidiBuffer{ createPgmEditBufferDump(exposedParams) };
-    InternalMidiBuffers::get().combineMidiBuffers(localMidiBuffer);
-}
-
-MidiBuffer OutgoingMidiGenerator::createPgmEditBufferDump(AudioProcessorValueTreeState* exposedParams) {
-    std::vector<uint8> sysExHeader;
-    sysExHeader.push_back((uint8)SysExID::TargetDevice::Manufacturer);
-    sysExHeader.push_back((uint8)SysExID::TargetDevice::Device);
-    sysExHeader.push_back((uint8)SysExMessageType::programEditBufferDump);
-    auto rawProgramData{ RawProgramData::extractFromExposedParameters(exposedParams) };
-    for (auto dataByte : rawProgramData)
-        sysExHeader.push_back(dataByte);
-    MidiBuffer localMidiBuffer;
-    localMidiBuffer.addEvent(MidiMessage::createSysExMessage(sysExHeader.data(), (int)sysExHeader.size()), 0);
-    return localMidiBuffer;
-}
-
 void OutgoingMidiGenerator::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
     auto& info{ InfoForExposedParameters::get() };
     auto arpegParam{ exposedParams->getParameter(info.IDfor(98)) };

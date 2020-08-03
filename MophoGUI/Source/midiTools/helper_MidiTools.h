@@ -53,7 +53,6 @@ class OutgoingMidiGenerator :
         clearSeqTrack4 
     };
 
-    static MidiBuffer createPgmEditBufferDump(AudioProcessorValueTreeState* exposedParams);
     void timerCallback(int timerID) override;
     void clearSequencerStepOnTrack(int stepNum, int trackNum);
 
@@ -64,8 +63,6 @@ public:
 
     void addParamChangedMessageToMidiBuffer(uint16 paramNRPN, uint8 newValue);
     void arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn);
-    void sendProgramEditBufferDumpRequest();
-    static void sendProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams);
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
     void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);

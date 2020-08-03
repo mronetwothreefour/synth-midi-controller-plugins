@@ -29,4 +29,12 @@ struct SysExID {
         else
             return false;
     }
+
+    static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytes() {
+        std::vector<uint8> rawDataVector;
+        rawDataVector.push_back((uint8)SysExID::TargetDevice::Manufacturer);
+        rawDataVector.push_back((uint8)SysExID::TargetDevice::Device);
+        return rawDataVector;
+    }
 };
+

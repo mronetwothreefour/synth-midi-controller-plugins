@@ -20,14 +20,14 @@ class InternalMidiBuffers :
 	}
 
 public:
-	Array<MidiBuffer> internalMidiBuffers;
+	Array<MidiBuffer> aggregatedBuffers;
 
 	InternalMidiBuffers(InternalMidiBuffers&&) = delete;
 	InternalMidiBuffers& operator=(InternalMidiBuffers&&) = delete;
 
 	static InternalMidiBuffers& get() noexcept {
-		static InternalMidiBuffers internalMidiBuffers;
-		return internalMidiBuffers;
+		static InternalMidiBuffers aggregatedBuffers;
+		return aggregatedBuffers;
 	}
 
 	// Combines all MidiBuffers that get created within a
@@ -35,7 +35,7 @@ public:
 	void combineMidiBuffers(MidiBuffer& midiBuffer) {
 		internalMidiBuffer.addEvents(midiBuffer, 0, -1, 0);
 		if (!isTimerRunning()) {
-			internalMidiBuffers.add(internalMidiBuffer);
+			aggregatedBuffers.add(internalMidiBuffer);
 			internalMidiBuffer.clear();
 			startTimer(10);
 		}

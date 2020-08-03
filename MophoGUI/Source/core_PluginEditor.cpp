@@ -35,7 +35,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(exposedParams));
     addAndMakeVisible(button_ForSendingPgmEditBufDump.get());
 
-    button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(processor));
+    button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest());
     addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
     button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow());

@@ -3,7 +3,8 @@
 #include <JuceHeader.h>
 
 #include "core_UndoManager_Singleton.h"
-#include "midiTools/helper_MidiTools.h"
+#include "midiTools/midi_InternalMidiBuffers_Singleton.h"
+#include "midiTools/midi_ProgramEditBufferDump.h"
 #include "banksWindow/banks_RawProgramData.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_ExposedParametersListener.h"
@@ -52,7 +53,6 @@ public:
 
     void updateProgramNameOnHardware(String newName);
     void clearSequencerTrack(int trackNum);
-    void sendProgramEditBufferDumpRequest();
     void loadProgramFromStoredData(const uint8* programData);
     void saveProgramToStorageBankSlot(uint8 bank, uint8 slot);
 
