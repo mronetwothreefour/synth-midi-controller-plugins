@@ -41,8 +41,8 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 	if (slot < 10) slotNumber = "00" + (String)(slot + 1);
 	if (slot > 9 && slot < 100) slotNumber = "0" + (String)(slot + 1);
 	if (slot > 99) slotNumber = (String)(slot + 1);
-	auto& pgmBanks{ PluginProgramBanks::get() };
-	programSlotButtons[slot].setName(slotNumber + " " + pgmBanks.getNameForProgramStoredInBankSlot(bank, slot));
+	auto& pgmNames{ ProgramNameStrings::get() };
+	programSlotButtons[slot].setName(slotNumber + " " + pgmNames.getNameForProgramInBankSlot(bank, slot));
 }
 
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {

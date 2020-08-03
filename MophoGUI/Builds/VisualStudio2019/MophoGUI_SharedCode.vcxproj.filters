@@ -4886,6 +4886,9 @@
     <ClInclude Include="..\..\Source\midiTools\midi_ParameterChangeMessage.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

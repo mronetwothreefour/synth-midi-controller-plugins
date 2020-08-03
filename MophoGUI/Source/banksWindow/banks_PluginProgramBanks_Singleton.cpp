@@ -62,7 +62,9 @@ void PluginProgramBanks::storeProgramDataAsHexStringInBankSlot(const uint8* data
 	}
 }
 
-const String PluginProgramBanks::getNameForProgramStoredInBankSlot(uint8 bank, uint8 slot) {
+const String PluginProgramBanks::getProgramNameFromDataStoredInBankSlot(uint8 bank, uint8 slot) {
+	jassert(bank < 3);
+	jassert(slot < 128);
 	auto programDataBuffer{ getProgramDataStoredInBankSlot(bank, slot) };
 	String programName{ extractProgramNameFromDataBuffer(programDataBuffer) };
 	return programName;
