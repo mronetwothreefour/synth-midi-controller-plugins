@@ -43,10 +43,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForOpeningProgramBanksWindow->onClick = [this] {showProgramBanksComponent(); };
     addAndMakeVisible(button_ForOpeningProgramBanksWindow.get());
 
-    button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, processor));
-    button_ForClearingSequencerTrack2.reset(new ButtonForClearingSequencerTrack(2, processor));
-    button_ForClearingSequencerTrack3.reset(new ButtonForClearingSequencerTrack(3, processor));
-    button_ForClearingSequencerTrack4.reset(new ButtonForClearingSequencerTrack(4, processor));
+    button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, exposedParams));
+    button_ForClearingSequencerTrack2.reset(new ButtonForClearingSequencerTrack(2, exposedParams));
+    button_ForClearingSequencerTrack3.reset(new ButtonForClearingSequencerTrack(3, exposedParams));
+    button_ForClearingSequencerTrack4.reset(new ButtonForClearingSequencerTrack(4, exposedParams));
     addAndMakeVisible(button_ForClearingSequencerTrack1.get());
     addAndMakeVisible(button_ForClearingSequencerTrack2.get());
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());

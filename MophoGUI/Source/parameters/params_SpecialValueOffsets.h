@@ -9,7 +9,7 @@ struct SpecialValueOffsets
     static uint8 addWhenWritingToData(uint8 param, uint8 paramValue) {
         if (isClockTempoParameter(param))
             return paramValue + 30;
-        else if (isKnobAssignParameter(param) && paramValue > 119)
+        else if (isKnobAssignParameter(param) && paramValue > 104)
             return paramValue + 15;
         else
             return paramValue;
@@ -18,7 +18,7 @@ struct SpecialValueOffsets
     static uint8 subtractWhenReadingFromData(uint8 param, uint8 paramValue) {
         if (isClockTempoParameter(param))
             return paramValue - 30;
-        else if (isKnobAssignParameter(param) && paramValue > 104)
+        else if (isKnobAssignParameter(param) && paramValue > 119)
             return paramValue - 15;
         else
             return paramValue;

@@ -122,10 +122,6 @@ void PluginProcessor::updateProgramNameOnHardware(String newName) {
     midiGenerator->updateProgramNameOnHardware(newName);
 }
 
-void PluginProcessor::clearSequencerTrack(int trackNum) {
-    midiGenerator->clearSequencerTrack(trackNum);
-}
-
 //==============================================================================
 // This creates new instances of the plugin
 AudioProcessor* JUCE_CALLTYPE createPluginFilter() {

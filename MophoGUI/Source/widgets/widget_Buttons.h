@@ -142,23 +142,47 @@ private:
 
 
 class ButtonForClearingSequencerTrack :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 	int trackNum;
-	PluginProcessor& processor;
+	AudioProcessorValueTreeState* exposedParams;
+	int sequencerStep{ 0 };
+	const int millisecondsBtwnParamChanges{ 10 };
 
 	void clearSequencerTrack() {
-		processor.clearSequencerTrack(trackNum);
+		sequencerStep = 1;
+		startTimer(millisecondsBtwnParamChanges);
+	}
+
+	void timerCallback() override {
+		stopTimer();
+		if (sequencerStep > 0 && sequencerStep < 17) {
+			clearSequencerStep(sequencerStep);
+			if (sequencerStep < 16) {
+				++sequencerStep;
+				startTimer(millisecondsBtwnParamChanges);
+			}
+			else
+				sequencerStep = 0;
+		}
+	}
+
+	void clearSequencerStep(int step) {
+		auto param{ exposedParams->getParameter("track" + (String)trackNum + "Step" + (String)step) };
+		auto clearedValue{ trackNum == 1 ? 1.0f : 0.0f };
+		param->setValueNotifyingHost(clearedValue);
 	}
 
 public:
 	ButtonForClearingSequencerTrack() = delete;
 
-	ButtonForClearingSequencerTrack(int trackNum, PluginProcessor& processor) :
+	ButtonForClearingSequencerTrack(int trackNum, AudioProcessorValueTreeState* exposedParams) :
 		TextButton{ "CLEAR" },
 		trackNum{ trackNum },
-		processor{ processor }
+		exposedParams{ exposedParams }
 	{
+		jassert(trackNum > 0 && trackNum < 5);
 		String tipString;
 		tipString = "Sets all steps in sequencer\n";
 		if (trackNum == 1)

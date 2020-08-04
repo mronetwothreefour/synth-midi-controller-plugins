@@ -40,23 +40,14 @@ class OutgoingMidiGenerator :
 {
     AudioProcessorValueTreeState* exposedParams;
     int nameCharCounter;
-    int track1StepCounter;
-    int track2StepCounter;
-    int track3StepCounter;
-    int track4StepCounter;
     const int millisecondsBtwnParamChanges;
     String programName;
 
     enum timerID { 
-        pgmName, 
-        clearSeqTrack1, 
-        clearSeqTrack2, 
-        clearSeqTrack3, 
-        clearSeqTrack4 
+        pgmName
     };
 
     void timerCallback(int timerID) override;
-    void clearSequencerStepOnTrack(int stepNum, int trackNum);
 
 public:
     OutgoingMidiGenerator() = delete;
@@ -64,7 +55,6 @@ public:
     ~OutgoingMidiGenerator();
 
     void updateProgramNameOnHardware(String newName);
-    void clearSequencerTrack(int trackNum);
 
 private:
     //==============================================================================
