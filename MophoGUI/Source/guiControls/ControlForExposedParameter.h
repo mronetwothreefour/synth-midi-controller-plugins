@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../helpers/helper_ControlTypes.h"
-#include "../widgets/widget_ComboBoxes.h"
+#include "../widgets/widget_ComboBoxWithExposedParamAttacher.h"
 #include "../widgets/widget_Knobs.h"
 #include "../widgets/widget_ProgramNameCharacters.h"
 #include "../widgets/widget_SequencerSteps.h"

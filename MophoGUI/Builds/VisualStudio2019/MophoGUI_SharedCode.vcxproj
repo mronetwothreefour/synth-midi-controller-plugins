@@ -2085,6 +2085,8 @@
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ComboBoxWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_EnvelopeRenderer.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2892,7 +2894,7 @@
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h" />
-    <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ProgramNameCharacters.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />

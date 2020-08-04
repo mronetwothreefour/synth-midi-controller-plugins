@@ -2493,6 +2493,12 @@
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ComboBoxWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_EnvelopeRenderer.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4841,9 +4847,6 @@
     <ClInclude Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_ComboBoxes.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
@@ -4926,6 +4929,9 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_ButtonForOpeningProgramBanksWindow.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ComboBoxWithExposedParamAttacher.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>
