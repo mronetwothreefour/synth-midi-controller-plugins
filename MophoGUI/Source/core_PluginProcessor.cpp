@@ -5,13 +5,11 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) },
-    incomingMidiHandler{ new IncomingMidiHandler(exposedParams.get()) },
-    midiGenerator{ new OutgoingMidiGenerator(exposedParams.get()) }
+    incomingMidiHandler{ new IncomingMidiHandler(exposedParams.get()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
-    midiGenerator = nullptr;
     incomingMidiHandler = nullptr;
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
@@ -116,10 +114,6 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
 void PluginProcessor::restoreStateFromXml(XmlElement* sourceXml) {
     exposedParams->replaceState(ValueTree::fromXml(*sourceXml->getChildElement(0)));
     // TODO: code for restoring unexposed parameters state
-}
-
-void PluginProcessor::updateProgramNameOnHardware(String newName) {
-    midiGenerator->updateProgramNameOnHardware(newName);
 }
 
 //==============================================================================

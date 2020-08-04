@@ -18,7 +18,6 @@ class PluginProcessor : public AudioProcessor
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
     std::unique_ptr<IncomingMidiHandler> incomingMidiHandler;
-    std::unique_ptr<OutgoingMidiGenerator> midiGenerator;
 
 public:
     PluginProcessor();
@@ -49,8 +48,6 @@ public:
     std::unique_ptr<XmlElement> saveStateToXML();
     void setStateInformation(const void* data, int sizeInBytes) override;
     void restoreStateFromXml(XmlElement* sourceXml);
-
-    void updateProgramNameOnHardware(String newName);
 
 private:
     //==============================================================================

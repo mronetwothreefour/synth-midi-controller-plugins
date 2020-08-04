@@ -55,29 +55,31 @@ private:
 
 class ButtonAndLabelForEditingPgmName : 
 	public Component,
-	private Label::Listener
+	private Label::Listener,
+	private Timer
 {
 	TextButton button;
-	PluginProcessor& processor;
+	AudioProcessorValueTreeState* exposedParams;
 	Label pgmNameEditor;
+	String programName;
+	int nameCharacter{ 0 };
 
-	String getPgmName() {
-		auto& info{ InfoForExposedParameters::get() };
+	String getProgramNameFromExposedParemeters() {
 		std::string pgmName{ "" };
 		for (auto i = 1; i != 17; ++i) {
-			auto paramIndex{ info.indexFor("nameChar" + (String)i) };
-			auto param{ processor.getParameters()[paramIndex] };
+			auto param{ exposedParams->getParameter("nameChar" + (String)i) };
 			pgmName += std::string(1, char(roundToInt(param->getValue() * 127)));
 		}
 		return pgmName;
 	}
 
 	void showPgmNameEditor() {
+		pgmNameEditor.setText(getProgramNameFromExposedParemeters(), dontSendNotification);
 		pgmNameEditor.showEditor();
 		String basicASCIIcharacters{ " !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
 		pgmNameEditor.getCurrentTextEditor()->setInputRestrictions(16, basicASCIIcharacters);
 		String nameEditorTooltip;
-		nameEditorTooltip = "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
+		nameEditorTooltip =  "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
 		nameEditorTooltip += "Hit Esc to cancel. The Mopho's hardware LCD characters use the basic ASCII\n";
 		nameEditorTooltip += "character set, with a few exceptions: 'backslash' becomes a yen sign and 'tilde'\n";
 		nameEditorTooltip += "becomes a right arrow. The 'delete' character becomes a left arrow; obviously,\n";
@@ -89,19 +91,49 @@ class ButtonAndLabelForEditingPgmName :
 
 	void labelTextChanged(Label* labelThatHasChanged) override {
 		String newName{ labelThatHasChanged->getText() };
-		auto newNameLength{ newName.length() };
-		if (newNameLength < 16) {
-			for (auto i = newNameLength; i != 16; ++i)
-				newName += " ";
+		if (newName.length() < 16) {
+			addSpacesToEndOfName(newName);
 		}
-		processor.updateProgramNameOnHardware(newName);
+		updateProgramNameOnHardware(newName);
+	}
+
+	void addSpacesToEndOfName(String& name) {
+		for (auto i = name.length(); i != 16; ++i)
+			name += " ";
+	}
+
+	void updateProgramNameOnHardware(String newName) {
+		programName = newName;
+		nameCharacter = 0;
+		startTimer(10);
+	}
+
+	void timerCallback() override {
+		stopTimer();
+		if (nameCharacter > -1 && nameCharacter < 16) {
+			updateNameCharacterInExposedParams();
+		}
+	}
+
+	void updateNameCharacterInExposedParams() {
+		auto param{ exposedParams->getParameter("nameChar" + (String)(nameCharacter + 1)) };
+		if (param != nullptr) {
+			auto normalizedValue{ (char)programName[nameCharacter] / 127.0f };
+			param->setValueNotifyingHost(normalizedValue);
+		}
+		if (nameCharacter < 15) {
+			++nameCharacter;
+			startTimer(10);
+		}
+		else
+			nameCharacter = -1;
 	}
 
 public:
-	ButtonAndLabelForEditingPgmName(PluginProcessor& processor) :
+	ButtonAndLabelForEditingPgmName(AudioProcessorValueTreeState* exposedParams) :
 		button{ "EDIT" },
-		processor{ processor },
-		pgmNameEditor{ "pgmNameEditor", getPgmName() }
+		exposedParams{ exposedParams },
+		pgmNameEditor{ "pgmNameEditor", getProgramNameFromExposedParemeters() }
 	{
 		setInterceptsMouseClicks(false, true);
 
@@ -148,11 +180,10 @@ class ButtonForClearingSequencerTrack :
 	int trackNum;
 	AudioProcessorValueTreeState* exposedParams;
 	int sequencerStep{ 0 };
-	const int millisecondsBtwnParamChanges{ 10 };
 
 	void clearSequencerTrack() {
 		sequencerStep = 1;
-		startTimer(millisecondsBtwnParamChanges);
+		startTimer(10);
 	}
 
 	void timerCallback() override {
@@ -161,7 +192,7 @@ class ButtonForClearingSequencerTrack :
 			clearSequencerStep(sequencerStep);
 			if (sequencerStep < 16) {
 				++sequencerStep;
-				startTimer(millisecondsBtwnParamChanges);
+				startTimer(10);
 			}
 			else
 				sequencerStep = 0;

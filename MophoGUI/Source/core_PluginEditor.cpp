@@ -30,7 +30,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(envelopeRenderer_VCA.get());
     addAndMakeVisible(envelopeRenderer_Env3.get());
 
-    button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(processor));
+    button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(exposedParams));
     addAndMakeVisible(button_ForEditingPgmName.get());
 
     button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(exposedParams));
