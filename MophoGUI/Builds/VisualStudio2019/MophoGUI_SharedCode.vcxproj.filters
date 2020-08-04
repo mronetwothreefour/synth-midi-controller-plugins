@@ -2499,6 +2499,12 @@
     <ClCompile Include="..\..\Source\widgets\widget_EnvelopeRenderer.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ProgramNameCharacters.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_SequencerSteps.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4820,16 +4826,10 @@
     <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_Knobs.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_Sliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h">
@@ -4932,6 +4932,18 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_ComboBoxWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_KnobWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_KnobWithValueStringDisplay.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_KnobWithWaveShapeDisplay.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_CustomSliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>

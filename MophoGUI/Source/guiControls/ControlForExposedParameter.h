@@ -4,7 +4,8 @@
 
 #include "../helpers/helper_ControlTypes.h"
 #include "../widgets/widget_ComboBoxWithExposedParamAttacher.h"
-#include "../widgets/widget_Knobs.h"
+#include "../widgets/widget_KnobWithValueStringDisplay.h"
+#include "../widgets/widget_KnobWithWaveShapeDisplay.h"
 #include "../widgets/widget_ProgramNameCharacters.h"
 #include "../widgets/widget_SequencerSteps.h"
 #include "../widgets/widget_ToggleButtonWithWithExposedParamAttacher.h"
