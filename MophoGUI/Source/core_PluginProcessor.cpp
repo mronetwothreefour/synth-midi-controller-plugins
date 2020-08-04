@@ -1,5 +1,14 @@
 #include "core_PluginProcessor.h"
+
 #include "core_PluginEditor.h"
+#include "core_UndoManager_Singleton.h"
+#include "midiTools/helper_MidiTools.h"
+#include "midiTools/midi_InternalMidiBuffers_Singleton.h"
+#include "parameters/params_ExposedParametersLayout.h"
+#include "parameters/params_ExposedParametersListener.h"
+
+
+
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },

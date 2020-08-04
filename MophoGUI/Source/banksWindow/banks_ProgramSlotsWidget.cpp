@@ -1,5 +1,10 @@
 #include "banks_ProgramSlotsWidget.h"
 
+#include "banks_PluginProgramBanks_Singleton.h"
+#include "banks_ProgramNameStrings_Singleton.h"
+#include "../helpers/helper_Identifiers.h"
+#include "../midiTools/midi_ProgramEditBufferDump.h"
+
 
 
 void ProgramSlotsWidget::timerCallback() {

@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/helper_IntToContextualStringConverters.h"
+
 
 
 class TooltipSetter : public ValueTree::Listener

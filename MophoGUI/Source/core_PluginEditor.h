@@ -2,16 +2,17 @@
 
 #include <JuceHeader.h>
 
-#include "core_PluginProcessor.h"
-#include "guiControls/ControlsForExposedParameters_Singleton.h"
-#include "banksWindow/banks_ProgramBanksComponent.h"
-#include "helpers/helper_CustomColors.h"
-#include "helpers/helper_Fonts.h"
-#include "helpers/helper_Identifiers.h"
-#include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
-#include "helpers/helper_MophoLookAndFeel.h"
-#include "widgets/widget_EnvelopeRenderer.h"
-#include "widgets/widget_Logo.h"
+
+
+class ButtonAndLabelForEditingPgmName;
+class ButtonForClearingSequencerTrack;
+class ButtonForOpeningProgramBanksWindow;
+class ButtonForSendingProgramEditBufferDump;
+class ButtonForSendingProgramEditBufferDumpRequest;
+class EnvelopeRenderer;
+class MophoLogo;
+class MophoLookAndFeel;
+class ProgramBanksComponent;
 
 class PluginEditor : 
     public AudioProcessorEditor,

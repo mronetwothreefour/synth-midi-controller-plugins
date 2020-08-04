@@ -1,6 +1,13 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "banksWindow/banks_ProgramBanksComponent.h"
+#include "guiControls/ControlsForExposedParameters_Singleton.h"
+#include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
+#include "helpers/helper_MophoLookAndFeel.h"
+#include "widgets/widget_EnvelopeRenderer.h"
+#include "widgets/widget_Logo.h"
+
 
 
 PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams) :

@@ -2,12 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "midi_SysExHelpers.h"
-#include "../banksWindow/banks_ProgramNameStrings_Singleton.h"
-#include "../banksWindow/banks_RawProgramData.h"
-#include "../parameters/params_SpecialValueOffsets.h"
-#include "../parameters/params_UnexposedParameters.h"
-
 
 
 class IncomingMidiHandler

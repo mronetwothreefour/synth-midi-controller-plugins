@@ -2472,6 +2472,12 @@
     <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.cpp">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4887,6 +4893,9 @@
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
   </ItemGroup>

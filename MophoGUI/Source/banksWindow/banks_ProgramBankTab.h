@@ -4,9 +4,6 @@
 
 #include "banks_ProgramBanksButtons.h"
 #include "banks_ProgramSlotsWidget.h"
-#include "../core_PluginProcessor.h"
-#include "../helpers/helper_CustomColors.h"
-#include "../helpers/helper_Fonts.h"
 
 
 

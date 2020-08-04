@@ -1,5 +1,7 @@
 #include "params_UnexposedParameters.h"
 
+#include "../helpers/helper_Identifiers.h"
+
 
 
 TooltipOptions_Singleton::TooltipOptions_Singleton() :

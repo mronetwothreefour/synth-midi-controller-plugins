@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "banks_FactoryProgamBanks_Singleton.h"
-
 
 
 class PluginProgramBanks

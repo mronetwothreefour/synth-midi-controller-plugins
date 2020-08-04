@@ -2,10 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "../helpers/helper_Identifiers.h"
 
 
-// TODO make tooltipOptionsTree with public 
 class TooltipOptions_Singleton
 {
 	ValueTree tooltipOptionsTree;

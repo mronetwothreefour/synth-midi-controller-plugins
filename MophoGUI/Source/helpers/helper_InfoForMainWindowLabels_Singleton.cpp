@@ -1,5 +1,7 @@
 #include "helper_InfoForMainWindowLabels_Singleton.h"
 
+#include "helper_Fonts.h"
+
 
 
 InfoForMainWindowLabels::InfoForMainWindowLabels() {

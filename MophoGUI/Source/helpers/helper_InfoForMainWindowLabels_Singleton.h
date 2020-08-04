@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "helper_Fonts.h"
-
 
 
 class InfoForMainWindowLabels

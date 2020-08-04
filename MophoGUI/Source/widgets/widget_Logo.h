@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+
+
 class MophoLogo : public Component
 {
 public:

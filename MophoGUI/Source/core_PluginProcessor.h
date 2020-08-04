@@ -2,16 +2,10 @@
 
 #include <JuceHeader.h>
 
-#include "core_UndoManager_Singleton.h"
-#include "midiTools/helper_MidiTools.h"
-#include "midiTools/midi_InternalMidiBuffers_Singleton.h"
-#include "midiTools/midi_ProgramEditBufferDump.h"
-#include "banksWindow/banks_RawProgramData.h"
-#include "parameters/params_ExposedParametersLayout.h"
-#include "parameters/params_ExposedParametersListener.h"
-#include "parameters/params_UnexposedParameters.h"
 
 
+class ExposedParametersListener;
+class IncomingMidiHandler;
 
 class PluginProcessor : public AudioProcessor
 {

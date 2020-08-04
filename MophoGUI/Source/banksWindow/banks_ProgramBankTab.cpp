@@ -1,5 +1,8 @@
 #include "banks_ProgramBankTab.h"
 
+#include "../helpers/helper_CustomColors.h"
+#include "../helpers/helper_Fonts.h"
+
 
 
 ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams) :

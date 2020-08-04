@@ -2071,7 +2071,9 @@
     <ClCompile Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBankTab.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.cpp" />
+    <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
@@ -2847,6 +2849,7 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_RawProgramData.h" />

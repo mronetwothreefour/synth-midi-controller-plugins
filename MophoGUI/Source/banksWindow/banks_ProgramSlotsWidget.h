@@ -2,11 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "../core_PluginProcessor.h"
-#include "../helpers/helper_Identifiers.h"
-#include "banks_PluginProgramBanks_Singleton.h"
-#include "banks_ProgramNameStrings_Singleton.h"
-
 
 
 class ProgramSlotsWidget : 

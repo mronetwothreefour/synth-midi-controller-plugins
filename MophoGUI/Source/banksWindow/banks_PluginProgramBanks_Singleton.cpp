@@ -1,5 +1,7 @@
 #include "banks_PluginProgramBanks_Singleton.h"
 
+#include "banks_FactoryProgamBanks_Singleton.h"
+
 
 
 PluginProgramBanks::PluginProgramBanks() :

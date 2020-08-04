@@ -1,5 +1,11 @@
 #include "params_InfoForExposedParameters_Singleton.h"
 
+#include "../helpers/helper_ControlTypes.h"
+#include "../helpers/helper_Identifiers.h"
+#include "../helpers/helper_IntToContextualStringConverters.h"
+
+
+
 InfoForExposedParameters::InfoForExposedParameters() {
 	fillAllInfoContainers();
 }

@@ -2,11 +2,10 @@
 
 #include <JuceHeader.h>
 
-#include "../helpers/helper_ControlTypes.h"
-#include "../helpers/helper_Identifiers.h"
-#include "../helpers/helper_IntToContextualStringConverters.h"
 
 
+enum class ControlType;
+struct IntToContextualStringConverter;
 
 class InfoForExposedParameters
 {

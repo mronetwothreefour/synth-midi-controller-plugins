@@ -1,5 +1,8 @@
 #include "helper_MidiTools.h"
 
+#include "midi_SysExHelpers.h"
+#include "../banksWindow/banks_RawProgramData.h"
+
 
 
 IncomingMidiHandler::IncomingMidiHandler(AudioProcessorValueTreeState* exposedParams) :

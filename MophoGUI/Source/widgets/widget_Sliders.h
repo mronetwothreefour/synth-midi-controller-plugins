@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../core_UndoManager_Singleton.h"
 
 
 // Overrides the mouseWheelMove() operation so that each wheel move event

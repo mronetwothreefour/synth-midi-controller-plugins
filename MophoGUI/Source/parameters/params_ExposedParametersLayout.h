@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "params_InfoForExposedParameters_Singleton.h"
+#include "../helpers/helper_IntToContextualStringConverters.h"
 
 using ParamLayout = AudioProcessorValueTreeState::ParameterLayout;
 
