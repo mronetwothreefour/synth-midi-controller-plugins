@@ -2,7 +2,10 @@
 
 #include <JuceHeader.h>
 
+#include "../helpers/helper_Identifiers.h"
 #include "../helpers/helper_IntToContextualStringConverters.h"
+#include "../parameters/params_InfoForExposedParameters_Singleton.h"
+#include "../parameters/params_UnexposedParameters.h"
 
 
 

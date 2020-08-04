@@ -2478,6 +2478,21 @@
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramNameStrings_Singleton.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4823,9 +4838,6 @@
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_Buttons.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
@@ -4897,6 +4909,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForOpeningProgramBanksWindow.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

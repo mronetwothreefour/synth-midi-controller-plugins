@@ -5,6 +5,11 @@
 #include "guiControls/ControlsForExposedParameters_Singleton.h"
 #include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
 #include "helpers/helper_MophoLookAndFeel.h"
+#include "widgets/widget_ButtonAndLabelForEditingPgmName.h"
+#include "widgets/widget_ButtonForClearingSequencerTrack.h"
+#include "widgets/widget_ButtonForOpeningProgramBanksWindow.h"
+#include "widgets/widget_ButtonForSendingProgramEditBufferDump.h"
+#include "widgets/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "widgets/widget_EnvelopeRenderer.h"
 #include "widgets/widget_Logo.h"
 

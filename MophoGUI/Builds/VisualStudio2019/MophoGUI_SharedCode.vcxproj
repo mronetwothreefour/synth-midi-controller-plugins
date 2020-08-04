@@ -2081,6 +2081,11 @@
     <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2878,7 +2883,11 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
-    <ClInclude Include="..\..\Source\widgets\widget_Buttons.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ButtonForOpeningProgramBanksWindow.h" />
     <ClInclude Include="..\..\Source\widgets\widget_EnvelopeRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Knobs.h" />
     <ClInclude Include="..\..\Source\widgets\widget_KnobValueRenderers.h" />
@@ -2888,6 +2897,7 @@
     <ClInclude Include="..\..\Source\widgets\widget_SequencerSteps.h" />
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_Sliders.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h" />
   </ItemGroup>
   <ItemGroup>
