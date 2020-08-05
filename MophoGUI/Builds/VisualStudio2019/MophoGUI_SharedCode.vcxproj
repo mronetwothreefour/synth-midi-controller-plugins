@@ -2080,7 +2080,7 @@
     <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp" />
+    <ClCompile Include="..\..\Source\midiTools\midi_IncomingMidi.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
@@ -2883,7 +2883,7 @@
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
-    <ClInclude Include="..\..\Source\midiTools\helper_MidiTools.h" />
+    <ClInclude Include="..\..\Source\midiTools\midi_IncomingMidi.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_NRPNbufferWithLeadingMSBs.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_ParameterChangeMessage.h" />

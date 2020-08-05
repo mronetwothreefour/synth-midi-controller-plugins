@@ -5,13 +5,11 @@
 
 
 class ExposedParametersListener;
-class IncomingMidiHandler;
 
 class PluginProcessor : public AudioProcessor
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
-    std::unique_ptr<IncomingMidiHandler> incomingMidiHandler;
 
 public:
     PluginProcessor();

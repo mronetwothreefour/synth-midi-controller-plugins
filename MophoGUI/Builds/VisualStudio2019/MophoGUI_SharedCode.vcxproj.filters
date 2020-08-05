@@ -2469,9 +2469,6 @@
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp">
-      <Filter>MophoGUI\Source\midiTools</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
@@ -2525,6 +2522,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midiTools\midi_IncomingMidi.cpp">
+      <Filter>MophoGUI\Source\midiTools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4898,9 +4898,6 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midiTools\helper_MidiTools.h">
-      <Filter>MophoGUI\Source\midiTools</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midiTools\midi_SysExHelpers.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
@@ -4975,6 +4972,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_IncomingMidi.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
