@@ -38,10 +38,10 @@ public:
     bool hasEditor() const override;
     AudioProcessorEditor* createEditor() override;
 
-    void getStateInformation(MemoryBlock& destData) override;
-    std::unique_ptr<XmlElement> saveStateToXML();
-    void setStateInformation(const void* data, int sizeInBytes) override;
-    void restoreStateFromXml(XmlElement* sourceXml);
+public: void getStateInformation(MemoryBlock& destData) override;
+private: std::unique_ptr<XmlElement> saveStateToXML();
+public: void setStateInformation(const void* data, int sizeInBytes) override;
+private: void restoreStateFromXml(XmlElement* sourceXml);
 
 private:
     //==============================================================================

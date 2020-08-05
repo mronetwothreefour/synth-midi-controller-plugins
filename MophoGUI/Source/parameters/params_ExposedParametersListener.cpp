@@ -1,5 +1,11 @@
 #include "params_ExposedParametersListener.h"
 
+#include "params_InfoForExposedParameters_Singleton.h"
+#include "params_SpecialValueOffsets.h"
+#include "../midiTools/midi_ParameterChangeMessage.h"
+
+
+
 ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeState* exposedParams) :
 	exposedParams{ exposedParams },
 	arpeggiator{ 98 },

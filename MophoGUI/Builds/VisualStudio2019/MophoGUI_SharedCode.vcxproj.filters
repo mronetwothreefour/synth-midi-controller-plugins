@@ -2523,7 +2523,9 @@
     <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

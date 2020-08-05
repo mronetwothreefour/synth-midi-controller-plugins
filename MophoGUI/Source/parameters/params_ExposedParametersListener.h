@@ -2,11 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "../midiTools/midi_ParameterChangeMessage.h"
-#include "params_InfoForExposedParameters_Singleton.h"
-#include "params_UnexposedParameters.h"
-#include "params_SpecialValueOffsets.h"
-
 
 
 class ExposedParametersListener :
