@@ -2505,6 +2505,18 @@
     <ClCompile Include="..\..\Source\widgets\widget_SequencerSteps.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamToggles.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.cpp">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4832,9 +4844,6 @@
     <ClInclude Include="..\..\Source\widgets\widget_Logo.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h">
-      <Filter>MophoGUI\Source\widgets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
@@ -4944,6 +4953,18 @@
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets\widget_CustomSliders.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetter.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamToggles.h">
+      <Filter>MophoGUI\Source\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2081,6 +2081,7 @@
     <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.cpp" />
@@ -2089,7 +2090,10 @@
     <ClCompile Include="..\..\Source\widgets\widget_EnvelopeRenderer.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ProgramNameCharacters.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_SequencerSteps.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.cpp" />
+    <ClCompile Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamToggles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2887,6 +2891,7 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
     <ClInclude Include="..\..\Source\parameters\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
+    <ClInclude Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ButtonForSendingProgramEditBufferDump.h" />
@@ -2904,7 +2909,9 @@
     <ClInclude Include="..\..\Source\widgets\widget_SequencerStepValueRenderer.h" />
     <ClInclude Include="..\..\Source\widgets\widget_CustomSliders.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ToggleButtonWithWithExposedParamAttacher.h" />
-    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetters.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetter.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.h" />
+    <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamToggles.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

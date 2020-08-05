@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "widget_CustomSliders.h"
-#include "widget_TooltipSetters.h"
+#include "widget_TooltipSetterForExposedParamSliders.h"
 
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 

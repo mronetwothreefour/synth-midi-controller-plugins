@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "widget_TooltipSetters.h"
+#include "widget_TooltipSetterForExposedParamToggles.h"
 
 using ButtonAttachment = AudioProcessorValueTreeState::ButtonAttachment;
 
@@ -21,7 +21,6 @@ public:
 
 	explicit ToggleButtonWithWithExposedParamAttacher(uint8 param);
 	~ToggleButtonWithWithExposedParamAttacher();
-
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void deleteAttachment();
 

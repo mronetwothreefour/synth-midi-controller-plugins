@@ -4,7 +4,7 @@
 
 #include "../helpers/helper_Identifiers.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
-#include "widget_TooltipSetters.h"
+#include "widgets_TooltipSetterForExposedParamComboBoxes.h"
 
 using ComboBoxAttachment = AudioProcessorValueTreeState::ComboBoxAttachment;
 
