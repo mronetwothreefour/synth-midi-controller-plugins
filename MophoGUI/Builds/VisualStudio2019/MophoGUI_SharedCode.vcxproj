@@ -2076,9 +2076,12 @@
     <ClCompile Include="..\..\Source\banksWindow\banks_ProgramBanksTabbedComponent.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
+    <ClCompile Include="..\..\Source\guiControls\ControlForExposedParameter.cpp" />
+    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\midiTools\helper_MidiTools.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.cpp" />

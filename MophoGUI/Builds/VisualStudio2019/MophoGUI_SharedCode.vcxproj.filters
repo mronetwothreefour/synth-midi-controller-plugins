@@ -2517,6 +2517,13 @@
     <ClCompile Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.cpp">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\guiControls\ControlForExposedParameter.cpp">
+      <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp">
+      <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

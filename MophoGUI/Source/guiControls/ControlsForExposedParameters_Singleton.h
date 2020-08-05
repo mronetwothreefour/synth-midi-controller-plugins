@@ -10,45 +10,22 @@ class ControlsForExposedParameters
 {
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
-	ControlsForExposedParameters() {
-	}
-
-	~ControlsForExposedParameters() {
-	}
-
-	void fillControlsVector() {
-		auto& info{ InfoForExposedParameters::get() };
-		for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-			controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param));
-	}
+	ControlsForExposedParameters();
+	~ControlsForExposedParameters();
 
 public:
 	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
 	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
 
-	static ControlsForExposedParameters& get() noexcept {
-		static ControlsForExposedParameters controlsForExposedParameters;
-		return controlsForExposedParameters;
-	}
-
-	ControlForExposedParameter* controlFor(uint8 paramIndex) const {
-		return controlsVector[paramIndex].get();
-	}
-
-	int paramOutOfRange() const noexcept {
-		return (int)controlsVector.size();
-	}
-
-	void clear() {
-		controlsVector.clear();
-	}
-
-	void rebuildControls(){
-		controlsVector.clear();
-		fillControlsVector();
-	}
+	static ControlsForExposedParameters& get() noexcept;
+	ControlForExposedParameter* controlFor(uint8 paramIndex) const;
+	int paramOutOfRange() const;
+	void clear();
+	void rebuildControls();
 
 private:
+	void fillControlsVector();
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlsForExposedParameters)
 };
