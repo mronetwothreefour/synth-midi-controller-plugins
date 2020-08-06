@@ -46,10 +46,13 @@ public:
 	Point<int> ctrlCenterPointFor(uint8 paramIndex) const;
 	int ctrlWidthFor(uint8 paramIndex) const;
 	int ctrlHeightFor(uint8 paramIndex) const;
-	uint8 indexFor(const String& parameterID) const noexcept;
+	uint8 indexForParamID(const String& parameterID) const;
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
 	uint8 msBitMaskFor(uint8 paramIndex) const;
+
+	// Returns 255 if NRPN is not found
+	uint8 indexForNRPN(const uint8 nrpn) const;
 
 private:
 	//==============================================================================

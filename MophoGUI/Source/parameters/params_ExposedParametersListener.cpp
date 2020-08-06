@@ -26,7 +26,7 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 	auto& midiParams{ MidiParameters_Singleton::get() };
 	if (midiParams.paramChangeEchosAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
-		auto param{ info.indexFor(parameterID) };
+		auto param{ info.indexForParamID(parameterID) };
 		auto nrpn{ info.NRPNfor(param) };
 		auto outputValue{ (uint8)roundToInt(newValue) };
 		outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);

@@ -1840,7 +1840,7 @@ int InfoForExposedParameters::ctrlHeightFor(uint8 paramIndex) const {
 	return ctrlHeights[paramIndex];
 }
 
-uint8 InfoForExposedParameters::indexFor(const String& parameterID) const noexcept {
+uint8 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }
 
@@ -1854,6 +1854,14 @@ uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
 
 uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
 	return msBitMasks[paramIndex];
+}
+
+uint8 InfoForExposedParameters::indexForNRPN(const uint8 nrpn) const {
+	auto index{ NRPNs.indexOf(nrpn) };
+	if (index > -1)
+		return (uint8)NRPNs.indexOf(nrpn);
+	else
+		return (uint8)255;
 }
 
 

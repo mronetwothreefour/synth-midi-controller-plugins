@@ -21,7 +21,7 @@ struct SysExID {
         Device = (char)37         // Mopho
     };
 
-    static bool matchesTargetDevice(const MidiMessage& midiMessage) {
+    static bool matchesHardwareSynthID(const MidiMessage& midiMessage) {
         if (midiMessage.isSysEx()) {
             auto sysExData{ midiMessage.getSysExData() };
             return (sysExData[1] == (uint8)TargetDevice::Manufacturer && sysExData[2] == (uint8)TargetDevice::Device);

@@ -2,7 +2,8 @@
 
 #include "core_PluginEditor.h"
 #include "core_UndoManager_Singleton.h"
-#include "midiTools/midi_IncomingMidi.h"
+#include "midiTools/midi_IncomingNRPNhandler.h"
+#include "midiTools/midi_IncomingSysExHandler.h"
 #include "midiTools/midi_InternalMidiBuffers_Singleton.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_ExposedParametersListener.h"
@@ -13,13 +14,16 @@
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
-    exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) }
+    exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) },
+    incomingNRPNHandler{ new IncomingNRPNhandler(exposedParams.get()) },
+    incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get()) }
 {
 }
 
 PluginProcessor::~PluginProcessor() {
     auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
+    incomingSysExHandler = nullptr;
     exposedParamsListener = nullptr;
     exposedParams = nullptr;
 }
@@ -62,7 +66,9 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
     buffer.clear();
 
     if (!midiMessages.isEmpty()) {
-        auto midiMessagesToPassThrough{ IncomingMidi::pullMessagesThatAffectExposedParamsFromBuffer(exposedParams.get(), midiMessages) };
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingSysExHandler->pullSysExWithMatchingIDOutOfBuffer(midiMessages);
+        midiMessagesToPassThrough = incomingNRPNHandler->pullFullyFormedNRPNoutOfBuffer(midiMessagesToPassThrough);
         midiMessages.swapWith(midiMessagesToPassThrough);
     }
 

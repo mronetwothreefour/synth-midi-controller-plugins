@@ -5,11 +5,15 @@
 
 
 class ExposedParametersListener;
+class IncomingNRPNhandler;
+class IncomingSysExHandler;
 
 class PluginProcessor : public AudioProcessor
 {
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
+    std::unique_ptr<IncomingNRPNhandler> incomingNRPNHandler;
+    std::unique_ptr<IncomingSysExHandler> incomingSysExHandler;
 
 public:
     PluginProcessor();

@@ -2523,7 +2523,10 @@
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midiTools\midi_IncomingMidi.cpp">
+    <ClCompile Include="..\..\Source\midiTools\midi_IncomingSysExHandler.cpp">
+      <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.cpp">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4973,7 +4976,10 @@
     <ClInclude Include="..\..\Source\widgets\widget_TooltipSetterForExposedParamSliders.h">
       <Filter>MophoGUI\Source\widgets</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midiTools\midi_IncomingMidi.h">
+    <ClInclude Include="..\..\Source\midiTools\midi_IncomingSysExHandler.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
   </ItemGroup>
