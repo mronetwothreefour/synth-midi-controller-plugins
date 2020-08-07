@@ -27,7 +27,7 @@ void TooltipSetterForExposedParamSliders::setTooltip() noexcept {
 
 String TooltipSetterForExposedParamSliders::generateTooltipText() noexcept {
 	String tooltipText{ "" };
-	auto& tooltips{ TooltipOptions_Singleton::get() };
+	auto& tooltips{ TooltipOptions::get() };
 	auto& info{ InfoForExposedParameters::get() };
 	if (tooltips.shouldShowDescription())
 		tooltipText += info.descriptionFor(param) + "\n";

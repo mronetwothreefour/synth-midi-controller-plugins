@@ -5,7 +5,7 @@
 #include "../helpers/helper_Identifiers.h"
 #include "../helpers/helper_IntToContextualStringConverters.h"
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
-#include "../parameters/params_UnexposedParameters.h"
+#include "../parameters/params_TooltipOptions_Singleton.h"
 
 
 
@@ -13,12 +13,12 @@ class TooltipSetter : public ValueTree::Listener
 {
 protected:
 	TooltipSetter() {
-		auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+		auto& tooltipOptions{ TooltipOptions::get() };
 		tooltipOptions.addListener(this);
 	}
 
 	~TooltipSetter() {
-		auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+		auto& tooltipOptions{ TooltipOptions::get() };
 		tooltipOptions.removeListener(this);
 	}
 

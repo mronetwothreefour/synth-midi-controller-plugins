@@ -1,7 +1,7 @@
 #include "midi_IncomingNRPNhandler.h"
 
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
-#include "../parameters/params_UnexposedParameters.h"
+#include "../parameters/params_MidiOptions_Singleton.h"
 
 
 
@@ -26,7 +26,7 @@ MidiBuffer IncomingNRPNhandler::pullFullyFormedNRPNoutOfBuffer(const MidiBuffer&
     MidiBuffer incompleteNRPN;
     MidiBuffer midiMessagesToPassThrough;
     for (auto event : midiMessages) {
-        auto& midiParams{ MidiParameters_Singleton::get() };
+        auto& midiParams{ MidiOptions::get() };
         auto midiMessage{ event.getMessage() };
         auto messageChannel{ midiMessage.getChannel() - 1 };
         auto pluginChannel{ midiParams.channel() };
@@ -85,7 +85,7 @@ bool IncomingNRPNhandler::messageTargetsOneOfTheNRPNcontrollers(MidiMessage midi
 }
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToExposedParameter(int nrpnType, int newValue) {
-    auto& midiParams{ MidiParameters_Singleton::get() };
+    auto& midiParams{ MidiOptions::get() };
     midiParams.setParamChangeEchosAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
     auto param{ info.indexForNRPN((uint8)nrpnType) };

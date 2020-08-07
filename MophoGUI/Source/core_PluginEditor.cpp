@@ -64,7 +64,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());
     addAndMakeVisible(button_ForClearingSequencerTrack4.get());
 
-    auto& tooltips{ TooltipOptions_Singleton::get() };
+    auto& tooltips{ TooltipOptions::get() };
     tooltips.addListener(this);
     tooltipWindow.setMillisecondsBeforeTipAppears(tooltips.delayInMilliseconds());
     tooltipWindow.setComponentEffect(nullptr);
@@ -76,7 +76,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 }
 
 PluginEditor::~PluginEditor() {
-    auto& tooltipOptions{ TooltipOptions_Singleton::get() };
+    auto& tooltipOptions{ TooltipOptions::get() };
     tooltipOptions.removeListener(this);
 
     programBanksComponent = nullptr;
@@ -147,7 +147,7 @@ void PluginEditor::resized() {
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property)
 {
     if (property == ID::tooltips_DelayInMilliseconds) {
-        auto& tooltips{ TooltipOptions_Singleton::get() };
+        auto& tooltips{ TooltipOptions::get() };
         tooltipWindow.setMillisecondsBeforeTipAppears(tooltips.delayInMilliseconds());
     }
 }

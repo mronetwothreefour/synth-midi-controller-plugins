@@ -3,8 +3,8 @@
 #include <JuceHeader.h>
 
 #include "../parameters/params_InfoForExposedParameters_Singleton.h"
+#include "../parameters/params_MidiOptions_Singleton.h"
 #include "../parameters/params_SpecialValueOffsets.h"
-#include "../parameters/params_UnexposedParameters.h"
 
 
 
@@ -12,7 +12,7 @@ struct RawProgramData {
     static const int rawProgramDataSize{ 293 };
 
     static void applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams) {
-        auto& midiParams{ MidiParameters_Singleton::get() };
+        auto& midiParams{ MidiOptions::get() };
         midiParams.setParamChangeEchosAreBlocked();
         auto& info{ InfoForExposedParameters::get() };
         for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {

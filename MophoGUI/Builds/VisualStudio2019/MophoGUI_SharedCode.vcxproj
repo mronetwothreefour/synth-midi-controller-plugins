@@ -2084,7 +2084,8 @@
     <ClCompile Include="..\..\Source\midiTools\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_MidiOptions_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_TooltipOptions_Singleton.cpp" />
     <ClCompile Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.cpp" />
     <ClCompile Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.cpp" />
@@ -2894,8 +2895,9 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\parameters\params_InfoForExposedParameters_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h" />
+    <ClInclude Include="..\..\Source\parameters\params_MidiOptions_Singleton.h" />
     <ClInclude Include="..\..\Source\parameters\params_SpecialValueOffsets.h" />
-    <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h" />
+    <ClInclude Include="..\..\Source\parameters\params_TooltipOptions_Singleton.h" />
     <ClInclude Include="..\..\Source\widgets\widgets_TooltipSetterForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ButtonForClearingSequencerTrack.h" />
     <ClInclude Include="..\..\Source\widgets\widget_ButtonAndLabelForEditingPgmName.h" />

@@ -2451,9 +2451,6 @@
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_UnexposedParameters.cpp">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.cpp">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClCompile>
@@ -2528,6 +2525,10 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.cpp">
       <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\params_MidiOptions_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\parameters\params_TooltipOptions_Singleton.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4862,9 +4863,6 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersLayout.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\parameters\params_UnexposedParameters.h">
-      <Filter>MophoGUI\Source\parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.h">
       <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
@@ -4981,6 +4979,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\params_MidiOptions_Singleton.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\parameters\params_TooltipOptions_Singleton.h">
+      <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

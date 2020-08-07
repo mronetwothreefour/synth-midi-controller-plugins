@@ -26,7 +26,7 @@ void TooltipSetterForExposedParamComboBoxes::setTooltip() noexcept {
 
 String TooltipSetterForExposedParamComboBoxes::generateTooltipText() noexcept {
 	String tooltipText{ "" };
-	auto& tooltips{ TooltipOptions_Singleton::get() };
+	auto& tooltips{ TooltipOptions::get() };
 	auto& info{ InfoForExposedParameters::get() };
 	if (tooltips.shouldShowDescription())
 		tooltipText += info.descriptionFor(param) + "\n";

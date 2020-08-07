@@ -23,7 +23,7 @@ ExposedParametersListener::~ExposedParametersListener() {
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	auto& midiParams{ MidiParameters_Singleton::get() };
+	auto& midiParams{ MidiOptions::get() };
 	if (midiParams.paramChangeEchosAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
