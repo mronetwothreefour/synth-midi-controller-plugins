@@ -15,44 +15,17 @@ IncomingNRPNhandler::~IncomingNRPNhandler() {
 }
 
 MidiBuffer IncomingNRPNhandler::pullFullyFormedNRPNoutOfBuffer(const MidiBuffer& midiMessages) {
-    bool nrpnTypeMSBvalueReceived{ false };
-    bool nrpnTypeLSBvalueReceived{ false };
-    bool nrpnValueMSBvalueReceived{ false };
-    bool nrpnValueLSBvalueReceived{ false };
-    auto nrpnTypeMSBvalue{ 0 };
-    auto nrpnTypeLSBvalue{ 0 };
-    auto nrpnValueMSBvalue{ 0 };
-    auto nrpnValueLSBvalue{ 0 };
-    MidiBuffer incompleteNRPN;
-    MidiBuffer midiMessagesToPassThrough;
+    midiMessagesToPassThrough.clear();
+    incompleteNRPN.clear();
     for (auto event : midiMessages) {
         auto& midiParams{ MidiOptions::get() };
         auto midiMessage{ event.getMessage() };
         auto messageChannel{ midiMessage.getChannel() - 1 };
         auto pluginChannel{ midiParams.channel() };
-        if (messageChannel != pluginChannel || !messageTargetsOneOfTheNRPNcontrollers(midiMessage))
-            midiMessagesToPassThrough.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+        if (midiMessage.isController() && messageChannel == pluginChannel)
+            handle_If_MessageTargetsOneOfTheNRPNcontrollers(midiMessage);
         else {
-            if (midiMessage.isControllerOfType(nrpnTypeMSB)) {
-                nrpnTypeMSBvalue = midiMessage.getControllerValue();
-                incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
-                nrpnTypeMSBvalueReceived = true;
-            }
-            if (midiMessage.isControllerOfType(nrpnTypeLSB)) {
-                nrpnTypeLSBvalue = midiMessage.getControllerValue();
-                incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
-                nrpnTypeLSBvalueReceived = true;
-            }
-            if (midiMessage.isControllerOfType(nrpnValueMSB)) {
-                nrpnValueMSBvalue = midiMessage.getControllerValue();
-                incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
-                nrpnValueMSBvalueReceived = true;
-            }
-            if (midiMessage.isControllerOfType(nrpnValueLSB)) {
-                nrpnValueLSBvalue = midiMessage.getControllerValue();
-                incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
-                nrpnValueLSBvalueReceived = true;
-            }
+            midiMessagesToPassThrough.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
         }
     }
     if (nrpnTypeMSBvalueReceived && nrpnTypeLSBvalueReceived && nrpnValueMSBvalueReceived && nrpnValueLSBvalueReceived) {
@@ -72,16 +45,54 @@ MidiBuffer IncomingNRPNhandler::pullFullyFormedNRPNoutOfBuffer(const MidiBuffer&
     return midiMessagesToPassThrough;
 }
 
-bool IncomingNRPNhandler::messageTargetsOneOfTheNRPNcontrollers(MidiMessage midiMessage) {
-    if (midiMessage.isControllerOfType(nrpnTypeMSB))
-        return true;
-    if (midiMessage.isControllerOfType(nrpnTypeLSB))
-        return true;
-    if (midiMessage.isControllerOfType(nrpnValueMSB))
-        return true;
-    if (midiMessage.isControllerOfType(nrpnValueLSB))
-        return true;
-    return false;
+void IncomingNRPNhandler::handle_If_MessageTargetsOneOfTheNRPNcontrollers(MidiMessage midiMessage) {
+    auto controllerType{ midiMessage.getControllerNumber() };
+    if (controllerType == nrpnTypeMSB || controllerType == nrpnTypeLSB || controllerType == nrpnValueMSB || controllerType == nrpnValueLSB)
+        handleNRPNmessage(midiMessage);
+    else
+        midiMessagesToPassThrough.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+}
+
+void IncomingNRPNhandler::handleNRPNmessage(MidiMessage midiMessage) {
+    handle_if_MessageTargetsNRPNtypeMSB(midiMessage);
+}
+
+void IncomingNRPNhandler::handle_if_MessageTargetsNRPNtypeMSB(MidiMessage midiMessage) {
+    if (midiMessage.isControllerOfType(nrpnTypeMSB)) {
+        nrpnTypeMSBvalue = midiMessage.getControllerValue();
+        incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+        nrpnTypeMSBvalueReceived = true;
+    }
+    else
+        handle_if_MessageTargetsNRPNtypeLSB(midiMessage);
+}
+
+void IncomingNRPNhandler::handle_if_MessageTargetsNRPNtypeLSB(MidiMessage midiMessage) {
+    if (midiMessage.isControllerOfType(nrpnTypeLSB)) {
+        nrpnTypeLSBvalue = midiMessage.getControllerValue();
+        incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+        nrpnTypeLSBvalueReceived = true;
+    }
+    else
+        handle_if_MessageTargetsNRPNvalueMSB(midiMessage);
+}
+
+void IncomingNRPNhandler::handle_if_MessageTargetsNRPNvalueMSB(MidiMessage midiMessage) {
+    if (midiMessage.isControllerOfType(nrpnValueMSB)) {
+        nrpnValueMSBvalue = midiMessage.getControllerValue();
+        incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+        nrpnValueMSBvalueReceived = true;
+    }
+    else
+        handle_if_MessageTargetsNRPNvalueLSB(midiMessage);
+}
+
+void IncomingNRPNhandler::handle_if_MessageTargetsNRPNvalueLSB(MidiMessage midiMessage) {
+    if (midiMessage.isControllerOfType(nrpnValueLSB)) {
+        nrpnValueLSBvalue = midiMessage.getControllerValue();
+        incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
+        nrpnValueLSBvalueReceived = true;
+    }
 }
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToExposedParameter(int nrpnType, int newValue) {
