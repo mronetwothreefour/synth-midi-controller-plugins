@@ -13,6 +13,7 @@ class ProgramBanksTabbedComponent :
     ProgramBankTab bank1;
     ProgramBankTab bank2;
     ProgramBankTab bank3;
+    String programCopyBuffer;
 
 public:
     ProgramBanksTabbedComponent() = delete;

@@ -6,9 +6,9 @@
 
 ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
-	bank1{ 0, exposedParams },
-	bank2{ 1, exposedParams },
-	bank3{ 2, exposedParams }
+	bank1{ 0, exposedParams, programCopyBuffer },
+	bank2{ 1, exposedParams, programCopyBuffer },
+	bank3{ 2, exposedParams, programCopyBuffer }
 {
 	setTabBarDepth(30);
 	setOutline(0);

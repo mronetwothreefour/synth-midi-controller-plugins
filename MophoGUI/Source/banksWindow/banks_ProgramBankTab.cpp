@@ -1,13 +1,16 @@
 #include "banks_ProgramBankTab.h"
 
+#include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
+#include "../banksWindow/banks_ProgramNameStrings_Singleton.h"
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Fonts.h"
 
 
 
-ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams) :
+ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, String& programCopyBuffer) :
 	bank{ bank },
 	programSlots{ bank, exposedParams },
+	programCopyBuffer{ programCopyBuffer },
 	button_ForLoadingSelectedProgram{ programSlots },
 	button_ForSavingProgramInSelectedSlot{ programSlots },
 	button_ForPushingSelectedProgramToHardware{ programSlots },
@@ -87,5 +90,27 @@ void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo&
 }
 
 bool ProgramBankTab::perform(const InvocationInfo& info) {
-	return false;
+	auto& banks{ PluginProgramBanks::get() };
+	auto selectedSlot{ programSlots.selectedSlot };
+	switch (info.commandID)
+	{
+	case copyProgram:
+		if (selectedSlot < 128) {
+			programCopyBuffer = banks.getProgramHexStringFromBankSlot(bank, selectedSlot);
+			return true;
+		}
+		else return false;
+	case pasteProgram:
+		if (selectedSlot < 128 && programCopyBuffer != "") {
+			banks.storeProgramHexStringInBankSlot(programCopyBuffer, bank, selectedSlot);
+			updateProgramSlotTextAfterDelay(selectedSlot);
+		}
+	default:
+		return false;
+	}
+}
+
+void ProgramBankTab::updateProgramSlotTextAfterDelay(uint8 selectedSlot) {
+	callAfterDelay(20, [this, selectedSlot] { 	ProgramNameStrings::get().storeProgramNameInBankSlot(bank, selectedSlot); });
+	callAfterDelay(40, [this, selectedSlot] { programSlots.setTextForProgramSlotToggleButton(selectedSlot); repaint(); });
 }

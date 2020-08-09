@@ -21,8 +21,8 @@ class ProgramBankTab :
     ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
     ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
     ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedProgramFromHardware;
-
     ApplicationCommandManager commandManager;
+    String& programCopyBuffer;
 
 public:
     enum commandChoices {
@@ -30,7 +30,9 @@ public:
         pasteProgram
     };
 
-    ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams);
+    ProgramBankTab() = delete;
+
+    ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, String& programCopyBuffer);
     ~ProgramBankTab();
 
     void paint(Graphics& g) override;
@@ -42,6 +44,8 @@ public:
     bool perform(const InvocationInfo& info) override;
 
 private:
+    void updateProgramSlotTextAfterDelay(uint8 selectedSlot);
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBankTab)
 };

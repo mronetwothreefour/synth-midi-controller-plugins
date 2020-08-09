@@ -48,20 +48,7 @@ void PluginProgramBanks::storeProgramDataAsHexStringInBankSlot(const uint8* data
 	jassert(bank < 3);
 	jassert(slot < 128);
 	auto hexString{ String::toHexString(data, 293, 0) };
-	switch (bank)
-	{
-	case 0:
-		programBank1.setProperty("pgm" + (String)slot, hexString, nullptr);
-		break;
-	case 1:
-		programBank2.setProperty("pgm" + (String)slot, hexString, nullptr);
-		break;
-	case 2:
-		programBank3.setProperty("pgm" + (String)slot, hexString, nullptr);
-		break;
-	default:
-		return;
-	}
+	storeProgramHexStringInBankSlot(hexString, bank, slot);
 	ProgramNameStrings::get().storeProgramNameInBankSlot(bank, slot);
 }
 
@@ -95,6 +82,23 @@ const String PluginProgramBanks::getProgramHexStringFromBankSlot(uint8 bank, uin
 		return programBank3.getProperty("pgm" + (String)slot);
 	default:
 		return {};
+	}
+}
+
+void PluginProgramBanks::storeProgramHexStringInBankSlot(String hexString, uint8 bank, uint8 slot) {
+	switch (bank)
+	{
+	case 0:
+		programBank1.setProperty("pgm" + (String)slot, hexString, nullptr);
+		break;
+	case 1:
+		programBank2.setProperty("pgm" + (String)slot, hexString, nullptr);
+		break;
+	case 2:
+		programBank3.setProperty("pgm" + (String)slot, hexString, nullptr);
+		break;
+	default:
+		return;
 	}
 }
 

@@ -27,6 +27,11 @@ ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState*
 		programSlotButtons[slot].setComponentID(ID::component_PgmSlotRadioButton.toString());
 		programSlotButtons[slot].setRadioGroupId(1);
 		programSlotButtons[slot].onClick = [this, slot] {selectedSlot = slot; };
+		String slotTooltip;
+		slotTooltip =  "Click a program's name to select it before using the buttons below.\n";
+		slotTooltip += "CTRL-c copies the selected program's settings into the clipboard.\n";
+		slotTooltip += "CTRL-v overwrites the selected program with the settings in the clipboard.";
+		programSlotButtons[slot].setTooltip(slotTooltip);
 	}
 
 	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonHorizontalGap };
