@@ -68,15 +68,15 @@ const String PluginProgramBanks::getProgramNameFromDataStoredInBankSlot(uint8 ba
 	jassert(bank < 3);
 	jassert(slot < 128);
 	auto programDataBuffer{ getProgramDataStoredInBankSlot(bank, slot) };
-	String programName{ extractProgramNameFromDataBuffer(programDataBuffer) };
+	String programName{ extractProgramNameFromDataVector(programDataBuffer) };
 	return programName;
 }
 
-const uint8* PluginProgramBanks::getProgramDataStoredInBankSlot(uint8 bank, uint8 slot) {
+const std::vector<uint8> PluginProgramBanks::getProgramDataStoredInBankSlot(uint8 bank, uint8 slot) {
 	jassert(bank < 3);
 	jassert(slot < 128);
 	const auto& hexString{ getProgramHexStringFromBankSlot(bank, slot) };
-	auto programDataBuffer{ convertProgramHexStringToDataBuffer(hexString) };
+	auto programDataBuffer{ convertProgramHexStringToDataVector(hexString) };
 	return programDataBuffer;
 }
 
@@ -97,21 +97,22 @@ const String PluginProgramBanks::getProgramHexStringFromBankSlot(uint8 bank, uin
 	}
 }
 
-const uint8* PluginProgramBanks::convertProgramHexStringToDataBuffer(const String& dataString) {
-	static uint8 programData[293]{};
-	for (auto i = 0; i != 460; i += 2) {
+const std::vector<uint8> PluginProgramBanks::convertProgramHexStringToDataVector(const String& dataString) {
+	std::vector<uint8> programData;
+	for (auto i = 0; i != dataString.length(); i += 2) {
 		auto hexValueString{ dataString.substring(i, i + 2) };
-		programData[i / 2] = (uint8)hexValueString.getHexValue32();
+		programData.push_back((uint8)hexValueString.getHexValue32());
 	}
 	return programData;
 }
 
-const String PluginProgramBanks::extractProgramNameFromDataBuffer(const uint8* data) {
+const String PluginProgramBanks::extractProgramNameFromDataVector(std::vector<uint8> dataVector) {
 	String programName{ "" };
 	auto firstCharByte{ 211 };
 	auto lastCharByte{ 229 };
 	auto ignoredPackByte1{ 216 };
 	auto ignoredPackByte2{ 224 };
+	auto data{ dataVector.data() };
 	for (auto byte = firstCharByte; byte <= lastCharByte; byte += 1) {
 		if (byte != ignoredPackByte1 && byte != ignoredPackByte2)
 			programName += (String)std::string(1, (char)*(data + byte));

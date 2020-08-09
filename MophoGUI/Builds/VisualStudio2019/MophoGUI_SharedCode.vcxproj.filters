@@ -4893,9 +4893,6 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBankTab.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h">
-      <Filter>MophoGUI\Source\banksWindow</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
@@ -4985,6 +4982,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\parameters\params_TooltipOptions_Singleton.h">
       <Filter>MophoGUI\Source\parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForSavingProgramInSelectedSlot.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForLoadingSelectedProgram.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPushingSelectedProgramToHardware.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_ProgramDump.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

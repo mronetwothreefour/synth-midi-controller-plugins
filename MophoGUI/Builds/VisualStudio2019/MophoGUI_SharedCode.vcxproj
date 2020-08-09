@@ -2863,7 +2863,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
-    <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksButtons.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPushingSelectedProgramToHardware.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForSavingProgramInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForLoadingSelectedProgram.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_PluginProgramBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramBanksComponent.h" />
@@ -2890,6 +2892,7 @@
     <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_NRPNbufferWithLeadingMSBs.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_ParameterChangeMessage.h" />
+    <ClInclude Include="..\..\Source\midiTools\midi_ProgramDump.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_ProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersListener.h" />

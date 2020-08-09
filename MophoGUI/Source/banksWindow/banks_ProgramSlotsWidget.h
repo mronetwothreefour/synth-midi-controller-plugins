@@ -27,6 +27,7 @@ public:
     void setTextForProgramSlotToggleButton(uint8 slot);
     void loadProgramFromSelectedSlot();
     void storeCurrentProgramSettingsInSelectedSlot();
+    void pushSelectedProgramToHardware();
 
 private:
     //==============================================================================

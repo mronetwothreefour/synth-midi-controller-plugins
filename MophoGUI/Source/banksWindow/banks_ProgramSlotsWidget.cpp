@@ -3,6 +3,7 @@
 #include "banks_PluginProgramBanks_Singleton.h"
 #include "banks_ProgramNameStrings_Singleton.h"
 #include "../helpers/helper_Identifiers.h"
+#include "../midiTools/midi_ProgramDump.h"
 #include "../midiTools/midi_ProgramEditBufferDump.h"
 
 
@@ -56,8 +57,8 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto& pgmBanks{ PluginProgramBanks::get() };
-		auto programData{ pgmBanks.getProgramDataStoredInBankSlot(bank, selectedSlot) };
-		RawProgramData::applyToExposedParameters(programData, exposedParams);
+		auto programDataVector{ pgmBanks.getProgramDataStoredInBankSlot(bank, selectedSlot) };
+		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams);
 		callAfterDelay(100, [this] { ProgramEditBufferDump::send(exposedParams); });
 	}
 }
@@ -71,6 +72,12 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 		programNames.storeProgramNameInBankSlot(bank, selectedSlot);
 		setTextForProgramSlotToggleButton(selectedSlot);
 		repaint();
+	}
+}
+
+void ProgramSlotsWidget::pushSelectedProgramToHardware() {
+	if (selectedSlot < 128) {
+		ProgramDump::sendToBankAndSlot(bank, selectedSlot);
 	}
 }
 

@@ -9,12 +9,13 @@ ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposed
 	bank{ bank },
 	programSlots{ bank, exposedParams },
 	button_ForLoadingSelectedProgram{ programSlots },
-	button_ForSavingProgramInSelectedSlot{ programSlots }
+	button_ForSavingProgramInSelectedSlot{ programSlots },
+	button_ForPushingSelectedProgramToHardware{ programSlots }
 {
 	addAndMakeVisible(programSlots);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
-	button_ForLoadingSelectedProgram.setAlwaysOnTop(true);
 	addAndMakeVisible(button_ForSavingProgramInSelectedSlot);
+	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -51,6 +52,7 @@ void ProgramBankTab::resized() {
 	auto buttons_h{ 21 };
 	button_ForLoadingSelectedProgram.setBounds(184, buttons_y, buttons_w, buttons_h);
 	button_ForSavingProgramInSelectedSlot.setBounds(244, buttons_y, buttons_w, buttons_h);
+	button_ForPushingSelectedProgramToHardware.setBounds(304, buttons_y, buttons_w, buttons_h);
 }
 
 void ProgramBankTab::timerCallback() {

@@ -2,7 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "banks_ProgramBanksButtons.h"
+#include "banks_ButtonForLoadingSelectedProgram.h"
+#include "banks_ButtonForSavingProgramInSelectedSlot.h"
+#include "banks_ButtonForPushingSelectedProgramToHardware.h"
 #include "banks_ProgramSlotsWidget.h"
 
 
@@ -16,6 +18,8 @@ class ProgramBankTab :
     ProgramSlotsWidget programSlots;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
+    ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
+
     ApplicationCommandManager commandManager;
 
 public:
