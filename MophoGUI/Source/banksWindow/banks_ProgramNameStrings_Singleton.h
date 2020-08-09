@@ -19,6 +19,7 @@ public:
 	ProgramNameStrings& operator=(ProgramNameStrings&&) = delete;
 
 	static ProgramNameStrings& get() noexcept;
+	void resetAllProgramNameStringsToFactoryDefaults();
 	const String getNameForProgramInBankSlot(uint8 bank, uint8 programSlot);
 	void storeProgramNameInBankSlot(uint8 bank, uint8 programSlot);
 

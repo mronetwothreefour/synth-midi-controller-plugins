@@ -32,6 +32,10 @@ ProgramNameStrings& ProgramNameStrings::get() noexcept {
 	return programNameStrings;
 }
 
+void ProgramNameStrings::resetAllProgramNameStringsToFactoryDefaults() {
+	fillAllValueTreesWithDefaultProgramNames();
+}
+
 const String ProgramNameStrings::getNameForProgramInBankSlot(uint8 bank, uint8 programSlot) {
 	String programName;
 	switch (bank) {

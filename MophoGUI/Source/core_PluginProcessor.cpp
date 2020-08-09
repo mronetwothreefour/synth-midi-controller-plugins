@@ -2,6 +2,8 @@
 
 #include "core_PluginEditor.h"
 #include "core_UndoManager_Singleton.h"
+#include "banksWindow/banks_PluginProgramBanks_Singleton.h"
+#include "banksWindow/banks_ProgramNameStrings_Singleton.h"
 #include "midiTools/midi_IncomingNRPNhandler.h"
 #include "midiTools/midi_IncomingSysExHandler.h"
 #include "midiTools/midi_InternalMidiBuffers_Singleton.h"
@@ -18,6 +20,8 @@ PluginProcessor::PluginProcessor() :
     incomingNRPNHandler{ new IncomingNRPNhandler(exposedParams.get()) },
     incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get()) }
 {
+    PluginProgramBanks::get().resetAllProgramBanksToFactoryDefaults();
+    ProgramNameStrings::get().resetAllProgramNameStringsToFactoryDefaults();
 }
 
 PluginProcessor::~PluginProcessor() {

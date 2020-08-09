@@ -9,7 +9,6 @@ PluginProgramBanks::PluginProgramBanks() :
 	programBank2{ "pgmBank2" },
 	programBank3{ "pgmBank3" }
 {
-	resetAllProgramBanksToFactoryDefaults();
 }
 
 int PluginProgramBanks::programSlotOutOfRange() {
