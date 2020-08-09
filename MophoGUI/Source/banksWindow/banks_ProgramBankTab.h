@@ -4,6 +4,7 @@
 
 #include "banks_ButtonForLoadingSelectedProgram.h"
 #include "banks_ButtonForSavingProgramInSelectedSlot.h"
+#include "banks_ButtonForPullingSelectedProgramFromHardware.h"
 #include "banks_ButtonForPushingSelectedProgramToHardware.h"
 #include "banks_ProgramSlotsWidget.h"
 
@@ -19,6 +20,7 @@ class ProgramBankTab :
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
     ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
+    ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedProgramFromHardware;
 
     ApplicationCommandManager commandManager;
 

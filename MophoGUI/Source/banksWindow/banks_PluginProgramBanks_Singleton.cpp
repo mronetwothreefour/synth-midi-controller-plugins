@@ -1,6 +1,7 @@
 #include "banks_PluginProgramBanks_Singleton.h"
 
 #include "banks_FactoryProgamBanks_Singleton.h"
+#include "banks_ProgramNameStrings_Singleton.h"
 
 
 
@@ -61,6 +62,7 @@ void PluginProgramBanks::storeProgramDataAsHexStringInBankSlot(const uint8* data
 	default:
 		return;
 	}
+	ProgramNameStrings::get().storeProgramNameInBankSlot(bank, slot);
 }
 
 const String PluginProgramBanks::getProgramNameFromDataStoredInBankSlot(uint8 bank, uint8 slot) {

@@ -81,4 +81,12 @@ void ProgramSlotsWidget::pushSelectedProgramToHardware() {
 	}
 }
 
+void ProgramSlotsWidget::pullSelectedProgramFromHardware() {
+	if (selectedSlot < 128) {
+		ProgramDump::requestFromBankAndSlot(bank, selectedSlot);
+		callAfterDelay(300, [this] { setTextForProgramSlotToggleButton(selectedSlot); });
+		callAfterDelay(320, [this] { programSlotButtons[selectedSlot].repaint(); });
+	}
+}
+
 

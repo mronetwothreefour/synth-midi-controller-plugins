@@ -2863,6 +2863,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPullingSelectedProgramFromHardware.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPushingSelectedProgramToHardware.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForSavingProgramInSelectedSlot.h" />
     <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForLoadingSelectedProgram.h" />

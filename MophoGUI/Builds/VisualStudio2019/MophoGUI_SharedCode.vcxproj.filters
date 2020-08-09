@@ -2526,8 +2526,10 @@
     <ClCompile Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.cpp">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\parameters\params_MidiOptions_Singleton.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_TooltipOptions_Singleton.cpp">
+      <Filter>MophoGUI\Source\parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\parameters\params_MidiOptions_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4994,6 +4996,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midiTools\midi_ProgramDump.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPullingSelectedProgramFromHardware.h">
+      <Filter>MophoGUI\Source\banksWindow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -28,6 +28,7 @@ public:
     void loadProgramFromSelectedSlot();
     void storeCurrentProgramSettingsInSelectedSlot();
     void pushSelectedProgramToHardware();
+    void pullSelectedProgramFromHardware();
 
 private:
     //==============================================================================

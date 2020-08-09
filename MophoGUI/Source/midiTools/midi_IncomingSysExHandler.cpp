@@ -1,6 +1,7 @@
 #include "midi_IncomingSysExHandler.h"
 
 #include "midi_SysExHelpers.h"
+#include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "../banksWindow/banks_RawProgramData.h"
 
 
@@ -28,6 +29,11 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
         auto sysExData{ midiMessage.getSysExData() };
         if (sysExData[3] == (uint8)SysExMessageType::programEditBufferDump)
             RawProgramData::applyToExposedParameters(sysExData + 4, exposedParams);
+        if (sysExData[3] == (uint8)SysExMessageType::programDump) {
+            auto bank{ sysExData[4] };
+            auto slot{ sysExData[5] };
+            PluginProgramBanks::get().storeProgramDataInBankSlot(sysExData + 6, bank, slot);
+        }
         return true;
     }
     else return false;
