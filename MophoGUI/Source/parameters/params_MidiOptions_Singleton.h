@@ -25,6 +25,8 @@ public:
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();
+	int programTransmitTime();
+	void setProgramTransmitTime(int timeInMilliseconds);
 
 private:
 	//==============================================================================

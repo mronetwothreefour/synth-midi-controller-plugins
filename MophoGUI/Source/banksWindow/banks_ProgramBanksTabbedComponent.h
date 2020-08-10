@@ -14,14 +14,14 @@ class ProgramBanksTabbedComponent :
     ProgramBankTab bank2;
     ProgramBankTab bank3;
     String programCopyBuffer;
+    Label label_txTime;
 
 public:
     ProgramBanksTabbedComponent() = delete;
 
     explicit ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams);
-
-    void labelTextChanged(Label* label) override;
     void editorShown(Label* label, TextEditor& editor) override;
+    void labelTextChanged(Label* label) override;
 
 private:
     //==============================================================================

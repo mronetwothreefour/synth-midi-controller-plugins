@@ -5,6 +5,7 @@
 #include "../helpers/helper_Identifiers.h"
 #include "../midiTools/midi_ProgramDump.h"
 #include "../midiTools/midi_ProgramEditBufferDump.h"
+#include "../parameters/params_MidiOptions_Singleton.h"
 
 
 
@@ -88,9 +89,11 @@ void ProgramSlotsWidget::pushSelectedProgramToHardware() {
 
 void ProgramSlotsWidget::pullSelectedProgramFromHardware() {
 	if (selectedSlot < 128) {
+		auto& midiOptions{ MidiOptions::get() };
+		auto transmitTime{ midiOptions.programTransmitTime() };
 		ProgramDump::requestFromBankAndSlot(bank, selectedSlot);
-		callAfterDelay(300, [this] { setTextForProgramSlotToggleButton(selectedSlot); });
-		callAfterDelay(320, [this] { programSlotButtons[selectedSlot].repaint(); });
+		callAfterDelay(transmitTime, [this] { setTextForProgramSlotToggleButton(selectedSlot); });
+		callAfterDelay(transmitTime + 20, [this] { programSlotButtons[selectedSlot].repaint(); });
 	}
 }
 

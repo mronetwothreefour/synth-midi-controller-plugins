@@ -38,7 +38,7 @@ void ProgramBankTab::paint(Graphics& g) {
 	g.setColour(Color::black);
 	Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForPgmBanksWindowLabels };
 	g.setFont(font);
-	auto label_y{ 334 };
+	auto label_y{ 333 };
 	auto label_h{ 21 };
 	Rectangle<int> selectedPgmLabelArea{ 15, label_y, 164, label_h };
 	g.drawText("SELECTED PROGRAM :", selectedPgmLabelArea, Justification::right);
@@ -69,8 +69,8 @@ ApplicationCommandTarget* ProgramBankTab::getNextCommandTarget() {
 }
 
 void ProgramBankTab::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> ids{ copyProgram, pasteProgram };
-	commands.addArray(ids);
+	Array<CommandID> IDs{ copyProgram, pasteProgram };
+	commands.addArray(IDs);
 }
 
 void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {

@@ -24,6 +24,7 @@ namespace ID
 
 	static const Identifier midi_Channel{ "midi_Channel" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
-	static const Identifier midi_Parameters{ "midi_Parameters" };
+	static const Identifier midi_Options{ "midi_Options" };
+	static const Identifier midi_ProgramTransmitTime{ "midi_ProgramTransmitTime" };
 }
 

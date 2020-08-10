@@ -5,7 +5,7 @@
 
 
 MidiOptions::MidiOptions() :
-	midiParametersTree{ ID::midi_Parameters }
+	midiParametersTree{ ID::midi_Options }
 {
 	fillMidiOptionsTreeWithProperties();
 }
@@ -16,6 +16,7 @@ MidiOptions::~MidiOptions() {
 void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiParametersTree.setProperty(ID::midi_Channel, (uint8)0, nullptr);
 	midiParametersTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+	midiParametersTree.setProperty(ID::midi_ProgramTransmitTime, 300, nullptr);
 }
 
 MidiOptions& MidiOptions::get() {
@@ -49,5 +50,13 @@ void MidiOptions::setParamChangeEchosAreBlocked() {
 
 void MidiOptions::setParamChangeEchosAreNotBlocked() {
 	midiParametersTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+}
+
+int MidiOptions::programTransmitTime() {
+	return (int)midiParametersTree.getProperty(ID::midi_ProgramTransmitTime);
+}
+
+void MidiOptions::setProgramTransmitTime(int timeInMilliseconds) {
+	midiParametersTree.setProperty(ID::midi_ProgramTransmitTime, timeInMilliseconds, nullptr);
 }
 
