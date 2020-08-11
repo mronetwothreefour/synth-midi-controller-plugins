@@ -18,7 +18,7 @@ public:
 	ProgressDisplayComponent(const String& title, const String& message);
 	~ProgressDisplayComponent();
 	void paint(Graphics& g) override;
-	void setMessage(const String& message);
+	void setMessage(const String& newMessage);
 
 private:
 	//==============================================================================
