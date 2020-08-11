@@ -1,16 +1,12 @@
-#include "ControlsForExposedParameters_Singleton.h"
+#include "ControlsForExposedParameters.h"
 
 
 
 ControlsForExposedParameters::ControlsForExposedParameters() {
+	fillControlsVector();
 }
 
 ControlsForExposedParameters::~ControlsForExposedParameters() {
-}
-
-ControlsForExposedParameters& ControlsForExposedParameters::get() noexcept {
-	static ControlsForExposedParameters controlsForExposedParameters;
-	return controlsForExposedParameters;
 }
 
 ControlForExposedParameter* ControlsForExposedParameters::controlFor(uint8 paramIndex) const {
@@ -21,7 +17,7 @@ int ControlsForExposedParameters::paramOutOfRange() const {
 	return (int)controlsVector.size();
 }
 
-void ControlsForExposedParameters::clear() {
+void ControlsForExposedParameters::clearControls() {
 	controlsVector.clear();
 }
 

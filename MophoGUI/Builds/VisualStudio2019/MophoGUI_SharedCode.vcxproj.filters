@@ -2514,9 +2514,6 @@
     <ClCompile Include="..\..\Source\guiControls\ControlForExposedParameter.cpp">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
@@ -2537,6 +2534,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.cpp">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters.cpp">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4832,13 +4832,7 @@
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
       <Filter>MophoGUI\Source\_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h">
-      <Filter>MophoGUI\Source\_core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h">
-      <Filter>MophoGUI\Source\guiControls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h">
@@ -5011,6 +5005,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.h">
       <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters.h">
+      <Filter>MophoGUI\Source\guiControls</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

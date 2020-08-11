@@ -2,7 +2,6 @@
 #include "core_PluginEditor.h"
 
 #include "banksWindow/banks_ProgramBanksComponent.h"
-#include "guiControls/ControlsForExposedParameters_Singleton.h"
 #include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
 #include "helpers/helper_MophoLookAndFeel.h"
 #include "widgets/widget_ButtonAndLabelForEditingPgmName.h"
@@ -26,10 +25,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     mophoguiLogo.reset(new MophoLogo());
     addAndMakeVisible(mophoguiLogo.get());
 
-    auto& controls{ ControlsForExposedParameters::get() };
-    controls.rebuildControls();
-    for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
-        auto control{ controls.controlFor(param) };
+    rebuildControls();
+    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
+        auto control{ controlFor(param) };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
         control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
@@ -92,13 +90,12 @@ PluginEditor::~PluginEditor() {
     envelopeRenderer_VCA = nullptr;
     envelopeRenderer_LPF = nullptr;
 
-    auto& controls{ ControlsForExposedParameters::get() };
-    for (uint8 param = 0; param != controls.paramOutOfRange(); ++param) {
-        auto control{ controls.controlFor(param) };
+    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
+        auto control{ controlFor(param) };
         control->deleteAttachment();
     }
 
-    controls.clear();
+    clearControls();
 
     mophoguiLogo = nullptr;
 

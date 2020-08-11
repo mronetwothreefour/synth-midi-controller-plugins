@@ -2077,7 +2077,7 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\guiControls\ControlForExposedParameter.cpp" />
-    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_ProgressDisplayComponent.cpp" />
@@ -2879,9 +2879,8 @@
     <ClInclude Include="..\..\Source\banksWindow\banks_ProgramSlotsWidget.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
-    <ClInclude Include="..\..\Source\core_UndoManager_Singleton.h" />
     <ClInclude Include="..\..\Source\guiControls\ControlForExposedParameter.h" />
-    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.h" />
+    <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_ControlTypes.h" />
     <ClInclude Include="..\..\Source\helpers\helper_CustomColors.h" />
     <ClInclude Include="..\..\Source\helpers\helper_Fonts.h" />

@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "guiControls/ControlsForExposedParameters.h"
+
 
 
 class ButtonAndLabelForEditingPgmName;
@@ -16,6 +18,7 @@ class ProgramBanksComponent;
 
 class PluginEditor : 
     public AudioProcessorEditor,
+    private ControlsForExposedParameters,
     public ValueTree::Listener
 {
     PluginProcessor& processor;

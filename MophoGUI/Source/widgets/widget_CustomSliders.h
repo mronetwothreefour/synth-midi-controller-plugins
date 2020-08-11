@@ -2,7 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "../core_UndoManager_Singleton.h"
 
 
 // Overrides the mouseWheelMove() operation so that each wheel move event
@@ -14,13 +13,14 @@ class SliderWithMouseWheelMod : public Slider
 {
 public:
 	void mouseWheelMove(const MouseEvent& /*event*/, const MouseWheelDetails& wheel) override {
-		UndoManager_Singleton::get()->beginNewTransaction();
+		// TODO: add a pointer to an UndoManager to the class.
+		//undoManager->beginNewTransaction();
 		auto delta{ wheel.deltaY };
 		auto currentValue{ getValue() };
 		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 		if (delta != 0.0f)
 			setValue(currentValue + interval);
-		UndoManager_Singleton::get()->beginNewTransaction();
+		//undoManager->beginNewTransaction();
 	}
 };
 

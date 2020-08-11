@@ -10,17 +10,12 @@ class ControlsForExposedParameters
 {
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
+public:
 	ControlsForExposedParameters();
 	~ControlsForExposedParameters();
-
-public:
-	ControlsForExposedParameters(ControlsForExposedParameters&&) = delete;
-	ControlsForExposedParameters& operator=(ControlsForExposedParameters&&) = delete;
-
-	static ControlsForExposedParameters& get() noexcept;
 	ControlForExposedParameter* controlFor(uint8 paramIndex) const;
 	int paramOutOfRange() const;
-	void clear();
+	void clearControls();
 	void rebuildControls();
 
 private:

@@ -1,7 +1,6 @@
 #include "core_PluginProcessor.h"
 
 #include "core_PluginEditor.h"
-#include "core_UndoManager_Singleton.h"
 #include "banksWindow/banks_PluginProgramBanks_Singleton.h"
 #include "banksWindow/banks_ProgramNameStrings_Singleton.h"
 #include "midiTools/midi_IncomingNRPNhandler.h"
@@ -15,7 +14,8 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, UndoManager_Singleton::get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
+    undoManager{ new UndoManager() },
+    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) },
     incomingNRPNHandler{ new IncomingNRPNhandler(exposedParams.get()) },
     incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get()) }
@@ -25,8 +25,8 @@ PluginProcessor::PluginProcessor() :
 }
 
 PluginProcessor::~PluginProcessor() {
-    auto undoManager{ UndoManager_Singleton::get() };
     undoManager->clearUndoHistory();
+    undoManager = nullptr;
     incomingSysExHandler = nullptr;
     exposedParamsListener = nullptr;
     exposedParams = nullptr;
