@@ -9,6 +9,8 @@ class ProgressDisplayComponent :
 {
 	String title;
 	String message;
+	ProgressBar progressBar;
+	double progress;
 
 public:
 	ProgressDisplayComponent() = delete;

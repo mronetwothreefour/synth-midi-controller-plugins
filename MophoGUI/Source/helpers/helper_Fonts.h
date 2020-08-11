@@ -9,8 +9,8 @@ namespace FontsDB
 {
 	static const String family_Global{ "Arial" };
 
-	static const String style_ForAlertWindow{ "Bold" };
-	static const String style_ForAlertWindowTitle{ "Black" };
+	static const String style_ForProgressDisplayMessage{ "Bold" };
+	static const String style_ForProgressDisplayTitle{ "Black" };
 	static const String style_ForButtonText{ "Black" };
 	static const String style_ForControlLabels{ "Black" };
 	static const String style_ForDocumentWindowTitleBar{ "Black" };
@@ -24,8 +24,8 @@ namespace FontsDB
 	static const String style_ForTabText{ "Black" };
 	static const String style_ForTooltipText{ "Narrow Bold" };
 
-	static const float size_ForAlertWindow{ 14.0f };
-	static const float size_ForAlertWindowTitle{ 18.0f };
+	static const float size_ForProgressDisplayMessage{ 20.0f };
+	static const float size_ForProgressDisplayTitle{ 25.0f };
 	static const float size_ForButtonText{ 11.0f };
 	static const float size_ForControlLabels{ 12.0f };
 	static const float size_ForDocumentWindowTitleBar{ 18.0f };
