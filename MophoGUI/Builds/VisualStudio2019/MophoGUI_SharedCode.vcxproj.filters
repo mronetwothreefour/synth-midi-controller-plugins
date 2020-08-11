@@ -2532,6 +2532,12 @@
     <ClCompile Include="..\..\Source\parameters\params_MidiOptions_Singleton.cpp">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\helpers\helper_ProgressDisplayComponent.cpp">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.cpp">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4999,6 +5005,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\banksWindow\banks_ButtonForPullingSelectedProgramFromHardware.h">
       <Filter>MophoGUI\Source\banksWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_ProgressDisplayComponent.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.h">
+      <Filter>MophoGUI\Source\helpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

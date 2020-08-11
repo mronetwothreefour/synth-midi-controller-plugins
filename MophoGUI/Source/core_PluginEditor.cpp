@@ -52,7 +52,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
     button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow());
-    button_ForOpeningProgramBanksWindow->onClick = [this] {showProgramBanksComponent(); };
+    button_ForOpeningProgramBanksWindow->onClick = [this] { showProgramBanksComponent(); };
     addAndMakeVisible(button_ForOpeningProgramBanksWindow.get());
 
     button_ForClearingSequencerTrack1.reset(new ButtonForClearingSequencerTrack(1, exposedParams));

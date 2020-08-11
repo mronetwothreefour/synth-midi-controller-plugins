@@ -2080,6 +2080,8 @@
     <ClCompile Include="..\..\Source\guiControls\ControlsForExposedParameters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\helpers\helper_ProgressDisplayComponent.cpp" />
+    <ClCompile Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.cpp" />
     <ClCompile Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.cpp" />
     <ClCompile Include="..\..\Source\midiTools\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\parameters\params_ExposedParametersListener.cpp" />
@@ -2888,6 +2890,8 @@
     <ClInclude Include="..\..\Source\helpers\helper_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\helpers\helper_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\helpers\helper_MophoLookAndFeel.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_ProgressDisplayComponent.h" />
+    <ClInclude Include="..\..\Source\helpers\helper_ThreadWithProgressDisplayComponent.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_IncomingNRPNhandler.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_IncomingSysExHandler.h" />
     <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h" />
