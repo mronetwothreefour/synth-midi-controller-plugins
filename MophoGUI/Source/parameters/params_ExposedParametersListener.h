@@ -4,17 +4,20 @@
 
 
 
+class OutgoingMidiBuffers;
+
 class ExposedParametersListener :
 	private AudioProcessorValueTreeState::Listener
 {
 	AudioProcessorValueTreeState* exposedParams;
+	OutgoingMidiBuffers* outgoingBuffers;
 	const uint8 arpeggiator;
 	const uint8 sequencer;
 
 public:
 	ExposedParametersListener() = delete;
 
-	explicit ExposedParametersListener(AudioProcessorValueTreeState* exposedParams);
+	ExposedParametersListener(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
 	~ExposedParametersListener();
 
 private:

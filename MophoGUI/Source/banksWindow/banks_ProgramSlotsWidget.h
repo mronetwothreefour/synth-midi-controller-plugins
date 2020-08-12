@@ -4,13 +4,16 @@
 
 
 
-class ProgramSlotsWidget : 
+class OutgoingMidiBuffers;
+
+class ProgramSlotsWidget :
     public Component,
     private Timer
 {
     ToggleButton programSlotButtons[128];
     uint8 bank;
     AudioProcessorValueTreeState* exposedParams;
+    OutgoingMidiBuffers* outgoingBuffers;
     int buttton_w;
     int buttton_h;
     int buttonHorizontalGap;
@@ -20,7 +23,7 @@ class ProgramSlotsWidget :
 public:
     uint8 selectedSlot;
 
-    explicit ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams);
+    ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
     ~ProgramSlotsWidget();
 
     void resized() override;

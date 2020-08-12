@@ -4,6 +4,7 @@
 
 
 
+class OutgoingMidiBuffers;
 class ExposedParametersListener;
 class IncomingNRPNhandler;
 class IncomingSysExHandler;
@@ -12,6 +13,7 @@ class PluginProcessor : public AudioProcessor
 {
     std::unique_ptr<UndoManager> undoManager;
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
+    std::unique_ptr<OutgoingMidiBuffers> outgoingBuffers;
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
     std::unique_ptr<IncomingNRPNhandler> incomingNRPNHandler;
     std::unique_ptr<IncomingSysExHandler> incomingSysExHandler;

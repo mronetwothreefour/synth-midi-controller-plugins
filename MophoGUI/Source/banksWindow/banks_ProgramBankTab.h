@@ -7,6 +7,7 @@
 #include "banks_ButtonForPullingSelectedProgramFromHardware.h"
 #include "banks_ButtonForPushingSelectedProgramToHardware.h"
 #include "banks_ProgramSlotsWidget.h"
+#include "../midiTools/midi_OutgoingMidiBuffers.h"
 
 
 
@@ -32,7 +33,7 @@ public:
 
     ProgramBankTab() = delete;
 
-    ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, String& programCopyBuffer);
+    ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers, String& programCopyBuffer);
     ~ProgramBankTab();
 
     void paint(Graphics& g) override;

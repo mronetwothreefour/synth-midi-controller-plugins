@@ -2,24 +2,24 @@
 
 #include <JuceHeader.h>
 
-#include "midi_InternalMidiBuffers_Singleton.h"
+#include "midi_OutgoingMidiBuffers.h"
 #include "midi_SysExHelpers.h"
 #include "../banksWindow/banks_RawProgramData.h"
 
 
 
 struct ProgramEditBufferDump {
-    static void request() {
+    static void addRequestForDumpToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
         auto requestVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
         requestVector.push_back((uint8)SysExMessageType::programEditBufferDumpRequest);
         MidiBuffer localMidiBuffer;
         localMidiBuffer.addEvent(MidiMessage::createSysExMessage(requestVector.data(), (int)requestVector.size()), 0);
-        InternalMidiBuffers::get().aggregateMidiBuffers(localMidiBuffer);
+        outgoingBuffers->aggregateOutgoingMidiBuffers(localMidiBuffer);
     }
 
-	static void send(AudioProcessorValueTreeState* exposedParams) {
+	static void addDumpToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) {
         MidiBuffer localMidiBuffer{ createProgramEditBufferDump(exposedParams) };
-        InternalMidiBuffers::get().aggregateMidiBuffers(localMidiBuffer);
+        outgoingBuffers->aggregateOutgoingMidiBuffers(localMidiBuffer);
     }
 
 private:

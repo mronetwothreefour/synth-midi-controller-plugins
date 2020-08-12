@@ -7,9 +7,9 @@
 
 
 
-ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, String& programCopyBuffer) :
+ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers, String& programCopyBuffer) :
 	bank{ bank },
-	programSlots{ bank, exposedParams },
+	programSlots{ bank, exposedParams, outgoingBuffers },
 	programCopyBuffer{ programCopyBuffer },
 	button_ForLoadingSelectedProgram{ programSlots },
 	button_ForSavingProgramInSelectedSlot{ programSlots },

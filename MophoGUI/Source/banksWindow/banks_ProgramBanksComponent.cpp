@@ -4,12 +4,8 @@
 
 
 
-void ProgramBanksComponent::hideThisComponent() {
-	setVisible(false);
-}
-
-ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams) :
-	tabbedComponent{ exposedParams },
+ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) :
+	tabbedComponent{ exposedParams, outgoingBuffers },
 	button_ForClosingProgramBanks{ "CLOSE" }
 {
 	addAndMakeVisible(tabbedComponent);
@@ -37,4 +33,8 @@ void ProgramBanksComponent::paint(Graphics& g) {
 	auto componentOutline_y{ (getHeight() - componentOutline_h) / 2 };
 	Rectangle<int> componentOutline{ componentOutline_x, componentOutline_y, componentOutline_w, componentOutline_h };
 	g.fillRect(componentOutline);
+}
+
+void ProgramBanksComponent::hideThisComponent() {
+	setVisible(false);
 }

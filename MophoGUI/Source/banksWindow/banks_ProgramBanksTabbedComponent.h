@@ -5,6 +5,7 @@
 #include "banks_ProgramBankTab.h"
 
 
+class OutgoingMidiBuffers;
 
 class ProgramBanksTabbedComponent :
     public TabbedComponent,
@@ -19,7 +20,7 @@ class ProgramBanksTabbedComponent :
 public:
     ProgramBanksTabbedComponent() = delete;
 
-    explicit ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams);
+    ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
 

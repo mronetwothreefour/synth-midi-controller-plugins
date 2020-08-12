@@ -2,15 +2,16 @@
 
 #include "../helpers/helper_CustomColors.h"
 #include "../helpers/helper_Fonts.h"
+#include "../midiTools/midi_OutgoingMidiBuffers.h"
 #include "../parameters/params_MidiOptions_Singleton.h"
 
 
 
-ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams) :
+ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
-	bank1{ 0, exposedParams, programCopyBuffer },
-	bank2{ 1, exposedParams, programCopyBuffer },
-	bank3{ 2, exposedParams, programCopyBuffer }
+	bank1{ 0, exposedParams, outgoingBuffers, programCopyBuffer },
+	bank2{ 1, exposedParams, outgoingBuffers, programCopyBuffer },
+	bank3{ 2, exposedParams, outgoingBuffers, programCopyBuffer }
 {
 	setTabBarDepth(30);
 	setOutline(0);

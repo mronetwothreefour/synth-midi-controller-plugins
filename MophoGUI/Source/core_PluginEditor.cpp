@@ -4,6 +4,7 @@
 #include "banksWindow/banks_ProgramBanksComponent.h"
 #include "helpers/helper_InfoForMainWindowLabels_Singleton.h"
 #include "helpers/helper_MophoLookAndFeel.h"
+#include "midiTools/midi_OutgoingMidiBuffers.h"
 #include "widgets/widget_ButtonAndLabelForEditingPgmName.h"
 #include "widgets/widget_ButtonForClearingSequencerTrack.h"
 #include "widgets/widget_ButtonForOpeningProgramBanksWindow.h"
@@ -14,10 +15,11 @@
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    exposedParams{ exposedParams }
+    exposedParams{ exposedParams },
+    outgoingBuffers{ outgoingBuffers }
 {
     mophoLaF.reset(new MophoLookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(mophoLaF.get());
@@ -43,10 +45,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName.reset(new ButtonAndLabelForEditingPgmName(exposedParams));
     addAndMakeVisible(button_ForEditingPgmName.get());
 
-    button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(exposedParams));
+    button_ForSendingPgmEditBufDump.reset(new ButtonForSendingProgramEditBufferDump(exposedParams, outgoingBuffers));
     addAndMakeVisible(button_ForSendingPgmEditBufDump.get());
 
-    button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest());
+    button_ForSendingPgmEditBufDumpRequest.reset(new ButtonForSendingProgramEditBufferDumpRequest(outgoingBuffers));
     addAndMakeVisible(button_ForSendingPgmEditBufDumpRequest.get());
 
     button_ForOpeningProgramBanksWindow.reset(new ButtonForOpeningProgramBanksWindow());
@@ -150,7 +152,7 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
 }
 
 void PluginEditor::showProgramBanksComponent() {
-    programBanksComponent.reset(new ProgramBanksComponent(exposedParams));
+    programBanksComponent.reset(new ProgramBanksComponent(exposedParams, outgoingBuffers));
     if (programBanksComponent != nullptr) {
         addAndMakeVisible(programBanksComponent.get());
         programBanksComponent->setBounds(getLocalBounds());

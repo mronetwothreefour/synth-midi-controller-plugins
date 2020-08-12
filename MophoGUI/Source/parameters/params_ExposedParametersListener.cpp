@@ -6,8 +6,9 @@
 
 
 
-ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeState* exposedParams) :
+ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) :
 	exposedParams{ exposedParams },
+	outgoingBuffers{ outgoingBuffers },
 	arpeggiator{ 98 },
 	sequencer{ 100 }
 {
@@ -30,7 +31,7 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 		auto nrpn{ info.NRPNfor(param) };
 		auto outputValue{ (uint8)roundToInt(newValue) };
 		outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
-		ParameterChangeMessage::sendNewValueForNRPNtype(outputValue, nrpn);
+		ParameterChangeMessage::addNewValueForNRPNtypeToOutgoingMidiBuffers(outputValue, nrpn, outgoingBuffers);
 		if ((param == arpeggiator || param == sequencer) && outputValue == 1)
 			arpeggiatorAndSequencerCannotBothBeOn(param);
 	}

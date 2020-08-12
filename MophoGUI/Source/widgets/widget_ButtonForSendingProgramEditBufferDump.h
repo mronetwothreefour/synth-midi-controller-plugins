@@ -4,17 +4,20 @@
 
 
 
+class OutgoingMidiBuffers;
+
 class ButtonForSendingProgramEditBufferDump :
 	public TextButton
 {
 	AudioProcessorValueTreeState* exposedParams;
+	OutgoingMidiBuffers* outgoingBuffers;
 
 	void sendProgramEditBufferDump();
 
 public:
 	ButtonForSendingProgramEditBufferDump() = delete;
 
-	explicit ButtonForSendingProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams);
+	ButtonForSendingProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
 	~ButtonForSendingProgramEditBufferDump();
 
 private:

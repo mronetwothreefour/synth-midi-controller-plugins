@@ -12,9 +12,10 @@
 void ProgramSlotsWidget::timerCallback() {
 }
 
-ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams) :
+ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers) :
 	bank{ bank },
 	exposedParams{ exposedParams },
+	outgoingBuffers{ outgoingBuffers },
 	buttton_w{ 125 },
 	buttton_h{ 19 },
 	buttonHorizontalGap{ 7 },
@@ -65,7 +66,7 @@ void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 		auto& pgmBanks{ PluginProgramBanks::get() };
 		auto programDataVector{ pgmBanks.getProgramDataStoredInBankSlot(bank, selectedSlot) };
 		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams);
-		callAfterDelay(100, [this] { ProgramEditBufferDump::send(exposedParams); });
+		callAfterDelay(100, [this] { ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(exposedParams, outgoingBuffers); });
 	}
 }
 
@@ -83,7 +84,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 
 void ProgramSlotsWidget::pushSelectedProgramToHardware() {
 	if (selectedSlot < 128) {
-		ProgramDump::sendToBankAndSlot(bank, selectedSlot);
+		ProgramDump::addProgramInBankAndSlotToOutgoingMidiBuffers(bank, selectedSlot, outgoingBuffers);
 	}
 }
 
@@ -91,7 +92,7 @@ void ProgramSlotsWidget::pullSelectedProgramFromHardware() {
 	if (selectedSlot < 128) {
 		auto& midiOptions{ MidiOptions::get() };
 		auto transmitTime{ midiOptions.programTransmitTime() };
-		ProgramDump::requestFromBankAndSlot(bank, selectedSlot);
+		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, selectedSlot, outgoingBuffers);
 		callAfterDelay(transmitTime, [this] { setTextForProgramSlotToggleButton(selectedSlot); });
 		callAfterDelay(transmitTime + 20, [this] { programSlotButtons[selectedSlot].repaint(); });
 	}

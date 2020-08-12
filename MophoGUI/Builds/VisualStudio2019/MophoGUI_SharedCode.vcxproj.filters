@@ -4910,9 +4910,6 @@
     <ClInclude Include="..\..\Source\parameters\params_ExposedParametersListener.h">
       <Filter>MophoGUI\Source\parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midiTools\midi_InternalMidiBuffers_Singleton.h">
-      <Filter>MophoGUI\Source\midiTools</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midiTools\midi_ProgramEditBufferDump.h">
       <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
@@ -5008,6 +5005,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\guiControls\ControlsForExposedParameters.h">
       <Filter>MophoGUI\Source\guiControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midiTools\midi_OutgoingMidiBuffers.h">
+      <Filter>MophoGUI\Source\midiTools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

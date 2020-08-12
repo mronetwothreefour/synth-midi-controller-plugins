@@ -6,6 +6,7 @@
 
 
 
+class OutgoingMidiBuffers;
 class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
 class ButtonForOpeningProgramBanksWindow;
@@ -23,6 +24,7 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
+    OutgoingMidiBuffers* outgoingBuffers;
     std::unique_ptr<MophoLookAndFeel> mophoLaF;
     std::unique_ptr<MophoLogo> mophoguiLogo;
     std::unique_ptr<EnvelopeRenderer> envelopeRenderer_LPF;
@@ -40,7 +42,7 @@ class PluginEditor :
     TooltipWindow tooltipWindow;
 
 public:
-    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams);
+    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
     ~PluginEditor();
 
     void paint(Graphics& g) override;

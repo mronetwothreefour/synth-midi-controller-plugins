@@ -1,11 +1,13 @@
 #include "widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
+#include "../midiTools/midi_OutgoingMidiBuffers.h"
 #include "../midiTools/midi_ProgramEditBufferDump.h"
 
 
 
-ButtonForSendingProgramEditBufferDumpRequest::ButtonForSendingProgramEditBufferDumpRequest() :
-	TextButton{ "READ" }
+ButtonForSendingProgramEditBufferDumpRequest::ButtonForSendingProgramEditBufferDumpRequest(OutgoingMidiBuffers* outgoingBuffers) :
+	TextButton{ "READ" },
+	outgoingBuffers{ outgoingBuffers }
 {
 	String tipString;
 	tipString = "Requests a program edit buffer dump from the Mopho hardware\n";
@@ -15,8 +17,9 @@ ButtonForSendingProgramEditBufferDumpRequest::ButtonForSendingProgramEditBufferD
 }
 
 void ButtonForSendingProgramEditBufferDumpRequest::sendProgramEditBufferDumpRequest() {
-	ProgramEditBufferDump::request();
+	ProgramEditBufferDump::addRequestForDumpToOutgoingMidiBuffers(outgoingBuffers);
 }
 
 ButtonForSendingProgramEditBufferDumpRequest::~ButtonForSendingProgramEditBufferDumpRequest() {
 }
+

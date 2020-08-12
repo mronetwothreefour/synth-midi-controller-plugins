@@ -5,7 +5,7 @@
 #include "banksWindow/banks_ProgramNameStrings_Singleton.h"
 #include "midiTools/midi_IncomingNRPNhandler.h"
 #include "midiTools/midi_IncomingSysExHandler.h"
-#include "midiTools/midi_InternalMidiBuffers_Singleton.h"
+#include "midiTools/midi_OutgoingMidiBuffers.h"
 #include "parameters/params_ExposedParametersLayout.h"
 #include "parameters/params_ExposedParametersListener.h"
 
@@ -16,7 +16,8 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     undoManager{ new UndoManager() },
     exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
-    exposedParamsListener{ new ExposedParametersListener(exposedParams.get()) },
+    outgoingBuffers{ new OutgoingMidiBuffers() },
+    exposedParamsListener{ new ExposedParametersListener(exposedParams.get(), outgoingBuffers.get()) },
     incomingNRPNHandler{ new IncomingNRPNhandler(exposedParams.get()) },
     incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get()) }
 {
@@ -29,6 +30,7 @@ PluginProcessor::~PluginProcessor() {
     undoManager = nullptr;
     incomingSysExHandler = nullptr;
     exposedParamsListener = nullptr;
+    outgoingBuffers = nullptr;
     exposedParams = nullptr;
 }
 
@@ -76,9 +78,9 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
         midiMessages.swapWith(midiMessagesToPassThrough);
     }
 
-    auto& aggregatedBuffers{ InternalMidiBuffers::get().aggregatedBuffers };
-    if (!aggregatedBuffers.isEmpty()) {
-        for (auto event : aggregatedBuffers.removeAndReturn(0)) {
+    auto& aggregatedOutgoingBuffers{ outgoingBuffers->aggregatedOutgoingBuffers };
+    if (!aggregatedOutgoingBuffers.isEmpty()) {
+        for (auto event : aggregatedOutgoingBuffers.removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
     }
@@ -103,7 +105,7 @@ bool PluginProcessor::hasEditor() const {
 }
 
 AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor(*this, exposedParams.get());
+    return new PluginEditor(*this, exposedParams.get(), outgoingBuffers.get());
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& destData) {

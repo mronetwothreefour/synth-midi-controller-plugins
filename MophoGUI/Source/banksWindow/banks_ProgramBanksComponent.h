@@ -6,17 +6,23 @@
 
 
 
+class OutgoingMidiBuffers;
+
 class ProgramBanksComponent : public Component
 {
     ProgramBanksTabbedComponent tabbedComponent;
     TextButton button_ForClosingProgramBanks;
 
-    void hideThisComponent();
-
 public:
     ProgramBanksComponent() = delete;
-    explicit ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams);
+    ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
     ~ProgramBanksComponent();
 
     void paint(Graphics& g) override;
+
+private:
+    void hideThisComponent();
+
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksComponent)
 };

@@ -4,13 +4,17 @@
 
 
 
+class OutgoingMidiBuffers;
+
 class ButtonForSendingProgramEditBufferDumpRequest :
 	public TextButton
 {
+	OutgoingMidiBuffers* outgoingBuffers;
+
 	void sendProgramEditBufferDumpRequest();
 
 public:
-	ButtonForSendingProgramEditBufferDumpRequest();
+	explicit ButtonForSendingProgramEditBufferDumpRequest(OutgoingMidiBuffers* outgoingBuffers);
 	~ButtonForSendingProgramEditBufferDumpRequest();
 
 private:

@@ -2,26 +2,26 @@
 
 #include <JuceHeader.h>
 
-#include "midi_InternalMidiBuffers_Singleton.h"
+#include "midi_OutgoingMidiBuffers.h"
 #include "midi_SysExHelpers.h"
 #include "../banksWindow/banks_PluginProgramBanks_Singleton.h"
 
 
 
 struct ProgramDump {
-    static void requestFromBankAndSlot(uint8 bank, uint8 slot) {
+    static void addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(uint8 bank, uint8 slot, OutgoingMidiBuffers* outgoingBuffers) {
         auto requestVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
         requestVector.push_back((uint8)SysExMessageType::programDumpRequest);
         requestVector.push_back(bank);
         requestVector.push_back(slot);
         MidiBuffer localMidiBuffer;
         localMidiBuffer.addEvent(MidiMessage::createSysExMessage(requestVector.data(), (int)requestVector.size()), 0);
-        InternalMidiBuffers::get().aggregateMidiBuffers(localMidiBuffer);
+        outgoingBuffers->aggregateOutgoingMidiBuffers(localMidiBuffer);
     }
 
-    static void sendToBankAndSlot(uint8 bank, uint8 slot) {
+    static void addProgramInBankAndSlotToOutgoingMidiBuffers(uint8 bank, uint8 slot, OutgoingMidiBuffers* outgoingBuffers) {
         MidiBuffer localMidiBuffer{ createProgramDumpForBankAndSlot(bank, slot) };
-        InternalMidiBuffers::get().aggregateMidiBuffers(localMidiBuffer);
+        outgoingBuffers->aggregateOutgoingMidiBuffers(localMidiBuffer);
     }
 
 private:
