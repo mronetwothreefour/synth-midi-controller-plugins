@@ -6,6 +6,8 @@
 
 class PluginProcessor : public juce::AudioProcessor
 {
+    std::unique_ptr<juce::UndoManager> undoManager;
+
 public:
     PluginProcessor();
 

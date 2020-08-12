@@ -10,7 +10,7 @@ class PluginEditor :
     PluginProcessor& processor;
 
 public:
-    PluginEditor(PluginProcessor& processor);
+    PluginEditor(PluginProcessor& processor, juce::UndoManager* undoManager);
     void paint(juce::Graphics&) override;
     void resized() override;
     ~PluginEditor() override;

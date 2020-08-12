@@ -4,7 +4,8 @@
 
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor{ BusesProperties() }
+    AudioProcessor{ BusesProperties() },
+    undoManager{ new juce::UndoManager() }
 {
 }
 
@@ -42,7 +43,7 @@ const juce::String PluginProcessor::getProgramName(int /*index*/) {
 void PluginProcessor::changeProgramName(int /*index*/, const juce::String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
+void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midiMessages*/) {
     buffer.clear();
 }
 
@@ -65,16 +66,17 @@ bool PluginProcessor::hasEditor() const {
 }
 
 juce::AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this);
+    return new PluginEditor (*this, undoManager.get());
 }
 
-void PluginProcessor::getStateInformation(juce::MemoryBlock& destData) {
+void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
 }
 
-void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
 }
 
 PluginProcessor::~PluginProcessor() {
+    undoManager = nullptr;
 }
 
 //==============================================================================

@@ -2016,6 +2016,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
@@ -2753,6 +2754,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
