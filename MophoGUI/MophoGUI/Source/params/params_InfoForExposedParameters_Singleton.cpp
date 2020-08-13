@@ -1772,7 +1772,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 }
 
 void InfoForExposedParameters::fillDataByteLocationsFor(uint16 param) {
-	auto offsetParam{ offsetParamToAccountForUnassignedParams109to120(param) };
+	auto offsetParam{ offsetParamToAccountForUnassignedParams109to119(param) };
 	uint16 msBitPackedByteLocation{ (uint16)((offsetParam / 7) * 8) };
 	msBitPackedByteLocations.add(msBitPackedByteLocation);
 	uint16 lsByteLocation{ (uint16)(msBitPackedByteLocation + offsetParam % 7 + 1) };
@@ -1781,7 +1781,7 @@ void InfoForExposedParameters::fillDataByteLocationsFor(uint16 param) {
 	msBitMasks.add(msBitMask);
 }
 
-uint16 InfoForExposedParameters::offsetParamToAccountForUnassignedParams109to120(uint16 param) {
+uint16 InfoForExposedParameters::offsetParamToAccountForUnassignedParams109to119(uint16 param) {
 	return param < 109 ? param : param + 11;
 }
 

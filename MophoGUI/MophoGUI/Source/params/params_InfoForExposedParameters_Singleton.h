@@ -27,7 +27,7 @@ class InfoForExposedParameters
 	InfoForExposedParameters();
 	void fillAllInfoContainers();
 	void fillDataByteLocationsFor(uint16 param);
-	uint16 offsetParamToAccountForUnassignedParams109to120(uint16 param);
+	uint16 offsetParamToAccountForUnassignedParams109to119(uint16 param);
 
 public:
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;
