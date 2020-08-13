@@ -2017,8 +2017,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
-    <ClCompile Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2761,10 +2763,13 @@
     <ClInclude Include="..\..\Source\gui\gui_ControlTypes.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.h" />
+    <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
-    <ClInclude Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.h" />
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

@@ -1,4 +1,4 @@
-#include "params_InfoForExposedParameters_Singleton.h"
+#include "params_ExposedParamsInfo_Singleton.h"
 
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"

@@ -427,7 +427,8 @@ String IntToLFOshapeString::verboseConversionAlgorithm(const uint8& i) noexcept 
 }
 
 IntToLFOshapeString* IntToLFOshapeString::get() noexcept {
-	return nullptr;
+	static IntToLFOshapeString converter;
+	return &converter;
 }
 
 

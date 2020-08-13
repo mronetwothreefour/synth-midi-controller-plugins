@@ -433,6 +433,12 @@
     <Filter Include="MophoGUI\Source\params">
       <UniqueIdentifier>{ef2d346e-c89d-40dd-8582-73c454f3ea8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ComboBox">
+      <UniqueIdentifier>{13e6e57f-2e48-463a-98f8-b1b650ef88ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\tooltipSetters">
+      <UniqueIdentifier>{5709fc31-1be4-4e04-88d7-ddb41c6074c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2358,7 +2364,13 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.cpp">
+    <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4589,7 +4601,16 @@
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.h">
+    <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
