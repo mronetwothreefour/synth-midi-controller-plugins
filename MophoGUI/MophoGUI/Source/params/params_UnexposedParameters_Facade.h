@@ -8,22 +8,13 @@
 
 class UnexposedParameters
 {
-	TooltipOptions tooltips;
+	std::unique_ptr<TooltipOptions> tooltipOptions;
+	std::unique_ptr<UndoManager> undoManager;
 
 public:
 	UnexposedParameters();
-
-	void tooltips_addListener(ValueTree::Listener* listener);
-	void tooltips_removeListener(ValueTree::Listener* listener);
-	bool tooltips_shouldShowCurrentValue();
-	bool tooltips_shouldShowDescription();
-	void tooltips_setShouldShowCurrentValue();
-	void tooltips_setShouldNotShowCurrentValue();
-	void tooltips_setShouldShowDescription();
-	void tooltips_setShouldNotShowDescription();
-	int tooltips_delayInMilliseconds();
-	void tooltips_setDelayInMilliseconds(int newDelay);
-
+	TooltipOptions* tooltipOptions_get();
+	UndoManager* undoManager_get();
 	~UnexposedParameters();
 
 private:

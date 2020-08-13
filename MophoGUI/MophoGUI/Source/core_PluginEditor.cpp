@@ -5,18 +5,25 @@
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
 #include "gui/gui_LookAndFeel.h"
+#include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor, UndoManager* /*undoManager*/, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams }
+    unexposedParams{ unexposedParams },
+    lookAndFeel{ new GUILookAndFeel() },
+    tooltipWindow{ new TooltipWindow() }
 {
-    lookAndFeel.reset(new GUILookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->addListener(this);
+    tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    tooltipWindow->setComponentEffect(nullptr);
 
     auto device_w{ 1273 };
     auto device_h{ 626 };
@@ -43,6 +50,17 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
 }
 
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+    if (property == ID::tooltips_DelayInMilliseconds) {
+        auto tooltips{ unexposedParams->tooltipOptions_get() };
+        tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    }
+}
+
 PluginEditor::~PluginEditor() {
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->removeListener(this);
+    tooltipWindow = nullptr;
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
     lookAndFeel = nullptr;
 }

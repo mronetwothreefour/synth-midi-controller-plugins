@@ -8,18 +8,22 @@ class GUILookAndFeel;
 class UnexposedParameters;
 
 class PluginEditor : 
-    public AudioProcessorEditor
+    public AudioProcessorEditor,
+    private ValueTree::Listener
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
+    std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
-    PluginEditor(PluginProcessor& processor, UndoManager* undoManager, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics&) override;
     void resized() override;
-    ~PluginEditor() override;
+
+private: void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+public: ~PluginEditor() override;
 
 private:
     //==============================================================================

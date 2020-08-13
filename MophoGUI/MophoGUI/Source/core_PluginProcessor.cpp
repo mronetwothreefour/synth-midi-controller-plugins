@@ -8,9 +8,8 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    undoManager{ new UndoManager() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
-    unexposedParams{ new UnexposedParameters() }
+    unexposedParams{ new UnexposedParameters() },
+    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
 {
 }
 
@@ -71,7 +70,7 @@ bool PluginProcessor::hasEditor() const {
 }
 
 AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this, undoManager.get(), exposedParams.get(), unexposedParams.get());
+    return new PluginEditor (*this, exposedParams.get(), unexposedParams.get());
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
@@ -81,10 +80,9 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 }
 
 PluginProcessor::~PluginProcessor() {
-    undoManager->clearUndoHistory();
-    unexposedParams = nullptr;
+    unexposedParams->undoManager_get()->clearUndoHistory();
     exposedParams = nullptr;
-    undoManager = nullptr;
+    unexposedParams = nullptr;
 }
 
 //==============================================================================
