@@ -2,13 +2,15 @@
 #include "core_PluginEditor.h"
 
 #include "params/params_ExposedParamsLayout_Factory.h"
+#include "params/params_UnexposedParameters_Facade.h"
 
 
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     undoManager{ new UndoManager() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, undoManager.get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
+    unexposedParams{ new UnexposedParameters() }
 {
 }
 
@@ -69,7 +71,7 @@ bool PluginProcessor::hasEditor() const {
 }
 
 AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this, undoManager.get());
+    return new PluginEditor (*this, undoManager.get(), exposedParams.get(), unexposedParams.get());
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
@@ -80,6 +82,7 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 
 PluginProcessor::~PluginProcessor() {
     undoManager->clearUndoHistory();
+    unexposedParams = nullptr;
     exposedParams = nullptr;
     undoManager = nullptr;
 }

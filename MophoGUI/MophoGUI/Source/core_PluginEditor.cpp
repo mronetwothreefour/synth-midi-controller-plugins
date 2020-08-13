@@ -5,12 +5,15 @@
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
 #include "gui/gui_LookAndFeel.h"
+#include "params/params_UnexposedParameters_Facade.h"
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor, UndoManager* /*undoManager*/) :
+PluginEditor::PluginEditor(PluginProcessor& processor, UndoManager* /*undoManager*/, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }
+    processor{ processor },
+    exposedParams{ exposedParams },
+    unexposedParams{ unexposedParams }
 {
     lookAndFeel.reset(new GUILookAndFeel());
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());

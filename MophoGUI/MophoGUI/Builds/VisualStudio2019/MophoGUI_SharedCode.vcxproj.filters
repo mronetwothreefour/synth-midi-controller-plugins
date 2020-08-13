@@ -2373,6 +2373,12 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4611,6 +4617,12 @@
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>

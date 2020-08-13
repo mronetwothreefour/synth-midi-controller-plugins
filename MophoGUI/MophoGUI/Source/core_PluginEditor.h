@@ -5,15 +5,18 @@
 
 
 class GUILookAndFeel;
+class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor
 {
     PluginProcessor& processor;
+    AudioProcessorValueTreeState* exposedParams;
+    UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
 
 public:
-    PluginEditor(PluginProcessor& processor, UndoManager* undoManager);
+    PluginEditor(PluginProcessor& processor, UndoManager* undoManager, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics&) override;
     void resized() override;
     ~PluginEditor() override;
