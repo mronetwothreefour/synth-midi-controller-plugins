@@ -1,5 +1,7 @@
 #include "gui_LookAndFeel.h"
 
+#include "gui_Colors.h"
+#include "gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 
 

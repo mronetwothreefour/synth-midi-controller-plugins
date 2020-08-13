@@ -2,9 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "gui_Colors.h"
-#include "gui_Fonts.h"
-
 
 
 class GUILookAndFeel :
