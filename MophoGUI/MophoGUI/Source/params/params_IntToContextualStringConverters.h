@@ -7,6 +7,7 @@
 struct IntToPitchName
 {
 	static String convert(const uint8& i) noexcept;
+	static String convertToSeqStepPitchName(const uint8& i) noexcept;
 };
 
 
@@ -179,4 +180,137 @@ struct IntToLFOfreqString : public IntToContextualStringConverter
 
 public:
 	static IntToLFOfreqString* get() noexcept;
+};
+
+
+
+
+struct IntToLFOshapeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToLFOshapeString* get() noexcept;
+};
+
+
+
+
+struct IntToModDestinationString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToModDestinationString* get() noexcept;
+};
+
+
+
+
+struct IntToModSourceString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToModSourceString* get() noexcept;
+};
+
+
+
+
+struct IntToPushItModeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToPushItModeString* get() noexcept;
+};
+
+
+
+
+struct IntToClockTempoString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToClockTempoString* get() noexcept;
+};
+
+
+
+
+struct IntToClockDivString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToClockDivString* get() noexcept;
+};
+
+
+
+
+struct IntToArpegModeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToArpegModeString* get() noexcept;
+};
+
+
+
+
+struct IntToSeqTrigModeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSeqTrigModeString* get() noexcept;
+};
+
+
+
+
+struct IntToParamNameString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToParamNameString* get() noexcept;
+};
+
+
+
+
+struct IntToSeqStepValueString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSeqStepValueString* get() noexcept;
+};
+
+
+
+
+struct IntToPgmNameCharString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToPgmNameCharString* get() noexcept;
 };
