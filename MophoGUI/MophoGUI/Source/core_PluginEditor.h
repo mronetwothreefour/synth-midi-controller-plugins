@@ -4,14 +4,17 @@
 
 
 
+class GUILookAndFeel;
+
 class PluginEditor : 
-    public juce::AudioProcessorEditor
+    public AudioProcessorEditor
 {
     PluginProcessor& processor;
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
 
 public:
-    PluginEditor(PluginProcessor& processor, juce::UndoManager* undoManager);
-    void paint(juce::Graphics&) override;
+    PluginEditor(PluginProcessor& processor, UndoManager* undoManager);
+    void paint(Graphics&) override;
     void resized() override;
     ~PluginEditor() override;
 

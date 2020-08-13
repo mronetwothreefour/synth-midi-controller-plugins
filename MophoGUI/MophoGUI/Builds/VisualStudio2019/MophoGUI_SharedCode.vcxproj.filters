@@ -430,6 +430,9 @@
     <Filter Include="MophoGUI\Source\gui">
       <UniqueIdentifier>{7002e066-6509-40d8-8764-9a655a0f871b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\params">
+      <UniqueIdentifier>{ef2d346e-c89d-40dd-8582-73c454f3ea8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2347,6 +2350,9 @@
       <Filter>MophoGUI\Source\_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4565,6 +4571,12 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
@@ -4612,5 +4624,6 @@
     <None Include="..\..\..\..\..\Juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

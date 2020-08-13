@@ -6,22 +6,22 @@
 
 namespace FontsDB
 {
-	static const juce::String family_Global{ "Arial" };
+	static const String family_Global{ "Arial" };
 
-	static const juce::String style_ForProgressDisplayMessage{ "Bold" };
-	static const juce::String style_ForProgressDisplayTitle{ "Black" };
-	static const juce::String style_ForButtonText{ "Black" };
-	static const juce::String style_ForControlLabels{ "Black" };
-	static const juce::String style_ForDocumentWindowTitleBar{ "Black" };
-	static const juce::String style_ForKnobValueDisplay{ "Narrow Bold" };
-	static const juce::String style_ForLabelText{ "Narrow Bold" };
-	static const juce::String style_ForPgmNameEditorText{ "Black" };
-	static const juce::String style_ForPgmSlotButtonText{ "Regular" };
-	static const juce::String style_ForPopupMenuItem{ "Narrow Bold" };
-	static const juce::String style_ForPulseWidthText{ "Narrow" };
-	static const juce::String style_ForSeqStepValueDisplay{ "Narrow Bold" };
-	static const juce::String style_ForTabText{ "Black" };
-	static const juce::String style_ForTooltipText{ "Narrow Bold" };
+	static const String style_ForProgressDisplayMessage{ "Bold" };
+	static const String style_ForProgressDisplayTitle{ "Black" };
+	static const String style_ForButtonText{ "Black" };
+	static const String style_ForControlLabels{ "Black" };
+	static const String style_ForDocumentWindowTitleBar{ "Black" };
+	static const String style_ForKnobValueDisplay{ "Narrow Bold" };
+	static const String style_ForLabelText{ "Narrow Bold" };
+	static const String style_ForPgmNameEditorText{ "Black" };
+	static const String style_ForPgmSlotButtonText{ "Regular" };
+	static const String style_ForPopupMenuItem{ "Narrow Bold" };
+	static const String style_ForPulseWidthText{ "Narrow" };
+	static const String style_ForSeqStepValueDisplay{ "Narrow Bold" };
+	static const String style_ForTabText{ "Black" };
+	static const String style_ForTooltipText{ "Narrow Bold" };
 
 	static const float size_ForProgressDisplayMessage{ 20.0f };
 	static const float size_ForProgressDisplayTitle{ 25.0f };

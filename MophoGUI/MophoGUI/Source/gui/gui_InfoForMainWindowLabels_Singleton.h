@@ -6,12 +6,12 @@
 
 class InfoForMainWindowLabels
 {
-	juce::Array<juce::String> labelTexts;
-	juce::Array<juce::Point<int>> centerPoints;
-	juce::Array<int> widths;
-	juce::Array<int> heights;
-	juce::Array<int> justificationFlags;
-	juce::Array<float> fontSizes;
+	Array<String> labelTexts;
+	Array<Point<int>> centerPoints;
+	Array<int> widths;
+	Array<int> heights;
+	Array<int> justificationFlags;
+	Array<float> fontSizes;
 
 	InfoForMainWindowLabels();
 	void fillAllInfoContainers();
@@ -23,12 +23,12 @@ public:
 
 	static InfoForMainWindowLabels& get() noexcept;
 	const int labelOutOfRange() const noexcept;
-	const juce::String textFor(juce::uint16 labelIndex) const;
-	const juce::Point<int> centerPointFor(juce::uint16 labelIndex) const;
-	const int widthFor(juce::uint16 labelIndex) const;
-	const int heightFor(juce::uint16 labelIndex) const;
-	const int justificationFlagFor(juce::uint16 labelIndex) const;
-	const float fontSizeFor(juce::uint16 labelIndex) const;
+	const String textFor(uint16 labelIndex) const;
+	const Point<int> centerPointFor(uint16 labelIndex) const;
+	const int widthFor(uint16 labelIndex) const;
+	const int heightFor(uint16 labelIndex) const;
+	const int justificationFlagFor(uint16 labelIndex) const;
+	const float fontSizeFor(uint16 labelIndex) const;
 
 private:
 	//==============================================================================

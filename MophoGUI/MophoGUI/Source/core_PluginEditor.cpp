@@ -4,20 +4,24 @@
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
+#include "gui/gui_LookAndFeel.h"
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor, juce::UndoManager* /*undoManager*/) :
+PluginEditor::PluginEditor(PluginProcessor& processor, UndoManager* /*undoManager*/) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
+    lookAndFeel.reset(new GUILookAndFeel());
+    LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
     setResizable(false, false);
 }
 
-void PluginEditor::paint(juce::Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     g.fillAll(Color::device);
     g.setColour(Color::controlLabelText);
     auto& info{ InfoForMainWindowLabels::get() };
@@ -37,4 +41,5 @@ void PluginEditor::resized() {
 }
 
 PluginEditor::~PluginEditor() {
+    lookAndFeel = nullptr;
 }

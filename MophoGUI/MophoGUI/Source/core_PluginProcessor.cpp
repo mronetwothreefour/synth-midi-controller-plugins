@@ -5,11 +5,11 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    undoManager{ new juce::UndoManager() }
+    undoManager{ new UndoManager() }
 {
 }
 
-const juce::String PluginProcessor::getName() const {
+const String PluginProcessor::getName() const {
     return JucePlugin_Name;
 }
 
@@ -36,14 +36,14 @@ int PluginProcessor::getCurrentProgram() {
 void PluginProcessor::setCurrentProgram(int /*index*/) {
 }
 
-const juce::String PluginProcessor::getProgramName(int /*index*/) {
+const String PluginProcessor::getProgramName(int /*index*/) {
     return {};
 }
 
-void PluginProcessor::changeProgramName(int /*index*/, const juce::String& /*newName*/) {
+void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midiMessages*/) {
+void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& /*midiMessages*/) {
     buffer.clear();
 }
 
@@ -65,11 +65,11 @@ bool PluginProcessor::hasEditor() const {
     return true;
 }
 
-juce::AudioProcessorEditor* PluginProcessor::createEditor() {
+AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor (*this, undoManager.get());
 }
 
-void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
 }
 
 void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
@@ -81,7 +81,7 @@ PluginProcessor::~PluginProcessor() {
 
 //==============================================================================
 // This creates new instances of the plugin..
-juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
+AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
     return new PluginProcessor();
 }
 
