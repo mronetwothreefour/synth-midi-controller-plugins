@@ -2358,6 +2358,9 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4580,13 +4583,13 @@
     <ClInclude Include="..\..\Source\params\params_Identifiers.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.h">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_ControlTypes.h">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_InfoForExposedParameters_Singleton.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
