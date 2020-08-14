@@ -2439,6 +2439,9 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlsForExposedParameters.cpp">
+      <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4734,6 +4737,9 @@
       <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlsForExposedParameters.h">
       <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
     </ClInclude>
   </ItemGroup>
