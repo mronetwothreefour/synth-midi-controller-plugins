@@ -448,6 +448,9 @@
     <Filter Include="MophoGUI\Source\guiRenderers">
       <UniqueIdentifier>{edfcedaa-8004-462c-b528-5008a0a394d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ControlsForExposedParameters">
+      <UniqueIdentifier>{1db5b385-2809-475e-9fd2-ecfab2c2cc5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2430,7 +2433,12 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.cpp">
+      <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4653,9 +4661,6 @@
     <ClInclude Include="..\..\Source\params\params_Identifiers.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_ControlTypes.h">
-      <Filter>MophoGUI\Source\gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
@@ -4724,6 +4729,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForExposedParameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

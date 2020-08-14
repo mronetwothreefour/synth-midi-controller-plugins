@@ -2034,6 +2034,7 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
@@ -2781,7 +2782,6 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
-    <ClInclude Include="..\..\Source\gui\gui_ControlTypes.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
@@ -2798,6 +2798,8 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h" />
