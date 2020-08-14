@@ -9,7 +9,7 @@ class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor,
-    private ValueTree::Listener
+    public ValueTree::Listener
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
@@ -21,9 +21,8 @@ public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics&) override;
     void resized() override;
-
-private: void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-public: ~PluginEditor() override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+    ~PluginEditor() override;
 
 private:
     //==============================================================================
