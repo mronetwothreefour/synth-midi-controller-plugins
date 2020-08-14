@@ -6,6 +6,7 @@
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
 #include "gui/gui_Logo.h"
 #include "gui/gui_LookAndFeel.h"
+#include "guiRenderers/guiRenderer_ForEnvelopes.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
@@ -18,15 +19,20 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
     logo{ new Logo() },
+    rendererForEnvelope_LPF{ new RendererForEnvelopes("lpf", exposedParams) },
+    rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
+    rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
     addAndMakeVisible(logo.get());
+    addAndMakeVisible(rendererForEnvelope_LPF.get());
+    addAndMakeVisible(rendererForEnvelope_VCA.get());
+    addAndMakeVisible(rendererForEnvelope_Env3.get());
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
     tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
     tooltipWindow->setComponentEffect(nullptr);
-
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
@@ -51,6 +57,10 @@ void PluginEditor::paint(Graphics& g) {
 
 void PluginEditor::resized() {
     logo->setBounds(880, 0, logo->getWidth(), logo->getHeight());
+    auto envRenderers_x{ 168 };
+    rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
+    rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());
+    rendererForEnvelope_Env3->setBounds(envRenderers_x, 470, rendererForEnvelope_Env3->getWidth(), rendererForEnvelope_Env3->getHeight());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -64,6 +74,9 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    rendererForEnvelope_Env3 = nullptr;
+    rendererForEnvelope_VCA = nullptr;
+    rendererForEnvelope_LPF = nullptr;
     logo = nullptr;
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     lookAndFeel = nullptr;

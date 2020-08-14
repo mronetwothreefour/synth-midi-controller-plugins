@@ -4,9 +4,10 @@
 
 
 
-class UnexposedParameters;
 class GUILookAndFeel;
 class Logo;
+class RendererForEnvelopes;
+class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor,
@@ -17,6 +18,9 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
+    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_LPF;
+    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
+    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_Env3;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
