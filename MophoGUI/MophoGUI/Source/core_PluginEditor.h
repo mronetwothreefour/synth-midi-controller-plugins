@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "widgets_ControlsForExposedParameters/widget_ControlsForExposedParameters.h"
+
 
 
 class GUILookAndFeel;
@@ -11,6 +13,7 @@ class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor,
+    private ControlsForExposedParameters,
     public ValueTree::Listener
 {
     PluginProcessor& processor;

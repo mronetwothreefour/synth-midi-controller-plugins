@@ -14,6 +14,7 @@
 
 PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
+    ControlsForExposedParameters{ unexposedParams },
     processor{ processor },
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
@@ -25,14 +26,27 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     addAndMakeVisible(logo.get());
+
+    rebuildControls(unexposedParams);
+    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
+        auto control{ controlFor(param) };
+        addAndMakeVisible(control);
+        control->attachToExposedParameter(exposedParams);
+        control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
+    }
+
     addAndMakeVisible(rendererForEnvelope_LPF.get());
     addAndMakeVisible(rendererForEnvelope_VCA.get());
     addAndMakeVisible(rendererForEnvelope_Env3.get());
+
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
+    addChildComponent(tooltipWindow.get());
     tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
     tooltipWindow->setComponentEffect(nullptr);
+
     auto device_w{ 1273 };
     auto device_h{ 626 };
     setSize(device_w, device_h);
@@ -77,7 +91,10 @@ PluginEditor::~PluginEditor() {
     rendererForEnvelope_Env3 = nullptr;
     rendererForEnvelope_VCA = nullptr;
     rendererForEnvelope_LPF = nullptr;
+    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
+        auto control{ controlFor(param) };
+        control->deleteAttachment();
+    }
+    clearControls();
     logo = nullptr;
-    LookAndFeel::setDefaultLookAndFeel(nullptr);
-    lookAndFeel = nullptr;
 }
