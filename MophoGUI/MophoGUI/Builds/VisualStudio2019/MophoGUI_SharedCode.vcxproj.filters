@@ -2403,6 +2403,9 @@
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp">
       <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Logo.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4663,6 +4666,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h">
       <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Logo.h">
+      <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,8 +4,9 @@
 
 
 
-class GUILookAndFeel;
 class UnexposedParameters;
+class GUILookAndFeel;
+class Logo;
 
 class PluginEditor : 
     public AudioProcessorEditor,
@@ -15,6 +16,7 @@ class PluginEditor :
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
+    std::unique_ptr<Logo> logo;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:

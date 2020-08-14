@@ -4,6 +4,7 @@
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
+#include "gui/gui_Logo.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
@@ -16,10 +17,11 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
+    logo{ new Logo() },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
-
+    addAndMakeVisible(logo.get());
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
     tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
@@ -48,6 +50,7 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
+    logo->setBounds(880, 0, logo->getWidth(), logo->getHeight());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -61,6 +64,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    logo = nullptr;
     LookAndFeel::setDefaultLookAndFeel(nullptr);
     lookAndFeel = nullptr;
 }
