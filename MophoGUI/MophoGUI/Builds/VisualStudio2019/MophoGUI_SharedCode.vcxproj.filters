@@ -2418,6 +2418,9 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp">
       <Filter>MophoGUI\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4689,6 +4692,9 @@
       <Filter>MophoGUI\Source\guiRenderers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h">
       <Filter>MophoGUI\Source\guiRenderers</Filter>
     </ClInclude>
   </ItemGroup>

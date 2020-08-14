@@ -2018,6 +2018,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp" />
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
@@ -2773,6 +2774,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h" />
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_ControlTypes.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
