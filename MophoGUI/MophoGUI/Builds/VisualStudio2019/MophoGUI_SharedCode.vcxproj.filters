@@ -439,6 +439,12 @@
     <Filter Include="MophoGUI\Source\tooltipSetters">
       <UniqueIdentifier>{5709fc31-1be4-4e04-88d7-ddb41c6074c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ToggleButton">
+      <UniqueIdentifier>{658c180c-2427-4468-b84e-88d993dc50a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Slider">
+      <UniqueIdentifier>{a1510c8f-7ab9-4838-810f-93b8900b6be5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2390,6 +2396,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4645,6 +4657,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h">
       <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
