@@ -445,6 +445,9 @@
     <Filter Include="MophoGUI\Source\widgets_Slider">
       <UniqueIdentifier>{a1510c8f-7ab9-4838-810f-93b8900b6be5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\guiRenderers">
+      <UniqueIdentifier>{edfcedaa-8004-462c-b528-5008a0a394d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2406,7 +2409,15 @@
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4673,6 +4684,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
