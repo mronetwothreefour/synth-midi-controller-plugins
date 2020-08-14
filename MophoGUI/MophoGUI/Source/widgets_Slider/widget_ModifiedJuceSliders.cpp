@@ -2,19 +2,19 @@
 
 
 
-SliderWithMouseWheelMod::SliderWithMouseWheelMod(UnexposedParameters* unexposedParameters) :
-	unexposedParameters{ unexposedParameters }
+SliderWithMouseWheelMod::SliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
+	unexposedParams{ unexposedParams }
 {
 }
 
 void SliderWithMouseWheelMod::mouseWheelMove(const MouseEvent&, const MouseWheelDetails& wheel) {
-	unexposedParameters->undoManager_get()->beginNewTransaction();
+	unexposedParams->undoManager_get()->beginNewTransaction();
 	auto delta{ wheel.deltaY };
 	auto currentValue{ getValue() };
 	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 	if (delta != 0.0f)
 		setValue(currentValue + interval);
-	unexposedParameters->undoManager_get()->beginNewTransaction();
+	unexposedParams->undoManager_get()->beginNewTransaction();
 }
 
 SliderWithMouseWheelMod::~SliderWithMouseWheelMod() {
@@ -23,8 +23,8 @@ SliderWithMouseWheelMod::~SliderWithMouseWheelMod() {
 
 
 
-RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParameters) :
-	SliderWithMouseWheelMod{ unexposedParameters }
+RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelMod{ unexposedParams }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
@@ -37,8 +37,8 @@ RotarySliderWithMouseWheelMod::~RotarySliderWithMouseWheelMod() {
 
 
 
-SliderForSequencerSteps::SliderForSequencerSteps(int sequencerTrack, UnexposedParameters* unexposedParameters) :
-	RotarySliderWithMouseWheelMod{ unexposedParameters },
+SliderForSequencerSteps::SliderForSequencerSteps(int sequencerTrack, UnexposedParameters* unexposedParams) :
+	RotarySliderWithMouseWheelMod{ unexposedParams },
 	sequencerTrack{ sequencerTrack }
 {
 }

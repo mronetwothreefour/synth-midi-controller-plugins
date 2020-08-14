@@ -13,12 +13,12 @@
 // Slider instance are logged as discrete events for undo/redo.
 class SliderWithMouseWheelMod : public Slider
 {
-	UnexposedParameters* unexposedParameters;
+	UnexposedParameters* unexposedParams;
 
 public:
 	SliderWithMouseWheelMod() = delete;
 
-	explicit SliderWithMouseWheelMod(UnexposedParameters* unexposedParameters);
+	explicit SliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
 	void mouseWheelMove(const MouseEvent& /*event*/, const MouseWheelDetails& wheel) override;
 	~SliderWithMouseWheelMod() override;
 };
@@ -31,7 +31,7 @@ class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
 public:
 	RotarySliderWithMouseWheelMod() = delete;
 
-	explicit RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParameters);
+	explicit RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
 	~RotarySliderWithMouseWheelMod() override;
 };
 
@@ -50,7 +50,7 @@ class SliderForSequencerSteps : public RotarySliderWithMouseWheelMod
 public:
 	SliderForSequencerSteps() = delete;
 
-	SliderForSequencerSteps(int sequencerTrack, UnexposedParameters* unexposedParameters);
+	SliderForSequencerSteps(int sequencerTrack, UnexposedParameters* unexposedParams);
 	void mouseDown(const MouseEvent& event) override;
 	~SliderForSequencerSteps();
 };

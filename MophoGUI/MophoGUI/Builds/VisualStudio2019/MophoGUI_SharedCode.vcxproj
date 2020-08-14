@@ -2034,6 +2034,7 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
@@ -2795,6 +2796,7 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
   </ItemGroup>

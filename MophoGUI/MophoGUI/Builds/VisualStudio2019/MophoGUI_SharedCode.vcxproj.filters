@@ -2424,6 +2424,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.cpp">
       <Filter>MophoGUI\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4702,6 +4703,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.h">
       <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
