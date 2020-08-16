@@ -2448,6 +2448,7 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4750,6 +4751,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

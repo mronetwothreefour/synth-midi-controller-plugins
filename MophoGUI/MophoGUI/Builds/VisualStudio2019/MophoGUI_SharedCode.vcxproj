@@ -2028,6 +2028,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
@@ -2794,6 +2795,7 @@
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
+    <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
