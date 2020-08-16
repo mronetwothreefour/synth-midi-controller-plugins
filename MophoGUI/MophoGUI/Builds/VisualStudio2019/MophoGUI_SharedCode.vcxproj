@@ -2046,6 +2046,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
@@ -2820,6 +2821,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

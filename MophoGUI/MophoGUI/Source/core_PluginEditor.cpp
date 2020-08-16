@@ -9,6 +9,7 @@
 #include "guiRenderers/guiRenderer_ForEnvelopes.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
+#include "wigets_Button/widget_ButtonAndLabelForEditingPgmName.h"
 
 
 
@@ -23,6 +24,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     rendererForEnvelope_LPF{ new RendererForEnvelopes("lpf", exposedParams) },
     rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
     rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
+    button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -40,6 +42,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(rendererForEnvelope_LPF.get());
     addAndMakeVisible(rendererForEnvelope_VCA.get());
     addAndMakeVisible(rendererForEnvelope_Env3.get());
+    addAndMakeVisible(button_ForEditingPgmName.get());
+
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -75,6 +79,7 @@ void PluginEditor::resized() {
     rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
     rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());
     rendererForEnvelope_Env3->setBounds(envRenderers_x, 470, rendererForEnvelope_Env3->getWidth(), rendererForEnvelope_Env3->getHeight());
+    button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -88,6 +93,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    button_ForEditingPgmName = nullptr;
     rendererForEnvelope_Env3 = nullptr;
     rendererForEnvelope_VCA = nullptr;
     rendererForEnvelope_LPF = nullptr;

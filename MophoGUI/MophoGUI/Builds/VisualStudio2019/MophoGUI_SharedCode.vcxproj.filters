@@ -454,6 +454,9 @@
     <Filter Include="MophoGUI\Source\midi">
       <UniqueIdentifier>{04f071cb-8b36-471e-b16d-9d6e2805b467}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Button">
+      <UniqueIdentifier>{4f6fab52-c3f3-4d59-b775-cddcdd00e594}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2452,6 +2455,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4769,6 +4773,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h">
       <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

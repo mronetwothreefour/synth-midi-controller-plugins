@@ -6,6 +6,7 @@
 
 
 
+class ButtonAndLabelForEditingPgmName;
 class GUILookAndFeel;
 class Logo;
 class RendererForEnvelopes;
@@ -24,6 +25,7 @@ class PluginEditor :
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_LPF;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_Env3;
+    std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
