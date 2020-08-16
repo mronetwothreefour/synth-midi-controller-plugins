@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "params/params_ExposedParamsLayout_Factory.h"
+#include "params/params_ExposedParametersListener.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
 
@@ -10,6 +11,7 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
     exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
+    exposedParamsListener{ new ExposedParametersListener(exposedParams.get(), unexposedParams.get()) },
     aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() }
 {
 }
@@ -88,6 +90,7 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 
 PluginProcessor::~PluginProcessor() {
     unexposedParams->undoManager_get()->clearUndoHistory();
+    exposedParamsListener = nullptr;
     exposedParams = nullptr;
     unexposedParams = nullptr;
 }

@@ -2449,6 +2449,9 @@
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
+    <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4754,6 +4757,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
       <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h">
+      <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
