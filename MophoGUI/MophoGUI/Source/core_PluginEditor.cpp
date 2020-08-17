@@ -10,6 +10,7 @@
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 #include "wigets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "wigets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "wigets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "wigets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
@@ -29,6 +30,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
+    button_ForClearingSequencerTrack1{ new ButtonForClearingSequencerTrack(1, exposedParams, unexposedParams) },
+    button_ForClearingSequencerTrack2{ new ButtonForClearingSequencerTrack(2, exposedParams, unexposedParams) },
+    button_ForClearingSequencerTrack3{ new ButtonForClearingSequencerTrack(3, exposedParams, unexposedParams) },
+    button_ForClearingSequencerTrack4{ new ButtonForClearingSequencerTrack(4, exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -49,6 +54,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForEditingPgmName.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack1.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack2.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack3.get());
+    addAndMakeVisible(button_ForClearingSequencerTrack4.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -90,6 +99,13 @@ void PluginEditor::resized() {
     auto utilityButtons_h{ 21 };
     button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    auto clearSeqTrackButtons_x{ 1166 };
+    auto clearSeqTrackButtons_w{ 42 };
+    auto clearSeqTrackButtons_h{ 16 };
+    button_ForClearingSequencerTrack1->setBounds(clearSeqTrackButtons_x, 161, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack2->setBounds(clearSeqTrackButtons_x, 244, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack3->setBounds(clearSeqTrackButtons_x, 327, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack4->setBounds(clearSeqTrackButtons_x, 410, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -103,6 +119,10 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    button_ForClearingSequencerTrack4 = nullptr;
+    button_ForClearingSequencerTrack3 = nullptr;
+    button_ForClearingSequencerTrack2 = nullptr;
+    button_ForClearingSequencerTrack1 = nullptr;
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForSendingProgramEditBufferDump = nullptr;
     button_ForEditingPgmName = nullptr;

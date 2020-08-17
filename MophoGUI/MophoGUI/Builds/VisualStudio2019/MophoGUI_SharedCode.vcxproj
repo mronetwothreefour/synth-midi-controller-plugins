@@ -2052,6 +2052,7 @@
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
@@ -2834,6 +2835,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.h" />
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.h" />
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />

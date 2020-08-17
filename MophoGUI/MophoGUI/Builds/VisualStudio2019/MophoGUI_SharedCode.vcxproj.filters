@@ -2490,6 +2490,9 @@
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4833,6 +4836,9 @@
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

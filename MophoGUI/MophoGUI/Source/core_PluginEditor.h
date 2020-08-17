@@ -7,6 +7,7 @@
 
 
 class ButtonAndLabelForEditingPgmName;
+class ButtonForClearingSequencerTrack;
 class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
 class GUILookAndFeel;
@@ -30,6 +31,10 @@ class PluginEditor :
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
     std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
     std::unique_ptr<ButtonForSendingProgramEditBufferDumpRequest> button_ForSendingProgramEditBufferDumpRequest;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
+    std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
