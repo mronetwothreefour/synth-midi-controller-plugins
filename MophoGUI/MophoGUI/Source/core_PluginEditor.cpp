@@ -10,6 +10,7 @@
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 #include "wigets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "wigets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
 
 
@@ -25,6 +26,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
     rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
     button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
+    button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -43,6 +45,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(rendererForEnvelope_VCA.get());
     addAndMakeVisible(rendererForEnvelope_Env3.get());
     addAndMakeVisible(button_ForEditingPgmName.get());
+    addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
 
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
@@ -80,6 +83,10 @@ void PluginEditor::resized() {
     rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());
     rendererForEnvelope_Env3->setBounds(envRenderers_x, 470, rendererForEnvelope_Env3->getWidth(), rendererForEnvelope_Env3->getHeight());
     button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
+    auto utilityButtons_y{ 83 };
+    auto utilityButtons_w{ 53 };
+    auto utilityButtons_h{ 21 };
+    button_ForSendingProgramEditBufferDumpRequest->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -93,6 +100,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForEditingPgmName = nullptr;
     rendererForEnvelope_Env3 = nullptr;
     rendererForEnvelope_VCA = nullptr;

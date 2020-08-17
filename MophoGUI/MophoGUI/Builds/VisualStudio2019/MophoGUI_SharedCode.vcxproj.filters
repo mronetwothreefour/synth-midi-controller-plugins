@@ -2451,11 +2451,39 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
-    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
-    <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
-    <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
-    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4776,6 +4804,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_RawProgramData.h">
+      <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

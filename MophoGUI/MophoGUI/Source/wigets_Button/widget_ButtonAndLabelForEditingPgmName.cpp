@@ -7,10 +7,10 @@
 
 
 ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	button{ "EDIT" },
+	pgmNameEditor{ "pgmNameEditor", "" },
+	button_ForOpeningPgmNameEditor{ exposedParams, unexposedParams, pgmNameEditor },
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
-	pgmNameEditor{ "pgmNameEditor", getProgramNameFromExposedParemeters() }
+	unexposedParams{ unexposedParams }
 {
 	setInterceptsMouseClicks(false, true);
 
@@ -23,58 +23,15 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	pgmNameEditor.setColour(Label::backgroundWhenEditingColourId, Color::black);
 	pgmNameEditor.setColour(Label::outlineWhenEditingColourId, Color::black);
 	pgmNameEditor.addListener(this);
+	pgmNameEditor.setText(button_ForOpeningPgmNameEditor.getProgramNameFromExposedParemeters(), dontSendNotification);
 	addAndMakeVisible(pgmNameEditor);
-	addAndMakeVisible(button);
-	unexposedParams->tooltipOptions_get()->addListener(this);
-	button.setTooltip(createButtonTooltipString());
-	button.onClick = [this] { showPgmNameEditor(); };
+	addAndMakeVisible(button_ForOpeningPgmNameEditor);
 
 	auto buttonAndEditor_w{ 222 };
 	auto buttonAndEditor_h{ 50 };
 	setSize(buttonAndEditor_w, buttonAndEditor_h);
-	button.setBounds(115, 0, 42, 16);
+	button_ForOpeningPgmNameEditor.setBounds(115, 0, 42, 16);
 	pgmNameEditor.setBounds(0, 32, 242, 18);
-}
-
-void ButtonAndLabelForEditingPgmName::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_ShouldShowDescription)
-		button.setTooltip(createButtonTooltipString());
-}
-
-const String ButtonAndLabelForEditingPgmName::createButtonTooltipString() noexcept {
-	String tooltipString{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		tooltipString += "Opens an editor where you can\n";
-		tooltipString += "type in a new program name.";
-	}
-	return tooltipString;
-}
-
-void ButtonAndLabelForEditingPgmName::showPgmNameEditor() {
-	pgmNameEditor.setText(getProgramNameFromExposedParemeters(), dontSendNotification);
-	pgmNameEditor.showEditor();
-	String basicASCIIcharacters{ " !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
-	pgmNameEditor.getCurrentTextEditor()->setInputRestrictions(16, basicASCIIcharacters);
-	String nameEditorTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		nameEditorTooltip += "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
-		nameEditorTooltip += "Hit Esc to cancel. The Mopho's hardware LCD characters use the basic ASCII\n";
-		nameEditorTooltip += "character set, with a few exceptions: 'backslash' becomes a yen sign and 'tilde'\n";
-		nameEditorTooltip += "becomes a right arrow. The 'delete' character becomes a left arrow; obviously,\n";
-		nameEditorTooltip += "you can't type that in the editor. However, you can access it by changing a\n";
-		nameEditorTooltip += "character in the GUI's name display with the mouse. The hardware name display\n";
-		nameEditorTooltip += "will not update immediately - press the Program Mode button to see the new name.";
-	}
-	pgmNameEditor.getCurrentTextEditor()->setTooltip(nameEditorTooltip);
-}
-
-String ButtonAndLabelForEditingPgmName::getProgramNameFromExposedParemeters() {
-	std::string pgmName{ "" };
-	for (auto i = 1; i != 17; ++i) {
-		auto param{ exposedParams->getParameter("nameChar" + (String)i) };
-		pgmName += std::string(1, char(roundToInt(param->getValue() * 127)));
-	}
-	return pgmName;
 }
 
 void ButtonAndLabelForEditingPgmName::labelTextChanged(Label* labelThatHasChanged) {
@@ -119,5 +76,4 @@ void ButtonAndLabelForEditingPgmName::updateNameCharacterInExposedParams() {
 
 ButtonAndLabelForEditingPgmName::~ButtonAndLabelForEditingPgmName() {
 	pgmNameEditor.removeListener(this);
-	unexposedParams->tooltipOptions_get()->removeListener(this);
 }

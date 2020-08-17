@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "widget_ButtonForOpeningPgmNameEditor.h"
+
 
 
 class UnexposedParameters;
@@ -9,13 +11,12 @@ class UnexposedParameters;
 class ButtonAndLabelForEditingPgmName :
 	public Component,
 	private Label::Listener,
-	private Timer,
-	public ValueTree::Listener
+	private Timer
 {
-	TextButton button;
+	Label pgmNameEditor;
+	ButtonForOpeningPgmNameEditor button_ForOpeningPgmNameEditor;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	Label pgmNameEditor;
 	String programName;
 	int nameCharacter{ 0 };
 
@@ -23,13 +24,8 @@ public:
 	ButtonAndLabelForEditingPgmName() = delete;
 
 	ButtonAndLabelForEditingPgmName(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
-	
-	const String createButtonTooltipString() noexcept;
-	void showPgmNameEditor();
-	String getProgramNameFromExposedParemeters();
 	void labelTextChanged(Label* labelThatHasChanged) override;
 	void padNamesLessThan16CharactersLongWithSpaces(String& name);
 	void startUpdatingProgramName(String newName);

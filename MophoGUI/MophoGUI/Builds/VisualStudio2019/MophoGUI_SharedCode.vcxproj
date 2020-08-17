@@ -2026,11 +2026,14 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp" />
@@ -2046,7 +2049,10 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.cpp" />
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
@@ -2797,12 +2803,15 @@
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
+    <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h" />
+    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h" />
@@ -2822,6 +2831,9 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.h" />
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
+    <ClInclude Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
