@@ -457,6 +457,9 @@
     <Filter Include="MophoGUI\Source\widgets_Button">
       <UniqueIdentifier>{4f6fab52-c3f3-4d59-b775-cddcdd00e594}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\banks">
+      <UniqueIdentifier>{0a1ce538-5d11-4257-b62d-94c5b6910c5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2492,6 +2495,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4840,6 +4846,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h">
+      <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

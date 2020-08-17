@@ -130,6 +130,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2058,6 +2059,7 @@
     <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
