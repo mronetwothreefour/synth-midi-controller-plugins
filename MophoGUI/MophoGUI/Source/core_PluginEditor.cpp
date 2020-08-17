@@ -10,6 +10,7 @@
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 #include "wigets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "wigets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "wigets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
 
@@ -26,6 +27,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
     rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
     button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
+    button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
@@ -45,8 +47,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(rendererForEnvelope_VCA.get());
     addAndMakeVisible(rendererForEnvelope_Env3.get());
     addAndMakeVisible(button_ForEditingPgmName.get());
+    addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
-
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -86,7 +88,8 @@ void PluginEditor::resized() {
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
     auto utilityButtons_h{ 21 };
-    button_ForSendingProgramEditBufferDumpRequest->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -101,6 +104,7 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
+    button_ForSendingProgramEditBufferDump = nullptr;
     button_ForEditingPgmName = nullptr;
     rendererForEnvelope_Env3 = nullptr;
     rendererForEnvelope_VCA = nullptr;

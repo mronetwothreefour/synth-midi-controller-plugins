@@ -22,7 +22,7 @@ protected:
 	void onClickMethod() override;
 
 public:
-	~ButtonForSendingProgramEditBufferDumpRequest();
+	~ButtonForSendingProgramEditBufferDumpRequest() override;
 
 private:
 	//==============================================================================

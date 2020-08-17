@@ -23,7 +23,7 @@ protected:
 
 public:
 	String getProgramNameFromExposedParemeters();
-	~ButtonForOpeningPgmNameEditor();
+	~ButtonForOpeningPgmNameEditor() override;
 
 private:
 	//==============================================================================

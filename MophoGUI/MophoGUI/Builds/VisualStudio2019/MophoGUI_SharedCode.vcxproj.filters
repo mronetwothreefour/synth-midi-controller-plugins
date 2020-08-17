@@ -2484,7 +2484,12 @@
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4826,6 +4831,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
