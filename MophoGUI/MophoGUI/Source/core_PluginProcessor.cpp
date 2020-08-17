@@ -1,6 +1,7 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "midi/midi_IncomingSysExHandler.h"
 #include "params/params_ExposedParamsLayout_Factory.h"
 #include "params/params_ExposedParametersListener.h"
 #include "params/params_UnexposedParameters_Facade.h"
@@ -12,7 +13,8 @@ PluginProcessor::PluginProcessor() :
     unexposedParams{ new UnexposedParameters() },
     exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     exposedParamsListener{ new ExposedParametersListener(exposedParams.get(), unexposedParams.get()) },
-    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() }
+    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() },
+    incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get(), unexposedParams.get()) }
 {
 }
 
@@ -53,6 +55,14 @@ void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
 
+    if (!midiMessages.isEmpty()) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingSysExHandler->pullSysExWithMatchingIDOutOfBuffer(midiMessages);
+        //TODO
+        //midiMessagesToPassThrough = incomingNRPNHandler->pullFullyFormedNRPNoutOfBuffer(midiMessagesToPassThrough);
+        midiMessages.swapWith(midiMessagesToPassThrough);
+    }
+
     if (!aggregatedOutgoingBuffers->isEmpty()) {
         for (auto event : aggregatedOutgoingBuffers->removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
@@ -90,6 +100,7 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 
 PluginProcessor::~PluginProcessor() {
     unexposedParams->undoManager_get()->clearUndoHistory();
+    incomingSysExHandler = nullptr;
     exposedParamsListener = nullptr;
     exposedParams = nullptr;
     unexposedParams = nullptr;

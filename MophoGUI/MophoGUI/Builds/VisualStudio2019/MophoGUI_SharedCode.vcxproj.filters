@@ -2484,6 +2484,7 @@
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4822,6 +4823,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_RawProgramData.h">
       <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
+      <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
