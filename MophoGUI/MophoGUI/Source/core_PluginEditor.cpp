@@ -9,10 +9,10 @@
 #include "guiRenderers/guiRenderer_ForEnvelopes.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
-#include "wigets_Button/widget_ButtonAndLabelForEditingPgmName.h"
-#include "wigets_Button/widget_ButtonForClearingSequencerTrack.h"
-#include "wigets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
-#include "wigets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
+#include "widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "widgets_Button/widget_ButtonForClearingSequencerTrack.h"
+#include "widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
+#include "widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
 
 
