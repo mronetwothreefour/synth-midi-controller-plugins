@@ -5,6 +5,8 @@
 UnexposedParameters::UnexposedParameters() :
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
+	pluginProgramBanks{ new PluginProgramBanks() },
+	programNameStrings{ new ProgramNameStrings() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -20,6 +22,14 @@ MidiOptions* UnexposedParameters::midiOptions_get() {
 
 OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
+}
+
+PluginProgramBanks* UnexposedParameters::pluginProgramBanks_get() {
+	return pluginProgramBanks.get();
+}
+
+ProgramNameStrings* UnexposedParameters::programNameStrings_get() {
+	return programNameStrings.get();
 }
 
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
