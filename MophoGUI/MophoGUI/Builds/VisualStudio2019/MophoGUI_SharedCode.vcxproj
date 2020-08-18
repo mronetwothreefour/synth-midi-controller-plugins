@@ -134,6 +134,7 @@
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_PluginProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramNameStrings.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2031,6 +2032,7 @@
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
@@ -2066,6 +2068,7 @@
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_PluginProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramNameStrings.h" />
+    <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2815,6 +2818,7 @@
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
+    <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
