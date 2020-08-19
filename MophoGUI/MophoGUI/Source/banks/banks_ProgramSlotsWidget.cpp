@@ -38,9 +38,12 @@ void ProgramSlotsWidget::setUpProgramSlotToggleButton(uint8 slot) {
 
 void ProgramSlotsWidget::setTooltipForProgramSlotToggleButton(uint8 slot) {
 	String slotTooltip{ "" };
-	slotTooltip += "Click a program's name to select it before using the buttons below.\n";
-	slotTooltip += "CTRL-c copies the selected program's settings into the clipboard.\n";
-	slotTooltip += "CTRL-v overwrites the selected program with the settings in the clipboard.";
+	auto tooltips{ unexposedParams->tooltipOptions_get() };
+	if (tooltips->shouldShowDescription()) {
+		slotTooltip += "Click a program's name to select it before using the buttons below.\n";
+		slotTooltip += "CTRL-c copies the selected program's settings into the clipboard.\n";
+		slotTooltip += "CTRL-v overwrites the selected program with the settings in the clipboard.";
+	}
 	programSlotButtons[slot].setTooltip(slotTooltip);
 }
 

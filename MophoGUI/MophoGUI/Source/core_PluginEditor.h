@@ -10,8 +10,10 @@ class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
 class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
+class ButtonForShowingProgramBanksComponent;
 class GUILookAndFeel;
 class Logo;
+class ProgramBanksComponent;
 class RendererForEnvelopes;
 class UnexposedParameters;
 
@@ -31,10 +33,12 @@ class PluginEditor :
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
     std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
     std::unique_ptr<ButtonForSendingProgramEditBufferDumpRequest> button_ForSendingProgramEditBufferDumpRequest;
+    std::unique_ptr<ButtonForShowingProgramBanksComponent> button_ForShowingProgramBanksComponent;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
+    std::unique_ptr<ProgramBanksComponent> programBanksComponent;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
@@ -42,6 +46,11 @@ public:
     void paint(Graphics&) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+
+private:
+    void showProgramBanksComponent();
+
+public:
     ~PluginEditor() override;
 
 private:

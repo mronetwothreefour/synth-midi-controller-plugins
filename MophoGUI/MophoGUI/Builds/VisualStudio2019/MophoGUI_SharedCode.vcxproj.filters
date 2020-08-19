@@ -2529,6 +2529,15 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4847,18 +4856,6 @@
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
@@ -4870,12 +4867,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>MophoGUI\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.h">
-      <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h">
       <Filter>MophoGUI\Source\banks</Filter>
@@ -4898,16 +4889,43 @@
     <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h">
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForLoadingSelectedProgram.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

@@ -133,6 +133,8 @@
     <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_PluginProgramBanks.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBankTab.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramNameStrings.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp" />
@@ -2057,6 +2059,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
@@ -2072,6 +2075,8 @@
     <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h" />
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_PluginProgramBanks.h" />
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramNameStrings.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h" />
@@ -2841,6 +2846,17 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlsForExposedParameters.h" />
@@ -2852,16 +2868,6 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForClearingSequencerTrack.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_banks_ButtonForLoadingSelectedProgram.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForOpeningPgmNameEditor.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDump.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
-    <ClInclude Include="..\..\Source\wigets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

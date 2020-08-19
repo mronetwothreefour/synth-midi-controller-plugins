@@ -1,6 +1,7 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "banks/banks_ProgramBanksComponent.h"
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
@@ -13,6 +14,7 @@
 #include "widgets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
+#include "widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
 
 
 
@@ -30,6 +32,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
+    button_ForShowingProgramBanksComponent{ new ButtonForShowingProgramBanksComponent(unexposedParams) },
     button_ForClearingSequencerTrack1{ new ButtonForClearingSequencerTrack(1, exposedParams, unexposedParams) },
     button_ForClearingSequencerTrack2{ new ButtonForClearingSequencerTrack(2, exposedParams, unexposedParams) },
     button_ForClearingSequencerTrack3{ new ButtonForClearingSequencerTrack(3, exposedParams, unexposedParams) },
@@ -54,10 +57,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForEditingPgmName.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
+    addAndMakeVisible(button_ForShowingProgramBanksComponent.get());
     addAndMakeVisible(button_ForClearingSequencerTrack1.get());
     addAndMakeVisible(button_ForClearingSequencerTrack2.get());
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());
     addAndMakeVisible(button_ForClearingSequencerTrack4.get());
+
+    button_ForShowingProgramBanksComponent->onClick = [this] { showProgramBanksComponent(); };
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -99,6 +105,7 @@ void PluginEditor::resized() {
     auto utilityButtons_h{ 21 };
     button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    button_ForShowingProgramBanksComponent->setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto clearSeqTrackButtons_x{ 1166 };
     auto clearSeqTrackButtons_w{ 42 };
     auto clearSeqTrackButtons_h{ 16 };
@@ -115,14 +122,24 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
     }
 }
 
+void PluginEditor::showProgramBanksComponent() {
+    programBanksComponent.reset(new ProgramBanksComponent(exposedParams, unexposedParams));
+    if (programBanksComponent != nullptr) {
+        addAndMakeVisible(programBanksComponent.get());
+        programBanksComponent->setBounds(getLocalBounds());
+    }
+}
+
 PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    programBanksComponent = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
     button_ForClearingSequencerTrack1 = nullptr;
+    button_ForShowingProgramBanksComponent = nullptr;
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForSendingProgramEditBufferDump = nullptr;
     button_ForEditingPgmName = nullptr;
