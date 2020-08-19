@@ -1075,9 +1075,6 @@ void InfoForMainWindowLabels::fillAllInfoContainers() {
 	fontSizes.add(FontsDB::size_ForControlLabels);
 }
 
-InfoForMainWindowLabels::~InfoForMainWindowLabels() {
-}
-
 InfoForMainWindowLabels& InfoForMainWindowLabels::get() noexcept {
 	static InfoForMainWindowLabels labelsInfo;
 	return labelsInfo;
@@ -1109,5 +1106,8 @@ const int InfoForMainWindowLabels::justificationFlagFor(uint16 labelIndex) const
 
 const float InfoForMainWindowLabels::fontSizeFor(uint16 labelIndex) const {
 	return fontSizes[labelIndex];
+}
+
+InfoForMainWindowLabels::~InfoForMainWindowLabels() {
 }
 

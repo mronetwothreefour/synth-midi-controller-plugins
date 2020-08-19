@@ -15,7 +15,6 @@ class InfoForMainWindowLabels
 
 	InfoForMainWindowLabels();
 	void fillAllInfoContainers();
-	~InfoForMainWindowLabels();
 
 public:
 	InfoForMainWindowLabels(InfoForMainWindowLabels&&) = delete;
@@ -29,6 +28,7 @@ public:
 	const int heightFor(uint16 labelIndex) const;
 	const int justificationFlagFor(uint16 labelIndex) const;
 	const float fontSizeFor(uint16 labelIndex) const;
+	~InfoForMainWindowLabels();
 
 private:
 	//==============================================================================
