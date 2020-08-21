@@ -6,7 +6,6 @@
 
 ButtonForShowingProgramBanksComponent::ButtonForShowingProgramBanksComponent(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ "BANKS", unexposedParams },
-	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());

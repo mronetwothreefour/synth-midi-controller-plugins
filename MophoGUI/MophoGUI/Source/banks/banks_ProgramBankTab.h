@@ -4,12 +4,15 @@
 
 #include "banks_ProgramSlotsWidget.h"
 #include "../widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"
+#include "../widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPullingSelectedProgramFromHardware.h"
+#include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForSavingProgramInSelectedSlot.h"
 
 
 
+class BankTransmissionComponent;
 class UnexposedParameters;
 
 class ProgramBankTab :
@@ -24,6 +27,10 @@ class ProgramBankTab :
     ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
     ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
     ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedProgramFromHardware;
+    ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
+    ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
+    std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
+    std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
     ApplicationCommandManager commandManager;
     String& programCopyBuffer;
 
@@ -36,6 +43,12 @@ public:
     ProgramBankTab() = delete;
 
     ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+
+private:
+    void showPushEntireBankComponent();
+    void showPullEntireBankComponent();
+
+public:
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

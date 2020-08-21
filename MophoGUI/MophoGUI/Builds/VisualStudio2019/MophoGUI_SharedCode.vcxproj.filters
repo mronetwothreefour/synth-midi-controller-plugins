@@ -460,6 +460,9 @@
     <Filter Include="MophoGUI\Source\banks">
       <UniqueIdentifier>{0a1ce538-5d11-4257-b62d-94c5b6910c5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_BankTransmission">
+      <UniqueIdentifier>{d998ae69-2612-46a2-be60-f4aa7df5d8ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2536,6 +2539,15 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_BankTransmission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4926,6 +4938,15 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h">
+      <Filter>MophoGUI\Source\widgets_BankTransmission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

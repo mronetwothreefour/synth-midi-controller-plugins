@@ -2051,8 +2051,11 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp" />
+    <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
@@ -2846,8 +2849,11 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h" />
+    <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />

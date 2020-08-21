@@ -23,7 +23,7 @@ namespace FontsDB
 	static const String style_ForTabText{ "Black" };
 	static const String style_ForTooltipText{ "Narrow Bold" };
 
-	static const float size_ForProgressDisplayMessage{ 20.0f };
+	static const float size_ForProgressDisplayMessage{ 17.0f };
 	static const float size_ForProgressDisplayTitle{ 25.0f };
 	static const float size_ForButtonText{ 11.0f };
 	static const float size_ForControlLabels{ 12.0f };
