@@ -4,7 +4,6 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../widgets_BankTransmission/widget_BankTransmissionComponent.h"
 
 
 
@@ -16,42 +15,19 @@ ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposed
 	button_ForLoadingSelectedProgram{ programSlots, unexposedParams },
 	button_ForSavingProgramInSelectedSlot{ programSlots, unexposedParams },
 	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams },
-	button_ForPullingSelectedProgramFromHardware{ programSlots, unexposedParams },
-	button_ForPushingEntireBankToHardware{ unexposedParams },
-	button_ForPullingEntireBankFromHardware{ unexposedParams }
+	button_ForPullingSelectedProgramFromHardware{ programSlots, unexposedParams }
 {
 	addAndMakeVisible(programSlots);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
 	addAndMakeVisible(button_ForSavingProgramInSelectedSlot);
 	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
 	addAndMakeVisible(button_ForPullingSelectedProgramFromHardware);
-	addAndMakeVisible(button_ForPushingEntireBankToHardware);
-	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
-
-	button_ForPushingEntireBankToHardware.onClick = [this] { showPushEntireBankComponent(); };
-	button_ForPullingEntireBankFromHardware.onClick = [this] { showPullEntireBankComponent(); };
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 	auto programBanksTab_w{ 1065 };
 	auto programBanksTab_h{ 370 };
 	setSize(programBanksTab_w, programBanksTab_h);
-}
-
-void ProgramBankTab::showPushEntireBankComponent() {
-	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
-	if (pushEntireBankComponent != nullptr) {
-		addAndMakeVisible(pushEntireBankComponent.get());
-		pushEntireBankComponent->setBounds(getParentComponent()->getParentComponent()->getBounds());
-	}
-}
-
-void ProgramBankTab::showPullEntireBankComponent() {
-	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
-	if (pullEntireBankComponent != nullptr) {
-		addAndMakeVisible(pullEntireBankComponent.get());
-		pullEntireBankComponent->setBounds(-104, -113, 1273, 626);
-	}
 }
 
 void ProgramBankTab::paint(Graphics& g) {
@@ -79,8 +55,6 @@ void ProgramBankTab::resized() {
 	button_ForSavingProgramInSelectedSlot.setBounds(244, buttons_y, buttons_w, buttons_h);
 	button_ForPushingSelectedProgramToHardware.setBounds(304, buttons_y, buttons_w, buttons_h);
 	button_ForPullingSelectedProgramFromHardware.setBounds(364, buttons_y, buttons_w, buttons_h);
-	button_ForPushingEntireBankToHardware.setBounds(560, buttons_y, buttons_w, buttons_h);
-	button_ForPullingEntireBankFromHardware.setBounds(620, buttons_y, buttons_w, buttons_h);
 }
 
 ApplicationCommandTarget* ProgramBankTab::getNextCommandTarget() {
@@ -153,6 +127,4 @@ void ProgramBankTab::timerCallback() {
 
 ProgramBankTab::~ProgramBankTab() {
 	removeKeyListener(commandManager.getKeyMappings());
-	pullEntireBankComponent = nullptr;
-	pushEntireBankComponent = nullptr;
 }
