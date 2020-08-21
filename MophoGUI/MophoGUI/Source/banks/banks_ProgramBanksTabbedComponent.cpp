@@ -66,5 +66,19 @@ void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
 	label->setText((String)midiOptions->programTransmitTime() + " ms", dontSendNotification);
 }
 
+ProgramBankTab* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
+	switch (getCurrentTabIndex())
+	{
+	case 0:
+		return &bank1;
+	case 1:
+		return &bank2;
+	case 2:
+		return &bank3;
+	default:
+		return nullptr;
+	}
+}
+
 ProgramBanksTabbedComponent::~ProgramBanksTabbedComponent() {
 }

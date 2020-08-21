@@ -48,7 +48,11 @@ public:
 private:
     void updateProgramNameAfterDelay(const String& programDataHexString, uint8 selectedSlot);
     void storeNewProgramName(const String& programDataHexString, uint8 selectedSlot);
+
+public:
     void updateProgramSlotText(uint8 selectedSlot);
+
+private:
     void timerCallback() override;
 
 public:

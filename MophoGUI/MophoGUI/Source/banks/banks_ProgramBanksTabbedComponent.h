@@ -25,6 +25,7 @@ public:
     ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
+    ProgramBankTab* getCurrentProgramBankTab();
     ~ProgramBanksTabbedComponent() override;
 
 private:

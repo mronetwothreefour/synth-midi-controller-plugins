@@ -1,5 +1,6 @@
 #include "widget_BankTransmissionComponent.h"
 
+#include "../banks/banks_ProgramBanksTabbedComponent.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_ProgramDump.h"
@@ -7,8 +8,9 @@
 
 
 
-BankTransmissionComponent::BankTransmissionComponent(uint8 bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
-	bank{ bank },
+BankTransmissionComponent::BankTransmissionComponent(ProgramBanksTabbedComponent& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+	tabbedComponent{ tabbedComponent },
+	bank{ (uint8)tabbedComponent.getCurrentTabIndex() },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
 	title{ transmissionType == TransmissionType::push ? "Push All Programs To Bank " + (String)(bank + 1) : "Pull All Programs From Bank " + (String)(bank + 1) },
@@ -64,8 +66,12 @@ void BankTransmissionComponent::timerCallback() {
 }
 
 void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSlot) {
-	if (transmissionType == TransmissionType::pull)
+	if (transmissionType == TransmissionType::pull) {
 		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, unexposedParams);
+		auto programBankTab{ tabbedComponent.getCurrentProgramBankTab() };
+		if (programBankTab != nullptr)
+			callAfterDelay(transmitTime, [this, programBankTab, programSlot] { programBankTab->updateProgramSlotText(programSlot); });
+	}
 	else
 		ProgramDump::addProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, unexposedParams);
 }

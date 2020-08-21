@@ -44,8 +44,7 @@ void ProgramBanksComponent::hideThisComponent() {
 }
 
 void ProgramBanksComponent::showPushEntireBankComponent() {
-	auto bank{ (uint8)tabbedComponent.getCurrentTabIndex() };
-	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
+	pushEntireBankComponent.reset(new BankTransmissionComponent(tabbedComponent, BankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
 		pushEntireBankComponent->setBounds(getLocalBounds());
@@ -54,8 +53,7 @@ void ProgramBanksComponent::showPushEntireBankComponent() {
 }
 
 void ProgramBanksComponent::showPullEntireBankComponent() {
-	auto bank{ (uint8)tabbedComponent.getCurrentTabIndex() };
-	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
+	pullEntireBankComponent.reset(new BankTransmissionComponent(tabbedComponent, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());
 		pullEntireBankComponent->setBounds(getLocalBounds());
