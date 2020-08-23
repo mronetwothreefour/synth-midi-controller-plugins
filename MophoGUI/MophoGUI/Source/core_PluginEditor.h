@@ -11,6 +11,7 @@ class ButtonForClearingSequencerTrack;
 class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
+class ButtonForShowingGlobalParametersComponent;
 class GUILookAndFeel;
 class Logo;
 class ProgramBanksComponent;
@@ -34,6 +35,7 @@ class PluginEditor :
     std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
     std::unique_ptr<ButtonForSendingProgramEditBufferDumpRequest> button_ForSendingProgramEditBufferDumpRequest;
     std::unique_ptr<ButtonForShowingProgramBanksComponent> button_ForShowingProgramBanksComponent;
+    std::unique_ptr<ButtonForShowingGlobalParametersComponent> button_ForShowingGlobalParametersComponent;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
@@ -49,6 +51,7 @@ public:
 
 private:
     void showProgramBanksComponent();
+    void showGlobalParametersComponent();
 
 public:
     ~PluginEditor() override;
