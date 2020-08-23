@@ -2553,6 +2553,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForResettingAllBanksToFactoryDefaults.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4954,6 +4957,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForResettingAllBanksToFactoryDefaults.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h">
+      <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2032,6 +2032,7 @@
     <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -2829,6 +2830,7 @@
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />

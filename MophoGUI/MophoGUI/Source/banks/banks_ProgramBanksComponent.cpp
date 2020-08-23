@@ -26,7 +26,7 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	addAndMakeVisible(button_ForClosingProgramBanks);
 	auto buttons_w{ 50 };
 	auto buttons_h{ 21 };
-	button_ForClosingProgramBanks.setBounds(1115, 118, buttons_w, buttons_h);
+	button_ForClosingProgramBanks.setBounds(1114, 116, buttons_w, buttons_h);
 	button_ForClosingProgramBanks.onClick = [this] { hideThisComponent(); };
 	button_ForClosingProgramBanks.setAlwaysOnTop(true);
 
