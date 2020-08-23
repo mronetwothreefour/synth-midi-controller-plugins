@@ -11,7 +11,8 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	unexposedParams{ unexposedParams },
 	button_ForClosingProgramBanks{ "CLOSE" },
 	button_ForPushingEntireBankToHardware{ unexposedParams },
-	button_ForPullingEntireBankFromHardware{ unexposedParams }
+	button_ForPullingEntireBankFromHardware{ unexposedParams },
+	button_ForResettingAllBanksToFactoryDefaults{ unexposedParams }
 {
 	setSize(1273, 626);
 
@@ -31,11 +32,14 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
+	addAndMakeVisible(button_ForResettingAllBanksToFactoryDefaults);
 	button_ForPushingEntireBankToHardware.onClick = [this] { showPushEntireBankComponent(); };
 	button_ForPullingEntireBankFromHardware.onClick = [this] { showPullEntireBankComponent(); };
+	button_ForResettingAllBanksToFactoryDefaults.onClick = [this] { resetAllProgramBanks(); };
 	auto buttons_y{ 477 };
 	button_ForPushingEntireBankToHardware.setBounds(664, buttons_y, buttons_w, buttons_h);
 	button_ForPullingEntireBankFromHardware.setBounds(724, buttons_y, buttons_w, buttons_h);
+	button_ForResettingAllBanksToFactoryDefaults.setBounds(1104, buttons_y, buttons_w, buttons_h);
 
 }
 
@@ -59,6 +63,14 @@ void ProgramBanksComponent::showPullEntireBankComponent() {
 		pullEntireBankComponent->setBounds(getLocalBounds());
 		pullEntireBankComponent->setAlwaysOnTop(true);
 	}
+}
+
+void ProgramBanksComponent::resetAllProgramBanks() {
+	auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+	programBanks->resetAllProgramBanksToFactoryDefaults();
+	auto programNames{ unexposedParams->programNameStrings_get() };
+	programNames->resetAllProgramNameStringsToFactoryDefaults();
+	tabbedComponent.updateTextForAllProgramSlotsInAllBanks();
 }
 
 void ProgramBanksComponent::paint(Graphics& g) {

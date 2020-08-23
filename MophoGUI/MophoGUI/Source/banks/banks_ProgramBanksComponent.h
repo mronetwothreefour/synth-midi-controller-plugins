@@ -5,6 +5,7 @@
 #include "banks_ProgramBanksTabbedComponent.h"
 #include "../widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_banks_ButtonForResettingAllBanksToFactoryDefaults.h"
 
 
 
@@ -20,6 +21,7 @@ class ProgramBanksComponent : public Component
     ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
     std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
+    ButtonForResettingAllBanksToFactoryDefaults button_ForResettingAllBanksToFactoryDefaults;
 
 public:
     ProgramBanksComponent() = delete;
@@ -30,6 +32,7 @@ private:
     void hideThisComponent();
     void showPushEntireBankComponent();
     void showPullEntireBankComponent();
+    void resetAllProgramBanks();
 
 public:
     void paint(Graphics& g) override;

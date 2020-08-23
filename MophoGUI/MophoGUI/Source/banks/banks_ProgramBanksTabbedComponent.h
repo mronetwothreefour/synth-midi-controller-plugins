@@ -26,6 +26,7 @@ public:
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
     ProgramBankTab* getCurrentProgramBankTab();
+    void updateTextForAllProgramSlotsInAllBanks();
     ~ProgramBanksTabbedComponent() override;
 
 private:
