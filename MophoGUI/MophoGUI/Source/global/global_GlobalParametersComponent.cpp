@@ -24,7 +24,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
 	auto componentOutline_w{ 245 };
-	auto componentOutline_h{ 358 };
+	auto componentOutline_h{ 378 };
 	auto componentOutline_x{ (getWidth() - componentOutline_w) / 2 };
 	auto componentOutline_y{ (getHeight() - componentOutline_h) / 2 };
 	Rectangle<int> componentOutline{ componentOutline_x, componentOutline_y, componentOutline_w, componentOutline_h };

@@ -14,6 +14,7 @@ void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiParametersTree.setProperty(ID::midi_Channel, (uint8)0, nullptr);
 	midiParametersTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	midiParametersTree.setProperty(ID::midi_ProgramTransmitTime, 300, nullptr);
+	midiParametersTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 }
 
 void MidiOptions::addListener(ValueTree::Listener* listener) {

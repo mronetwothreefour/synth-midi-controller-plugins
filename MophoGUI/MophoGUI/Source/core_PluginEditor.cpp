@@ -9,6 +9,7 @@
 #include "gui/gui_Logo.h"
 #include "gui/gui_LookAndFeel.h"
 #include "guiRenderers/guiRenderer_ForEnvelopes.h"
+#include "midi/midi_GlobalParametersDump.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 #include "widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
@@ -137,6 +138,8 @@ void PluginEditor::showProgramBanksComponent() {
 }
 
 void PluginEditor::showGlobalParametersComponent() {
+    auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
     globalParamsComponent.reset(new GlobalParametersComponent(unexposedParams));
     if (globalParamsComponent != nullptr) {
         addAndMakeVisible(globalParamsComponent.get());

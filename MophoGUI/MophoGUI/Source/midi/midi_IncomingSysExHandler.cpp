@@ -9,7 +9,25 @@
 
 IncomingSysExHandler::IncomingSysExHandler(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams }
+    unexposedParams{ unexposedParams },
+    sysExMessageTypeByte{ 3 },
+    programDumpBankByte{ 4 },
+    programDumpSlotByte{ 5 },
+    firstProgramDataByte{ 6 },
+    firstUnusedProgramDataByte{ 236 },
+    globalTransposeLSByte{ 4 },
+    globalTransposeMSByte{ 5 },
+    globalFineTuneLSByte{ 6 },
+    globalFineTuneMSByte{ 7 },
+    globalMidiChannelLSByte{ 8 },
+    globalMidiChannelMSByte{ 9 },
+    globalMidiClockSelectByte{ 10 },
+    globalParameterSendFormatByte{ 12 },
+    globalParameterReceiveFormatByte{ 14 },
+    globalMidiControllersOnByte{ 16 },
+    globalSysExOnByte{ 18 },
+    globalStereoOutByte{ 20 },
+    globalMidiThruByte{ 22 }
 {
 }
 
@@ -33,7 +51,7 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 }
 
 void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysExData) {
-    if (sysExData[3] == (uint8)SysExMessageType::programEditBufferDump) {
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::programEditBufferDump) {
         RawProgramData::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
         return;
     }
@@ -42,13 +60,11 @@ void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysE
 }
 
 void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
-    if (sysExData[3] == (uint8)SysExMessageType::programDump) {
-        auto bank{ sysExData[4] };
-        auto slot{ sysExData[5] };
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::programDump) {
+        auto bank{ sysExData[programDumpBankByte] };
+        auto slot{ sysExData[programDumpSlotByte] };
         std::vector<uint8> programDataVector;
-        auto firstProgramDataByte{ 6 };
-        auto firstUnusedByte{ 236 };
-        for (auto dataByte = firstProgramDataByte; dataByte != firstUnusedByte; ++dataByte)
+        for (auto dataByte = firstProgramDataByte; dataByte != firstUnusedProgramDataByte; ++dataByte)
             programDataVector.push_back(*(sysExData + dataByte));
         auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->pluginProgramBanks_get() };
@@ -56,6 +72,14 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
         auto programNames{ unexposedParams->programNameStrings_get() };
         auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
         programNames->storeNameOfProgramInBankSlot(programName, bank, slot);
+    }
+    else
+        handleIncomingGlobalParametersDump(sysExData);
+}
+
+void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysExData) {
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersDump) {
+        auto midiOptions{ unexposedParams->midiOptions_get() };
     }
 }
 
