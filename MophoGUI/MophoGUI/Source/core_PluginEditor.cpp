@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "banks/banks_ProgramBanksComponent.h"
+#include "global/global_GlobalParametersComponent.h"
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
@@ -136,12 +137,18 @@ void PluginEditor::showProgramBanksComponent() {
 }
 
 void PluginEditor::showGlobalParametersComponent() {
+    globalParamsComponent.reset(new GlobalParametersComponent(unexposedParams));
+    if (globalParamsComponent != nullptr) {
+        addAndMakeVisible(globalParamsComponent.get());
+        globalParamsComponent->setBounds(getLocalBounds());
+    }
 }
 
 PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    globalParamsComponent = nullptr;
     programBanksComponent = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;

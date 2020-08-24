@@ -463,6 +463,9 @@
     <Filter Include="MophoGUI\Source\widgets_BankTransmission">
       <UniqueIdentifier>{d998ae69-2612-46a2-be60-f4aa7df5d8ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\global">
+      <UniqueIdentifier>{7005b4e9-68fd-4118-882f-65d5ab107301}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2556,7 +2559,12 @@
     <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4964,6 +4972,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

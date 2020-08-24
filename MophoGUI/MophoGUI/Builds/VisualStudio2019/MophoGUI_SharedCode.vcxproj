@@ -2024,6 +2024,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp" />
@@ -2821,6 +2822,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h" />

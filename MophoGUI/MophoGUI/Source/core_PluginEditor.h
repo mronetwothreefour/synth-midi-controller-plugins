@@ -12,6 +12,7 @@ class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
 class ButtonForShowingGlobalParametersComponent;
+class GlobalParametersComponent;
 class GUILookAndFeel;
 class Logo;
 class ProgramBanksComponent;
@@ -41,6 +42,7 @@ class PluginEditor :
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack3;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
     std::unique_ptr<ProgramBanksComponent> programBanksComponent;
+    std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
