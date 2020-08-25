@@ -11,7 +11,7 @@
 struct ParameterChangeMessage {
     static void sendNewValueForNRPNtypeToUnexposedParamsForHandling(uint8 newValue, uint16 nrpnType, UnexposedParameters* unexposedParams) {
         auto midiOptions{ unexposedParams->midiOptions_get() };
-        auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(midiOptions->channel(), nrpnType, newValue) };
+        auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(midiOptions->transmitChannel(), nrpnType, newValue) };
         auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
         outgoingBuffers->aggregateOutgoingMidiBuffers(nrpnBuffer);
     }

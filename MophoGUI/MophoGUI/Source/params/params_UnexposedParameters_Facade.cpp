@@ -3,6 +3,7 @@
 
 
 UnexposedParameters::UnexposedParameters() :
+	globalAudioOptions{ new GlobalAudioOptions() },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	pluginProgramBanks{ new PluginProgramBanks() },
@@ -14,6 +15,10 @@ UnexposedParameters::UnexposedParameters() :
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::aggregatedOutgoingBuffers_get() {
 	return outgoingMidiBuffers->aggregatedOutgoingBuffers_get();
+}
+
+GlobalAudioOptions* UnexposedParameters::globalAudioOptions_get() {
+	return globalAudioOptions.get();
 }
 
 MidiOptions* UnexposedParameters::midiOptions_get() {
@@ -45,4 +50,5 @@ UnexposedParameters::~UnexposedParameters() {
 	tooltipOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	midiOptions = nullptr;
+	globalAudioOptions = nullptr;
 }

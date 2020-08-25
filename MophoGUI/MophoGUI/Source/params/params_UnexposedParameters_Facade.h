@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "params_GlobalAudioOptions.h"
 #include "params_MidiOptions.h"
 #include "params_UnexposedTooltipOptions.h"
 #include "../banks/banks_PluginProgramBanks.h"
@@ -12,6 +13,7 @@
 
 class UnexposedParameters
 {
+	std::unique_ptr<GlobalAudioOptions> globalAudioOptions;
 	std::unique_ptr<MidiOptions> midiOptions;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
 	std::unique_ptr<PluginProgramBanks> pluginProgramBanks;
@@ -22,6 +24,7 @@ class UnexposedParameters
 public:
 	UnexposedParameters();
 	Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers_get();
+	GlobalAudioOptions* globalAudioOptions_get();
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
 	PluginProgramBanks* pluginProgramBanks_get();

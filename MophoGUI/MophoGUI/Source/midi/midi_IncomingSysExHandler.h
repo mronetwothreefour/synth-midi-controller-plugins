@@ -19,15 +19,15 @@ class IncomingSysExHandler
 	const int globalTransposeMSByte;
 	const int globalFineTuneLSByte;
 	const int globalFineTuneMSByte;
-	const int globalMidiChannelLSByte;
-	const int globalMidiChannelMSByte;
-	const int globalMidiClockSelectByte;
-	const int globalParameterSendFormatByte;
-	const int globalParameterReceiveFormatByte;
+	const int globalHardwareReceiveChannelLSByte;
+	const int globalHardwareReceiveChannelMSByte;
+	const int globalMidiClockTypeByte;
+	const int globalParameterSendTypetByte;
+	const int globalParameterReceiveTypeByte;
 	const int globalMidiControllersOnByte;
 	const int globalSysExOnByte;
 	const int globalStereoOutByte;
-	const int globalMidiThruByte;
+	const int globalMidiThruOnByte;
 
 public:
 	IncomingSysExHandler() = delete;
@@ -40,6 +40,8 @@ private:
 	void handleIncomingProgramEditBufferDump(const uint8* sysExData);
 	void handleIncomingProgramDump(const uint8* sysExData);
 	void handleIncomingGlobalParametersDump(const uint8* sysExData);
+	void updateMidiOptions(const uint8* sysExData);
+	void updateGlobalAudioOptions(const uint8* sysExData);
 
 public:
 	~IncomingSysExHandler();

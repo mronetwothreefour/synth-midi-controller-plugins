@@ -2043,6 +2043,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
+    <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
@@ -2843,6 +2844,7 @@
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
+    <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />

@@ -138,6 +138,10 @@ void PluginEditor::showProgramBanksComponent() {
 }
 
 void PluginEditor::showGlobalParametersComponent() {
+    auto midiOptions{ unexposedParams->midiOptions_get() };
+    midiOptions->resetMidiOptionsToDefaults();
+    auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+    globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
     globalParamsComponent.reset(new GlobalParametersComponent(unexposedParams));

@@ -2565,6 +2565,9 @@
     <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp">
       <Filter>MophoGUI\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4975,6 +4978,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h">
       <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
