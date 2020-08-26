@@ -22,7 +22,8 @@ class UnexposedParameters;
 class PluginEditor : 
     public AudioProcessorEditor,
     private ControlsForExposedParameters,
-    public ValueTree::Listener
+    public ValueTree::Listener,
+    private Timer
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
@@ -53,7 +54,9 @@ public:
 
 private:
     void showProgramBanksComponent();
+    void prepareToShowGlobalParametersComponent();
     void showGlobalParametersComponent();
+    void timerCallback() override;
 
 public:
     ~PluginEditor() override;

@@ -69,7 +69,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForClearingSequencerTrack4.get());
 
     button_ForShowingProgramBanksComponent->onClick = [this] { showProgramBanksComponent(); };
-    button_ForShowingGlobalParametersComponent->onClick = [this] { showGlobalParametersComponent(); };
+    button_ForShowingGlobalParametersComponent->onClick = [this] { prepareToShowGlobalParametersComponent(); };
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -137,18 +137,25 @@ void PluginEditor::showProgramBanksComponent() {
     }
 }
 
-void PluginEditor::showGlobalParametersComponent() {
+void PluginEditor::prepareToShowGlobalParametersComponent() {
     auto midiOptions{ unexposedParams->midiOptions_get() };
     midiOptions->resetMidiOptionsToDefaults();
     auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
+    callAfterDelay(20, [this] { showGlobalParametersComponent(); });
+}
+
+void PluginEditor::showGlobalParametersComponent() {
     globalParamsComponent.reset(new GlobalParametersComponent(unexposedParams));
     if (globalParamsComponent != nullptr) {
         addAndMakeVisible(globalParamsComponent.get());
         globalParamsComponent->setBounds(getLocalBounds());
     }
+}
+
+void PluginEditor::timerCallback() {
 }
 
 PluginEditor::~PluginEditor() {
