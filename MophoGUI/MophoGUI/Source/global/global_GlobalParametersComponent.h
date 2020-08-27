@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../widgets_ToggleButton/widget_global_ToggleButtonForSysEx.h"
+
 
 
 class UnexposedParameters;
@@ -16,7 +18,9 @@ class GlobalParametersComponent :
     private Timer
 {
     UnexposedParameters* unexposedParams;
+    const uint16 nrpnType_SysExOn;
     TextButton button_ForClosingGlobalParameters;
+    ToggleButtonForSysEx toggle_ForSysEx;
 
 public:
     GlobalParametersComponent() = delete;
@@ -30,7 +34,6 @@ public:
     void paint(Graphics& g) override;
     void resized() override;
     void buttonClicked(Button* button) override;
-    void buttonStateChanged(Button* button) override;
     void comboBoxChanged(ComboBox* comboBox) override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;

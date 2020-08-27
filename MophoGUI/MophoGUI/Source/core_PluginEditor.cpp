@@ -144,7 +144,7 @@ void PluginEditor::prepareToShowGlobalParametersComponent() {
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(20, [this] { showGlobalParametersComponent(); });
+    callAfterDelay(200, [this] { showGlobalParametersComponent(); });
 }
 
 void PluginEditor::showGlobalParametersComponent() {
