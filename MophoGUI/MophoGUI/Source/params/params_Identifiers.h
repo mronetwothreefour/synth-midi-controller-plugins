@@ -13,6 +13,7 @@ namespace ID
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 
 	static const Identifier global_AudioOptions{ "global_AudioOptions" };
+	static const Identifier global_Balance{ "global_Balance" };
 	static const Identifier global_FineTune{ "global_FineTune" };
 	static const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
 	static const Identifier global_Transpose{ "global_Transpose" };
@@ -24,6 +25,8 @@ namespace ID
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_ParameterReceiveType{ "midi_ParameterReceiveType" };
 	static const Identifier midi_ParameterSendType{ "midi_ParameterSendType" };
+	static const Identifier midi_PedalModeArp{ "midi_PedalModeArp" };
+	static const Identifier midi_ProgramChangeOn{ "midi_ProgramChangeOn" };
 	static const Identifier midi_ProgramTransmitTime{ "midi_ProgramTransmitTime" };
 	static const Identifier midi_SysExOn{ "midi_SysExOn" };
 	static const Identifier midi_ThruOn{ "midi_ThruOn" };

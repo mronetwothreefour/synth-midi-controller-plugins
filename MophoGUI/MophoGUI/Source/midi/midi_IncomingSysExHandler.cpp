@@ -27,7 +27,9 @@ IncomingSysExHandler::IncomingSysExHandler(AudioProcessorValueTreeState* exposed
     globalMidiControllersOnByte{ 16 },
     globalSysExOnByte{ 18 },
     globalStereoOutByte{ 20 },
-    globalMidiThruOnByte{ 22 }
+    globalBalanceByte{ 24 },
+    globalPedalModeIsArpByte{ 26 },
+    globalProgramChangeOnByte{ 28 }
 {
 }
 
@@ -110,11 +112,16 @@ void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
         midiOptions->setSysExOn();
     else
         midiOptions->setSysExOff();
-    auto midiThruIsOn{ (bool)sysExData[globalMidiThruOnByte] };
-    if (midiThruIsOn)
-        midiOptions->setMidiThruOn();
+    auto pedalModeIsArp{ (bool)sysExData[globalPedalModeIsArpByte] };
+    if (pedalModeIsArp)
+        midiOptions->setPedalModeToArp();
     else
-        midiOptions->setMidiThruOff();
+        midiOptions->setPedalModeToNormal();
+    auto programChangeIsOn{ (bool)sysExData[globalProgramChangeOnByte] };
+    if (programChangeIsOn)
+        midiOptions->setProgramChangeOn();
+    else
+        midiOptions->setProgramChangeOff();
     midiOptions->setParamChangeEchosAreNotBlocked();
 }
 
@@ -129,6 +136,8 @@ void IncomingSysExHandler::updateGlobalAudioOptions(const uint8* sysExData) {
         globalAudioOptions->setHardwareOutputMono();
     else
         globalAudioOptions->setHardwareOutputStereo();
+    auto globalBalance{ sysExData[globalBalanceByte] };
+    globalAudioOptions->setGlobalBalance(globalBalance);
 }
 
 IncomingSysExHandler::~IncomingSysExHandler() {

@@ -30,7 +30,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
 	auto componentOutline_w{ 245 };
-	auto componentOutline_h{ 378 };
+	auto componentOutline_h{ 422 };
 	auto componentOutline_x{ (getWidth() - componentOutline_w) / 2 };
 	auto componentOutline_y{ (getHeight() - componentOutline_h) / 2 };
 	Rectangle<int> componentOutline{ componentOutline_x, componentOutline_y, componentOutline_w, componentOutline_h };
@@ -41,10 +41,10 @@ void GlobalParametersComponent::paint(Graphics& g) {
 }
 
 void GlobalParametersComponent::resized() {
-	button_ForClosingGlobalParameters.setBounds(703, 130, 50, 21);
+	button_ForClosingGlobalParameters.setBounds(703, 108, 50, 21);
 	auto togglesDiameter{ 14 };
-	auto toggles_x{ 673 };
-	toggle_ForSysEx.setBounds(toggles_x, 297, togglesDiameter, togglesDiameter);
+	auto toggles_x{ 679 };
+	toggle_ForSysEx.setBounds(toggles_x, 295, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {

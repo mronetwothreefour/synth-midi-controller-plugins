@@ -27,7 +27,9 @@ class IncomingSysExHandler
 	const int globalMidiControllersOnByte;
 	const int globalSysExOnByte;
 	const int globalStereoOutByte;
-	const int globalMidiThruOnByte;
+	const int globalBalanceByte;
+	const int globalPedalModeIsArpByte;
+	const int globalProgramChangeOnByte;
 
 public:
 	IncomingSysExHandler() = delete;

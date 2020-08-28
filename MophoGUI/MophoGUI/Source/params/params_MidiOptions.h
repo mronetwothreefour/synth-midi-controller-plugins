@@ -34,9 +34,12 @@ public:
 	bool sysExIsOn();
 	void setSysExOn();
 	void setSysExOff();
-	bool midiThruIsOn();
-	void setMidiThruOn();
-	void setMidiThruOff();
+	bool pedalModeIsArp();
+	void setPedalModeToArp();
+	void setPedalModeToNormal();
+	bool programChangeIsOn();
+	void setProgramChangeOn();
+	void setProgramChangeOff();
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();

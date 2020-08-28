@@ -25,6 +25,8 @@ public:
 	bool hardwareOutputIsStereo();
 	void setHardwareOutputStereo();
 	void setHardwareOutputMono();
+	uint8 globalBalance();
+	void setGlobalBalance(uint8 newBalance);
 	~GlobalAudioOptions();
 
 private:

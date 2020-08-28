@@ -2049,6 +2049,7 @@
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
+    <ClCompile Include="..\..\Source\params\params_UnexposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
@@ -2071,8 +2072,8 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
-    <ClCompile Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.cpp" />
-    <ClCompile Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlsForExposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
@@ -2853,6 +2854,7 @@
     <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
+    <ClInclude Include="..\..\Source\params\params_UnexposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
@@ -2875,9 +2877,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
-    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlForExposedParameter.h" />
-    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h" />

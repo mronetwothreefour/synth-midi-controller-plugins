@@ -11,6 +11,7 @@ GlobalAudioOptions::GlobalAudioOptions() :
 }
 
 void GlobalAudioOptions::fillglobalAudioOptionsTreeWithProperties() {
+	globalAudioOptionsTree.setProperty(ID::global_Balance, (uint8)7, nullptr);
 	globalAudioOptionsTree.setProperty(ID::global_FineTune, (uint8)50, nullptr);
 	globalAudioOptionsTree.setProperty(ID::global_HardwareOutputIsStereo, (bool)true, nullptr);
 	globalAudioOptionsTree.setProperty(ID::global_Transpose, (uint8)12, nullptr);
@@ -54,6 +55,14 @@ void GlobalAudioOptions::setHardwareOutputStereo() {
 
 void GlobalAudioOptions::setHardwareOutputMono() {
 	globalAudioOptionsTree.setProperty(ID::global_HardwareOutputIsStereo, (bool)false, nullptr);
+}
+
+uint8 GlobalAudioOptions::globalBalance() {
+	return (uint8)(int)globalAudioOptionsTree.getProperty(ID::global_Balance);
+}
+
+void GlobalAudioOptions::setGlobalBalance(uint8 newBalance) {
+	globalAudioOptionsTree.setProperty(ID::global_FineTune, newBalance, nullptr);
 }
 
 GlobalAudioOptions::~GlobalAudioOptions() {

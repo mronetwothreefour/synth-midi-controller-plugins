@@ -2,7 +2,7 @@
 
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
-#include "../widgets_ControlsForExposedParameters/widget_ControlTypes.h"
+#include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
 
 

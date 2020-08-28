@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "widgets_ControlsForExposedParameters/widget_ControlsForExposedParameters.h"
+#include "widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"
 
 
 

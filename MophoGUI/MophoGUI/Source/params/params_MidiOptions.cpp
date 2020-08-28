@@ -14,10 +14,12 @@ void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_Clock, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)true, nullptr);
 	midiOptionsTree.setProperty(ID::midi_HardwareReceiveChannel, (uint8)0, nullptr);
+	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterReceiveType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterSendType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ProgramTransmitTime, 300, nullptr);
+	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_TransmitChannel, (uint8)0, nullptr);
 }
@@ -98,16 +100,28 @@ void MidiOptions::setSysExOff() {
 	midiOptionsTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 }
 
-bool MidiOptions::midiThruIsOn() {
-	return (bool)midiOptionsTree.getProperty(ID::midi_ThruOn);
+bool MidiOptions::pedalModeIsArp() {
+	return (bool)midiOptionsTree.getProperty(ID::midi_PedalModeArp);
 }
 
-void MidiOptions::setMidiThruOn() {
-	midiOptionsTree.setProperty(ID::midi_ThruOn, (bool)true, nullptr);
+void MidiOptions::setPedalModeToArp() {
+	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)true, nullptr);
 }
 
-void MidiOptions::setMidiThruOff() {
-	midiOptionsTree.setProperty(ID::midi_ThruOn, (bool)false, nullptr);
+void MidiOptions::setPedalModeToNormal() {
+	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)false, nullptr);
+}
+
+bool MidiOptions::programChangeIsOn() {
+	return (bool)midiOptionsTree.getProperty(ID::midi_ProgramChangeOn);
+}
+
+void MidiOptions::setProgramChangeOn() {
+	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)true, nullptr);
+}
+
+void MidiOptions::setProgramChangeOff() {
+	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)false, nullptr);
 }
 
 bool MidiOptions::paramChangeEchosAreNotBlocked() {
