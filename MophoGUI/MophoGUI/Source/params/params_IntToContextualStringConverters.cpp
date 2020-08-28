@@ -630,6 +630,17 @@ String IntToArpegModeString::verboseConversionAlgorithm(const uint8& i) noexcept
 	if (i == 1) return "Down";
 	if (i == 2) return "Up & Down";
 	if (i == 3) return "Assign";
+	if (i == 4) return "Random";
+	if (i == 5) return "2 Octaves Up";
+	if (i == 6) return "2 Octaves Down";
+	if (i == 7) return "2 Octaves Up & Down";
+	if (i == 8) return "2 Octaves Assign";
+	if (i == 9) return "2 Octaves Random";
+	if (i == 10) return "3 Octaves Up";
+	if (i == 11) return "3 Octaves Down";
+	if (i == 12) return "3 Octaves Up & Down";
+	if (i == 13) return "3 Octaves Assign";
+	if (i == 14) return "3 Octaves Random";
 	else return "range error";
 }
 

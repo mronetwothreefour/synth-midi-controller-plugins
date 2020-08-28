@@ -1522,7 +1522,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)97);
 	converters.add(IntToArpegModeString::get());
-	maxValues.add((uint8)3);
+	maxValues.add((uint8)14);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the order in which the arpeggiator plays notes.\n";
 	descriptionString += "Assign mode: notes play in the order in which they were struck.";
