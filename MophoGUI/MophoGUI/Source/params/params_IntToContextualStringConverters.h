@@ -209,6 +209,30 @@ public:
 
 
 
+struct IntToSeqTrack2DestinationString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSeqTrack2DestinationString* get() noexcept;
+};
+
+
+
+
+struct IntToSeqTrack4DestinationString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSeqTrack4DestinationString* get() noexcept;
+};
+
+
+
+
 struct IntToModSourceString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;

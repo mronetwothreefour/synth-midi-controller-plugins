@@ -1600,10 +1600,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)78);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
+	converters.add(IntToSeqTrack2DestinationString::get());
+	maxValues.add((uint8)47);
 	defaultValues.add((uint8)2);
-	descriptionString = "Selects the target parameter for\n";
+	descriptionString =  "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 2.";
 	descriptions.add(descriptionString);
 	ctrlWidths.add(seqTrackDestComboBoxes_w);
@@ -1628,8 +1628,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)80);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
+	converters.add(IntToSeqTrack4DestinationString::get());
+	maxValues.add((uint8)47);
 	defaultValues.add((uint8)0);
 	descriptionString = "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 4.";

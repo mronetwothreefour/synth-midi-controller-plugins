@@ -498,6 +498,136 @@ IntToModDestinationString* IntToModDestinationString::get() noexcept {
 
 
 
+String IntToSeqTrack2DestinationString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToSeqTrack2DestinationString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 48);
+	if (i == 0) return "Off";
+	if (i == 1) return "Oscillator 1 Pitch";
+	if (i == 2) return "Oscillator 2 Pitch";
+	if (i == 3) return "Oscillator 1 & 2 Pitch";
+	if (i == 4) return "Oscillator Mix";
+	if (i == 5) return "Noise Level";
+	if (i == 6) return "Oscillator 1 Pulse Width";
+	if (i == 7) return "Oscillator 2 Pulse Width";
+	if (i == 8) return "Oscillator 1 & 2 PW";
+	if (i == 9) return "LPF Cutoff Frequency";
+	if (i == 10) return "LPF Resonance";
+	if (i == 11) return "LPF FM Amount";
+	if (i == 12) return "VCA Level";
+	if (i == 13) return "Output Panning";
+	if (i == 14) return "LFO 1 Frequency";
+	if (i == 15) return "LFO 2 Frequency";
+	if (i == 16) return "LFO 3 Frequency";
+	if (i == 17) return "LFO 4 Frequency";
+	if (i == 18) return "All LFO Frequencies";
+	if (i == 19) return "LFO 1 Amount";
+	if (i == 20) return "LFO 2 Amount";
+	if (i == 21) return "LFO 3 Amount";
+	if (i == 22) return "LFO 4 Amount";
+	if (i == 23) return "All LFO Amounts";
+	if (i == 24) return "LPF Envelope Amount";
+	if (i == 25) return "VCA Envelope Amount";
+	if (i == 26) return "Envelope 3 Amount";
+	if (i == 27) return "All Envelope Amounts";
+	if (i == 28) return "LPF Envelope Attack";
+	if (i == 29) return "VCA Envelope Attack";
+	if (i == 30) return "Envelope 3 Attack";
+	if (i == 31) return "All Envelope Attacks";
+	if (i == 32) return "LPF Envelope Decay";
+	if (i == 33) return "VCA Envelope Decay";
+	if (i == 34) return "Envelope 3 Decay";
+	if (i == 35) return "All Envelope Decays";
+	if (i == 36) return "LPF Envelope Release";
+	if (i == 37) return "VCA Envelope Release";
+	if (i == 38) return "Envelope 3 Release";
+	if (i == 39) return "All Envelope Releases";
+	if (i == 40) return "Modulator 1 Amount";
+	if (i == 41) return "Modulator 2 Amount";
+	if (i == 42) return "Modulator 3 Amount";
+	if (i == 43) return "Modulator 4 Amount";
+	if (i == 44) return "External Audio In Level";
+	if (i == 45) return "Sub-Osc 1 Level";
+	if (i == 46) return "Sub-Osc 2 Level";
+	if (i == 47) return "Seq. Track 1 Slew";
+	else return "range error";
+}
+
+IntToSeqTrack2DestinationString* IntToSeqTrack2DestinationString::get() noexcept {
+	static IntToSeqTrack2DestinationString converter;
+	return &converter;
+}
+
+
+
+
+String IntToSeqTrack4DestinationString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToSeqTrack4DestinationString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 48);
+	if (i == 0) return "Off";
+	if (i == 1) return "Oscillator 1 Pitch";
+	if (i == 2) return "Oscillator 2 Pitch";
+	if (i == 3) return "Oscillator 1 & 2 Pitch";
+	if (i == 4) return "Oscillator Mix";
+	if (i == 5) return "Noise Level";
+	if (i == 6) return "Oscillator 1 Pulse Width";
+	if (i == 7) return "Oscillator 2 Pulse Width";
+	if (i == 8) return "Oscillator 1 & 2 PW";
+	if (i == 9) return "LPF Cutoff Frequency";
+	if (i == 10) return "LPF Resonance";
+	if (i == 11) return "LPF FM Amount";
+	if (i == 12) return "VCA Level";
+	if (i == 13) return "Output Panning";
+	if (i == 14) return "LFO 1 Frequency";
+	if (i == 15) return "LFO 2 Frequency";
+	if (i == 16) return "LFO 3 Frequency";
+	if (i == 17) return "LFO 4 Frequency";
+	if (i == 18) return "All LFO Frequencies";
+	if (i == 19) return "LFO 1 Amount";
+	if (i == 20) return "LFO 2 Amount";
+	if (i == 21) return "LFO 3 Amount";
+	if (i == 22) return "LFO 4 Amount";
+	if (i == 23) return "All LFO Amounts";
+	if (i == 24) return "LPF Envelope Amount";
+	if (i == 25) return "VCA Envelope Amount";
+	if (i == 26) return "Envelope 3 Amount";
+	if (i == 27) return "All Envelope Amounts";
+	if (i == 28) return "LPF Envelope Attack";
+	if (i == 29) return "VCA Envelope Attack";
+	if (i == 30) return "Envelope 3 Attack";
+	if (i == 31) return "All Envelope Attacks";
+	if (i == 32) return "LPF Envelope Decay";
+	if (i == 33) return "VCA Envelope Decay";
+	if (i == 34) return "Envelope 3 Decay";
+	if (i == 35) return "All Envelope Decays";
+	if (i == 36) return "LPF Envelope Release";
+	if (i == 37) return "VCA Envelope Release";
+	if (i == 38) return "Envelope 3 Release";
+	if (i == 39) return "All Envelope Releases";
+	if (i == 40) return "Modulator 1 Amount";
+	if (i == 41) return "Modulator 2 Amount";
+	if (i == 42) return "Modulator 3 Amount";
+	if (i == 43) return "Modulator 4 Amount";
+	if (i == 44) return "External Audio In Level";
+	if (i == 45) return "Sub-Osc 1 Level";
+	if (i == 46) return "Sub-Osc 2 Level";
+	if (i == 47) return "Seq. Track 3 Slew";
+	else return "range error";
+}
+
+IntToSeqTrack4DestinationString* IntToSeqTrack4DestinationString::get() noexcept {
+	static IntToSeqTrack4DestinationString converter;
+	return &converter;
+}
+
+
+
+
 String IntToModSourceString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
@@ -1094,3 +1224,4 @@ IntToPgmNameCharString* IntToPgmNameCharString::get() noexcept {
 	static IntToPgmNameCharString converter;
 	return &converter;
 }
+
