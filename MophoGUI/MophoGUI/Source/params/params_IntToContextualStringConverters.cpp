@@ -1225,3 +1225,27 @@ IntToPgmNameCharString* IntToPgmNameCharString::get() noexcept {
 	return &converter;
 }
 
+
+
+
+String IntToGlobalTransposeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 25);
+	if (i < 13) return (String)(i - 12);
+	if (i > 12 && i < 25) return "+" + (String)(i - 12);
+	else return "err";
+}
+
+String IntToGlobalTransposeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 25);
+	if (i < 11) return (String)(i - 12) + " semitones";
+	if (i == 11) return "-1 semitone";
+	if (i == 12) return "No Transpose";
+	if (i == 13) return "+1 semitone";
+	if (i > 13 && i < 25) return "+" + (String)(i - 12) + " semitones";
+	else return "range error";
+}
+
+IntToGlobalTransposeString* IntToGlobalTransposeString::get() noexcept {
+	static IntToGlobalTransposeString converter;
+	return &converter;
+}
