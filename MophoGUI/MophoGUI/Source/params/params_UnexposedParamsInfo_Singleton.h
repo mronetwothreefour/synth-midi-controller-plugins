@@ -6,10 +6,12 @@
 
 enum class ControlType;
 struct IntToContextualStringConverter;
+enum class OptionsType;
 
 class InfoForUnexposedParameters
 {
 	Array<Identifier> identifiers;
+	Array<OptionsType> optionsTypes;
 	Array<ControlType> controlTypes;
 	Array<uint16> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
@@ -33,6 +35,7 @@ public:
 	int paramOutOfRange() const noexcept;
 	Identifier IDfor(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;
+	OptionsType optionsTypeFor(uint8 paramIndex) const;
 	uint8 NRPNfor(uint8 paramIndex) const;
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
 	uint8 maxValueFor(uint8 paramIndex) const;

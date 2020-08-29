@@ -2,6 +2,7 @@
 
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
+#include "params_OptionsType.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
 
@@ -31,6 +32,7 @@ void InfoForUnexposedParameters::fillAllInfoContainers() {
 
 	identifiers.add(ID::global_Transpose); // 0
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	optionsTypes.add(OptionsType::globalAudioOptions);
 	NRPNs.add((uint16)384);
 	converters.add(IntToGlobalTransposeString::get());
 	maxValues.add((uint8)24);
@@ -77,6 +79,10 @@ Identifier InfoForUnexposedParameters::IDfor(uint8 paramIndex) const {
 
 ControlType InfoForUnexposedParameters::controlTypeFor(uint8 paramIndex) const {
 	return controlTypes[paramIndex];
+}
+
+OptionsType InfoForUnexposedParameters::optionsTypeFor(uint8 paramIndex) const {
+	return optionsTypes[paramIndex];
 }
 
 uint8 InfoForUnexposedParameters::NRPNfor(uint8 paramIndex) const {

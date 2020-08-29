@@ -2851,6 +2851,7 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_OptionsType.h" />
     <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
@@ -2877,9 +2878,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
-    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h" />

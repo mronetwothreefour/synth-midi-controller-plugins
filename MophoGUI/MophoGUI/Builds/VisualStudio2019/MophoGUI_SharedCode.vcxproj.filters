@@ -464,7 +464,7 @@
       <UniqueIdentifier>{7005b4e9-68fd-4118-882f-65d5ab107301}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI\Source\widgets_ControlsForParameters">
-      <UniqueIdentifier>{1db5b385-2809-475e-9fd2-ecfab2c2cc5d}</UniqueIdentifier>
+      <UniqueIdentifier>{4207f08d-ef82-43f6-806f-7c3eda8e26fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4865,9 +4865,6 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ControlsForExposedParameters\widget_ControlTypes.h">
-      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
@@ -4988,10 +4985,16 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParamsInfo_Singleton.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_OptionsType.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
   </ItemGroup>
