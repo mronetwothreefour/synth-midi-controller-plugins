@@ -17,7 +17,7 @@ public:
 
 	KnobWithValueStringDisplay(uint8 param, UnexposedParameters* unexposedParams) :
 		KnobWithExposedParamAttacher{ param, unexposedParams },
-		valueStringDisplay{ &slider, param }
+		valueStringDisplay{ &slider, InfoForExposedParameters::get().converterFor(param) }
 	{
 		auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
 		auto ctrlHeight{ InfoForExposedParameters::get().ctrlHeightFor(param) };

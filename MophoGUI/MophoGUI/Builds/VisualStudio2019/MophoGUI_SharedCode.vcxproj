@@ -2049,7 +2049,6 @@
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
-    <ClCompile Include="..\..\Source\params\params_UnexposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
@@ -2075,6 +2074,7 @@
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
@@ -2855,7 +2855,6 @@
     <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
-    <ClInclude Include="..\..\Source\params\params_UnexposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
@@ -2883,6 +2882,7 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h" />

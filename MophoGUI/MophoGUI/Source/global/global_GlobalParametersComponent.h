@@ -2,6 +2,9 @@
 
 #include <JuceHeader.h>
 
+#include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
+#include "../widgets_Slider/widget_ModifiedJuceSliders.h"
+#include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
 #include "../widgets_ToggleButton/widget_global_ToggleButtonForSysEx.h"
 
 
@@ -19,7 +22,10 @@ class GlobalParametersComponent :
 {
     UnexposedParameters* unexposedParams;
     const uint16 nrpnType_SysExOn;
+    const uint16 nrpnType_GlobalTranspose;
     TextButton button_ForClosingGlobalParameters;
+    KnobForGlobalTranspose knob_ForGlobalTranspose;
+    RendererForKnobValueStrings valueDisplay_ForGlobalTranspose;
     ToggleButtonForSysEx toggle_ForSysEx;
 
 public:
@@ -41,6 +47,7 @@ public:
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
+    void sendNewValueForNRPNtypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType);
     void timerCallback() override;
 
 public:

@@ -17,7 +17,7 @@ class RendererForKnobValueStrings :
 public:
 	RendererForKnobValueStrings() = delete;
 
-	RendererForKnobValueStrings(Slider* knob, uint8 param);
+	RendererForKnobValueStrings(Slider* knob, IntToContextualStringConverter* converter);
 	void paint(Graphics& g) override;
 	void sliderValueChanged(Slider* slider) override;
 	~RendererForKnobValueStrings() override;

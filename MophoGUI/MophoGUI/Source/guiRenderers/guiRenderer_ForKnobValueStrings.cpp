@@ -8,9 +8,9 @@
 
 
 
-RendererForKnobValueStrings::RendererForKnobValueStrings(Slider* knob, uint8 param) :
+RendererForKnobValueStrings::RendererForKnobValueStrings(Slider* knob, IntToContextualStringConverter* converter) :
 	knob{ knob },
-	converter{ InfoForExposedParameters::get().converterFor(param) }
+	converter{ converter }
 {
 	knob->addListener(this);
 	sliderValueChanged(knob);

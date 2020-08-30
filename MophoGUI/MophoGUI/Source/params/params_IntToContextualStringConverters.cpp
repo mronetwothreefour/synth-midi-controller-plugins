@@ -755,7 +755,7 @@ String IntToArpegModeString::conversionAlgorithm(const uint8& i) noexcept {
 }
 
 String IntToArpegModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 4);
+	jassert(i < 15);
 	if (i == 0) return "Up";
 	if (i == 1) return "Down";
 	if (i == 2) return "Up & Down";
