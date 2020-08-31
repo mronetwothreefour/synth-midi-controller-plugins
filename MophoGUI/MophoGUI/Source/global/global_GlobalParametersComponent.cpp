@@ -50,6 +50,29 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.setColour(Color::device);
 	auto componentBackground{ componentOutline.reduced(2, 2) };
 	g.fillRect(componentBackground);
+
+	g.setColour(Color::black);
+	Font componentLabelFont{ FontsDB::family_Global, FontsDB::style_ForComponentTitle, FontsDB::size_ForComponentTitle };
+	g.setFont(componentLabelFont);
+	Rectangle<int> componentLabelArea{ 525, 108, 165, 21 };
+	g.drawText("GLOBAL PARAMETERS", componentLabelArea, Justification::left, false);
+
+	Font controlLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
+	g.setFont(controlLabelFont);
+	auto knobLabel_w{ 70 };
+	auto knobLabel_h{ 14 };
+	auto knobLabelRow1_y{ 174 };
+	auto knobLabelRow2_y{ 183 };
+	auto spaceBetweenKnobs{ 75 };
+	auto knobLabelCol1_x{ 528 };
+	auto knobLabelCol2_x{ knobLabelCol1_x + spaceBetweenKnobs };
+	auto knobLabelCol3_x{ knobLabelCol2_x + spaceBetweenKnobs };
+	g.drawFittedText("MASTER", knobLabelCol1_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
+	g.drawFittedText("TRANSPOSE", knobLabelCol1_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
+	g.drawFittedText("MASTER", knobLabelCol2_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
+	g.drawFittedText("FINE TUNE", knobLabelCol2_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
+	g.drawFittedText("MIDI", knobLabelCol3_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
+	g.drawFittedText("CHANNEL", knobLabelCol3_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 }
 
 void GlobalParametersComponent::resized() {

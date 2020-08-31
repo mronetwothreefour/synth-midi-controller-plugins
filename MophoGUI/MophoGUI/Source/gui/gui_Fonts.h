@@ -12,7 +12,7 @@ namespace FontsDB
 	static const String style_ForProgressDisplayTitle{ "Black" };
 	static const String style_ForButtonText{ "Black" };
 	static const String style_ForControlLabels{ "Black" };
-	static const String style_ForDocumentWindowTitleBar{ "Black" };
+	static const String style_ForComponentTitle{ "Black" };
 	static const String style_ForKnobValueDisplay{ "Narrow Bold" };
 	static const String style_ForLabelText{ "Narrow Bold" };
 	static const String style_ForPgmNameEditorText{ "Black" };
@@ -27,7 +27,7 @@ namespace FontsDB
 	static const float size_ForProgressDisplayTitle{ 25.0f };
 	static const float size_ForButtonText{ 11.0f };
 	static const float size_ForControlLabels{ 12.0f };
-	static const float size_ForDocumentWindowTitleBar{ 18.0f };
+	static const float size_ForComponentTitle{ 18.0f };
 	static const float size_ForKnobValueDisplay{ 13.0f };
 	static const float size_ForLabelText{ 13.0f };
 	static const float size_ForLargeNumLabels{ 24.0f };
