@@ -12,10 +12,13 @@
 GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	nrpnType_GlobalTranspose{ 384 },
+	nrpnType_GlobalFineTune{ 385 },
 	nrpnType_SysExOn{ 395 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
+	knob_ForGlobalFineTune{ unexposedParams },
+	valueDisplay_ForGlobalFineTune{&knob_ForGlobalFineTune, IntToFineTuneString::get() },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -27,6 +30,13 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(knob_ForGlobalTranspose);
 	addAndMakeVisible(valueDisplay_ForGlobalTranspose);
 	valueDisplay_ForGlobalTranspose.setInterceptsMouseClicks(false, false);
+
+	knob_ForGlobalFineTune.addListener(this);
+	knob_ForGlobalFineTune.setMouseDragSensitivity(105);
+	knob_ForGlobalFineTune.setComponentID(ID::component_Knob.toString());
+	addAndMakeVisible(knob_ForGlobalFineTune);
+	addAndMakeVisible(valueDisplay_ForGlobalFineTune);
+	valueDisplay_ForGlobalFineTune.setInterceptsMouseClicks(false, false);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -63,10 +73,10 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	auto knobLabel_h{ 14 };
 	auto knobLabelRow1_y{ 174 };
 	auto knobLabelRow2_y{ 183 };
-	auto spaceBetweenKnobs{ 75 };
+	auto horizSpaceBetweenKnobs{ 75 };
 	auto knobLabelCol1_x{ 528 };
-	auto knobLabelCol2_x{ knobLabelCol1_x + spaceBetweenKnobs };
-	auto knobLabelCol3_x{ knobLabelCol2_x + spaceBetweenKnobs };
+	auto knobLabelCol2_x{ knobLabelCol1_x + horizSpaceBetweenKnobs };
+	auto knobLabelCol3_x{ knobLabelCol2_x + horizSpaceBetweenKnobs };
 	g.drawFittedText("MASTER", knobLabelCol1_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("TRANSPOSE", knobLabelCol1_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("MASTER", knobLabelCol2_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
@@ -77,10 +87,16 @@ void GlobalParametersComponent::paint(Graphics& g) {
 
 void GlobalParametersComponent::resized() {
 	button_ForClosingGlobalParameters.setBounds(703, 108, 50, 21);
-	const int knobDiameter{ 40 };
-	const int knobRow_y{ 138 };
-	knob_ForGlobalTranspose.setBounds(543, knobRow_y, knobDiameter, knobDiameter);
-	valueDisplay_ForGlobalTranspose.setBounds(543, knobRow_y, knobDiameter, knobDiameter);
+	auto knobDiameter{ 40 };
+	auto horizSpaceBetweenKnobs{ 75 };
+	auto knobCol1_x{ 543 };
+	auto knobCol2_x{ knobCol1_x + horizSpaceBetweenKnobs };
+	auto knobCol3_x{ knobCol2_x + horizSpaceBetweenKnobs };
+	auto knobRow_y{ 138 };
+	knob_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
+	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
+	knob_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
+	valueDisplay_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
 	const int togglesDiameter{ 14 };
 	const int toggles_x{ 679 };
 	toggle_ForSysEx.setBounds(toggles_x, 295, togglesDiameter, togglesDiameter);
@@ -114,6 +130,12 @@ void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
 		globalAudioOptions->setGlobalTranspose(currentKnobValue);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalTranspose);
 	}
+	if (slider == &knob_ForGlobalFineTune) {
+		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
+		globalAudioOptions->setGlobalFineTune(currentKnobValue);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalFineTune);
+	}
 }
 
 void GlobalParametersComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
@@ -131,6 +153,7 @@ void GlobalParametersComponent::timerCallback() {
 }
 
 GlobalParametersComponent::~GlobalParametersComponent() {
-	knob_ForGlobalTranspose.removeListener(this);
 	toggle_ForSysEx.removeListener(this);
+	knob_ForGlobalFineTune.removeListener(this);
+	knob_ForGlobalTranspose.removeListener(this);
 }

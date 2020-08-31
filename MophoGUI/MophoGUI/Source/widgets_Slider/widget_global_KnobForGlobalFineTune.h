@@ -6,7 +6,7 @@
 
 
 
-class KnobForGlobalTranspose :
+class KnobForGlobalFineTune :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
@@ -14,15 +14,15 @@ class KnobForGlobalTranspose :
 	Identifier parameterID;
 
 public:
-	KnobForGlobalTranspose() = delete;
+	KnobForGlobalFineTune() = delete;
 
-	explicit KnobForGlobalTranspose(UnexposedParameters* unexposedParams);
+	explicit KnobForGlobalFineTune(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~KnobForGlobalTranspose();
+	~KnobForGlobalFineTune();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobForGlobalTranspose)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobForGlobalFineTune)
 };
 

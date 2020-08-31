@@ -2574,6 +2574,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.cpp">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4982,9 +4983,6 @@
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.h">
       <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_OptionsType.h">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
@@ -4995,6 +4993,9 @@
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>

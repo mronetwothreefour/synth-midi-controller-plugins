@@ -4,6 +4,7 @@
 
 #include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
 #include "../widgets_Slider/widget_ModifiedJuceSliders.h"
+#include "../widgets_Slider/widget_global_KnobForGlobalFineTune.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
 #include "../widgets_ToggleButton/widget_global_ToggleButtonForSysEx.h"
 
@@ -23,9 +24,12 @@ class GlobalParametersComponent :
     UnexposedParameters* unexposedParams;
     const uint16 nrpnType_SysExOn;
     const uint16 nrpnType_GlobalTranspose;
+    const uint16 nrpnType_GlobalFineTune;
     TextButton button_ForClosingGlobalParameters;
     KnobForGlobalTranspose knob_ForGlobalTranspose;
     RendererForKnobValueStrings valueDisplay_ForGlobalTranspose;
+    KnobForGlobalFineTune knob_ForGlobalFineTune;
+    RendererForKnobValueStrings valueDisplay_ForGlobalFineTune;
     ToggleButtonForSysEx toggle_ForSysEx;
 
 public:
