@@ -364,3 +364,16 @@ protected:
 public:
 	static IntToGlobalMidiChannelString* get() noexcept;
 };
+
+
+
+
+struct IntToMidiClockString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToMidiClockString* get() noexcept;
+};

@@ -15,7 +15,6 @@ KnobForGlobalFineTune::KnobForGlobalFineTune(UnexposedParameters* unexposedParam
 	globalAudioOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
-	const auto knob_diameter{ 40 };
 	setRange(0.0, 100.0, 1.0);
 	auto paramValue{ globalAudioOptions->globalFineTune() };
 	setValue((double)paramValue, dontSendNotification);

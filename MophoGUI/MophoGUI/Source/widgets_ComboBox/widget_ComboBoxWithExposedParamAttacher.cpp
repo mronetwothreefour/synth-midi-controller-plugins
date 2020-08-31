@@ -10,9 +10,8 @@ ComboBoxWithExposedParamAttacher::ComboBoxWithExposedParamAttacher(uint8 param, 
 {
 	StringArray choices;
 	auto converter{ InfoForExposedParameters::get().converterFor(param) };
-	for (uint8 i = 0; i != InfoForExposedParameters::get().numberOfStepsFor(param); ++i) {
+	for (uint8 i = 0; i != InfoForExposedParameters::get().numberOfStepsFor(param); ++i)
 		choices.add(converter->convert(i));
-	}
 	comboBox.addItemList(choices, 1);
 	addAndMakeVisible(comboBox);
 	auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };

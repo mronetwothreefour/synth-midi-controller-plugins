@@ -1271,3 +1271,29 @@ IntToGlobalMidiChannelString* IntToGlobalMidiChannelString::get() noexcept {
 	static IntToGlobalMidiChannelString converter;
 	return &converter;
 }
+
+
+
+
+String IntToMidiClockString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return ("Internal");
+	if (i == 1) return ("MIDI Out");
+	if (i == 2) return ("MIDI In");
+	if (i == 3) return ("MIDI In/Out");
+	else return "range error";
+}
+
+String IntToMidiClockString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return ("Use Internal, Don't Transmit");
+	if (i == 1) return ("Use Internal, Transmit");
+	if (i == 2) return ("Use Incoming, Don't Re-Transmit");
+	if (i == 3) return ("Use Incoming, Re-Transmit");
+	else return "range error";
+}
+
+IntToMidiClockString* IntToMidiClockString::get() noexcept {
+	static IntToMidiClockString converter;
+	return &converter;
+}
