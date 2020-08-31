@@ -1249,3 +1249,25 @@ IntToGlobalTransposeString* IntToGlobalTransposeString::get() noexcept {
 	static IntToGlobalTransposeString converter;
 	return &converter;
 }
+
+
+
+
+String IntToGlobalMidiChannelString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 17);
+	if (i == 0) return ("ALL");
+	if (i > 0 && i < 17) return (String)i;
+	else return "err";
+}
+
+String IntToGlobalMidiChannelString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 17);
+	if (i == 0) return ("All Channels");
+	if (i > 0 && i < 17) return "Channel " + (String)i;
+	else return "range error";
+}
+
+IntToGlobalMidiChannelString* IntToGlobalMidiChannelString::get() noexcept {
+	static IntToGlobalMidiChannelString converter;
+	return &converter;
+}

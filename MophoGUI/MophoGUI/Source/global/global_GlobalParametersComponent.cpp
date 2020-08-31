@@ -13,12 +13,15 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	unexposedParams{ unexposedParams },
 	nrpnType_GlobalTranspose{ 384 },
 	nrpnType_GlobalFineTune{ 385 },
+	nrpnType_GlobalMidiChannel{ 386 },
 	nrpnType_SysExOn{ 395 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
 	knob_ForGlobalFineTune{ unexposedParams },
 	valueDisplay_ForGlobalFineTune{&knob_ForGlobalFineTune, IntToFineTuneString::get() },
+	knob_ForGlobalMidiChannel{ unexposedParams },
+	valueDisplay_ForGlobalMidiChannel{&knob_ForGlobalMidiChannel, IntToGlobalMidiChannelString::get() },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -37,6 +40,13 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(knob_ForGlobalFineTune);
 	addAndMakeVisible(valueDisplay_ForGlobalFineTune);
 	valueDisplay_ForGlobalFineTune.setInterceptsMouseClicks(false, false);
+
+	knob_ForGlobalMidiChannel.addListener(this);
+	knob_ForGlobalMidiChannel.setMouseDragSensitivity(90);
+	knob_ForGlobalMidiChannel.setComponentID(ID::component_Knob.toString());
+	addAndMakeVisible(knob_ForGlobalMidiChannel);
+	addAndMakeVisible(valueDisplay_ForGlobalMidiChannel);
+	valueDisplay_ForGlobalMidiChannel.setInterceptsMouseClicks(false, false);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -97,6 +107,8 @@ void GlobalParametersComponent::resized() {
 	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	knob_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
+	knob_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
+	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	const int togglesDiameter{ 14 };
 	const int toggles_x{ 679 };
 	toggle_ForSysEx.setBounds(toggles_x, 295, togglesDiameter, togglesDiameter);
@@ -136,6 +148,16 @@ void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
 		globalAudioOptions->setGlobalFineTune(currentKnobValue);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalFineTune);
 	}
+	if (slider == &knob_ForGlobalMidiChannel) {
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
+		midiOptions->setHardwareReceiveChannel(currentKnobValue);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalMidiChannel);
+		if (currentKnobValue == 0)
+			midiOptions->setTransmitChannel(currentKnobValue);
+		else
+			midiOptions->setTransmitChannel(currentKnobValue - 1);
+	}
 }
 
 void GlobalParametersComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
@@ -154,6 +176,7 @@ void GlobalParametersComponent::timerCallback() {
 
 GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForSysEx.removeListener(this);
+	knob_ForGlobalMidiChannel.removeListener(this);
 	knob_ForGlobalFineTune.removeListener(this);
 	knob_ForGlobalTranspose.removeListener(this);
 }

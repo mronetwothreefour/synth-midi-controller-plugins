@@ -351,3 +351,16 @@ protected:
 public:
 	static IntToGlobalTransposeString* get() noexcept;
 };
+
+
+
+
+struct IntToGlobalMidiChannelString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToGlobalMidiChannelString* get() noexcept;
+};
