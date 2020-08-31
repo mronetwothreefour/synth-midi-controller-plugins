@@ -1297,3 +1297,23 @@ IntToMidiClockString* IntToMidiClockString::get() noexcept {
 	static IntToMidiClockString converter;
 	return &converter;
 }
+
+
+
+
+String IntToParameterSendTypeString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToParameterSendTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return ("NRPN");
+	if (i == 1) return ("CC");
+	if (i == 2) return ("Off");
+	else return "range error";
+}
+
+IntToParameterSendTypeString* IntToParameterSendTypeString::get() noexcept {
+	static IntToParameterSendTypeString converter;
+	return &converter;
+}

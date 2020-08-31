@@ -5,6 +5,7 @@
 #include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
 #include "../widgets_Slider/widget_ModifiedJuceSliders.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForMidiClock.h"
+#include "../widgets_ComboBox/widget_global_ComboBoxForParameterSend.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalFineTune.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
@@ -29,6 +30,7 @@ class GlobalParametersComponent :
     const uint16 nrpnType_GlobalFineTune;
     const uint16 nrpnType_GlobalMidiChannel;
     const uint16 nrpnType_MidiClock;
+    const uint16 nrpnType_ParameterSendType;
     TextButton button_ForClosingGlobalParameters;
     KnobForGlobalTranspose knob_ForGlobalTranspose;
     RendererForKnobValueStrings valueDisplay_ForGlobalTranspose;
@@ -37,6 +39,7 @@ class GlobalParametersComponent :
     KnobForGlobalMidiChannel knob_ForGlobalMidiChannel;
     RendererForKnobValueStrings valueDisplay_ForGlobalMidiChannel;
     ComboBoxForMidiClock comboBox_ForMidiClock;
+    ComboBoxForParameterSend comboBox_ForParameterSend;
     ToggleButtonForSysEx toggle_ForSysEx;
 
 public:

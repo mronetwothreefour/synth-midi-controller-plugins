@@ -2072,6 +2072,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.cpp" />
@@ -2880,6 +2881,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />

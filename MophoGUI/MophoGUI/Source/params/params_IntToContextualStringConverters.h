@@ -377,3 +377,16 @@ protected:
 public:
 	static IntToMidiClockString* get() noexcept;
 };
+
+
+
+
+struct IntToParameterSendTypeString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToParameterSendTypeString* get() noexcept;
+};

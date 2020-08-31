@@ -15,6 +15,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_GlobalFineTune{ 385 },
 	nrpnType_GlobalMidiChannel{ 386 },
 	nrpnType_MidiClock{ 388 },
+	nrpnType_ParameterSendType{ 390 },
 	nrpnType_SysExOn{ 395 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
@@ -24,6 +25,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	knob_ForGlobalMidiChannel{ unexposedParams },
 	valueDisplay_ForGlobalMidiChannel{&knob_ForGlobalMidiChannel, IntToGlobalMidiChannelString::get() },
 	comboBox_ForMidiClock{ unexposedParams },
+	comboBox_ForParameterSend{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -52,6 +54,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	comboBox_ForMidiClock.addListener(this);
 	addAndMakeVisible(comboBox_ForMidiClock);
+
+	comboBox_ForParameterSend.addListener(this);
+	addAndMakeVisible(comboBox_ForParameterSend);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -134,9 +139,9 @@ void GlobalParametersComponent::resized() {
 	auto knobRow_y{ 138 };
 	auto vertSpaceBetweenComboBoxesAndToggles{ 20 };
 	auto comboBoxRow1_y{ 213 };
-	auto controlRow2_y{ comboBoxRow1_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto controlRow3_y{ controlRow2_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto controlRow4_y{ controlRow3_y + vertSpaceBetweenComboBoxesAndToggles };
+	auto comboBoxRow2_y{ comboBoxRow1_y + vertSpaceBetweenComboBoxesAndToggles };
+	auto comboBoxRow3_y{ comboBoxRow2_y + vertSpaceBetweenComboBoxesAndToggles };
+	auto comboBoxRow4_y{ comboBoxRow3_y + vertSpaceBetweenComboBoxesAndToggles };
 	auto toggleRow1_y{ 294 };
 	auto toggleRow2_y{ toggleRow1_y + vertSpaceBetweenComboBoxesAndToggles };
 	auto toggleRow3_y{ toggleRow2_y + vertSpaceBetweenComboBoxesAndToggles };
@@ -150,6 +155,7 @@ void GlobalParametersComponent::resized() {
 	knob_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	comboBox_ForMidiClock.setBounds(comboBoxes_x, comboBoxRow1_y, comboBox_w, comboBox_h);
+	comboBox_ForParameterSend.setBounds(comboBoxes_x, comboBoxRow2_y, comboBox_w, comboBox_h);
 	toggle_ForSysEx.setBounds(toggles_x, toggleRow1_y, togglesDiameter, togglesDiameter);
 }
 
@@ -171,6 +177,12 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setClockType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_MidiClock);
+	}
+	if (comboBox == &comboBox_ForParameterSend) {
+		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		midiOptions->setParameterSendType(currentSelection);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterSendType);
 	}
 }
 
@@ -221,6 +233,7 @@ void GlobalParametersComponent::timerCallback() {
 
 GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForSysEx.removeListener(this);
+	comboBox_ForParameterSend.removeListener(this);
 	comboBox_ForMidiClock.removeListener(this);
 	knob_ForGlobalMidiChannel.removeListener(this);
 	knob_ForGlobalFineTune.removeListener(this);
