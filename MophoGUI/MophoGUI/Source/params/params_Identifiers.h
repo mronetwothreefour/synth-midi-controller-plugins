@@ -25,7 +25,7 @@ namespace ID
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_ParameterReceiveType{ "midi_ParameterReceiveType" };
 	static const Identifier midi_ParameterSendType{ "midi_ParameterSendType" };
-	static const Identifier midi_PedalModeArp{ "midi_PedalModeArp" };
+	static const Identifier midi_PedalModeArpLatch{ "midi_PedalModeArpLatch" };
 	static const Identifier midi_ProgramChangeOn{ "midi_ProgramChangeOn" };
 	static const Identifier midi_ProgramTransmitTime{ "midi_ProgramTransmitTime" };
 	static const Identifier midi_SysExOn{ "midi_SysExOn" };

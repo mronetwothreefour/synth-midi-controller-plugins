@@ -1,6 +1,7 @@
 #include "widget_global_ToggleButtonForSysEx.h"
 
 #include "../params/params_Identifiers.h"
+#include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -22,8 +23,10 @@ String ToggleButtonForSysEx::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToOffOnWithWarningString::get() };
+		auto currentValue{ (uint8)getToggleState() };
 		tooltipText += "Current value: ";
-		tooltipText += getToggleState() == true ? "On\n" : "Off ( ! )\n";
+		tooltipText += converter->verboseConvert(currentValue) + "\n";
 	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Sets whether the hardware should tramsmit and\n";

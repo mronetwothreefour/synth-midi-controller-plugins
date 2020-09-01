@@ -112,9 +112,9 @@ void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
         midiOptions->setSysExOn();
     else
         midiOptions->setSysExOff();
-    auto pedalModeIsArp{ (bool)sysExData[globalPedalModeIsArpByte] };
-    if (pedalModeIsArp)
-        midiOptions->setPedalModeToArp();
+    auto pedalModeIsArpLatch{ (bool)sysExData[globalPedalModeIsArpByte] };
+    if (pedalModeIsArpLatch)
+        midiOptions->setPedalModeToArpLatch();
     else
         midiOptions->setPedalModeToNormal();
     auto programChangeIsOn{ (bool)sysExData[globalProgramChangeOnByte] };

@@ -2586,7 +2586,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.cpp">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterReceive.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5021,7 +5021,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.h">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterReceive.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>

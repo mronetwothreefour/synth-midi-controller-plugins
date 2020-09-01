@@ -6,7 +6,7 @@
 
 class UnexposedParameters;
 
-class ComboBoxForParameterReceive :
+class ComboBoxForPedalMode :
 	public ComboBox,
 	public ValueTree::Listener
 {
@@ -14,12 +14,12 @@ class ComboBoxForParameterReceive :
 	Identifier parameterID;
 
 public:
-	ComboBoxForParameterReceive() = delete;
+	ComboBoxForPedalMode() = delete;
 
-	explicit ComboBoxForParameterReceive(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForPedalMode(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ComboBoxForParameterReceive();
+	~ComboBoxForPedalMode();
 
 private:
 

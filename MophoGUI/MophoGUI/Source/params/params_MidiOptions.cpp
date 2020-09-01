@@ -14,7 +14,7 @@ void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_Clock, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)true, nullptr);
 	midiOptionsTree.setProperty(ID::midi_HardwareReceiveChannel, (uint8)0, nullptr);
-	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterReceiveType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterSendType, (uint8)0, nullptr);
@@ -100,16 +100,16 @@ void MidiOptions::setSysExOff() {
 	midiOptionsTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 }
 
-bool MidiOptions::pedalModeIsArp() {
-	return (bool)midiOptionsTree.getProperty(ID::midi_PedalModeArp);
+bool MidiOptions::pedalModeIsArpLatch() {
+	return (bool)midiOptionsTree.getProperty(ID::midi_PedalModeArpLatch);
 }
 
-void MidiOptions::setPedalModeToArp() {
-	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)true, nullptr);
+void MidiOptions::setPedalModeToArpLatch() {
+	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)true, nullptr);
 }
 
 void MidiOptions::setPedalModeToNormal() {
-	midiOptionsTree.setProperty(ID::midi_PedalModeArp, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)false, nullptr);
 }
 
 bool MidiOptions::programChangeIsOn() {

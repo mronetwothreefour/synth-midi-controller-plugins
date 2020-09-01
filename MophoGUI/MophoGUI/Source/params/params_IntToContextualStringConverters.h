@@ -368,6 +368,19 @@ public:
 
 
 
+struct IntToOffOnWithWarningString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOffOnWithWarningString* get() noexcept;
+};
+
+
+
+
 struct IntToMidiClockString : public IntToContextualStringConverter
 {
 protected:
@@ -402,4 +415,17 @@ protected:
 
 public:
 	static IntToParameterReceiveTypeString* get() noexcept;
+};
+
+
+
+
+struct IntToPedalModeString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToPedalModeString* get() noexcept;
 };

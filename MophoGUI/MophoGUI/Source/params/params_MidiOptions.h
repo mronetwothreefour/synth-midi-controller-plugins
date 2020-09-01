@@ -34,8 +34,8 @@ public:
 	bool sysExIsOn();
 	void setSysExOn();
 	void setSysExOff();
-	bool pedalModeIsArp();
-	void setPedalModeToArp();
+	bool pedalModeIsArpLatch();
+	void setPedalModeToArpLatch();
 	void setPedalModeToNormal();
 	bool programChangeIsOn();
 	void setProgramChangeOn();

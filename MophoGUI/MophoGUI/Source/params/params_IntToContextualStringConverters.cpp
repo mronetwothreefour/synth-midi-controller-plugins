@@ -1275,6 +1275,23 @@ IntToGlobalMidiChannelString* IntToGlobalMidiChannelString::get() noexcept {
 
 
 
+String IntToOffOnWithWarningString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToOffOnWithWarningString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	return i == 0 ? "Off ( ! )" : "On";
+}
+
+IntToOffOnWithWarningString* IntToOffOnWithWarningString::get() noexcept {
+	static IntToOffOnWithWarningString converter;
+	return &converter;
+}
+
+
+
+
 String IntToMidiClockString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return ("Internal");
@@ -1336,5 +1353,24 @@ String IntToParameterReceiveTypeString::verboseConversionAlgorithm(const uint8& 
 
 IntToParameterReceiveTypeString* IntToParameterReceiveTypeString::get() noexcept {
 	static IntToParameterReceiveTypeString converter;
+	return &converter;
+}
+
+
+
+
+String IntToPedalModeString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToPedalModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return ("Normal");
+	if (i == 1) return ("Arpeggiator Latch");
+	else return "range error";
+}
+
+IntToPedalModeString* IntToPedalModeString::get() noexcept {
+	static IntToPedalModeString converter;
 	return &converter;
 }

@@ -1,4 +1,4 @@
-#include "widget_global_ComboBoxForParameterReceive.h"
+#include "widget_global_ComboBoxForPedalMode.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,17 +6,17 @@
 
 
 
-ComboBoxForParameterReceive::ComboBoxForParameterReceive(UnexposedParameters* unexposedParams) :
+ComboBoxForPedalMode::ComboBoxForPedalMode(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_ParameterReceiveType }
+	parameterID{ ID::midi_PedalModeArpLatch }
 {
 	auto midiOptions{ unexposedParams->midiOptions_get() };
 	midiOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	StringArray choices;
-	auto converter{ IntToParameterReceiveTypeString::get() };
-	for (uint8 i = 0; i != 4; ++i)
+	auto converter{ IntToPedalModeString::get() };
+	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
 	auto paramValue{ midiOptions->parameterReceiveType() };
@@ -24,25 +24,24 @@ ComboBoxForParameterReceive::ComboBoxForParameterReceive(UnexposedParameters* un
 	setTooltip(generateTooltipString());
 }
 
-String ComboBoxForParameterReceive::generateTooltipString() {
+String ComboBoxForPedalMode::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToParameterReceiveTypeString::get() };
+		auto converter{ IntToPedalModeString::get() };
 		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
 		tooltipText += "Current value: ";
 		tooltipText += converter->verboseConvert(currentValue) + "\n";
 	}
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects the method by which the hardware receives parameter changes via MIDI.\n";
-		tooltipText += "WARNING: For this plugin to function correctly, it is imperative that this option\n";
-		tooltipText += "be set to NRPN or to All. If NRPN gets turned off, you will have to go to the global\n";
-		tooltipText += "parameters menu in the hardware itself to turn it back on and restore functionality.";
+		tooltipText += "When Arpeggiator Latch mode is selected and the arpeggiator is on,\n";
+		tooltipText += "MIDI sustain pedal on messages (CC# 64) will latch the arpeggiated notes.\n";
+		tooltipText += "When the arpeggiator is off, sustain pedal on messages will behave normally.";
 	}
 	return tooltipText;
 }
 
-void ComboBoxForParameterReceive::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ComboBoxForPedalMode::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
@@ -53,7 +52,7 @@ void ComboBoxForParameterReceive::valueTreePropertyChanged(ValueTree& tree, cons
 	}
 }
 
-ComboBoxForParameterReceive::~ComboBoxForParameterReceive() {
+ComboBoxForPedalMode::~ComboBoxForPedalMode() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	auto midiOptions{ unexposedParams->midiOptions_get() };

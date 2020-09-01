@@ -16,8 +16,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_GlobalMidiChannel{ 386 },
 	nrpnType_MidiClock{ 388 },
 	nrpnType_ParameterSendType{ 390 },
-	nrpnType_ParameterReceiveType{ 389 },
 	nrpnType_SysExOn{ 395 },
+	nrpnType_PedalMode{ 396 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
@@ -27,7 +27,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	valueDisplay_ForGlobalMidiChannel{&knob_ForGlobalMidiChannel, IntToGlobalMidiChannelString::get() },
 	comboBox_ForMidiClock{ unexposedParams },
 	comboBox_ForParameterSend{ unexposedParams },
-	comboBox_ForParameterReceive{ unexposedParams },
+	comboBox_ForPedalMode{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -57,11 +57,11 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForMidiClock.addListener(this);
 	addAndMakeVisible(comboBox_ForMidiClock);
 
+	comboBox_ForPedalMode.addListener(this);
+	addAndMakeVisible(comboBox_ForPedalMode);
+
 	comboBox_ForParameterSend.addListener(this);
 	addAndMakeVisible(comboBox_ForParameterSend);
-
-	comboBox_ForParameterReceive.addListener(this);
-	addAndMakeVisible(comboBox_ForParameterReceive);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -96,7 +96,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.setFont(controlLabelFont);
 	auto knobLabel_w{ 70 };
 	auto knobLabel_h{ 14 };
-	auto comboBoxLabel_w{ 100 };
+	auto comboBoxLabel_w{ 88 };
 	auto toggleLabel_w{ 148 };
 	auto comboBoxAndToggleLabel_h{ 16 };
 	auto knobLabelRow1_y{ 174 };
@@ -106,35 +106,37 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	auto knobLabelCol2_x{ knobLabelCol1_x + horizSpaceBetweenKnobs };
 	auto knobLabelCol3_x{ knobLabelCol2_x + horizSpaceBetweenKnobs };
 	auto comboBoxAndToggleLabels_x{ 524 };
-	auto vertSpaceBetweenComboBoxesAndToggles{ 20 };
-	auto comboBoxLabel1_y{ 213 };
-	auto comboBoxLabel2_y{ comboBoxLabel1_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto comboBoxLabel3_y{ comboBoxLabel2_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto comboBoxLabel4_y{ comboBoxLabel3_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleLabel1_y{ comboBoxLabel4_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleLabel2_y{ toggleLabel1_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleLabel3_y{ toggleLabel2_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleLabel4_y{ toggleLabel3_y + vertSpaceBetweenComboBoxesAndToggles };
+	auto vertSpaceBetweenLabels{ 20 };
+	auto labelRow1_y{ 213 };
+	auto labelRow2_y{ labelRow1_y + vertSpaceBetweenLabels };
+	auto labelRow3_y{ labelRow2_y + vertSpaceBetweenLabels };
+	auto labelRow4_y{ labelRow3_y + vertSpaceBetweenLabels };
+	auto labelRow5_y{ labelRow4_y + vertSpaceBetweenLabels };
+	auto labelRow6_y{ labelRow5_y + vertSpaceBetweenLabels };
+	auto labelRow7_y{ labelRow6_y + vertSpaceBetweenLabels };
+	auto labelRow8_y{ labelRow7_y + vertSpaceBetweenLabels };
+	auto labelRow9_y{ labelRow8_y + vertSpaceBetweenLabels };
 	g.drawFittedText("MASTER", knobLabelCol1_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("TRANSPOSE", knobLabelCol1_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("MASTER", knobLabelCol2_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("FINE TUNE", knobLabelCol2_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("MIDI", knobLabelCol3_x, knobLabelRow1_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
 	g.drawFittedText("CHANNEL", knobLabelCol3_x, knobLabelRow2_y, knobLabel_w, knobLabel_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("MIDI CLOCK", comboBoxAndToggleLabels_x, comboBoxLabel1_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PARAM. SEND", comboBoxAndToggleLabels_x, comboBoxLabel2_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PARAM. RECEIVE", comboBoxAndToggleLabels_x, comboBoxLabel3_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PEDAL MODE", comboBoxAndToggleLabels_x, comboBoxLabel4_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("MIDI SYSTEM EXCLUSIVE", comboBoxAndToggleLabels_x, toggleLabel1_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("MIDI CONTROLLERS", comboBoxAndToggleLabels_x, toggleLabel2_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("STEREO OUTPUT", comboBoxAndToggleLabels_x, toggleLabel3_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PROGRAM CHANGE", comboBoxAndToggleLabels_x, toggleLabel4_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("MIDI CLOCK", comboBoxAndToggleLabels_x, labelRow1_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("PEDAL MODE", comboBoxAndToggleLabels_x, labelRow2_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("PARAMETER SEND", comboBoxAndToggleLabels_x, labelRow3_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("PARAMETER RECEIVE :", comboBoxAndToggleLabels_x, labelRow4_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("BALANCE TWEAK :", comboBoxAndToggleLabels_x, labelRow5_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("MIDI SYSTEM EXCLUSIVE", comboBoxAndToggleLabels_x, labelRow6_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("MIDI CONTROLLERS", comboBoxAndToggleLabels_x, labelRow7_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("STEREO OUTPUT", comboBoxAndToggleLabels_x, labelRow8_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("PROGRAM CHANGE", comboBoxAndToggleLabels_x, labelRow9_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 }
 
 void GlobalParametersComponent::resized() {
 	button_ForClosingGlobalParameters.setBounds(703, 108, 50, 21);
 	auto knobDiameter{ 40 };
-	auto comboBox_w{ 115 };
+	auto comboBox_w{ 127 };
 	auto comboBox_h{ 16 };
 	auto togglesDiameter{ 14 };
 	auto horizSpaceBetweenKnobs{ 75 };
@@ -142,27 +144,28 @@ void GlobalParametersComponent::resized() {
 	auto knobCol2_x{ knobCol1_x + horizSpaceBetweenKnobs };
 	auto knobCol3_x{ knobCol2_x + horizSpaceBetweenKnobs };
 	auto knobRow_y{ 138 };
-	auto vertSpaceBetweenComboBoxesAndToggles{ 20 };
-	auto comboBoxRow1_y{ 213 };
-	auto comboBoxRow2_y{ comboBoxRow1_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto comboBoxRow3_y{ comboBoxRow2_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto comboBoxRow4_y{ comboBoxRow3_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleRow1_y{ 294 };
-	auto toggleRow2_y{ toggleRow1_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleRow3_y{ toggleRow2_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto toggleRow4_y{ toggleRow3_y + vertSpaceBetweenComboBoxesAndToggles };
-	auto comboBoxes_x{ 629 };
-	auto toggles_x{ 679 };
+	auto vertSpaceBetweenControls{ 20 };
+	auto controlRow1_y{ 213 };
+	auto controlRow2_y{ controlRow1_y + vertSpaceBetweenControls };
+	auto controlRow3_y{ controlRow2_y + vertSpaceBetweenControls };
+	auto controlRow4_y{ controlRow3_y + vertSpaceBetweenControls };
+	auto controlRow5_y{ controlRow4_y + vertSpaceBetweenControls };
+	auto controlRow6_y{ controlRow5_y + vertSpaceBetweenControls };
+	auto controlRow7_y{ controlRow6_y + vertSpaceBetweenControls };
+	auto controlRow8_y{ controlRow7_y + vertSpaceBetweenControls };
+	auto controlRow9_y{ controlRow8_y + vertSpaceBetweenControls };
+	auto comboBoxes_x{ 617 };
+	auto togglesAndLabels_x{ 678 };
 	knob_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	knob_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
 	knob_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
-	comboBox_ForMidiClock.setBounds(comboBoxes_x, comboBoxRow1_y, comboBox_w, comboBox_h);
-	comboBox_ForParameterSend.setBounds(comboBoxes_x, comboBoxRow2_y, comboBox_w, comboBox_h);
-	comboBox_ForParameterReceive.setBounds(comboBoxes_x, comboBoxRow3_y, comboBox_w, comboBox_h);
-	toggle_ForSysEx.setBounds(toggles_x, toggleRow1_y, togglesDiameter, togglesDiameter);
+	comboBox_ForMidiClock.setBounds(comboBoxes_x, controlRow1_y, comboBox_w, comboBox_h);
+	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBox_h);
+	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBox_h);
+	toggle_ForSysEx.setBounds(togglesAndLabels_x, controlRow6_y, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
@@ -184,17 +187,17 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		midiOptions->setClockType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_MidiClock);
 	}
+	if (comboBox == &comboBox_ForPedalMode) {
+		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		midiOptions->setParameterReceiveType(currentSelection);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_PedalMode);
+	}
 	if (comboBox == &comboBox_ForParameterSend) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setParameterSendType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterSendType);
-	}
-	if (comboBox == &comboBox_ForParameterReceive) {
-		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		midiOptions->setParameterReceiveType(currentSelection);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterReceiveType);
 	}
 }
 
@@ -245,8 +248,8 @@ void GlobalParametersComponent::timerCallback() {
 
 GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForSysEx.removeListener(this);
-	comboBox_ForParameterReceive.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
+	comboBox_ForPedalMode.removeListener(this);
 	comboBox_ForMidiClock.removeListener(this);
 	knob_ForGlobalMidiChannel.removeListener(this);
 	knob_ForGlobalFineTune.removeListener(this);
