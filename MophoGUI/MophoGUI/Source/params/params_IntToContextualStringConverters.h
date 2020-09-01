@@ -390,3 +390,16 @@ protected:
 public:
 	static IntToParameterSendTypeString* get() noexcept;
 };
+
+
+
+
+struct IntToParameterReceiveTypeString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToParameterReceiveTypeString* get() noexcept;
+};

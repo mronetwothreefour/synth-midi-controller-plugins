@@ -16,6 +16,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_GlobalMidiChannel{ 386 },
 	nrpnType_MidiClock{ 388 },
 	nrpnType_ParameterSendType{ 390 },
+	nrpnType_ParameterReceiveType{ 389 },
 	nrpnType_SysExOn{ 395 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
@@ -26,6 +27,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	valueDisplay_ForGlobalMidiChannel{&knob_ForGlobalMidiChannel, IntToGlobalMidiChannelString::get() },
 	comboBox_ForMidiClock{ unexposedParams },
 	comboBox_ForParameterSend{ unexposedParams },
+	comboBox_ForParameterReceive{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -57,6 +59,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	comboBox_ForParameterSend.addListener(this);
 	addAndMakeVisible(comboBox_ForParameterSend);
+
+	comboBox_ForParameterReceive.addListener(this);
+	addAndMakeVisible(comboBox_ForParameterReceive);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -156,6 +161,7 @@ void GlobalParametersComponent::resized() {
 	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	comboBox_ForMidiClock.setBounds(comboBoxes_x, comboBoxRow1_y, comboBox_w, comboBox_h);
 	comboBox_ForParameterSend.setBounds(comboBoxes_x, comboBoxRow2_y, comboBox_w, comboBox_h);
+	comboBox_ForParameterReceive.setBounds(comboBoxes_x, comboBoxRow3_y, comboBox_w, comboBox_h);
 	toggle_ForSysEx.setBounds(toggles_x, toggleRow1_y, togglesDiameter, togglesDiameter);
 }
 
@@ -183,6 +189,12 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setParameterSendType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterSendType);
+	}
+	if (comboBox == &comboBox_ForParameterReceive) {
+		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		midiOptions->setParameterReceiveType(currentSelection);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterReceiveType);
 	}
 }
 
@@ -233,6 +245,7 @@ void GlobalParametersComponent::timerCallback() {
 
 GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForSysEx.removeListener(this);
+	comboBox_ForParameterReceive.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
 	comboBox_ForMidiClock.removeListener(this);
 	knob_ForGlobalMidiChannel.removeListener(this);

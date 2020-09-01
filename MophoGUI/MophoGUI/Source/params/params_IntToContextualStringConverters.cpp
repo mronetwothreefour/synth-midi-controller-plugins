@@ -1317,3 +1317,24 @@ IntToParameterSendTypeString* IntToParameterSendTypeString::get() noexcept {
 	static IntToParameterSendTypeString converter;
 	return &converter;
 }
+
+
+
+
+String IntToParameterReceiveTypeString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToParameterReceiveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return ("All");
+	if (i == 1) return ("NRPN Only");
+	if (i == 2) return ("CC Only ( ! )");
+	if (i == 3) return ("Off ( ! )");
+	else return "range error";
+}
+
+IntToParameterReceiveTypeString* IntToParameterReceiveTypeString::get() noexcept {
+	static IntToParameterReceiveTypeString converter;
+	return &converter;
+}
