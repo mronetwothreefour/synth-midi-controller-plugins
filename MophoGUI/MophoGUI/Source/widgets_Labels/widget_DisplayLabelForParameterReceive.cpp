@@ -39,7 +39,6 @@ void DisplayLabelForParameterReceive::valueTreePropertyChanged(ValueTree& /*tree
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		auto paramValue{ midiOptions->parameterReceiveType() };
 		setText(IntToParameterReceiveTypeString::get()->verboseConvert(paramValue), dontSendNotification);
-		setTooltip(generateTooltipString());
 	}
 	if (property == ID::tooltips_ShouldShowDescription) {
 		setTooltip(generateTooltipString());

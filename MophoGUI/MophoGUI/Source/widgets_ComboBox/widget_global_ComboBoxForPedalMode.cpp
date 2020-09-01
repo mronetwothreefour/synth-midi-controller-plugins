@@ -36,7 +36,8 @@ String ComboBoxForPedalMode::generateTooltipString() {
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "When Arpeggiator Latch mode is selected and the arpeggiator is on,\n";
 		tooltipText += "MIDI sustain pedal on messages (CC# 64) will latch the arpeggiated notes.\n";
-		tooltipText += "When the arpeggiator is off, sustain pedal on messages will behave normally.";
+		tooltipText += "When the arpeggiator is off, sustain pedal on messages will behave normally.\n";
+		tooltipText += "(This option is only available in Mopho OS version 1.4)";
 	}
 	return tooltipText;
 }

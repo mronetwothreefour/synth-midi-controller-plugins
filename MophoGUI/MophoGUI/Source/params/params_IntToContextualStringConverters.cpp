@@ -1255,14 +1255,14 @@ IntToGlobalTransposeString* IntToGlobalTransposeString::get() noexcept {
 
 String IntToGlobalMidiChannelString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 17);
-	if (i == 0) return ("ALL");
+	if (i == 0) return "ALL";
 	if (i > 0 && i < 17) return (String)i;
 	else return "err";
 }
 
 String IntToGlobalMidiChannelString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 17);
-	if (i == 0) return ("All Channels");
+	if (i == 0) return "All Channels";
 	if (i > 0 && i < 17) return "Channel " + (String)i;
 	else return "range error";
 }
@@ -1294,19 +1294,19 @@ IntToOffOnWithWarningString* IntToOffOnWithWarningString::get() noexcept {
 
 String IntToMidiClockString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return ("Internal");
-	if (i == 1) return ("MIDI Out");
-	if (i == 2) return ("MIDI In");
-	if (i == 3) return ("MIDI In/Out");
+	if (i == 0) return "Internal";
+	if (i == 1) return "MIDI Out";
+	if (i == 2) return "MIDI In";
+	if (i == 3) return "MIDI In/Out";
 	else return "range error";
 }
 
 String IntToMidiClockString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return ("Use Internal, Don't Transmit");
-	if (i == 1) return ("Use Internal, Transmit");
-	if (i == 2) return ("Use Incoming, Don't Re-Transmit");
-	if (i == 3) return ("Use Incoming, Re-Transmit");
+	if (i == 0) return "Use Internal, Don't Transmit";
+	if (i == 1) return "Use Internal, Transmit";
+	if (i == 2) return "Use Incoming, Don't Re-Transmit";
+	if (i == 3) return "Use Incoming, Re-Transmit";
 	else return "range error";
 }
 
@@ -1324,9 +1324,9 @@ String IntToParameterSendTypeString::conversionAlgorithm(const uint8& i) noexcep
 
 String IntToParameterSendTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 3);
-	if (i == 0) return ("NRPN");
-	if (i == 1) return ("CC");
-	if (i == 2) return ("Off");
+	if (i == 0) return "NRPN";
+	if (i == 1) return "CC";
+	if (i == 2) return "Off";
 	else return "range error";
 }
 
@@ -1344,10 +1344,10 @@ String IntToParameterReceiveTypeString::conversionAlgorithm(const uint8& i) noex
 
 String IntToParameterReceiveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return ("ALL");
-	if (i == 1) return ("NRPN ONLY");
-	if (i == 2) return ("CC ONLY ( ! )");
-	if (i == 3) return ("OFF ( ! )");
+	if (i == 0) return "ALL";
+	if (i == 1) return "NRPN ONLY";
+	if (i == 2) return "CC ONLY ( ! )";
+	if (i == 3) return "OFF ( ! )";
 	else return "range error";
 }
 
@@ -1365,12 +1365,32 @@ String IntToPedalModeString::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToPedalModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
-	if (i == 0) return ("Normal");
-	if (i == 1) return ("Arpeggiator Latch");
+	if (i == 0) return "Normal";
+	if (i == 1) return "Arpeggiator Latch";
 	else return "range error";
 }
 
 IntToPedalModeString* IntToPedalModeString::get() noexcept {
 	static IntToPedalModeString converter;
+	return &converter;
+}
+
+
+
+
+String IntToBalanceTweakString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToBalanceTweakString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 15);
+	if (i < 7) return (String)(i - 7);
+	if (i == 7) return "NONE";
+	if (i > 7 && i < 15) return "+" + (String)(i - 7);
+	else return "range error";
+}
+
+IntToBalanceTweakString* IntToBalanceTweakString::get() noexcept {
+	static IntToBalanceTweakString converter;
 	return &converter;
 }

@@ -29,6 +29,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForParameterSend{ unexposedParams },
 	comboBox_ForPedalMode{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
+	displayLabel_ForBalanceTweak{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -65,6 +66,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(comboBox_ForParameterSend);
 
 	addAndMakeVisible(displayLabel_ForParameterReceive);
+	addAndMakeVisible(displayLabel_ForBalanceTweak);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -129,7 +131,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.drawFittedText("PEDAL MODE", comboBoxAndToggleLabels_x, labelRow2_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("PARAMETER SEND", comboBoxAndToggleLabels_x, labelRow3_y, comboBoxLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("PARAMETER RECEIVE :", comboBoxAndToggleLabels_x, labelRow4_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("BALANCE TWEAK :", comboBoxAndToggleLabels_x, labelRow5_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("OUTPUT BALANCE TWEAK :", comboBoxAndToggleLabels_x, labelRow5_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("MIDI SYSTEM EXCLUSIVE", comboBoxAndToggleLabels_x, labelRow6_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("MIDI CONTROLLERS", comboBoxAndToggleLabels_x, labelRow7_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("STEREO OUTPUT", comboBoxAndToggleLabels_x, labelRow8_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
@@ -170,6 +172,7 @@ void GlobalParametersComponent::resized() {
 	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForParameterReceive.setBounds(togglesAndLabels_x, controlRow4_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForBalanceTweak.setBounds(togglesAndLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	toggle_ForSysEx.setBounds(togglesAndLabels_x, controlRow6_y, togglesDiameter, togglesDiameter);
 }
 
