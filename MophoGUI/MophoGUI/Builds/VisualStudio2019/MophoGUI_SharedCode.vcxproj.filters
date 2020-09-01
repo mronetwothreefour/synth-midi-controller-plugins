@@ -466,6 +466,9 @@
     <Filter Include="MophoGUI\Source\widgets_ControlsForParameters">
       <UniqueIdentifier>{4207f08d-ef82-43f6-806f-7c3eda8e26fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Labels">
+      <UniqueIdentifier>{6b5e4568-39eb-4d1d-9c24-5f0064a46bc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2588,6 +2591,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_DisplayLabelForParameterReceive.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -5023,6 +5029,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_DisplayLabelForParameterReceive.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

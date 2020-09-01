@@ -15,7 +15,7 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	setInterceptsMouseClicks(false, true);
 
 	pgmNameEditor.setInterceptsMouseClicks(false, true);
-	pgmNameEditor.setComponentID("pgmNameEditor");
+	pgmNameEditor.setComponentID(ID::component_PgmNameEditLabel.toString());
 	pgmNameEditor.setJustificationType(Justification::centredLeft);
 	pgmNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
 	pgmNameEditor.setColour(Label::outlineColourId, Colours::transparentBlack);

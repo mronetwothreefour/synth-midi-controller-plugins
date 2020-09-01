@@ -31,13 +31,29 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int
 }
 
 void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
-	if (label.getComponentID() == "label_txTime")
-		g.fillAll(Color::black);
-	Font pgmNameEditFont{ FontsDB::family_Global, FontsDB::style_ForPgmNameEditorText, FontsDB::size_ForPgmNameEditorText };
 	Font labelFont{ FontsDB::family_Global, FontsDB::style_ForLabelText, FontsDB::size_ForLabelText };
-	g.setFont(label.getComponentID() == "pgmNameEditor" ? pgmNameEditFont : labelFont);
-	g.setColour(label.getComponentID() == "pgmNameEditor" ? Colours::transparentBlack : Color::controlText);
-	g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+	g.setFont(labelFont);
+	g.setColour(Color::controlText);
+	if (label.getComponentID() != "") {
+		if (label.getComponentID() == ID::component_EditLabel.toString()) {
+			g.fillAll(Color::black);
+			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+		}
+		if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
+			Font displayLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
+			g.setFont(displayLabelFont);
+			g.setColour(Color::black);
+			g.drawText(label.getText(), label.getLocalBounds(), Justification::centredLeft, false);
+		}
+		if (label.getComponentID() == ID::component_PgmNameEditLabel.toString()) {
+			Font pgmNameEditFont{ FontsDB::family_Global, FontsDB::style_ForPgmNameEditorText, FontsDB::size_ForPgmNameEditorText };
+			g.setFont(pgmNameEditFont);
+			g.setColour(Colours::transparentBlack);
+			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+		}
+	}
+	else
+		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 }
 
 void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) {

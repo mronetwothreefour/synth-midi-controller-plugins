@@ -2,6 +2,7 @@
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -33,7 +34,7 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTree
 	}
 	label_txTime.setTooltip(label_txTimeTooltip);
 	label_txTime.addListener(this);
-	label_txTime.setComponentID("label_txTime");
+	label_txTime.setComponentID(ID::component_EditLabel.toString());
 	label_txTime.setEditable(true);
 	labelTextChanged(&label_txTime);
 	addAndMakeVisible(label_txTime);

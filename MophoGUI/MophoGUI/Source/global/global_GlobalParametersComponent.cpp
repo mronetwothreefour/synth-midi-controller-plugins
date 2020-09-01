@@ -28,6 +28,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForMidiClock{ unexposedParams },
 	comboBox_ForParameterSend{ unexposedParams },
 	comboBox_ForPedalMode{ unexposedParams },
+	displayLabel_ForParameterReceive{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -62,6 +63,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	comboBox_ForParameterSend.addListener(this);
 	addAndMakeVisible(comboBox_ForParameterSend);
+
+	addAndMakeVisible(displayLabel_ForParameterReceive);
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
@@ -137,7 +140,8 @@ void GlobalParametersComponent::resized() {
 	button_ForClosingGlobalParameters.setBounds(703, 108, 50, 21);
 	auto knobDiameter{ 40 };
 	auto comboBox_w{ 127 };
-	auto comboBox_h{ 16 };
+	auto displayLabel_w{ 66 };
+	auto comboBoxAndDisplayLabel_h{ 16 };
 	auto togglesDiameter{ 14 };
 	auto horizSpaceBetweenKnobs{ 75 };
 	auto knobCol1_x{ 543 };
@@ -162,9 +166,10 @@ void GlobalParametersComponent::resized() {
 	valueDisplay_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
 	knob_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
-	comboBox_ForMidiClock.setBounds(comboBoxes_x, controlRow1_y, comboBox_w, comboBox_h);
-	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBox_h);
-	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBox_h);
+	comboBox_ForMidiClock.setBounds(comboBoxes_x, controlRow1_y, comboBox_w, comboBoxAndDisplayLabel_h);
+	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBoxAndDisplayLabel_h);
+	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForParameterReceive.setBounds(togglesAndLabels_x, controlRow4_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	toggle_ForSysEx.setBounds(togglesAndLabels_x, controlRow6_y, togglesDiameter, togglesDiameter);
 }
 

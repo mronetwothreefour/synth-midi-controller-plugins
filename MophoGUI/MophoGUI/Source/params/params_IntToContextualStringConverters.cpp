@@ -1344,10 +1344,10 @@ String IntToParameterReceiveTypeString::conversionAlgorithm(const uint8& i) noex
 
 String IntToParameterReceiveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return ("All");
-	if (i == 1) return ("NRPN Only");
-	if (i == 2) return ("CC Only ( ! )");
-	if (i == 3) return ("Off ( ! )");
+	if (i == 0) return ("ALL");
+	if (i == 1) return ("NRPN ONLY");
+	if (i == 2) return ("CC ONLY ( ! )");
+	if (i == 3) return ("OFF ( ! )");
 	else return "range error";
 }
 

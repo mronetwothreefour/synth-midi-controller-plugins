@@ -7,6 +7,7 @@
 #include "../widgets_ComboBox/widget_global_ComboBoxForMidiClock.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForParameterSend.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"
+#include "../widgets_Labels/widget_DisplayLabelForParameterReceive.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalFineTune.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
@@ -43,6 +44,7 @@ class GlobalParametersComponent :
     ComboBoxForMidiClock comboBox_ForMidiClock;
     ComboBoxForParameterSend comboBox_ForParameterSend;
     ComboBoxForPedalMode comboBox_ForPedalMode;
+    DisplayLabelForParameterReceive displayLabel_ForParameterReceive;
     ToggleButtonForSysEx toggle_ForSysEx;
 
 public:
