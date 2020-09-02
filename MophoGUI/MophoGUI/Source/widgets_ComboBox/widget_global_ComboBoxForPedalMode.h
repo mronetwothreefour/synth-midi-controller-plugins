@@ -19,7 +19,7 @@ public:
 	explicit ComboBoxForPedalMode(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ComboBoxForPedalMode();
+	~ComboBoxForPedalMode() override;
 
 private:
 

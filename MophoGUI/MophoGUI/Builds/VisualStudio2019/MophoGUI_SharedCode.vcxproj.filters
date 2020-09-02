@@ -2592,12 +2592,13 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Labels\widget_DisplayLabelForParameterReceive.cpp">
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Labels\widget_DisplayLabelForBalanceTweak.cpp">
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5030,14 +5031,17 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Labels\widget_DisplayLabelForParameterReceive.h">
-      <Filter>MophoGUI\Source\widgets_Labels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Labels\widget_DisplayLabelForBalanceTweak.h">
-      <Filter>MophoGUI\Source\widgets_Labels</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h">
       <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

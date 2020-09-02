@@ -19,7 +19,7 @@ public:
 	explicit KnobForGlobalFineTune(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~KnobForGlobalFineTune();
+	~KnobForGlobalFineTune() override;
 
 private:
 	//==============================================================================

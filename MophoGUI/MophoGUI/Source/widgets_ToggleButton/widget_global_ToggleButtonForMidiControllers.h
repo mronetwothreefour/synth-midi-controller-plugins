@@ -6,23 +6,23 @@
 
 class UnexposedParameters;
 
-class ComboBoxForMidiClock :
-	public ComboBox,
+class ToggleButtonForMidiControllers :
+	public ToggleButton,
 	public ValueTree::Listener
 {
 	UnexposedParameters* unexposedParams;
 	Identifier parameterID;
 
 public:
-	ComboBoxForMidiClock() = delete;
+	ToggleButtonForMidiControllers() = delete;
 
-	explicit ComboBoxForMidiClock(UnexposedParameters* unexposedParams);
+	explicit ToggleButtonForMidiControllers(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ComboBoxForMidiClock() override;
+	~ToggleButtonForMidiControllers() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForMidiClock)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ToggleButtonForMidiControllers)
 };
 

@@ -1,4 +1,4 @@
-#include "widget_DisplayLabelForBalanceTweak.h"
+#include "widget_global_DisplayLabelForBalanceTweak.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"

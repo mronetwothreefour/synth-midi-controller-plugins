@@ -16,6 +16,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_GlobalMidiChannel{ 386 },
 	nrpnType_MidiClock{ 388 },
 	nrpnType_ParameterSendType{ 390 },
+	nrpnType_MidiControllersOn{ 394 },
 	nrpnType_SysExOn{ 395 },
 	nrpnType_PedalMode{ 396 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
@@ -30,7 +31,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForPedalMode{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams },
-	toggle_ForSysEx{ unexposedParams }
+	toggle_ForSysEx{ unexposedParams },
+	toggle_ForMidiControllers{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
 	button_ForClosingGlobalParameters.onClick = [this] { hideThisComponent(); };
@@ -70,6 +72,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	toggle_ForSysEx.addListener(this);
 	addAndMakeVisible(toggle_ForSysEx);
+
+	toggle_ForMidiControllers.addListener(this);
+	addAndMakeVisible(toggle_ForMidiControllers);
 
 	setSize(1273, 626);
 }
@@ -133,7 +138,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.drawFittedText("PARAMETER RECEIVE :", comboBoxAndToggleLabels_x, labelRow4_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("OUTPUT BALANCE TWEAK :", comboBoxAndToggleLabels_x, labelRow5_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("MIDI SYSTEM EXCLUSIVE", comboBoxAndToggleLabels_x, labelRow6_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("MIDI CONTROLLERS", comboBoxAndToggleLabels_x, labelRow7_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("RECEIVE MIDI CONTROLLERS", comboBoxAndToggleLabels_x, labelRow7_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("STEREO OUTPUT", comboBoxAndToggleLabels_x, labelRow8_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("PROGRAM CHANGE", comboBoxAndToggleLabels_x, labelRow9_y, toggleLabel_w, comboBoxAndToggleLabel_h, Justification::centredRight, 1, 1.0f);
 }
@@ -144,7 +149,7 @@ void GlobalParametersComponent::resized() {
 	auto comboBox_w{ 127 };
 	auto displayLabel_w{ 66 };
 	auto comboBoxAndDisplayLabel_h{ 16 };
-	auto togglesDiameter{ 14 };
+	auto togglesDiameter{ 16 };
 	auto horizSpaceBetweenKnobs{ 75 };
 	auto knobCol1_x{ 543 };
 	auto knobCol2_x{ knobCol1_x + horizSpaceBetweenKnobs };
@@ -174,6 +179,7 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForParameterReceive.setBounds(togglesAndLabels_x, controlRow4_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForBalanceTweak.setBounds(togglesAndLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	toggle_ForSysEx.setBounds(togglesAndLabels_x, controlRow6_y, togglesDiameter, togglesDiameter);
+	toggle_ForMidiControllers.setBounds(togglesAndLabels_x, controlRow7_y, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
@@ -185,6 +191,15 @@ void GlobalParametersComponent::buttonClicked(Button* button) {
 		else
 			midiOptions->setSysExOff();
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(stateIsOn ? 1 : 0, nrpnType_SysExOn);
+	}
+	if (button == &toggle_ForMidiControllers) {
+		auto stateIsOn{ button->getToggleState() };
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		if (stateIsOn)
+			midiOptions->setControllersOn();
+		else
+			midiOptions->setControllersOff();
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(stateIsOn ? 1 : 0, nrpnType_MidiControllersOn);
 	}
 }
 
@@ -255,6 +270,7 @@ void GlobalParametersComponent::timerCallback() {
 }
 
 GlobalParametersComponent::~GlobalParametersComponent() {
+	toggle_ForMidiControllers.removeListener(this);
 	toggle_ForSysEx.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
 	comboBox_ForPedalMode.removeListener(this);

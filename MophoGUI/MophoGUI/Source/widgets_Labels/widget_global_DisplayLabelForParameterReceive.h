@@ -19,7 +19,7 @@ public:
 	explicit DisplayLabelForParameterReceive(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~DisplayLabelForParameterReceive();
+	~DisplayLabelForParameterReceive() override;
 
 private:
 	//==============================================================================

@@ -19,7 +19,7 @@ public:
 	explicit KnobForGlobalTranspose(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~KnobForGlobalTranspose();
+	~KnobForGlobalTranspose() override;
 
 private:
 	//==============================================================================

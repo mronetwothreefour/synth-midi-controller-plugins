@@ -19,7 +19,7 @@ public:
 	explicit ComboBoxForParameterSend(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ComboBoxForParameterSend();
+	~ComboBoxForParameterSend() override;
 
 private:
 	//==============================================================================

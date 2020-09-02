@@ -1,4 +1,4 @@
-#include "widget_DisplayLabelForParameterReceive.h"
+#include "widget_global_DisplayLabelForParameterReceive.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"

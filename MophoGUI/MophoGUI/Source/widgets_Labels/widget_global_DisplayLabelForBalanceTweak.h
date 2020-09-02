@@ -19,7 +19,7 @@ public:
 	explicit DisplayLabelForBalanceTweak(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~DisplayLabelForBalanceTweak();
+	~DisplayLabelForBalanceTweak() override;
 
 private:
 	//==============================================================================
