@@ -13,6 +13,7 @@
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
 #include "../widgets_ToggleButton/widget_global_ToggleButtonForMidiControllers.h"
+#include "../widgets_ToggleButton/widget_global_ToggleButtonForStereoOutput.h"
 #include "../widgets_ToggleButton/widget_global_ToggleButtonForSysEx.h"
 
 
@@ -37,6 +38,7 @@ class GlobalParametersComponent :
     const uint16 nrpnType_MidiControllersOn;
     const uint16 nrpnType_SysExOn;
     const uint16 nrpnType_PedalMode;
+    const uint16 nrpnType_StereoOutputOn;
     TextButton button_ForClosingGlobalParameters;
     KnobForGlobalTranspose knob_ForGlobalTranspose;
     RendererForKnobValueStrings valueDisplay_ForGlobalTranspose;
@@ -51,6 +53,7 @@ class GlobalParametersComponent :
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
     ToggleButtonForSysEx toggle_ForSysEx;
     ToggleButtonForMidiControllers toggle_ForMidiControllers;
+    ToggleButtonForStereoOutput toggle_ForStereoOutput;
 
 public:
     GlobalParametersComponent() = delete;

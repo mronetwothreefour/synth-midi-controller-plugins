@@ -2086,6 +2086,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
@@ -2902,6 +2903,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.h" />
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
   </ItemGroup>

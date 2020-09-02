@@ -1,4 +1,4 @@
-#include "widget_global_ToggleButtonForMidiControllers.h"
+#include "widget_global_ToggleButtonForStereoOutput.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,38 +6,36 @@
 
 
 
-ToggleButtonForMidiControllers::ToggleButtonForMidiControllers(UnexposedParameters* unexposedParams) :
+ToggleButtonForStereoOutput::ToggleButtonForStereoOutput(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_ControllersOn }
+	parameterID{ ID::global_HardwareOutputIsStereo }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+	globalAudioOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_ToggleButton.toString());
-	setToggleState(midiOptions->controllersAreOn(), dontSendNotification);
+	setToggleState(globalAudioOptions->hardwareOutputIsStereo(), dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
-String ToggleButtonForMidiControllers::generateTooltipString() {
+String ToggleButtonForStereoOutput::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToOffOnWithWarningString::get() };
+		auto converter{ IntToMonoStereoString::get() };
 		auto currentValue{ (uint8)getToggleState() };
 		tooltipText += "Current value: ";
 		tooltipText += converter->verboseConvert(currentValue) + "\n";
 	}
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Sets whether the hardware should respond to MIDI controller (CC) messages.\n";
-		tooltipText += "WARNING: It is imperative that this option is turned on for this plugin to\n";
-		tooltipText += "function correctly! If it gets turned off, you will have to turn it back on\n";
-		tooltipText += "in the hardware's global parameters menu to restore full functionality.";
+		tooltipText += "Selects whether the hardware's\n";
+		tooltipText += "audio output is mono or stereo.";
 	}
 	return tooltipText;
 }
 
-void ToggleButtonForMidiControllers::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ToggleButtonForStereoOutput::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setToggleState((bool)tree.getProperty(property), dontSendNotification);
@@ -48,9 +46,9 @@ void ToggleButtonForMidiControllers::valueTreePropertyChanged(ValueTree& tree, c
 	}
 }
 
-ToggleButtonForMidiControllers::~ToggleButtonForMidiControllers() {
+ToggleButtonForStereoOutput::~ToggleButtonForStereoOutput() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+	globalAudioOptions->removeListener(this);
 }

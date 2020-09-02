@@ -27,7 +27,7 @@ String DisplayLabelForBalanceTweak::generateTooltipString() {
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Applies a small adjustment to the balance of the hardware's audio output jacks.\n";
 		tooltipText += "This option cannot be changed remotely and must be set in the hardware itself.";
-		tooltipText += "(This option is only available in Mopho OS version 1.4)";
+		tooltipText += "(This option is only available in Mopho firmware version 1.4)";
 	}
 	return tooltipText;
 }

@@ -19,6 +19,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_MidiControllersOn{ 394 },
 	nrpnType_SysExOn{ 395 },
 	nrpnType_PedalMode{ 396 },
+	nrpnType_StereoOutputOn{ 405 },
 	button_ForClosingGlobalParameters{ "CLOSE" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
@@ -32,7 +33,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams },
 	toggle_ForSysEx{ unexposedParams },
-	toggle_ForMidiControllers{ unexposedParams }
+	toggle_ForMidiControllers{ unexposedParams },
+	toggle_ForStereoOutput{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
 	button_ForClosingGlobalParameters.onClick = [this] { hideThisComponent(); };
@@ -75,6 +77,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	toggle_ForMidiControllers.addListener(this);
 	addAndMakeVisible(toggle_ForMidiControllers);
+
+	toggle_ForStereoOutput.addListener(this);
+	addAndMakeVisible(toggle_ForStereoOutput);
 
 	setSize(1273, 626);
 }
@@ -180,6 +185,7 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForBalanceTweak.setBounds(togglesAndLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	toggle_ForSysEx.setBounds(togglesAndLabels_x, controlRow6_y, togglesDiameter, togglesDiameter);
 	toggle_ForMidiControllers.setBounds(togglesAndLabels_x, controlRow7_y, togglesDiameter, togglesDiameter);
+	toggle_ForStereoOutput.setBounds(togglesAndLabels_x, controlRow8_y, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
@@ -200,6 +206,15 @@ void GlobalParametersComponent::buttonClicked(Button* button) {
 		else
 			midiOptions->setControllersOff();
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(stateIsOn ? 1 : 0, nrpnType_MidiControllersOn);
+	}
+	if (button == &toggle_ForStereoOutput) {
+		auto stateIsOn{ button->getToggleState() };
+		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+		if (stateIsOn)
+			globalAudioOptions->setHardwareOutputMono();
+		else
+			globalAudioOptions->setHardwareOutputStereo();
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(stateIsOn ? 0 : 1, nrpnType_StereoOutputOn);
 	}
 }
 
@@ -270,6 +285,7 @@ void GlobalParametersComponent::timerCallback() {
 }
 
 GlobalParametersComponent::~GlobalParametersComponent() {
+	toggle_ForStereoOutput.removeListener(this);
 	toggle_ForMidiControllers.removeListener(this);
 	toggle_ForSysEx.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);

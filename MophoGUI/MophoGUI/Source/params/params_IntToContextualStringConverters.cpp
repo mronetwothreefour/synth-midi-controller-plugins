@@ -1394,3 +1394,22 @@ IntToBalanceTweakString* IntToBalanceTweakString::get() noexcept {
 	static IntToBalanceTweakString converter;
 	return &converter;
 }
+
+
+
+
+String IntToMonoStereoString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToMonoStereoString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "Mono Output";
+	if (i == 1) return "Stereo Output	";
+	else return "range error";
+}
+
+IntToMonoStereoString* IntToMonoStereoString::get() noexcept {
+	static IntToMonoStereoString converter;
+	return &converter;
+}

@@ -442,3 +442,16 @@ protected:
 public:
 	static IntToPedalModeString* get() noexcept;
 };
+
+
+
+
+struct IntToMonoStereoString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToMonoStereoString* get() noexcept;
+};
