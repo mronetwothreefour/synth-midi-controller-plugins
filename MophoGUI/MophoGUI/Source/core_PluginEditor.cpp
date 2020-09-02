@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "banks/banks_ProgramBanksComponent.h"
+#include "global/global_FailedLinkComponent.h"
 #include "global/global_GlobalParametersComponent.h"
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
@@ -45,6 +46,11 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
+    auto midiOptions{ unexposedParams->midiOptions_get() };
+    midiOptions->resetMidiOptionsToDefaults();
+    auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
+
     addAndMakeVisible(logo.get());
 
     rebuildControls(unexposedParams);
@@ -81,6 +87,22 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     auto device_h{ 626 };
     setSize(device_w, device_h);
     setResizable(false, false);
+
+    callAfterDelay(200, [this] { checkSysExLink(); });
+}
+
+void PluginEditor::checkSysExLink() {
+    auto midiOptions{ unexposedParams->midiOptions_get() };
+    if (!midiOptions->sysExIsOn())
+        showFailedLinkComponent();
+}
+
+void PluginEditor::showFailedLinkComponent() {
+    failedLinkComponent.reset(new FailedLinkComponent(unexposedParams));
+    if (failedLinkComponent != nullptr) {
+        addAndMakeVisible(failedLinkComponent.get());
+        failedLinkComponent->setBounds(getLocalBounds());
+    }
 }
 
 void PluginEditor::paint(Graphics& g) {
@@ -164,6 +186,7 @@ PluginEditor::~PluginEditor() {
     tooltipWindow = nullptr;
     globalParamsComponent = nullptr;
     programBanksComponent = nullptr;
+    failedLinkComponent = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;

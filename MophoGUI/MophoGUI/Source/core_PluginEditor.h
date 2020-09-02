@@ -13,6 +13,7 @@ class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
 class ButtonForShowingGlobalParametersComponent;
 class GlobalParametersComponent;
+class FailedLinkComponent;
 class GUILookAndFeel;
 class Logo;
 class ProgramBanksComponent;
@@ -44,10 +45,17 @@ class PluginEditor :
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
     std::unique_ptr<ProgramBanksComponent> programBanksComponent;
     std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
+    std::unique_ptr<FailedLinkComponent> failedLinkComponent;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+
+private:
+    void checkSysExLink();
+    void showFailedLinkComponent();
+
+public:
     void paint(Graphics&) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
