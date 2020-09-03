@@ -2604,7 +2604,13 @@
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.cpp">
       <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\global_FailedLinkComponent.cpp">
+    <ClCompile Include="..\..\Source\global\global_HardwareSettingsWarningComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_SysExIsOffWarningComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_NRPNisOffWarningComponent.cpp">
       <Filter>MophoGUI\Source\global</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5054,7 +5060,16 @@
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.h">
       <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\global_FailedLinkComponent.h">
+    <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_SysExIsOffWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_NRPNisOffWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h">
       <Filter>MophoGUI\Source\global</Filter>
     </ClInclude>
   </ItemGroup>

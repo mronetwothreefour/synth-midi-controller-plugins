@@ -13,11 +13,12 @@ class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
 class ButtonForShowingGlobalParametersComponent;
 class GlobalParametersComponent;
-class FailedLinkComponent;
 class GUILookAndFeel;
 class Logo;
+class NRPNisOffWarningComponent;
 class ProgramBanksComponent;
 class RendererForEnvelopes;
+class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
 class PluginEditor : 
@@ -45,15 +46,17 @@ class PluginEditor :
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack4;
     std::unique_ptr<ProgramBanksComponent> programBanksComponent;
     std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
-    std::unique_ptr<FailedLinkComponent> failedLinkComponent;
+    std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
+    std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-    void checkSysExLink();
-    void showFailedLinkComponent();
+    void checkHardwareSettings();
+    void showSysExIsOffWarningComponent();
+    void showNRPNisOffWarningComponent();
 
 public:
     void paint(Graphics&) override;

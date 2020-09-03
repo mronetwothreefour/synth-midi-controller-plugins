@@ -2,8 +2,10 @@
 #include "core_PluginEditor.h"
 
 #include "banks/banks_ProgramBanksComponent.h"
-#include "global/global_FailedLinkComponent.h"
 #include "global/global_GlobalParametersComponent.h"
+#include "global/global_NRPNisOffWarningComponent.h"
+#include "global/global_ParameterReceiveType.h"
+#include "global/global_SysExIsOffWarningComponent.h"
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
@@ -88,20 +90,33 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     setSize(device_w, device_h);
     setResizable(false, false);
 
-    callAfterDelay(200, [this] { checkSysExLink(); });
+    callAfterDelay(200, [this] { checkHardwareSettings(); });
 }
 
-void PluginEditor::checkSysExLink() {
+void PluginEditor::checkHardwareSettings() {
     auto midiOptions{ unexposedParams->midiOptions_get() };
-    if (!midiOptions->sysExIsOn())
-        showFailedLinkComponent();
+    if (!midiOptions->sysExIsOn()) {
+        showSysExIsOffWarningComponent();
+        return;
+    }
+    auto paramReceiveType{ midiOptions->parameterReceiveType() };
+    if (paramReceiveType == (uint8)ParameterReceiveType::ccOnly || paramReceiveType == (uint8)ParameterReceiveType::off)
+        showNRPNisOffWarningComponent();
 }
 
-void PluginEditor::showFailedLinkComponent() {
-    failedLinkComponent.reset(new FailedLinkComponent(unexposedParams));
-    if (failedLinkComponent != nullptr) {
-        addAndMakeVisible(failedLinkComponent.get());
-        failedLinkComponent->setBounds(getLocalBounds());
+void PluginEditor::showSysExIsOffWarningComponent() {
+    sysExIsOffWarningComponent.reset(new SysExIsOffWarningComponent(unexposedParams));
+    if (sysExIsOffWarningComponent != nullptr) {
+        addAndMakeVisible(sysExIsOffWarningComponent.get());
+        sysExIsOffWarningComponent->setBounds(getLocalBounds());
+    }
+}
+
+void PluginEditor::showNRPNisOffWarningComponent() {
+    nrpnIsOffWarningComponent.reset(new NRPNisOffWarningComponent(unexposedParams));
+    if (nrpnIsOffWarningComponent != nullptr) {
+        addAndMakeVisible(nrpnIsOffWarningComponent.get());
+        nrpnIsOffWarningComponent->setBounds(getLocalBounds());
     }
 }
 
@@ -186,7 +201,8 @@ PluginEditor::~PluginEditor() {
     tooltipWindow = nullptr;
     globalParamsComponent = nullptr;
     programBanksComponent = nullptr;
-    failedLinkComponent = nullptr;
+    nrpnIsOffWarningComponent = nullptr;
+    sysExIsOffWarningComponent = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
