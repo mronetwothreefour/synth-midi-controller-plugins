@@ -100,7 +100,9 @@ void PluginEditor::checkHardwareSettings() {
         return;
     }
     auto paramReceiveType{ midiOptions->parameterReceiveType() };
-    if (paramReceiveType == (uint8)ParameterReceiveType::ccOnly || paramReceiveType == (uint8)ParameterReceiveType::off)
+    auto nrpnIsOff{ paramReceiveType == (uint8)ParameterReceiveType::ccOnly || paramReceiveType == (uint8)ParameterReceiveType::off };
+    auto controllersAreOff{ !midiOptions->controllersAreOn() };
+    if (nrpnIsOff || controllersAreOff)
         showNRPNisOffWarningComponent();
 }
 

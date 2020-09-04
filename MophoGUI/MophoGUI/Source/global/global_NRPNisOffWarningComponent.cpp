@@ -17,7 +17,9 @@ NRPNisOffWarningComponent::NRPNisOffWarningComponent(UnexposedParameters* unexpo
 void NRPNisOffWarningComponent::checkHardwareSettings() {
 	auto midiOptions{ unexposedParams->midiOptions_get() };
 	auto paramReceiveType{ midiOptions->parameterReceiveType() };
-	if (paramReceiveType == (uint8)ParameterReceiveType::all || paramReceiveType == (uint8)ParameterReceiveType::nrpnOnly)
+	auto nrpnIsOn{ paramReceiveType == (uint8)ParameterReceiveType::all || paramReceiveType == (uint8)ParameterReceiveType::nrpnOnly };
+	auto controllersAreOn{ midiOptions->controllersAreOn() };
+	if (nrpnIsOn && controllersAreOn)
 		hideThisComponent();
 }
 
