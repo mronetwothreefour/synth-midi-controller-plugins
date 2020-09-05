@@ -1,6 +1,7 @@
 #include "params_MidiOptions.h"
 
 #include "params_Identifiers.h"
+#include "../global/global_ParameterReceiveType.h"
 
 
 
@@ -86,6 +87,21 @@ void MidiOptions::setControllersOn() {
 
 void MidiOptions::setControllersOff() {
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)false, nullptr);
+}
+
+bool MidiOptions::hardwareIsSetToReceiveNRPNcontrollers() {
+	auto receiveTypeIsAll{ parameterReceiveType() == (uint8)ParameterReceiveType::all };
+	auto receiveTypeIsNRPN{ parameterReceiveType() == (uint8)ParameterReceiveType::nrpnOnly };
+	auto nrpnReceiveIsOn{ receiveTypeIsAll || receiveTypeIsNRPN };
+	return (nrpnReceiveIsOn && controllersAreOn());
+}
+
+bool MidiOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
+	auto receiveTypeIsNotAll{ parameterReceiveType() != (uint8)ParameterReceiveType::all };
+	auto receiveTypeIsNotNRPN{ parameterReceiveType() != (uint8)ParameterReceiveType::nrpnOnly };
+	auto nrpnReceiveIsOff{ receiveTypeIsNotAll && receiveTypeIsNotNRPN };
+	auto controllersAreOff{ !controllersAreOn() };
+	return (nrpnReceiveIsOff || controllersAreOff);
 }
 
 bool MidiOptions::sysExIsOn() {

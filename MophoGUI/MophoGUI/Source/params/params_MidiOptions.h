@@ -31,6 +31,8 @@ public:
 	bool controllersAreOn();
 	void setControllersOn();
 	void setControllersOff();
+	bool hardwareIsSetToReceiveNRPNcontrollers();
+	bool hardwareIsNotSetToReceiveNRPNcontrollers();
 	bool sysExIsOn();
 	void setSysExOn();
 	void setSysExOff();

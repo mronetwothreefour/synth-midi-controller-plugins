@@ -19,7 +19,7 @@ ComboBoxForPedalMode::ComboBoxForPedalMode(UnexposedParameters* unexposedParams)
 	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ midiOptions->parameterReceiveType() };
+	auto paramValue{ (uint8)midiOptions->pedalModeIsArpLatch() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }

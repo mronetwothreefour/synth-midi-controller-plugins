@@ -140,7 +140,7 @@ void GlobalParametersComponent::resized() {
 	button_ForClosingGlobalParameters.setBounds(703, 133, 50, 21);
 	auto knobDiameter{ 40 };
 	auto comboBox_w{ 117 };
-	auto displayLabel_w{ 66 };
+	auto displayLabel_w{ 245 };
 	auto comboBoxAndDisplayLabel_h{ 16 };
 	auto togglesDiameter{ 16 };
 	auto horizSpaceBetweenKnobs{ 75 };
@@ -159,6 +159,7 @@ void GlobalParametersComponent::resized() {
 	auto controlRow8_y{ controlRow7_y + vertSpaceBetweenControls };
 	auto controlRow9_y{ controlRow8_y + vertSpaceBetweenControls };
 	auto comboBoxes_x{ 630 };
+	auto displayLabels_x{ 514 };
 	auto togglesAndLabels_x{ 678 };
 	knob_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
@@ -170,8 +171,8 @@ void GlobalParametersComponent::resized() {
 	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	comboBox_ForProgramChange.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow4_y, comboBox_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForParameterReceive.setBounds(togglesAndLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForBalanceTweak.setBounds(togglesAndLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForParameterReceive.setBounds(displayLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {

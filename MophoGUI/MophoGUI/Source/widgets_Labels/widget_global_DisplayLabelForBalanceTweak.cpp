@@ -1,5 +1,6 @@
 #include "widget_global_DisplayLabelForBalanceTweak.h"
 
+#include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -15,10 +16,16 @@ DisplayLabelForBalanceTweak::DisplayLabelForBalanceTweak(UnexposedParameters* un
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_DisplayLabel.toString());
+	setColour(textColourId, Color::black);
+	setEditable(false, false);
+	setTextAccordingToParameterSetting();
+	setTooltip(generateTooltipString());
+}
+
+void DisplayLabelForBalanceTweak::setTextAccordingToParameterSetting() {
+	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
 	auto paramValue{ globalAudioOptions->globalBalance() };
 	setText(IntToBalanceTweakString::get()->verboseConvert(paramValue), dontSendNotification);
-	setEditable(false, false);
-	setTooltip(generateTooltipString());
 }
 
 String DisplayLabelForBalanceTweak::generateTooltipString() {
@@ -35,9 +42,7 @@ String DisplayLabelForBalanceTweak::generateTooltipString() {
 void DisplayLabelForBalanceTweak::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
-		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-		auto paramValue{ globalAudioOptions->globalBalance() };
-		setText(IntToBalanceTweakString::get()->verboseConvert(paramValue), dontSendNotification);
+		setTextAccordingToParameterSetting();
 	}
 	if (property == ID::tooltips_ShouldShowDescription) {
 		setTooltip(generateTooltipString());

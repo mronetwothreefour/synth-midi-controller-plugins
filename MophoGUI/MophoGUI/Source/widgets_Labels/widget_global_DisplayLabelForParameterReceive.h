@@ -17,6 +17,7 @@ public:
 	DisplayLabelForParameterReceive() = delete;
 
 	explicit DisplayLabelForParameterReceive(UnexposedParameters* unexposedParams);
+	void setTextAccordingToParameterSetting();
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	~DisplayLabelForParameterReceive() override;

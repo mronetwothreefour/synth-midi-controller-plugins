@@ -1,5 +1,6 @@
 #include "widget_global_DisplayLabelForParameterReceive.h"
 
+#include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -15,10 +16,19 @@ DisplayLabelForParameterReceive::DisplayLabelForParameterReceive(UnexposedParame
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_DisplayLabel.toString());
+	setEditable(false, false);
+	setTextAccordingToParameterSetting();
+	setTooltip(generateTooltipString());
+}
+
+void DisplayLabelForParameterReceive::setTextAccordingToParameterSetting() {
+	auto midiOptions{ unexposedParams->midiOptions_get() };
+	if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+		setColour(textColourId, Color::button);
+	else
+		setColour(textColourId, Color::black);
 	auto paramValue{ midiOptions->parameterReceiveType() };
 	setText(IntToParameterReceiveTypeString::get()->verboseConvert(paramValue), dontSendNotification);
-	setEditable(false, false);
-	setTooltip(generateTooltipString());
 }
 
 String DisplayLabelForParameterReceive::generateTooltipString() {
@@ -36,9 +46,7 @@ String DisplayLabelForParameterReceive::generateTooltipString() {
 void DisplayLabelForParameterReceive::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		auto paramValue{ midiOptions->parameterReceiveType() };
-		setText(IntToParameterReceiveTypeString::get()->verboseConvert(paramValue), dontSendNotification);
+		setTextAccordingToParameterSetting();
 	}
 	if (property == ID::tooltips_ShouldShowDescription) {
 		setTooltip(generateTooltipString());

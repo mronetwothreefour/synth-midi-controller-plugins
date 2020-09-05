@@ -1344,10 +1344,10 @@ String IntToParameterReceiveTypeString::conversionAlgorithm(const uint8& i) noex
 
 String IntToParameterReceiveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return "ALL";
-	if (i == 1) return "NRPN ONLY";
-	if (i == 2) return "CC ONLY ( ! )";
-	if (i == 3) return "OFF ( ! )";
+	if (i == 0) return "PARAMETER RECEIVE : ALL";
+	if (i == 1) return "PARAMETER RECEIVE : NRPN ONLY";
+	if (i == 2) return "PARAMETER RECEIVE : CC ONLY ( ! )";
+	if (i == 3) return "PARAMETER RECEIVE : OFF ( ! )";
 	else return "range error";
 }
 
@@ -1384,9 +1384,9 @@ String IntToBalanceTweakString::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToBalanceTweakString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 15);
-	if (i < 7) return (String)(i - 7);
-	if (i == 7) return "NONE";
-	if (i > 7 && i < 15) return "+" + (String)(i - 7);
+	if (i < 7) return "BALANCE TWEAK : " + (String)(i - 7);
+	if (i == 7) return "BALANCE TWEAK : NONE";
+	if (i > 7 && i < 15) return "BALANCE TWEAK : +" + (String)(i - 7);
 	else return "range error";
 }
 
@@ -1404,8 +1404,8 @@ String IntToMonoStereoString::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToMonoStereoString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
-	if (i == 0) return "Mono Output";
-	if (i == 1) return "Stereo Output";
+	if (i == 0) return "AUDIO OUTPUT : MONO";
+	if (i == 1) return "AUDIO OUTPUT : STEREO";
 	else return "range error";
 }
 

@@ -4,7 +4,6 @@
 #include "banks/banks_ProgramBanksComponent.h"
 #include "global/global_GlobalParametersComponent.h"
 #include "global/global_NRPNisOffWarningComponent.h"
-#include "global/global_ParameterReceiveType.h"
 #include "global/global_SysExIsOffWarningComponent.h"
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
@@ -99,10 +98,7 @@ void PluginEditor::checkHardwareSettings() {
         showSysExIsOffWarningComponent();
         return;
     }
-    auto paramReceiveType{ midiOptions->parameterReceiveType() };
-    auto nrpnIsOff{ paramReceiveType == (uint8)ParameterReceiveType::ccOnly || paramReceiveType == (uint8)ParameterReceiveType::off };
-    auto controllersAreOff{ !midiOptions->controllersAreOn() };
-    if (nrpnIsOff || controllersAreOff)
+    if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
         showNRPNisOffWarningComponent();
 }
 
@@ -183,7 +179,15 @@ void PluginEditor::prepareToShowGlobalParametersComponent() {
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(200, [this, midiOptions] { if (midiOptions->sysExIsOn()) showGlobalParametersComponent(); else showSysExIsOffWarningComponent(); });
+    callAfterDelay(200, [this, midiOptions] { 
+        if (midiOptions->sysExIsOn()) {
+            if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+                showNRPNisOffWarningComponent();
+            else
+                showGlobalParametersComponent();
+        }
+        else showSysExIsOffWarningComponent(); 
+    });
 }
 
 void PluginEditor::showGlobalParametersComponent() {

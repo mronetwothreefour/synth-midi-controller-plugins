@@ -42,8 +42,8 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 		if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
 			Font displayLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
 			g.setFont(displayLabelFont);
-			g.setColour(Color::black);
-			g.drawText(label.getText(), label.getLocalBounds(), Justification::centredLeft, false);
+			g.setColour(label.findColour(label.textColourId));
+			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
 		if (label.getComponentID() == ID::component_PgmNameEditLabel.toString()) {
 			Font pgmNameEditFont{ FontsDB::family_Global, FontsDB::style_ForPgmNameEditorText, FontsDB::size_ForPgmNameEditorText };
