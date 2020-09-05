@@ -2077,6 +2077,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.cpp" />
@@ -2088,9 +2089,6 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.cpp" />
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.cpp" />
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.cpp" />
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2895,6 +2893,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
@@ -2909,9 +2908,6 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h" />
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.h" />
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.h" />
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.h" />
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h" />
   </ItemGroup>
   <ItemGroup>

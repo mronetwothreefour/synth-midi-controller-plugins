@@ -2565,9 +2565,6 @@
     <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.cpp">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClCompile>
@@ -2598,12 +2595,6 @@
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.cpp">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.cpp">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_HardwareSettingsWarningComponent.cpp">
       <Filter>MophoGUI\Source\global</Filter>
     </ClCompile>
@@ -2612,6 +2603,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_NRPNisOffWarningComponent.cpp">
       <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -5018,9 +5012,6 @@
     <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForSysEx.h">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
       <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
@@ -5054,12 +5045,6 @@
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForMidiControllers.h">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForStereoOutput.h">
-      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h">
       <Filter>MophoGUI\Source\global</Filter>
     </ClInclude>
@@ -5071,6 +5056,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h">
       <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

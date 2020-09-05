@@ -455,3 +455,16 @@ protected:
 public:
 	static IntToMonoStereoString* get() noexcept;
 };
+
+
+
+
+struct IntToDisabledEnabledString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToDisabledEnabledString* get() noexcept;
+};

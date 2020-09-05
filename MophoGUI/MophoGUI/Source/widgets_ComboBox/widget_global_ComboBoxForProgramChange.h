@@ -6,22 +6,22 @@
 
 class UnexposedParameters;
 
-class ToggleButtonForStereoOutput :
-	public ToggleButton,
+class ComboBoxForProgramChange :
+	public ComboBox,
 	public ValueTree::Listener
 {
 	UnexposedParameters* unexposedParams;
 	Identifier parameterID;
 
 public:
-	ToggleButtonForStereoOutput() = delete;
+	ComboBoxForProgramChange() = delete;
 
-	ToggleButtonForStereoOutput(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForProgramChange(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ToggleButtonForStereoOutput();
+	~ComboBoxForProgramChange();
 
 private:
-
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForProgramChange)
 };
 

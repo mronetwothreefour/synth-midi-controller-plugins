@@ -1405,11 +1405,30 @@ String IntToMonoStereoString::conversionAlgorithm(const uint8& i) noexcept {
 String IntToMonoStereoString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
 	if (i == 0) return "Mono Output";
-	if (i == 1) return "Stereo Output	";
+	if (i == 1) return "Stereo Output";
 	else return "range error";
 }
 
 IntToMonoStereoString* IntToMonoStereoString::get() noexcept {
 	static IntToMonoStereoString converter;
+	return &converter;
+}
+
+
+
+
+String IntToDisabledEnabledString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToDisabledEnabledString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "Disabled";
+	if (i == 1) return "Enabled";
+	else return "range error";
+}
+
+IntToDisabledEnabledString* IntToDisabledEnabledString::get() noexcept {
+	static IntToDisabledEnabledString converter;
 	return &converter;
 }

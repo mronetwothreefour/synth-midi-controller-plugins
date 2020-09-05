@@ -1,4 +1,4 @@
-#include "widget_global_ToggleButtonForMidiControllers.h"
+#include "widget_global_ComboBoxForProgramChange.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,41 +6,45 @@
 
 
 
-ToggleButtonForMidiControllers::ToggleButtonForMidiControllers(UnexposedParameters* unexposedParams) :
+ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_ControllersOn }
+	parameterID{ ID::midi_ProgramChangeOn }
 {
 	auto midiOptions{ unexposedParams->midiOptions_get() };
 	midiOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
-	setComponentID(ID::component_ToggleButton.toString());
-	setToggleState(midiOptions->controllersAreOn(), dontSendNotification);
+	StringArray choices;
+	auto converter{ IntToDisabledEnabledString::get() };
+	for (uint8 i = 0; i != 2; ++i)
+		choices.add(converter->convert(i));
+	addItemList(choices, 1);
+	auto paramValue{ midiOptions->programChangeIsOn() };
+	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
-String ToggleButtonForMidiControllers::generateTooltipString() {
+String ComboBoxForProgramChange::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToOffOnWithWarningString::get() };
-		auto currentValue{ (uint8)getToggleState() };
+		auto converter{ IntToDisabledEnabledString::get() };
+		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
 		tooltipText += "Current value: ";
 		tooltipText += converter->verboseConvert(currentValue) + "\n";
 	}
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Sets whether the hardware should respond to MIDI controller (CC) messages.\n";
-		tooltipText += "WARNING: It is imperative that this option is turned on for this plugin to\n";
-		tooltipText += "function correctly! If it gets turned off, you will have to turn it back on\n";
-		tooltipText += "in the hardware's global parameters menu to restore full functionality.";
+		tooltipText += "When enabled, the hardware will respond to incoming\n";
+		tooltipText += "MIDI program change and bank change messages.\n";
+		tooltipText += "(This option was added in Mopho firmware version 1.4)";
 	}
 	return tooltipText;
 }
 
-void ToggleButtonForMidiControllers::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ComboBoxForProgramChange::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
-		setToggleState((bool)tree.getProperty(property), dontSendNotification);
+		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
 		setTooltip(generateTooltipString());
 	}
 	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
@@ -48,7 +52,7 @@ void ToggleButtonForMidiControllers::valueTreePropertyChanged(ValueTree& tree, c
 	}
 }
 
-ToggleButtonForMidiControllers::~ToggleButtonForMidiControllers() {
+ComboBoxForProgramChange::~ComboBoxForProgramChange() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	auto midiOptions{ unexposedParams->midiOptions_get() };
