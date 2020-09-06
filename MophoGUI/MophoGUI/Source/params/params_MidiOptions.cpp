@@ -82,7 +82,7 @@ bool MidiOptions::controllersAreOn() {
 }
 
 bool MidiOptions::controllersAreOff() {
-	return !((bool)midiOptionsTree.getProperty(ID::midi_ControllersOn));
+	return !(bool)midiOptionsTree.getProperty(ID::midi_ControllersOn);
 }
 
 void MidiOptions::setControllersOn() {
@@ -110,6 +110,10 @@ bool MidiOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
 
 bool MidiOptions::sysExIsOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_SysExOn);
+}
+
+bool MidiOptions::sysExIsOff() {
+	return !(bool)midiOptionsTree.getProperty(ID::midi_SysExOn);
 }
 
 void MidiOptions::setSysExOn() {

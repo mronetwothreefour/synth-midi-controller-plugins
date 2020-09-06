@@ -31,6 +31,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForParameterSend{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForMidiControllers{ unexposedParams },
+	displayLabel_ForForSysEx{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -71,6 +72,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	addAndMakeVisible(displayLabel_ForParameterReceive);
 	addAndMakeVisible(displayLabel_ForMidiControllers);
+	addAndMakeVisible(displayLabel_ForForSysEx);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
 
 	setSize(1273, 626);
@@ -84,7 +86,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
 	auto componentOutline_w{ 245 };
-	auto componentOutline_h{ 372 };
+	auto componentOutline_h{ 396 };
 	auto componentOutline_x{ (getWidth() - componentOutline_w) / 2 };
 	auto componentOutline_y{ (getHeight() - componentOutline_h) / 2 };
 	Rectangle<int> componentOutline{ componentOutline_x, componentOutline_y, componentOutline_w, componentOutline_h };
@@ -96,7 +98,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.setColour(Color::black);
 	Font componentLabelFont{ FontsDB::family_Global, FontsDB::style_ForComponentTitle, FontsDB::size_ForComponentTitle };
 	g.setFont(componentLabelFont);
-	Rectangle<int> componentLabelArea{ 525, 133, 165, 21 };
+	Rectangle<int> componentLabelArea{ 525, 121, 165, 21 };
 	g.drawText("GLOBAL PARAMETERS", componentLabelArea, Justification::left, false);
 
 	Font controlLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
@@ -106,19 +108,19 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	auto tooltipLabels_w{ 158 };
 	auto labels_h{ 16 };
 	auto knobLabels_h{ 14 };
-	auto knobLabelRow1_y{ 201 };
-	auto knobLabelRow2_y{ 210 };
+	auto knobLabelRow1_y{ 189 };
+	auto knobLabelRow2_y{ knobLabelRow1_y + 9 };
 	auto horizSpaceBetweenKnobs{ 75 };
 	auto knobLabelCol1_x{ 527 };
 	auto knobLabelCol2_x{ knobLabelCol1_x + horizSpaceBetweenKnobs };
 	auto knobLabelCol3_x{ knobLabelCol2_x + horizSpaceBetweenKnobs };
 	auto comboBoxAndToggleLabels_x{ componentOutline_x };
 	auto vertSpaceBetweenLabels{ 20 };
-	auto labelRow1_y{ 238 };
+	auto labelRow1_y{ 226 };
 	auto labelRow2_y{ labelRow1_y + vertSpaceBetweenLabels };
 	auto labelRow3_y{ labelRow2_y + vertSpaceBetweenLabels };
 	auto labelRow4_y{ labelRow3_y + vertSpaceBetweenLabels };
-	auto labelRow5_y{ 408 };
+	auto labelRow5_y{ 421 };
 	auto labelRow6_y{ labelRow5_y + vertSpaceBetweenLabels };
 	auto labelRow7_y{ labelRow6_y + vertSpaceBetweenLabels };
 	auto labelRow8_y{ labelRow7_y + vertSpaceBetweenLabels };
@@ -139,7 +141,7 @@ void GlobalParametersComponent::paint(Graphics& g) {
 }
 
 void GlobalParametersComponent::resized() {
-	button_ForClosingGlobalParameters.setBounds(703, 133, 50, 21);
+	button_ForClosingGlobalParameters.setBounds(703, 121, 50, 21);
 	auto knobDiameter{ 40 };
 	auto comboBox_w{ 117 };
 	auto displayLabel_w{ 245 };
@@ -149,13 +151,13 @@ void GlobalParametersComponent::resized() {
 	auto knobCol1_x{ 542 };
 	auto knobCol2_x{ knobCol1_x + horizSpaceBetweenKnobs };
 	auto knobCol3_x{ knobCol2_x + horizSpaceBetweenKnobs };
-	auto knobRow_y{ 165 };
+	auto knobRow_y{ 153 };
 	auto vertSpaceBetweenControls{ 20 };
-	auto controlRow1_y{ 238 };
+	auto controlRow1_y{ 226 };
 	auto controlRow2_y{ controlRow1_y + vertSpaceBetweenControls };
 	auto controlRow3_y{ controlRow2_y + vertSpaceBetweenControls };
 	auto controlRow4_y{ controlRow3_y + vertSpaceBetweenControls };
-	auto controlRow5_y{ controlRow4_y + vertSpaceBetweenControls };
+	auto controlRow5_y{ 311 };
 	auto controlRow6_y{ controlRow5_y + vertSpaceBetweenControls };
 	auto controlRow7_y{ controlRow6_y + vertSpaceBetweenControls };
 	auto controlRow8_y{ controlRow7_y + vertSpaceBetweenControls };
@@ -175,7 +177,8 @@ void GlobalParametersComponent::resized() {
 	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow4_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForParameterReceive.setBounds(displayLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForMidiControllers.setBounds(displayLabels_x, controlRow6_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForForSysEx.setBounds(displayLabels_x, controlRow7_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {

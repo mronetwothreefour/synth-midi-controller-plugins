@@ -2083,6 +2083,7 @@
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.cpp" />
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.cpp" />
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
@@ -2901,6 +2902,7 @@
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.h" />
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.h" />
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h" />
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />

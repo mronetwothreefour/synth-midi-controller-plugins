@@ -1434,3 +1434,22 @@ IntToDisabledEnabledString* IntToDisabledEnabledString::get() noexcept {
 	static IntToDisabledEnabledString converter;
 	return &converter;
 }
+
+
+
+
+String IntToSysExOffOnString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToSysExOffOnString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "SYSTEM EXCLUSIVE : OFF ( ! )";
+	if (i == 1) return "SYSTEM EXCLUSIVE : ON";
+	else return "range error";
+}
+
+IntToSysExOffOnString* IntToSysExOffOnString::get() noexcept {
+	static IntToSysExOffOnString converter;
+	return &converter;
+}

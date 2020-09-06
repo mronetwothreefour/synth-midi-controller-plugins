@@ -468,3 +468,16 @@ protected:
 public:
 	static IntToDisabledEnabledString* get() noexcept;
 };
+
+
+
+
+struct IntToSysExOffOnString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSysExOffOnString* get() noexcept;
+};

@@ -35,6 +35,7 @@ public:
 	bool hardwareIsSetToReceiveNRPNcontrollers();
 	bool hardwareIsNotSetToReceiveNRPNcontrollers();
 	bool sysExIsOn();
+	bool sysExIsOff();
 	void setSysExOn();
 	void setSysExOff();
 	bool pedalModeIsArpLatch();
