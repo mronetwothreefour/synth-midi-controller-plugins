@@ -34,6 +34,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	displayLabel_ForForSysEx{ unexposedParams },
 	displayLabel_ForAudioOutput{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams },
+	toggle_ForDescriptionTooltip{ unexposedParams },
 	toggle_ForCurrentSettingTooltip{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -77,6 +78,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(displayLabel_ForForSysEx);
 	addAndMakeVisible(displayLabel_ForAudioOutput);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
+
+	toggle_ForDescriptionTooltip.addListener(this);
+	addAndMakeVisible(toggle_ForDescriptionTooltip);
 
 	toggle_ForCurrentSettingTooltip.addListener(this);
 	addAndMakeVisible(toggle_ForCurrentSettingTooltip);
@@ -189,10 +193,19 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForForSysEx.setBounds(displayLabels_x, controlRow7_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForAudioOutput.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	toggle_ForDescriptionTooltip.setBounds(tooltipControls_x, controlRow10_y, togglesDiameter, togglesDiameter);
 	toggle_ForCurrentSettingTooltip.setBounds(tooltipControls_x, controlRow11_y, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
+	if (button == &toggle_ForDescriptionTooltip) {
+		auto stateIsOn{ button->getToggleState() };
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (stateIsOn)
+			tooltipOptions->setShouldShowDescription();
+		else
+			tooltipOptions->setShouldNotShowDescription();
+	}
 	if (button == &toggle_ForCurrentSettingTooltip) {
 		auto stateIsOn{ button->getToggleState() };
 		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -264,9 +277,6 @@ void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
 	}
 }
 
-void GlobalParametersComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-}
-
 void GlobalParametersComponent::sendNewValueForNRPNtypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType) {
 	auto midiOptions{ unexposedParams->midiOptions_get() };
 	auto channel{ midiOptions->transmitChannel() };
@@ -280,6 +290,7 @@ void GlobalParametersComponent::timerCallback() {
 
 GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForCurrentSettingTooltip.removeListener(this);
+	toggle_ForDescriptionTooltip.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
 	comboBox_ForProgramChange.removeListener(this);
 	comboBox_ForPedalMode.removeListener(this);

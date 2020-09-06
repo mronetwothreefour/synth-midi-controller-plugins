@@ -17,6 +17,7 @@
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
 #include "../widgets_ToggleButton/widget_global_ToggleButtonForCurrentSettingTooltip.h"
+#include "../widgets_ToggleButton/widget_global_ToggleButtonForDescriptionTooltip.h"
 
 
 
@@ -28,7 +29,6 @@ class GlobalParametersComponent :
     public ComboBox::Listener,
     public Label::Listener,
     public Slider::Listener,
-    public ValueTree::Listener,
     private Timer
 {
     UnexposedParameters* unexposedParams;
@@ -56,6 +56,7 @@ class GlobalParametersComponent :
     DisplayLabelForAudioOutput displayLabel_ForAudioOutput;
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
     ToggleButtonForCurrentSettingTooltip toggle_ForCurrentSettingTooltip;
+    ToggleButtonForDescriptionTooltip toggle_ForDescriptionTooltip;
 
 public:
     GlobalParametersComponent() = delete;
@@ -73,7 +74,6 @@ public:
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
     void sliderValueChanged(Slider* slider) override;
-    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
     void sendNewValueForNRPNtypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType);
