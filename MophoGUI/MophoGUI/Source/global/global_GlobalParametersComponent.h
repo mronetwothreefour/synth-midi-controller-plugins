@@ -9,6 +9,7 @@
 #include "../widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForProgramChange.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForBalanceTweak.h"
+#include "../widgets_Labels/widget_global_DisplayLabelForMidiControllers.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForParameterReceive.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalFineTune.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
@@ -47,6 +48,7 @@ class GlobalParametersComponent :
     ComboBoxForProgramChange comboBox_ForProgramChange;
     ComboBoxForParameterSend comboBox_ForParameterSend;
     DisplayLabelForParameterReceive displayLabel_ForParameterReceive;
+    DisplayLabelForMidiControllers displayLabel_ForMidiControllers;
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
 
 public:

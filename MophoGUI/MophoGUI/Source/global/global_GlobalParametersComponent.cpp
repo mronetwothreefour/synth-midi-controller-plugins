@@ -30,6 +30,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForProgramChange{ unexposedParams },
 	comboBox_ForParameterSend{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
+	displayLabel_ForMidiControllers{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -69,6 +70,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(comboBox_ForParameterSend);
 
 	addAndMakeVisible(displayLabel_ForParameterReceive);
+	addAndMakeVisible(displayLabel_ForMidiControllers);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
 
 	setSize(1273, 626);
@@ -172,6 +174,7 @@ void GlobalParametersComponent::resized() {
 	comboBox_ForProgramChange.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow4_y, comboBox_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForParameterReceive.setBounds(displayLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForMidiControllers.setBounds(displayLabels_x, controlRow6_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 }
 

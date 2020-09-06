@@ -1275,17 +1275,19 @@ IntToGlobalMidiChannelString* IntToGlobalMidiChannelString::get() noexcept {
 
 
 
-String IntToOffOnWithWarningString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToMidiControllersOffOnString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
 
-String IntToOffOnWithWarningString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToMidiControllersOffOnString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
-	return i == 0 ? "Off ( ! )" : "On";
+	if (i == 0) return "MIDI CONTROLLERS : OFF ( ! )";
+	if (i == 1) return "MIDI CONTROLLERS : ON";
+	else return "range error";
 }
 
-IntToOffOnWithWarningString* IntToOffOnWithWarningString::get() noexcept {
-	static IntToOffOnWithWarningString converter;
+IntToMidiControllersOffOnString* IntToMidiControllersOffOnString::get() noexcept {
+	static IntToMidiControllersOffOnString converter;
 	return &converter;
 }
 

@@ -2607,6 +2607,9 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5059,6 +5062,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h">
       <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

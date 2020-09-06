@@ -29,6 +29,7 @@ public:
 	uint8 parameterReceiveType();
 	void setParameterReceiveType(uint8 newType);
 	bool controllersAreOn();
+	bool controllersAreOff();
 	void setControllersOn();
 	void setControllersOff();
 	bool hardwareIsSetToReceiveNRPNcontrollers();

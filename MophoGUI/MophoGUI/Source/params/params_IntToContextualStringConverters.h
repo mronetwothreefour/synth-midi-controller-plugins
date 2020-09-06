@@ -368,14 +368,14 @@ public:
 
 
 
-struct IntToOffOnWithWarningString : public IntToContextualStringConverter
+struct IntToMidiControllersOffOnString : public IntToContextualStringConverter
 {
 protected:
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToOffOnWithWarningString* get() noexcept;
+	static IntToMidiControllersOffOnString* get() noexcept;
 };
 
 

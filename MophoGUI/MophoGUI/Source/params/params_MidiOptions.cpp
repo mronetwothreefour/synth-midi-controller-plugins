@@ -81,6 +81,10 @@ bool MidiOptions::controllersAreOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_ControllersOn);
 }
 
+bool MidiOptions::controllersAreOff() {
+	return !((bool)midiOptionsTree.getProperty(ID::midi_ControllersOn));
+}
+
 void MidiOptions::setControllersOn() {
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)true, nullptr);
 }
