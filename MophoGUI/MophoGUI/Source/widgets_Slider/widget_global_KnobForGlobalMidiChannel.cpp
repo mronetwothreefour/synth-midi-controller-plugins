@@ -24,17 +24,17 @@ KnobForGlobalMidiChannel::KnobForGlobalMidiChannel(UnexposedParameters* unexpose
 String KnobForGlobalMidiChannel::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToGlobalMidiChannelString::get() };
-		auto currentValue{ (uint8)roundToInt(getValue()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects the channel on which the hardware\n";
 		tooltipText += "sends and receives MIDI data. When set to\n";
-		tooltipText += "All Channels, the hardware receives MIDI data \n";
+		tooltipText += "All Channels, the hardware receives MIDI data\n";
 		tooltipText += "on all channels and transmits on Channel 1.\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToGlobalMidiChannelString::get() };
+		auto currentValue{ (uint8)roundToInt(getValue()) };
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

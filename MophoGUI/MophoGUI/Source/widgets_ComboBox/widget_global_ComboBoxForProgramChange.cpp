@@ -27,16 +27,16 @@ ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexpose
 String ComboBoxForProgramChange::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToDisabledEnabledString::get() };
-		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "When enabled, the hardware will respond to incoming\n";
 		tooltipText += "MIDI program change and bank change messages.\n";
-		tooltipText += "(This option was added in Mopho firmware version 1.4)";
+		tooltipText += "(This option was added in Mopho firmware version 1.4)\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToDisabledEnabledString::get() };
+		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

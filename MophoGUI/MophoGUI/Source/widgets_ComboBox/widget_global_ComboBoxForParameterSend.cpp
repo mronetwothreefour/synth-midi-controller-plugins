@@ -27,17 +27,17 @@ ComboBoxForParameterSend::ComboBoxForParameterSend(UnexposedParameters* unexpose
 String ComboBoxForParameterSend::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToParameterSendTypeString::get() };
-		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects what type of MIDI messages the hardware\n";
 		tooltipText += "transmits when the front panel controls are changed.\n";
 		tooltipText += "Note: NRPNs are preferred, as many parameters have\n";
-		tooltipText += "ranges that exceed the 7-bit range of CC messages.";
+		tooltipText += "ranges that exceed the 7-bit range of CC messages.\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToParameterSendTypeString::get() };
+		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

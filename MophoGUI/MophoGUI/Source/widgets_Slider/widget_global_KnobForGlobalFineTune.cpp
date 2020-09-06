@@ -24,16 +24,16 @@ KnobForGlobalFineTune::KnobForGlobalFineTune(UnexposedParameters* unexposedParam
 String KnobForGlobalFineTune::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToFineTuneString::get() };
-		auto currentValue{ (uint8)roundToInt(getValue()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "All audio output from the hardware will\n";
 		tooltipText += "be tuned up or down by this amount.\n";
-		tooltipText += "Range: -50 to +50 cents.";
+		tooltipText += "Range: -50 to +50 cents.\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToFineTuneString::get() };
+		auto currentValue{ (uint8)roundToInt(getValue()) };
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

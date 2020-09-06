@@ -1453,3 +1453,22 @@ IntToSysExOffOnString* IntToSysExOffOnString::get() noexcept {
 	static IntToSysExOffOnString converter;
 	return &converter;
 }
+
+
+
+
+String IntToShowDontShowString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToShowDontShowString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "Don't Show";
+	if (i == 1) return "Show";
+	else return "range error";
+}
+
+IntToShowDontShowString* IntToShowDontShowString::get() noexcept {
+	static IntToShowDontShowString converter;
+	return &converter;
+}

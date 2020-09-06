@@ -33,7 +33,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	displayLabel_ForMidiControllers{ unexposedParams },
 	displayLabel_ForForSysEx{ unexposedParams },
 	displayLabel_ForAudioOutput{ unexposedParams },
-	displayLabel_ForBalanceTweak{ unexposedParams }
+	displayLabel_ForBalanceTweak{ unexposedParams },
+	toggle_ForCurrentSettingTooltip{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
 	button_ForClosingGlobalParameters.onClick = [this] { hideThisComponent(); };
@@ -76,6 +77,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(displayLabel_ForForSysEx);
 	addAndMakeVisible(displayLabel_ForAudioOutput);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
+
+	toggle_ForCurrentSettingTooltip.addListener(this);
+	addAndMakeVisible(toggle_ForCurrentSettingTooltip);
 
 	setSize(1273, 626);
 }
@@ -137,8 +141,8 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.drawFittedText("PROGRAM CHANGE", comboBoxAndToggleLabels_x, labelRow3_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("PARAMETER SEND", comboBoxAndToggleLabels_x, labelRow4_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("TOOLTIPS FOR GUI CONTROLS:", comboBoxAndToggleLabels_x, labelRow5_y, componentOutline_w, labels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("SHOW CURRENT VALUE", comboBoxAndToggleLabels_x, labelRow6_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("SHOW DESCRIPTION", comboBoxAndToggleLabels_x, labelRow7_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("SHOW DESCRIPTION", comboBoxAndToggleLabels_x, labelRow6_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
+	g.drawFittedText("SHOW CURRENT SETTING", comboBoxAndToggleLabels_x, labelRow7_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
 	g.drawFittedText("DELAY BEFORE SHOWING", comboBoxAndToggleLabels_x, labelRow8_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
 }
 
@@ -164,9 +168,12 @@ void GlobalParametersComponent::resized() {
 	auto controlRow7_y{ controlRow6_y + vertSpaceBetweenControls };
 	auto controlRow8_y{ controlRow7_y + vertSpaceBetweenControls };
 	auto controlRow9_y{ controlRow8_y + vertSpaceBetweenControls };
+	auto controlRow10_y{ 441 };
+	auto controlRow11_y{ controlRow10_y + vertSpaceBetweenControls };
+	auto controlRow12_y{ controlRow11_y + vertSpaceBetweenControls };
 	auto comboBoxes_x{ 630 };
 	auto displayLabels_x{ 514 };
-	auto togglesAndLabels_x{ 678 };
+	auto tooltipControls_x{ 678 };
 	knob_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
 	knob_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
@@ -182,18 +189,18 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForForSysEx.setBounds(displayLabels_x, controlRow7_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForAudioOutput.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	toggle_ForCurrentSettingTooltip.setBounds(tooltipControls_x, controlRow11_y, togglesDiameter, togglesDiameter);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
-	//if (button == &toggle_ForSysEx) {
-	//	auto stateIsOn{ button->getToggleState() };
-	//	auto midiOptions{ unexposedParams->midiOptions_get() };
-	//	if (stateIsOn)
-	//		midiOptions->setSysExOn();
-	//	else
-	//		midiOptions->setSysExOff();
-	//	sendNewValueForNRPNtypeToOutgoingMidiBuffers(stateIsOn ? 1 : 0, nrpnType_SysExOn);
-	//}
+	if (button == &toggle_ForCurrentSettingTooltip) {
+		auto stateIsOn{ button->getToggleState() };
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (stateIsOn)
+			tooltipOptions->setShouldShowCurrentValue();
+		else
+			tooltipOptions->setShouldNotShowCurrentValue();
+	}
 }
 
 void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
@@ -272,6 +279,7 @@ void GlobalParametersComponent::timerCallback() {
 }
 
 GlobalParametersComponent::~GlobalParametersComponent() {
+	toggle_ForCurrentSettingTooltip.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
 	comboBox_ForProgramChange.removeListener(this);
 	comboBox_ForPedalMode.removeListener(this);

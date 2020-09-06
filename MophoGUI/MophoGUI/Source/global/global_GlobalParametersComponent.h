@@ -16,6 +16,7 @@
 #include "../widgets_Slider/widget_global_KnobForGlobalFineTune.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"
 #include "../widgets_Slider/widget_global_KnobForGlobalTranspose.h"
+#include "../widgets_ToggleButton/widget_global_ToggleButtonForCurrentSettingTooltip.h"
 
 
 
@@ -54,6 +55,7 @@ class GlobalParametersComponent :
     DisplayLabelForSysEx displayLabel_ForForSysEx;
     DisplayLabelForAudioOutput displayLabel_ForAudioOutput;
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
+    ToggleButtonForCurrentSettingTooltip toggle_ForCurrentSettingTooltip;
 
 public:
     GlobalParametersComponent() = delete;

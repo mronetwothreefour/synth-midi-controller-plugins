@@ -2613,7 +2613,12 @@
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.cpp">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5075,6 +5080,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.h">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

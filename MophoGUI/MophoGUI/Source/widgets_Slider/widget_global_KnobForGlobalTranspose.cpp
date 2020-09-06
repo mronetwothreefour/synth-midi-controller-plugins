@@ -24,16 +24,16 @@ KnobForGlobalTranspose::KnobForGlobalTranspose(UnexposedParameters* unexposedPar
 String KnobForGlobalTranspose::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToGlobalTransposeString::get() };
-		auto currentValue{ (uint8)roundToInt(getValue()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "All audio output from the hardware will be\n";
 		tooltipText += "transposed up or down by this amount.\n";
-		tooltipText += "Range: -12 to +12 semitones.";
+		tooltipText += "Range: -12 to +12 semitones.\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto converter{ IntToGlobalTransposeString::get() };
+		auto currentValue{ (uint8)roundToInt(getValue()) };
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

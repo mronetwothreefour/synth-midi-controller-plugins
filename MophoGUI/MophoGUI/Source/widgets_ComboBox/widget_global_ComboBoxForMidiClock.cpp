@@ -27,14 +27,14 @@ ComboBoxForMidiClock::ComboBoxForMidiClock(UnexposedParameters* unexposedParams)
 String ComboBoxForMidiClock::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		tooltipText += "Selects the hardware's MIDI clock status.\n";
+	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToMidiClockString::get() };
 		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
-		tooltipText += "Current value: ";
-		tooltipText += converter->verboseConvert(currentValue) + "\n";
-	}
-	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects the hardware's MIDI clock status.";
+		tooltipText += "Current setting: ";
+		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
 }

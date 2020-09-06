@@ -6,7 +6,7 @@
 
 class UnexposedParameters;
 
-class ToggleButtonForSysEx :
+class ToggleButtonForCurrentSettingTooltip :
 	public ToggleButton,
 	public ValueTree::Listener
 {
@@ -14,15 +14,15 @@ class ToggleButtonForSysEx :
 	Identifier parameterID;
 
 public:
-	ToggleButtonForSysEx() = delete;
+	ToggleButtonForCurrentSettingTooltip() = delete;
 
-	explicit ToggleButtonForSysEx(UnexposedParameters* unexposedParams);
+	explicit ToggleButtonForCurrentSettingTooltip(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ToggleButtonForSysEx() override;
+	~ToggleButtonForCurrentSettingTooltip() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ToggleButtonForSysEx)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ToggleButtonForCurrentSettingTooltip)
 };
 
