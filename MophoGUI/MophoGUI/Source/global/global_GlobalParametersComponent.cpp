@@ -32,6 +32,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForMidiControllers{ unexposedParams },
 	displayLabel_ForForSysEx{ unexposedParams },
+	displayLabel_ForAudioOutput{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
@@ -73,6 +74,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	addAndMakeVisible(displayLabel_ForParameterReceive);
 	addAndMakeVisible(displayLabel_ForMidiControllers);
 	addAndMakeVisible(displayLabel_ForForSysEx);
+	addAndMakeVisible(displayLabel_ForAudioOutput);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
 
 	setSize(1273, 626);
@@ -178,6 +180,7 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForParameterReceive.setBounds(displayLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForMidiControllers.setBounds(displayLabels_x, controlRow6_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForForSysEx.setBounds(displayLabels_x, controlRow7_y, displayLabel_w, comboBoxAndDisplayLabel_h);
+	displayLabel_ForAudioOutput.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 }
 

@@ -8,6 +8,7 @@
 #include "../widgets_ComboBox/widget_global_ComboBoxForParameterSend.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForProgramChange.h"
+#include "../widgets_Labels/widget_global_DisplayLabelForAudioOutput.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForBalanceTweak.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForMidiControllers.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForParameterReceive.h"
@@ -51,6 +52,7 @@ class GlobalParametersComponent :
     DisplayLabelForParameterReceive displayLabel_ForParameterReceive;
     DisplayLabelForMidiControllers displayLabel_ForMidiControllers;
     DisplayLabelForSysEx displayLabel_ForForSysEx;
+    DisplayLabelForAudioOutput displayLabel_ForAudioOutput;
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
 
 public:

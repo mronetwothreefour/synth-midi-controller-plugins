@@ -2613,6 +2613,7 @@
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5070,6 +5071,9 @@
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.h">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClInclude>
   </ItemGroup>
