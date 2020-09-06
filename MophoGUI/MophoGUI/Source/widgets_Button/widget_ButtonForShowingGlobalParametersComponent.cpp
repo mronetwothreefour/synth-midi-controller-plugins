@@ -16,9 +16,8 @@ ButtonForShowingGlobalParametersComponent::ButtonForShowingGlobalParametersCompo
 const String ButtonForShowingGlobalParametersComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Opens a window where you can change the Mopho's global parameter settings.\n";
-		buttonTooltip += "WARNING: Some of these options can disrupt communication between this\n";
-		buttonTooltip += "plugin and the hardware, so be very careful when making changes to them!";
+		buttonTooltip += "Opens a window where you can change global settings\n";
+		buttonTooltip += "for the hardware, as well as tooltip display options";
 	}
 	return buttonTooltip;
 }

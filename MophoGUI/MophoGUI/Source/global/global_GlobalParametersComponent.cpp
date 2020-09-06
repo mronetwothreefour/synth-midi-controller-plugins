@@ -35,7 +35,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	displayLabel_ForAudioOutput{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams },
 	toggle_ForDescriptionTooltip{ unexposedParams },
-	toggle_ForCurrentSettingTooltip{ unexposedParams }
+	toggle_ForCurrentSettingTooltip{ unexposedParams },
+	label_ForSettingTooltipDelay{ unexposedParams }
 {
 	addAndMakeVisible(button_ForClosingGlobalParameters);
 	button_ForClosingGlobalParameters.onClick = [this] { hideThisComponent(); };
@@ -84,6 +85,9 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	toggle_ForCurrentSettingTooltip.addListener(this);
 	addAndMakeVisible(toggle_ForCurrentSettingTooltip);
+
+	label_ForSettingTooltipDelay.addListener(this);
+	addAndMakeVisible(label_ForSettingTooltipDelay);
 
 	setSize(1273, 626);
 }
@@ -195,6 +199,7 @@ void GlobalParametersComponent::resized() {
 	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
 	toggle_ForDescriptionTooltip.setBounds(tooltipControls_x, controlRow10_y, togglesDiameter, togglesDiameter);
 	toggle_ForCurrentSettingTooltip.setBounds(tooltipControls_x, controlRow11_y, togglesDiameter, togglesDiameter);
+	label_ForSettingTooltipDelay.setBounds(tooltipControls_x, controlRow12_y, 50, 16);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
@@ -247,9 +252,27 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 }
 
 void GlobalParametersComponent::editorShown(Label* label, TextEditor& editor) {
+	if (label == &label_ForSettingTooltipDelay) {
+		editor.setInputRestrictions(4, "0123456789");
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		Font labelFont{ FontsDB::family_Global, FontsDB::style_ForLabelText, FontsDB::size_ForLabelText };
+		editor.setFont(labelFont);
+		editor.setText((String)tooltipOptions->delayInMilliseconds());
+		editor.selectAll();
+	}
 }
 
 void GlobalParametersComponent::labelTextChanged(Label* label) {
+	if (label == &label_ForSettingTooltipDelay) {
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (label->getText().isNotEmpty())
+		{
+			auto newValue{ label->getText().getIntValue() };
+			if (newValue < 5001)
+				tooltipOptions->setDelayInMilliseconds(newValue);
+		}
+		label->setText((String)tooltipOptions->delayInMilliseconds() + " ms", dontSendNotification);
+	}
 }
 
 void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
@@ -289,6 +312,7 @@ void GlobalParametersComponent::timerCallback() {
 }
 
 GlobalParametersComponent::~GlobalParametersComponent() {
+	label_ForSettingTooltipDelay.removeListener(this);
 	toggle_ForCurrentSettingTooltip.removeListener(this);
 	toggle_ForDescriptionTooltip.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);

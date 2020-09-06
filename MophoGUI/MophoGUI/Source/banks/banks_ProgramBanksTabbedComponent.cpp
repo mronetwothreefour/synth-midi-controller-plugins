@@ -29,7 +29,7 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTree
 	if (tooltips->shouldShowDescription()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
-		label_txTimeTooltip += "this value if programs are getting 'lost' during pushes or pulls.";
+		label_txTimeTooltip += "this value if programs are getting 'lost' during pushes or pulls.\n";
 		label_txTimeTooltip += "Minimum time: 50 ms. Maximum time 5000 ms.";
 	}
 	label_txTime.setTooltip(label_txTimeTooltip);
@@ -50,21 +50,23 @@ void ProgramBanksTabbedComponent::editorShown(Label* label, TextEditor& editor) 
 		editor.setInputRestrictions(4, "0123456789");
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		Font labelFont{ FontsDB::family_Global, FontsDB::style_ForLabelText, FontsDB::size_ForLabelText };
-		label_txTime.getCurrentTextEditor()->setFont(labelFont);
-		label_txTime.getCurrentTextEditor()->setText((String)midiOptions->programTransmitTime());
-		label_txTime.getCurrentTextEditor()->selectAll();
+		editor.setFont(labelFont);
+		editor.setText((String)midiOptions->programTransmitTime());
+		editor.selectAll();
 	}
 }
 
 void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	if (label->getText().isNotEmpty())
-	{
-		auto newValue{ label->getText().getIntValue() };
-		if (newValue > 49 && newValue < 5001)
-			midiOptions->setProgramTransmitTime(newValue);
+	if (label == &label_txTime) {
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		if (label->getText().isNotEmpty())
+		{
+			auto newValue{ label->getText().getIntValue() };
+			if (newValue > 49 && newValue < 5001)
+				midiOptions->setProgramTransmitTime(newValue);
+		}
+		label->setText((String)midiOptions->programTransmitTime() + " ms", dontSendNotification);
 	}
-	label->setText((String)midiOptions->programTransmitTime() + " ms", dontSendNotification);
 }
 
 ProgramBankTab* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
