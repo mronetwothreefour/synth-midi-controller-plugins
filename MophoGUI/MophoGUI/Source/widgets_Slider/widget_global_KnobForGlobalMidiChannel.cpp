@@ -42,7 +42,7 @@ String KnobForGlobalMidiChannel::generateTooltipString() {
 void KnobForGlobalMidiChannel::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
-		setValue((double)tree.getProperty(property), dontSendNotification);
+		setValue((double)tree.getProperty(property), sendNotification);
 		setTooltip(generateTooltipString());
 	}
 	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {

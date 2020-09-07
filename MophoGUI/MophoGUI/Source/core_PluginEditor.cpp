@@ -89,6 +89,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     setSize(device_w, device_h);
     setResizable(false, false);
 
+    midiOptions = nullptr;
+
     callAfterDelay(200, [this] { checkHardwareSettings(); });
 }
 

@@ -2625,6 +2625,9 @@
     <ClCompile Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.cpp">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5095,6 +5098,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.h">
       <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h">
+      <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

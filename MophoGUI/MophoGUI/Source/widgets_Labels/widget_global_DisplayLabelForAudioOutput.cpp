@@ -38,7 +38,7 @@ String DisplayLabelForAudioOutput::generateTooltipString() {
 	return tooltipText;
 }
 
-void DisplayLabelForAudioOutput::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void DisplayLabelForAudioOutput::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setTextAccordingToParameterSetting();
