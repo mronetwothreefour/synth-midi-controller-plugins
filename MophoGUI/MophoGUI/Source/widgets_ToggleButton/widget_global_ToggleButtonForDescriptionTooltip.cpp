@@ -33,7 +33,7 @@ String ToggleButtonForDescriptionTooltip::generateTooltipString() {
 	return tooltipText;
 }
 
-void ToggleButtonForDescriptionTooltip::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ToggleButtonForDescriptionTooltip::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == parameterID || property == ID::tooltips_ShouldShowCurrentValue) {
 		setTooltip(generateTooltipString());
 	}
