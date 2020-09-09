@@ -38,7 +38,11 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "MophoGUI"
+    #if HOST_DOES_NOT_ADD_F0_AND_F7 
+        #define JucePlugin_Name                   "MophoGUI"
+    #else
+        #define JucePlugin_Name                   "MophoGUI For Hosts That Add F0 and F7"
+    #endif
 #endif
 #ifndef  JucePlugin_Desc
  #define JucePlugin_Desc                   "Lets you control the DSI Mopho synthesizer from your DAW"
@@ -56,7 +60,11 @@
  #define JucePlugin_ManufacturerCode       0x54696d44
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x46647863
+    #if HOST_DOES_NOT_ADD_F0_AND_F7 
+        #define JucePlugin_PluginCode             0x46647863
+    #else
+        #define JucePlugin_PluginCode             0x4e6b7277
+    #endif
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0

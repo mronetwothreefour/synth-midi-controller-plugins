@@ -89,9 +89,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     setSize(device_w, device_h);
     setResizable(false, false);
 
-    midiOptions = nullptr;
-
-    callAfterDelay(200, [this] { checkHardwareSettings(); });
+    callAfterDelay(500, [this] { checkHardwareSettings(); });
 }
 
 void PluginEditor::checkHardwareSettings() {
@@ -181,7 +179,7 @@ void PluginEditor::prepareToShowGlobalParametersComponent() {
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(200, [this, midiOptions] { 
+    callAfterDelay(1000, [this, midiOptions] { 
         if (midiOptions->sysExIsOn()) {
             if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
                 showNRPNisOffWarningComponent();

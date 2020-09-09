@@ -1,29 +1,43 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2019
-
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI - VST3", "MophoGUI_VST3.vcxproj", "{ED100F56-4792-6324-F45D-C0F258A79E47}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI_VST3", "MophoGUI_VST3.vcxproj", "{ED100F56-4792-6324-F45D-C0F258A79E47}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17} = {C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI - Shared Code", "MophoGUI_SharedCode.vcxproj", "{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI_SharedCode", "MophoGUI_SharedCode.vcxproj", "{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug For Hosts That Add F0 and F7|x64 = Debug For Hosts That Add F0 and F7|x64
 		Debug|x64 = Debug|x64
+		Release For Hosts That Add F0 and F7|x64 = Release For Hosts That Add F0 and F7|x64
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED100F56-4792-6324-F45D-C0F258A79E47}.Debug For Hosts That Add F0 and F7|x64.ActiveCfg = Debug For Hosts That Add F0 and F7|x64
+		{ED100F56-4792-6324-F45D-C0F258A79E47}.Debug For Hosts That Add F0 and F7|x64.Build.0 = Debug For Hosts That Add F0 and F7|x64
 		{ED100F56-4792-6324-F45D-C0F258A79E47}.Debug|x64.ActiveCfg = Debug|x64
 		{ED100F56-4792-6324-F45D-C0F258A79E47}.Debug|x64.Build.0 = Debug|x64
+		{ED100F56-4792-6324-F45D-C0F258A79E47}.Release For Hosts That Add F0 and F7|x64.ActiveCfg = Release For Hosts That Add F0 and F7|x64
+		{ED100F56-4792-6324-F45D-C0F258A79E47}.Release For Hosts That Add F0 and F7|x64.Build.0 = Release For Hosts That Add F0 and F7|x64
 		{ED100F56-4792-6324-F45D-C0F258A79E47}.Release|x64.ActiveCfg = Release|x64
 		{ED100F56-4792-6324-F45D-C0F258A79E47}.Release|x64.Build.0 = Release|x64
+		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Debug For Hosts That Add F0 and F7|x64.ActiveCfg = Debug For Hosts That Add F0 and F7|x64
+		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Debug For Hosts That Add F0 and F7|x64.Build.0 = Debug For Hosts That Add F0 and F7|x64
 		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Debug|x64.ActiveCfg = Debug|x64
 		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Debug|x64.Build.0 = Debug|x64
+		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Release For Hosts That Add F0 and F7|x64.ActiveCfg = Release For Hosts That Add F0 and F7|x64
+		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Release For Hosts That Add F0 and F7|x64.Build.0 = Release For Hosts That Add F0 and F7|x64
 		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Release|x64.ActiveCfg = Release|x64
 		{C4D61F8D-1297-9A23-CBE3-8FDC2C732E17}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD8525FD-A9DC-4CC4-9BF9-F9C5064A454B}
 	EndGlobalSection
 EndGlobal
