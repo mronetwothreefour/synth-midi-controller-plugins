@@ -163,7 +163,7 @@
       <ProgramDatabaseFile>$(IntDir)\MophoGUI (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>MophoGUI (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI For Hosts That Add F0 and F7 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -257,7 +257,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>MophoGUI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI For Hosts That Add F0 and F7.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
