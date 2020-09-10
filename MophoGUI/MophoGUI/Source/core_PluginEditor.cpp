@@ -47,11 +47,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->resetMidiOptionsToDefaults();
-    auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-    GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
-
     addAndMakeVisible(logo.get());
 
     rebuildControls(unexposedParams);
@@ -88,18 +83,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     auto device_h{ 626 };
     setSize(device_w, device_h);
     setResizable(false, false);
-
-    callAfterDelay(500, [this] { checkHardwareSettings(); });
-}
-
-void PluginEditor::checkHardwareSettings() {
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    if (!midiOptions->sysExIsOn()) {
-        showSysExIsOffWarningComponent();
-        return;
-    }
-    if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
-        showNRPNisOffWarningComponent();
 }
 
 void PluginEditor::showSysExIsOffWarningComponent() {

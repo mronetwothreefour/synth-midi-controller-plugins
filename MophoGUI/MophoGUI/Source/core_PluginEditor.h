@@ -54,7 +54,6 @@ public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-    void checkHardwareSettings();
     void showSysExIsOffWarningComponent();
     void showNRPNisOffWarningComponent();
 
