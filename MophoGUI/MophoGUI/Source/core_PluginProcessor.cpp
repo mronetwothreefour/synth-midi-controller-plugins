@@ -93,13 +93,34 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor (*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(MemoryBlock& destData) {
+    createPluginStateXml();
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
 }
 
-void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
+void PluginProcessor::createPluginStateXml() {
+    auto exposedParamsStateTree = exposedParams->copyState();
+    auto exposedParamsStateXml = exposedParamsStateTree.createXml();
+    exposedParamsStateXml->setTagName("exposedParams");
+    pluginStateXml.reset(new XmlElement("pluginStateXml"));
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
+}
+
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    pluginStateXml = getXmlFromBinary(data, sizeInBytes);
+    if (pluginStateXml != nullptr)
+        restorePluginStateFromXml(pluginStateXml.get());
+}
+
+void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
+    auto exposedParamsStateTree = ValueTree::fromXml(*sourceXml->getChildByName("exposedParams"));
+    exposedParams->replaceState(exposedParamsStateTree);
 }
 
 PluginProcessor::~PluginProcessor() {
+    pluginStateXml = nullptr;
     unexposedParams->undoManager_get()->clearUndoHistory();
     incomingSysExHandler = nullptr;
     incomingNRPNhandler = nullptr;
