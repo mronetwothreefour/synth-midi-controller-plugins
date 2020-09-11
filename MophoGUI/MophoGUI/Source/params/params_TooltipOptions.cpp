@@ -1,4 +1,4 @@
-#include "params_UnexposedTooltipOptions.h"
+#include "params_TooltipOptions.h"
 
 #include "params_Identifiers.h"
 
@@ -54,6 +54,15 @@ int TooltipOptions::delayInMilliseconds() {
 
 void TooltipOptions::setDelayInMilliseconds(int newDelay) {
 	tooltipOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, newDelay, nullptr);
+}
+
+XmlElement TooltipOptions::getStateXml() {
+	auto tooltipOptionsTreeStateXml{ *tooltipOptionsTree.createXml() };
+	return tooltipOptionsTreeStateXml;
+}
+
+void TooltipOptions::replaceState(const ValueTree& newState) {
+	tooltipOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
 }
 
 TooltipOptions::~TooltipOptions() {

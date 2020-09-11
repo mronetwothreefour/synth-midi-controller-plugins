@@ -162,7 +162,7 @@ void PluginEditor::prepareToShowGlobalParametersComponent() {
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(1000, [this, midiOptions] { 
+    callAfterDelay(300, [this, midiOptions] { 
         if (midiOptions->sysExIsOn()) {
             if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
                 showNRPNisOffWarningComponent();

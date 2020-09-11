@@ -2403,9 +2403,6 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
@@ -2627,6 +2624,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4865,9 +4865,6 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
@@ -5101,6 +5098,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h">
       <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

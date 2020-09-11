@@ -45,6 +45,14 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
+XmlElement UnexposedParameters::tooltipOptions_getStateXml() {
+	return tooltipOptions->getStateXml();
+}
+
+void UnexposedParameters::tooltipOptions_replaceState(const ValueTree& newState) {
+	tooltipOptions->replaceState(newState);
+}
+
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipOptions = nullptr;

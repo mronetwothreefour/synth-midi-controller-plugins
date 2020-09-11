@@ -4,7 +4,7 @@
 
 #include "params_GlobalAudioOptions.h"
 #include "params_MidiOptions.h"
-#include "params_UnexposedTooltipOptions.h"
+#include "params_TooltipOptions.h"
 #include "../banks/banks_PluginProgramBanks.h"
 #include "../banks/banks_ProgramNameStrings.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
@@ -31,6 +31,8 @@ public:
 	ProgramNameStrings* programNameStrings_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
+	XmlElement tooltipOptions_getStateXml();
+	void tooltipOptions_replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

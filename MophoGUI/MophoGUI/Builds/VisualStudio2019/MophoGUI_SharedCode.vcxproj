@@ -2171,7 +2171,7 @@
     <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
-    <ClCompile Include="..\..\Source\params\params_UnexposedTooltipOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
@@ -2994,7 +2994,7 @@
     <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
-    <ClInclude Include="..\..\Source\params\params_UnexposedTooltipOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
