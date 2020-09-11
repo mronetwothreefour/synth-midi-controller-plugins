@@ -2,6 +2,7 @@
 
 #include "banks_ConvertRawProgramDataFormat.h"
 #include "banks_FactoryProgamBanks_Singleton.h"
+#include "../params/params_Identifiers.h"
 
 
 
@@ -73,6 +74,26 @@ void ProgramNameStrings::storeNameOfProgramInBankSlot(const String programName, 
 		bank3ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
 		break;
 	};
+}
+
+XmlElement* ProgramNameStrings::getStateXml() {
+	auto programNameStringsStateXml{ std::make_unique<XmlElement>(ID::state_ProgramNameStrings) };
+	auto bank1ProgramNamesStateXml{ bank1ProgramNames.createXml() };
+	auto bank2ProgramNamesStateXml{ bank2ProgramNames.createXml() };
+	auto bank3ProgramNamesStateXml{ bank3ProgramNames.createXml() };
+	bank1ProgramNamesStateXml->setTagName(ID::state_Bank1ProgramNames);
+	bank2ProgramNamesStateXml->setTagName(ID::state_Bank2ProgramNames);
+	bank3ProgramNamesStateXml->setTagName(ID::state_Bank3ProgramNames);
+	programNameStringsStateXml->addChildElement(bank1ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(bank2ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(bank3ProgramNamesStateXml.release());
+	return programNameStringsStateXml.release();
+}
+
+void ProgramNameStrings::replaceState(const ValueTree& newState) {
+	bank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank1ProgramNames), nullptr);
+	bank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank2ProgramNames), nullptr);
+	bank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank3ProgramNames), nullptr);
 }
 
 ProgramNameStrings::~ProgramNameStrings() {

@@ -16,6 +16,8 @@ public:
 	const String extractProgramNameFromDataVector(const std::vector<uint8>& dataVector);
 	const String nameOfProgramInBankSlot(uint8 bank, uint8 slot);
 	void storeNameOfProgramInBankSlot(const String programName, uint8 bank, uint8 slot);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 	~ProgramNameStrings();
 
 private:

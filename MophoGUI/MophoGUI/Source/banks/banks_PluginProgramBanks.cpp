@@ -1,6 +1,7 @@
 #include "banks_PluginProgramBanks.h"
 
 #include "banks_FactoryProgamBanks_Singleton.h"
+#include "../params/params_Identifiers.h"
 
 
 
@@ -59,6 +60,26 @@ void PluginProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, u
 	default:
 		return;
 	}
+}
+
+XmlElement* PluginProgramBanks::getStateXml() {
+	auto pluginProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_PluginProgramBanks) };
+	auto programBank1StateXml{ programBank1.createXml() };
+	auto programBank2StateXml{ programBank2.createXml() };
+	auto programBank3StateXml{ programBank3.createXml() };
+	programBank1StateXml->setTagName(ID::state_ProgramBank1);
+	programBank2StateXml->setTagName(ID::state_ProgramBank2);
+	programBank3StateXml->setTagName(ID::state_ProgramBank3);
+	pluginProgramBanksStateXml->addChildElement(programBank1StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(programBank2StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(programBank3StateXml.release());
+	return pluginProgramBanksStateXml.release();
+}
+
+void PluginProgramBanks::replaceState(const ValueTree& newState) {
+	programBank1.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank1), nullptr);
+	programBank2.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank2), nullptr);
+	programBank3.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank3), nullptr);
 }
 
 PluginProgramBanks::~PluginProgramBanks() {

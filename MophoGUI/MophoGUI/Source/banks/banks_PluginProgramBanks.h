@@ -16,6 +16,8 @@ public:
 	int programSlotOutOfRange();
 	const String getProgramDataHexStringFromBankSlot(uint8 bank, uint8 slot) const;
 	void storeProgramDataHexStringInBankSlot(String hexString, uint8 bank, uint8 slot);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 	~PluginProgramBanks();
 
 private:

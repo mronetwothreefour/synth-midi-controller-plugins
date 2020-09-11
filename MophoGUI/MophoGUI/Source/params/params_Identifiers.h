@@ -40,6 +40,19 @@ namespace ID
 	static const Identifier param_SeqTrack3Dest{ "seqTrack3Dest" };
 	static const Identifier param_SeqTrack4Dest{ "seqTrack4Dest" };
 
+	static const Identifier state_Bank1ProgramNames{ "state_Bank1ProgramNames" };
+	static const Identifier state_Bank2ProgramNames{ "state_Bank2ProgramNames" };
+	static const Identifier state_Bank3ProgramNames{ "state_Bank3ProgramNames" };
+	static const Identifier state_ExposedParams{ "state_ExposedParams" };
+	static const Identifier state_PluginProgramBanks{ "state_PluginProgramBanks" };
+	static const Identifier state_PluginState{ "state_PluginState" };
+	static const Identifier state_ProgramBank1{ "state_ProgramBank1" };
+	static const Identifier state_ProgramBank2{ "state_ProgramBank2" };
+	static const Identifier state_ProgramBank3{ "state_ProgramBank3" };
+	static const Identifier state_ProgramNameStrings{ "state_ProgramNameStrings" };
+	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
+	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };

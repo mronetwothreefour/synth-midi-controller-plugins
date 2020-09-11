@@ -31,8 +31,8 @@ public:
 	ProgramNameStrings* programNameStrings_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
-	XmlElement tooltipOptions_getStateXml();
-	void tooltipOptions_replaceState(const ValueTree& newState);
+	XmlElement unexposedParams_getStateXml();
+	void unexposedParams_replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

@@ -1,5 +1,7 @@
 #include "params_UnexposedParameters_Facade.h"
 
+#include "params_Identifiers.h"
+
 
 
 UnexposedParameters::UnexposedParameters() :
@@ -45,12 +47,27 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
-XmlElement UnexposedParameters::tooltipOptions_getStateXml() {
-	return tooltipOptions->getStateXml();
+XmlElement UnexposedParameters::unexposedParams_getStateXml() {
+	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
+	auto pluginProgramBanksStateXml{ pluginProgramBanks->getStateXml() };
+	if (pluginProgramBanksStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(pluginProgramBanksStateXml);
+	auto programNameStringsStateXml{ programNameStrings->getStateXml() };
+	if (programNameStringsStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(programNameStringsStateXml);
+	auto tooltipOptionsStateXml{ tooltipOptions->getStateXml() };
+	if (tooltipOptionsStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
+	return unexposedParamsStateXml;
 }
 
-void UnexposedParameters::tooltipOptions_replaceState(const ValueTree& newState) {
-	tooltipOptions->replaceState(newState);
+void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
+	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_PluginProgramBanks) };
+	pluginProgramBanks->replaceState(pluginProgramBanksState);
+	auto programNameStringsState{ newState.getChildWithName(ID::state_ProgramNameStrings) };
+	programNameStrings->replaceState(programNameStringsState);
+	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
+	tooltipOptions->replaceState(tooltipOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {

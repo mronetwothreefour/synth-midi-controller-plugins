@@ -5,6 +5,7 @@
 #include "midi/midi_IncomingSysExHandler.h"
 #include "params/params_ExposedParamsLayout_Factory.h"
 #include "params/params_ExposedParametersListener.h"
+#include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
 
@@ -102,14 +103,13 @@ void PluginProcessor::getStateInformation(MemoryBlock& destData) {
 void PluginProcessor::createPluginStateXml() {
     auto exposedParamsStateTree{ exposedParams->copyState() };
     auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
-    exposedParamsStateXml->setTagName("exposedParams");
-    auto tooltipOptionsStateXml{ std::make_unique<XmlElement>(unexposedParams->tooltipOptions_getStateXml()) };
-    tooltipOptionsStateXml->setTagName("tooltipOptions");
-    pluginStateXml.reset(new XmlElement("pluginStateXml"));
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->unexposedParams_getStateXml()) };
+    pluginStateXml.reset(new XmlElement(ID::state_PluginState));
     if (exposedParamsStateXml != nullptr)
         pluginStateXml->addChildElement(exposedParamsStateXml.release());
-    if (tooltipOptionsStateXml != nullptr)
-        pluginStateXml->addChildElement(tooltipOptionsStateXml.release());
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(unexposedParamsStateXml.release());
 }
 
 void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
@@ -119,15 +119,15 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
 }
 
 void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
-    auto exposedParamsStateXml{ sourceXml->getChildByName("exposedParams") };
+    auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
     if (exposedParamsStateXml != nullptr) {
         auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
         exposedParams->replaceState(exposedParamsStateTree);
     }
-    auto tooltipOptionsStateXml{ sourceXml->getChildByName("tooltipOptions") };
-    if (tooltipOptionsStateXml != nullptr) {
-        auto tooltipOptionsStateTree{ ValueTree::fromXml(*tooltipOptionsStateXml) };
-        unexposedParams->tooltipOptions_replaceState(tooltipOptionsStateTree);
+    auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    if (unexposedParamsStateXml != nullptr) {
+        auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+        unexposedParams->unexposedParams_replaceState(unexposedParamsStateTree);
     }
 }
 
