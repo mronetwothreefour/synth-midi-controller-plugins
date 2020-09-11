@@ -2188,6 +2188,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp" />
@@ -3012,6 +3013,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h" />
