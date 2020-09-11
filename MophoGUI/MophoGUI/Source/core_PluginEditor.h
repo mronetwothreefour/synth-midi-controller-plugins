@@ -8,6 +8,7 @@
 
 class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
+class ButtonForPerformingUndo;
 class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
@@ -36,6 +37,7 @@ class PluginEditor :
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_Env3;
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
+    std::unique_ptr<ButtonForPerformingUndo> button_ForPerformingUndo;
     std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
     std::unique_ptr<ButtonForSendingProgramEditBufferDumpRequest> button_ForSendingProgramEditBufferDumpRequest;
     std::unique_ptr<ButtonForShowingProgramBanksComponent> button_ForShowingProgramBanksComponent;
