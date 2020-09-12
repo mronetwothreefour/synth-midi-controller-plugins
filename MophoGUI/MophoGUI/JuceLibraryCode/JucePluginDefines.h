@@ -82,7 +82,7 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                0.1.0
+ #define JucePlugin_Version                0.1.1
 #endif
 #ifndef  JucePlugin_VersionCode
  #define JucePlugin_VersionCode            0x100

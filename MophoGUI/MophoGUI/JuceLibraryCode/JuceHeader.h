@@ -46,9 +46,9 @@
 #if ! JUCE_DONT_DECLARE_PROJECTINFO
 namespace ProjectInfo
 {
-    const char* const  projectName    = "MophoGUI";
-    const char* const  companyName    = "Mister 1-2-3-4 Programming";
-    const char* const  versionString  = "0.1.0";
-    const int          versionNumber  = 0x100;
+    const char* const  projectName    = JucePlugin_Name;
+    const char* const  companyName    = JucePlugin_Manufacturer;
+    const char* const  versionString  = JucePlugin_VersionString;
+    const int          versionNumber  = JucePlugin_VersionCode;
 }
 #endif

@@ -79,6 +79,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     button_ForShowingProgramBanksComponent->onClick = [this] { showProgramBanksComponent(); };
     button_ForShowingGlobalParametersComponent->onClick = [this] { prepareToShowGlobalParametersComponent(); };
 
+    URL url{ "https://programming.mr1234.com/" };
+    button_ForGoingToWebSite.reset(new HyperlinkButton("", url));
+    button_ForGoingToWebSite->setComponentID(ID::component_HyperlinkButton.toString());
+    button_ForGoingToWebSite->setTooltip("Click to go to programming.mr1234.com");
+    addAndMakeVisible(button_ForGoingToWebSite.get());
+
+
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -121,6 +128,10 @@ void PluginEditor::paint(Graphics& g) {
     g.drawHorizontalLine(85, 15.0f, 295.0f);
     Rectangle<int> pgmNameBackground{ 580, 33, 242, 37 };
     g.fillRect(pgmNameBackground);
+    Font infoLineFont{ FontsDB::family_Global, FontsDB::style_ForPluginInfoLine, FontsDB::size_ForPluginInfoLine };
+    g.setFont(infoLineFont);
+    Rectangle<int> infoLineArea{ 580, 118, 227, 16 };
+    g.drawText("Build " + (String)ProjectInfo::versionString + "  |  Mister 1-2-3-4 Programming", infoLineArea, Justification::centred);
 }
 
 void PluginEditor::resized() {
@@ -148,6 +159,7 @@ void PluginEditor::resized() {
     button_ForClearingSequencerTrack2->setBounds(clearSeqTrackButtons_x, 244, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
     button_ForClearingSequencerTrack3->setBounds(clearSeqTrackButtons_x, 327, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
     button_ForClearingSequencerTrack4->setBounds(clearSeqTrackButtons_x, 410, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForGoingToWebSite->setBounds(656, 117, 140, 16);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -202,6 +214,7 @@ PluginEditor::~PluginEditor() {
     programBanksComponent = nullptr;
     nrpnIsOffWarningComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
+    button_ForGoingToWebSite = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;

@@ -24,6 +24,7 @@ namespace FontsDB
 	static const String style_ForTooltipText{ "Narrow Bold" };
 	static const String style_ForBoldHardwareSettingsWarningMessage{ "Bold" };
 	static const String style_ForHardwareSettingsWarningMessage{ "Regular" };
+	static const String style_ForPluginInfoLine{ "Regular" };
 
 	static const float size_ForProgressDisplayMessage{ 17.0f };
 	static const float size_ForProgressDisplayTitle{ 25.0f };
@@ -46,4 +47,5 @@ namespace FontsDB
 	static const float size_ForOscMix1and2Labels{ 13.0f };
 	static const float size_ForBoldHardwareSettingsWarningMessage{ 13.0f };
 	static const float size_ForHardwareSettingsWarningMessage{ 12.0f };
+	static const float size_ForPluginInfoLine{ 12.0f };
 };

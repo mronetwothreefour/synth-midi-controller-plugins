@@ -52,6 +52,7 @@ class PluginEditor :
     std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
     std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
     std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
+    std::unique_ptr<HyperlinkButton> button_ForGoingToWebSite;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
