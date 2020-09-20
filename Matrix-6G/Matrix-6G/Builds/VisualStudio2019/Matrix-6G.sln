@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2019
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G - VST3", "Matrix-6G_VST3.vcxproj", "{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A92EF758-9CD7-E265-5316-7D3B40674C92} = {A92EF758-9CD7-E265-5316-7D3B40674C92}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G - Shared Code", "Matrix-6G_SharedCode.vcxproj", "{A92EF758-9CD7-E265-5316-7D3B40674C92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+		Debug For Hosts That Add F0 and F7|x64 = Debug For Hosts That Add F0 and F7|x64
+		Release For Hosts That Add F0 and F7|x64 = Release For Hosts That Add F0 and F7|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Debug|x64.ActiveCfg = Debug|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Debug|x64.Build.0 = Debug|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Release|x64.ActiveCfg = Release|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Release|x64.Build.0 = Release|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Debug For Hosts That Add F0 and F7|x64.ActiveCfg = Debug For Hosts That Add F0 and F7|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Debug For Hosts That Add F0 and F7|x64.Build.0 = Debug For Hosts That Add F0 and F7|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Release For Hosts That Add F0 and F7|x64.ActiveCfg = Release For Hosts That Add F0 and F7|x64
+		{7F3378D0-EDBA-A0A3-662D-98F3A39013D3}.Release For Hosts That Add F0 and F7|x64.Build.0 = Release For Hosts That Add F0 and F7|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Debug|x64.ActiveCfg = Debug|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Debug|x64.Build.0 = Debug|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Release|x64.ActiveCfg = Release|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Release|x64.Build.0 = Release|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Debug For Hosts That Add F0 and F7|x64.ActiveCfg = Debug For Hosts That Add F0 and F7|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Debug For Hosts That Add F0 and F7|x64.Build.0 = Debug For Hosts That Add F0 and F7|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Release For Hosts That Add F0 and F7|x64.ActiveCfg = Release For Hosts That Add F0 and F7|x64
+		{A92EF758-9CD7-E265-5316-7D3B40674C92}.Release For Hosts That Add F0 and F7|x64.Build.0 = Release For Hosts That Add F0 and F7|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

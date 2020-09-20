@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="FEODrN" name="Matrix-6G" projectType="audioplug" jucerFormatVersion="1"
+              version="0.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+              companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Lets you control the Oberheim Matrix-6R synthesizer from your DAW"
+              pluginManufacturerCode="TimD" pluginChannelConfigs="{0, 0}" pluginVST3Category="Tools">
+  <MAINGROUP id="SlPnpq" name="Matrix-6G">
+    <GROUP id="{62B3BC6B-531F-BAF4-F82E-E0ED33A84709}" name="Source">
+      <FILE id="GTvSsq" name="core_PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/core_PluginProcessor.cpp"/>
+      <FILE id="y12uTE" name="core_PluginProcessor.h" compile="0" resource="0"
+            file="Source/core_PluginProcessor.h"/>
+      <FILE id="zXd9km" name="core_PluginEditor.cpp" compile="1" resource="0"
+            file="Source/core_PluginEditor.cpp"/>
+      <FILE id="lM901F" name="core_PluginEditor.h" compile="0" resource="0"
+            file="Source/core_PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       enableIncrementalLinking="1" defines="HOST_DOES_NOT_ADD_F0_AND_F7=1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G" defines="HOST_DOES_NOT_ADD_F0_AND_F7=1"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds" useRuntimeLibDLL="0"/>
+        <CONFIGURATION isDebug="1" name="Debug For Hosts That Add F0 and F7" targetName="Matrix-6G For Hosts That Add F0 and F7 (Debug)"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds" enableIncrementalLinking="1"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=0"/>
+        <CONFIGURATION isDebug="0" name="Release For Hosts That Add F0 and F7" targetName="Matrix-6G For Hosts That Add F0 and F7"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=0" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>

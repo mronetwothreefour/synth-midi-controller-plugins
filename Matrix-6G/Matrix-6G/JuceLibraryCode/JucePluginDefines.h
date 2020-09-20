@@ -39,13 +39,13 @@
 #endif
 #ifndef  JucePlugin_Name
     #if HOST_DOES_NOT_ADD_F0_AND_F7 
-        #define JucePlugin_Name                   "MophoGUI"
+        #define JucePlugin_Name                   "Matrix-6G"
     #else
-        #define JucePlugin_Name                   "MophoGUI For Hosts That Add F0 and F7"
+        #define JucePlugin_Name                   "Matrix-6G For Hosts That Add F0 and F7"
     #endif
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Lets you control the DSI Mopho synthesizer from your DAW"
+ #define JucePlugin_Desc                   "Lets you control the Oberheim Matrix-6R synthesizer from your DAW"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Mister 1-2-3-4 Programming"
@@ -61,9 +61,9 @@
 #endif
 #ifndef  JucePlugin_PluginCode
     #if HOST_DOES_NOT_ADD_F0_AND_F7 
-        #define JucePlugin_PluginCode             0x46647863
+        #define JucePlugin_PluginCode             0x46656f64
     #else
-        #define JucePlugin_PluginCode             0x4e6b7277
+        #define JucePlugin_PluginCode             0x46656f65
     #endif
 #endif
 #ifndef  JucePlugin_IsSynth
@@ -106,16 +106,16 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         MophoGUIAU
+ #define JucePlugin_AUExportPrefix         Matrix6GAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "MophoGUIAU"
+ #define JucePlugin_AUExportPrefixQuoted   "Matrix6GAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.MophoGUI
+ #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.Matrix6G
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           0
@@ -133,7 +133,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.Mister1234Programming.MophoGUI
+ #define JucePlugin_AAXIdentifier          com.Mister1234Programming.Matrix6G
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -157,7 +157,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: MophoGUI"
+ #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: Matrix-6G"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16
@@ -172,5 +172,5 @@
  #define JucePlugin_MaxNumOutputChannels   0
 #endif
 #ifndef  JucePlugin_PreferredChannelConfigurations
-// #define JucePlugin_PreferredChannelConfigurations  {0, 0}
+ #define JucePlugin_PreferredChannelConfigurations  {0, 0}
 #endif
