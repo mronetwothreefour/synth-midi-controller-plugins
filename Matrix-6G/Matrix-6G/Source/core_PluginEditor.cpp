@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Colors.h"
+#include "gui/gui_Fonts.h"
 
 
 
@@ -14,9 +15,10 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
 
 void PluginEditor::paint(juce::Graphics& g) {
     g.fillAll(Color::device);
-    g.setColour(juce::Colours::white);
-    g.setFont(15.0f);
-    g.drawFittedText("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.setColour(Color::white);
+    Font testFont(FontsDB::family_HeavyText, FontsDB::style_ForHeavyText, FontsDB::size_ForSectionHeaderText);
+    g.setFont(testFont);
+    g.drawFittedText("OSCILLATOR", getLocalBounds(), juce::Justification::centred, 1);
 }
 
 void PluginEditor::resized() {
