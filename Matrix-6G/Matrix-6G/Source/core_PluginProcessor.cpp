@@ -42,7 +42,7 @@ const juce::String PluginProcessor::getProgramName(int /*index*/) {
 void PluginProcessor::changeProgramName(int /*index*/, const juce::String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
+void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midiMessages*/) {
     buffer.clear();
 }
 
@@ -68,10 +68,10 @@ juce::AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor(*this);
 }
 
-void PluginProcessor::getStateInformation(juce::MemoryBlock& destData) {
+void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
 }
 
-void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
 }
 
 PluginProcessor::~PluginProcessor() {

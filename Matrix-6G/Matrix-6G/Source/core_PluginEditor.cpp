@@ -10,12 +10,12 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
-    setSize(1256, 612);
+    setSize(1252, 596);
 }
 
 void PluginEditor::paint(juce::Graphics& g) {
     g.fillAll(Color::device);
-    g.setColour(Color::white);
+    g.setColour(Color::offWhite);
     Font testFont(FontsDB::family_HeavyText, FontsDB::style_ForHeavyText, FontsDB::size_ForSectionHeaderText);
     g.setFont(testFont);
     g.drawFittedText("OSCILLATOR", getLocalBounds(), juce::Justification::centred, 1);
