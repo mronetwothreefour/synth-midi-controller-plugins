@@ -427,14 +427,17 @@
     <Filter Include="Matrix-6G\Source\gui">
       <UniqueIdentifier>{7fe065d7-b367-4e99-9135-e89e70864893}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\_core">
+      <UniqueIdentifier>{86c403d3-4f4c-4441-874f-1cdb77779996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G\Source\params">
+      <UniqueIdentifier>{30377c7a-7b81-4594-8131-bb24fcfee18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G\Source\widgets_ControlsForParameters">
+      <UniqueIdentifier>{4d06255b-9e56-4e94-b5c9-a0633cea01d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
-      <Filter>Matrix-6G\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
-      <Filter>Matrix-6G\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2343,14 +2346,14 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
+      <Filter>Matrix-6G\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
+      <Filter>Matrix-6G\Source\_core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\core_PluginProcessor.h">
-      <Filter>Matrix-6G\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\core_PluginEditor.h">
-      <Filter>Matrix-6G\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClInclude>
@@ -4555,6 +4558,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\core_PluginEditor.h">
+      <Filter>Matrix-6G\Source\_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\core_PluginProcessor.h">
+      <Filter>Matrix-6G\Source\_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
+      <Filter>Matrix-6G\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

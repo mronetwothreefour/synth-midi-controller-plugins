@@ -2869,6 +2869,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
