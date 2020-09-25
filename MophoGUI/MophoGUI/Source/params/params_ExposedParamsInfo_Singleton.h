@@ -55,8 +55,6 @@ public:
 	// Returns 255 if NRPN is not found
 	uint8 indexForNRPN(const uint8 nrpn) const;
 
-	~InfoForExposedParameters();
-
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(InfoForExposedParameters)

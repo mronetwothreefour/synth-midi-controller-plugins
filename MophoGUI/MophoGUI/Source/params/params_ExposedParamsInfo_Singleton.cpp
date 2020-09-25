@@ -1866,7 +1866,3 @@ uint8 InfoForExposedParameters::indexForNRPN(const uint8 nrpn) const {
 		return (uint8)255;
 }
 
-InfoForExposedParameters::~InfoForExposedParameters() {
-}
-
-

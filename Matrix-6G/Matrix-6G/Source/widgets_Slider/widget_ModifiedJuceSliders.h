@@ -20,7 +20,6 @@ public:
 
 	explicit SliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
 	void mouseWheelMove(const MouseEvent& /*event*/, const MouseWheelDetails& wheel) override;
-	~SliderWithMouseWheelMod() override;
 };
 
 
@@ -32,6 +31,5 @@ public:
 	RotarySliderWithMouseWheelMod() = delete;
 
 	explicit RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
-	~RotarySliderWithMouseWheelMod() override;
 };
 

@@ -17,9 +17,6 @@ void SliderWithMouseWheelMod::mouseWheelMove(const MouseEvent&, const MouseWheel
 	unexposedParams->undoManager_get()->beginNewTransaction();
 }
 
-SliderWithMouseWheelMod::~SliderWithMouseWheelMod() {
-}
-
 
 
 
@@ -29,9 +26,6 @@ RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-}
-
-RotarySliderWithMouseWheelMod::~RotarySliderWithMouseWheelMod() {
 }
 
 
@@ -49,7 +43,4 @@ void SliderForSequencerSteps::mouseDown(const MouseEvent& event) {
 	if (sequencerTrack == 1 && event.mods.isAltDown())
 		setValue(127.0, sendNotification);
 	else Slider::mouseDown(event);
-}
-
-SliderForSequencerSteps::~SliderForSequencerSteps() {
 }

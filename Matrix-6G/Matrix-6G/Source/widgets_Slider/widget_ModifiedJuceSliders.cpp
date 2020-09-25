@@ -17,9 +17,6 @@ void SliderWithMouseWheelMod::mouseWheelMove(const MouseEvent&, const MouseWheel
 	unexposedParams->undoManager_get()->beginNewTransaction();
 }
 
-SliderWithMouseWheelMod::~SliderWithMouseWheelMod() {
-}
-
 
 
 
@@ -29,8 +26,5 @@ RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
-}
-
-RotarySliderWithMouseWheelMod::~RotarySliderWithMouseWheelMod() {
 }
 

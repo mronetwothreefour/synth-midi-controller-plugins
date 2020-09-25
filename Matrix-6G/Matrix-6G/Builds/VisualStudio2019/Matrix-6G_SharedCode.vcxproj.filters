@@ -439,6 +439,9 @@
     <Filter Include="Matrix-6G\Source\widgets_Slider">
       <UniqueIdentifier>{b44b5613-f714-491a-81b8-d36cfff17e92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\midi">
+      <UniqueIdentifier>{0165d2c2-44e6-43c3-bcd1-00dcffe2bac9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2358,8 +2361,18 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
-    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4587,6 +4600,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
+      <Filter>Matrix-6G\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

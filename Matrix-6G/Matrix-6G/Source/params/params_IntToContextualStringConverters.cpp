@@ -86,7 +86,7 @@ String IntToPlainValueString::conversionAlgorithm(const uint8& i) noexcept {
 }
 
 String IntToPlainValueString::verboseConversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 64);
+	jassert(i < 128);
 	return (String)i;
 }
 
