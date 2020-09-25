@@ -14,12 +14,12 @@ struct IntToPitchName {
 struct IntToContextualStringConverter
 {
 protected:
-	virtual String conversionAlgorithm(const uint8& i) noexcept = 0;
-	virtual String verboseConversionAlgorithm(const uint8& i) noexcept = 0;
+	virtual String conversionAlgorithm(const int8 & i) noexcept = 0;
+	virtual String verboseConversionAlgorithm(const int8 & i) noexcept = 0;
 
 public:
-	String convert(const uint8& i) noexcept;
-	String verboseConvert(const uint8& i) noexcept;
+	String convert(const int8 & i) noexcept;
+	String verboseConvert(const int8 & i) noexcept;
 };
 
 
@@ -27,8 +27,8 @@ public:
 
 struct IntToNullString : public IntToContextualStringConverter
 {
-	String conversionAlgorithm(const uint8& i) noexcept override;
-	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+	String conversionAlgorithm(const int8& i) noexcept override;
+	String verboseConversionAlgorithm(const int8& i) noexcept override;
 
 public:
 	static IntToNullString* get() noexcept;
@@ -39,8 +39,8 @@ public:
 
 struct IntToPlainValueString : public IntToContextualStringConverter
 {
-	String conversionAlgorithm(const uint8& i) noexcept override;
-	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+	String conversionAlgorithm(const int8& i) noexcept override;
+	String verboseConversionAlgorithm(const int8& i) noexcept override;
 
 public:
 	static IntToPlainValueString* get() noexcept;
@@ -49,13 +49,13 @@ public:
 
 
 
-struct IntToPosNegValueString : public IntToContextualStringConverter
+struct IntToSignedValueString : public IntToContextualStringConverter
 {
-	String conversionAlgorithm(const uint8& i) noexcept override;
-	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+	String conversionAlgorithm(const int8& i) noexcept override;
+	String verboseConversionAlgorithm(const int8& i) noexcept override;
 
 public:
-	static IntToPosNegValueString* get() noexcept;
+	static IntToSignedValueString* get() noexcept;
 };
 
 
@@ -63,8 +63,8 @@ public:
 
 struct IntToOscPitchString : public IntToContextualStringConverter
 {
-	String conversionAlgorithm(const uint8& i) noexcept override;
-	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+	String conversionAlgorithm(const int8& i) noexcept override;
+	String verboseConversionAlgorithm(const int8& i) noexcept override;
 
 public:
 	static IntToOscPitchString* get() noexcept;
