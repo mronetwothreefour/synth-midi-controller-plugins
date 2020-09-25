@@ -115,7 +115,7 @@ IntToNullString* IntToNullString::get() noexcept {
 
 
 String IntToPlainValueString::conversionAlgorithm(const uint8& i) noexcept {
-	return (String)i;
+	return verboseConversionAlgorithm(i);
 }
 
 String IntToPlainValueString::verboseConversionAlgorithm(const uint8& i) noexcept {

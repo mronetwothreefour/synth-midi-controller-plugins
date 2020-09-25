@@ -2130,6 +2130,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
@@ -2870,7 +2873,10 @@
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
+    <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
