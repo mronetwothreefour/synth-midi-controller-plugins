@@ -14,9 +14,9 @@ class InfoForExposedParameters
 	Array<uint8> paramNumbers;
 	Array<ControlType> controlTypes;
 	Array<IntToContextualStringConverter*> converters;
-	Array<int> minValues;
-	Array<int> maxValues;
-	Array<int> defaultValues;
+	Array<int8> minValues;
+	Array<uint8> maxValues;
+	Array<int8> defaultValues;
 	Array<String> descriptions;
 	Array<Point<int>> ctrlCenterPoints;
 	Array<int> ctrlWidths;

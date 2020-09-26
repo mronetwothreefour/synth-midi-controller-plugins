@@ -1,5 +1,8 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 
+#include "params_IntToContextualStringConverters.h"
+#include "../widgets_ControlsForParameters/widget_ControlTypes.h"
+
 
 
 InfoForExposedParameters::InfoForExposedParameters() {
@@ -26,6 +29,16 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto controlsHorizontalGap{ 6 };
 	static const auto oscBalanceControl_w{ 2 * oscControls_w + controlsHorizontalGap };
 
-	//======================================================
+	String descriptionString;
 
+	//======================================================
+	identifiers.add("osc1Pitch"); // 0
+	exposedNames.add("Oscillator 1 Pitch");
+	controlTypes.add(ControlType::slider);
+	converters.add(IntToOscPitchString::get());
+	minValues.add((int8)0);
+	maxValues.add((int8)63);
+	defaultValues.add((int8)24);
+	descriptionString =  "Sets oscillator 1's base pitch in semitone steps.\n";
+	descriptionString += "Range: C 0 to D#5.";
 }
