@@ -11,8 +11,8 @@ ToggleButtonWithWithExposedParamAttacher::ToggleButtonWithWithExposedParamAttach
 {
 	addAndMakeVisible(toggle);
 	toggle.setComponentID(ID::component_ToggleButton.toString());
-	auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
-	auto ctrlHeight{ InfoForExposedParameters::get().ctrlHeightFor(param) };
+	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
+	auto ctrlHeight{ InfoForExposedParameters::get().controlHeightFor(param) };
 	setSize(ctrlWidth, ctrlHeight);
 	toggle.setSize(ctrlWidth, ctrlHeight);
 }

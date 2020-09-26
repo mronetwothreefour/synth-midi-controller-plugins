@@ -65,11 +65,11 @@ String IntToContextualStringConverter::verboseConvert(const int8 & i) noexcept {
 
 
 
-String IntToNullString::conversionAlgorithm(const int8 & i) noexcept {
+String IntToNullString::conversionAlgorithm(const int8 & /*i*/) noexcept {
 	return "null";
 }
 
-String IntToNullString::verboseConversionAlgorithm(const int8 & i) noexcept {
+String IntToNullString::verboseConversionAlgorithm(const int8 & /*i*/) noexcept {
 	return "null";
 }
 

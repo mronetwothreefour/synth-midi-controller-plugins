@@ -58,7 +58,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
         auto control{ controlFor(param) };
         addAndMakeVisible(control);
         control->attachToExposedParameter(exposedParams);
-        control->setCentrePosition(InfoForExposedParameters::get().ctrlCenterPointFor(param));
+        control->setCentrePosition(InfoForExposedParameters::get().controlCenterPointFor(param));
     }
 
     addAndMakeVisible(rendererForEnvelope_LPF.get());

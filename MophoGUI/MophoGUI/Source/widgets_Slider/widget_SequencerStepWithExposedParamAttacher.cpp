@@ -13,8 +13,8 @@ SequencerStepWithExposedParamAttacher::SequencerStepWithExposedParamAttacher(uin
 	tooltipSetter{ stepSlider, param, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
-	auto ctrlWidth{ info.ctrlWidthFor(param) };
-	auto ctrlHeight{ info.ctrlHeightFor(param) };
+	auto ctrlWidth{ info.controlWidthFor(param) };
+	auto ctrlHeight{ info.controlHeightFor(param) };
 	setSize(ctrlWidth, ctrlHeight);
 	addChildComponent(trackDestination);
 	trackDestination.setInterceptsMouseClicks(false, false);

@@ -14,8 +14,8 @@ ComboBoxWithExposedParamAttacher::ComboBoxWithExposedParamAttacher(uint8 param, 
 		choices.add(converter->convert(i));
 	comboBox.addItemList(choices, 1);
 	addAndMakeVisible(comboBox);
-	auto ctrlWidth{ InfoForExposedParameters::get().ctrlWidthFor(param) };
-	auto ctrlHeight{ InfoForExposedParameters::get().ctrlHeightFor(param) };
+	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
+	auto ctrlHeight{ InfoForExposedParameters::get().controlHeightFor(param) };
 	setSize(ctrlWidth, ctrlHeight);
 	comboBox.setSize(ctrlWidth, ctrlHeight);
 }

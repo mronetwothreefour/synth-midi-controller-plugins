@@ -10,7 +10,6 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-	static const auto controls_h{ 20 };
 	static const auto controlsVerticalGap{ 8 };
 	static const auto controlsRow1_y{ 69 };
 	static const auto controlsRow2_y{ controlsRow1_y + controlsVerticalGap };
@@ -41,4 +40,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	defaultValues.add((int8)24);
 	descriptionString =  "Sets oscillator 1's base pitch in semitone steps.\n";
 	descriptionString += "Range: C 0 to D#5.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow1_y));
+	lsbByteLocations.add((uint16)23);
 }

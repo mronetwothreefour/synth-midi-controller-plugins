@@ -17,9 +17,9 @@ class InfoForExposedParameters
 	Array<uint8> maxValues;
 	Array<uint8> defaultValues;
 	Array<String> descriptions;
-	Array<Point<int>> ctrlCenterPoints;
-	Array<int> ctrlWidths;
-	Array<int> ctrlHeights;
+	Array<int> controlWidths;
+	Array<int> controlHeights;
+	Array<Point<int>> controlCenterPoints;
 	Array<uint16> msBitPackedByteLocations;
 	Array<uint16> lsByteLocations;
 	Array<uint8> msBitMasks;
@@ -44,9 +44,9 @@ public:
 	uint8 defaultValueFor(uint8 paramIndex) const;
 	uint16 numberOfStepsFor(uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;
-	Point<int> ctrlCenterPointFor(uint8 paramIndex) const;
-	int ctrlWidthFor(uint8 paramIndex) const;
-	int ctrlHeightFor(uint8 paramIndex) const;
+	Point<int> controlCenterPointFor(uint8 paramIndex) const;
+	int controlWidthFor(uint8 paramIndex) const;
+	int controlHeightFor(uint8 paramIndex) const;
 	uint8 indexForParamID(const String& parameterID) const;
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
