@@ -1,5 +1,7 @@
 #include "midi_OutgoingMidiBuffers.h"
 
+
+
 OutgoingMidiBuffers::OutgoingMidiBuffers() :
 	outgoingMidiBuffer{ new MidiBuffer() },
 	aggregatedOutgoingBuffers{ new Array<MidiBuffer, CriticalSection>() }

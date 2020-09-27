@@ -3,14 +3,18 @@
 
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
+#include "midi/midi_QuickPatchEditing.h"
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }
+    processor{ processor },
+    exposedParams{ exposedParams },
+    unexposedParams{ unexposedParams }
 {
     setSize(1252, 596);
+    QuickPatchEditing::sendActivateMessageToUnexposedParamsForHandling(unexposedParams);
 }
 
 void PluginEditor::paint(juce::Graphics& g) {

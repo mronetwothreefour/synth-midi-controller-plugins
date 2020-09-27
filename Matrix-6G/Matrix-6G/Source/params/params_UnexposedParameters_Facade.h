@@ -17,6 +17,7 @@ public:
 	UnexposedParameters();
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
+	Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers_get();
 	UndoManager* undoManager_get();
 	~UnexposedParameters();
 

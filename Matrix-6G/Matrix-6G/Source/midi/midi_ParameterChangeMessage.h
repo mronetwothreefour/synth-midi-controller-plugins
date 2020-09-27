@@ -14,6 +14,7 @@ struct ParameterChangeMessage {
 		outgoingBuffers->aggregateOutgoingMidiBuffers(paramChangeMessage);
 	}
 
+private:
 	static MidiBuffer createParamChangeSysExMessage(uint8 newValue, uint8 param) {
 		auto messageVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
 		messageVector.push_back((uint8)SysExMessageType::paramChange);

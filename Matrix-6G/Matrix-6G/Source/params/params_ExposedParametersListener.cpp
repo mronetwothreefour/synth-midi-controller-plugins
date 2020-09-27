@@ -20,8 +20,9 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 	if (midiOptions->paramChangeEchosAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
-		auto outputValue{ (uint8)roundToInt(newValue) };
-		ParameterChangeMessage::sendNewValueForParameterToUnexposedParamsForHandling(outputValue, param, unexposedParams);
+		auto outputValue{ (int8)roundToInt(newValue) };
+		if (param < 100 && outputValue > - 1)
+			ParameterChangeMessage::sendNewValueForParameterToUnexposedParamsForHandling(outputValue, (uint8)param, unexposedParams);
 	}
 	else return;
 }

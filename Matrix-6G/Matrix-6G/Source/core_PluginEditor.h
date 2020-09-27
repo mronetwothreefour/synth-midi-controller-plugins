@@ -8,9 +8,11 @@ class PluginEditor :
     public juce::AudioProcessorEditor
 {
     PluginProcessor& processor;
+    AudioProcessorValueTreeState* exposedParams;
+    UnexposedParameters* unexposedParams;
 
 public:
-    explicit PluginEditor(PluginProcessor& processor);
+    explicit PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(juce::Graphics&) override;
     void resized() override;
     ~PluginEditor() override;

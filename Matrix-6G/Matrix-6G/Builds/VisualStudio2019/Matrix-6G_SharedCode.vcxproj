@@ -2880,6 +2880,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
+    <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
