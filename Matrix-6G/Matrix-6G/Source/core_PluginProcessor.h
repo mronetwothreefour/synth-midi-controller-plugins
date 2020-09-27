@@ -4,8 +4,13 @@
 
 
 
+class UnexposedParameters;
+
 class PluginProcessor : public juce::AudioProcessor
 {
+    std::unique_ptr<UnexposedParameters> unexposedParams;
+    std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
+
 public:
     PluginProcessor();
 

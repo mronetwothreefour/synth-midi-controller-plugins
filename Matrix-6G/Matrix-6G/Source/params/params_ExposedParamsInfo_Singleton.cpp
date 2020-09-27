@@ -45,3 +45,68 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow1_y));
 	lsbByteLocations.add((uint16)23);
 }
+
+InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
+	static InfoForExposedParameters exposedParamsInfo;
+	return exposedParamsInfo;
+}
+
+int InfoForExposedParameters::paramOutOfRange() const noexcept {
+	return identifiers.size();
+}
+
+Identifier InfoForExposedParameters::IDfor(uint16 paramIndex) const {
+	return identifiers[paramIndex];
+}
+
+String InfoForExposedParameters::exposedNameFor(uint16 paramIndex) const {
+	return exposedNames[paramIndex];
+}
+
+ControlType InfoForExposedParameters::controlTypeFor(uint16 paramIndex) const {
+	return controlTypes[paramIndex];
+}
+
+IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint16 paramIndex) const {
+	return converters[paramIndex];
+}
+
+int InfoForExposedParameters::minValueFor(uint16 paramIndex) const {
+	return minValues[paramIndex];
+}
+
+int InfoForExposedParameters::maxValueFor(uint16 paramIndex) const {
+	return maxValues[paramIndex];
+}
+
+int InfoForExposedParameters::defaultValueFor(uint16 paramIndex) const {
+	return defaultValues[paramIndex];
+}
+
+int InfoForExposedParameters::numberOfStepsFor(uint16 paramIndex) const {
+	return maxValues[paramIndex] - minValues[paramIndex] + 1;
+}
+
+String InfoForExposedParameters::descriptionFor(uint16 paramIndex) const {
+	return descriptions[paramIndex];
+}
+
+Point<int> InfoForExposedParameters::controlCenterPointFor(uint16 paramIndex) const {
+	return controlCenterPoints[paramIndex];
+}
+
+int InfoForExposedParameters::controlWidthFor(uint16 paramIndex) const {
+	return controlWidths[paramIndex];
+}
+
+uint16 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
+	return (uint16)identifiers.indexOf(Identifier(parameterID));
+}
+
+uint16 InfoForExposedParameters::lsbByteLocationFor(uint16 paramIndex) const {
+	return lsbByteLocations[paramIndex];
+}
+
+uint16 InfoForExposedParameters::msbByteLocationFor(uint16 paramIndex) const {
+	return lsbByteLocations[paramIndex] + 1;
+}

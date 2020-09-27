@@ -2132,6 +2132,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
@@ -2876,6 +2877,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
