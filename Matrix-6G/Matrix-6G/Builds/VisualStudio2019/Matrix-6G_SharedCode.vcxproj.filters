@@ -2376,6 +2376,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4608,6 +4609,12 @@
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
   </ItemGroup>

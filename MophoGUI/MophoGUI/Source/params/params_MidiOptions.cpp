@@ -167,6 +167,3 @@ int MidiOptions::programTransmitTime() {
 void MidiOptions::setProgramTransmitTime(int timeInMilliseconds) {
 	midiOptionsTree.setProperty(ID::midi_ProgramTransmitTime, timeInMilliseconds, nullptr);
 }
-
-MidiOptions::~MidiOptions() {
-}

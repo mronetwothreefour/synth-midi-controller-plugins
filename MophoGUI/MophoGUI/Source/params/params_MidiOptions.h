@@ -49,7 +49,6 @@ public:
 	void setParamChangeEchosAreNotBlocked();
 	int programTransmitTime();
 	void setProgramTransmitTime(int timeInMilliseconds);
-	~MidiOptions();
 
 private:
 	//==============================================================================
