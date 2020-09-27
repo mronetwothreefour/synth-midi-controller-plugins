@@ -11,6 +11,10 @@ MidiOptions* UnexposedParameters::midiOptions_get() {
 	return midiOptions.get();
 }
 
+OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
+	return outgoingMidiBuffers.get();
+}
+
 UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }

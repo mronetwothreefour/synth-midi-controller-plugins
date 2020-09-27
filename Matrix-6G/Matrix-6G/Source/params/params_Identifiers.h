@@ -6,6 +6,7 @@
 
 namespace ID
 {
+	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 }
