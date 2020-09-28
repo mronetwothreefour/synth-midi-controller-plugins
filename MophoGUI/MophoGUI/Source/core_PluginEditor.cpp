@@ -135,7 +135,7 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
-    logo->setBounds(880, 0, logo->getWidth(), logo->getHeight());
+    logo->setBounds(901, 13, logo->getWidth(), logo->getHeight());
     auto envRenderers_x{ 168 };
     rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
     rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());

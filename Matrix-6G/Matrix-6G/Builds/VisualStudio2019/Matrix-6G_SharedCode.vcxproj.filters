@@ -2385,6 +2385,9 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Logo.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4636,6 +4639,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h">
       <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Logo.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

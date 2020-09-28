@@ -4,12 +4,15 @@
 
 
 
+class Logo;
+
 class PluginEditor :
     public juce::AudioProcessorEditor
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    std::unique_ptr<Logo> logo;
 
 public:
     explicit PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);

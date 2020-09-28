@@ -5,13 +5,12 @@
 
 
 Logo::Logo() {
-    auto div_Logo_w{ 393 };
-    auto div_Logo_h{ 106 };
-    setSize(div_Logo_w, div_Logo_h);
+    auto logo_w{ 393 };
+    auto logo_h{ 106 };
+    setSize(logo_w, logo_h);
 }
 
 void Logo::paint(Graphics& g) {
-    // Path data for the MophoGUI logo
     static const unsigned char pathData[] = { 110,109,225,122,124,65,164,112,61,64,108,133,235,139,65,194,245,184,64,98,174,71,149,65,61,10,247,64,194,245,156,65,184,30,33,65,174,71,163,65,40,92,79,65,108,0,0,166,65,255,255,71,65,108,144,194,125,65,183,30,73,65,98,134,235,125,65,183,30,73,65,144,
     235,17,63,91,143,66,65,144,235,17,63,91,143,66,65,108,0,0,0,0,113,61,66,65,108,174,71,97,62,92,143,74,65,108,82,184,190,63,82,184,122,65,98,154,153,161,64,215,163,190,65,52,51,219,64,194,245,4,66,52,51,219,64,215,163,46,66,98,52,51,219,64,246,40,95,66,
     114,61,170,64,236,81,129,66,52,51,19,64,92,15,140,66,108,172,112,189,62,133,235,146,66,108,72,215,35,61,153,25,148,66,108,134,235,135,65,204,76,145,66,108,62,10,133,65,204,76,144,66,98,21,174,129,65,81,56,146,66,1,0,124,65,112,61,148,66,247,40,116,65,
@@ -184,9 +183,6 @@ void Logo::paint(Graphics& g) {
 
     Path logoData;
     logoData.loadPathFromData(pathData, sizeof(pathData));
-
     g.setColour(Color::black);
-    Path logo; // This second path is just used to translate the logo path to its correct location in the GUI
-    logo.addPath(logoData, AffineTransform::translation(19.0f, 13.022f));
-    g.fillPath(logo);
+    g.fillPath(logoData);
 }

@@ -2130,6 +2130,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
@@ -2878,6 +2879,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />
