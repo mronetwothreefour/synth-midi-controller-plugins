@@ -10,7 +10,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor) :
     setSize (400, 300);
 }
 
-void PluginEditor::paint(juce::Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
     g.setColour (juce::Colours::white);
     g.setFont (15.0f);

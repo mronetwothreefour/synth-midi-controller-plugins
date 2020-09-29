@@ -14,6 +14,6 @@ namespace Color
 	static const Colour device{ 0xff101013 };
 	static const Colour dividerLine_gray{ 0xff5b5b5b };
 	static const Colour led_blue{ 0xff0096a6 };
-	static const Colour sectionDivider_blue{ 0xff05239d };
+	static const Colour dividerLine_blue{ 0xff05239d };
 	static const Colour offWhite{ 0xffe1e1e1 };
 }

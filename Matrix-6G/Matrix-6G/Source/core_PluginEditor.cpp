@@ -17,12 +17,14 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
+    dividerLinesLayer{ new DividerLinesLayer() },
     logo{ new Logo() },
     button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
+    addAndMakeVisible(dividerLinesLayer.get());
     addAndMakeVisible(logo.get());
 
     addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
@@ -39,11 +41,12 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     setResizable(false, false);
 }
 
-void PluginEditor::paint(juce::Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     g.fillAll(Color::device);
 }
 
 void PluginEditor::resized() {
+    dividerLinesLayer->setBounds(getLocalBounds());
     logo->setBounds(605, 320, logo->getWidth(), logo->getHeight());
     auto smallButtons_y{ 367 };
     auto smallButtons_h{ 20 };
@@ -63,4 +66,5 @@ PluginEditor::~PluginEditor() {
     tooltipWindow = nullptr;
     button_ForActivatingQuickPatchEdit = nullptr;
     logo = nullptr;
+    dividerLinesLayer = nullptr;
 }

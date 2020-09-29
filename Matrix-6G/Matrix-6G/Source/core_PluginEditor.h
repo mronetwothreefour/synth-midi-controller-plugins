@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "gui/gui_Layer_DividerLines.h"
 #include "gui/gui_LookAndFeel.h"
 
 
@@ -17,6 +18,7 @@ class PluginEditor :
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    std::unique_ptr<DividerLinesLayer> dividerLinesLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
     std::unique_ptr<ButtonForActivatingQuickPatchEdit> button_ForActivatingQuickPatchEdit;
@@ -24,7 +26,7 @@ class PluginEditor :
 
 public:
     explicit PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-    void paint(juce::Graphics&) override;
+    void paint(Graphics& g) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
     ~PluginEditor() override;

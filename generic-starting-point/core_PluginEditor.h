@@ -11,7 +11,7 @@ class PluginEditor :
 
 public:
     explicit PluginEditor(PluginProcessor& processor);
-    void paint(juce::Graphics&) override;
+    void paint(Graphics& g) override;
     void resized() override;
     ~PluginEditor() override;
 

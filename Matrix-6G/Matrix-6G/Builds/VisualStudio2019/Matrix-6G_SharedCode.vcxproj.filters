@@ -2403,6 +2403,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4669,6 +4672,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_DividerLines.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

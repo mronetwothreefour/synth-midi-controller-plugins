@@ -2130,6 +2130,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -2883,6 +2884,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_DividerLines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
