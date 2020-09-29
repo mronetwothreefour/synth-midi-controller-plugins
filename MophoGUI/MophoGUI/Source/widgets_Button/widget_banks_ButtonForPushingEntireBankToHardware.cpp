@@ -24,5 +24,3 @@ const String ButtonForPushingEntireBankToHardware::createButtonTooltipString() {
 void ButtonForPushingEntireBankToHardware::onClickMethod() {
 }
 
-ButtonForPushingEntireBankToHardware::~ButtonForPushingEntireBankToHardware() {
-}

@@ -24,5 +24,3 @@ const String ButtonForResettingAllBanksToFactoryDefaults::createButtonTooltipStr
 void ButtonForResettingAllBanksToFactoryDefaults::onClickMethod() {
 }
 
-ButtonForResettingAllBanksToFactoryDefaults::~ButtonForResettingAllBanksToFactoryDefaults() {
-}

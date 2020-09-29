@@ -23,5 +23,3 @@ const String ButtonForPullingEntireBankFromHardware::createButtonTooltipString()
 void ButtonForPullingEntireBankFromHardware::onClickMethod() {
 }
 
-ButtonForPullingEntireBankFromHardware::~ButtonForPullingEntireBankFromHardware() {
-}

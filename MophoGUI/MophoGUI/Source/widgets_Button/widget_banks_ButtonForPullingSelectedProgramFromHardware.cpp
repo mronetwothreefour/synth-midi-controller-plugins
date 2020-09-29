@@ -26,5 +26,3 @@ void ButtonForPullingSelectedProgramFromHardware::onClickMethod() {
 	programSlots.pullSelectedProgramFromHardware();
 }
 
-ButtonForPullingSelectedProgramFromHardware::~ButtonForPullingSelectedProgramFromHardware() {
-}

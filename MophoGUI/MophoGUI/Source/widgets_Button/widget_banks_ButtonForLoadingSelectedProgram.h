@@ -25,9 +25,6 @@ protected:
 	const String createButtonTooltipString() override;
 	void onClickMethod() override;
 
-public:
-	~ButtonForLoadingSelectedProgram();
-
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedProgram)

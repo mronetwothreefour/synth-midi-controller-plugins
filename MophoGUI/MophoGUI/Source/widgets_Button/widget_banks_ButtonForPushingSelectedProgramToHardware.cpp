@@ -26,5 +26,3 @@ void ButtonForPushingSelectedProgramToHardware::onClickMethod() {
 	programSlots.pushSelectedProgramToHardware();
 }
 
-ButtonForPushingSelectedProgramToHardware::~ButtonForPushingSelectedProgramToHardware() {
-}

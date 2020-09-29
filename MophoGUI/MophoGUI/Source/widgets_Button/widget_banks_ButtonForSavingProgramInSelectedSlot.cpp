@@ -26,5 +26,3 @@ void ButtonForSavingProgramInSelectedSlot::onClickMethod() {
 	programSlots.storeCurrentProgramSettingsInSelectedSlot();
 }
 
-ButtonForSavingProgramInSelectedSlot::~ButtonForSavingProgramInSelectedSlot() {
-}

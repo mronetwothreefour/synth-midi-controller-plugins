@@ -26,5 +26,3 @@ void ButtonForLoadingSelectedProgram::onClickMethod() {
 	programSlots.loadProgramFromSelectedSlot();
 }
 
-ButtonForLoadingSelectedProgram::~ButtonForLoadingSelectedProgram() {
-}
