@@ -8,7 +8,7 @@ class GUILookAndFeel :
 	public LookAndFeel_V4
 {
 public:
-	GUILookAndFeel();
+	GUILookAndFeel() = default;
 	void drawRotarySlider(Graphics& g, int x, int y, int w, int h, float sliderPos, const float startAngle, const float endAngle, Slider& slider) override;
 	void drawLabel(Graphics& g, Label& label) override;
 	void fillTextEditorBackground(Graphics& g, int width, int height, TextEditor& textEditor) override;
@@ -29,7 +29,6 @@ public:
 	void getIdealPopupMenuItemSize(const String& text, const bool isSeparator, int itemHeight, int& idealWidth, int& idealHeight) override;
 	void drawTabButton(TabBarButton& button, Graphics& g, bool isMouseOver, bool isMouseDown) override;
 	void drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) override;
-	~GUILookAndFeel() override;
 
 private:
 	//==============================================================================

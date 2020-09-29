@@ -25,8 +25,8 @@ public:
 	void setShouldNotShowDescription();
 	int delayInMilliseconds();
 	void setDelayInMilliseconds(int newDelay);
-	XmlElement* getStateXml();
-	void replaceState(const ValueTree& newState);
+	//XmlElement* getStateXml();
+	//void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================

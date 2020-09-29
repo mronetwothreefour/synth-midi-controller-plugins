@@ -6,10 +6,6 @@
 
 
 
-GUILookAndFeel::GUILookAndFeel()
-{
-}
-
 void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& slider) {
 	if (slider.getComponentID() == ID::component_Knob.toString()) {
 		g.setColour(Color::black);
@@ -271,5 +267,3 @@ void GUILookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h
 	}
 }
 
-GUILookAndFeel::~GUILookAndFeel() {
-}

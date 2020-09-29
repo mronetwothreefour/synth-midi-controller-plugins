@@ -26,5 +26,3 @@ void ButtonForSendingProgramEditBufferDump::onClickMethod() {
 	ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get());
 }
 
-ButtonForSendingProgramEditBufferDump::~ButtonForSendingProgramEditBufferDump() {
-}

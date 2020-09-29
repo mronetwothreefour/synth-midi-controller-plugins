@@ -442,6 +442,9 @@
     <Filter Include="Matrix-6G\Source\midi">
       <UniqueIdentifier>{0165d2c2-44e6-43c3-bcd1-00dcffe2bac9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\widgets_Button">
+      <UniqueIdentifier>{1d31f5e0-9e26-4f2b-8843-bafa0d361aa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2387,6 +2390,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4642,6 +4657,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Logo.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

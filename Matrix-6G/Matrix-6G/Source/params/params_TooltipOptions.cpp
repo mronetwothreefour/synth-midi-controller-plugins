@@ -5,7 +5,7 @@
 
 
 TooltipOptions::TooltipOptions() :
-	tooltipOptionsTree{ ID::tooltips_Options } 
+	tooltipOptionsTree{ ID::tooltips_Options }
 {
 	addTooltipOptionsProperties();
 }
@@ -56,13 +56,12 @@ void TooltipOptions::setDelayInMilliseconds(int newDelay) {
 	tooltipOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, newDelay, nullptr);
 }
 
-XmlElement* TooltipOptions::getStateXml() {
-	auto tooltipOptionsTreeStateXml{ tooltipOptionsTree.createXml() };
-	tooltipOptionsTreeStateXml->setTagName(ID::state_TooltipOptions);
-	return tooltipOptionsTreeStateXml.release();
-}
+//XmlElement* TooltipOptions::getStateXml() {
+//	auto tooltipOptionsTreeStateXml{ tooltipOptionsTree.createXml() };
+//	tooltipOptionsTreeStateXml->setTagName(ID::state_TooltipOptions);
+//	return tooltipOptionsTreeStateXml.release();
+//}
 
-void TooltipOptions::replaceState(const ValueTree& newState) {
-	tooltipOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
-}
-
+//void TooltipOptions::replaceState(const ValueTree& newState) {
+//	tooltipOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
+//}

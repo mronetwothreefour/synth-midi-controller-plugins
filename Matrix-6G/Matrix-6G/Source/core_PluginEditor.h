@@ -2,22 +2,31 @@
 
 #include <JuceHeader.h>
 
+#include "gui/gui_LookAndFeel.h"
 
 
+
+class ButtonForActivatingQuickPatchEdit;
+class GUILookAndFeel;
 class Logo;
 
 class PluginEditor :
-    public juce::AudioProcessorEditor
+    public juce::AudioProcessorEditor,
+    public ValueTree::Listener
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
+    std::unique_ptr<ButtonForActivatingQuickPatchEdit> button_ForActivatingQuickPatchEdit;
+    std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
     explicit PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(juce::Graphics&) override;
     void resized() override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
     ~PluginEditor() override;
 
 private:

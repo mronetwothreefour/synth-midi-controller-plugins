@@ -4,7 +4,10 @@
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_Logo.h"
+#include "gui/gui_LookAndFeel.h"
 #include "midi/midi_QuickPatchEditing.h"
+#include "params/params_Identifiers.h"
+#include "widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
 
 
 
@@ -13,12 +16,27 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     processor{ processor },
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
-    logo{ new Logo() }
+    lookAndFeel{ new GUILookAndFeel() },
+    logo{ new Logo() },
+    button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
+    tooltipWindow{ new TooltipWindow() }
 {
+    LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     addAndMakeVisible(logo.get());
 
-    setSize(1252, 596);
-    QuickPatchEditing::sendActivateMessageToUnexposedParamsForHandling(unexposedParams);
+    addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
+
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->addListener(this);
+    addChildComponent(tooltipWindow.get());
+    tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    tooltipWindow->setComponentEffect(nullptr);
+
+    auto device_w{ 1252 };
+    auto device_h{ 596 };
+    setSize(device_w, device_h);
+    setResizable(false, false);
 }
 
 void PluginEditor::paint(juce::Graphics& g) {
@@ -27,8 +45,22 @@ void PluginEditor::paint(juce::Graphics& g) {
 
 void PluginEditor::resized() {
     logo->setBounds(605, 320, logo->getWidth(), logo->getHeight());
+    auto smallButtons_y{ 367 };
+    auto smallButtons_h{ 20 };
+    button_ForActivatingQuickPatchEdit->setBounds(596, smallButtons_y, 80, smallButtons_h);
+}
+
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+    if (property == ID::tooltips_DelayInMilliseconds) {
+        auto tooltips{ unexposedParams->tooltipOptions_get() };
+        tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    }
 }
 
 PluginEditor::~PluginEditor() {
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->removeListener(this);
+    tooltipWindow = nullptr;
+    button_ForActivatingQuickPatchEdit = nullptr;
     logo = nullptr;
 }
