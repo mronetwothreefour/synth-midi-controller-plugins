@@ -24,5 +24,3 @@ void ButtonForPerformingUndo::onClickMethod() {
 	undoManager->undo();
 }
 
-ButtonForPerformingUndo::~ButtonForPerformingUndo() {
-}

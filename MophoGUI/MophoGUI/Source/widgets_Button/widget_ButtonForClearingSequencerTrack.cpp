@@ -49,5 +49,3 @@ void ButtonForClearingSequencerTrack::clearSequencerStep(int step) {
 	param->setValueNotifyingHost(clearedValue);
 }
 
-ButtonForClearingSequencerTrack::~ButtonForClearingSequencerTrack() {
-}

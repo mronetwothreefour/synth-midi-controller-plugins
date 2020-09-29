@@ -24,5 +24,3 @@ void ButtonForPerformingRedo::onClickMethod() {
 	undoManager->redo();
 }
 
-ButtonForPerformingRedo::~ButtonForPerformingRedo() {
-}

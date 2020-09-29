@@ -24,5 +24,3 @@ const String ButtonForShowingProgramBanksComponent::createButtonTooltipString()
 void ButtonForShowingProgramBanksComponent::onClickMethod() {
 }
 
-ButtonForShowingProgramBanksComponent::~ButtonForShowingProgramBanksComponent() {
-}

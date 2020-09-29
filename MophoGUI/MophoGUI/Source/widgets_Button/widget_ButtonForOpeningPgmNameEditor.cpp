@@ -49,5 +49,3 @@ String ButtonForOpeningPgmNameEditor::getProgramNameFromExposedParemeters() {
 	return pgmName;
 }
 
-ButtonForOpeningPgmNameEditor::~ButtonForOpeningPgmNameEditor() {
-}

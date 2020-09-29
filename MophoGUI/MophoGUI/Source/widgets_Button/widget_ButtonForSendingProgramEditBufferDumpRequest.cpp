@@ -25,5 +25,3 @@ void ButtonForSendingProgramEditBufferDumpRequest::onClickMethod() {
 	ProgramEditBufferDump::addRequestForDumpToOutgoingMidiBuffers(unexposedParams->outgoingMidiBuffers_get());
 }
 
-ButtonForSendingProgramEditBufferDumpRequest::~ButtonForSendingProgramEditBufferDumpRequest() {
-}

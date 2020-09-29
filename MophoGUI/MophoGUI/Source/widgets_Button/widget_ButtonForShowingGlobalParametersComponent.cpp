@@ -25,5 +25,3 @@ const String ButtonForShowingGlobalParametersComponent::createButtonTooltipStrin
 void ButtonForShowingGlobalParametersComponent::onClickMethod() {
 }
 
-ButtonForShowingGlobalParametersComponent::~ButtonForShowingGlobalParametersComponent() {
-}

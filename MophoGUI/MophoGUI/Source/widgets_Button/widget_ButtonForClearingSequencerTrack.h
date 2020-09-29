@@ -28,9 +28,6 @@ private:
 	void timerCallback() override;
 	void clearSequencerStep(int step);
 
-public:
-	~ButtonForClearingSequencerTrack();
-
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForClearingSequencerTrack)
