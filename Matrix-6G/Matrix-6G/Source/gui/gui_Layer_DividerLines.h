@@ -16,7 +16,7 @@ public:
 		auto& info{ InfoForDividerLines::get() };
 		for (auto path = 0; path != info.pathOutOfRange(); ++path) {
 			g.setColour(info.typeFor(path) == DividerType::blue ? Color::dividerLine_blue : Color::dividerLine_gray);
-			PathStrokeType stroke{ info.typeFor(path) == DividerType::blue ? 2.0f : 1.0f };
+			PathStrokeType stroke{ info.typeFor(path) == DividerType::blue ? 3.0f : 0.75f, PathStrokeType::JointStyle::mitered, PathStrokeType::EndCapStyle::square };
 			Path p;
 			p.startNewSubPath(info.startPointFor(path));
 			p.lineTo(info.endPointFor(path));
