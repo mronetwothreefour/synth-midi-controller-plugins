@@ -2,14 +2,15 @@
 
 #include <JuceHeader.h>
 
-#include "gui/gui_Layer_DividerLines.h"
 #include "gui/gui_LookAndFeel.h"
 
 
 
 class ButtonForActivatingQuickPatchEdit;
+class DividerLinesLayer;
 class GUILookAndFeel;
 class Logo;
+class SectionHeadersLayer;
 
 class PluginEditor :
     public juce::AudioProcessorEditor,
@@ -19,6 +20,7 @@ class PluginEditor :
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<DividerLinesLayer> dividerLinesLayer;
+    std::unique_ptr<SectionHeadersLayer> sectionHeadersLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
     std::unique_ptr<ButtonForActivatingQuickPatchEdit> button_ForActivatingQuickPatchEdit;

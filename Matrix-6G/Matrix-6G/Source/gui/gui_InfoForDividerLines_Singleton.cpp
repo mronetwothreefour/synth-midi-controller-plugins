@@ -2,7 +2,6 @@
 
 
 
-
 InfoForDividerLines::InfoForDividerLines() {
 	fillAllInfoContainers();
 }

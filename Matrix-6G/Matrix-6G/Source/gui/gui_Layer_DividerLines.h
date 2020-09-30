@@ -12,11 +12,12 @@ class DividerLinesLayer :
 {
 public:
 	DividerLinesLayer() = default;
+
 	void paint(Graphics& g) override {
 		auto& info{ InfoForDividerLines::get() };
 		for (auto path = 0; path != info.pathOutOfRange(); ++path) {
 			g.setColour(info.typeFor(path) == DividerType::blue ? Color::dividerLine_blue : Color::dividerLine_gray);
-			PathStrokeType stroke{ info.typeFor(path) == DividerType::blue ? 3.0f : 0.75f, PathStrokeType::JointStyle::mitered, PathStrokeType::EndCapStyle::square };
+			PathStrokeType stroke{ info.typeFor(path) == DividerType::blue ? 3.0f : 0.75f, PathStrokeType::JointStyle::mitered, PathStrokeType::EndCapStyle::butt };
 			Path p;
 			p.startNewSubPath(info.startPointFor(path));
 			p.lineTo(info.endPointFor(path));

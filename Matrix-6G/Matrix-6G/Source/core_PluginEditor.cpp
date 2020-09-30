@@ -2,8 +2,9 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Colors.h"
-#include "gui/gui_Fonts.h"
 #include "gui/gui_Logo.h"
+#include "gui/gui_Layer_DividerLines.h"
+#include "gui/gui_Layer_SectionHeaders.h"
 #include "gui/gui_LookAndFeel.h"
 #include "midi/midi_QuickPatchEditing.h"
 #include "params/params_Identifiers.h"
@@ -18,6 +19,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
     dividerLinesLayer{ new DividerLinesLayer() },
+    sectionHeadersLayer{ new SectionHeadersLayer() },
     logo{ new Logo() },
     button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
@@ -25,6 +27,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(dividerLinesLayer.get());
+    addAndMakeVisible(sectionHeadersLayer.get());
     addAndMakeVisible(logo.get());
 
     addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
@@ -47,10 +50,11 @@ void PluginEditor::paint(Graphics& g) {
 
 void PluginEditor::resized() {
     dividerLinesLayer->setBounds(getLocalBounds());
+    sectionHeadersLayer->setBounds(getLocalBounds());
     logo->setBounds(605, 320, logo->getWidth(), logo->getHeight());
     auto smallButtons_y{ 367 };
     auto smallButtons_h{ 20 };
-    button_ForActivatingQuickPatchEdit->setBounds(596, smallButtons_y, 80, smallButtons_h);
+    button_ForActivatingQuickPatchEdit->setBounds(597, smallButtons_y, 78, smallButtons_h);
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -66,5 +70,6 @@ PluginEditor::~PluginEditor() {
     tooltipWindow = nullptr;
     button_ForActivatingQuickPatchEdit = nullptr;
     logo = nullptr;
+    sectionHeadersLayer = nullptr;
     dividerLinesLayer = nullptr;
 }
