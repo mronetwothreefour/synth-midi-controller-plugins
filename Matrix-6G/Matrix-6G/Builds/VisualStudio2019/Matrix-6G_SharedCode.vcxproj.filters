@@ -2415,6 +2415,9 @@
     <ClCompile Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ControlLabels.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

@@ -2133,6 +2133,7 @@
     <ClCompile Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForSectionHeaders_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ControlLabels.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_SectionHeaders.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
