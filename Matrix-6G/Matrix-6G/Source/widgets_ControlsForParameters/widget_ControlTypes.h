@@ -10,7 +10,6 @@ enum class ControlType
 	slider,
 	sliderWithWaveShapeDisplay,
 	pgmSlotRadioButton,
-	button,
 	comboBox
 };
 

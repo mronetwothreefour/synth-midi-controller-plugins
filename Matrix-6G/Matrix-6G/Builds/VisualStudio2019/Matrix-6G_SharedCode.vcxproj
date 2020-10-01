@@ -2130,6 +2130,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForSectionHeaders_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_SectionHeaders.cpp" />
@@ -2886,8 +2887,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForSectionHeaders_Singleton.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ControlLabels.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_DividerLines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_SectionHeaders.h" />
     <ClInclude Include="..\..\Source\gui\gui_Logo.h" />

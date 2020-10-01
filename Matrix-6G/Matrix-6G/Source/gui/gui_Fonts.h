@@ -16,7 +16,8 @@ namespace FontsDB
 
 	static const float size_ForButtonText_Small{ 14.0f };
 	static const float size_ForButtonText_Large{ 16.0f };
-	static const float size_ForControlLabelText{ 13.0f };
+	static const float size_ForControlLabelHeavyText{ 16.0f };
+	static const float size_ForControlLabelLightText{ 13.0f };
 	static const float size_ForNumberLabels{ 16.0f };
 	static const float size_ForSectionHeaderText{ 18.0f };
 	static const float size_ForTooltipText{ 13.0f };
