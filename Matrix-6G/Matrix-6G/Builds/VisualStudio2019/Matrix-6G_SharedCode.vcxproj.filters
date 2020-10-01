@@ -2409,6 +2409,7 @@
     <ClCompile Include="..\..\Source\gui\gui_InfoForSectionHeaders_Singleton.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_SectionHeaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

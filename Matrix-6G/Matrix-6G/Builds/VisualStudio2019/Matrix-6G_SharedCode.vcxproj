@@ -2132,6 +2132,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForSectionHeaders_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_SectionHeaders.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
