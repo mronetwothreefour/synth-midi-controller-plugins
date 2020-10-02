@@ -445,6 +445,9 @@
     <Filter Include="Matrix-6G\Source\widgets_Button">
       <UniqueIdentifier>{1d31f5e0-9e26-4f2b-8843-bafa0d361aa1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\tooltipSetters">
+      <UniqueIdentifier>{8ff9efd0-e3f2-408f-a002-166576de0fd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2418,6 +2421,13 @@
     <ClCompile Include="..\..\Source\gui\gui_Layer_ControlLabels.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
+      <Filter>Matrix-6G\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
+      <Filter>Matrix-6G\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4702,6 +4712,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_ControlLabels.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
+      <Filter>Matrix-6G\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
+      <Filter>Matrix-6G\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h">
+      <Filter>Matrix-6G\Source\tooltipSetters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

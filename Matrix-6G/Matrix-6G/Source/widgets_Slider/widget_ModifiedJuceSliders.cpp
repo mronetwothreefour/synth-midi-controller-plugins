@@ -28,3 +28,12 @@ RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters
 	setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
 }
 
+
+
+
+LinearSliderWithMouseWheelMod::LinearSliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelMod{ unexposedParams }
+{
+	setSliderStyle(Slider::LinearHorizontal);
+	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+}
