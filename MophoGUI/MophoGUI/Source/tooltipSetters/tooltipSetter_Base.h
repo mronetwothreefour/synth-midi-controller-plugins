@@ -16,6 +16,8 @@ protected:
 	virtual String generateTooltipText() = 0;
 
 public:
+	TooltipSetter() = delete;
+
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	~TooltipSetter();
 
