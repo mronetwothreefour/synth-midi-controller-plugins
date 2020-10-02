@@ -37,6 +37,7 @@ String TooltipSetterForExposedParamComboBoxes::generateTooltipText() {
 	}
 	return tooltipText;
 }
+
 TooltipSetterForExposedParamComboBoxes::~TooltipSetterForExposedParamComboBoxes() {
 	comboBox.removeListener(this);
 }

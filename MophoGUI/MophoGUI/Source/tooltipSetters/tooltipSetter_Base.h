@@ -11,7 +11,7 @@ class TooltipSetter : public ValueTree::Listener
 	UnexposedParameters* unexposedParams;
 
 protected:
-	TooltipSetter(UnexposedParameters* unexposedParams);
+	explicit TooltipSetter(UnexposedParameters* unexposedParams);
 	virtual void setTooltip() = 0;
 	virtual String generateTooltipText() = 0;
 
