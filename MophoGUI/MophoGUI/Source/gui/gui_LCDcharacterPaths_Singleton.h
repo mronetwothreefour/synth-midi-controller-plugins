@@ -112,7 +112,6 @@ public:
 
 	static LCDcharacterPaths& get() noexcept;
 	Path getPathForChar(uint8 charNum);
-	~LCDcharacterPaths();
 	
 private:
 	//==============================================================================

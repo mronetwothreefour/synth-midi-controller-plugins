@@ -929,5 +929,3 @@ Path LCDcharacterPaths::getPathForChar(uint8 charNum) {
 	return characterPaths[charNum];
 }
 
-LCDcharacterPaths::~LCDcharacterPaths() {
-}
