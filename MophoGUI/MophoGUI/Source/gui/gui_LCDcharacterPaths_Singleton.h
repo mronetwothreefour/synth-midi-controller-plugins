@@ -7,40 +7,6 @@
 class LCDcharacterPaths
 {
 	Array<Path> characterPaths;
-	const std::vector<uint8> pathDataForChar33_ExclamationPoint;
-	const std::vector<uint8> pathDataForChar34_DoubleQuote;
-	const std::vector<uint8> pathDataForChar35_HashSymbol;
-	const std::vector<uint8> pathDataForChar36_$;
-	const std::vector<uint8> pathDataForChar37_PercentageSymbol;
-	const std::vector<uint8> pathDataForChar38_Ampersand;
-	const std::vector<uint8> pathDataForChar39_SingleQuote;
-	const std::vector<uint8> pathDataForChar40_OpenParenthesis;
-	const std::vector<uint8> pathDataForChar41_CloseParenthesis;
-	const std::vector<uint8> pathDataForChar42_Asterisk;
-	const std::vector<uint8> pathDataForChar43_PlusSymbol;
-	const std::vector<uint8> pathDataForChar44_Comma;
-	const std::vector<uint8> pathDataForChar45_Hyphen;
-	const std::vector<uint8> pathDataForChar46_Period;
-	const std::vector<uint8> pathDataForChar47_Slash;
-	const std::vector<uint8> pathDataForChar48_0;
-	const std::vector<uint8> pathDataForChar49_1;
-	const std::vector<uint8> pathDataForChar50_2;
-	const std::vector<uint8> pathDataForChar51_3;
-	const std::vector<uint8> pathDataForChar52_4;
-	const std::vector<uint8> pathDataForChar53_5;
-	const std::vector<uint8> pathDataForChar54_6;
-	const std::vector<uint8> pathDataForChar55_7;
-	const std::vector<uint8> pathDataForChar56_8;
-	const std::vector<uint8> pathDataForChar57_9;
-	const std::vector<uint8> pathDataForChar58_Colon;
-	const std::vector<uint8> pathDataForChar59_Semicolon;
-	const std::vector<uint8> pathDataForChar60_OpenAngledBracket;
-	const std::vector<uint8> pathDataForChar61_Equals;
-	const std::vector<uint8> pathDataForChar62_CloseAngledBracket;
-	const std::vector<uint8> pathDataForChar63_QuestionMark;
-	const std::vector<uint8> pathDataForChar64_AtSymbol;
-	const std::vector<uint8> pathDataForChar65_A;
-	const std::vector<uint8> pathDataForChar66_B;
 	const std::vector<uint8> pathDataForChar67_C;
 	const std::vector<uint8> pathDataForChar68_D;
 	const std::vector<uint8> pathDataForChar69_E;
@@ -103,8 +69,84 @@ class LCDcharacterPaths
 	const std::vector<uint8> pathDataForChar126_RightArrow;
 	const std::vector<uint8> pathDataForChar127_LeftArrow;
 
+	const std::vector<uint8> pathDataForPixel_Row1Col1;
+	const std::vector<uint8> pathDataForPixel_Row1Col2;
+	const std::vector<uint8> pathDataForPixel_Row1Col3;
+	const std::vector<uint8> pathDataForPixel_Row1Col4;
+	const std::vector<uint8> pathDataForPixel_Row1Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row2Col1;
+	const std::vector<uint8> pathDataForPixel_Row2Col2;
+	const std::vector<uint8> pathDataForPixel_Row2Col3;
+	const std::vector<uint8> pathDataForPixel_Row2Col4;
+	const std::vector<uint8> pathDataForPixel_Row2Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row3Col1;
+	const std::vector<uint8> pathDataForPixel_Row3Col2;
+	const std::vector<uint8> pathDataForPixel_Row3Col3;
+	const std::vector<uint8> pathDataForPixel_Row3Col4;
+	const std::vector<uint8> pathDataForPixel_Row3Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row4Col1;
+	const std::vector<uint8> pathDataForPixel_Row4Col2;
+	const std::vector<uint8> pathDataForPixel_Row4Col3;
+	const std::vector<uint8> pathDataForPixel_Row4Col4;
+	const std::vector<uint8> pathDataForPixel_Row4Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row5Col1;
+	const std::vector<uint8> pathDataForPixel_Row5Col2;
+	const std::vector<uint8> pathDataForPixel_Row5Col3;
+	const std::vector<uint8> pathDataForPixel_Row5Col4;
+	const std::vector<uint8> pathDataForPixel_Row5Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row6Col1;
+	const std::vector<uint8> pathDataForPixel_Row6Col2;
+	const std::vector<uint8> pathDataForPixel_Row6Col3;
+	const std::vector<uint8> pathDataForPixel_Row6Col4;
+	const std::vector<uint8> pathDataForPixel_Row6Col5;
+
+	const std::vector<uint8> pathDataForPixel_Row7Col1;
+	const std::vector<uint8> pathDataForPixel_Row7Col2;
+	const std::vector<uint8> pathDataForPixel_Row7Col3;
+	const std::vector<uint8> pathDataForPixel_Row7Col4;
+	const std::vector<uint8> pathDataForPixel_Row7Col5;
+
 	LCDcharacterPaths();
 	void fillCharacterPaths();
+	Path createPathForChar33_ExclamationPoint();
+	Path createPathForChar34_DoubleQuote();
+	Path createPathForChar35_HashSymbol();
+	Path createPathForChar36_$();
+	Path createPathForChar37_PercentageSymbol();
+	Path createPathForChar38_Ampersand();
+	Path createPathForChar39_SingleQuote();
+	Path createPathForChar40_OpenParenthesis();
+	Path createPathForChar41_CloseParenthesis();
+	Path createPathForChar42_Asterisk();
+	Path createPathForChar43_PlusSymbol();
+	Path createPathForChar44_Comma();
+	Path createPathForChar45_Hyphen();
+	Path createPathForChar46_Period();
+	Path createPathForChar47_Slash();
+	Path createPathForChar48_0();
+	Path createPathForChar49_1();
+	Path createPathForChar50_2();
+	Path createPathForChar51_3();
+	Path createPathForChar52_4();
+	Path createPathForChar53_5();
+	Path createPathForChar54_6();
+	Path createPathForChar55_7();
+	Path createPathForChar56_8();
+	Path createPathForChar57_9();
+	Path createPathForChar58_Colon();
+	Path createPathForChar59_Semicolon();
+	Path createPathForChar60_OpenAngledBracket();
+	Path createPathForChar61_Equals();
+	Path createPathForChar62_CloseAngledBracket();
+	Path createPathForChar63_QuestionMark();
+	Path createPathForChar64_AtSymbol();
+	Path createPathForChar65_A();
+	Path createPathForChar66_B();
 
 public:
 	LCDcharacterPaths(LCDcharacterPaths&&) = delete;
