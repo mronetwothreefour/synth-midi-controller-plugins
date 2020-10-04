@@ -1355,7 +1355,6 @@ Path LCDcharacterPaths::createPathForChar101_e() {
 	path.loadPathFromData(pathDataForPixel_Row7Col2.data(), pathDataForPixel_Row7Col2.size());
 	path.loadPathFromData(pathDataForPixel_Row7Col3.data(), pathDataForPixel_Row7Col3.size());
 	path.loadPathFromData(pathDataForPixel_Row7Col4.data(), pathDataForPixel_Row7Col4.size());
-	path.loadPathFromData(pathDataForPixel_Row7Col5.data(), pathDataForPixel_Row7Col5.size());
 	return path;
 }
 
