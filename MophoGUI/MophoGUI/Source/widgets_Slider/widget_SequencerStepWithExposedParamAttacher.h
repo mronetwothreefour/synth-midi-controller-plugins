@@ -27,7 +27,6 @@ public:
 	SequencerStepWithExposedParamAttacher(uint8 param, int sequencerTrack, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void deleteAttachment();
-	~SequencerStepWithExposedParamAttacher();
 
 private:
 	//==============================================================================

@@ -23,7 +23,6 @@ public:
 	KnobWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void deleteAttachment();
-	~KnobWithExposedParamAttacher();
 
 private:
 	//==============================================================================

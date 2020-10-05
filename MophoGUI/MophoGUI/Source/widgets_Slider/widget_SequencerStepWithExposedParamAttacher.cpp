@@ -56,5 +56,3 @@ void SequencerStepWithExposedParamAttacher::deleteAttachment() {
 	destinationAttachment = nullptr;
 }
 
-SequencerStepWithExposedParamAttacher::~SequencerStepWithExposedParamAttacher() {
-}

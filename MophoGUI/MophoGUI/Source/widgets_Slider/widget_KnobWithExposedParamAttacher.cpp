@@ -23,5 +23,3 @@ void KnobWithExposedParamAttacher::deleteAttachment() {
 	attachment = nullptr;
 }
 
-KnobWithExposedParamAttacher::~KnobWithExposedParamAttacher() {
-}
