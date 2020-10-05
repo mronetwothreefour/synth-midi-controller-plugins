@@ -2433,6 +2433,9 @@
     <ClCompile Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4729,6 +4732,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
