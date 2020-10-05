@@ -39,38 +39,38 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 
 void ControlForExposedParameter::buildKnobWithValueStringDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(param, unexposedParams));
-	addAndMakeVisible(*knobWithValueStringDisplay);
+	addAndMakeVisible(knobWithValueStringDisplay.get());
 	setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
 }
 
 void ControlForExposedParameter::buildKnobWithWaveShapeDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	knobWithWaveShapeDisplay.reset(new KnobWithWaveShapeDisplay(param, unexposedParams));
-	addAndMakeVisible(*knobWithWaveShapeDisplay);
+	addAndMakeVisible(knobWithWaveShapeDisplay.get());
 	setSize(knobWithWaveShapeDisplay->getWidth(), knobWithWaveShapeDisplay->getHeight());
 }
 
 void ControlForExposedParameter::buildToggleButtonControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	toggleButton.reset(new ToggleButtonWithWithExposedParamAttacher(param, unexposedParams));
-	addAndMakeVisible(*toggleButton);
+	addAndMakeVisible(toggleButton.get());
 	toggleButton->setComponentID(ID::component_ToggleButton.toString());
 	setSize(toggleButton->getWidth(), toggleButton->getHeight());
 }
 
 void ControlForExposedParameter::buildComboBoxControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	comboBox.reset(new ComboBoxWithExposedParamAttacher(param, unexposedParams));
-	addAndMakeVisible(*comboBox);
+	addAndMakeVisible(comboBox.get());
 	setSize(comboBox->getWidth(), comboBox->getHeight());
 }
 
 void ControlForExposedParameter::buildProgramNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	pgmNameChar.reset(new ProgramNameCharWithExposedParamAttacher(param, unexposedParams));
-	addAndMakeVisible(*pgmNameChar);
+	addAndMakeVisible(pgmNameChar.get());
 	setSize(pgmNameChar->getWidth(), pgmNameChar->getHeight());
 }
 
 void ControlForExposedParameter::buildSequencerStepControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
 	sequencerStep.reset(new SequencerStepWithExposedParamAttacher(param, sequencerTrackThisStepIsOn(param), unexposedParams));
-	addAndMakeVisible(*sequencerStep);
+	addAndMakeVisible(sequencerStep.get());
 	setSize(sequencerStep->getWidth(), sequencerStep->getHeight());
 }
 
