@@ -8,6 +8,7 @@
 
 class ButtonForActivatingQuickPatchEdit;
 class ControlLabelsLayer;
+class ControlsLayer;
 class DividerLinesLayer;
 class GUILookAndFeel;
 class Logo;
@@ -23,6 +24,7 @@ class PluginEditor :
     std::unique_ptr<DividerLinesLayer> dividerLinesLayer;
     std::unique_ptr<SectionHeadersLayer> sectionHeadersLayer;
     std::unique_ptr<ControlLabelsLayer> controlLabelsLayer;
+    std::unique_ptr<ControlsLayer> controlsLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
     std::unique_ptr<ButtonForActivatingQuickPatchEdit> button_ForActivatingQuickPatchEdit;

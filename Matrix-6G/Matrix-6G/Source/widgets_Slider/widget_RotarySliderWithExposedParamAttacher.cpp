@@ -11,6 +11,10 @@ RotarySliderWithExposedParamAttacher::RotarySliderWithExposedParamAttacher(uint8
 	tooltipSetter{ slider, param, unexposedParams }
 {
 	addAndMakeVisible(slider);
+	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
+	auto ctrlHeight{ 20 };
+	setSize(ctrlWidth, ctrlHeight);
+	slider.setSize(ctrlWidth, ctrlHeight);
 	slider.setMouseDragSensitivity(80 + InfoForExposedParameters::get().numberOfStepsFor(param) / 2);
 }
 

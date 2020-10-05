@@ -4,6 +4,7 @@
 #include "gui/gui_Colors.h"
 #include "gui/gui_Logo.h"
 #include "gui/gui_Layer_ControlLabels.h"
+#include "gui/gui_Layer_Controls.h"
 #include "gui/gui_Layer_DividerLines.h"
 #include "gui/gui_Layer_SectionHeaders.h"
 #include "gui/gui_LookAndFeel.h"
@@ -22,6 +23,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     dividerLinesLayer{ new DividerLinesLayer() },
     sectionHeadersLayer{ new SectionHeadersLayer() },
     controlLabelsLayer{ new ControlLabelsLayer() },
+    controlsLayer{ new ControlsLayer(exposedParams, unexposedParams) },
     logo{ new Logo() },
     button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
@@ -32,6 +34,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(sectionHeadersLayer.get());
     addAndMakeVisible(controlLabelsLayer.get());
     addAndMakeVisible(logo.get());
+    addAndMakeVisible(controlsLayer.get());
 
     addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
 
@@ -56,6 +59,7 @@ void PluginEditor::resized() {
     sectionHeadersLayer->setBounds(getLocalBounds());
     controlLabelsLayer->setBounds(getLocalBounds());
     logo->setBounds(605, 320, logo->getWidth(), logo->getHeight());
+    controlsLayer->setBounds(getLocalBounds());
     auto smallButtons_y{ 367 };
     auto smallButtons_h{ 20 };
     button_ForActivatingQuickPatchEdit->setBounds(597, smallButtons_y, 78, smallButtons_h);
@@ -74,6 +78,7 @@ PluginEditor::~PluginEditor() {
     tooltipWindow = nullptr;
     button_ForActivatingQuickPatchEdit = nullptr;
     logo = nullptr;
+    controlsLayer = nullptr;
     controlLabelsLayer = nullptr;
     sectionHeadersLayer = nullptr;
     dividerLinesLayer = nullptr;
