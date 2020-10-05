@@ -33,7 +33,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	//======================================================
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
-	controlTypes.add(ControlType::slider);
+	controlTypes.add(ControlType::rotarySlider);
 	converters.add(IntToOscPitchString::get());
 	maxValueDisplayLengths.add((uint8)4);
 	minValues.add((int8)0);

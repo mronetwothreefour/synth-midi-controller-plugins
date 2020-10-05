@@ -7,8 +7,8 @@
 enum class ControlType
 {
 	nullControl = -1,
-	slider,
-	sliderWithWaveShapeDisplay,
+	rotarySlider,
+	linearSlider,
 	pgmSlotRadioButton,
 	comboBox
 };
