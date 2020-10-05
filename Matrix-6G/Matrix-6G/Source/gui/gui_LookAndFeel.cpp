@@ -16,7 +16,6 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 }
 
 void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*sliderPos*/, const float /*startAngle*/, const float /*endAngle*/, Slider& /*slider*/) {
-	g.fillAll(Color::black);
 }
 
 void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {

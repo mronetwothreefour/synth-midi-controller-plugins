@@ -9,19 +9,24 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class RotarySliderWithExposedParamAttacher : public Component
+class RotarySliderWithExposedParamAttacher : 
+	public Component,
+	public Slider::Listener
 {
 protected:
 	uint8 param;
 	RotarySliderWithMouseWheelMod slider;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipSetterForExposedParamSliders tooltipSetter;
+	IntToContextualStringConverter* converter;
 
 public:
 	RotarySliderWithExposedParamAttacher() = delete;
 
 	RotarySliderWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
+	void sliderValueChanged(Slider* sliderThatChanged) override;
+	void paint(Graphics& g) override;
 	void deleteAttachment();
 
 private:

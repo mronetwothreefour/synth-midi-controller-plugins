@@ -448,6 +448,9 @@
     <Filter Include="Matrix-6G\Source\tooltipSetters">
       <UniqueIdentifier>{8ff9efd0-e3f2-408f-a002-166576de0fd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\guiRenderers">
+      <UniqueIdentifier>{4fd5b9f5-b3d9-4485-a24a-2128dd0774c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4753,6 +4756,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_Controls.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
