@@ -11,6 +11,8 @@ class ControlsForExposedParameters
 	std::vector<std::unique_ptr<ControlForExposedParameter>> controlsVector;
 
 public:
+	ControlsForExposedParameters() = delete;
+
 	explicit ControlsForExposedParameters(UnexposedParameters* unexposedParams);
 
 private:
@@ -21,9 +23,8 @@ public:
 	int paramOutOfRange() const;
 	void clearControls();
 	void rebuildControls(UnexposedParameters* unexposedParams);
-	~ControlsForExposedParameters();
 
-
+private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlsForExposedParameters)
 };

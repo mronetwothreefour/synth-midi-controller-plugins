@@ -29,5 +29,3 @@ void ControlsForExposedParameters::rebuildControls(UnexposedParameters* unexpose
 	fillControlsVector(unexposedParams);
 }
 
-ControlsForExposedParameters::~ControlsForExposedParameters() {
-}
