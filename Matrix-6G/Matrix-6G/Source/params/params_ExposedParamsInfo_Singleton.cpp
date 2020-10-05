@@ -35,6 +35,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	exposedNames.add("Oscillator 1 Pitch");
 	controlTypes.add(ControlType::slider);
 	converters.add(IntToOscPitchString::get());
+	maxValueDisplayLengths.add((uint8)4);
 	minValues.add((int8)0);
 	maxValues.add((int8)63);
 	defaultValues.add((int8)24);
@@ -71,19 +72,23 @@ IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 par
 	return converters[paramIndex];
 }
 
-int InfoForExposedParameters::minValueFor(uint8 paramIndex) const {
+uint8 InfoForExposedParameters::maxValueDisplayLengthFor(uint8 paramIndex) const {
+	return maxValueDisplayLengths[paramIndex];
+}
+
+int8 InfoForExposedParameters::minValueFor(uint8 paramIndex) const {
 	return minValues[paramIndex];
 }
 
-int InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
+uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
 	return maxValues[paramIndex];
 }
 
-int InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
+int8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
 	return defaultValues[paramIndex];
 }
 
-int InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
+uint8 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
 	return maxValues[paramIndex] - minValues[paramIndex] + 1;
 }
 
