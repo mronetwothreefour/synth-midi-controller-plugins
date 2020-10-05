@@ -28,5 +28,3 @@ void ComboBoxWithExposedParamAttacher::deleteAttachment() {
 	attachment = nullptr;
 }
 
-ComboBoxWithExposedParamAttacher::~ComboBoxWithExposedParamAttacher() {
-}

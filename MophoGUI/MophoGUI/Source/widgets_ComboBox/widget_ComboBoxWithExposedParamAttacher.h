@@ -22,7 +22,6 @@ public:
 	ComboBoxWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void deleteAttachment();
-	~ComboBoxWithExposedParamAttacher();
 
 private:
 	//==============================================================================
