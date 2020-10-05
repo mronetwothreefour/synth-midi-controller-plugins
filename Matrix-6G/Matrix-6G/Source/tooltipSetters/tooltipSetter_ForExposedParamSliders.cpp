@@ -5,7 +5,7 @@
 
 
 
-TooltipSetterForExposedParamSliders::TooltipSetterForExposedParamSliders(Slider& slider, uint16 param, UnexposedParameters* unexposedParams) :
+TooltipSetterForExposedParamSliders::TooltipSetterForExposedParamSliders(Slider& slider, uint8 param, UnexposedParameters* unexposedParams) :
 	TooltipSetter{ unexposedParams },
 	slider{ slider },
 	param{ param },

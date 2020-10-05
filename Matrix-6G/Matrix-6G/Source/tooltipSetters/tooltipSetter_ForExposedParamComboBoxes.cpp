@@ -5,7 +5,7 @@
 
 
 
-TooltipSetterForExposedParamComboBoxes::TooltipSetterForExposedParamComboBoxes(ComboBox& comboBox, uint16 param, UnexposedParameters* unexposedParams) :
+TooltipSetterForExposedParamComboBoxes::TooltipSetterForExposedParamComboBoxes(ComboBox& comboBox, uint8 param, UnexposedParameters* unexposedParams) :
 	TooltipSetter{ unexposedParams },
 	comboBox{ comboBox },
 	param{ param },

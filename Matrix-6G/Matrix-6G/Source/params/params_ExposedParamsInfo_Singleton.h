@@ -31,20 +31,20 @@ public:
 
 	static InfoForExposedParameters& get() noexcept;
 	int paramOutOfRange() const noexcept;
-	Identifier IDfor(uint16 paramIndex) const;
-	String exposedNameFor(uint16 paramIndex) const;
-	ControlType controlTypeFor(uint16 paramIndex) const;
-	IntToContextualStringConverter* converterFor(uint16 paramIndex) const;
-	int minValueFor(uint16 paramIndex) const;
-	int maxValueFor(uint16 paramIndex) const;
-	int defaultValueFor(uint16 paramIndex) const;
-	int numberOfStepsFor(uint16 paramIndex) const;
-	String descriptionFor(uint16 paramIndex) const;
-	Point<int> controlCenterPointFor(uint16 paramIndex) const;
-	int controlWidthFor(uint16 paramIndex) const;
-	uint16 indexForParamID(const String& parameterID) const;
-	uint16 lsbByteLocationFor(uint16 paramIndex) const;
-	uint16 msbByteLocationFor(uint16 paramIndex) const;
+	Identifier IDfor(uint8 paramIndex) const;
+	String exposedNameFor(uint8 paramIndex) const;
+	ControlType controlTypeFor(uint8 paramIndex) const;
+	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
+	int minValueFor(uint8 paramIndex) const;
+	int maxValueFor(uint8 paramIndex) const;
+	int defaultValueFor(uint8 paramIndex) const;
+	int numberOfStepsFor(uint8 paramIndex) const;
+	String descriptionFor(uint8 paramIndex) const;
+	Point<int> controlCenterPointFor(uint8 paramIndex) const;
+	int controlWidthFor(uint8 paramIndex) const;
+	uint8 indexForParamID(const String& parameterID) const;
+	uint16 lsbByteLocationFor(uint8 paramIndex) const;
+	uint16 msbByteLocationFor(uint8 paramIndex) const;
 
 private:
 	//==============================================================================

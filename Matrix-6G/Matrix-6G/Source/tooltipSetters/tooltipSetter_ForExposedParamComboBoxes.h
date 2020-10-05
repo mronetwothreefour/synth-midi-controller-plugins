@@ -12,14 +12,14 @@ class TooltipSetterForExposedParamComboBoxes :
 	public ComboBox::Listener
 {
 	ComboBox& comboBox;
-	uint16 param;
+	uint8 param;
 	UnexposedParameters* unexposedParams;
 	IntToContextualStringConverter* converter;
 
 public:
 	TooltipSetterForExposedParamComboBoxes() = delete;
 
-	TooltipSetterForExposedParamComboBoxes(ComboBox& comboBox, uint16 param, UnexposedParameters* unexposedParams);
+	TooltipSetterForExposedParamComboBoxes(ComboBox& comboBox, uint8 param, UnexposedParameters* unexposedParams);
 	void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
 
 private:

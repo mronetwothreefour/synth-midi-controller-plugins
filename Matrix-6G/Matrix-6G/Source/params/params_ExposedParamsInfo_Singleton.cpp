@@ -55,58 +55,58 @@ int InfoForExposedParameters::paramOutOfRange() const noexcept {
 	return identifiers.size();
 }
 
-Identifier InfoForExposedParameters::IDfor(uint16 paramIndex) const {
+Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
 	return identifiers[paramIndex];
 }
 
-String InfoForExposedParameters::exposedNameFor(uint16 paramIndex) const {
+String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	return exposedNames[paramIndex];
 }
 
-ControlType InfoForExposedParameters::controlTypeFor(uint16 paramIndex) const {
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	return controlTypes[paramIndex];
 }
 
-IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint16 paramIndex) const {
+IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
 	return converters[paramIndex];
 }
 
-int InfoForExposedParameters::minValueFor(uint16 paramIndex) const {
+int InfoForExposedParameters::minValueFor(uint8 paramIndex) const {
 	return minValues[paramIndex];
 }
 
-int InfoForExposedParameters::maxValueFor(uint16 paramIndex) const {
+int InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
 	return maxValues[paramIndex];
 }
 
-int InfoForExposedParameters::defaultValueFor(uint16 paramIndex) const {
+int InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
 	return defaultValues[paramIndex];
 }
 
-int InfoForExposedParameters::numberOfStepsFor(uint16 paramIndex) const {
+int InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
 	return maxValues[paramIndex] - minValues[paramIndex] + 1;
 }
 
-String InfoForExposedParameters::descriptionFor(uint16 paramIndex) const {
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
 	return descriptions[paramIndex];
 }
 
-Point<int> InfoForExposedParameters::controlCenterPointFor(uint16 paramIndex) const {
+Point<int> InfoForExposedParameters::controlCenterPointFor(uint8 paramIndex) const {
 	return controlCenterPoints[paramIndex];
 }
 
-int InfoForExposedParameters::controlWidthFor(uint16 paramIndex) const {
+int InfoForExposedParameters::controlWidthFor(uint8 paramIndex) const {
 	return controlWidths[paramIndex];
 }
 
-uint16 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
-	return (uint16)identifiers.indexOf(Identifier(parameterID));
+uint8 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
+	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }
 
-uint16 InfoForExposedParameters::lsbByteLocationFor(uint16 paramIndex) const {
+uint16 InfoForExposedParameters::lsbByteLocationFor(uint8 paramIndex) const {
 	return lsbByteLocations[paramIndex];
 }
 
-uint16 InfoForExposedParameters::msbByteLocationFor(uint16 paramIndex) const {
+uint16 InfoForExposedParameters::msbByteLocationFor(uint8 paramIndex) const {
 	return lsbByteLocations[paramIndex] + 1;
 }

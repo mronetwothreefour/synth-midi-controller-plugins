@@ -12,14 +12,14 @@ class TooltipSetterForExposedParamSliders :
 	public Slider::Listener
 {
 	Slider& slider;
-	uint16 param;
+	uint8 param;
 	UnexposedParameters* unexposedParams;
 	IntToContextualStringConverter* converter;
 
 public:
 	TooltipSetterForExposedParamSliders() = delete;
 
-	TooltipSetterForExposedParamSliders(Slider& slider, uint16 param, UnexposedParameters* unexposedParams);
+	TooltipSetterForExposedParamSliders(Slider& slider, uint8 param, UnexposedParameters* unexposedParams);
 	void sliderValueChanged(Slider* sliderThatChanged) override;
 
 private:
