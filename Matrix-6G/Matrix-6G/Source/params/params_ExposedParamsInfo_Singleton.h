@@ -5,6 +5,7 @@
 
 
 enum class ControlType;
+enum class RangeType;
 struct IntToContextualStringConverter;
 
 class InfoForExposedParameters
@@ -13,11 +14,10 @@ class InfoForExposedParameters
 	Array<String> exposedNames;
 	Array<uint8> paramNumbers;
 	Array<ControlType> controlTypes;
+	Array<RangeType> rangeTypes;
 	Array<IntToContextualStringConverter*> converters;
-	Array<uint8> maxValueDisplayLengths;
-	Array<int8> minValues;
 	Array<uint8> maxValues;
-	Array<int8> defaultValues;
+	Array<uint8> defaultValues;
 	Array<String> descriptions;
 	Array<int> controlWidths;
 	Array<Point<int>> controlCenterPoints;
@@ -36,10 +36,9 @@ public:
 	String exposedNameFor(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
-	uint8 maxValueDisplayLengthFor(uint8 paramIndex) const;
-	int8 minValueFor(uint8 paramIndex) const;
+	RangeType rangeTypeFor(uint8 paramIndex) const;
 	uint8 maxValueFor(uint8 paramIndex) const;
-	int8 defaultValueFor(uint8 paramIndex) const;
+	uint8 defaultValueFor(uint8 paramIndex) const;
 	uint8 numberOfStepsFor(uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;
 	Point<int> controlCenterPointFor(uint8 paramIndex) const;

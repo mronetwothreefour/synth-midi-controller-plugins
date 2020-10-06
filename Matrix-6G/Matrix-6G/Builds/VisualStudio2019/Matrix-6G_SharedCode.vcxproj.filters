@@ -4760,6 +4760,9 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h">
       <Filter>Matrix-6G\Source\guiRenderers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_RangeTypes.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

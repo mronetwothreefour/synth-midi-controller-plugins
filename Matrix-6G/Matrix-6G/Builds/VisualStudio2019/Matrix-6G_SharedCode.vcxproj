@@ -2917,6 +2917,7 @@
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />

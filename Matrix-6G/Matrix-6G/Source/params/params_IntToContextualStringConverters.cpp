@@ -54,22 +54,22 @@ String IntToPitchName::convert(const uint8& i) noexcept {
 
 
 
-String IntToContextualStringConverter::convert(const int8 & i) noexcept {
+String IntToContextualStringConverter::convert(const uint8& i) noexcept {
 	return conversionAlgorithm(i);
 }
 
-String IntToContextualStringConverter::verboseConvert(const int8 & i) noexcept {
+String IntToContextualStringConverter::verboseConvert(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
 
 
 
 
-String IntToNullString::conversionAlgorithm(const int8 & /*i*/) noexcept {
+String IntToNullString::conversionAlgorithm(const uint8& /*i*/) noexcept {
 	return "null";
 }
 
-String IntToNullString::verboseConversionAlgorithm(const int8 & /*i*/) noexcept {
+String IntToNullString::verboseConversionAlgorithm(const uint8& /*i*/) noexcept {
 	return "null";
 }
 
@@ -81,50 +81,58 @@ IntToNullString* IntToNullString::get() noexcept {
 
 
 
-String IntToPlainValueString::conversionAlgorithm(const int8 & i) noexcept {
+String IntToUnsignedValueString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
 
-String IntToPlainValueString::verboseConversionAlgorithm(const int8 & i) noexcept {
+String IntToUnsignedValueString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 128);
 	return (String)i;
 }
 
-IntToPlainValueString* IntToPlainValueString::get() noexcept {
-	static IntToPlainValueString converter;
+IntToUnsignedValueString* IntToUnsignedValueString::get() noexcept {
+	static IntToUnsignedValueString converter;
 	return &converter;
 }
 
 
 
 
-String IntToSignedValueString::conversionAlgorithm(const int8 & i) noexcept {
-	return verboseConversionAlgorithm(i);
-}
-
-String IntToSignedValueString::verboseConversionAlgorithm(const int8 & i) noexcept {
-	jassert(i > -64 && i < 64);
-	if (i < 1)
-		return (String)(i);
+String IntToSigned7bitValueString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 127);
+	String valueString;
+	if (i < 64)
+		valueString = (String)(i - 63);
 	else
-		return "+" + (String)(i);
+		valueString = "+" + (String)(i - 63);
+	if ((i - 63) > -10 && (i - 63) < 10)
+		valueString += " ";
+	return valueString;
 }
 
-IntToSignedValueString* IntToSignedValueString::get() noexcept {
-	static IntToSignedValueString converter;
+String IntToSigned7bitValueString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 127);
+	if (i < 64)
+		return (String)(i - 63);
+	else
+		return "+" + (String)(i - 63);
+}
+
+IntToSigned7bitValueString* IntToSigned7bitValueString::get() noexcept {
+	static IntToSigned7bitValueString converter;
 	return &converter;
 }
 
 
 
 
-String IntToOscPitchString::conversionAlgorithm(const int8 & i) noexcept {
+String IntToOscPitchString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 64);
 	String pitchName{ IntToPitchName::convert(i) };
 	return pitchName;
 }
 
-String IntToOscPitchString::verboseConversionAlgorithm(const int8 & i) noexcept {
+String IntToOscPitchString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 64);
 	String pitchName{ IntToPitchName::convert(i) };
 	pitchName += " (MIDI Note " + String(i) + ")";

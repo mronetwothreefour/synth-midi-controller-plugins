@@ -1,6 +1,7 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 
 #include "params_IntToContextualStringConverters.h"
+#include "params_RangeTypes.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
 
@@ -10,7 +11,7 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-	static const auto controlsVerticalGap{ 8 };
+	static const auto controlsVerticalGap{ 28 };
 	static const auto controlsRow1_y{ 69 };
 	static const auto controlsRow2_y{ controlsRow1_y + controlsVerticalGap };
 	static const auto controlsRow3_y{ controlsRow2_y + controlsVerticalGap };
@@ -31,20 +32,36 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	String descriptionString;
 
 	//======================================================
+
 	identifiers.add("osc1Pitch"); // 0
 	exposedNames.add("Oscillator 1 Pitch");
 	controlTypes.add(ControlType::rotarySlider);
 	converters.add(IntToOscPitchString::get());
-	maxValueDisplayLengths.add((uint8)4);
-	minValues.add((int8)0);
-	maxValues.add((int8)63);
-	defaultValues.add((int8)24);
-	descriptionString =  "Sets oscillator 1's base pitch in semitone steps.\n";
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)24);
+	descriptionString =  "Sets oscillator 1's base\n";
+	descriptionString += "pitch in semitone steps.\n";
 	descriptionString += "Range: C 0 to D#5.";
 	descriptions.add(descriptionString);
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow1_y));
 	lsbByteLocations.add((uint16)23);
+
+	identifiers.add("osc1_LFO1_FM"); // 1
+	exposedNames.add("Oscillator 1 LFO 1 FM Amount");
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which LFO 1 modulates oscillator 1's pitch.\n";
+	descriptionString += "Range: -63* to +63. (*Negative control values cannot be sent with\n";
+	descriptionString += "Quick Patch Edit. This requires sending a full patch dump for\n";
+	descriptionString += "every change in value, and will therefore be noticeably slower.)";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow2_y));
+	lsbByteLocations.add((uint16)177);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
@@ -72,24 +89,20 @@ IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 par
 	return converters[paramIndex];
 }
 
-uint8 InfoForExposedParameters::maxValueDisplayLengthFor(uint8 paramIndex) const {
-	return maxValueDisplayLengths[paramIndex];
-}
-
-int8 InfoForExposedParameters::minValueFor(uint8 paramIndex) const {
-	return minValues[paramIndex];
+RangeType InfoForExposedParameters::rangeTypeFor(uint8 paramIndex) const {
+	return rangeTypes[paramIndex];
 }
 
 uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
 	return maxValues[paramIndex];
 }
 
-int8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
+uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
 	return defaultValues[paramIndex];
 }
 
 uint8 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
-	return maxValues[paramIndex] - minValues[paramIndex] + 1;
+	return maxValues[paramIndex] + 1;
 }
 
 String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {

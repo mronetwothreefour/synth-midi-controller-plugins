@@ -18,10 +18,11 @@ ParamLayout ExposedParametersLayoutFactory::build() {
 
 StringArray ExposedParametersLayoutFactory::buildChoicesStringArrayFor(uint8 param) {
 	StringArray choices{};
-	auto converter{ InfoForExposedParameters::get().converterFor(param) };
+	auto& info{ InfoForExposedParameters::get() };
+	auto converter{info.converterFor(param) };
 	jassert(converter != nullptr);
 	if (converter != nullptr) {
-		for (uint8 i = 0; i != InfoForExposedParameters::get().numberOfStepsFor(param); ++i) {
+		for (uint8 i = 0; i != info.numberOfStepsFor(param); ++i) {
 			choices.add(converter->verboseConvert(i));
 		}
 	}
