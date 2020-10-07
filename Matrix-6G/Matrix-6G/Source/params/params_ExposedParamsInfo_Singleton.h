@@ -13,6 +13,7 @@ class InfoForExposedParameters
 	Array<Identifier> identifiers;
 	Array<String> exposedNames;
 	Array<uint8> paramNumbers;
+	Array<bool> isQuickEditEnabled;
 	Array<ControlType> controlTypes;
 	Array<RangeType> rangeTypes;
 	Array<IntToContextualStringConverter*> converters;
@@ -34,6 +35,8 @@ public:
 	int paramOutOfRange() const noexcept;
 	Identifier IDfor(uint8 paramIndex) const;
 	String exposedNameFor(uint8 paramIndex) const;
+	uint8 paramNumberFor(uint8 paramIndex) const;
+	bool isQuickEditable(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
 	RangeType rangeTypeFor(uint8 paramIndex) const;

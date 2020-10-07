@@ -2,6 +2,7 @@
 
 #include "params_ExposedParamsInfo_Singleton.h"
 #include "params_UnexposedParameters_Facade.h"
+#include "params_RangeTypes.h"
 #include "../midi/midi_ParameterChangeMessage.h"
 
 
@@ -21,8 +22,12 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
 		auto outputValue{ (int8)roundToInt(newValue) };
-		if (param < 100 && outputValue > - 1)
-			ParameterChangeMessage::sendNewValueForParameterToUnexposedParamsForHandling(outputValue, (uint8)param, unexposedParams);
+		if (info.rangeTypeFor(param) == RangeType::signed5bitValue)
+			outputValue -= offsetFor5bitSignedValues;
+		if (info.rangeTypeFor(param) == RangeType::signed6bitValue)
+			outputValue -= offsetFor6bitSignedValues;
+		if (info.isQuickEditable(param) && outputValue > - 1)
+			ParameterChangeMessage::sendNewValueForParameterToUnexposedParamsForHandling(outputValue, info.paramNumberFor(param), unexposedParams);
 	}
 	else return;
 }

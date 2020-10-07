@@ -33,8 +33,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("osc1Pitch"); // 0
+	identifiers.add("osc1Pitch");
 	exposedNames.add("Oscillator 1 Pitch");
+	paramNumbers.add((uint8)0);
+	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::rotarySlider);
 	converters.add(IntToOscPitchString::get());
 	rangeTypes.add(RangeType::unsignedValue);
@@ -48,10 +50,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow1_y));
 	lsbByteLocations.add((uint16)23);
 
-	identifiers.add("osc1_LFO1_FM"); // 1
+	identifiers.add("osc1_LFO1_FM");
 	exposedNames.add("Oscillator 1 LFO 1 FM Amount");
+	paramNumbers.add((uint8)1);
+	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::rotarySlider);
 	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed6bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
 	descriptionString =  "Sets the degree to which LFO 1 modulates oscillator 1's pitch.\n";
@@ -79,6 +84,14 @@ Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
 
 String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	return exposedNames[paramIndex];
+}
+
+uint8 InfoForExposedParameters::paramNumberFor(uint8 paramIndex) const {
+	return paramNumbers[paramIndex];
+}
+
+bool InfoForExposedParameters::isQuickEditable(uint8 paramIndex) const {
+	return isQuickEditEnabled[paramIndex];
 }
 
 ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
