@@ -5,6 +5,16 @@
 
 
 
+ControlLabelsLayer::ControlLabelsLayer() {
+	setInterceptsMouseClicks(false, true);
+	URL url{ "https://programming.mr1234.com/" };
+	button_ForGoingToWebSite.setURL(url);
+	button_ForGoingToWebSite.setColour(HyperlinkButton::ColourIds::textColourId, Color::offWhite);
+	button_ForGoingToWebSite.setTooltip("Click to go to programming.mr1234.com");
+	addAndMakeVisible(button_ForGoingToWebSite);
+
+}
+
 void ControlLabelsLayer::paint(Graphics& g) {
 	g.setColour(Color::offWhite);
 	auto& info{ InfoForControlLabels::get() };
@@ -15,6 +25,13 @@ void ControlLabelsLayer::paint(Graphics& g) {
 		Rectangle<int> labelArea{ info.startPointFor(label), info.endPointFor(label) };
 		g.drawFittedText(info.textFor(label), labelArea, justification, 1, 1.0f);
 	}
+	Font buildInfoFont{ FontsDB::family_BuildInfoText, FontsDB::style_ForBuildInfoText, FontsDB::size_ForBuildInfoText };
+	g.setFont(buildInfoFont);
+	Rectangle<int> buildInfoLabelArea{ 105, 380, 222, 20 };
+	g.setColour(Color::device);
+	g.fillRect(buildInfoLabelArea);
+	g.setColour(Color::offWhite);
+	g.drawFittedText("BUILD " + (String)ProjectInfo::versionString + "  |  MISTER 1-2-3-4 PROGRAMMING", buildInfoLabelArea, Justification::centred, 1, 1.0f);
 }
 
 Font ControlLabelsLayer::getFontForLabelType(ControlLabelType labelType) const {
@@ -23,4 +40,8 @@ Font ControlLabelsLayer::getFontForLabelType(ControlLabelType labelType) const {
 	auto fontSize{ labelType == ControlLabelType::heavy ? FontsDB::size_ForControlLabelHeavyText : FontsDB::size_ForControlLabelLightText };
 	Font font{ fontFamily, fontStyle, fontSize };
 	return font;
+}
+
+void ControlLabelsLayer::resized() {
+	button_ForGoingToWebSite.setBounds(176, 386, 146, 9);
 }

@@ -15,7 +15,7 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
 }
 
-void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*sliderPos*/, const float /*startAngle*/, const float /*endAngle*/, Slider& /*slider*/) {
+void GUILookAndFeel::drawRotarySlider(Graphics& /*g*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*sliderPos*/, const float /*startAngle*/, const float /*endAngle*/, Slider& /*slider*/) {
 }
 
 void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {

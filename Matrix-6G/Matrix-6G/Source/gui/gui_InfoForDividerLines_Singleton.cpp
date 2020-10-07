@@ -213,10 +213,6 @@ void InfoForDividerLines::fillAllInfoContainers() {
 
 	dividerTypes.add(DividerType::blue);
 	startPoints.add(Point<float>(leftmostColumn_x, buildLine_y));
-	endPoints.add(Point<float>(113, buildLine_y));
-
-	dividerTypes.add(DividerType::blue);
-	startPoints.add(Point<float>(319, buildLine_y));
 	endPoints.add(Point<float>(412, buildLine_y));
 
 	dividerTypes.add(DividerType::blue);

@@ -9,6 +9,7 @@ ControlsLayer::ControlsLayer(AudioProcessorValueTreeState* exposedParams, Unexpo
 	ControlsForExposedParameters(unexposedParams),
 	unexposedParams{ unexposedParams }
 {
+    setInterceptsMouseClicks(false, true);
 	rebuildControls(unexposedParams);
     for (uint8 param = 0; param != paramOutOfRange(); ++param) {
         auto control{ controlFor(param) };

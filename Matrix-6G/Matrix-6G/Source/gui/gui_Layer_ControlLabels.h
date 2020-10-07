@@ -9,11 +9,14 @@
 class ControlLabelsLayer :
 	public Component
 {
+	HyperlinkButton button_ForGoingToWebSite;
+
 public:
-	ControlLabelsLayer() = default;
+	ControlLabelsLayer();
 
 	void paint(Graphics& g) override;
 	Font getFontForLabelType(ControlLabelType labelType) const;
+	void resized() override;
 
 private:
 	//==============================================================================
