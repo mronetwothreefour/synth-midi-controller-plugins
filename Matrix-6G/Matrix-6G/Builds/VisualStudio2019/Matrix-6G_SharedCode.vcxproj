@@ -2153,6 +2153,7 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
@@ -2896,6 +2897,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
+    <ClInclude Include="..\..\Source\gui\gui_ComboBoxIndicatorTabPath.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.h" />
@@ -2925,6 +2927,7 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />

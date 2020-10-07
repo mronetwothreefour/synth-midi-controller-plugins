@@ -70,3 +70,15 @@ public:
 	static IntToOscPitchString* get() noexcept;
 };
 
+
+
+
+struct IntToOsc1SyncString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOsc1SyncString* get() noexcept;
+};
+

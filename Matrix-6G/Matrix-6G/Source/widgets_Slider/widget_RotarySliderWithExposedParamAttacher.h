@@ -10,8 +10,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 class RotarySliderWithExposedParamAttacher : 
-	public Component,
-	public Slider::Listener
+	public Component
 {
 protected:
 	uint8 param;
@@ -25,7 +24,6 @@ public:
 
 	RotarySliderWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
-	void sliderValueChanged(Slider* sliderThatChanged) override;
 	void paint(Graphics& g) override;
 	void deleteAttachment();
 

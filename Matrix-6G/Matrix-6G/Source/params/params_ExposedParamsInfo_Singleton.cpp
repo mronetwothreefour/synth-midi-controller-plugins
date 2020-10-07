@@ -33,7 +33,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("osc1Pitch");
+	identifiers.add("osc1_Pitch");
 	exposedNames.add("Oscillator 1 Pitch");
 	paramNumbers.add((uint8)0);
 	isQuickEditEnabled.add((bool)true);
@@ -67,6 +67,22 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow2_y));
 	lsbByteLocations.add((uint16)177);
+
+	identifiers.add("osc1_Sync");
+	exposedNames.add("Oscillator 1 Sync");
+	paramNumbers.add((uint8)2);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOsc1SyncString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects whether and to what degree oscillator 1's\n";
+	descriptionString += "waveform is synchronized with that of oscillator 2.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow3_y));
+	lsbByteLocations.add((uint16)55);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

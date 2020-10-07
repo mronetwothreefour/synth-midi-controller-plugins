@@ -451,6 +451,9 @@
     <Filter Include="Matrix-6G\Source\guiRenderers">
       <UniqueIdentifier>{4fd5b9f5-b3d9-4485-a24a-2128dd0774c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\widgets_ComboBox">
+      <UniqueIdentifier>{ee6cf16b-1a2c-46b2-b843-065f081a6b38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2447,6 +2450,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_Layer_Controls.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4762,6 +4768,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_ComboBoxIndicatorTabPath.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

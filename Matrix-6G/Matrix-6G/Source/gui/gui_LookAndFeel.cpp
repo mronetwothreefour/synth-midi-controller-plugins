@@ -57,3 +57,6 @@ void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHi
 	g.drawFittedText(button.getButtonText(), 0, 1, button.getWidth(), button.getHeight(), Justification::centred, 1);
 }
 
+void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
+}
+

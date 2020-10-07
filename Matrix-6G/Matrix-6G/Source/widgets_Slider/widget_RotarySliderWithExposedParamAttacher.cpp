@@ -13,7 +13,6 @@ RotarySliderWithExposedParamAttacher::RotarySliderWithExposedParamAttacher(uint8
 	tooltipSetter{ slider, param, unexposedParams },
 	converter{ InfoForExposedParameters::get().converterFor(param) }
 {
-	slider.addListener(this);
 	addAndMakeVisible(slider);
 	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
 	auto ctrlHeight{ 20 };
@@ -26,12 +25,6 @@ void RotarySliderWithExposedParamAttacher::attachToExposedParameter(AudioProcess
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(param).toString(), slider));
 }
 
-void RotarySliderWithExposedParamAttacher::sliderValueChanged(Slider* sliderThatChanged) {
-	if (sliderThatChanged == &slider) {
-		repaint();
-	}
-}
-
 void RotarySliderWithExposedParamAttacher::paint(Graphics& g) {
 	g.fillAll(Color::black);
 	auto currentValue{ (int8)roundToInt(slider.getValue()) };
@@ -41,6 +34,5 @@ void RotarySliderWithExposedParamAttacher::paint(Graphics& g) {
 
 void RotarySliderWithExposedParamAttacher::deleteAttachment() {
 	attachment = nullptr;
-	slider.removeListener(this);
 }
 

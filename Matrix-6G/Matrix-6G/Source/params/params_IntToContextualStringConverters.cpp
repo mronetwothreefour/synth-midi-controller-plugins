@@ -143,3 +143,29 @@ IntToOscPitchString* IntToOscPitchString::get() noexcept {
 	static IntToOscPitchString converter;
 	return &converter;
 }
+
+
+
+
+String IntToOsc1SyncString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "OFF ";
+	if (i == 1) return "SOFT";
+	if (i == 2) return "MED ";
+	if (i == 3) return "HARD";
+	else return "ERR";
+}
+
+String IntToOsc1SyncString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Off (0)";
+	if (i == 1) return "Soft Sync (1)";
+	if (i == 2) return "Medium Sync (2)";
+	if (i == 3) return "Hard Sync (3)";
+	else return "range error";
+}
+
+IntToOsc1SyncString* IntToOsc1SyncString::get() noexcept {
+	static IntToOsc1SyncString converter;
+	return &converter;
+}

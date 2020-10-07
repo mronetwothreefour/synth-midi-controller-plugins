@@ -24,6 +24,7 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 	case ControlType::pgmSlotRadioButton:
 		break;
 	case ControlType::comboBox:
+		buildComboBoxControlForExposedParam(param, unexposedParams);
 		break;
 	default:
 		break;
@@ -34,6 +35,12 @@ void ControlForExposedParameter::buildRotarySliderForExposedParam(uint8 param, U
 	rotarySlider.reset(new RotarySliderWithExposedParamAttacher(param, unexposedParams));
 	addAndMakeVisible(rotarySlider.get());
 	setSize(rotarySlider->getWidth(), rotarySlider->getHeight());
+}
+
+void ControlForExposedParameter::buildComboBoxControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
+	comboBox.reset(new ComboBoxWithExposedParamAttacher(param, unexposedParams));
+	addAndMakeVisible(comboBox.get());
+	setSize(comboBox->getWidth(), comboBox->getHeight());
 }
 
 void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const {
@@ -49,6 +56,8 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 	case ControlType::pgmSlotRadioButton:
 		break;
 	case ControlType::comboBox:
+		if (comboBox != nullptr)
+			comboBox->attachToExposedParameter(exposedParams);
 		break;
 	default:
 		break;
@@ -58,8 +67,11 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 void ControlForExposedParameter::deleteAttachment() const {
 	if (rotarySlider != nullptr)
 		rotarySlider->deleteAttachment();
+	if (comboBox != nullptr)
+		comboBox->deleteAttachment();
 }
 
 ControlForExposedParameter::~ControlForExposedParameter() {
 	rotarySlider = nullptr;
+	comboBox = nullptr;
 }

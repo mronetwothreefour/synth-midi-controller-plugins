@@ -15,6 +15,7 @@ public:
 	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;
 	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
 	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 
 private:
 	//==============================================================================
