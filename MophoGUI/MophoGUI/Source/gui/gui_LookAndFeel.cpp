@@ -134,10 +134,8 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 	}
 }
 
-void GUILookAndFeel::drawComboBox(Graphics& g, int width, int height, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
-	Rectangle<int> boxBounds(0, 0, width, height);
-	g.setColour(Color::black);
-	g.fillRect(boxBounds);
+void GUILookAndFeel::drawComboBox(Graphics& g, int width, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
+	g.fillAll(Color::black);
 	g.setColour(Color::device);
 	Path iconPath;
 	iconPath.addTriangle(float(width - 11), 6.0f, float(width - 3), 6.0f, float(width - 7), 10.0f);
