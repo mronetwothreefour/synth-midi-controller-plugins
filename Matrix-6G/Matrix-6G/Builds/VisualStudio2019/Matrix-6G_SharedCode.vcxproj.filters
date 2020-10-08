@@ -2436,9 +2436,6 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp">
       <Filter>Matrix-6G\Source\tooltipSetters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.cpp">
-      <Filter>Matrix-6G\Source\gui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
@@ -2453,6 +2450,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4748,9 +4748,6 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h">
       <Filter>Matrix-6G\Source\tooltipSetters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.h">
-      <Filter>Matrix-6G\Source\gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
@@ -4772,8 +4769,17 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_ComboBoxIndicatorTabPath.h">
+    <ClInclude Include="..\..\Source\gui\gui_Path_ComboBoxIndicatorTab.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_PopupMenuItem.h">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

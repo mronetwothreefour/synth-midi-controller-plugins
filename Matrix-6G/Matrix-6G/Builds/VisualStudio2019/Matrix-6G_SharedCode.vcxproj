@@ -2136,7 +2136,7 @@
     <ClCompile Include="..\..\Source\gui\gui_Layer_ControlLabels.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_Controls.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_SectionHeaders.cpp" />
-    <ClCompile Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -2895,9 +2895,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_PopupMenuItem.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
-    <ClInclude Include="..\..\Source\gui\gui_ComboBoxIndicatorTabPath.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Path_ComboBoxIndicatorTab.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForControlLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForDividerLines_Singleton.h" />
@@ -2906,9 +2907,10 @@
     <ClInclude Include="..\..\Source\gui\gui_Layer_Controls.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_DividerLines.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_SectionHeaders.h" />
-    <ClInclude Include="..\..\Source\gui\gui_LEDcharacterPaths_Singleton.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />

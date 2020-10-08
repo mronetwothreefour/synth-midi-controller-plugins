@@ -2,6 +2,8 @@
 
 #include "gui_Colors.h"
 #include "gui_Fonts.h"
+#include "gui_Path_VerticalBarLED.h"
+#include "../guiRenderers/guiRenderer_PopupMenuItem.h"
 #include "../params/params_Identifiers.h"
 
 
@@ -58,5 +60,46 @@ void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHi
 }
 
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
+}
+
+PopupMenu::Options GUILookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& /*label*/) {
+	return PopupMenu::Options()
+		.withTargetComponent(&box)
+		.withItemThatMustBeVisible(box.getSelectedId())
+		.withMinimumWidth(box.getWidth())
+		.withMaximumNumColumns(1)
+		.withStandardItemHeight(20);
+}
+
+void GUILookAndFeel::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
+	g.fillAll(Color::black);
+}
+
+void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*isSeparator*/, const bool isActive, const bool isHighlighted, const bool isTicked, 
+	const bool /*hasSubMenu*/, const String& text, const String& /*shortcutText*/, const Drawable* /*icon*/, const Colour* const /*textColor*/) {
+	if (isHighlighted && isActive) {
+		g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
+		g.fillRect(area);
+		g.setColour(findColour(PopupMenu::highlightedTextColourId));
+	}
+	g.setColour(Color::led_blue);
+	if (isTicked) {
+		auto tick{ VerticalBarLED::createPath() };
+		g.fillPath(tick, AffineTransform::translation(1.0f, 0.0f));
+	}
+	PopupMenuItemRenderer::paintTextInArea(g, text, area);
+}
+
+void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool isSeparator, int itemHeight, int& idealWidth, int& idealHeight) {
+	if (isSeparator) {
+		idealWidth = 50;
+		idealHeight = itemHeight > 0 ? itemHeight / 10 : 10;
+	}
+	else {
+		auto font = getPopupMenuFont();
+		if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
+			font.setHeight(itemHeight / 1.3f);
+		idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
+	}
 }
 

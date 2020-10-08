@@ -29,7 +29,7 @@ void RotarySliderWithExposedParamAttacher::paint(Graphics& g) {
 	g.fillAll(Color::black);
 	auto currentValue{ (int8)roundToInt(slider.getValue()) };
 	String valueString{ converter->convert(currentValue) };
-	ControlValueRenderer::paintLEDcharacters(valueString, g, this);
+	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
 void RotarySliderWithExposedParamAttacher::deleteAttachment() {

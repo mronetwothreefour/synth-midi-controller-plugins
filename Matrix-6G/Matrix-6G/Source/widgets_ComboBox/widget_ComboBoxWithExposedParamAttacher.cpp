@@ -1,7 +1,7 @@
 #include "widget_ComboBoxWithExposedParamAttacher.h"
 
 #include "../gui/gui_Colors.h"
-#include "../gui/gui_ComboBoxIndicatorTabPath.h"
+#include "../gui/gui_Path_ComboBoxIndicatorTab.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 
@@ -42,5 +42,5 @@ void ComboBoxWithExposedParamAttacher::paint(Graphics& g) {
 	g.fillPath(indicatorTab);
 	auto currentValue{ (int8)roundToInt(comboBox.getSelectedItemIndex()) };
 	String valueString{ converter->convert(currentValue) };
-	ControlValueRenderer::paintLEDcharacters(valueString, g, this);
+	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }

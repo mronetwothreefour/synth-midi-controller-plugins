@@ -13,4 +13,8 @@ struct ComboBoxIndicatorTab  {
 		path.loadPathFromData(ComboBoxIndicatorTabPathData::pathData.data(), ComboBoxIndicatorTabPathData::pathData.size());
 		return path;
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxIndicatorTab)
 };
