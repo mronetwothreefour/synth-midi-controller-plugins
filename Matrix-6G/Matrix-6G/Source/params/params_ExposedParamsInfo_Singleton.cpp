@@ -56,13 +56,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::rotarySlider);
 	converters.add(IntToSigned7bitValueString::get());
-	rangeTypes.add(RangeType::signed6bitValue);
+	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which LFO 1 modulates oscillator 1's pitch.\n";
-	descriptionString += "Range: -63* to +63. (*Negative control values cannot be sent with\n";
-	descriptionString += "Quick Patch Edit. This requires sending a full patch dump for\n";
-	descriptionString += "every change in value, and will therefore be noticeably slower.)";
+	descriptionString =  "Sets the degree to which LFO 1\n";
+	descriptionString += "modulates the pitch of oscillator 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow2_y));
@@ -93,14 +93,31 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
-	descriptionString =  "Sets the pulse width of oscillator 1\n";
-	descriptionString += "when it's wave shape is set to PULSE.\n";
+	descriptionString =  "Sets the pulse width of oscillator 1.\n";
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow5_y));
 	lsbByteLocations.add((uint16)27);
+
+	identifiers.add("osc1_PWMbyLFO2");
+	exposedNames.add("Oscillator 1 Pulse Width Mod. by LFO 2");
+	paramNumbers.add((uint8)4);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which LFO 2 modulates\n";
+	descriptionString += "the pulse width of oscillator 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the LFO waveform.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow7_y));
+	lsbByteLocations.add((uint16)179);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

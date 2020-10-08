@@ -103,7 +103,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column1_x2, row6_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("LFO 2 PWM AMT");
+	labelStrings.add("PWM BY LFO 2 AMT");
 	startPoints.add(Point<int>(column1_x1, row7_y1));
 	endPoints.add(Point<int>(column1_x2, row7_y2));
 

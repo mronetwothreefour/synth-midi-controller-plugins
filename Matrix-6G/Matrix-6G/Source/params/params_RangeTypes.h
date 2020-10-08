@@ -4,6 +4,6 @@
 
 enum class RangeType {
 	unsignedValue = 0,
-	signed5bitValue,
-	signed6bitValue
+	signed6bitValue,
+	signed7bitValue
 };
