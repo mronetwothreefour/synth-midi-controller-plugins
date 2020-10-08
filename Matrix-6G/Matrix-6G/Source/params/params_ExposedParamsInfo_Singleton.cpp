@@ -83,6 +83,24 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow3_y));
 	lsbByteLocations.add((uint16)55);
+
+	identifiers.add("osc1_PulseWidth");
+	exposedNames.add("Oscillator 1 Pulse Width");
+	paramNumbers.add((uint8)3);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)31);
+	descriptionString =  "Sets the pulse width of oscillator 1\n";
+	descriptionString += "when it's wave shape is set to PULSE.\n";
+	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
+	descriptionString += "A value of 31 produces a square wave.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow5_y));
+	lsbByteLocations.add((uint16)27);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

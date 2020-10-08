@@ -22,10 +22,11 @@ void GUILookAndFeel::drawRotarySlider(Graphics& /*g*/, int /*x*/, int /*y*/, int
 
 void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
 	Rectangle<int> bounds(width, height);
-	g.setColour(Color::black.brighter(0.2f));
+	g.setColour(Color::device);
 	g.fillRect(bounds.toFloat());
+	g.setColour(Color::led_blue);
+	g.drawRect(bounds.toFloat(), 1.0f);
 	g.setColour(Color::offWhite);
-	g.drawRect(bounds.toFloat(), 2.0f);
 	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
 		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
 }
