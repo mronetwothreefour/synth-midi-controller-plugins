@@ -99,15 +99,7 @@ IntToUnsignedValueString* IntToUnsignedValueString::get() noexcept {
 
 
 String IntToSigned7bitValueString::conversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 127);
-	String valueString;
-	if (i < 64)
-		valueString = (String)(i - 63);
-	else
-		valueString = "+" + (String)(i - 63);
-	if ((i - 63) > -10 && (i - 63) < 10)
-		valueString += " ";
-	return valueString;
+	return verboseConversionAlgorithm(i);
 }
 
 String IntToSigned7bitValueString::verboseConversionAlgorithm(const uint8& i) noexcept {
@@ -149,9 +141,9 @@ IntToOscPitchString* IntToOscPitchString::get() noexcept {
 
 String IntToOsc1SyncString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return "OFF ";
+	if (i == 0) return "OFF";
 	if (i == 1) return "SOFT";
-	if (i == 2) return "MED ";
+	if (i == 2) return "MED";
 	if (i == 3) return "HARD";
 	else return "ERR";
 }
