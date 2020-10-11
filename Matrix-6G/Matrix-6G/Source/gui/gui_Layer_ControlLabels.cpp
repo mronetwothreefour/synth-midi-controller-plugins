@@ -25,8 +25,7 @@ void ControlLabelsLayer::paint(Graphics& g) {
 		Rectangle<int> labelArea{ info.startPointFor(label), info.endPointFor(label) };
 		g.drawFittedText(info.textFor(label), labelArea, justification, 1, 1.0f);
 	}
-	Font buildInfoFont{ FontsDB::family_BuildInfoText, FontsDB::style_ForBuildInfoText, FontsDB::size_ForBuildInfoText };
-	g.setFont(buildInfoFont);
+	g.setFont(FontsMenu::fontFor_BuildInfoText);
 	Rectangle<int> buildInfoLabelArea{ 105, 380, 222, 20 };
 	g.setColour(Color::device);
 	g.fillRect(buildInfoLabelArea);
@@ -35,11 +34,17 @@ void ControlLabelsLayer::paint(Graphics& g) {
 }
 
 Font ControlLabelsLayer::getFontForLabelType(ControlLabelType labelType) const {
-	auto fontFamily{ labelType == ControlLabelType::light ? FontsDB::family_LightText : FontsDB::family_HeavyText };
-	auto fontStyle{ labelType == ControlLabelType::light ? FontsDB::style_ForLightText : FontsDB::style_ForHeavyText };
-	auto fontSize{ labelType == ControlLabelType::heavy ? FontsDB::size_ForControlLabelHeavyText : FontsDB::size_ForControlLabelLightText };
-	Font font{ fontFamily, fontStyle, fontSize };
-	return font;
+	switch (labelType)
+	{
+	case ControlLabelType::subHeader:
+		return FontsMenu::fontFor_SectionSubHeaderText;
+	case ControlLabelType::light:
+		return FontsMenu::fontFor_ControlLabelText;
+	case ControlLabelType::trackingAndMatrixNumbers:
+		return FontsMenu::fontFor_TrackingAndMatrixModNumbers;
+	default:
+		return {};
+	}
 }
 
 void ControlLabelsLayer::resized() {

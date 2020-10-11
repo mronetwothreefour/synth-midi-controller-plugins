@@ -2454,6 +2454,9 @@
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4780,6 +4783,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_PopupMenuItem.h">
       <Filter>Matrix-6G\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

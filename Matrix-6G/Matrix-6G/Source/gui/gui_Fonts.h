@@ -4,24 +4,28 @@
 
 
 
-namespace FontsDB
+struct FontCreator {
+	static Font createFontFromTypeface_Size_Kerning(Typeface::Ptr typeface, float size, float kerning) {
+		Font font{ typeface };
+		font.setSizeAndStyle(size, font.getTypefaceStyle(), 1.0f, kerning);
+		return font;
+	}
+};
+
+namespace FontsMenu
 {
-	static const String family_BuildInfoText{ "Swis721 Lt BT" };
-	static const String family_HeavyText{ "Swis721 Cn BT" };
-	static const String family_LightText{ "Swis721 LtCn BT" };
-	static const String family_TooltipText{ "Swis721 BT" };
+	static const Typeface::Ptr Swiss721_Bd{ Typeface::createSystemTypefaceFor(BinaryData::SWISSB_TTF, BinaryData::SWISSB_TTFSize) };
+	static const Typeface::Ptr Swiss721_CnBd{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCB_TTF, BinaryData::SWISSCB_TTFSize) };
+	static const Typeface::Ptr Swiss721_Lt{ Typeface::createSystemTypefaceFor(BinaryData::SWISSL_TTF, BinaryData::SWISSL_TTFSize) };
+	static const Typeface::Ptr Swiss721_LtCn{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
 
-	static const String style_ForBuildInfoText{ "Light" };
-	static const String style_ForHeavyText{ "Bold" };
-	static const String style_ForLightText{ "Light" };
-	static const String style_ForTooltipText{ "Bold" };
-
-	static const float size_ForBuildInfoText{ 12.0f };
-	static const float size_ForButtonText_Small{ 14.0f };
-	static const float size_ForButtonText_Large{ 16.0f };
-	static const float size_ForControlLabelHeavyText{ 16.0f };
-	static const float size_ForControlLabelLightText{ 12.0f };
-	static const float size_ForNumberLabels{ 16.0f };
-	static const float size_ForSectionHeaderText{ 18.0f };
-	static const float size_ForTooltipText{ 13.0f };
+	static const Font fontFor_BuildInfoText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Lt, 12.0f, 0.0f) };
+	static const Font fontFor_ButtonText_Small{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CnBd, 14.0f, 0.0f) };
+	static const Font fontFor_ButtonText_Large{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CnBd, 16.0f, 0.0f) };
+	static const Font fontFor_ControlLabelText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_LtCn, 12.0f, 0.0f) };
+	static const Font fontFor_SectionHeaderText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CnBd, 18.0f, 0.0f) };
+	static const Font fontFor_SectionSubHeaderText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CnBd, 16.0f, 0.0f) };
+	static const Font fontFor_TooltipText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
+	static const Font fontFor_TrackingAndMatrixModNumbers{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CnBd, 13.0f, 0.0f) };
 }
+

@@ -32,12 +32,11 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
-	Font tooltipFont(FontsDB::family_TooltipText, FontsDB::style_ForTooltipText, FontsDB::size_ForTooltipText);
 	const int maxToolTipWidth = 400;
 
 	AttributedString s;
 	s.setJustification(Justification::centred);
-	s.append(text, tooltipFont, colour);
+	s.append(text, FontsMenu::fontFor_TooltipText, colour);
 
 	TextLayout tl;
 	tl.createLayout(s, (float)maxToolTipWidth);
@@ -54,8 +53,7 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& /*button*/, const
 
 void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHighlighted*/, bool isDown) {
 	auto height{ button.getHeight() };
-	Font font{ FontsDB::family_HeavyText, FontsDB::style_ForHeavyText, height < 25 ? FontsDB::size_ForButtonText_Small : FontsDB::size_ForButtonText_Large };
-	g.setFont(font);
+	g.setFont(height < 25 ? FontsMenu::fontFor_ButtonText_Small : FontsMenu::fontFor_ButtonText_Large);
 	g.setColour(isDown ? Color::offWhite.darker(0.5f) : Color::offWhite);
 	g.drawFittedText(button.getButtonText(), 0, 1, button.getWidth(), button.getHeight(), Justification::centred, 1);
 }

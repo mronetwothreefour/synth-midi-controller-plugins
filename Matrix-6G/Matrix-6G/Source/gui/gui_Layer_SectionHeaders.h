@@ -13,7 +13,6 @@ class SectionHeadersLayer :
 	const float textGapVerticalOffset{ -1.0f };
 	const float textGap_h{ 18.0f };
 	const float textGapWidthBuffer{ 10.0f };
-	const Font headerFont{ FontsDB::family_HeavyText, FontsDB::style_ForHeavyText, FontsDB::size_ForSectionHeaderText };
 
 public:
 	SectionHeadersLayer() = default;

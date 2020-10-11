@@ -23,7 +23,7 @@ void SectionHeadersLayer::paintBlueBarForHeader(Graphics& g, int header) {
 void SectionHeadersLayer::createHeaderTextLayout(Graphics& g, String headerText, Rectangle<int> blueBar) {
 	AttributedString text;
 	text.setJustification(Justification::centred);
-	text.append(headerText, headerFont, Color::offWhite);
+	text.append(headerText, FontsMenu::fontFor_SectionHeaderText, Color::offWhite);
 	TextLayout layout;
 	layout.createLayout(text, 150.0f);
 	paintTextLayoutInBlueBar(g, layout, blueBar);

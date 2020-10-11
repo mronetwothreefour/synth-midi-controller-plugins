@@ -5,7 +5,7 @@
 
 
 enum class ControlLabelType {
-	heavy = 0,
+	subHeader = 0,
 	light,
 	trackingAndMatrixNumbers
 };
