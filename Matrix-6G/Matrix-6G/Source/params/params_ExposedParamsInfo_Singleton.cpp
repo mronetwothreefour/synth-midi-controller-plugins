@@ -118,6 +118,24 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow7_y));
 	lsbByteLocations.add((uint16)179);
+
+	identifiers.add("osc1_SawTri");
+	exposedNames.add("Oscillator 1 Saw / Triangle Wave");
+	paramNumbers.add((uint8)5);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)31);
+	descriptionString =  "Sets the wave shape of oscillator 1.\n";
+	descriptionString += "Range: 0 (sawtooth) to 63 (triangle).\n";
+	descriptionString += "Intermediate values produce various\n";
+	descriptionString += "mixtures of the two shapes.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow6_y));
+	lsbByteLocations.add((uint16)25);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
