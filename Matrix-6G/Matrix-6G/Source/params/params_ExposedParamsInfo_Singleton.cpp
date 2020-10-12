@@ -349,11 +349,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)3);
 	descriptionString =  "Selects which of the performance \"levers\"\n";
-	descriptionString += "(wheel-type controllers) will modulate oscillator 1.\n";
-	descriptionString += "OFF: Oscillator 1 is not controlled by either lever.\n";
+	descriptionString += "(wheel-type controllers) will modulate oscillator 2.\n";
+	descriptionString += "OFF: Oscillator 2 is not controlled by either lever.\n";
 	descriptionString += "BEND: Pitch bend is controlled by lever 1 (pitch wheel).\n";
 	descriptionString += "VIB: Vibrato amount is controlled by lever 2 (mod wheel).\n";
-	descriptionString += "BOTH: Oscillator 1 is controlled by both levers.";
+	descriptionString += "BOTH: Oscillator 2 is controlled by both levers.";
 	descriptions.add(descriptionString);
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow10_y));
