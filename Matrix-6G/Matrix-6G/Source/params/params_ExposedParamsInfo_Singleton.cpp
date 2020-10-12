@@ -93,7 +93,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
-	descriptionString =  "Sets the pulse width of oscillator 1.\n";
+	descriptionString =  "Sets the width of oscillator 1's\n";
+	descriptionString += "wave when its type is set to PULSE.\n";
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
@@ -128,7 +129,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
-	descriptionString =  "Sets the wave shape of oscillator 1.\n";
+	descriptionString =  "Sets the shape of oscillator 1\n";
+	descriptionString += "when its type is set to WAVE.\n";
 	descriptionString += "Range: 0 (sawtooth) to 63 (triangle).\n";
 	descriptionString += "Intermediate values produce various\n";
 	descriptionString += "mixtures of the two shapes.";
@@ -136,6 +138,25 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow6_y));
 	lsbByteLocations.add((uint16)25);
+
+	identifiers.add("osc1_Type");
+	exposedNames.add("Oscillator 1 Type");
+	paramNumbers.add((uint8)6);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOscWaveShapeString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)2);
+	descriptionString =  "Selects oscillator 1's type.\n";
+	descriptionString += "Off: The oscillator produces no sound.\n";
+	descriptionString += "Pulse: Set the width of the pulse below.\n";
+	descriptionString += "Wave: Set the shape of the wave below.\n";
+	descriptionString += "Both: A blend of pulse and wave.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow4_y));
+	lsbByteLocations.add((uint16)31);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

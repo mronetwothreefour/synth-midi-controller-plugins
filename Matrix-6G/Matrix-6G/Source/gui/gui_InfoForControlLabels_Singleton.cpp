@@ -88,7 +88,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column1_x2, row3_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("WAVE SHAPE");
+	labelStrings.add("TYPE SELECT");
 	startPoints.add(Point<int>(column1_x1, row4_y1));
 	endPoints.add(Point<int>(column1_x2, row4_y2));
 

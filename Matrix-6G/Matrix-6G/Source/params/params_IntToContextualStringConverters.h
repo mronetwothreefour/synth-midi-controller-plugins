@@ -82,3 +82,15 @@ public:
 	static IntToOsc1SyncString* get() noexcept;
 };
 
+
+
+
+struct IntToOscWaveShapeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOscWaveShapeString* get() noexcept;
+};
+

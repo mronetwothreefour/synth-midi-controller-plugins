@@ -161,3 +161,31 @@ IntToOsc1SyncString* IntToOsc1SyncString::get() noexcept {
 	static IntToOsc1SyncString converter;
 	return &converter;
 }
+
+
+
+
+String IntToOscWaveShapeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 5);
+	if (i == 0) return "OFF";
+	if (i == 1) return "PULSE";
+	if (i == 2) return "WAVE";
+	if (i == 3) return "BOTH";
+	if (i == 4) return "NOISE";
+	else return "ERR";
+}
+
+String IntToOscWaveShapeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 5);
+	if (i == 0) return "Off";
+	if (i == 1) return "Pulse";
+	if (i == 2) return "Wave (Saw/Triangle)";
+	if (i == 3) return "Both";
+	if (i == 4) return "Noise";
+	else return "range error";
+}
+
+IntToOscWaveShapeString* IntToOscWaveShapeString::get() noexcept {
+	static IntToOscWaveShapeString converter;
+	return &converter;
+}
