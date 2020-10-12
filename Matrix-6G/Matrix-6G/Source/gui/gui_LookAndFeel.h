@@ -9,6 +9,7 @@ class GUILookAndFeel :
 {
 public:
 	GUILookAndFeel() = default;
+	void drawLinearSlider(Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider& slider) override;
 	void drawRotarySlider(Graphics& g, int x, int y, int w, int h, float sliderPos, const float startAngle, const float endAngle, Slider& slider) override;
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
 	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;

@@ -2,6 +2,7 @@
 
 #include "gui_Colors.h"
 #include "gui_Fonts.h"
+#include "gui_Path_LEDsliderTab.h"
 #include "gui_Path_VerticalBarLED.h"
 #include "../guiRenderers/guiRenderer_PopupMenuItem.h"
 #include "../params/params_Identifiers.h"
@@ -15,6 +16,13 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 	return Rectangle<int>(
 		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
 		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
+}
+
+void GUILookAndFeel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*width*/, int /*height*/, float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& /*slider*/) {
+	g.fillAll(Color::black);
+	auto sliderTab{ LEDsliderTab::createPath() };
+	g.setColour(Color::led_blue);
+	g.fillPath(sliderTab, AffineTransform::translation(sliderPos - 8.0f, 0.0f));
 }
 
 void GUILookAndFeel::drawRotarySlider(Graphics& /*g*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*sliderPos*/, const float /*startAngle*/, const float /*endAngle*/, Slider& /*slider*/) {

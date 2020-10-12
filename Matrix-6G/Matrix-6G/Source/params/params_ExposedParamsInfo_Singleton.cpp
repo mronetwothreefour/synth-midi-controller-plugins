@@ -27,7 +27,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto oscControlsCol2_x{ 196 };
 	static const auto oscControls_w{ 60 };
 	static const auto controlsHorizontalGap{ 6 };
-	static const auto oscBalanceControl_w{ 2 * oscControls_w + controlsHorizontalGap };
+	static const auto oscBalanceControl_x{ 163 };
+	static const auto oscBalanceControl_w{ 126 };
 
 	String descriptionString;
 
@@ -392,6 +393,23 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow8_y));
 	lsbByteLocations.add((uint16)53);
+
+	identifiers.add("osc_Balance");
+	exposedNames.add("Oscillator Balance");
+	paramNumbers.add((uint8)20);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::linearSlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)31);
+	descriptionString =  "Sets the relative levels of the two oscillators.\n";
+	descriptionString += "Range: 0 to 63. At 63, only oscillator 1 is heard.\n";
+	descriptionString += "At 0, only oscillator 2 is heard. 31 is an equal mix.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscBalanceControl_w);
+	controlCenterPoints.add(Point<int>(oscBalanceControl_x, controlsRow11_y));
+	lsbByteLocations.add((uint16)45);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

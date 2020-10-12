@@ -1,7 +1,6 @@
 #include "widget_RotarySliderWithExposedParamAttacher.h"
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
-#include "../params/params_Identifiers.h"
 #include "../gui/gui_Colors.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 
