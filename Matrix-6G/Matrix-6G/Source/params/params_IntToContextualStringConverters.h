@@ -94,3 +94,39 @@ public:
 	static IntToOscWaveShapeString* get() noexcept;
 };
 
+
+
+
+struct IntToOscLeverControlString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOscLeverControlString* get() noexcept;
+};
+
+
+
+
+struct IntToOsc1KeyPortaString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOsc1KeyPortaString* get() noexcept;
+};
+
+
+
+
+struct IntToOffOnString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOffOnString* get() noexcept;
+};
+

@@ -149,14 +149,67 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)2);
 	descriptionString =  "Selects oscillator 1's type.\n";
-	descriptionString += "Off: The oscillator produces no sound.\n";
-	descriptionString += "Pulse: Set the width of the pulse below.\n";
-	descriptionString += "Wave: Set the shape of the wave below.\n";
-	descriptionString += "Both: A blend of pulse and wave.";
+	descriptionString += "OFF: The oscillator produces no sound.\n";
+	descriptionString += "PULSE: Set the width of the pulse below.\n";
+	descriptionString += "WAVE: Set the shape of the wave below.\n";
+	descriptionString += "BOTH: A blend of pulse and wave.";
 	descriptions.add(descriptionString);
 	controlWidths.add(oscControls_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow4_y));
 	lsbByteLocations.add((uint16)31);
+
+	identifiers.add("osc1_LeverControl");
+	exposedNames.add("Oscillator 1 Lever Control");
+	paramNumbers.add((uint8)7);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOscLeverControlString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)3);
+	descriptionString =  "Selects which of the performance \"levers\"\n";
+	descriptionString += "(wheel-type controllers) will modulate oscillator 1.\n";
+	descriptionString += "OFF: Oscillator 1 is not controlled by either lever.\n";
+	descriptionString += "BEND: Pitch bend is controlled by lever 1 (pitch wheel).\n";
+	descriptionString += "VIB: Vibrato amount is controlled by lever 2 (mod wheel).\n";
+	descriptionString += "BOTH: Oscillator 1 is controlled by both levers.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow10_y));
+	lsbByteLocations.add((uint16)29);
+
+	identifiers.add("osc1_KeyPorta");
+	exposedNames.add("Oscillator 1 Keyboard / Portamento");
+	paramNumbers.add((uint8)8);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOsc1KeyPortaString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptionString =  "KEYBD: Normal keyboard behavior.\n";
+	descriptionString += "PORTA: Portamento (aka \"glide\") is\n";
+	descriptionString += "on and pitch changes are smoothed.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow9_y));
+	lsbByteLocations.add((uint16)47);
+
+	identifiers.add("osc1_KeyClick");
+	exposedNames.add("Oscillator 1 Key Click");
+	paramNumbers.add((uint8)9);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOffOnString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Adds percussive punch to\n";
+	descriptionString += "the start of the sound.";
+	descriptions.add(descriptionString);
+	controlWidths.add(oscControls_w);
+	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow8_y));
+	lsbByteLocations.add((uint16)49);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

@@ -189,3 +189,73 @@ IntToOscWaveShapeString* IntToOscWaveShapeString::get() noexcept {
 	static IntToOscWaveShapeString converter;
 	return &converter;
 }
+
+
+
+
+String IntToOscLeverControlString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "OFF";
+	if (i == 1) return "BEND";
+	if (i == 2) return "VIB";
+	if (i == 3) return "BOTH";
+	else return "ERR";
+}
+
+String IntToOscLeverControlString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Off";
+	if (i == 1) return "Pitch Bend by Lever 1";
+	if (i == 2) return "Vibrato by Lever 2";
+	if (i == 3) return "Control by Both Levers";
+	else return "range error";
+}
+
+IntToOscLeverControlString* IntToOscLeverControlString::get() noexcept {
+	static IntToOscLeverControlString converter;
+	return &converter;
+}
+
+
+
+
+String IntToOsc1KeyPortaString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "KEYBD";
+	if (i == 1) return "PORTA";
+	else return "ERR";
+}
+
+String IntToOsc1KeyPortaString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "Normal Keyboard Behavior";
+	if (i == 1) return "Portamento Is Active";
+	else return "range error";
+}
+
+IntToOsc1KeyPortaString* IntToOsc1KeyPortaString::get() noexcept {
+	static IntToOsc1KeyPortaString converter;
+	return &converter;
+}
+
+
+
+
+String IntToOffOnString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "OFF";
+	if (i == 1) return "ON";
+	else return "ERR";
+}
+
+String IntToOffOnString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 2);
+	if (i == 0) return "Off";
+	if (i == 1) return "On";
+	else return "range error";
+}
+
+IntToOffOnString* IntToOffOnString::get() noexcept {
+	static IntToOffOnString converter;
+	return &converter;
+}
