@@ -118,6 +118,26 @@ IntToSigned7bitValueString* IntToSigned7bitValueString::get() noexcept {
 
 
 
+String IntToSigned6bitValueString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToSigned6bitValueString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 63);
+	if (i < 33)
+		return (String)(i - 31);
+	else
+		return "+" + (String)(i - 31);
+}
+
+IntToSigned6bitValueString* IntToSigned6bitValueString::get() noexcept {
+	static IntToSigned6bitValueString converter;
+	return &converter;
+}
+
+
+
+
 String IntToOscPitchString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 64);
 	String pitchName{ IntToPitchName::convert(i) };
@@ -165,7 +185,7 @@ IntToOsc1SyncString* IntToOsc1SyncString::get() noexcept {
 
 
 
-String IntToOscWaveShapeString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToOscTypeString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 5);
 	if (i == 0) return "OFF";
 	if (i == 1) return "PULSE";
@@ -175,7 +195,7 @@ String IntToOscWaveShapeString::conversionAlgorithm(const uint8& i) noexcept {
 	else return "ERR";
 }
 
-String IntToOscWaveShapeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToOscTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 5);
 	if (i == 0) return "Off";
 	if (i == 1) return "Pulse";
@@ -185,8 +205,8 @@ String IntToOscWaveShapeString::verboseConversionAlgorithm(const uint8& i) noexc
 	else return "range error";
 }
 
-IntToOscWaveShapeString* IntToOscWaveShapeString::get() noexcept {
-	static IntToOscWaveShapeString converter;
+IntToOscTypeString* IntToOscTypeString::get() noexcept {
+	static IntToOscTypeString converter;
 	return &converter;
 }
 
@@ -235,6 +255,30 @@ String IntToOsc1KeyPortaString::verboseConversionAlgorithm(const uint8& i) noexc
 
 IntToOsc1KeyPortaString* IntToOsc1KeyPortaString::get() noexcept {
 	static IntToOsc1KeyPortaString converter;
+	return &converter;
+}
+
+
+
+
+String IntToOsc2KeyPortaString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "OFF";
+	if (i == 1) return "PORTA";
+	if (i == 2) return "KEYBD";
+	else return "ERR";
+}
+
+String IntToOsc2KeyPortaString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "Off (Pitch Is Locked)";
+	if (i == 1) return "Portamento Is Active";
+	if (i == 2) return "Normal Keyboard Behavior";
+	else return "range error";
+}
+
+IntToOsc2KeyPortaString* IntToOsc2KeyPortaString::get() noexcept {
+	static IntToOsc2KeyPortaString converter;
 	return &converter;
 }
 

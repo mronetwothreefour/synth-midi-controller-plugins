@@ -61,6 +61,18 @@ public:
 
 
 
+struct IntToSigned6bitValueString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToSigned6bitValueString* get() noexcept;
+};
+
+
+
+
 struct IntToOscPitchString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
@@ -85,13 +97,13 @@ public:
 
 
 
-struct IntToOscWaveShapeString : public IntToContextualStringConverter
+struct IntToOscTypeString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToOscWaveShapeString* get() noexcept;
+	static IntToOscTypeString* get() noexcept;
 };
 
 
@@ -116,6 +128,18 @@ struct IntToOsc1KeyPortaString : public IntToContextualStringConverter
 
 public:
 	static IntToOsc1KeyPortaString* get() noexcept;
+};
+
+
+
+
+struct IntToOsc2KeyPortaString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToOsc2KeyPortaString* get() noexcept;
 };
 
 
