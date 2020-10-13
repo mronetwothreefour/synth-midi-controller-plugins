@@ -529,6 +529,62 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow6_y));
 	lsbByteLocations.add((uint16)63);
+
+	//======================================================
+
+	identifiers.add("vca1_Volume");
+	exposedNames.add("VCA 1 Volume");
+	paramNumbers.add((uint8)27);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the initial output level of the\n";
+	descriptionString += "first-stage voltage-controlled amplifier.\n";
+	descriptionString += "Range: 0 (silence) to 63 (maximum).";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow9_y));
+	lsbByteLocations.add((uint16)67);
+
+	identifiers.add("vca1_VeloAmt");
+	exposedNames.add("VCA 1 Velocity Amount");
+	paramNumbers.add((uint8)28);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which note velocity\n";
+	descriptionString += "modulates the output level of VCA 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the note velocity.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow10_y));
+	lsbByteLocations.add((uint16)189);
+
+	identifiers.add("vca2_Env2Amt");
+	exposedNames.add("VCA 2 Envelope 2 Amount");
+	paramNumbers.add((uint8)29);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)126);
+	descriptionString =  "Sets the degree to which envelope 2\n";
+	descriptionString += "modulates the output level of the second-\n";
+	descriptionString += "stage voltage-controlled amplifier.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the envelope.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow11_y));
+	lsbByteLocations.add((uint16)191);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
