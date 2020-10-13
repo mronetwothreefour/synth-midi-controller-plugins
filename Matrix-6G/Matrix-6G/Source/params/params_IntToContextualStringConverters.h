@@ -121,25 +121,25 @@ public:
 
 
 
-struct IntToOsc1KeyPortaString : public IntToContextualStringConverter
+struct IntToOsc1KeyTrackString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToOsc1KeyPortaString* get() noexcept;
+	static IntToOsc1KeyTrackString* get() noexcept;
 };
 
 
 
 
-struct IntToOsc2KeyPortaString : public IntToContextualStringConverter
+struct IntToOsc2AndVCFKeyTrackString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToOsc2KeyPortaString* get() noexcept;
+	static IntToOsc2AndVCFKeyTrackString* get() noexcept;
 };
 
 

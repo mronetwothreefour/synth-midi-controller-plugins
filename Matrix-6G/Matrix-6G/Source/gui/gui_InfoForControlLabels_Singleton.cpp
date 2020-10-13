@@ -113,7 +113,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column1_x2, row8_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("KEYBOARD / PORTA");
+	labelStrings.add("KEY TRACKING");
 	startPoints.add(Point<int>(column1_x1, row9_y1));
 	endPoints.add(Point<int>(column1_x2, row9_y2));
 
@@ -155,7 +155,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column2_x2, row5_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("PORTAMENTO / KEY TRACK");
+	labelStrings.add("KEY TRACKING");
 	startPoints.add(Point<int>(column2_x1, row6_y1));
 	endPoints.add(Point<int>(column2_x2, row6_y2));
 

@@ -180,18 +180,20 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow10_y));
 	lsbByteLocations.add((uint16)29);
 
-	identifiers.add("osc1_KeyPorta");
-	exposedNames.add("Oscillator 1 Keyboard / Portamento");
+	identifiers.add("osc1_KeyTrack");
+	exposedNames.add("Oscillator 1 Key Tracking");
 	paramNumbers.add((uint8)8);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToOsc1KeyPortaString::get());
+	converters.add(IntToOsc1KeyTrackString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptionString =  "KEYBD: Normal keyboard behavior.\n";
-	descriptionString += "PORTA: Portamento (aka \"glide\") is\n";
-	descriptionString += "on and pitch changes are smoothed.";
+	descriptionString =  "Selects how oscillator 1 responds to incoming pitch\n";
+	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
+	descriptionString += "KEYBD: Oscillater 1's pitch tracks note key changes normally.\n";
+	descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
+	descriptionString += "according to the settings in the portamento (aka \"glide\") section.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow9_y));
@@ -361,19 +363,21 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow10_y));
 	lsbByteLocations.add((uint16)39);
 
-	identifiers.add("osc2_KeyPorta");
-	exposedNames.add("Oscillator 2 Keyboard / Portamento");
+	identifiers.add("osc2_KeyTrack");
+	exposedNames.add("Oscillator 2 Key Tracking");
 	paramNumbers.add((uint8)18);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToOsc2KeyPortaString::get());
+	converters.add(IntToOsc2AndVCFKeyTrackString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)2);
-	descriptionString =  "OFF: Oscillator 2's pitch is locked.\n";
-	descriptionString += "PORTA: Portamento (aka \"glide\") is\n";
-	descriptionString += "on and pitch changes are smoothed.\n";
-	descriptionString += "KEYBD: Normal keyboard behavior.";
+	descriptionString =  "Selects how oscillator 2 responds to incoming pitch\n";
+	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
+	descriptionString += "OFF: Oscillater 2's pitch will not change as notes are played.\n";
+	descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
+	descriptionString += "according to the settings in the portamento (aka \"glide\") section.\n";
+	descriptionString += "KEYBD: Oscillator 2's pitch tracks note key changes normally.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow9_y));
@@ -504,6 +508,27 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow5_y));
 	lsbByteLocations.add((uint16)61);
+
+	identifiers.add("vcf_KeyTrack");
+	exposedNames.add("VCF Key Tracking");
+	paramNumbers.add((uint8)26);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOsc2AndVCFKeyTrackString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)2);
+	defaultValues.add((uint8)2);
+	descriptionString =  "Selects how the VCF's cutoff frequency responds to incoming pitch\n";
+	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
+	descriptionString += "OFF: Note key changes have no effect on the VCF's cutoff frequency.\n";
+	descriptionString += "PORTA: Tracking is active, but transitions between cutoff frequencies are \n";
+	descriptionString += "smoothed according to the settings in the portamento (aka \"glide\") section.\n";
+	descriptionString += "KEYBD: The VCF's cutoff frequency tracks note key changes, rising as\n";
+	descriptionString += "higher notes are played and dropping as lower notes are played.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow6_y));
+	lsbByteLocations.add((uint16)63);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

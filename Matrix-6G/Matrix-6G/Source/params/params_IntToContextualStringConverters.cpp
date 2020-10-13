@@ -239,29 +239,29 @@ IntToLeverControlString* IntToLeverControlString::get() noexcept {
 
 
 
-String IntToOsc1KeyPortaString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToOsc1KeyTrackString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
 	if (i == 0) return "KEYBD";
 	if (i == 1) return "PORTA";
 	else return "ERR";
 }
 
-String IntToOsc1KeyPortaString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToOsc1KeyTrackString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
-	if (i == 0) return "Normal Keyboard Behavior";
-	if (i == 1) return "Portamento Is Active";
+	if (i == 0) return "Normal Key Tracking";
+	if (i == 1) return "Key Tracking With Portamento";
 	else return "range error";
 }
 
-IntToOsc1KeyPortaString* IntToOsc1KeyPortaString::get() noexcept {
-	static IntToOsc1KeyPortaString converter;
+IntToOsc1KeyTrackString* IntToOsc1KeyTrackString::get() noexcept {
+	static IntToOsc1KeyTrackString converter;
 	return &converter;
 }
 
 
 
 
-String IntToOsc2KeyPortaString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToOsc2AndVCFKeyTrackString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 3);
 	if (i == 0) return "OFF";
 	if (i == 1) return "PORTA";
@@ -269,16 +269,16 @@ String IntToOsc2KeyPortaString::conversionAlgorithm(const uint8& i) noexcept {
 	else return "ERR";
 }
 
-String IntToOsc2KeyPortaString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToOsc2AndVCFKeyTrackString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 3);
-	if (i == 0) return "Off (Pitch Is Locked)";
-	if (i == 1) return "Portamento Is Active";
-	if (i == 2) return "Normal Keyboard Behavior";
+	if (i == 0) return "Key Tracking Is Off";
+	if (i == 1) return "Key Tracking With Portamento";
+	if (i == 2) return "Normal Key Tracking";
 	else return "range error";
 }
 
-IntToOsc2KeyPortaString* IntToOsc2KeyPortaString::get() noexcept {
-	static IntToOsc2KeyPortaString converter;
+IntToOsc2AndVCFKeyTrackString* IntToOsc2AndVCFKeyTrackString::get() noexcept {
+	static IntToOsc2AndVCFKeyTrackString converter;
 	return &converter;
 }
 
