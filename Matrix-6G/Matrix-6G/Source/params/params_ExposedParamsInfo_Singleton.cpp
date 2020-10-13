@@ -26,6 +26,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto oscControlsCol1_x{ 130 };
 	static const auto oscControlsCol2_x{ 196 };
 	static const auto vcfCol_x{ 382 };
+	static const auto vcfFMcontrols_x{ 550 };
 	static const auto defaultControl_w{ 60 };
 	static const auto controlsHorizontalGap{ 6 };
 	static const auto oscBalanceControl_x{ 163 };
@@ -585,6 +586,62 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow11_y));
 	lsbByteLocations.add((uint16)191);
+
+	//======================================================
+
+	identifiers.add("vcfFM_Osc1Amt");
+	exposedNames.add("VCF FM By Oscillator 1 Amount");
+	paramNumbers.add((uint8)30);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Sets the degree to which the VCF's cutoff\n";
+	descriptionString += "frequency is modulated by oscillator 1.\n";
+	descriptionString += "Range: 0 (no modulation) to 63 (maximum).";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow1_y));
+	lsbByteLocations.add((uint16)65);
+
+	identifiers.add("vcfFM_Env3Amt");
+	exposedNames.add("VCF FM Envelope 3 Amount");
+	paramNumbers.add((uint8)31);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which envelope 3 modulates\n";
+	descriptionString += "the amount of VCF FM by oscillator 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the envelope.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow2_y));
+	lsbByteLocations.add((uint16)205);
+
+	identifiers.add("vcfFM_PressureAmt");
+	exposedNames.add("VCF FM Pressure Amount");
+	paramNumbers.add((uint8)32);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which keyboard\n";
+	descriptionString += "pressure (aftertouch) modulates the\n";
+	descriptionString += "amount of VCF FM by oscillator 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the pressure.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow3_y));
+	lsbByteLocations.add((uint16)207);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
