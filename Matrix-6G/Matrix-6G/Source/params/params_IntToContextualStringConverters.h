@@ -109,13 +109,13 @@ public:
 
 
 
-struct IntToOscLeverControlString : public IntToContextualStringConverter
+struct IntToLeverControlString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToOscLeverControlString* get() noexcept;
+	static IntToLeverControlString* get() noexcept;
 };
 
 

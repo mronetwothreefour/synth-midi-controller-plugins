@@ -25,7 +25,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto controlsRow11_y{ controlsRow10_y + controlsVerticalGap };
 	static const auto oscControlsCol1_x{ 130 };
 	static const auto oscControlsCol2_x{ 196 };
-	static const auto oscControls_w{ 60 };
+	static const auto vcfCol_x{ 382 };
+	static const auto defaultControl_w{ 60 };
 	static const auto controlsHorizontalGap{ 6 };
 	static const auto oscBalanceControl_x{ 163 };
 	static const auto oscBalanceControl_w{ 126 };
@@ -47,7 +48,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "pitch in semitone steps.\n";
 	descriptionString += "Range: C 0 to D#5.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow1_y));
 	lsbByteLocations.add((uint16)23);
 
@@ -65,7 +66,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow2_y));
 	lsbByteLocations.add((uint16)177);
 
@@ -81,7 +82,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects whether and to what degree oscillator 1's\n";
 	descriptionString += "waveform is synchronized with that of oscillator 2.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow3_y));
 	lsbByteLocations.add((uint16)55);
 
@@ -99,7 +100,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow5_y));
 	lsbByteLocations.add((uint16)27);
 
@@ -117,7 +118,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow7_y));
 	lsbByteLocations.add((uint16)179);
 
@@ -136,7 +137,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Intermediate values produce various\n";
 	descriptionString += "mixtures of the two shapes.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow6_y));
 	lsbByteLocations.add((uint16)25);
 
@@ -155,7 +156,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "WAVE: Set the shape of the wave below.\n";
 	descriptionString += "BOTH: A blend of pulse and wave.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow4_y));
 	lsbByteLocations.add((uint16)31);
 
@@ -164,7 +165,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	paramNumbers.add((uint8)7);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToOscLeverControlString::get());
+	converters.add(IntToLeverControlString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)3);
@@ -175,7 +176,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "VIB: Vibrato amount is controlled by lever 2 (mod wheel).\n";
 	descriptionString += "BOTH: Oscillator 1 is controlled by both levers.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow10_y));
 	lsbByteLocations.add((uint16)29);
 
@@ -192,7 +193,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "PORTA: Portamento (aka \"glide\") is\n";
 	descriptionString += "on and pitch changes are smoothed.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow9_y));
 	lsbByteLocations.add((uint16)47);
 
@@ -208,7 +209,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Adds percussive punch to\n";
 	descriptionString += "the start of the sound.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol1_x, controlsRow8_y));
 	lsbByteLocations.add((uint16)49);
 
@@ -227,7 +228,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "pitch in semitone steps.\n";
 	descriptionString += "Range: C 0 to D#5.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow1_y));
 	lsbByteLocations.add((uint16)33);
 
@@ -245,7 +246,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow2_y));
 	lsbByteLocations.add((uint16)181);
 
@@ -261,7 +262,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Slightly lowers or raises Oscillator 2's pitch.\n";
 	descriptionString += "Range -31 to +31 (-/+ ~25 cents). 0 is no detune.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow3_y));
 	lsbByteLocations.add((uint16)43);
 
@@ -279,7 +280,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow5_y));
 	lsbByteLocations.add((uint16)37);
 
@@ -297,7 +298,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow7_y));
 	lsbByteLocations.add((uint16)183);
 
@@ -316,7 +317,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Intermediate values produce various\n";
 	descriptionString += "mixtures of the two shapes.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow6_y));
 	lsbByteLocations.add((uint16)35);
 
@@ -336,7 +337,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "BOTH: A blend of pulse and wave.\n";
 	descriptionString += "NOISE: White noise (oscillator 2 only).";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow4_y));
 	lsbByteLocations.add((uint16)41);
 
@@ -345,7 +346,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	paramNumbers.add((uint8)17);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToOscLeverControlString::get());
+	converters.add(IntToLeverControlString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)3);
@@ -356,7 +357,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "VIB: Vibrato amount is controlled by lever 2 (mod wheel).\n";
 	descriptionString += "BOTH: Oscillator 2 is controlled by both levers.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow10_y));
 	lsbByteLocations.add((uint16)39);
 
@@ -374,7 +375,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "on and pitch changes are smoothed.\n";
 	descriptionString += "KEYBD: Normal keyboard behavior.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow9_y));
 	lsbByteLocations.add((uint16)51);
 
@@ -390,7 +391,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Adds percussive punch to\n";
 	descriptionString += "the start of the sound.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscControls_w);
+	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow8_y));
 	lsbByteLocations.add((uint16)53);
 
@@ -410,6 +411,99 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(oscBalanceControl_w);
 	controlCenterPoints.add(Point<int>(oscBalanceControl_x, controlsRow11_y));
 	lsbByteLocations.add((uint16)45);
+
+	//======================================================
+
+	identifiers.add("vcf_Freq");
+	exposedNames.add("VCF Frequency");
+	paramNumbers.add((uint8)21);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)55);
+	descriptionString =  "Sets the cutoff frequency of\n";
+	descriptionString += "the voltage-controlled filter.\n";
+	descriptionString += "Range: 0 to 127.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow1_y));
+	lsbByteLocations.add((uint16)57);
+
+	identifiers.add("vcf_Env1Amt");
+	exposedNames.add("VCF Envelope 1 Amount");
+	paramNumbers.add((uint8)22);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)105);
+	descriptionString =  "Sets the degree to which the VCF's\n";
+	descriptionString += "frequency is modulated by envelope 1.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the envelope.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow3_y));
+	lsbByteLocations.add((uint16)185);
+
+	identifiers.add("vcf_PressureAmt");
+	exposedNames.add("VCF Pressure Amount");
+	paramNumbers.add((uint8)23);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets the degree to which the VCF's frequency\n";
+	descriptionString += "is modulated by keyboard pressure (aftertouch).\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the pressure.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow4_y));
+	lsbByteLocations.add((uint16)187);
+
+	identifiers.add("vcf_Reso");
+	exposedNames.add("VCF Resonance");
+	paramNumbers.add((uint8)24);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Sets the resonance level of\n";
+	descriptionString += "the voltage-controlled filter.\n";
+	descriptionString += "Range: 0 to 63. At 63, the/n";
+	descriptionString += "filter will self-oscillate.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow2_y));
+	lsbByteLocations.add((uint16)59);
+
+	identifiers.add("vcf_LeverControl");
+	exposedNames.add("VCF Lever Control");
+	paramNumbers.add((uint8)25);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToLeverControlString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects which of the performance \"levers\"\n";
+	descriptionString += "(wheel-type controllers) modulate the VCF frequency.\n";
+	descriptionString += "OFF: VCF frequency is not controlled by either lever.\n";
+	descriptionString += "BEND: VCF frequency is controlled by lever 1 (pitch wheel).\n";
+	descriptionString += "VIB: VCF frequency vibrato is controlled by lever 2 (mod wheel).\n";
+	descriptionString += "BOTH: VCF frequency is controlled by both levers.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow5_y));
+	lsbByteLocations.add((uint16)61);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

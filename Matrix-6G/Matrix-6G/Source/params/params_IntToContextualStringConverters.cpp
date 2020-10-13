@@ -213,7 +213,7 @@ IntToOscTypeString* IntToOscTypeString::get() noexcept {
 
 
 
-String IntToOscLeverControlString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToLeverControlString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "OFF";
 	if (i == 1) return "BEND";
@@ -222,7 +222,7 @@ String IntToOscLeverControlString::conversionAlgorithm(const uint8& i) noexcept 
 	else return "ERR";
 }
 
-String IntToOscLeverControlString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToLeverControlString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "Off";
 	if (i == 1) return "Pitch Bend by Lever 1";
@@ -231,8 +231,8 @@ String IntToOscLeverControlString::verboseConversionAlgorithm(const uint8& i) no
 	else return "range error";
 }
 
-IntToOscLeverControlString* IntToOscLeverControlString::get() noexcept {
-	static IntToOscLeverControlString converter;
+IntToLeverControlString* IntToLeverControlString::get() noexcept {
+	static IntToLeverControlString converter;
 	return &converter;
 }
 
