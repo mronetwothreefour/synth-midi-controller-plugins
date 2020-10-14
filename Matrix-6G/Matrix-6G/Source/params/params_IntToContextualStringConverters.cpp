@@ -413,3 +413,29 @@ IntToPortaModeString* IntToPortaModeString::get() noexcept {
 	static IntToPortaModeString converter;
 	return &converter;
 }
+
+
+
+
+String IntTokeyboardModeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "REASGN";
+	if (i == 1) return "ROTATE";
+	if (i == 2) return "UNISON";
+	if (i == 3) return "REAROB";
+	else return "ERR";
+}
+
+String IntTokeyboardModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Reassign";
+	if (i == 1) return "Rotate";
+	if (i == 2) return "Unison";
+	if (i == 3) return "Reassign Rob";
+	else return "range error";
+}
+
+IntTokeyboardModeString* IntTokeyboardModeString::get() noexcept {
+	static IntTokeyboardModeString converter;
+	return &converter;
+}

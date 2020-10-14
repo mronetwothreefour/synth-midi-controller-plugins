@@ -23,6 +23,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto controlsRow9_y{ controlsRow8_y + controlsVerticalGap };
 	static const auto controlsRow10_y{ controlsRow9_y + controlsVerticalGap };
 	static const auto controlsRow11_y{ controlsRow10_y + controlsVerticalGap };
+	static const auto controlsRow12_y{ controlsRow11_y + controlsVerticalGap };
 	static const auto oscControlsCol1_x{ 130 };
 	static const auto oscControlsCol2_x{ 196 };
 	static const auto vcfCol_x{ 382 };
@@ -911,6 +912,35 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow9_y));
 	lsbByteLocations.add((uint16)73);
+
+	//======================================================
+
+
+	identifiers.add("keyboard_Mode");
+	exposedNames.add("Keyboard Mode");
+	paramNumbers.add((uint8)48);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntTokeyboardModeString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects how notes get assigned to the hardware's six available voices.\n";
+	descriptionString += "REASGN: Reassign - once a note gets assigned to a certain voice,\n";
+	descriptionString += "every time thereafter that the same note is played, it will get\n";
+	descriptionString += "reassigned to the same voice.\n";
+	descriptionString += "ROTATE: Rotate - the hardware loops through the six voices,\n";
+	descriptionString += "assigning each new note to the next available voice.\n";
+	descriptionString += "UNISON: Unison (monophonic) - each note triggers all six voices\n";
+	descriptionString += "and only one note at a time can play. When multiple notes are played\n";
+	descriptionString += "at once, only the lowest note will be heard.\n";
+	descriptionString += "REAROB: Reassign rob - like reassign mode, but if all six voices are\n";
+	descriptionString += "sounding and a new note is played, the new note will 'rob' a voice\n";
+	descriptionString += "from one of the notes that are already playing.";
+	descriptions.add(descriptionString);
+	controlWidths.add(portaControls_w);
+	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow12_y));
+	lsbByteLocations.add((uint16)21);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
