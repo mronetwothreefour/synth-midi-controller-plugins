@@ -39,6 +39,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto trackPoint3Control_x{ trackPoint2Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
 	static const auto trackPoint4Control_x{ trackPoint3Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
 	static const auto trackPoint5Control_x{ trackPoint4Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
+	static const auto rampControlsCol1_x{ 894 };
+	static const auto rampControlsCol2_x{ 960 };
 
 	String descriptionString;
 
@@ -530,7 +532,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects how the VCF's cutoff frequency responds to incoming pitch\n";
 	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
 	descriptionString += "OFF: Note key changes have no effect on the VCF's cutoff frequency.\n";
-	descriptionString += "PORTA: Tracking is active, but transitions between cutoff frequencies are \n";
+	descriptionString += "PORTA: Tracking is active, but transitions between cutoff frequencies are\n";
 	descriptionString += "smoothed according to the settings in the portamento (aka \"glide\") section.\n";
 	descriptionString += "KEYBD: The VCF's cutoff frequency tracks note key changes, rising as\n";
 	descriptionString += "higher notes are played and dropping as lower notes are played.";
@@ -753,6 +755,84 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint5Control_x, trackPointControls_y));
 	lsbByteLocations.add((uint16)167);
+
+	//======================================================
+
+	identifiers.add("ramp1_Rate");
+	exposedNames.add("Ramp 1 Rate");
+	paramNumbers.add((uint8)40);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Sets the amount of time it takes for\n";
+	descriptionString += "Ramp 1 to complete its control cycle.\n";
+	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(rampControlsCol1_x, controlsRow1_y));
+	lsbByteLocations.add((uint16)169);
+
+	identifiers.add("ramp1_Trig");
+	exposedNames.add("Ramp 1 Trigger");
+	paramNumbers.add((uint8)41);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToRampTrigString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects the type of trigger that will start ramp 1's control cycle.\n";
+	descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
+	descriptionString += "notes are currently held down (only active in unison mode).\n";
+	descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
+	descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
+	descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
+	descriptionString += "there are one or more notes being played.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(rampControlsCol1_x, controlsRow2_y));
+	lsbByteLocations.add((uint16)171);
+
+	identifiers.add("ramp2_Rate");
+	exposedNames.add("Ramp 2 Rate");
+	paramNumbers.add((uint8)42);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Sets the amount of time it takes for\n";
+	descriptionString += "Ramp 2 to complete its control cycle.\n";
+	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(rampControlsCol2_x, controlsRow1_y));
+	lsbByteLocations.add((uint16)173);
+
+	identifiers.add("ramp2_Trig");
+	exposedNames.add("Ramp 2 Trigger");
+	paramNumbers.add((uint8)43);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToRampTrigString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)3);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects the type of trigger that will start ramp 2's control cycle.\n";
+	descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
+	descriptionString += "notes are currently held down (only active in unison mode).\n";
+	descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
+	descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
+	descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
+	descriptionString += "there are one or more notes being played.";
+	descriptions.add(descriptionString);
+	controlWidths.add(defaultControl_w);
+	controlCenterPoints.add(Point<int>(rampControlsCol2_x, controlsRow2_y));
+	lsbByteLocations.add((uint16)175);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

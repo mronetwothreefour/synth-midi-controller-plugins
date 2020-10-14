@@ -363,3 +363,29 @@ IntToModSourceString* IntToModSourceString::get() noexcept {
 	static IntToModSourceString converter;
 	return &converter;
 }
+
+
+
+
+String IntToRampTrigString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "STRIG";
+	if (i == 1) return "MTRIG";
+	if (i == 2) return "XTRIG";
+	if (i == 3) return "GATEX";
+	else return "ERR";
+}
+
+String IntToRampTrigString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Single Trigger";
+	if (i == 1) return "Multiple Trigger";
+	if (i == 2) return "External Single Trigger";
+	if (i == 3) return "Gated External Single Trigger";
+	else return "range error";
+}
+
+IntToRampTrigString* IntToRampTrigString::get() noexcept {
+	static IntToRampTrigString converter;
+	return &converter;
+}

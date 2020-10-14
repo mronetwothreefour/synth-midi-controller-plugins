@@ -166,3 +166,15 @@ public:
 	static IntToModSourceString* get() noexcept;
 };
 
+
+
+
+struct IntToRampTrigString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToRampTrigString* get() noexcept;
+};
+
