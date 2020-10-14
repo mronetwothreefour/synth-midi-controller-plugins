@@ -303,3 +303,63 @@ IntToOffOnString* IntToOffOnString::get() noexcept {
 	static IntToOffOnString converter;
 	return &converter;
 }
+
+
+
+
+String IntToModSourceString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 21);
+	if (i == 0) return "NONE";
+	if (i == 1) return "ENV 1";
+	if (i == 2) return "ENV 2";
+	if (i == 3) return "ENV 3";
+	if (i == 4) return "LFO 1";
+	if (i == 5) return "LFO 2";
+	if (i == 6) return "VIBRATO";
+	if (i == 7) return "RAMP 1";
+	if (i == 8) return "RAMP 2";
+	if (i == 9) return "KEYBOARD";
+	if (i == 10) return "PORTA";
+	if (i == 11) return "TRACKING";
+	if (i == 12) return "GATE";
+	if (i == 13) return "VELOCITY";
+	if (i == 14) return "REL VELO";
+	if (i == 15) return "PRESSURE";
+	if (i == 16) return "PEDAL 1";
+	if (i == 17) return "PEDAL 2";
+	if (i == 18) return "LEVER 1";
+	if (i == 19) return "LEVER 2";
+	if (i == 20) return "LEVER 3";
+	else return "ERR";
+}
+
+String IntToModSourceString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 21);
+	if (i == 0) return "None";
+	if (i == 1) return "Envelope 1";
+	if (i == 2) return "Envelope 2";
+	if (i == 3) return "Envelope 3";
+	if (i == 4) return "LFO 1";
+	if (i == 5) return "LFO 2";
+	if (i == 6) return "Vibrato LFO";
+	if (i == 7) return "Ramp Generator 1";
+	if (i == 8) return "Ramp Generator 2";
+	if (i == 9) return "Keyboard Scaling";
+	if (i == 10) return "Portamento Speed";
+	if (i == 11) return "Tracking Generator";
+	if (i == 12) return "Keyboard Note Gate";
+	if (i == 13) return "Keyboard Note Velocity";
+	if (i == 14) return "Keyboard Release Velocity";
+	if (i == 15) return "Keyboard Pressure (Aftertouch)";
+	if (i == 16) return "Pedal 1";
+	if (i == 17) return "Pedal 2";
+	if (i == 18) return "Lever 1";
+	if (i == 19) return "Lever 2";
+	if (i == 20) return "Lever 3 (Lever 2 Reverse)";
+	else return "range error";
+}
+
+IntToModSourceString* IntToModSourceString::get() noexcept {
+	static IntToModSourceString converter;
+	return &converter;
+}

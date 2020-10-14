@@ -31,6 +31,14 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto controlsHorizontalGap{ 6 };
 	static const auto oscBalanceControl_x{ 163 };
 	static const auto oscBalanceControl_w{ 126 };
+	static const auto trackPointControls_y{ 279 };
+	static const auto trackPointControls_w{ 26 };
+	static const auto trackPointControlsHorizontalGap{ 5 };
+	static const auto trackPoint1Control_x{ 853 };
+	static const auto trackPoint2Control_x{ trackPoint1Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
+	static const auto trackPoint3Control_x{ trackPoint2Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
+	static const auto trackPoint4Control_x{ trackPoint3Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
+	static const auto trackPoint5Control_x{ trackPoint4Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
 
 	String descriptionString;
 
@@ -642,6 +650,109 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow3_y));
 	lsbByteLocations.add((uint16)207);
+
+	//======================================================
+
+	identifiers.add("track_Input");
+	exposedNames.add("Tracking Generator Input");
+	paramNumbers.add((uint8)33);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToModSourceString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)20);
+	defaultValues.add((uint8)9);
+	descriptionString =  "Selects the modulation source which\n";
+	descriptionString += "will be shaped by the tracking generator.";
+	descriptions.add(descriptionString);
+	controlWidths.add(94);
+	controlCenterPoints.add(Point<int>(943, 165));
+	lsbByteLocations.add((uint16)157);
+
+	identifiers.add("track_Point1");
+	exposedNames.add("Track Point 1");
+	paramNumbers.add((uint8)34);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Track Point 1\n";
+	descriptionString += "Range: 0 to 63.\n";
+	descriptionString += "Linear output value: 0.";
+	descriptions.add(descriptionString);
+	controlWidths.add(trackPointControls_w);
+	controlCenterPoints.add(Point<int>(trackPoint1Control_x, trackPointControls_y));
+	lsbByteLocations.add((uint16)159);
+
+	identifiers.add("track_Point2");
+	exposedNames.add("Track Point 2");
+	paramNumbers.add((uint8)35);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)15);
+	descriptionString =  "Track Point 2\n";
+	descriptionString += "Range: 0 to 63.\n";
+	descriptionString += "Linear output value: 15.";
+	descriptions.add(descriptionString);
+	controlWidths.add(trackPointControls_w);
+	controlCenterPoints.add(Point<int>(trackPoint2Control_x, trackPointControls_y));
+	lsbByteLocations.add((uint16)161);
+
+	identifiers.add("track_Point3");
+	exposedNames.add("Track Point 3");
+	paramNumbers.add((uint8)36);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)31);
+	descriptionString =  "Track Point 3\n";
+	descriptionString += "Range: 0 to 63.\n";
+	descriptionString += "Linear output value: 31.";
+	descriptions.add(descriptionString);
+	controlWidths.add(trackPointControls_w);
+	controlCenterPoints.add(Point<int>(trackPoint3Control_x, trackPointControls_y));
+	lsbByteLocations.add((uint16)163);
+
+	identifiers.add("track_Point4");
+	exposedNames.add("Track Point 4");
+	paramNumbers.add((uint8)37);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)47);
+	descriptionString =  "Track Point 4\n";
+	descriptionString += "Range: 0 to 63.\n";
+	descriptionString += "Linear output value: 47.";
+	descriptions.add(descriptionString);
+	controlWidths.add(trackPointControls_w);
+	controlCenterPoints.add(Point<int>(trackPoint4Control_x, trackPointControls_y));
+	lsbByteLocations.add((uint16)165);
+
+	identifiers.add("track_Point5");
+	exposedNames.add("Track Point 5");
+	paramNumbers.add((uint8)38);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Track Point 5\n";
+	descriptionString += "Range: 0 to 63.\n";
+	descriptionString += "Linear output value: 63.";
+	descriptions.add(descriptionString);
+	controlWidths.add(trackPointControls_w);
+	controlCenterPoints.add(Point<int>(trackPoint5Control_x, trackPointControls_y));
+	lsbByteLocations.add((uint16)167);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

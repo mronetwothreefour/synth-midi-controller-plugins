@@ -278,7 +278,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	labelTypes.add(ControlLabelType::light);
 	labelStrings.add("INPUT");
 	startPoints.add(Point<int>(column5_x1, 155));
-	endPoints.add(Point<int>(893, 155 + lightLabels_h));
+	endPoints.add(Point<int>(892, 155 + lightLabels_h));
 
 	//======================================================
 
