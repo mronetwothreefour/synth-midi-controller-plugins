@@ -389,3 +389,27 @@ IntToRampTrigString* IntToRampTrigString::get() noexcept {
 	static IntToRampTrigString converter;
 	return &converter;
 }
+
+
+
+
+String IntToPortaModeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "LINEAR";
+	if (i == 1) return "CONST";
+	if (i == 2) return "EXPO";
+	else return "ERR";
+}
+
+String IntToPortaModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "Linear";
+	if (i == 1) return "Constant Time";
+	if (i == 2) return "Exponential";
+	else return "range error";
+}
+
+IntToPortaModeString* IntToPortaModeString::get() noexcept {
+	static IntToPortaModeString converter;
+	return &converter;
+}

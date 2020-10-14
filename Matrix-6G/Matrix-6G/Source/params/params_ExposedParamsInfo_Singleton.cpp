@@ -41,6 +41,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto trackPoint5Control_x{ trackPoint4Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
 	static const auto rampControlsCol1_x{ 894 };
 	static const auto rampControlsCol2_x{ 960 };
+	static const auto portaControls_x{ 544 };
+	static const auto portaControls_w{ 72 };
 
 	String descriptionString;
 
@@ -72,7 +74,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which LFO 1\n";
+	descriptionString =  "Sets whether and to what degree LFO 1\n";
 	descriptionString += "modulates the pitch of oscillator 1.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
@@ -107,7 +109,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
 	descriptionString =  "Sets the width of oscillator 1's\n";
-	descriptionString += "wave when its type is set to PULSE.\n";
+	descriptionString += "wave when its type is set to pulse.\n";
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
@@ -124,8 +126,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which LFO 2 modulates\n";
-	descriptionString += "the pulse width of oscillator 1.\n";
+	descriptionString =  "Sets whether and to what degree LFO 2\n";
+	descriptionString += "modulates the pulse width of oscillator 1.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
@@ -143,7 +145,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
 	descriptionString =  "Sets the shape of oscillator 1\n";
-	descriptionString += "when its type is set to WAVE.\n";
+	descriptionString += "when its type is set to wave.\n";
 	descriptionString += "Range: 0 (sawtooth) to 63 (triangle).\n";
 	descriptionString += "Intermediate values produce various\n";
 	descriptionString += "mixtures of the two shapes.";
@@ -254,7 +256,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which LFO 1\n";
+	descriptionString =  "Sets whether and to what degree LFO 1\n";
 	descriptionString += "modulates the pitch of oscillator 2.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
@@ -289,7 +291,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)24);
 	descriptionString =  "Sets the width of oscillator 2's\n";
-	descriptionString += "wave when its type is set to PULSE.\n";
+	descriptionString += "wave when its type is set to pulse.\n";
 	descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 	descriptionString += "A value of 31 produces a square wave.";
 	descriptions.add(descriptionString);
@@ -306,8 +308,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which LFO 2 modulates\n";
-	descriptionString += "the pulse width of oscillator 2.\n";
+	descriptionString =  "Sets whether and to what degree LFO 2\n";
+	descriptionString += "modulates the pulse width of oscillator 2.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the LFO waveform.";
 	descriptions.add(descriptionString);
@@ -325,7 +327,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)31);
 	descriptionString =  "Sets the shape of oscillator 2\n";
-	descriptionString += "when its type is set to WAVE.\n";
+	descriptionString += "when its type is set to wave.\n";
 	descriptionString += "Range: 0 (sawtooth) to 63 (triangle).\n";
 	descriptionString += "Intermediate values produce various\n";
 	descriptionString += "mixtures of the two shapes.";
@@ -438,7 +440,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)55);
-	descriptionString =  "Sets the cutoff frequency of\n";
+	descriptionString =  "Sets the base cutoff frequency of\n";
 	descriptionString += "the voltage-controlled filter.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -455,8 +457,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)105);
-	descriptionString =  "Sets the degree to which the VCF's\n";
-	descriptionString += "frequency is modulated by envelope 1.\n";
+	descriptionString =  "Sets whether and to what degree envelope 1\n";
+	descriptionString += "modulates the VCF's cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
@@ -473,10 +475,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which the VCF's frequency\n";
-	descriptionString += "is modulated by keyboard pressure (aftertouch).\n";
+	descriptionString =  "Sets whether and to what degree keyboard pressure \n";
+	descriptionString += "(aftertouch) modulates the VCF's cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
-	descriptionString += "Negative values invert the pressure.";
+	descriptionString += "Negative values invert the pressure response.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow4_y));
@@ -569,10 +571,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which note velocity\n";
+	descriptionString =  "Sets whether and to what degree note velocity\n";
 	descriptionString += "modulates the output level of VCA 1.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
-	descriptionString += "Negative values invert the note velocity.";
+	descriptionString += "Negative values invert the velocity response.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow10_y));
@@ -587,7 +589,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)126);
-	descriptionString =  "Sets the degree to which envelope 2\n";
+	descriptionString =  "Sets whether and to what degree envelope 2\n";
 	descriptionString += "modulates the output level of the second-\n";
 	descriptionString += "stage voltage-controlled amplifier.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
@@ -608,8 +610,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the degree to which the VCF's cutoff\n";
-	descriptionString += "frequency is modulated by oscillator 1.\n";
+	descriptionString =  "Sets whether and to what degree oscillator 1\n";
+	descriptionString += "modulates the VCF's cutoff frequency.\n";
 	descriptionString += "Range: 0 (no modulation) to 63 (maximum).";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
@@ -625,8 +627,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which envelope 3 modulates\n";
-	descriptionString += "the amount of VCF FM by oscillator 1.\n";
+	descriptionString =  "Sets whether and to what degree envelope 3\n";
+	descriptionString += "modulates the amount of VCF FM by oscillator 1.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
@@ -643,11 +645,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::signed7bitValue);
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
-	descriptionString =  "Sets the degree to which keyboard\n";
+	descriptionString =  "Sets whether and to what degree keyboard\n";
 	descriptionString += "pressure (aftertouch) modulates the\n";
 	descriptionString += "amount of VCF FM by oscillator 1.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
-	descriptionString += "Negative values invert the pressure.";
+	descriptionString += "Negative values invert the pressure response.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow3_y));
@@ -833,6 +835,82 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(rampControlsCol2_x, controlsRow2_y));
 	lsbByteLocations.add((uint16)175);
+
+	//======================================================
+
+	identifiers.add("porta_Rate");
+	exposedNames.add("Portamento Rate");
+	paramNumbers.add((uint8)44);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToUnsignedValueString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Sets the amount of time it takes to transition\n";
+	descriptionString += "from the origin pitch to the destination pitch.\n";
+	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+	descriptions.add(descriptionString);
+	controlWidths.add(portaControls_w);
+	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow6_y));
+	lsbByteLocations.add((uint16)69);
+
+	identifiers.add("porta_Velo");
+	exposedNames.add("Portamento Velocity Amount");
+	paramNumbers.add((uint8)45);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::rotarySlider);
+	converters.add(IntToSigned7bitValueString::get());
+	rangeTypes.add(RangeType::signed7bitValue);
+	maxValues.add((uint8)126);
+	defaultValues.add((uint8)63);
+	descriptionString =  "Sets whether and to what degree note\n";
+	descriptionString += "velocity modulates the portamento rate.\n";
+	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+	descriptionString += "Negative values invert the velocity response.";
+	descriptions.add(descriptionString);
+	controlWidths.add(portaControls_w);
+	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow7_y));
+	lsbByteLocations.add((uint16)203);
+
+	identifiers.add("porta_Mode");
+	exposedNames.add("Portamento Mode");
+	paramNumbers.add((uint8)46);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToPortaModeString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)2);
+	defaultValues.add((uint8)0);
+	descriptionString =  "Selects how the portamento transition rate is calculated.\n";
+	descriptionString += "LINEAR: Linear - the time it takes to transition between\n";
+	descriptionString += "two pitches is proportional to the distance between them.\n";
+	descriptionString += "CONSTANT: Constant time - the time it takes to transition between\n";
+	descriptionString += "two pitches is the same regardless of the distance between them.\n";
+	descriptionString += "EXPO: Exponential - the transition between pitches starts out fast\n";
+	descriptionString += "then slows down as it gets closer to the destination pitch.";
+	descriptions.add(descriptionString);
+	controlWidths.add(portaControls_w);
+	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow8_y));
+	lsbByteLocations.add((uint16)71);
+
+	identifiers.add("porta_Legato");
+	exposedNames.add("Portamento Legato Mode");
+	paramNumbers.add((uint8)47);
+	isQuickEditEnabled.add((bool)true);
+	controlTypes.add(ControlType::comboBox);
+	converters.add(IntToOffOnString::get());
+	rangeTypes.add(RangeType::unsignedValue);
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	descriptionString =  "When legato is on, portamento will only be active\n";
+	descriptionString += "when a new note is played prior to releasing the\n";
+	descriptionString += "previous note. This behavior is only active when\n";
+	descriptionString += "the keyboard mode is set to unison.";
+	descriptions.add(descriptionString);
+	controlWidths.add(portaControls_w);
+	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow9_y));
+	lsbByteLocations.add((uint16)73);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
