@@ -40,6 +40,8 @@ Font ControlLabelsLayer::getFontForLabelType(ControlLabelType labelType) const {
 		return FontsMenu::fontFor_SectionSubHeaderText;
 	case ControlLabelType::light:
 		return FontsMenu::fontFor_ControlLabelText;
+	case ControlLabelType::envShapeControls:
+		return FontsMenu::fontFor_ControlLabelText;
 	case ControlLabelType::trackingAndMatrixNumbers:
 		return FontsMenu::fontFor_TrackingAndMatrixModNumbers;
 	default:

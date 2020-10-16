@@ -361,6 +361,20 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	for (auto i = 0; i != 3; ++i) {
 		auto label_x1{ column1_x1 + i * envColumnHorizontalSpacing };
 		auto label_x2{ label_x1 + envColumn_w };
+		auto envShapeLabels_y1{ 550 };
+		auto envShapeLabels_y2{ envShapeLabels_y1 + lightLabels_h };
+		auto envShapeLabels_w{ 34 };
+		auto envShapeLabelsHorizontalSpacing{ 50 };
+		auto envDelayLabel_x1{ 181 + i * envColumnHorizontalSpacing };
+		auto envDelayLabel_x2{ envDelayLabel_x1 + envShapeLabels_w };
+		auto envAttackLabel_x1{ envDelayLabel_x1 + envShapeLabelsHorizontalSpacing };
+		auto envAttackLabel_x2{ envAttackLabel_x1 + envShapeLabels_w };
+		auto envDecayLabel_x1{ envAttackLabel_x1 + envShapeLabelsHorizontalSpacing };
+		auto envDecayLabel_x2{ envDecayLabel_x1 + envShapeLabels_w };
+		auto envSustainLabel_x1{ envDecayLabel_x1 + envShapeLabelsHorizontalSpacing };
+		auto envSustainLabel_x2{ envSustainLabel_x1 + envShapeLabels_w };
+		auto envReleaseLabel_x1{ envSustainLabel_x1 + envShapeLabelsHorizontalSpacing };
+		auto envReleaseLabel_x2{ envReleaseLabel_x1 + envShapeLabels_w };
 
 		labelTypes.add(ControlLabelType::light);
 		labelStrings.add("AMPLITUDE");
@@ -386,6 +400,31 @@ void InfoForControlLabels::fillAllInfoContainers() {
 		labelStrings.add("LFO 1 TRIGGER");
 		startPoints.add(Point<int>(label_x1, envRow5_y1));
 		endPoints.add(Point<int>(label_x2, envRow5_y2));
+
+		labelTypes.add(ControlLabelType::envShapeControls);
+		labelStrings.add("DELAY");
+		startPoints.add(Point<int>(envDelayLabel_x1, envShapeLabels_y1));
+		endPoints.add(Point<int>(envDelayLabel_x2, envShapeLabels_y2));
+
+		labelTypes.add(ControlLabelType::envShapeControls);
+		labelStrings.add("ATTACK");
+		startPoints.add(Point<int>(envAttackLabel_x1, envShapeLabels_y1));
+		endPoints.add(Point<int>(envAttackLabel_x2, envShapeLabels_y2));
+
+		labelTypes.add(ControlLabelType::envShapeControls);
+		labelStrings.add("DECAY");
+		startPoints.add(Point<int>(envDecayLabel_x1, envShapeLabels_y1));
+		endPoints.add(Point<int>(envDecayLabel_x2, envShapeLabels_y2));
+
+		labelTypes.add(ControlLabelType::envShapeControls);
+		labelStrings.add("SUSTAIN");
+		startPoints.add(Point<int>(envSustainLabel_x1, envShapeLabels_y1));
+		endPoints.add(Point<int>(envSustainLabel_x2, envShapeLabels_y2));
+
+		labelTypes.add(ControlLabelType::envShapeControls);
+		labelStrings.add("RELEASE");
+		startPoints.add(Point<int>(envReleaseLabel_x1, envShapeLabels_y1));
+		endPoints.add(Point<int>(envReleaseLabel_x2, envShapeLabels_y2));
 	}
 }
 

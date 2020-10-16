@@ -7,6 +7,7 @@
 enum class ControlLabelType {
 	subHeader = 0,
 	light,
+	envShapeControls,
 	trackingAndMatrixNumbers
 };
 

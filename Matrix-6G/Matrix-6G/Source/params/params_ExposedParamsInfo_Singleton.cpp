@@ -44,6 +44,22 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto rampControlsCol2_x{ 960 };
 	static const auto portaControls_x{ 544 };
 	static const auto portaControls_w{ 72 };
+	static const auto envSectionsHorizontalSpacing{ 410 };
+	static const auto envShapeControls_w{ 28 };
+	static const auto envShapeControlsHorizontalGap{ 22 };
+	static const auto env1Delay_x{ 198 };
+	static const auto env1Attack_x{ env1Delay_x + envShapeControls_w + envShapeControlsHorizontalGap };
+	static const auto env1Decay_x{ env1Attack_x + envShapeControls_w + envShapeControlsHorizontalGap };
+	static const auto env1Sustain_x{ env1Decay_x + envShapeControls_w + envShapeControlsHorizontalGap };
+	static const auto env1Release_x{ env1Sustain_x + envShapeControls_w + envShapeControlsHorizontalGap };
+	static const auto envControls_w{ 72 };
+	static const auto env1Controls_x{ 134 };
+	static const auto envControlsRow1_y{ 450 };
+	static const auto envControlsRow2_y{ envControlsRow1_y + controlsVerticalGap };
+	static const auto envControlsRow3_y{ envControlsRow2_y + controlsVerticalGap };
+	static const auto envControlsRow4_y{ envControlsRow3_y + controlsVerticalGap };
+	static const auto envControlsRow5_y{ envControlsRow4_y + controlsVerticalGap };
+
 
 	String descriptionString;
 
@@ -915,7 +931,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-
 	identifiers.add("keyboard_Mode");
 	exposedNames.add("Keyboard Mode");
 	paramNumbers.add((uint8)48);
@@ -941,6 +956,135 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow12_y));
 	lsbByteLocations.add((uint16)21);
+
+	//======================================================
+
+	for (uint8 i = 0; i != 3; ++i) {
+		identifiers.add("env" + String(i + 1) + "_Delay");
+		exposedNames.add("Envelope " + String(i + 1) + " Delay Time");
+		paramNumbers.add(uint8(50 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Sets the length of the delay stage of\n";
+		descriptionString += "envelope " + String(i + 1) + ", the wait after the envelope is\n";
+		descriptionString += "triggered before the attack stage begins.\n";
+		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envShapeControls_w);
+		controlCenterPoints.add(Point<int>(env1Delay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add(uint16(105 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Attack");
+		exposedNames.add("Envelope " + String(i + 1) + " Attack Time");
+		paramNumbers.add(uint8(51 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Sets the length of the attack stage\n";
+		descriptionString += "of envelope " + String(i + 1) + ", the time it takes to\n";
+		descriptionString += "reach the maximum output level.\n";
+		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envShapeControls_w);
+		controlCenterPoints.add(Point<int>(env1Attack_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add(uint16(107 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Decay");
+		exposedNames.add("Envelope " + String(i + 1) + " Decay Time");
+		paramNumbers.add(uint8(52 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add(i == 2 ? (uint8)20 : (uint8)10);
+		descriptionString =  "Sets the length of the decay stage of\n";
+		descriptionString += "envelope " + String(i + 1) + ", the time it takes for the\n";
+		descriptionString += "output to drop to the sustain level.\n";
+		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envShapeControls_w);
+		controlCenterPoints.add(Point<int>(env1Decay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add(uint16(109 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Sustain");
+		exposedNames.add("Envelope " + String(i + 1) + " Sustain Level");
+		paramNumbers.add(uint8(53 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add(i == 2 ? (uint8)0 : (uint8)50);
+		descriptionString =  "Sets the sustain level of envelope " + String(i + 1) + ". After the\n";
+		descriptionString += "decay stage completes, output will remain at\n";
+		descriptionString += "this level until the voice is gated off.\n";
+		descriptionString += "Range: 0 (no output) to 63 (maximum).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envShapeControls_w);
+		controlCenterPoints.add(Point<int>(env1Sustain_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add(uint16(111 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Release");
+		exposedNames.add("Envelope " + String(i + 1) + " Release Time");
+		paramNumbers.add(uint8(54 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add(i == 2 ? (uint8)20 : (uint8)10);
+		descriptionString = " Sets the length of the release stage\n";
+		descriptionString += "of envelope " + String(i + 1) + ", the time it takes to drop\n";
+		descriptionString += "from the sustain level to no output.\n";
+		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envShapeControls_w);
+		controlCenterPoints.add(Point<int>(env1Release_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add(uint16(113 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Amplitude");
+		exposedNames.add("Envelope " + String(i + 1) + " Amplitude");
+		paramNumbers.add(uint8(55 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add((uint8)40);
+		descriptionString =  "Sets the maximum output level of envelope " + String(i + 1) + ", which determines\n";
+		descriptionString += "the degree to which the envelope modulates its destination.\n";
+		descriptionString += "Range: 0 (none) to 63 (maximum).";
+		descriptions.add(descriptionString);
+		controlWidths.add(envControls_w);
+		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow1_y));
+		lsbByteLocations.add(uint16(115 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_Velo");
+		exposedNames.add("Envelope " + String(i + 1) + " Velocity Amount");
+		paramNumbers.add(uint8(56 + i * 10));
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToSigned7bitValueString::get());
+		rangeTypes.add(RangeType::signed7bitValue);
+		maxValues.add((uint8)126);
+		defaultValues.add((uint8)126);
+		descriptionString =  "Sets whether and to what degree note\n";
+		descriptionString += "velocity modulates envelope " + String(i + 1) + "'s amplitude.\n";
+		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+		descriptionString += "Negative values invert the velocity response.";
+		descriptions.add(descriptionString);
+		controlWidths.add(envControls_w);
+		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow2_y));
+		lsbByteLocations.add(uint16(117 + i * 18));
+	}
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
