@@ -936,7 +936,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	paramNumbers.add((uint8)48);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntTokeyboardModeString::get());
+	converters.add(IntToKeyboardModeString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
@@ -1084,6 +1084,36 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow2_y));
 		lsbByteLocations.add(uint16(117 + i * 18));
+
+		identifiers.add("env" + String(i + 1) + "_TrigMode");
+		exposedNames.add("Envelope " + String(i + 1) + " Trigger Mode");
+		paramNumbers.add((uint8)57 + i * 10);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToEnvTrigModeString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)7);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects what sort of trigger will start envelope " + String(i + 1) + "'s cycle.\n";
+		descriptionString += "STRIG: Single trigger (unison mode only) - the cycle will start for\n";
+		descriptionString += "a voice only if it is not already playing. Legato playing will not\n";
+		descriptionString += "re-trigger the cycle. If the envelope is re-triggered before its cycle\n";
+		descriptionString += "completes, it will continue from the point it was at in the cycle.\n";
+		descriptionString += "SRESET: Single trigger reset - like single trigger mode, except\n";
+		descriptionString += "that if the envelope is re-triggered before its cycle completes,\n";
+		descriptionString += "the envelope will reset to the start of the cycle.\n";
+		descriptionString += "MTRIG: Multiple trigger - New notes will always re-trigger the envelope,\n";
+		descriptionString += "and it will continue from the last point it was at in its cycle.\n";
+		descriptionString += "MRESET: Multiple trigger reset - new notes will always re-trigger\n";
+		descriptionString += "the envelope and reset it to the beginning of its cycle.\n";
+		descriptionString += "The remaining modes behave like their counterparts above, but the trigger\n";
+		descriptionString += "comes from a DC pulse (e.g. from a footswitch) sent into the PEDAL 2 jack:\n";
+		descriptionString += "XTRIG: External single trigger; XRESET: External single trigger reset;\n";
+		descriptionString += "XMTRIG: External multiple trigger; XMRST: External multiple trigger reset.";
+		descriptions.add(descriptionString);
+		controlWidths.add(envControls_w);
+		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow3_y));
+		lsbByteLocations.add((uint16)103 + i * 10);
 	}
 }
 

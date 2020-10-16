@@ -193,12 +193,23 @@ public:
 
 
 
-struct IntTokeyboardModeString : public IntToContextualStringConverter
+struct IntToKeyboardModeString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntTokeyboardModeString* get() noexcept;
+	static IntToKeyboardModeString* get() noexcept;
+};
+
+
+
+struct IntToEnvTrigModeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToEnvTrigModeString* get() noexcept;
 };
 

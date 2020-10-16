@@ -417,7 +417,7 @@ IntToPortaModeString* IntToPortaModeString::get() noexcept {
 
 
 
-String IntTokeyboardModeString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToKeyboardModeString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "REASGN";
 	if (i == 1) return "ROTATE";
@@ -426,7 +426,7 @@ String IntTokeyboardModeString::conversionAlgorithm(const uint8& i) noexcept {
 	else return "ERR";
 }
 
-String IntTokeyboardModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToKeyboardModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "Reassign";
 	if (i == 1) return "Rotate";
@@ -435,7 +435,41 @@ String IntTokeyboardModeString::verboseConversionAlgorithm(const uint8& i) noexc
 	else return "range error";
 }
 
-IntTokeyboardModeString* IntTokeyboardModeString::get() noexcept {
-	static IntTokeyboardModeString converter;
+IntToKeyboardModeString* IntToKeyboardModeString::get() noexcept {
+	static IntToKeyboardModeString converter;
+	return &converter;
+}
+
+
+
+
+String IntToEnvTrigModeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 8);
+	if (i == 0) return "STRIG";
+	if (i == 1) return "SRESET";
+	if (i == 2) return "MTRIG";
+	if (i == 3) return "MRESET";
+	if (i == 4) return "XTRIG";
+	if (i == 5) return "XRESET";
+	if (i == 6) return "XMTRIG";
+	if (i == 7) return "XMRST";
+	else return "ERR";
+}
+
+String IntToEnvTrigModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 8);
+	if (i == 0) return "Single Trigger";
+	if (i == 1) return "Single Trigger Reset";
+	if (i == 2) return "Multiple Trigger";
+	if (i == 3) return "Multiple Trigger Reset";
+	if (i == 4) return "External Single Trigger";
+	if (i == 5) return "External Single Trigger Reset";
+	if (i == 6) return "External Multiple Trigger";
+	if (i == 7) return "External Multiple Trigger Reset";
+	else return "range error";
+}
+
+IntToEnvTrigModeString* IntToEnvTrigModeString::get() noexcept {
+	static IntToEnvTrigModeString converter;
 	return &converter;
 }
