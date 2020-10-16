@@ -1114,6 +1114,54 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow3_y));
 		lsbByteLocations.add((uint16)103 + i * 10);
+
+		identifiers.add("env" + String(i + 1) + "_Mode");
+		exposedNames.add("Envelope " + String(i + 1) + " Mode");
+		paramNumbers.add((uint8)58 + i * 10);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToEnvModeString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)3);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects how envelope " + String(i + 1) + " completes its cycle when triggered.\n";
+		descriptionString += "NORMAL: When a note is gated on and the envelope is triggered, the cycle\n";
+		descriptionString += "will run through the delay, attack, and decay stages, then hold at the\n";
+		descriptionString += "sustain level. Gating off the note will immediately trigger the release\n";
+		descriptionString += "stage, even if the sustain stage has not yet been reached.\n";
+		descriptionString += "DADR: Delay-Attack-Decay-Release - the release stage begins immediately\n";
+		descriptionString += "after the decay stage, whether or not the note is still geted on. Gating off \n";
+		descriptionString += "the note before the other stages complete will also start the release stage.\n";
+		descriptionString += "FREE: Free run - the envelope will completely run through the delay, attack,\n";
+		descriptionString += "decay, and release stages, whether or not the note is kept gated on.\n";
+		descriptionString += "Keeping the note gated on will hold the sustain level normally.\n";
+		descriptionString += "BOTH: Both DADR and free run - like free run mode, except the release stage\n";
+		descriptionString += "begins immediately after the decay stage, even if the note is still gated on.";
+		descriptions.add(descriptionString);
+		controlWidths.add(envControls_w);
+		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		lsbByteLocations.add((uint16)119 + i * 10);
+
+		identifiers.add("env" + String(i + 1) + "_LFO1Trig");
+		exposedNames.add("Envelope " + String(i + 1) + " LFO 1 Trigger");
+		paramNumbers.add((uint8)59 + i * 10);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToEnvLFO1TrigString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)2);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects whether and how envelope " + String(i + 1) + "'s cycle is triggered by LFO 1.\n";
+		descriptionString += "NORMAL: The envelope cycle is not triggered by LFO 1.\n";
+		descriptionString += "G-LFO1: Gated LFO 1 trigger - LFO 1 will trigger the envelope cycle\n";
+		descriptionString += "periodically only if one or more notes are currently gated on.\n";
+		descriptionString += "LFO 1: The envelope cycle is triggered periodically by LFO 1.\n";
+		descriptionString += "The point in LFO 1's cycle which actually triggers the envelope\n";
+		descriptionString += "cycle is determined by the LFO 1 Retrigger Point parameter above.";
+		descriptions.add(descriptionString);
+		controlWidths.add(envControls_w);
+		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow5_y));
+		lsbByteLocations.add((uint16)117 + i * 10);
 	}
 }
 

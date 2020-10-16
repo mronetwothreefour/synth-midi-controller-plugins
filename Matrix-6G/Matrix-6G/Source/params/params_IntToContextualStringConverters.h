@@ -204,6 +204,7 @@ public:
 
 
 
+
 struct IntToEnvTrigModeString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
@@ -211,5 +212,29 @@ struct IntToEnvTrigModeString : public IntToContextualStringConverter
 
 public:
 	static IntToEnvTrigModeString* get() noexcept;
+};
+
+
+
+
+struct IntToEnvModeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToEnvModeString* get() noexcept;
+};
+
+
+
+
+struct IntToEnvLFO1TrigString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToEnvLFO1TrigString* get() noexcept;
 };
 

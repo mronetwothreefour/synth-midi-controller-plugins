@@ -473,3 +473,53 @@ IntToEnvTrigModeString* IntToEnvTrigModeString::get() noexcept {
 	static IntToEnvTrigModeString converter;
 	return &converter;
 }
+
+
+
+
+String IntToEnvModeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "NORMAL";
+	if (i == 1) return "DADR";
+	if (i == 2) return "FREE";
+	if (i == 3) return "BOTH";
+	else return "ERR";
+}
+
+String IntToEnvModeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Normal";
+	if (i == 1) return "Delay-Attack-Decay-Release";
+	if (i == 2) return "Free Run";
+	if (i == 3) return "Both DADR & Free Run";
+	else return "range error";
+}
+
+IntToEnvModeString* IntToEnvModeString::get() noexcept {
+	static IntToEnvModeString converter;
+	return &converter;
+}
+
+
+
+
+String IntToEnvLFO1TrigString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "NORMAL";
+	if (i == 1) return "G-LFO1";
+	if (i == 2) return "LFO 1";
+	else return "ERR";
+}
+
+String IntToEnvLFO1TrigString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "Normal (No LFO 1 Trigger)";
+	if (i == 1) return "Gated LFO 1 Trigger";
+	if (i == 2) return "LFO 1 Trigger";
+	else return "range error";
+}
+
+IntToEnvLFO1TrigString* IntToEnvLFO1TrigString::get() noexcept {
+	static IntToEnvLFO1TrigString converter;
+	return &converter;
+}
