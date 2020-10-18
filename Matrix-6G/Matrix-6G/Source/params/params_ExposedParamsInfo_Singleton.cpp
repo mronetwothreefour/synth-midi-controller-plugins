@@ -59,6 +59,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto envControlsRow3_y{ envControlsRow2_y + controlsVerticalGap };
 	static const auto envControlsRow4_y{ envControlsRow3_y + controlsVerticalGap };
 	static const auto envControlsRow5_y{ envControlsRow4_y + controlsVerticalGap };
+	static const auto lfo1Controls_x{ 726 };
+	static const auto lfo2Controls_x{ 792 };
 
 
 	String descriptionString;
@@ -1162,6 +1164,67 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow5_y));
 		lsbByteLocations.add((uint16)117 + i * 10);
+	}
+
+	//======================================================
+
+	for (uint8 i = 1; i != 3; ++i) {
+		identifiers.add("lfo" + (String)i + "_Speed");
+		exposedNames.add("LFO " + (String)i + " Speed");
+		paramNumbers.add(i == 1 ? (uint8)80 : (uint8)90);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add((uint8)i == 1 ? 40 : 30);
+		descriptionString =  "Sets the cycle rate of low-frequency oscillator " + (String)i + "\n";
+		descriptionString += "Range: 0 (slowest) to 63 (fastest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow1_y));
+		lsbByteLocations.add(i == 1 ? (uint16)75 : (uint16)89);
+
+		if (i == 1) {
+			identifiers.add("lfo1_PressureAmt");
+			exposedNames.add("LFO 1 Pressure Amount");
+			paramNumbers.add(81);
+			isQuickEditEnabled.add((bool)true);
+			controlTypes.add(ControlType::rotarySlider);
+			converters.add(IntToSigned7bitValueString::get());
+			rangeTypes.add(RangeType::signed7bitValue);
+			maxValues.add((uint8)126);
+			defaultValues.add((uint8)63);
+			descriptionString =  "Sets whether and to what degree keyboard pressure\n";
+			descriptionString += "(aftertouch) will modulate the speed of LFO 1\n";
+			descriptionString += "(e.g. higher pressure increases the cycle rate).\n";
+			descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+			descriptionString += "Negative values invert the pressure response.";
+			descriptions.add(descriptionString);
+			controlWidths.add(defaultControl_w);
+			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow2_y));
+			lsbByteLocations.add(209);
+		}
+		else {
+			identifiers.add("lfo2_KeyTrackAmt");
+			exposedNames.add("LFO 2 Key Tracking Amount");
+			paramNumbers.add(91);
+			isQuickEditEnabled.add((bool)true);
+			controlTypes.add(ControlType::rotarySlider);
+			converters.add(IntToSigned7bitValueString::get());
+			rangeTypes.add(RangeType::signed7bitValue);
+			maxValues.add((uint8)126);
+			defaultValues.add((uint8)63);
+			descriptionString =  "Sets whether and to what degree keyboard\n";
+			descriptionString += "position will modulate the speed of LFO 2.\n";
+			descriptionString += "(e.g. higher notes increase the cycle rate).\n";
+			descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+			descriptionString += "Negative values invert the key position response.";
+			descriptions.add(descriptionString);
+			controlWidths.add(defaultControl_w);
+			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow2_y));
+			lsbByteLocations.add(211);
+		}
 	}
 }
 
