@@ -224,12 +224,12 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column4_x2, row1_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("PRESSURE 1 / KEY 2");
+	labelStrings.add("WAVE TYPE");
 	startPoints.add(Point<int>(column4_x1, row2_y1));
 	endPoints.add(Point<int>(column4_x2, row2_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("WAVE TYPE");
+	labelStrings.add("SAMPLE SOURCE");
 	startPoints.add(Point<int>(column4_x1, row3_y1));
 	endPoints.add(Point<int>(column4_x2, row3_y2));
 
@@ -239,27 +239,27 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column4_x2, row4_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("RAMP 1 / RAMP 2");
+	labelStrings.add("PRESSURE 1 / KEY 2");
 	startPoints.add(Point<int>(column4_x1, row5_y1));
 	endPoints.add(Point<int>(column4_x2, row5_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("TRIGGER MODE");
+	labelStrings.add("RAMP 1 / RAMP 2");
 	startPoints.add(Point<int>(column4_x1, row6_y1));
 	endPoints.add(Point<int>(column4_x2, row6_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("RETRIGGER POINT");
+	labelStrings.add("TRIGGER MODE");
 	startPoints.add(Point<int>(column4_x1, row7_y1));
 	endPoints.add(Point<int>(column4_x2, row7_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("LAG");
+	labelStrings.add("RETRIGGER POINT");
 	startPoints.add(Point<int>(column4_x1, row8_y1));
 	endPoints.add(Point<int>(column4_x2, row8_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("SAMPLE SOURCE");
+	labelStrings.add("LAG");
 	startPoints.add(Point<int>(column4_x1, row9_y1));
 	endPoints.add(Point<int>(column4_x2, row9_y2));
 

@@ -1178,7 +1178,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)63);
 		defaultValues.add((uint8)i == 1 ? 40 : 30);
-		descriptionString =  "Sets the cycle rate of low-frequency oscillator " + (String)i + "\n";
+		descriptionString =  "Sets the cycle rate of low-frequency oscillator " + (String)i + ".\n";
 		descriptionString += "Range: 0 (slowest) to 63 (fastest).";
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
@@ -1202,7 +1202,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptionString += "Negative values invert the pressure response.";
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow2_y));
+			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow5_y));
 			lsbByteLocations.add(209);
 		}
 		else {
@@ -1222,9 +1222,37 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptionString += "Negative values invert the key position response.";
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow2_y));
+			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow5_y));
 			lsbByteLocations.add(211);
 		}
+
+		identifiers.add("lfo" + (String)i + "_WaveType");
+		exposedNames.add("LFO " + (String)i + " Wave Type");
+		paramNumbers.add(i == 1 ? (uint8)82 : (uint8)92);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToLFOwaveTypeString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)6);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects the type of modulation signal that LFO " + (String)i + " generates.\n";
+		descriptionString += "TRI: Triangle - a periodic wave that steadily rises and falls\n";
+		descriptionString += "between its minimum and maximum values.\n";
+		descriptionString += "UPSAW: Up (positive) sawtooth - a periodic wave that rises steadily\n";
+		descriptionString += "to the maximum value then abruptly falls to the minimum value.\n";
+		descriptionString += "DNSAW: Down (negative) sawtooth - a periodic wave that falls steadily\n";
+		descriptionString += "to the minimum value then abruptly rises to the maximum value.\n";
+		descriptionString += "SQUAR: Square - a periodic wave that switches abruptly between\n";
+		descriptionString += "the minimum and maximum values.\n";
+		descriptionString += "RANDM: Random - an aperiodic wave that outputs a series of random values.\n";
+		descriptionString += "NOISE: Noise - a much faster version of the random waveform.\n";
+		descriptionString += "SAMPL: Sampled - the LFO's waveform is created by periodically sampling\n";
+		descriptionString += "the value of another modulation source. Select the sample source below.\n";
+		descriptionString += "The sampling rate is determined by the LFO's speed setting, above.";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow2_y));
+		lsbByteLocations.add(i == 1 ? (uint16)81 : (uint16)95);
 	}
 }
 

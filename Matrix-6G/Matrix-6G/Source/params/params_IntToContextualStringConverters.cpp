@@ -523,3 +523,35 @@ IntToEnvLFO1TrigString* IntToEnvLFO1TrigString::get() noexcept {
 	static IntToEnvLFO1TrigString converter;
 	return &converter;
 }
+
+
+
+
+String IntToLFOwaveTypeString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 7);
+	if (i == 0) return "TRI";
+	if (i == 1) return "UPSAW";
+	if (i == 2) return "DNSAW";
+	if (i == 3) return "SQUAR";
+	if (i == 4) return "RANDM";
+	if (i == 5) return "NOISE";
+	if (i == 6) return "SAMPL";
+	else return "ERR";
+}
+
+String IntToLFOwaveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0) return "Triangle";
+	if (i == 1) return "Up (Positive) Sawtooth";
+	if (i == 2) return "Down (Negative) Sawtooth";
+	if (i == 3) return "Square";
+	if (i == 4) return "Random";
+	if (i == 5) return "Noise";
+	if (i == 6) return "Sampled";
+	else return "range error";
+}
+
+IntToLFOwaveTypeString* IntToLFOwaveTypeString::get() noexcept {
+	static IntToLFOwaveTypeString converter;
+	return &converter;
+}

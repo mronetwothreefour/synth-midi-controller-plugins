@@ -238,3 +238,15 @@ public:
 	static IntToEnvLFO1TrigString* get() noexcept;
 };
 
+
+
+
+struct IntToLFOwaveTypeString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToLFOwaveTypeString* get() noexcept;
+};
+
