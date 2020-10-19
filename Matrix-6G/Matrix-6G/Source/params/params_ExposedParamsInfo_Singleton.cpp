@@ -62,7 +62,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto lfo1Controls_x{ 726 };
 	static const auto lfo2Controls_x{ 792 };
 
-
+	String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
+	String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
+	String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
 	String descriptionString;
 
 	//======================================================
@@ -77,7 +79,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)63);
 		defaultValues.add(0);
-		descriptionString =  "Sets oscillator " + (String)i + "'s base\n";
+		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s base\n";
 		descriptionString += "pitch in semitone steps.\n";
 		descriptionString += "Range: 0 (C 0) to 63 (D# 5).";
 		descriptions.add(descriptionString);
@@ -94,7 +96,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add(i == 1 ? (uint8)3 : (uint8)4);
 		defaultValues.add(i == 1 ? (uint8)2 : (uint8)1);
-		descriptionString =  "Selects oscillator " + (String)i + "'s wave type.\n";
+		descriptionString =  "Selects oscillator " + (String)i + apostrophe + "s wave type.\n";
 		descriptionString += "OFF: The oscillator produces no sound.\n";
 		descriptionString += "PULSE: Set the width of the pulse below.\n";
 		descriptionString += "WAVE: Set the shape of the wave below.\n";
@@ -115,7 +117,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)63);
 		defaultValues.add(i == 1 ? (uint8)31 : (uint8)24);
-		descriptionString =  "Sets the width of oscillator " + (String)i + "'s\n";
+		descriptionString =  "Sets the width of oscillator " + (String)i + apostrophe + "s\n";
 		descriptionString += "wave when its type is set to pulse.\n";
 		descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 		descriptionString += "A value of 31 produces a square wave.";
@@ -153,7 +155,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			rangeTypes.add(RangeType::unsignedValue);
 			maxValues.add((uint8)3);
 			defaultValues.add((uint8)0);
-			descriptionString =  "Selects whether and to what degree oscillator 1's\n";
+			descriptionString =  "Selects whether and to what degree oscillator 1" + apostrophe + "s\n";
 			descriptionString += "waveform is synchronized with that of oscillator 2.";
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
@@ -170,7 +172,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			rangeTypes.add(RangeType::signed6bitValue);
 			maxValues.add((uint8)62);
 			defaultValues.add((uint8)33);
-			descriptionString =  "Slightly lowers or raises Oscillator 2's pitch.\n";
+			descriptionString =  "Slightly lowers or raises Oscillator 2" + apostrophe + "s pitch.\n";
 			descriptionString += "Range -31 to +31 (-/+ ~25 cents). 0 is no detune.";
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
@@ -245,15 +247,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Selects how oscillator " + (String)i + " responds to incoming pitch\n";
 		descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
 		if (i == 1) {
-			descriptionString += "KEYBD: Oscillater " + (String)i + "'s pitch tracks note key changes normally.\n";
+			descriptionString += "KEYBD: Oscillater " + (String)i + apostrophe + "s pitch tracks note key changes normally.\n";
 			descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
-			descriptionString += "according to the settings in the portamento (aka \"glide\") section.";
+			descriptionString += "according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.";
 		}
 		else {
-			descriptionString += "OFF: Oscillater 2's pitch will not change as notes are played.\n";
+			descriptionString += "OFF: Oscillater 2" + apostrophe + "s pitch will not change as notes are played.\n";
 			descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
-			descriptionString += "according to the settings in the portamento (aka \"glide\") section.\n";
-			descriptionString += "KEYBD: Oscillator 2's pitch tracks note key changes normally.";
+			descriptionString += "according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.\n";
+			descriptionString += "KEYBD: Oscillator 2" + apostrophe + "s pitch tracks note key changes normally.";
 		}
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
@@ -269,7 +271,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)3);
 		defaultValues.add((uint8)3);
-		descriptionString =  "Selects which of the performance \"levers\"\n";
+		descriptionString =  "Selects which of the performance " + openQuote + "levers" + closeQuote + "\n";
 		descriptionString += "(wheel-type controllers) will modulate oscillator " + (String)i + ".\n";
 		descriptionString += "OFF: Oscillator " + (String)i + " is not controlled by either lever.\n";
 		descriptionString += "BEND: Pitch bend is controlled by lever 1 (pitch wheel).\n";
@@ -345,7 +347,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)105);
 	descriptionString =  "Sets whether and to what degree envelope 1\n";
-	descriptionString += "modulates the VCF's cutoff frequency.\n";
+	descriptionString += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
@@ -363,7 +365,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
 	descriptionString =  "Sets whether and to what degree keyboard pressure \n";
-	descriptionString += "(aftertouch) modulates the VCF's cutoff frequency.\n";
+	descriptionString += "(aftertouch) modulates the VCF" + apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the pressure response.";
 	descriptions.add(descriptionString);
@@ -380,7 +382,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Selects which of the performance \"levers\"\n";
+	descriptionString =  "Selects which of the performance " + openQuote + "levers" + closeQuote + "\n";
 	descriptionString += "(wheel-type controllers) modulate the VCF frequency.\n";
 	descriptionString += "OFF: VCF frequency is not controlled by either lever.\n";
 	descriptionString += "BEND: VCF frequency is controlled by lever 1 (pitch wheel).\n";
@@ -400,12 +402,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)2);
-	descriptionString =  "Selects how the VCF's cutoff frequency responds to incoming pitch\n";
+	descriptionString =  "Selects how the VCF" + apostrophe + "s cutoff frequency responds to incoming pitch\n";
 	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
-	descriptionString += "OFF: Note key changes have no effect on the VCF's cutoff frequency.\n";
+	descriptionString += "OFF: Note key changes have no effect on the VCF" + apostrophe + "s cutoff frequency.\n";
 	descriptionString += "PORTA: Tracking is active, but transitions between cutoff frequencies are\n";
-	descriptionString += "smoothed according to the settings in the portamento (aka \"glide\") section.\n";
-	descriptionString += "KEYBD: The VCF's cutoff frequency tracks note key changes, rising as\n";
+	descriptionString += "smoothed according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.\n";
+	descriptionString += "KEYBD: The VCF" + apostrophe + "s cutoff frequency tracks note key changes, rising as\n";
 	descriptionString += "higher notes are played and dropping as lower notes are played.";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
@@ -480,7 +482,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets whether and to what degree oscillator 1\n";
-	descriptionString += "modulates the VCF's cutoff frequency.\n";
+	descriptionString += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: 0 (no modulation) to 63 (maximum).";
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
@@ -611,7 +613,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Selects how notes get assigned to the hardware's six available voices.\n";
+	descriptionString =  "Selects how notes get assigned to the hardware" + apostrophe + "s six available voices.\n";
 	descriptionString += "REASGN: Reassign - once a note gets assigned to a certain voice,\n";
 	descriptionString += "every time thereafter that the same note is played, it will get\n";
 	descriptionString += "reassigned to the same voice.\n";
@@ -621,7 +623,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "and only one note at a time can play. When multiple notes are played\n";
 	descriptionString += "at once, only the lowest note will be heard.\n";
 	descriptionString += "REAROB: Reassign rob - like reassign mode, but if all six voices are\n";
-	descriptionString += "sounding and a new note is played, the new note will 'rob' a voice\n";
+	descriptionString += "sounding and a new note is played, the new note will " + openQuote + "rob" + closeQuote + " a voice\n";
 	descriptionString += "from one of the notes that are already playing.";
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
@@ -708,9 +710,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "the minimum and maximum values.\n";
 		descriptionString += "RANDM: Random - an aperiodic wave that outputs a series of random values.\n";
 		descriptionString += "NOISE: Noise - a much faster version of the random waveform.\n";
-		descriptionString += "SAMPL: Sampled - the LFO's waveform is created by periodically sampling\n";
+		descriptionString += "SAMPL: Sampled - the LFO" + apostrophe + "s waveform is created by periodically sampling\n";
 		descriptionString += "the value of another modulation source. Select the sample source below.\n";
-		descriptionString += "The sampling rate is determined by the LFO's speed setting, above.";
+		descriptionString += "The sampling rate is determined by the LFO" + apostrophe + "s speed setting, above.";
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow2_y));
@@ -727,8 +729,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		defaultValues.add(0);
 		descriptionString =  "If LFO " + (String)i + " is set (above) to be triggered by the keyboard or by\n";
 		descriptionString += "an external source, modulation can be set to start from a\n";
-		descriptionString += "point in the LFO's waveform cycle other than its beginning.\n";
-		descriptionString += "Range: 0 (beginning of the cycle) to 63 (the cycle's half-way point).";
+		descriptionString += "point in the LFO" + apostrophe + "s waveform cycle other than its beginning.\n";
+		descriptionString += "Range: 0 (beginning of the cycle) to 63 (the cycle" + apostrophe + "s half-way point).";
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow8_y));
@@ -760,7 +762,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)126);
 		defaultValues.add((uint8)63);
 		descriptionString =  "Sets whether and to what degree ramp " + (String)i + "\n";
-		descriptionString += "will modulate LFO " + (String)i + "'s amplitude.\n";
+		descriptionString += "will modulate LFO " + (String)i + apostrophe + "s amplitude.\n";
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the ramp.";
 		descriptions.add(descriptionString);
@@ -777,7 +779,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)3);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects the type of trigger that will start LFO " + (String)i + "'s control cycle.\n";
+		descriptionString =  "Selects the type of trigger that will start LFO " + (String)i + apostrophe + "s control cycle.\n";
 		descriptionString += "OFF: The LFO is not triggered and cycles freely.\n";
 		descriptionString += "STRIG: Single - A new note triggers the LFO only when no other\n";
 		descriptionString += "notes are currently held down (only active in unison mode).\n";
@@ -798,7 +800,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)1);
 		defaultValues.add((uint8)0);
 		descriptionString =  "The lag processor which smooths pitch transitions for portamento\n";
-		descriptionString += "can also be used to smooth the value transitions in LFO " + (String)i + "'s wave\n";
+		descriptionString += "can also be used to smooth the value transitions in LFO " + (String)i + apostrophe + "s wave\n";
 		descriptionString += "cycle. The effect is most notable on a square wave cycle.";
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
@@ -824,81 +826,45 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	}
 	//======================================================
 
-	identifiers.add("ramp1_Rate");
-	exposedNames.add("Ramp 1 Rate");
-	paramNumbers.add((uint8)40);
-	isQuickEditEnabled.add((bool)true);
-	controlTypes.add(ControlType::rotarySlider);
-	converters.add(IntToUnsignedValueString::get());
-	rangeTypes.add(RangeType::unsignedValue);
-	maxValues.add((uint8)63);
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the amount of time it takes for\n";
-	descriptionString += "Ramp 1 to complete its control cycle.\n";
-	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
-	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(rampControlsCol1_x, controlsRow1_y));
-	lsbByteLocations.add((uint16)169);
+	for (uint8 i = 1; i != 3; ++i) {
+		identifiers.add("ramp" + (String)i + "_Rate");
+		exposedNames.add("Ramp " + (String)i + " Rate");
+		paramNumbers.add(i == 1 ? (uint8)40 : (uint8)42);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Sets the amount of time it takes for\n";
+		descriptionString += "Ramp " + (String)i + " to complete its control cycle.\n";
+		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow1_y));
+		lsbByteLocations.add(i == 1 ? (uint16)169 : (uint16)173);
 
-	identifiers.add("ramp1_Trig");
-	exposedNames.add("Ramp 1 Trigger");
-	paramNumbers.add((uint8)41);
-	isQuickEditEnabled.add((bool)true);
-	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToRampTrigString::get());
-	rangeTypes.add(RangeType::unsignedValue);
-	maxValues.add((uint8)3);
-	defaultValues.add((uint8)0);
-	descriptionString =  "Selects the type of trigger that will start ramp 1's control cycle.\n";
-	descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
-	descriptionString += "notes are currently held down (only active in unison mode).\n";
-	descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
-	descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
-	descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
-	descriptionString += "there are one or more notes being played.";
-	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(rampControlsCol1_x, controlsRow2_y));
-	lsbByteLocations.add((uint16)171);
-
-	identifiers.add("ramp2_Rate");
-	exposedNames.add("Ramp 2 Rate");
-	paramNumbers.add((uint8)42);
-	isQuickEditEnabled.add((bool)true);
-	controlTypes.add(ControlType::rotarySlider);
-	converters.add(IntToUnsignedValueString::get());
-	rangeTypes.add(RangeType::unsignedValue);
-	maxValues.add((uint8)63);
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the amount of time it takes for\n";
-	descriptionString += "Ramp 2 to complete its control cycle.\n";
-	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
-	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(rampControlsCol2_x, controlsRow1_y));
-	lsbByteLocations.add((uint16)173);
-
-	identifiers.add("ramp2_Trig");
-	exposedNames.add("Ramp 2 Trigger");
-	paramNumbers.add((uint8)43);
-	isQuickEditEnabled.add((bool)true);
-	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToRampTrigString::get());
-	rangeTypes.add(RangeType::unsignedValue);
-	maxValues.add((uint8)3);
-	defaultValues.add((uint8)0);
-	descriptionString =  "Selects the type of trigger that will start ramp 2's control cycle.\n";
-	descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
-	descriptionString += "notes are currently held down (only active in unison mode).\n";
-	descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
-	descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
-	descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
-	descriptionString += "there are one or more notes being played.";
-	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(rampControlsCol2_x, controlsRow2_y));
-	lsbByteLocations.add((uint16)175);
+		identifiers.add("ramp" + (String)i + "_Trig");
+		exposedNames.add("Ramp " + (String)i + " Trigger");
+		paramNumbers.add(i == 1 ? (uint8)41: (uint8)43);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToRampTrigString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)3);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects the type of trigger that will start ramp " + (String)i + apostrophe + "s control cycle.\n";
+		descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
+		descriptionString += "notes are currently held down (only active in unison mode).\n";
+		descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
+		descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
+		descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
+		descriptionString += "there are one or more notes being played.";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow2_y));
+		lsbByteLocations.add(i == 1 ? (uint16)171 : (uint16)175);
+	}
 
 	//======================================================
 
@@ -1123,7 +1089,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)126);
 		defaultValues.add((uint8)126);
 		descriptionString =  "Sets whether and to what degree note\n";
-		descriptionString += "velocity modulates envelope " + String(i + 1) + "'s amplitude.\n";
+		descriptionString += "velocity modulates envelope " + String(i + 1) + apostrophe + "s amplitude.\n";
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the velocity response.";
 		descriptions.add(descriptionString);
@@ -1140,7 +1106,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)7);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects what sort of trigger will start envelope " + String(i + 1) + "'s cycle.\n";
+		descriptionString =  "Selects what sort of trigger will start envelope " + String(i + 1) + apostrophe + "s cycle.\n";
 		descriptionString += "STRIG: Single trigger (unison mode only) - the cycle will start for\n";
 		descriptionString += "a voice only if it is not already playing. Legato playing will not\n";
 		descriptionString += "re-trigger the cycle. If the envelope is re-triggered before its cycle\n";
@@ -1197,12 +1163,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)2);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects whether and how envelope " + String(i + 1) + "'s cycle is triggered by LFO 1.\n";
+		descriptionString =  "Selects whether and how envelope " + String(i + 1) + apostrophe + "s cycle is triggered by LFO 1.\n";
 		descriptionString += "NORMAL: The envelope cycle is not triggered by LFO 1.\n";
 		descriptionString += "G-LFO1: Gated LFO 1 trigger - LFO 1 will trigger the envelope cycle\n";
 		descriptionString += "periodically only if one or more notes are currently gated on.\n";
 		descriptionString += "LFO 1: The envelope cycle is triggered periodically by LFO 1.\n";
-		descriptionString += "The point in LFO 1's cycle which actually triggers the envelope\n";
+		descriptionString += "The point in LFO 1" + apostrophe + "s cycle which actually triggers the envelope\n";
 		descriptionString += "cycle is determined by the LFO 1 Retrigger Point parameter above.";
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
