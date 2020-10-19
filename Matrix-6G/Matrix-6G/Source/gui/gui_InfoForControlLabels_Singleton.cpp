@@ -78,32 +78,32 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column1_x2, row1_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("LFO 1 FM AMOUNT");
+	labelStrings.add("TYPE SELECT");
 	startPoints.add(Point<int>(column1_x1, row2_y1));
 	endPoints.add(Point<int>(column1_x2, row2_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("SYNC 1 / DETUNE 2");
+	labelStrings.add("PULSE WIDTH");
 	startPoints.add(Point<int>(column1_x1, row3_y1));
 	endPoints.add(Point<int>(column1_x2, row3_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("TYPE SELECT");
+	labelStrings.add("SAW / TRI WAVE");
 	startPoints.add(Point<int>(column1_x1, row4_y1));
 	endPoints.add(Point<int>(column1_x2, row4_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("PULSE WIDTH");
+	labelStrings.add("SYNC 1 / DETUNE 2");
 	startPoints.add(Point<int>(column1_x1, row5_y1));
 	endPoints.add(Point<int>(column1_x2, row5_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("SAW / TRI WAVE");
+	labelStrings.add("LFO 1 FM AMOUNT");
 	startPoints.add(Point<int>(column1_x1, row6_y1));
 	endPoints.add(Point<int>(column1_x2, row6_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("PWM BY LFO 2 AMT");
+	labelStrings.add("LFO 2 PWM AMT");
 	startPoints.add(Point<int>(column1_x1, row7_y1));
 	endPoints.add(Point<int>(column1_x2, row7_y2));
 
