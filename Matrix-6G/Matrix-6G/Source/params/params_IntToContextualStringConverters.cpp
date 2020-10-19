@@ -367,6 +367,66 @@ IntToModSourceString* IntToModSourceString::get() noexcept {
 
 
 
+String IntToLFOsampleSourceString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 21);
+	if (i == 0) return "NONE";
+	if (i == 1) return "ENV1";
+	if (i == 2) return "ENV2";
+	if (i == 3) return "ENV3";
+	if (i == 4) return "LFO1";
+	if (i == 5) return "LFO2";
+	if (i == 6) return "VIB";
+	if (i == 7) return "RMP1";
+	if (i == 8) return "RMP2";
+	if (i == 9) return "KEYB";
+	if (i == 10) return "PORT";
+	if (i == 11) return "TRAK";
+	if (i == 12) return "GATE";
+	if (i == 13) return "VEL";
+	if (i == 14) return "RVEL";
+	if (i == 15) return "PRES";
+	if (i == 16) return "PED1";
+	if (i == 17) return "PED2";
+	if (i == 18) return "LEV1";
+	if (i == 19) return "LEV2";
+	if (i == 20) return "LEV3";
+	else return "ERR";
+}
+
+String IntToLFOsampleSourceString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 21);
+	if (i == 0) return "None";
+	if (i == 1) return "Envelope 1";
+	if (i == 2) return "Envelope 2";
+	if (i == 3) return "Envelope 3";
+	if (i == 4) return "LFO 1";
+	if (i == 5) return "LFO 2";
+	if (i == 6) return "Vibrato LFO";
+	if (i == 7) return "Ramp Generator 1";
+	if (i == 8) return "Ramp Generator 2";
+	if (i == 9) return "Keyboard Scaling";
+	if (i == 10) return "Portamento Speed";
+	if (i == 11) return "Tracking Generator";
+	if (i == 12) return "Keyboard Note Gate";
+	if (i == 13) return "Keyboard Note Velocity";
+	if (i == 14) return "Keyboard Release Velocity";
+	if (i == 15) return "Keyboard Pressure (Aftertouch)";
+	if (i == 16) return "Pedal 1";
+	if (i == 17) return "Pedal 2";
+	if (i == 18) return "Lever 1";
+	if (i == 19) return "Lever 2";
+	if (i == 20) return "Lever 3";
+	else return "range error";
+}
+
+IntToLFOsampleSourceString* IntToLFOsampleSourceString::get() noexcept {
+	static IntToLFOsampleSourceString converter;
+	return &converter;
+}
+
+
+
+
 String IntToRampTrigString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "STRIG";

@@ -1342,6 +1342,23 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow9_y));
 		lsbByteLocations.add(i == 1 ? (uint16)79 : (uint16)93);
+
+		identifiers.add("lfo" + (String)i + "_Sample");
+		exposedNames.add("LFO " + (String)i + " Sample Source");
+		paramNumbers.add(i == 1 ? (uint8)88 : (uint8)98);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToLFOsampleSourceString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)20);
+		defaultValues.add((uint8)9);
+		descriptionString =  "Selects the modulation source that LFO " + (String)i + " will\n";
+		descriptionString += "periodically sample to calculate its output value\n";
+		descriptionString += "(when its wave type, above, is set to sample).";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow3_y));
+		lsbByteLocations.add(i == 1 ? (uint16)85 : (uint16)99);
 	}
 }
 
