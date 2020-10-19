@@ -250,3 +250,15 @@ public:
 	static IntToLFOwaveTypeString* get() noexcept;
 };
 
+
+
+
+struct IntToLFOtrigString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToLFOtrigString* get() noexcept;
+};
+

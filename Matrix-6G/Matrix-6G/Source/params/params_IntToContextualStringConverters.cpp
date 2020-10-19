@@ -555,3 +555,29 @@ IntToLFOwaveTypeString* IntToLFOwaveTypeString::get() noexcept {
 	static IntToLFOwaveTypeString converter;
 	return &converter;
 }
+
+
+
+
+String IntToLFOtrigString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "OFF";
+	if (i == 1) return "STRIG";
+	if (i == 2) return "MTRIG";
+	if (i == 3) return "XTRIG";
+	else return "ERR";
+}
+
+String IntToLFOtrigString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "Off (Free Running)";
+	if (i == 1) return "Single Trigger";
+	if (i == 2) return "Multiple Trigger";
+	if (i == 3) return "External Single Trigger";
+	else return "range error";
+}
+
+IntToLFOtrigString* IntToLFOtrigString::get() noexcept {
+	static IntToLFOtrigString converter;
+	return &converter;
+}

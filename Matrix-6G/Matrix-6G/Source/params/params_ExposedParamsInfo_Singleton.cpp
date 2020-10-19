@@ -1203,7 +1203,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow5_y));
-			lsbByteLocations.add(209);
+			lsbByteLocations.add((uint16)209);
 		}
 		else {
 			identifiers.add("lfo2_KeyTrackAmt");
@@ -1223,7 +1223,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow5_y));
-			lsbByteLocations.add(211);
+			lsbByteLocations.add((uint16)211);
 		}
 
 		identifiers.add("lfo" + (String)i + "_WaveType");
@@ -1253,6 +1253,95 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow2_y));
 		lsbByteLocations.add(i == 1 ? (uint16)81 : (uint16)95);
+
+		identifiers.add("lfo" + (String)i + "_RetrigPoint");
+		exposedNames.add("LFO " + (String)i + " Retrigger Point");
+		paramNumbers.add(i == 1 ? (uint8)83 : (uint8)93);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add(0);
+		descriptionString =  "If LFO " + (String)i + " is set (above) to be triggered by the keyboard or by\n";
+		descriptionString += "an external source, modulation can be set to start from a\n";
+		descriptionString += "point in the LFO's waveform cycle other than its beginning.\n";
+		descriptionString += "Range: 0 (beginning of the cycle) to 63 (the cycle's half-way point).";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow8_y));
+		lsbByteLocations.add(i == 1 ? (uint16)83 : (uint16)97);
+
+		identifiers.add("lfo" + (String)i + "_Amp");
+		exposedNames.add("LFO " + (String)i + " Amplitude");
+		paramNumbers.add(i == 1 ? (uint8)84 : (uint8)94);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToUnsignedValueString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)63);
+		defaultValues.add(0);
+		descriptionString =  "Sets the degree to which LFO " + (String)i + " modulates its destination.\n";
+		descriptionString += "Range: 0 (no modulation) to 63 (maximum modulation).";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow4_y));
+		lsbByteLocations.add(i == 1 ? (uint16)87 : (uint16)101);
+
+		identifiers.add("lfo" + (String)i + "_Ramp" + (String)i + "Amt");
+		exposedNames.add("LFO " + (String)i + " Ramp " + (String)i + " Amount");
+		paramNumbers.add(i == 1 ? (uint8)85 : (uint8)95);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::rotarySlider);
+		converters.add(IntToSigned7bitValueString::get());
+		rangeTypes.add(RangeType::signed7bitValue);
+		maxValues.add((uint8)126);
+		defaultValues.add((uint8)63);
+		descriptionString =  "Sets whether and to what degree ramp " + (String)i + "\n";
+		descriptionString += "will modulate LFO " + (String)i + "'s amplitude.\n";
+		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
+		descriptionString += "Negative values invert the ramp.";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow6_y));
+		lsbByteLocations.add(i == 1 ? (uint16)199 : (uint16)201);
+
+		identifiers.add("lfo" + (String)i + "_TrigMode");
+		exposedNames.add("LFO " + (String)i + " Trigger Mode");
+		paramNumbers.add(i == 1 ? (uint8)86 : (uint8)96);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToLFOtrigString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)3);
+		defaultValues.add((uint8)0);
+		descriptionString =  "Selects the type of trigger that will start LFO " + (String)i + "'s control cycle.\n";
+		descriptionString += "OFF: The LFO is not triggered and cycles freely.\n";
+		descriptionString += "STRIG: Single - A new note triggers the LFO only when no other\n";
+		descriptionString += "notes are currently held down (only active in unison mode).\n";
+		descriptionString += "MTRIG: Multiple - the LFO is triggered with every new note played.\n";
+		descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the LFO.";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow7_y));
+		lsbByteLocations.add(i == 1 ? (uint16)77 : (uint16)91);
+
+		identifiers.add("lfo" + (String)i + "_Lag");
+		exposedNames.add("LFO " + (String)i + " Lag Processing");
+		paramNumbers.add(i == 1 ? (uint8)87 : (uint8)97);
+		isQuickEditEnabled.add((bool)true);
+		controlTypes.add(ControlType::comboBox);
+		converters.add(IntToOffOnString::get());
+		rangeTypes.add(RangeType::unsignedValue);
+		maxValues.add((uint8)1);
+		defaultValues.add((uint8)0);
+		descriptionString =  "The lag processor which smooths pitch transitions for portamento\n";
+		descriptionString += "can also be used to smooth the value transitions in LFO " + (String)i + "'s wave\n";
+		descriptionString += "cycle. The effect is most notable on a square wave cycle.";
+		descriptions.add(descriptionString);
+		controlWidths.add(defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow9_y));
+		lsbByteLocations.add(i == 1 ? (uint16)79 : (uint16)93);
 	}
 }
 

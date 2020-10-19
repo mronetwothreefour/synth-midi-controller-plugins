@@ -259,7 +259,7 @@ void InfoForControlLabels::fillAllInfoContainers() {
 	endPoints.add(Point<int>(column4_x2, row8_y2));
 
 	labelTypes.add(ControlLabelType::light);
-	labelStrings.add("LAG");
+	labelStrings.add("LAG PROCESSING");
 	startPoints.add(Point<int>(column4_x1, row9_y1));
 	endPoints.add(Point<int>(column4_x2, row9_y2));
 
