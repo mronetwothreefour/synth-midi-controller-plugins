@@ -63,187 +63,98 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("osc1Pitch"); // 0
-	exposedNames.add("Oscillator 1 Pitch");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)0); 
-	converters.add(IntToOscPitchString::get()); 
-	maxValues.add((uint8)120); 
-	defaultValues.add((uint8)24);
-	descriptionString =  "Sets oscillator 1's base pitch in semitone steps.\n";
-	descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow1_y));
+	for (uint8 i = 1; i != 3; ++i) {
+		identifiers.add("osc" + (String)i + "Pitch"); // 0 & 6
+		exposedNames.add("Oscillator " + (String)i + " Pitch");
+		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		NRPNs.add(i == 1 ? (uint8)0 : (uint8)5);
+		converters.add(IntToOscPitchString::get());
+		maxValues.add((uint8)120);
+		defaultValues.add((uint8)24);
+		descriptionString =  "Sets oscillator " + (String)i + "'s base pitch in semitone steps.\n";
+		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
+		descriptions.add(descriptionString);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol1_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
 
-	identifiers.add("osc1Fine"); // 1
-	exposedNames.add("Oscillator 1 Fine Tune");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)1); 
-	converters.add(IntToFineTuneString::get());
-	maxValues.add((uint8)100); 
-	defaultValues.add((uint8)49);
-	descriptionString =  "Fine tunes oscillator 1's base pitch.\n";
-	descriptionString += "Range: -50 cents to +50 cents.\n";
-	descriptionString += "0 = no detuning (centered).";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, oscControlsRow1_y));
+		identifiers.add("osc" + (String)i + "Fine"); // 1 & 7
+		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
+		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		NRPNs.add(i == 1 ? (uint8)1 : (uint8)6);
+		converters.add(IntToFineTuneString::get());
+		maxValues.add((uint8)100); 
+		defaultValues.add(i == 1 ? (uint8)49 : (uint8)51);
+		descriptionString =  "Fine tunes oscillator " + (String)i + "'s base pitch.\n";
+		descriptionString += "Range: -50 cents to +50 cents.\n";
+		descriptionString += "0 = no detuning (centered).";
+		descriptions.add(descriptionString);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol2_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
 
-	identifiers.add("osc1Shape"); // 2
-	exposedNames.add("Oscillator 1 Wave Shape");
-	controlTypes.add(ControlType::knobWithWaveShapeDisplay);
-	NRPNs.add((uint8)2); 
-	converters.add(IntToOscWaveShapeString::get());
-	maxValues.add((uint8)103); 
-	defaultValues.add((uint8)1);
-	descriptionString =  "Selects oscillator 1's wave shape.\n";
-	descriptionString += "Available options: Off; Sawtooth; Triangle;\n";
-	descriptionString += "Sawtooth/Triangle Mix; Pulse (Width 0 to 99).\n";
-	descriptionString += "A Pulse with width 50 is a square wave.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, oscControlsRow1_y));
+		identifiers.add("osc" + (String)i + "Shape"); // 2 & 8
+		exposedNames.add("Oscillator " + (String)i + " Wave Shape");
+		controlTypes.add(ControlType::knobWithWaveShapeDisplay);
+		NRPNs.add(i == 1 ? (uint8)2 : (uint8)7);
+		converters.add(IntToOscWaveShapeString::get());
+		maxValues.add((uint8)103); 
+		defaultValues.add((uint8)1);
+		descriptionString =  "Selects oscillator " + (String)i + "'s wave shape.\n";
+		descriptionString += "Available options: Off; Sawtooth; Triangle;\n";
+		descriptionString += "Sawtooth/Triangle Mix; Pulse (Width 0 to 99).\n";
+		descriptionString += "A Pulse with width 50 is a square wave.";
+		descriptions.add(descriptionString);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol3_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
 
-	identifiers.add("osc1Glide"); // 3
-	exposedNames.add("Oscillator 1 Glide Rate");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)3); 
-	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127); 
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets oscillator 1's glide (portamento) rate.\n";
-	descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol4_x, oscControlsRow1_y));
+		identifiers.add("osc" + (String)i + "Glide"); // 3 & 9
+		exposedNames.add("Oscillator " + (String)i + " Glide Rate");
+		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		NRPNs.add(i == 1 ? (uint8)3 : (uint8)8);
+		converters.add(IntToPlainValueString::get());
+		maxValues.add((uint8)127); 
+		defaultValues.add((uint8)0);
+		descriptionString =  "Sets oscillator " + (String)i + "'s glide (portamento) rate.\n";
+		descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
+		descriptions.add(descriptionString);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol4_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
 
-	identifiers.add("osc1KeyTrack"); // 4
-	exposedNames.add("Oscillator 1 Keyboard Track On/Off");
-	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint8)4); 
-	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1); 
-	defaultValues.add((uint8)1);
-	descriptionString =  "Turns keyboard tracking for oscillator 1\n";
-	descriptionString += "on or off. When turned off, oscillator 1\n";
-	descriptionString += "always produces its base pitch, unaffected\n";
-	descriptionString += "by the pitch of incoming MIDI notes.";
-	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, oscControlsRow1_y));
+		identifiers.add("osc" + (String)i + "KeyTrack"); // 4 & 10
+		exposedNames.add("Oscillator " + (String)i + " Keyboard Track On/Off");
+		controlTypes.add(ControlType::toggleButton);
+		NRPNs.add(i == 1 ? (uint8)4 : (uint8)9);
+		converters.add(IntToOffOnString::get());
+		maxValues.add((uint8)1); 
+		defaultValues.add((uint8)1);
+		descriptionString =  "Turns keyboard tracking for oscillator " + (String)i + "\n";
+		descriptionString += "on or off. When turned off, oscillator " + (String)i + "\n";
+		descriptionString += "always produces its base pitch, unaffected\n";
+		descriptionString += "by the pitch of incoming MIDI notes.";
+		descriptions.add(descriptionString);
+		controlWidths.add(toggle_diameter);
+		controlHeights.add(toggle_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol6_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
 
-	identifiers.add("osc1SubLevel"); // 5
-	exposedNames.add("Sub-Oscillator 1 Level");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)114); 
-	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127); 
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the level of sub-oscillator 1,\n";
-	descriptionString += "which generates a square wave pitched\n";
-	descriptionString += "one octave lower than oscillator 1.\n";
-	descriptionString += "Range: 0 to 127.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol5_x, 50));
-
-	identifiers.add("osc2Pitch"); // 6
-	exposedNames.add("Oscillator 2 Pitch");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)5); 
-	converters.add(IntToOscPitchString::get()); 
-	maxValues.add((uint8)120); 
-	defaultValues.add((uint8)24);
-	descriptionString =  "Sets oscillator 2's base pitch in semitone steps.\n";
-	descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, oscControlsRow2_y));
-
-	identifiers.add("osc2Fine"); // 7
-	exposedNames.add("Oscillator 2 Fine Tune");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)6); 
-	converters.add(IntToFineTuneString::get());
-	maxValues.add((uint8)100); 
-	defaultValues.add((uint8)51);
-	descriptionString =  "Fine tunes oscillator 2's base pitch.\n";
-	descriptionString += "Range: -50 cents to +50 cents.\n";
-	descriptionString += "0 = no detuning (centered).";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, oscControlsRow2_y));
-
-	identifiers.add("osc2Shape"); // 8
-	exposedNames.add("Oscillator 2 Wave Shape");
-	controlTypes.add(ControlType::knobWithWaveShapeDisplay);
-	NRPNs.add((uint8)7); 
-	converters.add(IntToOscWaveShapeString::get());
-	maxValues.add((uint8)103); 
-	defaultValues.add((uint8)1);
-	descriptionString =  "Selects oscillator 2's wave shape.\n";
-	descriptionString += "Available options: Off; Sawtooth; Triangle;\n";
-	descriptionString += "Sawtooth/Triangle Mix; Pulse (Width 0 to 99).\n";
-	descriptionString += "A Pulse with width 50 is a square wave.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, oscControlsRow2_y));
-
-	identifiers.add("osc2Glide"); // 9
-	exposedNames.add("Oscillator 2 Glide Rate");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)8); 
-	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127); 
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets oscillator 2's glide (portamento) rate.\n";
-	descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol4_x, oscControlsRow2_y));
-
-	identifiers.add("osc2KeyTrack"); // 10
-	exposedNames.add("Oscillator 2 Keyboard Track On/Off");
-	controlTypes.add(ControlType::toggleButton);
-	NRPNs.add((uint8)9); 
-	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1); 
-	defaultValues.add((uint8)1);
-	descriptionString =  "Turns keyboard tracking for oscillator 2\n";
-	descriptionString += "on or off. When turned off, oscillator 2\n";
-	descriptionString += "always produces its base pitch, unaffected\n";
-	descriptionString += "by the pitch of incoming MIDI notes.";
-	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, oscControlsRow2_y));
-
-	identifiers.add("osc2SubLevel"); // 11
-	exposedNames.add("Sub-Oscillator 2 Level");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)115); 
-	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127); 
-	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the level of sub-oscillator 2,\n";
-	descriptionString += "which generates a square wave pitched\n";
-	descriptionString += "one octave lower than oscillator 2.\n";
-	descriptionString += "Range: 0 to 127.";
-	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol5_x, oscControlsRow2_y));
+		identifiers.add("osc" + (String)i + "SubLevel"); // 5 & 11
+		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
+		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		NRPNs.add(i == 1 ? (uint8)114 : (uint8)115);
+		converters.add(IntToPlainValueString::get());
+		maxValues.add((uint8)127); 
+		defaultValues.add((uint8)0);
+		descriptionString =  "Sets the level of sub-oscillator " + (String)i + ",\n";
+		descriptionString += "which generates a square wave pitched\n";
+		descriptionString += "one octave lower than oscillator " + (String)i + ".\n";
+		descriptionString += "Range: 0 to 127.";
+		descriptions.add(descriptionString);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(controlsCol5_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+	}
 
 	identifiers.add("oscSync"); // 12
 	exposedNames.add("Hard Oscillator Sync On/Off");
