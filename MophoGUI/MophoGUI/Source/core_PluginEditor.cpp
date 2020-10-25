@@ -8,6 +8,7 @@
 #include "gui/gui_Colors.h"
 #include "gui/gui_Fonts.h"
 #include "gui/gui_InfoForMainWindowLabels_Singleton.h"
+#include "gui/gui_Layer_ExposedParamControls.h"
 #include "gui/gui_Logo.h"
 #include "gui/gui_LookAndFeel.h"
 #include "guiRenderers/guiRenderer_ForEnvelopes.h"
@@ -27,12 +28,12 @@
 
 PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
-    ControlsForExposedParameters{ unexposedParams },
     processor{ processor },
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
     logo{ new Logo() },
+    exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     rendererForEnvelope_LPF{ new RendererForEnvelopes("lpf", exposedParams) },
     rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
     rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
@@ -52,15 +53,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(logo.get());
-
-    rebuildControls(unexposedParams);
-    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
-        auto control{ controlFor(param) };
-        addAndMakeVisible(control);
-        control->attachToExposedParameter(exposedParams);
-        control->setCentrePosition(InfoForExposedParameters::get().controlCenterPointFor(param));
-    }
-
+    addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(rendererForEnvelope_LPF.get());
     addAndMakeVisible(rendererForEnvelope_VCA.get());
     addAndMakeVisible(rendererForEnvelope_Env3.get());
@@ -136,6 +129,7 @@ void PluginEditor::paint(Graphics& g) {
 
 void PluginEditor::resized() {
     logo->setBounds(901, 13, logo->getWidth(), logo->getHeight());
+    exposedParamsControlsLayer->setBounds(getLocalBounds());
     auto envRenderers_x{ 168 };
     rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
     rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());
@@ -229,10 +223,6 @@ PluginEditor::~PluginEditor() {
     rendererForEnvelope_Env3 = nullptr;
     rendererForEnvelope_VCA = nullptr;
     rendererForEnvelope_LPF = nullptr;
-    for (uint8 param = 0; param != paramOutOfRange(); ++param) {
-        auto control{ controlFor(param) };
-        control->deleteAttachment();
-    }
-    clearControls();
+    exposedParamsControlsLayer = nullptr;
     logo = nullptr;
 }

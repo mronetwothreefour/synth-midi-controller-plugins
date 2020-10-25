@@ -6,6 +6,7 @@
 
 
 
+class ExposedParamsControlsLayer;
 class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
 class ButtonForPerformingRedo;
@@ -25,7 +26,6 @@ class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor,
-    private ControlsForExposedParameters,
     public ValueTree::Listener,
     private Timer
 {
@@ -34,6 +34,7 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<Logo> logo;
+    std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_LPF;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_Env3;

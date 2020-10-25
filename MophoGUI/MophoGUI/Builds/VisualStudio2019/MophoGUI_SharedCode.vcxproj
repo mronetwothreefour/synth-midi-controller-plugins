@@ -2210,6 +2210,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
@@ -3036,6 +3037,7 @@
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h" />
     <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />

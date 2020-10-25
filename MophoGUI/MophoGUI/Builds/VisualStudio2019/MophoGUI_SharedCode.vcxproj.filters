@@ -2634,6 +2634,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5113,6 +5114,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h">
+      <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
