@@ -33,6 +33,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	static const auto controlsCol10_x{ 500 };
 	static const auto modulatorControlsCol1_x{ 486 };
 	static const auto modulatorControlsCol2_x{ 575 };
+	static const auto modulatorControlsVerticalSpacing{ 78 };
 	static const auto midiControllerssCol1_x{ 680 };
 	static const auto midiControllerssCol2_x{ 776 };
 	static const auto oscControlsRow1_y{ 50 };
@@ -845,149 +846,43 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	modAmountDescription += "Negative values invert the modulation.\nRange: -127 to +127.";
 	String modDestinationDescription{ "Selects the target parameter for modulation." };
 
-	identifiers.add("mod1Source"); // 70
-	exposedNames.add("Modulator 1 Source");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)65);
-	converters.add(IntToModSourceString::get());
-	maxValues.add((uint8)22);
-	defaultValues.add((uint8)0);
-	descriptions.add(modSourceDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 184));
+	for (uint8 i = 0; i != 4; ++i) {
+		identifiers.add("mod" + (String)(i + 1) + "Source"); // 70, 73, 76, 79
+		exposedNames.add("Modulator " + (String)(i + 1) + " Source");
+		controlTypes.add(ControlType::comboBox);
+		NRPNs.add((uint8)65 + (uint8)3 * i);
+		converters.add(IntToModSourceString::get());
+		maxValues.add((uint8)22);
+		defaultValues.add((uint8)0);
+		descriptions.add(modSourceDescription);
+		controlWidths.add(modulatorComboBox_w);
+		controlHeights.add(comboBox_h);
+		controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 184 + i * modulatorControlsVerticalSpacing));
 
-	identifiers.add("mod1Amount"); // 71
-	exposedNames.add("Modulator 1 Amount");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)66);
-	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
-	descriptions.add(modAmountDescription);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 201));
+		identifiers.add("mod" + (String)(i + 1) + "Amount"); // 71, 74, 77, 80
+		exposedNames.add("Modulator " + (String)(i + 1) + " Amount");
+		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		NRPNs.add((uint8)66 + (uint8)3 * i);
+		converters.add(IntToPlusMinus127String::get());
+		maxValues.add((uint8)254);
+		defaultValues.add((uint8)127);
+		descriptions.add(modAmountDescription);
+		controlWidths.add(knob_diameter);
+		controlHeights.add(knob_diameter);
+		controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 201 + i * modulatorControlsVerticalSpacing));
 
-	identifiers.add("mod1Destination"); // 72
-	exposedNames.add("Modulator 1 Destination");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)67);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
-	descriptions.add(modDestinationDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 218));
-
-	identifiers.add("mod2Source"); // 73
-	exposedNames.add("Modulator 2 Source");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)68);
-	converters.add(IntToModSourceString::get());
-	maxValues.add((uint8)22);
-	defaultValues.add((uint8)0);
-	descriptions.add(modSourceDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 262));
-
-	identifiers.add("mod2Amount"); // 74
-	exposedNames.add("Modulator 2 Amount");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)69);
-	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
-	descriptions.add(modAmountDescription);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 279));
-
-	identifiers.add("mod2Destination"); // 75
-	exposedNames.add("Modulator 2 Destination");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)70);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
-	descriptions.add(modDestinationDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 296));
-
-	identifiers.add("mod3Source"); // 76
-	exposedNames.add("Modulator 3 Source");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)71);
-	converters.add(IntToModSourceString::get());
-	maxValues.add((uint8)22);
-	defaultValues.add((uint8)0);
-	descriptions.add(modSourceDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 340));
-
-	identifiers.add("mod3Amount"); // 77
-	exposedNames.add("Modulator 3 Amount");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)72);
-	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
-	descriptions.add(modAmountDescription);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 357));
-
-	identifiers.add("mod3Destination"); // 78
-	exposedNames.add("Modulator 3 Destination");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)73);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
-	descriptions.add(modDestinationDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 374));
-
-	identifiers.add("mod4Source"); // 79
-	exposedNames.add("Modulator 4 Source");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)74);
-	converters.add(IntToModSourceString::get());
-	maxValues.add((uint8)22);
-	defaultValues.add((uint8)0);
-	descriptions.add(modSourceDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 418));
-
-	identifiers.add("mod4Amount"); // 80
-	exposedNames.add("Modulator 4 Amount");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
-	NRPNs.add((uint8)75);
-	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
-	descriptions.add(modAmountDescription);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 435));
-
-	identifiers.add("mod4Destination"); // 81
-	exposedNames.add("Modulator 4 Destination");
-	controlTypes.add(ControlType::comboBox);
-	NRPNs.add((uint8)76);
-	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
-	descriptions.add(modDestinationDescription);
-	controlWidths.add(modulatorComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 452));
+		identifiers.add("mod" + (String)(i + 1) + "Destination"); // 72, 75, 78, 81
+		exposedNames.add("Modulator " + (String)(i + 1) + " Destination");
+		controlTypes.add(ControlType::comboBox);
+		NRPNs.add((uint8)67 + (uint8)3 * i);
+		converters.add(IntToModDestinationString::get());
+		maxValues.add((uint8)46);
+		defaultValues.add((uint8)0);
+		descriptions.add(modDestinationDescription);
+		controlWidths.add(modulatorComboBox_w);
+		controlHeights.add(comboBox_h);
+		controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 218 + i * modulatorControlsVerticalSpacing));
+	}
 
 	//======================================================
 
