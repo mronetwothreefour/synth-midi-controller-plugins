@@ -5,11 +5,7 @@
 #include "global/global_GlobalParametersComponent.h"
 #include "global/global_NRPNisOffWarningComponent.h"
 #include "global/global_SysExIsOffWarningComponent.h"
-#include "gui/gui_Colors.h"
-#include "gui/gui_Fonts.h"
-#include "gui/gui_InfoForMainWindowLabels_Singleton.h"
 #include "gui/gui_Layer_ExposedParamControls.h"
-#include "gui/gui_Logo.h"
 #include "gui/gui_LookAndFeel.h"
 #include "guiRenderers/guiRenderer_ForEnvelopes.h"
 #include "midi/midi_GlobalParametersDump.h"
@@ -32,7 +28,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
-    logo{ new Logo() },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     rendererForEnvelope_LPF{ new RendererForEnvelopes("lpf", exposedParams) },
     rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
@@ -52,7 +47,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    addAndMakeVisible(logo.get());
+    MemoryInputStream memInputStream{ BinaryData::MophoGUIMainWindowBackground_png, BinaryData::MophoGUIMainWindowBackground_pngSize, false };
+    PNGImageFormat imageFormat;
+    auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+    backgroundImageComponent.reset(new ImageComponent("backgroundImageComponent"));
+    backgroundImageComponent->setImage(backgroundImage);
+    addAndMakeVisible(backgroundImageComponent.get());
+
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(rendererForEnvelope_LPF.get());
     addAndMakeVisible(rendererForEnvelope_VCA.get());
@@ -107,28 +108,8 @@ void PluginEditor::showNRPNisOffWarningComponent() {
     }
 }
 
-void PluginEditor::paint(Graphics& g) {
-    g.fillAll(Color::device);
-    g.setColour(Color::controlLabelText);
-    auto& info{ InfoForMainWindowLabels::get() };
-    for (uint16 label = 0; label != info.labelOutOfRange(); ++label) {
-        Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, info.fontSizeFor(label) };
-        g.setFont(font);
-        Rectangle<int> labelArea{ info.widthFor(label), info.heightFor(label) };
-        labelArea.setCentre(info.centerPointFor(label));
-        g.drawFittedText(info.textFor(label), labelArea, info.justificationFlagFor(label), 1, 1.0f);
-    }
-    g.drawHorizontalLine(85, 15.0f, 295.0f);
-    Rectangle<int> pgmNameBackground{ 580, 33, 242, 37 };
-    g.fillRect(pgmNameBackground);
-    Font infoLineFont{ FontsDB::family_Global, FontsDB::style_ForPluginInfoLine, FontsDB::size_ForPluginInfoLine };
-    g.setFont(infoLineFont);
-    Rectangle<int> infoLineArea{ 580, 118, 227, 16 };
-    g.drawText("Build " + (String)ProjectInfo::versionString + "  |  Mister 1-2-3-4 Programming", infoLineArea, Justification::centred);
-}
-
 void PluginEditor::resized() {
-    logo->setBounds(901, 13, logo->getWidth(), logo->getHeight());
+    backgroundImageComponent->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     auto envRenderers_x{ 168 };
     rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
@@ -224,5 +205,5 @@ PluginEditor::~PluginEditor() {
     rendererForEnvelope_VCA = nullptr;
     rendererForEnvelope_LPF = nullptr;
     exposedParamsControlsLayer = nullptr;
-    logo = nullptr;
+    backgroundImageComponent = nullptr;
 }

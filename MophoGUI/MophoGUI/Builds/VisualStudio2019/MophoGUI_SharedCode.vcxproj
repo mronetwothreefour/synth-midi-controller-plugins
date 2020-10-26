@@ -307,6 +307,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_PluginProgramBanks.cpp" />
@@ -2212,7 +2213,6 @@
     <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\gui\gui_Logo.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp" />
@@ -2279,6 +2279,7 @@
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h" />
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_PluginProgramBanks.h" />
@@ -3035,7 +3036,6 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
-    <ClInclude Include="..\..\Source\gui\gui_Logo.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h" />
     <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h" />

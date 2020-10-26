@@ -6,14 +6,7 @@
 
 
 
-void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& slider) {
-	if (slider.getComponentID() == ID::component_Knob.toString()) {
-		g.setColour(Color::black);
-		g.fillEllipse(slider.getLocalBounds().reduced(5, 5).toFloat());
-	}
-	if (slider.getComponentID() == ID::component_SeqStep.toString()) {
-		g.fillAll(Color::black);
-	}
+void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& /*slider*/) {
 	Point<float> sliderCenter{ float(w) / 2.0f, float(w) / 2.0f };
 	auto pointerAngle = startAngle + sliderPos * (endAngle - startAngle);
 	Line<float> line;
@@ -134,12 +127,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 	}
 }
 
-void GUILookAndFeel::drawComboBox(Graphics& g, int width, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
-	g.fillAll(Color::black);
-	g.setColour(Color::device);
-	Path iconPath;
-	iconPath.addTriangle(float(width - 11), 6.0f, float(width - 3), 6.0f, float(width - 7), 10.0f);
-	g.fillPath(iconPath);
+void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
 }
 
 void GUILookAndFeel::positionComboBoxText(ComboBox& box, Label& label) {

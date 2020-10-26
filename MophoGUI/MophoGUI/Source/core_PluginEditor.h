@@ -33,7 +33,7 @@ class PluginEditor :
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
-    std::unique_ptr<Logo> logo;
+    std::unique_ptr<ImageComponent> backgroundImageComponent;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_LPF;
     std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
@@ -64,7 +64,6 @@ private:
     void showNRPNisOffWarningComponent();
 
 public:
-    void paint(Graphics&) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
