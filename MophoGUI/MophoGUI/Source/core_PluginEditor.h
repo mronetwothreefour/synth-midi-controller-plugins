@@ -6,6 +6,7 @@
 
 
 
+class EnvelopeRenderersLayer;
 class ExposedParamsControlsLayer;
 class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
@@ -20,7 +21,6 @@ class GUILookAndFeel;
 class Logo;
 class NRPNisOffWarningComponent;
 class ProgramBanksComponent;
-class RendererForEnvelopes;
 class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
@@ -34,10 +34,8 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<ImageComponent> backgroundImageComponent;
+    std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_LPF;
-    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_VCA;
-    std::unique_ptr<RendererForEnvelopes> rendererForEnvelope_Env3;
     std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
     std::unique_ptr<ButtonForPerformingRedo> button_ForPerformingRedo;
     std::unique_ptr<ButtonForPerformingUndo> button_ForPerformingUndo;

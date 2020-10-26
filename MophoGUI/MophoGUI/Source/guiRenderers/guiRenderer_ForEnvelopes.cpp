@@ -62,21 +62,7 @@ void RendererForEnvelopes::set_sustain_y() {
 }
 
 void RendererForEnvelopes::paint(Graphics& g) {
-	g.fillAll(Color::black);
 	g.setColour(Color::controlText);
-	paintBaseline(g);
-	paintEnvelope(g);
-}
-
-void RendererForEnvelopes::paintBaseline(Graphics& g) {
-	Line<float> baseline{ envelopeStart_x, minimum_y, envelopeEnd_x, minimum_y };
-	float dashes[2];
-	dashes[0] = 5.0f;
-	dashes[1] = 5.0f;
-	g.drawDashedLine(baseline, dashes, 2);
-}
-
-void RendererForEnvelopes::paintEnvelope(Graphics& g) {
 	Path path;
 	path.startNewSubPath(envelopeStart_x, minimum_y);
 	path.lineTo(attackStart_x, minimum_y);
@@ -85,7 +71,7 @@ void RendererForEnvelopes::paintEnvelope(Graphics& g) {
 	path.lineTo(releaseStart_x, sustain_y);
 	path.lineTo(releaseEnd_x, minimum_y);
 	path.lineTo(envelopeEnd_x, minimum_y);
-	PathStrokeType strokeType{ 2.0f, PathStrokeType::mitered, PathStrokeType::rounded };
+	PathStrokeType strokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
 	g.strokePath(path, strokeType);
 }
 

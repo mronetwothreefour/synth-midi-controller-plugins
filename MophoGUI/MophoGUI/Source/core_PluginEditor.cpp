@@ -5,9 +5,9 @@
 #include "global/global_GlobalParametersComponent.h"
 #include "global/global_NRPNisOffWarningComponent.h"
 #include "global/global_SysExIsOffWarningComponent.h"
+#include "gui/gui_Layer_EnvelopeRenderers.h"
 #include "gui/gui_Layer_ExposedParamControls.h"
 #include "gui/gui_LookAndFeel.h"
-#include "guiRenderers/guiRenderer_ForEnvelopes.h"
 #include "midi/midi_GlobalParametersDump.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
@@ -28,10 +28,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
+    envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
-    rendererForEnvelope_LPF{ new RendererForEnvelopes("lpf", exposedParams) },
-    rendererForEnvelope_VCA{ new RendererForEnvelopes("vca", exposedParams) },
-    rendererForEnvelope_Env3{ new RendererForEnvelopes("env3", exposedParams) },
     button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
@@ -54,10 +52,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     backgroundImageComponent->setImage(backgroundImage);
     addAndMakeVisible(backgroundImageComponent.get());
 
+    addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(rendererForEnvelope_LPF.get());
-    addAndMakeVisible(rendererForEnvelope_VCA.get());
-    addAndMakeVisible(rendererForEnvelope_Env3.get());
     addAndMakeVisible(button_ForEditingPgmName.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
@@ -110,11 +106,9 @@ void PluginEditor::showNRPNisOffWarningComponent() {
 
 void PluginEditor::resized() {
     backgroundImageComponent->setBounds(getLocalBounds());
+    envelopeRenderersLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     auto envRenderers_x{ 168 };
-    rendererForEnvelope_LPF->setBounds(envRenderers_x, 154, rendererForEnvelope_LPF->getWidth(), rendererForEnvelope_LPF->getHeight());
-    rendererForEnvelope_VCA->setBounds(envRenderers_x, 312, rendererForEnvelope_VCA->getWidth(), rendererForEnvelope_VCA->getHeight());
-    rendererForEnvelope_Env3->setBounds(envRenderers_x, 470, rendererForEnvelope_Env3->getWidth(), rendererForEnvelope_Env3->getHeight());
     button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
@@ -201,9 +195,7 @@ PluginEditor::~PluginEditor() {
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForSendingProgramEditBufferDump = nullptr;
     button_ForEditingPgmName = nullptr;
-    rendererForEnvelope_Env3 = nullptr;
-    rendererForEnvelope_VCA = nullptr;
-    rendererForEnvelope_LPF = nullptr;
     exposedParamsControlsLayer = nullptr;
+    envelopeRenderersLayer = nullptr;
     backgroundImageComponent = nullptr;
 }

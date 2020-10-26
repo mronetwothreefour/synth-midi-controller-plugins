@@ -65,5 +65,3 @@ void GlobalAudioOptions::setGlobalBalance(uint8 newBalance) {
 	globalAudioOptionsTree.setProperty(ID::global_Balance, newBalance, nullptr);
 }
 
-GlobalAudioOptions::~GlobalAudioOptions() {
-}

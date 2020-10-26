@@ -27,7 +27,6 @@ public:
 	void setHardwareOutputMono();
 	uint8 globalBalance();
 	void setGlobalBalance(uint8 newBalance);
-	~GlobalAudioOptions();
 
 private:
 	//==============================================================================

@@ -48,8 +48,6 @@ private:
 	void set_releaseEnd_x();
 	void set_sustain_y();
 	void paint(Graphics& g) override;
-	void paintBaseline(Graphics& g);
-	void paintEnvelope(Graphics& g);
 
 public:
 	~RendererForEnvelopes();
