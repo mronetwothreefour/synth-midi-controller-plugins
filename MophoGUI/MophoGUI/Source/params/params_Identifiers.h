@@ -6,6 +6,8 @@
 
 namespace ID
 {
+	static const Identifier button_PgmNameEdit{ "button_PgmNameEdit" };
+
 	static const Identifier component_DisplayLabel{ "component_DisplayLabel" };
 	static const Identifier component_EditLabel{ "component_EditLabel" };
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };

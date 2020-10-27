@@ -2210,6 +2210,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
@@ -3033,6 +3034,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h" />
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />

@@ -5,8 +5,14 @@ namespace BinaryData
     extern const char* MophoGUIMainWindowBackground_png;
     const int            MophoGUIMainWindowBackground_pngSize = 97029;
 
+    extern const char* ButtonDownProgramNameEdit_png;
+    const int            ButtonDownProgramNameEdit_pngSize = 514;
+
+    extern const char* ButtonUpProgramNameEdit_png;
+    const int            ButtonUpProgramNameEdit_pngSize = 495;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 3;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

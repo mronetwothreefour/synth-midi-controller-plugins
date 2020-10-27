@@ -1,15 +1,17 @@
 #include "widget_ButtonForOpeningPgmNameEditor.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForOpeningPgmNameEditor::ButtonForOpeningPgmNameEditor(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, Label& pgmNameEditor) :
-	BaseButtonWithOnClickAndTooltipMethods{ "EDIT", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	pgmNameEditor{ pgmNameEditor }
 {
+	setComponentID(ID::button_PgmNameEdit.toString());
 	setTooltip(createButtonTooltipString());
 }
 

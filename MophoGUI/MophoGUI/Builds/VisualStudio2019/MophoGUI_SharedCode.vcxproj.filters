@@ -2632,6 +2632,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5113,6 +5114,9 @@
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>

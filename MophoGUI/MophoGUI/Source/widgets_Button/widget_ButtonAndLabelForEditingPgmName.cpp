@@ -30,7 +30,7 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	auto buttonAndEditor_w{ 222 };
 	auto buttonAndEditor_h{ 50 };
 	setSize(buttonAndEditor_w, buttonAndEditor_h);
-	button_ForOpeningPgmNameEditor.setBounds(115, 0, 42, 16);
+	button_ForOpeningPgmNameEditor.setBounds(118, 0, 44, 18);
 	pgmNameEditor.setBounds(0, 32, 242, 18);
 }
 

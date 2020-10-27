@@ -2,13 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"
 
 
-
-class EnvelopeRenderersLayer;
-class ExposedParamsControlsLayer;
-class ButtonAndLabelForEditingPgmName;
 class ButtonForClearingSequencerTrack;
 class ButtonForPerformingRedo;
 class ButtonForPerformingUndo;
@@ -16,9 +11,11 @@ class ButtonForSendingProgramEditBufferDump;
 class ButtonForSendingProgramEditBufferDumpRequest;
 class ButtonForShowingProgramBanksComponent;
 class ButtonForShowingGlobalParametersComponent;
+class ButtonsLayer;
+class EnvelopeRenderersLayer;
+class ExposedParamsControlsLayer;
 class GlobalParametersComponent;
 class GUILookAndFeel;
-class Logo;
 class NRPNisOffWarningComponent;
 class ProgramBanksComponent;
 class SysExIsOffWarningComponent;
@@ -33,10 +30,9 @@ class PluginEditor :
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
-    std::unique_ptr<ImageComponent> backgroundImageComponent;
     std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<ButtonAndLabelForEditingPgmName> button_ForEditingPgmName;
+    std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<ButtonForPerformingRedo> button_ForPerformingRedo;
     std::unique_ptr<ButtonForPerformingUndo> button_ForPerformingUndo;
     std::unique_ptr<ButtonForSendingProgramEditBufferDump> button_ForSendingProgramEditBufferDump;
@@ -62,6 +58,7 @@ private:
     void showNRPNisOffWarningComponent();
 
 public:
+    void paint(Graphics& g) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 

@@ -85,14 +85,24 @@ TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) 
 }
 
 void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
-	auto baseColor{ Color::button };
-	if (isDown)
-		baseColor = baseColor.darker(0.5f);
-	g.setColour(baseColor);
-	g.fillAll(baseColor);
-	LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 2,
-		isDown ? Color::button.darker(1.0f) : Color::button.brighter(0.5f),
-		isDown ? Color::button.brighter(0.45f) : Color::button.darker(1.5f), false);
+	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) {
+		auto buttonImageData{ isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png };
+		auto buttonImageDataSize{ isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize };
+		MemoryInputStream memInputStream{ buttonImageData, (size_t)buttonImageDataSize, false };
+		PNGImageFormat imageFormat;
+		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+		g.drawImageAt(buttonImage, 0, 0);
+	}
+	else {
+		auto baseColor{ Color::button };
+		if (isDown)
+			baseColor = baseColor.darker(0.5f);
+		g.setColour(baseColor);
+		g.fillAll(baseColor);
+		LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 2,
+			isDown ? Color::button.darker(1.0f) : Color::button.brighter(0.5f),
+			isDown ? Color::button.brighter(0.45f) : Color::button.darker(1.5f), false);
+	}
 }
 
 void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHighlighted*/, bool isDown) {

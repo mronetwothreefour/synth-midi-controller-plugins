@@ -5,13 +5,13 @@
 #include "global/global_GlobalParametersComponent.h"
 #include "global/global_NRPNisOffWarningComponent.h"
 #include "global/global_SysExIsOffWarningComponent.h"
+#include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_EnvelopeRenderers.h"
 #include "gui/gui_Layer_ExposedParamControls.h"
 #include "gui/gui_LookAndFeel.h"
 #include "midi/midi_GlobalParametersDump.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
-#include "widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
 #include "widgets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "widgets_Button/widget_ButtonForPerformingUndo.h"
@@ -30,7 +30,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
-    button_ForEditingPgmName{ new ButtonAndLabelForEditingPgmName(exposedParams, unexposedParams) },
+    buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
     button_ForShowingProgramBanksComponent{ new ButtonForShowingProgramBanksComponent(unexposedParams) },
@@ -45,16 +45,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    MemoryInputStream memInputStream{ BinaryData::MophoGUIMainWindowBackground_png, BinaryData::MophoGUIMainWindowBackground_pngSize, false };
-    PNGImageFormat imageFormat;
-    auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-    backgroundImageComponent.reset(new ImageComponent("backgroundImageComponent"));
-    backgroundImageComponent->setImage(backgroundImage);
-    addAndMakeVisible(backgroundImageComponent.get());
-
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(button_ForEditingPgmName.get());
+    addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
     addAndMakeVisible(button_ForShowingProgramBanksComponent.get());
@@ -104,12 +97,17 @@ void PluginEditor::showNRPNisOffWarningComponent() {
     }
 }
 
+void PluginEditor::paint(Graphics& g) {
+    MemoryInputStream memInputStream{ BinaryData::MophoGUIMainWindowBackground_png, BinaryData::MophoGUIMainWindowBackground_pngSize, false };
+    PNGImageFormat imageFormat;
+    auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+    g.drawImageAt(backgroundImage, 0, 0);
+}
+
 void PluginEditor::resized() {
-    backgroundImageComponent->setBounds(getLocalBounds());
     envelopeRenderersLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
-    auto envRenderers_x{ 168 };
-    button_ForEditingPgmName->setBounds(590, 11, button_ForEditingPgmName->getWidth(), button_ForEditingPgmName->getHeight());
+    buttonsLayer->setBounds(getLocalBounds());
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
     auto utilityButtons_h{ 21 };
@@ -194,8 +192,7 @@ PluginEditor::~PluginEditor() {
     button_ForShowingProgramBanksComponent = nullptr;
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForSendingProgramEditBufferDump = nullptr;
-    button_ForEditingPgmName = nullptr;
+    buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;
-    backgroundImageComponent = nullptr;
 }
