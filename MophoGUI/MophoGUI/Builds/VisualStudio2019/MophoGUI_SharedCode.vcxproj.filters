@@ -2385,9 +2385,6 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
       <Filter>MophoGUI\Source\_core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.cpp">
-      <Filter>MophoGUI\Source\gui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClCompile>
@@ -4843,9 +4840,6 @@
       <Filter>MophoGUI\Source\_core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Colors.h">
-      <Filter>MophoGUI\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_InfoForMainWindowLabels_Singleton.h">
       <Filter>MophoGUI\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
