@@ -3,7 +3,7 @@
 namespace BinaryData
 {
     extern const char* MophoGUIMainWindowBackground_png;
-    const int MophoGUIMainWindowBackground_pngSize = 96925;
+    const int            MophoGUIMainWindowBackground_pngSize = 97029;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 1;
