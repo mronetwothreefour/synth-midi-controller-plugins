@@ -1,5 +1,6 @@
 #include "widget_banks_ButtonForPullingEntireBankFromHardware.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -8,6 +9,7 @@ ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(U
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Pull.toString());
 	setTooltip(createButtonTooltipString());
 }
 

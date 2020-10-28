@@ -53,8 +53,44 @@ namespace BinaryData
     extern const char* ButtonUpClear_png;
     const int            ButtonUpClear_pngSize = 629;
 
+    extern const char* ButtonDownClose_png;
+    const int            ButtonDownClose_pngSize = 669;
+
+    extern const char* ButtonUpClose_png;
+    const int            ButtonUpClose_pngSize = 661;
+
+    extern const char* ButtonDownLoad_png;
+    const int            ButtonDownLoad_pngSize = 633;
+
+    extern const char* ButtonUpLoad_png;
+    const int            ButtonUpLoad_pngSize = 598;
+
+    extern const char* ButtonDownSave_png;
+    const int            ButtonDownSave_pngSize = 629;
+
+    extern const char* ButtonUpSave_png;
+    const int            ButtonUpSave_pngSize = 635;
+
+    extern const char* ButtonDownPush_png;
+    const int            ButtonDownPush_pngSize = 600;
+
+    extern const char* ButtonUpPush_png;
+    const int            ButtonUpPush_pngSize = 586;
+
+    extern const char* ButtonDownPull_png;
+    const int            ButtonDownPull_pngSize = 546;
+
+    extern const char* ButtonUpPull_png;
+    const int            ButtonUpPull_pngSize = 528;
+
+    extern const char* ButtonDownReset_png;
+    const int            ButtonDownReset_pngSize = 640;
+
+    extern const char* ButtonUpReset_png;
+    const int            ButtonUpReset_pngSize = 615;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 17;
+    const int namedResourceListSize = 29;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

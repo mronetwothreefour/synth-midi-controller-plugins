@@ -50,7 +50,7 @@ void ProgramBankTab::resized() {
 	programSlots.setBounds(15, 14, programSlots.getWidth(), programSlots.getHeight());
 	auto buttons_y{ 334 };
 	auto buttons_w{ 50 };
-	auto buttons_h{ 21 };
+	auto buttons_h{ 22 };
 	button_ForLoadingSelectedProgram.setBounds(184, buttons_y, buttons_w, buttons_h);
 	button_ForSavingProgramInSelectedSlot.setBounds(244, buttons_y, buttons_w, buttons_h);
 	button_ForPushingSelectedProgramToHardware.setBounds(304, buttons_y, buttons_w, buttons_h);

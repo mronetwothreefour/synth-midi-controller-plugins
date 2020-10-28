@@ -1,6 +1,7 @@
 #include "banks_ProgramBanksComponent.h"
 
 #include "../gui/gui_Colors.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../widgets_BankTransmission/widget_BankTransmissionComponent.h"
 
@@ -9,7 +10,7 @@
 ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	tabbedComponent{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	button_ForClosingProgramBanks{ "CLOSE" },
+	button_ForClosingProgramBanks{ "" },
 	button_ForPushingEntireBankToHardware{ unexposedParams },
 	button_ForPullingEntireBankFromHardware{ unexposedParams },
 	button_ForResettingAllBanksToFactoryDefaults{ unexposedParams }
@@ -23,10 +24,11 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	auto tabbedComponent_y{ (getHeight() - tabbedComponent_h) / 2 };
 	tabbedComponent.setBounds(tabbedComponent_x, tabbedComponent_y, tabbedComponent_w, tabbedComponent_h);
 
+	button_ForClosingProgramBanks.setComponentID(ID::button_Close.toString());
 	addAndMakeVisible(button_ForClosingProgramBanks);
 	auto buttons_w{ 50 };
-	auto buttons_h{ 21 };
-	button_ForClosingProgramBanks.setBounds(1114, 116, buttons_w, buttons_h);
+	auto buttons_h{ 22 };
+	button_ForClosingProgramBanks.setBounds(1115, 117, buttons_w, buttons_h);
 	button_ForClosingProgramBanks.onClick = [this] { hideThisComponent(); };
 	button_ForClosingProgramBanks.setAlwaysOnTop(true);
 

@@ -1,6 +1,7 @@
 #include "widget_banks_ButtonForLoadingSelectedProgram.h"
 
 #include "../banks/banks_ProgramSlotsWidget.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -10,6 +11,7 @@ ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(ProgramSlotsWid
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Load.toString());
 	setTooltip(createButtonTooltipString());
 }
 

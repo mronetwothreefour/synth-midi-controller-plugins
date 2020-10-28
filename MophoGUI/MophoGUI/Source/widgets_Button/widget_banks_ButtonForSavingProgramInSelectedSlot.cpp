@@ -1,6 +1,7 @@
 #include "widget_banks_ButtonForSavingProgramInSelectedSlot.h"
 
 #include "../banks/banks_ProgramSlotsWidget.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -10,6 +11,7 @@ ButtonForSavingProgramInSelectedSlot::ButtonForSavingProgramInSelectedSlot(Progr
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Save.toString());
 	setTooltip(createButtonTooltipString());
 }
 

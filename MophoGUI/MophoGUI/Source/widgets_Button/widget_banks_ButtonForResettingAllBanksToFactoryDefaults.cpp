@@ -1,6 +1,7 @@
 #include "widget_banks_ButtonForResettingAllBanksToFactoryDefaults.h"
 
 #include "../banks/banks_PluginProgramBanks.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -9,6 +10,7 @@ ButtonForResettingAllBanksToFactoryDefaults::ButtonForResettingAllBanksToFactory
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Reset.toString());
 	setTooltip(createButtonTooltipString());
 }
 

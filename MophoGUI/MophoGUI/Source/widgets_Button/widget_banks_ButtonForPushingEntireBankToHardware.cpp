@@ -1,6 +1,7 @@
 #include "widget_banks_ButtonForPushingEntireBankToHardware.h"
 
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -9,6 +10,7 @@ ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(Unexp
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Push.toString());
 	setTooltip(createButtonTooltipString());
 }
 
