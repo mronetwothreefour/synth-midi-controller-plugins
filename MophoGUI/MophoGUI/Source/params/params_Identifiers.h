@@ -6,7 +6,21 @@
 
 namespace ID
 {
+	static const Identifier button_Banks{ "button_Banks" };
+	static const Identifier button_Banks_Load{ "button_Banks_Load" };
+	static const Identifier button_Banks_PullBank{ "button_Banks_PullBank" };
+	static const Identifier button_Banks_PullPgm{ "button_Banks_PullPgm" };
+	static const Identifier button_Banks_PushBank{ "button_Banks_PushBank" };
+	static const Identifier button_Banks_PushPgm{ "button_Banks_PushPgm" };
+	static const Identifier button_Banks_Reset{ "button_Banks_Reset" };
+	static const Identifier button_Banks_Save{ "button_Banks_Reset" };
+	static const Identifier button_Clear{ "button_Clear" };
+	static const Identifier button_Global{ "button_Global" };
 	static const Identifier button_PgmNameEdit{ "button_PgmNameEdit" };
+	static const Identifier button_Read{ "button_Read" };
+	static const Identifier button_Redo{ "button_Redo" };
+	static const Identifier button_Undo{ "button_Undo" };
+	static const Identifier button_Write{ "button_Write" };
 
 	static const Identifier component_DisplayLabel{ "component_DisplayLabel" };
 	static const Identifier component_EditLabel{ "component_EditLabel" };

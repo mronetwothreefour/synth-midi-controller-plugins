@@ -1,15 +1,17 @@
 #include "widget_ButtonForClearingSequencerTrack.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForClearingSequencerTrack::ButtonForClearingSequencerTrack(int trackNum, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "CLEAR", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	trackNum{ trackNum },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Clear.toString());
 	setTooltip(createButtonTooltipString());
 }
 

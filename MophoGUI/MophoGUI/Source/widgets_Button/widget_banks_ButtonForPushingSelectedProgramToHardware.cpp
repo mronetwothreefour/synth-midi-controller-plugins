@@ -6,7 +6,7 @@
 
 
 ButtonForPushingSelectedProgramToHardware::ButtonForPushingSelectedProgramToHardware(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "PUSH", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {

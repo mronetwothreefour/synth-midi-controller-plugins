@@ -6,7 +6,7 @@
 
 
 ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "LOAD", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {

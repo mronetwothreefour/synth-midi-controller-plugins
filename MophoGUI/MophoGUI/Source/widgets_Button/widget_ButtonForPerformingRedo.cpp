@@ -1,13 +1,15 @@
 #include "widget_ButtonForPerformingRedo.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForPerformingRedo::ButtonForPerformingRedo(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "REDO", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Redo.toString());
 	setTooltip(createButtonTooltipString());
 }
 

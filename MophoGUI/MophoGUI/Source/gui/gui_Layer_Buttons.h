@@ -1,7 +1,8 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "../widgets_Button//widget_ButtonAndLabelForEditingPgmName.h"
+#include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "../widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
 
 
 

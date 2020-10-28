@@ -1,13 +1,15 @@
 #include "widget_ButtonForShowingProgramBanksComponent.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForShowingProgramBanksComponent::ButtonForShowingProgramBanksComponent(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "BANKS", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Banks.toString());
 	setTooltip(createButtonTooltipString());
 }
 

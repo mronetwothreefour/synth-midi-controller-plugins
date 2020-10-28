@@ -1,13 +1,15 @@
 #include "widget_ButtonForPerformingUndo.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForPerformingUndo::ButtonForPerformingUndo(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "UNDO", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Undo.toString());
 	setTooltip(createButtonTooltipString());
 }
 

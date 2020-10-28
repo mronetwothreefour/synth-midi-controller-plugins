@@ -6,7 +6,7 @@
 
 
 ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFromHardware(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "PULL", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {

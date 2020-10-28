@@ -110,22 +110,22 @@ void PluginEditor::resized() {
     buttonsLayer->setBounds(getLocalBounds());
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
-    auto utilityButtons_h{ 21 };
+    auto utilityButtons_h{ 22 };
     button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForShowingProgramBanksComponent->setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForShowingGlobalParametersComponent->setBounds(769, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto undoRedoButtons_x{ 837 };
-    auto undoRedoButtons_w{ 40 };
-    button_ForPerformingUndo->setBounds(undoRedoButtons_x, 27, undoRedoButtons_w, utilityButtons_h);
-    button_ForPerformingRedo->setBounds(undoRedoButtons_x, 56, undoRedoButtons_w, utilityButtons_h);
+    auto undoRedoButtons_w{ 44 };
+    button_ForPerformingUndo->setBounds(undoRedoButtons_x, 26, undoRedoButtons_w, utilityButtons_h);
+    button_ForPerformingRedo->setBounds(undoRedoButtons_x, 55, undoRedoButtons_w, utilityButtons_h);
     auto clearSeqTrackButtons_x{ 1166 };
-    auto clearSeqTrackButtons_w{ 42 };
-    auto clearSeqTrackButtons_h{ 16 };
-    button_ForClearingSequencerTrack1->setBounds(clearSeqTrackButtons_x, 161, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack2->setBounds(clearSeqTrackButtons_x, 244, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack3->setBounds(clearSeqTrackButtons_x, 327, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack4->setBounds(clearSeqTrackButtons_x, 410, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    auto clearSeqTrackButtons_w{ 46 };
+    auto clearSeqTrackButtons_h{ 18 };
+    button_ForClearingSequencerTrack1->setBounds(clearSeqTrackButtons_x, 160, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack2->setBounds(clearSeqTrackButtons_x, 243, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack3->setBounds(clearSeqTrackButtons_x, 326, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
+    button_ForClearingSequencerTrack4->setBounds(clearSeqTrackButtons_x, 409, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
     button_ForGoingToWebSite->setBounds(644, 122, 157, 9);
 }
 

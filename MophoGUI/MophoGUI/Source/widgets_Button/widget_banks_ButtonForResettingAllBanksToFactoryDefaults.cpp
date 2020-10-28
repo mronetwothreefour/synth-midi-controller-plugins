@@ -6,7 +6,7 @@
 
 
 ButtonForResettingAllBanksToFactoryDefaults::ButtonForResettingAllBanksToFactoryDefaults(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "RESET", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());

@@ -5,7 +5,7 @@
 
 
 ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "PULL", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());

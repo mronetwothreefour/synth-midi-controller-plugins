@@ -85,31 +85,59 @@ TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) 
 }
 
 void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
-	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) {
-		auto buttonImageData{ isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png };
-		auto buttonImageDataSize{ isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize };
-		MemoryInputStream memInputStream{ buttonImageData, (size_t)buttonImageDataSize, false };
-		PNGImageFormat imageFormat;
+	PNGImageFormat imageFormat;
+	auto buttonImageData{ getButtonImageData(button, isDown) };
+	auto buttonImageDataSize{ getButtonImageDataSize(button, isDown) };
+	if (buttonImageData != nullptr) {
+		MemoryInputStream memInputStream{ buttonImageData, buttonImageDataSize, false };
 		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
 		g.drawImageAt(buttonImage, 0, 0);
 	}
-	else {
-		auto baseColor{ Color::button };
-		if (isDown)
-			baseColor = baseColor.darker(0.5f);
-		g.setColour(baseColor);
-		g.fillAll(baseColor);
-		LookAndFeel_V2::drawBevel(g, 0, 0, button.getWidth(), button.getHeight(), 2,
-			isDown ? Color::button.darker(1.0f) : Color::button.brighter(0.5f),
-			isDown ? Color::button.brighter(0.45f) : Color::button.darker(1.5f), false);
-	}
 }
 
-void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHighlighted*/, bool isDown) {
-	Font font{ FontsDB::family_Global, FontsDB::style_ForButtonText, FontsDB::size_ForButtonText };
-	g.setFont(font);
-	g.setColour(isDown ? Color::controlText.darker(0.5f) : Color::controlText);
-	g.drawFittedText(button.getButtonText(), 0, 0, button.getWidth(), button.getHeight(), Justification::centred, 1);
+const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Banks.toString())
+		return isDown ? BinaryData::ButtonDownBanks_png : BinaryData::ButtonUpBanks_png;
+	if (button.getComponentID() == ID::button_Clear.toString())
+		return isDown ? BinaryData::ButtonDownClear_png : BinaryData::ButtonUpClear_png;
+	if (button.getComponentID() == ID::button_Global.toString())
+		return isDown ? BinaryData::ButtonDownGlobal_png : BinaryData::ButtonUpGlobal_png;
+	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) 
+		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
+	if (button.getComponentID() == ID::button_Read.toString()) 
+		return isDown ? BinaryData::ButtonDownRead_png : BinaryData::ButtonUpRead_png;
+	if (button.getComponentID() == ID::button_Redo.toString()) 
+		return isDown ? BinaryData::ButtonDownRedo_png : BinaryData::ButtonUpRedo_png;
+	if (button.getComponentID() == ID::button_Undo.toString()) 
+		return isDown ? BinaryData::ButtonDownUndo_png : BinaryData::ButtonUpUndo_png;
+	if (button.getComponentID() == ID::button_Write.toString()) 
+		return isDown ? BinaryData::ButtonDownWrite_png : BinaryData::ButtonUpWrite_png;
+	else
+		return nullptr;
+}
+
+size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Banks.toString())
+		return size_t(isDown ? BinaryData::ButtonDownBanks_pngSize : BinaryData::ButtonUpBanks_pngSize);
+	if (button.getComponentID() == ID::button_Clear.toString())
+		return size_t(isDown ? BinaryData::ButtonDownClear_pngSize : BinaryData::ButtonUpClear_pngSize);
+	if (button.getComponentID() == ID::button_Global.toString())
+		return size_t(isDown ? BinaryData::ButtonDownGlobal_pngSize : BinaryData::ButtonUpGlobal_pngSize);
+	if (button.getComponentID() == ID::button_PgmNameEdit.toString())
+		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);
+	if (button.getComponentID() == ID::button_Read.toString())
+		return size_t(isDown ? BinaryData::ButtonDownRead_pngSize : BinaryData::ButtonUpRead_pngSize);
+	if (button.getComponentID() == ID::button_Redo.toString())
+		return size_t(isDown ? BinaryData::ButtonDownRedo_pngSize : BinaryData::ButtonUpRedo_pngSize);
+	if (button.getComponentID() == ID::button_Undo.toString())
+		return size_t(isDown ? BinaryData::ButtonDownUndo_pngSize : BinaryData::ButtonUpUndo_pngSize);
+	if (button.getComponentID() == ID::button_Write.toString())
+		return size_t(isDown ? BinaryData::ButtonDownWrite_pngSize : BinaryData::ButtonUpWrite_pngSize);
+	else
+		return 0;
+}
+
+void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
 
 void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) {

@@ -6,7 +6,7 @@
 
 
 ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "PUSH", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());

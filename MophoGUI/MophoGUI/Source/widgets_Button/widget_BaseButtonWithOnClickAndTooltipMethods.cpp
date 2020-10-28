@@ -5,8 +5,8 @@
 
 
 
-BaseButtonWithOnClickAndTooltipMethods::BaseButtonWithOnClickAndTooltipMethods(String buttonText, UnexposedParameters* unexposedParams) :
-	TextButton{ buttonText },
+BaseButtonWithOnClickAndTooltipMethods::BaseButtonWithOnClickAndTooltipMethods(UnexposedParameters* unexposedParams) :
+	TextButton{ "" },
 	unexposedParams{ unexposedParams }
 {
 	unexposedParams->tooltipOptions_get()->addListener(this);

@@ -6,7 +6,7 @@
 
 
 ButtonForOpeningPgmNameEditor::ButtonForOpeningPgmNameEditor(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, Label& pgmNameEditor) :
-	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	pgmNameEditor{ pgmNameEditor }

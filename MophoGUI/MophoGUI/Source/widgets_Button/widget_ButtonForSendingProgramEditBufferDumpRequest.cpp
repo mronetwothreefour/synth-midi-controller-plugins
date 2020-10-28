@@ -1,14 +1,16 @@
 #include "widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
 #include "../midi/midi_ProgramEditBufferDump.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForSendingProgramEditBufferDumpRequest::ButtonForSendingProgramEditBufferDumpRequest(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "READ", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Read.toString());
 	setTooltip(createButtonTooltipString());
 }
 

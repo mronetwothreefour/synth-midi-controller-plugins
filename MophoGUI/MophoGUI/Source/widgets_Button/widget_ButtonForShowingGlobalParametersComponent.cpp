@@ -2,14 +2,16 @@
 
 #include "widget_ButtonForShowingProgramBanksComponent.h"
 
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForShowingGlobalParametersComponent::ButtonForShowingGlobalParametersComponent(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "GLOBAL", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Global.toString());
 	setTooltip(createButtonTooltipString());
 }
 

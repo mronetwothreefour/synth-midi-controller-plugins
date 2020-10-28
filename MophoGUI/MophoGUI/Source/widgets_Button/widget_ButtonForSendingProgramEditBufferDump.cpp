@@ -1,15 +1,17 @@
 #include "widget_ButtonForSendingProgramEditBufferDump.h"
 
 #include "../midi/midi_ProgramEditBufferDump.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 ButtonForSendingProgramEditBufferDump::ButtonForSendingProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "WRITE", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_Write.toString());
 	setTooltip(createButtonTooltipString());
 }
 

@@ -6,7 +6,7 @@
 
 
 ButtonForSavingProgramInSelectedSlot::ButtonForSavingProgramInSelectedSlot(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "SAVE", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {
