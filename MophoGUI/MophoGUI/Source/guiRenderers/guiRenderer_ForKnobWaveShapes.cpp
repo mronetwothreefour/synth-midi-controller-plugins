@@ -38,8 +38,7 @@ void RendererForKnobWaveShapes::paint(Graphics& g) {
 }
 
 void RendererForKnobWaveShapes::paintText(Graphics& g, String text) {
-	Font font{ FontsMenu::family_Global, FontsMenu::style_ForKnobValueDisplay, FontsMenu::size_ForKnobValueDisplay };
-	g.setFont(font);
+	g.setFont(FontsMenu::fontFor_KnobValueDisplays);
 	g.drawText(text, getLocalBounds(), Justification::centred);
 }
 

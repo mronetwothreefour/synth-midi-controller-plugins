@@ -1057,7 +1057,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(knob_diameter);
 	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(1238, 528));
+	controlCenterPoints.add(Point<int>(1239, 528));
 
 	identifiers.add("pushItMode"); // 94
 	exposedNames.add("Push It! Switch Mode");

@@ -49,8 +49,7 @@ void ProgramBanksTabbedComponent::editorShown(Label* label, TextEditor& editor) 
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto midiOptions{ unexposedParams->midiOptions_get() };
-		Font labelFont{ FontsMenu::family_Global, FontsMenu::style_ForLabelText, FontsMenu::size_ForLabelText };
-		editor.setFont(labelFont);
+		editor.setFont(FontsMenu::fontFor_Labels);
 		editor.setText((String)midiOptions->programTransmitTime());
 		editor.selectAll();
 	}

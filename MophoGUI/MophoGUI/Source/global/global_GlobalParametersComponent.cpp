@@ -255,8 +255,7 @@ void GlobalParametersComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_ForSettingTooltipDelay) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-		Font labelFont{ FontsMenu::family_Global, FontsMenu::style_ForLabelText, FontsMenu::size_ForLabelText };
-		editor.setFont(labelFont);
+		editor.setFont(FontsMenu::fontFor_Labels);
 		editor.setText((String)tooltipOptions->delayInMilliseconds());
 		editor.selectAll();
 	}
