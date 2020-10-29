@@ -61,7 +61,7 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 
 void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
 	Rectangle<int> bounds(width, height);
-	g.setColour(Color::black.brighter(0.2f));
+	g.setColour(Color::black.brighter(0.1f));
 	g.fillRect(bounds.toFloat());
 	g.setColour(Color::white);
 	g.drawRect(bounds.toFloat(), 2.0f);
@@ -70,13 +70,10 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
-	Font tooltipFont(FontsMenu::family_Global, FontsMenu::style_ForTooltipText, FontsMenu::size_ForTooltipText);
 	const int maxToolTipWidth = 400;
-
 	AttributedString s;
 	s.setJustification(Justification::centred);
-	s.append(text, tooltipFont, colour);
-
+	s.append(text, FontsMenu::fontFor_Tooltips, colour);
 	TextLayout tl;
 	tl.createLayout(s, (float)maxToolTipWidth);
 	return tl;

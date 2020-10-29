@@ -1308,7 +1308,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
 			descriptionString =  "Sets the value that sequencer track " + trackString + apostrophe + "s destination parameter has at step " + stepString + ",\n";
-			descriptionString += "Range: 0 to 125. If the destination is an oscillator pitch, the range is C0 to D5+.\n";
+			descriptionString += "Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.\n";
 			descriptionString += "A " + openQuote + "+" + closeQuote + " indicates that the pitch is a quarter-tone higher than the displayed note.\n";
 			descriptionString += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
 			if (track == 0) {
