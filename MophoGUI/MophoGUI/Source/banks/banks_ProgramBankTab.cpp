@@ -31,19 +31,10 @@ ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposed
 }
 
 void ProgramBankTab::paint(Graphics& g) {
-	g.setColour(Color::black);
-	Font font{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForPgmBanksWindowLabels };
-	g.setFont(font);
-	auto label_y{ 333 };
-	auto label_h{ 21 };
-	Rectangle<int> selectedPgmLabelArea{ 15, label_y, 164, label_h };
-	g.drawText("SELECTED PROGRAM :", selectedPgmLabelArea, Justification::right);
-	Rectangle<int> entireBankLabelArea{ 445, label_y, 110, label_h };
-	g.drawText("ENTIRE BANK :", entireBankLabelArea, Justification::right);
-	Rectangle<int> txTimeLabelArea{ 692, label_y, 130, label_h };
-	g.drawText("TRANSMIT TIME :", txTimeLabelArea, Justification::right);
-	Rectangle<int> allBanksLabelArea{ 899, label_y, 96, label_h };
-	g.drawText("ALL BANKS :", allBanksLabelArea, Justification::right);
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ BinaryData::ProgramBanksTabBackground_png, BinaryData::ProgramBanksTabBackground_pngSize, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(buttonImage, 0, 0);
 }
 
 void ProgramBankTab::resized() {
@@ -51,10 +42,15 @@ void ProgramBankTab::resized() {
 	auto buttons_y{ 334 };
 	auto buttons_w{ 50 };
 	auto buttons_h{ 22 };
-	button_ForLoadingSelectedProgram.setBounds(184, buttons_y, buttons_w, buttons_h);
-	button_ForSavingProgramInSelectedSlot.setBounds(244, buttons_y, buttons_w, buttons_h);
-	button_ForPushingSelectedProgramToHardware.setBounds(304, buttons_y, buttons_w, buttons_h);
-	button_ForPullingSelectedProgramFromHardware.setBounds(364, buttons_y, buttons_w, buttons_h);
+	auto buttons_horizontalSpacing{ 60 };
+	auto loadButton_x{ 183 };
+	auto saveButton_x{ loadButton_x + buttons_horizontalSpacing };
+	auto pushButton_x{ saveButton_x + buttons_horizontalSpacing };
+	auto pullButton_x{ pushButton_x + buttons_horizontalSpacing };
+	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForSavingProgramInSelectedSlot.setBounds(saveButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForPushingSelectedProgramToHardware.setBounds(pushButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForPullingSelectedProgramFromHardware.setBounds(pullButton_x, buttons_y, buttons_w, buttons_h);
 }
 
 ApplicationCommandTarget* ProgramBankTab::getNextCommandTarget() {

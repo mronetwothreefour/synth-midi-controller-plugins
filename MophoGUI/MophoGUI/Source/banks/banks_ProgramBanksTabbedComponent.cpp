@@ -16,9 +16,9 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTree
 {
 	setTabBarDepth(30);
 	setOutline(0);
-	addTab("Bank 1", Color::device, &bank1, true, 1);
-	addTab("Bank 2", Color::device, &bank2, true, 2);
-	addTab("Bank 3", Color::device, &bank3, true, 3);
+	addTab("BANK    1", Color::device, &bank1, true, 1);
+	addTab("BANK    2", Color::device, &bank2, true, 2);
+	addTab("BANK    3", Color::device, &bank3, true, 3);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
 	auto tab_w{ bank1.getWidth() };
 	auto tab_h{ bank1.getHeight() };

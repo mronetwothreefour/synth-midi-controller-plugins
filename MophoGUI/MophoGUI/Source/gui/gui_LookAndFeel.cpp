@@ -267,10 +267,23 @@ void GUILookAndFeel::drawTabButton(TabBarButton& button, Graphics& g, bool /*isM
 		g.setColour(bkg.darker(0.06f));
 	}
 	g.fillRect(activeArea);
-	Font font(FontsDB::family_Global, FontsDB::style_ForTabText, FontsDB::size_ForTabText);
-	g.setFont(font);
-	g.setColour(Color::controlLabelText);
-	g.drawFittedText(button.getButtonText(), activeArea, Justification::centred, 1, 1.0f);
+	PNGImageFormat imageFormat;
+	Image buttonImage;
+	if (button.getIndex() == 0) {
+		MemoryInputStream memInputStream{ BinaryData::LabelBank1_png, BinaryData::LabelBank1_pngSize, false };
+		buttonImage = imageFormat.decodeImage(memInputStream);
+	}
+	if (button.getIndex() == 1) {
+		MemoryInputStream memInputStream{ BinaryData::LabelBank2_png, BinaryData::LabelBank2_pngSize, false };
+		buttonImage = imageFormat.decodeImage(memInputStream);
+	}
+	if (button.getIndex() == 2) {
+		MemoryInputStream memInputStream{ BinaryData::LabelBank3_png, BinaryData::LabelBank3_pngSize, false };
+		buttonImage = imageFormat.decodeImage(memInputStream);
+	}
+	auto image_x{ (activeArea.getWidth() - buttonImage.getWidth()) / 2 };
+	auto image_y{ (activeArea.getHeight() - buttonImage.getHeight()) / 2 };
+	g.drawImageAt(buttonImage, image_x, image_y);
 }
 
 void GUILookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
