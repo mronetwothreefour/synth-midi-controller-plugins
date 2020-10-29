@@ -1,6 +1,7 @@
 #include "widget_ButtonAndLabelForEditingPgmName.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -15,6 +16,7 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	setInterceptsMouseClicks(false, true);
 
 	pgmNameEditor.setInterceptsMouseClicks(false, true);
+	pgmNameEditor.setFont(FontsMenu::fontFor_PgmNameEditorText);
 	pgmNameEditor.setComponentID(ID::component_PgmNameEditLabel.toString());
 	pgmNameEditor.setJustificationType(Justification::centredLeft);
 	pgmNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);

@@ -34,8 +34,7 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
 		if (label.getComponentID() == ID::component_PgmNameEditLabel.toString()) {
-			Font pgmNameEditFont{ FontsMenu::family_Global, FontsMenu::style_ForPgmNameEditorText, FontsMenu::size_ForPgmNameEditorText };
-			g.setFont(pgmNameEditFont);
+			g.setFont(FontsMenu::fontFor_PgmNameEditorText);
 			g.setColour(Colours::transparentBlack);
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
@@ -181,8 +180,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::black);
-		Font font{ FontsMenu::family_Global, FontsMenu::style_ForPgmSlotButtonText, FontsMenu::size_ForPgmSlotButtonText };
-		g.setFont(font);
+		g.setFont(FontsMenu::fontFor_PgmSlotButtons);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
