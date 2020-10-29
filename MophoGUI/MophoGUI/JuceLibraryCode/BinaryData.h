@@ -2,6 +2,9 @@
 
 namespace BinaryData
 {
+    extern const char* OverpassBold_ttf;
+    const int            OverpassBold_ttfSize = 123228;
+
     extern const char* MophoGUIMainWindowBackground_png;
     const int            MophoGUIMainWindowBackground_pngSize = 97029;
 
@@ -102,7 +105,7 @@ namespace BinaryData
     const int            LabelBank3_pngSize = 536;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 33;
+    const int namedResourceListSize = 34;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

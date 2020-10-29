@@ -7,6 +7,7 @@
 namespace Color
 {
 	static const Colour black{ 0xff000000 };
+	static const Colour bullseye{ 0xffffbe00 };
 	static const Colour button{ 0xff850000 };
 	static const Colour device{ 0xffde9600 };
 	static const Colour controlText{ 0xffffffff };

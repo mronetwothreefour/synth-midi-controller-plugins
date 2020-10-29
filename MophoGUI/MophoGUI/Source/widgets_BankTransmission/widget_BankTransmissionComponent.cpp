@@ -87,11 +87,11 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	Rectangle<int> progressDisplayBackground{ 466, 238, 341, 150 };
 	g.fillRect(progressDisplayBackground);
 	g.setColour(Color::black);
-	Font titleFont{ FontsDB::family_Global, FontsDB::style_ForProgressDisplayTitle, FontsDB::size_ForProgressDisplayTitle };
+	Font titleFont{ FontsMenu::family_Global, FontsMenu::style_ForProgressDisplayTitle, FontsMenu::size_ForProgressDisplayTitle };
 	g.setFont(titleFont);
 	Rectangle<int> titleArea{ 476, 248, 321, 30 };
 	g.drawFittedText(title, titleArea, Justification::centred, 1, 1.0f);
-	Font messageFont{ FontsDB::family_Global, FontsDB::style_ForProgressDisplayMessage, FontsDB::size_ForProgressDisplayMessage };
+	Font messageFont{ FontsMenu::family_Global, FontsMenu::style_ForProgressDisplayMessage, FontsMenu::size_ForProgressDisplayMessage };
 	g.setFont(messageFont);
 	Rectangle<int> messageArea{ 476, 278, 321, 30 };
 	g.drawFittedText(message, messageArea, Justification::centred, 1, 1.0f);

@@ -38,7 +38,7 @@ void RendererForKnobWaveShapes::paint(Graphics& g) {
 }
 
 void RendererForKnobWaveShapes::paintText(Graphics& g, String text) {
-	Font font{ FontsDB::family_Global, FontsDB::style_ForKnobValueDisplay, FontsDB::size_ForKnobValueDisplay };
+	Font font{ FontsMenu::family_Global, FontsMenu::style_ForKnobValueDisplay, FontsMenu::size_ForKnobValueDisplay };
 	g.setFont(font);
 	g.drawText(text, getLocalBounds(), Justification::centred);
 }
@@ -82,7 +82,7 @@ void RendererForKnobWaveShapes::paintPulse(Graphics& g, Path path, PathStrokeTyp
 	path.addLineSegment(line3, 0.5f);
 	path.addLineSegment(line4, 0.5f);
 	g.strokePath(path, strokeType);
-	Font pwText{ FontsDB::family_Global, FontsDB::style_ForPulseWidthText, FontsDB::size_ForPulseWidthText };
+	Font pwText{ FontsMenu::family_Global, FontsMenu::style_ForPulseWidthText, FontsMenu::size_ForPulseWidthText };
 	g.setFont(pwText);
 	Rectangle<int> pwTextArea{ 6, 18, 18, 11 };
 	g.drawText((String)(pulseWidth), pwTextArea, Justification::centred);

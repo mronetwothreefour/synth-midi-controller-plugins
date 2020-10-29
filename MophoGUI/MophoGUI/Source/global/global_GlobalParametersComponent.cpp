@@ -110,12 +110,12 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillRect(componentBackground);
 
 	g.setColour(Color::black);
-	Font componentLabelFont{ FontsDB::family_Global, FontsDB::style_ForComponentTitle, FontsDB::size_ForComponentTitle };
+	Font componentLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForComponentTitle, FontsMenu::size_ForComponentTitle };
 	g.setFont(componentLabelFont);
 	Rectangle<int> componentLabelArea{ 525, 121, 165, 21 };
 	g.drawText("GLOBAL PARAMETERS", componentLabelArea, Justification::left, false);
 
-	Font controlLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
+	Font controlLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForControlLabels, FontsMenu::size_ForControlLabels };
 	g.setFont(controlLabelFont);
 	auto knobLabels_w{ 70 };
 	auto comboBoxLabels_w{ 111 };
@@ -255,7 +255,7 @@ void GlobalParametersComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_ForSettingTooltipDelay) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-		Font labelFont{ FontsDB::family_Global, FontsDB::style_ForLabelText, FontsDB::size_ForLabelText };
+		Font labelFont{ FontsMenu::family_Global, FontsMenu::style_ForLabelText, FontsMenu::size_ForLabelText };
 		editor.setFont(labelFont);
 		editor.setText((String)tooltipOptions->delayInMilliseconds());
 		editor.selectAll();

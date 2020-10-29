@@ -34,7 +34,7 @@ void NRPNisOffWarningComponent::paint(Graphics& g) {
 	g.fillRect(componentBackground);
 
 	g.setColour(Color::black);
-	Font componentLabelFont{ FontsDB::family_Global, FontsDB::style_ForComponentTitle, FontsDB::size_ForComponentTitle };
+	Font componentLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForComponentTitle, FontsMenu::size_ForComponentTitle };
 	g.setFont(componentLabelFont);
 	Rectangle<int> componentLabelArea{ componentOutline_x, 220, componentOutline_w, 21 };
 	g.drawText("COMMUNICATION ERROR!", componentLabelArea, Justification::centredTop, false);
@@ -49,7 +49,7 @@ void NRPNisOffWarningComponent::paint(Graphics& g) {
 	msg += "\n";
 	msg += "Click the Retry button to check these parameters again. If they\n";
 	msg += "are properly set, this warning window will close automatically.";
-	Font boldMessageFont{ FontsDB::family_Global, FontsDB::style_ForBoldHardwareSettingsWarningMessage, FontsDB::size_ForBoldHardwareSettingsWarningMessage };
+	Font boldMessageFont{ FontsMenu::family_Global, FontsMenu::style_ForBoldHardwareSettingsWarningMessage, FontsMenu::size_ForBoldHardwareSettingsWarningMessage };
 	g.setFont(boldMessageFont);
 	g.drawMultiLineText(msg, componentOutline_x, 260, componentOutline_w, Justification::centred, 2.0f);
 }

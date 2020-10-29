@@ -44,7 +44,7 @@ void RendererForSequencerStepValues::paintTrack1RestDot(Graphics& g) {
 
 void RendererForSequencerStepValues::paintStepValueString(Graphics& g, uint8 stepValue) {
 	jassert(stepValue < 126);
-	Font font(FontsDB::family_Global, FontsDB::style_ForSeqStepValueDisplay, FontsDB::size_ForSeqStepValueDisplay);
+	Font font(FontsMenu::family_Global, FontsMenu::style_ForSeqStepValueDisplay, FontsMenu::size_ForSeqStepValueDisplay);
 	g.setFont(font);
 	g.drawText(generateStringForValue(stepValue), getLocalBounds(), Justification::centred);
 }

@@ -20,8 +20,7 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int
 }
 
 void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
-	Font labelFont{ FontsDB::family_Global, FontsDB::style_ForLabelText, FontsDB::size_ForLabelText };
-	g.setFont(labelFont);
+	g.setFont(FontsMenu::fontFor_Labels);
 	g.setColour(Color::controlText);
 	if (label.getComponentID() != "") {
 		if (label.getComponentID() == ID::component_EditLabel.toString()) {
@@ -29,13 +28,13 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
 		if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
-			Font displayLabelFont{ FontsDB::family_Global, FontsDB::style_ForControlLabels, FontsDB::size_ForControlLabels };
+			Font displayLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForControlLabels, FontsMenu::size_ForControlLabels };
 			g.setFont(displayLabelFont);
 			g.setColour(label.findColour(label.textColourId));
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
 		if (label.getComponentID() == ID::component_PgmNameEditLabel.toString()) {
-			Font pgmNameEditFont{ FontsDB::family_Global, FontsDB::style_ForPgmNameEditorText, FontsDB::size_ForPgmNameEditorText };
+			Font pgmNameEditFont{ FontsMenu::family_Global, FontsMenu::style_ForPgmNameEditorText, FontsMenu::size_ForPgmNameEditorText };
 			g.setFont(pgmNameEditFont);
 			g.setColour(Colours::transparentBlack);
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
@@ -72,7 +71,7 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
-	Font tooltipFont(FontsDB::family_Global, FontsDB::style_ForTooltipText, FontsDB::size_ForTooltipText);
+	Font tooltipFont(FontsMenu::family_Global, FontsMenu::style_ForTooltipText, FontsMenu::size_ForTooltipText);
 	const int maxToolTipWidth = 400;
 
 	AttributedString s;
@@ -182,7 +181,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::black);
-		Font font{ FontsDB::family_Global, FontsDB::style_ForPgmSlotButtonText, FontsDB::size_ForPgmSlotButtonText };
+		Font font{ FontsMenu::family_Global, FontsMenu::style_ForPgmSlotButtonText, FontsMenu::size_ForPgmSlotButtonText };
 		g.setFont(font);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
@@ -212,23 +211,20 @@ void GUILookAndFeel::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) 
 void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*isSeparator*/, const bool isActive, const bool isHighlighted, 
 	const bool isTicked, const bool hasSubMenu, const String& text, const String& /*shortcutText*/, const Drawable* /*icon*/, const Colour* const /*textColor*/)
 {
-	auto textColour{ Color::controlText };
 	auto reducedArea = area.reduced(1);
 	if (isHighlighted && isActive) {
 		g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
 		g.fillRect(reducedArea);
-		g.setColour(findColour(PopupMenu::highlightedTextColourId));
+	}
+	reducedArea.reduce(jmin(5, area.getWidth() / 20), 0);
+	g.setFont(FontsMenu::fontFor_PopupMenuItems);
+	auto iconArea = reducedArea.removeFromLeft(5).toFloat();
+	if (isTicked) {
+		g.setColour(Color::bullseye);
+		g.fillEllipse(4, 6, 4, 4);
 	}
 	else
-		g.setColour(textColour.withMultipliedAlpha(isActive ? 1.0f : 0.5f));
-	reducedArea.reduce(jmin(5, area.getWidth() / 20), 0);
-	Font font{ FontsDB::family_Global, FontsDB::style_ForPopupMenuItem, FontsDB::size_ForPopupMenuItem };
-	g.setFont(font);
-	auto iconArea = reducedArea.removeFromLeft(8).toFloat();
-	if (isTicked) {
-		auto tick{ getTickShape(8.0f) };
-		g.fillPath(tick, AffineTransform::translation(0.0f, 4.0f));
-	}
+		g.setColour(Color::controlText);
 	if (hasSubMenu) {
 		auto arrowH = 0.6f * getPopupMenuFont().getAscent();
 		auto x = static_cast<float> (reducedArea.removeFromRight((int)arrowH).getX());

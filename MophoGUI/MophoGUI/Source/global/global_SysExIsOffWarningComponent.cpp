@@ -33,7 +33,7 @@ void SysExIsOffWarningComponent::paint(Graphics& g) {
 	g.fillRect(componentBackground);
 
 	g.setColour(Color::black);
-	Font componentLabelFont{ FontsDB::family_Global, FontsDB::style_ForComponentTitle, FontsDB::size_ForComponentTitle };
+	Font componentLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForComponentTitle, FontsMenu::size_ForComponentTitle };
 	g.setFont(componentLabelFont);
 	Rectangle<int> componentLabelArea{ componentOutline_x, 159, componentOutline_w, 21 };
 	g.drawText("COMMUNICATION ERROR!", componentLabelArea, Justification::centredTop, false);
@@ -44,7 +44,7 @@ void SysExIsOffWarningComponent::paint(Graphics& g) {
 	msg += "System exclusive communication is needed for this plugin to function correctly.\n";
 	msg += "\n";
 	msg += "Here are some possible fixes:\n";
-	Font boldMessageFont{ FontsDB::family_Global, FontsDB::style_ForBoldHardwareSettingsWarningMessage, FontsDB::size_ForBoldHardwareSettingsWarningMessage };
+	Font boldMessageFont{ FontsMenu::family_Global, FontsMenu::style_ForBoldHardwareSettingsWarningMessage, FontsMenu::size_ForBoldHardwareSettingsWarningMessage };
 	g.setFont(boldMessageFont);
 	g.drawMultiLineText(msg, componentOutline_x, 194, componentOutline_w, Justification::centred, 2.0f);
 
@@ -58,7 +58,7 @@ void SysExIsOffWarningComponent::paint(Graphics& g) {
 	msg += "input, and that the plugin's output is routed to the MIDI out port sending messages to the\n";
 	msg += "Mopho. Make sure that input monitoring is enabled for the track and that MIDI output isn't\n";
 	msg += "muted or disabled. Make sure that the host is not filtering out system exclusive messages.";
-	Font messageFont{ FontsDB::family_Global, FontsDB::style_ForHardwareSettingsWarningMessage, FontsDB::size_ForHardwareSettingsWarningMessage };
+	Font messageFont{ FontsMenu::family_Global, FontsMenu::style_ForHardwareSettingsWarningMessage, FontsMenu::size_ForHardwareSettingsWarningMessage };
 	g.setFont(messageFont);
 	g.drawMultiLineText(msg, 421, 270, 438, Justification::left, 2.0f);
 

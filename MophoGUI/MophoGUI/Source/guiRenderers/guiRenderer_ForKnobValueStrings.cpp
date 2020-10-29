@@ -17,7 +17,7 @@ RendererForKnobValueStrings::RendererForKnobValueStrings(Slider* knob, IntToCont
 }
 
 void RendererForKnobValueStrings::paint(Graphics& g) {
-	Font font(FontsDB::family_Global, FontsDB::style_ForKnobValueDisplay, FontsDB::size_ForKnobValueDisplay);
+	Font font(FontsMenu::family_Global, FontsMenu::style_ForKnobValueDisplay, FontsMenu::size_ForKnobValueDisplay);
 	g.setFont(font);
 	g.setColour(Color::controlText);
 	g.drawText(valueString, getLocalBounds(), Justification::centred);
