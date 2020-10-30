@@ -26,7 +26,7 @@ private:
 	double progress;
 	ProgressBar progressBar;
 	TextButton button_Stop;
-	TextButton button_OK;
+	TextButton button_Close;
 
 public:
 	BankTransmissionComponent() = delete;
@@ -41,8 +41,10 @@ public:
 	void paint(Graphics& g) override;
 
 private:
+	const char* getTitleLabelImageData();
+	size_t getTitleLabelImageDataSize();
 	void cancelTransmission();
-	void makeOKbuttonVisible();
+	void makeClosebuttonVisible();
 	void hideThisComponent();
 
 public:

@@ -4,6 +4,7 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_ProgramDump.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -19,8 +20,8 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBanksTabbedComponent
 	programCounter{ 128 },
 	progress{ 0.0 },
 	progressBar{ progress },
-	button_Stop{ "STOP" },
-	button_OK{ "OK" }
+	button_Stop{ "" },
+	button_Close{ "" }
 {
 	addAndMakeVisible(progressBar);
 	auto progressBar_x{ 508 };
@@ -29,15 +30,17 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBanksTabbedComponent
 	auto progressBar_h{ 18 };
 	progressBar.setBounds(progressBar_x, progressBar_y, progressBar_w, progressBar_h);
 
-	addChildComponent(button_OK);
+	button_Close.setComponentID(ID::button_Close.toString());
+	button_Stop.setComponentID(ID::button_Stop.toString());
+	addChildComponent(button_Close);
 	addAndMakeVisible(button_Stop);
-	button_OK.onClick = [this] { hideThisComponent(); };
+	button_Close.onClick = [this] { hideThisComponent(); };
 	button_Stop.onClick = [this] { cancelTransmission(); };
 	auto button_x{ 611 };
 	auto button_y{ 352 };
 	auto button_w{ 51 };
 	auto button_h{ 21 };
-	button_OK.setBounds(button_x, button_y, button_w, button_h);
+	button_Close.setBounds(button_x, button_y, button_w, button_h);
 	button_Stop.setBounds(button_x, button_y, button_w, button_h);
 
 	setSize(1273, 626);
@@ -60,7 +63,7 @@ void BankTransmissionComponent::timerCallback() {
 	}
 	else {
 		message = "Transmission Complete";
-		makeOKbuttonVisible();
+		makeClosebuttonVisible();
 		repaint();
 	}
 }
@@ -86,27 +89,52 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::device);
 	Rectangle<int> progressDisplayBackground{ 466, 238, 341, 150 };
 	g.fillRect(progressDisplayBackground);
+	PNGImageFormat imageFormat;
+	auto titleLabelImageData{ getTitleLabelImageData() };
+	auto titleLabelImageDataSize{ getTitleLabelImageDataSize() };
+	if (titleLabelImageData != nullptr) {
+		MemoryInputStream memInputStream{ titleLabelImageData, titleLabelImageDataSize, false };
+		auto titleLabelImage{ imageFormat.decodeImage(memInputStream) };
+		g.drawImageAt(titleLabelImage, 466, 238);
+	}
 	g.setColour(Color::black);
-	Font titleFont{ FontsMenu::family_Global, FontsMenu::style_ForProgressDisplayTitle, FontsMenu::size_ForProgressDisplayTitle };
-	g.setFont(titleFont);
-	Rectangle<int> titleArea{ 476, 248, 321, 30 };
-	g.drawFittedText(title, titleArea, Justification::centred, 1, 1.0f);
-	Font messageFont{ FontsMenu::family_Global, FontsMenu::style_ForProgressDisplayMessage, FontsMenu::size_ForProgressDisplayMessage };
-	g.setFont(messageFont);
+	g.setFont(FontsMenu::fontFor_ProgressDisplayMessage);
 	Rectangle<int> messageArea{ 476, 278, 321, 30 };
 	g.drawFittedText(message, messageArea, Justification::centred, 1, 1.0f);
+}
+
+const char* BankTransmissionComponent::getTitleLabelImageData() {
+	if (bank == 0)
+		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_png : BinaryData::LabelPushAllBank1_png;
+	if (bank == 1)
+		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_png : BinaryData::LabelPushAllBank2_png;
+	if (bank == 2)
+		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_png : BinaryData::LabelPushAllBank3_png;
+	else
+		return nullptr;
+}
+
+size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
+	if (bank == 0)
+		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_pngSize : BinaryData::LabelPushAllBank1_pngSize);
+	if (bank == 1)
+		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_pngSize : BinaryData::LabelPushAllBank2_pngSize);
+	if (bank == 2)
+		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_pngSize : BinaryData::LabelPushAllBank3_pngSize);
+	else
+		return (size_t)0;
 }
 
 void BankTransmissionComponent::cancelTransmission() {
 	stopTimer();
 	message = "Transmission Canceled";
-	makeOKbuttonVisible();
+	makeClosebuttonVisible();
 	repaint();
 }
 
-void BankTransmissionComponent::makeOKbuttonVisible() {
+void BankTransmissionComponent::makeClosebuttonVisible() {
 	button_Stop.setVisible(false);
-	button_OK.setVisible(true);
+	button_Close.setVisible(true);
 }
 
 void BankTransmissionComponent::hideThisComponent() {

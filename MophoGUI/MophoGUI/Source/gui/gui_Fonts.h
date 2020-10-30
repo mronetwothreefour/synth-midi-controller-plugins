@@ -21,13 +21,13 @@ namespace FontsMenu
 	static const Font fontFor_PgmNameEditorText{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 21.0f, 0.0f) };
 	static const Font fontFor_PgmSlotButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 16.0f, 0.0f) };
 	static const Font fontFor_PopupMenuItems{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 14.5f, 0.0f) };
+	static const Font fontFor_ProgressDisplayMessage{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 21.0f, 0.0f) };
 	static const Font fontFor_PulseWidthText{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 11.0f, 0.0f) };
 	static const Font fontFor_SeqSteps{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 13.5f, 0.0f) };
 	static const Font fontFor_Tooltips{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 16.0f, 0.0f) };
 
 	static const String family_Global{ "Arial" };
 
-	static const String style_ForProgressDisplayMessage{ "Bold" };
 	static const String style_ForProgressDisplayTitle{ "Black" };
 	static const String style_ForControlLabels{ "Black" };
 	static const String style_ForComponentTitle{ "Black" };
@@ -35,7 +35,6 @@ namespace FontsMenu
 	static const String style_ForBoldHardwareSettingsWarningMessage{ "Bold" };
 	static const String style_ForHardwareSettingsWarningMessage{ "Regular" };
 
-	static const float size_ForProgressDisplayMessage{ 17.0f };
 	static const float size_ForProgressDisplayTitle{ 25.0f };
 	static const float size_ForControlLabels{ 12.0f };
 	static const float size_ForComponentTitle{ 18.0f };
