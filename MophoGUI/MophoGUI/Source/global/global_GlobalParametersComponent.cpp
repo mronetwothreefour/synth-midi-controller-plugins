@@ -38,6 +38,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	toggle_ForCurrentSettingTooltip{ unexposedParams },
 	label_ForSettingTooltipDelay{ unexposedParams }
 {
+	button_ForClosingGlobalParameters.setComponentID(ID::button_Close.toString());
 	addAndMakeVisible(button_ForClosingGlobalParameters);
 	button_ForClosingGlobalParameters.onClick = [this] { hideThisComponent(); };
 
@@ -98,60 +99,10 @@ void GlobalParametersComponent::hideThisComponent() {
 
 void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
-	g.setColour(Color::black);
-	auto componentOutline_w{ 245 };
-	auto componentOutline_h{ 396 };
-	auto componentOutline_x{ (getWidth() - componentOutline_w) / 2 };
-	auto componentOutline_y{ (getHeight() - componentOutline_h) / 2 };
-	Rectangle<int> componentOutline{ componentOutline_x, componentOutline_y, componentOutline_w, componentOutline_h };
-	g.fillRect(componentOutline);
-	g.setColour(Color::device);
-	auto componentBackground{ componentOutline.reduced(2, 2) };
-	g.fillRect(componentBackground);
-
-	g.setColour(Color::black);
-	Font componentLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForComponentTitle, FontsMenu::size_ForComponentTitle };
-	g.setFont(componentLabelFont);
-	Rectangle<int> componentLabelArea{ 525, 121, 165, 21 };
-	g.drawText("GLOBAL PARAMETERS", componentLabelArea, Justification::left, false);
-
-	Font controlLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForControlLabels, FontsMenu::size_ForControlLabels };
-	g.setFont(controlLabelFont);
-	auto knobLabels_w{ 70 };
-	auto comboBoxLabels_w{ 111 };
-	auto tooltipLabels_w{ 158 };
-	auto labels_h{ 16 };
-	auto knobLabels_h{ 14 };
-	auto knobLabelRow1_y{ 189 };
-	auto knobLabelRow2_y{ knobLabelRow1_y + 9 };
-	auto horizSpaceBetweenKnobs{ 75 };
-	auto knobLabelCol1_x{ 527 };
-	auto knobLabelCol2_x{ knobLabelCol1_x + horizSpaceBetweenKnobs };
-	auto knobLabelCol3_x{ knobLabelCol2_x + horizSpaceBetweenKnobs };
-	auto comboBoxAndToggleLabels_x{ componentOutline_x };
-	auto vertSpaceBetweenLabels{ 20 };
-	auto labelRow1_y{ 226 };
-	auto labelRow2_y{ labelRow1_y + vertSpaceBetweenLabels };
-	auto labelRow3_y{ labelRow2_y + vertSpaceBetweenLabels };
-	auto labelRow4_y{ labelRow3_y + vertSpaceBetweenLabels };
-	auto labelRow5_y{ 421 };
-	auto labelRow6_y{ labelRow5_y + vertSpaceBetweenLabels };
-	auto labelRow7_y{ labelRow6_y + vertSpaceBetweenLabels };
-	auto labelRow8_y{ labelRow7_y + vertSpaceBetweenLabels };
-	g.drawFittedText("MASTER", knobLabelCol1_x, knobLabelRow1_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("TRANSPOSE", knobLabelCol1_x, knobLabelRow2_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("MASTER", knobLabelCol2_x, knobLabelRow1_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("FINE TUNE", knobLabelCol2_x, knobLabelRow2_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("MIDI", knobLabelCol3_x, knobLabelRow1_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("CHANNEL", knobLabelCol3_x, knobLabelRow2_y, knobLabels_w, knobLabels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("MIDI CLOCK", comboBoxAndToggleLabels_x, labelRow1_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PEDAL MODE", comboBoxAndToggleLabels_x, labelRow2_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PROGRAM CHANGE", comboBoxAndToggleLabels_x, labelRow3_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("PARAMETER SEND", comboBoxAndToggleLabels_x, labelRow4_y, comboBoxLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("TOOLTIPS FOR GUI CONTROLS:", comboBoxAndToggleLabels_x, labelRow5_y, componentOutline_w, labels_h, Justification::centred, 1, 1.0f);
-	g.drawFittedText("SHOW DESCRIPTION", comboBoxAndToggleLabels_x, labelRow6_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("SHOW CURRENT SETTING", comboBoxAndToggleLabels_x, labelRow7_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
-	g.drawFittedText("DELAY BEFORE SHOWING", comboBoxAndToggleLabels_x, labelRow8_y, tooltipLabels_w, labels_h, Justification::centredRight, 1, 1.0f);
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ BinaryData::GlobalParametersBackground_png, BinaryData::GlobalParametersBackground_pngSize, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(buttonImage, 514, 115);
 }
 
 void GlobalParametersComponent::resized() {

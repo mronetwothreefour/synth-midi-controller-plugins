@@ -28,8 +28,7 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
 		if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
-			Font displayLabelFont{ FontsMenu::family_Global, FontsMenu::style_ForControlLabels, FontsMenu::size_ForControlLabels };
-			g.setFont(displayLabelFont);
+			g.setFont(FontsMenu::fontFor_DisplayLabels);
 			g.setColour(label.findColour(label.textColourId));
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}

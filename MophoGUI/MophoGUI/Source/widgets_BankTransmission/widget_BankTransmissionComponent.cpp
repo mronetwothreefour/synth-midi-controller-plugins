@@ -37,9 +37,9 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBanksTabbedComponent
 	button_Close.onClick = [this] { hideThisComponent(); };
 	button_Stop.onClick = [this] { cancelTransmission(); };
 	auto button_x{ 611 };
-	auto button_y{ 352 };
+	auto button_y{ 349 };
 	auto button_w{ 51 };
-	auto button_h{ 21 };
+	auto button_h{ 22 };
 	button_Close.setBounds(button_x, button_y, button_w, button_h);
 	button_Stop.setBounds(button_x, button_y, button_w, button_h);
 
