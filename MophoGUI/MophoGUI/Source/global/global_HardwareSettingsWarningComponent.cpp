@@ -1,14 +1,15 @@
 #include "global_HardwareSettingsWarningComponent.h"
 
 #include "../midi/midi_GlobalParametersDump.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 HardwareSettingsWarningComponent::HardwareSettingsWarningComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	button_ForClosingComponent{ "CLOSE" },
-	button_ForSendingGlobalParametersDumpRequest{ "RETRY" }
+	button_ForClosingComponent{ "" },
+	button_ForSendingGlobalParametersDumpRequest{ "" }
 {
 	button_ForSendingGlobalParametersDumpRequest.onClick = [this] { sendRequestForGlobalParametersDump(); };
 	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
@@ -16,6 +17,8 @@ HardwareSettingsWarningComponent::HardwareSettingsWarningComponent(UnexposedPara
 }
 
 void HardwareSettingsWarningComponent::addButtonsToComponent() {
+	button_ForSendingGlobalParametersDumpRequest.setComponentID(ID::button_Retry.toString());
+	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	addAndMakeVisible(button_ForSendingGlobalParametersDumpRequest);
 	addAndMakeVisible(button_ForClosingComponent);
 }

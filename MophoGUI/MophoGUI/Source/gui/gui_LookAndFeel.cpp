@@ -92,32 +92,49 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return isDown ? BinaryData::ButtonDownBanks_png : BinaryData::ButtonUpBanks_png;
+
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return isDown ? BinaryData::ButtonDownClear_png : BinaryData::ButtonUpClear_png;
+
 	if (button.getComponentID() == ID::button_Close.toString())
 		return isDown ? BinaryData::ButtonDownClose_png : BinaryData::ButtonUpClose_png;
+
 	if (button.getComponentID() == ID::button_Global.toString())
 		return isDown ? BinaryData::ButtonDownGlobal_png : BinaryData::ButtonUpGlobal_png;
+
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
+
 	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) 
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
+
 	if (button.getComponentID() == ID::button_Pull.toString()) 
 		return isDown ? BinaryData::ButtonDownPull_png : BinaryData::ButtonUpPull_png;
+
 	if (button.getComponentID() == ID::button_Push.toString()) 
 		return isDown ? BinaryData::ButtonDownPush_png : BinaryData::ButtonUpPush_png;
+
 	if (button.getComponentID() == ID::button_Read.toString()) 
 		return isDown ? BinaryData::ButtonDownRead_png : BinaryData::ButtonUpRead_png;
+
 	if (button.getComponentID() == ID::button_Redo.toString()) 
 		return isDown ? BinaryData::ButtonDownRedo_png : BinaryData::ButtonUpRedo_png;
+
 	if (button.getComponentID() == ID::button_Reset.toString()) 
 		return isDown ? BinaryData::ButtonDownReset_png : BinaryData::ButtonUpReset_png;
+
+	if (button.getComponentID() == ID::button_Retry.toString()) 
+		return isDown ? BinaryData::ButtonDownRetry_png : BinaryData::ButtonUpRetry_png;
+
 	if (button.getComponentID() == ID::button_Save.toString())
 		return isDown ? BinaryData::ButtonDownSave_png : BinaryData::ButtonUpSave_png;
+
 	if (button.getComponentID() == ID::button_Stop.toString())
 		return isDown ? BinaryData::ButtonDownStop_png : BinaryData::ButtonUpStop_png;
+
 	if (button.getComponentID() == ID::button_Undo.toString()) 
 		return isDown ? BinaryData::ButtonDownUndo_png : BinaryData::ButtonUpUndo_png;
+
 	if (button.getComponentID() == ID::button_Write.toString()) 
 		return isDown ? BinaryData::ButtonDownWrite_png : BinaryData::ButtonUpWrite_png;
 	else
@@ -127,32 +144,49 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return size_t(isDown ? BinaryData::ButtonDownBanks_pngSize : BinaryData::ButtonUpBanks_pngSize);
+
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return size_t(isDown ? BinaryData::ButtonDownClear_pngSize : BinaryData::ButtonUpClear_pngSize);
+
 	if (button.getComponentID() == ID::button_Close.toString())
 		return size_t(isDown ? BinaryData::ButtonDownClose_pngSize : BinaryData::ButtonUpClose_pngSize);
+
 	if (button.getComponentID() == ID::button_Global.toString())
 		return size_t(isDown ? BinaryData::ButtonDownGlobal_pngSize : BinaryData::ButtonUpGlobal_pngSize);
+
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);
+
 	if (button.getComponentID() == ID::button_PgmNameEdit.toString())
 		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);
+
 	if (button.getComponentID() == ID::button_Pull.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPull_pngSize : BinaryData::ButtonUpPull_pngSize);
+
 	if (button.getComponentID() == ID::button_Push.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPush_pngSize : BinaryData::ButtonUpPush_pngSize);
+
 	if (button.getComponentID() == ID::button_Read.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRead_pngSize : BinaryData::ButtonUpRead_pngSize);
+
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRedo_pngSize : BinaryData::ButtonUpRedo_pngSize);
+
 	if (button.getComponentID() == ID::button_Reset.toString())
 		return size_t(isDown ? BinaryData::ButtonDownReset_pngSize : BinaryData::ButtonUpReset_pngSize);
+
+	if (button.getComponentID() == ID::button_Retry.toString())
+		return size_t(isDown ? BinaryData::ButtonDownRetry_pngSize : BinaryData::ButtonUpRetry_pngSize);
+
 	if (button.getComponentID() == ID::button_Save.toString())
 		return size_t(isDown ? BinaryData::ButtonDownSave_pngSize : BinaryData::ButtonUpSave_pngSize);
+
 	if (button.getComponentID() == ID::button_Stop.toString())
 		return size_t(isDown ? BinaryData::ButtonDownStop_pngSize : BinaryData::ButtonUpStop_pngSize);
+
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return size_t(isDown ? BinaryData::ButtonDownUndo_pngSize : BinaryData::ButtonUpUndo_pngSize);
+
 	if (button.getComponentID() == ID::button_Write.toString())
 		return size_t(isDown ? BinaryData::ButtonDownWrite_pngSize : BinaryData::ButtonUpWrite_pngSize);
 	else

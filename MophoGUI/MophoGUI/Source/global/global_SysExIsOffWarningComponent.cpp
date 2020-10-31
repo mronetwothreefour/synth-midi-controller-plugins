@@ -69,10 +69,9 @@ void SysExIsOffWarningComponent::paint(Graphics& g) {
 }
 
 void SysExIsOffWarningComponent::resized() {
-	auto button_w{ 50 };
-	auto button_h{ 21 };
-	button_ForClosingComponent.setBounds(830, 150, button_w, button_h);
-	button_ForSendingGlobalParametersDumpRequest.setBounds(612, 449, button_w, button_h);
+	auto button_h{ 22 };
+	button_ForClosingComponent.setBounds(830, 150, 50, button_h);
+	button_ForSendingGlobalParametersDumpRequest.setBounds(611, 449, 51, button_h);
 }
 
 SysExIsOffWarningComponent::~SysExIsOffWarningComponent() {

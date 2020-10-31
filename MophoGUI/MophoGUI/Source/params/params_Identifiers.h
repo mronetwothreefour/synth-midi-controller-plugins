@@ -17,6 +17,7 @@ namespace ID
 	static const Identifier button_Read{ "button_Read" };
 	static const Identifier button_Redo{ "button_Redo" };
 	static const Identifier button_Reset{ "button_Reset" };
+	static const Identifier button_Retry{ "button_Retry" };
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };

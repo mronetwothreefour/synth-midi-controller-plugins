@@ -55,10 +55,9 @@ void NRPNisOffWarningComponent::paint(Graphics& g) {
 }
 
 void NRPNisOffWarningComponent::resized() {
-	auto button_w{ 50 };
-	auto button_h{ 21 };
-	button_ForClosingComponent.setBounds(820, 212, button_w, button_h);
-	button_ForSendingGlobalParametersDumpRequest.setBounds(612, 387, button_w, button_h);
+	auto button_h{ 22 };
+	button_ForClosingComponent.setBounds(820, 212, 50, button_h);
+	button_ForSendingGlobalParametersDumpRequest.setBounds(611, 387, 51, button_h);
 }
 
 NRPNisOffWarningComponent::~NRPNisOffWarningComponent() {
