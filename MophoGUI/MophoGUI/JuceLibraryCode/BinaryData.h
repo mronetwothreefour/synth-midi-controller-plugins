@@ -110,6 +110,12 @@ namespace BinaryData
     extern const char* GlobalParametersBackground_png;
     const int            GlobalParametersBackground_pngSize = 10458;
 
+    extern const char* NoSysexWarningBackground_png;
+    const int            NoSysexWarningBackground_pngSize = 42563;
+
+    extern const char* NoNRPNWarningBackground_png;
+    const int            NoNRPNWarningBackground_pngSize = 21636;
+
     extern const char* LabelBank1_png;
     const int            LabelBank1_pngSize = 510;
 
@@ -138,7 +144,7 @@ namespace BinaryData
     const int            LabelPushAllBank3_pngSize = 1762;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 45;
+    const int namedResourceListSize = 47;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

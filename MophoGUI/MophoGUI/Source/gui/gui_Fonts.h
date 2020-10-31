@@ -26,14 +26,4 @@ namespace FontsMenu
 	static const Font fontFor_PulseWidthText{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 11.0f, 0.0f) };
 	static const Font fontFor_SeqSteps{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 13.5f, 0.0f) };
 	static const Font fontFor_Tooltips{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 16.0f, 0.0f) };
-
-	static const String family_Global{ "Arial" };
-
-	static const String style_ForComponentTitle{ "Black" };
-	static const String style_ForBoldHardwareSettingsWarningMessage{ "Bold" };
-	static const String style_ForHardwareSettingsWarningMessage{ "Regular" };
-
-	static const float size_ForComponentTitle{ 18.0f };
-	static const float size_ForBoldHardwareSettingsWarningMessage{ 13.0f };
-	static const float size_ForHardwareSettingsWarningMessage{ 12.0f };
 };

@@ -35,10 +35,11 @@ String DisplayLabelForParameterReceive::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "The method by which the hardware receives parameter change messages via MIDI.\n";
-		tooltipText += "WARNING: This plugin transmits parameter changes using NRPN. It is imperative\n";
-		tooltipText += "that this be set to \"ALL\" or \"NRPN ONLY\" for the plugin to function correctly.\n";
-		tooltipText += "This option cannot be changed remotely and must be set in the hardware itself.";
+		tooltipText += "The type of MIDI parameter change messages recognized by the hardware.\n";
+		tooltipText += "WARNING: This plugin transmits parameter changes using NRPN. It is\n";
+		tooltipText += "imperative that this be set to \"ALL\" or \"NRPN ONLY\" for the plugin to\n";
+		tooltipText += "function correctly. This option cannot be changed remotely and must\n";
+		tooltipText += "be set within the hardware's Global Parameters menus.";
 	}
 	return tooltipText;
 }

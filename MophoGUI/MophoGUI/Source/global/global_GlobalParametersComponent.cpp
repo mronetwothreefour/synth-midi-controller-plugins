@@ -18,7 +18,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	nrpnType_ParameterSendType{ 390 },
 	nrpnType_ProgramChange{ 392 },
 	nrpnType_PedalMode{ 396 },
-	button_ForClosingGlobalParameters{ "CLOSE" },
+	button_ForClosingGlobalParameters{ "" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
 	knob_ForGlobalFineTune{ unexposedParams },
@@ -101,8 +101,8 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::GlobalParametersBackground_png, BinaryData::GlobalParametersBackground_pngSize, false };
-	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(buttonImage, 514, 115);
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, 514, 115);
 }
 
 void GlobalParametersComponent::resized() {

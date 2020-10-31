@@ -38,7 +38,8 @@ String DisplayLabelForMidiControllers::generateTooltipString() {
 		tooltipText += "Selects whether or not the hardware will respond to MIDI controller messages.\n";
 		tooltipText += "WARNING: Controller messages are used to communicate with the hardware.\n";
 		tooltipText += "It is imperative that this be set to \"ON\" for this plugin to function correctly.\n";
-		tooltipText += "This option cannot be changed remotely and must be set in the hardware itself.";
+		tooltipText += "This option cannot be changed remotely and must be set within the\n";
+		tooltipText += "hardware's Global Parameters menus.";
 	}
 	return tooltipText;
 }
