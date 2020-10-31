@@ -106,9 +106,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)103); 
 		defaultValues.add((uint8)1);
 		descriptionString =  "Selects oscillator " + (String)i + apostrophe + "s wave shape.\n";
-		descriptionString += "Available options: Off; Sawtooth; Triangle;\n";
-		descriptionString += "Sawtooth/Triangle Mix; Pulse (Width 0 to 99).\n";
-		descriptionString += "A Pulse with width 50 is a square wave.";
+		descriptionString += "Hold down a number on the keyboard and click\n";
+		descriptionString += "the knob to jump directly to a wave shape:\n";
+		descriptionString += "0 = Off;  1 = Sawtooth;  2 = Triangle;\n";
+		descriptionString += "3 = Sawtooth / Triangle Mixture;\n";
+		descriptionString += "4 = Square (a Pulse with width 50).";
 		descriptions.add(descriptionString);
 		controlWidths.add(knob_diameter);
 		controlHeights.add(knob_diameter);

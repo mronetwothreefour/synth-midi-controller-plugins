@@ -2,13 +2,13 @@
 
 #include <JuceHeader.h>
 
-#include "widget_KnobWithExposedParamAttacher.h"
+#include "widget_KnobWithExposedParamAttacherForOscWaveShapes.h"
 #include "../guiRenderers/guiRenderer_ForKnobWaveShapes.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 
 
 
-class KnobWithWaveShapeDisplay : public KnobWithExposedParamAttacher
+class KnobWithWaveShapeDisplay : public KnobWithExposedParamAttacherForOscWaveShapes
 {
 	RendererForKnobWaveShapes waveShapeDisplay;
 
@@ -16,7 +16,7 @@ public:
 	KnobWithWaveShapeDisplay() = delete;
 
 	KnobWithWaveShapeDisplay(uint8 param, UnexposedParameters* unexposedParams) :
-		KnobWithExposedParamAttacher{ param, unexposedParams },
+		KnobWithExposedParamAttacherForOscWaveShapes{ param, unexposedParams },
 		waveShapeDisplay{ &slider }
 	{
 		auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };

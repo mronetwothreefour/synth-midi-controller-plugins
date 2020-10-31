@@ -38,9 +38,46 @@ SliderForSequencerSteps::SliderForSequencerSteps(int sequencerTrack, UnexposedPa
 }
 
 void SliderForSequencerSteps::mouseDown(const MouseEvent& event) {
-	if (event.mods.isCtrlDown())
+	if (event.mods.isCtrlDown()) {
 		setValue(126.0, sendNotification);
-	if (sequencerTrack == 1 && event.mods.isAltDown())
+		return;
+	}
+	if (sequencerTrack == 1 && event.mods.isAltDown()) {
 		setValue(127.0, sendNotification);
+		return;
+	}
+	else Slider::mouseDown(event);
+}
+
+
+
+
+
+SliderForOscWaveShapes::SliderForOscWaveShapes(UnexposedParameters* unexposedParams) :
+	RotarySliderWithMouseWheelMod{ unexposedParams }
+{
+}
+
+void SliderForOscWaveShapes::mouseDown(const MouseEvent& event) {
+	if (KeyPressMenu::key_0.isCurrentlyDown()) {
+		setValue(0.0, sendNotification);
+		return;
+	}
+	if (KeyPressMenu::key_1.isCurrentlyDown()) {
+		setValue(1.0, sendNotification);
+		return;
+	}
+	if (KeyPressMenu::key_2.isCurrentlyDown()) {
+		setValue(2.0, sendNotification);
+		return;
+	}
+	if (KeyPressMenu::key_3.isCurrentlyDown()) {
+		setValue(3.0, sendNotification);
+		return;
+	}
+	if (KeyPressMenu::key_4.isCurrentlyDown()) {
+		setValue(54.0, sendNotification);
+		return;
+	}
 	else Slider::mouseDown(event);
 }

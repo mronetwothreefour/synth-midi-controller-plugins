@@ -2628,11 +2628,18 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5118,6 +5125,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h">
       <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

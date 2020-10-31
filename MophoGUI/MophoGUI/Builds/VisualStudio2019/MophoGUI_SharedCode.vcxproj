@@ -2271,6 +2271,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp" />
@@ -3095,6 +3096,7 @@
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h" />
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.h" />
     <ClInclude Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h" />
