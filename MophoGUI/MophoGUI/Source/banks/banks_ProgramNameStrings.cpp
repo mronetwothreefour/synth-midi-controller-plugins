@@ -35,7 +35,7 @@ void ProgramNameStrings::resetAllProgramNameStringsToFactoryDefaults() {
 const String ProgramNameStrings::extractProgramNameFromDataVector(const std::vector<uint8>& dataVector) {
 	String programName{ "" };
 	auto firstCharByte{ 211 };
-	auto lastCharByte{ 229 };
+	auto lastCharByte{ 228 };
 	auto ignoredPackByte1{ 216 };
 	auto ignoredPackByte2{ 224 };
 	auto data{ dataVector.data() };
