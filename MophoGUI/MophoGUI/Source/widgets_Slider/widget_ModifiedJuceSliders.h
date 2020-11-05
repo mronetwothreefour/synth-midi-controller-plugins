@@ -6,18 +6,6 @@
 
 
 
-namespace KeyPressMenu
-{
-	static const KeyPress key_0('0', ModifierKeys::noModifiers, 0);
-	static const KeyPress key_1('1', ModifierKeys::noModifiers, 0);
-	static const KeyPress key_2('2', ModifierKeys::noModifiers, 0);
-	static const KeyPress key_3('3', ModifierKeys::noModifiers, 0);
-	static const KeyPress key_4('4', ModifierKeys::noModifiers, 0);
-}
-
-
-
-
 // Overrides the mouseWheelMove() operation so that each wheel move event
 // increments/decrements the slider's value by a single interval (step).
 // Calls to beginNewTransaction() in the UndoManager are also added, so 

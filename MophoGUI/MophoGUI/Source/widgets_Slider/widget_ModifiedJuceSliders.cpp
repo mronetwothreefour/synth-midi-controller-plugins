@@ -59,23 +59,23 @@ SliderForOscWaveShapes::SliderForOscWaveShapes(UnexposedParameters* unexposedPar
 }
 
 void SliderForOscWaveShapes::mouseDown(const MouseEvent& event) {
-	if (KeyPressMenu::key_0.isCurrentlyDown()) {
+	if (KeyPress::isKeyCurrentlyDown('0') || KeyPress::isKeyCurrentlyDown(KeyPress::numberPad0)) {
 		setValue(0.0, sendNotification);
 		return;
 	}
-	if (KeyPressMenu::key_1.isCurrentlyDown()) {
+	if (KeyPress::isKeyCurrentlyDown('1') || KeyPress::isKeyCurrentlyDown(KeyPress::numberPad1)) {
 		setValue(1.0, sendNotification);
 		return;
 	}
-	if (KeyPressMenu::key_2.isCurrentlyDown()) {
+	if (KeyPress::isKeyCurrentlyDown('2') || KeyPress::isKeyCurrentlyDown(KeyPress::numberPad2)) {
 		setValue(2.0, sendNotification);
 		return;
 	}
-	if (KeyPressMenu::key_3.isCurrentlyDown()) {
+	if (KeyPress::isKeyCurrentlyDown('3') || KeyPress::isKeyCurrentlyDown(KeyPress::numberPad3)) {
 		setValue(3.0, sendNotification);
 		return;
 	}
-	if (KeyPressMenu::key_4.isCurrentlyDown()) {
+	if (KeyPress::isKeyCurrentlyDown('4') || KeyPress::isKeyCurrentlyDown(KeyPress::numberPad4)) {
 		setValue(54.0, sendNotification);
 		return;
 	}
