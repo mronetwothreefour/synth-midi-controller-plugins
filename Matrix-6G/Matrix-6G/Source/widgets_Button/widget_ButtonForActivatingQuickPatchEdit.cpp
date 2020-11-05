@@ -7,7 +7,7 @@
 
 
 ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "QUICK EDIT", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setColour(ColourIds::buttonColourId, Color::button_red);

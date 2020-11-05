@@ -1,7 +1,5 @@
 #include "widget_ComboBoxWithExposedParamAttacher.h"
 
-#include "../gui/gui_Colors.h"
-#include "../gui/gui_Path_ComboBoxIndicatorTab.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 
@@ -33,13 +31,6 @@ void ComboBoxWithExposedParamAttacher::deleteAttachment() {
 }
 
 void ComboBoxWithExposedParamAttacher::paint(Graphics& g) {
-	g.fillAll(Color::black);
-	Path indicatorTab;
-	auto tab_x{ getWidth() - 6.0f };
-	auto tab_y{ getHeight() - 6.0f };
-	indicatorTab.addPath(ComboBoxIndicatorTab::createPath(), AffineTransform::translation(tab_x, tab_y));
-	g.setColour(Color::led_blue);
-	g.fillPath(indicatorTab);
 	auto currentValue{ (int8)roundToInt(comboBox.getSelectedItemIndex()) };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);

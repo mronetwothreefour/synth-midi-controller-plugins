@@ -2,11 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Colors.h"
-#include "gui/gui_Logo.h"
-#include "gui/gui_Layer_ControlLabels.h"
 #include "gui/gui_Layer_Controls.h"
-#include "gui/gui_Layer_DividerLines.h"
-#include "gui/gui_Layer_SectionHeaders.h"
 #include "gui/gui_LookAndFeel.h"
 #include "midi/midi_QuickPatchEditing.h"
 #include "params/params_Identifiers.h"
@@ -20,20 +16,12 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
-    dividerLinesLayer{ new DividerLinesLayer() },
-    sectionHeadersLayer{ new SectionHeadersLayer() },
-    controlLabelsLayer{ new ControlLabelsLayer() },
     controlsLayer{ new ControlsLayer(exposedParams, unexposedParams) },
-    logo{ new Logo() },
     button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    addAndMakeVisible(dividerLinesLayer.get());
-    addAndMakeVisible(sectionHeadersLayer.get());
-    addAndMakeVisible(controlLabelsLayer.get());
-    addAndMakeVisible(logo.get());
     addAndMakeVisible(controlsLayer.get());
 
     addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
@@ -51,14 +39,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 }
 
 void PluginEditor::paint(Graphics& g) {
-    g.fillAll(Color::device);
+    MemoryInputStream memInputStream{ BinaryData::Matrix6GMainWindowBackground_png, BinaryData::Matrix6GMainWindowBackground_pngSize, false };
+    PNGImageFormat imageFormat;
+    auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+    g.drawImageAt(backgroundImage, 0, 0);
 }
 
 void PluginEditor::resized() {
-    dividerLinesLayer->setBounds(getLocalBounds());
-    sectionHeadersLayer->setBounds(getLocalBounds());
-    controlLabelsLayer->setBounds(getLocalBounds());
-    logo->setBounds(605, 320, logo->getWidth(), logo->getHeight());
     controlsLayer->setBounds(getLocalBounds());
     auto smallButtons_y{ 367 };
     auto smallButtons_h{ 20 };
@@ -77,9 +64,5 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     button_ForActivatingQuickPatchEdit = nullptr;
-    logo = nullptr;
     controlsLayer = nullptr;
-    controlLabelsLayer = nullptr;
-    sectionHeadersLayer = nullptr;
-    dividerLinesLayer = nullptr;
 }

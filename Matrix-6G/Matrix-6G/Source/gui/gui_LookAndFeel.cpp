@@ -19,7 +19,6 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 }
 
 void GUILookAndFeel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*width*/, int /*height*/, float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& /*slider*/) {
-	g.fillAll(Color::black);
 	auto sliderTab{ LEDsliderTab::createPath() };
 	g.setColour(Color::led_blue);
 	g.fillPath(sliderTab, AffineTransform::translation(sliderPos - 8.0f, 0.0f));
@@ -59,11 +58,7 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& /*button*/, const
 	g.fillAll(baseColor);
 }
 
-void GUILookAndFeel::drawButtonText(Graphics& g, TextButton& button, bool /*isHighlighted*/, bool isDown) {
-	auto height{ button.getHeight() };
-	g.setFont(height < 25 ? FontsMenu::fontFor_ButtonText_Small : FontsMenu::fontFor_ButtonText_Large);
-	g.setColour(isDown ? Color::offWhite.darker(0.5f) : Color::offWhite);
-	g.drawFittedText(button.getButtonText(), 0, 1, button.getWidth(), button.getHeight(), Justification::centred, 1);
+void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
 
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
