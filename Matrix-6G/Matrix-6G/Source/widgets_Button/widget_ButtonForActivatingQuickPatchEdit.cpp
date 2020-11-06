@@ -2,6 +2,7 @@
 
 #include "../gui/gui_Colors.h"
 #include "../midi/midi_QuickPatchEditing.h"
+#include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -10,6 +11,7 @@ ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedPa
 	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
 	unexposedParams{ unexposedParams }
 {
+	setComponentID(ID::button_QuickEdit.toString());
 	setColour(ColourIds::buttonColourId, Color::button_red);
 	setTooltip(createButtonTooltipString());
 }

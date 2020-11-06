@@ -14,8 +14,44 @@ namespace BinaryData
     extern const char*   Matrix6GMainWindowBackground_png;
     const int            Matrix6GMainWindowBackground_pngSize = 43804;
 
+    extern const char*   ButtonMasterDown_png;
+    const int            ButtonMasterDown_pngSize = 865;
+
+    extern const char*   ButtonMasterUp_png;
+    const int            ButtonMasterUp_pngSize = 862;
+
+    extern const char*   ButtonPatchesDown_png;
+    const int            ButtonPatchesDown_pngSize = 883;
+
+    extern const char*   ButtonPatchesUp_png;
+    const int            ButtonPatchesUp_pngSize = 866;
+
+    extern const char*   ButtonQuickEditDown_png;
+    const int            ButtonQuickEditDown_pngSize = 708;
+
+    extern const char*   ButtonQuickEditUp_png;
+    const int            ButtonQuickEditUp_pngSize = 712;
+
+    extern const char*   ButtonRedoDown_png;
+    const int            ButtonRedoDown_pngSize = 452;
+
+    extern const char*   ButtonRedoUp_png;
+    const int            ButtonRedoUp_pngSize = 462;
+
+    extern const char*   ButtonSplitsDown_png;
+    const int            ButtonSplitsDown_pngSize = 673;
+
+    extern const char*   ButtonSplitsUp_png;
+    const int            ButtonSplitsUp_pngSize = 690;
+
+    extern const char*   ButtonUndoDown_png;
+    const int            ButtonUndoDown_pngSize = 427;
+
+    extern const char*   ButtonUndoUp_png;
+    const int            ButtonUndoUp_pngSize = 446;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 14;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

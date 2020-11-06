@@ -2764,6 +2764,18 @@
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Up.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

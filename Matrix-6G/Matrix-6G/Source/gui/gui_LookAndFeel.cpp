@@ -50,12 +50,29 @@ TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) 
 	return tl;
 }
 
-void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& /*button*/, const Colour& background, bool /*isHighlighted*/, bool isDown) {
-	auto baseColor{ background };
-	if (isDown)
-		baseColor = baseColor.darker(0.5f);
-	g.setColour(baseColor);
-	g.fillAll(baseColor);
+void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+	PNGImageFormat imageFormat;
+	auto buttonImageData{ getButtonImageData(button, isDown) };
+	auto buttonImageDataSize{ getButtonImageDataSize(button, isDown) };
+	if (buttonImageData != nullptr) {
+		MemoryInputStream memInputStream{ buttonImageData, buttonImageDataSize, false };
+		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+		g.drawImageAt(buttonImage, 0, 0);
+	}
+}
+
+const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_QuickEdit.toString())
+		return isDown ? BinaryData::ButtonQuickEditDown_png : BinaryData::ButtonQuickEditUp_png;
+
+	return nullptr;
+}
+
+size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_QuickEdit.toString())
+		return isDown ? BinaryData::ButtonQuickEditDown_pngSize : BinaryData::ButtonQuickEditUp_pngSize;
+
+	return size_t();
 }
 
 void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {

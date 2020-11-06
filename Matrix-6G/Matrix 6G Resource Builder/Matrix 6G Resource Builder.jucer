@@ -15,6 +15,30 @@
     <FILE id="gJLRSl" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
     <FILE id="eylf3g" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
+    <FILE id="eBS5SG" name="Button-Master-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Master-Down.png"/>
+    <FILE id="WOj9ui" name="Button-Master-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Master-Up.png"/>
+    <FILE id="YU0YvL" name="Button-Patches-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Patches-Down.png"/>
+    <FILE id="zJY3OQ" name="Button-Patches-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Patches-Up.png"/>
+    <FILE id="anDBHO" name="Button-Quick-Edit-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Quick-Edit-Down.png"/>
+    <FILE id="JnmYTO" name="Button-Quick-Edit-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Quick-Edit-Up.png"/>
+    <FILE id="ZloBfN" name="Button-Redo-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Redo-Down.png"/>
+    <FILE id="rK3esF" name="Button-Redo-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Redo-Up.png"/>
+    <FILE id="Bt0u76" name="Button-Splits-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Splits-Down.png"/>
+    <FILE id="Kb9q7U" name="Button-Splits-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Splits-Up.png"/>
+    <FILE id="l5Pbf5" name="Button-Undo-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Undo-Down.png"/>
+    <FILE id="DsyxmF" name="Button-Undo-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Undo-Up.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

@@ -15,6 +15,8 @@ public:
 	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;
 	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;
 	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
+	const char* getButtonImageData(Button& button, bool isDown);
+	size_t getButtonImageDataSize(Button& button, bool isDown);
 	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
