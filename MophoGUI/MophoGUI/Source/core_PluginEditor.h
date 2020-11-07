@@ -5,8 +5,6 @@
 
 
 class ButtonForClearingSequencerTrack;
-class ButtonForPerformingRedo;
-class ButtonForPerformingUndo;
 class ButtonForShowingGlobalParametersComponent;
 class ButtonsLayer;
 class EnvelopeRenderersLayer;
@@ -28,8 +26,6 @@ class PluginEditor :
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<ButtonForPerformingRedo> button_ForPerformingRedo;
-    std::unique_ptr<ButtonForPerformingUndo> button_ForPerformingUndo;
     std::unique_ptr<ButtonForShowingGlobalParametersComponent> button_ForShowingGlobalParametersComponent;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack1;
     std::unique_ptr<ButtonForClearingSequencerTrack> button_ForClearingSequencerTrack2;

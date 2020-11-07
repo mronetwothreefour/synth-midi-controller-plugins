@@ -12,8 +12,6 @@
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 #include "widgets_Button/widget_ButtonForClearingSequencerTrack.h"
-#include "widgets_Button/widget_ButtonForPerformingRedo.h"
-#include "widgets_Button/widget_ButtonForPerformingUndo.h"
 #include "widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
 
@@ -28,8 +26,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     button_ForShowingGlobalParametersComponent{ new ButtonForShowingGlobalParametersComponent(unexposedParams) },
-    button_ForPerformingUndo{ new ButtonForPerformingUndo(unexposedParams) },
-    button_ForPerformingRedo{ new ButtonForPerformingRedo(unexposedParams) },
     button_ForClearingSequencerTrack1{ new ButtonForClearingSequencerTrack(1, exposedParams, unexposedParams) },
     button_ForClearingSequencerTrack2{ new ButtonForClearingSequencerTrack(2, exposedParams, unexposedParams) },
     button_ForClearingSequencerTrack3{ new ButtonForClearingSequencerTrack(3, exposedParams, unexposedParams) },
@@ -41,8 +37,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(button_ForShowingGlobalParametersComponent.get());
-    addAndMakeVisible(button_ForPerformingUndo.get());
-    addAndMakeVisible(button_ForPerformingRedo.get());
     addAndMakeVisible(button_ForClearingSequencerTrack1.get());
     addAndMakeVisible(button_ForClearingSequencerTrack2.get());
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());
@@ -101,10 +95,6 @@ void PluginEditor::resized() {
     auto utilityButtons_w{ 53 };
     auto utilityButtons_h{ 22 };
     button_ForShowingGlobalParametersComponent->setBounds(769, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    auto undoRedoButtons_x{ 837 };
-    auto undoRedoButtons_w{ 44 };
-    button_ForPerformingUndo->setBounds(undoRedoButtons_x, 26, undoRedoButtons_w, utilityButtons_h);
-    button_ForPerformingRedo->setBounds(undoRedoButtons_x, 55, undoRedoButtons_w, utilityButtons_h);
     auto clearSeqTrackButtons_x{ 1166 };
     auto clearSeqTrackButtons_w{ 46 };
     auto clearSeqTrackButtons_h{ 18 };
@@ -164,8 +154,6 @@ PluginEditor::~PluginEditor() {
     button_ForClearingSequencerTrack3 = nullptr;
     button_ForClearingSequencerTrack2 = nullptr;
     button_ForClearingSequencerTrack1 = nullptr;
-    button_ForPerformingRedo = nullptr;
-    button_ForPerformingUndo = nullptr;
     button_ForShowingGlobalParametersComponent = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;

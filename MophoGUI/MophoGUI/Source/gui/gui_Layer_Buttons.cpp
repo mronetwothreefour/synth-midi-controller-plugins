@@ -11,7 +11,9 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForEditingPgmName{ exposedParams, unexposedParams },
     button_ForSendingProgramEditBufferDump{ exposedParams, unexposedParams },
     button_ForSendingProgramEditBufferDumpRequest{ unexposedParams },
-    button_ForShowingProgramBanksComponent{ unexposedParams }
+    button_ForShowingProgramBanksComponent{ unexposedParams },
+    button_ForPerformingUndo{ unexposedParams },
+    button_ForPerformingRedo{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForEditingPgmName);
@@ -19,6 +21,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest);
     addAndMakeVisible(button_ForShowingProgramBanksComponent);
     button_ForShowingProgramBanksComponent.onClick = [this] { showProgramBanksComponent(); };
+    addAndMakeVisible(button_ForPerformingUndo);
+    addAndMakeVisible(button_ForPerformingRedo);
 }
 
 void ButtonsLayer::showProgramBanksComponent() {
@@ -37,6 +41,10 @@ void ButtonsLayer::resized() {
     button_ForSendingProgramEditBufferDump.setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingProgramEditBufferDumpRequest.setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForShowingProgramBanksComponent.setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
+    auto undoRedoButtons_x{ 837 };
+    auto undoRedoButtons_w{ 44 };
+    button_ForPerformingUndo.setBounds(undoRedoButtons_x, 26, undoRedoButtons_w, utilityButtons_h);
+    button_ForPerformingRedo.setBounds(undoRedoButtons_x, 55, undoRedoButtons_w, utilityButtons_h);
 }
 
 ButtonsLayer::~ButtonsLayer() {

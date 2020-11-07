@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 #include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "../widgets_Button/widget_ButtonForPerformingRedo.h"
+#include "../widgets_Button/widget_ButtonForPerformingUndo.h"
 #include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "../widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
@@ -20,6 +22,8 @@ class ButtonsLayer :
 	ButtonForSendingProgramEditBufferDumpRequest button_ForSendingProgramEditBufferDumpRequest;
 	ButtonForShowingProgramBanksComponent button_ForShowingProgramBanksComponent;
 	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
+	ButtonForPerformingRedo button_ForPerformingRedo;
+	ButtonForPerformingUndo button_ForPerformingUndo;
 
 public:
 	ButtonsLayer() = delete;
