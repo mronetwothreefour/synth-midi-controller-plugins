@@ -42,7 +42,6 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	button_ForPushingEntireBankToHardware.setBounds(664, buttons_y, buttons_w, buttons_h);
 	button_ForPullingEntireBankFromHardware.setBounds(724, buttons_y, buttons_w, buttons_h);
 	button_ForResettingAllBanksToFactoryDefaults.setBounds(1104, buttons_y, buttons_w, buttons_h);
-
 }
 
 void ProgramBanksComponent::hideThisComponent() {

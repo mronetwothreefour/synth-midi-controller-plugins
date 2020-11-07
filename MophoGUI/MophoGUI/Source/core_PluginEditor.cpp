@@ -1,7 +1,6 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-#include "banks/banks_ProgramBanksComponent.h"
 #include "global/global_GlobalParametersComponent.h"
 #include "global/global_NRPNisOffWarningComponent.h"
 #include "global/global_SysExIsOffWarningComponent.h"
@@ -18,7 +17,6 @@
 #include "widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
-#include "widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
 
 
 
@@ -33,7 +31,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
     button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
-    button_ForShowingProgramBanksComponent{ new ButtonForShowingProgramBanksComponent(unexposedParams) },
     button_ForShowingGlobalParametersComponent{ new ButtonForShowingGlobalParametersComponent(unexposedParams) },
     button_ForPerformingUndo{ new ButtonForPerformingUndo(unexposedParams) },
     button_ForPerformingRedo{ new ButtonForPerformingRedo(unexposedParams) },
@@ -47,10 +44,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
     addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
-    addAndMakeVisible(button_ForShowingProgramBanksComponent.get());
     addAndMakeVisible(button_ForShowingGlobalParametersComponent.get());
     addAndMakeVisible(button_ForPerformingUndo.get());
     addAndMakeVisible(button_ForPerformingRedo.get());
@@ -58,8 +53,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(button_ForClearingSequencerTrack2.get());
     addAndMakeVisible(button_ForClearingSequencerTrack3.get());
     addAndMakeVisible(button_ForClearingSequencerTrack4.get());
+    addAndMakeVisible(buttonsLayer.get());
 
-    button_ForShowingProgramBanksComponent->onClick = [this] { showProgramBanksComponent(); };
     button_ForShowingGlobalParametersComponent->onClick = [this] { prepareToShowGlobalParametersComponent(); };
 
     URL url{ "https://programming.mr1234.com/" };
@@ -113,7 +108,6 @@ void PluginEditor::resized() {
     auto utilityButtons_h{ 22 };
     button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_ForShowingProgramBanksComponent->setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForShowingGlobalParametersComponent->setBounds(769, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto undoRedoButtons_x{ 837 };
     auto undoRedoButtons_w{ 44 };
@@ -133,14 +127,6 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
     if (property == ID::tooltips_DelayInMilliseconds) {
         auto tooltips{ unexposedParams->tooltipOptions_get() };
         tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
-    }
-}
-
-void PluginEditor::showProgramBanksComponent() {
-    programBanksComponent.reset(new ProgramBanksComponent(exposedParams, unexposedParams));
-    if (programBanksComponent != nullptr) {
-        addAndMakeVisible(programBanksComponent.get());
-        programBanksComponent->setBounds(getLocalBounds());
     }
 }
 
@@ -178,9 +164,9 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     globalParamsComponent = nullptr;
-    programBanksComponent = nullptr;
     nrpnIsOffWarningComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
+    buttonsLayer = nullptr;
     button_ForGoingToWebSite = nullptr;
     button_ForClearingSequencerTrack4 = nullptr;
     button_ForClearingSequencerTrack3 = nullptr;
@@ -189,10 +175,8 @@ PluginEditor::~PluginEditor() {
     button_ForPerformingRedo = nullptr;
     button_ForPerformingUndo = nullptr;
     button_ForShowingGlobalParametersComponent = nullptr;
-    button_ForShowingProgramBanksComponent = nullptr;
     button_ForSendingProgramEditBufferDumpRequest = nullptr;
     button_ForSendingProgramEditBufferDump = nullptr;
-    buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;
 }
