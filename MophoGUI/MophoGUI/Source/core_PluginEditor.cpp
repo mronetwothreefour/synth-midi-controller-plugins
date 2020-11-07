@@ -14,8 +14,6 @@
 #include "widgets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "widgets_Button/widget_ButtonForPerformingUndo.h"
-#include "widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
-#include "widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
 
@@ -29,8 +27,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
-    button_ForSendingProgramEditBufferDump{ new ButtonForSendingProgramEditBufferDump(exposedParams, unexposedParams) },
-    button_ForSendingProgramEditBufferDumpRequest{ new ButtonForSendingProgramEditBufferDumpRequest(unexposedParams) },
     button_ForShowingGlobalParametersComponent{ new ButtonForShowingGlobalParametersComponent(unexposedParams) },
     button_ForPerformingUndo{ new ButtonForPerformingUndo(unexposedParams) },
     button_ForPerformingRedo{ new ButtonForPerformingRedo(unexposedParams) },
@@ -44,8 +40,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(button_ForSendingProgramEditBufferDump.get());
-    addAndMakeVisible(button_ForSendingProgramEditBufferDumpRequest.get());
     addAndMakeVisible(button_ForShowingGlobalParametersComponent.get());
     addAndMakeVisible(button_ForPerformingUndo.get());
     addAndMakeVisible(button_ForPerformingRedo.get());
@@ -106,8 +100,6 @@ void PluginEditor::resized() {
     auto utilityButtons_y{ 83 };
     auto utilityButtons_w{ 53 };
     auto utilityButtons_h{ 22 };
-    button_ForSendingProgramEditBufferDump->setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_ForSendingProgramEditBufferDumpRequest->setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     button_ForShowingGlobalParametersComponent->setBounds(769, utilityButtons_y, utilityButtons_w, utilityButtons_h);
     auto undoRedoButtons_x{ 837 };
     auto undoRedoButtons_w{ 44 };
@@ -175,8 +167,6 @@ PluginEditor::~PluginEditor() {
     button_ForPerformingRedo = nullptr;
     button_ForPerformingUndo = nullptr;
     button_ForShowingGlobalParametersComponent = nullptr;
-    button_ForSendingProgramEditBufferDumpRequest = nullptr;
-    button_ForSendingProgramEditBufferDump = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;
 }

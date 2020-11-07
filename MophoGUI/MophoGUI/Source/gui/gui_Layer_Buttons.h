@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 #include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
+#include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "../widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
 
 
@@ -14,6 +16,8 @@ class ButtonsLayer :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ButtonAndLabelForEditingPgmName button_ForEditingPgmName;
+	ButtonForSendingProgramEditBufferDump button_ForSendingProgramEditBufferDump;
+	ButtonForSendingProgramEditBufferDumpRequest button_ForSendingProgramEditBufferDumpRequest;
 	ButtonForShowingProgramBanksComponent button_ForShowingProgramBanksComponent;
 	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
 
