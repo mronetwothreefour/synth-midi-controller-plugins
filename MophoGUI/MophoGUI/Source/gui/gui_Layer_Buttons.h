@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "../widgets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
@@ -24,6 +25,11 @@ class ButtonsLayer :
 	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
+	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack1;
+	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack2;
+	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack3;
+	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack4;
+	HyperlinkButton button_ForGoingToWebSite;
 
 public:
 	ButtonsLayer() = delete;
