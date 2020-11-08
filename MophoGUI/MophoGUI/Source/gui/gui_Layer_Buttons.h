@@ -8,13 +8,18 @@
 #include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
 #include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 #include "../widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
 
+class GlobalParametersComponent;
 class ProgramBanksComponent;
+class NRPNisOffWarningComponent;
+class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
 class ButtonsLayer :
-	public Component
+	public Component,
+	private Timer
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -22,7 +27,7 @@ class ButtonsLayer :
 	ButtonForSendingProgramEditBufferDump button_ForSendingProgramEditBufferDump;
 	ButtonForSendingProgramEditBufferDumpRequest button_ForSendingProgramEditBufferDumpRequest;
 	ButtonForShowingProgramBanksComponent button_ForShowingProgramBanksComponent;
-	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
+	ButtonForShowingGlobalParametersComponent button_ForShowingGlobalParametersComponent;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack1;
@@ -30,6 +35,10 @@ class ButtonsLayer :
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack3;
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack4;
 	HyperlinkButton button_ForGoingToWebSite;
+	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
+	std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
+	std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
+	std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -38,6 +47,11 @@ public:
 
 private:
 	void showProgramBanksComponent();
+	void prepareToShowGlobalParametersComponent();
+	void showSysExIsOffWarningComponent();
+	void showNRPNisOffWarningComponent();
+	void showGlobalParametersComponent();
+	void timerCallback() override;
 
 public:
 	void resized() override;

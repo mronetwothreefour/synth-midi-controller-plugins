@@ -8,16 +8,12 @@ class ButtonForShowingGlobalParametersComponent;
 class ButtonsLayer;
 class EnvelopeRenderersLayer;
 class ExposedParamsControlsLayer;
-class GlobalParametersComponent;
 class GUILookAndFeel;
-class NRPNisOffWarningComponent;
-class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
 class PluginEditor : 
     public AudioProcessorEditor,
-    public ValueTree::Listener,
-    private Timer
+    public ValueTree::Listener
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
@@ -25,29 +21,16 @@ class PluginEditor :
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<ButtonForShowingGlobalParametersComponent> button_ForShowingGlobalParametersComponent;
     std::unique_ptr<ButtonsLayer> buttonsLayer;
-    std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
-    std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
-    std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
-private:
-    void showSysExIsOffWarningComponent();
-    void showNRPNisOffWarningComponent();
-
 public:
     void paint(Graphics& g) override;
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-
-private:
-    void prepareToShowGlobalParametersComponent();
-    void showGlobalParametersComponent();
-    void timerCallback() override;
 
 public:
     ~PluginEditor() override;
