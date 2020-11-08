@@ -137,8 +137,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 
 	if (button.getComponentID() == ID::button_Write.toString()) 
 		return isDown ? BinaryData::ButtonDownWrite_png : BinaryData::ButtonUpWrite_png;
-	else
-		return nullptr;
+
+	return nullptr;
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
@@ -189,8 +189,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 
 	if (button.getComponentID() == ID::button_Write.toString())
 		return size_t(isDown ? BinaryData::ButtonDownWrite_pngSize : BinaryData::ButtonUpWrite_pngSize);
-	else
-		return (size_t)0;
+
+	return (size_t)0;
 }
 
 void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
