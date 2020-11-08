@@ -1,6 +1,5 @@
 #include "widget_ButtonForActivatingQuickPatchEdit.h"
 
-#include "../gui/gui_Colors.h"
 #include "../midi/midi_QuickPatchEditing.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -11,9 +10,16 @@ ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedPa
 	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_QuickEdit.toString());
-	setColour(ColourIds::buttonColourId, Color::button_red);
 	setTooltip(createButtonTooltipString());
+	setComponentID(ID::button_QuickEdit.toString());
+	callAfterDelay(100, [this] { setComponentID(ID::button_QuickEdit_Flash.toString()); repaint(); });
+	callAfterDelay(200, [this] { setComponentID(ID::button_QuickEdit.toString()); repaint(); });
+	callAfterDelay(300, [this] { setComponentID(ID::button_QuickEdit_Flash.toString()); repaint(); });
+	callAfterDelay(400, [this] { setComponentID(ID::button_QuickEdit.toString()); repaint(); });
+	callAfterDelay(500, [this] { setComponentID(ID::button_QuickEdit_Flash.toString()); repaint(); });
+	callAfterDelay(600, [this] { setComponentID(ID::button_QuickEdit.toString()); repaint(); });
+	callAfterDelay(700, [this] { setComponentID(ID::button_QuickEdit_Flash.toString()); repaint(); });
+	callAfterDelay(800, [this] { setComponentID(ID::button_QuickEdit.toString()); repaint(); });
 }
 
 const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
@@ -29,4 +35,7 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 
 void ButtonForActivatingQuickPatchEdit::onClickMethod() {
 	QuickPatchEditing::sendActivateMessageToUnexposedParamsForHandling(unexposedParams);
+}
+
+void ButtonForActivatingQuickPatchEdit::timerCallback() {
 }

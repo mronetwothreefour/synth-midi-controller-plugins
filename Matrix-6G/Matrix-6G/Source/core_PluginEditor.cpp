@@ -1,12 +1,10 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-#include "gui/gui_Colors.h"
+#include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_Controls.h"
 #include "gui/gui_LookAndFeel.h"
-#include "midi/midi_QuickPatchEditing.h"
 #include "params/params_Identifiers.h"
-#include "widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
 
 
 
@@ -16,15 +14,14 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
-    controlsLayer{ new ControlsLayer(exposedParams, unexposedParams) },
-    button_ForActivatingQuickPatchEdit{ new ButtonForActivatingQuickPatchEdit(unexposedParams) },
+    exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
+    buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    addAndMakeVisible(controlsLayer.get());
-
-    addAndMakeVisible(button_ForActivatingQuickPatchEdit.get());
+    addAndMakeVisible(exposedParamsControlsLayer.get());
+    addAndMakeVisible(buttonsLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -46,10 +43,8 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
-    controlsLayer->setBounds(getLocalBounds());
-    auto smallButtons_y{ 367 };
-    auto smallButtons_h{ 20 };
-    button_ForActivatingQuickPatchEdit->setBounds(597, smallButtons_y, 78, smallButtons_h);
+    exposedParamsControlsLayer->setBounds(getLocalBounds());
+    buttonsLayer->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -63,6 +58,6 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
-    button_ForActivatingQuickPatchEdit = nullptr;
-    controlsLayer = nullptr;
+    buttonsLayer = nullptr;
+    exposedParamsControlsLayer = nullptr;
 }

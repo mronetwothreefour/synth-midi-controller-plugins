@@ -4691,6 +4691,9 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Flash.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>

@@ -8,19 +8,19 @@
 
 class UnexposedParameters;
 
-class ControlsLayer :
+class ExposedParamsControlsLayer :
 	public Component,
 	private ControlsForExposedParameters
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ControlsLayer() = delete;
+	ExposedParamsControlsLayer() = delete;
 
-	ControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-	~ControlsLayer() override;
+	ExposedParamsControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	~ExposedParamsControlsLayer() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ControlsLayer)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamsControlsLayer)
 };

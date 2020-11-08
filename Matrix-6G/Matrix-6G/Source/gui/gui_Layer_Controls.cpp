@@ -5,7 +5,7 @@
 
 
 
-ControlsLayer::ControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ExposedParamsControlsLayer::ExposedParamsControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	ControlsForExposedParameters(unexposedParams),
 	unexposedParams{ unexposedParams }
 {
@@ -20,7 +20,7 @@ ControlsLayer::ControlsLayer(AudioProcessorValueTreeState* exposedParams, Unexpo
     }
 }
 
-ControlsLayer::~ControlsLayer() {
+ExposedParamsControlsLayer::~ExposedParamsControlsLayer() {
     for (uint8 param = 0; param != paramOutOfRange(); ++param) {
         auto control{ controlFor(param) };
         control->deleteAttachment();

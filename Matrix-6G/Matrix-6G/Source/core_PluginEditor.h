@@ -6,8 +6,8 @@
 
 
 
-class ButtonForActivatingQuickPatchEdit;
-class ControlsLayer;
+class ButtonsLayer;
+class ExposedParamsControlsLayer;
 class GUILookAndFeel;
 
 class PluginEditor :
@@ -17,9 +17,9 @@ class PluginEditor :
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
-    std::unique_ptr<ControlsLayer> controlsLayer;
+    std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
+    std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
-    std::unique_ptr<ButtonForActivatingQuickPatchEdit> button_ForActivatingQuickPatchEdit;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:

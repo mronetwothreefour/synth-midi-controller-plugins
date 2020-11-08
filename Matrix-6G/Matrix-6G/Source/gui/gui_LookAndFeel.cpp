@@ -65,12 +65,18 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_png : BinaryData::ButtonQuickEditUp_png;
 
+	if (button.getComponentID() == ID::button_QuickEdit_Flash.toString())
+		return BinaryData::ButtonQuickEditFlash_png;
+
 	return nullptr;
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_pngSize : BinaryData::ButtonQuickEditUp_pngSize;
+
+	if (button.getComponentID() == ID::button_QuickEdit_Flash.toString())
+		return BinaryData::ButtonQuickEditFlash_pngSize;
 
 	return size_t();
 }

@@ -8,7 +8,9 @@
 
 class UnexposedParameters;
 
-class ButtonForActivatingQuickPatchEdit : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForActivatingQuickPatchEdit : 
+	public BaseButtonWithOnClickAndTooltipMethods,
+	private Timer
 {
 	UnexposedParameters* unexposedParams;
 
@@ -23,6 +25,8 @@ protected:
 	void onClickMethod() override;
 
 private:
+	void timerCallback() override;
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForActivatingQuickPatchEdit)
 };

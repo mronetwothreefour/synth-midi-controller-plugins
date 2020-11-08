@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+
 #include "../widgets_Button/widget_ButtonForClearingSequencerTrack.h"
 #include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
@@ -57,6 +58,7 @@ public:
 	void resized() override;
 	~ButtonsLayer();
 
+private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonsLayer)
 };

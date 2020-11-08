@@ -2439,7 +2439,12 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4751,6 +4756,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,8 @@
           file="../Matrix-6G/Resources/Button-Quick-Edit-Down.png"/>
     <FILE id="JnmYTO" name="Button-Quick-Edit-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Quick-Edit-Up.png"/>
+    <FILE id="Xc9ghh" name="Button-Quick-Edit-Flash.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Quick-Edit-Flash.png"/>
     <FILE id="ZloBfN" name="Button-Redo-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Redo-Down.png"/>
     <FILE id="rK3esF" name="Button-Redo-Up.png" compile="0" resource="1"
