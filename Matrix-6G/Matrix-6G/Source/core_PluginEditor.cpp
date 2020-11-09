@@ -2,7 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Layer_Buttons.h"
-#include "gui/gui_Layer_Controls.h"
+#include "gui/gui_Layer_ExposedParamsControls.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 

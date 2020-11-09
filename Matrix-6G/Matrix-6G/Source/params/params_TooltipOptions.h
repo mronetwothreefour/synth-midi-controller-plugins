@@ -17,13 +17,13 @@ private:
 public:
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
-	bool shouldShowCurrentValue();
-	bool shouldShowDescription();
+	const bool shouldShowCurrentValue();
+	const bool shouldShowDescription();
 	void setShouldShowCurrentValue();
 	void setShouldNotShowCurrentValue();
 	void setShouldShowDescription();
 	void setShouldNotShowDescription();
-	int delayInMilliseconds();
+	const int delayInMilliseconds();
 	void setDelayInMilliseconds(int newDelay);
 	//XmlElement* getStateXml();
 	//void replaceState(const ValueTree& newState);

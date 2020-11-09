@@ -2427,9 +2427,6 @@
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp">
       <Filter>Matrix-6G\Source\widgets_ControlsForParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_Controls.cpp">
-      <Filter>Matrix-6G\Source\gui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
@@ -2443,6 +2440,15 @@
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_CurrentPatchOptions.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4727,9 +4733,6 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h">
       <Filter>Matrix-6G\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_Layer_Controls.h">
-      <Filter>Matrix-6G\Source\gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h">
       <Filter>Matrix-6G\Source\guiRenderers</Filter>
     </ClInclude>
@@ -4759,6 +4762,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h">
+      <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ void MidiOptions::removeListener(ValueTree::Listener* listener) {
 	midiOptionsTree.removeListener(listener);
 }
 
-uint8 MidiOptions::basicChannel() {
+const uint8 MidiOptions::basicChannel() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_BasicChannel);
 }
 

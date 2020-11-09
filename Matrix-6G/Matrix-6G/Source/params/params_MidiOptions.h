@@ -17,7 +17,7 @@ private:
 public:
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
-	uint8 basicChannel();
+	const uint8 basicChannel();
 	void setBasicChannel(uint8 newChannel);
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();

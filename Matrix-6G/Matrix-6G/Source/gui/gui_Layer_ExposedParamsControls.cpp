@@ -1,4 +1,4 @@
-#include "gui_Layer_Controls.h"
+#include "gui_Layer_ExposedParamsControls.h"
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -6,8 +6,7 @@
 
 
 ExposedParamsControlsLayer::ExposedParamsControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	ControlsForExposedParameters(unexposedParams),
-	unexposedParams{ unexposedParams }
+	ControlsForExposedParameters(unexposedParams)
 {
     setInterceptsMouseClicks(false, true);
 	rebuildControls(unexposedParams);

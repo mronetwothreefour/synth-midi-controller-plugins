@@ -24,11 +24,11 @@ void TooltipOptions::removeListener(ValueTree::Listener* listener) {
 	tooltipOptionsTree.removeListener(listener);
 }
 
-bool TooltipOptions::shouldShowCurrentValue() {
+const bool TooltipOptions::shouldShowCurrentValue() {
 	return (bool)tooltipOptionsTree.getProperty(ID::tooltips_ShouldShowCurrentValue);
 }
 
-bool TooltipOptions::shouldShowDescription() {
+const bool TooltipOptions::shouldShowDescription() {
 	return (bool)tooltipOptionsTree.getProperty(ID::tooltips_ShouldShowDescription);
 }
 
@@ -48,7 +48,7 @@ void TooltipOptions::setShouldNotShowDescription() {
 	tooltipOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, (bool)false, nullptr);
 }
 
-int TooltipOptions::delayInMilliseconds() {
+const int TooltipOptions::delayInMilliseconds() {
 	return (int)tooltipOptionsTree.getProperty(ID::tooltips_DelayInMilliseconds);
 }
 

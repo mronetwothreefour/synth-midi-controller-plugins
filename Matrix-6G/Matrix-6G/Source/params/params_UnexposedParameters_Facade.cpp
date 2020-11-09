@@ -3,11 +3,16 @@
 
 
 UnexposedParameters::UnexposedParameters() :
+	currentPatchOptions{ new CurrentPatchOptions(this) },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
+}
+
+CurrentPatchOptions* UnexposedParameters::currentPatchOptions_get() {
+	return currentPatchOptions.get();
 }
 
 MidiOptions* UnexposedParameters::midiOptions_get() {
@@ -35,4 +40,5 @@ UnexposedParameters::~UnexposedParameters() {
 	tooltipOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	midiOptions = nullptr;
+	currentPatchOptions = nullptr;
 }

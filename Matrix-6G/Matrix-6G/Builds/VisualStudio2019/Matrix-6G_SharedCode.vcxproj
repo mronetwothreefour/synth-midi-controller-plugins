@@ -2132,11 +2132,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp" />
-    <ClCompile Include="..\..\Source\gui\gui_Layer_Controls.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
+    <ClCompile Include="..\..\Source\params\params_CurrentPatchOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
@@ -2898,7 +2900,8 @@
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h" />
-    <ClInclude Include="..\..\Source\gui\gui_Layer_Controls.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.h" />
     <ClInclude Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\gui\gui_Path_LEDsliderTab.h" />
@@ -2907,6 +2910,7 @@
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
+    <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />

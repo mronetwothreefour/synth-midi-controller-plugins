@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "params_CurrentPatchOptions.h"
 #include "params_MidiOptions.h"
 #include "params_TooltipOptions.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
@@ -10,6 +11,7 @@
 
 class UnexposedParameters
 {
+	std::unique_ptr<CurrentPatchOptions> currentPatchOptions;
 	std::unique_ptr<MidiOptions> midiOptions;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
 	std::unique_ptr<TooltipOptions> tooltipOptions;
@@ -17,6 +19,7 @@ class UnexposedParameters
 
 public:
 	UnexposedParameters();
+	CurrentPatchOptions* currentPatchOptions_get();
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
 	Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers_get();
