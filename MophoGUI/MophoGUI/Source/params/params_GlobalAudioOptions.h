@@ -18,14 +18,14 @@ public:
 	void resetGlobalAudioOptionsToDefaults();
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
-	uint8 globalTranspose();
+	const uint8 globalTranspose();
 	void setGlobalTranspose(uint8 newTransposition);
-	uint8 globalFineTune();
+	const uint8 globalFineTune();
 	void setGlobalFineTune(uint8 newFineTune);
 	bool hardwareOutputIsStereo();
 	void setHardwareOutputStereo();
 	void setHardwareOutputMono();
-	uint8 globalBalance();
+	const uint8 globalBalance();
 	void setGlobalBalance(uint8 newBalance);
 
 private:

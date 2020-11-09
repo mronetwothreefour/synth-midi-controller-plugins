@@ -37,7 +37,7 @@ void MidiOptions::removeListener(ValueTree::Listener* listener) {
 	midiOptionsTree.removeListener(listener);
 }
 
-uint8 MidiOptions::transmitChannel() {
+const uint8 MidiOptions::transmitChannel() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_TransmitChannel);
 }
 
@@ -45,7 +45,7 @@ void MidiOptions::setTransmitChannel(uint8 newChannel) {
 	midiOptionsTree.setProperty(ID::midi_TransmitChannel, newChannel, nullptr);
 }
 
-uint8 MidiOptions::hardwareReceiveChannel() {
+const uint8 MidiOptions::hardwareReceiveChannel() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_HardwareReceiveChannel);
 }
 
@@ -53,7 +53,7 @@ void MidiOptions::setHardwareReceiveChannel(uint8 newChannel) {
 	midiOptionsTree.setProperty(ID::midi_HardwareReceiveChannel, newChannel, nullptr);
 }
 
-uint8 MidiOptions::clockType() {
+const uint8 MidiOptions::clockType() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_Clock);
 }
 
@@ -61,7 +61,7 @@ void MidiOptions::setClockType(uint8 newType) {
 	midiOptionsTree.setProperty(ID::midi_Clock, newType, nullptr);
 }
 
-uint8 MidiOptions::parameterSendType() {
+const uint8 MidiOptions::parameterSendType() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_ParameterSendType);
 }
 
@@ -69,7 +69,7 @@ void MidiOptions::setParameterSendType(uint8 newType) {
 	midiOptionsTree.setProperty(ID::midi_ParameterSendType, newType, nullptr);
 }
 
-uint8 MidiOptions::parameterReceiveType() {
+const uint8 MidiOptions::parameterReceiveType() {
 	return (uint8)(int)midiOptionsTree.getProperty(ID::midi_ParameterReceiveType);
 }
 
@@ -77,11 +77,11 @@ void MidiOptions::setParameterReceiveType(uint8 newType) {
 	midiOptionsTree.setProperty(ID::midi_ParameterReceiveType, newType, nullptr);
 }
 
-bool MidiOptions::controllersAreOn() {
+const bool MidiOptions::controllersAreOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_ControllersOn);
 }
 
-bool MidiOptions::controllersAreOff() {
+const bool MidiOptions::controllersAreOff() {
 	return !(bool)midiOptionsTree.getProperty(ID::midi_ControllersOn);
 }
 
@@ -93,14 +93,14 @@ void MidiOptions::setControllersOff() {
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)false, nullptr);
 }
 
-bool MidiOptions::hardwareIsSetToReceiveNRPNcontrollers() {
+const bool MidiOptions::hardwareIsSetToReceiveNRPNcontrollers() {
 	auto receiveTypeIsAll{ parameterReceiveType() == (uint8)ParameterReceiveType::all };
 	auto receiveTypeIsNRPN{ parameterReceiveType() == (uint8)ParameterReceiveType::nrpnOnly };
 	auto nrpnReceiveIsOn{ receiveTypeIsAll || receiveTypeIsNRPN };
 	return (nrpnReceiveIsOn && controllersAreOn());
 }
 
-bool MidiOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
+const bool MidiOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
 	auto receiveTypeIsNotAll{ parameterReceiveType() != (uint8)ParameterReceiveType::all };
 	auto receiveTypeIsNotNRPN{ parameterReceiveType() != (uint8)ParameterReceiveType::nrpnOnly };
 	auto nrpnReceiveIsOff{ receiveTypeIsNotAll && receiveTypeIsNotNRPN };
@@ -108,11 +108,11 @@ bool MidiOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
 	return (nrpnReceiveIsOff || controllersAreOff);
 }
 
-bool MidiOptions::sysExIsOn() {
+const bool MidiOptions::sysExIsOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_SysExOn);
 }
 
-bool MidiOptions::sysExIsOff() {
+const bool MidiOptions::sysExIsOff() {
 	return !(bool)midiOptionsTree.getProperty(ID::midi_SysExOn);
 }
 
@@ -124,7 +124,7 @@ void MidiOptions::setSysExOff() {
 	midiOptionsTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 }
 
-bool MidiOptions::pedalModeIsArpLatch() {
+const bool MidiOptions::pedalModeIsArpLatch() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_PedalModeArpLatch);
 }
 
@@ -136,7 +136,7 @@ void MidiOptions::setPedalModeToNormal() {
 	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)false, nullptr);
 }
 
-bool MidiOptions::programChangeIsOn() {
+const bool MidiOptions::programChangeIsOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_ProgramChangeOn);
 }
 
@@ -148,7 +148,7 @@ void MidiOptions::setProgramChangeOff() {
 	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)false, nullptr);
 }
 
-bool MidiOptions::paramChangeEchosAreNotBlocked() {
+const bool MidiOptions::paramChangeEchosAreNotBlocked() {
 	return !(bool)midiOptionsTree.getProperty(ID::midi_ParamChangeEchosAreBlocked);
 }
 
@@ -160,7 +160,7 @@ void MidiOptions::setParamChangeEchosAreNotBlocked() {
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 }
 
-int MidiOptions::programTransmitTime() {
+const int MidiOptions::programTransmitTime() {
 	return (int)midiOptionsTree.getProperty(ID::midi_ProgramTransmitTime);
 }
 
