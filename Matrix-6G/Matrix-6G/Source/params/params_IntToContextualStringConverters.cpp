@@ -98,6 +98,26 @@ IntToUnsignedValueString* IntToUnsignedValueString::get() noexcept {
 
 
 
+String IntToUnsignedValueWithLeadingZeroString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToUnsignedValueWithLeadingZeroString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 100);
+	if (i < 10)
+		return "0" + (String)i;
+	else
+		return (String)i;
+}
+
+IntToUnsignedValueWithLeadingZeroString* IntToUnsignedValueWithLeadingZeroString::get() noexcept {
+	static IntToUnsignedValueWithLeadingZeroString converter;
+	return &converter;
+}
+
+
+
+
 String IntToSigned7bitValueString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }

@@ -13,7 +13,7 @@
       <FILE id="J7tYz2" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
     <FILE id="gJLRSl" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
-    <FILE id="eylf3g" name="Matrix-6G-Main-Window-Background.png" compile="0"
+    <FILE id="bDA9Qn" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
     <FILE id="eBS5SG" name="Button-Master-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Master-Down.png"/>

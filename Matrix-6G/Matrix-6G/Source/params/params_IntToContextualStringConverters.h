@@ -49,6 +49,18 @@ public:
 
 
 
+struct IntToUnsignedValueWithLeadingZeroString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToUnsignedValueWithLeadingZeroString* get() noexcept;
+};
+
+
+
+
 struct IntToSigned7bitValueString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
