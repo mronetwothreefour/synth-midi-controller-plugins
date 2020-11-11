@@ -12,7 +12,7 @@ namespace BinaryData
     const int            SWISSB_TTFSize = 36852;
 
     extern const char*   Matrix6GMainWindowBackground_png;
-    const int            Matrix6GMainWindowBackground_pngSize = 49861;
+    const int            Matrix6GMainWindowBackground_pngSize = 49864;
 
     extern const char*   ButtonMasterDown_png;
     const int            ButtonMasterDown_pngSize = 865;

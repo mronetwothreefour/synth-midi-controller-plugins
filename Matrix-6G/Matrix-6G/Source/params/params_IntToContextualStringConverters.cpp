@@ -600,7 +600,7 @@ String IntToLFOwaveTypeString::conversionAlgorithm(const uint8& i) noexcept {
 }
 
 String IntToLFOwaveTypeString::verboseConversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 3);
+	jassert(i < 7);
 	if (i == 0) return "Triangle";
 	if (i == 1) return "Up (Positive) Sawtooth";
 	if (i == 2) return "Down (Negative) Sawtooth";
