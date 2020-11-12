@@ -2445,11 +2445,14 @@
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_CurrentPatchOptions.cpp">
-      <Filter>Matrix-6G\Source\gui</Filter>
+      <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4766,11 +4769,14 @@
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.h">
-      <Filter>Matrix-6G\Source\gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

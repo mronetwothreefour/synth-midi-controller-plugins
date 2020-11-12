@@ -3,6 +3,7 @@
 
 #include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
+#include "gui/gui_Layer_PatchNumberAndName.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 
@@ -16,12 +17,14 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
+    patchNumberAndNameLayer{ new PatchNumberAndNameLayer(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(buttonsLayer.get());
+    addAndMakeVisible(patchNumberAndNameLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -45,6 +48,7 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     buttonsLayer->setBounds(getLocalBounds());
+    patchNumberAndNameLayer->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -58,6 +62,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    patchNumberAndNameLayer = nullptr;
     buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
 }

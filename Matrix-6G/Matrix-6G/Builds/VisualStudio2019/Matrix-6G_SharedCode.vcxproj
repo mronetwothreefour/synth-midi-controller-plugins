@@ -2133,7 +2133,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp" />
-    <ClCompile Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -2157,6 +2157,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
@@ -2901,7 +2902,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h" />
-    <ClInclude Include="..\..\Source\gui\gui_Layer_UnexposedParamsControls.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.h" />
     <ClInclude Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\gui\gui_Path_LEDsliderTab.h" />
@@ -2932,6 +2933,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
