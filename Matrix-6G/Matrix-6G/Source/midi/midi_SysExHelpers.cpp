@@ -11,9 +11,34 @@ bool SysExID::matchesHardwareSynthID(const MidiMessage& midiMessage) {
         return false;
 }
 
-std::vector<uint8> SysExID::createRawDataVectorWithSysExIDheaderBytes() {
-    std::vector<uint8> rawDataVector;
-    rawDataVector.push_back((uint8)SysExID::TargetDevice::Manufacturer);
-    rawDataVector.push_back((uint8)SysExID::TargetDevice::Device);
+std::vector<uint8> SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType messageType) {
+    int vectorSize;
+    switch (messageType)
+    {
+    case SysExMessageType::patchData:
+        vectorSize = 273;
+        break;
+    case SysExMessageType::splitData:
+        vectorSize = 41;
+        break;
+    case SysExMessageType::masterData:
+        vectorSize = 477;
+        break;
+    case SysExMessageType::dataDumpRequest:
+        vectorSize = 5;
+        break;
+    case SysExMessageType::quickEditSelect:
+        vectorSize = 3;
+        break;
+    case SysExMessageType::paramChange:
+        vectorSize = 5;
+        break;
+    default:
+        vectorSize = 0;
+        break;
+    }
+    std::vector<uint8> rawDataVector(vectorSize);
+    rawDataVector[0] = (uint8)SysExID::TargetDevice::Manufacturer;
+    rawDataVector[1] = (uint8)SysExID::TargetDevice::Device;
     return rawDataVector;
 }

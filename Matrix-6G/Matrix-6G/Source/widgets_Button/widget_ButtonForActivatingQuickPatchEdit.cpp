@@ -34,7 +34,8 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 }
 
 void ButtonForActivatingQuickPatchEdit::onClickMethod() {
-	QuickPatchEditing::sendActivateMessageToUnexposedParamsForHandling(unexposedParams);
+	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+	QuickPatchEditing::sendActivateMessageToOutgoingMidiBuffers(outgoingMidiBuffers);
 }
 
 void ButtonForActivatingQuickPatchEdit::timerCallback() {

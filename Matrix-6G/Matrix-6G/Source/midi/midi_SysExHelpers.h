@@ -31,6 +31,6 @@ struct SysExID {
     };
 
     static bool matchesHardwareSynthID(const MidiMessage& midiMessage);
-    static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytes();
+    static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytes(SysExMessageType messageType);
 };
 

@@ -2137,6 +2137,7 @@
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_PatchDataMessage.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
     <ClCompile Include="..\..\Source\params\params_CurrentPatchOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp" />
@@ -2146,6 +2147,7 @@
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
+    <ClCompile Include="..\..\Source\patch\patches_PatchDataDump.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
@@ -2909,6 +2911,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
+    <ClInclude Include="..\..\Source\midi\midi_PatchDataMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h" />
@@ -2921,6 +2924,7 @@
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
+    <ClInclude Include="..\..\Source\patch\patches_PatchDataDump.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />

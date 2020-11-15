@@ -7,16 +7,15 @@
 
 
 struct QuickPatchEditing {
-	static void sendActivateMessageToUnexposedParamsForHandling(UnexposedParameters* unexposedParams) {
+	static void sendActivateMessageToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
 		auto quickEditMessage{ createActivateQuickPatchEditingSysExMessage() };
-		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		outgoingBuffers->aggregateOutgoingMidiBuffers(quickEditMessage);
 	}
 
 private:
 	static MidiBuffer createActivateQuickPatchEditingSysExMessage() {
-		auto messageVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
-		messageVector.push_back((uint8)SysExMessageType::quickEditSelect);
+		auto messageVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType::quickEditSelect) };
+		messageVector[2] = (uint8)SysExMessageType::quickEditSelect;
 		MidiBuffer localMidiBuffer;
 		localMidiBuffer.addEvent(MidiMessage::createSysExMessage(messageVector.data(), (int)messageVector.size()), 0);
 		return localMidiBuffer;
