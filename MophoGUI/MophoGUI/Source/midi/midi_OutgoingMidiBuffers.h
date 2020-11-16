@@ -13,11 +13,11 @@ class OutgoingMidiBuffers :
 public:
 	OutgoingMidiBuffers();
 
-	// Combines all MidiBuffers that get created within a
-	// 10 ms slice of time into a single MidiBuffer
-	void aggregateOutgoingMidiBuffers(MidiBuffer& midiBuffer);
+	void addDataMessage(const std::vector<uint8>& messageVector);
+	void addMidiBuffer(MidiBuffer& midiBuffer);
 
 private:
+	void aggregateAllMidiBuffersWithinA10msChunkOfTime(MidiBuffer& midiBuffer);
 	void timerCallback() override;
 
 public:

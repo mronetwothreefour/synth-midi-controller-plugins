@@ -255,7 +255,7 @@ void GlobalParametersComponent::sendNewValueForNRPNtypeToOutgoingMidiBuffers(uin
 	auto channel{ midiOptions->transmitChannel() };
 	auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(channel, nrpnType, newValue) };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	outgoingMidiBuffers->aggregateOutgoingMidiBuffers(nrpnBuffer);
+	outgoingMidiBuffers->addMidiBuffer(nrpnBuffer);
 }
 
 void GlobalParametersComponent::timerCallback() {

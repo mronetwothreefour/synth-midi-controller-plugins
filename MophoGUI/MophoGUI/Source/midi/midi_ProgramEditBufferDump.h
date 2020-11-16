@@ -11,5 +11,5 @@ struct ProgramEditBufferDump {
     static void addDumpToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, OutgoingMidiBuffers* outgoingBuffers);
 
 private:
-    static MidiBuffer createProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams);
+    static std::vector<uint8> createProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams);
 };

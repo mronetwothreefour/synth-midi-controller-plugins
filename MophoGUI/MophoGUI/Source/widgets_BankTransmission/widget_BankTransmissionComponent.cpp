@@ -69,14 +69,17 @@ void BankTransmissionComponent::timerCallback() {
 }
 
 void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSlot) {
+	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
-		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, unexposedParams);
+		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
 		auto programBankTab{ tabbedComponent.getCurrentProgramBankTab() };
 		if (programBankTab != nullptr)
 			callAfterDelay(transmitTime, [this, programBankTab, programSlot] { programBankTab->updateProgramSlotText(programSlot); });
 	}
-	else
-		ProgramDump::addProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, unexposedParams);
+	else {
+		auto programDumpVector{ ProgramDump::createProgramDumpForBankAndSlot(bank, programSlot, unexposedParams) };
+		outgoingBuffers->addDataMessage(programDumpVector);
+	}
 }
 
 void BankTransmissionComponent::paint(Graphics& g) {

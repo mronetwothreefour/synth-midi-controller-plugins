@@ -8,7 +8,17 @@ OutgoingMidiBuffers::OutgoingMidiBuffers() :
 {
 }
 
-void OutgoingMidiBuffers::aggregateOutgoingMidiBuffers(MidiBuffer& midiBuffer) {
+void OutgoingMidiBuffers::addDataMessage(const std::vector<uint8>& messageVector) {
+	MidiBuffer localMidiBuffer;
+	localMidiBuffer.addEvent(MidiMessage::createSysExMessage(messageVector.data(), (int)messageVector.size()), 0);
+	aggregateAllMidiBuffersWithinA10msChunkOfTime(localMidiBuffer);
+}
+
+void OutgoingMidiBuffers::addMidiBuffer(MidiBuffer& midiBuffer) {
+	aggregateAllMidiBuffersWithinA10msChunkOfTime(midiBuffer);
+}
+
+void OutgoingMidiBuffers::aggregateAllMidiBuffersWithinA10msChunkOfTime(MidiBuffer& midiBuffer) {
 	outgoingMidiBuffer->addEvents(midiBuffer, 0, -1, 0);
 	if (!isTimerRunning()) {
 		aggregatedOutgoingBuffers->add(*outgoingMidiBuffer);

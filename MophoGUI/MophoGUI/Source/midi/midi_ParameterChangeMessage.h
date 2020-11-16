@@ -13,6 +13,6 @@ struct ParameterChangeMessage {
         auto midiOptions{ unexposedParams->midiOptions_get() };
         auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(midiOptions->transmitChannel(), nrpnType, newValue) };
         auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-        outgoingBuffers->aggregateOutgoingMidiBuffers(nrpnBuffer);
+        outgoingBuffers->addMidiBuffer(nrpnBuffer);
     }
 };
