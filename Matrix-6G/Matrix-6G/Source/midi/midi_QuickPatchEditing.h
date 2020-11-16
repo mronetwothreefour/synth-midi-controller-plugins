@@ -9,7 +9,7 @@
 struct QuickPatchEditing {
 	static void sendActivateMessageToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
 		auto quickEditMessage{ createActivateQuickPatchEditingSysExMessage() };
-		outgoingBuffers->addDataMessageToOutgoingMidiBuffers(quickEditMessage);
+		outgoingBuffers->addDataMessage(quickEditMessage);
 	}
 
 private:

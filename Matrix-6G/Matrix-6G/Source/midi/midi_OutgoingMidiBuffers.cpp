@@ -8,7 +8,7 @@ OutgoingMidiBuffers::OutgoingMidiBuffers() :
 {
 }
 
-void OutgoingMidiBuffers::addDataMessageToOutgoingMidiBuffers(const std::vector<uint8>& messageVector) {
+void OutgoingMidiBuffers::addDataMessage(const std::vector<uint8>& messageVector) {
 	MidiBuffer localMidiBuffer;
 	localMidiBuffer.addEvent(MidiMessage::createSysExMessage(messageVector.data(), (int)messageVector.size()), 0);
 	aggregateAllMidiBuffersWithinA10msChunkOfTime(localMidiBuffer);

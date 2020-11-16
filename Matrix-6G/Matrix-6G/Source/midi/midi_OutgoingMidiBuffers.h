@@ -13,7 +13,7 @@ class OutgoingMidiBuffers :
 public:
 	OutgoingMidiBuffers();
 
-	void addDataMessageToOutgoingMidiBuffers(const std::vector<uint8>& messageVector);
+	void addDataMessage(const std::vector<uint8>& messageVector);
 
 private:
 	void aggregateAllMidiBuffersWithinA10msChunkOfTime(MidiBuffer& midiBuffer);

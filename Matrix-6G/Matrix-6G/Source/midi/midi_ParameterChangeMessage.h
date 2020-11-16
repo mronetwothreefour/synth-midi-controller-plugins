@@ -12,7 +12,7 @@ struct ParameterChangeMessage {
 	static void sendNewValueForParameterToOutgoingMidiBuffers(uint8 newValue, uint8 param, OutgoingMidiBuffers* outgoingBuffers) {
 		jassert(newValue < 128 && param < 100);
 		auto paramChangeMessage{ createParamChangeSysExMessage(newValue, param) };
-		outgoingBuffers->addDataMessageToOutgoingMidiBuffers(paramChangeMessage);
+		outgoingBuffers->addDataMessage(paramChangeMessage);
 	}
 
 private:
