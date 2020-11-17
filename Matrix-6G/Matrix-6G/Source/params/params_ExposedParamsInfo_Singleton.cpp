@@ -873,7 +873,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	paramNumbers.add((uint8)33);
 	isQuickEditEnabled.add((bool)true);
 	controlTypes.add(ControlType::comboBox);
-	converters.add(IntToModSourceString::get());
+	converters.add(IntToTrackingInputString::get());
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)20);
 	defaultValues.add((uint8)9);

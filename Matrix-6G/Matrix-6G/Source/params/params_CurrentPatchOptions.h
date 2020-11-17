@@ -13,6 +13,7 @@ class CurrentPatchOptions
 
 public:
 	CurrentPatchOptions() = delete;
+
 	explicit CurrentPatchOptions(UnexposedParameters* unexposedParams);
 
 private:

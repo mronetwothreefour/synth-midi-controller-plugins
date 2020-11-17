@@ -169,6 +169,18 @@ public:
 
 
 
+struct IntToTrackingInputString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToTrackingInputString* get() noexcept;
+};
+
+
+
+
 struct IntToModSourceString : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
@@ -176,6 +188,18 @@ struct IntToModSourceString : public IntToContextualStringConverter
 
 public:
 	static IntToModSourceString* get() noexcept;
+};
+
+
+
+
+struct IntToModDestinationString : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToModDestinationString* get() noexcept;
 };
 
 

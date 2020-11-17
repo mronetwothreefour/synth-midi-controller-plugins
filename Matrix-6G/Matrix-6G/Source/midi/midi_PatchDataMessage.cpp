@@ -37,11 +37,11 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
         auto lsbByteLocation{ info.lsbByteLocationFor(paramIndex) };
         if (paramValue < 0)
-            paramValue += (uint8)256;
+            paramValue += (int8)256;
         addValueToDataVectorAtLSBbyteLocation(paramValue, &dataVector[lsbByteLocation]);
         checkSum += paramValue;
     }
-    dataVector[273] = checkSum % 128;
+    dataVector[273] = checkSum % (uint8)128;
 }
 
 uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
@@ -57,4 +57,5 @@ void PatchDataMessage::addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8*
 }
 
 std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBankAndSlot(uint8 bank, uint8 slot) {
+    return {};
 }

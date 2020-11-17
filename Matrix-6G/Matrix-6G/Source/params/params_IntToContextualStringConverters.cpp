@@ -327,7 +327,7 @@ IntToOffOnString* IntToOffOnString::get() noexcept {
 
 
 
-String IntToModSourceString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToTrackingInputString::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 21);
 	if (i == 0) return "NONE";
 	if (i == 1) return "ENV 1";
@@ -345,6 +345,44 @@ String IntToModSourceString::conversionAlgorithm(const uint8& i) noexcept {
 	if (i == 13) return "VELOCITY";
 	if (i == 14) return "REL VELO";
 	if (i == 15) return "PRESSURE";
+	if (i == 16) return "PEDAL 1";
+	if (i == 17) return "PEDAL 2";
+	if (i == 18) return "LEVER 1";
+	if (i == 19) return "LEVER 2";
+	if (i == 20) return "LEVER 3";
+	else return "ERR";
+}
+
+String IntToTrackingInputString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	return IntToModSourceString::get()->verboseConversionAlgorithm(i);
+}
+
+IntToTrackingInputString* IntToTrackingInputString::get() noexcept {
+	static IntToTrackingInputString converter;
+	return &converter;
+}
+
+
+
+
+String IntToModSourceString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 21);
+	if (i == 0) return "NONE";
+	if (i == 1) return "ENV 1";
+	if (i == 2) return "ENV 2";
+	if (i == 3) return "ENV 3";
+	if (i == 4) return "LFO 1";
+	if (i == 5) return "LFO 2";
+	if (i == 6) return "VIBRATO";
+	if (i == 7) return "RAMP 1";
+	if (i == 8) return "RAMP 2";
+	if (i == 9) return "KEYBD";
+	if (i == 10) return "PORTA";
+	if (i == 11) return "TRACK";
+	if (i == 12) return "GATE";
+	if (i == 13) return "VELO";
+	if (i == 14) return "R VELO";
+	if (i == 15) return "PRESS";
 	if (i == 16) return "PEDAL 1";
 	if (i == 17) return "PEDAL 2";
 	if (i == 18) return "LEVER 1";
@@ -382,6 +420,90 @@ String IntToModSourceString::verboseConversionAlgorithm(const uint8& i) noexcept
 IntToModSourceString* IntToModSourceString::get() noexcept {
 	static IntToModSourceString converter;
 	return &converter;
+}
+
+
+
+
+String IntToModDestinationString::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 33);
+	if (i == 0) return "NONE";
+	if (i == 1) return "OSC1 FQ";
+	if (i == 2) return "OSC1 PW";
+	if (i == 3) return "OSC1 W";
+	if (i == 4) return "OSC2 FQ";
+	if (i == 5) return "OSC2 PW";
+	if (i == 6) return "OSC2 W";
+	if (i == 7) return "OSC MIX";
+	if (i == 8) return "VCF FM";
+	if (i == 9) return "VCF FQ";
+	if (i == 10) return "VCF RES";
+	if (i == 11) return "VCA1LVL";
+	if (i == 12) return "VCA2LVL";
+	if (i == 13) return "ENV1DEL";
+	if (i == 14) return "ENV1ATK";
+	if (i == 15) return "ENV1DEC";
+	if (i == 16) return "ENV1REL";
+	if (i == 17) return "ENV1AMP";
+	if (i == 18) return "ENV2DEL";
+	if (i == 19) return "ENV2ATK";
+	if (i == 20) return "ENV2DEC";
+	if (i == 21) return "ENV2REL";
+	if (i == 22) return "ENV2AMP";
+	if (i == 23) return "ENV3DEL";
+	if (i == 24) return "ENV3ATK";
+	if (i == 25) return "ENV3DEC";
+	if (i == 26) return "ENV3REL";
+	if (i == 27) return "ENV3AMP";
+	if (i == 28) return "LFO1SPD";
+	if (i == 29) return "LFO1AMP";
+	if (i == 30) return "LFO2SPD";
+	if (i == 31) return "LFO2AMP";
+	if (i == 32) return "PORTA";
+	else return "ERR";
+}
+
+String IntToModDestinationString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 33);
+	if (i == 0) return "None";
+	if (i == 1) return "Oscillator 1 Pitch";
+	if (i == 2) return "Oscillator 1 Pulse Width";
+	if (i == 3) return "Oscillator 1 Saw/Tri Wave Shape";
+	if (i == 4) return "Oscillator 2 Pitch";
+	if (i == 5) return "Oscillator 2 Pulse Width";
+	if (i == 6) return "Oscillator 2 Saw/Tri Wave Shape";
+	if (i == 7) return "Oscillator Mix (Balance)";
+	if (i == 8) return "VCF FM Amount";
+	if (i == 9) return "VCF Cutoff Frequency";
+	if (i == 10) return "VCF Resonance";
+	if (i == 11) return "VCA 1 Level";
+	if (i == 12) return "VCA 2 Level";
+	if (i == 13) return "Envelope 1 Delay";
+	if (i == 14) return "Envelope 1 Attack";
+	if (i == 15) return "Envelope 1 Decay";
+	if (i == 16) return "Envelope 1 Release";
+	if (i == 17) return "Envelope 1 Amplitude";
+	if (i == 18) return "Envelope 2 Delay";
+	if (i == 19) return "Envelope 2 Attack";
+	if (i == 20) return "Envelope 2 Decay";
+	if (i == 21) return "Envelope 2 Release";
+	if (i == 22) return "Envelope 2 Amplitude";
+	if (i == 23) return "Envelope 3 Delay";
+	if (i == 24) return "Envelope 3 Attack";
+	if (i == 25) return "Envelope 3 Decay";
+	if (i == 26) return "Envelope 3 Release";
+	if (i == 27) return "Envelope 3 Amplitude";
+	if (i == 28) return "LFO 1 Speed";
+	if (i == 29) return "LFO 1 Amplitude";
+	if (i == 30) return "LFO 2 Speed";
+	if (i == 31) return "LFO 2 Amplitude";
+	if (i == 32) return "Portamento Time";
+	else return "range error";
+}
+
+IntToModDestinationString* IntToModDestinationString::get() noexcept
+{
+	return nullptr;
 }
 
 
