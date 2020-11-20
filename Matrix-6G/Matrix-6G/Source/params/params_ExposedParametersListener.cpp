@@ -23,9 +23,9 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 		auto param{ info.indexForParamID(parameterID) };
 		auto outputValue{ (int8)roundToInt(newValue) };
 		if (info.rangeTypeFor(param) == RangeType::signed6bitValue)
-			outputValue -= offsetFor5bitSignedValues;
+			outputValue -= info.offsetForSigned6bitRange;
 		if (info.rangeTypeFor(param) == RangeType::signed7bitValue)
-			outputValue -= offsetFor6bitSignedValues;
+			outputValue -= info.offsetForSigned7bitRange;
 		if (info.isQuickEditable(param) && outputValue > -1) {
 			auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			ParameterChangeMessage::sendNewValueForParameterToOutgoingMidiBuffers(outputValue, info.paramNumberFor(param), outgoingMidiBuffers);

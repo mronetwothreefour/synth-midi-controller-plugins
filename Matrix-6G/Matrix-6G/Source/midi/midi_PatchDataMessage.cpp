@@ -36,10 +36,27 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
         auto lsbByteLocation{ info.lsbByteLocationFor(paramIndex) };
-        if (paramValue < 0)
-            paramValue += (int8)256;
+        auto rangeType{ info.rangeTypeFor(paramIndex) };
+        if (rangeType == RangeType::signed6bitValue || rangeType == RangeType::signed7bitValue)
+            offsetValueInSignedRange(paramValue, rangeType);
         addValueToDataVectorAtLSBbyteLocation(paramValue, &dataVector[lsbByteLocation]);
         checkSum += paramValue;
+    }
+    for (auto i = 0; i != 10; ++i) {
+        auto matrixModSettings{ unexposedParams->matrixModSettings_get() };
+        auto modSource{ matrixModSettings->sourceSettingForModulation(i) };
+        auto modAmount{ matrixModSettings->amountSettingForModulation(i) };
+        offsetValueInSignedRange(modAmount, RangeType::signed7bitValue);
+        auto modDestination{ matrixModSettings->sourceSettingForModulation(i) };
+        auto lsbByteLocationForSource{ matrixModSettings->lsbByteLocationForModulation0Source + (i * 6) };
+        addValueToDataVectorAtLSBbyteLocation(modSource, &dataVector[lsbByteLocationForSource]);
+        checkSum += modSource;
+        auto lsbByteLocationForAmount{ matrixModSettings->lsbByteLocationForModulation0Amount + (i * 6) };
+        addValueToDataVectorAtLSBbyteLocation(modAmount, &dataVector[lsbByteLocationForAmount]);
+        checkSum += modAmount;
+        auto lsbByteLocationForDestination{ matrixModSettings->lsbByteLocationForModulation0Destination + (i * 6) };
+        addValueToDataVectorAtLSBbyteLocation(modDestination, &dataVector[lsbByteLocationForDestination]);
+        checkSum += modDestination;
     }
     dataVector[273] = checkSum % (uint8)128;
 }
@@ -49,6 +66,18 @@ uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
 	return truncatedValue;
 }
 
+uint8 PatchDataMessage::offsetValueInSignedRange(uint8& value, RangeType rangeType) {
+    jassert(rangeType == RangeType::signed6bitValue || rangeType == RangeType::signed7bitValue);
+    auto& info{ InfoForExposedParameters::get() };
+    int8 rangeOffset{ rangeType == RangeType::signed6bitValue ? info.offsetForSigned6bitRange : info.offsetForSigned7bitRange };
+    int valueWithOffset{ value - rangeOffset };
+    if (valueWithOffset < 0) {
+        int negativeValueOffset{ 256 };
+        valueWithOffset += negativeValueOffset;
+    }
+    return (uint8)valueWithOffset;
+}
+
 void PatchDataMessage::addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8* lsbByteLocation) {
 	auto leastSignificantByte{ uint8(value % 16) };
 	auto mostSignificantByte{ uint8(value / 16) };
@@ -56,6 +85,6 @@ void PatchDataMessage::addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8*
 	*(lsbByteLocation + 1) = mostSignificantByte;
 }
 
-std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBankAndSlot(uint8 bank, uint8 slot) {
+std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBankAndSlot(uint8 /*bank*/, uint8 /*slot*/) {
     return {};
 }

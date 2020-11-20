@@ -14,8 +14,6 @@ class ExposedParametersListener :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	MidiOptions* midiOptions;
-	const int8 offsetFor5bitSignedValues{ 31 };
-	const int8 offsetFor6bitSignedValues{ 63 };
 
 public:
 	ExposedParametersListener() = delete;

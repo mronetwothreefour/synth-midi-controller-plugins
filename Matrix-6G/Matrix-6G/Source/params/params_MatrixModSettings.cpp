@@ -36,7 +36,7 @@ void MatrixModSettings::fillMatrixModSettingsTreeWithProperties() {
 			break;
 		}
 		matrixModSettingsTree.setProperty("matrixMod_SourceForMod_" + (String)i, defaultSource, nullptr);
-		matrixModSettingsTree.setProperty("matrixMod_AmountForMod_" + (String)i, (int8)0, nullptr);
+		matrixModSettingsTree.setProperty("matrixMod_AmountForMod_" + (String)i, (int8)63, nullptr);
 		matrixModSettingsTree.setProperty("matrixMod_DestinationForMod_" + (String)i, defaultDestination, nullptr);
 	}
 }
@@ -59,12 +59,13 @@ void MatrixModSettings::setSourceForModulation(uint8 source, int modNumber) {
 	matrixModSettingsTree.setProperty("matrixMod_SourceForMod_" + (String)modNumber, source, unexposedParams->undoManager_get());
 }
 
-const int8 MatrixModSettings::amountSettingForModulation(int modNumber) {
-	return (int8)(int)matrixModSettingsTree.getProperty("matrixMod_AmountForMod_" + (String)modNumber);
+const uint8 MatrixModSettings::amountSettingForModulation(int modNumber) {
+	auto amount{ (int8)(int)matrixModSettingsTree.getProperty("matrixMod_AmountForMod_" + (String)modNumber) };
+	return (uint8)amount;
 }
 
-void MatrixModSettings::setAmountForModulation(int8 amount, int modNumber) {
-	jassert(amount > -64 && amount < 64);
+void MatrixModSettings::setAmountForModulation(uint8 amount, int modNumber) {
+	jassert(amount < 127);
 	jassert(modNumber < 10);
 	matrixModSettingsTree.setProperty("matrixMod_AmountForMod_" + (String)modNumber, amount, unexposedParams->undoManager_get());
 }

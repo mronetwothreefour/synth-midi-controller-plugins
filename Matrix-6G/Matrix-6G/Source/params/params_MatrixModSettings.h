@@ -12,6 +12,10 @@ class MatrixModSettings
 	ValueTree matrixModSettingsTree;
 
 public:
+	const int lsbByteLocationForModulation0Source{ 212 };
+	const int lsbByteLocationForModulation0Amount{ 214 };
+	const int lsbByteLocationForModulation0Destination{ 216 };
+
 	MatrixModSettings() = delete;
 
 	explicit MatrixModSettings(UnexposedParameters* unexposedParams);
@@ -24,8 +28,8 @@ public:
 	void removeListener(ValueTree::Listener* listener);
 	const uint8 sourceSettingForModulation(int modNumber);
 	void setSourceForModulation(uint8 source, int modNumber);
-	const int8 amountSettingForModulation(int modNumber);
-	void setAmountForModulation(int8 amount, int modNumber);
+	const uint8 amountSettingForModulation(int modNumber);
+	void setAmountForModulation(uint8 amount, int modNumber);
 	const uint8 destinationSettingForModulation(int modNumber);
 	void setDestinationForModulation(uint8 destination, int modNumber);
 
