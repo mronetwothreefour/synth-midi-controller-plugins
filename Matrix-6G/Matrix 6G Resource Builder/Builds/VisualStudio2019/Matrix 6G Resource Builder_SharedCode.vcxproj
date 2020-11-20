@@ -2773,6 +2773,8 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Flash.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Send-All-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Send-All-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Down.png"/>

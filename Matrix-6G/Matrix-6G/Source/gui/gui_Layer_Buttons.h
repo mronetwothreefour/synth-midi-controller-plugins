@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
+#include "../widgets_Button/widget_ButtonForSendingAllPatchData.h"
 
 
 
@@ -14,13 +15,13 @@ class ButtonsLayer :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ButtonForActivatingQuickPatchEdit button_ForActivatingQuickPatchEdit;
+	ButtonForSendingAllPatchData button_ForSendingAllPatchData;
 
 public:
 	ButtonsLayer() = delete;
 
 	ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void resized() override;
-	~ButtonsLayer();
 
 private:
 	//==============================================================================

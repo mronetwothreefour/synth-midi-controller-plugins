@@ -15,7 +15,7 @@ class BaseButtonWithOnClickAndTooltipMethods :
 public:
 	BaseButtonWithOnClickAndTooltipMethods() = delete;
 
-	BaseButtonWithOnClickAndTooltipMethods(String buttonText, UnexposedParameters* unexposedParams);
+	explicit BaseButtonWithOnClickAndTooltipMethods(UnexposedParameters* unexposedParams);
 
 protected:
 	virtual const String createButtonTooltipString() = 0;

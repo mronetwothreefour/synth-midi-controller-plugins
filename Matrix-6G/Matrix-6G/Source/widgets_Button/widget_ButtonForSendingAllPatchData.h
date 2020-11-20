@@ -8,16 +8,16 @@
 
 class UnexposedParameters;
 
-class ButtonForActivatingQuickPatchEdit : 
-	public BaseButtonWithOnClickAndTooltipMethods,
-	private Timer
+class ButtonForSendingAllPatchData :
+	public BaseButtonWithOnClickAndTooltipMethods
 {
+	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForActivatingQuickPatchEdit() = delete;
+	ButtonForSendingAllPatchData() = delete;
 
-	explicit ButtonForActivatingQuickPatchEdit(UnexposedParameters* unexposedParams);
+	ButtonForSendingAllPatchData(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 
 protected:
@@ -25,9 +25,7 @@ protected:
 	void onClickMethod() override;
 
 private:
-	void timerCallback() override;
-
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForActivatingQuickPatchEdit)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingAllPatchData)
 };
 

@@ -7,7 +7,7 @@
 
 
 ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedParameters* unexposedParams) :
-	BaseButtonWithOnClickAndTooltipMethods{ "", unexposedParams },
+	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());

@@ -7,6 +7,14 @@
 
 
 
+void PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, OutgoingMidiBuffers* outgoingBuffers) {
+    auto patchDataMessage{ createSysExMessageFromCurrentPatchSettings(exposedParams, unexposedParams) };
+    outgoingBuffers->addDataMessage(patchDataMessage);
+}
+
+void PatchDataMessage::sendDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBuffers(uint8 /*bank*/, uint8 /*slot*/, OutgoingMidiBuffers* /*outgoingBuffers*/) {
+}
+
 std::vector<uint8> PatchDataMessage::createSysExMessageFromCurrentPatchSettings(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
 	auto dataVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType::patchData) };
     uint8 patchDataOpcode{ 1 };
@@ -22,11 +30,11 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
     uint8 checkSum{ 0 };
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchName{ currentPatchOptions->currentPatchName() };
-    for (auto i = 0; i != 16; i += 2) {
+    for (auto i = 0; i != 8; ++i) {
         auto asciiValue{ (uint8)currentPatchName[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
         auto numberOfHeaderBytes{ 4 };
-        auto lsbByteLocation{ i + numberOfHeaderBytes };
+        auto lsbByteLocation{ numberOfHeaderBytes + (2 * i) };
         addValueToDataVectorAtLSBbyteLocation(truncatedValue, &dataVector[lsbByteLocation]);
         checkSum += truncatedValue;
     }
@@ -47,18 +55,19 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         auto modSource{ matrixModSettings->sourceSettingForModulation(i) };
         auto modAmount{ matrixModSettings->amountSettingForModulation(i) };
         offsetValueInSignedRange(modAmount, RangeType::signed7bitValue);
+        auto modAmountWithOffset{ offsetValueInSignedRange(modAmount, RangeType::signed7bitValue) };
         auto modDestination{ matrixModSettings->sourceSettingForModulation(i) };
         auto lsbByteLocationForSource{ matrixModSettings->lsbByteLocationForModulation0Source + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modSource, &dataVector[lsbByteLocationForSource]);
         checkSum += modSource;
         auto lsbByteLocationForAmount{ matrixModSettings->lsbByteLocationForModulation0Amount + (i * 6) };
-        addValueToDataVectorAtLSBbyteLocation(modAmount, &dataVector[lsbByteLocationForAmount]);
-        checkSum += modAmount;
+        addValueToDataVectorAtLSBbyteLocation(modAmountWithOffset, &dataVector[lsbByteLocationForAmount]);
+        checkSum += modAmountWithOffset;
         auto lsbByteLocationForDestination{ matrixModSettings->lsbByteLocationForModulation0Destination + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modDestination, &dataVector[lsbByteLocationForDestination]);
         checkSum += modDestination;
     }
-    dataVector[273] = checkSum % (uint8)128;
+    dataVector[272] = checkSum % (uint8)128;
 }
 
 uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
