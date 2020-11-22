@@ -22,13 +22,17 @@ void MatrixModSettings::fillMatrixModSettingsTreeWithProperties() {
 		{
 		case 0:
 			defaultSource = (uint8)17;
-			defaultDestination = (uint8)21;
+			defaultDestination = (uint8)16;
 			break;
 		case 1:
+			defaultSource = (uint8)17;
+			defaultDestination = (uint8)21;
+			break;
+		case 2:
 			defaultSource = (uint8)11;
 			defaultDestination = (uint8)9;
 			break;
-		case 2:
+		case 3:
 			defaultSource = (uint8)20;
 			defaultDestination = (uint8)8;
 			break;

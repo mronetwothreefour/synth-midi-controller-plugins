@@ -22,7 +22,7 @@ class InfoForExposedParameters
 	Array<String> descriptions;
 	Array<int> controlWidths;
 	Array<Point<int>> controlCenterPoints;
-	Array<uint16> lsbByteLocations;
+	Array<uint16> dataByteIndices;
 
 	InfoForExposedParameters();
 	void fillAllInfoContainers();
@@ -50,8 +50,7 @@ public:
 	Point<int> controlCenterPointFor(uint8 paramIndex) const;
 	int controlWidthFor(uint8 paramIndex) const;
 	uint8 indexForParamID(const String& parameterID) const;
-	uint16 lsbByteLocationFor(uint8 paramIndex) const;
-	uint16 msbByteLocationFor(uint8 paramIndex) const;
+	uint16 dataByteIndexFor(uint8 paramIndex) const;
 
 private:
 	//==============================================================================

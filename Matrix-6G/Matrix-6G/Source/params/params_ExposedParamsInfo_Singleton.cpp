@@ -85,7 +85,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow1_y));
-		lsbByteLocations.add(i == 1 ? (uint16)23 : (uint16)33);
+		dataByteIndices.add(i == 1 ? (uint16)1 : (uint16)6);
 
 		identifiers.add("osc" + (String)i + "_Type");
 		exposedNames.add("Oscillator " + (String)i + " Type");
@@ -106,7 +106,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow2_y));
-		lsbByteLocations.add(i == 1 ? (uint16)31 : (uint16)41);
+		dataByteIndices.add(i == 1 ? (uint16)5 : (uint16)10);
 
 		identifiers.add("osc" + (String)i + "_PulseWidth");
 		exposedNames.add("Oscillator " + (String)i + " Pulse Width");
@@ -124,7 +124,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow3_y));
-		lsbByteLocations.add(i == 1 ? (uint16)27 : (uint16)37);
+		dataByteIndices.add(i == 1 ? (uint16)3 : (uint16)8);
 
 		identifiers.add("osc" + (String)i + "_SawTri");
 		exposedNames.add("Oscillator " + (String)i + " Saw / Triangle Wave");
@@ -143,7 +143,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow4_y));
-		lsbByteLocations.add(i == 1 ? (uint16)25 : (uint16)35);
+		dataByteIndices.add(i == 1 ? (uint16)2 : (uint16)7);
 
 		if (i == 1) {
 			identifiers.add("osc1_Sync");
@@ -160,7 +160,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow5_y));
-			lsbByteLocations.add((uint16)55);
+			dataByteIndices.add((uint16)17);
 		}
 		else {
 			identifiers.add("osc2_Detune");
@@ -177,7 +177,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow5_y));
-			lsbByteLocations.add((uint16)43);
+			dataByteIndices.add((uint16)11);
 		}
 
 		identifiers.add("osc" + (String)i + "_LFO1_FM");
@@ -196,7 +196,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow6_y));
-		lsbByteLocations.add(i == 1 ? (uint16)177 : (uint16)181);
+		dataByteIndices.add(i == 1 ? (uint16)78 : (uint16)80);
 
 		identifiers.add("osc" + (String)i + "_LFO2_PWM");
 		exposedNames.add("Oscillator " + (String)i + " Pulse Width Mod. by LFO 2");
@@ -214,7 +214,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow7_y));
-		lsbByteLocations.add(i == 1 ? (uint16)179 : (uint16)183);
+		dataByteIndices.add(i == 1 ? (uint16)79 : (uint16)81);
 
 		identifiers.add("osc" + (String)i + "_KeyClick");
 		exposedNames.add("Oscillator " + (String)i + " Key Click");
@@ -230,7 +230,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow8_y));
-		lsbByteLocations.add(i == 1 ? (uint16)49 : (uint16)53);
+		dataByteIndices.add(i == 1 ? (uint16)14 : (uint16)16);
 
 		identifiers.add("osc" + (String)i + "_KeyTrack");
 		exposedNames.add("Oscillator " + (String)i + " Key Tracking");
@@ -260,7 +260,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow9_y));
-		lsbByteLocations.add(i == 1 ? (uint16)47 : (uint16)51);
+		dataByteIndices.add(i == 1 ? (uint16)13 : (uint16)15);
 
 		identifiers.add("osc" + (String)i + "_LeverControl");
 		exposedNames.add("Oscillator " + (String)i + " Lever Control");
@@ -280,7 +280,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow10_y));
-		lsbByteLocations.add(i == 1 ? (uint16)29 : (uint16)39);
+		dataByteIndices.add(i == 1 ? (uint16)4 : (uint16)9);
 	}
 
 	identifiers.add("osc_Balance");
@@ -298,7 +298,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(oscBalanceControl_w);
 	controlCenterPoints.add(Point<int>(oscBalanceControl_x, controlsRow11_y));
-	lsbByteLocations.add((uint16)45);
+	dataByteIndices.add((uint16)12);
 
 	//======================================================
 
@@ -317,7 +317,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow1_y));
-	lsbByteLocations.add((uint16)57);
+	dataByteIndices.add((uint16)18);
 
 	identifiers.add("vcf_Reso");
 	exposedNames.add("VCF Resonance");
@@ -335,7 +335,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow2_y));
-	lsbByteLocations.add((uint16)59);
+	dataByteIndices.add((uint16)19);
 
 	identifiers.add("vcf_Env1Amt");
 	exposedNames.add("VCF Envelope 1 Amount");
@@ -353,7 +353,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow3_y));
-	lsbByteLocations.add((uint16)185);
+	dataByteIndices.add((uint16)82);
 
 	identifiers.add("vcf_PressureAmt");
 	exposedNames.add("VCF Pressure Amount");
@@ -371,7 +371,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow4_y));
-	lsbByteLocations.add((uint16)187);
+	dataByteIndices.add((uint16)83);
 
 	identifiers.add("vcf_LeverControl");
 	exposedNames.add("VCF Lever Control");
@@ -391,7 +391,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow5_y));
-	lsbByteLocations.add((uint16)61);
+	dataByteIndices.add((uint16)20);
 
 	identifiers.add("vcf_KeyTrack");
 	exposedNames.add("VCF Key Tracking");
@@ -412,7 +412,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow6_y));
-	lsbByteLocations.add((uint16)63);
+	dataByteIndices.add((uint16)21);
 
 	//======================================================
 
@@ -431,7 +431,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow9_y));
-	lsbByteLocations.add((uint16)67);
+	dataByteIndices.add((uint16)23);
 
 	identifiers.add("vca1_VeloAmt");
 	exposedNames.add("VCA 1 Velocity Amount");
@@ -449,7 +449,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow10_y));
-	lsbByteLocations.add((uint16)189);
+	dataByteIndices.add((uint16)84);
 
 	identifiers.add("vca2_Env2Amt");
 	exposedNames.add("VCA 2 Envelope 2 Amount");
@@ -468,7 +468,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow11_y));
-	lsbByteLocations.add((uint16)191);
+	dataByteIndices.add((uint16)85);
 
 	//======================================================
 
@@ -487,7 +487,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow1_y));
-	lsbByteLocations.add((uint16)65);
+	dataByteIndices.add((uint16)22);
 
 	identifiers.add("vcfFM_Env3Amt");
 	exposedNames.add("VCF FM Envelope 3 Amount");
@@ -505,7 +505,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow2_y));
-	lsbByteLocations.add((uint16)205);
+	dataByteIndices.add((uint16)92);
 
 	identifiers.add("vcfFM_PressureAmt");
 	exposedNames.add("VCF FM Pressure Amount");
@@ -524,7 +524,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(defaultControl_w);
 	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow3_y));
-	lsbByteLocations.add((uint16)207);
+	dataByteIndices.add((uint16)93);
 
 	//======================================================
 
@@ -543,7 +543,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow6_y));
-	lsbByteLocations.add((uint16)69);
+	dataByteIndices.add((uint16)24);
 
 	identifiers.add("porta_Velo");
 	exposedNames.add("Portamento Velocity Amount");
@@ -561,7 +561,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow7_y));
-	lsbByteLocations.add((uint16)203);
+	dataByteIndices.add((uint16)91);
 
 	identifiers.add("porta_Mode");
 	exposedNames.add("Portamento Mode");
@@ -582,7 +582,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow8_y));
-	lsbByteLocations.add((uint16)71);
+	dataByteIndices.add((uint16)25);
 
 	identifiers.add("porta_Legato");
 	exposedNames.add("Portamento Legato Mode");
@@ -600,7 +600,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow9_y));
-	lsbByteLocations.add((uint16)73);
+	dataByteIndices.add((uint16)26);
 
 	//======================================================
 
@@ -628,7 +628,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(portaControls_w);
 	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow12_y));
-	lsbByteLocations.add((uint16)21);
+	dataByteIndices.add((uint16)0);
 
 	//======================================================
 
@@ -647,7 +647,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow1_y));
-		lsbByteLocations.add(i == 1 ? (uint16)75 : (uint16)89);
+		dataByteIndices.add(i == 1 ? (uint16)27 : (uint16)34);
 
 		if (i == 1) {
 			identifiers.add("lfo1_PressureAmt");
@@ -667,7 +667,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow5_y));
-			lsbByteLocations.add((uint16)209);
+			dataByteIndices.add((uint16)94);
 		}
 		else {
 			identifiers.add("lfo2_KeyTrackAmt");
@@ -687,7 +687,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(defaultControl_w);
 			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow5_y));
-			lsbByteLocations.add((uint16)211);
+			dataByteIndices.add((uint16)95);
 		}
 
 		identifiers.add("lfo" + (String)i + "_WaveType");
@@ -716,7 +716,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow2_y));
-		lsbByteLocations.add(i == 1 ? (uint16)81 : (uint16)95);
+		dataByteIndices.add(i == 1 ? (uint16)30 : (uint16)37);
 
 		identifiers.add("lfo" + (String)i + "_RetrigPoint");
 		exposedNames.add("LFO " + (String)i + " Retrigger Point");
@@ -734,7 +734,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow8_y));
-		lsbByteLocations.add(i == 1 ? (uint16)83 : (uint16)97);
+		dataByteIndices.add(i == 1 ? (uint16)31 : (uint16)38);
 
 		identifiers.add("lfo" + (String)i + "_Amp");
 		exposedNames.add("LFO " + (String)i + " Amplitude");
@@ -750,7 +750,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow4_y));
-		lsbByteLocations.add(i == 1 ? (uint16)87 : (uint16)101);
+		dataByteIndices.add(i == 1 ? (uint16)33 : (uint16)40);
 
 		identifiers.add("lfo" + (String)i + "_Ramp" + (String)i + "Amt");
 		exposedNames.add("LFO " + (String)i + " Ramp " + (String)i + " Amount");
@@ -760,7 +760,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToSigned7bitValueString::get());
 		rangeTypes.add(RangeType::signed7bitValue);
 		maxValues.add((uint8)126);
-		defaultValues.add((uint8)63);
+		defaultValues.add((uint8)126);
 		descriptionString =  "Sets whether and to what degree ramp " + (String)i + "\n";
 		descriptionString += "will modulate LFO " + (String)i + apostrophe + "s amplitude.\n";
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
@@ -768,7 +768,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow6_y));
-		lsbByteLocations.add(i == 1 ? (uint16)199 : (uint16)201);
+		dataByteIndices.add(i == 1 ? (uint16)89 : (uint16)90);
 
 		identifiers.add("lfo" + (String)i + "_TrigMode");
 		exposedNames.add("LFO " + (String)i + " Trigger Mode");
@@ -788,7 +788,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow7_y));
-		lsbByteLocations.add(i == 1 ? (uint16)77 : (uint16)91);
+		dataByteIndices.add(i == 1 ? (uint16)28 : (uint16)35);
 
 		identifiers.add("lfo" + (String)i + "_Lag");
 		exposedNames.add("LFO " + (String)i + " Lag Processing");
@@ -805,7 +805,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow9_y));
-		lsbByteLocations.add(i == 1 ? (uint16)79 : (uint16)93);
+		dataByteIndices.add(i == 1 ? (uint16)29 : (uint16)36);
 
 		identifiers.add("lfo" + (String)i + "_Sample");
 		exposedNames.add("LFO " + (String)i + " Sample Source");
@@ -822,7 +822,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow3_y));
-		lsbByteLocations.add(i == 1 ? (uint16)85 : (uint16)99);
+		dataByteIndices.add(i == 1 ? (uint16)32 : (uint16)39);
 	}
 	//======================================================
 
@@ -842,7 +842,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow1_y));
-		lsbByteLocations.add(i == 1 ? (uint16)169 : (uint16)173);
+		dataByteIndices.add(i == 1 ? (uint16)74 : (uint16)76);
 
 		identifiers.add("ramp" + (String)i + "_Trig");
 		exposedNames.add("Ramp " + (String)i + " Trigger");
@@ -863,7 +863,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(defaultControl_w);
 		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow2_y));
-		lsbByteLocations.add(i == 1 ? (uint16)171 : (uint16)175);
+		dataByteIndices.add(i == 1 ? (uint16)75 : (uint16)77);
 	}
 
 	//======================================================
@@ -882,7 +882,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(94);
 	controlCenterPoints.add(Point<int>(943, 165));
-	lsbByteLocations.add((uint16)157);
+	dataByteIndices.add((uint16)68);
 
 	identifiers.add("track_Point1");
 	exposedNames.add("Track Point 1");
@@ -899,7 +899,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint1Control_x, trackPointControls_y));
-	lsbByteLocations.add((uint16)159);
+	dataByteIndices.add((uint16)69);
 
 	identifiers.add("track_Point2");
 	exposedNames.add("Track Point 2");
@@ -916,7 +916,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint2Control_x, trackPointControls_y));
-	lsbByteLocations.add((uint16)161);
+	dataByteIndices.add((uint16)70);
 
 	identifiers.add("track_Point3");
 	exposedNames.add("Track Point 3");
@@ -933,7 +933,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint3Control_x, trackPointControls_y));
-	lsbByteLocations.add((uint16)163);
+	dataByteIndices.add((uint16)71);
 
 	identifiers.add("track_Point4");
 	exposedNames.add("Track Point 4");
@@ -950,7 +950,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint4Control_x, trackPointControls_y));
-	lsbByteLocations.add((uint16)165);
+	dataByteIndices.add((uint16)72);
 
 	identifiers.add("track_Point5");
 	exposedNames.add("Track Point 5");
@@ -967,7 +967,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlWidths.add(trackPointControls_w);
 	controlCenterPoints.add(Point<int>(trackPoint5Control_x, trackPointControls_y));
-	lsbByteLocations.add((uint16)167);
+	dataByteIndices.add((uint16)73);
 
 	//======================================================
 
@@ -988,7 +988,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envShapeControls_w);
 		controlCenterPoints.add(Point<int>(env1Delay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add(uint16(105 + i * 18));
+		dataByteIndices.add(uint16(42 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Attack");
 		exposedNames.add("Envelope " + String(i + 1) + " Attack Time");
@@ -1006,7 +1006,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envShapeControls_w);
 		controlCenterPoints.add(Point<int>(env1Attack_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add(uint16(107 + i * 18));
+		dataByteIndices.add(uint16(43 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Decay");
 		exposedNames.add("Envelope " + String(i + 1) + " Decay Time");
@@ -1024,7 +1024,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envShapeControls_w);
 		controlCenterPoints.add(Point<int>(env1Decay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add(uint16(109 + i * 18));
+		dataByteIndices.add(uint16(44 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Sustain");
 		exposedNames.add("Envelope " + String(i + 1) + " Sustain Level");
@@ -1042,7 +1042,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envShapeControls_w);
 		controlCenterPoints.add(Point<int>(env1Sustain_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add(uint16(111 + i * 18));
+		dataByteIndices.add(uint16(45 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Release");
 		exposedNames.add("Envelope " + String(i + 1) + " Release Time");
@@ -1060,7 +1060,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envShapeControls_w);
 		controlCenterPoints.add(Point<int>(env1Release_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add(uint16(113 + i * 18));
+		dataByteIndices.add(uint16(46 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Amplitude");
 		exposedNames.add("Envelope " + String(i + 1) + " Amplitude");
@@ -1077,7 +1077,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow1_y));
-		lsbByteLocations.add(uint16(115 + i * 18));
+		dataByteIndices.add(uint16(47 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Velo");
 		exposedNames.add("Envelope " + String(i + 1) + " Velocity Amount");
@@ -1095,7 +1095,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow2_y));
-		lsbByteLocations.add(uint16(117 + i * 18));
+		dataByteIndices.add(uint16(86 + i));
 
 		identifiers.add("env" + String(i + 1) + "_TrigMode");
 		exposedNames.add("Envelope " + String(i + 1) + " Trigger Mode");
@@ -1125,7 +1125,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow3_y));
-		lsbByteLocations.add((uint16)103 + i * 10);
+		dataByteIndices.add((uint16)41 + i * 9);
 
 		identifiers.add("env" + String(i + 1) + "_Mode");
 		exposedNames.add("Envelope " + String(i + 1) + " Mode");
@@ -1152,7 +1152,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
-		lsbByteLocations.add((uint16)119 + i * 10);
+		dataByteIndices.add((uint16)49 + i * 9);
 
 		identifiers.add("env" + String(i + 1) + "_LFO1Trig");
 		exposedNames.add("Envelope " + String(i + 1) + " LFO 1 Trigger");
@@ -1173,7 +1173,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(envControls_w);
 		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow5_y));
-		lsbByteLocations.add((uint16)117 + i * 10);
+		dataByteIndices.add((uint16)48 + i * 9);
 	}
 
 }
@@ -1243,10 +1243,7 @@ uint8 InfoForExposedParameters::indexForParamID(const String& parameterID) const
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }
 
-uint16 InfoForExposedParameters::lsbByteLocationFor(uint8 paramIndex) const {
-	return lsbByteLocations[paramIndex];
+uint16 InfoForExposedParameters::dataByteIndexFor(uint8 paramIndex) const {
+	return dataByteIndices[paramIndex];
 }
 
-uint16 InfoForExposedParameters::msbByteLocationFor(uint8 paramIndex) const {
-	return lsbByteLocations[paramIndex] + 1;
-}

@@ -38,15 +38,17 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         addValueToDataVectorAtLSBbyteLocation(truncatedValue, &dataVector[lsbByteLocation]);
         checkSum += truncatedValue;
     }
+    uint16 firstExposedParamDataByte{ 20 };
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
         auto paramID{ info.IDfor(paramIndex) };
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
-        auto lsbByteLocation{ info.lsbByteLocationFor(paramIndex) };
+        auto dataByteIndex{ info.dataByteIndexFor(paramIndex) };
+        auto lsbByteLocation{ firstExposedParamDataByte + (dataByteIndex * 2) };
         auto rangeType{ info.rangeTypeFor(paramIndex) };
         if (rangeType == RangeType::signed6bitValue || rangeType == RangeType::signed7bitValue)
-            offsetValueInSignedRange(paramValue, rangeType);
+            paramValue = offsetValueInSignedRange(paramValue, rangeType);
         addValueToDataVectorAtLSBbyteLocation(paramValue, &dataVector[lsbByteLocation]);
         checkSum += paramValue;
     }
@@ -56,7 +58,7 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         auto modAmount{ matrixModSettings->amountSettingForModulation(i) };
         offsetValueInSignedRange(modAmount, RangeType::signed7bitValue);
         auto modAmountWithOffset{ offsetValueInSignedRange(modAmount, RangeType::signed7bitValue) };
-        auto modDestination{ matrixModSettings->sourceSettingForModulation(i) };
+        auto modDestination{ matrixModSettings->destinationSettingForModulation(i) };
         auto lsbByteLocationForSource{ matrixModSettings->lsbByteLocationForModulation0Source + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modSource, &dataVector[lsbByteLocationForSource]);
         checkSum += modSource;
