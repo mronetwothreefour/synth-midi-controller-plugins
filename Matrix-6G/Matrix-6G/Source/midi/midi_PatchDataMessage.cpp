@@ -27,18 +27,32 @@ std::vector<uint8> PatchDataMessage::createSysExMessageFromCurrentPatchSettings(
 }
 
 void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
-    uint8 checkSum{ 0 };
+    uint8 checksum{ 0 };
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchName{ currentPatchOptions->currentPatchName() };
+    addPatchNameDataToVector(currentPatchName, dataVector, checksum);
+    addExposedParamDataToVector(exposedParams, dataVector, checksum);
+    addMatrixModDataToVector(unexposedParams, dataVector, checksum);
+    dataVector[272] = checksum % (uint8)128;
+}
+
+void PatchDataMessage::addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != 8; ++i) {
-        auto asciiValue{ (uint8)currentPatchName[i] };
+        auto asciiValue{ (uint8)patchName[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
         auto numberOfHeaderBytes{ 4 };
         auto lsbByteLocation{ numberOfHeaderBytes + (2 * i) };
         addValueToDataVectorAtLSBbyteLocation(truncatedValue, &dataVector[lsbByteLocation]);
-        checkSum += truncatedValue;
+        checksum += truncatedValue;
     }
-    uint16 firstExposedParamDataByte{ 20 };
+}
+
+uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
+	auto truncatedValue{ uint8(value % 64) };
+	return truncatedValue;
+}
+
+void PatchDataMessage::addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
         auto paramID{ info.IDfor(paramIndex) };
@@ -50,8 +64,11 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         if (rangeType == RangeType::signed6bitValue || rangeType == RangeType::signed7bitValue)
             paramValue = offsetValueInSignedRange(paramValue, rangeType);
         addValueToDataVectorAtLSBbyteLocation(paramValue, &dataVector[lsbByteLocation]);
-        checkSum += paramValue;
+        checksum += paramValue;
     }
+}
+
+void PatchDataMessage::addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != 10; ++i) {
         auto matrixModSettings{ unexposedParams->matrixModSettings_get() };
         auto modSource{ matrixModSettings->sourceSettingForModulation(i) };
@@ -61,20 +78,14 @@ void PatchDataMessage::addCurrentSettingsDataToVector(AudioProcessorValueTreeSta
         auto modDestination{ matrixModSettings->destinationSettingForModulation(i) };
         auto lsbByteLocationForSource{ matrixModSettings->lsbByteLocationForModulation0Source + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modSource, &dataVector[lsbByteLocationForSource]);
-        checkSum += modSource;
+        checksum += modSource;
         auto lsbByteLocationForAmount{ matrixModSettings->lsbByteLocationForModulation0Amount + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modAmountWithOffset, &dataVector[lsbByteLocationForAmount]);
-        checkSum += modAmountWithOffset;
+        checksum += modAmountWithOffset;
         auto lsbByteLocationForDestination{ matrixModSettings->lsbByteLocationForModulation0Destination + (i * 6) };
         addValueToDataVectorAtLSBbyteLocation(modDestination, &dataVector[lsbByteLocationForDestination]);
-        checkSum += modDestination;
+        checksum += modDestination;
     }
-    dataVector[272] = checkSum % (uint8)128;
-}
-
-uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
-	auto truncatedValue{ uint8(value % 64) };
-	return truncatedValue;
 }
 
 uint8 PatchDataMessage::offsetValueInSignedRange(uint8& value, RangeType rangeType) {
