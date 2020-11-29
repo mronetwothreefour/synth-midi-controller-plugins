@@ -1,5 +1,7 @@
 #pragma once
 
+#include <JuceHeader.h>
+
 #include "../widgets_Slider/widget_SliderForPatchNumber.h"
 
 
@@ -13,7 +15,7 @@ class PatchNumberAndNameLayer :
 {
     UnexposedParameters* unexposedParams;
     SliderForPatchNumber slider_ForPatchNumber;
-    Label pgmNameEditor;
+    Label patchNameEditor;
 
 public:
     PatchNumberAndNameLayer() = delete;
@@ -22,7 +24,9 @@ public:
     void resized() override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
+    void padNameLessThan8CharactersLongWithSpaces(String& name);
     void sliderValueChanged(Slider* slider) override;
+    void paint(Graphics& g) override;
     ~PatchNumberAndNameLayer() override;
 
 private:

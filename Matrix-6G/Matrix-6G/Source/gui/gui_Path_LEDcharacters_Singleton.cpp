@@ -191,7 +191,6 @@ Path LEDcharacterPaths::createPathForChar40_OpenParenthesis() {
 Path LEDcharacterPaths::createPathForChar41_CloseParenthesis() {
 	Path path;
 	path.loadPathFromData(pathDataForSegment_G.data(), pathDataForSegment_G.size());
-	path.loadPathFromData(pathDataForSegment_L.data(), pathDataForSegment_L.size());
 	path.loadPathFromData(pathDataForSegment_M.data(), pathDataForSegment_M.size());
 	return path;
 }

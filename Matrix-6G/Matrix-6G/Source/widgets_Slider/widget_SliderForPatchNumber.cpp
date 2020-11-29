@@ -29,9 +29,10 @@ String SliderForPatchNumber::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects the storage slot on the hardware\n";
-		tooltipText += "that the patch settings will be sent to when\n";
-		tooltipText += "the Send All button (left) is clicked.\n";
+		tooltipText += "Selects which storage slot on the hardware the\n";
+		tooltipText += "current GUI patch settings will be sent to when the\n";
+		tooltipText += "Send All button (left) is clicked. Note: the patch\n";
+		tooltipText += "data currently stored in the slot will be lost.\n";
 		tooltipText += "Range: 0 to 99.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
