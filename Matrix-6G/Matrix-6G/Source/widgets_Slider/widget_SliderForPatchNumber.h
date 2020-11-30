@@ -17,7 +17,6 @@ public:
 	SliderForPatchNumber() = delete;
 
 	explicit SliderForPatchNumber(UnexposedParameters* unexposedParams);
-	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
 	~SliderForPatchNumber() override;

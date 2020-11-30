@@ -15,8 +15,13 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor{ "patchNameEditor", "" }
 {
 	setInterceptsMouseClicks(false, true);
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	tooltipOptions->addListener(this);
+
 	slider_ForPatchNumber.addListener(this);
+	slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	addAndMakeVisible(slider_ForPatchNumber);
+
 	patchNameEditor.setFont(FontsMenu::fontFor_PatchNameEditor);
 	patchNameEditor.setColour(Label::textColourId, Colours::transparentWhite);
 	patchNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
@@ -28,6 +33,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor.addListener(this);
 	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
+	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
 	setSize(1273, 626);
 }
@@ -63,6 +69,7 @@ void PatchNumberAndNameLayer::sliderValueChanged(Slider* slider) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
 		auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 		currentPatchOptions->setCurrentPatchNumber(currentKnobValue);
+		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	}
 }
 
@@ -84,7 +91,40 @@ void PatchNumberAndNameLayer::paint(Graphics& g) {
 	g.fillPath(positionPath);
 }
 
+String PatchNumberAndNameLayer::generatePatchNumberTooltipString() {
+	String tooltipText{ "" };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		tooltipText += "Selects which patch storage slot\n";
+		tooltipText += "on the hardware is the target of the\n";
+		tooltipText += "Push and Pull buttons to the left.\n";
+		tooltipText += "Range: 0 to 99.";
+	}
+	return tooltipText;
+}
+
+String PatchNumberAndNameLayer::generatePatchNameTooltipString() {
+	String tooltipText{ "" };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		tooltipText += "Click to edit the name of the patch (8 characters max.)\n";
+		tooltipText += "The name cannot be changed via Quick Edit. Use the\n";
+		tooltipText += "Push button to the left to send the entire patch to\n";
+		tooltipText += "the selected storage slot on the hardware.";
+	}
+	return tooltipText;
+}
+
+void PatchNumberAndNameLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
+		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
+		patchNameEditor.setTooltip(generatePatchNameTooltipString());
+	}
+}
+
 PatchNumberAndNameLayer::~PatchNumberAndNameLayer() {
 	patchNameEditor.removeListener(this);
 	slider_ForPatchNumber.removeListener(this);
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	tooltipOptions->removeListener(this);
 }

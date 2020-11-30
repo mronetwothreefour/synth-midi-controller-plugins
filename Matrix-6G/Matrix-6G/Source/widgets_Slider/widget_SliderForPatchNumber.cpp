@@ -15,43 +15,17 @@ SliderForPatchNumber::SliderForPatchNumber(UnexposedParameters* unexposedParams)
 {
 	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 	currentPatchOptions->addListener(this);
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	tooltipOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
 	auto paramValue{ currentPatchOptions->currentPatchNumber() };
 	setValue((double)paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 0.0);
 	setMouseDragSensitivity(160);
-	setTooltip(generateTooltipString());
-}
-
-String SliderForPatchNumber::generateTooltipString() {
-	String tooltipText{ "" };
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects which storage slot on the hardware the\n";
-		tooltipText += "current GUI patch settings will be sent to when the\n";
-		tooltipText += "Send All button (left) is clicked. Note: the patch\n";
-		tooltipText += "data currently stored in the slot will be lost.\n";
-		tooltipText += "Range: 0 to 99.\n";
-	}
-	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToUnsignedValueString::get() };
-		auto currentValue{ (uint8)roundToInt(getValue()) };
-		tooltipText += "Current setting: ";
-		tooltipText += converter->verboseConvert(currentValue);
-	}
-	return tooltipText;
 }
 
 void SliderForPatchNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
-		setTooltip(generateTooltipString());
-	}
-	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
-		setTooltip(generateTooltipString());
 	}
 }
 
@@ -64,8 +38,6 @@ void SliderForPatchNumber::paint(Graphics& g) {
 }
 
 SliderForPatchNumber::~SliderForPatchNumber() {
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	tooltipOptions->removeListener(this);
 	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 	currentPatchOptions->removeListener(this);
 }
