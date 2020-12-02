@@ -501,9 +501,9 @@ String IntToModDestinationString::verboseConversionAlgorithm(const uint8& i) noe
 	else return "range error";
 }
 
-IntToModDestinationString* IntToModDestinationString::get() noexcept
-{
-	return nullptr;
+IntToModDestinationString* IntToModDestinationString::get() noexcept {
+	static IntToModDestinationString converter;
+	return &converter;
 }
 
 

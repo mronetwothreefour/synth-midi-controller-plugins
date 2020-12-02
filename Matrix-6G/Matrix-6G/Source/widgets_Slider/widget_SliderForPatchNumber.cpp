@@ -1,6 +1,5 @@
 #include "widget_SliderForPatchNumber.h"
 
-#include "../gui/gui_Colors.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -30,7 +29,6 @@ void SliderForPatchNumber::valueTreePropertyChanged(ValueTree& tree, const Ident
 }
 
 void SliderForPatchNumber::paint(Graphics& g) {
-	g.fillAll(Color::black);
 	auto currentValue{ (int8)roundToInt(getValue()) };
 	auto converter{ IntToUnsignedValueWithLeadingZeroString::get() };
 	String valueString{ converter->convert(currentValue) };

@@ -9,6 +9,7 @@
 class ButtonsLayer;
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
+class MatrixModLayer;
 class PatchNumberAndNameLayer;
 
 class PluginEditor :
@@ -20,6 +21,7 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<ButtonsLayer> buttonsLayer;
+    std::unique_ptr<MatrixModLayer> matrixModLayer;
     std::unique_ptr<PatchNumberAndNameLayer> patchNumberAndNameLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;

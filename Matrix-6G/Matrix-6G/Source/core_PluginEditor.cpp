@@ -3,6 +3,7 @@
 
 #include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
+#include "gui/gui_Layer_MatrixMod.h"
 #include "gui/gui_Layer_PatchNumberAndName.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
@@ -17,6 +18,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
+    matrixModLayer{ new MatrixModLayer(unexposedParams) },
     patchNumberAndNameLayer{ new PatchNumberAndNameLayer(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
@@ -24,6 +26,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(buttonsLayer.get());
+    addAndMakeVisible(matrixModLayer.get());
     addAndMakeVisible(patchNumberAndNameLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
@@ -48,6 +51,7 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     buttonsLayer->setBounds(getLocalBounds());
+    matrixModLayer->setBounds(getLocalBounds());
     patchNumberAndNameLayer->setBounds(getLocalBounds());
 }
 
@@ -63,6 +67,7 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     patchNumberAndNameLayer = nullptr;
+    matrixModLayer = nullptr;
     buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
 }

@@ -1,7 +1,6 @@
 #include "widget_RotarySliderWithExposedParamAttacher.h"
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
-#include "../gui/gui_Colors.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 
 
@@ -25,7 +24,6 @@ void RotarySliderWithExposedParamAttacher::attachToExposedParameter(AudioProcess
 }
 
 void RotarySliderWithExposedParamAttacher::paint(Graphics& g) {
-	g.fillAll(Color::black);
 	auto currentValue{ (int8)roundToInt(slider.getValue()) };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
