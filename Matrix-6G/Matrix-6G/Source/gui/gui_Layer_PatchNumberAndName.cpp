@@ -35,7 +35,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
 	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
-	setSize(1273, 626);
+	setSize(1252, 596);
 }
 
 void PatchNumberAndNameLayer::resized() {

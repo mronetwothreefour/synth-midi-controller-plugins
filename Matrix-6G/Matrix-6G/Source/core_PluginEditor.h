@@ -7,6 +7,7 @@
 
 
 class ButtonsLayer;
+class EnvelopeRenderersLayer;
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
 class MatrixModLayer;
@@ -19,6 +20,7 @@ class PluginEditor :
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<MatrixModLayer> matrixModLayer;

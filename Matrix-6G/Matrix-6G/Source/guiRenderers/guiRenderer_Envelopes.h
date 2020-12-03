@@ -21,11 +21,11 @@ class RendererForEnvelopes :
 	Attachment sustainAttachment;
 	Attachment releaseAttachment;
 	const float maxSegment_w{ 43.0f };
-	const float sustainSegment_w{ 28.0f };
-	const float envelopeStart_x{ 5.0f };
-	const float envelopeEnd_x{ 205.0f };
-	const float minimum_y{ 75.0f };
-	const float maximum_y{ 15.0f };
+	const float sustainSegment_w{ 34.0f };
+	const float envelopeStart_x{ 11.0f };
+	const float envelopeEnd_x{ 217.0f };
+	const float minimum_y{ 98.0f };
+	const float maximum_y{ 10.0f };
 	const float envelope_h{ minimum_y - maximum_y };
 	float attackStart_x;
 	float decayStart_x;
@@ -37,8 +37,7 @@ class RendererForEnvelopes :
 public:
 	RendererForEnvelopes() = delete;
 
-	// For the envelopeID String, use "lpf", "vca", or "env3"
-	RendererForEnvelopes(String envelopeID, AudioProcessorValueTreeState* exposedParams);
+	RendererForEnvelopes(int envelopeNumber, AudioProcessorValueTreeState* exposedParams);
 	void sliderValueChanged(Slider* slider) override;
 
 private:

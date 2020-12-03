@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Layer_Buttons.h"
+#include "gui/gui_Layer_EnvelopeRenderers.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
 #include "gui/gui_Layer_MatrixMod.h"
 #include "gui/gui_Layer_PatchNumberAndName.h"
@@ -16,6 +17,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
+    envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     matrixModLayer{ new MatrixModLayer(unexposedParams) },
@@ -24,6 +26,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
+    addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(matrixModLayer.get());
@@ -49,6 +52,7 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
+    envelopeRenderersLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     buttonsLayer->setBounds(getLocalBounds());
     matrixModLayer->setBounds(getLocalBounds());
@@ -70,4 +74,5 @@ PluginEditor::~PluginEditor() {
     matrixModLayer = nullptr;
     buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
+    envelopeRenderersLayer = nullptr;
 }

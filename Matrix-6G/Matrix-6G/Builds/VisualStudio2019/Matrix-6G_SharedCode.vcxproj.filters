@@ -2481,6 +2481,12 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_Envelopes.cpp">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_Tracking.cpp">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4828,6 +4834,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Envelopes.h">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Tracking.h">
+      <Filter>Matrix-6G\Source\guiRenderers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

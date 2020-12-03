@@ -27,7 +27,7 @@ MatrixModLayer::MatrixModLayer(UnexposedParameters* unexposedParams) :
 	addAndMakeVisible(matrixModSlot_7);
 	addAndMakeVisible(matrixModSlot_8);
 	addAndMakeVisible(matrixModSlot_9);
-	setSize(1273, 626);
+	setSize(1252, 596);
 }
 
 void MatrixModLayer::resized() {

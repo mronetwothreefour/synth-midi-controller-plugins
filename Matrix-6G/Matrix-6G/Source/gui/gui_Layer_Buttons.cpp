@@ -11,7 +11,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
     addAndMakeVisible(button_ForPushingPatchToHardware);
-    setSize(1273, 626);
+    setSize(1252, 596);
 }
 
 void ButtonsLayer::resized() {

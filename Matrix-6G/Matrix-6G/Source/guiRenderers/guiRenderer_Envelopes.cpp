@@ -1,15 +1,15 @@
-#include "guiRenderer_ForEnvelopes.h"
+#include "guiRenderer_Envelopes.h"
 
 #include "../gui/gui_Colors.h"
 
 
 
-RendererForEnvelopes::RendererForEnvelopes(String envelopeID, AudioProcessorValueTreeState* exposedParams) :
-	delayAttachment{ *exposedParams, envelopeID + "Delay", delay },
-	attackAttachment{ *exposedParams, envelopeID + "Attack", attack },
-	decayAttachment{ *exposedParams, envelopeID + "Decay", decay },
-	sustainAttachment{ *exposedParams, envelopeID + "Sustain", sustain },
-	releaseAttachment{ *exposedParams, envelopeID + "Release", release }
+RendererForEnvelopes::RendererForEnvelopes(int envelopeNumber, AudioProcessorValueTreeState* exposedParams) :
+	delayAttachment{ *exposedParams, "env" + (String)envelopeNumber + "_Delay", delay },
+	attackAttachment{ *exposedParams, "env" + (String)envelopeNumber + "_Attack", attack },
+	decayAttachment{ *exposedParams, "env" + (String)envelopeNumber + "_Decay", decay },
+	sustainAttachment{ *exposedParams, "env" + (String)envelopeNumber + "_Sustain", sustain },
+	releaseAttachment{ *exposedParams, "env" + (String)envelopeNumber + "_Release", release }
 {
 	delay.addListener(this);
 	attack.addListener(this);
@@ -22,8 +22,8 @@ RendererForEnvelopes::RendererForEnvelopes(String envelopeID, AudioProcessorValu
 	set_releaseStart_x();
 	set_releaseEnd_x();
 	set_sustain_y();
-	auto envelopeRenderer_w{ 210 };
-	auto envelopeRenderer_h{ 90 };
+	auto envelopeRenderer_w{ 228 };
+	auto envelopeRenderer_h{ 108 };
 	setSize(envelopeRenderer_w, envelopeRenderer_h);
 }
 
@@ -38,15 +38,15 @@ void RendererForEnvelopes::sliderValueChanged(Slider* /*slider*/) {
 }
 
 void RendererForEnvelopes::set_attackStart_x() {
-	attackStart_x = envelopeStart_x + (((float)delay.getValue() / 127.0f) * maxSegment_w);
+	attackStart_x = envelopeStart_x + (((float)delay.getValue() / 63.0f) * maxSegment_w);
 }
 
 void RendererForEnvelopes::set_decayStart_x() {
-	decayStart_x = attackStart_x + (((float)attack.getValue() / 127.0f) * maxSegment_w);
+	decayStart_x = attackStart_x + (((float)attack.getValue() / 63.0f) * maxSegment_w);
 }
 
 void RendererForEnvelopes::set_sustainStart_x() {
-	sustainStart_x = decayStart_x + (((float)decay.getValue() / 127.0f) * maxSegment_w);
+	sustainStart_x = decayStart_x + (((float)decay.getValue() / 63.0f) * maxSegment_w);
 }
 
 void RendererForEnvelopes::set_releaseStart_x() {
@@ -54,15 +54,15 @@ void RendererForEnvelopes::set_releaseStart_x() {
 }
 
 void RendererForEnvelopes::set_releaseEnd_x() {
-	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 127.0f) * maxSegment_w);
+	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 63.0f) * maxSegment_w);
 }
 
 void RendererForEnvelopes::set_sustain_y() {
-	sustain_y = minimum_y - (((float)sustain.getValue() / 127.0f) * envelope_h);
+	sustain_y = minimum_y - (((float)sustain.getValue() / 63.0f) * envelope_h);
 }
 
 void RendererForEnvelopes::paint(Graphics& g) {
-	g.setColour(Color::controlText);
+	g.setColour(Color::led_blue);
 	Path path;
 	path.startNewSubPath(envelopeStart_x, minimum_y);
 	path.lineTo(attackStart_x, minimum_y);
