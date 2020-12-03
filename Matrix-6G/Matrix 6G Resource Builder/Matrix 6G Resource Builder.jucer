@@ -19,6 +19,14 @@
           file="../Matrix-6G/Resources/Button-Master-Down.png"/>
     <FILE id="WOj9ui" name="Button-Master-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Master-Up.png"/>
+    <FILE id="Lufn3W" name="Button-Pull-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Pull-Down.png"/>
+    <FILE id="pu7RxY" name="Button-Pull-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Pull-Up.png"/>
+    <FILE id="HrDqtl" name="Button-Push-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Push-Down.png"/>
+    <FILE id="QGUPJ5" name="Button-Push-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Push-Up.png"/>
     <FILE id="YU0YvL" name="Button-Patches-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Patches-Down.png"/>
     <FILE id="zJY3OQ" name="Button-Patches-Up.png" compile="0" resource="1"
@@ -33,10 +41,6 @@
           file="../Matrix-6G/Resources/Button-Redo-Down.png"/>
     <FILE id="rK3esF" name="Button-Redo-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Redo-Up.png"/>
-    <FILE id="dEFeig" name="Button-Send-All-Down.png" compile="0" resource="1"
-          file="../Matrix-6G/Resources/Button-Send-All-Down.png"/>
-    <FILE id="fhFbRO" name="Button-Send-All-Up.png" compile="0" resource="1"
-          file="../Matrix-6G/Resources/Button-Send-All-Up.png"/>
     <FILE id="Bt0u76" name="Button-Splits-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Splits-Down.png"/>
     <FILE id="Kb9q7U" name="Button-Splits-Up.png" compile="0" resource="1"

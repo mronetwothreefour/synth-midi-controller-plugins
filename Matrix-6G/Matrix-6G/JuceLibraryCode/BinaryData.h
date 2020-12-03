@@ -9,10 +9,22 @@ namespace BinaryData
     const int            Matrix6GMainWindowBackground_pngSize = 50313;
 
     extern const char* ButtonMasterDown_png;
-    const int            ButtonMasterDown_pngSize = 865;
+    const int            ButtonMasterDown_pngSize = 882;
 
     extern const char* ButtonMasterUp_png;
-    const int            ButtonMasterUp_pngSize = 862;
+    const int            ButtonMasterUp_pngSize = 835;
+
+    extern const char* ButtonPullDown_png;
+    const int            ButtonPullDown_pngSize = 391;
+
+    extern const char* ButtonPullUp_png;
+    const int            ButtonPullUp_pngSize = 382;
+
+    extern const char* ButtonPushDown_png;
+    const int            ButtonPushDown_pngSize = 501;
+
+    extern const char* ButtonPushUp_png;
+    const int            ButtonPushUp_pngSize = 481;
 
     extern const char* ButtonPatchesDown_png;
     const int            ButtonPatchesDown_pngSize = 883;
@@ -21,25 +33,19 @@ namespace BinaryData
     const int            ButtonPatchesUp_pngSize = 866;
 
     extern const char* ButtonQuickEditDown_png;
-    const int            ButtonQuickEditDown_pngSize = 702;
+    const int            ButtonQuickEditDown_pngSize = 708;
 
     extern const char* ButtonQuickEditUp_png;
-    const int            ButtonQuickEditUp_pngSize = 706;
+    const int            ButtonQuickEditUp_pngSize = 709;
 
     extern const char* ButtonQuickEditFlash_png;
-    const int            ButtonQuickEditFlash_pngSize = 705;
+    const int            ButtonQuickEditFlash_pngSize = 686;
 
     extern const char* ButtonRedoDown_png;
-    const int            ButtonRedoDown_pngSize = 436;
+    const int            ButtonRedoDown_pngSize = 401;
 
     extern const char* ButtonRedoUp_png;
-    const int            ButtonRedoUp_pngSize = 446;
-
-    extern const char* ButtonSendAllDown_png;
-    const int            ButtonSendAllDown_pngSize = 702;
-
-    extern const char* ButtonSendAllUp_png;
-    const int            ButtonSendAllUp_pngSize = 702;
+    const int            ButtonRedoUp_pngSize = 418;
 
     extern const char* ButtonSplitsDown_png;
     const int            ButtonSplitsDown_pngSize = 673;
@@ -48,13 +54,13 @@ namespace BinaryData
     const int            ButtonSplitsUp_pngSize = 690;
 
     extern const char* ButtonUndoDown_png;
-    const int            ButtonUndoDown_pngSize = 410;
+    const int            ButtonUndoDown_pngSize = 425;
 
     extern const char* ButtonUndoUp_png;
-    const int            ButtonUndoUp_pngSize = 432;
+    const int            ButtonUndoUp_pngSize = 433;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 17;
+    const int namedResourceListSize = 19;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

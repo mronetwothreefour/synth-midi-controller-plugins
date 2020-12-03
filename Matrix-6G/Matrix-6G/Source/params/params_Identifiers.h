@@ -11,7 +11,8 @@ namespace ID
 	static const Identifier button_QuickEdit{ "button_QuickEdit" };
 	static const Identifier button_QuickEdit_Flash{ "button_QuickEdit_Flash" };
 	static const Identifier button_Redo{ "button_Redo" };
-	static const Identifier button_SendAll{ "button_SendAll" };
+	static const Identifier button_Pull{ "button_Pull" };
+	static const Identifier button_Push{ "button_Push" };
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_Undo{ "button_Undo" };
 

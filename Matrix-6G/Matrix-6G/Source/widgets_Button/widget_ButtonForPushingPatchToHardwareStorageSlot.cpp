@@ -1,4 +1,4 @@
-#include "widget_ButtonForSendingAllPatchData.h"
+#include "widget_ButtonForPushingPatchToHardwareStorageSlot.h"
 
 #include "../midi/midi_PatchDataMessage.h"
 #include "../params/params_Identifiers.h"
@@ -7,16 +7,16 @@
 
 
 
-ButtonForSendingAllPatchData::ButtonForSendingAllPatchData(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ButtonForPushingPatchToHardwareStorageSlot::ButtonForPushingPatchToHardwareStorageSlot(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());
-	setComponentID(ID::button_SendAll.toString());
+	setComponentID(ID::button_Push.toString());
 }
 
-const String ButtonForSendingAllPatchData::createButtonTooltipString() {
+const String ButtonForPushingPatchToHardwareStorageSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Sends a dump of all the patch data to the hardware storage\n";
@@ -26,7 +26,7 @@ const String ButtonForSendingAllPatchData::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForSendingAllPatchData::onClickMethod() {
+void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams, outgoingMidiBuffers);
 }

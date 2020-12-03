@@ -8,16 +8,16 @@
 
 class UnexposedParameters;
 
-class ButtonForSendingAllPatchData :
+class ButtonForPushingPatchToHardwareStorageSlot :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForSendingAllPatchData() = delete;
+	ButtonForPushingPatchToHardwareStorageSlot() = delete;
 
-	ButtonForSendingAllPatchData(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	ButtonForPushingPatchToHardwareStorageSlot(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 
 protected:
@@ -26,6 +26,6 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingAllPatchData)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingPatchToHardwareStorageSlot)
 };
 

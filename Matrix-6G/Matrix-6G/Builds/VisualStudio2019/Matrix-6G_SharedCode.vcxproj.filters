@@ -2463,9 +2463,6 @@
     <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingAllPatchData.cpp">
-      <Filter>Matrix-6G\Source\widgets_Button</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
@@ -2478,7 +2475,12 @@
     <ClCompile Include="..\..\Source\gui\gui_matrixMod_Slot.cpp">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_MatrixMod.cpp" />
+    <ClCompile Include="..\..\Source\gui\gui_Layer_MatrixMod.cpp">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4809,9 +4811,6 @@
     <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingAllPatchData.h">
-      <Filter>Matrix-6G\Source\widgets_Button</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_MatrixMod.h">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
@@ -4826,6 +4825,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_matrixMod_Slot.h">
       <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
