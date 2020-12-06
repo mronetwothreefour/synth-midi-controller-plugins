@@ -83,7 +83,7 @@ ProgramBankTab* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
 }
 
 void ProgramBanksTabbedComponent::updateTextForAllProgramSlotsInAllBanks() {
-	auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+	auto programBanks{ unexposedParams->programBanks_get() };
 	for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
 		bank1.updateProgramSlotText(slot);
 		bank2.updateProgramSlotText(slot);

@@ -1,7 +1,7 @@
 #include "banks_ProgramNameStrings.h"
 
 #include "banks_ConvertRawProgramDataFormat.h"
-#include "banks_FactoryProgamBanks_Singleton.h"
+#include "banks_FactoryProgamDataHexStrings_Singleton.h"
 #include "../params/params_Identifiers.h"
 
 
@@ -15,11 +15,11 @@ ProgramNameStrings::ProgramNameStrings() :
 }
 
 void ProgramNameStrings::resetAllProgramNameStringsToFactoryDefaults() {
-	auto& factoryBanks{ FactoryProgramBanks::get() };
-	for (uint8 programSlot = 0; programSlot != factoryBanks.programSlotOutOfRange(); ++programSlot) {
-		auto bank1ProgramHexString{factoryBanks.getFactoryBank1()[programSlot]};
-		auto bank2ProgramHexString{factoryBanks.getFactoryBank2()[programSlot]};
-		auto bank3ProgramHexString{factoryBanks.getFactoryBank3()[programSlot]};
+	auto& factoryDataHexStrings{ FactoryProgramDataHexStrings::get() };
+	for (uint8 programSlot = 0; programSlot != factoryDataHexStrings.programSlotOutOfRange(); ++programSlot) {
+		auto bank1ProgramHexString{factoryDataHexStrings.getBank1()[programSlot]};
+		auto bank2ProgramHexString{factoryDataHexStrings.getBank2()[programSlot]};
+		auto bank3ProgramHexString{factoryDataHexStrings.getBank3()[programSlot]};
 		auto bank1ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank1ProgramHexString) };
 		auto bank2ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank2ProgramHexString) };
 		auto bank3ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank3ProgramHexString) };

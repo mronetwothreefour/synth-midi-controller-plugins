@@ -1,11 +1,11 @@
-#include "banks_CustomProgramBanks.h"
+#include "banks_ProgramBanks.h"
 
-#include "banks_FactoryProgamBanks_Singleton.h"
+#include "banks_FactoryProgamDataHexStrings_Singleton.h"
 #include "../params/params_Identifiers.h"
 
 
 
-CustomProgramBanks::CustomProgramBanks() :
+ProgramBanks::ProgramBanks() :
 	programBank1{ "pgmBank1" },
 	programBank2{ "pgmBank2" },
 	programBank3{ "pgmBank3" }
@@ -13,11 +13,11 @@ CustomProgramBanks::CustomProgramBanks() :
 	resetAllProgramBanksToFactoryDefaults();
 }
 
-void CustomProgramBanks::resetAllProgramBanksToFactoryDefaults() {
-	auto& factoryBanks{ FactoryProgramBanks::get() };
-	auto& factoryBank1{ factoryBanks.getFactoryBank1() };
-	auto& factoryBank2{ factoryBanks.getFactoryBank2() };
-	auto& factoryBank3{ factoryBanks.getFactoryBank3() };
+void ProgramBanks::resetAllProgramBanksToFactoryDefaults() {
+	auto& factoryBanks{ FactoryProgramDataHexStrings::get() };
+	auto& factoryBank1{ factoryBanks.getBank1() };
+	auto& factoryBank2{ factoryBanks.getBank2() };
+	auto& factoryBank3{ factoryBanks.getBank3() };
 	for (uint8 programSlot = 0; programSlot != factoryBanks.programSlotOutOfRange(); ++programSlot) {
 		programBank1.setProperty("pgm" + (String)programSlot, factoryBank1[programSlot], nullptr);
 		programBank2.setProperty("pgm" + (String)programSlot, factoryBank2[programSlot], nullptr);
@@ -25,11 +25,11 @@ void CustomProgramBanks::resetAllProgramBanksToFactoryDefaults() {
 	}
 }
 
-int CustomProgramBanks::programSlotOutOfRange() {
+int ProgramBanks::programSlotOutOfRange() {
 	return programBank1.getNumProperties();
 }
 
-const String CustomProgramBanks::getProgramDataHexStringFromBankSlot(uint8 bank, uint8 slot) const {
+const String ProgramBanks::getProgramDataHexStringFromBankSlot(uint8 bank, uint8 slot) const {
 	jassert(bank < 3);
 	jassert(slot < 128);
 	switch (bank)
@@ -45,7 +45,7 @@ const String CustomProgramBanks::getProgramDataHexStringFromBankSlot(uint8 bank,
 	}
 }
 
-void CustomProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, uint8 bank, uint8 slot) {
+void ProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, uint8 bank, uint8 slot) {
 	switch (bank)
 	{
 	case 0:
@@ -62,7 +62,7 @@ void CustomProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, u
 	}
 }
 
-XmlElement* CustomProgramBanks::getStateXml() {
+XmlElement* ProgramBanks::getStateXml() {
 	auto pluginProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_PluginProgramBanks) };
 	auto programBank1StateXml{ programBank1.createXml() };
 	auto programBank2StateXml{ programBank2.createXml() };
@@ -76,11 +76,11 @@ XmlElement* CustomProgramBanks::getStateXml() {
 	return pluginProgramBanksStateXml.release();
 }
 
-void CustomProgramBanks::replaceState(const ValueTree& newState) {
+void ProgramBanks::replaceState(const ValueTree& newState) {
 	programBank1.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank1), nullptr);
 	programBank2.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank2), nullptr);
 	programBank3.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank3), nullptr);
 }
 
-CustomProgramBanks::~CustomProgramBanks() {
+ProgramBanks::~ProgramBanks() {
 }

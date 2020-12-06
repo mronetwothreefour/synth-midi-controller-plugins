@@ -20,7 +20,7 @@ std::vector<uint8> ProgramDump::createProgramDumpForBankAndSlot(uint8 bank, uint
     dumpVector.push_back((uint8)SysExMessageType::programDump);
     dumpVector.push_back(bank);
     dumpVector.push_back(slot);
-    auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+    auto programBanks{ unexposedParams->programBanks_get() };
     auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, slot) };
     auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
     for (auto dataByte : programDataVector)

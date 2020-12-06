@@ -309,8 +309,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_CustomProgramBanks.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBankTab.cpp" />
@@ -2242,7 +2242,6 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.cpp" />
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForResettingAllBanksToFactoryDefaults.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp" />
@@ -2282,8 +2281,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h" />
-    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
-    <ClInclude Include="..\..\Source\banks\banks_CustomProgramBanks.h" />
+    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h" />
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h" />
@@ -3070,7 +3069,6 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h" />
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForResettingAllBanksToFactoryDefaults.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h" />

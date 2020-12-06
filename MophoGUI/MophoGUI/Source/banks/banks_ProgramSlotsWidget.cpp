@@ -18,7 +18,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState*
 	buttonHorizontalGap{ 7 },
 	selectedSlot{ 128 }
 {
-	auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+	auto programBanks{ unexposedParams->programBanks_get() };
 	for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
 		setUpProgramSlotToggleButton(slot);
 		addAndMakeVisible(programSlotButtons[slot]);
@@ -60,7 +60,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto programDataVector{ RawProgramData::extractFromExposedParameters(exposedParams) };
 		auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
-		auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+		auto programBanks{ unexposedParams->programBanks_get() };
 		programBanks->storeProgramDataHexStringInBankSlot(programDataHexString, bank, selectedSlot);
 		auto programNames{ unexposedParams->programNameStrings_get() };
 		auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
@@ -72,7 +72,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
-		auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+		auto programBanks{ unexposedParams->programBanks_get() };
 		auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
 		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams, unexposedParams);

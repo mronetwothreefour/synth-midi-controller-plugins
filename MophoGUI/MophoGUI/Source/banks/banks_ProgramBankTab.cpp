@@ -79,7 +79,7 @@ void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo&
 }
 
 bool ProgramBankTab::perform(const InvocationInfo& info) {
-	auto programBanks{ unexposedParams->pluginProgramBanks_get() };
+	auto programBanks{ unexposedParams->programBanks_get() };
 	auto selectedSlot{ programSlots.selectedSlot };
 	switch (info.commandID)
 	{
