@@ -70,7 +70,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
             programDataVector.push_back(*(sysExData + dataByte));
         auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->programBanks_get() };
-        programBanks->storeProgramDataHexStringInBankSlot(programDataHexString, bank, slot);
+        programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
         auto programNames{ unexposedParams->programNameStrings_get() };
         auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
         programNames->storeNameOfProgramInBankSlot(programName, bank, slot);

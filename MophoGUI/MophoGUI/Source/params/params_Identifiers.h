@@ -58,15 +58,21 @@ namespace ID
 	static const Identifier param_SeqTrack3Dest{ "seqTrack3Dest" };
 	static const Identifier param_SeqTrack4Dest{ "seqTrack4Dest" };
 
-	static const Identifier state_Bank1ProgramNames{ "state_Bank1ProgramNames" };
-	static const Identifier state_Bank2ProgramNames{ "state_Bank2ProgramNames" };
-	static const Identifier state_Bank3ProgramNames{ "state_Bank3ProgramNames" };
+	static const Identifier state_CustomBank1ProgramNames{ "state_CustomBank1ProgramNames" };
+	static const Identifier state_CustomBank2ProgramNames{ "state_CustomBank2ProgramNames" };
+	static const Identifier state_CustomBank3ProgramNames{ "state_CustomBank3ProgramNames" };
+	static const Identifier state_FactoryBank1ProgramNames{ "state_FactoryBank1ProgramNames" };
+	static const Identifier state_FactoryBank2ProgramNames{ "state_FactoryBank2ProgramNames" };
+	static const Identifier state_FactoryBank3ProgramNames{ "state_FactoryBank3ProgramNames" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
-	static const Identifier state_PluginProgramBanks{ "state_PluginProgramBanks" };
+	static const Identifier state_ProgramBanks{ "state_ProgramBanks" };
 	static const Identifier state_PluginState{ "state_PluginState" };
-	static const Identifier state_ProgramBank1{ "state_ProgramBank1" };
-	static const Identifier state_ProgramBank2{ "state_ProgramBank2" };
-	static const Identifier state_ProgramBank3{ "state_ProgramBank3" };
+	static const Identifier state_CustomProgramBank1{ "state_CustomProgramBank1" };
+	static const Identifier state_CustomProgramBank2{ "state_CustomProgramBank2" };
+	static const Identifier state_CustomProgramBank3{ "state_CustomProgramBank3" };
+	static const Identifier state_FactoryProgramBank1{ "state_FactoryProgramBank1" };
+	static const Identifier state_FactoryProgramBank2{ "state_FactoryProgramBank2" };
+	static const Identifier state_FactoryProgramBank3{ "state_FactoryProgramBank3" };
 	static const Identifier state_ProgramNameStrings{ "state_ProgramNameStrings" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };

@@ -61,7 +61,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 		auto programDataVector{ RawProgramData::extractFromExposedParameters(exposedParams) };
 		auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
 		auto programBanks{ unexposedParams->programBanks_get() };
-		programBanks->storeProgramDataHexStringInBankSlot(programDataHexString, bank, selectedSlot);
+		programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, selectedSlot);
 		auto programNames{ unexposedParams->programNameStrings_get() };
 		auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
 		programNames->storeNameOfProgramInBankSlot(programName, bank, selectedSlot);
@@ -73,7 +73,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto programBanks{ unexposedParams->programBanks_get() };
-		auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
+		auto programDataHexString{ programBanks->getProgramDataHexStringFromFactoryBankSlot(bank, selectedSlot) };
 		auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
 		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get()); });

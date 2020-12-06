@@ -62,7 +62,7 @@ XmlElement UnexposedParameters::unexposedParams_getStateXml() {
 }
 
 void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
-	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_PluginProgramBanks) };
+	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_ProgramBanks) };
 	pluginProgramBanks->replaceState(pluginProgramBanksState);
 	auto programNameStringsState{ newState.getChildWithName(ID::state_ProgramNameStrings) };
 	programNameStrings->replaceState(programNameStringsState);

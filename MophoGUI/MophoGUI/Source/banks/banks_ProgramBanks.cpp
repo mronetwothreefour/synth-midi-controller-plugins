@@ -6,56 +6,78 @@
 
 
 ProgramBanks::ProgramBanks() :
-	programBank1{ "pgmBank1" },
-	programBank2{ "pgmBank2" },
-	programBank3{ "pgmBank3" }
+	factoryBank1{ "factoryBank1" },
+	factoryBank2{ "factoryBank2" },
+	factoryBank3{ "factoryBank3" },
+	customBank1{ "customBank1" },
+	customBank2{ "customBank2" },
+	customBank3{ "customBank3" }
 {
-	resetAllProgramBanksToFactoryDefaults();
+	fillAllProgramDataBanks();
 }
 
-void ProgramBanks::resetAllProgramBanksToFactoryDefaults() {
-	auto& factoryBanks{ FactoryProgramDataHexStrings::get() };
-	auto& factoryBank1{ factoryBanks.getBank1() };
-	auto& factoryBank2{ factoryBanks.getBank2() };
-	auto& factoryBank3{ factoryBanks.getBank3() };
-	for (uint8 programSlot = 0; programSlot != factoryBanks.programSlotOutOfRange(); ++programSlot) {
-		programBank1.setProperty("pgm" + (String)programSlot, factoryBank1[programSlot], nullptr);
-		programBank2.setProperty("pgm" + (String)programSlot, factoryBank2[programSlot], nullptr);
-		programBank3.setProperty("pgm" + (String)programSlot, factoryBank3[programSlot], nullptr);
+void ProgramBanks::fillAllProgramDataBanks() {
+	auto& factoryDataHexStrings{ FactoryProgramDataHexStrings::get() };
+	auto& factoryProgramDataBank1{ factoryDataHexStrings.getBank1() };
+	auto& factoryProgramDataBank2{ factoryDataHexStrings.getBank2() };
+	auto& factoryProgramDataBank3{ factoryDataHexStrings.getBank3() };
+	for (uint8 programSlot = 0; programSlot != factoryDataHexStrings.programSlotOutOfRange(); ++programSlot) {
+		factoryBank1.setProperty("pgm" + (String)programSlot, factoryProgramDataBank1[programSlot], nullptr);
+		factoryBank2.setProperty("pgm" + (String)programSlot, factoryProgramDataBank2[programSlot], nullptr);
+		factoryBank3.setProperty("pgm" + (String)programSlot, factoryProgramDataBank3[programSlot], nullptr);
+		customBank1.setProperty("pgm" + (String)programSlot, basicPatchDataHexString, nullptr);
+		customBank2.setProperty("pgm" + (String)programSlot, basicPatchDataHexString, nullptr);
+		customBank3.setProperty("pgm" + (String)programSlot, basicPatchDataHexString, nullptr);
 	}
 }
 
 int ProgramBanks::programSlotOutOfRange() {
-	return programBank1.getNumProperties();
+	return factoryBank1.getNumProperties();
 }
 
-const String ProgramBanks::getProgramDataHexStringFromBankSlot(uint8 bank, uint8 slot) const {
+const String ProgramBanks::getProgramDataHexStringFromFactoryBankSlot(uint8 bank, uint8 slot) const {
 	jassert(bank < 3);
 	jassert(slot < 128);
 	switch (bank)
 	{
 	case 0:
-		return programBank1.getProperty("pgm" + (String)slot);
+		return factoryBank1.getProperty("pgm" + (String)slot);
 	case 1:
-		return programBank2.getProperty("pgm" + (String)slot);
+		return factoryBank2.getProperty("pgm" + (String)slot);
 	case 2:
-		return programBank3.getProperty("pgm" + (String)slot);
+		return factoryBank3.getProperty("pgm" + (String)slot);
 	default:
 		return {};
 	}
 }
 
-void ProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, uint8 bank, uint8 slot) {
+const String ProgramBanks::getProgramDataHexStringFromCustomBankSlot(uint8 bank, uint8 slot) const {
+	jassert(bank < 3);
+	jassert(slot < 128);
 	switch (bank)
 	{
 	case 0:
-		programBank1.setProperty("pgm" + (String)slot, hexString, nullptr);
+		return customBank1.getProperty("pgm" + (String)slot);
+	case 1:
+		return customBank2.getProperty("pgm" + (String)slot);
+	case 2:
+		return customBank3.getProperty("pgm" + (String)slot);
+	default:
+		return {};
+	}
+}
+
+void ProgramBanks::storeProgramDataHexStringInCustomBankSlot(String hexString, uint8 bank, uint8 slot) {
+	switch (bank)
+	{
+	case 0:
+		customBank1.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
 	case 1:
-		programBank2.setProperty("pgm" + (String)slot, hexString, nullptr);
+		customBank2.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
 	case 2:
-		programBank3.setProperty("pgm" + (String)slot, hexString, nullptr);
+		customBank3.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
 	default:
 		return;
@@ -63,23 +85,35 @@ void ProgramBanks::storeProgramDataHexStringInBankSlot(String hexString, uint8 b
 }
 
 XmlElement* ProgramBanks::getStateXml() {
-	auto pluginProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_PluginProgramBanks) };
-	auto programBank1StateXml{ programBank1.createXml() };
-	auto programBank2StateXml{ programBank2.createXml() };
-	auto programBank3StateXml{ programBank3.createXml() };
-	programBank1StateXml->setTagName(ID::state_ProgramBank1);
-	programBank2StateXml->setTagName(ID::state_ProgramBank2);
-	programBank3StateXml->setTagName(ID::state_ProgramBank3);
-	pluginProgramBanksStateXml->addChildElement(programBank1StateXml.release());
-	pluginProgramBanksStateXml->addChildElement(programBank2StateXml.release());
-	pluginProgramBanksStateXml->addChildElement(programBank3StateXml.release());
+	auto pluginProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_ProgramBanks) };
+	auto factoryBank1StateXml{ factoryBank1.createXml() };
+	auto factoryBank2StateXml{ factoryBank2.createXml() };
+	auto factoryBank3StateXml{ factoryBank3.createXml() };
+	auto customBank1StateXml{ customBank1.createXml() };
+	auto customBank2StateXml{ customBank2.createXml() };
+	auto customBank3StateXml{ customBank3.createXml() };
+	factoryBank1StateXml->setTagName(ID::state_FactoryProgramBank1);
+	factoryBank2StateXml->setTagName(ID::state_FactoryProgramBank2);
+	factoryBank3StateXml->setTagName(ID::state_FactoryProgramBank3);
+	customBank1StateXml->setTagName(ID::state_CustomProgramBank1);
+	customBank2StateXml->setTagName(ID::state_CustomProgramBank2);
+	customBank3StateXml->setTagName(ID::state_CustomProgramBank3);
+	pluginProgramBanksStateXml->addChildElement(factoryBank1StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(factoryBank2StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(factoryBank3StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(customBank1StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(customBank2StateXml.release());
+	pluginProgramBanksStateXml->addChildElement(customBank3StateXml.release());
 	return pluginProgramBanksStateXml.release();
 }
 
 void ProgramBanks::replaceState(const ValueTree& newState) {
-	programBank1.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank1), nullptr);
-	programBank2.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank2), nullptr);
-	programBank3.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_ProgramBank3), nullptr);
+	factoryBank1.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryProgramBank1), nullptr);
+	factoryBank2.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryProgramBank2), nullptr);
+	factoryBank3.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryProgramBank3), nullptr);
+	customBank1.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank1), nullptr);
+	customBank2.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank2), nullptr);
+	customBank3.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank3), nullptr);
 }
 
 ProgramBanks::~ProgramBanks() {

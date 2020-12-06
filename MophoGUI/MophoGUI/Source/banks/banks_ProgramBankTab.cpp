@@ -85,13 +85,13 @@ bool ProgramBankTab::perform(const InvocationInfo& info) {
 	{
 	case copyProgram:
 		if (selectedSlot < 128) {
-			programCopyBuffer = programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot);
+			programCopyBuffer = programBanks->getProgramDataHexStringFromFactoryBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;
 	case pasteProgram:
 		if (selectedSlot < 128 && programCopyBuffer != "") {
-			programBanks->storeProgramDataHexStringInBankSlot(programCopyBuffer, bank, selectedSlot);
+			programBanks->storeProgramDataHexStringInCustomBankSlot(programCopyBuffer, bank, selectedSlot);
 			updateProgramNameAfterDelay(programCopyBuffer, selectedSlot);
 			return true;
 		}

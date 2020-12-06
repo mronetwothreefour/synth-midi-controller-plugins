@@ -81,9 +81,9 @@ XmlElement* ProgramNameStrings::getStateXml() {
 	auto bank1ProgramNamesStateXml{ bank1ProgramNames.createXml() };
 	auto bank2ProgramNamesStateXml{ bank2ProgramNames.createXml() };
 	auto bank3ProgramNamesStateXml{ bank3ProgramNames.createXml() };
-	bank1ProgramNamesStateXml->setTagName(ID::state_Bank1ProgramNames);
-	bank2ProgramNamesStateXml->setTagName(ID::state_Bank2ProgramNames);
-	bank3ProgramNamesStateXml->setTagName(ID::state_Bank3ProgramNames);
+	bank1ProgramNamesStateXml->setTagName(ID::state_FactoryBank1ProgramNames);
+	bank2ProgramNamesStateXml->setTagName(ID::state_FactoryBank2ProgramNames);
+	bank3ProgramNamesStateXml->setTagName(ID::state_FactoryBank3ProgramNames);
 	programNameStringsStateXml->addChildElement(bank1ProgramNamesStateXml.release());
 	programNameStringsStateXml->addChildElement(bank2ProgramNamesStateXml.release());
 	programNameStringsStateXml->addChildElement(bank3ProgramNamesStateXml.release());
@@ -91,9 +91,9 @@ XmlElement* ProgramNameStrings::getStateXml() {
 }
 
 void ProgramNameStrings::replaceState(const ValueTree& newState) {
-	bank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank1ProgramNames), nullptr);
-	bank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank2ProgramNames), nullptr);
-	bank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_Bank3ProgramNames), nullptr);
+	bank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank1ProgramNames), nullptr);
+	bank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank2ProgramNames), nullptr);
+	bank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank3ProgramNames), nullptr);
 }
 
 ProgramNameStrings::~ProgramNameStrings() {
