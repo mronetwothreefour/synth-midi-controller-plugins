@@ -8,7 +8,7 @@ UnexposedParameters::UnexposedParameters() :
 	globalAudioOptions{ new GlobalAudioOptions() },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
-	pluginProgramBanks{ new PluginProgramBanks() },
+	pluginProgramBanks{ new CustomProgramBanks() },
 	programNameStrings{ new ProgramNameStrings() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
@@ -31,7 +31,7 @@ OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
-PluginProgramBanks* UnexposedParameters::pluginProgramBanks_get() {
+CustomProgramBanks* UnexposedParameters::pluginProgramBanks_get() {
 	return pluginProgramBanks.get();
 }
 

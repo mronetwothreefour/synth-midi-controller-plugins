@@ -310,7 +310,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_PluginProgramBanks.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_CustomProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBankTab.cpp" />
@@ -2283,7 +2283,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h" />
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamBanks_Singleton.h" />
-    <ClInclude Include="..\..\Source\banks\banks_PluginProgramBanks.h" />
+    <ClInclude Include="..\..\Source\banks\banks_CustomProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h" />
