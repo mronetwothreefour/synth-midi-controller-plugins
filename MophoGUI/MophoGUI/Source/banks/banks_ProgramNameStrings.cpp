@@ -7,28 +7,34 @@
 
 
 ProgramNameStrings::ProgramNameStrings() :
-	bank1ProgramNames{ "bank1ProgramNames" },
-	bank2ProgramNames{ "bank2ProgramNames" },
-	bank3ProgramNames{ "bank3ProgramNames" }
+	factoryBank1ProgramNames{ "factoryBank1ProgramNames" },
+	factoryBank2ProgramNames{ "factoryBank2ProgramNames" },
+	factoryBank3ProgramNames{ "factoryBank3ProgramNames" },
+	customBank1ProgramNames{ "customBank1ProgramNames" },
+	customBank2ProgramNames{ "customBank2ProgramNames" },
+	customBank3ProgramNames{ "customBank3ProgramNames" }
 {
-	resetAllProgramNameStringsToFactoryDefaults();
+	initializeAllProgramNameStringsInAllBanks();
 }
 
-void ProgramNameStrings::resetAllProgramNameStringsToFactoryDefaults() {
+void ProgramNameStrings::initializeAllProgramNameStringsInAllBanks() {
 	auto& factoryDataHexStrings{ FactoryProgramDataHexStrings::get() };
 	for (uint8 programSlot = 0; programSlot != factoryDataHexStrings.programSlotOutOfRange(); ++programSlot) {
-		auto bank1ProgramHexString{factoryDataHexStrings.getBank1()[programSlot]};
-		auto bank2ProgramHexString{factoryDataHexStrings.getBank2()[programSlot]};
-		auto bank3ProgramHexString{factoryDataHexStrings.getBank3()[programSlot]};
-		auto bank1ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank1ProgramHexString) };
-		auto bank2ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank2ProgramHexString) };
-		auto bank3ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(bank3ProgramHexString) };
-		auto bank1ProgramName{ extractProgramNameFromDataVector(bank1ProgramDataVector) };
-		auto bank2ProgramName{ extractProgramNameFromDataVector(bank2ProgramDataVector) };
-		auto bank3ProgramName{ extractProgramNameFromDataVector(bank3ProgramDataVector) };
-		bank1ProgramNames.setProperty("pgm" + (String)programSlot + "Name", bank1ProgramName, nullptr);
-		bank2ProgramNames.setProperty("pgm" + (String)programSlot + "Name", bank2ProgramName, nullptr);
-		bank3ProgramNames.setProperty("pgm" + (String)programSlot + "Name", bank3ProgramName, nullptr);
+		auto factoryBank1ProgramHexString{factoryDataHexStrings.getBank1()[programSlot]};
+		auto factoryBank2ProgramHexString{factoryDataHexStrings.getBank2()[programSlot]};
+		auto factoryBank3ProgramHexString{factoryDataHexStrings.getBank3()[programSlot]};
+		auto factoryBank1ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(factoryBank1ProgramHexString) };
+		auto factoryBank2ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(factoryBank2ProgramHexString) };
+		auto factoryBank3ProgramDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(factoryBank3ProgramHexString) };
+		auto factoryBank1ProgramName{ extractProgramNameFromDataVector(factoryBank1ProgramDataVector) };
+		auto factoryBank2ProgramName{ extractProgramNameFromDataVector(factoryBank2ProgramDataVector) };
+		auto factoryBank3ProgramName{ extractProgramNameFromDataVector(factoryBank3ProgramDataVector) };
+		factoryBank1ProgramNames.setProperty("pgm" + (String)programSlot + "Name", factoryBank1ProgramName, nullptr);
+		factoryBank2ProgramNames.setProperty("pgm" + (String)programSlot + "Name", factoryBank2ProgramName, nullptr);
+		factoryBank3ProgramNames.setProperty("pgm" + (String)programSlot + "Name", factoryBank3ProgramName, nullptr);
+		customBank1ProgramNames.setProperty("pgm" + (String)programSlot + "Name", basicPatchNameString, nullptr);
+		customBank2ProgramNames.setProperty("pgm" + (String)programSlot + "Name", basicPatchNameString, nullptr);
+		customBank3ProgramNames.setProperty("pgm" + (String)programSlot + "Name", basicPatchNameString, nullptr);
 	}
 }
 
@@ -46,55 +52,81 @@ const String ProgramNameStrings::extractProgramNameFromDataVector(const std::vec
 	return programName;
 }
 
-const String ProgramNameStrings::nameOfProgramInBankSlot(uint8 bank, uint8 slot) {
+const String ProgramNameStrings::nameOfProgramInFactoryBankSlot(uint8 bank, uint8 slot) {
 	String programName;
 	switch (bank) {
 	case 0:
-		programName = bank1ProgramNames.getProperty("pgm" + (String)slot + "Name");
+		programName = factoryBank1ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
 	case 1:
-		programName = bank2ProgramNames.getProperty("pgm" + (String)slot + "Name");
+		programName = factoryBank2ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
 	case 2:
-		programName = bank3ProgramNames.getProperty("pgm" + (String)slot + "Name");
+		programName = factoryBank3ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
 	};
 	return programName;
 }
 
-void ProgramNameStrings::storeNameOfProgramInBankSlot(const String programName, uint8 bank, uint8 slot) {
+const String ProgramNameStrings::nameOfProgramInCustomBankSlot(uint8 bank, uint8 slot) {
+	String programName;
 	switch (bank) {
 	case 0:
-		bank1ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
+		programName = customBank1ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
 	case 1:
-		bank2ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
+		programName = customBank2ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
 	case 2:
-		bank3ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
+		programName = customBank3ProgramNames.getProperty("pgm" + (String)slot + "Name");
+		break;
+	};
+	return programName;
+}
+
+void ProgramNameStrings::storeNameOfProgramInCustomBankSlot(const String programName, uint8 bank, uint8 slot) {
+	switch (bank) {
+	case 0:
+		customBank1ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
+		break;
+	case 1:
+		customBank2ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
+		break;
+	case 2:
+		customBank3ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
 		break;
 	};
 }
 
 XmlElement* ProgramNameStrings::getStateXml() {
 	auto programNameStringsStateXml{ std::make_unique<XmlElement>(ID::state_ProgramNameStrings) };
-	auto bank1ProgramNamesStateXml{ bank1ProgramNames.createXml() };
-	auto bank2ProgramNamesStateXml{ bank2ProgramNames.createXml() };
-	auto bank3ProgramNamesStateXml{ bank3ProgramNames.createXml() };
-	bank1ProgramNamesStateXml->setTagName(ID::state_FactoryBank1ProgramNames);
-	bank2ProgramNamesStateXml->setTagName(ID::state_FactoryBank2ProgramNames);
-	bank3ProgramNamesStateXml->setTagName(ID::state_FactoryBank3ProgramNames);
-	programNameStringsStateXml->addChildElement(bank1ProgramNamesStateXml.release());
-	programNameStringsStateXml->addChildElement(bank2ProgramNamesStateXml.release());
-	programNameStringsStateXml->addChildElement(bank3ProgramNamesStateXml.release());
+	auto factoryBank1ProgramNamesStateXml{ factoryBank1ProgramNames.createXml() };
+	auto factoryBank2ProgramNamesStateXml{ factoryBank2ProgramNames.createXml() };
+	auto factoryBank3ProgramNamesStateXml{ factoryBank3ProgramNames.createXml() };
+	auto customBank1ProgramNamesStateXml{ customBank1ProgramNames.createXml() };
+	auto customBank2ProgramNamesStateXml{ customBank2ProgramNames.createXml() };
+	auto customBank3ProgramNamesStateXml{ customBank3ProgramNames.createXml() };
+	factoryBank1ProgramNamesStateXml->setTagName(ID::state_FactoryBank1ProgramNames);
+	factoryBank2ProgramNamesStateXml->setTagName(ID::state_FactoryBank2ProgramNames);
+	factoryBank3ProgramNamesStateXml->setTagName(ID::state_FactoryBank3ProgramNames);
+	customBank1ProgramNamesStateXml->setTagName(ID::state_CustomBank1ProgramNames);
+	customBank2ProgramNamesStateXml->setTagName(ID::state_CustomBank2ProgramNames);
+	customBank3ProgramNamesStateXml->setTagName(ID::state_CustomBank3ProgramNames);
+	programNameStringsStateXml->addChildElement(factoryBank1ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(factoryBank2ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(factoryBank3ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(customBank1ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(customBank2ProgramNamesStateXml.release());
+	programNameStringsStateXml->addChildElement(customBank3ProgramNamesStateXml.release());
 	return programNameStringsStateXml.release();
 }
 
 void ProgramNameStrings::replaceState(const ValueTree& newState) {
-	bank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank1ProgramNames), nullptr);
-	bank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank2ProgramNames), nullptr);
-	bank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank3ProgramNames), nullptr);
+	factoryBank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank1ProgramNames), nullptr);
+	factoryBank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank2ProgramNames), nullptr);
+	factoryBank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_FactoryBank3ProgramNames), nullptr);
+	customBank1ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomBank1ProgramNames), nullptr);
+	customBank2ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomBank2ProgramNames), nullptr);
+	customBank3ProgramNames.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomBank3ProgramNames), nullptr);
 }
 
-ProgramNameStrings::~ProgramNameStrings() {
-}

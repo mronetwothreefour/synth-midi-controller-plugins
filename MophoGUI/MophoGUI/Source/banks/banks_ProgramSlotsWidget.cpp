@@ -53,7 +53,7 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 	if (slot > 9 && slot < 100) slotNumber = "0" + (String)(slot + 1);
 	if (slot > 99) slotNumber = (String)(slot + 1);
 	auto programNames{ unexposedParams->programNameStrings_get() };
-	programSlotButtons[slot].setName(slotNumber + " " + programNames->nameOfProgramInBankSlot(bank, slot));
+	programSlotButtons[slot].setName(slotNumber + " " + programNames->nameOfProgramInFactoryBankSlot(bank, slot));
 }
 
 void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
@@ -64,7 +64,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 		programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, selectedSlot);
 		auto programNames{ unexposedParams->programNameStrings_get() };
 		auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-		programNames->storeNameOfProgramInBankSlot(programName, bank, selectedSlot);
+		programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
 		setTextForProgramSlotToggleButton(selectedSlot);
 		repaint();
 	}

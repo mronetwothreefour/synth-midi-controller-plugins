@@ -73,7 +73,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
         programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
         auto programNames{ unexposedParams->programNameStrings_get() };
         auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-        programNames->storeNameOfProgramInBankSlot(programName, bank, slot);
+        programNames->storeNameOfProgramInCustomBankSlot(programName, bank, slot);
     }
     else
         handleIncomingGlobalParametersDump(sysExData);

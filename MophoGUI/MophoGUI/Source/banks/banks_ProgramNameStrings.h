@@ -6,19 +6,23 @@
 
 class ProgramNameStrings
 {
-	ValueTree bank1ProgramNames;
-	ValueTree bank2ProgramNames;
-	ValueTree bank3ProgramNames;
+	ValueTree factoryBank1ProgramNames;
+	ValueTree factoryBank2ProgramNames;
+	ValueTree factoryBank3ProgramNames;
+	ValueTree customBank1ProgramNames;
+	ValueTree customBank2ProgramNames;
+	ValueTree customBank3ProgramNames;
+	String basicPatchNameString{ "Basic Patch     " };
 
 public:
 	ProgramNameStrings();
-	void resetAllProgramNameStringsToFactoryDefaults();
+	void initializeAllProgramNameStringsInAllBanks();
 	const String extractProgramNameFromDataVector(const std::vector<uint8>& dataVector);
-	const String nameOfProgramInBankSlot(uint8 bank, uint8 slot);
-	void storeNameOfProgramInBankSlot(const String programName, uint8 bank, uint8 slot);
+	const String nameOfProgramInFactoryBankSlot(uint8 bank, uint8 slot);
+	const String nameOfProgramInCustomBankSlot(uint8 bank, uint8 slot);
+	void storeNameOfProgramInCustomBankSlot(const String programName, uint8 bank, uint8 slot);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
-	~ProgramNameStrings();
 
 private:
 	//==============================================================================

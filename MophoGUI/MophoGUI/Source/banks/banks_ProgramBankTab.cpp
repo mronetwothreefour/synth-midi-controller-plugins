@@ -110,7 +110,7 @@ void ProgramBankTab::storeNewProgramName(const String& programDataHexString, uin
 	auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
 	auto programNames{ unexposedParams->programNameStrings_get() };
 	auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-	programNames->storeNameOfProgramInBankSlot(programName, bank, selectedSlot);
+	programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
 }
 
 void ProgramBankTab::updateProgramSlotText(uint8 selectedSlot) {
