@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "banks_ProgramBankTab.h"
+#include "banks_TabForFactoryProgramBank.h"
 
 
 
@@ -12,9 +12,9 @@ class ProgramBanksTabbedComponent :
     public TabbedComponent,
     public Label::Listener
 {
-    ProgramBankTab bank1;
-    ProgramBankTab bank2;
-    ProgramBankTab bank3;
+    TabForFactoryProgramBank bank1;
+    TabForFactoryProgramBank bank2;
+    TabForFactoryProgramBank bank3;
     UnexposedParameters* unexposedParams;
     String programCopyBuffer;
     Label label_txTime;
@@ -25,7 +25,7 @@ public:
     ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
-    ProgramBankTab* getCurrentProgramBankTab();
+    TabForFactoryProgramBank* getCurrentProgramBankTab();
     void updateTextForAllProgramSlotsInAllBanks();
     ~ProgramBanksTabbedComponent() override;
 

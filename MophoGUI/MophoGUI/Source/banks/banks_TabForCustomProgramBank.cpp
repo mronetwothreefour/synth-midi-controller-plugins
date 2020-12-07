@@ -1,4 +1,4 @@
-#include "banks_ProgramBankTab.h"
+#include "banks_TabForCustomProgramBank.h"
 
 #include "banks_ConvertRawProgramDataFormat.h"
 #include "../gui/gui_Colors.h"
@@ -7,7 +7,7 @@
 
 
 
-ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForCustomProgramBank::TabForCustomProgramBank(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	bank{ bank },
 	programSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
@@ -30,19 +30,19 @@ ProgramBankTab::ProgramBankTab(uint8 bank, AudioProcessorValueTreeState* exposed
 	setSize(programBanksTab_w, programBanksTab_h);
 }
 
-void ProgramBankTab::paint(Graphics& g) {
+void TabForCustomProgramBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::ProgramBanksTabBackground_png, BinaryData::ProgramBanksTabBackground_pngSize, false };
-	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(buttonImage, 0, 0);
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, 0, 0);
 }
 
-void ProgramBankTab::resized() {
+void TabForCustomProgramBank::resized() {
 	programSlots.setBounds(15, 14, programSlots.getWidth(), programSlots.getHeight());
 	auto buttons_y{ 334 };
 	auto buttons_w{ 50 };
 	auto buttons_h{ 22 };
-	auto buttons_horizontalSpacing{ 60 };
+	auto buttons_horizontalSpacing{ 55 };
 	auto loadButton_x{ 183 };
 	auto saveButton_x{ loadButton_x + buttons_horizontalSpacing };
 	auto pushButton_x{ saveButton_x + buttons_horizontalSpacing };
@@ -53,16 +53,16 @@ void ProgramBankTab::resized() {
 	button_ForPullingSelectedProgramFromHardware.setBounds(pullButton_x, buttons_y, buttons_w, buttons_h);
 }
 
-ApplicationCommandTarget* ProgramBankTab::getNextCommandTarget() {
+ApplicationCommandTarget* TabForCustomProgramBank::getNextCommandTarget() {
 	return nullptr;
 }
 
-void ProgramBankTab::getAllCommands(Array<CommandID>& commands) {
+void TabForCustomProgramBank::getAllCommands(Array<CommandID>& commands) {
 	Array<CommandID> IDs{ copyProgram, pasteProgram };
 	commands.addArray(IDs);
 }
 
-void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void TabForCustomProgramBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
 	case copyProgram:
@@ -78,7 +78,7 @@ void ProgramBankTab::getCommandInfo(CommandID commandID, ApplicationCommandInfo&
 	}
 }
 
-bool ProgramBankTab::perform(const InvocationInfo& info) {
+bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
 	auto programBanks{ unexposedParams->programBanks_get() };
 	auto selectedSlot{ programSlots.selectedSlot };
 	switch (info.commandID)
@@ -101,26 +101,26 @@ bool ProgramBankTab::perform(const InvocationInfo& info) {
 	}
 }
 
-void ProgramBankTab::updateProgramNameAfterDelay(const String& programDataHexString, uint8 selectedSlot) {
+void TabForCustomProgramBank::updateProgramNameAfterDelay(const String& programDataHexString, uint8 selectedSlot) {
 	callAfterDelay(20, [this, programDataHexString, selectedSlot] { storeNewProgramName(programDataHexString, selectedSlot); });
 	callAfterDelay(40, [this, selectedSlot] { updateProgramSlotText(selectedSlot); });
 }
 
-void ProgramBankTab::storeNewProgramName(const String& programDataHexString, uint8 selectedSlot) {
+void TabForCustomProgramBank::storeNewProgramName(const String& programDataHexString, uint8 selectedSlot) {
 	auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
 	auto programNames{ unexposedParams->programNameStrings_get() };
 	auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
 	programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
 }
 
-void ProgramBankTab::updateProgramSlotText(uint8 selectedSlot) {
-	programSlots.setTextForProgramSlotToggleButton(selectedSlot); 
+void TabForCustomProgramBank::updateProgramSlotText(uint8 selectedSlot) {
+	programSlots.setTextForProgramSlotToggleButton(selectedSlot);
 	repaint();
 }
 
-void ProgramBankTab::timerCallback() {
+void TabForCustomProgramBank::timerCallback() {
 }
 
-ProgramBankTab::~ProgramBankTab() {
+TabForCustomProgramBank::~TabForCustomProgramBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

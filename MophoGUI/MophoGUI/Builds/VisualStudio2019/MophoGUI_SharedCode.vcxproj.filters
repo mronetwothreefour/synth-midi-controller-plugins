@@ -2484,9 +2484,6 @@
     <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBankTab.cpp">
-      <Filter>MophoGUI\Source\banks</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
@@ -2635,6 +2632,12 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4961,9 +4964,6 @@
     <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h">
-      <Filter>MophoGUI\Source\banks</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
@@ -5121,6 +5121,12 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
   </ItemGroup>

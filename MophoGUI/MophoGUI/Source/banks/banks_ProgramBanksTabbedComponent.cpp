@@ -68,7 +68,7 @@ void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
 	}
 }
 
-ProgramBankTab* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
+TabForFactoryProgramBank* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
 	switch (getCurrentTabIndex())
 	{
 	case 0:
@@ -83,12 +83,12 @@ ProgramBankTab* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
 }
 
 void ProgramBanksTabbedComponent::updateTextForAllProgramSlotsInAllBanks() {
-	auto programBanks{ unexposedParams->programBanks_get() };
-	for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
-		bank1.updateProgramSlotText(slot);
-		bank2.updateProgramSlotText(slot);
-		bank3.updateProgramSlotText(slot);
-	}
+	//auto programBanks{ unexposedParams->programBanks_get() };
+	//for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
+	//	bank1.updateProgramSlotText(slot);
+	//	bank2.updateProgramSlotText(slot);
+	//	bank3.updateProgramSlotText(slot);
+	//}
 }
 
 ProgramBanksTabbedComponent::~ProgramBanksTabbedComponent() {

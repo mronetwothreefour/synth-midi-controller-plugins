@@ -313,7 +313,8 @@
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBankTab.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramNameStrings.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
@@ -2285,9 +2286,10 @@
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h" />
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBankTab.h" />
+    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramNameStrings.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h" />
+    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />
     <ClInclude Include="..\..\Source\core_PluginEditor.h" />
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />

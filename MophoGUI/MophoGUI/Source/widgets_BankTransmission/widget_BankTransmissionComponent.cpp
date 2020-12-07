@@ -72,9 +72,9 @@ void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSl
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
 		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
-		auto programBankTab{ tabbedComponent.getCurrentProgramBankTab() };
-		if (programBankTab != nullptr)
-			callAfterDelay(transmitTime, [this, programBankTab, programSlot] { programBankTab->updateProgramSlotText(programSlot); });
+		//auto programBankTab{ tabbedComponent.getCurrentProgramBankTab() };
+		//if (programBankTab != nullptr)
+		//	callAfterDelay(transmitTime, [this, programBankTab, programSlot] { programBankTab->updateProgramSlotText(programSlot); });
 	}
 	else {
 		auto programDumpVector{ ProgramDump::createProgramDumpForBankAndSlot(bank, programSlot, unexposedParams) };
