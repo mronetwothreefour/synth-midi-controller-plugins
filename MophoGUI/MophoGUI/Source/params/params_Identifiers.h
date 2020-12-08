@@ -31,6 +31,9 @@ namespace ID
 	static const Identifier component_PgmNameEditLabel{ "component_PgmNameEditLabel" };
 	static const Identifier component_PgmSlotRadioButton{ "component_PgmSlotRadioButton" };
 	static const Identifier component_SeqStep{ "component_SeqStep" };
+	static const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
+	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
+	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 
 	static const Identifier global_AudioOptions{ "global_AudioOptions" };

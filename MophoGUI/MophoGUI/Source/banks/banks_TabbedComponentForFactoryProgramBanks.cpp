@@ -13,6 +13,7 @@ TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(Aud
 	bank2{ 1, exposedParams, unexposedParams, programCopyBuffer },
 	bank3{ 2, exposedParams, unexposedParams, programCopyBuffer }
 {
+	setComponentID(ID::component_TabbedComponentForFactoryBanks.toString());
 	setTabBarDepth(30);
 	setOutline(0);
 	addTab("1", Color::device, &bank1, true, 1);

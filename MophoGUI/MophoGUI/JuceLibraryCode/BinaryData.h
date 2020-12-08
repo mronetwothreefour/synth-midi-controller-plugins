@@ -78,7 +78,7 @@ namespace BinaryData
     const int            ButtonDownPush_pngSize = 600;
 
     extern const char* ButtonUpPush_png;
-    const int            ButtonUpPush_pngSize = 586;
+    const int            ButtonUpPush_pngSize = 581;
 
     extern const char* ButtonDownPull_png;
     const int            ButtonDownPull_pngSize = 546;
@@ -86,11 +86,17 @@ namespace BinaryData
     extern const char* ButtonUpPull_png;
     const int            ButtonUpPull_pngSize = 528;
 
-    extern const char* ButtonDownReset_png;
-    const int            ButtonDownReset_pngSize = 640;
+    extern const char* ButtonDownImport_png;
+    const int            ButtonDownImport_pngSize = 755;
 
-    extern const char* ButtonUpReset_png;
-    const int            ButtonUpReset_pngSize = 615;
+    extern const char* ButtonUpImport_png;
+    const int            ButtonUpImport_pngSize = 749;
+
+    extern const char* ButtonDownExport_png;
+    const int            ButtonDownExport_pngSize = 786;
+
+    extern const char* ButtonUpExport_png;
+    const int            ButtonUpExport_pngSize = 773;
 
     extern const char* ButtonDownStop_png;
     const int            ButtonDownStop_pngSize = 616;
@@ -105,7 +111,7 @@ namespace BinaryData
     const int            ButtonUpRetry_pngSize = 621;
 
     extern const char* ProgramBanksTabBackground_png;
-    const int            ProgramBanksTabBackground_pngSize = 4579;
+    const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char* GlobalParametersBackground_png;
     const int            GlobalParametersBackground_pngSize = 10458;
@@ -116,14 +122,20 @@ namespace BinaryData
     extern const char* NoNRPNWarningBackground_png;
     const int            NoNRPNWarningBackground_pngSize = 21636;
 
+    extern const char* LabelCustomBanks_png;
+    const int            LabelCustomBanks_pngSize = 852;
+
+    extern const char* LabelFactoryBanks_png;
+    const int            LabelFactoryBanks_pngSize = 831;
+
     extern const char* LabelBank1_png;
-    const int            LabelBank1_pngSize = 510;
+    const int            LabelBank1_pngSize = 171;
 
     extern const char* LabelBank2_png;
-    const int            LabelBank2_pngSize = 528;
+    const int            LabelBank2_pngSize = 270;
 
     extern const char* LabelBank3_png;
-    const int            LabelBank3_pngSize = 536;
+    const int            LabelBank3_pngSize = 295;
 
     extern const char* LabelPullAllBank1_png;
     const int            LabelPullAllBank1_pngSize = 1683;
@@ -144,7 +156,7 @@ namespace BinaryData
     const int            LabelPushAllBank3_pngSize = 1762;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 47;
+    const int namedResourceListSize = 51;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

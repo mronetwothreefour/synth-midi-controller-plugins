@@ -120,9 +120,6 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Redo.toString()) 
 		return isDown ? BinaryData::ButtonDownRedo_png : BinaryData::ButtonUpRedo_png;
 
-	if (button.getComponentID() == ID::button_Reset.toString()) 
-		return isDown ? BinaryData::ButtonDownReset_png : BinaryData::ButtonUpReset_png;
-
 	if (button.getComponentID() == ID::button_Retry.toString()) 
 		return isDown ? BinaryData::ButtonDownRetry_png : BinaryData::ButtonUpRetry_png;
 
@@ -171,9 +168,6 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRedo_pngSize : BinaryData::ButtonUpRedo_pngSize);
-
-	if (button.getComponentID() == ID::button_Reset.toString())
-		return size_t(isDown ? BinaryData::ButtonDownReset_pngSize : BinaryData::ButtonUpReset_pngSize);
 
 	if (button.getComponentID() == ID::button_Retry.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRetry_pngSize : BinaryData::ButtonUpRetry_pngSize);
@@ -297,17 +291,30 @@ void GUILookAndFeel::drawTabButton(TabBarButton& button, Graphics& g, bool /*isM
 	g.fillRect(activeArea);
 	PNGImageFormat imageFormat;
 	Image buttonImage;
-	if (button.getIndex() == 0) {
-		MemoryInputStream memInputStream{ BinaryData::LabelBank1_png, BinaryData::LabelBank1_pngSize, false };
-		buttonImage = imageFormat.decodeImage(memInputStream);
+	if (button.getParentComponent()->getParentComponent()->getComponentID() == ID::component_TabbedComponentForAllBanks.toString())
+	{
+		if (button.getIndex() == 0) {
+			MemoryInputStream memInputStream{ BinaryData::LabelFactoryBanks_png, BinaryData::LabelFactoryBanks_pngSize, false };
+			buttonImage = imageFormat.decodeImage(memInputStream);
+		}
+		if (button.getIndex() == 1) {
+			MemoryInputStream memInputStream{ BinaryData::LabelCustomBanks_png, BinaryData::LabelCustomBanks_pngSize, false };
+			buttonImage = imageFormat.decodeImage(memInputStream);
+		}
 	}
-	if (button.getIndex() == 1) {
-		MemoryInputStream memInputStream{ BinaryData::LabelBank2_png, BinaryData::LabelBank2_pngSize, false };
-		buttonImage = imageFormat.decodeImage(memInputStream);
-	}
-	if (button.getIndex() == 2) {
-		MemoryInputStream memInputStream{ BinaryData::LabelBank3_png, BinaryData::LabelBank3_pngSize, false };
-		buttonImage = imageFormat.decodeImage(memInputStream);
+	else {
+		if (button.getIndex() == 0) {
+			MemoryInputStream memInputStream{ BinaryData::LabelBank1_png, BinaryData::LabelBank1_pngSize, false };
+			buttonImage = imageFormat.decodeImage(memInputStream);
+		}
+		if (button.getIndex() == 1) {
+			MemoryInputStream memInputStream{ BinaryData::LabelBank2_png, BinaryData::LabelBank2_pngSize, false };
+			buttonImage = imageFormat.decodeImage(memInputStream);
+		}
+		if (button.getIndex() == 2) {
+			MemoryInputStream memInputStream{ BinaryData::LabelBank3_png, BinaryData::LabelBank3_pngSize, false };
+			buttonImage = imageFormat.decodeImage(memInputStream);
+		}
 	}
 	auto image_x{ (activeArea.getWidth() - buttonImage.getWidth()) / 2 };
 	auto image_y{ (activeArea.getHeight() - buttonImage.getHeight()) / 2 };
