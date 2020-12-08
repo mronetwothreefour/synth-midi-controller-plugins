@@ -103,7 +103,7 @@ bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
 
 void TabForCustomProgramBank::updateProgramNameAfterDelay(const String& programDataHexString, uint8 selectedSlot) {
 	callAfterDelay(20, [this, programDataHexString, selectedSlot] { storeNewProgramName(programDataHexString, selectedSlot); });
-	callAfterDelay(40, [this, selectedSlot] { updateProgramSlotText(selectedSlot); });
+	callAfterDelay(40, [this, selectedSlot] { updateCustomProgramSlotText(selectedSlot); });
 }
 
 void TabForCustomProgramBank::storeNewProgramName(const String& programDataHexString, uint8 selectedSlot) {
@@ -113,7 +113,7 @@ void TabForCustomProgramBank::storeNewProgramName(const String& programDataHexSt
 	programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
 }
 
-void TabForCustomProgramBank::updateProgramSlotText(uint8 selectedSlot) {
+void TabForCustomProgramBank::updateCustomProgramSlotText(uint8 selectedSlot) {
 	programSlots.setTextForProgramSlotToggleButton(selectedSlot);
 	repaint();
 }

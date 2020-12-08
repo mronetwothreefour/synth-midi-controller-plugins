@@ -1,4 +1,4 @@
-#include "banks_ProgramBanksTabbedComponent.h"
+#include "banks_TabbedComponentForFactoryProgramBanks.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
@@ -7,8 +7,8 @@
 
 
 
-ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	TabbedComponent(TabbedButtonBar::TabsAtTop),
+TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	unexposedParams{ unexposedParams },
 	bank1{ 0, exposedParams, unexposedParams, programCopyBuffer },
 	bank2{ 1, exposedParams, unexposedParams, programCopyBuffer },
@@ -16,13 +16,13 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTree
 {
 	setTabBarDepth(30);
 	setOutline(0);
-	addTab("BANK    1", Color::device, &bank1, true, 1);
-	addTab("BANK    2", Color::device, &bank2, true, 2);
-	addTab("BANK    3", Color::device, &bank3, true, 3);
+	addTab("1", Color::device, &bank1, true, 1);
+	addTab("2", Color::device, &bank2, true, 2);
+	addTab("3", Color::device, &bank3, true, 3);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
 	auto tab_w{ bank1.getWidth() };
 	auto tab_h{ bank1.getHeight() };
-	setSize(tab_w, tab_h + getTabBarDepth());
+	setSize(tab_w + getTabBarDepth(), tab_h);
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String label_txTimeTooltip{ "" };
@@ -39,13 +39,13 @@ ProgramBanksTabbedComponent::ProgramBanksTabbedComponent(AudioProcessorValueTree
 	labelTextChanged(&label_txTime);
 	addAndMakeVisible(label_txTime);
 
-	auto control_y{ 364 };
+	auto control_y{ 334 };
 	auto control_w{ 50 };
 	auto control_h{ 21 };
-	label_txTime.setBounds(827, control_y, control_w, control_h);
+	label_txTime.setBounds(1030, control_y, control_w, control_h);
 }
 
-void ProgramBanksTabbedComponent::editorShown(Label* label, TextEditor& editor) {
+void TabbedComponentForFactoryProgramBanks::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto midiOptions{ unexposedParams->midiOptions_get() };
@@ -55,7 +55,7 @@ void ProgramBanksTabbedComponent::editorShown(Label* label, TextEditor& editor) 
 	}
 }
 
-void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
+void TabbedComponentForFactoryProgramBanks::labelTextChanged(Label* label) {
 	if (label == &label_txTime) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		if (label->getText().isNotEmpty())
@@ -68,7 +68,7 @@ void ProgramBanksTabbedComponent::labelTextChanged(Label* label) {
 	}
 }
 
-TabForFactoryProgramBank* ProgramBanksTabbedComponent::getCurrentProgramBankTab() {
+TabForFactoryProgramBank* TabbedComponentForFactoryProgramBanks::getCurrentProgramBankTab() {
 	switch (getCurrentTabIndex())
 	{
 	case 0:
@@ -82,14 +82,6 @@ TabForFactoryProgramBank* ProgramBanksTabbedComponent::getCurrentProgramBankTab(
 	}
 }
 
-void ProgramBanksTabbedComponent::updateTextForAllProgramSlotsInAllBanks() {
-	//auto programBanks{ unexposedParams->programBanks_get() };
-	//for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
-	//	bank1.updateProgramSlotText(slot);
-	//	bank2.updateProgramSlotText(slot);
-	//	bank3.updateProgramSlotText(slot);
-	//}
+void TabbedComponentForFactoryProgramBanks::updateTextForAllProgramSlotsInAllBanks() {
 }
 
-ProgramBanksTabbedComponent::~ProgramBanksTabbedComponent() {
-}

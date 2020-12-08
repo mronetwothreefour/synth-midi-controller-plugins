@@ -50,7 +50,7 @@ private:
     void storeNewProgramName(const String& programDataHexString, uint8 selectedSlot);
 
 public:
-    void updateProgramSlotText(uint8 selectedSlot);
+    void updateCustomProgramSlotText(uint8 selectedSlot);
 
 private:
     void timerCallback() override;

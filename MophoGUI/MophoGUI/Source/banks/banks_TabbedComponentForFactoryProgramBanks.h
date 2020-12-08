@@ -8,7 +8,7 @@
 
 class UnexposedParameters;
 
-class ProgramBanksTabbedComponent :
+class TabbedComponentForFactoryProgramBanks :
     public TabbedComponent,
     public Label::Listener
 {
@@ -20,16 +20,15 @@ class ProgramBanksTabbedComponent :
     Label label_txTime;
 
 public:
-    ProgramBanksTabbedComponent() = delete;
+    TabbedComponentForFactoryProgramBanks() = delete;
 
-    ProgramBanksTabbedComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
     TabForFactoryProgramBank* getCurrentProgramBankTab();
     void updateTextForAllProgramSlotsInAllBanks();
-    ~ProgramBanksTabbedComponent() override;
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksTabbedComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabbedComponentForFactoryProgramBanks)
 };

@@ -1,6 +1,6 @@
 #include "widget_BankTransmissionComponent.h"
 
-#include "../banks/banks_ProgramBanksTabbedComponent.h"
+#include "../banks/banks_TabbedComponentForFactoryProgramBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_ProgramDump.h"
@@ -9,7 +9,7 @@
 
 
 
-BankTransmissionComponent::BankTransmissionComponent(ProgramBanksTabbedComponent& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+BankTransmissionComponent::BankTransmissionComponent(TabbedComponentForFactoryProgramBanks& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	tabbedComponent{ tabbedComponent },
 	bank{ (uint8)tabbedComponent.getCurrentTabIndex() },
 	transmissionType{ transmissionType },

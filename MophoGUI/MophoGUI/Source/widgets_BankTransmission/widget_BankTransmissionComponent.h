@@ -4,7 +4,7 @@
 
 
 
-class ProgramBanksTabbedComponent;
+class TabbedComponentForFactoryProgramBanks;
 class UnexposedParameters;
 
 class BankTransmissionComponent :
@@ -15,7 +15,7 @@ public:
 	enum class TransmissionType { push = 0, pull };
 
 private:
-	ProgramBanksTabbedComponent& tabbedComponent;
+	TabbedComponentForFactoryProgramBanks& tabbedComponent;
 	uint8 bank;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
@@ -31,7 +31,7 @@ private:
 public:
 	BankTransmissionComponent() = delete;
 
-	BankTransmissionComponent(ProgramBanksTabbedComponent& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	BankTransmissionComponent(TabbedComponentForFactoryProgramBanks& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;

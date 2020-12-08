@@ -2514,9 +2514,6 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.cpp">
-      <Filter>MophoGUI\Source\banks</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
@@ -2638,6 +2635,12 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4964,9 +4967,6 @@
     <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksTabbedComponent.h">
-      <Filter>MophoGUI\Source\banks</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>MophoGUI\Source\widgets_Button</Filter>
     </ClInclude>
@@ -5127,6 +5127,12 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
   </ItemGroup>

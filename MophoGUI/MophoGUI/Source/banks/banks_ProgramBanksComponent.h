@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "banks_ProgramBanksTabbedComponent.h"
+#include "banks_TabbedComponentForFactoryProgramBanks.h"
 #include "../widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
 
@@ -13,7 +13,7 @@ class UnexposedParameters;
 
 class ProgramBanksComponent : public Component
 {
-    ProgramBanksTabbedComponent tabbedComponent;
+    TabbedComponentForFactoryProgramBanks tabbedComponent;
     UnexposedParameters* unexposedParams;
     TextButton button_ForClosingProgramBanks;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
