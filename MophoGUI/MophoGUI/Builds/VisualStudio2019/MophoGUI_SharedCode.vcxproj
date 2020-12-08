@@ -312,6 +312,7 @@
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp" />
@@ -2286,6 +2287,7 @@
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h" />

@@ -9,22 +9,17 @@
 class UnexposedParameters;
 
 class TabbedComponentForFactoryProgramBanks :
-    public TabbedComponent,
-    public Label::Listener
+    public TabbedComponent
 {
     TabForFactoryProgramBank bank1;
     TabForFactoryProgramBank bank2;
     TabForFactoryProgramBank bank3;
     UnexposedParameters* unexposedParams;
-    String programCopyBuffer;
-    Label label_txTime;
 
 public:
     TabbedComponentForFactoryProgramBanks() = delete;
 
-    TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-    void editorShown(Label* label, TextEditor& editor) override;
-    void labelTextChanged(Label* label) override;
+    TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
     TabForFactoryProgramBank* getCurrentProgramBankTab();
     void updateTextForAllProgramSlotsInAllBanks();
 

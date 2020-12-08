@@ -2643,6 +2643,9 @@
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5133,6 +5136,9 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
   </ItemGroup>

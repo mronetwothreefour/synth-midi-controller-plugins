@@ -1,13 +1,12 @@
 #include "banks_TabbedComponentForCustomProgramBanks.h"
 
 #include "../gui/gui_Colors.h"
-#include "../gui/gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-TabbedComponentForCustomProgramBanks::TabbedComponentForCustomProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+TabbedComponentForCustomProgramBanks::TabbedComponentForCustomProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	unexposedParams{ unexposedParams },
 	bank1{ 0, exposedParams, unexposedParams, programCopyBuffer },

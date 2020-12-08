@@ -9,20 +9,17 @@
 class UnexposedParameters;
 
 class TabbedComponentForCustomProgramBanks :
-    public TabbedComponent,
-    public Label::Listener
+    public TabbedComponent
 {
     TabForCustomProgramBank bank1;
     TabForCustomProgramBank bank2;
     TabForCustomProgramBank bank3;
     UnexposedParameters* unexposedParams;
-    String programCopyBuffer;
-    Label label_txTime;
 
 public:
     TabbedComponentForCustomProgramBanks() = delete;
 
-    TabbedComponentForCustomProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    TabbedComponentForCustomProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
     TabForCustomProgramBank* getCurrentProgramBankTab();
     void updateTextForAllProgramSlotsInAllBanks();
 

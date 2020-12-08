@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "banks_TabbedComponentForFactoryProgramBanks.h"
+#include "banks_TabbedComponentForAllProgramBanks.h"
 #include "../widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
 
@@ -11,15 +11,18 @@
 class BankTransmissionComponent;
 class UnexposedParameters;
 
-class ProgramBanksComponent : public Component
+class ProgramBanksComponent : 
+    public Component,
+    public Label::Listener
 {
-    TabbedComponentForFactoryProgramBanks tabbedComponent;
+    TabbedComponentForAllProgramBanks tabbedComponent;
     UnexposedParameters* unexposedParams;
     TextButton button_ForClosingProgramBanks;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
     std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
+    Label label_txTime;
 
 public:
     ProgramBanksComponent() = delete;
@@ -33,6 +36,8 @@ private:
 
 public:
     void paint(Graphics& g) override;
+    void editorShown(Label* label, TextEditor& editor) override;
+    void labelTextChanged(Label* label) override;
     ~ProgramBanksComponent();
 
 private:
