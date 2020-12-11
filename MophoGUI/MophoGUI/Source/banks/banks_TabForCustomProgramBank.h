@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "banks_ProgramBanks.h"
 #include "banks_ProgramSlotsWidget.h"
 #include "../widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"
 #include "../widgets_Button/widget_banks_ButtonForPullingSelectedProgramFromHardware.h"
@@ -17,7 +18,7 @@ class TabForCustomProgramBank :
     private Timer,
     public ApplicationCommandTarget
 {
-    uint8 bank;
+    ProgramBank bank;
     ProgramSlotsWidget programSlots;
     UnexposedParameters* unexposedParams;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
@@ -35,7 +36,7 @@ public:
 
     TabForCustomProgramBank() = delete;
 
-    TabForCustomProgramBank(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForCustomProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
 
 public:
     void paint(Graphics& g) override;

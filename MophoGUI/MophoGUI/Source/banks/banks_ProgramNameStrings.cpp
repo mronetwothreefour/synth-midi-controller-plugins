@@ -52,49 +52,49 @@ const String ProgramNameStrings::extractProgramNameFromDataVector(const std::vec
 	return programName;
 }
 
-const String ProgramNameStrings::nameOfProgramInFactoryBankSlot(uint8 bank, uint8 slot) {
+const String ProgramNameStrings::nameOfProgramInBankSlot(ProgramBank bank, uint8 slot) {
+	jassert(slot < 128);
 	String programName;
 	switch (bank) {
-	case 0:
+	case ProgramBank::factory1:
 		programName = factoryBank1ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
-	case 1:
+	case ProgramBank::factory2:
 		programName = factoryBank2ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
-	case 2:
+	case ProgramBank::factory3:
 		programName = factoryBank3ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
-	};
-	return programName;
-}
-
-const String ProgramNameStrings::nameOfProgramInCustomBankSlot(uint8 bank, uint8 slot) {
-	String programName;
-	switch (bank) {
-	case 0:
+	case ProgramBank::custom1:
 		programName = customBank1ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
-	case 1:
+	case ProgramBank::custom2:
 		programName = customBank2ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
-	case 2:
+	case ProgramBank::custom3:
 		programName = customBank3ProgramNames.getProperty("pgm" + (String)slot + "Name");
 		break;
+	default:
+		programName = "error";
 	};
 	return programName;
 }
 
-void ProgramNameStrings::storeNameOfProgramInCustomBankSlot(const String programName, uint8 bank, uint8 slot) {
+void ProgramNameStrings::storeNameOfProgramInCustomBankSlot(const String programName, ProgramBank bank, uint8 slot) {
+	jassert(bank == ProgramBank::custom1 || bank == ProgramBank::custom2 || bank == ProgramBank::custom3);
+	jassert(slot < 128);
 	switch (bank) {
-	case 0:
+	case ProgramBank::custom1:
 		customBank1ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
 		break;
-	case 1:
+	case ProgramBank::custom2:
 		customBank2ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
 		break;
-	case 2:
+	case ProgramBank::custom3:
 		customBank3ProgramNames.setProperty("pgm" + (String)slot + "Name", programName, nullptr);
 		break;
+	default:
+		return;
 	};
 }
 

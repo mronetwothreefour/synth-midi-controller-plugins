@@ -7,7 +7,7 @@
 
 
 
-TabForFactoryProgramBank::TabForFactoryProgramBank(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForFactoryProgramBank::TabForFactoryProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	bank{ bank },
 	programSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
@@ -73,7 +73,7 @@ bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
 	{
 	case copyProgram:
 		if (selectedSlot < 128) {
-			programCopyBuffer = programBanks->getProgramDataHexStringFromFactoryBankSlot(bank, selectedSlot);
+			programCopyBuffer = programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;

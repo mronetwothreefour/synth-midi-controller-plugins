@@ -9,12 +9,10 @@
 
 
 
-BankTransmissionComponent::BankTransmissionComponent(TabbedComponentForFactoryProgramBanks& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
-	tabbedComponent{ tabbedComponent },
-	bank{ (uint8)tabbedComponent.getCurrentTabIndex() },
+BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	title{ transmissionType == TransmissionType::push ? "Push All Programs To Bank " + (String)(bank + 1) : "Pull All Programs From Bank " + (String)(bank + 1) },
 	message{ "" },
 	transmitTime{ unexposedParams->midiOptions_get()->programTransmitTime() },
 	programCounter{ 128 },
@@ -23,6 +21,39 @@ BankTransmissionComponent::BankTransmissionComponent(TabbedComponentForFactoryPr
 	button_Stop{ "" },
 	button_Close{ "" }
 {
+	switch (bank)
+	{
+	case ProgramBank::factory1:
+		bankName = "Factory Bank 1";
+		bankNumber = 1;
+		break;
+	case ProgramBank::factory2:
+		bankName = "Factory Bank 2";
+		bankNumber = 2;
+		break;
+	case ProgramBank::factory3:
+		bankName = "Factory Bank 3";
+		bankNumber = 3;
+		break;
+	case ProgramBank::custom1:
+		bankName = "Custom Bank 1";
+		bankNumber = 1;
+		break;
+	case ProgramBank::custom2:
+		bankName = "Custom Bank 2";
+		bankNumber = 2;
+		break;
+	case ProgramBank::custom3:
+		bankName = "Custom Bank 3";
+		bankNumber = 3;
+		break;
+	default:
+		bankName = "error";
+		bankNumber = 0;
+		break;
+	}
+	title = transmissionType == TransmissionType::push ? "Push All Programs To Hardware Bank " + (String)bankNumber : "Pull All Programs From Hardware Bank " + (String)bankNumber;
+	
 	addAndMakeVisible(progressBar);
 	auto progressBar_x{ 508 };
 	auto progressBar_y{ 316 };
@@ -56,7 +87,7 @@ void BankTransmissionComponent::timerCallback() {
 		++programCounter;
 		progress = programCounter / 128.0;
 		message = transmissionType == TransmissionType::push ? "Pushing " : "Pulling ";
-		message += "Bank " + (String)(bank + 1) + " Program " + (String)programCounter;
+		message += bankName + " Program " + (String)programCounter;
 		message += transmissionType == TransmissionType::push ? " To Hardware" : " From Hardware";
 		repaint();
 		startTimer(transmitTime);
@@ -107,24 +138,24 @@ void BankTransmissionComponent::paint(Graphics& g) {
 }
 
 const char* BankTransmissionComponent::getTitleLabelImageData() {
-	if (bank == 0)
-		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_png : BinaryData::LabelPushAllBank1_png;
-	if (bank == 1)
-		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_png : BinaryData::LabelPushAllBank2_png;
-	if (bank == 2)
-		return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_png : BinaryData::LabelPushAllBank3_png;
-	else
+	//if (bank == 0)
+	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_png : BinaryData::LabelPushAllBank1_png;
+	//if (bank == 1)
+	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_png : BinaryData::LabelPushAllBank2_png;
+	//if (bank == 2)
+	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_png : BinaryData::LabelPushAllBank3_png;
+	//else
 		return nullptr;
 }
 
 size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
-	if (bank == 0)
-		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_pngSize : BinaryData::LabelPushAllBank1_pngSize);
-	if (bank == 1)
-		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_pngSize : BinaryData::LabelPushAllBank2_pngSize);
-	if (bank == 2)
-		return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_pngSize : BinaryData::LabelPushAllBank3_pngSize);
-	else
+	//if (bank == 0)
+	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_pngSize : BinaryData::LabelPushAllBank1_pngSize);
+	//if (bank == 1)
+	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_pngSize : BinaryData::LabelPushAllBank2_pngSize);
+	//if (bank == 2)
+	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_pngSize : BinaryData::LabelPushAllBank3_pngSize);
+	//else
 		return (size_t)0;
 }
 

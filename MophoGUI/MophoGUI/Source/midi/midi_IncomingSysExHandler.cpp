@@ -2,6 +2,7 @@
 
 #include "midi_SysExHelpers.h"
 #include "../banks/banks_ConvertRawProgramDataFormat.h"
+#include "../banks/banks_ProgramBanks.h"
 #include "../params/params_RawProgramData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -63,7 +64,22 @@ void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysE
 
 void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::programDump) {
-        auto bank{ sysExData[programDumpBankByte] };
+        auto bankNum{ sysExData[programDumpBankByte] };
+        ProgramBank bank;
+        switch (bankNum)
+        {
+        case 0:
+            bank = ProgramBank::custom1;
+            break;
+        case 1:
+            bank = ProgramBank::custom2;
+            break;
+        case 2:
+            bank = ProgramBank::custom3;
+            break;
+        default:
+            break;
+        }
         auto slot{ sysExData[programDumpSlotByte] };
         std::vector<uint8> programDataVector;
         for (auto dataByte = firstProgramDataByte; dataByte != firstUnusedProgramDataByte; ++dataByte)

@@ -9,7 +9,7 @@
 
 
 
-ProgramSlotsWidget::ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
@@ -42,18 +42,19 @@ void ProgramSlotsWidget::setTooltipForProgramSlotToggleButton(uint8 slot) {
 	if (tooltips->shouldShowDescription()) {
 		slotTooltip += "Click a program's name to select it before using the buttons below.\n";
 		slotTooltip += "CTRL-c copies the selected program's settings into the clipboard.\n";
-		slotTooltip += "CTRL-v overwrites the selected program with the settings in the clipboard.";
+		slotTooltip += "CTRL-v overwrites the selected program with the settings in the\n";
+		slotTooltip += "clipboard (only slots in the Custom banks can be overwritten).";
 	}
 	programSlotButtons[slot].setTooltip(slotTooltip);
 }
 
 void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 	String slotNumber;
-	if (slot < 10) slotNumber = "00" + (String)(slot + 1);
-	if (slot > 9 && slot < 100) slotNumber = "0" + (String)(slot + 1);
-	if (slot > 99) slotNumber = (String)(slot + 1);
+	if (slot < 9) slotNumber = "00" + (String)(slot + 1);
+	if (slot > 8 && slot < 99) slotNumber = "0" + (String)(slot + 1);
+	if (slot > 98) slotNumber = (String)(slot + 1);
 	auto programNames{ unexposedParams->programNameStrings_get() };
-	programSlotButtons[slot].setName(slotNumber + " " + programNames->nameOfProgramInFactoryBankSlot(bank, slot));
+	programSlotButtons[slot].setName(slotNumber + " " + programNames->nameOfProgramInBankSlot(bank, slot));
 }
 
 void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
@@ -73,7 +74,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto programBanks{ unexposedParams->programBanks_get() };
-		auto programDataHexString{ programBanks->getProgramDataHexStringFromFactoryBankSlot(bank, selectedSlot) };
+		auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
 		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get()); });

@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "banks_ProgramBanks.h"
+
 
 
 class ProgramNameStrings
@@ -18,9 +20,8 @@ public:
 	ProgramNameStrings();
 	void initializeAllProgramNameStringsInAllBanks();
 	const String extractProgramNameFromDataVector(const std::vector<uint8>& dataVector);
-	const String nameOfProgramInFactoryBankSlot(uint8 bank, uint8 slot);
-	const String nameOfProgramInCustomBankSlot(uint8 bank, uint8 slot);
-	void storeNameOfProgramInCustomBankSlot(const String programName, uint8 bank, uint8 slot);
+	const String nameOfProgramInBankSlot(ProgramBank bank, uint8 slot);
+	void storeNameOfProgramInCustomBankSlot(const String programName, ProgramBank bank, uint8 slot);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 

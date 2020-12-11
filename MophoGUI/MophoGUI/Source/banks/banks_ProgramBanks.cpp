@@ -35,48 +35,39 @@ int ProgramBanks::programSlotOutOfRange() {
 	return factoryBank1.getNumProperties();
 }
 
-const String ProgramBanks::getProgramDataHexStringFromFactoryBankSlot(uint8 bank, uint8 slot) const {
-	jassert(bank < 3);
+const String ProgramBanks::getProgramDataHexStringFromBankSlot(ProgramBank bank, uint8 slot) const {
 	jassert(slot < 128);
 	switch (bank)
 	{
-	case 0:
+	case ProgramBank::factory1:
 		return factoryBank1.getProperty("pgm" + (String)slot);
-	case 1:
+	case ProgramBank::factory2:
 		return factoryBank2.getProperty("pgm" + (String)slot);
-	case 2:
+	case ProgramBank::factory3:
 		return factoryBank3.getProperty("pgm" + (String)slot);
-	default:
-		return {};
-	}
-}
-
-const String ProgramBanks::getProgramDataHexStringFromCustomBankSlot(uint8 bank, uint8 slot) const {
-	jassert(bank < 3);
-	jassert(slot < 128);
-	switch (bank)
-	{
-	case 0:
+	case ProgramBank::custom1:
 		return customBank1.getProperty("pgm" + (String)slot);
-	case 1:
+	case ProgramBank::custom2:
 		return customBank2.getProperty("pgm" + (String)slot);
-	case 2:
+	case ProgramBank::custom3:
 		return customBank3.getProperty("pgm" + (String)slot);
 	default:
 		return {};
 	}
 }
 
-void ProgramBanks::storeProgramDataHexStringInCustomBankSlot(String hexString, uint8 bank, uint8 slot) {
+void ProgramBanks::storeProgramDataHexStringInCustomBankSlot(String hexString, ProgramBank bank, uint8 slot) {
+	jassert(bank == ProgramBank::custom1 || bank == ProgramBank::custom2 || bank == ProgramBank::custom3);
+	jassert(slot < 128);
 	switch (bank)
 	{
-	case 0:
+	case ProgramBank::custom1:
 		customBank1.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
-	case 1:
+	case ProgramBank::custom2:
 		customBank2.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
-	case 2:
+	case ProgramBank::custom3:
 		customBank3.setProperty("pgm" + (String)slot, hexString, nullptr);
 		break;
 	default:

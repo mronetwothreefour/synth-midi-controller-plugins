@@ -1,5 +1,6 @@
 #include "banks_TabbedComponentForFactoryProgramBanks.h"
 
+#include "banks_ProgramBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -9,9 +10,9 @@
 TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	unexposedParams{ unexposedParams },
-	bank1{ 0, exposedParams, unexposedParams, programCopyBuffer },
-	bank2{ 1, exposedParams, unexposedParams, programCopyBuffer },
-	bank3{ 2, exposedParams, unexposedParams, programCopyBuffer }
+	bank1{ ProgramBank::factory1, exposedParams, unexposedParams, programCopyBuffer },
+	bank2{ ProgramBank::factory2, exposedParams, unexposedParams, programCopyBuffer },
+	bank3{ ProgramBank::factory3, exposedParams, unexposedParams, programCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForFactoryBanks.toString());
 	setTabBarDepth(30);

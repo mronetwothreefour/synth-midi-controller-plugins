@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../banks/banks_ProgramBanks.h"
+
 
 
 class TabbedComponentForFactoryProgramBanks;
@@ -15,8 +17,9 @@ public:
 	enum class TransmissionType { push = 0, pull };
 
 private:
-	TabbedComponentForFactoryProgramBanks& tabbedComponent;
-	uint8 bank;
+	ProgramBank bank;
+	String bankName;
+	int bankNumber;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
 	String title;
@@ -31,7 +34,7 @@ private:
 public:
 	BankTransmissionComponent() = delete;
 
-	BankTransmissionComponent(TabbedComponentForFactoryProgramBanks& tabbedComponent, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	BankTransmissionComponent(ProgramBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;

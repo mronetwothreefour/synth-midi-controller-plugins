@@ -2,7 +2,14 @@
 
 #include <JuceHeader.h>
 
-
+enum class ProgramBank {
+	factory1 = 0,
+	factory2,
+	factory3,
+	custom1,
+	custom2,
+	custom3
+};
 
 class ProgramBanks
 {
@@ -18,9 +25,8 @@ public:
 	ProgramBanks();
 	void fillAllProgramDataBanks();
 	int programSlotOutOfRange();
-	const String getProgramDataHexStringFromFactoryBankSlot(uint8 bank, uint8 slot) const;
-	const String getProgramDataHexStringFromCustomBankSlot(uint8 bank, uint8 slot) const;
-	void storeProgramDataHexStringInCustomBankSlot(String hexString, uint8 bank, uint8 slot);
+	const String getProgramDataHexStringFromBankSlot(ProgramBank bank, uint8 slot) const;
+	void storeProgramDataHexStringInCustomBankSlot(String hexString, ProgramBank bank, uint8 slot);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 	~ProgramBanks();

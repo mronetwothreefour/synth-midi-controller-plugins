@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "banks_ProgramBanks.h"
+
 
 
 class UnexposedParameters;
@@ -11,7 +13,7 @@ class ProgramSlotsWidget :
     private Timer
 {
     ToggleButton programSlotButtons[128];
-    const uint8 bank;
+    const ProgramBank bank;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     const int buttton_w;
@@ -21,7 +23,9 @@ class ProgramSlotsWidget :
 public:
     uint8 selectedSlot;
 
-    ProgramSlotsWidget(uint8 bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    ProgramSlotsWidget() = delete;
+
+    ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void setUpProgramSlotToggleButton(uint8 slot);
     void setTooltipForProgramSlotToggleButton(uint8 slot);
     void setTextForProgramSlotToggleButton(uint8 slot);
