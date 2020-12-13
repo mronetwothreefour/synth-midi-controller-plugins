@@ -31,13 +31,14 @@ void ButtonForOpeningPgmNameEditor::onClickMethod() {
 	pgmNameEditor.getCurrentTextEditor()->setInputRestrictions(16, basicASCIIcharacters);
 	String nameEditorTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		nameEditorTooltip += "Type in a new name for the program (max. 16 characters) and hit Enter to apply it.\n";
-		nameEditorTooltip += "Hit Esc to cancel. The Mopho's hardware LCD characters use the basic ASCII\n";
-		nameEditorTooltip += "character set, with a few exceptions: 'backslash' becomes a yen sign and 'tilde'\n";
-		nameEditorTooltip += "becomes a right arrow. The 'delete' character becomes a left arrow; obviously,\n";
-		nameEditorTooltip += "you can't type that in the editor. However, you can access it by changing a\n";
-		nameEditorTooltip += "character in the GUI's name display with the mouse. The hardware name display\n";
-		nameEditorTooltip += "will not update immediately - press the Program Mode button to see the new name.";
+		nameEditorTooltip += "Type in a new name for the program (max. 16 characters) and hit Enter\n";
+		nameEditorTooltip += "to apply it. Hit Esc to cancel. The Mopho's hardware LCD characters use\n";
+		nameEditorTooltip += "the basic ASCII character set, with a few exceptions: 'backslash' becomes\n";
+		nameEditorTooltip += "a yen sign and 'tilde' becomes a right arrow. The 'delete' character\n";
+		nameEditorTooltip += "becomes a left arrow; obviously, you can't type that in the editor. However,\n";
+		nameEditorTooltip += "you can access it by changing a character in the GUI's name display with\n";
+		nameEditorTooltip += "the mouse. The hardware name display will not update immediately - press\n";
+		nameEditorTooltip += "the Program Mode button to see the new name.";
 	}
 	pgmNameEditor.getCurrentTextEditor()->setTooltip(nameEditorTooltip);
 }

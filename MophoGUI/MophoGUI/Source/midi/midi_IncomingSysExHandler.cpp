@@ -78,6 +78,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
             bank = ProgramBank::custom3;
             break;
         default:
+            bank = ProgramBank::custom1;
             break;
         }
         auto slot{ sysExData[programDumpSlotByte] };
@@ -87,9 +88,6 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
         auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->programBanks_get() };
         programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
-        auto programNames{ unexposedParams->programNameStrings_get() };
-        auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-        programNames->storeNameOfProgramInCustomBankSlot(programName, bank, slot);
     }
     else
         handleIncomingGlobalParametersDump(sysExData);

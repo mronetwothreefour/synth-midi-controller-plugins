@@ -6,6 +6,16 @@
 
 namespace ID
 {
+	static const Identifier bank_custom1_ProgramDataHexStrings{ "bank_custom1_ProgramDataHexStrings" };
+	static const Identifier bank_custom2_ProgramDataHexStrings{ "bank_custom2_ProgramDataHexStrings" };
+	static const Identifier bank_custom3_ProgramDataHexStrings{ "bank_custom3_ProgramDataHexStrings" };
+	static const Identifier bank_factory1_ProgramNameStrings{ "bank_factory1_ProgramNameStrings" };
+	static const Identifier bank_factory2_ProgramNameStrings{ "bank_factory2_ProgramNameStrings" };
+	static const Identifier bank_factory3_ProgramNameStrings{ "bank_factory3_ProgramNameStrings" };
+	static const Identifier bank_custom1_ProgramNameStrings{ "bank_custom1_ProgramNameStrings" };
+	static const Identifier bank_custom2_ProgramNameStrings{ "bank_custom2_ProgramNameStrings" };
+	static const Identifier bank_custom3_ProgramNameStrings{ "bank_custom3_ProgramNameStrings" };
+
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_Clear{ "button_Clear" };
 	static const Identifier button_Close{ "button_Close" };

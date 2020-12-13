@@ -26,26 +26,3 @@ TabbedComponentForCustomProgramBanks::TabbedComponentForCustomProgramBanks(Audio
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
-TabForCustomProgramBank* TabbedComponentForCustomProgramBanks::getCurrentProgramBankTab() {
-	switch (getCurrentTabIndex())
-	{
-	case 0:
-		return &bank1;
-	case 1:
-		return &bank2;
-	case 2:
-		return &bank3;
-	default:
-		return nullptr;
-	}
-}
-
-void TabbedComponentForCustomProgramBanks::updateTextForAllProgramSlotsInAllBanks() {
-	auto programBanks{ unexposedParams->programBanks_get() };
-	for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
-		bank1.updateCustomProgramSlotText(slot);
-		bank2.updateCustomProgramSlotText(slot);
-		bank3.updateCustomProgramSlotText(slot);
-	}
-}
-

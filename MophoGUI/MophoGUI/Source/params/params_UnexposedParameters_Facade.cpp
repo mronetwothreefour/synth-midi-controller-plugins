@@ -9,7 +9,6 @@ UnexposedParameters::UnexposedParameters() :
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	pluginProgramBanks{ new ProgramBanks() },
-	programNameStrings{ new ProgramNameStrings() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -35,10 +34,6 @@ ProgramBanks* UnexposedParameters::programBanks_get() {
 	return pluginProgramBanks.get();
 }
 
-ProgramNameStrings* UnexposedParameters::programNameStrings_get() {
-	return programNameStrings.get();
-}
-
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
 	return tooltipOptions.get();
 }
@@ -52,9 +47,6 @@ XmlElement UnexposedParameters::unexposedParams_getStateXml() {
 	auto pluginProgramBanksStateXml{ pluginProgramBanks->getStateXml() };
 	if (pluginProgramBanksStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(pluginProgramBanksStateXml);
-	auto programNameStringsStateXml{ programNameStrings->getStateXml() };
-	if (programNameStringsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(programNameStringsStateXml);
 	auto tooltipOptionsStateXml{ tooltipOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
@@ -65,7 +57,6 @@ void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState
 	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_ProgramBanks) };
 	pluginProgramBanks->replaceState(pluginProgramBanksState);
 	auto programNameStringsState{ newState.getChildWithName(ID::state_ProgramNameStrings) };
-	programNameStrings->replaceState(programNameStringsState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
 }

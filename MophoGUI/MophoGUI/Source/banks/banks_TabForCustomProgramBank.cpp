@@ -85,37 +85,20 @@ bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
 	{
 	case copyProgram:
 		if (selectedSlot < 128) {
-			programCopyBuffer = programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot);
+			auto ProgramDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
+			programCopyBuffer = ProgramDataHexString;
 			return true;
 		}
 		else return false;
 	case pasteProgram:
 		if (selectedSlot < 128 && programCopyBuffer != "") {
 			programBanks->storeProgramDataHexStringInCustomBankSlot(programCopyBuffer, bank, selectedSlot);
-			updateProgramNameAfterDelay(programCopyBuffer, selectedSlot);
 			return true;
 		}
 		else return false;
 	default:
 		return false;
 	}
-}
-
-void TabForCustomProgramBank::updateProgramNameAfterDelay(const String& programDataHexString, uint8 selectedSlot) {
-	callAfterDelay(20, [this, programDataHexString, selectedSlot] { storeNewProgramName(programDataHexString, selectedSlot); });
-	callAfterDelay(40, [this, selectedSlot] { updateCustomProgramSlotText(selectedSlot); });
-}
-
-void TabForCustomProgramBank::storeNewProgramName(const String& programDataHexString, uint8 selectedSlot) {
-	auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
-	auto programNames{ unexposedParams->programNameStrings_get() };
-	auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-	programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
-}
-
-void TabForCustomProgramBank::updateCustomProgramSlotText(uint8 selectedSlot) {
-	programSlots.setTextForProgramSlotToggleButton(selectedSlot);
-	repaint();
 }
 
 void TabForCustomProgramBank::timerCallback() {

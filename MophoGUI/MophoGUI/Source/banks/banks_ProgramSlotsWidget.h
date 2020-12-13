@@ -10,6 +10,7 @@ class UnexposedParameters;
 
 class ProgramSlotsWidget :
     public Component,
+    public ValueTree::Listener,
     private Timer
 {
     ToggleButton programSlotButtons[128];
@@ -34,10 +35,13 @@ public:
     void pullSelectedProgramFromHardware();
     void pushSelectedProgramToHardware();
     void resized() override;
-    ~ProgramSlotsWidget();
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
     void timerCallback() override;
+
+public:
+    ~ProgramSlotsWidget();
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramSlotsWidget)

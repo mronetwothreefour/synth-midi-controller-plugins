@@ -317,7 +317,6 @@
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_ProgramNameStrings.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp" />
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp" />
@@ -2291,7 +2290,6 @@
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h" />
-    <ClInclude Include="..\..\Source\banks\banks_ProgramNameStrings.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h" />
     <ClInclude Include="..\..\Source\core_PluginProcessor.h" />

@@ -11,22 +11,41 @@ enum class ProgramBank {
 	custom3
 };
 
-class ProgramBanks
+class ProgramBanks :
+	public ValueTree::Listener
 {
-	ValueTree factoryBank1;
-	ValueTree factoryBank2;
-	ValueTree factoryBank3;
-	ValueTree customBank1;
-	ValueTree customBank2;
-	ValueTree customBank3;
+	ValueTree customBank1ProgramDataHexStrings;
+	ValueTree customBank2ProgramDataHexStrings;
+	ValueTree customBank3ProgramDataHexStrings;
+	ValueTree factoryBank1ProgramNameStrings;
+	ValueTree factoryBank2ProgramNameStrings;
+	ValueTree factoryBank3ProgramNameStrings;
+	ValueTree customBank1ProgramNameStrings;
+	ValueTree customBank2ProgramNameStrings;
+	ValueTree customBank3ProgramNameStrings;
 	const String basicPatchDataHexString{ "00183101000100180033010001000000400204004000001400000000017F00000000000000007F00000000004040785000010000005001000000005001000000005001000000007F000000000000000000007F00007F0000007F00007F007F00007F007F007F007F00003C6400780200000000000101090000050B2B170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000426173696300205061746368200020202020" };
+	const String basicPatchNameString{ "Basic Patch     " };
 
 public:
 	ProgramBanks();
-	void fillAllProgramDataBanks();
+
+private:
+	void fillAllCustomProgramDataBanks();
+	void fillAllProgramNameBanks();
+
+public:
 	int programSlotOutOfRange();
+	const String nameOfProgramInBankSlot(ProgramBank bank, uint8 slot);
 	const String getProgramDataHexStringFromBankSlot(ProgramBank bank, uint8 slot) const;
-	void storeProgramDataHexStringInCustomBankSlot(String hexString, ProgramBank bank, uint8 slot);
+
+private:
+	const String extractProgramNameFromDataVector(const std::vector<uint8>& dataVector);
+
+public:
+	void storeProgramDataHexStringInCustomBankSlot(String programDataHexString, ProgramBank bank, uint8 slot);
+	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, ProgramBank bank);
+	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, ProgramBank bank);
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 	~ProgramBanks();

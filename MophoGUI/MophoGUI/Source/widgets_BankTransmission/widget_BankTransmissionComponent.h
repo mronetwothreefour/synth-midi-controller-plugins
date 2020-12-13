@@ -22,7 +22,6 @@ private:
 	int bankNumber;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
-	String title;
 	String message;
 	int transmitTime;
 	uint8 programCounter;

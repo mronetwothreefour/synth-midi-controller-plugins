@@ -23,6 +23,11 @@ ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTree
 		setUpProgramSlotToggleButton(slot);
 		addAndMakeVisible(programSlotButtons[slot]);
 	}
+
+	if (bank == ProgramBank::custom1 || bank == ProgramBank::custom2 || bank == ProgramBank::custom3) {
+		programBanks->addListenerToNameStringsForCustomBank(this, bank);
+	}
+
 	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonHorizontalGap };
 	auto programSlotsWidget_h{ 16 * buttton_h };
 	setSize(programSlotsWidget_w, programSlotsWidget_h);
@@ -53,8 +58,10 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 	if (slot < 9) slotNumber = "00" + (String)(slot + 1);
 	if (slot > 8 && slot < 99) slotNumber = "0" + (String)(slot + 1);
 	if (slot > 98) slotNumber = (String)(slot + 1);
-	auto programNames{ unexposedParams->programNameStrings_get() };
-	programSlotButtons[slot].setName(slotNumber + " " + programNames->nameOfProgramInBankSlot(bank, slot));
+	auto programBanks{ unexposedParams->programBanks_get() };
+	auto programName{ programBanks->nameOfProgramInBankSlot(bank, slot) };
+	programSlotButtons[slot].setName(slotNumber + " " + programName);
+	programSlotButtons[slot].repaint();
 }
 
 void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
@@ -63,9 +70,6 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 		auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
 		auto programBanks{ unexposedParams->programBanks_get() };
 		programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, selectedSlot);
-		auto programNames{ unexposedParams->programNameStrings_get() };
-		auto programName{ programNames->extractProgramNameFromDataVector(programDataVector) };
-		programNames->storeNameOfProgramInCustomBankSlot(programName, bank, selectedSlot);
 		setTextForProgramSlotToggleButton(selectedSlot);
 		repaint();
 	}
@@ -108,9 +112,19 @@ void ProgramSlotsWidget::resized() {
 	}
 }
 
-ProgramSlotsWidget::~ProgramSlotsWidget() {
+void ProgramSlotsWidget::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+	auto propertyName{ property.toString() };
+	auto slotString{ propertyName.fromLastOccurrenceOf("pgm", false, true) };
+	setTextForProgramSlotToggleButton((uint8)slotString.getIntValue());
 }
 
 void ProgramSlotsWidget::timerCallback() {
+}
+
+ProgramSlotsWidget::~ProgramSlotsWidget() {
+	if (bank == ProgramBank::custom1 || bank == ProgramBank::custom2 || bank == ProgramBank::custom3) {
+		auto programBanks{ unexposedParams->programBanks_get() };
+		programBanks->removeListenerFromNameStringsForCustomBank(this, bank);
+	}
 }
 

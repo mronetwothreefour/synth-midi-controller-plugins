@@ -20,8 +20,6 @@ public:
     TabbedComponentForFactoryProgramBanks() = delete;
 
     TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
-    TabForFactoryProgramBank* getCurrentProgramBankTab();
-    void updateTextForAllProgramSlotsInAllBanks();
 
 private:
     //==============================================================================

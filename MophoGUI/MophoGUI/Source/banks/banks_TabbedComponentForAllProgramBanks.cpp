@@ -22,14 +22,3 @@ TabbedComponentForAllProgramBanks::TabbedComponentForAllProgramBanks(AudioProces
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
-TabForCustomProgramBank* TabbedComponentForAllProgramBanks::getCurrentCustomProgramBankTab() {
-	return tabbedComponentForCustomProgramBanks.getCurrentProgramBankTab();
-}
-
-TabForFactoryProgramBank* TabbedComponentForAllProgramBanks::getCurrentFactoryProgramBankTab() {
-	return tabbedComponentForFactoryProgramBanks.getCurrentProgramBankTab();
-}
-
-void TabbedComponentForAllProgramBanks::updateTextForAllProgramSlotsInAllBanks()
-{
-}

@@ -26,20 +26,3 @@ TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(Aud
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
-TabForFactoryProgramBank* TabbedComponentForFactoryProgramBanks::getCurrentProgramBankTab() {
-	switch (getCurrentTabIndex())
-	{
-	case 0:
-		return &bank1;
-	case 1:
-		return &bank2;
-	case 2:
-		return &bank3;
-	default:
-		return nullptr;
-	}
-}
-
-void TabbedComponentForFactoryProgramBanks::updateTextForAllProgramSlotsInAllBanks() {
-}
-

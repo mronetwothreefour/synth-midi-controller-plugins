@@ -52,7 +52,6 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 		bankNumber = 0;
 		break;
 	}
-	title = transmissionType == TransmissionType::push ? "Push All Programs To Hardware Bank " + (String)bankNumber : "Pull All Programs From Hardware Bank " + (String)bankNumber;
 	
 	addAndMakeVisible(progressBar);
 	auto progressBar_x{ 508 };
@@ -101,12 +100,8 @@ void BankTransmissionComponent::timerCallback() {
 
 void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	if (transmissionType == TransmissionType::pull) {
+	if (transmissionType == TransmissionType::pull)
 		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
-		//auto programBankTab{ tabbedComponent.getCurrentProgramBankTab() };
-		//if (programBankTab != nullptr)
-		//	callAfterDelay(transmitTime, [this, programBankTab, programSlot] { programBankTab->updateProgramSlotText(programSlot); });
-	}
 	else {
 		auto programDumpVector{ ProgramDump::createProgramDumpForBankAndSlot(bank, programSlot, unexposedParams) };
 		outgoingBuffers->addDataMessage(programDumpVector);

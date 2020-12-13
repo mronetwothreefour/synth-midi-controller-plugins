@@ -21,9 +21,6 @@ public:
     TabbedComponentForAllProgramBanks() = delete;
 
     TabbedComponentForAllProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-    TabForCustomProgramBank* getCurrentCustomProgramBankTab();
-    TabForFactoryProgramBank* getCurrentFactoryProgramBankTab();
-    void updateTextForAllProgramSlotsInAllBanks();
 
 private:
     //==============================================================================
