@@ -11,7 +11,7 @@ ButtonForPushingSelectedProgramToHardware::ButtonForPushingSelectedProgramToHard
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Push.toString());
+	setComponentID(ID::button_PushSelectedProgram.toString());
 	setTooltip(createButtonTooltipString());
 }
 

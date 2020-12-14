@@ -11,10 +11,11 @@
 ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	tabbedComponent{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	button_ForClosingProgramBanks{ "" },
-	button_ForPushingEntireBankToHardware{ unexposedParams },
-	button_ForPullingEntireBankFromHardware{ unexposedParams }
+	button_ForClosingProgramBanks{ "" }
 {
+	tabbedComponent.addListenerToPushEntireBankButtonInAllTabs(this);
+	tabbedComponent.addListenerToPullEntireBankButtonInAllCustomTabs(this);
+
 	setSize(1273, 626);
 
 	addAndMakeVisible(tabbedComponent);
@@ -32,13 +33,6 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	button_ForClosingProgramBanks.setBounds(1130, 117, controls_w, controls_h);
 	button_ForClosingProgramBanks.onClick = [this] { hideThisComponent(); };
 	button_ForClosingProgramBanks.setAlwaysOnTop(true);
-
-	addAndMakeVisible(button_ForPushingEntireBankToHardware);
-	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
-	button_ForPushingEntireBankToHardware.onClick = [this] { showPushEntireBankComponent(); };
-	button_ForPullingEntireBankFromHardware.onClick = [this] { showPullEntireBankComponent(); };
-	button_ForPushingEntireBankToHardware.setBounds(757, controls_y, controls_w, controls_h);
-	button_ForPullingEntireBankFromHardware.setBounds(812, controls_y, controls_w, controls_h);
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String label_txTimeTooltip{ "" };
@@ -62,22 +56,22 @@ void ProgramBanksComponent::hideThisComponent() {
 	setVisible(false);
 }
 
-void ProgramBanksComponent::showPushEntireBankComponent() {
-	//pushEntireBankComponent.reset(new BankTransmissionComponent(tabbedComponent, BankTransmissionComponent::TransmissionType::push, unexposedParams));
-	//if (pushEntireBankComponent != nullptr) {
-	//	addAndMakeVisible(pushEntireBankComponent.get());
-	//	pushEntireBankComponent->setBounds(getLocalBounds());
-	//	pushEntireBankComponent->setAlwaysOnTop(true);
-	//}
+void ProgramBanksComponent::showPushEntireBankComponentForBank(ProgramBank bank) {
+	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
+	if (pushEntireBankComponent != nullptr) {
+		addAndMakeVisible(pushEntireBankComponent.get());
+		pushEntireBankComponent->setBounds(getLocalBounds());
+		pushEntireBankComponent->setAlwaysOnTop(true);
+	}
 }
 
-void ProgramBanksComponent::showPullEntireBankComponent() {
-	//pullEntireBankComponent.reset(new BankTransmissionComponent(tabbedComponent, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
-	//if (pullEntireBankComponent != nullptr) {
-	//	addAndMakeVisible(pullEntireBankComponent.get());
-	//	pullEntireBankComponent->setBounds(getLocalBounds());
-	//	pullEntireBankComponent->setAlwaysOnTop(true);
-	//}
+void ProgramBanksComponent::showPullEntireBankComponentForBank(ProgramBank bank) {
+	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
+	if (pullEntireBankComponent != nullptr) {
+		addAndMakeVisible(pullEntireBankComponent.get());
+		pullEntireBankComponent->setBounds(getLocalBounds());
+		pullEntireBankComponent->setAlwaysOnTop(true);
+	}
 }
 
 void ProgramBanksComponent::paint(Graphics& g) {
@@ -114,7 +108,30 @@ void ProgramBanksComponent::labelTextChanged(Label* label) {
 	}
 }
 
+void ProgramBanksComponent::buttonClicked(Button* button) {
+	if (button->getComponentID() == ID::button_PullCustomBank1.toString())
+		showPullEntireBankComponentForBank(ProgramBank::custom1);
+	if (button->getComponentID() == ID::button_PullCustomBank2.toString())
+		showPullEntireBankComponentForBank(ProgramBank::custom2);
+	if (button->getComponentID() == ID::button_PullCustomBank3.toString())
+		showPullEntireBankComponentForBank(ProgramBank::custom3);
+	if (button->getComponentID() == ID::button_PushCustomBank1.toString())
+		showPushEntireBankComponentForBank(ProgramBank::custom1);
+	if (button->getComponentID() == ID::button_PushCustomBank2.toString())
+		showPushEntireBankComponentForBank(ProgramBank::custom2);
+	if (button->getComponentID() == ID::button_PushCustomBank3.toString())
+		showPushEntireBankComponentForBank(ProgramBank::custom3);
+	if (button->getComponentID() == ID::button_PushFactoryBank1.toString())
+		showPushEntireBankComponentForBank(ProgramBank::factory1);
+	if (button->getComponentID() == ID::button_PushFactoryBank2.toString())
+		showPushEntireBankComponentForBank(ProgramBank::factory2);
+	if (button->getComponentID() == ID::button_PushFactoryBank3.toString())
+		showPushEntireBankComponentForBank(ProgramBank::factory3);
+}
+
 ProgramBanksComponent::~ProgramBanksComponent() {
 	pullEntireBankComponent = nullptr;
 	pushEntireBankComponent = nullptr;
+	tabbedComponent.removeListenerFromPullEntireBankButtonInAllCustomTabs(this);
+	tabbedComponent.removeListenerFromPushEntireBankButtonInAllTabs(this);
 }

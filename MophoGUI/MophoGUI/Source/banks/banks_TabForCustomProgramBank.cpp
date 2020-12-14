@@ -14,14 +14,18 @@ TabForCustomProgramBank::TabForCustomProgramBank(ProgramBank bank, AudioProcesso
 	programCopyBuffer{ programCopyBuffer },
 	button_ForLoadingSelectedProgram{ programSlots, unexposedParams },
 	button_ForSavingProgramInSelectedSlot{ programSlots, unexposedParams },
-	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams },
-	button_ForPullingSelectedProgramFromHardware{ programSlots, unexposedParams }
+	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
+	button_ForPullingSelectedProgramFromHardware{ programSlots, unexposedParams },
+	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
+	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams }
 {
 	addAndMakeVisible(programSlots);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
 	addAndMakeVisible(button_ForSavingProgramInSelectedSlot);
 	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
 	addAndMakeVisible(button_ForPullingSelectedProgramFromHardware);
+	addAndMakeVisible(button_ForPushingEntireBankToHardware);
+	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -47,10 +51,14 @@ void TabForCustomProgramBank::resized() {
 	auto saveButton_x{ loadButton_x + buttons_horizontalSpacing };
 	auto pushButton_x{ saveButton_x + buttons_horizontalSpacing };
 	auto pullButton_x{ pushButton_x + buttons_horizontalSpacing };
+	auto pushBankButton_x{ 638 };
+	auto pullBankButton_x{ pushBankButton_x + buttons_horizontalSpacing };
 	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForSavingProgramInSelectedSlot.setBounds(saveButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForPushingSelectedProgramToHardware.setBounds(pushButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForPullingSelectedProgramFromHardware.setBounds(pullButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForPushingEntireBankToHardware.setBounds(pushBankButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForPullingEntireBankFromHardware.setBounds(pullBankButton_x, buttons_y, buttons_w, buttons_h);
 }
 
 ApplicationCommandTarget* TabForCustomProgramBank::getNextCommandTarget() {
@@ -99,6 +107,22 @@ bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
 	default:
 		return false;
 	}
+}
+
+void TabForCustomProgramBank::addListenerToPullEntireBankButton(Button::Listener* listener) {
+	button_ForPullingEntireBankFromHardware.addListener(listener);
+}
+
+void TabForCustomProgramBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+	button_ForPushingEntireBankToHardware.addListener(listener);
+}
+
+void TabForCustomProgramBank::removeListenerFromPullEntireBankButton(Button::Listener* listener) {
+	button_ForPullingEntireBankFromHardware.removeListener(listener);
+}
+
+void TabForCustomProgramBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
 void TabForCustomProgramBank::timerCallback() {

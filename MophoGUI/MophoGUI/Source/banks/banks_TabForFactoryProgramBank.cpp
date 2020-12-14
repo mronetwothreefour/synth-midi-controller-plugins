@@ -13,11 +13,13 @@ TabForFactoryProgramBank::TabForFactoryProgramBank(ProgramBank bank, AudioProces
 	unexposedParams{ unexposedParams },
 	programCopyBuffer{ programCopyBuffer },
 	button_ForLoadingSelectedProgram{ programSlots, unexposedParams },
+	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
 	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams }
 {
 	addAndMakeVisible(programSlots);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
 	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
+	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -41,8 +43,10 @@ void TabForFactoryProgramBank::resized() {
 	auto buttons_horizontalSpacing{ 55 };
 	auto loadButton_x{ 183 };
 	auto pushButton_x{ loadButton_x + buttons_horizontalSpacing };
+	auto pushBankButton_x{ 638 };
 	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForPushingSelectedProgramToHardware.setBounds(pushButton_x, buttons_y, buttons_w, buttons_h);
+	button_ForPushingEntireBankToHardware.setBounds(pushBankButton_x, buttons_y, buttons_w, buttons_h);
 }
 
 ApplicationCommandTarget* TabForFactoryProgramBank::getNextCommandTarget() {
@@ -80,6 +84,14 @@ bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
 	default:
 		return false;
 	}
+}
+
+void TabForFactoryProgramBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+	button_ForPushingEntireBankToHardware.addListener(listener);
+}
+
+void TabForFactoryProgramBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
 TabForFactoryProgramBank::~TabForFactoryProgramBank() {

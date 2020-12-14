@@ -26,3 +26,15 @@ TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(Aud
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
+void TabbedComponentForFactoryProgramBanks::addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+	bank1.addListenerToPushEntireBankButton(listener);
+	bank2.addListenerToPushEntireBankButton(listener);
+	bank3.addListenerToPushEntireBankButton(listener);
+}
+
+void TabbedComponentForFactoryProgramBanks::removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+	bank1.removeListenerFromPushEntireBankButton(listener);
+	bank2.removeListenerFromPushEntireBankButton(listener);
+	bank3.removeListenerFromPushEntireBankButton(listener);
+}
+

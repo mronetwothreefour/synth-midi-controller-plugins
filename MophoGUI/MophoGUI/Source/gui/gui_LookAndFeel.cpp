@@ -108,10 +108,13 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) 
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
 
-	if (button.getComponentID() == ID::button_Pull.toString()) 
+	if (button.getComponentID().startsWith(ID::button_PullCustomBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID() == ID::button_PullSelectedProgram.toString())
 		return isDown ? BinaryData::ButtonDownPull_png : BinaryData::ButtonUpPull_png;
 
-	if (button.getComponentID() == ID::button_Push.toString()) 
+	if (button.getComponentID().startsWith(ID::button_PushCustomBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID().startsWith(ID::button_PushFactoryBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID() == ID::button_PushSelectedProgram.toString())
 		return isDown ? BinaryData::ButtonDownPush_png : BinaryData::ButtonUpPush_png;
 
 	if (button.getComponentID() == ID::button_Read.toString()) 
@@ -157,10 +160,13 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_PgmNameEdit.toString())
 		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);
 
-	if (button.getComponentID() == ID::button_Pull.toString())
+	if (button.getComponentID().startsWith(ID::button_PullCustomBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID() == ID::button_PullSelectedProgram.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPull_pngSize : BinaryData::ButtonUpPull_pngSize);
 
-	if (button.getComponentID() == ID::button_Push.toString())
+	if (button.getComponentID().startsWith(ID::button_PushCustomBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID().startsWith(ID::button_PushFactoryBank1.toString().dropLastCharacters(1)) ||
+		button.getComponentID() == ID::button_PushSelectedProgram.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPush_pngSize : BinaryData::ButtonUpPush_pngSize);
 
 	if (button.getComponentID() == ID::button_Read.toString())

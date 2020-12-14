@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "widget_BaseButtonWithOnClickAndTooltipMethods.h"
+#include "../banks/banks_ProgramBanks.h"
 
 
 
@@ -15,7 +16,7 @@ class ButtonForPushingEntireBankToHardware : public BaseButtonWithOnClickAndTool
 public:
 	ButtonForPushingEntireBankToHardware() = delete;
 
-	explicit ButtonForPushingEntireBankToHardware(UnexposedParameters* unexposedParams);
+	ButtonForPushingEntireBankToHardware(ProgramBank bank, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

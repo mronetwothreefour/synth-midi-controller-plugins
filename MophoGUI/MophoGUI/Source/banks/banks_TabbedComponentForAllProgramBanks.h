@@ -21,6 +21,10 @@ public:
     TabbedComponentForAllProgramBanks() = delete;
 
     TabbedComponentForAllProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    void addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener);
+    void addListenerToPushEntireBankButtonInAllTabs(Button::Listener* listener);
+    void removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener);
+    void removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener);
 
 private:
     //==============================================================================

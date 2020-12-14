@@ -11,7 +11,7 @@ ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFrom
 	programSlots{ programSlots },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Pull.toString());
+	setComponentID(ID::button_PullSelectedProgram.toString());
 	setTooltip(createButtonTooltipString());
 }
 

@@ -22,3 +22,21 @@ TabbedComponentForAllProgramBanks::TabbedComponentForAllProgramBanks(AudioProces
 	setSize(tab_w + getTabBarDepth(), tab_h);
 }
 
+void TabbedComponentForAllProgramBanks::addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
+	tabbedComponentForCustomProgramBanks.addListenerToPullBankButtonInAllCustomTabs(listener);
+}
+
+void TabbedComponentForAllProgramBanks::addListenerToPushEntireBankButtonInAllTabs(Button::Listener* listener) {
+	tabbedComponentForCustomProgramBanks.addListenerToPushBankButtonInAllCustomTabs(listener);
+	tabbedComponentForFactoryProgramBanks.addListenerToPushBankButtonInAllFactoryTabs(listener);
+}
+
+void TabbedComponentForAllProgramBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
+	tabbedComponentForCustomProgramBanks.removeListenerFromPullBankButtonInAllCustomTabs(listener);
+}
+
+void TabbedComponentForAllProgramBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
+	tabbedComponentForCustomProgramBanks.removeListenerFromPushBankButtonInAllCustomTabs(listener);
+	tabbedComponentForFactoryProgramBanks.removeListenerFromPushBankButtonInAllFactoryTabs(listener);
+}
+

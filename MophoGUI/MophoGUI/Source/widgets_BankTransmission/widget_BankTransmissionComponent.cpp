@@ -54,9 +54,9 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	}
 	
 	addAndMakeVisible(progressBar);
-	auto progressBar_x{ 508 };
-	auto progressBar_y{ 316 };
-	auto progressBar_w{ 257 };
+	auto progressBar_x{ 461 };
+	auto progressBar_y{ 319 };
+	auto progressBar_w{ 351 };
 	auto progressBar_h{ 18 };
 	progressBar.setBounds(progressBar_x, progressBar_y, progressBar_w, progressBar_h);
 
@@ -67,7 +67,7 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	button_Close.onClick = [this] { hideThisComponent(); };
 	button_Stop.onClick = [this] { cancelTransmission(); };
 	auto button_x{ 611 };
-	auto button_y{ 349 };
+	auto button_y{ 344 };
 	auto button_w{ 51 };
 	auto button_h{ 22 };
 	button_Close.setBounds(button_x, button_y, button_w, button_h);
@@ -110,13 +110,13 @@ void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSl
 
 void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	Rectangle<int> dimBanksWindow{ 104, 113, 1065, 400 };
+	Rectangle<int> dimBanksWindow{ 89, 113, 1095, 400 };
 	g.fillRect(dimBanksWindow);
 	g.setColour(Color::black);
-	Rectangle<int> progressDisplayOutline{ 464, 236, 345, 154 };
+	Rectangle<int> progressDisplayOutline{ 444, 251, 385, 124 };
 	g.fillRect(progressDisplayOutline);
 	g.setColour(Color::device);
-	Rectangle<int> progressDisplayBackground{ 466, 238, 341, 150 };
+	Rectangle<int> progressDisplayBackground{ 446, 253, 381, 120 };
 	g.fillRect(progressDisplayBackground);
 	PNGImageFormat imageFormat;
 	auto titleLabelImageData{ getTitleLabelImageData() };
@@ -124,33 +124,29 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	if (titleLabelImageData != nullptr) {
 		MemoryInputStream memInputStream{ titleLabelImageData, titleLabelImageDataSize, false };
 		auto titleLabelImage{ imageFormat.decodeImage(memInputStream) };
-		g.drawImageAt(titleLabelImage, 466, 238);
+		g.drawImageAt(titleLabelImage, 454, 260);
 	}
 	g.setColour(Color::black);
 	g.setFont(FontsMenu::fontFor_ProgressDisplayMessage);
-	Rectangle<int> messageArea{ 476, 278, 321, 30 };
+	Rectangle<int> messageArea{ 461, 290, 351, 28 };
 	g.drawFittedText(message, messageArea, Justification::centred, 1, 1.0f);
 }
 
 const char* BankTransmissionComponent::getTitleLabelImageData() {
-	//if (bank == 0)
-	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_png : BinaryData::LabelPushAllBank1_png;
-	//if (bank == 1)
-	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_png : BinaryData::LabelPushAllBank2_png;
-	//if (bank == 2)
-	//	return transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_png : BinaryData::LabelPushAllBank3_png;
-	//else
+	if (transmissionType == TransmissionType::pull)
+		return BinaryData::TitlePullingEntireBank_png;
+	if (transmissionType == TransmissionType::push)
+		return BinaryData::TitlePushingEntireBank_png;
+	else
 		return nullptr;
 }
 
 size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
-	//if (bank == 0)
-	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank1_pngSize : BinaryData::LabelPushAllBank1_pngSize);
-	//if (bank == 1)
-	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank2_pngSize : BinaryData::LabelPushAllBank2_pngSize);
-	//if (bank == 2)
-	//	return size_t(transmissionType == TransmissionType::pull ? BinaryData::LabelPullAllBank3_pngSize : BinaryData::LabelPushAllBank3_pngSize);
-	//else
+	if (transmissionType == TransmissionType::pull)
+		return BinaryData::TitlePullingEntireBank_pngSize;
+	if (transmissionType == TransmissionType::push)
+		return BinaryData::TitlePushingEntireBank_pngSize;
+	else
 		return (size_t)0;
 }
 

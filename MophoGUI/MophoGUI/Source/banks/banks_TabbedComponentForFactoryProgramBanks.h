@@ -20,6 +20,8 @@ public:
     TabbedComponentForFactoryProgramBanks() = delete;
 
     TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    void addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener);
+    void removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener);
 
 private:
     //==============================================================================

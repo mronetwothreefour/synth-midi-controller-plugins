@@ -5,11 +5,16 @@
 
 
 
-ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(UnexposedParameters* unexposedParams) :
+ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(ProgramBank bank, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Pull.toString());
+	if (bank == ProgramBank::custom1)
+		setComponentID(ID::button_PullCustomBank1.toString());
+	if (bank == ProgramBank::custom2)
+		setComponentID(ID::button_PullCustomBank2.toString());
+	if (bank == ProgramBank::custom3)
+		setComponentID(ID::button_PullCustomBank3.toString());
 	setTooltip(createButtonTooltipString());
 }
 

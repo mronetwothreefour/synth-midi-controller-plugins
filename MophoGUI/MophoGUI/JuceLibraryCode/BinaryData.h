@@ -137,26 +137,14 @@ namespace BinaryData
     extern const char* LabelBank3_png;
     const int            LabelBank3_pngSize = 295;
 
-    extern const char* LabelPullAllBank1_png;
-    const int            LabelPullAllBank1_pngSize = 1683;
+    extern const char* TitlePullingEntireBank_png;
+    const int            TitlePullingEntireBank_pngSize = 2094;
 
-    extern const char* LabelPullAllBank2_png;
-    const int            LabelPullAllBank2_pngSize = 1766;
-
-    extern const char* LabelPullAllBank3_png;
-    const int            LabelPullAllBank3_pngSize = 1768;
-
-    extern const char* LabelPushAllBank1_png;
-    const int            LabelPushAllBank1_pngSize = 1876;
-
-    extern const char* LabelPushAllBank2_png;
-    const int            LabelPushAllBank2_pngSize = 1903;
-
-    extern const char* LabelPushAllBank3_png;
-    const int            LabelPushAllBank3_pngSize = 1762;
+    extern const char* TitlePushingEntireBank_png;
+    const int            TitlePushingEntireBank_pngSize = 2086;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 51;
+    const int namedResourceListSize = 47;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
