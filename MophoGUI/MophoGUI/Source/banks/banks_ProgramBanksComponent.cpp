@@ -52,28 +52,6 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	label_txTime.setBounds(1119, controls_y, controls_w, controls_h);
 }
 
-void ProgramBanksComponent::hideThisComponent() {
-	setVisible(false);
-}
-
-void ProgramBanksComponent::showPushEntireBankComponentForBank(ProgramBank bank) {
-	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
-	if (pushEntireBankComponent != nullptr) {
-		addAndMakeVisible(pushEntireBankComponent.get());
-		pushEntireBankComponent->setBounds(getLocalBounds());
-		pushEntireBankComponent->setAlwaysOnTop(true);
-	}
-}
-
-void ProgramBanksComponent::showPullEntireBankComponentForBank(ProgramBank bank) {
-	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
-	if (pullEntireBankComponent != nullptr) {
-		addAndMakeVisible(pullEntireBankComponent.get());
-		pullEntireBankComponent->setBounds(getLocalBounds());
-		pullEntireBankComponent->setAlwaysOnTop(true);
-	}
-}
-
 void ProgramBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
@@ -127,6 +105,28 @@ void ProgramBanksComponent::buttonClicked(Button* button) {
 		showPushEntireBankComponentForBank(ProgramBank::factory2);
 	if (button->getComponentID() == ID::button_PushFactoryBank3.toString())
 		showPushEntireBankComponentForBank(ProgramBank::factory3);
+}
+
+void ProgramBanksComponent::showPushEntireBankComponentForBank(ProgramBank bank) {
+	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
+	if (pushEntireBankComponent != nullptr) {
+		addAndMakeVisible(pushEntireBankComponent.get());
+		pushEntireBankComponent->setBounds(getLocalBounds());
+		pushEntireBankComponent->setAlwaysOnTop(true);
+	}
+}
+
+void ProgramBanksComponent::showPullEntireBankComponentForBank(ProgramBank bank) {
+	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
+	if (pullEntireBankComponent != nullptr) {
+		addAndMakeVisible(pullEntireBankComponent.get());
+		pullEntireBankComponent->setBounds(getLocalBounds());
+		pullEntireBankComponent->setAlwaysOnTop(true);
+	}
+}
+
+void ProgramBanksComponent::hideThisComponent() {
+	setVisible(false);
 }
 
 ProgramBanksComponent::~ProgramBanksComponent() {

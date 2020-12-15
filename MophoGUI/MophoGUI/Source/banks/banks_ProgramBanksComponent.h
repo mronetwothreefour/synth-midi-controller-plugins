@@ -20,23 +20,24 @@ class ProgramBanksComponent :
     TextButton button_ForClosingProgramBanks;
     std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
+    std::unique_ptr<FileBrowserComponent> fileBrowser;
     Label label_txTime;
 
 public:
     ProgramBanksComponent() = delete;
 
     ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-
-private:
-    void hideThisComponent();
-    void showPushEntireBankComponentForBank(ProgramBank bank);
-    void showPullEntireBankComponentForBank(ProgramBank bank);
-
-public:
     void paint(Graphics& g) override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
     void buttonClicked(Button* button) override;
+
+private:
+    void showPushEntireBankComponentForBank(ProgramBank bank);
+    void showPullEntireBankComponentForBank(ProgramBank bank);
+    void hideThisComponent();
+
+public:
     ~ProgramBanksComponent();
 
 private:
