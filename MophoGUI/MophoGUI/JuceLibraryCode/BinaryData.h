@@ -86,18 +86,6 @@ namespace BinaryData
     extern const char* ButtonUpPull_png;
     const int            ButtonUpPull_pngSize = 528;
 
-    extern const char* ButtonDownImport_png;
-    const int            ButtonDownImport_pngSize = 755;
-
-    extern const char* ButtonUpImport_png;
-    const int            ButtonUpImport_pngSize = 749;
-
-    extern const char* ButtonDownExport_png;
-    const int            ButtonDownExport_pngSize = 786;
-
-    extern const char* ButtonUpExport_png;
-    const int            ButtonUpExport_pngSize = 773;
-
     extern const char* ButtonDownStop_png;
     const int            ButtonDownStop_pngSize = 616;
 
@@ -111,7 +99,7 @@ namespace BinaryData
     const int            ButtonUpRetry_pngSize = 621;
 
     extern const char* ProgramBanksTabBackground_png;
-    const int            ProgramBanksTabBackground_pngSize = 4287;
+    const int            ProgramBanksTabBackground_pngSize = 4116;
 
     extern const char* GlobalParametersBackground_png;
     const int            GlobalParametersBackground_pngSize = 10458;
@@ -144,7 +132,7 @@ namespace BinaryData
     const int            TitlePushingEntireBank_pngSize = 2086;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 47;
+    const int namedResourceListSize = 43;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

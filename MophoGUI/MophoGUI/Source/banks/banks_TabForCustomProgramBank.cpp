@@ -51,7 +51,7 @@ void TabForCustomProgramBank::resized() {
 	auto saveButton_x{ loadButton_x + buttons_horizontalSpacing };
 	auto pushButton_x{ saveButton_x + buttons_horizontalSpacing };
 	auto pullButton_x{ pushButton_x + buttons_horizontalSpacing };
-	auto pushBankButton_x{ 638 };
+	auto pushBankButton_x{ 613 };
 	auto pullBankButton_x{ pushBankButton_x + buttons_horizontalSpacing };
 	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForSavingProgramInSelectedSlot.setBounds(saveButton_x, buttons_y, buttons_w, buttons_h);

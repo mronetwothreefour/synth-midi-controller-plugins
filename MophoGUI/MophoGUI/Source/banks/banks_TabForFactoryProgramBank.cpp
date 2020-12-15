@@ -43,7 +43,7 @@ void TabForFactoryProgramBank::resized() {
 	auto buttons_horizontalSpacing{ 55 };
 	auto loadButton_x{ 183 };
 	auto pushButton_x{ loadButton_x + buttons_horizontalSpacing };
-	auto pushBankButton_x{ 638 };
+	auto pushBankButton_x{ 613 };
 	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForPushingSelectedProgramToHardware.setBounds(pushButton_x, buttons_y, buttons_w, buttons_h);
 	button_ForPushingEntireBankToHardware.setBounds(pushBankButton_x, buttons_y, buttons_w, buttons_h);
