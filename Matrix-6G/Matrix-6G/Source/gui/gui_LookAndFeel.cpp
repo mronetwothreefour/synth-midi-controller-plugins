@@ -93,17 +93,17 @@ void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, boo
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
 }
 
-PopupMenu::Options GUILookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& /*label*/) {
+PopupMenu::Options GUILookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) {
 	return PopupMenu::Options()
 		.withTargetComponent(&box)
 		.withItemThatMustBeVisible(box.getSelectedId())
 		.withMinimumWidth(box.getWidth())
 		.withMaximumNumColumns(1)
-		.withStandardItemHeight(20);
+		.withStandardItemHeight(label.getHeight() + 2);
 }
 
 void GUILookAndFeel::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
-	g.fillAll(Color::black);
+	g.fillAll(Color::black.brighter(0.06f));
 }
 
 void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*isSeparator*/, const bool isActive, const bool isHighlighted, const bool isTicked, 
