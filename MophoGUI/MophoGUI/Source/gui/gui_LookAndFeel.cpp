@@ -228,11 +228,22 @@ void GUILookAndFeel::positionComboBoxText(ComboBox& box, Label& label) {
 }
 
 PopupMenu::Options GUILookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) {
+	auto numberOfColumns{ 1 };
+	auto popupWidth(box.getWidth());
+	if (box.getNumItems() > 20) {
+		numberOfColumns = 2;
+		popupWidth = box.getWidth() * 2;
+	}
+	if (box.getNumItems() > 40) {
+		numberOfColumns = 5;
+		popupWidth = box.getWidth() * 5;
+	}
 	return PopupMenu::Options()
 		.withTargetComponent(&box)
 		.withItemThatMustBeVisible(box.getSelectedId())
-		.withMinimumWidth(box.getWidth())
-		.withMaximumNumColumns(1)
+		.withMinimumWidth(popupWidth)
+		.withMinimumNumColumns(numberOfColumns)
+		.withMaximumNumColumns(numberOfColumns)
 		.withStandardItemHeight(label.getHeight());
 }
 
