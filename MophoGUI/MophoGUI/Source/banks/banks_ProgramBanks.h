@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+
+
 enum class ProgramBank {
 	factory1 = 0,
 	factory2,
@@ -10,6 +12,9 @@ enum class ProgramBank {
 	custom2,
 	custom3
 };
+
+
+
 
 class ProgramBanks :
 	public ValueTree::Listener
