@@ -22,7 +22,6 @@ public:
 	const StringArray& getBank1();
 	const StringArray& getBank2();
 	const StringArray& getBank3();
-	~FactoryProgramDataHexStrings();
 
 private:
 	//==============================================================================

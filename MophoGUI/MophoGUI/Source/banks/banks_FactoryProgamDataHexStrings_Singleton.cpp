@@ -415,6 +415,3 @@ const StringArray& FactoryProgramDataHexStrings::getBank2() {
 const StringArray& FactoryProgramDataHexStrings::getBank3() {
 	return bank3;
 }
-
-FactoryProgramDataHexStrings::~FactoryProgramDataHexStrings() {
-}
