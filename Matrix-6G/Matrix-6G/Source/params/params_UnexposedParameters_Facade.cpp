@@ -7,9 +7,14 @@ UnexposedParameters::UnexposedParameters() :
 	matrixModSettings{ new MatrixModSettings(this) },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
+	patchBanks{ new PatchBanks() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
+}
+
+Array<MidiBuffer, CriticalSection>* UnexposedParameters::aggregatedOutgoingBuffers_get() {
+	return outgoingMidiBuffers->aggregatedOutgoingBuffers_get();
 }
 
 CurrentPatchOptions* UnexposedParameters::currentPatchOptions_get() {
@@ -28,8 +33,8 @@ OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
-Array<MidiBuffer, CriticalSection>* UnexposedParameters::aggregatedOutgoingBuffers_get() {
-	return outgoingMidiBuffers->aggregatedOutgoingBuffers_get();
+PatchBanks* UnexposedParameters::patchBanks_get() {
+	return patchBanks.get();
 }
 
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {

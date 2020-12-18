@@ -6,6 +6,22 @@
 
 namespace ID
 {
+	static const Identifier bank_AnalogSynthsA_PatchNameStrings{ "bank_AnalogSynthsA_PatchNameStrings" };
+	static const Identifier bank_AnalogSynthsB_PatchNameStrings{ "bank_AnalogSynthsB_PatchNameStrings" };
+	static const Identifier bank_Basses_PatchNameStrings{ "bank_Basses_PatchNameStrings" };
+	static const Identifier bank_BrassAndWoodwinds_PatchNameStrings{ "bank_BrassAndWoodwinds_PatchNameStrings" };
+	static const Identifier bank_CustomA_PatchDataHexStrings{ "bank_CustomA_PatchDataHexStrings" };
+	static const Identifier bank_CustomA_PatchNameStrings{ "bank_CustomA_PatchNameStrings" };
+	static const Identifier bank_CustomB_PatchDataHexStrings{ "bank_CustomB_PatchDataHexStrings" };
+	static const Identifier bank_CustomB_PatchNameStrings{ "bank_CustomB_PatchNameStrings" };
+	static const Identifier bank_FXandPercussion_PatchNameStrings{ "bank_FXandPercussion_PatchNameStrings" };
+	static const Identifier bank_KeyboardsA_PatchNameStrings{ "bank_KeyboardsA_PatchNameStrings" };
+	static const Identifier bank_KeyboardsB_PatchNameStrings{ "bank_KeyboardsB_PatchNameStrings" };
+	static const Identifier bank_Leads_PatchNameStrings{ "bank_Leads_PatchNameStrings" };
+	static const Identifier bank_MiscellaneousA_PatchNameStrings{ "bank_MiscellaneousA_PatchNameStrings" };
+	static const Identifier bank_MiscellaneousB_PatchNameStrings{ "bank_MiscellaneousB_PatchNameStrings" };
+	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
+
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
 	static const Identifier button_QuickEdit{ "button_QuickEdit" };
@@ -58,6 +74,10 @@ namespace ID
 	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
+
+	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
+	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };
+	static const Identifier state_CustomPatchBanks{ "state_CustomPatchBanks" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };

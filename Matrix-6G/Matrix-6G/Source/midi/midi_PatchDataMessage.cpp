@@ -49,9 +49,10 @@ void PatchDataMessage::addPatchNameDataToVector(String& patchName, std::vector<u
 
 uint8 PatchDataMessage::truncateASCIIvalueToLowest6bits(uint8 value) {
     auto truncatedValue{ uint8(value % 64) };
-    if (value == 124) {
-        uint8 valueForBarSymbol{ (uint8)29 };
-        truncatedValue = valueForBarSymbol;
+    auto asciiValueForBarSymbol{ 124 };
+    if (value == asciiValueForBarSymbol) {
+        uint8 matrixValueForBarSymbol{ (uint8)29 };
+        truncatedValue = matrixValueForBarSymbol;
     }
 	return truncatedValue;
 }
