@@ -113,7 +113,7 @@ const String ProgramBanks::extractProgramNameFromDataVector(const std::vector<ui
 	auto ignoredPackByte1{ 216 };
 	auto ignoredPackByte2{ 224 };
 	auto data{ dataVector.data() };
-	for (auto byte = firstCharByte; byte <= lastCharByte; byte += 1) {
+	for (auto byte = firstCharByte; byte <= lastCharByte; ++byte) {
 		if (byte != ignoredPackByte1 && byte != ignoredPackByte2)
 			programName += (String)std::string(1, (char)*(data + byte));
 	}
