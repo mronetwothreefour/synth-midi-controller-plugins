@@ -197,17 +197,17 @@ void ProgramBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& p
 }
 
 XmlElement* ProgramBanks::getStateXml() {
-	auto pluginProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_ProgramBanks) };
+	auto customProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_ProgramBanks) };
 	auto customBank1StateXml{ customBank1ProgramDataHexStrings.createXml() };
 	auto customBank2StateXml{ customBank2ProgramDataHexStrings.createXml() };
 	auto customBank3StateXml{ customBank3ProgramDataHexStrings.createXml() };
 	customBank1StateXml->setTagName(ID::state_CustomProgramBank1);
 	customBank2StateXml->setTagName(ID::state_CustomProgramBank2);
 	customBank3StateXml->setTagName(ID::state_CustomProgramBank3);
-	pluginProgramBanksStateXml->addChildElement(customBank1StateXml.release());
-	pluginProgramBanksStateXml->addChildElement(customBank2StateXml.release());
-	pluginProgramBanksStateXml->addChildElement(customBank3StateXml.release());
-	return pluginProgramBanksStateXml.release();
+	customProgramBanksStateXml->addChildElement(customBank1StateXml.release());
+	customProgramBanksStateXml->addChildElement(customBank2StateXml.release());
+	customProgramBanksStateXml->addChildElement(customBank3StateXml.release());
+	return customProgramBanksStateXml.release();
 }
 
 void ProgramBanks::replaceState(const ValueTree& newState) {
