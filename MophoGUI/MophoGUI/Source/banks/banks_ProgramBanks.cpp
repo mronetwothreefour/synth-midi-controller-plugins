@@ -135,7 +135,7 @@ void ProgramBanks::storeProgramDataHexStringInCustomBankSlot(String programDataH
 		customBank3ProgramDataHexStrings.setProperty("pgm" + (String)slot, programDataHexString, nullptr);
 		break;
 	default:
-		return;
+		break;
 	}
 }
 
