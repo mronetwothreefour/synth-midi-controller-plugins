@@ -49,6 +49,32 @@
           file="../Matrix-6G/Resources/Button-Undo-Down.png"/>
     <FILE id="DsyxmF" name="Button-Undo-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Undo-Up.png"/>
+    <FILE id="gI5lOg" name="Patches-Footer-For-Factory-Banks.png" compile="0"
+          resource="1" file="../Matrix-6G/Resources/Patches-Footer-For-Factory-Banks.png"/>
+    <FILE id="AVPpOf" name="Patches-Header.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Header.png"/>
+    <FILE id="XLSGyV" name="Patches-Footer-For-Custom-Banks.png" compile="0"
+          resource="1" file="../Matrix-6G/Resources/Patches-Footer-For-Custom-Banks.png"/>
+    <FILE id="MdtwGI" name="Patches-Button-Close-Down.png" compile="0"
+          resource="1" file="../Matrix-6G/Resources/Patches-Button-Close-Down.png"/>
+    <FILE id="c0kLUA" name="Patches-Button-Close-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Close-Up.png"/>
+    <FILE id="tGHeO9" name="Patches-Button-Load-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Load-Down.png"/>
+    <FILE id="A2bWz8" name="Patches-Button-Load-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Load-Up.png"/>
+    <FILE id="y9xE2B" name="Patches-Button-Pull-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Pull-Down.png"/>
+    <FILE id="XXoG5W" name="Patches-Button-Pull-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Pull-Up.png"/>
+    <FILE id="mCg3HE" name="Patches-Button-Push-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Push-Down.png"/>
+    <FILE id="CEPHVk" name="Patches-Button-Push-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Push-Up.png"/>
+    <FILE id="SZ4wke" name="Patches-Button-Save-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Save-Down.png"/>
+    <FILE id="anudHc" name="Patches-Button-Save-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patches-Button-Save-Up.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

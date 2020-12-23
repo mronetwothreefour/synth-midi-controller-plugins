@@ -65,8 +65,47 @@ namespace BinaryData
     extern const char*   ButtonUndoUp_png;
     const int            ButtonUndoUp_pngSize = 433;
 
+    extern const char*   PatchesFooterForFactoryBanks_png;
+    const int            PatchesFooterForFactoryBanks_pngSize = 1354;
+
+    extern const char*   PatchesHeader_png;
+    const int            PatchesHeader_pngSize = 2478;
+
+    extern const char*   PatchesFooterForCustomBanks_png;
+    const int            PatchesFooterForCustomBanks_pngSize = 1356;
+
+    extern const char*   PatchesButtonCloseDown_png;
+    const int            PatchesButtonCloseDown_pngSize = 225;
+
+    extern const char*   PatchesButtonCloseUp_png;
+    const int            PatchesButtonCloseUp_pngSize = 225;
+
+    extern const char*   PatchesButtonLoadDown_png;
+    const int            PatchesButtonLoadDown_pngSize = 510;
+
+    extern const char*   PatchesButtonLoadUp_png;
+    const int            PatchesButtonLoadUp_pngSize = 488;
+
+    extern const char*   PatchesButtonPullDown_png;
+    const int            PatchesButtonPullDown_pngSize = 414;
+
+    extern const char*   PatchesButtonPullUp_png;
+    const int            PatchesButtonPullUp_pngSize = 408;
+
+    extern const char*   PatchesButtonPushDown_png;
+    const int            PatchesButtonPushDown_pngSize = 518;
+
+    extern const char*   PatchesButtonPushUp_png;
+    const int            PatchesButtonPushUp_pngSize = 486;
+
+    extern const char*   PatchesButtonSaveDown_png;
+    const int            PatchesButtonSaveDown_pngSize = 593;
+
+    extern const char*   PatchesButtonSaveUp_png;
+    const int            PatchesButtonSaveUp_pngSize = 584;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 19;
+    const int namedResourceListSize = 32;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
