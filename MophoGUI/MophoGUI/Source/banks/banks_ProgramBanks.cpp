@@ -83,27 +83,20 @@ const String ProgramBanks::getProgramDataHexStringFromBankSlot(ProgramBank bank,
 	switch (bank)
 	{
 	case ProgramBank::factory1:
-		programDataHexString = factoryDataHexStrings.getBank1()[slot];
-		break;
+		return factoryDataHexStrings.getBank1()[slot];
 	case ProgramBank::factory2:
-		programDataHexString = factoryDataHexStrings.getBank2()[slot];
-		break;
+		return factoryDataHexStrings.getBank2()[slot];
 	case ProgramBank::factory3:
-		programDataHexString = factoryDataHexStrings.getBank3()[slot];
-		break;
+		return factoryDataHexStrings.getBank2()[slot];
 	case ProgramBank::custom1:
-		programDataHexString = customBank1ProgramDataHexStrings.getProperty("pgm" + (String)slot);
-		break;
+		return customBank1ProgramDataHexStrings.getProperty("pgm" + (String)slot);
 	case ProgramBank::custom2:
-		programDataHexString = customBank2ProgramDataHexStrings.getProperty("pgm" + (String)slot);
-		break;
+		return customBank2ProgramDataHexStrings.getProperty("pgm" + (String)slot);
 	case ProgramBank::custom3:
-		programDataHexString = customBank3ProgramDataHexStrings.getProperty("pgm" + (String)slot);
-		break;
+		return customBank3ProgramDataHexStrings.getProperty("pgm" + (String)slot);
 	default:
-		return {};
+		return "error";
 	}
-	return programDataHexString;
 }
 
 const String ProgramBanks::extractProgramNameFromDataVector(const std::vector<uint8>& dataVector) {
