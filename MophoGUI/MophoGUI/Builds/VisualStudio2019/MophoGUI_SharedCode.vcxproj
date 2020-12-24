@@ -308,10 +308,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
-    <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp" />
+    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp" />
     <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp" />
@@ -2230,7 +2230,6 @@
     <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
-    <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp" />
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
@@ -2282,10 +2281,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
-    <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h" />
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
+    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h" />
@@ -3059,7 +3058,6 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
-    <ClInclude Include="..\..\Source\params\params_RawProgramData.h" />
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />

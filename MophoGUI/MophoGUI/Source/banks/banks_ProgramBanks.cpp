@@ -1,6 +1,6 @@
 #include "banks_ProgramBanks.h"
 
-#include "banks_ConvertRawProgramDataFormat.h"
+#include "banks_RawProgramData.h"
 #include "banks_FactoryProgamDataHexStrings_Singleton.h"
 #include "../params/params_Identifiers.h"
 
@@ -37,13 +37,13 @@ void ProgramBanks::fillAllProgramNameBanks() {
 	String programDataString;
 	for (uint8 programSlot = 0; programSlot != programSlotOutOfRange(); ++programSlot) {
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory1, programSlot);
-		programName = extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
 		factoryBank1ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory2, programSlot);
-		programName = extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
 		factoryBank2ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory3, programSlot);
-		programName = extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
 		factoryBank3ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
 		customBank1ProgramNameStrings.setProperty("pgm" + (String)programSlot, basicPatchNameString, nullptr);
 		customBank2ProgramNameStrings.setProperty("pgm" + (String)programSlot, basicPatchNameString, nullptr);
@@ -173,17 +173,17 @@ void ProgramBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& p
 	auto slot{ (uint8)slotString.getIntValue() };
 	if (tree.hasType(ID::bank_custom1_ProgramDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom1, slot) };
-		auto programName{ extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
 		customBank1ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
 	if (tree.hasType(ID::bank_custom2_ProgramDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom2, slot) };
-		auto programName{ extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
 		customBank2ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
 	if (tree.hasType(ID::bank_custom3_ProgramDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom3, slot) };
-		auto programName{ extractProgramNameFromDataVector(ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
 		customBank3ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
 }

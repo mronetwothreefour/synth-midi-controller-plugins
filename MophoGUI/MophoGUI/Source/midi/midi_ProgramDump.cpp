@@ -2,7 +2,7 @@
 
 #include "midi_OutgoingMidiBuffers.h"
 #include "midi_SysExHelpers.h"
-#include "../banks/banks_ConvertRawProgramDataFormat.h"
+#include "../banks/banks_RawProgramData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -60,7 +60,7 @@ std::vector<uint8> ProgramDump::createProgramDumpForBankAndSlot(ProgramBank bank
     dumpVector.push_back(slot);
     auto programBanks{ unexposedParams->programBanks_get() };
     auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, slot) };
-    auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
+    auto programDataVector{ RawProgramData::convertHexStringToDataVector(programDataHexString) };
     for (auto dataByte : programDataVector)
         dumpVector.push_back(dataByte);
     for (auto emptyByte = dumpVector.size(); emptyByte != 298; ++emptyByte)

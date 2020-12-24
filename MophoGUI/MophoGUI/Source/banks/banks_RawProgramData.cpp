@@ -1,10 +1,24 @@
-#include "params_RawProgramData.h"
+#include "banks_RawProgramData.h"
 
-#include "params_ExposedParamsInfo_Singleton.h"
-#include "params_SpecialValueOffsets.h"
-#include "params_UnexposedParameters_Facade.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
+#include "../params/params_SpecialValueOffsets.h"
+#include "../params/params_UnexposedParameters_Facade.h"
 
 
+
+const std::vector<uint8> RawProgramData::convertHexStringToDataVector(const String& hexString) {
+    std::vector<uint8> programData;
+    for (auto i = 0; i != hexString.length(); i += 2) {
+        auto hexValueString{ hexString.substring(i, i + 2) };
+        programData.push_back((uint8)hexValueString.getHexValue32());
+    }
+    return programData;
+}
+
+const String RawProgramData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
+    auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
+    return hexString;
+}
 
 void RawProgramData::applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     auto midiOptions{ unexposedParams->midiOptions_get() };

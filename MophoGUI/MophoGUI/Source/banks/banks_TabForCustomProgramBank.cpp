@@ -1,6 +1,5 @@
 #include "banks_TabForCustomProgramBank.h"
 
-#include "banks_ConvertRawProgramDataFormat.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_UnexposedParameters_Facade.h"

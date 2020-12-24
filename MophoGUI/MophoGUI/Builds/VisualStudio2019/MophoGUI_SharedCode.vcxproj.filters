@@ -2466,14 +2466,8 @@
     <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_RawProgramData.cpp">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>MophoGUI\Source\midi</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.cpp">
-      <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
@@ -2641,6 +2635,9 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4949,14 +4946,8 @@
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
       <Filter>MophoGUI\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_RawProgramData.h">
-      <Filter>MophoGUI\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>MophoGUI\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ConvertRawProgramDataFormat.h">
-      <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h">
       <Filter>MophoGUI\Source\banks</Filter>
@@ -5133,6 +5124,9 @@
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
   </ItemGroup>

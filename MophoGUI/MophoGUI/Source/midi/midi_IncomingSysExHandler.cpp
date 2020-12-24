@@ -1,9 +1,8 @@
 #include "midi_IncomingSysExHandler.h"
 
 #include "midi_SysExHelpers.h"
-#include "../banks/banks_ConvertRawProgramDataFormat.h"
 #include "../banks/banks_ProgramBanks.h"
-#include "../params/params_RawProgramData.h"
+#include "../banks/banks_RawProgramData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -85,7 +84,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
         std::vector<uint8> programDataVector;
         for (auto dataByte = firstProgramDataByte; dataByte != firstUnusedProgramDataByte; ++dataByte)
             programDataVector.push_back(*(sysExData + dataByte));
-        auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
+        auto programDataHexString{ RawProgramData::convertDataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->programBanks_get() };
         programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
     }

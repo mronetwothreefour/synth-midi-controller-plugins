@@ -2,7 +2,7 @@
 
 #include "midi_OutgoingMidiBuffers.h"
 #include "midi_SysExHelpers.h"
-#include "../params/params_RawProgramData.h"
+#include "../banks/banks_RawProgramData.h"
 
 
 

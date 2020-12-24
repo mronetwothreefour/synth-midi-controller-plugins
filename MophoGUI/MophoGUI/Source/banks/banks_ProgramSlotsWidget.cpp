@@ -1,10 +1,9 @@
 #include "banks_ProgramSlotsWidget.h"
 
-#include "banks_ConvertRawProgramDataFormat.h"
+#include "banks_RawProgramData.h"
 #include "../midi/midi_ProgramDump.h"
 #include "../midi/midi_ProgramEditBufferDump.h"
 #include "../params/params_Identifiers.h"
-#include "../params/params_RawProgramData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
@@ -67,7 +66,7 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto programDataVector{ RawProgramData::extractFromExposedParameters(exposedParams) };
-		auto programDataHexString{ ConvertRawProgramDataFormat::dataVectorToHexString(programDataVector) };
+		auto programDataHexString{ RawProgramData::convertDataVectorToHexString(programDataVector) };
 		auto programBanks{ unexposedParams->programBanks_get() };
 		programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, selectedSlot);
 		setTextForProgramSlotToggleButton(selectedSlot);
@@ -79,7 +78,7 @@ void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 	if (selectedSlot < 128) {
 		auto programBanks{ unexposedParams->programBanks_get() };
 		auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
-		auto programDataVector{ ConvertRawProgramDataFormat::hexStringToDataVector(programDataHexString) };
+		auto programDataVector{ RawProgramData::convertHexStringToDataVector(programDataHexString) };
 		RawProgramData::applyToExposedParameters(programDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get()); });
 	}
