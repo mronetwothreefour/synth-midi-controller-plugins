@@ -79,7 +79,6 @@ const String ProgramBanks::nameOfProgramInBankSlot(ProgramBank bank, uint8 slot)
 const String ProgramBanks::getProgramDataHexStringFromBankSlot(ProgramBank bank, uint8 slot) const {
 	jassert(slot < 128);
 	auto& factoryDataHexStrings{ FactoryProgramDataHexStrings::get() };
-	String programDataHexString;
 	switch (bank)
 	{
 	case ProgramBank::factory1:
