@@ -2152,9 +2152,10 @@
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
-    <ClCompile Include="..\..\Source\patches\patches_ConvertRawPatchDataFormat.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
@@ -2941,9 +2942,10 @@
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
-    <ClInclude Include="..\..\Source\patches\patches_ConvertRawPatchDataFormat.h" />
     <ClInclude Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h" />
+    <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h" />
+    <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />

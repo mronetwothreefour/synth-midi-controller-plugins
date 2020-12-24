@@ -54,11 +54,6 @@ public:
 	int patchSlotOutOfRange();
 	const String nameOfPatchInBankSlot(PatchBank bank, uint8 slot);
 	const String getPatchDataHexStringFromBankSlot(PatchBank bank, uint8 slot) const;
-
-private:
-	const String extractPatchNameFromDataVector(const std::vector<uint8>& dataVector);
-
-public:
 	void storePatchDataHexStringInCustomBankSlot(String patchDataHexString, PatchBank bank, uint8 slot);
 	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, PatchBank bank);
 	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, PatchBank bank);

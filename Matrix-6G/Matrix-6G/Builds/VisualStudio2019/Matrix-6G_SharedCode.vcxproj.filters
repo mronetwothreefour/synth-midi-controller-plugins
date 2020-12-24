@@ -2490,10 +2490,15 @@
     <ClCompile Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.cpp">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_ConvertRawPatchDataFormat.cpp">
+    <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4854,10 +4859,13 @@
     <ClInclude Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.h">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_ConvertRawPatchDataFormat.h">
+    <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h">
+    <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
   </ItemGroup>
