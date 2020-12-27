@@ -8,7 +8,8 @@
 
 
 
-void PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, OutgoingMidiBuffers* outgoingBuffers) {
+void PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+    auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     auto patchDataMessage{ createSysExMessageFromCurrentPatchSettings(exposedParams, unexposedParams) };
     outgoingBuffers->addDataMessage(patchDataMessage);
 }

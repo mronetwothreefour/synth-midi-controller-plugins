@@ -1,11 +1,15 @@
 #include "widget_BankTransmissionComponent.h"
 
+#include "../banks/banks_Constants.h"
 #include "../banks/banks_TabbedComponentForFactoryProgramBanks.h"
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_ProgramDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -15,7 +19,7 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	unexposedParams{ unexposedParams },
 	message{ "" },
 	transmitTime{ unexposedParams->midiOptions_get()->programTransmitTime() },
-	programCounter{ 128 },
+	programCounter{ banks::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -54,11 +58,7 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	}
 	
 	addAndMakeVisible(progressBar);
-	auto progressBar_x{ 461 };
-	auto progressBar_y{ 319 };
-	auto progressBar_w{ 351 };
-	auto progressBar_h{ 18 };
-	progressBar.setBounds(progressBar_x, progressBar_y, progressBar_w, progressBar_h);
+	progressBar.setBounds(GUI::bounds_BankTransmitProgressBar);
 
 	button_Close.setComponentID(ID::button_Close.toString());
 	button_Stop.setComponentID(ID::button_Stop.toString());
@@ -66,14 +66,10 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	addAndMakeVisible(button_Stop);
 	button_Close.onClick = [this] { hideThisComponent(); };
 	button_Stop.onClick = [this] { cancelTransmission(); };
-	auto button_x{ 611 };
-	auto button_y{ 344 };
-	auto button_w{ 51 };
-	auto button_h{ 22 };
-	button_Close.setBounds(button_x, button_y, button_w, button_h);
-	button_Stop.setBounds(button_x, button_y, button_w, button_h);
+	button_Close.setBounds(GUI::bounds_BankTransmitButtons);
+	button_Stop.setBounds(GUI::bounds_BankTransmitButtons);
 
-	setSize(1273, 626);
+	setSize(GUI::editor_w, GUI::editor_h);
 
 	programCounter = 0;
 	startTimer(transmitTime);
@@ -81,10 +77,10 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 
 void BankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (programCounter < 128) {
+	if (programCounter < banks::numberOfSlotsInBank) {
 		transmitMidiBufferForProgramSlot(programCounter);
 		++programCounter;
-		progress = programCounter / 128.0;
+		progress = programCounter / (double)banks::numberOfSlotsInBank;
 		message = transmissionType == TransmissionType::push ? "Pushing " : "Pulling ";
 		message += bankName + " Program " + (String)programCounter;
 		message += transmissionType == TransmissionType::push ? " To Hardware" : " From Hardware";
@@ -110,26 +106,24 @@ void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSl
 
 void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	Rectangle<int> dimBanksWindow{ 89, 113, 1095, 400 };
-	g.fillRect(dimBanksWindow);
+	g.fillRect(GUI::bounds_BanksWindow);
 	g.setColour(Color::black);
-	Rectangle<int> progressDisplayOutline{ 444, 251, 385, 124 };
-	g.fillRect(progressDisplayOutline);
+	auto progressDisplayWindow{ GUI::bounds_BankTransmitProgressDisplayWindow };
+	g.fillRect(progressDisplayWindow);
 	g.setColour(Color::device);
-	Rectangle<int> progressDisplayBackground{ 446, 253, 381, 120 };
-	g.fillRect(progressDisplayBackground);
+	progressDisplayWindow.reduce(2, 2);
+	g.fillRect(progressDisplayWindow);
 	PNGImageFormat imageFormat;
 	auto titleLabelImageData{ getTitleLabelImageData() };
 	auto titleLabelImageDataSize{ getTitleLabelImageDataSize() };
 	if (titleLabelImageData != nullptr) {
 		MemoryInputStream memInputStream{ titleLabelImageData, titleLabelImageDataSize, false };
 		auto titleLabelImage{ imageFormat.decodeImage(memInputStream) };
-		g.drawImageAt(titleLabelImage, 454, 260);
+		g.drawImageAt(titleLabelImage, GUI::bankTransmitTitleLabel_x, GUI::bankTransmitTitleLabel_y);
 	}
 	g.setColour(Color::black);
 	g.setFont(FontsMenu::fontFor_ProgressDisplayMessage);
-	Rectangle<int> messageArea{ 461, 290, 351, 28 };
-	g.drawFittedText(message, messageArea, Justification::centred, 1, 1.0f);
+	g.drawFittedText(message, GUI::bounds_BankTransmitMessage, Justification::centred, 1, 1.0f);
 }
 
 const char* BankTransmissionComponent::getTitleLabelImageData() {

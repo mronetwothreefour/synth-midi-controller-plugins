@@ -1,8 +1,11 @@
 #include "global_HardwareSettingsWarningComponent.h"
 
+#include "../gui/gui_Constants.h"
 #include "../midi/midi_GlobalParametersDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -13,7 +16,7 @@ HardwareSettingsWarningComponent::HardwareSettingsWarningComponent(UnexposedPara
 {
 	button_ForSendingGlobalParametersDumpRequest.onClick = [this] { sendRequestForGlobalParametersDump(); };
 	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
-	setSize(1273, 626);
+	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void HardwareSettingsWarningComponent::addButtonsToComponent() {

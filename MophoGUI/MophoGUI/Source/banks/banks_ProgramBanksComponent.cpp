@@ -1,10 +1,13 @@
 #include "banks_ProgramBanksComponent.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../widgets_BankTransmission/widget_BankTransmissionComponent.h"
+
+using namespace constants;
 
 
 
@@ -16,7 +19,7 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	tabbedComponent.addListenerToPushEntireBankButtonInAllTabs(this);
 	tabbedComponent.addListenerToPullEntireBankButtonInAllCustomTabs(this);
 
-	setSize(1273, 626);
+	setSize(GUI::editor_w, GUI::editor_h);
 
 	addAndMakeVisible(tabbedComponent);
 	auto tabbedComponent_w{ 1095 };

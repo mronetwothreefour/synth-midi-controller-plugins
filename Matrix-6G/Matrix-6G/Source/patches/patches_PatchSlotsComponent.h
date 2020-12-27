@@ -13,7 +13,7 @@ class PatchSlotsComponent :
     public ValueTree::Listener,
     private Timer
 {
-    ToggleButton patchSlotButtons[128];
+    ToggleButton patchSlotButtons[100];
     const PatchBank bank;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;

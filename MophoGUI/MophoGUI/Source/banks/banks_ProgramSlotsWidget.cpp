@@ -35,7 +35,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTree
 void ProgramSlotsWidget::setUpProgramSlotToggleButton(uint8 slot) {
 	programSlotButtons[slot].setComponentID(ID::component_PgmSlotRadioButton.toString());
 	programSlotButtons[slot].setRadioGroupId(1);
-	programSlotButtons[slot].onClick = [this, slot] {selectedSlot = slot; };
+	programSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
 	setTooltipForProgramSlotToggleButton(slot);
 	setTextForProgramSlotToggleButton(slot);
 }

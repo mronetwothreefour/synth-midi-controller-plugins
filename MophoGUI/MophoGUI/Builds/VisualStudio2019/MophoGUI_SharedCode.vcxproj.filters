@@ -5129,6 +5129,12 @@
     <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_Constants.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

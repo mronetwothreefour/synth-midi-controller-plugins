@@ -1,11 +1,14 @@
 #include "global_GlobalParametersComponent.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_NRPNbufferWithLeadingMSBs.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -90,7 +93,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	label_ForSettingTooltipDelay.addListener(this);
 	addAndMakeVisible(label_ForSettingTooltipDelay);
 
-	setSize(1273, 626);
+	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void GlobalParametersComponent::hideThisComponent() {

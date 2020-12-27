@@ -2281,6 +2281,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
+    <ClInclude Include="..\..\Source\banks\banks_Constants.h" />
     <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h" />
     <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h" />
@@ -3036,6 +3037,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h" />

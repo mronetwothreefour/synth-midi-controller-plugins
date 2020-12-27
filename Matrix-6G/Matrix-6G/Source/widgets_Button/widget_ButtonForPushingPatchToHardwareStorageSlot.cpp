@@ -27,6 +27,5 @@ const String ButtonForPushingPatchToHardwareStorageSlot::createButtonTooltipStri
 }
 
 void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
-	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams, outgoingMidiBuffers);
+	PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams);
 }

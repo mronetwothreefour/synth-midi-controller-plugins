@@ -1,12 +1,15 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "gui/gui_Constants.h"
 #include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_EnvelopeRenderers.h"
 #include "gui/gui_Layer_ExposedParamControls.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -33,9 +36,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
     tooltipWindow->setComponentEffect(nullptr);
 
-    auto device_w{ 1273 };
-    auto device_h{ 626 };
-    setSize(device_w, device_h);
+    setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
 }
 

@@ -182,10 +182,10 @@ void PatchBanks::addListenerToNameStringsForCustomBank(ValueTree::Listener* list
 	switch (bank)
 	{
 	case PatchBank::customA:
-		customBankApatchNameStrings.addListener(this);
+		customBankApatchNameStrings.addListener(listener);
 		break;
 	case PatchBank::customB:
-		customBankBpatchNameStrings.addListener(this);
+		customBankBpatchNameStrings.addListener(listener);
 		break;
 	default:
 		break;
@@ -197,10 +197,10 @@ void PatchBanks::removeListenerFromNameStringsForCustomBank(ValueTree::Listener*
 	switch (bank)
 	{
 	case PatchBank::customA:
-		customBankApatchNameStrings.removeListener(this);
+		customBankApatchNameStrings.removeListener(listener);
 		break;
 	case PatchBank::customB:
-		customBankBpatchNameStrings.removeListener(this);
+		customBankBpatchNameStrings.removeListener(listener);
 		break;
 	default:
 		break;
