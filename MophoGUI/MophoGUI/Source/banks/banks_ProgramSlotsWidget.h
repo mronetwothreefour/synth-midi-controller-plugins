@@ -17,9 +17,6 @@ class ProgramSlotsWidget :
     const ProgramBank bank;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
-    const int buttton_w;
-    const int buttton_h;
-    const int buttonHorizontalGap;
 
 public:
     uint8 selectedSlot;

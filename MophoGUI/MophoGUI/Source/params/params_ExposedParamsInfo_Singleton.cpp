@@ -2,7 +2,10 @@
 
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
+#include "../gui/gui_Constants.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
+
+using namespace constants;
 
 
 
@@ -11,55 +14,6 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-	static const auto knob_diameter{ 40 };
-	static const auto toggle_diameter{ 14 };
-	static const auto modulatorComboBox_w{ 126 };
-	static const auto midiControllerComboBox_w{ 136 };
-	static const auto seqTrackDestComboBoxes_w{ 126 };
-	static const auto seqSteps_w{ 26 };
-	static const auto seqSteps_h{ 26 };
-	static const auto knobAssignComboBoxes_w{ 134 };
-	static const auto comboBox_h{ 16 };
-	static const auto horizGapBtwnControls{ 5 };
-	static const auto controlsCol1_x{ 48 };
-	static const auto controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol3_x{ controlsCol2_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol4_x{ controlsCol3_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol5_x{ controlsCol4_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol6_x{ controlsCol5_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol7_x{ controlsCol6_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol8_x{ controlsCol7_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
-	static const auto controlsCol10_x{ 500 };
-	static const auto modulatorControlsCol1_x{ 486 };
-	static const auto modulatorControlsCol2_x{ 575 };
-	static const auto modulatorControlsVerticalSpacing{ 78 };
-	static const auto midiControllerssCol1_x{ 680 };
-	static const auto midiControllerssCol2_x{ 776 };
-	static const auto oscControlsRow1_y{ 50 };
-	static const auto oscControlsRow2_y{ 110 };
-	static const auto lpfControlsRow1_y{ 161 };
-	static const auto lpfControlsRow2_y{ 215 };
-	static const auto lpfControlsRow3_y{ 267 };
-	static const auto vcaControlsRow1_y{ 373 };
-	static const auto vcaControlsRow2_y{ 425 };
-	static const auto lfoControlsRow1_y{ 515 };
-	static const auto lfoControlsRow2_y{ 560 };
-	static const auto lfoControlsRow3_y{ 594 };
-	static const auto lfoControlsHorizontalSpacing{ 155 };
-	static const auto env3ControlsRow1_y{ 531 };
-	static const auto env3ControlsRow2_y{ 583 };
-	static const auto seqTrackDestComboBoxes_x{ 1055 };
-	static const auto knobAssignComboBoxes_x{ 1089 };
-	static const auto sequencerStep1_x{ 825 };
-	static const auto sequencerStepsHorizontalSpacer{ 28 };
-	static const auto sequencerTrack1Steps_y{ 196 };
-	static const auto sequencerTracksVerticalSpacer{ 83 };
-	static const auto pgmNameCharacter1_x{ 596 };
-	static const auto pgmNameCharactersHorizontalSpacer{ 14 };
-	static const auto pgmNameCharacters_w{ 12 };
-	static const auto pgmNameCharacters_h{ 17 };
-	static const auto pgmNameCharacters_y{ 52 };
 
 	String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 	String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
@@ -79,9 +33,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s base pitch in semitone steps.\n";
 		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol1_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
 		identifiers.add("osc" + (String)i + "Fine"); // 1 & 7
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
@@ -94,9 +48,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Range: -50 cents to +50 cents.\n";
 		descriptionString += "0 = no detuning (centered).";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol2_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
 		identifiers.add("osc" + (String)i + "Shape"); // 2 & 8
 		exposedNames.add("Oscillator " + (String)i + " Wave Shape");
@@ -112,9 +66,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "3 = Sawtooth / Triangle Mixture;\n";
 		descriptionString += "4 = Square (a Pulse with width 50).";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol3_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
 		identifiers.add("osc" + (String)i + "Glide"); // 3 & 9
 		exposedNames.add("Oscillator " + (String)i + " Glide Rate");
@@ -126,9 +80,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s glide (portamento) rate.\n";
 		descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol4_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
 		identifiers.add("osc" + (String)i + "KeyTrack"); // 4 & 10
 		exposedNames.add("Oscillator " + (String)i + " Keyboard Track On/Off");
@@ -142,9 +96,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "always produces its base pitch, unaffected\n";
 		descriptionString += "by the pitch of incoming MIDI notes.";
 		descriptions.add(descriptionString);
-		controlWidths.add(toggle_diameter);
-		controlHeights.add(toggle_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol6_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::toggle_diameter);
+		controlHeights.add(GUI::toggle_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
 		identifiers.add("osc" + (String)i + "SubLevel"); // 5 & 11
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
@@ -158,9 +112,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "one octave lower than oscillator " + (String)i + ".\n";
 		descriptionString += "Range: 0 to 127.";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(controlsCol5_x, i == 1 ? oscControlsRow1_y : oscControlsRow2_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 	}
 
 	identifiers.add("oscSync"); // 12
@@ -174,9 +128,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "turned on, every time oscillator 2 resets,\n";
 	descriptionString += "it forces oscillator 1 to reset as well.";
 	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, 22));
+	controlWidths.add(GUI::toggle_diameter);
+	controlHeights.add(GUI::toggle_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, 22));
 
 	//======================================================
 
@@ -193,8 +147,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "(the new note is triggered before the previous note is released).";
 	descriptions.add(descriptionString);
 	controlWidths.add(124);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(controlsCol10_x, 78));
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 78));
 
 	identifiers.add("oscSlop"); // 14
 	exposedNames.add("Oscillator Slop");
@@ -207,9 +161,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "pitch drift for a " + openQuote + "vintage analog" + closeQuote + " sound.\n";
 	descriptionString += "Range: 0 to 5.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow1_y));
 
 	identifiers.add("bendRange"); // 15
 	exposedNames.add("Pitch Bend Range");
@@ -222,9 +176,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "messages can raise or lower the pitches of the oscillators.\n";
 	descriptionString += "Range: 0 (no pitch bend) to +/-12 semitones.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow1_y));
 
 	identifiers.add("notePriority"); // 16
 	exposedNames.add("Note Priority (Key Assign)");
@@ -239,8 +193,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "the previous note has been released).";
 	descriptions.add(descriptionString);
 	controlWidths.add(124);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(controlsCol10_x, 38));
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 38));
 
 	identifiers.add("oscMix"); // 17
 	exposedNames.add("Oscillator 1 & 2 Mix");
@@ -254,9 +208,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "At 127, only oscillator 2 is heard. At 64, an equal\n";
 	descriptionString += "mix of the two oscillators is heard.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol8_x, oscControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow1_y));
 
 	identifiers.add("noiseLevel"); // 18
 	exposedNames.add("Noise Level");
@@ -269,9 +223,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "sent into the low-pass filter.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol7_x, oscControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow2_y));
 
 	identifiers.add("extInLevel"); // 19
 	exposedNames.add("External Audio Input Level");
@@ -287,9 +241,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "from the left audio output.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol8_x, oscControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow2_y));
 
 	//======================================================
 
@@ -304,9 +258,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "low-pass filter (in semitone steps).\n";
 	descriptionString += "Range: 0 (C 0) to 164 (G# 13).";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, lpfControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow2_y));
 
 	identifiers.add("lpfReso"); // 21
 	exposedNames.add("LPF Resonance");
@@ -320,9 +274,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "will cause the filter to self-oscillate.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow2_y));
 
 	identifiers.add("lpfKeyAmount"); // 22
 	exposedNames.add("LPF Keyboard Amount");
@@ -337,9 +291,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "semitone for each note. At 32, cutoff is shifted\n";
 	descriptionString += "by one half-semitone for each note.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, lpfControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow2_y));
 
 	identifiers.add("lpfFMamount"); // 23
 	exposedNames.add("LPF FM (By Oscillator 1)");
@@ -353,9 +307,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "useful for generating bell-like sounds.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfType"); // 24
 	exposedNames.add("LPF Type");
@@ -368,9 +322,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
 	descriptionString += "slope and more pronounced resonance.";
 	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow1_y));
+	controlWidths.add(GUI::toggle_diameter);
+	controlHeights.add(GUI::toggle_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow1_y));
 
 	identifiers.add("lpfEnvAmount"); // 25
 	exposedNames.add("LPF Envelope Amount");
@@ -384,9 +338,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the envelope.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfVelAmount"); // 26
 	exposedNames.add("LPF Envelope Velocity Amount");
@@ -399,9 +353,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "the amplitude of the low-pass filter" + apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfDelay"); // 27
 	exposedNames.add("LPF Envelope Delay");
@@ -415,9 +369,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol4_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfAttack"); // 28
 	exposedNames.add("LPF Envelope Attack");
@@ -431,9 +385,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol5_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfDecay"); // 29
 	exposedNames.add("LPF Envelope Decay");
@@ -447,9 +401,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfSustain"); // 30
 	exposedNames.add("LPF Envelope Sustain");
@@ -463,9 +417,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol7_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::lpfControlsRow3_y));
 
 	identifiers.add("lpfRelease"); // 31
 	exposedNames.add("LPF Envelope Release");
@@ -479,9 +433,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol8_x, lpfControlsRow3_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::lpfControlsRow3_y));
 
 	//======================================================
 
@@ -497,9 +451,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "When this level is set to 127, the VCA envelope has no effect.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, vcaControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::vcaControlsRow1_y));
 
 	identifiers.add("vcaEnvAmount"); // 33
 	exposedNames.add("VCA Envelope Amount");
@@ -512,9 +466,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "modulates the voltage-controlled ampifier" + apostrophe + "s level.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, vcaControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow1_y));
 
 	identifiers.add("vcaVelAmount"); // 34
 	exposedNames.add("VCA Envelope Velocity Amount");
@@ -527,9 +481,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "the amplitude of the voltage-controlled ampifier" + apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, vcaControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::vcaControlsRow1_y));
 
 	identifiers.add("vcaDelay"); // 35
 	exposedNames.add("VCA Envelope Delay");
@@ -543,9 +497,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol4_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::vcaControlsRow2_y));
 
 	identifiers.add("vcaAttack"); // 36
 	exposedNames.add("VCA Envelope Attack");
@@ -559,9 +513,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol5_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::vcaControlsRow2_y));
 
 	identifiers.add("vcaDecay"); // 37
 	exposedNames.add("VCA Envelope Decay");
@@ -575,9 +529,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::vcaControlsRow2_y));
 
 	identifiers.add("vcaSustain"); // 38
 	exposedNames.add("VCA Envelope Sustain");
@@ -591,9 +545,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol7_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::vcaControlsRow2_y));
 
 	identifiers.add("vcaRelease"); // 39
 	exposedNames.add("VCA Envelope Release");
@@ -607,9 +561,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol8_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::vcaControlsRow2_y));
 
 	identifiers.add("pgmVolume"); // 40
 	exposedNames.add("Program Volume");
@@ -621,9 +575,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Sets the overall gain of the current program.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, vcaControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow2_y));
 
 	//======================================================
 
@@ -642,9 +596,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Above 150, LFO " + String(i + 1) + " is synced with the step sequencer,\n";
 		descriptionString += "displayed as [number of cycles] : [length in steps].";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(416 + i * lfoControlsHorizontalSpacing, lfoControlsRow1_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(416 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
 		identifiers.add("lfo" + String(i + 1) + "Shape"); // 42, 47, 52, 57
 		exposedNames.add("LFO " + String(i + 1) + " Wave Shape");
@@ -655,8 +609,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		defaultValues.add((uint8)1);
 		descriptions.add("Selects LFO " + String(i + 1) + apostrophe + "s wave shape.");
 		controlWidths.add(134);
-		controlHeights.add(comboBox_h);
-		controlCenterPoints.add(Point<int>(463 + i * lfoControlsHorizontalSpacing, lfoControlsRow2_y));
+		controlHeights.add(GUI::comboBox_h);
+		controlCenterPoints.add(Point<int>(463 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
 
 		identifiers.add("lfo" + String(i + 1) + "Amount"); // 43, 48, 53, 58
 		exposedNames.add("LFO " + String(i + 1) + " Amount");
@@ -669,9 +623,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "modulates the destination parameter.\n";
 		descriptionString += "Range: 0 to 127.";
 		descriptions.add(descriptionString);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(461 + i * lfoControlsHorizontalSpacing, lfoControlsRow1_y));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(461 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
 		identifiers.add("lfo" + String(i + 1) + "Destination"); // 44, 49, 54, 59
 		exposedNames.add("LFO " + String(i + 1) + " Modulation Destination");
@@ -682,8 +636,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		defaultValues.add((uint8)0);
 		descriptions.add("Selects the target parameter for modulation by LFO " + String(i + 1) + ".");
 		controlWidths.add(134);
-		controlHeights.add(comboBox_h);
-		controlCenterPoints.add(Point<int>(463 + i * lfoControlsHorizontalSpacing, lfoControlsRow3_y));
+		controlHeights.add(GUI::comboBox_h);
+		controlCenterPoints.add(Point<int>(463 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow3_y));
 
 		identifiers.add("lfo" + String(i + 1) + "KeySync"); // 45, 50, 55, 60
 		exposedNames.add("LFO " + String(i + 1) + " Key Sync On/Off");
@@ -695,9 +649,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "When on, LFO " + String(i + 1) + apostrophe + "s cycle will reset\n";
 		descriptionString += "each time a new note is played.";
 		descriptions.add(descriptionString);
-		controlWidths.add(toggle_diameter);
-		controlHeights.add(toggle_diameter);
-		controlCenterPoints.add(Point<int>(507 + i * lfoControlsHorizontalSpacing, lfoControlsRow1_y));
+		controlWidths.add(GUI::toggle_diameter);
+		controlHeights.add(GUI::toggle_diameter);
+		controlCenterPoints.add(Point<int>(507 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 	}
 
 	//======================================================
@@ -711,8 +665,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	defaultValues.add((uint8)0);
 	descriptions.add("Selects the target parameter for modulation by envelope 3");
 	controlWidths.add(126);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, env3ControlsRow2_y));
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Amount"); // 62
 	exposedNames.add("Envelope 3 Amount");
@@ -726,9 +680,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the envelope.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol2_x, env3ControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow1_y));
 
 	identifiers.add("env3VelAmount"); // 63
 	exposedNames.add("Envelope 3 Velocity Amount");
@@ -741,9 +695,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "modulates the amplitude of envelope 3.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol3_x, env3ControlsRow1_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::env3ControlsRow1_y));
 
 	identifiers.add("env3Delay"); // 64
 	exposedNames.add("Envelope 3 Delay");
@@ -757,9 +711,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol4_x, env3ControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Attack"); // 65
 	exposedNames.add("Envelope 3 Attack");
@@ -773,9 +727,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol5_x, env3ControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Decay"); // 66
 	exposedNames.add("Envelope 3 Decay");
@@ -789,9 +743,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol6_x, env3ControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Sustain"); // 67
 	exposedNames.add("Envelope 3 Sustain");
@@ -805,9 +759,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol7_x, env3ControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Release"); // 68
 	exposedNames.add("Envelope 3 Release");
@@ -821,9 +775,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol8_x, env3ControlsRow2_y));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::env3ControlsRow2_y));
 
 	identifiers.add("env3Repeat"); // 69
 	exposedNames.add("Envelope 3 Repeat On/Off");
@@ -836,9 +790,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "its delay, attack, decay, and sustain segments\n";
 	descriptionString += "for as long as the envelope is gated on.";
 	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol1_x, env3ControlsRow1_y));
+	controlWidths.add(GUI::toggle_diameter);
+	controlHeights.add(GUI::toggle_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::env3ControlsRow1_y));
 
 	//======================================================
 
@@ -857,9 +811,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)22);
 		defaultValues.add((uint8)0);
 		descriptions.add(modSourceDescription);
-		controlWidths.add(modulatorComboBox_w);
-		controlHeights.add(comboBox_h);
-		controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 184 + i * modulatorControlsVerticalSpacing));
+		controlWidths.add(GUI::modulatorComboBox_w);
+		controlHeights.add(GUI::comboBox_h);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, 184 + i * GUI::modulatorControlsVerticalSpacing));
 
 		identifiers.add("mod" + (String)(i + 1) + "Amount"); // 71, 74, 77, 80
 		exposedNames.add("Modulator " + (String)(i + 1) + " Amount");
@@ -869,9 +823,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)254);
 		defaultValues.add((uint8)127);
 		descriptions.add(modAmountDescription);
-		controlWidths.add(knob_diameter);
-		controlHeights.add(knob_diameter);
-		controlCenterPoints.add(Point<int>(modulatorControlsCol2_x, 201 + i * modulatorControlsVerticalSpacing));
+		controlWidths.add(GUI::knob_diameter);
+		controlHeights.add(GUI::knob_diameter);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, 201 + i * GUI::modulatorControlsVerticalSpacing));
 
 		identifiers.add("mod" + (String)(i + 1) + "Destination"); // 72, 75, 78, 81
 		exposedNames.add("Modulator " + (String)(i + 1) + " Destination");
@@ -881,9 +835,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)46);
 		defaultValues.add((uint8)0);
 		descriptions.add(modDestinationDescription);
-		controlWidths.add(modulatorComboBox_w);
-		controlHeights.add(comboBox_h);
-		controlCenterPoints.add(Point<int>(modulatorControlsCol1_x, 218 + i * modulatorControlsVerticalSpacing));
+		controlWidths.add(GUI::modulatorComboBox_w);
+		controlHeights.add(GUI::comboBox_h);
+		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, 218 + i * GUI::modulatorControlsVerticalSpacing));
 	}
 
 	//======================================================
@@ -900,9 +854,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the modulation.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(midiControllerssCol2_x, 191));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 191));
 
 	identifiers.add("modWheelDest"); // 83
 	exposedNames.add("Modulation Wheel Destination");
@@ -912,9 +866,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
-	controlWidths.add(midiControllerComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(midiControllerssCol1_x, 191));
+	controlWidths.add(GUI::midiControllerComboBox_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 191));
 
 	identifiers.add("pressureAmount"); // 84
 	exposedNames.add("Pressure (Aftertouch) Amount");
@@ -928,9 +882,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the modulation.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(midiControllerssCol2_x, 253));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 253));
 
 	identifiers.add("pressureDest"); // 85
 	exposedNames.add("Pressure (Aftertouch) Destination");
@@ -940,9 +894,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
-	controlWidths.add(midiControllerComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(midiControllerssCol1_x, 253));
+	controlWidths.add(GUI::midiControllerComboBox_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 253));
 
 	identifiers.add("breathAmount"); // 86
 	exposedNames.add("Breath Amount");
@@ -956,9 +910,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the modulation.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(midiControllerssCol2_x, 315));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 315));
 
 	identifiers.add("breathDest"); // 87
 	exposedNames.add("Breath Destination");
@@ -968,9 +922,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
-	controlWidths.add(midiControllerComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(midiControllerssCol1_x, 315));
+	controlWidths.add(GUI::midiControllerComboBox_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 315));
 
 	identifiers.add("velocityAmount"); // 88
 	exposedNames.add("Note Velocity Amount");
@@ -984,9 +938,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the modulation.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(midiControllerssCol2_x, 377));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 377));
 
 	identifiers.add("velocityDest"); // 89
 	exposedNames.add("Note Velocity Destination");
@@ -996,9 +950,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
-	controlWidths.add(midiControllerComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(midiControllerssCol1_x, 377));
+	controlWidths.add(GUI::midiControllerComboBox_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 377));
 
 	identifiers.add("footPedalAmount"); // 90
 	exposedNames.add("Foot Pedal Amount");
@@ -1012,9 +966,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Negative values invert the modulation.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
-	controlCenterPoints.add(Point<int>(midiControllerssCol2_x, 439));
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 439));
 
 	identifiers.add("footPedalDest"); // 91
 	exposedNames.add("Foot Pedal Destination");
@@ -1024,9 +978,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
-	controlWidths.add(midiControllerComboBox_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(midiControllerssCol1_x, 439));
+	controlWidths.add(GUI::midiControllerComboBox_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 439));
 
 	//======================================================
 
@@ -1042,8 +996,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz).\n";
 	descriptionString += "Middle C is C 5.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1191, 528));
 
 	identifiers.add("pushItVelocity"); // 93
@@ -1057,8 +1011,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "when the Push It! switch is pressed.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1239, 528));
 
 	identifiers.add("pushItMode"); // 94
@@ -1077,7 +1031,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "external audio input level is above a certain threshold.";
 	descriptions.add(descriptionString);
 	controlWidths.add(88);
-	controlHeights.add(comboBox_h);
+	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(1215, 577));
 
 	//======================================================
@@ -1092,8 +1046,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Sets the tempo (in beats per minute)\n";
 	descriptionString += "for the sequencer and the arpeggiator.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knob_diameter);
-	controlHeights.add(knob_diameter);
+	controlWidths.add(GUI::knob_diameter);
+	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1236, 126));
 
 	identifiers.add("clockDivision"); // 96
@@ -1107,7 +1061,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "arpeggiator advance, relative to the tempo.";
 	descriptions.add(descriptionString);
 	controlWidths.add(124);
-	controlHeights.add(comboBox_h);
+	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(1139, 126));
 
 	//======================================================
@@ -1123,8 +1077,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Assign mode: notes play in the order in which they were struck.";
 	descriptions.add(descriptionString);
 	controlWidths.add(124);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(controlsCol10_x, 118));
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 118));
 
 	identifiers.add("arpegOnOff"); // 98
 	exposedNames.add("Arpeggiator On/Off");
@@ -1136,9 +1090,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Turns the Mopho" + apostrophe + "s arpeggiator on and off.\n";
 	descriptionString += "Turning this on will turn off the sequencer.";
 	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
-	controlCenterPoints.add(Point<int>(controlsCol9_x, oscControlsRow2_y));
+	controlWidths.add(GUI::toggle_diameter);
+	controlHeights.add(GUI::toggle_diameter);
+	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow2_y));
 
 	identifiers.add("sequencerTrigMode"); // 99
 	exposedNames.add("Sequencer Trigger Mode");
@@ -1160,7 +1114,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "external audio input level surpasses a certain threshold.";
 	descriptions.add(descriptionString);
 	controlWidths.add(114);
-	controlHeights.add(comboBox_h);
+	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(998, 126));
 
 	identifiers.add("sequencerOnOff"); // 100
@@ -1173,8 +1127,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Turns the Mopho" + apostrophe + "s internal sequencer on and off.\n";
 	descriptionString += "Turning this on will turn off the arpeggiator.";
 	descriptions.add(descriptionString);
-	controlWidths.add(toggle_diameter);
-	controlHeights.add(toggle_diameter);
+	controlWidths.add(GUI::toggle_diameter);
+	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
 
 	identifiers.add(ID::param_SeqTrack1Dest); // 101
@@ -1187,9 +1141,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 1.";
 	descriptions.add(descriptionString);
-	controlWidths.add(seqTrackDestComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 169));
+	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 169));
 
 	identifiers.add(ID::param_SeqTrack2Dest); // 102
 	exposedNames.add("Sequencer Track 2 Destination");
@@ -1201,9 +1155,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 2.";
 	descriptions.add(descriptionString);
-	controlWidths.add(seqTrackDestComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 252));
+	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 252));
 
 	identifiers.add(ID::param_SeqTrack3Dest); // 103
 	exposedNames.add("Sequencer Track 3 Destination");
@@ -1215,9 +1169,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString = "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 3.";
 	descriptions.add(descriptionString);
-	controlWidths.add(seqTrackDestComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 335));
+	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 335));
 
 	identifiers.add(ID::param_SeqTrack4Dest); // 104
 	exposedNames.add("Sequencer Track 4 Destination");
@@ -1229,9 +1183,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString = "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 4.";
 	descriptions.add(descriptionString);
-	controlWidths.add(seqTrackDestComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(seqTrackDestComboBoxes_x, 418));
+	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 418));
 
 	//======================================================
 
@@ -1245,9 +1199,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 1.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knobAssignComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 521));
+	controlWidths.add(GUI::knobAssignComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 521));
 
 	identifiers.add("assignKnob2"); // 106
 	exposedNames.add("Assign Parameter to Knob 2");
@@ -1259,9 +1213,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 2.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knobAssignComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 549));
+	controlWidths.add(GUI::knobAssignComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 549));
 
 	identifiers.add("assignKnob3"); // 107
 	exposedNames.add("Assign Parameter to Knob 3");
@@ -1273,9 +1227,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 3.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knobAssignComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 577));
+	controlWidths.add(GUI::knobAssignComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 577));
 
 	identifiers.add("assignKnob4"); // 108
 	exposedNames.add("Assign Parameter to Knob 4");
@@ -1287,9 +1241,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 4.";
 	descriptions.add(descriptionString);
-	controlWidths.add(knobAssignComboBoxes_w);
-	controlHeights.add(comboBox_h);
-	controlCenterPoints.add(Point<int>(knobAssignComboBoxes_x, 605));
+	controlWidths.add(GUI::knobAssignComboBoxes_w);
+	controlHeights.add(GUI::comboBox_h);
+	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 605));
 
 	//======================================================
 
@@ -1318,9 +1272,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 				descriptionString += "(Rests are only available for the steps in sequencer track 1).";
 			}
 			descriptions.add(descriptionString);
-			controlWidths.add(seqSteps_w);
-			controlHeights.add(seqSteps_h);
-			controlCenterPoints.add(Point<int>(sequencerStep1_x + step * sequencerStepsHorizontalSpacer, sequencerTrack1Steps_y + track * sequencerTracksVerticalSpacer));
+			controlWidths.add(GUI::seqSteps_w);
+			controlHeights.add(GUI::seqSteps_h);
+			controlCenterPoints.add(Point<int>(GUI::sequencerStep1_x + step * GUI::sequencerStepsHorizontalSpacer, GUI::sequencerTrack1Steps_y + track * GUI::sequencerTracksVerticalSpacer));
 		}
 	}
 
@@ -1340,9 +1294,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "it and turn the mouse wheel. Click the edit\n";
 		descriptionString += "button above to type in the entire name.";
 		descriptions.add(descriptionString);
-		controlWidths.add(pgmNameCharacters_w);
-		controlHeights.add(pgmNameCharacters_h);
-		controlCenterPoints.add(Point<int>(pgmNameCharacter1_x + (charNum * pgmNameCharactersHorizontalSpacer), pgmNameCharacters_y));
+		controlWidths.add(GUI::pgmNameCharacters_w);
+		controlHeights.add(GUI::pgmNameCharacters_h);
+		controlCenterPoints.add(Point<int>(GUI::pgmNameCharacter1_x + (charNum * GUI::pgmNameCharactersHorizontalSpacer), GUI::pgmNameCharacters_y));
 	}
 	defaultValues.add((uint8)66);	// B
 	defaultValues.add((uint8)97);	// a

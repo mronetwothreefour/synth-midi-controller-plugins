@@ -2,6 +2,7 @@
 
 #include "banks_Constants.h"
 #include "banks_RawProgramData.h"
+#include "../gui/gui_Constants.h"
 #include "../midi/midi_ProgramDump.h"
 #include "../midi/midi_ProgramEditBufferDump.h"
 #include "../params/params_Identifiers.h"
@@ -15,10 +16,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTree
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	buttton_w{ 125 },
-	buttton_h{ 19 },
-	buttonHorizontalGap{ 7 },
-	selectedSlot{ 128 }
+	selectedSlot{ banks::numberOfSlotsInBank }
 {
 	auto programBanks{ unexposedParams->programBanks_get() };
 	for (uint8 slot = 0; slot != banks::numberOfSlotsInBank; ++slot) {
@@ -30,9 +28,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTree
 		programBanks->addListenerToNameStringsForCustomBank(this, bank);
 	}
 
-	auto programSlotsWidget_w{ 8 * buttton_w + 7 * buttonHorizontalGap };
-	auto programSlotsWidget_h{ 16 * buttton_h };
-	setSize(programSlotsWidget_w, programSlotsWidget_h);
+	setSize(GUI::programSlotsWidget_w, GUI::programSlotsWidget_h);
 }
 
 void ProgramSlotsWidget::setUpProgramSlotToggleButton(uint8 slot) {
@@ -67,7 +63,7 @@ void ProgramSlotsWidget::setTextForProgramSlotToggleButton(uint8 slot) {
 }
 
 void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
-	if (selectedSlot < 128) {
+	if (selectedSlot < banks::numberOfSlotsInBank) {
 		auto programDataVector{ RawProgramData::extractFromExposedParameters(exposedParams) };
 		auto programDataHexString{ RawProgramData::convertDataVectorToHexString(programDataVector) };
 		auto programBanks{ unexposedParams->programBanks_get() };
@@ -78,7 +74,7 @@ void ProgramSlotsWidget::storeCurrentProgramSettingsInSelectedSlot() {
 }
 
 void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
-	if (selectedSlot < 128) {
+	if (selectedSlot < banks::numberOfSlotsInBank) {
 		auto programBanks{ unexposedParams->programBanks_get() };
 		auto programDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto programDataVector{ RawProgramData::convertHexStringToDataVector(programDataHexString) };
@@ -88,7 +84,7 @@ void ProgramSlotsWidget::loadProgramFromSelectedSlot() {
 }
 
 void ProgramSlotsWidget::pullSelectedProgramFromHardware() {
-	if (selectedSlot < 128) {
+	if (selectedSlot < banks::numberOfSlotsInBank) {
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		auto transmitTime{ midiOptions->programTransmitTime() };
@@ -99,7 +95,7 @@ void ProgramSlotsWidget::pullSelectedProgramFromHardware() {
 }
 
 void ProgramSlotsWidget::pushSelectedProgramToHardware() {
-	if (selectedSlot < 128) {
+	if (selectedSlot < banks::numberOfSlotsInBank) {
 		auto dumpDataVector{ ProgramDump::createProgramDumpForBankAndSlot(bank, selectedSlot, unexposedParams) };
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		outgoingBuffers->addDataMessage(dumpDataVector);
@@ -108,9 +104,9 @@ void ProgramSlotsWidget::pushSelectedProgramToHardware() {
 
 void ProgramSlotsWidget::resized() {
 	for (auto i = 0; i != 128; ++i) {
-		auto col_x{ (i / 16) * (buttton_w + buttonHorizontalGap) };
-		auto row_y{ (i % 16) * (buttton_h) };
-		programSlotButtons[i].setBounds(col_x, row_y, buttton_w, buttton_h);
+		auto col_x{ (i / 16) * (GUI::programSlotRadioButtton_w + GUI::programSlotRadioButtonsHorizontalGap) };
+		auto row_y{ (i % 16) * GUI::programSlotRadioButtton_h };
+		programSlotButtons[i].setBounds(col_x, row_y, GUI::programSlotRadioButtton_w, GUI::programSlotRadioButtton_h);
 	}
 }
 
