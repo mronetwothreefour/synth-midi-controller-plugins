@@ -400,10 +400,6 @@ FactoryProgramDataHexStrings& FactoryProgramDataHexStrings::get() noexcept {
 	return factoryProgramBanks;
 }
 
-int FactoryProgramDataHexStrings::programSlotOutOfRange() {
-	return bank1.size();
-}
-
 const StringArray& FactoryProgramDataHexStrings::getBank1() {
 	return bank1;
 }

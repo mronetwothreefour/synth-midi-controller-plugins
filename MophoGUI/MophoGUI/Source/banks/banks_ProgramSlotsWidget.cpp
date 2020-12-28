@@ -1,10 +1,13 @@
 #include "banks_ProgramSlotsWidget.h"
 
+#include "banks_Constants.h"
 #include "banks_RawProgramData.h"
 #include "../midi/midi_ProgramDump.h"
 #include "../midi/midi_ProgramEditBufferDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -18,7 +21,7 @@ ProgramSlotsWidget::ProgramSlotsWidget(ProgramBank bank, AudioProcessorValueTree
 	selectedSlot{ 128 }
 {
 	auto programBanks{ unexposedParams->programBanks_get() };
-	for (uint8 slot = 0; slot != programBanks->programSlotOutOfRange(); ++slot) {
+	for (uint8 slot = 0; slot != banks::numberOfSlotsInBank; ++slot) {
 		setUpProgramSlotToggleButton(slot);
 		addAndMakeVisible(programSlotButtons[slot]);
 	}

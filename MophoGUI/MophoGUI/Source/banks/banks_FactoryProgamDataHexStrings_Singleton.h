@@ -18,7 +18,6 @@ public:
 	FactoryProgramDataHexStrings& operator=(FactoryProgramDataHexStrings&&) = delete;
 
 	static FactoryProgramDataHexStrings& get() noexcept;
-	int programSlotOutOfRange();
 	const StringArray& getBank1();
 	const StringArray& getBank2();
 	const StringArray& getBank3();
