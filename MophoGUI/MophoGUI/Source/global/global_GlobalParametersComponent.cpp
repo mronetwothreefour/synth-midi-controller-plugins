@@ -1,5 +1,6 @@
 #include "global_GlobalParametersComponent.h"
 
+#include "global_GlobalParametersConstants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
@@ -14,13 +15,6 @@ using namespace constants;
 
 GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	nrpnType_GlobalTranspose{ 384 },
-	nrpnType_GlobalFineTune{ 385 },
-	nrpnType_GlobalMidiChannel{ 386 },
-	nrpnType_MidiClock{ 388 },
-	nrpnType_ParameterSendType{ 390 },
-	nrpnType_ProgramChange{ 392 },
-	nrpnType_PedalMode{ 396 },
 	button_ForClosingGlobalParameters{ "" },
 	knob_ForGlobalTranspose{ unexposedParams },
 	valueDisplay_ForGlobalTranspose{&knob_ForGlobalTranspose, IntToGlobalTransposeString::get() },
@@ -34,7 +28,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForParameterSend{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForMidiControllers{ unexposedParams },
-	displayLabel_ForForSysEx{ unexposedParams },
+	displayLabel_ForSysEx{ unexposedParams },
 	displayLabel_ForAudioOutput{ unexposedParams },
 	displayLabel_ForBalanceTweak{ unexposedParams },
 	toggle_ForDescriptionTooltip{ unexposedParams },
@@ -80,7 +74,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 
 	addAndMakeVisible(displayLabel_ForParameterReceive);
 	addAndMakeVisible(displayLabel_ForMidiControllers);
-	addAndMakeVisible(displayLabel_ForForSysEx);
+	addAndMakeVisible(displayLabel_ForSysEx);
 	addAndMakeVisible(displayLabel_ForAudioOutput);
 	addAndMakeVisible(displayLabel_ForBalanceTweak);
 
@@ -105,55 +99,29 @@ void GlobalParametersComponent::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::GlobalParametersBackground_png, BinaryData::GlobalParametersBackground_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 514, 115);
+	g.drawImageAt(backgroundImage, GUI::globalParametersWindow_x, GUI::globalParametersWindow_y);
 }
 
 void GlobalParametersComponent::resized() {
-	button_ForClosingGlobalParameters.setBounds(703, 121, 50, 21);
-	auto knobDiameter{ 40 };
-	auto comboBox_w{ 117 };
-	auto displayLabel_w{ 245 };
-	auto comboBoxAndDisplayLabel_h{ 16 };
-	auto togglesDiameter{ 16 };
-	auto horizSpaceBetweenKnobs{ 75 };
-	auto knobCol1_x{ 542 };
-	auto knobCol2_x{ knobCol1_x + horizSpaceBetweenKnobs };
-	auto knobCol3_x{ knobCol2_x + horizSpaceBetweenKnobs };
-	auto knobRow_y{ 153 };
-	auto vertSpaceBetweenControls{ 20 };
-	auto controlRow1_y{ 226 };
-	auto controlRow2_y{ controlRow1_y + vertSpaceBetweenControls };
-	auto controlRow3_y{ controlRow2_y + vertSpaceBetweenControls };
-	auto controlRow4_y{ controlRow3_y + vertSpaceBetweenControls };
-	auto controlRow5_y{ 311 };
-	auto controlRow6_y{ controlRow5_y + vertSpaceBetweenControls };
-	auto controlRow7_y{ controlRow6_y + vertSpaceBetweenControls };
-	auto controlRow8_y{ controlRow7_y + vertSpaceBetweenControls };
-	auto controlRow9_y{ controlRow8_y + vertSpaceBetweenControls };
-	auto controlRow10_y{ 441 };
-	auto controlRow11_y{ controlRow10_y + vertSpaceBetweenControls };
-	auto controlRow12_y{ controlRow11_y + vertSpaceBetweenControls };
-	auto comboBoxes_x{ 630 };
-	auto displayLabels_x{ 514 };
-	auto tooltipControls_x{ 678 };
-	knob_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
-	valueDisplay_ForGlobalTranspose.setBounds(knobCol1_x, knobRow_y, knobDiameter, knobDiameter);
-	knob_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
-	valueDisplay_ForGlobalFineTune.setBounds(knobCol2_x, knobRow_y, knobDiameter, knobDiameter);
-	knob_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
-	valueDisplay_ForGlobalMidiChannel.setBounds(knobCol3_x, knobRow_y, knobDiameter, knobDiameter);
-	comboBox_ForMidiClock.setBounds(comboBoxes_x, controlRow1_y, comboBox_w, comboBoxAndDisplayLabel_h);
-	comboBox_ForPedalMode.setBounds(comboBoxes_x, controlRow2_y, comboBox_w, comboBoxAndDisplayLabel_h);
-	comboBox_ForProgramChange.setBounds(comboBoxes_x, controlRow3_y, comboBox_w, comboBoxAndDisplayLabel_h);
-	comboBox_ForParameterSend.setBounds(comboBoxes_x, controlRow4_y, comboBox_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForParameterReceive.setBounds(displayLabels_x, controlRow5_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForMidiControllers.setBounds(displayLabels_x, controlRow6_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForForSysEx.setBounds(displayLabels_x, controlRow7_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForAudioOutput.setBounds(displayLabels_x, controlRow8_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	displayLabel_ForBalanceTweak.setBounds(displayLabels_x, controlRow9_y, displayLabel_w, comboBoxAndDisplayLabel_h);
-	toggle_ForDescriptionTooltip.setBounds(tooltipControls_x, controlRow10_y, togglesDiameter, togglesDiameter);
-	toggle_ForCurrentSettingTooltip.setBounds(tooltipControls_x, controlRow11_y, togglesDiameter, togglesDiameter);
-	label_ForSettingTooltipDelay.setBounds(tooltipControls_x, controlRow12_y, 50, 16);
+	button_ForClosingGlobalParameters.setBounds(GUI::bounds_GlobalParametersCloseButton);
+	knob_ForGlobalTranspose.setBounds(GUI::bounds_GlobalParametersTransposeKnob);
+	valueDisplay_ForGlobalTranspose.setBounds(GUI::bounds_GlobalParametersTransposeKnob);
+	knob_ForGlobalFineTune.setBounds(GUI::bounds_GlobalParametersFineTuneKnob);
+	valueDisplay_ForGlobalFineTune.setBounds(GUI::bounds_GlobalParametersFineTuneKnob);
+	knob_ForGlobalMidiChannel.setBounds(GUI::bounds_GlobalParametersMidiChannelKnob);
+	valueDisplay_ForGlobalMidiChannel.setBounds(GUI::bounds_GlobalParametersMidiChannelKnob);
+	comboBox_ForMidiClock.setBounds(GUI::bounds_GlobalParametersMidiClockComboBox);
+	comboBox_ForPedalMode.setBounds(GUI::bounds_GlobalParametersPedalModeComboBox);
+	comboBox_ForProgramChange.setBounds(GUI::bounds_GlobalParametersProgramChangeComboBox);
+	comboBox_ForParameterSend.setBounds(GUI::bounds_GlobalParametersParameterSendComboBox);
+	displayLabel_ForParameterReceive.setBounds(GUI::bounds_GlobalParametersParameterReceiveDisplayLabel);
+	displayLabel_ForMidiControllers.setBounds(GUI::bounds_GlobalParametersMidiControllersDisplayLabel);
+	displayLabel_ForSysEx.setBounds(GUI::bounds_GlobalParametersSysExDisplayLabel);
+	displayLabel_ForAudioOutput.setBounds(GUI::bounds_GlobalParametersAudioOutputDisplayLabel);
+	displayLabel_ForBalanceTweak.setBounds(GUI::bounds_GlobalParametersBalanceTweakDisplayLabel);
+	toggle_ForDescriptionTooltip.setBounds(GUI::bounds_GlobalParametersDescriptionTooltipToggle);
+	toggle_ForCurrentSettingTooltip.setBounds(GUI::bounds_GlobalParametersCurrentSettingTooltipToggle);
+	label_ForSettingTooltipDelay.setBounds(GUI::bounds_GlobalParametersTooltipDelayLabel);
 }
 
 void GlobalParametersComponent::buttonClicked(Button* button) {
@@ -180,13 +148,13 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setClockType(currentSelection);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_MidiClock);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_MidiClock);
 	}
 	if (comboBox == &comboBox_ForPedalMode) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setParameterReceiveType(currentSelection);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_PedalMode);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_PedalMode);
 	}
 	if (comboBox == &comboBox_ForProgramChange) {
 		auto isOn{ (bool)comboBox->getSelectedItemIndex() };
@@ -195,13 +163,13 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 			midiOptions->setProgramChangeOn();
 		else
 			midiOptions->setProgramChangeOff();
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers((uint8)isOn, nrpnType_ProgramChange);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers((uint8)isOn, globalParams::nrpnType_ProgramChange);
 	}
 	if (comboBox == &comboBox_ForParameterSend) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		midiOptions->setParameterSendType(currentSelection);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, nrpnType_ParameterSendType);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_ParameterSendType);
 	}
 }
 
@@ -233,19 +201,19 @@ void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
 		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
 		globalAudioOptions->setGlobalTranspose(currentKnobValue);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalTranspose);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalTranspose);
 	}
 	if (slider == &knob_ForGlobalFineTune) {
 		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
 		globalAudioOptions->setGlobalFineTune(currentKnobValue);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalFineTune);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalFineTune);
 	}
 	if (slider == &knob_ForGlobalMidiChannel) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
 		midiOptions->setHardwareReceiveChannel(currentKnobValue);
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, nrpnType_GlobalMidiChannel);
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalMidiChannel);
 		if (currentKnobValue == 0)
 			midiOptions->setTransmitChannel(currentKnobValue);
 		else

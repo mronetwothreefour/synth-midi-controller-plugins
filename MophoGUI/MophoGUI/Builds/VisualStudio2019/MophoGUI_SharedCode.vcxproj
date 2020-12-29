@@ -3031,6 +3031,7 @@
     <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h" />
     <ClInclude Include="..\..\Source\global\global_NRPNisOffWarningComponent.h" />
     <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h" />
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersConstants.h" />
     <ClInclude Include="..\..\Source\global\global_SysExIsOffWarningComponent.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h" />

@@ -33,13 +33,6 @@ class GlobalParametersComponent :
     private Timer
 {
     UnexposedParameters* unexposedParams;
-    const uint16 nrpnType_GlobalTranspose;
-    const uint16 nrpnType_GlobalFineTune;
-    const uint16 nrpnType_GlobalMidiChannel;
-    const uint16 nrpnType_MidiClock;
-    const uint16 nrpnType_ParameterSendType;
-    const uint16 nrpnType_ProgramChange;
-    const uint16 nrpnType_PedalMode;
     TextButton button_ForClosingGlobalParameters;
     KnobForGlobalTranspose knob_ForGlobalTranspose;
     RendererForKnobValueStrings valueDisplay_ForGlobalTranspose;
@@ -53,7 +46,7 @@ class GlobalParametersComponent :
     ComboBoxForParameterSend comboBox_ForParameterSend;
     DisplayLabelForParameterReceive displayLabel_ForParameterReceive;
     DisplayLabelForMidiControllers displayLabel_ForMidiControllers;
-    DisplayLabelForSysEx displayLabel_ForForSysEx;
+    DisplayLabelForSysEx displayLabel_ForSysEx;
     DisplayLabelForAudioOutput displayLabel_ForAudioOutput;
     DisplayLabelForBalanceTweak displayLabel_ForBalanceTweak;
     ToggleButtonForCurrentSettingTooltip toggle_ForCurrentSettingTooltip;
