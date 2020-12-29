@@ -1,7 +1,10 @@
 #include "banks_TabbedComponentForAllProgramBanks.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
+
+using namespace constants;
 
 
 
@@ -12,14 +15,12 @@ TabbedComponentForAllProgramBanks::TabbedComponentForAllProgramBanks(AudioProces
 	tabbedComponentForFactoryProgramBanks{ exposedParams, unexposedParams, programCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForAllBanks.toString());
-	setTabBarDepth(30);
+	setTabBarDepth(GUI::tabBarDepth);
 	setOutline(0);
 	addTab("FACTORY   BANKS", Color::device, &tabbedComponentForFactoryProgramBanks, true, 1);
 	addTab("CUSTOM   BANKS", Color::device, &tabbedComponentForCustomProgramBanks, true, 1);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
-	auto tab_w{ tabbedComponentForFactoryProgramBanks.getWidth() };
-	auto tab_h{ tabbedComponentForFactoryProgramBanks.getHeight() };
-	setSize(tab_w + getTabBarDepth(), tab_h);
+	setSize(GUI::tabbedComponentForAllProgramBanks_w, GUI::tabbedComponentForAllProgramBanks_h);
 }
 
 void TabbedComponentForAllProgramBanks::addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {

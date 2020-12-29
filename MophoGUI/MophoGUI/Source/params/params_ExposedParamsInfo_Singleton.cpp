@@ -813,7 +813,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(modSourceDescription);
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, 184 + i * GUI::modulatorControlsVerticalSpacing));
+		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol1_x, 184 + i * GUI::modulatorControlsVerticalSpacing));
 
 		identifiers.add("mod" + (String)(i + 1) + "Amount"); // 71, 74, 77, 80
 		exposedNames.add("Modulator " + (String)(i + 1) + " Amount");
@@ -825,7 +825,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(modAmountDescription);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, 201 + i * GUI::modulatorControlsVerticalSpacing));
+		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol2_x, 201 + i * GUI::modulatorControlsVerticalSpacing));
 
 		identifiers.add("mod" + (String)(i + 1) + "Destination"); // 72, 75, 78, 81
 		exposedNames.add("Modulator " + (String)(i + 1) + " Destination");
@@ -837,7 +837,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(modDestinationDescription);
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, 218 + i * GUI::modulatorControlsVerticalSpacing));
+		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol1_x, 218 + i * GUI::modulatorControlsVerticalSpacing));
 	}
 
 	//======================================================

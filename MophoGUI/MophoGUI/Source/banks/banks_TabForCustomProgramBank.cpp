@@ -1,8 +1,12 @@
 #include "banks_TabForCustomProgramBank.h"
 
+#include "../banks/banks_Constants.h"
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -28,9 +32,7 @@ TabForCustomProgramBank::TabForCustomProgramBank(ProgramBank bank, AudioProcesso
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
-	auto programBanksTab_w{ 1065 };
-	auto programBanksTab_h{ 370 };
-	setSize(programBanksTab_w, programBanksTab_h);
+	setSize(GUI::programBanksTab_w, GUI::programBanksTab_h);
 }
 
 void TabForCustomProgramBank::paint(Graphics& g) {
@@ -41,23 +43,13 @@ void TabForCustomProgramBank::paint(Graphics& g) {
 }
 
 void TabForCustomProgramBank::resized() {
-	programSlots.setBounds(15, 14, programSlots.getWidth(), programSlots.getHeight());
-	auto buttons_y{ 334 };
-	auto buttons_w{ 50 };
-	auto buttons_h{ 22 };
-	auto buttons_horizontalSpacing{ 55 };
-	auto loadButton_x{ 183 };
-	auto saveButton_x{ loadButton_x + buttons_horizontalSpacing };
-	auto pushButton_x{ saveButton_x + buttons_horizontalSpacing };
-	auto pullButton_x{ pushButton_x + buttons_horizontalSpacing };
-	auto pushBankButton_x{ 613 };
-	auto pullBankButton_x{ pushBankButton_x + buttons_horizontalSpacing };
-	button_ForLoadingSelectedProgram.setBounds(loadButton_x, buttons_y, buttons_w, buttons_h);
-	button_ForSavingProgramInSelectedSlot.setBounds(saveButton_x, buttons_y, buttons_w, buttons_h);
-	button_ForPushingSelectedProgramToHardware.setBounds(pushButton_x, buttons_y, buttons_w, buttons_h);
-	button_ForPullingSelectedProgramFromHardware.setBounds(pullButton_x, buttons_y, buttons_w, buttons_h);
-	button_ForPushingEntireBankToHardware.setBounds(pushBankButton_x, buttons_y, buttons_w, buttons_h);
-	button_ForPullingEntireBankFromHardware.setBounds(pullBankButton_x, buttons_y, buttons_w, buttons_h);
+	programSlots.setBounds(GUI::bounds_ProgramSlotsWidget);
+	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedProgramButton);
+	button_ForSavingProgramInSelectedSlot.setBounds(GUI::bounds_SaveProgramInSelectedSlotButton);
+	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedCustomProgramButton);
+	button_ForPullingSelectedProgramFromHardware.setBounds(GUI::bounds_PullSelectedProgramButton);
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
+	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PullEntireBankButton);
 }
 
 ApplicationCommandTarget* TabForCustomProgramBank::getNextCommandTarget() {
@@ -91,14 +83,14 @@ bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
 	switch (info.commandID)
 	{
 	case copyProgram:
-		if (selectedSlot < 128) {
+		if (selectedSlot < banks::numberOfSlotsInBank) {
 			auto ProgramDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
 			programCopyBuffer = ProgramDataHexString;
 			return true;
 		}
 		else return false;
 	case pasteProgram:
-		if (selectedSlot < 128 && programCopyBuffer != "") {
+		if (selectedSlot < banks::numberOfSlotsInBank && programCopyBuffer != "") {
 			programBanks->storeProgramDataHexStringInCustomBankSlot(programCopyBuffer, bank, selectedSlot);
 			return true;
 		}

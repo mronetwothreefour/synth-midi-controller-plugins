@@ -84,7 +84,7 @@ const String ProgramBanks::getProgramDataHexStringFromBankSlot(ProgramBank bank,
 	case ProgramBank::factory2:
 		return factoryDataHexStrings.getBank2()[slot];
 	case ProgramBank::factory3:
-		return factoryDataHexStrings.getBank2()[slot];
+		return factoryDataHexStrings.getBank3()[slot];
 	case ProgramBank::custom1:
 		return customBank1ProgramDataHexStrings.getProperty("pgm" + (String)slot);
 	case ProgramBank::custom2:

@@ -36,7 +36,7 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
 		label_txTimeTooltip += "this value if programs are getting 'lost' during pushes or pulls.\n";
-		label_txTimeTooltip += "Minimum time: 50 ms. Maximum time 5000 ms.";
+		label_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 
 	label_txTime.setTooltip(label_txTimeTooltip);

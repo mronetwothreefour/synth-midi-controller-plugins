@@ -9,6 +9,8 @@ namespace constants
 		static const int bankTransmitTitleLabel_x{ 454 };
 		static const int bankTransmitTitleLabel_y{ 260 };
 		static const int comboBox_h{ 16 };
+		static const int horizGapBtwnControls{ 5 };
+		static const int knob_diameter{ 40 };
 		static const int controlsCol1_x{ 48 };
 		static const int controlsCol2_x{ controlsCol1_x + knob_diameter + horizGapBtwnControls };
 		static const int controlsCol3_x{ controlsCol2_x + knob_diameter + horizGapBtwnControls };
@@ -23,10 +25,8 @@ namespace constants
 		static const int editor_h{ 626 };
 		static const int env3ControlsRow1_y{ 531 };
 		static const int env3ControlsRow2_y{ 583 };
-		static const int horizGapBtwnControls{ 5 };
 		static const int knobAssignComboBoxes_w{ 134 };
 		static const int knobAssignComboBoxes_x{ 1089 };
-		static const int knob_diameter{ 40 };
 		static const int lfoControlsRow1_y{ 515 };
 		static const int lfoControlsRow2_y{ 560 };
 		static const int lfoControlsRow3_y{ 594 };
@@ -48,9 +48,20 @@ namespace constants
 		static const int pgmNameCharacters_h{ 17 };
 		static const int pgmNameCharacters_w{ 12 };
 		static const int pgmNameCharacters_y{ 52 };
+		static const int programBankButtons_y{ 334 };
+		static const int programBankButtons_horizontalSpacing{ 55 };
+		static const int programBankLoadButton_x{ 183 };
+		static const int programBankFactoryPushButton_x{ programBankLoadButton_x + programBankButtons_horizontalSpacing };
+		static const int programBankPushEntireBankButton_x{ 613 };
+		static const int programBankSaveButton_x{ programBankLoadButton_x + programBankButtons_horizontalSpacing };
+		static const int programBankCustomPushButton_x{ programBankSaveButton_x + programBankButtons_horizontalSpacing };
+		static const int programBankPullButton_x{ programBankCustomPushButton_x + programBankButtons_horizontalSpacing };
+		static const int programBankPullEntireBankButton_x{ programBankPushEntireBankButton_x + programBankButtons_horizontalSpacing };
 		static const int programBanksControls_w{ 50 };
 		static const int programBanksControls_h{ 22 };
 		static const int programBanksControls_y{ 477 };
+		static const int programBanksTab_h{ 370 };
+		static const int programBanksTab_w{ 1065 };
 		static const int programSlotRadioButtton_w{ 125 };
 		static const int programSlotRadioButtton_h{ 19 };
 		static const int programSlotRadioButtonsHorizontalGap{ 7 };
@@ -64,7 +75,12 @@ namespace constants
 		static const int seqSteps_h{ 26 };
 		static const int seqTrackDestComboBoxes_w{ 126 };
 		static const int seqTrackDestComboBoxes_x{ 1055 };
+		static const int tabBarDepth{ 30 };
 		static const int toggle_diameter{ 14 };
+		static const int tabbedComponentForProgramBanks_w{ programBanksTab_w + tabBarDepth };
+		static const int tabbedComponentForProgramBanks_h{ programBanksTab_h };
+		static const int tabbedComponentForAllProgramBanks_w{ tabbedComponentForProgramBanks_w };
+		static const int tabbedComponentForAllProgramBanks_h{ tabbedComponentForProgramBanks_h + tabBarDepth };
 		static const int vcaControlsRow1_y{ 373 };
 		static const int vcaControlsRow2_y{ 425 };
 
@@ -73,9 +89,16 @@ namespace constants
 		static const Rectangle<int> bounds_BankTransmitMessage{ 461, 290, 351, 28 };
 		static const Rectangle<int> bounds_BankTransmitProgressDisplayWindow{ 444, 251, 385, 124 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 319,351, 18 };
+		static const Rectangle<int> bounds_LoadSelectedProgramButton{ programBankLoadButton_x, programBankButtons_y, programBanksControls_w, GUI::programBanksControls_h };
 		static const Rectangle<int> bounds_ProgramBanksCloseButton{ 1130, 117, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_ProgramBanksTabbedComponent{ 89, 113, 1095, 400 };
+		static const Rectangle<int> bounds_ProgramBanksTabbedComponent{ 89, 113, tabbedComponentForAllProgramBanks_w, tabbedComponentForAllProgramBanks_h };
 		static const Rectangle<int> bounds_ProgramBanksTransmitTimeLabel{ 1119, programBanksControls_y, programBanksControls_w, programBanksControls_h };
-
+		static const Rectangle<int> bounds_ProgramSlotsWidget{ 15, 14, programSlotsWidget_w, programSlotsWidget_h };
+		static const Rectangle<int> bounds_PullEntireBankButton{ programBankPullEntireBankButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_PullSelectedProgramButton{ programBankPullButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_PushSelectedCustomProgramButton{ programBankCustomPushButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_PushSelectedFactoryProgramButton{ programBankFactoryPushButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_PushEntireBankButton{ programBankPushEntireBankButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_SaveProgramInSelectedSlotButton(programBankSaveButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h);
 	}
 }

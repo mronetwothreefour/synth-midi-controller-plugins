@@ -2,8 +2,11 @@
 
 #include "banks_ProgramBanks.h"
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -21,9 +24,7 @@ TabbedComponentForCustomProgramBanks::TabbedComponentForCustomProgramBanks(Audio
 	addTab("2", Color::device, &bank2, true, 2);
 	addTab("3", Color::device, &bank3, true, 3);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
-	auto tab_w{ bank1.getWidth() };
-	auto tab_h{ bank1.getHeight() };
-	setSize(tab_w + getTabBarDepth(), tab_h);
+	setSize(GUI::tabbedComponentForProgramBanks_w, GUI::tabbedComponentForProgramBanks_h);
 }
 
 void TabbedComponentForCustomProgramBanks::addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener) {
