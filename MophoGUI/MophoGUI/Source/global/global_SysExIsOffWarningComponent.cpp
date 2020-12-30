@@ -1,8 +1,11 @@
 #include "global_SysExIsOffWarningComponent.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -24,13 +27,12 @@ void SysExIsOffWarningComponent::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::NoSysexWarningBackground_png, BinaryData::NoSysexWarningBackground_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 386, 143);
+	g.drawImageAt(backgroundImage, GUI::sysexIsOffWarningWindow_x, GUI::sysexIsOffWarningWindow_y);
 }
 
 void SysExIsOffWarningComponent::resized() {
-	auto button_h{ 22 };
-	button_ForClosingComponent.setBounds(830, 150, 50, button_h);
-	button_ForSendingGlobalParametersDumpRequest.setBounds(611, 449, 51, button_h);
+	button_ForClosingComponent.setBounds(GUI::bounds_SysexisOffWarningComponentCloseButton);
+	button_ForSendingGlobalParametersDumpRequest.setBounds(GUI::bounds_SysexisOffWarningComponentRetryButton);
 }
 
 SysExIsOffWarningComponent::~SysExIsOffWarningComponent() {

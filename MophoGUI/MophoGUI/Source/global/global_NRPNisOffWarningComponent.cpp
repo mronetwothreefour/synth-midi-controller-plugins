@@ -2,8 +2,11 @@
 
 #include "global_ParameterReceiveType.h"
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -25,13 +28,12 @@ void NRPNisOffWarningComponent::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::NoNRPNWarningBackground_png, BinaryData::NoNRPNWarningBackground_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 396, 205);
+	g.drawImageAt(backgroundImage, GUI::nrpnIsOffWarningWindow_x, GUI::nrpnIsOffWarningWindow_y);
 }
 
 void NRPNisOffWarningComponent::resized() {
-	auto button_h{ 22 };
-	button_ForClosingComponent.setBounds(820, 212, 50, button_h);
-	button_ForSendingGlobalParametersDumpRequest.setBounds(611, 387, 51, button_h);
+	button_ForClosingComponent.setBounds(GUI::bounds_NRPNisOffWarningComponentCloseButton);
+	button_ForSendingGlobalParametersDumpRequest.setBounds(GUI::bounds_NRPNisOffWarningComponentRetryButton);
 }
 
 NRPNisOffWarningComponent::~NRPNisOffWarningComponent() {

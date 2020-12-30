@@ -87,16 +87,16 @@ namespace BinaryData
     const int            ButtonUpPull_pngSize = 528;
 
     extern const char* ButtonDownStop_png;
-    const int            ButtonDownStop_pngSize = 593;
+    const int            ButtonDownStop_pngSize = 599;
 
     extern const char* ButtonUpStop_png;
-    const int            ButtonUpStop_pngSize = 577;
+    const int            ButtonUpStop_pngSize = 589;
 
     extern const char* ButtonDownRetry_png;
-    const int            ButtonDownRetry_pngSize = 641;
+    const int            ButtonDownRetry_pngSize = 651;
 
     extern const char* ButtonUpRetry_png;
-    const int            ButtonUpRetry_pngSize = 621;
+    const int            ButtonUpRetry_pngSize = 625;
 
     extern const char* ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4116;

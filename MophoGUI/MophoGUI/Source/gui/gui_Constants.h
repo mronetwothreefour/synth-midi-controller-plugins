@@ -68,6 +68,8 @@ namespace constants
 		static const int modulatorControlsCol1_x{ 486 };
 		static const int modulatorControlsCol2_x{ 575 };
 		static const int modulatorControlsVerticalSpacing{ 78 };
+		static const int nrpnIsOffWarningWindow_x{ 396 };
+		static const int nrpnIsOffWarningWindow_y{ 205 };
 		static const int oscControlsRow1_y{ 50 };
 		static const int oscControlsRow2_y{ 110 };
 		static const int pgmNameCharacter1_x{ 596 };
@@ -84,8 +86,6 @@ namespace constants
 		static const int programBankCustomPushButton_x{ programBankSaveButton_x + programBankButtons_horizontalSpacing };
 		static const int programBankPullButton_x{ programBankCustomPushButton_x + programBankButtons_horizontalSpacing };
 		static const int programBankPullEntireBankButton_x{ programBankPushEntireBankButton_x + programBankButtons_horizontalSpacing };
-		static const int programBanksControls_w{ 50 };
-		static const int programBanksControls_h{ 22 };
 		static const int programBanksControls_y{ 477 };
 		static const int programBanksTab_h{ 370 };
 		static const int programBanksTab_w{ 1065 };
@@ -94,6 +94,8 @@ namespace constants
 		static const int programSlotRadioButtonsHorizontalGap{ 7 };
 		static const int programSlotsWidget_w{ (8 * programSlotRadioButtton_w) + (7 * programSlotRadioButtonsHorizontalGap) };
 		static const int programSlotsWidget_h{ 16 * programSlotRadioButtton_h };
+		static const int secondaryWindowsControls_w{ 50 };
+		static const int secondaryWindowsControls_h{ 22 };
 		static const int sequencerStep1_x{ 825 };
 		static const int sequencerStepsHorizontalSpacer{ 28 };
 		static const int sequencerTrack1Steps_y{ 196 };
@@ -102,6 +104,8 @@ namespace constants
 		static const int seqSteps_h{ 26 };
 		static const int seqTrackDestComboBoxes_w{ 126 };
 		static const int seqTrackDestComboBoxes_x{ 1055 };
+		static const int sysexIsOffWarningWindow_x{ 386 };
+		static const int sysexIsOffWarningWindow_y{ 143 };
 		static const int tabBarDepth{ 30 };
 		static const int toggle_diameter{ 14 };
 		static const int tabbedComponentForProgramBanks_w{ programBanksTab_w + tabBarDepth };
@@ -112,13 +116,13 @@ namespace constants
 		static const int vcaControlsRow2_y{ 425 };
 
 		static const Rectangle<int> bounds_BanksWindow{ 89, 113, 1095, 400 };
-		static const Rectangle<int> bounds_BankTransmitButtons{ 611, 344, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_BankTransmitButtons{ 611, 344, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_BankTransmitMessage{ 461, 290, 351, 28 };
 		static const Rectangle<int> bounds_BankTransmitProgressDisplayWindow{ 444, 251, 385, 124 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 319,351, 18 };
 		static const Rectangle<int> bounds_GlobalParametersAudioOutputDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow8_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersBalanceTweakDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow9_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
-		static const Rectangle<int> bounds_GlobalParametersCloseButton{ 703, 121, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_GlobalParametersCloseButton{ 703, 121, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_GlobalParametersCurrentSettingTooltipToggle{ globalParametersTooltipControls_x, globalParametersControlRow10_y, globalParametersTogglesDiameter, globalParametersTogglesDiameter };
 		static const Rectangle<int> bounds_GlobalParametersDescriptionTooltipToggle{ globalParametersTooltipControls_x, globalParametersControlRow11_y, globalParametersTogglesDiameter, globalParametersTogglesDiameter };
 		static const Rectangle<int> bounds_GlobalParametersFineTuneKnob{ globalParametersKnobCol2_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
@@ -132,16 +136,20 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersSysExDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow7_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersTooltipDelayLabel{ globalParametersTooltipControls_x, globalParametersControlRow12_y, 50, 16 };
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
-		static const Rectangle<int> bounds_LoadSelectedProgramButton{ programBankLoadButton_x, programBankButtons_y, programBanksControls_w, GUI::programBanksControls_h };
-		static const Rectangle<int> bounds_ProgramBanksCloseButton{ 1130, 117, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_LoadSelectedProgramButton{ programBankLoadButton_x, programBankButtons_y, secondaryWindowsControls_w, GUI::secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_NRPNisOffWarningComponentRetryButton{ 611, 387, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ProgramBanksCloseButton{ 1130, 117, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ProgramBanksTabbedComponent{ 89, 113, tabbedComponentForAllProgramBanks_w, tabbedComponentForAllProgramBanks_h };
-		static const Rectangle<int> bounds_ProgramBanksTransmitTimeLabel{ 1119, programBanksControls_y, programBanksControls_w, programBanksControls_h };
+		static const Rectangle<int> bounds_ProgramBanksTransmitTimeLabel{ 1119, programBanksControls_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ProgramSlotsWidget{ 15, 14, programSlotsWidget_w, programSlotsWidget_h };
-		static const Rectangle<int> bounds_PullEntireBankButton{ programBankPullEntireBankButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_PullSelectedProgramButton{ programBankPullButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_PushSelectedCustomProgramButton{ programBankCustomPushButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_PushSelectedFactoryProgramButton{ programBankFactoryPushButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_PushEntireBankButton{ programBankPushEntireBankButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h };
-		static const Rectangle<int> bounds_SaveProgramInSelectedSlotButton(programBankSaveButton_x, programBankButtons_y, programBanksControls_w, programBanksControls_h);
+		static const Rectangle<int> bounds_PullEntireBankButton{ programBankPullEntireBankButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_PullSelectedProgramButton{ programBankPullButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_PushSelectedCustomProgramButton{ programBankCustomPushButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_PushSelectedFactoryProgramButton{ programBankFactoryPushButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_PushEntireBankButton{ programBankPushEntireBankButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_SaveProgramInSelectedSlotButton(programBankSaveButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h);
+		static const Rectangle<int> bounds_SysexisOffWarningComponentCloseButton{ 830, 150, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_SysexisOffWarningComponentRetryButton{ 611, 449, secondaryWindowsControls_w, secondaryWindowsControls_h };
 	}
 }
