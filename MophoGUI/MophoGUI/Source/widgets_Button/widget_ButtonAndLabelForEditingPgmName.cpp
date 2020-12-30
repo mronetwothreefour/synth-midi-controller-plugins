@@ -1,9 +1,12 @@
 #include "widget_ButtonAndLabelForEditingPgmName.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -29,11 +32,9 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	addAndMakeVisible(pgmNameEditor);
 	addAndMakeVisible(button_ForOpeningPgmNameEditor);
 
-	auto buttonAndEditor_w{ 222 };
-	auto buttonAndEditor_h{ 50 };
-	setSize(buttonAndEditor_w, buttonAndEditor_h);
-	button_ForOpeningPgmNameEditor.setBounds(118, 0, 44, 18);
-	pgmNameEditor.setBounds(0, 32, 242, 18);
+	setSize(GUI::editProgramNameButtonAndLabel_w, GUI::editProgramNameButtonAndLabel_h);
+	button_ForOpeningPgmNameEditor.setBounds(GUI::bounds_ProgramNameEditorButton);
+	pgmNameEditor.setBounds(GUI::bounds_ProgramNameEditorLabel);
 }
 
 void ButtonAndLabelForEditingPgmName::labelTextChanged(Label* labelThatHasChanged) {

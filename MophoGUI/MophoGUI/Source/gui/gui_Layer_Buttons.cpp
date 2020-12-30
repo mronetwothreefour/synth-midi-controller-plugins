@@ -1,5 +1,6 @@
 #include "gui_Layer_Buttons.h"
 
+#include "gui_Constants.h"
 #include "../banks/banks_ProgramBanksComponent.h"
 #include "../global/global_GlobalParametersComponent.h"
 #include "../global/global_NRPNisOffWarningComponent.h"
@@ -7,6 +8,8 @@
 #include "../midi/midi_GlobalParametersDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -99,26 +102,18 @@ void ButtonsLayer::timerCallback() {
 }
 
 void ButtonsLayer::resized() {
-    button_ForEditingPgmName.setBounds(590, 11, button_ForEditingPgmName.getWidth(), button_ForEditingPgmName.getHeight());
-    auto utilityButtons_y{ 83 };
-    auto utilityButtons_w{ 53 };
-    auto utilityButtons_h{ 22 };
-    button_ForSendingProgramEditBufferDump.setBounds(580, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_ForSendingProgramEditBufferDumpRequest.setBounds(643, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_ForShowingProgramBanksComponent.setBounds(706, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    button_ForShowingGlobalParametersComponent.setBounds(769, utilityButtons_y, utilityButtons_w, utilityButtons_h);
-    auto undoRedoButtons_x{ 837 };
-    auto undoRedoButtons_w{ 44 };
-    button_ForPerformingUndo.setBounds(undoRedoButtons_x, 26, undoRedoButtons_w, utilityButtons_h);
-    button_ForPerformingRedo.setBounds(undoRedoButtons_x, 55, undoRedoButtons_w, utilityButtons_h);
-    auto clearSeqTrackButtons_x{ 1166 };
-    auto clearSeqTrackButtons_w{ 46 };
-    auto clearSeqTrackButtons_h{ 18 };
-    button_ForClearingSequencerTrack1.setBounds(clearSeqTrackButtons_x, 160, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack2.setBounds(clearSeqTrackButtons_x, 243, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack3.setBounds(clearSeqTrackButtons_x, 326, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForClearingSequencerTrack4.setBounds(clearSeqTrackButtons_x, 409, clearSeqTrackButtons_w, clearSeqTrackButtons_h);
-    button_ForGoingToWebSite.setBounds(644, 122, 157, 9);
+    button_ForEditingPgmName.setBounds(GUI::bounds_MainWindowEditNameButtonAndEditor);
+    button_ForSendingProgramEditBufferDump.setBounds(GUI::bounds_MainWindowWriteButton);
+    button_ForSendingProgramEditBufferDumpRequest.setBounds(GUI::bounds_MainWindowReadButton);
+    button_ForShowingProgramBanksComponent.setBounds(GUI::bounds_MainWindowBanksButton);
+    button_ForShowingGlobalParametersComponent.setBounds(GUI::bounds_MainWindowGlobalButton);
+    button_ForPerformingUndo.setBounds(GUI::bounds_MainWindowUndoButton);
+    button_ForPerformingRedo.setBounds(GUI::bounds_MainWindowRedoButton);
+    button_ForClearingSequencerTrack1.setBounds(GUI::bounds_MainWindowSeqTrack1ClearButton);
+    button_ForClearingSequencerTrack2.setBounds(GUI::bounds_MainWindowSeqTrack2ClearButton);
+    button_ForClearingSequencerTrack3.setBounds(GUI::bounds_MainWindowSeqTrack3ClearButton);
+    button_ForClearingSequencerTrack4.setBounds(GUI::bounds_MainWindowSeqTrack4ClearButton);
+    button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
