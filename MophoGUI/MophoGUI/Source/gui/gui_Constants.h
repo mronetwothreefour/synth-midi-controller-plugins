@@ -6,6 +6,14 @@ namespace constants
 {
 	namespace GUI
 	{
+		static const float envelopeRenderEnvelopeEnd_x{ 205.0f };
+		static const float envelopeRenderEnvelopeStart_x{ 5.0f };
+		static const float envelopeRenderMaxSegment_w{ 43.0f };
+		static const float envelopeRenderMaximum_y{ 15.0f };
+		static const float envelopeRenderMinimum_y{ 75.0f };
+		static const float envelopeRenderEnvelope_h{ envelopeRenderMinimum_y - envelopeRenderMaximum_y };
+		static const float envelopeRenderSustainSegment_w{ 28.0f };
+
 		static const int bankTransmitTitleLabel_x{ 454 };
 		static const int bankTransmitTitleLabel_y{ 260 };
 		static const int comboBox_h{ 16 };
@@ -27,6 +35,13 @@ namespace constants
 		static const int editProgramNameButtonAndLabel_w{ 222 };
 		static const int env3ControlsRow1_y{ 531 };
 		static const int env3ControlsRow2_y{ 583 };
+		static const int envelopeRenderers_h{ 90 };
+		static const int envelopeRenderers_w{ 210 };
+		static const int envelopeRenderers_x{ 168 };
+		static const int envelopeRenderersVerticalSpacing{ 158 };
+		static const int envelopeRenderer_LPF_y{ 154 };
+		static const int envelopeRenderer_VCA_y{ envelopeRenderer_LPF_y + envelopeRenderersVerticalSpacing };
+		static const int envelopeRenderer_Env3_y{ envelopeRenderer_VCA_y + envelopeRenderersVerticalSpacing };
 		static const int globalParametersComboBoxAndDisplayLabel_h{ 16 };
 		static const int globalParametersComboBoxes_w{ 117 };
 		static const int globalParametersComboBoxes_x{ 630 };
@@ -131,6 +146,9 @@ namespace constants
 		static const Rectangle<int> bounds_BankTransmitMessage{ 461, 290, 351, 28 };
 		static const Rectangle<int> bounds_BankTransmitProgressDisplayWindow{ 444, 251, 385, 124 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 319,351, 18 };
+		static const Rectangle<int> bounds_EnvelopeRenderer_LPF{ envelopeRenderers_x, envelopeRenderer_LPF_y, envelopeRenderers_w, envelopeRenderers_h };
+		static const Rectangle<int> bounds_EnvelopeRenderer_VCA{ envelopeRenderers_x, envelopeRenderer_VCA_y, envelopeRenderers_w, envelopeRenderers_h };
+		static const Rectangle<int> bounds_EnvelopeRenderer_Env3{ envelopeRenderers_x, envelopeRenderer_Env3_y, envelopeRenderers_w, envelopeRenderers_h };
 		static const Rectangle<int> bounds_GlobalParametersAudioOutputDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow8_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersBalanceTweakDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow9_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersCloseButton{ 703, 121, secondaryWindowsControls_w, secondaryWindowsControls_h };

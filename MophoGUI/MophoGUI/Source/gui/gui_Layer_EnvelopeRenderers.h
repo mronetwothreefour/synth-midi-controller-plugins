@@ -2,7 +2,10 @@
 
 #include <JuceHeader.h>
 
+#include "gui_Constants.h"
 #include "../guiRenderers/guiRenderer_ForEnvelopes.h"
+
+using namespace constants;
 
 
 
@@ -25,14 +28,9 @@ public:
         addAndMakeVisible(rendererForEnvelope_LPF);
         addAndMakeVisible(rendererForEnvelope_VCA);
         addAndMakeVisible(rendererForEnvelope_Env3);
-        auto renderers_x{ 168 };
-        auto renderersVerticalSpacing{ 158 };
-        auto lpfRenderer_y{ 154 };
-        auto vcaRenderer_y{ lpfRenderer_y + renderersVerticalSpacing };
-        auto env3Renderer_y{ vcaRenderer_y + renderersVerticalSpacing };
-        rendererForEnvelope_LPF.setBounds(renderers_x, lpfRenderer_y, rendererForEnvelope_LPF.getWidth(), rendererForEnvelope_LPF.getHeight());
-        rendererForEnvelope_VCA.setBounds(renderers_x, vcaRenderer_y, rendererForEnvelope_VCA.getWidth(), rendererForEnvelope_VCA.getHeight());
-        rendererForEnvelope_Env3.setBounds(renderers_x, env3Renderer_y, rendererForEnvelope_Env3.getWidth(), rendererForEnvelope_Env3.getHeight());
+        rendererForEnvelope_LPF.setBounds(GUI::bounds_EnvelopeRenderer_LPF);
+        rendererForEnvelope_VCA.setBounds(GUI::bounds_EnvelopeRenderer_VCA);
+        rendererForEnvelope_Env3.setBounds(GUI::bounds_EnvelopeRenderer_Env3);
     }
 
 private:
