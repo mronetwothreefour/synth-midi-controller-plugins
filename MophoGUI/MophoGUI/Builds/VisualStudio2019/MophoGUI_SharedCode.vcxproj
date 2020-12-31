@@ -3045,6 +3045,7 @@
     <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h" />
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
     <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />

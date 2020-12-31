@@ -10,10 +10,6 @@ class IncomingNRPNhandler
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	const int nrpnTypeMSB{ 99 };
-	const int nrpnTypeLSB{ 98 };
-	const int nrpnValueMSB{ 6 };
-	const int nrpnValueLSB{ 38 };
 	bool nrpnTypeMSBvalueReceived{ false };
 	bool nrpnTypeLSBvalueReceived{ false };
 	bool nrpnValueMSBvalueReceived{ false };

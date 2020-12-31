@@ -1,35 +1,18 @@
 #include "midi_IncomingSysExHandler.h"
 
+#include "midi_Constants.h"
 #include "midi_SysExHelpers.h"
 #include "../banks/banks_ProgramBanks.h"
 #include "../banks/banks_RawProgramData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
+using namespace constants;
+
 
 
 IncomingSysExHandler::IncomingSysExHandler(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams },
-    sysExMessageTypeByte{ 3 },
-    programDumpBankByte{ 4 },
-    programDumpSlotByte{ 5 },
-    firstProgramDataByte{ 6 },
-    firstUnusedProgramDataByte{ 236 },
-    globalTransposeLSByte{ 4 },
-    globalTransposeMSByte{ 5 },
-    globalFineTuneLSByte{ 6 },
-    globalFineTuneMSByte{ 7 },
-    globalHardwareReceiveChannelLSByte{ 8 },
-    globalHardwareReceiveChannelMSByte{ 9 },
-    globalMidiClockTypeByte{ 10 },
-    globalParameterSendTypetByte{ 12 },
-    globalParameterReceiveTypeByte{ 14 },
-    globalMidiControllersOnByte{ 16 },
-    globalSysExOnByte{ 18 },
-    globalStereoOutByte{ 20 },
-    globalBalanceByte{ 24 },
-    globalPedalModeIsArpByte{ 26 },
-    globalProgramChangeOnByte{ 28 }
+    unexposedParams{ unexposedParams }
 {
 }
 
@@ -53,7 +36,7 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 }
 
 void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysExData) {
-    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::programEditBufferDump) {
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::programEditBufferDump) {
         RawProgramData::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
         return;
     }
@@ -62,8 +45,8 @@ void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysE
 }
 
 void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
-    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::programDump) {
-        auto bankNum{ sysExData[programDumpBankByte] };
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::programDump) {
+        auto bankNum{ sysExData[MIDI::programDumpBankByte] };
         ProgramBank bank;
         switch (bankNum)
         {
@@ -80,9 +63,9 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
             bank = ProgramBank::custom1;
             break;
         }
-        auto slot{ sysExData[programDumpSlotByte] };
+        auto slot{ sysExData[MIDI::programDumpSlotByte] };
         std::vector<uint8> programDataVector;
-        for (auto dataByte = firstProgramDataByte; dataByte != firstUnusedProgramDataByte; ++dataByte)
+        for (auto dataByte = MIDI::firstProgramDataByte; dataByte != MIDI::firstUnusedProgramDataByte; ++dataByte)
             programDataVector.push_back(*(sysExData + dataByte));
         auto programDataHexString{ RawProgramData::convertDataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->programBanks_get() };
@@ -93,7 +76,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
 }
 
 void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysExData) {
-    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersDump) {
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersDump) {
         updateMidiOptions(sysExData);
         updateGlobalAudioOptions(sysExData);
     }
@@ -102,35 +85,35 @@ void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysEx
 void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
     midiOptions->setParamChangeEchosAreBlocked();
-    auto globalHardwareReceiveChannel{ sysExData[globalHardwareReceiveChannelMSByte] * 16 + sysExData[globalHardwareReceiveChannelLSByte] };
+    auto globalHardwareReceiveChannel{ sysExData[MIDI::globalHardwareReceiveChannelMSByte] * 16 + sysExData[MIDI::globalHardwareReceiveChannelLSByte] };
     midiOptions->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
     auto allChannels{ 0 };
     if (globalHardwareReceiveChannel == allChannels)
         midiOptions->setTransmitChannel((uint8)globalHardwareReceiveChannel);
     else
         midiOptions->setTransmitChannel((uint8)(globalHardwareReceiveChannel - 1));
-    auto midiClockType{ sysExData[globalMidiClockTypeByte] };
+    auto midiClockType{ sysExData[MIDI::globalMidiClockTypeByte] };
     midiOptions->setClockType(midiClockType);
-    auto paramSendType{ sysExData[globalParameterSendTypetByte] };
+    auto paramSendType{ sysExData[MIDI::globalParameterSendTypetByte] };
     midiOptions->setParameterSendType(paramSendType);
-    auto paramReceiveType{ sysExData[globalParameterReceiveTypeByte] };
+    auto paramReceiveType{ sysExData[MIDI::globalParameterReceiveTypeByte] };
     midiOptions->setParameterReceiveType(paramReceiveType);
-    auto controllersAreOn{ (bool)sysExData[globalMidiControllersOnByte] };
+    auto controllersAreOn{ (bool)sysExData[MIDI::globalMidiControllersOnByte] };
     if (controllersAreOn)
         midiOptions->setControllersOn();
     else
         midiOptions->setControllersOff();
-    auto sysExIsOn{ (bool)sysExData[globalSysExOnByte] };
+    auto sysExIsOn{ (bool)sysExData[MIDI::globalSysExOnByte] };
     if (sysExIsOn)
         midiOptions->setSysExOn();
     else
         midiOptions->setSysExOff();
-    auto pedalModeIsArpLatch{ (bool)sysExData[globalPedalModeIsArpByte] };
+    auto pedalModeIsArpLatch{ (bool)sysExData[MIDI::globalPedalModeIsArpByte] };
     if (pedalModeIsArpLatch)
         midiOptions->setPedalModeToArpLatch();
     else
         midiOptions->setPedalModeToNormal();
-    auto programChangeIsOn{ (bool)sysExData[globalProgramChangeOnByte] };
+    auto programChangeIsOn{ (bool)sysExData[MIDI::globalProgramChangeOnByte] };
     if (programChangeIsOn)
         midiOptions->setProgramChangeOn();
     else
@@ -140,16 +123,16 @@ void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
 
 void IncomingSysExHandler::updateGlobalAudioOptions(const uint8* sysExData) {
     auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-    auto globalTranspose{ sysExData[globalTransposeMSByte] * 16 + sysExData[globalTransposeLSByte] };
+    auto globalTranspose{ sysExData[MIDI::globalTransposeMSByte] * 16 + sysExData[MIDI::globalTransposeLSByte] };
     globalAudioOptions->setGlobalTranspose((uint8)globalTranspose);
-    auto globalFineTune{ sysExData[globalFineTuneMSByte] * 16 + sysExData[globalFineTuneLSByte] };
+    auto globalFineTune{ sysExData[MIDI::globalFineTuneMSByte] * 16 + sysExData[MIDI::globalFineTuneLSByte] };
     globalAudioOptions->setGlobalFineTune((uint8)globalFineTune);
-    auto outputIsMono{ (bool)sysExData[globalStereoOutByte] };
+    auto outputIsMono{ (bool)sysExData[MIDI::globalStereoOutByte] };
     if (outputIsMono)
         globalAudioOptions->setHardwareOutputMono();
     else
         globalAudioOptions->setHardwareOutputStereo();
-    auto globalBalance{ sysExData[globalBalanceByte] };
+    auto globalBalance{ sysExData[MIDI::globalBalanceByte] };
     globalAudioOptions->setGlobalBalance(globalBalance);
 }
 

@@ -10,9 +10,6 @@
 // NRPN messages sent to it should be ordered in the same way.
 struct NRPNbufferWithLeadingMSBs
 {
-private:
-    static const int controllerFlag{ 0xB0 };
-
 public:
     static MidiBuffer from_Channel_NRPNtype_NewValue(uint8 midiChannel, uint16 NRPNtype, uint8 newValue);
 

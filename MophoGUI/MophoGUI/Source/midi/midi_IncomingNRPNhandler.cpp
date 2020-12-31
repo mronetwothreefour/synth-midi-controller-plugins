@@ -1,8 +1,11 @@
 #include "midi_IncomingNRPNhandler.h"
 
+#include "midi_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -48,7 +51,7 @@ MidiBuffer IncomingNRPNhandler::pullFullyFormedNRPNmessageOutOfBuffer(const Midi
 
 void IncomingNRPNhandler::checkIfControllerTypeIsNRPN(MidiMessage midiMessage) {
     auto controllerType{ midiMessage.getControllerNumber() };
-    if (controllerType == nrpnTypeMSB || controllerType == nrpnTypeLSB || controllerType == nrpnValueMSB || controllerType == nrpnValueLSB)
+    if (controllerType == MIDI::nrpnTypeMSB || controllerType == MIDI::nrpnTypeLSB || controllerType == MIDI::nrpnValueMSB || controllerType == MIDI::nrpnValueLSB)
         handleNRPNcontrollerMessage(midiMessage);
     else
         midiMessagesToPassThrough.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
@@ -59,7 +62,7 @@ void IncomingNRPNhandler::handleNRPNcontrollerMessage(MidiMessage midiMessage) {
 }
 
 void IncomingNRPNhandler::handleControllerWhichTargetsNRPNtypeMSB(MidiMessage midiMessage) {
-    if (midiMessage.isControllerOfType(nrpnTypeMSB)) {
+    if (midiMessage.isControllerOfType(MIDI::nrpnTypeMSB)) {
         nrpnTypeMSBvalue = midiMessage.getControllerValue();
         incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
         nrpnTypeMSBvalueReceived = true;
@@ -69,7 +72,7 @@ void IncomingNRPNhandler::handleControllerWhichTargetsNRPNtypeMSB(MidiMessage mi
 }
 
 void IncomingNRPNhandler::handleControllerWhichTargetsNRPNtypeLSB(MidiMessage midiMessage) {
-    if (midiMessage.isControllerOfType(nrpnTypeLSB)) {
+    if (midiMessage.isControllerOfType(MIDI::nrpnTypeLSB)) {
         nrpnTypeLSBvalue = midiMessage.getControllerValue();
         incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
         nrpnTypeLSBvalueReceived = true;
@@ -79,7 +82,7 @@ void IncomingNRPNhandler::handleControllerWhichTargetsNRPNtypeLSB(MidiMessage mi
 }
 
 void IncomingNRPNhandler::handleControllerWhichTargetsNRPNvalueMSB(MidiMessage midiMessage) {
-    if (midiMessage.isControllerOfType(nrpnValueMSB)) {
+    if (midiMessage.isControllerOfType(MIDI::nrpnValueMSB)) {
         nrpnValueMSBvalue = midiMessage.getControllerValue();
         incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
         nrpnValueMSBvalueReceived = true;
@@ -89,7 +92,7 @@ void IncomingNRPNhandler::handleControllerWhichTargetsNRPNvalueMSB(MidiMessage m
 }
 
 void IncomingNRPNhandler::handleControllerWhichTargetsNRPNvalueLSB(MidiMessage midiMessage) {
-    if (midiMessage.isControllerOfType(nrpnValueLSB)) {
+    if (midiMessage.isControllerOfType(MIDI::nrpnValueLSB)) {
         nrpnValueLSBvalue = midiMessage.getControllerValue();
         incompleteNRPN.addEvent(midiMessage, (int)midiMessage.getTimeStamp());
         nrpnValueLSBvalueReceived = true;
@@ -113,10 +116,10 @@ void IncomingNRPNhandler::applyIncomingNRPNvalueToUnexposedParameter(int nrpnTyp
     auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
     switch (nrpnType)
     {
-    case 384:
+    case MIDI::nrpnTypeForGlobalTranspose:
         globalAudioOptions->setGlobalTranspose((uint8)newValue);
         break;
-    case 385:
+    case MIDI::nrpnTypeForGlobalFineTune:
         globalAudioOptions->setGlobalFineTune((uint8)newValue);
         break;
     default:

@@ -10,26 +10,6 @@ class IncomingSysExHandler
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	const int sysExMessageTypeByte;
-	const int programDumpBankByte;
-	const int programDumpSlotByte;
-	const int firstProgramDataByte;
-	const int firstUnusedProgramDataByte;
-	const int globalTransposeLSByte;
-	const int globalTransposeMSByte;
-	const int globalFineTuneLSByte;
-	const int globalFineTuneMSByte;
-	const int globalHardwareReceiveChannelLSByte;
-	const int globalHardwareReceiveChannelMSByte;
-	const int globalMidiClockTypeByte;
-	const int globalParameterSendTypetByte;
-	const int globalParameterReceiveTypeByte;
-	const int globalMidiControllersOnByte;
-	const int globalSysExOnByte;
-	const int globalStereoOutByte;
-	const int globalBalanceByte;
-	const int globalPedalModeIsArpByte;
-	const int globalProgramChangeOnByte;
 
 public:
 	IncomingSysExHandler() = delete;

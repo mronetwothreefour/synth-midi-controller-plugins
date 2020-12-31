@@ -5138,6 +5138,9 @@
     <ClInclude Include="..\..\Source\global\global_GlobalParametersConstants.h">
       <Filter>MophoGUI\Source\global</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

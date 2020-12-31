@@ -1,5 +1,9 @@
 #include "midi_NRPNbufferWithLeadingMSBs.h"
 
+#include "midi_Constants.h"
+
+using namespace constants;
+
 
 
 MidiBuffer NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(uint8 midiChannel, uint16 NRPNtype, uint8 newValue) {
@@ -12,17 +16,17 @@ MidiBuffer NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(uint8 midiC
 }
 
 MidiMessage NRPNbufferWithLeadingMSBs::NRPNmessage1_Channel_TypeMSB(uint8 midiChannel, uint16 NRPNtype) {
-    return MidiMessage(controllerFlag + midiChannel, 99, NRPNtype / 128);
+    return MidiMessage(MIDI::controllerFlag + midiChannel, MIDI::nrpnTypeMSB, NRPNtype / 128);
 }
 
 MidiMessage NRPNbufferWithLeadingMSBs::NRPNmessage2_Channel_TypeLSB(uint8 midiChannel, uint16 NRPNtype) {
-    return MidiMessage(controllerFlag + midiChannel, 98, NRPNtype % 128);
+    return MidiMessage(MIDI::controllerFlag + midiChannel, MIDI::nrpnTypeLSB, NRPNtype % 128);
 }
 
 MidiMessage NRPNbufferWithLeadingMSBs::NRPNmessage3_Channel_ValueMSB(uint8 midiChannel, uint8 newValue) {
-    return MidiMessage(controllerFlag + midiChannel, 6, newValue / 128);
+    return MidiMessage(MIDI::controllerFlag + midiChannel, MIDI::nrpnValueMSB, newValue / 128);
 }
 
 MidiMessage NRPNbufferWithLeadingMSBs::NRPNmessage4_Channel_ValueLSB(uint8 midiChannel, uint8 newValue) {
-    return MidiMessage(controllerFlag + midiChannel, 38, newValue % 128);
+    return MidiMessage(MIDI::controllerFlag + midiChannel, MIDI::nrpnValueLSB, newValue % 128);
 }
