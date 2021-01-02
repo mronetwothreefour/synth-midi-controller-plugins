@@ -3055,6 +3055,7 @@
     <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
+    <ClInclude Include="..\..\Source\params\params_Constants.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h" />
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
     <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h" />

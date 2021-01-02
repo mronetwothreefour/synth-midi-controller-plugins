@@ -14,8 +14,6 @@ class ExposedParametersListener :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	MidiOptions* midiOptions;
-	const uint8 arpeggiator;
-	const uint8 sequencer;
 
 public:
 	ExposedParametersListener() = delete;

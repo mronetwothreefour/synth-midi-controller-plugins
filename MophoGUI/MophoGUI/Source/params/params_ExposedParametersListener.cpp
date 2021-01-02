@@ -1,18 +1,19 @@
 #include "params_ExposedParametersListener.h"
 
+#include "params_Constants.h"
 #include "params_ExposedParamsInfo_Singleton.h"
 #include "params_SpecialValueOffsets.h"
 #include "params_UnexposedParameters_Facade.h"
 #include "../midi/midi_ParameterChangeMessage.h"
+
+using namespace constants;
 
 
 
 ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	midiOptions{ unexposedParams->midiOptions_get() },
-	arpeggiator{ 98 },
-	sequencer{ 100 }
+	midiOptions{ unexposedParams->midiOptions_get() }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
@@ -27,7 +28,7 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 		auto outputValue{ (uint8)roundToInt(newValue) };
 		outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
 		ParameterChangeMessage::sendNewValueForNRPNtypeToUnexposedParamsForHandling(outputValue, nrpn, unexposedParams);
-		if ((param == arpeggiator || param == sequencer) && outputValue == 1)
+		if ((param == mophoParams::arpeggiator || param == mophoParams::sequencer) && outputValue == 1)
 			arpeggiatorAndSequencerCannotBothBeOn(param);
 	}
 	else return;
@@ -35,12 +36,12 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 
 void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
 	auto& info{ InfoForExposedParameters::get() };
-	auto arpegParam{ exposedParams->getParameter(info.IDfor(arpeggiator)) };
-	auto sequencerParam{ exposedParams->getParameter(info.IDfor(sequencer)) };
-	if (paramTurnedOn == arpeggiator && sequencerParam != nullptr)
+	auto arpegParam{ exposedParams->getParameter(info.IDfor(mophoParams::arpeggiator)) };
+	auto sequencerParam{ exposedParams->getParameter(info.IDfor(mophoParams::sequencer)) };
+	if (paramTurnedOn == mophoParams::arpeggiator && sequencerParam != nullptr)
 		if (sequencerParam->getValue() != 0.0f)
 			sequencerParam->setValueNotifyingHost(0.0f);
-	if (paramTurnedOn == sequencer && arpegParam != nullptr)
+	if (paramTurnedOn == mophoParams::sequencer && arpegParam != nullptr)
 		if (arpegParam->getValue() != 0.0f)
 			arpegParam->setValueNotifyingHost(0.0f);
 }

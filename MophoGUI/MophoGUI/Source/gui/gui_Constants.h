@@ -194,5 +194,9 @@ namespace constants
 		static const Rectangle<int> bounds_SaveProgramInSelectedSlotButton(programBankSaveButton_x, programBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h);
 		static const Rectangle<int> bounds_SysexisOffWarningComponentCloseButton{ 830, 150, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_SysexisOffWarningComponentRetryButton{ 611, 449, secondaryWindowsControls_w, secondaryWindowsControls_h };
+
+		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
+		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
+		static const String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
 	}
 }

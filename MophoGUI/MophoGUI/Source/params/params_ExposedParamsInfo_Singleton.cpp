@@ -14,10 +14,6 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-
-	String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
-	String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
-	String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
 	String descriptionString;
 
 	//======================================================
@@ -30,7 +26,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToOscPitchString::get());
 		maxValues.add((uint8)120);
 		defaultValues.add((uint8)24);
-		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s base pitch in semitone steps.\n";
+		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s base pitch in semitone steps.\n";
 		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
@@ -44,7 +40,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToFineTuneString::get());
 		maxValues.add((uint8)100); 
 		defaultValues.add(i == 1 ? (uint8)49 : (uint8)51);
-		descriptionString =  "Fine tunes oscillator " + (String)i + apostrophe + "s base pitch.\n";
+		descriptionString =  "Fine tunes oscillator " + (String)i + GUI::apostrophe + "s base pitch.\n";
 		descriptionString += "Range: -50 cents to +50 cents.\n";
 		descriptionString += "0 = no detuning (centered).";
 		descriptions.add(descriptionString);
@@ -59,7 +55,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToOscWaveShapeString::get());
 		maxValues.add((uint8)103); 
 		defaultValues.add((uint8)1);
-		descriptionString =  "Selects oscillator " + (String)i + apostrophe + "s wave shape.\n";
+		descriptionString =  "Selects oscillator " + (String)i + GUI::apostrophe + "s wave shape.\n";
 		descriptionString += "Hold down a number on the keyboard and click\n";
 		descriptionString += "the knob to jump directly to a wave shape:\n";
 		descriptionString += "0 = Off;  1 = Sawtooth;  2 = Triangle;\n";
@@ -77,7 +73,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToPlainValueString::get());
 		maxValues.add((uint8)127); 
 		defaultValues.add((uint8)0);
-		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s glide (portamento) rate.\n";
+		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s glide (portamento) rate.\n";
 		descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
@@ -158,7 +154,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)2);
 	descriptionString =  "Introduces a subtle amount of random oscillator\n";
-	descriptionString += "pitch drift for a " + openQuote + "vintage analog" + closeQuote + " sound.\n";
+	descriptionString += "pitch drift for a " + GUI::openQuote + "vintage analog" + GUI::closeQuote + " sound.\n";
 	descriptionString += "Range: 0 to 5.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
@@ -286,7 +282,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the amount by which keyboard (MIDI) notes\n";
-	descriptionString += "will shift the low-pass filter" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "will shift the low-pass filter" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: 0 to 127. At 64, cutoff is shifted by one\n";
 	descriptionString += "semitone for each note. At 32, cutoff is shifted\n";
 	descriptionString += "by one half-semitone for each note.";
@@ -303,7 +299,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which oscillator 1 modulates\n";
-	descriptionString += "the low-pass filter" + apostrophe + "s cutoff frequency. This is\n";
+	descriptionString += "the low-pass filter" + GUI::apostrophe + "s cutoff frequency. This is\n";
 	descriptionString += "useful for generating bell-like sounds.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -334,7 +330,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which the LPF envelope\n";
-	descriptionString += "modulates the filter" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "modulates the filter" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Negative values invert the envelope.\n";
 	descriptionString += "Range: -127 to +127.";
 	descriptions.add(descriptionString);
@@ -350,7 +346,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which MIDI note velocity modulates\n";
-	descriptionString += "the amplitude of the low-pass filter" + apostrophe + "s envelope.\n";
+	descriptionString += "the amplitude of the low-pass filter" + GUI::apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
@@ -364,7 +360,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the LPF envelope" + apostrophe + "s delay segment\n";
+	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -380,8 +376,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the LPF envelope" + apostrophe + "s attack segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s attack segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -396,8 +392,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the LPF envelope" + apostrophe + "s decay segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s decay segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -412,7 +408,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the LPF envelope" + apostrophe + "s sustain level (once the\n";
+	descriptionString =  "Sets the LPF envelope" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -428,7 +424,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the LPF envelope" + apostrophe + "s release segment\n";
+	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -446,7 +442,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the voltage-controlled amplifier" + apostrophe + "s baseline level. Turn this\n";
+	descriptionString =  "Sets the voltage-controlled amplifier" + GUI::apostrophe + "s baseline level. Turn this\n";
 	descriptionString += "up for droning sounds or when processing external audio input.\n";
 	descriptionString += "When this level is set to 127, the VCA envelope has no effect.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -463,7 +459,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which the VCA envelope\n";
-	descriptionString += "modulates the voltage-controlled ampifier" + apostrophe + "s level.\n";
+	descriptionString += "modulates the voltage-controlled ampifier" + GUI::apostrophe + "s level.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
@@ -478,7 +474,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which MIDI note velocity modulates\n";
-	descriptionString += "the amplitude of the voltage-controlled ampifier" + apostrophe + "s envelope.\n";
+	descriptionString += "the amplitude of the voltage-controlled ampifier" + GUI::apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
@@ -492,7 +488,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the VCA envelope" + apostrophe + "s delay segment\n";
+	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -508,8 +504,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the VCA envelope" + apostrophe + "s attack segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s attack segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -524,8 +520,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the VCA envelope" + apostrophe + "s decay segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s decay segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -540,7 +536,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
-	descriptionString =  "Sets the VCA envelope" + apostrophe + "s sustain level (once the\n";
+	descriptionString =  "Sets the VCA envelope" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -556,7 +552,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
-	descriptionString =  "Sets the length of the VCA envelope" + apostrophe + "s release segment\n";
+	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -589,7 +585,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToLFOfreqString::get());
 		maxValues.add((uint8)166);
 		defaultValues.add((uint8)80);
-		descriptionString =  "Sets LFO " + String(i + 1) + apostrophe + "s cycle speed. Range: 0 to 166.\n";
+		descriptionString =  "Sets LFO " + String(i + 1) + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
 		descriptionString += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
 		descriptionString += "From 90 to 150, LFO " + String(i + 1) + " has a pitched frequency, increasing\n";
 		descriptionString += "in semitones steps from C 0 (8.2 Hz) up to C 5 (261.6 Hz).\n";
@@ -607,7 +603,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToLFOshapeString::get());
 		maxValues.add((uint8)4);
 		defaultValues.add((uint8)1);
-		descriptions.add("Selects LFO " + String(i + 1) + apostrophe + "s wave shape.");
+		descriptions.add("Selects LFO " + String(i + 1) + GUI::apostrophe + "s wave shape.");
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(463 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
@@ -646,7 +642,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		converters.add(IntToOffOnString::get());
 		maxValues.add((uint8)1);
 		defaultValues.add((uint8)0);
-		descriptionString =  "When on, LFO " + String(i + 1) + apostrophe + "s cycle will reset\n";
+		descriptionString =  "When on, LFO " + String(i + 1) + GUI::apostrophe + "s cycle will reset\n";
 		descriptionString += "each time a new note is played.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::toggle_diameter);
@@ -706,7 +702,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of envelope 3" + apostrophe + "s delay segment\n";
+	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -722,8 +718,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of envelope 3" + apostrophe + "s attack segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s attack segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -738,8 +734,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of the envelope 3" + apostrophe + "s decay segment\n";
-	descriptionString += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
+	descriptionString =  "Sets the length of the envelope 3" + GUI::apostrophe + "s decay segment\n";
+	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -754,7 +750,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets envelope 3" + apostrophe + "s sustain level (once the\n";
+	descriptionString =  "Sets envelope 3" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -770,7 +766,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the length of envelope 3" + apostrophe + "s release segment\n";
+	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
 	descriptionString += "Range: 0 to 127.";
@@ -1022,7 +1018,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToPushItModeString::get());
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Sets the operating mode for the Mopho" + apostrophe + "s Push It! switch.\n";
+	descriptionString =  "Sets the operating mode for the Mopho" + GUI::apostrophe + "s Push It! switch.\n";
 	descriptionString += "Normal: The selected note is gated on when the switch is\n";
 	descriptionString += "pressed and gated off when the switch is released.\n";
 	descriptionString += "Toggle: The selected note is gated on when the switch is\n";
@@ -1087,7 +1083,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Turns the Mopho" + apostrophe + "s arpeggiator on and off.\n";
+	descriptionString =  "Turns the Mopho" + GUI::apostrophe + "s arpeggiator on and off.\n";
 	descriptionString += "Turning this on will turn off the sequencer.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::toggle_diameter);
@@ -1124,7 +1120,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Turns the Mopho" + apostrophe + "s internal sequencer on and off.\n";
+	descriptionString =  "Turns the Mopho" + GUI::apostrophe + "s internal sequencer on and off.\n";
 	descriptionString += "Turning this on will turn off the arpeggiator.";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::toggle_diameter);
@@ -1263,9 +1259,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
-			descriptionString =  "Sets the value that sequencer track " + trackString + apostrophe + "s destination parameter has at step " + stepString + ",\n";
+			descriptionString =  "Sets the value that sequencer track " + trackString + GUI::apostrophe + "s destination parameter has at step " + stepString + ",\n";
 			descriptionString += "Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.\n";
-			descriptionString += "A " + openQuote + "+" + closeQuote + " indicates that the pitch is a quarter-tone higher than the displayed note.\n";
+			descriptionString += "A " + GUI::openQuote + "+" + GUI::closeQuote + " indicates that the pitch is a quarter-tone higher than the displayed note.\n";
 			descriptionString += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
 			if (track == 0) {
 				descriptionString += "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n";
@@ -1289,7 +1285,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		NRPNs.add((uint8)(184 + charNum));
 		converters.add(IntToPgmNameCharString::get());
 		maxValues.add((uint8)127);
-		descriptionString =  "To change character " + charNumString + " of the program" + apostrophe + "s name,\n";
+		descriptionString =  "To change character " + charNumString + " of the program" + GUI::apostrophe + "s name,\n";
 		descriptionString += "click-and-drag the character or hover over\n";
 		descriptionString += "it and turn the mouse wheel. Click the edit\n";
 		descriptionString += "button above to type in the entire name.";
