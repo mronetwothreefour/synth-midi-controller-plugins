@@ -39,6 +39,13 @@ namespace constants
 		static const int envelopeRenderers_y{ 408 };
 		static const int mainWindowSmallButtons_y{ 367 };
 		static const int mainWindowSmallButtons_w{ 34 };
+		static const int matrixModComboBoxes_w{ 82 };
+		static const int matrixModSlotControls_y{ 0 };
+		static const int matrixModSlotControls_h{ 20 };
+		static const int matrixModFirstSlot_y{ 59 };
+		static const int matrixModSlots_w{ 216 };
+		static const int matrixModSlots_x{ 1016 };
+		static const int matrixModVerticalSpacingBetweenSlots{ 28 };
 		static const int quickEditButton_w{ 70 };
 		static const int quickEditButton_x{ 596 };
 		static const int smallButtons_h{ 20 };
@@ -48,5 +55,19 @@ namespace constants
 		static const int trackingGeneratorRenderer_y{ 183 };
 
 		static const PathStrokeType envelopeStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
+
+		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_3{ matrixModSlots_x, matrixModFirstSlot_y + 3 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_4{ matrixModSlots_x, matrixModFirstSlot_y + 4 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_5{ matrixModSlots_x, matrixModFirstSlot_y + 5 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_6{ matrixModSlots_x, matrixModFirstSlot_y + 6 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_7{ matrixModSlots_x, matrixModFirstSlot_y + 7 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_8{ matrixModSlots_x, matrixModFirstSlot_y + 8 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlot_9{ matrixModSlots_x, matrixModFirstSlot_y + 9 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlotComboBoxForDestination{ 134, matrixModSlotControls_y, matrixModComboBoxes_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlotComboBoxForSource{ 0, matrixModSlotControls_y, matrixModComboBoxes_w, matrixModSlotControls_h };
+		static const Rectangle<int> bounds_MatrixModSlotSliderForAmount{ 88, matrixModSlotControls_y, 40, matrixModSlotControls_h };
 	}
 }

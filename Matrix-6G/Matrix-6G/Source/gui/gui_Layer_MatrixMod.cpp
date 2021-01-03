@@ -1,6 +1,9 @@
 #include "gui_Layer_MatrixMod.h"
 
+#include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -27,23 +30,18 @@ MatrixModLayer::MatrixModLayer(UnexposedParameters* unexposedParams) :
 	addAndMakeVisible(matrixModSlot_7);
 	addAndMakeVisible(matrixModSlot_8);
 	addAndMakeVisible(matrixModSlot_9);
-	setSize(1252, 596);
+	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void MatrixModLayer::resized() {
-	auto slot_x{ 1016 };
-	auto firstSlot_y{ 59 };
-	auto slot_w{ matrixModSlot_0.getWidth() };
-	auto slot_h{ matrixModSlot_0.getHeight() };
-	auto verticalSpacingBetweenSlots{ 28 };
-	matrixModSlot_0.setBounds(slot_x, firstSlot_y, slot_w, slot_h);
-	matrixModSlot_1.setBounds(slot_x, firstSlot_y + verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_2.setBounds(slot_x, firstSlot_y + 2 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_3.setBounds(slot_x, firstSlot_y + 3 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_4.setBounds(slot_x, firstSlot_y + 4 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_5.setBounds(slot_x, firstSlot_y + 5 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_6.setBounds(slot_x, firstSlot_y + 6 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_7.setBounds(slot_x, firstSlot_y + 7 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_8.setBounds(slot_x, firstSlot_y + 8 * verticalSpacingBetweenSlots, slot_w, slot_h);
-	matrixModSlot_9.setBounds(slot_x, firstSlot_y + 9 * verticalSpacingBetweenSlots, slot_w, slot_h);
+	matrixModSlot_0.setBounds(GUI::bounds_MatrixModSlot_0);
+	matrixModSlot_1.setBounds(GUI::bounds_MatrixModSlot_1);
+	matrixModSlot_2.setBounds(GUI::bounds_MatrixModSlot_2);
+	matrixModSlot_3.setBounds(GUI::bounds_MatrixModSlot_3);
+	matrixModSlot_4.setBounds(GUI::bounds_MatrixModSlot_4);
+	matrixModSlot_5.setBounds(GUI::bounds_MatrixModSlot_5);
+	matrixModSlot_6.setBounds(GUI::bounds_MatrixModSlot_6);
+	matrixModSlot_7.setBounds(GUI::bounds_MatrixModSlot_7);
+	matrixModSlot_8.setBounds(GUI::bounds_MatrixModSlot_8);
+	matrixModSlot_9.setBounds(GUI::bounds_MatrixModSlot_9);
 }

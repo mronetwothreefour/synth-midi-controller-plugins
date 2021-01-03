@@ -1,6 +1,9 @@
 #include "gui_matrixMod_Slot.h"
 
+#include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -17,17 +20,13 @@ MatrixModSlot::MatrixModSlot(UnexposedParameters* unexposedParams, int modNumber
 	addAndMakeVisible(comboBox_ForSelectingSourceForMatrixMod);
 	addAndMakeVisible(slider_ForSettingAmountForMatrixMod);
 	addAndMakeVisible(comboBox_ForSelectingDestinationForMatrixMod);
-
-	setSize(216, 20);
+	setSize(GUI::matrixModSlots_w, GUI::matrixModSlotControls_h);
 }
 
 void MatrixModSlot::resized() {
-	auto comboBox_w{ 82 };
-	auto controls_y{ 0 };
-	auto controls_h{ 20 };
-	comboBox_ForSelectingSourceForMatrixMod.setBounds(0, controls_y, comboBox_w, controls_h);
-	slider_ForSettingAmountForMatrixMod.setBounds(88, controls_y, 40, controls_h);
-	comboBox_ForSelectingDestinationForMatrixMod.setBounds(134, controls_y, comboBox_w, controls_h);
+	comboBox_ForSelectingSourceForMatrixMod.setBounds(GUI::bounds_MatrixModSlotComboBoxForSource);
+	slider_ForSettingAmountForMatrixMod.setBounds(GUI::bounds_MatrixModSlotSliderForAmount);
+	comboBox_ForSelectingDestinationForMatrixMod.setBounds(GUI::bounds_MatrixModSlotComboBoxForDestination);
 }
 
 void MatrixModSlot::comboBoxChanged(ComboBox* comboBox) {
