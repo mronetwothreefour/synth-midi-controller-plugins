@@ -2,8 +2,11 @@
 
 #include <JuceHeader.h>
 
+#include "gui_Constants.h"
 #include "../guiRenderers/guiRenderer_Envelopes.h"
 #include "../guiRenderers/guiRenderer_Tracking.h"
+
+using namespace constants;
 
 
 
@@ -29,22 +32,11 @@ public:
         addAndMakeVisible(rendererForEnvelope_Env2);
         addAndMakeVisible(rendererForEnvelope_Env3);
         addAndMakeVisible(rendererForTrackingGenerator);
-        auto renderersHorizontalSpacing{ 410 };
-        auto env1Renderer_x{ 184 };
-        auto env2Renderer_x{ env1Renderer_x + renderersHorizontalSpacing };
-        auto env3Renderer_x{ env2Renderer_x + renderersHorizontalSpacing };
-        auto envelopeRenderers_y{ 408 };
-        auto envelopeRenderers_w{ rendererForEnvelope_Env1.getWidth() };
-        auto envelopeRenderers_h{ rendererForEnvelope_Env1.getHeight() };
-        rendererForEnvelope_Env1.setBounds(env1Renderer_x, envelopeRenderers_y, envelopeRenderers_w, envelopeRenderers_h);
-        rendererForEnvelope_Env2.setBounds(env2Renderer_x, envelopeRenderers_y, envelopeRenderers_w, envelopeRenderers_h);
-        rendererForEnvelope_Env3.setBounds(env3Renderer_x, envelopeRenderers_y, envelopeRenderers_w, envelopeRenderers_h);
-        auto trackingRenderer_x{ 840 };
-        auto trackingRenderer_y{ 183 };
-        auto trackingRenderer_w{ rendererForTrackingGenerator.getWidth() };
-        auto trackingRenderer_h{ rendererForTrackingGenerator.getHeight() };
-        rendererForTrackingGenerator.setBounds(trackingRenderer_x, trackingRenderer_y, trackingRenderer_w, trackingRenderer_h);
-        setSize(1252, 596);
+        rendererForEnvelope_Env1.setBounds(GUI::env1Renderer_x, GUI::envelopeRenderers_y, GUI::envelopeRenderers_w, GUI::envelopeRenderers_h);
+        rendererForEnvelope_Env2.setBounds(GUI::env2Renderer_x, GUI::envelopeRenderers_y, GUI::envelopeRenderers_w, GUI::envelopeRenderers_h);
+        rendererForEnvelope_Env3.setBounds(GUI::env3Renderer_x, GUI::envelopeRenderers_y, GUI::envelopeRenderers_w, GUI::envelopeRenderers_h);
+        rendererForTrackingGenerator.setBounds(GUI::trackingGeneratorRenderer_x, GUI::trackingGeneratorRenderer_y, GUI::trackingGeneratorRenderer_w, GUI::trackingGeneratorRenderer_h);
+        setSize(GUI::editor_w, GUI::editor_h);
     }
 
 private:

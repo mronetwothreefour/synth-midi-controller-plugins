@@ -4868,6 +4868,9 @@
     <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h">
+      <Filter>Matrix-6G\Source\gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

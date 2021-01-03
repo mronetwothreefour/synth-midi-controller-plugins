@@ -1,5 +1,9 @@
 #include "gui_Layer_Buttons.h"
 
+#include "gui_Constants.h"
+
+using namespace constants;
+
 
 
 ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
@@ -11,14 +15,10 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
     addAndMakeVisible(button_ForPushingPatchToHardware);
-    setSize(1252, 596);
+    setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void ButtonsLayer::resized() {
-    auto smallButtons_y{ 367 };
-    auto smallButtons_h{ 20 };
-    auto quickEditButton_w{ 70 };
-    auto otherSmallButtons_w{ 34 };
-    button_ForActivatingQuickPatchEdit.setBounds(596, smallButtons_y, quickEditButton_w, smallButtons_h);
-    button_ForPushingPatchToHardware.setBounds(788, smallButtons_y, otherSmallButtons_w, smallButtons_h);
+    button_ForActivatingQuickPatchEdit.setBounds(GUI::quickEditButton_x, GUI::mainWindowSmallButtons_y, GUI::quickEditButton_w, GUI::smallButtons_h);
+    button_ForPushingPatchToHardware.setBounds(788, GUI::mainWindowSmallButtons_y, GUI::mainWindowSmallButtons_w, GUI::smallButtons_h);
 }

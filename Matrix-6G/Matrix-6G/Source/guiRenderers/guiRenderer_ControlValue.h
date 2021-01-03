@@ -3,7 +3,10 @@
 #include <JuceHeader.h>
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Path_LEDcharacters_Singleton.h"
+
+using namespace constants;
 
 
 
@@ -11,16 +14,13 @@ struct ControlValueRenderer {
 	static void paintValueStringInComponent(Graphics& g, const String& valueString, Component* component) {
 		g.setColour(Color::led_blue);
 		auto& charPaths{ LEDcharacterPaths::get() };
-		auto rightSideInset{ 1.0f };
-		auto character_w{ 11.0f };
-		auto lastCharacter_x{ component->getWidth() - rightSideInset - character_w };
-		auto y{ 3.0f };
 		Path positionPath;
+		auto ledDisplayLastCharacter_x{ component->getWidth() - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
 		auto lastCharacterIndex{ (int)valueString.toStdString().size() - 1 };
 		for (auto i = lastCharacterIndex; i != -1; --i) {
 			auto charNum{ (uint8)valueString[i] };
-			auto character_x{ lastCharacter_x - character_w * (lastCharacterIndex - i) };
-			positionPath.addPath(charPaths.getPathForChar(charNum), AffineTransform::translation(character_x, y));
+			auto character_x{ ledDisplayLastCharacter_x - (GUI::ledDisplayCharacter_w * (lastCharacterIndex - i)) };
+			positionPath.addPath(charPaths.getPathForChar(charNum), AffineTransform::translation(character_x, GUI::ledDisplay_y));
 		}
 		g.fillPath(positionPath);
 	}

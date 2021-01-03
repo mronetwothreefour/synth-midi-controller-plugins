@@ -20,13 +20,6 @@ class RendererForEnvelopes :
 	Attachment decayAttachment;
 	Attachment sustainAttachment;
 	Attachment releaseAttachment;
-	const float maxSegment_w{ 43.0f };
-	const float sustainSegment_w{ 34.0f };
-	const float envelopeStart_x{ 11.0f };
-	const float envelopeEnd_x{ 217.0f };
-	const float minimum_y{ 98.0f };
-	const float maximum_y{ 10.0f };
-	const float envelope_h{ minimum_y - maximum_y };
 	float attackStart_x;
 	float decayStart_x;
 	float sustainStart_x;

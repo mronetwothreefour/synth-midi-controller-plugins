@@ -2915,6 +2915,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Tracking.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h" />
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h" />
     <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h" />

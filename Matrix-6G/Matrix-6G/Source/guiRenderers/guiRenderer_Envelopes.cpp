@@ -1,6 +1,9 @@
 #include "guiRenderer_Envelopes.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
+
+using namespace constants;
 
 
 
@@ -22,9 +25,7 @@ RendererForEnvelopes::RendererForEnvelopes(int envelopeNumber, AudioProcessorVal
 	set_releaseStart_x();
 	set_releaseEnd_x();
 	set_sustain_y();
-	auto envelopeRenderer_w{ 228 };
-	auto envelopeRenderer_h{ 108 };
-	setSize(envelopeRenderer_w, envelopeRenderer_h);
+	setSize(GUI::envelopeRenderers_w, GUI::envelopeRenderers_h);
 }
 
 void RendererForEnvelopes::sliderValueChanged(Slider* /*slider*/) {
@@ -38,41 +39,40 @@ void RendererForEnvelopes::sliderValueChanged(Slider* /*slider*/) {
 }
 
 void RendererForEnvelopes::set_attackStart_x() {
-	attackStart_x = envelopeStart_x + (((float)delay.getValue() / 63.0f) * maxSegment_w);
+	attackStart_x = GUI::envelopeStart_x + (((float)delay.getValue() / 63.0f) * GUI::envelopeMaxSegment_w);
 }
 
 void RendererForEnvelopes::set_decayStart_x() {
-	decayStart_x = attackStart_x + (((float)attack.getValue() / 63.0f) * maxSegment_w);
+	decayStart_x = attackStart_x + (((float)attack.getValue() / 63.0f) * GUI::envelopeMaxSegment_w);
 }
 
 void RendererForEnvelopes::set_sustainStart_x() {
-	sustainStart_x = decayStart_x + (((float)decay.getValue() / 63.0f) * maxSegment_w);
+	sustainStart_x = decayStart_x + (((float)decay.getValue() / 63.0f) * GUI::envelopeMaxSegment_w);
 }
 
 void RendererForEnvelopes::set_releaseStart_x() {
-	releaseStart_x = sustainStart_x + sustainSegment_w;
+	releaseStart_x = sustainStart_x + GUI::envelopeSustainSegment_w;
 }
 
 void RendererForEnvelopes::set_releaseEnd_x() {
-	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 63.0f) * maxSegment_w);
+	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 63.0f) * GUI::envelopeMaxSegment_w);
 }
 
 void RendererForEnvelopes::set_sustain_y() {
-	sustain_y = minimum_y - (((float)sustain.getValue() / 63.0f) * envelope_h);
+	sustain_y = GUI::envelopeMinimum_y - (((float)sustain.getValue() / 63.0f) * GUI::envelope_h);
 }
 
 void RendererForEnvelopes::paint(Graphics& g) {
 	g.setColour(Color::led_blue);
 	Path path;
-	path.startNewSubPath(envelopeStart_x, minimum_y);
-	path.lineTo(attackStart_x, minimum_y);
-	path.lineTo(decayStart_x, maximum_y);
+	path.startNewSubPath(GUI::envelopeStart_x, GUI::envelopeMinimum_y);
+	path.lineTo(attackStart_x, GUI::envelopeMinimum_y);
+	path.lineTo(decayStart_x, GUI::envelopeMaximum_y);
 	path.lineTo(sustainStart_x, sustain_y);
 	path.lineTo(releaseStart_x, sustain_y);
-	path.lineTo(releaseEnd_x, minimum_y);
-	path.lineTo(envelopeEnd_x, minimum_y);
-	PathStrokeType strokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
-	g.strokePath(path, strokeType);
+	path.lineTo(releaseEnd_x, GUI::envelopeMinimum_y);
+	path.lineTo(GUI::envelopeEnd_x, GUI::envelopeMinimum_y);
+	g.strokePath(path, GUI::envelopeStrokeType);
 }
 
 RendererForEnvelopes::~RendererForEnvelopes() {

@@ -1,6 +1,9 @@
 #include "guiRenderer_Tracking.h"
 
 #include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
+
+using namespace constants;
 
 
 
@@ -21,9 +24,7 @@ RendererForTrackingGenerator::RendererForTrackingGenerator(AudioProcessorValueTr
 	set_point3_y();
 	set_point4_y();
 	set_point5_y();
-	auto trackingGeneratorRenderer_w{ 150 };
-	auto trackingGeneratorRenderer_h{ 80 };
-	setSize(trackingGeneratorRenderer_w, trackingGeneratorRenderer_h);
+	setSize(GUI::trackingGeneratorRenderer_w, GUI::trackingGeneratorRenderer_h);
 }
 
 void RendererForTrackingGenerator::sliderValueChanged(Slider* /*slider*/) {
@@ -36,35 +37,34 @@ void RendererForTrackingGenerator::sliderValueChanged(Slider* /*slider*/) {
 }
 
 void RendererForTrackingGenerator::set_point1_y() {
-	point1_y = minimum_y - (((float)point1.getValue() / 63.0f) * envelope_h);
+	point1_y = GUI::trackingGeneratorMinimum_y - (((float)point1.getValue() / 63.0f) * GUI::trackingGenerator_h);
 }
 
 void RendererForTrackingGenerator::set_point2_y() {
-	point2_y = minimum_y - (((float)point2.getValue() / 63.0f) * envelope_h);
+	point2_y = GUI::trackingGeneratorMinimum_y - (((float)point2.getValue() / 63.0f) * GUI::trackingGenerator_h);
 }
 
 void RendererForTrackingGenerator::set_point3_y() {
-	point3_y = minimum_y - (((float)point3.getValue() / 63.0f) * envelope_h);
+	point3_y = GUI::trackingGeneratorMinimum_y - (((float)point3.getValue() / 63.0f) * GUI::trackingGenerator_h);
 }
 
 void RendererForTrackingGenerator::set_point4_y() {
-	point4_y = minimum_y - (((float)point4.getValue() / 63.0f) * envelope_h);
+	point4_y = GUI::trackingGeneratorMinimum_y - (((float)point4.getValue() / 63.0f) * GUI::trackingGenerator_h);
 }
 
 void RendererForTrackingGenerator::set_point5_y() {
-	point5_y = minimum_y - (((float)point5.getValue() / 63.0f) * envelope_h);
+	point5_y = GUI::trackingGeneratorMinimum_y - (((float)point5.getValue() / 63.0f) * GUI::trackingGenerator_h);
 }
 
 void RendererForTrackingGenerator::paint(Graphics& g) {
 	g.setColour(Color::led_blue);
 	Path path;
-	path.startNewSubPath(point1_x, point1_y);
-	path.lineTo(point2_x, point2_y);
-	path.lineTo(point3_x, point3_y);
-	path.lineTo(point4_x, point4_y);
-	path.lineTo(point5_x, point5_y);
-	PathStrokeType strokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
-	g.strokePath(path, strokeType);
+	path.startNewSubPath(GUI::trackingGeneratorPoint1_x, point1_y);
+	path.lineTo(GUI::trackingGeneratorPoint2_x, point2_y);
+	path.lineTo(GUI::trackingGeneratorPoint3_x, point3_y);
+	path.lineTo(GUI::trackingGeneratorPoint4_x, point4_y);
+	path.lineTo(GUI::trackingGeneratorPoint5_x, point5_y);
+	g.strokePath(path, GUI::envelopeStrokeType);
 }
 
 RendererForTrackingGenerator::~RendererForTrackingGenerator() {
