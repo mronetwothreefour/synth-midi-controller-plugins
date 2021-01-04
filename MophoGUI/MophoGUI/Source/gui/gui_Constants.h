@@ -13,6 +13,7 @@ namespace constants
 		static const float envelopeRenderMinimum_y{ 75.0f };
 		static const float envelopeRenderEnvelope_h{ envelopeRenderMinimum_y - envelopeRenderMaximum_y };
 		static const float envelopeRenderSustainSegment_w{ 28.0f };
+		static const float tooltipMaxWidth{ 400.0f };
 
 		static const int bankTransmitTitleLabel_x{ 454 };
 		static const int bankTransmitTitleLabel_y{ 260 };
@@ -127,11 +128,11 @@ namespace constants
 		static const int sysexIsOffWarningWindow_x{ 386 };
 		static const int sysexIsOffWarningWindow_y{ 143 };
 		static const int tabBarDepth{ 30 };
-		static const int toggle_diameter{ 14 };
 		static const int tabbedComponentForProgramBanks_w{ programBanksTab_w + tabBarDepth };
 		static const int tabbedComponentForProgramBanks_h{ programBanksTab_h };
 		static const int tabbedComponentForAllProgramBanks_w{ tabbedComponentForProgramBanks_w };
 		static const int tabbedComponentForAllProgramBanks_h{ tabbedComponentForProgramBanks_h + tabBarDepth };
+		static const int toggle_diameter{ 14 };
 		static const int undoRedoButtons_h{ 22 };
 		static const int undoRedoButtons_w{ 44 };
 		static const int undoRedoButtons_x{ 837 };

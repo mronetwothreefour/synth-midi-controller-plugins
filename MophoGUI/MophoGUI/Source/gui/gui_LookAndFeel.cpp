@@ -5,6 +5,8 @@
 #include "gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 
+using namespace constants;
+
 
 
 void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& /*slider*/) {
@@ -70,12 +72,11 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
-	const int maxToolTipWidth = 400;
 	AttributedString s;
 	s.setJustification(Justification::centred);
 	s.append(text, FontsMenu::fontFor_Tooltips, colour);
 	TextLayout tl;
-	tl.createLayout(s, (float)maxToolTipWidth);
+	tl.createLayout(s, GUI::tooltipMaxWidth);
 	return tl;
 }
 
@@ -283,17 +284,11 @@ void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, 
 	g.drawFittedText(text, reducedArea, Justification::centredLeft, 1);
 }
 
-void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool isSeparator, int itemHeight, int& idealWidth, int& idealHeight) {
-	if (isSeparator) {
-		idealWidth = 50;
-		idealHeight = itemHeight > 0 ? itemHeight / 10 : 10;
-	}
-	else {
-		auto font = getPopupMenuFont();
-		if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
-			font.setHeight(itemHeight / 1.3f);
-		idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
-	}
+void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool /*isSeparator*/, int itemHeight, int& /*idealWidth*/, int& idealHeight) {
+	auto font = getPopupMenuFont();
+	if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
+		font.setHeight(itemHeight / 1.3f);
+	idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
 }
 
 void GUILookAndFeel::drawTabButton(TabBarButton& button, Graphics& g, bool /*isMouseOver*/, bool /*isMouseDown*/) {
