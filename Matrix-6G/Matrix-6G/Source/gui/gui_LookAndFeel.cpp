@@ -1,11 +1,14 @@
 #include "gui_LookAndFeel.h"
 
 #include "gui_Colors.h"
+#include "gui_Constants.h"
 #include "gui_Fonts.h"
 #include "gui_Path_LEDsliderTab.h"
 #include "gui_Path_VerticalBarLED.h"
 #include "../guiRenderers/guiRenderer_PopupMenuItem.h"
 #include "../params/params_Identifiers.h"
+
+using namespace constants;
 
 
 
@@ -39,14 +42,12 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
-	const int maxToolTipWidth = 400;
-
 	AttributedString s;
 	s.setJustification(Justification::centred);
 	s.append(text, FontsMenu::fontFor_TooltipText, colour);
 
 	TextLayout tl;
-	tl.createLayout(s, (float)maxToolTipWidth);
+	tl.createLayout(s, GUI::tooltipMaxWidth);
 	return tl;
 }
 
@@ -121,16 +122,10 @@ void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, 
 	PopupMenuItemRenderer::paintTextInArea(g, text, area);
 }
 
-void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool isSeparator, int itemHeight, int& idealWidth, int& idealHeight) {
-	if (isSeparator) {
-		idealWidth = 50;
-		idealHeight = itemHeight > 0 ? itemHeight / 10 : 10;
-	}
-	else {
-		auto font = getPopupMenuFont();
-		if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
-			font.setHeight(itemHeight / 1.3f);
-		idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
-	}
+void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool /*isSeparator*/, int itemHeight, int& /*idealWidth*/, int& idealHeight) {
+	auto font = getPopupMenuFont();
+	if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
+		font.setHeight(itemHeight / 1.3f);
+	idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
 }
 

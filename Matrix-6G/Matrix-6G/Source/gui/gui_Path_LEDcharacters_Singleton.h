@@ -7,22 +7,6 @@
 class LEDcharacterPaths
 {
 	Array<Path> characterPaths;
-	const std::vector<uint8> pathDataForSegment_A;
-	const std::vector<uint8> pathDataForSegment_B;
-	const std::vector<uint8> pathDataForSegment_C;
-	const std::vector<uint8> pathDataForSegment_D;
-	const std::vector<uint8> pathDataForSegment_E;
-	const std::vector<uint8> pathDataForSegment_F;
-	const std::vector<uint8> pathDataForSegment_G;
-	const std::vector<uint8> pathDataForSegment_H;
-	const std::vector<uint8> pathDataForSegment_I;
-	const std::vector<uint8> pathDataForSegment_J;
-	const std::vector<uint8> pathDataForSegment_K;
-	const std::vector<uint8> pathDataForSegment_L;
-	const std::vector<uint8> pathDataForSegment_M;
-	const std::vector<uint8> pathDataForSegment_N;
-	const std::vector<uint8> pathDataForSegment_O;
-	const std::vector<uint8> pathDataForSegment_P;
 
 	LEDcharacterPaths();
 	void fillCharacterPaths();

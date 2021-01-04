@@ -1,11 +1,14 @@
 #include "gui_Layer_PatchNumberAndName.h"
 
-#include "../gui/gui_Colors.h"
-#include "../gui/gui_Fonts.h"
-#include "../gui/gui_Path_LEDcharacters_Singleton.h"
+#include "gui_Colors.h"
+#include "gui_Constants.h"
+#include "gui_Fonts.h"
+#include "gui_Path_LEDcharacters_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -35,12 +38,12 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
 	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
-	setSize(1252, 596);
+	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void PatchNumberAndNameLayer::resized() {
-	slider_ForPatchNumber.setBounds(840, 367, 28, 20);
-	patchNameEditor.setBounds(873, 367, 117, 20);
+	slider_ForPatchNumber.setBounds(GUI::bounds_PatchNumberSlider);
+	patchNameEditor.setBounds(GUI::bounds_PatchNameEditor);
 }
 
 void PatchNumberAndNameLayer::editorShown(Label* /*label*/, TextEditor& editor) {
@@ -78,15 +81,11 @@ void PatchNumberAndNameLayer::paint(Graphics& g) {
 	auto nameString{ currentPatchOptions->currentPatchName() };
 	g.setColour(Color::led_blue);
 	auto& charPaths{ LEDcharacterPaths::get() };
-	auto firstCharacter_x{ 881.0f };
-	auto characters_y{ 370.0f };
-	auto character_w{ 11.0f };
-	auto gapBetweenCharacters{ 2.0f };
 	Path positionPath;
 	for (auto i = 0; i != 8; ++i) {
 		auto charNum{ (uint8)nameString[i] };
-		auto character_x{ firstCharacter_x + i * (character_w + gapBetweenCharacters) };
-		positionPath.addPath(charPaths.getPathForChar(charNum), AffineTransform::translation(character_x, characters_y));
+		auto character_x{ GUI::patchNameFirstCharacter_x + i * (GUI::patchNameCharacter_w + GUI::patchNameGapBetweenCharacters) };
+		positionPath.addPath(charPaths.getPathForChar(charNum), AffineTransform::translation(character_x, GUI::patchNameCharacters_y));
 	}
 	g.fillPath(positionPath);
 }
