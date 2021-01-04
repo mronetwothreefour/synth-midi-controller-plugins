@@ -7,47 +7,6 @@
 class LCDcharacterPaths
 {
 	Array<Path> characterPaths;
-	const std::vector<uint8> pathDataForPixel_Row1Col1;
-	const std::vector<uint8> pathDataForPixel_Row1Col2;
-	const std::vector<uint8> pathDataForPixel_Row1Col3;
-	const std::vector<uint8> pathDataForPixel_Row1Col4;
-	const std::vector<uint8> pathDataForPixel_Row1Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row2Col1;
-	const std::vector<uint8> pathDataForPixel_Row2Col2;
-	const std::vector<uint8> pathDataForPixel_Row2Col3;
-	const std::vector<uint8> pathDataForPixel_Row2Col4;
-	const std::vector<uint8> pathDataForPixel_Row2Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row3Col1;
-	const std::vector<uint8> pathDataForPixel_Row3Col2;
-	const std::vector<uint8> pathDataForPixel_Row3Col3;
-	const std::vector<uint8> pathDataForPixel_Row3Col4;
-	const std::vector<uint8> pathDataForPixel_Row3Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row4Col1;
-	const std::vector<uint8> pathDataForPixel_Row4Col2;
-	const std::vector<uint8> pathDataForPixel_Row4Col3;
-	const std::vector<uint8> pathDataForPixel_Row4Col4;
-	const std::vector<uint8> pathDataForPixel_Row4Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row5Col1;
-	const std::vector<uint8> pathDataForPixel_Row5Col2;
-	const std::vector<uint8> pathDataForPixel_Row5Col3;
-	const std::vector<uint8> pathDataForPixel_Row5Col4;
-	const std::vector<uint8> pathDataForPixel_Row5Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row6Col1;
-	const std::vector<uint8> pathDataForPixel_Row6Col2;
-	const std::vector<uint8> pathDataForPixel_Row6Col3;
-	const std::vector<uint8> pathDataForPixel_Row6Col4;
-	const std::vector<uint8> pathDataForPixel_Row6Col5;
-
-	const std::vector<uint8> pathDataForPixel_Row7Col1;
-	const std::vector<uint8> pathDataForPixel_Row7Col2;
-	const std::vector<uint8> pathDataForPixel_Row7Col3;
-	const std::vector<uint8> pathDataForPixel_Row7Col4;
-	const std::vector<uint8> pathDataForPixel_Row7Col5;
 
 	LCDcharacterPaths();
 	void fillCharacterPaths();
