@@ -28,9 +28,6 @@ class InfoForExposedParameters
 	void fillAllInfoContainers();
 
 public:
-	const int8 offsetForSigned6bitRange{ 31 };
-	const int8 offsetForSigned7bitRange{ 63 };
-
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;
 	InfoForExposedParameters& operator=(InfoForExposedParameters&&) = delete;
 

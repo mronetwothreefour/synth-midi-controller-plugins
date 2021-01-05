@@ -20,7 +20,7 @@ MatrixModSlot::MatrixModSlot(UnexposedParameters* unexposedParams, int modNumber
 	addAndMakeVisible(comboBox_ForSelectingSourceForMatrixMod);
 	addAndMakeVisible(slider_ForSettingAmountForMatrixMod);
 	addAndMakeVisible(comboBox_ForSelectingDestinationForMatrixMod);
-	setSize(GUI::matrixModSlots_w, GUI::matrixModSlotControls_h);
+	setSize(GUI::matrixModSlots_w, GUI::controls_h);
 }
 
 void MatrixModSlot::resized() {

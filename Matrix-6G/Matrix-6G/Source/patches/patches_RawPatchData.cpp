@@ -1,7 +1,10 @@
 #include "patches_RawPatchData.h"
 
+#include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -142,16 +145,14 @@ void RawPatchData::addMatrixModDataToVector(UnexposedParameters* unexposedParams
 }
 
 uint8 RawPatchData::formatSigned6bitValueForSendingToMatrix(uint8& value) {
-    auto& info{ InfoForExposedParameters::get() };
-    auto valueWithOffset{ value - info.offsetForSigned6bitRange };
+    auto valueWithOffset{ value -  matrixParams::offsetForSigned6bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
 }
 
 uint8 RawPatchData::formatSigned7bitValueForSendingToMatrix(uint8& value) {
-    auto& info{ InfoForExposedParameters::get() };
-    auto valueWithOffset{ value - info.offsetForSigned7bitRange };
+    auto valueWithOffset{ value -  matrixParams::offsetForSigned7bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
@@ -160,16 +161,14 @@ uint8 RawPatchData::formatSigned7bitValueForSendingToMatrix(uint8& value) {
 uint8 RawPatchData::formatSigned6bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto& info{ InfoForExposedParameters::get() };
-    auto valueWithOffset{ value + info.offsetForSigned6bitRange };
+    auto valueWithOffset{ value +  matrixParams::offsetForSigned6bitRange };
     return (uint8)valueWithOffset;
 }
 
 uint8 RawPatchData::formatSigned7bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto& info{ InfoForExposedParameters::get() };
-    auto valueWithOffset{ value + info.offsetForSigned7bitRange };
+    auto valueWithOffset{ value +  matrixParams::offsetForSigned7bitRange };
     return (uint8)valueWithOffset;
 }
 

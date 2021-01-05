@@ -1,7 +1,10 @@
 #include "widget_ComboBoxWithExposedParamAttacher.h"
 
+#include "../gui/gui_Constants.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
+
+using namespace constants;
 
 
 
@@ -17,9 +20,8 @@ ComboBoxWithExposedParamAttacher::ComboBoxWithExposedParamAttacher(uint8 param, 
 	comboBox.setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
 	addAndMakeVisible(comboBox);
 	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
-	auto ctrlHeight{ 20 };
-	setSize(ctrlWidth, ctrlHeight);
-	comboBox.setSize(ctrlWidth, ctrlHeight);
+	setSize(ctrlWidth, GUI::controls_h);
+	comboBox.setSize(ctrlWidth, GUI::controls_h);
 }
 
 void ComboBoxWithExposedParamAttacher::attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {

@@ -2,7 +2,10 @@
 
 #include "params_IntToContextualStringConverters.h"
 #include "params_RangeTypes.h"
+#include "../gui/gui_Constants.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
+
+using namespace constants;
 
 
 
@@ -11,60 +14,6 @@ InfoForExposedParameters::InfoForExposedParameters() {
 }
 
 void InfoForExposedParameters::fillAllInfoContainers() {
-	static const auto controlsVerticalGap{ 28 };
-	static const auto controlsRow1_y{ 69 };
-	static const auto controlsRow2_y{ controlsRow1_y + controlsVerticalGap };
-	static const auto controlsRow3_y{ controlsRow2_y + controlsVerticalGap };
-	static const auto controlsRow4_y{ controlsRow3_y + controlsVerticalGap };
-	static const auto controlsRow5_y{ controlsRow4_y + controlsVerticalGap };
-	static const auto controlsRow6_y{ controlsRow5_y + controlsVerticalGap };
-	static const auto controlsRow7_y{ controlsRow6_y + controlsVerticalGap };
-	static const auto controlsRow8_y{ controlsRow7_y + controlsVerticalGap };
-	static const auto controlsRow9_y{ controlsRow8_y + controlsVerticalGap };
-	static const auto controlsRow10_y{ controlsRow9_y + controlsVerticalGap };
-	static const auto controlsRow11_y{ controlsRow10_y + controlsVerticalGap };
-	static const auto controlsRow12_y{ controlsRow11_y + controlsVerticalGap };
-	static const auto oscControlsCol1_x{ 130 };
-	static const auto oscControlsCol2_x{ 196 };
-	static const auto vcfCol_x{ 382 };
-	static const auto vcfFMcontrols_x{ 550 };
-	static const auto defaultControl_w{ 60 };
-	static const auto controlsHorizontalGap{ 6 };
-	static const auto oscBalanceControl_x{ 163 };
-	static const auto oscBalanceControl_w{ 126 };
-	static const auto trackPointControls_y{ 279 };
-	static const auto trackPointControls_w{ 26 };
-	static const auto trackPointControlsHorizontalGap{ 5 };
-	static const auto trackPoint1Control_x{ 853 };
-	static const auto trackPoint2Control_x{ trackPoint1Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
-	static const auto trackPoint3Control_x{ trackPoint2Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
-	static const auto trackPoint4Control_x{ trackPoint3Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
-	static const auto trackPoint5Control_x{ trackPoint4Control_x + trackPointControls_w + trackPointControlsHorizontalGap };
-	static const auto rampControlsCol1_x{ 894 };
-	static const auto rampControlsCol2_x{ 960 };
-	static const auto portaControls_x{ 544 };
-	static const auto portaControls_w{ 72 };
-	static const auto envSectionsHorizontalSpacing{ 410 };
-	static const auto envShapeControls_w{ 28 };
-	static const auto envShapeControlsHorizontalGap{ 22 };
-	static const auto env1Delay_x{ 198 };
-	static const auto env1Attack_x{ env1Delay_x + envShapeControls_w + envShapeControlsHorizontalGap };
-	static const auto env1Decay_x{ env1Attack_x + envShapeControls_w + envShapeControlsHorizontalGap };
-	static const auto env1Sustain_x{ env1Decay_x + envShapeControls_w + envShapeControlsHorizontalGap };
-	static const auto env1Release_x{ env1Sustain_x + envShapeControls_w + envShapeControlsHorizontalGap };
-	static const auto envControls_w{ 72 };
-	static const auto env1Controls_x{ 134 };
-	static const auto envControlsRow1_y{ 450 };
-	static const auto envControlsRow2_y{ envControlsRow1_y + controlsVerticalGap };
-	static const auto envControlsRow3_y{ envControlsRow2_y + controlsVerticalGap };
-	static const auto envControlsRow4_y{ envControlsRow3_y + controlsVerticalGap };
-	static const auto envControlsRow5_y{ envControlsRow4_y + controlsVerticalGap };
-	static const auto lfo1Controls_x{ 726 };
-	static const auto lfo2Controls_x{ 792 };
-
-	String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
-	String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
-	String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
 	String descriptionString;
 
 	//======================================================
@@ -79,12 +28,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)63);
 		defaultValues.add(0);
-		descriptionString =  "Sets oscillator " + (String)i + apostrophe + "s base\n";
+		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s base\n";
 		descriptionString += "pitch in semitone steps.\n";
 		descriptionString += "Range: 0 (C 0) to 63 (D# 5).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow1_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow1_y));
 		dataByteIndices.add(i == 1 ? (uint16)1 : (uint16)6);
 
 		identifiers.add("osc" + (String)i + "_Type");
@@ -96,7 +45,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add(i == 1 ? (uint8)3 : (uint8)4);
 		defaultValues.add(i == 1 ? (uint8)2 : (uint8)1);
-		descriptionString =  "Selects oscillator " + (String)i + apostrophe + "s wave type.\n";
+		descriptionString =  "Selects oscillator " + (String)i + GUI::apostrophe + "s wave type.\n";
 		descriptionString += "OFF: The oscillator produces no sound.\n";
 		descriptionString += "PULSE: Set the width of the pulse below.\n";
 		descriptionString += "WAVE: Set the shape of the wave below.\n";
@@ -104,8 +53,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		if (i == 2)
 			descriptionString += "\nNOISE: White noise (oscillator 2 only).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow2_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow2_y));
 		dataByteIndices.add(i == 1 ? (uint16)5 : (uint16)10);
 
 		identifiers.add("osc" + (String)i + "_PulseWidth");
@@ -117,13 +66,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)63);
 		defaultValues.add(i == 1 ? (uint8)31 : (uint8)24);
-		descriptionString =  "Sets the width of oscillator " + (String)i + apostrophe + "s\n";
+		descriptionString =  "Sets the width of oscillator " + (String)i + GUI::apostrophe + "s\n";
 		descriptionString += "wave when its type is set to pulse.\n";
 		descriptionString += "Range: 0 (very wide) to 63 (very narrow).\n";
 		descriptionString += "A value of 31 produces a square wave.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow3_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow3_y));
 		dataByteIndices.add(i == 1 ? (uint16)3 : (uint16)8);
 
 		identifiers.add("osc" + (String)i + "_SawTri");
@@ -141,8 +90,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Intermediate values produce various\n";
 		descriptionString += "mixtures of the two shapes.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow4_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow4_y));
 		dataByteIndices.add(i == 1 ? (uint16)2 : (uint16)7);
 
 		if (i == 1) {
@@ -155,11 +104,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			rangeTypes.add(RangeType::unsignedValue);
 			maxValues.add((uint8)3);
 			defaultValues.add((uint8)0);
-			descriptionString =  "Selects whether and to what degree oscillator 1" + apostrophe + "s\n";
+			descriptionString =  "Selects whether and to what degree oscillator 1" + GUI::apostrophe + "s\n";
 			descriptionString += "waveform is synchronized with that of oscillator 2.";
 			descriptions.add(descriptionString);
-			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow5_y));
+			controlWidths.add(GUI::defaultControl_w);
+			controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow5_y));
 			dataByteIndices.add((uint16)17);
 		}
 		else {
@@ -172,11 +121,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			rangeTypes.add(RangeType::signed6bitValue);
 			maxValues.add((uint8)62);
 			defaultValues.add((uint8)33);
-			descriptionString =  "Slightly lowers or raises Oscillator 2" + apostrophe + "s pitch.\n";
+			descriptionString =  "Slightly lowers or raises Oscillator 2" + GUI::apostrophe + "s pitch.\n";
 			descriptionString += "Range -31 to +31 (-/+ ~25 cents). 0 is no detune.";
 			descriptions.add(descriptionString);
-			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(oscControlsCol2_x, controlsRow5_y));
+			controlWidths.add(GUI::defaultControl_w);
+			controlCenterPoints.add(Point<int>(GUI::oscControlsCol2_x, GUI::controlsRow5_y));
 			dataByteIndices.add((uint16)11);
 		}
 
@@ -194,8 +143,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the LFO waveform.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow6_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow6_y));
 		dataByteIndices.add(i == 1 ? (uint16)78 : (uint16)80);
 
 		identifiers.add("osc" + (String)i + "_LFO2_PWM");
@@ -212,8 +161,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the LFO waveform.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow7_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow7_y));
 		dataByteIndices.add(i == 1 ? (uint16)79 : (uint16)81);
 
 		identifiers.add("osc" + (String)i + "_KeyClick");
@@ -228,8 +177,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString = "Adds percussive punch to\n";
 		descriptionString += "the start of the sound.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow8_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow8_y));
 		dataByteIndices.add(i == 1 ? (uint16)14 : (uint16)16);
 
 		identifiers.add("osc" + (String)i + "_KeyTrack");
@@ -247,19 +196,19 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Selects how oscillator " + (String)i + " responds to incoming pitch\n";
 		descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
 		if (i == 1) {
-			descriptionString += "KEYBD: Oscillater " + (String)i + apostrophe + "s pitch tracks note key changes normally.\n";
+			descriptionString += "KEYBD: Oscillater " + (String)i + GUI::apostrophe + "s pitch tracks note key changes normally.\n";
 			descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
-			descriptionString += "according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.";
+			descriptionString += "according to the settings in the portamento (aka " + GUI::openQuote + "glide" + GUI::closeQuote + ") section.";
 		}
 		else {
-			descriptionString += "OFF: Oscillater 2" + apostrophe + "s pitch will not change as notes are played.\n";
+			descriptionString += "OFF: Oscillater 2" + GUI::apostrophe + "s pitch will not change as notes are played.\n";
 			descriptionString += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
-			descriptionString += "according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.\n";
-			descriptionString += "KEYBD: Oscillator 2" + apostrophe + "s pitch tracks note key changes normally.";
+			descriptionString += "according to the settings in the portamento (aka " + GUI::openQuote + "glide" + GUI::closeQuote + ") section.\n";
+			descriptionString += "KEYBD: Oscillator 2" + GUI::apostrophe + "s pitch tracks note key changes normally.";
 		}
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow9_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow9_y));
 		dataByteIndices.add(i == 1 ? (uint16)13 : (uint16)15);
 
 		identifiers.add("osc" + (String)i + "_LeverControl");
@@ -271,15 +220,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)3);
 		defaultValues.add((uint8)3);
-		descriptionString =  "Selects which of the performance " + openQuote + "levers" + closeQuote + "\n";
+		descriptionString =  "Selects which of the performance " + GUI::openQuote + "levers" + GUI::closeQuote + "\n";
 		descriptionString += "(wheel-type controllers) will modulate oscillator " + (String)i + ".\n";
 		descriptionString += "OFF: Oscillator " + (String)i + " is not controlled by either lever.\n";
 		descriptionString += "BEND: Pitch bend is controlled by lever 1 (pitch wheel).\n";
 		descriptionString += "VIB: Vibrato amount is controlled by lever 2 (mod wheel).\n";
 		descriptionString += "BOTH: Oscillator " + (String)i + " is controlled by both levers.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? oscControlsCol1_x : oscControlsCol2_x, controlsRow10_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ? GUI::oscControlsCol1_x : GUI::oscControlsCol2_x, GUI::controlsRow10_y));
 		dataByteIndices.add(i == 1 ? (uint16)4 : (uint16)9);
 	}
 
@@ -296,8 +245,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63. At 63, only oscillator 1 is heard.\n";
 	descriptionString += "At 0, only oscillator 2 is heard. 31 is an equal mix.";
 	descriptions.add(descriptionString);
-	controlWidths.add(oscBalanceControl_w);
-	controlCenterPoints.add(Point<int>(oscBalanceControl_x, controlsRow11_y));
+	controlWidths.add(GUI::oscBalanceControl_w);
+	controlCenterPoints.add(Point<int>(GUI::oscBalanceControl_x, GUI::controlsRow11_y));
 	dataByteIndices.add((uint16)12);
 
 	//======================================================
@@ -315,8 +264,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "the voltage-controlled filter.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow1_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow1_y));
 	dataByteIndices.add((uint16)18);
 
 	identifiers.add("vcf_Reso");
@@ -333,8 +282,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63. At 63, the/n";
 	descriptionString += "filter will self-oscillate.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow2_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow2_y));
 	dataByteIndices.add((uint16)19);
 
 	identifiers.add("vcf_Env1Amt");
@@ -347,12 +296,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)105);
 	descriptionString =  "Sets whether and to what degree envelope 1\n";
-	descriptionString += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "modulates the VCF" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow3_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow3_y));
 	dataByteIndices.add((uint16)82);
 
 	identifiers.add("vcf_PressureAmt");
@@ -365,12 +314,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)126);
 	defaultValues.add((uint8)63);
 	descriptionString =  "Sets whether and to what degree keyboard pressure \n";
-	descriptionString += "(aftertouch) modulates the VCF" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "(aftertouch) modulates the VCF" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the pressure response.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow4_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow4_y));
 	dataByteIndices.add((uint16)83);
 
 	identifiers.add("vcf_LeverControl");
@@ -382,15 +331,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Selects which of the performance " + openQuote + "levers" + closeQuote + "\n";
+	descriptionString =  "Selects which of the performance " + GUI::openQuote + "levers" + GUI::closeQuote + "\n";
 	descriptionString += "(wheel-type controllers) modulate the VCF frequency.\n";
 	descriptionString += "OFF: VCF frequency is not controlled by either lever.\n";
 	descriptionString += "BEND: VCF frequency is controlled by lever 1 (pitch wheel).\n";
 	descriptionString += "VIB: VCF frequency vibrato is controlled by lever 2 (mod wheel).\n";
 	descriptionString += "BOTH: VCF frequency is controlled by both levers.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow5_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow5_y));
 	dataByteIndices.add((uint16)20);
 
 	identifiers.add("vcf_KeyTrack");
@@ -402,16 +351,16 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)2);
-	descriptionString =  "Selects how the VCF" + apostrophe + "s cutoff frequency responds to incoming pitch\n";
+	descriptionString =  "Selects how the VCF" + GUI::apostrophe + "s cutoff frequency responds to incoming pitch\n";
 	descriptionString += "change messages (e.g. notes played on a keyboard controller).\n";
-	descriptionString += "OFF: Note key changes have no effect on the VCF" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "OFF: Note key changes have no effect on the VCF" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "PORTA: Tracking is active, but transitions between cutoff frequencies are\n";
-	descriptionString += "smoothed according to the settings in the portamento (aka " + openQuote + "glide" + closeQuote + ") section.\n";
-	descriptionString += "KEYBD: The VCF" + apostrophe + "s cutoff frequency tracks note key changes, rising as\n";
+	descriptionString += "smoothed according to the settings in the portamento (aka " + GUI::openQuote + "glide" + GUI::closeQuote + ") section.\n";
+	descriptionString += "KEYBD: The VCF" + GUI::apostrophe + "s cutoff frequency tracks note key changes, rising as\n";
 	descriptionString += "higher notes are played and dropping as lower notes are played.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow6_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow6_y));
 	dataByteIndices.add((uint16)21);
 
 	//======================================================
@@ -429,8 +378,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "first-stage voltage-controlled amplifier.\n";
 	descriptionString += "Range: 0 (silence) to 63 (maximum).";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow9_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow9_y));
 	dataByteIndices.add((uint16)23);
 
 	identifiers.add("vca1_VeloAmt");
@@ -447,8 +396,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the velocity response.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow10_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow10_y));
 	dataByteIndices.add((uint16)84);
 
 	identifiers.add("vca2_Env2Amt");
@@ -466,8 +415,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfCol_x, controlsRow11_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfCol_x, GUI::controlsRow11_y));
 	dataByteIndices.add((uint16)85);
 
 	//======================================================
@@ -482,11 +431,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)0);
 	descriptionString =  "Sets whether and to what degree oscillator 1\n";
-	descriptionString += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
+	descriptionString += "modulates the VCF" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: 0 (no modulation) to 63 (maximum).";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow1_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfFMcontrols_x, GUI::controlsRow1_y));
 	dataByteIndices.add((uint16)22);
 
 	identifiers.add("vcfFM_Env3Amt");
@@ -503,8 +452,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the envelope.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow2_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfFMcontrols_x, GUI::controlsRow2_y));
 	dataByteIndices.add((uint16)92);
 
 	identifiers.add("vcfFM_PressureAmt");
@@ -522,8 +471,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the pressure response.";
 	descriptions.add(descriptionString);
-	controlWidths.add(defaultControl_w);
-	controlCenterPoints.add(Point<int>(vcfFMcontrols_x, controlsRow3_y));
+	controlWidths.add(GUI::defaultControl_w);
+	controlCenterPoints.add(Point<int>( GUI::vcfFMcontrols_x, GUI::controlsRow3_y));
 	dataByteIndices.add((uint16)93);
 
 	//======================================================
@@ -541,8 +490,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "from the origin pitch to the destination pitch.\n";
 	descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 	descriptions.add(descriptionString);
-	controlWidths.add(portaControls_w);
-	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow6_y));
+	controlWidths.add( GUI::portaControls_w);
+	controlCenterPoints.add(Point<int>( GUI::portaControls_x, GUI::controlsRow6_y));
 	dataByteIndices.add((uint16)24);
 
 	identifiers.add("porta_Velo");
@@ -559,8 +508,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 	descriptionString += "Negative values invert the velocity response.";
 	descriptions.add(descriptionString);
-	controlWidths.add(portaControls_w);
-	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow7_y));
+	controlWidths.add( GUI::portaControls_w);
+	controlCenterPoints.add(Point<int>( GUI::portaControls_x, GUI::controlsRow7_y));
 	dataByteIndices.add((uint16)91);
 
 	identifiers.add("porta_Mode");
@@ -580,8 +529,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "EXPO: Exponential - the transition between pitches starts out fast\n";
 	descriptionString += "then slows down as it gets closer to the destination pitch.";
 	descriptions.add(descriptionString);
-	controlWidths.add(portaControls_w);
-	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow8_y));
+	controlWidths.add( GUI::portaControls_w);
+	controlCenterPoints.add(Point<int>( GUI::portaControls_x, GUI::controlsRow8_y));
 	dataByteIndices.add((uint16)25);
 
 	identifiers.add("porta_Legato");
@@ -598,8 +547,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "previous note. This behavior is only active when\n";
 	descriptionString += "the keyboard mode is set to unison.";
 	descriptions.add(descriptionString);
-	controlWidths.add(portaControls_w);
-	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow9_y));
+	controlWidths.add( GUI::portaControls_w);
+	controlCenterPoints.add(Point<int>( GUI::portaControls_x, GUI::controlsRow9_y));
 	dataByteIndices.add((uint16)26);
 
 	//======================================================
@@ -613,7 +562,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	rangeTypes.add(RangeType::unsignedValue);
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
-	descriptionString =  "Selects how notes get assigned to the hardware" + apostrophe + "s six available voices.\n";
+	descriptionString =  "Selects how notes get assigned to the hardware" + GUI::apostrophe + "s six available voices.\n";
 	descriptionString += "REASGN: Reassign - once a note gets assigned to a certain voice,\n";
 	descriptionString += "every time thereafter that the same note is played, it will get\n";
 	descriptionString += "reassigned to the same voice.\n";
@@ -623,11 +572,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "and only one note at a time can play. When multiple notes are played\n";
 	descriptionString += "at once, only the lowest note will be heard.\n";
 	descriptionString += "REAROB: Reassign rob - like reassign mode, but if all six voices are\n";
-	descriptionString += "sounding and a new note is played, the new note will " + openQuote + "rob" + closeQuote + " a voice\n";
+	descriptionString += "sounding and a new note is played, the new note will " + GUI::openQuote + "rob" + GUI::closeQuote + " a voice\n";
 	descriptionString += "from one of the notes that are already playing.";
 	descriptions.add(descriptionString);
-	controlWidths.add(portaControls_w);
-	controlCenterPoints.add(Point<int>(portaControls_x, controlsRow12_y));
+	controlWidths.add( GUI::portaControls_w);
+	controlCenterPoints.add(Point<int>( GUI::portaControls_x, GUI::controlsRow12_y));
 	dataByteIndices.add((uint16)0);
 
 	//======================================================
@@ -645,8 +594,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Sets the cycle rate of low-frequency oscillator " + (String)i + ".\n";
 		descriptionString += "Range: 0 (slowest) to 63 (fastest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow1_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow1_y));
 		dataByteIndices.add(i == 1 ? (uint16)27 : (uint16)34);
 
 		if (i == 1) {
@@ -665,8 +614,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 			descriptionString += "Negative values invert the pressure response.";
 			descriptions.add(descriptionString);
-			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(lfo1Controls_x, controlsRow5_y));
+			controlWidths.add(GUI::defaultControl_w);
+			controlCenterPoints.add(Point<int>( GUI::lfo1Controls_x, GUI::controlsRow5_y));
 			dataByteIndices.add((uint16)94);
 		}
 		else {
@@ -685,8 +634,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 			descriptionString += "Negative values invert the key position response.";
 			descriptions.add(descriptionString);
-			controlWidths.add(defaultControl_w);
-			controlCenterPoints.add(Point<int>(lfo2Controls_x, controlsRow5_y));
+			controlWidths.add(GUI::defaultControl_w);
+			controlCenterPoints.add(Point<int>( GUI::lfo2Controls_x, GUI::controlsRow5_y));
 			dataByteIndices.add((uint16)95);
 		}
 
@@ -710,12 +659,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "the minimum and maximum values.\n";
 		descriptionString += "RANDM: Random - an aperiodic wave that outputs a series of random values.\n";
 		descriptionString += "NOISE: Noise - a much faster version of the random waveform.\n";
-		descriptionString += "SAMPL: Sampled - the LFO" + apostrophe + "s waveform is created by periodically sampling\n";
+		descriptionString += "SAMPL: Sampled - the LFO" + GUI::apostrophe + "s waveform is created by periodically sampling\n";
 		descriptionString += "the value of another modulation source. Select the sample source below.\n";
-		descriptionString += "The sampling rate is determined by the LFO" + apostrophe + "s speed setting, above.";
+		descriptionString += "The sampling rate is determined by the LFO" + GUI::apostrophe + "s speed setting, above.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow2_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow2_y));
 		dataByteIndices.add(i == 1 ? (uint16)30 : (uint16)37);
 
 		identifiers.add("lfo" + (String)i + "_RetrigPoint");
@@ -729,11 +678,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		defaultValues.add(0);
 		descriptionString =  "If LFO " + (String)i + " is set (above) to be triggered by the keyboard or by\n";
 		descriptionString += "an external source, modulation can be set to start from a\n";
-		descriptionString += "point in the LFO" + apostrophe + "s waveform cycle other than its beginning.\n";
-		descriptionString += "Range: 0 (beginning of the cycle) to 63 (the cycle" + apostrophe + "s half-way point).";
+		descriptionString += "point in the LFO" + GUI::apostrophe + "s waveform cycle other than its beginning.\n";
+		descriptionString += "Range: 0 (beginning of the cycle) to 63 (the cycle" + GUI::apostrophe + "s half-way point).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow8_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow8_y));
 		dataByteIndices.add(i == 1 ? (uint16)31 : (uint16)38);
 
 		identifiers.add("lfo" + (String)i + "_Amp");
@@ -748,8 +697,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString =  "Sets the degree to which LFO " + (String)i + " modulates its destination.\n";
 		descriptionString += "Range: 0 (no modulation) to 63 (maximum modulation).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow4_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow4_y));
 		dataByteIndices.add(i == 1 ? (uint16)33 : (uint16)40);
 
 		identifiers.add("lfo" + (String)i + "_Ramp" + (String)i + "Amt");
@@ -762,12 +711,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)126);
 		defaultValues.add((uint8)126);
 		descriptionString =  "Sets whether and to what degree ramp " + (String)i + "\n";
-		descriptionString += "will modulate LFO " + (String)i + apostrophe + "s amplitude.\n";
+		descriptionString += "will modulate LFO " + (String)i + GUI::apostrophe + "s amplitude.\n";
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the ramp.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow6_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow6_y));
 		dataByteIndices.add(i == 1 ? (uint16)89 : (uint16)90);
 
 		identifiers.add("lfo" + (String)i + "_TrigMode");
@@ -779,15 +728,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)3);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects the type of trigger that will start LFO " + (String)i + apostrophe + "s control cycle.\n";
+		descriptionString =  "Selects the type of trigger that will start LFO " + (String)i + GUI::apostrophe + "s control cycle.\n";
 		descriptionString += "OFF: The LFO is not triggered and cycles freely.\n";
 		descriptionString += "STRIG: Single - A new note triggers the LFO only when no other\n";
 		descriptionString += "notes are currently held down (only active in unison mode).\n";
 		descriptionString += "MTRIG: Multiple - the LFO is triggered with every new note played.\n";
 		descriptionString += "XTRIG: External - an external signal (e.g. a footswitch) triggers the LFO.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow7_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow7_y));
 		dataByteIndices.add(i == 1 ? (uint16)28 : (uint16)35);
 
 		identifiers.add("lfo" + (String)i + "_Lag");
@@ -800,11 +749,11 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)1);
 		defaultValues.add((uint8)0);
 		descriptionString =  "The lag processor which smooths pitch transitions for portamento\n";
-		descriptionString += "can also be used to smooth the value transitions in LFO " + (String)i + apostrophe + "s wave\n";
+		descriptionString += "can also be used to smooth the value transitions in LFO " + (String)i + GUI::apostrophe + "s wave\n";
 		descriptionString += "cycle. The effect is most notable on a square wave cycle.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow9_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow9_y));
 		dataByteIndices.add(i == 1 ? (uint16)29 : (uint16)36);
 
 		identifiers.add("lfo" + (String)i + "_Sample");
@@ -820,8 +769,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "periodically sample to calculate its output value\n";
 		descriptionString += "(when its wave type, above, is set to sample).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? lfo1Controls_x : lfo2Controls_x, controlsRow3_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::lfo1Controls_x :  GUI::lfo2Controls_x, GUI::controlsRow3_y));
 		dataByteIndices.add(i == 1 ? (uint16)32 : (uint16)39);
 	}
 	//======================================================
@@ -840,8 +789,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "Ramp " + (String)i + " to complete its control cycle.\n";
 		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow1_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::rampControlsCol1_x :  GUI::rampControlsCol2_x, GUI::controlsRow1_y));
 		dataByteIndices.add(i == 1 ? (uint16)74 : (uint16)76);
 
 		identifiers.add("ramp" + (String)i + "_Trig");
@@ -853,7 +802,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)3);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects the type of trigger that will start ramp " + (String)i + apostrophe + "s control cycle.\n";
+		descriptionString =  "Selects the type of trigger that will start ramp " + (String)i + GUI::apostrophe + "s control cycle.\n";
 		descriptionString += "STRIG: Single - A new note triggers the ramp only when no other\n";
 		descriptionString += "notes are currently held down (only active in unison mode).\n";
 		descriptionString += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
@@ -861,8 +810,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "GATEX: Gated External - an external signal triggers the ramp only when\n";
 		descriptionString += "there are one or more notes being played.";
 		descriptions.add(descriptionString);
-		controlWidths.add(defaultControl_w);
-		controlCenterPoints.add(Point<int>(i == 1 ? rampControlsCol1_x : rampControlsCol2_x, controlsRow2_y));
+		controlWidths.add(GUI::defaultControl_w);
+		controlCenterPoints.add(Point<int>(i == 1 ?  GUI::rampControlsCol1_x :  GUI::rampControlsCol2_x, GUI::controlsRow2_y));
 		dataByteIndices.add(i == 1 ? (uint16)75 : (uint16)77);
 	}
 
@@ -897,8 +846,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63.\n";
 	descriptionString += "Linear output value: 0.";
 	descriptions.add(descriptionString);
-	controlWidths.add(trackPointControls_w);
-	controlCenterPoints.add(Point<int>(trackPoint1Control_x, trackPointControls_y));
+	controlWidths.add( GUI::trackPointControls_w);
+	controlCenterPoints.add(Point<int>( GUI::trackPoint1Control_x,  GUI::trackPointControls_y));
 	dataByteIndices.add((uint16)69);
 
 	identifiers.add("track_Point2");
@@ -914,8 +863,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63.\n";
 	descriptionString += "Linear output value: 15.";
 	descriptions.add(descriptionString);
-	controlWidths.add(trackPointControls_w);
-	controlCenterPoints.add(Point<int>(trackPoint2Control_x, trackPointControls_y));
+	controlWidths.add( GUI::trackPointControls_w);
+	controlCenterPoints.add(Point<int>( GUI::trackPoint2Control_x,  GUI::trackPointControls_y));
 	dataByteIndices.add((uint16)70);
 
 	identifiers.add("track_Point3");
@@ -931,8 +880,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63.\n";
 	descriptionString += "Linear output value: 31.";
 	descriptions.add(descriptionString);
-	controlWidths.add(trackPointControls_w);
-	controlCenterPoints.add(Point<int>(trackPoint3Control_x, trackPointControls_y));
+	controlWidths.add( GUI::trackPointControls_w);
+	controlCenterPoints.add(Point<int>( GUI::trackPoint3Control_x,  GUI::trackPointControls_y));
 	dataByteIndices.add((uint16)71);
 
 	identifiers.add("track_Point4");
@@ -948,8 +897,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63.\n";
 	descriptionString += "Linear output value: 47.";
 	descriptions.add(descriptionString);
-	controlWidths.add(trackPointControls_w);
-	controlCenterPoints.add(Point<int>(trackPoint4Control_x, trackPointControls_y));
+	controlWidths.add( GUI::trackPointControls_w);
+	controlCenterPoints.add(Point<int>( GUI::trackPoint4Control_x,  GUI::trackPointControls_y));
 	dataByteIndices.add((uint16)72);
 
 	identifiers.add("track_Point5");
@@ -965,8 +914,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "Range: 0 to 63.\n";
 	descriptionString += "Linear output value: 63.";
 	descriptions.add(descriptionString);
-	controlWidths.add(trackPointControls_w);
-	controlCenterPoints.add(Point<int>(trackPoint5Control_x, trackPointControls_y));
+	controlWidths.add( GUI::trackPointControls_w);
+	controlCenterPoints.add(Point<int>( GUI::trackPoint5Control_x,  GUI::trackPointControls_y));
 	dataByteIndices.add((uint16)73);
 
 	//======================================================
@@ -986,8 +935,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "triggered before the attack stage begins.\n";
 		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envShapeControls_w);
-		controlCenterPoints.add(Point<int>(env1Delay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envShapeControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Delay_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add(uint16(42 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Attack");
@@ -1004,8 +953,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "reach the maximum output level.\n";
 		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envShapeControls_w);
-		controlCenterPoints.add(Point<int>(env1Attack_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envShapeControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Attack_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add(uint16(43 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Decay");
@@ -1022,8 +971,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "output to drop to the sustain level.\n";
 		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envShapeControls_w);
-		controlCenterPoints.add(Point<int>(env1Decay_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envShapeControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Decay_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add(uint16(44 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Sustain");
@@ -1040,8 +989,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "this level until the voice is gated off.\n";
 		descriptionString += "Range: 0 (no output) to 63 (maximum).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envShapeControls_w);
-		controlCenterPoints.add(Point<int>(env1Sustain_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envShapeControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Sustain_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add(uint16(45 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Release");
@@ -1058,8 +1007,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "from the sustain level to no output.\n";
 		descriptionString += "Range: 0 (instantaneous) to 63 (longest).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envShapeControls_w);
-		controlCenterPoints.add(Point<int>(env1Release_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envShapeControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Release_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add(uint16(46 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Amplitude");
@@ -1075,8 +1024,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "the degree to which the envelope modulates its destination.\n";
 		descriptionString += "Range: 0 (none) to 63 (maximum).";
 		descriptions.add(descriptionString);
-		controlWidths.add(envControls_w);
-		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow1_y));
+		controlWidths.add( GUI::envControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Controls_x + i *  GUI::envSectionsHorizontalSpacing, GUI::envControlsRow1_y));
 		dataByteIndices.add(uint16(47 + i * 9));
 
 		identifiers.add("env" + String(i + 1) + "_Velo");
@@ -1089,12 +1038,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		maxValues.add((uint8)126);
 		defaultValues.add((uint8)126);
 		descriptionString =  "Sets whether and to what degree note\n";
-		descriptionString += "velocity modulates envelope " + String(i + 1) + apostrophe + "s amplitude.\n";
+		descriptionString += "velocity modulates envelope " + String(i + 1) + GUI::apostrophe + "s amplitude.\n";
 		descriptionString += "Range: -63 to +63. 0 is no modulation.\n";
 		descriptionString += "Negative values invert the velocity response.";
 		descriptions.add(descriptionString);
-		controlWidths.add(envControls_w);
-		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow2_y));
+		controlWidths.add( GUI::envControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Controls_x + i *  GUI::envSectionsHorizontalSpacing, GUI::envControlsRow2_y));
 		dataByteIndices.add(uint16(86 + i));
 
 		identifiers.add("env" + String(i + 1) + "_TrigMode");
@@ -1106,7 +1055,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)7);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects what sort of trigger will start envelope " + String(i + 1) + apostrophe + "s cycle.\n";
+		descriptionString =  "Selects what sort of trigger will start envelope " + String(i + 1) + GUI::apostrophe + "s cycle.\n";
 		descriptionString += "STRIG: Single trigger (unison mode only) - the cycle will start for\n";
 		descriptionString += "a voice only if it is not already playing. Legato playing will not\n";
 		descriptionString += "re-trigger the cycle. If the envelope is re-triggered before its cycle\n";
@@ -1123,8 +1072,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "XTRIG: External single trigger; XRESET: External single trigger reset;\n";
 		descriptionString += "XMTRIG: External multiple trigger; XMRST: External multiple trigger reset.";
 		descriptions.add(descriptionString);
-		controlWidths.add(envControls_w);
-		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow3_y));
+		controlWidths.add( GUI::envControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Controls_x + i *  GUI::envSectionsHorizontalSpacing, GUI::envControlsRow3_y));
 		dataByteIndices.add((uint16)41 + i * 9);
 
 		identifiers.add("env" + String(i + 1) + "_Mode");
@@ -1150,8 +1099,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "BOTH: Both DADR and free run - like free run mode, except the release stage\n";
 		descriptionString += "begins immediately after the decay stage, even if the note is still gated on.";
 		descriptions.add(descriptionString);
-		controlWidths.add(envControls_w);
-		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow4_y));
+		controlWidths.add( GUI::envControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Controls_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow4_y));
 		dataByteIndices.add((uint16)49 + i * 9);
 
 		identifiers.add("env" + String(i + 1) + "_LFO1Trig");
@@ -1163,16 +1112,16 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		rangeTypes.add(RangeType::unsignedValue);
 		maxValues.add((uint8)2);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Selects whether and how envelope " + String(i + 1) + apostrophe + "s cycle is triggered by LFO 1.\n";
+		descriptionString =  "Selects whether and how envelope " + String(i + 1) + GUI::apostrophe + "s cycle is triggered by LFO 1.\n";
 		descriptionString += "NORMAL: The envelope cycle is not triggered by LFO 1.\n";
 		descriptionString += "G-LFO1: Gated LFO 1 trigger - LFO 1 will trigger the envelope cycle\n";
 		descriptionString += "periodically only if one or more notes are currently gated on.\n";
 		descriptionString += "LFO 1: The envelope cycle is triggered periodically by LFO 1.\n";
-		descriptionString += "The point in LFO 1" + apostrophe + "s cycle which actually triggers the envelope\n";
+		descriptionString += "The point in LFO 1" + GUI::apostrophe + "s cycle which actually triggers the envelope\n";
 		descriptionString += "cycle is determined by the LFO 1 Retrigger Point parameter above.";
 		descriptions.add(descriptionString);
-		controlWidths.add(envControls_w);
-		controlCenterPoints.add(Point<int>(env1Controls_x + i * envSectionsHorizontalSpacing, envControlsRow5_y));
+		controlWidths.add( GUI::envControls_w);
+		controlCenterPoints.add(Point<int>(GUI::env1Controls_x + i *  GUI::envSectionsHorizontalSpacing,  GUI::envControlsRow5_y));
 		dataByteIndices.add((uint16)48 + i * 9);
 	}
 

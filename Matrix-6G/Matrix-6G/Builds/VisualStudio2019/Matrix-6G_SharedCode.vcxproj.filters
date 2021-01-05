@@ -4871,6 +4871,15 @@
     <ClInclude Include="..\..\Source\gui\gui_Constants.h">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Constants.h">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\patches\patches_Constants.h">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

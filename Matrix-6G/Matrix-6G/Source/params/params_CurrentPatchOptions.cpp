@@ -1,7 +1,10 @@
 #include "params_CurrentPatchOptions.h"
 
 #include "params_Identifiers.h"
-#include "../params/params_UnexposedParameters_Facade.h"
+#include "params_UnexposedParameters_Facade.h"
+#include "..\patches\patches_Constants.h"
+
+using namespace constants;
 
 
 
@@ -14,7 +17,7 @@ CurrentPatchOptions::CurrentPatchOptions(UnexposedParameters* unexposedParams) :
 
 void CurrentPatchOptions::fillCurrentPatchOptionsTreeWithProperties() {
 	currentPatchOptionsTree.setProperty(ID::currentPatch_Number, (uint8)0, nullptr);
-	currentPatchOptionsTree.setProperty(ID::currentPatch_Name, "MATRIX6G", nullptr);
+	currentPatchOptionsTree.setProperty(ID::currentPatch_Name, patches::basicPatchNameString, nullptr);
 }
 
 void CurrentPatchOptions::addListener(ValueTree::Listener* listener) {

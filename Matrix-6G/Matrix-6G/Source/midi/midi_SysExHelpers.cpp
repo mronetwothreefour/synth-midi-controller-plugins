@@ -1,5 +1,9 @@
 #include "midi_SysExHelpers.h"
 
+#include "midi_Constants.h"
+
+using namespace constants;
+
 
 
 bool SysExID::matchesHardwareSynthID(const MidiMessage& midiMessage) {
@@ -16,29 +20,33 @@ std::vector<uint8> SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessa
     switch (messageType)
     {
     case SysExMessageType::patchData:
-        vectorSize = 273;
+        vectorSize = MIDI::sizeOfPatchDataVector;
         break;
     case SysExMessageType::splitData:
-        vectorSize = 41;
+        vectorSize = MIDI::sizeOfSplitDataVector;
         break;
     case SysExMessageType::masterData:
-        vectorSize = 477;
+        vectorSize = MIDI::sizeOfMasterDataVector;
         break;
     case SysExMessageType::dataDumpRequest:
-        vectorSize = 5;
+        vectorSize = MIDI::sizeOfDataDumpRequestVector;
         break;
     case SysExMessageType::quickEditSelect:
-        vectorSize = 3;
+        vectorSize = MIDI::sizeOfQuickEditSelectVector;
         break;
     case SysExMessageType::paramChange:
-        vectorSize = 5;
+        vectorSize = MIDI::sizeOfParamChangeVector;
         break;
     default:
         vectorSize = 0;
         break;
     }
-    std::vector<uint8> rawDataVector(vectorSize);
-    rawDataVector[0] = (uint8)SysExID::TargetDevice::Manufacturer;
-    rawDataVector[1] = (uint8)SysExID::TargetDevice::Device;
-    return rawDataVector;
+    if (vectorSize != 0) {
+        std::vector<uint8> rawDataVector(vectorSize);
+        rawDataVector[0] = (uint8)SysExID::TargetDevice::Manufacturer;
+        rawDataVector[1] = (uint8)SysExID::TargetDevice::Device;
+        return rawDataVector;
+    }
+    else
+        return {};
 }

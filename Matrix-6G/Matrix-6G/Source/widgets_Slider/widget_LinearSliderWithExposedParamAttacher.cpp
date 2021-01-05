@@ -1,6 +1,9 @@
 #include "widget_LinearSliderWithExposedParamAttacher.h"
 
+#include "../gui/gui_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
+
+using namespace constants;
 
 
 
@@ -12,9 +15,8 @@ LinearSliderWithExposedParamAttacher::LinearSliderWithExposedParamAttacher(uint8
 {
 	addAndMakeVisible(slider);
 	auto ctrlWidth{ InfoForExposedParameters::get().controlWidthFor(param) };
-	auto ctrlHeight{ 20 };
-	setSize(ctrlWidth, ctrlHeight);
-	slider.setSize(ctrlWidth, ctrlHeight);
+	setSize(ctrlWidth, GUI::controls_h);
+	slider.setSize(ctrlWidth, GUI::controls_h);
 	slider.setMouseDragSensitivity(80 + InfoForExposedParameters::get().numberOfStepsFor(param) / 2);
 }
 
