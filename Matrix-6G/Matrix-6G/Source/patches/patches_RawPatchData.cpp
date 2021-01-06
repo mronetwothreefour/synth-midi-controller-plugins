@@ -1,5 +1,6 @@
 #include "patches_RawPatchData.h"
 
+#include "patches_Constants.h"
 #include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -83,15 +84,14 @@ void RawPatchData::addCurrentParameterSettingsToDataVector(AudioProcessorValueTr
     addPatchNameDataToVector(currentPatchName, dataVector, checksum);
     addExposedParamDataToVector(exposedParams, dataVector, checksum);
     addMatrixModDataToVector(unexposedParams, dataVector, checksum);
-    dataVector[272] = checksum % (uint8)128;
+    dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
 void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != 8; ++i) {
         auto asciiValue{ (uint8)patchName[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
-        auto numberOfHeaderBytes{ 4 };
-        auto lsbByteLocation{ numberOfHeaderBytes + (2 * i) };
+        auto lsbByteLocation{ patches::rawPatchDataVectorNumberOfHeaderBytes + (2 * i) };
         addValueToDataVectorAtLSBbyteLocation(truncatedValue, &dataVector[lsbByteLocation]);
         checksum += truncatedValue;
     }
@@ -99,10 +99,8 @@ void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8
 
 uint8 RawPatchData::truncateASCIIvalueToLowest6bits(uint8 value) {
     auto truncatedValue{ uint8(value % 64) };
-    auto asciiValueForBarSymbol{ 124 };
-    if (value == asciiValueForBarSymbol) {
-        uint8 matrixValueForBarSymbol{ (uint8)29 };
-        truncatedValue = matrixValueForBarSymbol;
+    if (value == patches::valueForBarSymbol_ASCII) {
+        truncatedValue = patches::valueForBarSymbol_Matrix;
     }
     return truncatedValue;
 }

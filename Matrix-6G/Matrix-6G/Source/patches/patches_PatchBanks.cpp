@@ -1,8 +1,11 @@
 #include "patches_PatchBanks.h"
 
+#include "patches_Constants.h"
 #include "patches_FactoryPatchDataHexStrings_Singleton.h"
 #include "patches_RawPatchData.h"
 #include "../params/params_Identifiers.h"
+
+using namespace constants;
 
 
 
@@ -31,8 +34,8 @@ PatchBanks::PatchBanks() :
 
 void PatchBanks::fillAllCustomPatchDataBanks() {
 	for (uint8 patchSlot = 0; patchSlot != patchSlotOutOfRange(); ++patchSlot) {
-		customBankApatchDataHexStrings.setProperty("pgm" + (String)patchSlot, basicPatchDataHexString, nullptr);
-		customBankBpatchDataHexStrings.setProperty("pgm" + (String)patchSlot, basicPatchDataHexString, nullptr);
+		customBankApatchDataHexStrings.setProperty("pgm" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
+		customBankBpatchDataHexStrings.setProperty("pgm" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
 	}
 }
 
@@ -80,8 +83,8 @@ void PatchBanks::fillAllPatchNameBanks() {
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
 		stringsBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
 
-		customBankApatchNameStrings.setProperty("pgm" + (String)programSlot, basicPatchNameString, nullptr);
-		customBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, basicPatchNameString, nullptr);
+		customBankApatchNameStrings.setProperty("pgm" + (String)programSlot, patches::basicPatchNameString, nullptr);
+		customBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, patches::basicPatchNameString, nullptr);
 	}
 }
 

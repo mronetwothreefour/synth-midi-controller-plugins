@@ -9,8 +9,6 @@
 class UnexposedParameters;
 
 struct RawPatchData {
-    static const int rawPatchDataSize{ 269 };
-
     static const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData);
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);

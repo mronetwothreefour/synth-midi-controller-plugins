@@ -87,6 +87,11 @@ namespace constants
 		static const int oscBalanceControl_w{ 126 };
 		static const int oscControlsCol1_x{ 130 };
 		static const int oscControlsCol2_x{ 196 };
+		static const int patchSlotRadioButtton_h{ 16 };
+		static const int patchSlotRadioButtton_w{ 81 };
+		static const int patchSlotRadioButtonsHorizontalGap{ 22 };
+		static const int patchSlotsWidget_h{ 25 * patchSlotRadioButtton_h };
+		static const int patchSlotsWidget_w{ 4 * patchSlotRadioButtton_w + 3 * patchSlotRadioButtonsHorizontalGap };
 		static const int portaControls_w{ 72 };
 		static const int portaControls_x{ 544 };
 		static const int quickEditButton_w{ 70 };

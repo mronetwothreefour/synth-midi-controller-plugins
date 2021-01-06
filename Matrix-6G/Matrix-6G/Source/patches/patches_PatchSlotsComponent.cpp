@@ -1,11 +1,14 @@
 #include "patches_PatchSlotsComponent.h"
 
 
+#include "patches_Constants.h"
 #include "patches_RawPatchData.h"
-#include "patches_RawPatchData.h"
+#include "../gui/gui_Constants.h"
 #include "../midi/midi_PatchDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -13,13 +16,10 @@ PatchSlotsComponent::PatchSlotsComponent(PatchBank bank, AudioProcessorValueTree
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	buttton_w{ 81 },
-	buttton_h{ 16 },
-	buttonHorizontalGap{ 23 },
-	selectedSlot{ 100 }
+	selectedSlot{ patches::numberOfSlotsInBank }
 {
 	auto patchBanks{ unexposedParams->patchBanks_get() };
-	for (uint8 slot = 0; slot != patchBanks->patchSlotOutOfRange(); ++slot) {
+	for (uint8 slot = 0; slot != patches::numberOfSlotsInBank; ++slot) {
 		setUpPatchSlotToggleButton(slot);
 		addAndMakeVisible(patchSlotButtons[slot]);
 	}
@@ -28,9 +28,7 @@ PatchSlotsComponent::PatchSlotsComponent(PatchBank bank, AudioProcessorValueTree
 		patchBanks->addListenerToNameStringsForCustomBank(this, bank);
 	}
 
-	auto patchSlotsWidget_w{ 4 * buttton_w + 3 * buttonHorizontalGap };
-	auto patchSlotsWidget_h{ 25 * buttton_h };
-	setSize(patchSlotsWidget_w, patchSlotsWidget_h);
+	setSize(GUI::patchSlotsWidget_w, GUI::patchSlotsWidget_h);
 }
 
 void PatchSlotsComponent::setUpPatchSlotToggleButton(uint8 slot) {
@@ -55,10 +53,10 @@ void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
 
 void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
 	String slotNumber;
-	if (slot < 9) 
-		slotNumber = "0" + (String)(slot + 1);
+	if (slot < 10) 
+		slotNumber = "0" + (String)(slot);
 	else 
-		slotNumber = (String)(slot + 1);
+		slotNumber = (String)(slot);
 	auto patchBanks{ unexposedParams->patchBanks_get() };
 	auto patchName{ patchBanks->nameOfPatchInBankSlot(bank, slot) };
 	patchSlotButtons[slot].setName(slotNumber + " " + patchName);
@@ -66,7 +64,7 @@ void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
 }
 
 void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
-	if (selectedSlot < 100) {
+	if (selectedSlot < patches::numberOfSlotsInBank) {
 		std::vector<uint8> dataVector;
 		RawPatchData::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
 		auto patchDataHexString{ RawPatchData::convertDataVectorToHexString(dataVector) };
@@ -78,7 +76,7 @@ void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 }
 
 void PatchSlotsComponent::loadPatchFromSelectedSlot() {
-	if (selectedSlot < 128) {
+	if (selectedSlot < patches::numberOfSlotsInBank) {
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto patchDataVector{ RawPatchData::convertHexStringToDataVector(patchDataHexString) };
