@@ -103,7 +103,7 @@ void ProgramSlotsWidget::pushSelectedProgramToHardware() {
 }
 
 void ProgramSlotsWidget::resized() {
-	for (auto i = 0; i != 128; ++i) {
+	for (auto i = 0; i != banks::numberOfSlotsInBank; ++i) {
 		auto col_x{ (i / 16) * (GUI::programSlotRadioButtton_w + GUI::programSlotRadioButtonsHorizontalGap) };
 		auto row_y{ (i % 16) * GUI::programSlotRadioButtton_h };
 		programSlotButtons[i].setBounds(col_x, row_y, GUI::programSlotRadioButtton_w, GUI::programSlotRadioButtton_h);
