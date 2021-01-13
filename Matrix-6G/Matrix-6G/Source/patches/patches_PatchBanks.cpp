@@ -34,57 +34,57 @@ PatchBanks::PatchBanks() :
 
 void PatchBanks::fillAllCustomPatchDataBanks() {
 	for (uint8 patchSlot = 0; patchSlot != patchSlotOutOfRange(); ++patchSlot) {
-		customBankApatchDataHexStrings.setProperty("pgm" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
-		customBankBpatchDataHexStrings.setProperty("pgm" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
+		customBankApatchDataHexStrings.setProperty("patch" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
+		customBankBpatchDataHexStrings.setProperty("patch" + (String)patchSlot, patches::basicPatchDataHexString, nullptr);
 	}
 }
 
 void PatchBanks::fillAllPatchNameBanks() {
 	String patchName;
 	String patchDataString;
-	for (uint8 programSlot = 0; programSlot != patchSlotOutOfRange(); ++programSlot) {
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsA, programSlot);
+	for (uint8 patchSlot = 0; patchSlot != patchSlotOutOfRange(); ++patchSlot) {
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsA, patchSlot);
 		patchName = RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		analogSynthsBankApatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		analogSynthsBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsB, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsB, patchSlot);
 		patchName = RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		analogSynthsBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		analogSynthsBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::basses, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::basses, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		bassesBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		bassesBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::brassAndWoodwinds, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::brassAndWoodwinds, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		brassAndWoodwindsBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		brassAndWoodwindsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::fxAndPercussion, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::fxAndPercussion, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		fxAndPercussionBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		fxAndPercussionBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsA, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsA, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		keyboardsBankApatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		keyboardsBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsB, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsB, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		keyboardsBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		keyboardsBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::leads, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::leads, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		leadsBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		leadsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::miscellaneousA, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::miscellaneousA, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		miscellaneousBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		miscellaneousBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::strings, programSlot);
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::strings, patchSlot);
 		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
-		stringsBankPatchNameStrings.setProperty("pgm" + (String)programSlot, patchName, nullptr);
+		stringsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
-		customBankApatchNameStrings.setProperty("pgm" + (String)programSlot, patches::basicPatchNameString, nullptr);
-		customBankBpatchNameStrings.setProperty("pgm" + (String)programSlot, patches::basicPatchNameString, nullptr);
+		customBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patches::basicPatchNameString, nullptr);
+		customBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patches::basicPatchNameString, nullptr);
 	}
 }
 
@@ -98,31 +98,31 @@ const String PatchBanks::nameOfPatchInBankSlot(PatchBank bank, uint8 slot) {
 	switch (bank)
 	{
 	case PatchBank::analogSynthsA:
-		return analogSynthsBankApatchNameStrings.getProperty("pgm" + (String)slot);
+		return analogSynthsBankApatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::analogSynthsB:
-		return analogSynthsBankBpatchNameStrings.getProperty("pgm" + (String)slot);
+		return analogSynthsBankBpatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::basses:
-		return bassesBankPatchNameStrings.getProperty("pgm" + (String)slot);
+		return bassesBankPatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::brassAndWoodwinds:
-		return brassAndWoodwindsBankPatchNameStrings.getProperty("pgm" + (String)slot);
+		return brassAndWoodwindsBankPatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::customA:
-		return customBankApatchNameStrings.getProperty("pgm" + (String)slot);
+		return customBankApatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::customB:
-		return customBankBpatchNameStrings.getProperty("pgm" + (String)slot);
+		return customBankBpatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::fxAndPercussion:
-		return fxAndPercussionBankPatchNameStrings.getProperty("pgm" + (String)slot);
+		return fxAndPercussionBankPatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::keyboardsA:
-		return keyboardsBankApatchNameStrings.getProperty("pgm" + (String)slot);
+		return keyboardsBankApatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::keyboardsB:
-		return keyboardsBankBpatchNameStrings.getProperty("pgm" + (String)slot);
+		return keyboardsBankBpatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::leads:
-		return leadsBankPatchNameStrings.getProperty("pgm" + (String)slot);
+		return leadsBankPatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::miscellaneousA:
-		return miscellaneousBankApatchNameStrings.getProperty("pgm" + (String)slot);
+		return miscellaneousBankApatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::miscellaneousB:
-		return miscellaneousBankBpatchNameStrings.getProperty("pgm" + (String)slot);
+		return miscellaneousBankBpatchNameStrings.getProperty("patch" + (String)slot);
 	case PatchBank::strings:
-		return stringsBankPatchNameStrings.getProperty("pgm" + (String)slot);
+		return stringsBankPatchNameStrings.getProperty("patch" + (String)slot);
 	default:
 		return "error";
 	}
@@ -142,9 +142,9 @@ const String PatchBanks::getPatchDataHexStringFromBankSlot(PatchBank bank, uint8
 	case PatchBank::brassAndWoodwinds:
 		return factoryPatchDataHexStrings.getBrassAndWoodwindsBank()[slot];
 	case PatchBank::customA:
-		return customBankApatchDataHexStrings.getProperty("pgm" + (String)slot);
+		return customBankApatchDataHexStrings.getProperty("patch" + (String)slot);
 	case PatchBank::customB:
-		return customBankBpatchDataHexStrings.getProperty("pgm" + (String)slot);
+		return customBankBpatchDataHexStrings.getProperty("patch" + (String)slot);
 	case PatchBank::fxAndPercussion:
 		return factoryPatchDataHexStrings.getFXandPercussionBank()[slot];
 	case PatchBank::keyboardsA:
@@ -170,10 +170,10 @@ void PatchBanks::storePatchDataHexStringInCustomBankSlot(String patchDataHexStri
 	switch (bank)
 	{
 	case PatchBank::customA:
-		customBankApatchDataHexStrings.setProperty("pgm" + (String)slot, patchDataHexString, nullptr);
+		customBankApatchDataHexStrings.setProperty("patch" + (String)slot, patchDataHexString, nullptr);
 		break;
 	case PatchBank::customB:
-		customBankBpatchDataHexStrings.setProperty("pgm" + (String)slot, patchDataHexString, nullptr);
+		customBankBpatchDataHexStrings.setProperty("patch" + (String)slot, patchDataHexString, nullptr);
 		break;
 	default:
 		break;
@@ -212,7 +212,7 @@ void PatchBanks::removeListenerFromNameStringsForCustomBank(ValueTree::Listener*
 
 void PatchBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	auto propertyName{ property.toString() };
-	auto slotString{ propertyName.fromLastOccurrenceOf("pgm", false, true) };
+	auto slotString{ propertyName.fromLastOccurrenceOf("patch", false, true) };
 	auto slot{ (uint8)slotString.getIntValue() };
 	if (tree.hasType(ID::bank_CustomA_PatchDataHexStrings)) {
 		auto patchDataHexString{ getPatchDataHexStringFromBankSlot(PatchBank::customA, slot) };

@@ -4679,13 +4679,22 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Pull-Down.png">
@@ -4700,25 +4709,25 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Push-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Down.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Button-Patches-Up.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Up.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Flash.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Flash.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Quick-Edit-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Down.png">
@@ -4733,13 +4742,7 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Header.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Down.png">
@@ -4748,28 +4751,13 @@
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Load-Down.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Load-Up.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Pull-Down.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Pull-Up.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Push-Down.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Push-Up.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Save-Down.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Save-Up.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Patches-Header.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

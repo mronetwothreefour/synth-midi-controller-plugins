@@ -22,6 +22,7 @@ namespace ID
 	static const Identifier bank_MiscellaneousB_PatchNameStrings{ "bank_MiscellaneousB_PatchNameStrings" };
 	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
 
+	static const Identifier button_Load{ "button_Master" };
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
 	static const Identifier button_PatchSlotRadioButton{ "button_PatchSlotRadioButton" };

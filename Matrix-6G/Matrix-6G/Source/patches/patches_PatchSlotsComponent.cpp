@@ -85,3 +85,35 @@ void PatchSlotsComponent::loadPatchFromSelectedSlot() {
 		callAfterDelay(100, [this] { PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
+
+void PatchSlotsComponent::pullSelectedPatchFromHardware()
+{
+}
+
+void PatchSlotsComponent::pushSelectedPatchToHardware()
+{
+}
+
+void PatchSlotsComponent::resized() {
+	for (auto i = 0; i != patches::numberOfSlotsInBank; ++i) {
+		auto col_x{ (i / 25) * (GUI::patchSlotRadioButtton_w + GUI::patchSlotRadioButtonsHorizontalGap) };
+		auto row_y{ (i % 25) * GUI::patchSlotRadioButtton_h };
+		patchSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtonsHorizontalGap);
+	}
+}
+
+void PatchSlotsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+	auto propertyName{ property.toString() };
+	auto slotString{ propertyName.fromLastOccurrenceOf("patch", false, true) };
+	setTextForPatchSlotToggleButton((uint8)slotString.getIntValue());
+}
+
+void PatchSlotsComponent::timerCallback() {
+}
+
+PatchSlotsComponent::~PatchSlotsComponent() {
+	if (bank == PatchBank::customA || bank == PatchBank::customB) {
+		auto patchBanks{ unexposedParams->patchBanks_get() };
+		patchBanks->removeListenerFromNameStringsForCustomBank(this, bank);
+	}
+}
