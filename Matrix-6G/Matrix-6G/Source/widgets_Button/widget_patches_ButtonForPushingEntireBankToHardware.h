@@ -3,23 +3,20 @@
 #include <JuceHeader.h>
 
 #include "widget_BaseButtonWithOnClickAndTooltipMethods.h"
+#include "../patches/patches_PatchBanks.h"
 
 
 
-class PatchSlotsComponent;
 class UnexposedParameters;
 
-class ButtonForLoadingSelectedPatch :
-	public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForPushingEntireBankToHardware : public BaseButtonWithOnClickAndTooltipMethods
 {
-	PatchSlotsComponent& patchSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
+	ButtonForPushingEntireBankToHardware() = delete;
 
-	ButtonForLoadingSelectedPatch() = delete;
-
-	ButtonForLoadingSelectedPatch(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForPushingEntireBankToHardware(PatchBank bank, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -27,5 +24,6 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedPatch)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingEntireBankToHardware)
 };
+

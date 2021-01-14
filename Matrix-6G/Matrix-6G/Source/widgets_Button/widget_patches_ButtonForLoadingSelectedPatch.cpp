@@ -6,7 +6,7 @@
 
 
 
-ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(PatchSlotsWidget& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	patchSlots{ patchSlots },
 	unexposedParams{ unexposedParams }
@@ -18,12 +18,13 @@ ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(PatchSlotsWidget& p
 const String ButtonForLoadingSelectedPatch::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Applies the patch settings stored in the selected slot to the\n";
-		buttonTooltip += "plugin GUI and to the Matrix-6R hardware's patch edit buffer.";
+		buttonTooltip += "Loads the patch settings stored in the selected slot into the plugin GUI\n";
+		buttonTooltip += "and pushes it into the corresponding slot on the hardware. NOTE: This will\n";
+		buttonTooltip += "overwrite the patch data in the hardware storage slot and cannot be undone.";
 	}
 	return buttonTooltip;
 }
 
-void ButtonForLoadingSelectedPatch::onClickMethod()
-{
+void ButtonForLoadingSelectedPatch::onClickMethod() {
+	patchSlots.loadPatchFromSelectedSlot();
 }
