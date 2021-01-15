@@ -18,6 +18,8 @@ public:
 	const char* getButtonImageData(Button& button, bool isDown);
 	size_t getButtonImageDataSize(Button& button, bool isDown);
 	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+	void drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) override;
+	void drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool isEnabled, const bool isHighlighted, const bool isDown) override;
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
 	void drawPopupMenuBackground(Graphics& g, int w, int h) override;

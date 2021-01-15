@@ -41,10 +41,10 @@ ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(Patch
 const String ButtonForPushingEntireBankToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Push all the patches stored in this bank to the\n";
-		buttonTooltip += "Matrix hardware's storage bank. NOTE: All the\n";
-		buttonTooltip += "patch data stored in the hardware will be over-\n";
-		buttonTooltip += "written and this cannot be undone.";
+		buttonTooltip += "Push all the patches stored in this bank to\n";
+		buttonTooltip += "the Matrix hardware's storage bank. NOTE: All\n";
+		buttonTooltip += "the patch data stored in the hardware will be\n";
+		buttonTooltip += "overwritten and this cannot be undone.";
 	}
 	return buttonTooltip;
 }

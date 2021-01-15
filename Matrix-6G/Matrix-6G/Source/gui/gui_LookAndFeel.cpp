@@ -91,6 +91,25 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
 
+void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) {
+	drawTickBox(g, button, 0.0f, 0.0f, (float)button.getWidth(), (float)button.getHeight(), button.getToggleState(), button.isEnabled(), isHighlighted, isDown);
+}
+
+void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
+	if (component.getComponentID() == ID::button_PatchSlotRadioButton.toString()) {
+		auto buttonColor{ Color::device };
+		if (isHighlighted)
+			buttonColor = buttonColor.brighter(0.4f);
+		if (isTicked)
+			buttonColor = buttonColor.brighter(0.7f);
+		g.setColour(buttonColor);
+		g.fillRect(x, y, w, h);
+		g.setColour(Color::offWhite);
+		g.setFont(FontsMenu::fontFor_PatchSlotButtons);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+}
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
 }
 

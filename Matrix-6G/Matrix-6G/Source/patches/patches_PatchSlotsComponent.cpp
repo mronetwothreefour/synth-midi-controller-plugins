@@ -28,7 +28,7 @@ PatchSlotsComponent::PatchSlotsComponent(PatchBank bank, AudioProcessorValueTree
 		patchBanks->addListenerToNameStringsForCustomBank(this, bank);
 	}
 
-	setSize(GUI::patchSlotsWidget_w, GUI::patchSlotsWidget_h);
+	setSize(GUI::patchSlotsComponent_w, GUI::patchSlotsComponent_h);
 }
 
 void PatchSlotsComponent::setUpPatchSlotToggleButton(uint8 slot) {

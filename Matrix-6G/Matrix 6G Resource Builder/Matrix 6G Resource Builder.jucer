@@ -13,6 +13,7 @@
       <FILE id="J7tYz2" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
     <FILE id="gJLRSl" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
+    <FILE id="VPFW8g" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     <FILE id="SLibq7" name="Button-Load-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Load-Down.png"/>
     <FILE id="KqnnL3" name="Button-Load-Up.png" compile="0" resource="1"

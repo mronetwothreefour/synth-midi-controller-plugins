@@ -20,5 +20,5 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
 
 void ButtonsLayer::resized() {
     button_ForActivatingQuickPatchEdit.setBounds(GUI::quickEditButton_x, GUI::mainWindowSmallButtons_y, GUI::quickEditButton_w, GUI::smallButtons_h);
-    button_ForPushingPatchToHardware.setBounds(788, GUI::mainWindowSmallButtons_y, GUI::mainWindowSmallButtons_w, GUI::smallButtons_h);
+    button_ForPushingPatchToHardware.setBounds(788, GUI::mainWindowSmallButtons_y, GUI::smallButtons_w, GUI::smallButtons_h);
 }

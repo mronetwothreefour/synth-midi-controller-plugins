@@ -2502,7 +2502,12 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

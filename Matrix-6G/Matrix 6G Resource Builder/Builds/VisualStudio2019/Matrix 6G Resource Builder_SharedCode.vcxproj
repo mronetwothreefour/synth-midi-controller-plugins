@@ -2769,6 +2769,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Down.png"/>

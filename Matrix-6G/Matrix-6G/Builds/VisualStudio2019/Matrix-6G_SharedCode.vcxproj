@@ -2156,6 +2156,7 @@
     <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />

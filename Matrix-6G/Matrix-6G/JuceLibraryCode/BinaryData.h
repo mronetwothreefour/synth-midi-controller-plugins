@@ -5,6 +5,9 @@ namespace BinaryData
     extern const char* SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
 
+    extern const char* SWISSCL_TTF;
+    const int            SWISSCL_TTFSize = 35064;
+
     extern const char* ButtonLoadDown_png;
     const int            ButtonLoadDown_pngSize = 477;
 
@@ -87,7 +90,7 @@ namespace BinaryData
     const int            PatchesHeader_pngSize = 2478;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 28;
+    const int namedResourceListSize = 29;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

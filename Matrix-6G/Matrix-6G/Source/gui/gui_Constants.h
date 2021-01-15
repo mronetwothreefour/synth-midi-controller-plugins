@@ -76,7 +76,6 @@ namespace constants
 		static const int lfo1Controls_x{ 726 };
 		static const int lfo2Controls_x{ 792 };
 		static const int mainWindowSmallButtons_y{ 367 };
-		static const int mainWindowSmallButtons_w{ 34 };
 		static const int matrixModComboBoxes_w{ 82 };
 		static const int matrixModSlotControls_y{ 0 };
 		static const int matrixModFirstSlot_y{ 59 };
@@ -87,11 +86,19 @@ namespace constants
 		static const int oscBalanceControl_w{ 126 };
 		static const int oscControlsCol1_x{ 130 };
 		static const int oscControlsCol2_x{ 196 };
+		static const int patchBanksFactoryTabLoadButton_x{ 167 };
+		static const int patchBanksTab_h{ 466 };
+		static const int patchBanksTab_w{ 420 };
+		static const int patchBanksTabButtons_y{ 427 };
+		static const int patchBanksFactoryTabLoadButton_x{ 167 };
+		static const int patchBanksFactoryTabPushBankButton_x{ 283 };
+		static const int patchBanksTabFooter_x{ 0 };
+		static const int patchBanksTabFooter_y{ 422 };
 		static const int patchSlotRadioButtton_h{ 16 };
 		static const int patchSlotRadioButtton_w{ 81 };
 		static const int patchSlotRadioButtonsHorizontalGap{ 22 };
-		static const int patchSlotsWidget_h{ 25 * patchSlotRadioButtton_h };
-		static const int patchSlotsWidget_w{ 4 * patchSlotRadioButtton_w + 3 * patchSlotRadioButtonsHorizontalGap };
+		static const int patchSlotsComponent_h{ 25 * patchSlotRadioButtton_h };
+		static const int patchSlotsComponent_w{ 4 * patchSlotRadioButtton_w + 3 * patchSlotRadioButtonsHorizontalGap };
 		static const int portaControls_w{ 72 };
 		static const int portaControls_x{ 544 };
 		static const int quickEditButton_w{ 70 };
@@ -99,6 +106,7 @@ namespace constants
 		static const int rampControlsCol1_x{ 894 };
 		static const int rampControlsCol2_x{ 960 };
 		static const int smallButtons_h{ 20 };
+		static const int smallButtons_w{ 34 };
 		static const int trackingGeneratorRenderer_h{ 80 };
 		static const int trackingGeneratorRenderer_w{ 150 };
 		static const int trackingGeneratorRenderer_x{ 840 };
@@ -129,8 +137,11 @@ namespace constants
 		static const Rectangle<int> bounds_MatrixModSlotComboBoxForDestination{ 134, matrixModSlotControls_y, matrixModComboBoxes_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlotComboBoxForSource{ 0, matrixModSlotControls_y, matrixModComboBoxes_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlotSliderForAmount{ 88, matrixModSlotControls_y, 40, controls_h };
+		static const Rectangle<int> bounds_PatchBanksFactoryTabLoadButton{ patchBanksFactoryTabLoadButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_PatchBanksFactoryTabPushBankButton{ patchBanksFactoryTabPushBankButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
+		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
