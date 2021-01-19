@@ -5,43 +5,58 @@
 #include "patches_PatchBanks.h"
 #include "patches_PatchSlotsComponent.h"
 #include "../widgets_Button/widget_patches_ButtonForLoadingSelectedPatch.h"
+#include "../widgets_Button/widget_patches_ButtonForPullingEntireBankFromHardware.h"
+#include "../widgets_Button/widget_patches_ButtonForPullingSelectedPatchFromHardware.h"
 #include "../widgets_Button/widget_patches_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_patches_ButtonForSavingPatchInSelectedSlot.h"
 
 
 
 class UnexposedParameters;
 
-class TabForFactoryPatchBank :
+class TabForCustomPatchBank :
     public Component,
+    private Timer,
     public ApplicationCommandTarget
 {
     PatchBank bank;
     PatchSlotsComponent patchSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedPatch button_ForLoadingSelectedProgram;
+    ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
+    ButtonForSavingPatchInSelectedSlot button_ForSavingPatchInSelectedSlot;
+    ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
+    ButtonForPullingSelectedPatchFromHardware button_ForPullingSelectedPatchFromHardware;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ApplicationCommandManager commandManager;
     String& patchCopyBuffer;
 
 public:
     enum commandChoices {
-        copyProgram = 1
+        copyPatch = 1,
+        pastePatch
     };
 
-    TabForFactoryPatchBank() = delete;
+    TabForCustomPatchBank() = delete;
 
-    TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForCustomPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;
     void getAllCommands(Array<CommandID>& commands) override;
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
     bool perform(const InvocationInfo& info) override;
+    void addListenerToPullEntireBankButton(Button::Listener* listener);
     void addListenerToPushEntireBankButton(Button::Listener* listener);
+    void removeListenerFromPullEntireBankButton(Button::Listener* listener);
     void removeListenerFromPushEntireBankButton(Button::Listener* listener);
-    ~TabForFactoryPatchBank();
+
+private:
+    void timerCallback() override;
+
+public:
+    ~TabForCustomPatchBank();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForFactoryPatchBank)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForCustomPatchBank)
 };

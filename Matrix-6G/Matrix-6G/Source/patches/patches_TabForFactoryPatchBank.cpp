@@ -10,7 +10,7 @@ using namespace constants;
 
 
 
-TabForFactoryProgramBank::TabForFactoryProgramBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	bank{ bank },
 	patchSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
@@ -27,7 +27,7 @@ TabForFactoryProgramBank::TabForFactoryProgramBank(PatchBank bank, AudioProcesso
 	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
 }
 
-void TabForFactoryProgramBank::paint(Graphics& g) {
+void TabForFactoryPatchBank::paint(Graphics& g) {
 	g.fillAll(Color::device);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::PatchesFooterForFactoryBanks_png, BinaryData::PatchesFooterForFactoryBanks_pngSize, false };
@@ -35,22 +35,22 @@ void TabForFactoryProgramBank::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, GUI::patchBanksTabFooter_x, GUI::patchBanksTabFooter_y);
 }
 
-void TabForFactoryProgramBank::resized() {
+void TabForFactoryPatchBank::resized() {
 	patchSlots.setBounds(GUI::bounds_PatchSlotsComponent);
 	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PatchBanksFactoryTabLoadButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PatchBanksFactoryTabPushBankButton);
 }
 
-ApplicationCommandTarget* TabForFactoryProgramBank::getNextCommandTarget() {
+ApplicationCommandTarget* TabForFactoryPatchBank::getNextCommandTarget() {
 	return nullptr;
 }
 
-void TabForFactoryProgramBank::getAllCommands(Array<CommandID>& commands) {
+void TabForFactoryPatchBank::getAllCommands(Array<CommandID>& commands) {
 	Array<CommandID> IDs{ copyProgram };
 	commands.addArray(IDs);
 }
 
-void TabForFactoryProgramBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void TabForFactoryPatchBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
 	case copyProgram:
@@ -62,7 +62,7 @@ void TabForFactoryProgramBank::getCommandInfo(CommandID commandID, ApplicationCo
 	}
 }
 
-bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
+bool TabForFactoryPatchBank::perform(const InvocationInfo& info) {
 	auto patchBanks{ unexposedParams->patchBanks_get() };
 	auto selectedSlot{ patchSlots.selectedSlot };
 	switch (info.commandID)
@@ -78,14 +78,14 @@ bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
 	}
 }
 
-void TabForFactoryProgramBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryPatchBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.addListener(listener);
 }
 
-void TabForFactoryProgramBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryPatchBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
-TabForFactoryProgramBank::~TabForFactoryProgramBank() {
+TabForFactoryPatchBank::~TabForFactoryPatchBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

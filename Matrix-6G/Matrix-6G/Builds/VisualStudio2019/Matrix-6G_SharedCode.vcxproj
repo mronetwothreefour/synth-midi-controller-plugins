@@ -2156,6 +2156,7 @@
     <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
@@ -2164,7 +2165,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp" />
@@ -2953,6 +2957,7 @@
     <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h" />
     <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h" />
     <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h" />
+    <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
@@ -2961,7 +2966,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.h" />

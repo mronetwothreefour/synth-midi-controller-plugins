@@ -26,6 +26,9 @@ namespace ID
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
 	static const Identifier button_PatchSlotRadioButton{ "button_PatchSlotRadioButton" };
+	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
+	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
+	static const Identifier button_PullSelectedPatch{ "button_PullSelectedPatch" };
 	static const Identifier button_PushAnalogSynthsBankA{ "button_PushAnalogSynthsBankA" };
 	static const Identifier button_PushAnalogSynthsBankB{ "button_PushAnalogSynthsBankB" };
 	static const Identifier button_PushBassesBank{ "button_PushBassesBank" };
@@ -44,6 +47,7 @@ namespace ID
 	static const Identifier button_Redo{ "button_Redo" };
 	static const Identifier button_Pull{ "button_Pull" };
 	static const Identifier button_Push{ "button_Push" };
+	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_Undo{ "button_Undo" };
 
