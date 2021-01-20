@@ -95,6 +95,7 @@ namespace constants
 		static const int patchBanksFactoryTabPushBankButton_x{ 283 };
 		static const int patchBanksTab_h{ 466 };
 		static const int patchBanksTab_w{ 420 };
+		static const int patchBanksTabBarDepth{ 0 };
 		static const int patchBanksTabButtons_y{ 427 };
 		static const int patchBanksTabFooter_x{ 0 };
 		static const int patchBanksTabFooter_y{ 422 };

@@ -2156,6 +2156,7 @@
     <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
@@ -2957,6 +2958,7 @@
     <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h" />
     <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h" />
     <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h" />
+    <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />

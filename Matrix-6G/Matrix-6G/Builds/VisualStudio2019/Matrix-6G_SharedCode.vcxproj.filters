@@ -2520,6 +2520,9 @@
     <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4921,6 +4924,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h">
+      <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

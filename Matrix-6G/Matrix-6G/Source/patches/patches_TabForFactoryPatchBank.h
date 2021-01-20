@@ -18,19 +18,19 @@ class TabForFactoryPatchBank :
     PatchBank bank;
     PatchSlotsComponent patchSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedPatch button_ForLoadingSelectedProgram;
+    ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ApplicationCommandManager commandManager;
     String& patchCopyBuffer;
 
 public:
     enum commandChoices {
-        copyProgram = 1
+        copyPatch = 1
     };
 
     TabForFactoryPatchBank() = delete;
 
-    TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

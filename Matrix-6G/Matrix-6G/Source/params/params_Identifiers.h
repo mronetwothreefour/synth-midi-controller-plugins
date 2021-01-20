@@ -51,6 +51,9 @@ namespace ID
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_Undo{ "button_Undo" };
 
+	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
+	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
+
 	static const Identifier currentPatch_Name{ "currentPatch_Name" };
 	static const Identifier currentPatch_Number{ "currentPatch_Number" };
 	static const Identifier currentPatch_Options{ "currentPatch_Options" };

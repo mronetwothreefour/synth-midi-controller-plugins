@@ -10,16 +10,16 @@ using namespace constants;
 
 
 
-TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
 	bank{ bank },
 	patchSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	patchCopyBuffer{ programCopyBuffer },
-	button_ForLoadingSelectedProgram{ patchSlots, unexposedParams },
+	patchCopyBuffer{ patchCopyBuffer },
+	button_ForLoadingSelectedPatch{ patchSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams }
 {
 	addAndMakeVisible(patchSlots);
-	addAndMakeVisible(button_ForLoadingSelectedProgram);
+	addAndMakeVisible(button_ForLoadingSelectedPatch);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
@@ -37,7 +37,7 @@ void TabForFactoryPatchBank::paint(Graphics& g) {
 
 void TabForFactoryPatchBank::resized() {
 	patchSlots.setBounds(GUI::bounds_PatchSlotsComponent);
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PatchBanksFactoryTabLoadButton);
+	button_ForLoadingSelectedPatch.setBounds(GUI::bounds_PatchBanksFactoryTabLoadButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PatchBanksFactoryTabPushBankButton);
 }
 
@@ -46,15 +46,15 @@ ApplicationCommandTarget* TabForFactoryPatchBank::getNextCommandTarget() {
 }
 
 void TabForFactoryPatchBank::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> IDs{ copyProgram };
+	Array<CommandID> IDs{ copyPatch };
 	commands.addArray(IDs);
 }
 
 void TabForFactoryPatchBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
-	case copyProgram:
-		result.setInfo("Copy Program", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
+	case copyPatch:
+		result.setInfo("Copy Patch", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
 	default:
@@ -67,7 +67,7 @@ bool TabForFactoryPatchBank::perform(const InvocationInfo& info) {
 	auto selectedSlot{ patchSlots.selectedSlot };
 	switch (info.commandID)
 	{
-	case copyProgram:
+	case copyPatch:
 		if (selectedSlot < patches::numberOfSlotsInBank) {
 			patchCopyBuffer = patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
