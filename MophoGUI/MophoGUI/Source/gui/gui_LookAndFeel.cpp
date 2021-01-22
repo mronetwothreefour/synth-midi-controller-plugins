@@ -369,8 +369,8 @@ void GUILookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h
 		g.fillPath(p);
 	}
 	if (textToShow.isNotEmpty()) {
-		g.setColour(Colour::contrasting(background, foreground));
-		g.setFont(h * 0.6f);
+		g.setColour(Color::white);
+		g.setFont(FontsMenu::fontFor_ProgressBar);
 		g.drawText(textToShow, 0, 0, w, h, Justification::centred, false);
 	}
 }

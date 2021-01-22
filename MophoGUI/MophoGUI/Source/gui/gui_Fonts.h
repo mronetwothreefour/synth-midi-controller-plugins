@@ -22,6 +22,7 @@ namespace FontsMenu
 	static const Font fontFor_PgmNameEditorText{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 21.0f, 0.0f) };
 	static const Font fontFor_PgmSlotButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 16.0f, 0.0f) };
 	static const Font fontFor_PopupMenuItems{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 14.5f, 0.0f) };
+	static const Font fontFor_ProgressBar{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 14.0f, 0.0f) };
 	static const Font fontFor_ProgressDisplayMessage{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 21.0f, 0.0f) };
 	static const Font fontFor_PulseWidthText{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 11.0f, 0.0f) };
 	static const Font fontFor_SeqSteps{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 13.5f, 0.0f) };
