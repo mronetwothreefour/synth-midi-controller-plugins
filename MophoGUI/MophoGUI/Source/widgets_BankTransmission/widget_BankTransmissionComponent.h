@@ -19,7 +19,6 @@ public:
 private:
 	ProgramBank bank;
 	String bankName;
-	int bankNumber;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
 	String message;

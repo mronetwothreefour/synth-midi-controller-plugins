@@ -29,31 +29,24 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 	{
 	case ProgramBank::factory1:
 		bankName = "Factory Bank 1";
-		bankNumber = 1;
 		break;
 	case ProgramBank::factory2:
 		bankName = "Factory Bank 2";
-		bankNumber = 2;
 		break;
 	case ProgramBank::factory3:
 		bankName = "Factory Bank 3";
-		bankNumber = 3;
 		break;
 	case ProgramBank::custom1:
 		bankName = "Custom Bank 1";
-		bankNumber = 1;
 		break;
 	case ProgramBank::custom2:
 		bankName = "Custom Bank 2";
-		bankNumber = 2;
 		break;
 	case ProgramBank::custom3:
 		bankName = "Custom Bank 3";
-		bankNumber = 3;
 		break;
 	default:
 		bankName = "error";
-		bankNumber = 0;
 		break;
 	}
 	

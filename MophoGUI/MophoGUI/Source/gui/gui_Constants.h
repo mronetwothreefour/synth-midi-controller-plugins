@@ -182,7 +182,7 @@ namespace constants
 		static const Rectangle<int> bounds_BankTransmitButtons{ 611, 344, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_BankTransmitMessage{ 461, 290, 351, 28 };
 		static const Rectangle<int> bounds_BankTransmitProgressDisplayWindow{ 444, 251, 385, 124 };
-		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 319,351, 18 };
+		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 319, 351, 18 };
 		static const Rectangle<int> bounds_EnvelopeRenderer_LPF{ envelopeRenderers_x, envelopeRenderer_LPF_y, envelopeRenderers_w, envelopeRenderers_h };
 		static const Rectangle<int> bounds_EnvelopeRenderer_VCA{ envelopeRenderers_x, envelopeRenderer_VCA_y, envelopeRenderers_w, envelopeRenderers_h };
 		static const Rectangle<int> bounds_EnvelopeRenderer_Env3{ envelopeRenderers_x, envelopeRenderer_Env3_y, envelopeRenderers_w, envelopeRenderers_h };
