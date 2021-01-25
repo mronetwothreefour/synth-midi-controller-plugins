@@ -152,6 +152,3 @@ void BankTransmissionComponent::makeClosebuttonVisible() {
 void BankTransmissionComponent::hideThisComponent() {
 	setVisible(false);
 }
-
-BankTransmissionComponent::~BankTransmissionComponent() {
-}
