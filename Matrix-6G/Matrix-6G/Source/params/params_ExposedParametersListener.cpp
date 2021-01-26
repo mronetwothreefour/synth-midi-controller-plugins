@@ -31,7 +31,7 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 			outputValue -= matrixParams::offsetForSigned7bitRange;
 		if (info.isQuickEditable(param) && outputValue > -1) {
 			auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			auto paramChangeMessage{ RawDataVector::createParamChangeMessage(outputValue, param) };
+			auto paramChangeMessage{ RawSysExDataVector::createParamChangeMessage(outputValue, param) };
 			outgoingMidiBuffers->addDataMessage(paramChangeMessage);
 		}
 	}

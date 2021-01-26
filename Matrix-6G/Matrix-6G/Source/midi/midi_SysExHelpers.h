@@ -15,7 +15,7 @@ struct SysExID {
 
 
 
-struct RawDataVector {
+struct RawSysExDataVector {
     static std::vector<uint8> createParamChangeMessage(uint8 newValue, uint8 param);
     static std::vector<uint8> initializePatchDataMessage(uint8 slot);
     static std::vector<uint8> createPatchDataMessageHeader(uint8 slot);

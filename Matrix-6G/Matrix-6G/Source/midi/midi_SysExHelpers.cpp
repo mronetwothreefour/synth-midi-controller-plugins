@@ -18,7 +18,7 @@ bool SysExID::matchesHardwareSynthID(const MidiMessage& midiMessage) {
 
 
 
-std::vector<uint8> RawDataVector::createParamChangeMessage(uint8 newValue, uint8 param) {
+std::vector<uint8> RawSysExDataVector::createParamChangeMessage(uint8 newValue, uint8 param) {
     auto messageVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfParamChangeVector) };
     messageVector[2] = MIDI::opcode_ParameterChange;
     messageVector[3] = param;
@@ -26,21 +26,21 @@ std::vector<uint8> RawDataVector::createParamChangeMessage(uint8 newValue, uint8
     return messageVector;
 }
 
-std::vector<uint8> RawDataVector::initializePatchDataMessage(uint8 slot) {
+std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfPatchDataVector) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawDataVector::createPatchDataMessageHeader(uint8 slot) {
+std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchDataMessage) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawDataVector::createPatchDataRequestMessage(uint8 slot) {
+std::vector<uint8> RawSysExDataVector::createPatchDataRequestMessage(uint8 slot) {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
     rawDataVector[2] = MIDI::opcode_DataRequest;
     rawDataVector[3] = MIDI::transmitCode_Patch;
@@ -48,13 +48,13 @@ std::vector<uint8> RawDataVector::createPatchDataRequestMessage(uint8 slot) {
     return rawDataVector;
 }
 
-std::vector<uint8> RawDataVector::createActivateQuickPatchEditingMessage() {
+std::vector<uint8> RawSysExDataVector::createActivateQuickPatchEditingMessage() {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfQuickEditSelectVector) };
     rawDataVector[2] = MIDI::opcode_ActivateQuickEdit;
     return rawDataVector;
 }
 
-std::vector<uint8> RawDataVector::createRawDataVectorWithSysExIDheaderBytes(int vectorSize) {
+std::vector<uint8> RawSysExDataVector::createRawDataVectorWithSysExIDheaderBytes(int vectorSize) {
     jassert(vectorSize > 0);
     std::vector<uint8> rawDataVector(vectorSize);
     rawDataVector[0] = (uint8)SysExID::TargetDevice::Manufacturer;
