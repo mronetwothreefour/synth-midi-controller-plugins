@@ -24,26 +24,20 @@ void PatchDataMessage::addDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBu
 }
 
 void PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(uint8 slot, OutgoingMidiBuffers* outgoingBuffers) {
-    auto patchRequestMessage{ SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType::dataDumpRequest) };
-    patchRequestMessage[2] = MIDI::opcode_DataRequest;
-    patchRequestMessage[3] = MIDI::transmitCode_Patch;
-    patchRequestMessage[4] = slot;
+    auto patchRequestMessage{ RawDataVector::createPatchDataRequestMessage(slot) };
     outgoingBuffers->addDataMessage(patchRequestMessage);
 }
 
 std::vector<uint8> PatchDataMessage::createSysExMessageFromCurrentPatchSettings(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	auto dataVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType::patchData) };
-    dataVector[2] = MIDI::opcode_PatchData;
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchNumber{ currentPatchOptions->currentPatchNumber() };
-    dataVector[3] = currentPatchNumber;
+    auto dataVector{ RawDataVector::initializePatchDataMessage(currentPatchNumber) };
 	RawPatchData::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
     return dataVector;
 }
 
 std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBankAndSlot(PatchBank bank, uint8 slot, UnexposedParameters* unexposedParams) {
-    auto dataVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes(SysExMessageType::patchData) };
-    dataVector[2] = MIDI::opcode_PatchData;
+    auto dataVector{ RawDataVector::createPatchDataMessageHeader(slot) };
     auto patchBanks{ unexposedParams->patchBanks_get() };
     auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, slot) };
     auto patchDataVector{ RawPatchData::convertHexStringToDataVector(patchDataHexString) };

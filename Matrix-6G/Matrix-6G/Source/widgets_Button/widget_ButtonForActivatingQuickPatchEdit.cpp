@@ -1,6 +1,6 @@
 #include "widget_ButtonForActivatingQuickPatchEdit.h"
 
-#include "../midi/midi_QuickPatchEditing.h"
+#include "../midi/midi_SysExHelpers.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -35,7 +35,8 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 
 void ButtonForActivatingQuickPatchEdit::onClickMethod() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	QuickPatchEditing::sendActivateMessageToOutgoingMidiBuffers(outgoingMidiBuffers);
+	auto activateQuickPatchEditingMessage{ RawDataVector::createActivateQuickPatchEditingMessage() };
+	outgoingMidiBuffers->addDataMessage(activateQuickPatchEditingMessage);
 }
 
 void ButtonForActivatingQuickPatchEdit::timerCallback() {

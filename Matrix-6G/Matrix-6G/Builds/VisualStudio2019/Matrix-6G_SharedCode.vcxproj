@@ -2938,9 +2938,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h" />
     <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
-    <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_PatchDataMessage.h" />
-    <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />
     <ClInclude Include="..\..\Source\params\params_Constants.h" />
     <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h" />

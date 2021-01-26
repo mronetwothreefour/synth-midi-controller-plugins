@@ -4,7 +4,7 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 #include "params_UnexposedParameters_Facade.h"
 #include "params_RangeTypes.h"
-#include "../midi/midi_ParameterChangeMessage.h"
+#include "../midi/midi_SysExHelpers.h"
 
 using namespace constants;
 
@@ -31,7 +31,8 @@ void ExposedParametersListener::parameterChanged(const String& parameterID, floa
 			outputValue -= matrixParams::offsetForSigned7bitRange;
 		if (info.isQuickEditable(param) && outputValue > -1) {
 			auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			ParameterChangeMessage::sendNewValueForParameterToOutgoingMidiBuffers(outputValue, info.paramNumberFor(param), outgoingMidiBuffers);
+			auto paramChangeMessage{ RawDataVector::createParamChangeMessage(outputValue, param) };
+			outgoingMidiBuffers->addDataMessage(paramChangeMessage);
 		}
 	}
 	else return;

@@ -4772,12 +4772,6 @@
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h">
-      <Filter>Matrix-6G\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_QuickPatchEditing.h">
-      <Filter>Matrix-6G\Source\midi</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
