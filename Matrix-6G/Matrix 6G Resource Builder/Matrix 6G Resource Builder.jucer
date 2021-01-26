@@ -14,6 +14,10 @@
     </GROUP>
     <FILE id="gJLRSl" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
     <FILE id="VPFW8g" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
+    <FILE id="PnHJGP" name="Button-Close-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Close-Down.png"/>
+    <FILE id="Jp963P" name="Button-Close-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Close-Up.png"/>
     <FILE id="SLibq7" name="Button-Load-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Load-Down.png"/>
     <FILE id="KqnnL3" name="Button-Load-Up.png" compile="0" resource="1"
@@ -52,22 +56,29 @@
           file="../Matrix-6G/Resources/Button-Splits-Down.png"/>
     <FILE id="N9buXl" name="Button-Splits-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Splits-Up.png"/>
+    <FILE id="PGCa1I" name="Button-Stop-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Stop-Down.png"/>
+    <FILE id="ZN0yzu" name="Button-Stop-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Stop-Up.png"/>
     <FILE id="Nt0ZFm" name="Button-Undo-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Undo-Down.png"/>
     <FILE id="sC29LZ" name="Button-Undo-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Undo-Up.png"/>
+    <FILE id="y3t5LW" name="Button-X-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-X-Down.png"/>
+    <FILE id="wsRFxC" name="Button-X-Up.png" compile="0" resource="1" file="../Matrix-6G/Resources/Button-X-Up.png"/>
     <FILE id="endN7c" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
-    <FILE id="f0Y7qj" name="Patches-Button-Close-Down.png" compile="0"
-          resource="1" file="../Matrix-6G/Resources/Patches-Button-Close-Down.png"/>
-    <FILE id="C4aA0s" name="Patches-Button-Close-Up.png" compile="0" resource="1"
-          file="../Matrix-6G/Resources/Patches-Button-Close-Up.png"/>
     <FILE id="jChKZL" name="Patches-Footer-For-Custom-Banks.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Patches-Footer-For-Custom-Banks.png"/>
     <FILE id="ripnhV" name="Patches-Footer-For-Factory-Banks.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Patches-Footer-For-Factory-Banks.png"/>
     <FILE id="CKIamb" name="Patches-Header.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Patches-Header.png"/>
+    <FILE id="EhoKs2" name="Title-Pulling-Entire-Bank.png" compile="0"
+          resource="1" file="../Matrix-6G/Resources/Title-Pulling-Entire-Bank.png"/>
+    <FILE id="qnLmUC" name="Title-Pushing-Entire-Bank.png" compile="0"
+          resource="1" file="../Matrix-6G/Resources/Title-Pushing-Entire-Bank.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

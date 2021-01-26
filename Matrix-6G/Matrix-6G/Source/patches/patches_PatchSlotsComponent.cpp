@@ -82,7 +82,7 @@ void PatchSlotsComponent::loadPatchFromSelectedSlot() {
 		auto patchDataVector{ RawPatchData::convertHexStringToDataVector(patchDataHexString) };
 		RawPatchData::applyRawPatchDataToExposedParameters(patchDataVector.data(), exposedParams);
 		RawPatchData::applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);
-		callAfterDelay(100, [this] { PatchDataMessage::sendCurrentPatchDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams); });
+		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
 

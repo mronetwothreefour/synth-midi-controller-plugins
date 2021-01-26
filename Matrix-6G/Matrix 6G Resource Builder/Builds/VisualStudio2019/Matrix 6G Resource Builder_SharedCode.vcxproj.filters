@@ -4682,6 +4682,12 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
@@ -4739,19 +4745,25 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Stop-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Stop-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Down.png">
-      <Filter>Matrix 6G Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png">
@@ -4761,6 +4773,12 @@
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Header.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Title-Pulling-Entire-Bank.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Title-Pushing-Entire-Bank.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

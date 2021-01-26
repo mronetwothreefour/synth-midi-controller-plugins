@@ -10,7 +10,6 @@ namespace Color
 	static const Colour button_blue{ 0xff05239d };
 	static const Colour button_gray{ 0xff3f3f3f };
 	static const Colour button_orange{ 0xffd74000 };
-	static const Colour button_red{ 0xff870000 };
 	static const Colour device{ 0xff131316 };
 	static const Colour dividerLine_gray{ 0xff656565 };
 	static const Colour dividerLine_blue{ 0xff05239d };

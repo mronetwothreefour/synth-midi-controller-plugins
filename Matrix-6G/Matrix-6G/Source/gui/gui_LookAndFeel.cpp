@@ -63,28 +63,96 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Close.toString())
+		return isDown ? BinaryData::ButtonCloseDown_png : BinaryData::ButtonCloseUp_png;
+	if (button.getComponentID() == ID::button_Load.toString())
+		return isDown ? BinaryData::ButtonLoadDown_png : BinaryData::ButtonLoadUp_png;
+	if (button.getComponentID() == ID::button_Master.toString())
+		return isDown ? BinaryData::ButtonMasterDown_png : BinaryData::ButtonMasterUp_png;
+	if (button.getComponentID() == ID::button_Patches.toString())
+		return isDown ? BinaryData::ButtonPatchesDown_png : BinaryData::ButtonPatchesUp_png;
+	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
+		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
+		button.getComponentID() == ID::button_PullSelectedPatch.toString()
+		)
+		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
+	if (button.getComponentID() == ID::button_Push.toString() ||
+		button.getComponentID() == ID::button_PushAnalogSynthsBankA.toString() ||
+		button.getComponentID() == ID::button_PushAnalogSynthsBankB.toString() ||
+		button.getComponentID() == ID::button_PushBassesBank.toString() ||
+		button.getComponentID() == ID::button_PushBrassAndWoodwindsBank.toString() ||
+		button.getComponentID() == ID::button_PushCustomBankA.toString() ||
+		button.getComponentID() == ID::button_PushCustomBankB.toString() ||
+		button.getComponentID() == ID::button_PushFXandndPercussionBank.toString() ||
+		button.getComponentID() == ID::button_PushKeyboardsBankA.toString() ||
+		button.getComponentID() == ID::button_PushKeyboardsBankB.toString() ||
+		button.getComponentID() == ID::button_PushLeadsBank.toString() ||
+		button.getComponentID() == ID::button_PushMiscellaneousBankA.toString() ||
+		button.getComponentID() == ID::button_PushMiscellaneousBankB.toString() ||
+		button.getComponentID() == ID::button_PushStringsBank.toString()
+		)
+		return isDown ? BinaryData::ButtonPushDown_png : BinaryData::ButtonPushUp_png;
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_png : BinaryData::ButtonQuickEditUp_png;
-
 	if (button.getComponentID() == ID::button_QuickEdit_Flash.toString())
 		return BinaryData::ButtonQuickEditFlash_png;
-
-	if (button.getComponentID() == ID::button_Push.toString())
-		return isDown ? BinaryData::ButtonPushDown_png : BinaryData::ButtonPushUp_png;
-
+	if (button.getComponentID() == ID::button_Redo.toString())
+		return isDown ? BinaryData::ButtonRedoDown_png : BinaryData::ButtonRedoUp_png;
+	if (button.getComponentID() == ID::button_Save.toString())
+		return isDown ? BinaryData::ButtonSaveDown_png : BinaryData::ButtonSaveUp_png;
+	if (button.getComponentID() == ID::button_Splits.toString())
+		return isDown ? BinaryData::ButtonSplitsDown_png : BinaryData::ButtonSplitsUp_png;
+	if (button.getComponentID() == ID::button_Stop.toString())
+		return isDown ? BinaryData::ButtonStopDown_png : BinaryData::ButtonStopUp_png;
+	if (button.getComponentID() == ID::button_Undo.toString())
+		return isDown ? BinaryData::ButtonUndoDown_png : BinaryData::ButtonUndoUp_png;
 	return nullptr;
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Close.toString())
+		return isDown ? BinaryData::ButtonCloseDown_pngSize : BinaryData::ButtonCloseUp_pngSize;
+	if (button.getComponentID() == ID::button_Load.toString())
+		return isDown ? BinaryData::ButtonLoadDown_pngSize : BinaryData::ButtonLoadUp_pngSize;
+	if (button.getComponentID() == ID::button_Master.toString())
+		return isDown ? BinaryData::ButtonMasterDown_pngSize : BinaryData::ButtonMasterUp_pngSize;
+	if (button.getComponentID() == ID::button_Patches.toString())
+		return isDown ? BinaryData::ButtonPatchesDown_pngSize : BinaryData::ButtonPatchesUp_pngSize;
+	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
+		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
+		button.getComponentID() == ID::button_PullSelectedPatch.toString()
+		)
+		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
+	if (button.getComponentID() == ID::button_Push.toString() ||
+		button.getComponentID() == ID::button_PushAnalogSynthsBankA.toString() ||
+		button.getComponentID() == ID::button_PushAnalogSynthsBankB.toString() ||
+		button.getComponentID() == ID::button_PushBassesBank.toString() ||
+		button.getComponentID() == ID::button_PushBrassAndWoodwindsBank.toString() ||
+		button.getComponentID() == ID::button_PushCustomBankA.toString() ||
+		button.getComponentID() == ID::button_PushCustomBankB.toString() ||
+		button.getComponentID() == ID::button_PushFXandndPercussionBank.toString() ||
+		button.getComponentID() == ID::button_PushKeyboardsBankA.toString() ||
+		button.getComponentID() == ID::button_PushKeyboardsBankB.toString() ||
+		button.getComponentID() == ID::button_PushLeadsBank.toString() ||
+		button.getComponentID() == ID::button_PushMiscellaneousBankA.toString() ||
+		button.getComponentID() == ID::button_PushMiscellaneousBankB.toString() ||
+		button.getComponentID() == ID::button_PushStringsBank.toString()
+		)
+		return isDown ? BinaryData::ButtonPushDown_pngSize : BinaryData::ButtonPushUp_pngSize;
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_pngSize : BinaryData::ButtonQuickEditUp_pngSize;
-
 	if (button.getComponentID() == ID::button_QuickEdit_Flash.toString())
 		return BinaryData::ButtonQuickEditFlash_pngSize;
-
-	if (button.getComponentID() == ID::button_Push.toString())
-		return isDown ? BinaryData::ButtonPushDown_pngSize : BinaryData::ButtonPushUp_pngSize;
-
+	if (button.getComponentID() == ID::button_Redo.toString())
+		return isDown ? BinaryData::ButtonRedoDown_pngSize : BinaryData::ButtonRedoUp_pngSize;
+	if (button.getComponentID() == ID::button_Save.toString())
+		return isDown ? BinaryData::ButtonSaveDown_pngSize : BinaryData::ButtonSaveUp_pngSize;
+	if (button.getComponentID() == ID::button_Splits.toString())
+		return isDown ? BinaryData::ButtonSplitsDown_pngSize : BinaryData::ButtonSplitsUp_pngSize;
+	if (button.getComponentID() == ID::button_Stop.toString())
+		return isDown ? BinaryData::ButtonStopDown_pngSize : BinaryData::ButtonStopUp_pngSize;
+	if (button.getComponentID() == ID::button_Undo.toString())
+		return isDown ? BinaryData::ButtonUndoDown_pngSize : BinaryData::ButtonUndoUp_pngSize;
 	return size_t();
 }
 

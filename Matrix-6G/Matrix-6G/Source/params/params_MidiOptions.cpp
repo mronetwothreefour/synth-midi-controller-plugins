@@ -13,6 +13,7 @@ MidiOptions::MidiOptions() :
 void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_BasicChannel, (uint8)1, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_PatchTransmitTime, 300, nullptr);
 }
 
 void MidiOptions::addListener(ValueTree::Listener* listener) {
@@ -41,4 +42,12 @@ void MidiOptions::setParamChangeEchosAreBlocked() {
 
 void MidiOptions::setParamChangeEchosAreNotBlocked() {
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+}
+
+const int MidiOptions::patchTransmitTime() {
+	return (int)midiOptionsTree.getProperty(ID::midi_PatchTransmitTime);
+}
+
+void MidiOptions::setPatchTransmitTime(int timeInMilliseconds) {
+	midiOptionsTree.setProperty(ID::midi_PatchTransmitTime, timeInMilliseconds, nullptr);
 }

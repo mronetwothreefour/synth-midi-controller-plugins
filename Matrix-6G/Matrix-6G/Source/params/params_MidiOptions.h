@@ -22,6 +22,8 @@ public:
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();
+	const int patchTransmitTime();
+	void setPatchTransmitTime(int timeInMilliseconds);
 
 private:
 	//==============================================================================

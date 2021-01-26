@@ -33,6 +33,8 @@ namespace constants
 		static const float trackingGeneratorPoint4_x{ trackingGeneratorPoint3_x + trackingGeneratorSegment_w };
 		static const float trackingGeneratorPoint5_x{ trackingGeneratorPoint4_x + trackingGeneratorSegment_w };
 
+		static const int bankTransmitTitleLabel_x{ 451 };
+		static const int bankTransmitTitleLabel_y{ 249 };
 		static const int controls_h{ 20 };
 		static const int controlsHorizontalGap{ 6 };
 		static const int controlsVerticalGap{ 28 };
@@ -126,9 +128,13 @@ namespace constants
 		static const int trackPointControls_y{ 279 };
 		static const int vcfCol_x{ 382 };
 		static const int vcfFMcontrols_x{ 550 };
+		static const int windowBorderThickness{ 10 };
 
 		static const PathStrokeType envelopeStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
 
+		static const Rectangle<int> bounds_BankTransmitButtons{ 609, 317, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_BankTransmitComponent{ 441, 239, 370, 118 };
+		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 289, 330, 18 };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
@@ -149,6 +155,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchBanksCustomTabSaveButton{ patchBanksCustomTabSaveButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabLoadButton{ patchBanksFactoryTabLoadButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabPushBankButton{ patchBanksFactoryTabPushBankButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_PatchBanksWindow{ 406, 18, 440, 560 };
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };

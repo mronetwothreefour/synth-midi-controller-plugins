@@ -22,6 +22,7 @@ namespace ID
 	static const Identifier bank_MiscellaneousB_PatchNameStrings{ "bank_MiscellaneousB_PatchNameStrings" };
 	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
 
+	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_Load{ "button_Master" };
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
@@ -29,6 +30,7 @@ namespace ID
 	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
 	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
 	static const Identifier button_PullSelectedPatch{ "button_PullSelectedPatch" };
+	static const Identifier button_Push{ "button_Push" };
 	static const Identifier button_PushAnalogSynthsBankA{ "button_PushAnalogSynthsBankA" };
 	static const Identifier button_PushAnalogSynthsBankB{ "button_PushAnalogSynthsBankB" };
 	static const Identifier button_PushBassesBank{ "button_PushBassesBank" };
@@ -45,10 +47,9 @@ namespace ID
 	static const Identifier button_QuickEdit{ "button_QuickEdit" };
 	static const Identifier button_QuickEdit_Flash{ "button_QuickEdit_Flash" };
 	static const Identifier button_Redo{ "button_Redo" };
-	static const Identifier button_Pull{ "button_Pull" };
-	static const Identifier button_Push{ "button_Push" };
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Splits{ "button_Splits" };
+	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
 
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
@@ -96,6 +97,7 @@ namespace ID
 	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
+	static const Identifier midi_PatchTransmitTime{ "midi_PatchTransmitTime" };
 
 	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
 	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };

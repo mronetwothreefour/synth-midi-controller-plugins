@@ -2152,6 +2152,7 @@
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
+    <ClCompile Include="..\..\Source\patches\patches_BankTransmissionComponent.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp" />
@@ -2953,6 +2954,8 @@
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
+    <ClInclude Include="..\..\Source\patches\patches_PatchBanksComponent.h" />
+    <ClInclude Include="..\..\Source\patches\patches_BankTransmissionComponent.h" />
     <ClInclude Include="..\..\Source\patches\patches_Constants.h" />
     <ClInclude Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.h" />
     <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h" />

@@ -2770,6 +2770,8 @@
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Down.png"/>
@@ -2789,14 +2791,18 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Stop-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Stop-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Undo-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png"/>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Down.png"/>
-    <None Include="..\..\..\Matrix-6G\Resources\Patches-Button-Close-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Header.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Title-Pulling-Entire-Bank.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Title-Pushing-Entire-Bank.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
