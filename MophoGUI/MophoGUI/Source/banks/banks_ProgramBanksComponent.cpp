@@ -51,9 +51,8 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 void ProgramBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
-	Rectangle<int> componentOutline{ GUI::bounds_ProgramBanksTabbedComponent };
-	componentOutline.expand(GUI::windowOutlineThickness, GUI::windowOutlineThickness);
-	g.fillRect(componentOutline);
+	Rectangle<int> componentOutlineBounds{ GUI::bounds_ProgramBanksTabbedComponent.expanded(GUI::windowOutlineThickness) };
+	g.fillRect(componentOutlineBounds);
 }
 
 void ProgramBanksComponent::editorShown(Label* label, TextEditor& editor) {

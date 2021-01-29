@@ -101,11 +101,11 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_BanksWindow);
 	g.setColour(Color::black);
-	auto progressDisplayWindow{ GUI::bounds_BankTransmitProgressDisplayWindow };
-	g.fillRect(progressDisplayWindow);
+	auto componentBounds{ GUI::bounds_BankTransmitProgressDisplayWindow };
+	auto componentOutlineBounds{ componentBounds.expanded(GUI::windowOutlineThickness) };
+	g.fillRect(componentOutlineBounds);
 	g.setColour(Color::device);
-	progressDisplayWindow.reduce(GUI::windowOutlineThickness, GUI::windowOutlineThickness);
-	g.fillRect(progressDisplayWindow);
+	g.fillRect(componentBounds);
 	PNGImageFormat imageFormat;
 	auto titleLabelImageData{ getTitleLabelImageData() };
 	auto titleLabelImageDataSize{ getTitleLabelImageDataSize() };
