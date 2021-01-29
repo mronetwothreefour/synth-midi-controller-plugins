@@ -52,7 +52,7 @@ void ProgramBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
 	Rectangle<int> componentOutline{ GUI::bounds_ProgramBanksTabbedComponent };
-	componentOutline.expand(2, 2);
+	componentOutline.expand(GUI::windowOutlineThickness, GUI::windowOutlineThickness);
 	g.fillRect(componentOutline);
 }
 

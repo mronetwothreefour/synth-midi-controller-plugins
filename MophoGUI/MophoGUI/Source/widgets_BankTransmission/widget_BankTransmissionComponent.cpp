@@ -104,7 +104,7 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	auto progressDisplayWindow{ GUI::bounds_BankTransmitProgressDisplayWindow };
 	g.fillRect(progressDisplayWindow);
 	g.setColour(Color::device);
-	progressDisplayWindow.reduce(2, 2);
+	progressDisplayWindow.reduce(GUI::windowOutlineThickness, GUI::windowOutlineThickness);
 	g.fillRect(progressDisplayWindow);
 	PNGImageFormat imageFormat;
 	auto titleLabelImageData{ getTitleLabelImageData() };

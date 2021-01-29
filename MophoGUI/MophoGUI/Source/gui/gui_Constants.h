@@ -138,6 +138,7 @@ namespace constants
 		static const int undoRedoButtons_x{ 837 };
 		static const int vcaControlsRow1_y{ 373 };
 		static const int vcaControlsRow2_y{ 425 };
+		static const int windowOutlineThickness{ 2 };
 		static const int writeReadBanksGlobalButtons_h{ 22 };
 		static const int writeReadBanksGlobalButtons_w{ 53 };
 		static const int writeReadBanksGlobalButtons_y{ 83 };
