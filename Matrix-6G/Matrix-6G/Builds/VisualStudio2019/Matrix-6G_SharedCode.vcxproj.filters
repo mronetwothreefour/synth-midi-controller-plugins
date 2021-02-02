@@ -457,6 +457,9 @@
     <Filter Include="Matrix-6G\Source\patches">
       <UniqueIdentifier>{a27170a0-e772-4d83-a01f-b5f992194259}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\widgets_Label">
+      <UniqueIdentifier>{7fbc7169-cf35-4a20-b91e-5948e22bd144}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2525,6 +2528,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\patches\patches_BankTransmissionComponent.cpp">
       <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\patches\patches_PatchBanksComponent.cpp">
+      <Filter>Matrix-6G\Source\patches</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4930,6 +4942,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\patches\patches_PatchBanksComponent.h">
       <Filter>Matrix-6G\Source\patches</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Label\widget_EditableLabel.h">
+      <Filter>Matrix-6G\Source\widgets_Label</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

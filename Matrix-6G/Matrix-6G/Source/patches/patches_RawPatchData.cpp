@@ -11,7 +11,7 @@ using namespace constants;
 
 const String RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
-    for (auto byte = 0; byte != 16; byte += 2) {
+    for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
         auto lsbByteValue{ (char)patchData[byte] };
         auto msbByteValue{ (char)patchData[byte + 1] };
         auto asciiValueTruncatedToLowest6Bits{ char(lsbByteValue + (msbByteValue * 16)) };
@@ -29,8 +29,8 @@ const String RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(const 
 
 const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> programData;
-    for (auto i = 0; i != hexString.length(); i += 2) {
-        auto hexValueString{ hexString.substring(i, i + 2) };
+    for (auto i = 0; i != hexString.length(); ++i) {
+        auto hexValueString{ hexString.substring(i, i + 1) };
         programData.push_back((uint8)hexValueString.getHexValue32());
     }
     return programData;

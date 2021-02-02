@@ -59,7 +59,7 @@ void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
 		slotNumber = (String)(slot);
 	auto patchBanks{ unexposedParams->patchBanks_get() };
 	auto patchName{ patchBanks->nameOfPatchInBankSlot(bank, slot) };
-	patchSlotButtons[slot].setName(slotNumber + " " + patchName);
+	patchSlotButtons[slot].setName(slotNumber + " - " + patchName);
 	patchSlotButtons[slot].repaint();
 }
 

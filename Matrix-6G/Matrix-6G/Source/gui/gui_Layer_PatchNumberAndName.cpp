@@ -4,6 +4,7 @@
 #include "gui_Constants.h"
 #include "gui_Fonts.h"
 #include "gui_Path_LEDcharacters_Singleton.h"
+#include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -25,14 +26,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	addAndMakeVisible(slider_ForPatchNumber);
 
-	patchNameEditor.setFont(FontsMenu::fontFor_PatchNameEditor);
-	patchNameEditor.setColour(Label::textColourId, Colours::transparentWhite);
-	patchNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
-	patchNameEditor.setColour(Label::outlineColourId, Colours::transparentBlack);
-	patchNameEditor.setColour(Label::textWhenEditingColourId, Color::led_blue);
-	patchNameEditor.setColour(Label::backgroundWhenEditingColourId, Color::black);
-	patchNameEditor.setColour(Label::outlineWhenEditingColourId, Color::black);
-	patchNameEditor.setEditable(true);
+	patchNameEditor.setComponentID(ID::label_PatchNameEditor.toString());
 	patchNameEditor.addListener(this);
 	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
@@ -47,7 +41,7 @@ void PatchNumberAndNameLayer::resized() {
 }
 
 void PatchNumberAndNameLayer::editorShown(Label* /*label*/, TextEditor& editor) {
-	editor.setInputRestrictions(8, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
+	editor.setInputRestrictions(matrixParams::maxPatchNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
 }
 
 void PatchNumberAndNameLayer::labelTextChanged(Label* label) {
@@ -63,7 +57,7 @@ void PatchNumberAndNameLayer::labelTextChanged(Label* label) {
 }
 
 void PatchNumberAndNameLayer::padNameLessThan8CharactersLongWithSpaces(String& name) {
-	for(auto i = name.length(); i != 8; ++i)
+	for(auto i = name.length(); i != matrixParams::maxPatchNameLength; ++i)
 		name += " ";
 }
 
@@ -74,20 +68,6 @@ void PatchNumberAndNameLayer::sliderValueChanged(Slider* slider) {
 		currentPatchOptions->setCurrentPatchNumber(currentKnobValue);
 		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	}
-}
-
-void PatchNumberAndNameLayer::paint(Graphics& g) {
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	auto nameString{ currentPatchOptions->currentPatchName() };
-	g.setColour(Color::led_blue);
-	auto& charPaths{ LEDcharacterPaths::get() };
-	Path positionPath;
-	for (auto i = 0; i != 8; ++i) {
-		auto charNum{ (uint8)nameString[i] };
-		auto character_x{ GUI::patchNameFirstCharacter_x + i * (GUI::patchNameCharacter_w + GUI::patchNameGapBetweenCharacters) };
-		positionPath.addPath(charPaths.getPathForChar(charNum), AffineTransform::translation(character_x, GUI::patchNameCharacters_y));
-	}
-	g.fillPath(positionPath);
 }
 
 String PatchNumberAndNameLayer::generatePatchNumberTooltipString() {

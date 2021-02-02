@@ -26,15 +26,16 @@ class TabbedComponentForPatchBanks :
     TabForFactoryPatchBank miscellaneousB;
     TabForFactoryPatchBank strings;
     UnexposedParameters* unexposedParams;
+    String patchCopyBuffer;
 
 public:
     TabbedComponentForPatchBanks() = delete;
 
-    TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
+    TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener);
     void addListenerToPushBankButtonInAllTabs(Button::Listener* listener);
-    void removeListenerFromPullBankButtonInAllCustomTabs(Button::Listener* listener);
-    void removeListenerFromPushBankButtonInAllCustomTabs(Button::Listener* listener);
+    void removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener);
+    void removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener);
 
 private:
     //==============================================================================

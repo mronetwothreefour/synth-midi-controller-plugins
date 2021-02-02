@@ -10,7 +10,7 @@ using namespace constants;
 
 
 
-TabbedComponentForPatchBanks::TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
+TabbedComponentForPatchBanks::TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
 	unexposedParams{ unexposedParams },
 	analogSynthsA{ PatchBank::analogSynthsA, exposedParams, unexposedParams, patchCopyBuffer },
@@ -67,12 +67,12 @@ void TabbedComponentForPatchBanks::addListenerToPushBankButtonInAllTabs(Button::
 	strings.addListenerToPushEntireBankButton(listener);
 }
 
-void TabbedComponentForPatchBanks::removeListenerFromPullBankButtonInAllCustomTabs(Button::Listener* listener) {
+void TabbedComponentForPatchBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
 	customA.removeListenerFromPullEntireBankButton(listener);
 	customB.removeListenerFromPullEntireBankButton(listener);
 }
 
-void TabbedComponentForPatchBanks::removeListenerFromPushBankButtonInAllCustomTabs(Button::Listener* listener) {
+void TabbedComponentForPatchBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
 	analogSynthsA.removeListenerFromPushEntireBankButton(listener);
 	analogSynthsB.removeListenerFromPushEntireBankButton(listener);
 	basses.removeListenerFromPushEntireBankButton(listener);

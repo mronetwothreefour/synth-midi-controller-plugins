@@ -783,3 +783,33 @@ IntToLFOtrigString* IntToLFOtrigString::get() noexcept {
 	static IntToLFOtrigString converter;
 	return &converter;
 }
+
+
+
+
+String IntToPatchBankName::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToPatchBankName::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 13);
+	if (i == 0) return "ANALOG SYNTHS A";
+	if (i == 1) return "ANALOG SYNTHS B";
+	if (i == 2) return "BASSES";
+	if (i == 3) return "BRASS & WOODWIND";
+	if (i == 4) return "CUSTOM A";
+	if (i == 5) return "CUSTOM B";
+	if (i == 6) return "FX & PERCUSSION";
+	if (i == 7) return "KEYBOARDS A";
+	if (i == 8) return "KEYBOARDS B";
+	if (i == 9) return "LEADS";
+	if (i == 10) return "MISCELLANEOUS A";
+	if (i == 11) return "MISCELLANEOUS B";
+	if (i == 12) return "STRINGS";
+	else return "ERROR";
+}
+
+IntToPatchBankName* IntToPatchBankName::get() noexcept {
+	static IntToPatchBankName converter;
+	return &converter;
+}

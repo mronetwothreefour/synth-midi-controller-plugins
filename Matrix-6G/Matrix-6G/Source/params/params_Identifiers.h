@@ -51,6 +51,9 @@ namespace ID
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
+	static const Identifier button_X{ "button_X" };
+
+	static const Identifier comboBox_PatchBankSelector{ "comboBox_PatchBankSelector" };
 
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
@@ -58,6 +61,8 @@ namespace ID
 	static const Identifier currentPatch_Name{ "currentPatch_Name" };
 	static const Identifier currentPatch_Number{ "currentPatch_Number" };
 	static const Identifier currentPatch_Options{ "currentPatch_Options" };
+
+	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
 
 	static const Identifier matrixMod_AmountForMod_0{ "matrixMod_AmountForMod_0" };
 	static const Identifier matrixMod_AmountForMod_1{ "matrixMod_AmountForMod_1" };

@@ -106,6 +106,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_png : BinaryData::ButtonStopUp_png;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_png : BinaryData::ButtonUndoUp_png;
+	if (button.getComponentID() == ID::button_X.toString())
+		return isDown ? BinaryData::ButtonXDown_png : BinaryData::ButtonXUp_png;
 	return nullptr;
 }
 
@@ -153,6 +155,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_pngSize : BinaryData::ButtonStopUp_pngSize;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_pngSize : BinaryData::ButtonUndoUp_pngSize;
+	if (button.getComponentID() == ID::button_X.toString())
+		return isDown ? BinaryData::ButtonXDown_pngSize : BinaryData::ButtonXUp_pngSize;
 	return size_t();
 }
 
@@ -174,8 +178,8 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::offWhite);
 		g.setFont(FontsMenu::fontFor_PatchSlotButtons);
-		Rectangle<float> textArea{ x + 3, y, w - 3, h };
-		g.drawText(component.getName(), textArea, Justification::centredLeft);
+		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::topLeft);
 	}
 }
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {

@@ -56,7 +56,7 @@ void ComboBoxForSelectingDestinationForMatrixMod::valueTreePropertyChanged(Value
 }
 
 void ComboBoxForSelectingDestinationForMatrixMod::paint(Graphics& g) {
-	auto currentValue{ (int8)roundToInt(getSelectedItemIndex()) };
+	auto currentValue{ (uint8)getSelectedItemIndex() };
 	auto converter{ IntToModDestinationString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);

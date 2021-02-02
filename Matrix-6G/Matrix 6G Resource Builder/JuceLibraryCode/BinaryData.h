@@ -54,7 +54,7 @@ namespace BinaryData
     const int            ButtonQuickEditDown_pngSize = 756;
 
     extern const char*   ButtonQuickEditFlash_png;
-    const int            ButtonQuickEditFlash_pngSize = 681;
+    const int            ButtonQuickEditFlash_pngSize = 704;
 
     extern const char*   ButtonQuickEditUp_png;
     const int            ButtonQuickEditUp_pngSize = 707;
@@ -99,10 +99,10 @@ namespace BinaryData
     const int            Matrix6GMainWindowBackground_pngSize = 51164;
 
     extern const char*   PatchesFooterForCustomBanks_png;
-    const int            PatchesFooterForCustomBanks_pngSize = 1356;
+    const int            PatchesFooterForCustomBanks_pngSize = 1335;
 
     extern const char*   PatchesFooterForFactoryBanks_png;
-    const int            PatchesFooterForFactoryBanks_pngSize = 1354;
+    const int            PatchesFooterForFactoryBanks_pngSize = 1345;
 
     extern const char*   PatchesHeader_png;
     const int            PatchesHeader_pngSize = 2478;

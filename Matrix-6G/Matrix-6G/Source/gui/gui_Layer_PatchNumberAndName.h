@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../widgets_Label/widget_EditableLabel.h"
 #include "../widgets_Slider/widget_SliderForPatchNumber.h"
 
 
@@ -16,7 +17,7 @@ class PatchNumberAndNameLayer :
 {
     UnexposedParameters* unexposedParams;
     SliderForPatchNumber slider_ForPatchNumber;
-    Label patchNameEditor;
+    EditableLabel patchNameEditor;
 
 public:
     PatchNumberAndNameLayer() = delete;
@@ -27,7 +28,6 @@ public:
     void labelTextChanged(Label* label) override;
     void padNameLessThan8CharactersLongWithSpaces(String& name);
     void sliderValueChanged(Slider* slider) override;
-    void paint(Graphics& g) override;
     String generatePatchNumberTooltipString();
     String generatePatchNameTooltipString();
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;

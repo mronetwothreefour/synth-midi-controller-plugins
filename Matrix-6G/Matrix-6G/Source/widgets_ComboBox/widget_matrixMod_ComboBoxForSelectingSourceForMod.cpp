@@ -56,7 +56,7 @@ void ComboBoxForSelectingSourceForMatrixMod::valueTreePropertyChanged(ValueTree&
 }
 
 void ComboBoxForSelectingSourceForMatrixMod::paint(Graphics& g) {
-	auto currentValue{ (int8)roundToInt(getSelectedItemIndex()) };
+	auto currentValue{ (uint8)getSelectedItemIndex() };
 	auto converter{ IntToModSourceString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);

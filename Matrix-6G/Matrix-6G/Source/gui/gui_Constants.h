@@ -75,8 +75,11 @@ namespace constants
 		static const int envelopeRenderers_w{ 228 };
 		static const int envelopeRenderers_y{ 408 };
 		static const int envSectionsHorizontalSpacing{ 410 };
+		static const int largeButtons_h{ 38 };
+		static const int largeButtons_w{ 68 };
 		static const int lfo1Controls_x{ 726 };
 		static const int lfo2Controls_x{ 792 };
+		static const int mainWindowLargeButtons_y{ 353 };
 		static const int mainWindowSmallButtons_y{ 367 };
 		static const int matrixModComboBoxes_w{ 82 };
 		static const int matrixModSlotControls_y{ 0 };
@@ -93,8 +96,9 @@ namespace constants
 		static const int patchBanksCustomTabPullSelectedPatchButton_x{ 194 };
 		static const int patchBanksCustomTabPushButton_x{ 301 };
 		static const int patchBanksCustomTabSaveButton_x{ 155 };
-		static const int patchBanksFactoryTabLoadButton_x{ 167 };
+		static const int patchBanksFactoryTabLoadButton_x{ 173 };
 		static const int patchBanksFactoryTabPushBankButton_x{ 283 };
+		static const int patchBanksHeaderControls_y{ 77 };
 		static const int patchBanksTab_h{ 466 };
 		static const int patchBanksTab_w{ 420 };
 		static const int patchBanksTabBarDepth{ 0 };
@@ -129,12 +133,17 @@ namespace constants
 		static const int vcfCol_x{ 382 };
 		static const int vcfFMcontrols_x{ 550 };
 		static const int windowBorderThickness{ 10 };
+		static const int xButton_h{ 18 };
+		static const int xButton_w{ xButton_h };
 
 		static const PathStrokeType envelopeStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
 
 		static const Rectangle<int> bounds_BankTransmitButtons{ 609, 317, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_BankTransmitComponent{ 441, 239, 370, 118 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 289, 330, 18 };
+		static const Rectangle<int> bounds_MainWindowPatchesButton{ 1006, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
+		static const Rectangle<int> bounds_MainWindowPushButton{ 788, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MainWindowQuickEditButton{ quickEditButton_x, mainWindowSmallButtons_y, quickEditButton_w, smallButtons_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
@@ -155,10 +164,14 @@ namespace constants
 		static const Rectangle<int> bounds_PatchBanksCustomTabSaveButton{ patchBanksCustomTabSaveButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabLoadButton{ patchBanksFactoryTabLoadButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabPushBankButton{ patchBanksFactoryTabPushBankButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
-		static const Rectangle<int> bounds_PatchBanksWindow{ 406, 18, 440, 560 };
+		static const Rectangle<int> bounds_PatchBanksSelectorComboBox{ 514, patchBanksHeaderControls_y, 184, controls_h };
+		static const Rectangle<int> bounds_PatchBanksTransmitTimeLabel{ 771, patchBanksHeaderControls_y, 50, controls_h };
+		static const Rectangle<int> bounds_PatchBanksWindow{ 416, 28, 420, 540 };
+		static const Rectangle<int> bounds_PatchBanksXbutton{ 828, 18, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
+		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
