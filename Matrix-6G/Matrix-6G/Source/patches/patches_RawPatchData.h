@@ -24,6 +24,7 @@ private:
 
     static void addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 truncateASCIIvalueToLowest6bits(uint8 value);
+    static void restoreTruncated7thBitToASCIIvalue(uint8& value);
     static void addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static void addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 formatSigned6bitValueForSendingToMatrix(uint8& value);

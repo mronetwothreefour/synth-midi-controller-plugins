@@ -9,18 +9,18 @@ using namespace constants;
 
 
 
-const String RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData) {
+const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
     for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
-        auto lsbByteValue{ (char)patchData[byte] };
-        auto msbByteValue{ (char)patchData[byte + 1] };
-        auto asciiValueTruncatedToLowest6Bits{ char(lsbByteValue + (msbByteValue * 16)) };
-        auto matrixValueForBarSymbol{ (char)29 };
-        if (asciiValueTruncatedToLowest6Bits == matrixValueForBarSymbol)
+        auto lsbByteValue{ (uint8)patchData[byte] };
+        auto msbByteValue{ (uint8)patchData[byte + 1] };
+        auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
+        if (storedASCIIvalue == patches::valueForBarSymbol_Matrix)
             patchName += "|";
         else {
-            auto offsetForTruncatedASCII{ (char)64 };
-            auto patchNameCharASCIIValue = char(asciiValueTruncatedToLowest6Bits + offsetForTruncatedASCII);
+            auto patchNameCharASCIIValue{ storedASCIIvalue };
+            if (patchNameCharASCIIValue < patches::sixthBit)
+                restoreTruncated7thBitToASCIIvalue(patchNameCharASCIIValue);
             patchName += (String)std::string(1, patchNameCharASCIIValue);
         }
     }
@@ -98,11 +98,15 @@ void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8
 }
 
 uint8 RawPatchData::truncateASCIIvalueToLowest6bits(uint8 value) {
-    auto truncatedValue{ uint8(value % 64) };
+    auto truncatedValue{ uint8(value % patches::seventhBit) };
     if (value == patches::valueForBarSymbol_ASCII) {
         truncatedValue = patches::valueForBarSymbol_Matrix;
     }
     return truncatedValue;
+}
+
+void RawPatchData::restoreTruncated7thBitToASCIIvalue(uint8& value) {
+    value += patches::seventhBit;
 }
 
 void RawPatchData::addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
