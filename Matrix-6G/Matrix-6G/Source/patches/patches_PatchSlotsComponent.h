@@ -29,6 +29,9 @@ public:
     void setTextForPatchSlotToggleButton(uint8 slot);
     void storeCurrentPatchSettingsInSelectedSlot();
     void loadPatchFromSelectedSlot();
+    void applyNameOfPatchInRawDataVectorToGUI(std::vector<uint8>& patchDataVector);
+    void applyExposedParamSettingsInRawDataVectorToGUI(std::vector<uint8>& patchDataVector);
+    void applyMatrixModSettingsInRawDataVectorToGUI(std::vector<uint8>& patchDataVector);
     void pullSelectedPatchFromHardware();
     void pushSelectedPatchToHardware();
     void resized() override;

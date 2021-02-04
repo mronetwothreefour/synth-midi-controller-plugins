@@ -29,6 +29,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor.setComponentID(ID::label_PatchNameEditor.toString());
 	patchNameEditor.addListener(this);
 	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+	currentPatchOptions->addListener(this);
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
 	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
@@ -99,9 +100,16 @@ void PatchNumberAndNameLayer::valueTreePropertyChanged(ValueTree& /*tree*/, cons
 		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 		patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	}
+	if (property == ID::currentPatch_Name) {
+		auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+		patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
+		repaint();
+	}
 }
 
 PatchNumberAndNameLayer::~PatchNumberAndNameLayer() {
+	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+	currentPatchOptions->removeListener(this);
 	patchNameEditor.removeListener(this);
 	slider_ForPatchNumber.removeListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
