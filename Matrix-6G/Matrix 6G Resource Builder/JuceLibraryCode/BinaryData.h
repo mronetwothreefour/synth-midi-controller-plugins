@@ -105,7 +105,7 @@ namespace BinaryData
     const int            PatchesFooterForFactoryBanks_pngSize = 1345;
 
     extern const char*   PatchesHeader_png;
-    const int            PatchesHeader_pngSize = 2478;
+    const int            PatchesHeader_pngSize = 2493;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2560;

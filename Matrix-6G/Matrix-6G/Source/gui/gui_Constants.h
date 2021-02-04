@@ -164,7 +164,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchBanksCustomTabSaveButton{ patchBanksCustomTabSaveButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabLoadButton{ patchBanksFactoryTabLoadButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_PatchBanksFactoryTabPushBankButton{ patchBanksFactoryTabPushBankButton_x, patchBanksTabButtons_y, smallButtons_w, smallButtons_h };
-		static const Rectangle<int> bounds_PatchBanksSelectorComboBox{ 514, patchBanksHeaderControls_y, 184, controls_h };
+		static const Rectangle<int> bounds_PatchBanksSelectorComboBox{ 488, patchBanksHeaderControls_y, 184, controls_h };
 		static const Rectangle<int> bounds_PatchBanksTransmitTimeLabel{ 771, patchBanksHeaderControls_y, 50, controls_h };
 		static const Rectangle<int> bounds_PatchBanksWindow{ 416, 28, 420, 540 };
 		static const Rectangle<int> bounds_PatchBanksXbutton{ 828, 18, xButton_w, xButton_h };
