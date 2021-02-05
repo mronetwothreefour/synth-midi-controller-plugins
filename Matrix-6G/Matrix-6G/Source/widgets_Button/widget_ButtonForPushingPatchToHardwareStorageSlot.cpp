@@ -28,4 +28,17 @@ const String ButtonForPushingPatchToHardwareStorageSlot::createButtonTooltipStri
 
 void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
 	PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams);
+	callAfterDelay(10, [this]
+		{
+			auto midiOptions{ unexposedParams->midiOptions_get() };
+			auto basicChannel{ midiOptions->basicChannel() };
+			auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+			auto patchSlot{ currentPatchOptions->currentPatchNumber() };
+			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+			outgoingBuffers->addPatchSelectMessage(basicChannel, patchSlot);
+		}
+	);
+}
+
+void ButtonForPushingPatchToHardwareStorageSlot::timerCallback() {
 }

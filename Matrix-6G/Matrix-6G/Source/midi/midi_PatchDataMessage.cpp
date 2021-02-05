@@ -4,6 +4,7 @@
 #include "../midi/midi_OutgoingMidiBuffers.h"
 #include "../midi/midi_SysExHelpers.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
+#include "../params/params_MidiOptions.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../patches/patches_RawPatchData.h"
 

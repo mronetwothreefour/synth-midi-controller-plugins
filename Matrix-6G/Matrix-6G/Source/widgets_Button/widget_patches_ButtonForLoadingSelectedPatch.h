@@ -10,7 +10,8 @@ class PatchSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForLoadingSelectedPatch :
-	public BaseButtonWithOnClickAndTooltipMethods
+	public BaseButtonWithOnClickAndTooltipMethods,
+	private Timer
 {
 	PatchSlotsComponent& patchSlots;
 	UnexposedParameters* unexposedParams;
@@ -26,6 +27,8 @@ protected:
 	void onClickMethod() override;
 
 private:
+	void timerCallback() override;
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedPatch)
 };

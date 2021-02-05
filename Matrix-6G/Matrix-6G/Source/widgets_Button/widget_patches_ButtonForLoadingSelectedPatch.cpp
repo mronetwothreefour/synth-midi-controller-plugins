@@ -27,4 +27,18 @@ const String ButtonForLoadingSelectedPatch::createButtonTooltipString() {
 
 void ButtonForLoadingSelectedPatch::onClickMethod() {
 	patchSlots.loadPatchFromSelectedSlot();
+	auto midiOptions{ unexposedParams->midiOptions_get() };
+	auto transmitTime{ midiOptions->patchTransmitTime() };
+	callAfterDelay(transmitTime, [this, midiOptions]
+		{
+			auto basicChannel{ midiOptions->basicChannel() };
+			auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+			auto patchSlot{ currentPatchOptions->currentPatchNumber() };
+			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+			outgoingBuffers->addPatchSelectMessage(basicChannel, patchSlot);
+		}
+	);
+}
+
+void ButtonForLoadingSelectedPatch::timerCallback() {
 }

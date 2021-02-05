@@ -35,6 +35,9 @@ BankTransmissionComponent::BankTransmissionComponent(PatchBank& bank, Transmissi
 	button_Stop.onClick = [this] { cancelTransmission(); };
 	button_Close.setBounds(GUI::bounds_BankTransmitButtons);
 	button_Stop.setBounds(GUI::bounds_BankTransmitButtons);
+
+	patchCounter = 0;
+	startTimer(transmitTime);
 }
 
 void BankTransmissionComponent::timerCallback() {
@@ -58,6 +61,13 @@ void BankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) 
 		PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
 	else {
 		PatchDataMessage::addDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
+		callAfterDelay(10, [this, outgoingBuffers, patchSlot]
+			{
+				auto midiOptions{ unexposedParams->midiOptions_get() };
+				auto basicChannel{ midiOptions->basicChannel() };
+				outgoingBuffers->addPatchSelectMessage(basicChannel, patchSlot);
+			}
+		);
 	}
 }
 
@@ -65,10 +75,11 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_PatchBanksWindow);
 	g.setColour(Color::button_blue);
-	auto bankTransmitComponent{ GUI::bounds_BankTransmitComponent };
-	g.fillRect(bankTransmitComponent);
+	auto componentBounds{ GUI::bounds_BankTransmitComponent };
+	auto componentOutlineBounds{ componentBounds.expanded(GUI::windowBorderThickness) };
+	g.fillRect(componentOutlineBounds);
 	g.setColour(Color::device);
-	bankTransmitComponent.reduce(GUI::windowBorderThickness, GUI::windowBorderThickness);
+	g.fillRect(componentBounds);
 	PNGImageFormat imageFormat;
 	auto titleLabelImageData{ getTitleLabelImageData() };
 	auto titleLabelImageDataSize{ getTitleLabelImageDataSize() };

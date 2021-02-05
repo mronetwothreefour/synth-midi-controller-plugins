@@ -34,7 +34,7 @@ namespace constants
 		static const float trackingGeneratorPoint5_x{ trackingGeneratorPoint4_x + trackingGeneratorSegment_w };
 
 		static const int bankTransmitTitleLabel_x{ 451 };
-		static const int bankTransmitTitleLabel_y{ 249 };
+		static const int bankTransmitTitleLabel_y{ 259 };
 		static const int controls_h{ 20 };
 		static const int controlsHorizontalGap{ 6 };
 		static const int controlsVerticalGap{ 28 };
@@ -139,7 +139,7 @@ namespace constants
 		static const PathStrokeType envelopeStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
 
 		static const Rectangle<int> bounds_BankTransmitButtons{ 609, 317, smallButtons_w, smallButtons_h };
-		static const Rectangle<int> bounds_BankTransmitComponent{ 441, 239, 370, 118 };
+		static const Rectangle<int> bounds_BankTransmitComponent{ 451, 249, 350, 98 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 289, 330, 18 };
 		static const Rectangle<int> bounds_MainWindowPatchesButton{ 1006, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ 788, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
