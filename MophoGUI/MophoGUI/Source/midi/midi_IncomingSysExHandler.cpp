@@ -136,5 +136,3 @@ void IncomingSysExHandler::updateGlobalAudioOptions(const uint8* sysExData) {
     globalAudioOptions->setGlobalBalance(globalBalance);
 }
 
-IncomingSysExHandler::~IncomingSysExHandler() {
-}
