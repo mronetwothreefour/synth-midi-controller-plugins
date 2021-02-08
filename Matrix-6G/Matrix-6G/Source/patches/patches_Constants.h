@@ -17,6 +17,7 @@ namespace constants
 
 		static const uint8 indexOfLastDataByteBeforeExposedParams{ 16 };
 		static const uint8 indexOfLastDataByteBeforeMatrixModSettings{ 192 };
+		static const uint8 numberOfHeaderBytesInPatchDataMessage{ 4 };
 		static const uint8 seventhBit{ 64 };
 		static const uint8 sixthBit{ 32 };
 		static const uint8 valueForBarSymbol_ASCII{ 124 };

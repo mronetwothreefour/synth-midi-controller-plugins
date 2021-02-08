@@ -40,7 +40,13 @@ const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String
 }
 
 const String RawPatchData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
-    auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
+    String hexString{ "" };
+    auto indexOfChecksumByte{ dataVector.size() - 1 };
+    for (auto i = 0; i < indexOfChecksumByte; ++i) {
+        auto byteString{ String::toHexString(&dataVector[i], 1, 0) };
+        hexString += byteString[1];
+    }
+    hexString += String::toHexString(&dataVector[indexOfChecksumByte], 1, 0);
     return hexString;
 }
 

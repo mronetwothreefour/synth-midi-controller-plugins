@@ -5,6 +5,7 @@
 #include "patches_RawPatchData.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_PatchDataMessage.h"
+#include "../midi/midi_SysExHelpers.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -65,8 +66,9 @@ void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
 
 void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 	if (selectedSlot < patches::numberOfSlotsInBank) {
-		std::vector<uint8> dataVector;
+		auto dataVector{ RawSysExDataVector::initializePatchDataMessage(selectedSlot) };
 		RawPatchData::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
+		dataVector.erase(dataVector.begin(), dataVector.begin() + patches::numberOfHeaderBytesInPatchDataMessage);
 		auto patchDataHexString{ RawPatchData::convertDataVectorToHexString(dataVector) };
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
