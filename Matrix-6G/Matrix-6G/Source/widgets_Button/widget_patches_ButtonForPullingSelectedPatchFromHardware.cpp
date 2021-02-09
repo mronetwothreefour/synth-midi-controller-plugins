@@ -1,5 +1,6 @@
 #include "widget_patches_ButtonForPullingSelectedPatchFromHardware.h"
 
+#include "../patches/patches_Constants.h"
 #include "../patches/patches_PatchSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -25,5 +26,12 @@ const String ButtonForPullingSelectedPatchFromHardware::createButtonTooltipStrin
 }
 
 void ButtonForPullingSelectedPatchFromHardware::onClickMethod() {
+	if (patchSlots.bank == PatchBank::customA || patchSlots.bank == PatchBank::customB) {
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		if (patchSlots.bank == PatchBank::customA)
+			midiOptions->setIncomingPatchShouldBeSavedInCustomBankA();
+		else
+			midiOptions->setIncomingPatchShouldBeSavedInCustomBankB();
+	}
 	patchSlots.pullSelectedPatchFromHardware();
 }

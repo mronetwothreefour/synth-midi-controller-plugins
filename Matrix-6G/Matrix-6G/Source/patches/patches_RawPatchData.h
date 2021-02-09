@@ -9,14 +9,17 @@
 class UnexposedParameters;
 
 struct RawPatchData {
-    static const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData);
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
+    static void addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
+    static void applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    static const String extractPatchNameFromRawPatchData(const uint8* patchData);
+
+private:
+    static void applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams);
+    static void applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams);
     static void applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams);
     static void applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams);
-
-public:
-    static void addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
 
 private:
     static const uint16 firstExposedParamDataByte{ 20 };

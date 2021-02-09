@@ -100,6 +100,8 @@ namespace ID
 	static const Identifier matrixMod_SourceForMod_9{ "matrixMod_SourceForMod_9" };
 
 	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
+	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankA{ "midi_IncomingPatchShouldBeSavedInCustomBankA" };
+	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankB{ "midi_IncomingPatchShouldBeSavedInCustomBankB" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_PatchTransmitTime{ "midi_PatchTransmitTime" };

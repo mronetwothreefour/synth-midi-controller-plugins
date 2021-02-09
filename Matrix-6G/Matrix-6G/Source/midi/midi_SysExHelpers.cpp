@@ -1,6 +1,7 @@
 #include "midi_SysExHelpers.h"
 
 #include "midi_Constants.h"
+#include "../patches/patches_Constants.h"
 
 using namespace constants;
 
@@ -34,7 +35,7 @@ std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
 }
 
 std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchDataMessage) };
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(patches::numberOfHeaderBytesInPatchDataMessage) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
     return rawDataVector;

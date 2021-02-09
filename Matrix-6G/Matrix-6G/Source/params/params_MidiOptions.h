@@ -19,6 +19,12 @@ public:
 	void removeListener(ValueTree::Listener* listener);
 	const uint8 basicChannel();
 	void setBasicChannel(uint8 newChannel);
+	bool incomingPatchShouldBeSavedInCustomBankA();
+	void setIncomingPatchShouldBeSavedInCustomBankA();
+	void setIncomingPatchShouldNotBeSavedInCustomBankA();
+	bool incomingPatchShouldBeSavedInCustomBankB();
+	void setIncomingPatchShouldBeSavedInCustomBankB();
+	void setIncomingPatchShouldNotBeSavedInCustomBankB();
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();

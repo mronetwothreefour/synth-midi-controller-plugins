@@ -2140,6 +2140,7 @@
     <ClCompile Include="..\..\Source\gui\gui_matrixMod_Slot.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_PatchDataMessage.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp" />
@@ -2940,6 +2941,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Path_LEDsliderTab.h" />
     <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h" />
     <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h" />
     <ClInclude Include="..\..\Source\midi\midi_PatchDataMessage.h" />
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h" />

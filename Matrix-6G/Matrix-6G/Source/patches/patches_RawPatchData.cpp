@@ -9,6 +9,55 @@ using namespace constants;
 
 
 
+const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String& hexString) {
+    std::vector<uint8> programData;
+    auto indexOfChecksumByte{ hexString.length() - 2 };
+    for (auto i = 0; i != indexOfChecksumByte; ++i) {
+        auto hexValueString{ hexString.substring(i, i + 1) };
+        programData.push_back((uint8)hexValueString.getHexValue32());
+    }
+    auto checksumHexValueString{ hexString.substring(indexOfChecksumByte, hexString.length()) };
+    programData.push_back((uint8)checksumHexValueString.getHexValue32());
+    return programData;
+}
+
+const String RawPatchData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
+    String hexString{ "" };
+    auto indexOfChecksumByte{ dataVector.size() - 1 };
+    for (auto i = 0; i < indexOfChecksumByte; ++i) {
+        auto byteString{ String::toHexString(&dataVector[i], 1, 0) };
+        auto byteStringStrippedOfLeadingZero{ byteString[1] };
+        hexString += byteStringStrippedOfLeadingZero;
+    }
+    hexString += String::toHexString(&dataVector[indexOfChecksumByte], 1, 0);
+    return hexString;
+}
+
+void RawPatchData::addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
+    uint8 checksum{ 0 };
+    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+    auto currentPatchName{ currentPatchOptions->currentPatchName() };
+    addPatchNameDataToVector(currentPatchName, dataVector, checksum);
+    addExposedParamDataToVector(exposedParams, dataVector, checksum);
+    addMatrixModDataToVector(unexposedParams, dataVector, checksum);
+    dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
+}
+
+void RawPatchData::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+    applyPatchNumberToGUI(patchNumber, unexposedParams);
+    applyNameOfPatchInRawDataToGUI(patchDataVector.data(), unexposedParams);
+
+    patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeExposedParams);
+    auto midiOptions{ unexposedParams->midiOptions_get() };
+    midiOptions->setParamChangeEchosAreBlocked();
+    applyRawPatchDataToExposedParameters(patchDataVector.data(), exposedParams);
+    midiOptions->setParamChangeEchosAreNotBlocked();
+
+    patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeMatrixModSettings);
+    applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);
+}
+
+
 const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
     for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
@@ -27,29 +76,16 @@ const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchDa
     return patchName;
 }
 
-const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String& hexString) {
-    std::vector<uint8> programData;
-    auto indexOfChecksumByte{ hexString.length() - 2 };
-    for (auto i = 0; i != indexOfChecksumByte; ++i) {
-        auto hexValueString{ hexString.substring(i, i + 1) };
-        programData.push_back((uint8)hexValueString.getHexValue32());
-    }
-    auto checksumHexValueString{ hexString.substring(indexOfChecksumByte, hexString.length()) };
-    programData.push_back((uint8)checksumHexValueString.getHexValue32());
-    return programData;
+void RawPatchData::applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams) {
+    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+    currentPatchOptions->setCurrentPatchNumber(patchNumber);
 }
 
-const String RawPatchData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
-    String hexString{ "" };
-    auto indexOfChecksumByte{ dataVector.size() - 1 };
-    for (auto i = 0; i < indexOfChecksumByte; ++i) {
-        auto byteString{ String::toHexString(&dataVector[i], 1, 0) };
-        hexString += byteString[1];
-    }
-    hexString += String::toHexString(&dataVector[indexOfChecksumByte], 1, 0);
-    return hexString;
+void RawPatchData::applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams) {
+    auto patchNameString{ extractPatchNameFromRawPatchData(patchData) };
+    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
+    currentPatchOptions->setCurrentPatchName(patchNameString);
 }
-
 
 void RawPatchData::applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams) {
     auto& info{ InfoForExposedParameters::get() };
@@ -84,16 +120,6 @@ void RawPatchData::applyRawPatchDataToMatrixModParameters(const uint8* patchData
         auto modDestination{ modDestinationLSByteValue + modDestinationMSByteValue };
         matrixModSettings->setDestinationForModulation((uint8)modDestination, i);
     }
-}
-
-void RawPatchData::addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
-    uint8 checksum{ 0 };
-    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-    auto currentPatchName{ currentPatchOptions->currentPatchName() };
-    addPatchNameDataToVector(currentPatchName, dataVector, checksum);
-    addExposedParamDataToVector(exposedParams, dataVector, checksum);
-    addMatrixModDataToVector(unexposedParams, dataVector, checksum);
-    dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
 void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum) {

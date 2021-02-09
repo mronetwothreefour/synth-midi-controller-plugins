@@ -12,6 +12,8 @@ MidiOptions::MidiOptions() :
 
 void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_BasicChannel, (uint8)1, nullptr);
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_PatchTransmitTime, 300, nullptr);
 }
@@ -30,6 +32,30 @@ const uint8 MidiOptions::basicChannel() {
 
 void MidiOptions::setBasicChannel(uint8 newChannel) {
 	midiOptionsTree.setProperty(ID::midi_BasicChannel, newChannel, nullptr);
+}
+
+bool MidiOptions::incomingPatchShouldBeSavedInCustomBankA() {
+	return (bool)midiOptionsTree.getProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA);
+}
+
+void MidiOptions::setIncomingPatchShouldBeSavedInCustomBankA() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)true, nullptr);
+}
+
+void MidiOptions::setIncomingPatchShouldNotBeSavedInCustomBankA() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)false, nullptr);
+}
+
+bool MidiOptions::incomingPatchShouldBeSavedInCustomBankB() {
+	return (bool)midiOptionsTree.getProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB);
+}
+
+void MidiOptions::setIncomingPatchShouldBeSavedInCustomBankB() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB, (bool)true, nullptr);
+}
+
+void MidiOptions::setIncomingPatchShouldNotBeSavedInCustomBankB() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB, (bool)false, nullptr);
 }
 
 bool MidiOptions::paramChangeEchosAreNotBlocked() {

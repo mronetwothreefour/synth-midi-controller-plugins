@@ -14,12 +14,14 @@ namespace constants
 		static const uint8 transmitCode_Split{ 2 };
 		static const uint8 transmitCode_Master{ 3 };
 
-		static const int numberOfHeaderBytesInPatchDataMessage{ 4 };
+		static const int patchDumpSlotNumberByte{ 4 };
+		static const int patchDumpFirstDataByte{ 5 };
 		static const int sizeOfDataDumpRequestVector{ 5 };
 		static const int sizeOfMasterDataVector{ 477 };
 		static const int sizeOfParamChangeVector{ 5 };
 		static const int sizeOfPatchDataVector{ 273 };
 		static const int sizeOfQuickEditSelectVector{ 3 };
 		static const int sizeOfSplitDataVector{ 41 };
+		static const int sysexMessageOpcodeByte{ 3 };
 	}
 }

@@ -82,37 +82,14 @@ void PatchSlotsComponent::loadPatchFromSelectedSlot() {
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto patchDataVector{ RawPatchData::convertHexStringToDataVector(patchDataHexString) };
-		applyNameOfPatchInRawDataVectorToGUI(patchDataVector);
-		applyExposedParamSettingsInRawDataVectorToGUI(patchDataVector);
-		applyMatrixModSettingsInRawDataVectorToGUI(patchDataVector);
+		RawPatchData::applyPatchDataVectorToGUI(selectedSlot, patchDataVector, exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
 
-void PatchSlotsComponent::applyNameOfPatchInRawDataVectorToGUI(std::vector<uint8>& patchDataVector) {
-	auto patchNameString{ RawPatchData::extractPatchNameFromRawPatchData(patchDataVector.data()) };
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	currentPatchOptions->setCurrentPatchNumber(selectedSlot);
-	currentPatchOptions->setCurrentPatchName(patchNameString);
-}
-
-void PatchSlotsComponent::applyExposedParamSettingsInRawDataVectorToGUI(std::vector<uint8>& patchDataVector) {
-	patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeExposedParams);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->setParamChangeEchosAreBlocked();
-	RawPatchData::applyRawPatchDataToExposedParameters(patchDataVector.data(), exposedParams);
-	midiOptions->setParamChangeEchosAreNotBlocked();
-}
-
-void PatchSlotsComponent::applyMatrixModSettingsInRawDataVectorToGUI(std::vector<uint8>& patchDataVector) {
-	patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeMatrixModSettings);
-	RawPatchData::applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);
-}
-
 void PatchSlotsComponent::pullSelectedPatchFromHardware() {
-}
-
-void PatchSlotsComponent::pushSelectedPatchToHardware() {
+	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+	PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(selectedSlot, outgoingMidiBuffers);
 }
 
 void PatchSlotsComponent::resized() {
