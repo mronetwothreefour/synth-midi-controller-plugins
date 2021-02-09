@@ -11,11 +11,13 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     button_ForActivatingQuickPatchEdit{ unexposedParams },
+    button_ForPullingPatchFromHardware{ unexposedParams },
     button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
     button_ForShowingPatchBanksComponent{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
+    addAndMakeVisible(button_ForPullingPatchFromHardware);
     addAndMakeVisible(button_ForPushingPatchToHardware);
     addAndMakeVisible(button_ForShowingPatchBanksComponent);
     button_ForShowingPatchBanksComponent.onClick = [this] { showPatchBanksComponent(); };
@@ -32,6 +34,7 @@ void ButtonsLayer::showPatchBanksComponent() {
 
 void ButtonsLayer::resized() {
     button_ForActivatingQuickPatchEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
+    button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);
 }

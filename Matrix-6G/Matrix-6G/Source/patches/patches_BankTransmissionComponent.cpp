@@ -31,7 +31,14 @@ BankTransmissionComponent::BankTransmissionComponent(PatchBank& bank, Transmissi
 	button_Stop.setComponentID(ID::button_Stop.toString());
 	addChildComponent(button_Close);
 	addAndMakeVisible(button_Stop);
-	button_Close.onClick = [this] { hideThisComponent(); };
+	button_Close.onClick = [this, bank, transmissionType, unexposedParams] { 
+		if (transmissionType == TransmissionType::pull) {
+			auto midiOptions{ unexposedParams->midiOptions_get() };
+			if (bank == PatchBank::customA || bank == PatchBank::customB)
+				midiOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
+		}
+		hideThisComponent();
+	};
 	button_Stop.onClick = [this] { cancelTransmission(); };
 	button_Close.setBounds(GUI::bounds_BankTransmitButtons);
 	button_Stop.setBounds(GUI::bounds_BankTransmitButtons);
@@ -57,8 +64,14 @@ void BankTransmissionComponent::timerCallback() {
 
 void BankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	if (transmissionType == TransmissionType::pull)
+	if (transmissionType == TransmissionType::pull) {
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		if (bank == PatchBank::customA)
+			midiOptions->setIncomingPatchShouldBeSavedInCustomBankA();
+		else
+			midiOptions->setIncomingPatchShouldBeSavedInCustomBankB();
 		PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
+	}
 	else {
 		PatchDataMessage::addDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, patchSlot]

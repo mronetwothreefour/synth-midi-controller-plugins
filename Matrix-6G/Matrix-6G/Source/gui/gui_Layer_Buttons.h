@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
+#include "../widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingPatchBanksComponent.h"
 
@@ -17,6 +18,7 @@ class ButtonsLayer :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ButtonForActivatingQuickPatchEdit button_ForActivatingQuickPatchEdit;
+	ButtonForPullingPatchFromHardwareStorageSlot button_ForPullingPatchFromHardware;
 	ButtonForPushingPatchToHardwareStorageSlot button_ForPushingPatchToHardware;
 	ButtonForShowingPatchBanksComponent button_ForShowingPatchBanksComponent;
 	std::unique_ptr<PatchBanksComponent> patchBanksComponent;

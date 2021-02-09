@@ -2541,6 +2541,9 @@
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4957,6 +4960,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

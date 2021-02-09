@@ -38,23 +38,20 @@ bool MidiOptions::incomingPatchShouldBeSavedInCustomBankA() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA);
 }
 
-void MidiOptions::setIncomingPatchShouldBeSavedInCustomBankA() {
-	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)true, nullptr);
-}
-
-void MidiOptions::setIncomingPatchShouldNotBeSavedInCustomBankA() {
-	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)false, nullptr);
-}
-
 bool MidiOptions::incomingPatchShouldBeSavedInCustomBankB() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB);
+}
+
+void MidiOptions::setIncomingPatchShouldBeSavedInCustomBankA() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)true, nullptr);
 }
 
 void MidiOptions::setIncomingPatchShouldBeSavedInCustomBankB() {
 	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB, (bool)true, nullptr);
 }
 
-void MidiOptions::setIncomingPatchShouldNotBeSavedInCustomBankB() {
+void MidiOptions::setIncomingPatchShouldNotBeSavedInCustomBank() {
+	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankA, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_IncomingPatchShouldBeSavedInCustomBankB, (bool)false, nullptr);
 }
 

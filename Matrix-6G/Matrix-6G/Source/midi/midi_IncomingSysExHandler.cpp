@@ -45,16 +45,12 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
         if (midiOptions->incomingPatchShouldBeSavedInCustomBankA() || midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
             auto patchBanks{ unexposedParams->patchBanks_get() };
             auto patchDataHexString{ RawPatchData::convertDataVectorToHexString(patchDataVector) };
-            if (midiOptions->incomingPatchShouldBeSavedInCustomBankA()) {
-                const MessageManagerLock mmLock;
+            const MessageManagerLock mmLock;
+            if (midiOptions->incomingPatchShouldBeSavedInCustomBankA())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customA, slot);
-                midiOptions->setIncomingPatchShouldNotBeSavedInCustomBankA();
-            }
-            if (midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
-                const MessageManagerLock mmLock;
+            if (midiOptions->incomingPatchShouldBeSavedInCustomBankB())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customB, slot);
-                midiOptions->setIncomingPatchShouldNotBeSavedInCustomBankB();
-            }
+            midiOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
         }
         const MessageManagerLock mmLock;
         RawPatchData::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);

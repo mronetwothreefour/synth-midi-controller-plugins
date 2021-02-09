@@ -19,8 +19,9 @@ ButtonForPullingSelectedPatchFromHardware::ButtonForPullingSelectedPatchFromHard
 const String ButtonForPullingSelectedPatchFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Pull the data from the selected program storage slot in the Matrix-6R hardware\n";
-		buttonTooltip += "and save it in the corresponding storage slot in this plugin storage bank.";
+		buttonTooltip += "Pull the data from the selected patch storage slot in\n";
+		buttonTooltip += "the Matrix-6R hardware and save it in the corresponding\n";
+		buttonTooltip += "storage slot in this plugin storage bank.";
 	}
 	return buttonTooltip;
 }

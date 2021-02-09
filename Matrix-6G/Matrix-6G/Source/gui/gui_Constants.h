@@ -142,6 +142,7 @@ namespace constants
 		static const Rectangle<int> bounds_BankTransmitComponent{ 451, 249, 350, 98 };
 		static const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 289, 330, 18 };
 		static const Rectangle<int> bounds_MainWindowPatchesButton{ 1006, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
+		static const Rectangle<int> bounds_MainWindowPullButton{ 749, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ 788, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MainWindowQuickEditButton{ quickEditButton_x, mainWindowSmallButtons_y, quickEditButton_w, smallButtons_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };

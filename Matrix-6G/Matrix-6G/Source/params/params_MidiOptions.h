@@ -20,11 +20,10 @@ public:
 	const uint8 basicChannel();
 	void setBasicChannel(uint8 newChannel);
 	bool incomingPatchShouldBeSavedInCustomBankA();
-	void setIncomingPatchShouldBeSavedInCustomBankA();
-	void setIncomingPatchShouldNotBeSavedInCustomBankA();
 	bool incomingPatchShouldBeSavedInCustomBankB();
+	void setIncomingPatchShouldBeSavedInCustomBankA();
 	void setIncomingPatchShouldBeSavedInCustomBankB();
-	void setIncomingPatchShouldNotBeSavedInCustomBankB();
+	void setIncomingPatchShouldNotBeSavedInCustomBank();
 	bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();
