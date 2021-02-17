@@ -13,7 +13,7 @@ using namespace constants;
 
 
 
-BankTransmissionComponent::BankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
@@ -47,7 +47,7 @@ BankTransmissionComponent::BankTransmissionComponent(PatchBank& bank, Transmissi
 	startTimer(transmitTime);
 }
 
-void BankTransmissionComponent::timerCallback() {
+void PatchBankTransmissionComponent::timerCallback() {
 	stopTimer();
 	if (patchCounter < patches::numberOfSlotsInBank) {
 		transmitMidiBufferForPatchSlot(patchCounter);
@@ -62,7 +62,7 @@ void BankTransmissionComponent::timerCallback() {
 	}
 }
 
-void BankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
+void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
@@ -84,7 +84,7 @@ void BankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) 
 	}
 }
 
-void BankTransmissionComponent::paint(Graphics& g) {
+void PatchBankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_PatchBanksWindow);
 	g.setColour(Color::button_blue);
@@ -103,7 +103,7 @@ void BankTransmissionComponent::paint(Graphics& g) {
 	}
 }
 
-const char* BankTransmissionComponent::getTitleLabelImageData() {
+const char* PatchBankTransmissionComponent::getTitleLabelImageData() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::TitlePullingEntireBank_png;
 	if (transmissionType == TransmissionType::push)
@@ -112,7 +112,7 @@ const char* BankTransmissionComponent::getTitleLabelImageData() {
 		return nullptr;
 }
 
-size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
+size_t PatchBankTransmissionComponent::getTitleLabelImageDataSize() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::TitlePullingEntireBank_pngSize;
 	if (transmissionType == TransmissionType::push)
@@ -121,17 +121,17 @@ size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
 		return (size_t)0;
 }
 
-void BankTransmissionComponent::cancelTransmission() {
+void PatchBankTransmissionComponent::cancelTransmission() {
 	stopTimer();
 	makeClosebuttonVisible();
 	repaint();
 }
 
-void BankTransmissionComponent::makeClosebuttonVisible() {
+void PatchBankTransmissionComponent::makeClosebuttonVisible() {
 	button_Stop.setVisible(false);
 	button_Close.setVisible(true);
 }
 
-void BankTransmissionComponent::hideThisComponent() {
+void PatchBankTransmissionComponent::hideThisComponent() {
 	setVisible(false);
 }

@@ -130,7 +130,7 @@ void PatchBanksComponent::comboBoxChanged(ComboBox* comboBox) {
 }
 
 void PatchBanksComponent::showPushEntireBankComponentForBank(PatchBank bank) {
-	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
+	pushEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
 		pushEntireBankComponent->setBounds(getLocalBounds());
@@ -139,7 +139,7 @@ void PatchBanksComponent::showPushEntireBankComponentForBank(PatchBank bank) {
 }
 
 void PatchBanksComponent::showPullEntireBankComponentForBank(PatchBank bank) {
-	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
+	pullEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());
 		pullEntireBankComponent->setBounds(getLocalBounds());

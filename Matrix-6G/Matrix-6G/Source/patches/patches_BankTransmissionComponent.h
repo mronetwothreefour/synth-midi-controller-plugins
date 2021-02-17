@@ -9,7 +9,7 @@
 class TabbedComponentForPatchBanks;
 class UnexposedParameters;
 
-class BankTransmissionComponent :
+class PatchBankTransmissionComponent :
 	public Component,
 	private Timer
 {
@@ -28,9 +28,9 @@ private:
 	TextButton button_Close;
 
 public:
-	BankTransmissionComponent() = delete;
+	PatchBankTransmissionComponent() = delete;
 
-	BankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	PatchBankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;
@@ -47,6 +47,6 @@ private:
 	void hideThisComponent();
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BankTransmissionComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PatchBankTransmissionComponent)
 };
 

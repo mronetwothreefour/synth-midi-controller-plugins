@@ -67,6 +67,10 @@
     <FILE id="y3t5LW" name="Button-X-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-X-Down.png"/>
     <FILE id="wsRFxC" name="Button-X-Up.png" compile="0" resource="1" file="../Matrix-6G/Resources/Button-X-Up.png"/>
+    <FILE id="B9EHjk" name="Button-X-Gray-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-X-Gray-Up.png"/>
+    <FILE id="KzeVAR" name="Button-X-Gray-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-X-Gray-Down.png"/>
     <FILE id="endN7c" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
     <FILE id="jChKZL" name="Patches-Footer-For-Custom-Banks.png" compile="0"
@@ -79,6 +83,7 @@
           resource="1" file="../Matrix-6G/Resources/Title-Pulling-Entire-Bank.png"/>
     <FILE id="qnLmUC" name="Title-Pushing-Entire-Bank.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Title-Pushing-Entire-Bank.png"/>
+    <FILE id="zWHkGM" name="Splits-Menu.png" compile="0" resource="1" file="../Matrix-6G/Resources/Splits-Menu.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

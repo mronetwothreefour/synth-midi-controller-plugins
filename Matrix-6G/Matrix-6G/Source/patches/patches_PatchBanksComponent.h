@@ -9,7 +9,7 @@
 
 
 
-class BankTransmissionComponent;
+class PatchBankTransmissionComponent;
 class UnexposedParameters;
 
 class PatchBanksComponent :
@@ -23,8 +23,8 @@ class PatchBanksComponent :
     ComboBoxForSelectingPatchBank comboBox_ForSelectingBank;
     EditableLabel label_txTime;
     TextButton button_ForClosingPatchBanks;
-    std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
-    std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
+    std::unique_ptr<PatchBankTransmissionComponent> pushEntireBankComponent;
+    std::unique_ptr<PatchBankTransmissionComponent> pullEntireBankComponent;
     std::unique_ptr<FileBrowserComponent> fileBrowser;
 
 public:

@@ -95,6 +95,12 @@ namespace BinaryData
     extern const char*   ButtonXUp_png;
     const int            ButtonXUp_pngSize = 225;
 
+    extern const char*   ButtonXGrayUp_png;
+    const int            ButtonXGrayUp_pngSize = 225;
+
+    extern const char*   ButtonXGrayDown_png;
+    const int            ButtonXGrayDown_pngSize = 225;
+
     extern const char*   Matrix6GMainWindowBackground_png;
     const int            Matrix6GMainWindowBackground_pngSize = 51164;
 
@@ -113,8 +119,11 @@ namespace BinaryData
     extern const char*   TitlePushingEntireBank_png;
     const int            TitlePushingEntireBank_pngSize = 2468;
 
+    extern const char*   SplitsMenu_png;
+    const int            SplitsMenu_pngSize = 11010;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 35;
+    const int namedResourceListSize = 38;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
