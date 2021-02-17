@@ -23,15 +23,16 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
 	if (midiOptions->paramChangeEchosAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
-		auto param{ info.indexForParamID(parameterID) };
+		auto paramIndex{ info.indexForParamID(parameterID) };
 		auto outputValue{ (int8)roundToInt(newValue) };
-		if (info.rangeTypeFor(param) == RangeType::signed6bitValue)
+		if (info.rangeTypeFor(paramIndex) == RangeType::signed6bitValue)
 			outputValue -= matrixParams::offsetForSigned6bitRange;
-		if (info.rangeTypeFor(param) == RangeType::signed7bitValue)
+		if (info.rangeTypeFor(paramIndex) == RangeType::signed7bitValue)
 			outputValue -= matrixParams::offsetForSigned7bitRange;
-		if (info.isQuickEditable(param) && outputValue > -1) {
+		if (info.isQuickEditable(paramIndex) && outputValue > -1) {
 			auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			auto paramChangeMessage{ RawSysExDataVector::createParamChangeMessage(outputValue, param) };
+			auto paramNumber{ info.paramNumberFor(paramIndex) };
+			auto paramChangeMessage{ RawSysExDataVector::createParamChangeMessage(outputValue, paramNumber) };
 			outgoingMidiBuffers->addDataMessage(paramChangeMessage);
 		}
 	}

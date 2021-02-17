@@ -20,11 +20,8 @@ private:
     static void applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams);
     static void applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams);
     static void applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams);
-
-private:
     static const uint16 firstExposedParamDataByte{ 20 };
     static const int negativeValueOffset{ 256 };
-
     static void addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 truncateASCIIvalueToLowest6bits(uint8 value);
     static void restoreTruncated7thBitToASCIIvalue(uint8& value);
