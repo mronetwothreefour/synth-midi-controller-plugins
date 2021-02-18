@@ -113,8 +113,8 @@ namespace BinaryData
     extern const char* TitlePushingEntireBank_png;
     const int            TitlePushingEntireBank_pngSize = 2468;
 
-    extern const char* SplitsMenu_png;
-    const int            SplitsMenu_pngSize = 11010;
+    extern const char* SplitsWindow_png;
+    const int            SplitsWindow_pngSize = 11010;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 38;

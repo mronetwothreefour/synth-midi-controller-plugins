@@ -6,10 +6,12 @@
 #include "../widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingPatchBanksComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingSplitsComponent.h"
 
 
 
 class PatchBanksComponent;
+class SplitsComponent;
 class UnexposedParameters;
 
 class ButtonsLayer :
@@ -21,7 +23,9 @@ class ButtonsLayer :
 	ButtonForPullingPatchFromHardwareStorageSlot button_ForPullingPatchFromHardware;
 	ButtonForPushingPatchToHardwareStorageSlot button_ForPushingPatchToHardware;
 	ButtonForShowingPatchBanksComponent button_ForShowingPatchBanksComponent;
+	ButtonForShowingSplitsComponent button_ForShowingSplitsComponent;
 	std::unique_ptr<PatchBanksComponent> patchBanksComponent;
+	std::unique_ptr<SplitsComponent> splitsComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -30,6 +34,7 @@ public:
 
 private:
 	void showPatchBanksComponent();
+	void showSplitsComponent();
 
 public:
 	void resized() override;

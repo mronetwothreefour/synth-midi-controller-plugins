@@ -2,6 +2,7 @@
 
 #include "gui_Constants.h"
 #include "../patches/patches_PatchBanksComponent.h"
+#include "../splits/splits_SplitsComponent.h"
 
 using namespace constants;
 
@@ -13,7 +14,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForActivatingQuickPatchEdit{ unexposedParams },
     button_ForPullingPatchFromHardware{ unexposedParams },
     button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
-    button_ForShowingPatchBanksComponent{ unexposedParams }
+    button_ForShowingPatchBanksComponent{ unexposedParams },
+    button_ForShowingSplitsComponent{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
@@ -21,6 +23,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForPushingPatchToHardware);
     addAndMakeVisible(button_ForShowingPatchBanksComponent);
     button_ForShowingPatchBanksComponent.onClick = [this] { showPatchBanksComponent(); };
+    addAndMakeVisible(button_ForShowingSplitsComponent);
+    button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -32,13 +36,23 @@ void ButtonsLayer::showPatchBanksComponent() {
     }
 }
 
+void ButtonsLayer::showSplitsComponent() {
+    splitsComponent.reset(new SplitsComponent(unexposedParams));
+    if (splitsComponent != nullptr) {
+        addAndMakeVisible(splitsComponent.get());
+        splitsComponent->setBounds(getLocalBounds());
+    }
+}
+
 void ButtonsLayer::resized() {
     button_ForActivatingQuickPatchEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
     button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);
+    button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
+    splitsComponent = nullptr;
     patchBanksComponent = nullptr;
 }

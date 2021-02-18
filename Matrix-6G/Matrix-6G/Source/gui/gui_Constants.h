@@ -118,6 +118,8 @@ namespace constants
 		static const int rampControlsCol2_x{ 960 };
 		static const int smallButtons_h{ 20 };
 		static const int smallButtons_w{ 34 };
+		static const int splitsWindow_x{ 435 };
+		static const int splitsWindow_y{ 36 };
 		static const int trackingGeneratorRenderer_h{ 80 };
 		static const int trackingGeneratorRenderer_w{ 150 };
 		static const int trackingGeneratorRenderer_x{ 840 };
@@ -144,6 +146,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPatchesButton{ 1006, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
 		static const Rectangle<int> bounds_MainWindowPullButton{ 749, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ 788, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MainWindowSplitsButton{ 1085, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
 		static const Rectangle<int> bounds_MainWindowQuickEditButton{ quickEditButton_x, mainWindowSmallButtons_y, quickEditButton_w, smallButtons_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
@@ -172,6 +175,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
+		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

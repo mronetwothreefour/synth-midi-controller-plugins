@@ -51,7 +51,8 @@ namespace ID
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
-	static const Identifier button_X{ "button_X" };
+	static const Identifier button_X_Patches{ "button_X_Patches" };
+	static const Identifier button_X_Splits{ "button_X_Splits" };
 
 	static const Identifier comboBox_PatchBankSelector{ "comboBox_PatchBankSelector" };
 

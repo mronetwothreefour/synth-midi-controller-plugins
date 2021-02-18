@@ -23,7 +23,7 @@ PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedPa
 
 	setSize(GUI::editor_w, GUI::editor_h);
 
-	button_ForClosingPatchBanks.setComponentID(ID::button_X.toString());
+	button_ForClosingPatchBanks.setComponentID(ID::button_X_Patches.toString());
 	addAndMakeVisible(button_ForClosingPatchBanks);
 	button_ForClosingPatchBanks.setBounds(GUI::bounds_PatchBanksXbutton);
 	button_ForClosingPatchBanks.onClick = [this] { hideThisComponent(); };

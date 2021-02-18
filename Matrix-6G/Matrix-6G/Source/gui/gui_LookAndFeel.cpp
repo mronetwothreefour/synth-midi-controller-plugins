@@ -106,8 +106,10 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_png : BinaryData::ButtonStopUp_png;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_png : BinaryData::ButtonUndoUp_png;
-	if (button.getComponentID() == ID::button_X.toString())
+	if (button.getComponentID() == ID::button_X_Patches.toString())
 		return isDown ? BinaryData::ButtonXDown_png : BinaryData::ButtonXUp_png;
+	if (button.getComponentID() == ID::button_X_Splits.toString())
+		return isDown ? BinaryData::ButtonXGrayDown_png : BinaryData::ButtonXGrayUp_png;
 	return nullptr;
 }
 
@@ -155,8 +157,10 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_pngSize : BinaryData::ButtonStopUp_pngSize;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_pngSize : BinaryData::ButtonUndoUp_pngSize;
-	if (button.getComponentID() == ID::button_X.toString())
+	if (button.getComponentID() == ID::button_X_Patches.toString())
 		return isDown ? BinaryData::ButtonXDown_pngSize : BinaryData::ButtonXUp_pngSize;
+	if (button.getComponentID() == ID::button_X_Splits.toString())
+		return isDown ? BinaryData::ButtonXGrayDown_pngSize : BinaryData::ButtonXGrayUp_pngSize;
 	return size_t();
 }
 

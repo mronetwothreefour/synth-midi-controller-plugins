@@ -4787,7 +4787,7 @@
     <None Include="..\..\..\Matrix-6G\Resources\Title-Pushing-Entire-Bank.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G\Resources\Splits-Menu.png">
+    <None Include="..\..\..\Matrix-6G\Resources\Splits-Window.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

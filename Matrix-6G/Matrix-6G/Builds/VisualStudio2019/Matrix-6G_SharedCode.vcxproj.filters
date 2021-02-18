@@ -460,6 +460,9 @@
     <Filter Include="Matrix-6G\Source\widgets_Label">
       <UniqueIdentifier>{7fbc7169-cf35-4a20-b91e-5948e22bd144}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\splits">
+      <UniqueIdentifier>{4613c64c-315b-4c87-a301-c0ddfa219a61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2542,6 +2545,12 @@
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_SplitsComponent.cpp">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4962,6 +4971,12 @@
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_SplitsComponent.h">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2162,6 +2162,7 @@
     <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
+    <ClCompile Include="..\..\Source\splits\splits_SplitsComponent.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
@@ -2170,6 +2171,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp" />
@@ -2968,6 +2970,7 @@
     <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h" />
+    <ClInclude Include="..\..\Source\splits\splits_SplitsComponent.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
@@ -2976,6 +2979,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h" />

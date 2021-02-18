@@ -83,7 +83,8 @@
           resource="1" file="../Matrix-6G/Resources/Title-Pulling-Entire-Bank.png"/>
     <FILE id="qnLmUC" name="Title-Pushing-Entire-Bank.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Title-Pushing-Entire-Bank.png"/>
-    <FILE id="zWHkGM" name="Splits-Menu.png" compile="0" resource="1" file="../Matrix-6G/Resources/Splits-Menu.png"/>
+    <FILE id="EjBVkB" name="Splits-Window.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Splits-Window.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

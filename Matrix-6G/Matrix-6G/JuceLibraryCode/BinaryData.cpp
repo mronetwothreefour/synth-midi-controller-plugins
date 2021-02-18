@@ -2129,7 +2129,7 @@ namespace BinaryData
 
     const char* TitlePushingEntireBank_png = (const char*)temp_binary_data_36;
 
-    //================== Splits-Menu.png ==================
+    //================== Splits-Window.png ==================
     static const unsigned char temp_binary_data_37[] =
     { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,1,132,0,0,2,12,8,2,0,0,0,122,212,76,172,0,0,0,25,116,69,88,116,83,111,102,116,119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,42,164,73,68,65,84,120,218,236,
     157,79,104,92,87,158,239,149,71,160,135,135,37,53,100,232,135,4,246,98,26,164,8,203,139,72,202,38,94,72,158,12,116,100,172,168,147,77,36,135,132,108,44,121,145,164,65,81,220,52,73,198,109,146,116,15,142,108,94,18,15,88,242,91,132,132,88,242,166,187,29,
@@ -2286,7 +2286,7 @@ namespace BinaryData
     0,0,49,2,0,196,8,0,0,49,2,0,196,8,0,0,49,2,0,196,8,0,0,49,2,0,196,8,0,0,49,2,0,196,8,0,0,49,2,128,45,201,42,191,218,47,189,233,26,0,0,158,17,0,32,70,0,0,136,17,0,32,70,0,0,136,17,0,32,70,0,0,136,17,0,32,70,0,0,136,17,0,108,43,254,75,128,1,0,241,66,210,
     240,178,118,96,240,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-    const char* SplitsMenu_png = (const char*)temp_binary_data_37;
+    const char* SplitsWindow_png = (const char*)temp_binary_data_37;
 
 
     const char* getNamedResource(const char* resourceNameUTF8, int& numBytes)
@@ -2336,7 +2336,7 @@ namespace BinaryData
         case 0x7b4e50ed:  numBytes = 2493; return PatchesHeader_png;
         case 0xd378b5dc:  numBytes = 2560; return TitlePullingEntireBank_png;
         case 0x60d9d9a7:  numBytes = 2468; return TitlePushingEntireBank_png;
-        case 0x10e1ff22:  numBytes = 11010; return SplitsMenu_png;
+        case 0xd4ae82f3:  numBytes = 11010; return SplitsWindow_png;
         default: break;
         }
 
@@ -2383,7 +2383,7 @@ namespace BinaryData
         "PatchesHeader_png",
         "TitlePullingEntireBank_png",
         "TitlePushingEntireBank_png",
-        "SplitsMenu_png"
+        "SplitsWindow_png"
     };
 
     const char* originalFilenames[] =
@@ -2425,7 +2425,7 @@ namespace BinaryData
         "Patches-Header.png",
         "Title-Pulling-Entire-Bank.png",
         "Title-Pushing-Entire-Bank.png",
-        "Splits-Menu.png"
+        "Splits-Window.png"
     };
 
     const char* getNamedResourceOriginalFilename(const char* resourceNameUTF8)
