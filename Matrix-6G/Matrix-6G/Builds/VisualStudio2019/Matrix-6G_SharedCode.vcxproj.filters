@@ -2553,6 +2553,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp">
+      <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4978,6 +4981,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_SplitOptions.h">
+      <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

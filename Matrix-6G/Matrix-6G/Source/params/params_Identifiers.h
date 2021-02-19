@@ -107,6 +107,19 @@ namespace ID
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_PatchTransmitTime{ "midi_PatchTransmitTime" };
 
+	static const Identifier split_Name{ "split_Name" };
+	static const Identifier split_Options{ "split_Options" };
+	static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
+	static const Identifier split_LowerZoneMidiOut{ "split_LowerZoneMidiOut" };
+	static const Identifier split_LowerZonePatchNumber{ "split_LowerZonePatchNumber" };
+	static const Identifier split_LowerZoneTranspose{ "split_LowerZoneTranspose" };
+	static const Identifier split_UpperZoneLimit{ "split_UpperZoneLimit" };
+	static const Identifier split_UpperZoneMidiOut{ "split_UpperZoneMidiOut" };
+	static const Identifier split_UpperZonePatchNumber{ "split_UpperZonePatchNumber" };
+	static const Identifier split_UpperZoneTranspose{ "split_UpperZoneTranspose" };
+	static const Identifier split_ZoneVoiceAssignment{ "split_ZoneVoiceAssignment" };
+	static const Identifier split_ZoneVolumeBalance{ "split_ZoneVolumeBalance" };
+
 	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
 	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };
 	static const Identifier state_CustomPatchBanks{ "state_CustomPatchBanks" };

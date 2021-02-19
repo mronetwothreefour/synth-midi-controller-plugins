@@ -2151,6 +2151,7 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp" />
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_BankTransmissionComponent.cpp" />
@@ -2958,6 +2959,7 @@
     <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
+    <ClInclude Include="..\..\Source\params\params_SplitOptions.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\patches\patches_PatchBanksComponent.h" />
