@@ -5,6 +5,7 @@
 #include "params_CurrentPatchOptions.h"
 #include "params_MatrixModSettings.h"
 #include "params_MidiOptions.h"
+#include "params_SplitOptions.h"
 #include "params_TooltipOptions.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
 #include "../patches/patches_PatchBanks.h"
@@ -18,6 +19,7 @@ class UnexposedParameters
 	std::unique_ptr<MidiOptions> midiOptions;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
 	std::unique_ptr<PatchBanks> patchBanks;
+	std::unique_ptr<SplitOptions> splitOptions;
 	std::unique_ptr<TooltipOptions> tooltipOptions;
 	std::unique_ptr<UndoManager> undoManager;
 
@@ -29,6 +31,7 @@ public:
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
 	PatchBanks* patchBanks_get();
+	SplitOptions* splitOptions_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
 	~UnexposedParameters();

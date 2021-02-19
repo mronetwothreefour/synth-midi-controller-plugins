@@ -37,6 +37,10 @@ PatchBanks* UnexposedParameters::patchBanks_get() {
 	return patchBanks.get();
 }
 
+SplitOptions* UnexposedParameters::splitOptions_get() {
+	return splitOptions.get();
+}
+
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
 	return tooltipOptions.get();
 }
