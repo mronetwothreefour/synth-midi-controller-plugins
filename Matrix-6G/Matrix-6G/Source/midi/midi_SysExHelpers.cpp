@@ -55,6 +55,14 @@ std::vector<uint8> RawSysExDataVector::createActivateQuickPatchEditingMessage() 
     return rawDataVector;
 }
 
+std::vector<uint8> RawSysExDataVector::createSwitchToSplitModeMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfSwitchToSplitModeVector) };
+    rawDataVector[1] = MIDI::deviceID_OberheimXpander;
+    rawDataVector[2] = MIDI::opcode_SwitchMode;
+    rawDataVector[3] = MIDI::transmitCode_Split;
+    return rawDataVector;
+}
+
 std::vector<uint8> RawSysExDataVector::createRawDataVectorWithSysExIDheaderBytes(int vectorSize) {
     jassert(vectorSize > 0);
     std::vector<uint8> rawDataVector(vectorSize);

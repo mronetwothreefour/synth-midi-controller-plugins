@@ -1,6 +1,8 @@
 #include "gui_Layer_Buttons.h"
 
 #include "gui_Constants.h"
+#include "../midi/midi_SysExHelpers.h"
+#include "../params/params_UnexposedParameters_Facade.h"
 #include "../patches/patches_PatchBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"
 
@@ -37,6 +39,10 @@ void ButtonsLayer::showPatchBanksComponent() {
 }
 
 void ButtonsLayer::showSplitsComponent() {
+    auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    auto switchToSplitModeMessage{ RawSysExDataVector::createSwitchToSplitModeMessage() };
+    outgoingMidiBuffers->addDataMessage(switchToSplitModeMessage);
+
     splitsComponent.reset(new SplitsComponent(unexposedParams));
     if (splitsComponent != nullptr) {
         addAndMakeVisible(splitsComponent.get());

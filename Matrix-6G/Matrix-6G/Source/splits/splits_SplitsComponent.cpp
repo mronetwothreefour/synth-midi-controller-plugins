@@ -2,6 +2,7 @@
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
+#include "../midi/midi_SysExHelpers.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -34,6 +35,9 @@ void SplitsComponent::buttonClicked(Button* button) {
 }
 
 void SplitsComponent::hideThisComponent() {
+	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickPatchEditingMessage() };
+	outgoingMidiBuffers->addDataMessage(activateQuickPatchEditingMessage);
 	setVisible(false);
 }
 
