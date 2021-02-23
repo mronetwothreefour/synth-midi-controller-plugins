@@ -36,9 +36,9 @@ String ComboBoxForSelectingZoneVoiceAssignments::generateTooltipString() {
 		tooltipText += "for playing the Matrix-6R and another MIDI device\n";
 		tooltipText += "with a single controller. Make sure MIDI Out is on\n";
 		tooltipText += "for the zone that targets the additional device.\n";
-		tooltipText += "NOTE: Changes made to split parameters are not sent\n";
-		tooltipText += "to the hardware until you SAVE the split in one of\n";
-		tooltipText += "the storage bank slots below.\n";
+		tooltipText += "NOTE: Changes made to split parameters are not\n";
+		tooltipText += "sent to the hardware until you SAVE the split in\n";
+		tooltipText += "one of the storage bank slots below.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToZoneVoiceAssignment::get() };

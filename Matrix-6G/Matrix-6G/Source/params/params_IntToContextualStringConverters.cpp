@@ -825,10 +825,10 @@ String IntToZoneVoiceAssignment::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToZoneVoiceAssignment::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return "2 Lower / 4 Upper";
-	if (i == 1) return "4 Lower / 2 Upper";
-	if (i == 2) return "6 Lower / 0 Upper";
-	if (i == 3) return "0 Lower / 6 Upper";
+	if (i == 0) return "2 Voices Lower / 4 Voices Upper";
+	if (i == 1) return "4 Voices Lower / 2 Voices Upper";
+	if (i == 2) return "6 Voices Lower / 0 Voices Upper";
+	if (i == 3) return "0 Voices Lower / 6 Voices Upper";
 	else return "range error";
 }
 
