@@ -2556,6 +2556,9 @@
     <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4984,6 +4987,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_SplitOptions.h">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

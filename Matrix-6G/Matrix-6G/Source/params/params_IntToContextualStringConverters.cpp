@@ -813,3 +813,26 @@ IntToPatchBankName* IntToPatchBankName::get() noexcept {
 	static IntToPatchBankName converter;
 	return &converter;
 }
+
+String IntToZoneVoiceAssignment::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "2/4";
+	if (i == 1) return "4/2";
+	if (i == 2) return "6/0";
+	if (i == 3) return "0/6";
+	else return "ERR";
+}
+
+String IntToZoneVoiceAssignment::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 4);
+	if (i == 0) return "2 Lower / 4 Upper";
+	if (i == 1) return "4 Lower / 2 Upper";
+	if (i == 2) return "6 Lower / 0 Upper";
+	if (i == 3) return "0 Lower / 6 Upper";
+	else return "range error";
+}
+
+IntToZoneVoiceAssignment* IntToZoneVoiceAssignment::get() noexcept {
+	static IntToZoneVoiceAssignment converter;
+	return &converter;
+}

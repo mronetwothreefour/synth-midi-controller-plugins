@@ -118,6 +118,10 @@ namespace constants
 		static const int rampControlsCol2_x{ 960 };
 		static const int smallButtons_h{ 20 };
 		static const int smallButtons_w{ 34 };
+		static const int splitsControlsRow1_y{ 99 };
+		static const int splitsControlsRow2_y{ 127 };
+		static const int splitsControlsRow3_y{ 197 };
+		static const int splitsControlsRow4_y{ 268 };
 		static const int splitsWindow_x{ 435 };
 		static const int splitsWindow_y{ 36 };
 		static const int trackingGeneratorRenderer_h{ 80 };
@@ -176,6 +180,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
+		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

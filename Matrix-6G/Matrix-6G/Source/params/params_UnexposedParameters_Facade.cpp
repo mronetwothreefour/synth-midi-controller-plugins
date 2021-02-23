@@ -8,6 +8,7 @@ UnexposedParameters::UnexposedParameters() :
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	patchBanks{ new PatchBanks() },
+	splitOptions{ new SplitOptions() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -52,6 +53,7 @@ UndoManager* UnexposedParameters::undoManager_get() {
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
+	splitOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	midiOptions = nullptr;
 	matrixModSettings = nullptr;

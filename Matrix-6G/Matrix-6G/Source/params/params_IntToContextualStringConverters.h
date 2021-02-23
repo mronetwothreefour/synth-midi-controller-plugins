@@ -322,3 +322,15 @@ public:
 	static IntToPatchBankName* get() noexcept;
 };
 
+
+
+
+struct IntToZoneVoiceAssignment : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToZoneVoiceAssignment* get() noexcept;
+};
+
