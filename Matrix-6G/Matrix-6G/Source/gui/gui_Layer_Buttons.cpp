@@ -1,7 +1,7 @@
 #include "gui_Layer_Buttons.h"
 
 #include "gui_Constants.h"
-#include "../midi/midi_SysExHelpers.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../patches/patches_PatchBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"

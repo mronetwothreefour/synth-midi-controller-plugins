@@ -2,11 +2,10 @@
 
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
-#include "../midi/midi_SysExHelpers.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_MidiOptions.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../patches/patches_RawPatchData.h"
 
 using namespace constants;
 
@@ -33,7 +32,7 @@ std::vector<uint8> PatchDataMessage::createSysExMessageFromCurrentPatchSettings(
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchNumber{ currentPatchOptions->currentPatchNumber() };
     auto dataVector{ RawSysExDataVector::initializePatchDataMessage(currentPatchNumber) };
-	RawPatchData::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
+	RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
     return dataVector;
 }
 
@@ -41,7 +40,7 @@ std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBank
     auto dataVector{ RawSysExDataVector::createPatchDataMessageHeader(slot) };
     auto patchBanks{ unexposedParams->patchBanks_get() };
     auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, slot) };
-    auto patchDataVector{ RawPatchData::convertHexStringToDataVector(patchDataHexString) };
+    auto patchDataVector{ RawDataTools::convertHexStringToDataVector(patchDataHexString) };
     for (auto dataByte : patchDataVector)
         dataVector.push_back(dataByte);
     return dataVector;

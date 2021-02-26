@@ -35,4 +35,17 @@ void ButtonForPullingSelectedPatchFromHardware::onClickMethod() {
 			midiOptions->setIncomingPatchShouldBeSavedInCustomBankB();
 	}
 	patchSlots.pullSelectedPatchFromHardware();
+	auto slot{ patchSlots.selectedSlot };
+	auto midiOptions{ unexposedParams->midiOptions_get() };
+	auto transmitTime{ midiOptions->patchTransmitTime() };
+	callAfterDelay(transmitTime, [this, slot, midiOptions]
+		{
+			auto basicChannel{ midiOptions->basicChannel() };
+			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+			outgoingBuffers->addPatchSelectMessage(basicChannel, slot);
+		}
+	);
+}
+
+void ButtonForPullingSelectedPatchFromHardware::timerCallback() {
 }

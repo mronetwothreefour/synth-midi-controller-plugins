@@ -2,7 +2,7 @@
 
 #include "patches_Constants.h"
 #include "patches_FactoryPatchDataHexStrings_Singleton.h"
-#include "patches_RawPatchData.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 
 using namespace constants;
@@ -44,43 +44,43 @@ void PatchBanks::fillAllPatchNameBanks() {
 	String patchDataString;
 	for (uint8 patchSlot = 0; patchSlot != patchSlotOutOfRange(); ++patchSlot) {
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsA, patchSlot);
-		patchName = RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		analogSynthsBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::analogSynthsB, patchSlot);
-		patchName = RawPatchData::RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		analogSynthsBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::basses, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		bassesBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::brassAndWoodwinds, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		brassAndWoodwindsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::fxAndPercussion, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		fxAndPercussionBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsA, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		keyboardsBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::keyboardsB, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		keyboardsBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::leads, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		leadsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::miscellaneousA, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		miscellaneousBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::strings, patchSlot);
-		patchName = RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataString).data());
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataString).data());
 		stringsBankPatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		customBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patches::basicPatchNameString, nullptr);
@@ -216,12 +216,12 @@ void PatchBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& pro
 	auto slot{ (uint8)slotString.getIntValue() };
 	if (tree.hasType(ID::bank_CustomA_PatchDataHexStrings)) {
 		auto patchDataHexString{ getPatchDataHexStringFromBankSlot(PatchBank::customA, slot) };
-		auto patchName{ RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataHexString).data()) };
+		auto patchName{ RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataHexString).data()) };
 		customBankApatchNameStrings.setProperty(property, patchName, nullptr);
 	}
 	if (tree.hasType(ID::bank_CustomB_PatchDataHexStrings)) {
 		auto patchDataHexString{ getPatchDataHexStringFromBankSlot(PatchBank::customB, slot) };
-		auto patchName{ RawPatchData::extractPatchNameFromRawPatchData(RawPatchData::convertHexStringToDataVector(patchDataHexString).data()) };
+		auto patchName{ RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertHexStringToDataVector(patchDataHexString).data()) };
 		customBankBpatchNameStrings.setProperty(property, patchName, nullptr);
 	}
 }

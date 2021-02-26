@@ -2,7 +2,7 @@
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
-#include "../midi/midi_SysExHelpers.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 

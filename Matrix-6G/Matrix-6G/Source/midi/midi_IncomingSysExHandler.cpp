@@ -1,9 +1,8 @@
 #include "midi_IncomingSysExHandler.h"
 
 #include "midi_Constants.h"
-#include "midi_SysExHelpers.h"
+#include "midi_RawDataTools.h"
 #include "../patches/patches_PatchBanks.h"
-#include "../patches/patches_RawPatchData.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 using namespace constants;
@@ -44,7 +43,7 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
         auto midiOptions{ unexposedParams->midiOptions_get() };
         if (midiOptions->incomingPatchShouldBeSavedInCustomBankA() || midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
             auto patchBanks{ unexposedParams->patchBanks_get() };
-            auto patchDataHexString{ RawPatchData::convertDataVectorToHexString(patchDataVector) };
+            auto patchDataHexString{ RawDataTools::convertDataVectorToHexString(patchDataVector) };
             const MessageManagerLock mmLock;
             if (midiOptions->incomingPatchShouldBeSavedInCustomBankA())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customA, slot);
@@ -53,6 +52,6 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
             midiOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
         }
         const MessageManagerLock mmLock;
-        RawPatchData::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
+        RawDataTools::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
     }
 }

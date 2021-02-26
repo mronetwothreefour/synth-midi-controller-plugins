@@ -4,7 +4,7 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 #include "params_UnexposedParameters_Facade.h"
 #include "params_RangeTypes.h"
-#include "../midi/midi_SysExHelpers.h"
+#include "../midi/midi_RawDataTools.h"
 
 using namespace constants;
 

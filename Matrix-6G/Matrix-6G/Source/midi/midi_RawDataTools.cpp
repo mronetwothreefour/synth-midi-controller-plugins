@@ -1,6 +1,7 @@
-#include "patches_RawPatchData.h"
+#include "midi_RawDataTools.h"
 
-#include "patches_Constants.h"
+#include "midi_Constants.h"
+#include "../patches/patches_Constants.h"
 #include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -9,7 +10,74 @@ using namespace constants;
 
 
 
-const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String& hexString) {
+bool SysExID::matchesHardwareSynthID(const MidiMessage& midiMessage) {
+    if (midiMessage.isSysEx()) {
+        auto sysExData{ midiMessage.getSysExData() };
+        return (sysExData[1] == (uint8)TargetDevice::Manufacturer && sysExData[2] == (uint8)TargetDevice::Device);
+    }
+    else
+        return false;
+}
+
+
+
+
+std::vector<uint8> RawSysExDataVector::createParamChangeMessage(uint8 newValue, uint8 param) {
+    auto messageVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfParamChangeVector) };
+    messageVector[2] = MIDI::opcode_ParameterChange;
+    messageVector[3] = param;
+    messageVector[4] = newValue;
+    return messageVector;
+}
+
+std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfPatchDataVector) };
+    rawDataVector[2] = MIDI::opcode_PatchData;
+    rawDataVector[3] = slot;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(patches::numberOfHeaderBytesInPatchDataMessage) };
+    rawDataVector[2] = MIDI::opcode_PatchData;
+    rawDataVector[3] = slot;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createPatchDataRequestMessage(uint8 slot) {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
+    rawDataVector[2] = MIDI::opcode_DataRequest;
+    rawDataVector[3] = MIDI::transmitCode_Patch;
+    rawDataVector[4] = slot;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createActivateQuickPatchEditingMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfQuickEditSelectVector) };
+    rawDataVector[2] = MIDI::opcode_ActivateQuickEdit;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createSwitchToSplitModeMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfSwitchToSplitModeVector) };
+    rawDataVector[1] = MIDI::deviceID_OberheimXpander;
+    rawDataVector[2] = MIDI::opcode_SwitchMode;
+    rawDataVector[3] = MIDI::transmitCode_Split;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createRawDataVectorWithSysExIDheaderBytes(int vectorSize) {
+    jassert(vectorSize > 0);
+    std::vector<uint8> rawDataVector(vectorSize);
+    rawDataVector[0] = (uint8)SysExID::TargetDevice::Manufacturer;
+    rawDataVector[1] = (uint8)SysExID::TargetDevice::Device;
+    return rawDataVector;
+}
+
+
+
+
+const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> programData;
     auto indexOfChecksumByte{ hexString.length() - 2 };
     for (auto i = 0; i != indexOfChecksumByte; ++i) {
@@ -21,7 +89,7 @@ const std::vector<uint8> RawPatchData::convertHexStringToDataVector(const String
     return programData;
 }
 
-const String RawPatchData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
+const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
     String hexString{ "" };
     auto indexOfChecksumByte{ dataVector.size() - 1 };
     for (auto i = 0; i < indexOfChecksumByte; ++i) {
@@ -33,7 +101,7 @@ const String RawPatchData::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
-void RawPatchData::addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
+void RawDataTools::addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
     uint8 checksum{ 0 };
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchName{ currentPatchOptions->currentPatchName() };
@@ -43,7 +111,7 @@ void RawPatchData::addCurrentParameterSettingsToDataVector(AudioProcessorValueTr
     dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
-void RawPatchData::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     applyPatchNumberToGUI(patchNumber, unexposedParams);
     applyNameOfPatchInRawDataToGUI(patchDataVector.data(), unexposedParams);
 
@@ -57,8 +125,7 @@ void RawPatchData::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vecto
     applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);
 }
 
-
-const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchData) {
+const String RawDataTools::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
     for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
         auto lsbByteValue{ (uint8)patchData[byte] };
@@ -76,18 +143,18 @@ const String RawPatchData::extractPatchNameFromRawPatchData(const uint8* patchDa
     return patchName;
 }
 
-void RawPatchData::applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams) {
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     currentPatchOptions->setCurrentPatchNumber(patchNumber);
 }
 
-void RawPatchData::applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams) {
     auto patchNameString{ extractPatchNameFromRawPatchData(patchData) };
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     currentPatchOptions->setCurrentPatchName(patchNameString);
 }
 
-void RawPatchData::applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams) {
+void RawDataTools::applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
@@ -104,7 +171,7 @@ void RawPatchData::applyRawPatchDataToExposedParameters(const uint8* patchData, 
     }
 }
 
-void RawPatchData::applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams) {
     for (auto i = 0; i != 10; ++i) {
         auto matrixModSettings{ unexposedParams->matrixModSettings_get() };
         auto modSourceLSByteValue{ patchData[i * 6] };
@@ -122,7 +189,7 @@ void RawPatchData::applyRawPatchDataToMatrixModParameters(const uint8* patchData
     }
 }
 
-void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum) {
+void RawDataTools::addPatchNameDataToVector(String& patchName, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != 8; ++i) {
         auto asciiValue{ (uint8)patchName[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
@@ -132,7 +199,7 @@ void RawPatchData::addPatchNameDataToVector(String& patchName, std::vector<uint8
     }
 }
 
-uint8 RawPatchData::truncateASCIIvalueToLowest6bits(uint8 value) {
+uint8 RawDataTools::truncateASCIIvalueToLowest6bits(uint8 value) {
     auto truncatedValue{ uint8(value % patches::seventhBit) };
     if (value == patches::valueForBarSymbol_ASCII) {
         truncatedValue = patches::valueForBarSymbol_Matrix;
@@ -140,11 +207,11 @@ uint8 RawPatchData::truncateASCIIvalueToLowest6bits(uint8 value) {
     return truncatedValue;
 }
 
-void RawPatchData::restoreTruncated7thBitToASCIIvalue(uint8& value) {
+void RawDataTools::restoreTruncated7thBitToASCIIvalue(uint8& value) {
     value += patches::seventhBit;
 }
 
-void RawPatchData::addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
+void RawDataTools::addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
         auto paramID{ info.IDfor(paramIndex) };
@@ -162,7 +229,7 @@ void RawPatchData::addExposedParamDataToVector(AudioProcessorValueTreeState* exp
     }
 }
 
-void RawPatchData::addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
+void RawDataTools::addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != 10; ++i) {
         auto matrixModSettings{ unexposedParams->matrixModSettings_get() };
         auto modSource{ matrixModSettings->sourceSettingForModulation(i) };
@@ -181,35 +248,35 @@ void RawPatchData::addMatrixModDataToVector(UnexposedParameters* unexposedParams
     }
 }
 
-uint8 RawPatchData::formatSigned6bitValueForSendingToMatrix(uint8& value) {
-    auto valueWithOffset{ value -  matrixParams::offsetForSigned6bitRange };
+uint8 RawDataTools::formatSigned6bitValueForSendingToMatrix(uint8& value) {
+    auto valueWithOffset{ value - matrixParams::offsetForSigned6bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
 }
 
-uint8 RawPatchData::formatSigned7bitValueForSendingToMatrix(uint8& value) {
-    auto valueWithOffset{ value -  matrixParams::offsetForSigned7bitRange };
+uint8 RawDataTools::formatSigned7bitValueForSendingToMatrix(uint8& value) {
+    auto valueWithOffset{ value - matrixParams::offsetForSigned7bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
 }
 
-uint8 RawPatchData::formatSigned6bitValueForStoringInPlugin(int& value) {
+uint8 RawDataTools::formatSigned6bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto valueWithOffset{ value +  matrixParams::offsetForSigned6bitRange };
+    auto valueWithOffset{ value + matrixParams::offsetForSigned6bitRange };
     return (uint8)valueWithOffset;
 }
 
-uint8 RawPatchData::formatSigned7bitValueForStoringInPlugin(int& value) {
+uint8 RawDataTools::formatSigned7bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto valueWithOffset{ value +  matrixParams::offsetForSigned7bitRange };
+    auto valueWithOffset{ value + matrixParams::offsetForSigned7bitRange };
     return (uint8)valueWithOffset;
 }
 
-void RawPatchData::addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8* lsbByteLocation) {
+void RawDataTools::addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8* lsbByteLocation) {
     auto leastSignificantByte{ uint8(value % 16) };
     auto mostSignificantByte{ uint8(value / 16) };
     *lsbByteLocation = leastSignificantByte;
