@@ -68,7 +68,7 @@ void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 		auto dataVector{ RawSysExDataVector::initializePatchDataMessage(selectedSlot) };
 		RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
 		dataVector.erase(dataVector.begin(), dataVector.begin() + patches::numberOfHeaderBytesInPatchDataMessage);
-		auto patchDataHexString{ RawDataTools::convertDataVectorToHexString(dataVector) };
+		auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
 		setTextForPatchSlotToggleButton(selectedSlot);
@@ -80,7 +80,7 @@ void PatchSlotsComponent::loadPatchFromSelectedSlot() {
 	if (selectedSlot < patches::numberOfSlotsInBank) {
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot) };
-		auto patchDataVector{ RawDataTools::convertHexStringToDataVector(patchDataHexString) };
+		auto patchDataVector{ RawDataTools::convertPatchOrSplitHexStringToDataVector(patchDataHexString) };
 		RawDataTools::applyPatchDataVectorToGUI(selectedSlot, patchDataVector, exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}

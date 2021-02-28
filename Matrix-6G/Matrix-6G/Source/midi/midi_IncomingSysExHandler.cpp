@@ -43,7 +43,7 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
         auto midiOptions{ unexposedParams->midiOptions_get() };
         if (midiOptions->incomingPatchShouldBeSavedInCustomBankA() || midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
             auto patchBanks{ unexposedParams->patchBanks_get() };
-            auto patchDataHexString{ RawDataTools::convertDataVectorToHexString(patchDataVector) };
+            auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(patchDataVector) };
             const MessageManagerLock mmLock;
             if (midiOptions->incomingPatchShouldBeSavedInCustomBankA())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customA, slot);

@@ -40,7 +40,7 @@ std::vector<uint8> PatchDataMessage::createSysExMessageFromPatchDataStoredInBank
     auto dataVector{ RawSysExDataVector::createPatchDataMessageHeader(slot) };
     auto patchBanks{ unexposedParams->patchBanks_get() };
     auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, slot) };
-    auto patchDataVector{ RawDataTools::convertHexStringToDataVector(patchDataHexString) };
+    auto patchDataVector{ RawDataTools::convertPatchOrSplitHexStringToDataVector(patchDataHexString) };
     for (auto dataByte : patchDataVector)
         dataVector.push_back(dataByte);
     return dataVector;
