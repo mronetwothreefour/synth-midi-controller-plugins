@@ -9,6 +9,7 @@ UnexposedParameters::UnexposedParameters() :
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	patchBanks{ new PatchBanks() },
 	splitOptions{ new SplitOptions() },
+	splitsBank{ new SplitsBank() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -42,6 +43,10 @@ SplitOptions* UnexposedParameters::splitOptions_get() {
 	return splitOptions.get();
 }
 
+SplitsBank* UnexposedParameters::splitsBank_get() {
+	return splitsBank.get();
+}
+
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
 	return tooltipOptions.get();
 }
@@ -53,6 +58,7 @@ UndoManager* UnexposedParameters::undoManager_get() {
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
+	splitsBank = nullptr;
 	splitOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	midiOptions = nullptr;

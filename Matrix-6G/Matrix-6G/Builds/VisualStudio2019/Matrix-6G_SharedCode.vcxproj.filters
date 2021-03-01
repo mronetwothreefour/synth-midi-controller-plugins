@@ -2391,9 +2391,6 @@
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
-      <Filter>Matrix-6G\Source\midi</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
@@ -2502,9 +2499,6 @@
     <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_RawPatchData.cpp">
-      <Filter>Matrix-6G\Source\patches</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
@@ -2558,6 +2552,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_SplitsBank.cpp">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_SplitDataMessage.cpp">
+      <Filter>Matrix-6G\Source\midi</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4787,9 +4790,6 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
-      <Filter>Matrix-6G\Source\midi</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
@@ -4919,9 +4919,6 @@
     <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h">
       <Filter>Matrix-6G\Source\patches</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_RawPatchData.h">
-      <Filter>Matrix-6G\Source\patches</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h">
       <Filter>Matrix-6G\Source\gui</Filter>
     </ClInclude>
@@ -4990,6 +4987,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_SplitDataMessage.h">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_SplitsBank.h">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_Constants.h">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
+      <Filter>Matrix-6G\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

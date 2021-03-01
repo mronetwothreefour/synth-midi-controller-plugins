@@ -9,6 +9,7 @@
 #include "params_TooltipOptions.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
 #include "../patches/patches_PatchBanks.h"
+#include "../splits/splits_SplitsBank.h"
 
 
 
@@ -20,6 +21,7 @@ class UnexposedParameters
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
 	std::unique_ptr<PatchBanks> patchBanks;
 	std::unique_ptr<SplitOptions> splitOptions;
+	std::unique_ptr<SplitsBank> splitsBank;
 	std::unique_ptr<TooltipOptions> tooltipOptions;
 	std::unique_ptr<UndoManager> undoManager;
 
@@ -32,6 +34,7 @@ public:
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
 	PatchBanks* patchBanks_get();
 	SplitOptions* splitOptions_get();
+	SplitsBank* splitsBank_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
 	~UnexposedParameters();

@@ -11,11 +11,13 @@ namespace constants
 		static const uint8 opcode_DataRequest{ 4 };
 		static const uint8 opcode_PatchData{ 1 };
 		static const uint8 opcode_ParameterChange{ 6 };
+		static const uint8 opcode_SplitData{ 2 };
 		static const uint8 opcode_SwitchMode{ 13 };
 		static const uint8 transmitCode_Patch{ 1 };
 		static const uint8 transmitCode_Split{ 2 };
 		static const uint8 transmitCode_Master{ 3 };
 
+		static const int numberOfHeaderBytesInPatchAndSplitDataMessages{ 4 };
 		static const int patchDumpSlotNumberByte{ 4 };
 		static const int patchDumpFirstDataByte{ 5 };
 		static const int sizeOfDataDumpRequestVector{ 5 };

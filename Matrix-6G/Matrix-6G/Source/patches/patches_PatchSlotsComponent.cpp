@@ -3,6 +3,7 @@
 
 #include "patches_Constants.h"
 #include "../gui/gui_Constants.h"
+#include "../midi/midi_Constants.h"
 #include "../midi/midi_PatchDataMessage.h"
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
@@ -67,7 +68,7 @@ void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 	if (selectedSlot < patches::numberOfSlotsInBank) {
 		auto dataVector{ RawSysExDataVector::initializePatchDataMessage(selectedSlot) };
 		RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
-		dataVector.erase(dataVector.begin(), dataVector.begin() + patches::numberOfHeaderBytesInPatchDataMessage);
+		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages);
 		auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);

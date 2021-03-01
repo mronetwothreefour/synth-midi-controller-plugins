@@ -119,10 +119,13 @@ namespace ID
 	static const Identifier split_UpperZoneTranspose{ "split_UpperZoneTranspose" };
 	static const Identifier split_ZoneVoiceAssignment{ "split_ZoneVoiceAssignment" };
 	static const Identifier split_ZoneVolumeBalance{ "split_ZoneVolumeBalance" };
+	static const Identifier splits_DataHexStrings{ "splits_DataHexStrings" };
+	static const Identifier splits_NameStrings{ "splits_NameStrings" };
 
 	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
 	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };
 	static const Identifier state_CustomPatchBanks{ "state_CustomPatchBanks" };
+	static const Identifier state_SplitBanks{ "state_SplitBanks" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };

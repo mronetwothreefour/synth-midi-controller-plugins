@@ -94,7 +94,7 @@ int PatchBanks::patchSlotOutOfRange() {
 }
 
 const String PatchBanks::nameOfPatchInBankSlot(PatchBank bank, uint8 slot) {
-	jassert(slot < 128);
+	jassert(slot < patches::numberOfSlotsInBank);
 	switch (bank)
 	{
 	case PatchBank::analogSynthsA:
@@ -129,7 +129,7 @@ const String PatchBanks::nameOfPatchInBankSlot(PatchBank bank, uint8 slot) {
 }
 
 const String PatchBanks::getPatchDataHexStringFromBankSlot(PatchBank bank, uint8 slot) const {
-	jassert(slot < 128);
+	jassert(slot < patches::numberOfSlotsInBank);
 	auto& factoryPatchDataHexStrings{ FactoryPatchDataHexStrings::get() };
 	switch (bank)
 	{
@@ -166,7 +166,7 @@ const String PatchBanks::getPatchDataHexStringFromBankSlot(PatchBank bank, uint8
 
 void PatchBanks::storePatchDataHexStringInCustomBankSlot(String patchDataHexString, PatchBank bank, uint8 slot) {
 	jassert(bank == PatchBank::customA || bank == PatchBank::customB);
-	jassert(slot < 100);
+	jassert(slot < patches::numberOfSlotsInBank);
 	switch (bank)
 	{
 	case PatchBank::customA:

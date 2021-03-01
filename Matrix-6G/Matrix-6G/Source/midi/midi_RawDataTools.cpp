@@ -32,6 +32,7 @@ std::vector<uint8> RawSysExDataVector::createParamChangeMessage(uint8 newValue, 
 }
 
 std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
+    jassert(slot < patches::numberOfSlotsInBank);
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfPatchDataVector) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
@@ -39,13 +40,15 @@ std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
 }
 
 std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(patches::numberOfHeaderBytesInPatchDataMessage) };
+    jassert(slot < patches::numberOfSlotsInBank);
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
     return rawDataVector;
 }
 
 std::vector<uint8> RawSysExDataVector::createPatchDataRequestMessage(uint8 slot) {
+    jassert(slot < patches::numberOfSlotsInBank);
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
     rawDataVector[2] = MIDI::opcode_DataRequest;
     rawDataVector[3] = MIDI::transmitCode_Patch;
@@ -56,6 +59,31 @@ std::vector<uint8> RawSysExDataVector::createPatchDataRequestMessage(uint8 slot)
 std::vector<uint8> RawSysExDataVector::createActivateQuickPatchEditingMessage() {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfQuickEditSelectVector) };
     rawDataVector[2] = MIDI::opcode_ActivateQuickEdit;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::initializeSplitDataMessage(uint8 slot) {
+    jassert(slot < splits::numberOfSlotsInBank);
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfSplitDataVector) };
+    rawDataVector[2] = MIDI::opcode_SplitData;
+    rawDataVector[3] = slot;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createSplitDataMessageHeader(uint8 slot) {
+    jassert(slot < splits::numberOfSlotsInBank);
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages) };
+    rawDataVector[2] = MIDI::opcode_SplitData;
+    rawDataVector[3] = slot;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createSplitDataRequestMessage(uint8 slot) {
+    jassert(slot < splits::numberOfSlotsInBank);
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
+    rawDataVector[2] = MIDI::opcode_DataRequest;
+    rawDataVector[3] = MIDI::transmitCode_Split;
+    rawDataVector[4] = slot;
     return rawDataVector;
 }
 
@@ -199,16 +227,16 @@ void RawDataTools::applyRawPatchDataToExposedParameters(const uint8* patchData, 
 
 void RawDataTools::applyRawSplitDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams) {
     auto splitOptions{ unexposedParams->splitOptions_get() };
-    splitOptions->setLowerZonePatchNumber(splitData[0] + (splitData[1] * 16));
-    splitOptions->setUpperZonePatchNumber(splitData[2] + (splitData[3] * 16));
-    splitOptions->setLowerZoneLimit(splitData[4] + (splitData[5] * 16));
-    splitOptions->setLowerZoneTranspose(splitData[6] + (splitData[7] * 16));
-    splitOptions->setLowerZoneMidiOut(splitData[8] + (splitData[9] * 16));
-    splitOptions->setUpperZoneLimit(splitData[10] + (splitData[11] * 16));
-    splitOptions->setUpperZoneTranspose(splitData[12] + (splitData[13] * 16));
-    splitOptions->setUpperZoneMidiOut(splitData[14] + (splitData[15] * 16));
-    splitOptions->setZoneVolumeBalance(splitData[16] + (splitData[17] * 16));
-    splitOptions->setZoneVoiceAssignment(splitData[18] + (splitData[19] * 16));
+    splitOptions->setLowerZonePatchNumber(splitData[splits::indexOfLowerZonePatchNumberLSByte] + (splitData[splits::indexOfLowerZonePatchNumberLSByte + (uint8)1] * 16));
+    splitOptions->setUpperZonePatchNumber(splitData[splits::indexOfUpperZonePatchNumberLSByte] + (splitData[splits::indexOfUpperZonePatchNumberLSByte + (uint8)1] * 16));
+    splitOptions->setLowerZoneLimit(splitData[splits::indexOfLowerZoneLimitLSByte] + (splitData[splits::indexOfLowerZoneLimitLSByte + (uint8)1] * 16));
+    splitOptions->setLowerZoneTranspose(splitData[splits::indexOfLowerZoneTransposeLSByte] + (splitData[splits::indexOfLowerZoneTransposeLSByte + (uint8)1] * 16));
+    splitOptions->setLowerZoneMidiOut(splitData[splits::indexOfLowerZoneMIDIoutLSByte] + (splitData[splits::indexOfLowerZoneMIDIoutLSByte + (uint8)1] * 16));
+    splitOptions->setUpperZoneLimit(splitData[splits::indexOfUpperZoneLimitLSByte] + (splitData[splits::indexOfUpperZoneLimitLSByte + (uint8)1] * 16));
+    splitOptions->setUpperZoneTranspose(splitData[splits::indexOfUpperZoneTransposeLSByte] + (splitData[splits::indexOfUpperZoneTransposeLSByte + (uint8)1] * 16));
+    splitOptions->setUpperZoneMidiOut(splitData[splits::indexOfUpperZoneMIDIoutLSByte] + (splitData[splits::indexOfUpperZoneMIDIoutLSByte + (uint8)1] * 16));
+    splitOptions->setZoneVolumeBalance(splitData[splits::indexOfZoneVolumeBalanceLSByte] + (splitData[splits::indexOfZoneVolumeBalanceLSByte + (uint8)1] * 16));
+    splitOptions->setZoneVoiceAssignment(splitData[splits::indexOfZoneVoiceAssignmentLSByte] + (splitData[splits::indexOfZoneVoiceAssignmentLSByte + (uint8)1] * 16));
 }
 
 void RawDataTools::applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams) {

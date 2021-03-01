@@ -23,6 +23,9 @@ struct RawSysExDataVector {
     static std::vector<uint8> createPatchDataMessageHeader(uint8 slot);
     static std::vector<uint8> createPatchDataRequestMessage(uint8 slot);
     static std::vector<uint8> createActivateQuickPatchEditingMessage();
+    static std::vector<uint8> initializeSplitDataMessage(uint8 slot);
+    static std::vector<uint8> createSplitDataMessageHeader(uint8 slot);
+    static std::vector<uint8> createSplitDataRequestMessage(uint8 slot);
     static std::vector<uint8> createSwitchToSplitModeMessage();
 
 private:
