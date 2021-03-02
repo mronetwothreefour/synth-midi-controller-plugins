@@ -2165,6 +2165,7 @@
     <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
     <ClCompile Include="..\..\Source\splits\splits_SplitsBank.cpp" />
     <ClCompile Include="..\..\Source\splits\splits_SplitsComponent.cpp" />
+    <ClCompile Include="..\..\Source\splits\splits_SplitSlotsComponent.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
@@ -2977,6 +2978,7 @@
     <ClInclude Include="..\..\Source\splits\splits_Constants.h" />
     <ClInclude Include="..\..\Source\splits\splits_SplitsBank.h" />
     <ClInclude Include="..\..\Source\splits\splits_SplitsComponent.h" />
+    <ClInclude Include="..\..\Source\splits\splits_SplitSlotsComponent.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />

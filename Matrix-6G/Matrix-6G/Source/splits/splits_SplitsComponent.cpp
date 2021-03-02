@@ -13,19 +13,17 @@ using namespace constants;
 SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	button_ForClosingSplitsComponent{ "" },
-	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams }
+	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
+	splitSlots{ unexposedParams }
 {
-	setSize(GUI::editor_w, GUI::editor_h);
-
 	button_ForClosingSplitsComponent.setComponentID(ID::button_X_Splits.toString());
 	addAndMakeVisible(button_ForClosingSplitsComponent);
-	button_ForClosingSplitsComponent.setBounds(GUI::bounds_SplitsComponentXbutton);
 	button_ForClosingSplitsComponent.onClick = [this] { hideThisComponent(); };
 	button_ForClosingSplitsComponent.setAlwaysOnTop(true);
-
 	comboBox_ForSelectingZoneVoiceAssignments.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingZoneVoiceAssignments);
-	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
+	addAndMakeVisible(splitSlots);
+	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void SplitsComponent::paint(Graphics& g) {
@@ -34,6 +32,12 @@ void SplitsComponent::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto windowImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(windowImage, GUI::splitsWindow_x, GUI::splitsWindow_y);
+}
+
+void SplitsComponent::resized() {
+	button_ForClosingSplitsComponent.setBounds(GUI::bounds_SplitsComponentXbutton);
+	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
+	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 }
 
 void SplitsComponent::buttonClicked(Button* /*button*/) {

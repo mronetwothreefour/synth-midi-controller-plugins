@@ -1,6 +1,5 @@
 #include "patches_PatchSlotsComponent.h"
 
-
 #include "patches_Constants.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
@@ -45,8 +44,8 @@ void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	if (tooltips->shouldShowDescription()) {
 		slotTooltip += "Click a patch's name to select it before using the buttons below.\n";
-		slotTooltip += "CTRL-c copies the selected patch's settings into the clipboard.\n";
-		slotTooltip += "CTRL-v overwrites the selected patch with the settings in the\n";
+		slotTooltip += "CTRL-C copies the selected patch's settings into the clipboard.\n";
+		slotTooltip += "CTRL-V overwrites the selected patch with the settings in the\n";
 		slotTooltip += "clipboard (only slots in Custom User Banks A & B can be overwritten).";
 	}
 	patchSlotButtons[slot].setTooltip(slotTooltip);
@@ -96,7 +95,7 @@ void PatchSlotsComponent::resized() {
 	for (auto i = 0; i != patches::numberOfSlotsInBank; ++i) {
 		auto col_x{ (i / 25) * (GUI::patchSlotRadioButtton_w + GUI::patchSlotRadioButtonsHorizontalGap) };
 		auto row_y{ (i % 25) * GUI::patchSlotRadioButtton_h };
-		patchSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtonsHorizontalGap);
+		patchSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtton_h);
 	}
 }
 

@@ -172,7 +172,7 @@ void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool is
 }
 
 void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
-	if (component.getComponentID() == ID::button_PatchSlotRadioButton.toString()) {
+	if (component.getComponentID() == ID::button_PatchSlotRadioButton.toString() || component.getComponentID() == ID::button_SplitSlotRadioButton.toString()) {
 		auto buttonColor{ Color::device };
 		if (isHighlighted)
 			buttonColor = buttonColor.brighter(0.4f);
@@ -181,7 +181,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::offWhite);
-		g.setFont(FontsMenu::fontFor_PatchSlotButtons);
+		g.setFont(FontsMenu::fontFor_PatchAndSplitSlotRadioButtons);
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);
 	}

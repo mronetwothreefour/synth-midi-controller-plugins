@@ -2562,6 +2562,9 @@
     <ClCompile Include="..\..\Source\midi\midi_SplitDataMessage.cpp">
       <Filter>Matrix-6G\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_SplitSlotsComponent.cpp">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4999,6 +5002,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
       <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_SplitSlotsComponent.h">
+      <Filter>Matrix-6G\Source\splits</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

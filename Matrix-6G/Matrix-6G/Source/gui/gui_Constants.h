@@ -122,6 +122,11 @@ namespace constants
 		static const int splitsControlsRow2_y{ 127 };
 		static const int splitsControlsRow3_y{ 197 };
 		static const int splitsControlsRow4_y{ 268 };
+		static const int splitSlotRadioButtton_h{ 16 };
+		static const int splitSlotRadioButtton_w{ 62 };
+		static const int splitSlotRadioButtonsHorizontalGap{ 7 };
+		static const int splitSlotsComponent_h{ 10 * splitSlotRadioButtton_h };
+		static const int splitSlotsComponent_w{ 5 * splitSlotRadioButtton_w + 4 * splitSlotRadioButtonsHorizontalGap };
 		static const int splitsWindow_x{ 435 };
 		static const int splitsWindow_y{ 36 };
 		static const int trackingGeneratorRenderer_h{ 80 };
@@ -181,6 +186,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
+		static const Rectangle<int> bounds_SplitSlotsComponent{ 460, 334, splitSlotsComponent_w, splitSlotsComponent_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

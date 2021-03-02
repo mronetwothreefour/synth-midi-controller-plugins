@@ -49,6 +49,7 @@ namespace ID
 	static const Identifier button_Redo{ "button_Redo" };
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Splits{ "button_Splits" };
+	static const Identifier button_SplitSlotRadioButton{ "button_SplitSlotRadioButton" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_X_Patches{ "button_X_Patches" };

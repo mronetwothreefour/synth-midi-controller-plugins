@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "splits_SplitSlotsComponent.h"
 #include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
 
 
@@ -15,12 +16,14 @@ class SplitsComponent :
     UnexposedParameters* unexposedParams;
     TextButton button_ForClosingSplitsComponent;
     ComboBoxForSelectingZoneVoiceAssignments comboBox_ForSelectingZoneVoiceAssignments;
+    SplitSlotsComponent splitSlots;
 
 public:
     SplitsComponent() = delete;
 
     explicit SplitsComponent(UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
+    void resized() override;
     void buttonClicked(Button* button) override;
     void comboBoxChanged(ComboBox* comboBox) override;
 
