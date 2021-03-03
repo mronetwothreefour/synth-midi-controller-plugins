@@ -12,7 +12,7 @@ ButtonForPullingPatchFromHardwareStorageSlot::ButtonForPullingPatchFromHardwareS
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());
-	setComponentID(ID::button_PullSelectedPatch.toString());
+	setComponentID(ID::button_PullSelectedPatchOrSplit.toString());
 }
 
 const String ButtonForPullingPatchFromHardwareStorageSlot::createButtonTooltipString() {
@@ -35,7 +35,7 @@ void ButtonForPullingPatchFromHardwareStorageSlot::onClickMethod() {
 		{
 			auto basicChannel{ midiOptions->basicChannel() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			outgoingBuffers->addPatchSelectMessage(basicChannel, slot);
+			outgoingBuffers->addProgramChangeMessage(basicChannel, slot);
 		}
 	);
 }

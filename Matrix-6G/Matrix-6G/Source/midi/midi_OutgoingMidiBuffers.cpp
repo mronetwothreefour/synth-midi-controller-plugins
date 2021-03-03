@@ -14,9 +14,9 @@ void OutgoingMidiBuffers::addDataMessage(const std::vector<uint8> messageVector)
 	aggregateAllMidiBuffersWithinA10msChunkOfTime(localMidiBuffer);
 }
 
-void OutgoingMidiBuffers::addPatchSelectMessage(int channel, int patchNumber) {
+void OutgoingMidiBuffers::addProgramChangeMessage(int channel, int programNumber) {
 	MidiBuffer localMidiBuffer;
-	localMidiBuffer.addEvent(MidiMessage::programChange(channel, patchNumber), 0);
+	localMidiBuffer.addEvent(MidiMessage::programChange(channel, programNumber), 0);
 	aggregateAllMidiBuffersWithinA10msChunkOfTime(localMidiBuffer);
 }
 

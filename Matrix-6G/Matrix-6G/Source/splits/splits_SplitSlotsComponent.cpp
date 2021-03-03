@@ -66,6 +66,7 @@ void SplitSlotsComponent::storeCurrentSplitSettingsInSelectedSlot() {
 		splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, selectedSlot);
 		setTextForSplitSlotToggleButton(selectedSlot);
 		repaint();
+		callAfterDelay(100, [this] { SplitDataMessage::addDataMessageForSplitStoredInSlotToOutgoingMidiBuffers(selectedSlot, unexposedParams); });
 	}
 }
 

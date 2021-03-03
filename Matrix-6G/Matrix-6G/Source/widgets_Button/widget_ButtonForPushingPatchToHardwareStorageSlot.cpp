@@ -35,7 +35,7 @@ void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
 			auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 			auto patchSlot{ currentPatchOptions->currentPatchNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			outgoingBuffers->addPatchSelectMessage(basicChannel, patchSlot);
+			outgoingBuffers->addProgramChangeMessage(basicChannel, patchSlot);
 		}
 	);
 }

@@ -73,7 +73,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonPatchesDown_png : BinaryData::ButtonPatchesUp_png;
 	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
 		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PullSelectedPatch.toString()
+		button.getComponentID() == ID::button_PullSelectedPatchOrSplit.toString()
 		)
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
 	if (button.getComponentID() == ID::button_Push.toString() ||
@@ -124,7 +124,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonPatchesDown_pngSize : BinaryData::ButtonPatchesUp_pngSize;
 	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
 		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PullSelectedPatch.toString()
+		button.getComponentID() == ID::button_PullSelectedPatchOrSplit.toString()
 		)
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
 	if (button.getComponentID() == ID::button_Push.toString() ||

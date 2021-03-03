@@ -14,7 +14,7 @@ public:
 	OutgoingMidiBuffers();
 
 	void addDataMessage(const std::vector<uint8> messageVector);
-	void addPatchSelectMessage(int channel, int patchNumber);
+	void addProgramChangeMessage(int channel, int programNumber);
 
 private:
 	void aggregateAllMidiBuffersWithinA10msChunkOfTime(MidiBuffer& midiBuffer);

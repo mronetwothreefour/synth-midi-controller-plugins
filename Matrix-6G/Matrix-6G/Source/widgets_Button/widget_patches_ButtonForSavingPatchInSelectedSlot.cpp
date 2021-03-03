@@ -1,8 +1,11 @@
 #include "widget_patches_ButtonForSavingPatchInSelectedSlot.h"
 
+#include "../patches/patches_Constants.h"
 #include "../patches/patches_PatchSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -28,5 +31,19 @@ const String ButtonForSavingPatchInSelectedSlot::createButtonTooltipString() {
 }
 
 void ButtonForSavingPatchInSelectedSlot::onClickMethod() {
-	patchSlots.storeCurrentPatchSettingsInSelectedSlot();
+	if (patchSlots.selectedSlot < patches::numberOfSlotsInBank) {
+		patchSlots.storeCurrentPatchSettingsInSelectedSlot();
+		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto transmitTime{ midiOptions->patchTransmitTime() };
+		callAfterDelay(transmitTime, [this, midiOptions]
+			{
+				auto basicChannel{ midiOptions->basicChannel() };
+				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)patchSlots.selectedSlot);
+			}
+		);
+	}
+}
+
+void ButtonForSavingPatchInSelectedSlot::timerCallback() {
 }

@@ -78,7 +78,7 @@ void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchS
 			{
 				auto midiOptions{ unexposedParams->midiOptions_get() };
 				auto basicChannel{ midiOptions->basicChannel() };
-				outgoingBuffers->addPatchSelectMessage(basicChannel, patchSlot);
+				outgoingBuffers->addProgramChangeMessage(basicChannel, patchSlot);
 			}
 		);
 	}

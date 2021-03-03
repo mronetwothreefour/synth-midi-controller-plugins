@@ -6,21 +6,21 @@
 
 
 
-class PatchSlotsComponent;
+class SplitSlotsComponent;
 class UnexposedParameters;
 
-class ButtonForSavingPatchInSelectedSlot :
+class ButtonForLoadingSelectedSplit :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	private Timer
 {
-	PatchSlotsComponent& patchSlots;
+	SplitSlotsComponent& splitSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
-	ButtonForSavingPatchInSelectedSlot() = delete;
+	ButtonForLoadingSelectedSplit() = delete;
 
-	ButtonForSavingPatchInSelectedSlot(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForLoadingSelectedSplit(SplitSlotsComponent& splitSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -30,5 +30,5 @@ private:
 	void timerCallback() override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingPatchInSelectedSlot)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedSplit)
 };

@@ -26,7 +26,7 @@ std::vector<uint8> SplitDataMessage::createSysExMessageFromSplitDataStoredInSlot
     auto splitsBank{ unexposedParams->splitsBank_get() };
     auto splitDataHexString{ splitsBank->getSplitDataHexStringFromSlot(slot) };
     auto splitDataVector{ RawDataTools::convertPatchOrSplitHexStringToDataVector(splitDataHexString) };
-    for (auto dataByte : splitDataHexString)
+    for (auto dataByte : splitDataVector)
         dataVector.push_back(dataByte);
     return dataVector;
 }

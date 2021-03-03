@@ -73,6 +73,7 @@ void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
 		setTextForPatchSlotToggleButton(selectedSlot);
 		repaint();
+		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
 

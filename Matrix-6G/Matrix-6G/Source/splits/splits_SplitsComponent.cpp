@@ -14,7 +14,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	button_ForClosingSplitsComponent{ "" },
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
-	splitSlots{ unexposedParams }
+	splitSlots{ unexposedParams },
+	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
+	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams }
 {
 	button_ForClosingSplitsComponent.setComponentID(ID::button_X_Splits.toString());
 	addAndMakeVisible(button_ForClosingSplitsComponent);
@@ -23,6 +25,8 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	comboBox_ForSelectingZoneVoiceAssignments.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingZoneVoiceAssignments);
 	addAndMakeVisible(splitSlots);
+	addAndMakeVisible(button_ForLoadingSelectedSplit);
+	addAndMakeVisible(button_ForPullingSelectedSplitFromHardware);
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -38,6 +42,8 @@ void SplitsComponent::resized() {
 	button_ForClosingSplitsComponent.setBounds(GUI::bounds_SplitsComponentXbutton);
 	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
+	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
+	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
 }
 
 void SplitsComponent::buttonClicked(Button* /*button*/) {
