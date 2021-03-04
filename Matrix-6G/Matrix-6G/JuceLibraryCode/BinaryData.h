@@ -1,3 +1,9 @@
+/* =========================================================================================
+
+   This is an auto-generated file: Any edits you make may be overwritten!
+
+*/
+
 #pragma once
 
 namespace BinaryData
@@ -114,7 +120,7 @@ namespace BinaryData
     const int            TitlePushingEntireBank_pngSize = 2468;
 
     extern const char* SplitsWindow_png;
-    const int            SplitsWindow_pngSize = 12728;
+    const int            SplitsWindow_pngSize = 12762;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 38;
