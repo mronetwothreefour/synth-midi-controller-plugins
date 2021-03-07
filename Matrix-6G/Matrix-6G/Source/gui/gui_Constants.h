@@ -185,6 +185,7 @@ namespace constants
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
+		static const Rectangle<int> bounds_SplitNameEditor{ 510, splitsControlsRow1_y, 70, controls_h };
 		static const Rectangle<int> bounds_SplitsComponentLoadButton{ 525, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentPullSelectedSplitButton{ 603, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };

@@ -33,6 +33,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
 	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -41,8 +42,9 @@ void PatchNumberAndNameLayer::resized() {
 	patchNameEditor.setBounds(GUI::bounds_PatchNameEditor);
 }
 
-void PatchNumberAndNameLayer::editorShown(Label* /*label*/, TextEditor& editor) {
-	editor.setInputRestrictions(matrixParams::maxPatchNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
+void PatchNumberAndNameLayer::editorShown(Label* label, TextEditor& editor) {
+	if (label == &patchNameEditor)
+		editor.setInputRestrictions(matrixParams::maxPatchNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
 }
 
 void PatchNumberAndNameLayer::labelTextChanged(Label* label) {

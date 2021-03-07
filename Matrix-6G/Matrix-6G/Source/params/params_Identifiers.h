@@ -65,6 +65,7 @@ namespace ID
 	static const Identifier currentPatch_Options{ "currentPatch_Options" };
 
 	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
+	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
 
 	static const Identifier matrixMod_AmountForMod_0{ "matrixMod_AmountForMod_0" };
 	static const Identifier matrixMod_AmountForMod_1{ "matrixMod_AmountForMod_1" };
