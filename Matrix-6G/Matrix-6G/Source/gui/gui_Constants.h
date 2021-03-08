@@ -191,6 +191,7 @@ namespace constants
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
 		static const Rectangle<int> bounds_SplitSlotsComponent{ 460, 334, splitSlotsComponent_w, splitSlotsComponent_h };
+		static const Rectangle<int> bounds_SplitZoneVolumeBalance{ 594, splitsControlsRow2_y, 172, controls_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

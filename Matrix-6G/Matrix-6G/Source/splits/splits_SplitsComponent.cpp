@@ -16,6 +16,7 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	button_ForClosingSplitsComponent{ "" },
 	splitNameEditor{ "splitNameEditor", "" },
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
+	slider_ForSettingZoneVolumeBalance{ unexposedParams },
 	splitSlots{ unexposedParams },
 	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
 	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams }
@@ -37,6 +38,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	comboBox_ForSelectingZoneVoiceAssignments.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingZoneVoiceAssignments);
 
+	slider_ForSettingZoneVolumeBalance.addListener(this);
+	addAndMakeVisible(slider_ForSettingZoneVolumeBalance);
+
 	addAndMakeVisible(splitSlots);
 	addAndMakeVisible(button_ForLoadingSelectedSplit);
 	addAndMakeVisible(button_ForPullingSelectedSplitFromHardware);
@@ -56,6 +60,7 @@ void SplitsComponent::resized() {
 	button_ForClosingSplitsComponent.setBounds(GUI::bounds_SplitsComponentXbutton);
 	splitNameEditor.setBounds(GUI::bounds_SplitNameEditor);
 	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
+	slider_ForSettingZoneVolumeBalance.setBounds(GUI::bounds_SplitZoneVolumeBalance);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
 	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
@@ -99,13 +104,19 @@ String SplitsComponent::generateSplitNameTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Click to edit the name of the split (6 characters max.)\n";
-		tooltipText += "The name will not be updated until you select one of\n";
-		tooltipText += "the storage slots below and click the SAVE button.";
+		tooltipText += "NOTE: Changes made to split parameters are not\n";
+		tooltipText += "sent to the hardware until you SAVE the split in\n";
+		tooltipText += "one of the storage bank slots below.";
 	}
 	return tooltipText;
 }
 
 void SplitsComponent::sliderValueChanged(Slider* slider) {
+	if (slider == &slider_ForSettingZoneVolumeBalance) {
+		auto currentValue{ (uint8)roundToInt(slider->getValue()) };
+		auto splitOptions{ unexposedParams->splitOptions_get() };
+		splitOptions->setZoneVolumeBalance(currentValue);
+	}
 }
 
 void SplitsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -124,6 +135,7 @@ void SplitsComponent::hideThisComponent() {
 }
 
 SplitsComponent::~SplitsComponent() {
+	slider_ForSettingZoneVolumeBalance.removeListener(this);
 	comboBox_ForSelectingZoneVoiceAssignments.removeListener(this);
 	splitNameEditor.removeListener(this);
 	auto splitOptions{ unexposedParams->splitOptions_get() };

@@ -31,6 +31,16 @@ RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters
 
 
 
+LinearSliderWithMouseWheelMod::LinearSliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelMod{ unexposedParams }
+{
+	setSliderStyle(Slider::LinearHorizontal);
+	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+}
+
+
+
+
 LinearSliderWithMouseWheelModAndReversedRange::LinearSliderWithMouseWheelModAndReversedRange(UnexposedParameters* unexposedParams) :
 	SliderWithMouseWheelMod{ unexposedParams }
 {
@@ -45,3 +55,4 @@ double LinearSliderWithMouseWheelModAndReversedRange::proportionOfLengthToValue(
 double LinearSliderWithMouseWheelModAndReversedRange::valueToProportionOfLength(double value) {
 	return 1.0f - Slider::valueToProportionOfLength(value);
 }
+

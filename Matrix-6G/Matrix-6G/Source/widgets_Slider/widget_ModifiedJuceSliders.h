@@ -36,6 +36,17 @@ public:
 
 
 
+class LinearSliderWithMouseWheelMod : public SliderWithMouseWheelMod
+{
+public:
+	LinearSliderWithMouseWheelMod() = delete;
+
+	explicit LinearSliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
+};
+
+
+
+
 class LinearSliderWithMouseWheelModAndReversedRange : public SliderWithMouseWheelMod
 {
 public:

@@ -29,7 +29,7 @@ String SliderForSettingAmountForMatrixMod::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Sets whether and to what degree the selected source\n";
-		tooltipText += "modulates the selected destination. Matrix Mod \n";
+		tooltipText += "modulates the selected destination. Matrix Mod\n";
 		tooltipText += "settings cannot be changed via Quick Edit. Use the\n";
 		tooltipText += "Push button (below the logo) to send the entire\n";
 		tooltipText += "patch to the selected storage slot on the hardware.\n";
