@@ -159,13 +159,13 @@ IntToSigned6bitValueString* IntToSigned6bitValueString::get() noexcept {
 
 
 String IntToOscPitchString::conversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 64);
+	jassert(i < 128);
 	String pitchName{ IntToPitchName::convert(i) };
 	return pitchName;
 }
 
 String IntToOscPitchString::verboseConversionAlgorithm(const uint8& i) noexcept {
-	jassert(i < 64);
+	jassert(i < 128);
 	String pitchName{ IntToPitchName::convert(i) };
 	pitchName += " (MIDI Note " + String(i) + ")";
 	return pitchName;

@@ -6,6 +6,7 @@
 #include "../widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.h"
 #include "../widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.h"
 #include "../widgets_Label/widget_EditableLabel.h"
+#include "../widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.h"
 
 
@@ -25,6 +26,8 @@ class SplitsComponent :
     EditableLabel splitNameEditor;
     ComboBoxForSelectingZoneVoiceAssignments comboBox_ForSelectingZoneVoiceAssignments;
     SliderForSettingZoneVolumeBalance slider_ForSettingZoneVolumeBalance;
+    SliderForSettingZonePatchNumber slider_ForSettingLowerZonePatchNumber;
+    SliderForSettingZonePatchNumber slider_ForSettingUpperZonePatchNumber;
     SplitSlotsComponent splitSlots;
     ButtonForLoadingSelectedSplit button_ForLoadingSelectedSplit;
     ButtonForPullingSelectedSplitFromHardware button_ForPullingSelectedSplitFromHardware;

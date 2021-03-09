@@ -2194,6 +2194,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -3012,6 +3013,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.h" />
   </ItemGroup>
   <ItemGroup>

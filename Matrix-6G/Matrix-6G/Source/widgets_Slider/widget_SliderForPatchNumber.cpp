@@ -29,7 +29,7 @@ void SliderForPatchNumber::valueTreePropertyChanged(ValueTree& tree, const Ident
 }
 
 void SliderForPatchNumber::paint(Graphics& g) {
-	auto currentValue{ (int8)roundToInt(getValue()) };
+	auto currentValue{ (uint8)roundToInt(getValue()) };
 	auto converter{ IntToUnsignedValueWithLeadingZeroString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
