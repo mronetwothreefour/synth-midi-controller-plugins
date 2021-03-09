@@ -2196,6 +2196,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneTranspose.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -3016,6 +3017,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneTranspose.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.h" />
   </ItemGroup>
   <ItemGroup>

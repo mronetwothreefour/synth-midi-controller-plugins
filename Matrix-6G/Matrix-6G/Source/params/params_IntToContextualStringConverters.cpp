@@ -814,6 +814,9 @@ IntToPatchBankName* IntToPatchBankName::get() noexcept {
 	return &converter;
 }
 
+
+
+
 String IntToZoneVoiceAssignment::conversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
 	if (i == 0) return "2/4";
@@ -834,5 +837,31 @@ String IntToZoneVoiceAssignment::verboseConversionAlgorithm(const uint8& i) noex
 
 IntToZoneVoiceAssignment* IntToZoneVoiceAssignment::get() noexcept {
 	static IntToZoneVoiceAssignment converter;
+	return &converter;
+}
+
+
+
+
+String IntToZoneTranspose::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 61);
+	if (i < 37)
+		return (String)(i - 36);
+	else
+		return "+" + (String)(i - 36);
+}
+
+String IntToZoneTranspose::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 61);
+	if (i < 34) return (String)(i - 36) + " semitones";
+	if (i == 35) return "-1 semitone";
+	if (i == 36) return "No Transposition";
+	if (i == 37) return "+1 semitone";
+	if (i > 37) return "+" + (String)(i - 36) + " semitones";
+	else return "range error";
+}
+
+IntToZoneTranspose* IntToZoneTranspose::get() noexcept {
+	static IntToZoneTranspose converter;
 	return &converter;
 }

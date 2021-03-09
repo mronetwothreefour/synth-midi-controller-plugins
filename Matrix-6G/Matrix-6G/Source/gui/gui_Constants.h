@@ -134,6 +134,8 @@ namespace constants
 		static const int splitZoneLimit_x{ 485 };
 		static const int splitZonePatchNumber_w{ 26 };
 		static const int splitZonePatchNumber_x{ 596 };
+		static const int splitZoneTranspose_w{ 37 };
+		static const int splitZoneTranspose_x{ 678 };
 		static const int trackingGeneratorRenderer_h{ 80 };
 		static const int trackingGeneratorRenderer_w{ 150 };
 		static const int trackingGeneratorRenderer_x{ 840 };
@@ -196,9 +198,11 @@ namespace constants
 		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
 		static const Rectangle<int> bounds_SplitLowerZoneLimit{ splitZoneLimit_x, splitsControlsRow3_y, splitZoneLimit_w, controls_h };
 		static const Rectangle<int> bounds_SplitLowerZonePatchNumber{ splitZonePatchNumber_x, splitsControlsRow3_y, splitZonePatchNumber_w, controls_h };
+		static const Rectangle<int> bounds_SplitLowerZoneTranspose{ splitZoneTranspose_x, splitsControlsRow3_y, splitZoneTranspose_w, controls_h };
 		static const Rectangle<int> bounds_SplitSlotsComponent{ 460, 334, splitSlotsComponent_w, splitSlotsComponent_h };
 		static const Rectangle<int> bounds_SplitUpperZoneLimit{ splitZoneLimit_x, splitsControlsRow4_y, splitZoneLimit_w, controls_h };
 		static const Rectangle<int> bounds_SplitUpperZonePatchNumber{ splitZonePatchNumber_x, splitsControlsRow4_y, splitZonePatchNumber_w, controls_h };
+		static const Rectangle<int> bounds_SplitUpperZoneTranspose{ splitZoneTranspose_x, splitsControlsRow4_y, splitZoneTranspose_w, controls_h };
 		static const Rectangle<int> bounds_SplitZoneVolumeBalance{ 594, splitsControlsRow2_y, 172, controls_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 

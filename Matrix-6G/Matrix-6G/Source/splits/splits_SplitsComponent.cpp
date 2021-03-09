@@ -18,8 +18,10 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
 	slider_ForSettingLowerZoneLimit{ unexposedParams, ID::split_LowerZoneLimit },
 	slider_ForSettingLowerZonePatchNumber{ unexposedParams, ID::split_LowerZonePatchNumber },
+	slider_ForSettingLowerZoneTranspose{ unexposedParams, ID::split_LowerZoneTranspose },
 	slider_ForSettingUpperZoneLimit{ unexposedParams, ID::split_UpperZoneLimit },
 	slider_ForSettingUpperZonePatchNumber{ unexposedParams, ID::split_UpperZonePatchNumber },
+	slider_ForSettingUpperZoneTranspose{ unexposedParams, ID::split_UpperZoneTranspose },
 	slider_ForSettingZoneVolumeBalance{ unexposedParams },
 	splitSlots{ unexposedParams },
 	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
@@ -51,11 +53,17 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	slider_ForSettingLowerZonePatchNumber.addListener(this);
 	addAndMakeVisible(slider_ForSettingLowerZonePatchNumber);
 
+	slider_ForSettingLowerZoneTranspose.addListener(this);
+	addAndMakeVisible(slider_ForSettingLowerZoneTranspose);
+
 	slider_ForSettingUpperZoneLimit.addListener(this);
 	addAndMakeVisible(slider_ForSettingUpperZoneLimit);
 
 	slider_ForSettingUpperZonePatchNumber.addListener(this);
 	addAndMakeVisible(slider_ForSettingUpperZonePatchNumber);
+
+	slider_ForSettingUpperZoneTranspose.addListener(this);
+	addAndMakeVisible(slider_ForSettingUpperZoneTranspose);
 
 	addAndMakeVisible(splitSlots);
 	addAndMakeVisible(button_ForLoadingSelectedSplit);
@@ -79,8 +87,10 @@ void SplitsComponent::resized() {
 	slider_ForSettingZoneVolumeBalance.setBounds(GUI::bounds_SplitZoneVolumeBalance);
 	slider_ForSettingLowerZoneLimit.setBounds(GUI::bounds_SplitLowerZoneLimit);
 	slider_ForSettingLowerZonePatchNumber.setBounds(GUI::bounds_SplitLowerZonePatchNumber);
+	slider_ForSettingLowerZoneTranspose.setBounds(GUI::bounds_SplitLowerZoneTranspose);
 	slider_ForSettingUpperZoneLimit.setBounds(GUI::bounds_SplitUpperZoneLimit);
 	slider_ForSettingUpperZonePatchNumber.setBounds(GUI::bounds_SplitUpperZonePatchNumber);
+	slider_ForSettingUpperZoneTranspose.setBounds(GUI::bounds_SplitUpperZoneTranspose);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
 	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
@@ -140,10 +150,14 @@ void SplitsComponent::sliderValueChanged(Slider* slider) {
 		splitOptions->setLowerZoneLimit(currentValue);
 	if (slider == &slider_ForSettingLowerZonePatchNumber)
 		splitOptions->setLowerZonePatchNumber(currentValue);
+	if (slider == &slider_ForSettingLowerZoneTranspose)
+		splitOptions->setLowerZoneTranspose(currentValue);
 	if (slider == &slider_ForSettingUpperZoneLimit)
 		splitOptions->setUpperZoneLimit(currentValue);
 	if (slider == &slider_ForSettingUpperZonePatchNumber)
 		splitOptions->setUpperZonePatchNumber(currentValue);
+	if (slider == &slider_ForSettingUpperZoneTranspose)
+		splitOptions->setUpperZoneTranspose(currentValue);
 }
 
 void SplitsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -162,8 +176,10 @@ void SplitsComponent::hideThisComponent() {
 }
 
 SplitsComponent::~SplitsComponent() {
+	slider_ForSettingUpperZoneTranspose.removeListener(this);
 	slider_ForSettingUpperZonePatchNumber.removeListener(this);
 	slider_ForSettingUpperZoneLimit.removeListener(this);
+	slider_ForSettingLowerZoneTranspose.removeListener(this);
 	slider_ForSettingLowerZonePatchNumber.removeListener(this);
 	slider_ForSettingLowerZoneLimit.removeListener(this);
 	slider_ForSettingZoneVolumeBalance.removeListener(this);
