@@ -16,7 +16,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	button_ForClosingSplitsComponent{ "" },
 	splitNameEditor{ "splitNameEditor", "" },
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
+	slider_ForSettingLowerZoneLimit{ unexposedParams, ID::split_LowerZoneLimit },
 	slider_ForSettingLowerZonePatchNumber{ unexposedParams, ID::split_LowerZonePatchNumber },
+	slider_ForSettingUpperZoneLimit{ unexposedParams, ID::split_UpperZoneLimit },
 	slider_ForSettingUpperZonePatchNumber{ unexposedParams, ID::split_UpperZonePatchNumber },
 	slider_ForSettingZoneVolumeBalance{ unexposedParams },
 	splitSlots{ unexposedParams },
@@ -43,8 +45,14 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	slider_ForSettingZoneVolumeBalance.addListener(this);
 	addAndMakeVisible(slider_ForSettingZoneVolumeBalance);
 
+	slider_ForSettingLowerZoneLimit.addListener(this);
+	addAndMakeVisible(slider_ForSettingLowerZoneLimit);
+
 	slider_ForSettingLowerZonePatchNumber.addListener(this);
 	addAndMakeVisible(slider_ForSettingLowerZonePatchNumber);
+
+	slider_ForSettingUpperZoneLimit.addListener(this);
+	addAndMakeVisible(slider_ForSettingUpperZoneLimit);
 
 	slider_ForSettingUpperZonePatchNumber.addListener(this);
 	addAndMakeVisible(slider_ForSettingUpperZonePatchNumber);
@@ -69,7 +77,9 @@ void SplitsComponent::resized() {
 	splitNameEditor.setBounds(GUI::bounds_SplitNameEditor);
 	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
 	slider_ForSettingZoneVolumeBalance.setBounds(GUI::bounds_SplitZoneVolumeBalance);
+	slider_ForSettingLowerZoneLimit.setBounds(GUI::bounds_SplitLowerZoneLimit);
 	slider_ForSettingLowerZonePatchNumber.setBounds(GUI::bounds_SplitLowerZonePatchNumber);
+	slider_ForSettingUpperZoneLimit.setBounds(GUI::bounds_SplitUpperZoneLimit);
 	slider_ForSettingUpperZonePatchNumber.setBounds(GUI::bounds_SplitUpperZonePatchNumber);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
@@ -126,8 +136,12 @@ void SplitsComponent::sliderValueChanged(Slider* slider) {
 	auto currentValue{ (uint8)roundToInt(slider->getValue()) };
 	if (slider == &slider_ForSettingZoneVolumeBalance)
 		splitOptions->setZoneVolumeBalance(currentValue);
+	if (slider == &slider_ForSettingLowerZoneLimit)
+		splitOptions->setLowerZoneLimit(currentValue);
 	if (slider == &slider_ForSettingLowerZonePatchNumber)
 		splitOptions->setLowerZonePatchNumber(currentValue);
+	if (slider == &slider_ForSettingUpperZoneLimit)
+		splitOptions->setUpperZoneLimit(currentValue);
 	if (slider == &slider_ForSettingUpperZonePatchNumber)
 		splitOptions->setUpperZonePatchNumber(currentValue);
 }
@@ -149,7 +163,9 @@ void SplitsComponent::hideThisComponent() {
 
 SplitsComponent::~SplitsComponent() {
 	slider_ForSettingUpperZonePatchNumber.removeListener(this);
+	slider_ForSettingUpperZoneLimit.removeListener(this);
 	slider_ForSettingLowerZonePatchNumber.removeListener(this);
+	slider_ForSettingLowerZoneLimit.removeListener(this);
 	slider_ForSettingZoneVolumeBalance.removeListener(this);
 	comboBox_ForSelectingZoneVoiceAssignments.removeListener(this);
 	splitNameEditor.removeListener(this);

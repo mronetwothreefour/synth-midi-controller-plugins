@@ -6,7 +6,7 @@
 
 
 
-class SliderForSettingZonePatchNumber :
+class SliderForSettingZoneLimit :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
@@ -14,16 +14,16 @@ class SliderForSettingZonePatchNumber :
 	Identifier parameterID;
 
 public:
-	SliderForSettingZonePatchNumber() = delete;
+	SliderForSettingZoneLimit() = delete;
 
-	SliderForSettingZonePatchNumber(UnexposedParameters* unexposedParams, Identifier parameterID);
+	SliderForSettingZoneLimit(UnexposedParameters* unexposedParams, Identifier parameterID);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
-	~SliderForSettingZonePatchNumber() override;
+	~SliderForSettingZoneLimit() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingZonePatchNumber)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingZoneLimit)
 };
 
