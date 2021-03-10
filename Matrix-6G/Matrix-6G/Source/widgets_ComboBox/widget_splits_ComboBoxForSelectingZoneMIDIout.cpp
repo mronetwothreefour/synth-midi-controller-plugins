@@ -1,4 +1,4 @@
-#include "widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
+#include "widget_splits_ComboBoxForSelectingZoneMIDIout.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
@@ -7,39 +7,36 @@
 
 
 
-ComboBoxForSelectingZoneVoiceAssignments::ComboBoxForSelectingZoneVoiceAssignments(UnexposedParameters* unexposedParams) :
+ComboBoxForSelectingZoneMIDIout::ComboBoxForSelectingZoneMIDIout(UnexposedParameters* unexposedParams, Identifier parameterID) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::split_ZoneVoiceAssignment }
+	parameterID{ parameterID }
 {
+	jassert(parameterID == ID::split_LowerZoneMidiOut || parameterID == ID::split_UpperZoneMidiOut);
 	auto splitOptions{ unexposedParams->splitOptions_get() };
 	splitOptions->addListener(this);
 	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
 	StringArray choices;
-	auto converter{ IntToZoneVoiceAssignment::get() };
-	for (uint8 i = 0; i != 4; ++i)
+	auto converter{ IntToOffOnString::get() };
+	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ splitOptions->zoneVoiceAssignment() };
+	auto paramValue{ parameterID == ID::split_LowerZoneMidiOut ? splitOptions->lowerZoneMidiOut() : splitOptions->upperZoneMidiOut() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
-String ComboBoxForSelectingZoneVoiceAssignments::generateTooltipString() {
+String ComboBoxForSelectingZoneMIDIout::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects how the hardware's six voices are distributed\n";
-		tooltipText += "between the lower and upper zones. Options where\n";
-		tooltipText += "one of the zones is assigned no voices are intended\n";
-		tooltipText += "for playing the Matrix-6R and another MIDI device\n";
-		tooltipText += "with a single controller. Make sure MIDI Out is on\n";
-		tooltipText += "for the zone that targets the additional device.\n";
+		tooltipText += "Selects whether the zone transmits and receives MIDI\n";
+		tooltipText += "messages on the basic channel (set in MASTER).\n";
 		tooltipText += "NOTE: Changes made to split parameters are not\n";
 		tooltipText += "sent to the hardware until you SAVE the split in\n";
 		tooltipText += "one of the storage bank slots below.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
-		auto converter{ IntToZoneVoiceAssignment::get() };
+		auto converter{ IntToOffOnString::get() };
 		auto currentValue{ (uint8)roundToInt(getSelectedItemIndex()) };
 		tooltipText += "Current setting: ";
 		tooltipText += converter->verboseConvert(currentValue);
@@ -47,7 +44,7 @@ String ComboBoxForSelectingZoneVoiceAssignments::generateTooltipString() {
 	return tooltipText;
 }
 
-void ComboBoxForSelectingZoneVoiceAssignments::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ComboBoxForSelectingZoneMIDIout::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
@@ -55,14 +52,14 @@ void ComboBoxForSelectingZoneVoiceAssignments::valueTreePropertyChanged(ValueTre
 	}
 }
 
-void ComboBoxForSelectingZoneVoiceAssignments::paint(Graphics& g) {
+void ComboBoxForSelectingZoneMIDIout::paint(Graphics& g) {
 	auto currentValue{ (uint8)getSelectedItemIndex() };
-	auto converter{ IntToZoneVoiceAssignment::get() };
+	auto converter{ IntToOffOnString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
-ComboBoxForSelectingZoneVoiceAssignments::~ComboBoxForSelectingZoneVoiceAssignments() {
+ComboBoxForSelectingZoneMIDIout::~ComboBoxForSelectingZoneMIDIout() {
 	auto splitOptions{ unexposedParams->splitOptions_get() };
 	splitOptions->removeListener(this);
 }

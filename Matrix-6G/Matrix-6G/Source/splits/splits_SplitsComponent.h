@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 #include "splits_SplitSlotsComponent.h"
+#include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.h"
 #include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
 #include "../widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.h"
 #include "../widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.h"
@@ -31,9 +32,11 @@ class SplitsComponent :
     SliderForSettingZoneLimit slider_ForSettingLowerZoneLimit;
     SliderForSettingZonePatchNumber slider_ForSettingLowerZonePatchNumber;
     SliderForSettingZoneTranspose slider_ForSettingLowerZoneTranspose;
+    ComboBoxForSelectingZoneMIDIout comboBox_ForSelectingLowerZoneMIDIout;
     SliderForSettingZoneLimit slider_ForSettingUpperZoneLimit;
     SliderForSettingZonePatchNumber slider_ForSettingUpperZonePatchNumber;
     SliderForSettingZoneTranspose slider_ForSettingUpperZoneTranspose;
+    ComboBoxForSelectingZoneMIDIout comboBox_ForSelectingUpperZoneMIDIout;
     SplitSlotsComponent splitSlots;
     ButtonForLoadingSelectedSplit button_ForLoadingSelectedSplit;
     ButtonForPullingSelectedSplitFromHardware button_ForPullingSelectedSplitFromHardware;

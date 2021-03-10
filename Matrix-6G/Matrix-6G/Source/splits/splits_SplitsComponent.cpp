@@ -16,13 +16,15 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	button_ForClosingSplitsComponent{ "" },
 	splitNameEditor{ "splitNameEditor", "" },
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
+	slider_ForSettingZoneVolumeBalance{ unexposedParams },
 	slider_ForSettingLowerZoneLimit{ unexposedParams, ID::split_LowerZoneLimit },
 	slider_ForSettingLowerZonePatchNumber{ unexposedParams, ID::split_LowerZonePatchNumber },
 	slider_ForSettingLowerZoneTranspose{ unexposedParams, ID::split_LowerZoneTranspose },
+	comboBox_ForSelectingLowerZoneMIDIout{ unexposedParams, ID::split_LowerZoneMidiOut },
 	slider_ForSettingUpperZoneLimit{ unexposedParams, ID::split_UpperZoneLimit },
 	slider_ForSettingUpperZonePatchNumber{ unexposedParams, ID::split_UpperZonePatchNumber },
 	slider_ForSettingUpperZoneTranspose{ unexposedParams, ID::split_UpperZoneTranspose },
-	slider_ForSettingZoneVolumeBalance{ unexposedParams },
+	comboBox_ForSelectingUpperZoneMIDIout{ unexposedParams, ID::split_UpperZoneMidiOut },
 	splitSlots{ unexposedParams },
 	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
 	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams }
@@ -56,6 +58,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	slider_ForSettingLowerZoneTranspose.addListener(this);
 	addAndMakeVisible(slider_ForSettingLowerZoneTranspose);
 
+	comboBox_ForSelectingLowerZoneMIDIout.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingLowerZoneMIDIout);
+
 	slider_ForSettingUpperZoneLimit.addListener(this);
 	addAndMakeVisible(slider_ForSettingUpperZoneLimit);
 
@@ -64,6 +69,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 
 	slider_ForSettingUpperZoneTranspose.addListener(this);
 	addAndMakeVisible(slider_ForSettingUpperZoneTranspose);
+
+	comboBox_ForSelectingUpperZoneMIDIout.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingUpperZoneMIDIout);
 
 	addAndMakeVisible(splitSlots);
 	addAndMakeVisible(button_ForLoadingSelectedSplit);
@@ -88,9 +96,11 @@ void SplitsComponent::resized() {
 	slider_ForSettingLowerZoneLimit.setBounds(GUI::bounds_SplitLowerZoneLimit);
 	slider_ForSettingLowerZonePatchNumber.setBounds(GUI::bounds_SplitLowerZonePatchNumber);
 	slider_ForSettingLowerZoneTranspose.setBounds(GUI::bounds_SplitLowerZoneTranspose);
+	comboBox_ForSelectingLowerZoneMIDIout.setBounds(GUI::bounds_SplitLowerZoneMIDIout);
 	slider_ForSettingUpperZoneLimit.setBounds(GUI::bounds_SplitUpperZoneLimit);
 	slider_ForSettingUpperZonePatchNumber.setBounds(GUI::bounds_SplitUpperZonePatchNumber);
 	slider_ForSettingUpperZoneTranspose.setBounds(GUI::bounds_SplitUpperZoneTranspose);
+	comboBox_ForSelectingUpperZoneMIDIout.setBounds(GUI::bounds_SplitUpperZoneMIDIout);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
 	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
@@ -100,11 +110,14 @@ void SplitsComponent::buttonClicked(Button* /*button*/) {
 }
 
 void SplitsComponent::comboBoxChanged(ComboBox* comboBox) {
-	if (comboBox == &comboBox_ForSelectingZoneVoiceAssignments) {
-		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-		auto splitOptions{ unexposedParams->splitOptions_get() };
+	auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
+	auto splitOptions{ unexposedParams->splitOptions_get() };
+	if (comboBox == &comboBox_ForSelectingZoneVoiceAssignments)
 		splitOptions->setZoneVoiceAssignment(currentSelection);
-	}
+	if (comboBox == &comboBox_ForSelectingLowerZoneMIDIout)
+		splitOptions->setLowerZoneMidiOut(currentSelection);
+	if (comboBox == &comboBox_ForSelectingUpperZoneMIDIout)
+		splitOptions->setUpperZoneMidiOut(currentSelection);
 }
 
 void SplitsComponent::editorShown(Label* label, TextEditor& editor) {
@@ -176,9 +189,11 @@ void SplitsComponent::hideThisComponent() {
 }
 
 SplitsComponent::~SplitsComponent() {
+	comboBox_ForSelectingUpperZoneMIDIout.removeListener(this);
 	slider_ForSettingUpperZoneTranspose.removeListener(this);
 	slider_ForSettingUpperZonePatchNumber.removeListener(this);
 	slider_ForSettingUpperZoneLimit.removeListener(this);
+	comboBox_ForSelectingLowerZoneMIDIout.removeListener(this);
 	slider_ForSettingLowerZoneTranspose.removeListener(this);
 	slider_ForSettingLowerZonePatchNumber.removeListener(this);
 	slider_ForSettingLowerZoneLimit.removeListener(this);
