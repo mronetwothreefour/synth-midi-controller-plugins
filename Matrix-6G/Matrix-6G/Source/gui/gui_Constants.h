@@ -195,7 +195,9 @@ namespace constants
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };
 		static const Rectangle<int> bounds_SplitNameEditor{ 510, splitsControlsRow1_y, 70, controls_h };
 		static const Rectangle<int> bounds_SplitsComponentLoadButton{ 525, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_SplitsComponentPullEntireBankButton{ 763, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentPullSelectedSplitButton{ 603, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_SplitsComponentPushEntireBankButton{ 724, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentSaveCurrentSplitButton{ 564, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
@@ -204,6 +206,7 @@ namespace constants
 		static const Rectangle<int> bounds_SplitLowerZonePatchNumber{ splitZonePatchNumber_x, splitsControlsRow3_y, splitZonePatchNumber_w, controls_h };
 		static const Rectangle<int> bounds_SplitLowerZoneTranspose{ splitZoneTranspose_x, splitsControlsRow3_y, splitZoneTranspose_w, controls_h };
 		static const Rectangle<int> bounds_SplitSlotsComponent{ 460, 334, splitSlotsComponent_w, splitSlotsComponent_h };
+		static const Rectangle<int> bounds_SplitsWindow{ 435, 36, 388, 524 };
 		static const Rectangle<int> bounds_SplitUpperZoneLimit{ splitZoneLimit_x, splitsControlsRow4_y, splitZoneLimit_w, controls_h };
 		static const Rectangle<int> bounds_SplitUpperZoneMIDIout{ splitZoneMIDIout_x, splitsControlsRow4_y, splitZoneMIDIout_w, controls_h };
 		static const Rectangle<int> bounds_SplitUpperZonePatchNumber{ splitZonePatchNumber_x, splitsControlsRow4_y, splitZonePatchNumber_w, controls_h };

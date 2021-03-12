@@ -2163,6 +2163,7 @@
     <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp" />
     <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp" />
+    <ClCompile Include="..\..\Source\splits\splits_BankTransmissionComponent.cpp" />
     <ClCompile Include="..\..\Source\splits\splits_SplitsBank.cpp" />
     <ClCompile Include="..\..\Source\splits\splits_SplitsComponent.cpp" />
     <ClCompile Include="..\..\Source\splits\splits_SplitSlotsComponent.cpp" />
@@ -2180,8 +2181,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp" />
@@ -2983,6 +2986,7 @@
     <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h" />
     <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h" />
+    <ClInclude Include="..\..\Source\splits\splits_BankTransmissionComponent.h" />
     <ClInclude Include="..\..\Source\splits\splits_Constants.h" />
     <ClInclude Include="..\..\Source\splits\splits_SplitsBank.h" />
     <ClInclude Include="..\..\Source\splits\splits_SplitsComponent.h" />
@@ -3001,8 +3005,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingSelectedSplitFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />

@@ -2589,6 +2589,15 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_BankTransmissionComponent.cpp">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5052,6 +5061,15 @@
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_BankTransmissionComponent.h">
+      <Filter>Matrix-6G\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

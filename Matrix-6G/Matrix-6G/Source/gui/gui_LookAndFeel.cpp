@@ -71,26 +71,9 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonMasterDown_png : BinaryData::ButtonMasterUp_png;
 	if (button.getComponentID() == ID::button_Patches.toString())
 		return isDown ? BinaryData::ButtonPatchesDown_png : BinaryData::ButtonPatchesUp_png;
-	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
-		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PullSelectedPatchOrSplit.toString()
-		)
+	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
-	if (button.getComponentID() == ID::button_Push.toString() ||
-		button.getComponentID() == ID::button_PushAnalogSynthsBankA.toString() ||
-		button.getComponentID() == ID::button_PushAnalogSynthsBankB.toString() ||
-		button.getComponentID() == ID::button_PushBassesBank.toString() ||
-		button.getComponentID() == ID::button_PushBrassAndWoodwindsBank.toString() ||
-		button.getComponentID() == ID::button_PushCustomBankA.toString() ||
-		button.getComponentID() == ID::button_PushCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PushFXandndPercussionBank.toString() ||
-		button.getComponentID() == ID::button_PushKeyboardsBankA.toString() ||
-		button.getComponentID() == ID::button_PushKeyboardsBankB.toString() ||
-		button.getComponentID() == ID::button_PushLeadsBank.toString() ||
-		button.getComponentID() == ID::button_PushMiscellaneousBankA.toString() ||
-		button.getComponentID() == ID::button_PushMiscellaneousBankB.toString() ||
-		button.getComponentID() == ID::button_PushStringsBank.toString()
-		)
+	if (button.getComponentID().startsWith("button_Push"))
 		return isDown ? BinaryData::ButtonPushDown_png : BinaryData::ButtonPushUp_png;
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_png : BinaryData::ButtonQuickEditUp_png;
@@ -122,26 +105,9 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonMasterDown_pngSize : BinaryData::ButtonMasterUp_pngSize;
 	if (button.getComponentID() == ID::button_Patches.toString())
 		return isDown ? BinaryData::ButtonPatchesDown_pngSize : BinaryData::ButtonPatchesUp_pngSize;
-	if (button.getComponentID() == ID::button_PullCustomBankA.toString() ||
-		button.getComponentID() == ID::button_PullCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PullSelectedPatchOrSplit.toString()
-		)
+	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
-	if (button.getComponentID() == ID::button_Push.toString() ||
-		button.getComponentID() == ID::button_PushAnalogSynthsBankA.toString() ||
-		button.getComponentID() == ID::button_PushAnalogSynthsBankB.toString() ||
-		button.getComponentID() == ID::button_PushBassesBank.toString() ||
-		button.getComponentID() == ID::button_PushBrassAndWoodwindsBank.toString() ||
-		button.getComponentID() == ID::button_PushCustomBankA.toString() ||
-		button.getComponentID() == ID::button_PushCustomBankB.toString() ||
-		button.getComponentID() == ID::button_PushFXandndPercussionBank.toString() ||
-		button.getComponentID() == ID::button_PushKeyboardsBankA.toString() ||
-		button.getComponentID() == ID::button_PushKeyboardsBankB.toString() ||
-		button.getComponentID() == ID::button_PushLeadsBank.toString() ||
-		button.getComponentID() == ID::button_PushMiscellaneousBankA.toString() ||
-		button.getComponentID() == ID::button_PushMiscellaneousBankB.toString() ||
-		button.getComponentID() == ID::button_PushStringsBank.toString()
-		)
+	if (button.getComponentID().startsWith("button_Push"))
 		return isDown ? BinaryData::ButtonPushDown_pngSize : BinaryData::ButtonPushUp_pngSize;
 	if (button.getComponentID() == ID::button_QuickEdit.toString())
 		return isDown ? BinaryData::ButtonQuickEditDown_pngSize : BinaryData::ButtonQuickEditUp_pngSize;

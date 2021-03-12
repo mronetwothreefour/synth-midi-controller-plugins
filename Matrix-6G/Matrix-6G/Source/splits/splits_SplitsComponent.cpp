@@ -1,5 +1,6 @@
 #include "splits_SplitsComponent.h"
 
+#include "splits_BankTransmissionComponent.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_RawDataTools.h"
@@ -28,7 +29,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	splitSlots{ unexposedParams },
 	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
 	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams },
-	button_ForSavingCurrentSplitSettingsInSelectedSlot{ splitSlots, unexposedParams }
+	button_ForSavingCurrentSplitSettingsInSelectedSlot{ splitSlots, unexposedParams },
+	button_ForPushingEntireBankToHardware{ unexposedParams },
+	button_ForPullingEntireBankFromHardware{ unexposedParams }
 {
 	button_ForClosingSplitsComponent.setComponentID(ID::button_X_Splits.toString());
 	addAndMakeVisible(button_ForClosingSplitsComponent);
@@ -80,6 +83,11 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	addAndMakeVisible(button_ForSavingCurrentSplitSettingsInSelectedSlot);
 	addAndMakeVisible(button_ForPullingSelectedSplitFromHardware);
 
+	button_ForPushingEntireBankToHardware.addListener(this);
+	addAndMakeVisible(button_ForPushingEntireBankToHardware);
+	button_ForPullingEntireBankFromHardware.addListener(this);
+	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -108,9 +116,8 @@ void SplitsComponent::resized() {
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
 	button_ForSavingCurrentSplitSettingsInSelectedSlot.setBounds(GUI::bounds_SplitsComponentSaveCurrentSplitButton);
 	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
-}
-
-void SplitsComponent::buttonClicked(Button* /*button*/) {
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_SplitsComponentPushEntireBankButton);
+	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_SplitsComponentPullEntireBankButton);
 }
 
 void SplitsComponent::comboBoxChanged(ComboBox* comboBox) {
@@ -185,6 +192,31 @@ void SplitsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identi
 	}
 }
 
+void SplitsComponent::buttonClicked(Button* button) {
+	if (button->getComponentID() == ID::button_PullSplitsBank.toString())
+		showPullEntireBankComponent();
+	if (button->getComponentID() == ID::button_PushSplitsBank.toString())
+		showPushEntireBankComponent();
+}
+
+void SplitsComponent::showPushEntireBankComponent() {
+	pushEntireBankComponent.reset(new SplitsBankTransmissionComponent(SplitsBankTransmissionComponent::TransmissionType::push, unexposedParams));
+	if (pushEntireBankComponent != nullptr) {
+		addAndMakeVisible(pushEntireBankComponent.get());
+		pushEntireBankComponent->setBounds(getLocalBounds());
+		pushEntireBankComponent->setAlwaysOnTop(true);
+	}
+}
+
+void SplitsComponent::showPullEntireBankComponent() {
+	pullEntireBankComponent.reset(new SplitsBankTransmissionComponent(SplitsBankTransmissionComponent::TransmissionType::pull, unexposedParams));
+	if (pullEntireBankComponent != nullptr) {
+		addAndMakeVisible(pullEntireBankComponent.get());
+		pullEntireBankComponent->setBounds(getLocalBounds());
+		pullEntireBankComponent->setAlwaysOnTop(true);
+	}
+}
+
 void SplitsComponent::hideThisComponent() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickPatchEditingMessage() };
@@ -193,6 +225,10 @@ void SplitsComponent::hideThisComponent() {
 }
 
 SplitsComponent::~SplitsComponent() {
+	pullEntireBankComponent = nullptr;
+	pushEntireBankComponent = nullptr;
+	button_ForPullingEntireBankFromHardware.removeListener(this);
+	button_ForPushingEntireBankToHardware.removeListener(this);
 	comboBox_ForSelectingUpperZoneMIDIout.removeListener(this);
 	slider_ForSettingUpperZoneTranspose.removeListener(this);
 	slider_ForSettingUpperZonePatchNumber.removeListener(this);
