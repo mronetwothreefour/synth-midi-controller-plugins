@@ -18,8 +18,8 @@ namespace constants
 		static const uint8 transmitCode_Master{ 3 };
 
 		static const int numberOfHeaderBytesInPatchAndSplitDataMessages{ 4 };
-		static const int patchDumpSlotNumberByte{ 4 };
-		static const int patchDumpFirstDataByte{ 5 };
+		static const int patchAndSplitDumpSlotNumberByte{ 4 };
+		static const int patchAndSplitDumpFirstDataByte{ 5 };
 		static const int sizeOfDataDumpRequestVector{ 5 };
 		static const int sizeOfMasterDataVector{ 477 };
 		static const int sizeOfParamChangeVector{ 5 };

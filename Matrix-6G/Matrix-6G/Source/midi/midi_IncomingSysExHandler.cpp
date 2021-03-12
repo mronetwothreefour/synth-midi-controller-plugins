@@ -36,9 +36,9 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 
 void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
     if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_PatchData) {
-        auto slot{ sysExData[MIDI::patchDumpSlotNumberByte] };
+        auto slot{ sysExData[MIDI::patchAndSplitDumpSlotNumberByte] };
         std::vector<uint8> patchDataVector;
-        for (auto dataByte = MIDI::patchDumpFirstDataByte; dataByte != MIDI::sizeOfPatchDataVector; ++dataByte)
+        for (auto dataByte = MIDI::patchAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfPatchDataVector; ++dataByte)
             patchDataVector.push_back(*(sysExData + dataByte));
         auto midiOptions{ unexposedParams->midiOptions_get() };
         if (midiOptions->incomingPatchShouldBeSavedInCustomBankA() || midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
@@ -53,5 +53,21 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
         }
         const MessageManagerLock mmLock;
         RawDataTools::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
+    }
+    else
+        handleIncomingSplitDump(sysExData);
+}
+
+void IncomingSysExHandler::handleIncomingSplitDump(const uint8* sysExData) {
+    if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_SplitData) {
+        auto slot{ sysExData[MIDI::patchAndSplitDumpSlotNumberByte] };
+        std::vector<uint8> splitDataVector;
+        for (auto dataByte = MIDI::patchAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfSplitDataVector; ++dataByte)
+            splitDataVector.push_back(*(sysExData + dataByte));
+        auto splitsBank{ unexposedParams->splitsBank_get() };
+        auto splitDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(splitDataVector) };
+        const MessageManagerLock mmLock;
+        splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, slot);
+        RawDataTools::applySplitDataVectorToGUI(splitDataVector, unexposedParams);
     }
 }
