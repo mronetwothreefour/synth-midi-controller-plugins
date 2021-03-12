@@ -65,7 +65,9 @@ private:
     static void addSplitParamDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 formatSigned6bitValueForSendingToMatrix(uint8& value);
     static uint8 formatSigned7bitValueForSendingToMatrix(uint8& value);
+    static uint8 formatSignedZoneTransposeValueForSendingToMatrix(uint8& value);
     static uint8 formatSigned6bitValueForStoringInPlugin(int& value);
     static uint8 formatSigned7bitValueForStoringInPlugin(int& value);
+    static uint8 formatSignedZoneTransposeValueForStoringInPlugin(int& value);
     static void addValueToDataVectorAtLSBbyteLocation(uint8 value, uint8* lsbByteLocation);
 };

@@ -1,6 +1,9 @@
 #include "params_SplitOptions.h"
 
 #include "params_Identifiers.h"
+#include "../splits/splits_Constants.h"
+
+using namespace constants;
 
 
 
@@ -11,17 +14,17 @@ SplitOptions::SplitOptions() :
 }
 
 void SplitOptions::fillSplitOptionsTreeWithProperties() {
-	splitOptionsTree.setProperty(ID::split_Name, "BASIC", nullptr);
+	splitOptionsTree.setProperty(ID::split_Name, splits::initialSplitNameString, nullptr);
 	splitOptionsTree.setProperty(ID::split_ZoneVoiceAssignment, (uint8)0, nullptr);
 	splitOptionsTree.setProperty(ID::split_ZoneVolumeBalance, (uint8)31, nullptr);
 	splitOptionsTree.setProperty(ID::split_LowerZoneLimit, (uint8)35, nullptr);
-	splitOptionsTree.setProperty(ID::split_LowerZonePatchNumber, (uint8)0, nullptr);
 	splitOptionsTree.setProperty(ID::split_LowerZoneTranspose, (uint8)36, nullptr);
-	splitOptionsTree.setProperty(ID::split_LowerZoneMidiOut, (uint8)0, nullptr);
+	splitOptionsTree.setProperty(ID::split_LowerZoneMidiOut, (uint8)1, nullptr);
 	splitOptionsTree.setProperty(ID::split_UpperZoneLimit, (uint8)36, nullptr);
-	splitOptionsTree.setProperty(ID::split_UpperZonePatchNumber, (uint8)1, nullptr);
 	splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, (uint8)36, nullptr);
-	splitOptionsTree.setProperty(ID::split_UpperZoneMidiOut, (uint8)0, nullptr);
+	splitOptionsTree.setProperty(ID::split_UpperZoneMidiOut, (uint8)1, nullptr);
+	splitOptionsTree.setProperty(ID::split_LowerZonePatchNumber, (uint8)0, nullptr);
+	splitOptionsTree.setProperty(ID::split_UpperZonePatchNumber, (uint8)1, nullptr);
 }
 
 void SplitOptions::addListener(ValueTree::Listener* listener) {

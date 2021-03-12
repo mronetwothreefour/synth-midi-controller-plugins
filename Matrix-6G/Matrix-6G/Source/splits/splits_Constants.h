@@ -23,7 +23,7 @@ namespace constants
 		static const uint8 indexOfLowerZonePatchNumberLSByte{ indexOfZoneVoiceAssignmentLSByte + 2 };
 		static const uint8 indexOfUpperZonePatchNumberLSByte{ indexOfLowerZonePatchNumberLSByte + 2 };
 
-		static const String initialSplitDataHexString{ "90E0904102020202B3C010C34F10000000102E" };
-		static const String initialSplitNameString{ "INIT" };
+		static const String initialSplitDataHexString{ "90E0904102020000320010420010000000103E" };
+		static const String initialSplitNameString{ "INIT  " };
 	}
 }

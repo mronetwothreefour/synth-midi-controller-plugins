@@ -6,6 +6,7 @@
 #include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
 #include "../widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.h"
 #include "../widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.h"
+#include "../widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"
 #include "../widgets_Label/widget_EditableLabel.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZoneLimit.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.h"
@@ -39,6 +40,7 @@ class SplitsComponent :
     ComboBoxForSelectingZoneMIDIout comboBox_ForSelectingUpperZoneMIDIout;
     SplitSlotsComponent splitSlots;
     ButtonForLoadingSelectedSplit button_ForLoadingSelectedSplit;
+    ButtonForSavingCurrentSplitSettingsInSelectedSlot button_ForSavingCurrentSplitSettingsInSelectedSlot;
     ButtonForPullingSelectedSplitFromHardware button_ForPullingSelectedSplitFromHardware;
 
 public:

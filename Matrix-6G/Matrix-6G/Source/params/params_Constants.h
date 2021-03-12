@@ -17,6 +17,7 @@ namespace constants
 
 		static const int8 offsetForSigned6bitRange{ 31 };
 		static const int8 offsetForSigned7bitRange{ 63 };
+		static const int8 offsetForSignedZoneTransposeRange{ 36 };
 	
 		static const uint8 seventhBit{ 64 };
 		static const uint8 sixthBit{ 32 };

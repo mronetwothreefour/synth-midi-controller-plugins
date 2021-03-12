@@ -196,6 +196,7 @@ namespace constants
 		static const Rectangle<int> bounds_SplitNameEditor{ 510, splitsControlsRow1_y, 70, controls_h };
 		static const Rectangle<int> bounds_SplitsComponentLoadButton{ 525, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentPullSelectedSplitButton{ 603, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_SplitsComponentSaveCurrentSplitButton{ 564, splitsControlsRow5_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_SplitsComponentXbutton{ 805, 36, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_SplitsComboBoxForZoneVoiceAssignment{ 761, splitsControlsRow1_y, 37, controls_h };
 		static const Rectangle<int> bounds_SplitLowerZoneLimit{ splitZoneLimit_x, splitsControlsRow3_y, splitZoneLimit_w, controls_h };

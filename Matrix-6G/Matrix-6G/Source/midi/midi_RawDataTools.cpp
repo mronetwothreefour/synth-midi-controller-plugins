@@ -227,16 +227,22 @@ void RawDataTools::applyRawPatchDataToExposedParameters(const uint8* patchData, 
 
 void RawDataTools::applyRawSplitDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams) {
     auto splitOptions{ unexposedParams->splitOptions_get() };
-    splitOptions->setLowerZoneLimit(splitData[splits::indexOfLowerZoneLimitLSByte] + (splitData[splits::indexOfLowerZoneLimitLSByte + (uint8)1] * 16));
-    splitOptions->setLowerZoneTranspose(splitData[splits::indexOfLowerZoneTransposeLSByte] + (splitData[splits::indexOfLowerZoneTransposeLSByte + (uint8)1] * 16));
-    splitOptions->setLowerZoneMidiOut(splitData[splits::indexOfLowerZoneMIDIoutLSByte] + (splitData[splits::indexOfLowerZoneMIDIoutLSByte + (uint8)1] * 16));
-    splitOptions->setUpperZoneLimit(splitData[splits::indexOfUpperZoneLimitLSByte] + (splitData[splits::indexOfUpperZoneLimitLSByte + (uint8)1] * 16));
-    splitOptions->setUpperZoneTranspose(splitData[splits::indexOfUpperZoneTransposeLSByte] + (splitData[splits::indexOfUpperZoneTransposeLSByte + (uint8)1] * 16));
-    splitOptions->setUpperZoneMidiOut(splitData[splits::indexOfUpperZoneMIDIoutLSByte] + (splitData[splits::indexOfUpperZoneMIDIoutLSByte + (uint8)1] * 16));
-    splitOptions->setZoneVolumeBalance(splitData[splits::indexOfZoneVolumeBalanceLSByte] + (splitData[splits::indexOfZoneVolumeBalanceLSByte + (uint8)1] * 16));
-    splitOptions->setZoneVoiceAssignment(splitData[splits::indexOfZoneVoiceAssignmentLSByte] + (splitData[splits::indexOfZoneVoiceAssignmentLSByte + (uint8)1] * 16));
-    splitOptions->setLowerZonePatchNumber(splitData[splits::indexOfLowerZonePatchNumberLSByte] + (splitData[splits::indexOfLowerZonePatchNumberLSByte + (uint8)1] * 16));
-    splitOptions->setUpperZonePatchNumber(splitData[splits::indexOfUpperZonePatchNumberLSByte] + (splitData[splits::indexOfUpperZonePatchNumberLSByte + (uint8)1] * 16));
+    splitOptions->setLowerZoneLimit(splitData[splits::indexOfLowerZoneLimitLSByte] + (splitData[splits::indexOfLowerZoneLimitLSByte + 1] * 16));
+    auto lowerZoneTranspose{ splitData[splits::indexOfLowerZoneTransposeLSByte] + (splitData[splits::indexOfLowerZoneTransposeLSByte + 1] * 16) };
+    lowerZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(lowerZoneTranspose);
+    splitOptions->setLowerZoneTranspose((uint8)lowerZoneTranspose);
+    splitOptions->setLowerZoneMidiOut(splitData[splits::indexOfLowerZoneMIDIoutLSByte] + (splitData[splits::indexOfLowerZoneMIDIoutLSByte + 1] * 16));
+    splitOptions->setUpperZoneLimit(splitData[splits::indexOfUpperZoneLimitLSByte] + (splitData[splits::indexOfUpperZoneLimitLSByte + 1] * 16));
+    auto upperZoneTranspose{ splitData[splits::indexOfUpperZoneTransposeLSByte] + (splitData[splits::indexOfUpperZoneTransposeLSByte + 1] * 16) };
+    upperZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(upperZoneTranspose);
+    splitOptions->setUpperZoneTranspose((uint8)upperZoneTranspose);
+    splitOptions->setUpperZoneMidiOut(splitData[splits::indexOfUpperZoneMIDIoutLSByte] + (splitData[splits::indexOfUpperZoneMIDIoutLSByte + 1] * 16));
+    auto zoneVolumeBalance{ splitData[splits::indexOfZoneVolumeBalanceLSByte] + (splitData[splits::indexOfZoneVolumeBalanceLSByte + 1] * 16) };
+    zoneVolumeBalance = RawDataTools::formatSigned6bitValueForStoringInPlugin(zoneVolumeBalance);
+    splitOptions->setZoneVolumeBalance((uint8)zoneVolumeBalance);
+    splitOptions->setZoneVoiceAssignment(splitData[splits::indexOfZoneVoiceAssignmentLSByte] + (splitData[splits::indexOfZoneVoiceAssignmentLSByte + 1] * 16));
+    splitOptions->setLowerZonePatchNumber(splitData[splits::indexOfLowerZonePatchNumberLSByte] + (splitData[splits::indexOfLowerZonePatchNumberLSByte + 1] * 16));
+    splitOptions->setUpperZonePatchNumber(splitData[splits::indexOfUpperZonePatchNumberLSByte] + (splitData[splits::indexOfUpperZonePatchNumberLSByte + 1] * 16));
 }
 
 void RawDataTools::applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams) {
@@ -335,6 +341,7 @@ void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParam
     addValueToDataVectorAtLSBbyteLocation(lowerZoneLimit, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZoneLimitLSByte]);
     checksum += lowerZoneLimit;
     auto lowerZoneTranspose{ splitOptions->lowerZoneTranspose() };
+    lowerZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(lowerZoneTranspose);
     addValueToDataVectorAtLSBbyteLocation(lowerZoneTranspose, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZoneTransposeLSByte]);
     checksum += lowerZoneTranspose;
     auto lowerZoneMidiOut{ splitOptions->lowerZoneMidiOut() };
@@ -344,22 +351,24 @@ void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParam
     addValueToDataVectorAtLSBbyteLocation(upperZoneLimit, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneLimitLSByte]);
     checksum += upperZoneLimit;
     auto upperZoneTranspose{ splitOptions->upperZoneTranspose() };
+    upperZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(upperZoneTranspose);
     addValueToDataVectorAtLSBbyteLocation(upperZoneTranspose, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneTransposeLSByte]);
     checksum += upperZoneTranspose;
     auto upperZoneMidiOut{ splitOptions->upperZoneMidiOut() };
     addValueToDataVectorAtLSBbyteLocation(upperZoneMidiOut, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneMIDIoutLSByte]);
     checksum += upperZoneMidiOut;
     auto zoneVolumeBalance{ splitOptions->zoneVolumeBalance() };
+    zoneVolumeBalance = RawDataTools::formatSigned6bitValueForSendingToMatrix(zoneVolumeBalance);
     addValueToDataVectorAtLSBbyteLocation(zoneVolumeBalance, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfZoneVolumeBalanceLSByte]);
     checksum += zoneVolumeBalance;
     auto zoneVoiceAssignment{ splitOptions->zoneVoiceAssignment() };
     addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfZoneVoiceAssignmentLSByte]);
     checksum += zoneVoiceAssignment;
     auto lowerZonePatchNumber{ splitOptions->lowerZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZonePatchNumberLSByte]);
     checksum += lowerZonePatchNumber;
     auto upperZonePatchNumber{ splitOptions->upperZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte + 2]);
+    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZonePatchNumberLSByte]);
     checksum += upperZonePatchNumber;
 }
 
@@ -377,6 +386,13 @@ uint8 RawDataTools::formatSigned7bitValueForSendingToMatrix(uint8& value) {
     return (uint8)valueWithOffset;
 }
 
+uint8 RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(uint8& value) {
+    auto valueWithOffset{ value - matrixParams::offsetForSignedZoneTransposeRange };
+    if (valueWithOffset < 0)
+        valueWithOffset += negativeValueOffset;
+    return (uint8)valueWithOffset;
+}
+
 uint8 RawDataTools::formatSigned6bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
@@ -388,6 +404,13 @@ uint8 RawDataTools::formatSigned7bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
     auto valueWithOffset{ value + matrixParams::offsetForSigned7bitRange };
+    return (uint8)valueWithOffset;
+}
+
+uint8 RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(int& value) {
+    if (value > 127)
+        value -= negativeValueOffset;
+    auto valueWithOffset{ value + matrixParams::offsetForSignedZoneTransposeRange };
     return (uint8)valueWithOffset;
 }
 

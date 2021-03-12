@@ -27,7 +27,8 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	comboBox_ForSelectingUpperZoneMIDIout{ unexposedParams, ID::split_UpperZoneMidiOut },
 	splitSlots{ unexposedParams },
 	button_ForLoadingSelectedSplit{ splitSlots, unexposedParams },
-	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams }
+	button_ForPullingSelectedSplitFromHardware{ splitSlots, unexposedParams },
+	button_ForSavingCurrentSplitSettingsInSelectedSlot{ splitSlots, unexposedParams }
 {
 	button_ForClosingSplitsComponent.setComponentID(ID::button_X_Splits.toString());
 	addAndMakeVisible(button_ForClosingSplitsComponent);
@@ -74,7 +75,9 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	addAndMakeVisible(comboBox_ForSelectingUpperZoneMIDIout);
 
 	addAndMakeVisible(splitSlots);
+
 	addAndMakeVisible(button_ForLoadingSelectedSplit);
+	addAndMakeVisible(button_ForSavingCurrentSplitSettingsInSelectedSlot);
 	addAndMakeVisible(button_ForPullingSelectedSplitFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -103,6 +106,7 @@ void SplitsComponent::resized() {
 	comboBox_ForSelectingUpperZoneMIDIout.setBounds(GUI::bounds_SplitUpperZoneMIDIout);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);
 	button_ForLoadingSelectedSplit.setBounds(GUI::bounds_SplitsComponentLoadButton);
+	button_ForSavingCurrentSplitSettingsInSelectedSlot.setBounds(GUI::bounds_SplitsComponentSaveCurrentSplitButton);
 	button_ForPullingSelectedSplitFromHardware.setBounds(GUI::bounds_SplitsComponentPullSelectedSplitButton);
 }
 
