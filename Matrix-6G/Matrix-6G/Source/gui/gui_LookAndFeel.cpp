@@ -36,7 +36,7 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 	g.fillRect(bounds.toFloat());
 	g.setColour(Color::led_blue);
 	g.drawRect(bounds.toFloat(), 1.0f);
-	g.setColour(Color::offWhite);
+	g.setColour(Color::offWhiteText);
 	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
 		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
 }
@@ -146,7 +146,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 			buttonColor = buttonColor.brighter(0.7f);
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
-		g.setColour(Color::offWhite);
+		g.setColour(Color::offWhiteText);
 		g.setFont(FontsMenu::fontFor_PatchAndSplitSlotRadioButtons);
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);

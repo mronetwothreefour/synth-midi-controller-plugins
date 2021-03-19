@@ -93,10 +93,10 @@ namespace BinaryData
     const int            ButtonXDown_pngSize = 225;
 
     extern const char*   ButtonXUp_png;
-    const int            ButtonXUp_pngSize = 225;
+    const int            ButtonXUp_pngSize = 211;
 
     extern const char*   ButtonXGrayUp_png;
-    const int            ButtonXGrayUp_pngSize = 225;
+    const int            ButtonXGrayUp_pngSize = 211;
 
     extern const char*   ButtonXGrayDown_png;
     const int            ButtonXGrayDown_pngSize = 225;
@@ -120,7 +120,7 @@ namespace BinaryData
     const int            TitlePushingEntireBank_pngSize = 2468;
 
     extern const char*   SplitsWindow_png;
-    const int            SplitsWindow_pngSize = 12762;
+    const int            SplitsWindow_pngSize = 12735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 38;

@@ -14,5 +14,5 @@ namespace Color
 	static const Colour dividerLine_gray{ 0xff656565 };
 	static const Colour dividerLine_blue{ 0xff05239d };
 	static const Colour led_blue{ 0xff00bed6 };
-	static const Colour offWhite{ 0xffe1e1e1 };
+	static const Colour offWhiteText{ 0xffe1e1e1 };
 }
