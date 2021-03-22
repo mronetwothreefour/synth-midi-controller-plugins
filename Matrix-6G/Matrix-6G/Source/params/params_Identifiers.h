@@ -23,12 +23,13 @@ namespace ID
 	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
 
 	static const Identifier button_Close{ "button_Close" };
-	static const Identifier button_Load{ "button_Master" };
+	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
 	static const Identifier button_PatchSlotRadioButton{ "button_PatchSlotRadioButton" };
 	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
 	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
+	static const Identifier button_PullMasterOptions{ "button_PullMasterOptions" };
 	static const Identifier button_PullSplitsBank{ "button_PullSplitsBank" };
 	static const Identifier button_PullSelectedPatchOrSplit{ "button_PullSelectedPatchOrSplit" };
 	static const Identifier button_Push{ "button_Push" };
@@ -42,6 +43,7 @@ namespace ID
 	static const Identifier button_PushKeyboardsBankA{ "button_PushKeyboardsBankA" };
 	static const Identifier button_PushKeyboardsBankB{ "button_PushKeyboardsBankB" };
 	static const Identifier button_PushLeadsBank{ "button_PushLeadsBank" };
+	static const Identifier button_PushMasterOptions{ "button_PushMasterOptions" };
 	static const Identifier button_PushMiscellaneousBankA{ "button_PushMiscellaneousBankA" };
 	static const Identifier button_PushMiscellaneousBankB{ "button_PushMiscellaneousBankB" };
 	static const Identifier button_PushSplitsBank{ "button_PushSplitsBank" };
@@ -54,6 +56,7 @@ namespace ID
 	static const Identifier button_SplitSlotRadioButton{ "button_SplitSlotRadioButton" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
+	static const Identifier button_X_Master{ "button_X_Master" };
 	static const Identifier button_X_Patches{ "button_X_Patches" };
 	static const Identifier button_X_Splits{ "button_X_Splits" };
 

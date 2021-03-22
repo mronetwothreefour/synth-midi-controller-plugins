@@ -2799,6 +2799,9 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Gray-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Gray-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Master-Window.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png"/>

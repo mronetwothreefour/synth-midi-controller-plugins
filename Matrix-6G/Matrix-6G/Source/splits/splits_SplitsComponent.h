@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+
 #include "splits_SplitSlotsComponent.h"
 #include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.h"
 #include "../widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"

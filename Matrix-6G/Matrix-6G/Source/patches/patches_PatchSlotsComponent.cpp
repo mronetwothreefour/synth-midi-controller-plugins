@@ -67,7 +67,7 @@ void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
 	if (selectedSlot < patches::numberOfSlotsInBank) {
 		auto dataVector{ RawSysExDataVector::initializePatchDataMessage(selectedSlot) };
 		RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
-		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages);
+		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInDataDumpMessages);
 		auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
 		auto patchBanks{ unexposedParams->patchBanks_get() };
 		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);

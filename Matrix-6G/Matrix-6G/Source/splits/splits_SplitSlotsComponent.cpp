@@ -60,7 +60,7 @@ void SplitSlotsComponent::storeCurrentSplitSettingsInSelectedSlot() {
 	if (selectedSlot < splits::numberOfSlotsInBank) {
 		auto dataVector{ RawSysExDataVector::initializeSplitDataMessage(selectedSlot) };
 		RawDataTools::addCurrentSplitSettingsToDataVector(unexposedParams, dataVector);
-		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages);
+		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInDataDumpMessages);
 		auto splitDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
 		auto splitsBank{ unexposedParams->splitsBank_get() };
 		splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, selectedSlot);

@@ -27,6 +27,8 @@ struct RawSysExDataVector {
     static std::vector<uint8> createSplitDataMessageHeader(uint8 slot);
     static std::vector<uint8> createSplitDataRequestMessage(uint8 slot);
     static std::vector<uint8> createSwitchToSplitModeMessage();
+    static std::vector<uint8> createMasterOptionsDataMessageHeader();
+    static std::vector<uint8> createMasterOptionsDataRequestMessage();
 
 private:
     static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytes(int vectorSize);

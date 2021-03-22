@@ -4769,6 +4769,15 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Gray-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Master-Window.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>

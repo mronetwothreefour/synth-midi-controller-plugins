@@ -41,7 +41,7 @@ std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
 
 std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
     jassert(slot < patches::numberOfSlotsInBank);
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages) };
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInDataDumpMessages) };
     rawDataVector[2] = MIDI::opcode_PatchData;
     rawDataVector[3] = slot;
     return rawDataVector;
@@ -72,7 +72,7 @@ std::vector<uint8> RawSysExDataVector::initializeSplitDataMessage(uint8 slot) {
 
 std::vector<uint8> RawSysExDataVector::createSplitDataMessageHeader(uint8 slot) {
     jassert(slot < splits::numberOfSlotsInBank);
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInPatchAndSplitDataMessages) };
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInDataDumpMessages) };
     rawDataVector[2] = MIDI::opcode_SplitData;
     rawDataVector[3] = slot;
     return rawDataVector;
@@ -92,6 +92,21 @@ std::vector<uint8> RawSysExDataVector::createSwitchToSplitModeMessage() {
     rawDataVector[1] = MIDI::deviceID_OberheimXpander;
     rawDataVector[2] = MIDI::opcode_SwitchMode;
     rawDataVector[3] = MIDI::transmitCode_Split;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createMasterOptionsDataMessageHeader() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInDataDumpMessages) };
+    rawDataVector[2] = MIDI::opcode_MasterData;
+    rawDataVector[3] = 0;
+    return rawDataVector;
+}
+
+std::vector<uint8> RawSysExDataVector::createMasterOptionsDataRequestMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
+    rawDataVector[2] = MIDI::opcode_DataRequest;
+    rawDataVector[3] = MIDI::transmitCode_Master;
+    rawDataVector[4] = 0;
     return rawDataVector;
 }
 

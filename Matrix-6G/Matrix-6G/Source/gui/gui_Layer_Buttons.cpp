@@ -2,6 +2,7 @@
 
 #include "gui_Constants.h"
 #include "../midi/midi_RawDataTools.h"
+#include "../master/master_MasterOptionsComponent.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../patches/patches_PatchBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"
@@ -17,7 +18,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPullingPatchFromHardware{ unexposedParams },
     button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
     button_ForShowingPatchBanksComponent{ unexposedParams },
-    button_ForShowingSplitsComponent{ unexposedParams }
+    button_ForShowingSplitsComponent{ unexposedParams },
+    button_ForShowingMasterOptionsComponent{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
@@ -27,6 +29,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingPatchBanksComponent.onClick = [this] { showPatchBanksComponent(); };
     addAndMakeVisible(button_ForShowingSplitsComponent);
     button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
+    addAndMakeVisible(button_ForShowingMasterOptionsComponent);
+    button_ForShowingMasterOptionsComponent.onClick = [this] { showMasterOptionsComponent(); };
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -50,15 +54,25 @@ void ButtonsLayer::showSplitsComponent() {
     }
 }
 
+void ButtonsLayer::showMasterOptionsComponent() {
+    masterOptionsComponent.reset(new MasterOptionsComponent(unexposedParams));
+    if (masterOptionsComponent != nullptr) {
+        addAndMakeVisible(masterOptionsComponent.get());
+        masterOptionsComponent->setBounds(getLocalBounds());
+    }
+}
+
 void ButtonsLayer::resized() {
     button_ForActivatingQuickPatchEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
     button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);
     button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
+    button_ForShowingMasterOptionsComponent.setBounds(GUI::bounds_MainWindowMasterOptionsButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
+    masterOptionsComponent = nullptr;
     splitsComponent = nullptr;
     patchBanksComponent = nullptr;
 }

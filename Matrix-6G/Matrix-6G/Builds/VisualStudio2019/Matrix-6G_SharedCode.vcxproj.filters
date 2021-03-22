@@ -463,6 +463,9 @@
     <Filter Include="Matrix-6G\Source\splits">
       <UniqueIdentifier>{4613c64c-315b-4c87-a301-c0ddfa219a61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G\Source\master">
+      <UniqueIdentifier>{f564016b-d1f4-46a7-8ad3-8a183b40c09f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2596,6 +2599,18 @@
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\master\master_MasterOptionsComponent.cpp">
+      <Filter>Matrix-6G\Source\master</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5070,6 +5085,21 @@
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\master\master_Constants.h">
+      <Filter>Matrix-6G\Source\master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\master\master_MasterOptionsComponent.h">
+      <Filter>Matrix-6G\Source\master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h">
+      <Filter>Matrix-6G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

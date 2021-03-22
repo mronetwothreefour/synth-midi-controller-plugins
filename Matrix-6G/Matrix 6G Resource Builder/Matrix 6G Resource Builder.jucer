@@ -71,6 +71,12 @@
           file="../Matrix-6G/Resources/Button-X-Gray-Up.png"/>
     <FILE id="KzeVAR" name="Button-X-Gray-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-X-Gray-Down.png"/>
+    <FILE id="wly9MV" name="Button-X-Orange-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-X-Orange-Down.png"/>
+    <FILE id="uSkqap" name="Button-X-Orange-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-X-Orange-Up.png"/>
+    <FILE id="xc7V3f" name="Master-Window.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Master-Window.png"/>
     <FILE id="endN7c" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
     <FILE id="jChKZL" name="Patches-Footer-For-Custom-Banks.png" compile="0"
