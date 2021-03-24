@@ -72,6 +72,32 @@ namespace ID
 	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
 	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
 
+	static const Identifier master_BasicChannel{ "master_BasicChannel" };
+	static const Identifier master_ControllersEnabled{ "master_ControllersEnabled" };
+	static const Identifier master_Lever2ControllerNumber{ "master_Lever2ControllerNumber" };
+	static const Identifier master_Lever3ControllerNumber{ "master_Lever3ControllerNumber" };
+	static const Identifier master_LocalControlEnabled{ "master_LocalControlEnabled" };
+	static const Identifier master_MIDIechoEnabled{ "master_MIDIechoEnabled" };
+	static const Identifier master_MIDImonoEnabled{ "master_MIDImonoEnabled" };
+	static const Identifier master_OmniModeEnabled{ "master_OmniModeEnabled" };
+	static const Identifier master_Options{ "master_Options" };
+	static const Identifier master_PatchChangesEnabled{ "master_PatchChangesEnabled" };
+	static const Identifier master_PatchMapEnabled{ "master_PatchMapEnabled" };
+	static const Identifier master_PatchMapEchoEnabled{ "master_PatchMapEchoEnabled" };
+	static const Identifier master_Pedal1ControllerNumber{ "master_Pedal1ControllerNumber" };
+	static const Identifier master_Pedal2ControllerNumber{ "master_Pedal2ControllerNumber" };
+	static const Identifier master_SpilloverEnabled{ "master_SpilloverEnabled" };
+	static const Identifier master_SplitStereoEnabled{ "master_SplitStereoEnabled" };
+	static const Identifier master_SysExEnabled{ "master_SysExEnabled" };
+	static const Identifier master_Tune{ "master_Tune" };
+	static const Identifier master_VibratoAmplitude{ "master_VibratoAmplitude" };
+	static const Identifier master_VibratoAmplitudeModAmount{ "master_VibratoAmplitudeModAmount" };
+	static const Identifier master_VibratoAmplitudeModSource{ "master_VibratoAmplitudeModSource" };
+	static const Identifier master_VibratoSpeed{ "master_VibratoSpeed" };
+	static const Identifier master_VibratoSpeedModAmount{ "master_VibratoSpeedModAmount" };
+	static const Identifier master_VibratoSpeedModSource{ "master_VibratoSpeedModSource" };
+	static const Identifier master_VibratoWaveType{ "master_VibratoWaveType" };
+
 	static const Identifier matrixMod_AmountForMod_0{ "matrixMod_AmountForMod_0" };
 	static const Identifier matrixMod_AmountForMod_1{ "matrixMod_AmountForMod_1" };
 	static const Identifier matrixMod_AmountForMod_2{ "matrixMod_AmountForMod_2" };

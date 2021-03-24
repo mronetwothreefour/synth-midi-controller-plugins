@@ -4,6 +4,7 @@
 
 UnexposedParameters::UnexposedParameters() :
 	currentPatchOptions{ new CurrentPatchOptions(this) },
+	masterOptions{ new MasterOptions(this) },
 	matrixModSettings{ new MatrixModSettings(this) },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
@@ -21,6 +22,10 @@ Array<MidiBuffer, CriticalSection>* UnexposedParameters::aggregatedOutgoingBuffe
 
 CurrentPatchOptions* UnexposedParameters::currentPatchOptions_get() {
 	return currentPatchOptions.get();
+}
+
+MasterOptions* UnexposedParameters::masterOptions_get() {
+	return masterOptions.get();
 }
 
 MatrixModSettings* UnexposedParameters::matrixModSettings_get() {
@@ -63,5 +68,6 @@ UnexposedParameters::~UnexposedParameters() {
 	outgoingMidiBuffers = nullptr;
 	midiOptions = nullptr;
 	matrixModSettings = nullptr;
+	masterOptions = nullptr;
 	currentPatchOptions = nullptr;
 }

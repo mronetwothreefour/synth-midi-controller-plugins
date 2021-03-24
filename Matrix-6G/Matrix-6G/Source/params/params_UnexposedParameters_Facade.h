@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "params_CurrentPatchOptions.h"
+#include "params_MasterOptions.h"
 #include "params_MatrixModSettings.h"
 #include "params_MidiOptions.h"
 #include "params_SplitOptions.h"
@@ -16,6 +17,7 @@
 class UnexposedParameters
 {
 	std::unique_ptr<CurrentPatchOptions> currentPatchOptions;
+	std::unique_ptr<MasterOptions> masterOptions;
 	std::unique_ptr<MatrixModSettings> matrixModSettings;
 	std::unique_ptr<MidiOptions> midiOptions;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
@@ -29,6 +31,7 @@ public:
 	UnexposedParameters();
 	Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers_get();
 	CurrentPatchOptions* currentPatchOptions_get();
+	MasterOptions* masterOptions_get();
 	MatrixModSettings* matrixModSettings_get();
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();

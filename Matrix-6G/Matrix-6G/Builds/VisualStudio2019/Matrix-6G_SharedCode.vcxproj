@@ -2152,6 +2152,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp" />
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
+    <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp" />
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp" />
@@ -2978,6 +2979,7 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
+    <ClInclude Include="..\..\Source\params\params_MasterOptions.h" />
     <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h" />
     <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
