@@ -22,18 +22,18 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
-    buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     matrixModLayer{ new MatrixModLayer(unexposedParams) },
     patchNumberAndNameLayer{ new PatchNumberAndNameLayer(unexposedParams) },
+    buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(matrixModLayer.get());
     addAndMakeVisible(patchNumberAndNameLayer.get());
+    addAndMakeVisible(buttonsLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);
@@ -55,9 +55,9 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
     envelopeRenderersLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
-    buttonsLayer->setBounds(getLocalBounds());
     matrixModLayer->setBounds(getLocalBounds());
     patchNumberAndNameLayer->setBounds(getLocalBounds());
+    buttonsLayer->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -71,9 +71,9 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    buttonsLayer = nullptr;
     patchNumberAndNameLayer = nullptr;
     matrixModLayer = nullptr;
-    buttonsLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;
 }

@@ -4,7 +4,7 @@
 
 UnexposedParameters::UnexposedParameters() :
 	currentPatchOptions{ new CurrentPatchOptions(this) },
-	masterOptions{ new MasterOptions(this) },
+	masterOptions{ new MasterOptions() },
 	matrixModSettings{ new MatrixModSettings(this) },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },

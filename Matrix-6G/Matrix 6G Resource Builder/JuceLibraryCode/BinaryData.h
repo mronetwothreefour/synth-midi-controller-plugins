@@ -108,7 +108,7 @@ namespace BinaryData
     const int            ButtonXOrangeUp_pngSize = 210;
 
     extern const char*   MasterWindow_png;
-    const int            MasterWindow_pngSize = 16207;
+    const int            MasterWindow_pngSize = 21599;
 
     extern const char*   Matrix6GMainWindowBackground_png;
     const int            Matrix6GMainWindowBackground_pngSize = 51164;

@@ -22,9 +22,9 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<MatrixModLayer> matrixModLayer;
     std::unique_ptr<PatchNumberAndNameLayer> patchNumberAndNameLayer;
+    std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
