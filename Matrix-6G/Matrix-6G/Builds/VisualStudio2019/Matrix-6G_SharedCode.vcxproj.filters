@@ -2397,7 +2397,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp">
+    <ClCompile Include="..\..\Source\params\params_PatchTransmissionOptions.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp">
@@ -2615,6 +2615,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4847,7 +4850,7 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
+    <ClInclude Include="..\..\Source\params\params_PatchTransmissionOptions.h">
       <Filter>Matrix-6G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h">
@@ -5107,6 +5110,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_MasterOptions.h">
       <Filter>Matrix-6G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

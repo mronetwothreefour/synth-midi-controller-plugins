@@ -31,12 +31,13 @@ const String ButtonForPullingSelectedSplitFromHardware::createButtonTooltipStrin
 void ButtonForPullingSelectedSplitFromHardware::onClickMethod() {
 	auto slot{ splitSlots.selectedSlot };
 	if (slot < splits::numberOfSlotsInBank) {
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
 		splitSlots.pullSelectedSplitFromHardware();
-		auto transmitTime{ midiOptions->patchTransmitTime() };
-		callAfterDelay(transmitTime, [this, slot, midiOptions]
+		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		callAfterDelay(transmitTime, [this, slot]
 			{
-				auto basicChannel{ midiOptions->basicChannel() };
+				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto basicChannel{ masterOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, slot);
 			}

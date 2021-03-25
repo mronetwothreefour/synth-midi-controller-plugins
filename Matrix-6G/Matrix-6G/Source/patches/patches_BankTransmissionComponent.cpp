@@ -17,7 +17,7 @@ PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, 
 	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	transmitTime{ unexposedParams->midiOptions_get()->patchTransmitTime() },
+	transmitTime{ unexposedParams->patchTransmissionOptions_get()->patchTransmitTime() },
 	patchCounter{ patches::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
@@ -33,9 +33,9 @@ PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, 
 	addAndMakeVisible(button_Stop);
 	button_Close.onClick = [this, bank, transmissionType, unexposedParams] { 
 		if (transmissionType == TransmissionType::pull) {
-			auto midiOptions{ unexposedParams->midiOptions_get() };
+			auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
 			if (bank == PatchBank::customA || bank == PatchBank::customB)
-				midiOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
+				patchTransmissionOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
 		}
 		hideThisComponent();
 	};
@@ -65,19 +65,19 @@ void PatchBankTransmissionComponent::timerCallback() {
 void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
 		if (bank == PatchBank::customA)
-			midiOptions->setIncomingPatchShouldBeSavedInCustomBankA();
+			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankA();
 		else
-			midiOptions->setIncomingPatchShouldBeSavedInCustomBankB();
+			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankB();
 		PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
 	}
 	else {
 		PatchDataMessage::addDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, patchSlot]
 			{
-				auto midiOptions{ unexposedParams->midiOptions_get() };
-				auto basicChannel{ midiOptions->basicChannel() };
+				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto basicChannel{ masterOptions->basicChannel() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, patchSlot);
 			}
 		);

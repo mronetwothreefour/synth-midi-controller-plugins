@@ -6,7 +6,7 @@ UnexposedParameters::UnexposedParameters() :
 	currentPatchOptions{ new CurrentPatchOptions(this) },
 	masterOptions{ new MasterOptions() },
 	matrixModSettings{ new MatrixModSettings(this) },
-	midiOptions{ new MidiOptions() },
+	patchTransmissionOptions{ new PatchTransmissionOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	patchBanks{ new PatchBanks() },
 	splitOptions{ new SplitOptions() },
@@ -32,16 +32,16 @@ MatrixModSettings* UnexposedParameters::matrixModSettings_get() {
 	return matrixModSettings.get();
 }
 
-MidiOptions* UnexposedParameters::midiOptions_get() {
-	return midiOptions.get();
-}
-
 OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
 PatchBanks* UnexposedParameters::patchBanks_get() {
 	return patchBanks.get();
+}
+
+PatchTransmissionOptions* UnexposedParameters::patchTransmissionOptions_get() {
+	return patchTransmissionOptions.get();
 }
 
 SplitOptions* UnexposedParameters::splitOptions_get() {
@@ -66,7 +66,7 @@ UnexposedParameters::~UnexposedParameters() {
 	splitsBank = nullptr;
 	splitOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
-	midiOptions = nullptr;
+	patchTransmissionOptions = nullptr;
 	matrixModSettings = nullptr;
 	masterOptions = nullptr;
 	currentPatchOptions = nullptr;

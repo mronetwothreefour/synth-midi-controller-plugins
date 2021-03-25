@@ -30,8 +30,8 @@ void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
 	PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams);
 	callAfterDelay(10, [this]
 		{
-			auto midiOptions{ unexposedParams->midiOptions_get() };
-			auto basicChannel{ midiOptions->basicChannel() };
+			auto masterOptions{ unexposedParams->masterOptions_get() };
+			auto basicChannel{ masterOptions->basicChannel() };
 			auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
 			auto patchSlot{ currentPatchOptions->currentPatchNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };

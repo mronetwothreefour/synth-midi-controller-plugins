@@ -33,11 +33,12 @@ const String ButtonForSavingCurrentSplitSettingsInSelectedSlot::createButtonTool
 void ButtonForSavingCurrentSplitSettingsInSelectedSlot::onClickMethod() {
 	if (splitSlots.selectedSlot < splits::numberOfSlotsInBank) {
 		splitSlots.storeCurrentSplitSettingsInSelectedSlot();
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		auto transmitTime{ midiOptions->patchTransmitTime() };
-		callAfterDelay(transmitTime, [this, midiOptions]
+		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		callAfterDelay(transmitTime, [this]
 			{
-				auto basicChannel{ midiOptions->basicChannel() };
+				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto basicChannel{ masterOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)splitSlots.selectedSlot);
 			}

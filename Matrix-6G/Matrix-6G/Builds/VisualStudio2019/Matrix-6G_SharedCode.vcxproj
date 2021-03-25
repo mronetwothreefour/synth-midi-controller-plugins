@@ -2154,7 +2154,7 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp" />
-    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_PatchTransmissionOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
@@ -2200,6 +2200,7 @@
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp" />
@@ -2981,7 +2982,7 @@
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MasterOptions.h" />
     <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h" />
-    <ClInclude Include="..\..\Source\params\params_MidiOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_PatchTransmissionOptions.h" />
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h" />
     <ClInclude Include="..\..\Source\params\params_SplitOptions.h" />
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
@@ -3032,6 +3033,7 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Label\widget_EditableLabel.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h" />

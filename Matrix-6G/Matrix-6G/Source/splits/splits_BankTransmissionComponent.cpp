@@ -15,7 +15,7 @@ using namespace constants;
 SplitsBankTransmissionComponent::SplitsBankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	transmitTime{ unexposedParams->midiOptions_get()->patchTransmitTime() },
+	transmitTime{ unexposedParams->patchTransmissionOptions_get()->patchTransmitTime() },
 	splitCounter{ splits::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
@@ -60,8 +60,8 @@ void SplitsBankTransmissionComponent::transmitMidiBufferForSplitSlot(uint8 split
 		SplitDataMessage::addDataMessageForSplitStoredInSlotToOutgoingMidiBuffers(splitSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, splitSlot]
 			{
-				auto midiOptions{ unexposedParams->midiOptions_get() };
-				auto basicChannel{ midiOptions->basicChannel() };
+				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto basicChannel{ masterOptions->basicChannel() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, splitSlot);
 			}
 		);

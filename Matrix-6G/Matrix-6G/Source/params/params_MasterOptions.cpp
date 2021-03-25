@@ -15,7 +15,7 @@ MasterOptions::MasterOptions() :
 }
 
 void MasterOptions::fillMasterOptionsTreeWithProperties() {
-	masterOptionsTree.setProperty(ID::master_BasicChannel, (uint8)0, nullptr);
+	masterOptionsTree.setProperty(ID::master_BasicChannel, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_OmniModeEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_ControllersEnabled, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_PatchChangesEnabled, (uint8)1, nullptr);
@@ -89,6 +89,38 @@ void MasterOptions::setSysExEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_SysExEnabled, newValue, nullptr);
 }
 
+const uint8 MasterOptions::spilloverEnabled() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_SpilloverEnabled);
+}
+
+void MasterOptions::setSpilloverEnabled(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_SpilloverEnabled, newValue, nullptr);
+}
+
+const uint8 MasterOptions::midiEchoEnabled() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_MIDIechoEnabled);
+}
+
+void MasterOptions::setMIDIechoEnabled(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_MIDIechoEnabled, newValue, nullptr);
+}
+
+const uint8 MasterOptions::midiMonoEnabled() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_MIDImonoEnabled);
+}
+
+void MasterOptions::setMIDImonoEnabled(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_MIDImonoEnabled, newValue, nullptr);
+}
+
+const uint8 MasterOptions::activeSensingEnabled() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_ActiveSensingEnabled);
+}
+
+void MasterOptions::setActiveSensingEnabled(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_ActiveSensingEnabled, newValue, nullptr);
+}
+
 const uint8 MasterOptions::localControlEnabled() {
 	return (uint8)(int)masterOptionsTree.getProperty(ID::master_LocalControlEnabled);
 }
@@ -127,30 +159,6 @@ const uint8 MasterOptions::lever3ControllerNumber() {
 
 void MasterOptions::setLever3ControllerNumber(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_Lever3ControllerNumber, newValue, nullptr);
-}
-
-const uint8 MasterOptions::spilloverEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_SpilloverEnabled);
-}
-
-void MasterOptions::setSpilloverEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_SpilloverEnabled, newValue, nullptr);
-}
-
-const uint8 MasterOptions::midiEchoEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_MIDIechoEnabled);
-}
-
-void MasterOptions::setMIDIechoEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_MIDIechoEnabled, newValue, nullptr);
-}
-
-const uint8 MasterOptions::midiMonoEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_MIDImonoEnabled);
-}
-
-void MasterOptions::setMIDImonoEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_MIDImonoEnabled, newValue, nullptr);
 }
 
 const uint8 MasterOptions::vibratoSpeed() {
@@ -239,4 +247,20 @@ const uint8 MasterOptions::patchMapEchoEnabled() {
 
 void MasterOptions::setPatchMapEchoEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, newValue, nullptr);
+}
+
+const uint8 MasterOptions::displayBrightness() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_DisplayBrightness);
+}
+
+void MasterOptions::setDisplayBrightness(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_DisplayBrightness, newValue, nullptr);
+}
+
+const uint8 MasterOptions::squickEnabled() {
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_SQUICKenabled);
+}
+
+void MasterOptions::setSQUICKenabled(uint8 newValue) {
+	masterOptionsTree.setProperty(ID::master_SQUICKenabled, newValue, nullptr);
 }

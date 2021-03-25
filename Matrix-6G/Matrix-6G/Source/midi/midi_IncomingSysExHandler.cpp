@@ -40,16 +40,16 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
         std::vector<uint8> patchDataVector;
         for (auto dataByte = MIDI::patchAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfPatchDataVector; ++dataByte)
             patchDataVector.push_back(*(sysExData + dataByte));
-        auto midiOptions{ unexposedParams->midiOptions_get() };
-        if (midiOptions->incomingPatchShouldBeSavedInCustomBankA() || midiOptions->incomingPatchShouldBeSavedInCustomBankB()) {
+        auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+        if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankA() || patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankB()) {
             auto patchBanks{ unexposedParams->patchBanks_get() };
             auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(patchDataVector) };
             const MessageManagerLock mmLock;
-            if (midiOptions->incomingPatchShouldBeSavedInCustomBankA())
+            if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankA())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customA, slot);
-            if (midiOptions->incomingPatchShouldBeSavedInCustomBankB())
+            if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankB())
                 patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customB, slot);
-            midiOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
+            patchTransmissionOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
         }
         const MessageManagerLock mmLock;
         RawDataTools::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);

@@ -72,8 +72,10 @@ namespace ID
 	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
 	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
 
+	static const Identifier master_ActiveSensingEnabled{ "master_ActiveSensingEnabled" };
 	static const Identifier master_BasicChannel{ "master_BasicChannel" };
 	static const Identifier master_ControllersEnabled{ "master_ControllersEnabled" };
+	static const Identifier master_DisplayBrightness{ "master_DisplayBrightness" };
 	static const Identifier master_Lever2ControllerNumber{ "master_Lever2ControllerNumber" };
 	static const Identifier master_Lever3ControllerNumber{ "master_Lever3ControllerNumber" };
 	static const Identifier master_LocalControlEnabled{ "master_LocalControlEnabled" };
@@ -88,6 +90,7 @@ namespace ID
 	static const Identifier master_Pedal2ControllerNumber{ "master_Pedal2ControllerNumber" };
 	static const Identifier master_SpilloverEnabled{ "master_SpilloverEnabled" };
 	static const Identifier master_SplitStereoEnabled{ "master_SplitStereoEnabled" };
+	static const Identifier master_SQUICKenabled{ "master_SQUICKenabled" };
 	static const Identifier master_SysExEnabled{ "master_SysExEnabled" };
 	static const Identifier master_Tune{ "master_Tune" };
 	static const Identifier master_VibratoAmplitude{ "master_VibratoAmplitude" };

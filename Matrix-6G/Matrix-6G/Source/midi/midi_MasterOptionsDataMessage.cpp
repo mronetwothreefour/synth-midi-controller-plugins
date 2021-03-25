@@ -2,7 +2,7 @@
 
 #include "../midi/midi_OutgoingMidiBuffers.h"
 #include "../midi/midi_RawDataTools.h"
-//#include "../params/params_MasterOptions.h"
+#include "../params/params_MasterOptions.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 

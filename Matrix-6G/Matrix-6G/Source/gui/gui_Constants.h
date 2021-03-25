@@ -81,6 +81,7 @@ namespace constants
 		static const int lfo2Controls_x{ 792 };
 		static const int mainWindowLargeButtons_y{ 353 };
 		static const int mainWindowSmallButtons_y{ 367 };
+		static const int masterOptionsControlsCol1and2_w{ 37 };
 		static const int masterOptionsControlsCol1_x{ 420 };
 		static const int masterOptionsControlsCol2_x{ 585 };
 		static const int masterOptionsControlsCol3_x{ 724 };
@@ -183,8 +184,9 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowSplitsButton{ 1085, mainWindowLargeButtons_y, largeButtons_w, largeButtons_h };
 		static const Rectangle<int> bounds_MainWindowQuickEditButton{ quickEditButton_x, mainWindowSmallButtons_y, quickEditButton_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentXbutton{ 952, 129, xButton_w, xButton_h };
-		static const Rectangle<int> bounds_MasterOptionsComponentPullbutton{ 353, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
-		static const Rectangle<int> bounds_MasterOptionsComponentPushbutton{ 553, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentPullbutton{ 553, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentPushbutton{ 353, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForBasicChannel { masterOptionsControlsCol1_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };

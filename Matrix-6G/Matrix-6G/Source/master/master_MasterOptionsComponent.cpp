@@ -13,12 +13,16 @@ using namespace constants;
 MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	button_ForClosingMasterOptionsComponent{ "" },
+	slider_ForSettingBasicChannel{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
 	addAndMakeVisible(button_ForClosingMasterOptionsComponent);
 	button_ForClosingMasterOptionsComponent.onClick = [this] { hideThisComponent(); };
 	button_ForClosingMasterOptionsComponent.setAlwaysOnTop(true);
+
+	slider_ForSettingBasicChannel.addListener(this);
+	addAndMakeVisible(slider_ForSettingBasicChannel);
 
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
@@ -35,7 +39,15 @@ void MasterOptionsComponent::paint(Graphics& g) {
 
 void MasterOptionsComponent::resized() {
 	button_ForClosingMasterOptionsComponent.setBounds(GUI::bounds_MasterOptionsComponentXbutton);
+	slider_ForSettingBasicChannel.setBounds(GUI::bounds_MasterOptionsComponentSliderForBasicChannel);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
+}
+
+void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
+	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto currentValue{ (uint8)roundToInt(slider->getValue()) };
+	if (slider == &slider_ForSettingBasicChannel)
+		masterOptions->setBasicChannel(currentValue);
 }
 
 void MasterOptionsComponent::hideThisComponent() {
@@ -43,4 +55,5 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	slider_ForSettingBasicChannel.removeListener(this);
 }

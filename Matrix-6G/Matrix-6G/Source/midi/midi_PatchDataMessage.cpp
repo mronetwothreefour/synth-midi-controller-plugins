@@ -4,7 +4,6 @@
 #include "../midi/midi_OutgoingMidiBuffers.h"
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
-#include "../params/params_MidiOptions.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 using namespace constants;

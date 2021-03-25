@@ -32,11 +32,12 @@ void ButtonForLoadingSelectedPatch::onClickMethod() {
 	auto slot{ patchSlots.selectedSlot };
 	if (slot < patches::numberOfSlotsInBank) {
 		patchSlots.loadPatchFromSelectedSlot();
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		auto transmitTime{ midiOptions->patchTransmitTime() };
-		callAfterDelay(transmitTime, [this, midiOptions, slot]
+		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		callAfterDelay(transmitTime, [this, slot]
 			{
-				auto basicChannel{ midiOptions->basicChannel() };
+				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto basicChannel{ masterOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, slot);
 			}

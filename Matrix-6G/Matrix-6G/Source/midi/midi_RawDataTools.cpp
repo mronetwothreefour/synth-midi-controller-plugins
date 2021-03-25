@@ -169,10 +169,10 @@ void RawDataTools::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vecto
     applyNameOfPatchInRawDataToGUI(patchDataVector.data(), unexposedParams);
 
     patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeExposedParams);
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchosAreBlocked();
+    auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+    patchTransmissionOptions->setParamChangeEchosAreBlocked();
     applyRawPatchDataToExposedParameters(patchDataVector.data(), exposedParams);
-    midiOptions->setParamChangeEchosAreNotBlocked();
+    patchTransmissionOptions->setParamChangeEchosAreNotBlocked();
 
     patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeMatrixModSettings);
     applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);

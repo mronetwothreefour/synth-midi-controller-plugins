@@ -29,11 +29,12 @@ void ButtonForPullingPatchFromHardwareStorageSlot::onClickMethod() {
 	auto slot{ currentPatchOptions->currentPatchNumber() };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	auto transmitTime{ midiOptions->patchTransmitTime() };
-	callAfterDelay(transmitTime, [this, slot, midiOptions] 
+	auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+	auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+	callAfterDelay(transmitTime, [this, slot] 
 		{
-			auto basicChannel{ midiOptions->basicChannel() };
+			auto masterOptions{ unexposedParams->masterOptions_get() };
+			auto basicChannel{ masterOptions->basicChannel() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			outgoingBuffers->addProgramChangeMessage(basicChannel, slot);
 		}

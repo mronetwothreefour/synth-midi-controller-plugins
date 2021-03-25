@@ -22,7 +22,7 @@ const String ButtonForPullingMasterOptionsFromHardware::createButtonTooltipStrin
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Pull the master options settings from\n";
-		buttonTooltip += "the hardware and apply it to the GUI.";
+		buttonTooltip += "the hardware and apply them to the GUI.";
 	}
 	return buttonTooltip;
 }
