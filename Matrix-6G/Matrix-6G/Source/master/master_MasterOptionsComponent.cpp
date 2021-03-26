@@ -14,6 +14,7 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	unexposedParams{ unexposedParams },
 	button_ForClosingMasterOptionsComponent{ "" },
 	slider_ForSettingBasicChannel{ unexposedParams },
+	comboBox_ForSelectingOmniModeEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -23,6 +24,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 
 	slider_ForSettingBasicChannel.addListener(this);
 	addAndMakeVisible(slider_ForSettingBasicChannel);
+
+	comboBox_ForSelectingOmniModeEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingOmniModeEnabled);
 
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
@@ -40,7 +44,15 @@ void MasterOptionsComponent::paint(Graphics& g) {
 void MasterOptionsComponent::resized() {
 	button_ForClosingMasterOptionsComponent.setBounds(GUI::bounds_MasterOptionsComponentXbutton);
 	slider_ForSettingBasicChannel.setBounds(GUI::bounds_MasterOptionsComponentSliderForBasicChannel);
+	comboBox_ForSelectingOmniModeEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForOmniMode);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
+}
+
+void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
+	auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
+	auto masterOptions{ unexposedParams->masterOptions_get() };
+	if (comboBox == &comboBox_ForSelectingOmniModeEnabled)
+		masterOptions->setOmniModeEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -55,5 +67,6 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingOmniModeEnabled.removeListener(this);
 	slider_ForSettingBasicChannel.removeListener(this);
 }

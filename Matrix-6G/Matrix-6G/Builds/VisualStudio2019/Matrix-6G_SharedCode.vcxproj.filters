@@ -2619,6 +2619,9 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5113,6 +5116,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -30,6 +30,9 @@ String SliderForSettingBasicChannel::generateTooltipString() {
 		tooltipText += "Sets the MIDI channel that the hardware\n";
 		tooltipText += "will receive and transmit messages on\n";
 		tooltipText += "(notes, patch changes, and controllers).\n";
+		tooltipText += "NOTE: Individual Master options are not\n";
+		tooltipText += "immediately updated on the hardware.\n";
+		tooltipText += "Click the PUSH button to update all options.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToUnsignedValueString::get() };
