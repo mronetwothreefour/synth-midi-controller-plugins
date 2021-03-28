@@ -2192,7 +2192,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.cpp" />
@@ -3023,7 +3025,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.h" />

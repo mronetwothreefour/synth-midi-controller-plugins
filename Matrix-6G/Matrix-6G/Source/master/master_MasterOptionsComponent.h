@@ -3,7 +3,9 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_master_ButtonForPullingMasterOptionsFromHardware.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 
 
@@ -19,6 +21,8 @@ class MasterOptionsComponent :
     TextButton button_ForClosingMasterOptionsComponent;
     SliderForSettingBasicChannel slider_ForSettingBasicChannel;
     ComboBoxForSelectingOmniModeEnabled comboBox_ForSelectingOmniModeEnabled;
+    ComboBoxForSelectingControllersEnabled comboBox_ForSelectingControllersEnabled;
+    ComboBoxForSelectingPatchChangesEnabled comboBox_ForSelectingPatchChangesEnabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

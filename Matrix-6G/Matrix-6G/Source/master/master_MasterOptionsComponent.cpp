@@ -15,6 +15,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	button_ForClosingMasterOptionsComponent{ "" },
 	slider_ForSettingBasicChannel{ unexposedParams },
 	comboBox_ForSelectingOmniModeEnabled{ unexposedParams },
+	comboBox_ForSelectingControllersEnabled{ unexposedParams },
+	comboBox_ForSelectingPatchChangesEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -27,6 +29,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 
 	comboBox_ForSelectingOmniModeEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingOmniModeEnabled);
+
+	comboBox_ForSelectingControllersEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingControllersEnabled);
+
+	comboBox_ForSelectingPatchChangesEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingPatchChangesEnabled);
 
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
@@ -45,6 +53,8 @@ void MasterOptionsComponent::resized() {
 	button_ForClosingMasterOptionsComponent.setBounds(GUI::bounds_MasterOptionsComponentXbutton);
 	slider_ForSettingBasicChannel.setBounds(GUI::bounds_MasterOptionsComponentSliderForBasicChannel);
 	comboBox_ForSelectingOmniModeEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForOmniMode);
+	comboBox_ForSelectingControllersEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForControllers);
+	comboBox_ForSelectingPatchChangesEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchChanges);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -53,6 +63,10 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	if (comboBox == &comboBox_ForSelectingOmniModeEnabled)
 		masterOptions->setOmniModeEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingControllersEnabled)
+		masterOptions->setControllersEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingPatchChangesEnabled)
+		masterOptions->setPatchChangesEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -67,6 +81,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingPatchChangesEnabled.removeListener(this);
+	comboBox_ForSelectingControllersEnabled.removeListener(this);
 	comboBox_ForSelectingOmniModeEnabled.removeListener(this);
 	slider_ForSettingBasicChannel.removeListener(this);
 }
