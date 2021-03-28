@@ -17,6 +17,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingOmniModeEnabled{ unexposedParams },
 	comboBox_ForSelectingControllersEnabled{ unexposedParams },
 	comboBox_ForSelectingPatchChangesEnabled{ unexposedParams },
+	comboBox_ForSelectingSysExEnabled{ unexposedParams },
+	comboBox_ForSelectingSpilloverEnabled{ unexposedParams },
+	comboBox_ForSelectingMIDIechoEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -35,6 +38,15 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 
 	comboBox_ForSelectingPatchChangesEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingPatchChangesEnabled);
+
+	comboBox_ForSelectingSysExEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingSysExEnabled);
+
+	comboBox_ForSelectingSpilloverEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingSpilloverEnabled);
+
+	comboBox_ForSelectingMIDIechoEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingMIDIechoEnabled);
 
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
@@ -55,6 +67,9 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingOmniModeEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForOmniMode);
 	comboBox_ForSelectingControllersEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForControllers);
 	comboBox_ForSelectingPatchChangesEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchChanges);
+	comboBox_ForSelectingSysExEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSysEx);
+	comboBox_ForSelectingSpilloverEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSpillover);
+	comboBox_ForSelectingMIDIechoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDIecho);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -67,6 +82,12 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setControllersEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingPatchChangesEnabled)
 		masterOptions->setPatchChangesEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingSysExEnabled)
+		masterOptions->setSysExEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingSpilloverEnabled)
+		masterOptions->setSpilloverEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingMIDIechoEnabled)
+		masterOptions->setMIDIechoEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -81,6 +102,9 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingMIDIechoEnabled.removeListener(this);
+	comboBox_ForSelectingSpilloverEnabled.removeListener(this);
+	comboBox_ForSelectingSysExEnabled.removeListener(this);
 	comboBox_ForSelectingPatchChangesEnabled.removeListener(this);
 	comboBox_ForSelectingControllersEnabled.removeListener(this);
 	comboBox_ForSelectingOmniModeEnabled.removeListener(this);

@@ -1,4 +1,4 @@
-#include "widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
+#include "widget_master_ComboBoxForSelectingSysExEnabled.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
@@ -7,7 +7,7 @@
 
 
 
-ComboBoxForSelectingPatchChangesEnabled::ComboBoxForSelectingPatchChangesEnabled(UnexposedParameters* unexposedParams) :
+ComboBoxForSelectingSysExEnabled::ComboBoxForSelectingSysExEnabled(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
@@ -20,21 +20,21 @@ ComboBoxForSelectingPatchChangesEnabled::ComboBoxForSelectingPatchChangesEnabled
 	choices.add(converter->convert(1));
 	addItemList(choices, 1);
 	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
-	auto paramValue{ masterOptions->patchChangesEnabled() };
+	auto paramValue{ masterOptions->sysExEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
-String ComboBoxForSelectingPatchChangesEnabled::generateTooltipString() {
+String ComboBoxForSelectingSysExEnabled::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "When set to on, incoming MIDI program change messages\n";
-		tooltipText += "will switch the hardware to the specified patch number.\n";
-		tooltipText += "It is recommended that this option be set to on for this\n";
-		tooltipText += "plugin to operate properly. NOTE: Individual Master\n";
-		tooltipText += "options are not immediately updated on the hardware.\n";
-		tooltipText += "Click the PUSH button to update all options.\n";
+		tooltipText += "When set to on, the hardware will respond to MIDI\n";
+		tooltipText += "System Exclusive (SysEx) messages. IMPORTANT: This\n";
+		tooltipText += "plugin uses SysEx to communicate with the hardware and\n";
+		tooltipText += "it is imperative that this option be set to on. If it\n";
+		tooltipText += "gets turned off, it can only be turned back on in the\n";
+		tooltipText += "Master Edit page on the hardware itself (parameter 04).\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToOffOnString::get() };
@@ -45,8 +45,8 @@ String ComboBoxForSelectingPatchChangesEnabled::generateTooltipString() {
 	return tooltipText;
 }
 
-void ComboBoxForSelectingPatchChangesEnabled::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_PatchChangesEnabled) {
+void ComboBoxForSelectingSysExEnabled::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+	if (property == ID::master_SysExEnabled) {
 		MessageManagerLock mmLock;
 		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
 		setTooltip(generateTooltipString());
@@ -56,14 +56,14 @@ void ComboBoxForSelectingPatchChangesEnabled::valueTreePropertyChanged(ValueTree
 	}
 }
 
-void ComboBoxForSelectingPatchChangesEnabled::paint(Graphics& g) {
+void ComboBoxForSelectingSysExEnabled::paint(Graphics& g) {
 	auto currentValue{ (uint8)getSelectedItemIndex() };
 	auto converter{ IntToOffOnString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
-ComboBoxForSelectingPatchChangesEnabled::~ComboBoxForSelectingPatchChangesEnabled() {
+ComboBoxForSelectingSysExEnabled::~ComboBoxForSelectingSysExEnabled() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	auto masterOptions{ unexposedParams->masterOptions_get() };
