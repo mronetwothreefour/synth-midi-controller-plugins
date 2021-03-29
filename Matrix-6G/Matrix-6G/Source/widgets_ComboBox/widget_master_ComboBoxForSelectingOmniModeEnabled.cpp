@@ -1,6 +1,5 @@
 #include "widget_master_ComboBoxForSelectingOmniModeEnabled.h"
 
-#include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -8,18 +7,11 @@
 
 
 ComboBoxForSelectingOmniModeEnabled::ComboBoxForSelectingOmniModeEnabled(UnexposedParameters* unexposedParams) :
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_OmniModeEnabled },
 	unexposedParams{ unexposedParams }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->addListener(this);
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	tooltipOptions->addListener(this);
-	StringArray choices;
-	auto converter{ IntToOffOnString::get() };
-	choices.add(converter->convert(0));
-	choices.add(converter->convert(1));
-	addItemList(choices, 1);
-	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
 	auto paramValue{ masterOptions->omniModeEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
@@ -46,27 +38,7 @@ String ComboBoxForSelectingOmniModeEnabled::generateTooltipString() {
 	return tooltipText;
 }
 
-void ComboBoxForSelectingOmniModeEnabled::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_OmniModeEnabled) {
-		MessageManagerLock mmLock;
-		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
-		setTooltip(generateTooltipString());
-	}
-	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
-		setTooltip(generateTooltipString());
-	}
-}
-
-void ComboBoxForSelectingOmniModeEnabled::paint(Graphics& g) {
-	auto currentValue{ (uint8)getSelectedItemIndex() };
-	auto converter{ IntToOffOnString::get() };
-	String valueString{ converter->convert(currentValue) };
-	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
-}
-
 ComboBoxForSelectingOmniModeEnabled::~ComboBoxForSelectingOmniModeEnabled() {
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	tooltipOptions->removeListener(this);
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->removeListener(this);
 }

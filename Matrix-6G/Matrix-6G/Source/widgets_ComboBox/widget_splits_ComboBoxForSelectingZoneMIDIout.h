@@ -2,13 +2,14 @@
 
 #include <JuceHeader.h>
 
+#include "widget_BaseComboBoxForOffOnValueTreeProperty.h"
+
 
 
 class UnexposedParameters;
 
 class ComboBoxForSelectingZoneMIDIout :
-	public ComboBox,
-	public ValueTree::Listener
+	public BaseComboBoxForOffOnValueTreeProperty
 {
 	UnexposedParameters* unexposedParams;
 	Identifier parameterID;
@@ -17,9 +18,7 @@ public:
 	ComboBoxForSelectingZoneMIDIout() = delete;
 
 	ComboBoxForSelectingZoneMIDIout(UnexposedParameters* unexposedParams, Identifier parameterID);
-	String generateTooltipString();
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	void paint(Graphics& g) override;
+	String generateTooltipString() override;
 	~ComboBoxForSelectingZoneMIDIout() override;
 
 private:

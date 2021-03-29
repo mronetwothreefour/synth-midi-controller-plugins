@@ -2,13 +2,14 @@
 
 #include <JuceHeader.h>
 
+#include "widget_BaseComboBoxForOffOnValueTreeProperty.h"
+
 
 
 class UnexposedParameters;
 
 class ComboBoxForSelectingPatchChangesEnabled :
-	public ComboBox,
-	public ValueTree::Listener
+	public BaseComboBoxForOffOnValueTreeProperty
 {
 	UnexposedParameters* unexposedParams;
 
@@ -16,9 +17,7 @@ public:
 	ComboBoxForSelectingPatchChangesEnabled() = delete;
 
 	ComboBoxForSelectingPatchChangesEnabled(UnexposedParameters* unexposedParams);
-	String generateTooltipString();
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	void paint(Graphics& g) override;
+	String generateTooltipString()  override;
 	~ComboBoxForSelectingPatchChangesEnabled() override;
 
 private:

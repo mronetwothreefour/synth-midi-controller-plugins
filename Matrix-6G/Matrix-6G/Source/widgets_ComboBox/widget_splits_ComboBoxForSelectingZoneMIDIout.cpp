@@ -1,6 +1,5 @@
 #include "widget_splits_ComboBoxForSelectingZoneMIDIout.h"
 
-#include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -8,18 +7,13 @@
 
 
 ComboBoxForSelectingZoneMIDIout::ComboBoxForSelectingZoneMIDIout(UnexposedParameters* unexposedParams, Identifier parameterID) :
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, parameterID == ID::split_LowerZoneMidiOut ? ID::split_LowerZoneMidiOut : ID::split_UpperZoneMidiOut },
 	unexposedParams{ unexposedParams },
 	parameterID{ parameterID }
 {
 	jassert(parameterID == ID::split_LowerZoneMidiOut || parameterID == ID::split_UpperZoneMidiOut);
 	auto splitOptions{ unexposedParams->splitOptions_get() };
 	splitOptions->addListener(this);
-	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
-	StringArray choices;
-	auto converter{ IntToOffOnString::get() };
-	for (uint8 i = 0; i != 2; ++i)
-		choices.add(converter->convert(i));
-	addItemList(choices, 1);
 	auto paramValue{ parameterID == ID::split_LowerZoneMidiOut ? splitOptions->lowerZoneMidiOut() : splitOptions->upperZoneMidiOut() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
@@ -42,21 +36,6 @@ String ComboBoxForSelectingZoneMIDIout::generateTooltipString() {
 		tooltipText += converter->verboseConvert(currentValue);
 	}
 	return tooltipText;
-}
-
-void ComboBoxForSelectingZoneMIDIout::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == parameterID) {
-		MessageManagerLock mmLock;
-		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
-		setTooltip(generateTooltipString());
-	}
-}
-
-void ComboBoxForSelectingZoneMIDIout::paint(Graphics& g) {
-	auto currentValue{ (uint8)getSelectedItemIndex() };
-	auto converter{ IntToOffOnString::get() };
-	String valueString{ converter->convert(currentValue) };
-	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
 ComboBoxForSelectingZoneMIDIout::~ComboBoxForSelectingZoneMIDIout() {

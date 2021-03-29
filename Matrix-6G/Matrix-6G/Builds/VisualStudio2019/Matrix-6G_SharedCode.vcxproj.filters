@@ -2637,6 +2637,9 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5148,6 +5151,12 @@
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_BaseComboBoxForOffOnValueTreeProperty.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,13 +2,14 @@
 
 #include <JuceHeader.h>
 
+#include "widget_BaseComboBoxForOffOnValueTreeProperty.h"
+
 
 
 class UnexposedParameters;
 
 class ComboBoxForSelectingSysExEnabled :
-	public ComboBox,
-	public ValueTree::Listener
+	public BaseComboBoxForOffOnValueTreeProperty
 {
 	UnexposedParameters* unexposedParams;
 
@@ -16,9 +17,7 @@ public:
 	ComboBoxForSelectingSysExEnabled() = delete;
 
 	ComboBoxForSelectingSysExEnabled(UnexposedParameters* unexposedParams);
-	String generateTooltipString();
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	void paint(Graphics& g) override;
+	String generateTooltipString() override;
 	~ComboBoxForSelectingSysExEnabled() override;
 
 private:
