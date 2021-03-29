@@ -5,6 +5,7 @@
 #include "../widgets_Button/widget_master_ButtonForPullingMasterOptionsFromHardware.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
@@ -29,6 +30,7 @@ class MasterOptionsComponent :
     ComboBoxForSelectingSysExEnabled comboBox_ForSelectingSysExEnabled;
     ComboBoxForSelectingSpilloverEnabled comboBox_ForSelectingSpilloverEnabled;
     ComboBoxForSelectingMIDIechoEnabled comboBox_ForSelectingMIDIechoEnabled;
+    ComboBoxForSelectingMIDImonoEnabled comboBox_ForSelectingMIDImonoEnabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

@@ -20,6 +20,7 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSysExEnabled{ unexposedParams },
 	comboBox_ForSelectingSpilloverEnabled{ unexposedParams },
 	comboBox_ForSelectingMIDIechoEnabled{ unexposedParams },
+	comboBox_ForSelectingMIDImonoEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -48,6 +49,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingMIDIechoEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingMIDIechoEnabled);
 
+	comboBox_ForSelectingMIDImonoEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingMIDImonoEnabled);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -70,6 +74,7 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingSysExEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSysEx);
 	comboBox_ForSelectingSpilloverEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSpillover);
 	comboBox_ForSelectingMIDIechoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDIecho);
+	comboBox_ForSelectingMIDImonoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDImono);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -88,6 +93,8 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setSpilloverEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingMIDIechoEnabled)
 		masterOptions->setMIDIechoEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingMIDImonoEnabled)
+		masterOptions->setMIDImonoEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -102,6 +109,7 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingMIDImonoEnabled.removeListener(this);
 	comboBox_ForSelectingMIDIechoEnabled.removeListener(this);
 	comboBox_ForSelectingSpilloverEnabled.removeListener(this);
 	comboBox_ForSelectingSysExEnabled.removeListener(this);

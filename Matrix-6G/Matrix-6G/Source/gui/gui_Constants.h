@@ -186,6 +186,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentXbutton{ 952, 129, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForControllers{ masterOptionsControlsCol1_x, masterOptionsControlsRow3_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForMIDIecho{ masterOptionsControlsCol1_x, masterOptionsControlsRow7_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForMIDImono{ masterOptionsControlsCol2_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForOmniMode{ masterOptionsControlsCol1_x, masterOptionsControlsRow2_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchChanges{ masterOptionsControlsCol1_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSpillover{ masterOptionsControlsCol1_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
