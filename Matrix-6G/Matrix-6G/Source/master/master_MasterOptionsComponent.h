@@ -3,7 +3,9 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_master_ButtonForPullingMasterOptionsFromHardware.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
@@ -31,6 +33,8 @@ class MasterOptionsComponent :
     ComboBoxForSelectingSpilloverEnabled comboBox_ForSelectingSpilloverEnabled;
     ComboBoxForSelectingMIDIechoEnabled comboBox_ForSelectingMIDIechoEnabled;
     ComboBoxForSelectingMIDImonoEnabled comboBox_ForSelectingMIDImonoEnabled;
+    ComboBoxForSelectingActiveSensingEnabled comboBox_ForSelectingActiveSensingEnabled;
+    ComboBoxForSelectingLocalControlEnabled comboBox_ForSelectingLocalControlEnabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

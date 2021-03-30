@@ -21,6 +21,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSpilloverEnabled{ unexposedParams },
 	comboBox_ForSelectingMIDIechoEnabled{ unexposedParams },
 	comboBox_ForSelectingMIDImonoEnabled{ unexposedParams },
+	comboBox_ForSelectingActiveSensingEnabled{ unexposedParams },
+	comboBox_ForSelectingLocalControlEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -52,6 +54,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingMIDImonoEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingMIDImonoEnabled);
 
+	comboBox_ForSelectingActiveSensingEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingActiveSensingEnabled);
+
+	comboBox_ForSelectingLocalControlEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingLocalControlEnabled);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -75,6 +83,8 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingSpilloverEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSpillover);
 	comboBox_ForSelectingMIDIechoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDIecho);
 	comboBox_ForSelectingMIDImonoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDImono);
+	comboBox_ForSelectingActiveSensingEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForActiveSensing);
+	comboBox_ForSelectingLocalControlEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForLocalControl);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -95,6 +105,10 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setMIDIechoEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingMIDImonoEnabled)
 		masterOptions->setMIDImonoEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingActiveSensingEnabled)
+		masterOptions->setActiveSensingEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingLocalControlEnabled)
+		masterOptions->setLocalControlEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -109,6 +123,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingLocalControlEnabled.removeListener(this);
+	comboBox_ForSelectingActiveSensingEnabled.removeListener(this);
 	comboBox_ForSelectingMIDImonoEnabled.removeListener(this);
 	comboBox_ForSelectingMIDIechoEnabled.removeListener(this);
 	comboBox_ForSelectingSpilloverEnabled.removeListener(this);

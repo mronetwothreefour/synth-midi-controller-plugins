@@ -2193,7 +2193,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp" />
@@ -3030,8 +3032,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h" />
