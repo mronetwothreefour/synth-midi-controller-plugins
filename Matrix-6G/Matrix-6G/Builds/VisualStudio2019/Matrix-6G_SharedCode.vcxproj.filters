@@ -2649,6 +2649,18 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5162,9 +5174,6 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_BaseComboBoxForOffOnValueTreeProperty.h">
-      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
@@ -5176,6 +5185,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

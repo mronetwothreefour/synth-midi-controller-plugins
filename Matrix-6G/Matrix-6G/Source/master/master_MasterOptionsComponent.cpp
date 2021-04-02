@@ -23,6 +23,10 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingMIDImonoEnabled{ unexposedParams },
 	comboBox_ForSelectingActiveSensingEnabled{ unexposedParams },
 	comboBox_ForSelectingLocalControlEnabled{ unexposedParams },
+	slider_ForSettingPedal1Controller{ unexposedParams, 1 },
+	slider_ForSettingPedal2Controller{ unexposedParams, 2 },
+	slider_ForSettingLever2Controller{ unexposedParams },
+	slider_ForSettingLever3Controller{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -60,6 +64,18 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingLocalControlEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingLocalControlEnabled);
 
+	slider_ForSettingPedal1Controller.addListener(this);
+	addAndMakeVisible(slider_ForSettingPedal1Controller);
+
+	slider_ForSettingPedal2Controller.addListener(this);
+	addAndMakeVisible(slider_ForSettingPedal2Controller);
+
+	slider_ForSettingLever2Controller.addListener(this);
+	addAndMakeVisible(slider_ForSettingLever2Controller);
+
+	slider_ForSettingLever3Controller.addListener(this);
+	addAndMakeVisible(slider_ForSettingLever3Controller);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -85,6 +101,10 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingMIDImonoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDImono);
 	comboBox_ForSelectingActiveSensingEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForActiveSensing);
 	comboBox_ForSelectingLocalControlEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForLocalControl);
+	slider_ForSettingPedal1Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForPedal1Controller);
+	slider_ForSettingPedal2Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForPedal2Controller);
+	slider_ForSettingLever2Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForLever2Controller);
+	slider_ForSettingLever3Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForLever3Controller);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -116,6 +136,14 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 	auto currentValue{ (uint8)roundToInt(slider->getValue()) };
 	if (slider == &slider_ForSettingBasicChannel)
 		masterOptions->setBasicChannel(currentValue);
+	if (slider == &slider_ForSettingLever2Controller)
+		masterOptions->setLever2ControllerNumber(currentValue);
+	if (slider == &slider_ForSettingLever3Controller)
+		masterOptions->setLever3ControllerNumber(currentValue);
+	if (slider == &slider_ForSettingPedal1Controller)
+		masterOptions->setPedal1ControllerNumber(currentValue);
+	if (slider == &slider_ForSettingPedal2Controller)
+		masterOptions->setPedal2ControllerNumber(currentValue);
 }
 
 void MasterOptionsComponent::hideThisComponent() {
@@ -123,6 +151,10 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	slider_ForSettingLever3Controller.removeListener(this);
+	slider_ForSettingLever2Controller.removeListener(this);
+	slider_ForSettingPedal2Controller.removeListener(this);
+	slider_ForSettingPedal1Controller.removeListener(this);
 	comboBox_ForSelectingLocalControlEnabled.removeListener(this);
 	comboBox_ForSelectingActiveSensingEnabled.removeListener(this);
 	comboBox_ForSelectingMIDImonoEnabled.removeListener(this);

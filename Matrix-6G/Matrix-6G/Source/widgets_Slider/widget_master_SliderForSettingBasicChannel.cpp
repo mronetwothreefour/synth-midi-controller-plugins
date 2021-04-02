@@ -16,8 +16,8 @@ SliderForSettingBasicChannel::SliderForSettingBasicChannel(UnexposedParameters* 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setRange(1.0, 16.0, 1.0);
-	auto paramValue{ masterOptions->basicChannel() };
-	setValue((double)paramValue, dontSendNotification);
+	auto paramValue{ (double)masterOptions->basicChannel() };
+	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 1.0);
 	setMouseDragSensitivity(90);
 	setTooltip(generateTooltipString());

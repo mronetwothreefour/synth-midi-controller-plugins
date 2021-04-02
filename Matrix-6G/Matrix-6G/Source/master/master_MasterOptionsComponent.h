@@ -13,6 +13,9 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
+#include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
+#include "../widgets_Slider/widget_master_SliderForSettingLever3Controller.h"
+#include "../widgets_Slider/widget_master_SliderForSettingPedalController.h"
 
 
 
@@ -35,6 +38,10 @@ class MasterOptionsComponent :
     ComboBoxForSelectingMIDImonoEnabled comboBox_ForSelectingMIDImonoEnabled;
     ComboBoxForSelectingActiveSensingEnabled comboBox_ForSelectingActiveSensingEnabled;
     ComboBoxForSelectingLocalControlEnabled comboBox_ForSelectingLocalControlEnabled;
+    SliderForSettingPedalController slider_ForSettingPedal1Controller;
+    SliderForSettingPedalController slider_ForSettingPedal2Controller;
+    SliderForSettingLever2Controller slider_ForSettingLever2Controller;
+    SliderForSettingLever3Controller slider_ForSettingLever3Controller;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

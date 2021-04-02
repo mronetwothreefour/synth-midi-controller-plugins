@@ -2209,8 +2209,12 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp" />
@@ -3042,7 +3046,6 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h" />
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_BaseComboBoxForOffOnValueTreeProperty.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.h" />
@@ -3053,8 +3056,12 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Label\widget_EditableLabel.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h" />

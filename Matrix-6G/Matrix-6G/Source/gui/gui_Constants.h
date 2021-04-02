@@ -196,6 +196,10 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentPullbutton{ 553, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentPushbutton{ 353, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForBasicChannel { masterOptionsControlsCol1_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForLever2Controller { masterOptionsControlsCol2_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForLever3Controller { masterOptionsControlsCol2_x, masterOptionsControlsRow7_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal1Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal2Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
