@@ -2661,6 +2661,15 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5196,6 +5205,15 @@
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.h">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>

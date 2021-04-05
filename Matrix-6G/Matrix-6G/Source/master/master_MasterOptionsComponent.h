@@ -12,10 +12,13 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever3Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingPedalController.h"
+#include "../widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.h"
+#include "../widgets_Slider/widget_master_SliderForSettingVibratoSpeed.h"
 
 
 
@@ -42,6 +45,9 @@ class MasterOptionsComponent :
     SliderForSettingPedalController slider_ForSettingPedal2Controller;
     SliderForSettingLever2Controller slider_ForSettingLever2Controller;
     SliderForSettingLever3Controller slider_ForSettingLever3Controller;
+    SliderForSettingVibratoSpeed slider_ForSettingVibratoSpeed;
+    SliderForSettingVibratoAmplitude slider_ForSettingVibratoAmplitude;
+    ComboBoxForSelectingVibratoWaveType comboBox_ForSelectingVibratoWaveType;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

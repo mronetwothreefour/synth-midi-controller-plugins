@@ -27,6 +27,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingPedal2Controller{ unexposedParams, 2 },
 	slider_ForSettingLever2Controller{ unexposedParams },
 	slider_ForSettingLever3Controller{ unexposedParams },
+	slider_ForSettingVibratoSpeed{ unexposedParams },
+	comboBox_ForSelectingVibratoWaveType{ unexposedParams },
+	slider_ForSettingVibratoAmplitude{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -76,6 +79,15 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingLever3Controller.addListener(this);
 	addAndMakeVisible(slider_ForSettingLever3Controller);
 
+	slider_ForSettingVibratoSpeed.addListener(this);
+	addAndMakeVisible(slider_ForSettingVibratoSpeed);
+
+	comboBox_ForSelectingVibratoWaveType.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVibratoWaveType);
+
+	slider_ForSettingVibratoAmplitude.addListener(this);
+	addAndMakeVisible(slider_ForSettingVibratoAmplitude);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -105,6 +117,9 @@ void MasterOptionsComponent::resized() {
 	slider_ForSettingPedal2Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForPedal2Controller);
 	slider_ForSettingLever2Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForLever2Controller);
 	slider_ForSettingLever3Controller.setBounds(GUI::bounds_MasterOptionsComponentSliderForLever3Controller);
+	slider_ForSettingVibratoSpeed.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoSpeed);
+	comboBox_ForSelectingVibratoWaveType.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVibratoWaveType);
+	slider_ForSettingVibratoAmplitude.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoAmplitude);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -129,6 +144,8 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setActiveSensingEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingLocalControlEnabled)
 		masterOptions->setLocalControlEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVibratoWaveType)
+		masterOptions->setVibratoWaveType(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -144,6 +161,10 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 		masterOptions->setPedal1ControllerNumber(currentValue);
 	if (slider == &slider_ForSettingPedal2Controller)
 		masterOptions->setPedal2ControllerNumber(currentValue);
+	if (slider == &slider_ForSettingVibratoSpeed)
+		masterOptions->setVibratoSpeed(currentValue);
+	if (slider == &slider_ForSettingVibratoAmplitude)
+		masterOptions->setVibratoAmplitude(currentValue);
 }
 
 void MasterOptionsComponent::hideThisComponent() {
@@ -151,6 +172,9 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	slider_ForSettingVibratoAmplitude.removeListener(this);
+	comboBox_ForSelectingVibratoWaveType.removeListener(this);
+	slider_ForSettingVibratoSpeed.removeListener(this);
 	slider_ForSettingLever3Controller.removeListener(this);
 	slider_ForSettingLever2Controller.removeListener(this);
 	slider_ForSettingPedal2Controller.removeListener(this);

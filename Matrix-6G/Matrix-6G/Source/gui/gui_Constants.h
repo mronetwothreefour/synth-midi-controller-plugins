@@ -84,7 +84,9 @@ namespace constants
 		static const int masterOptionsControlsCol1and2_w{ 37 };
 		static const int masterOptionsControlsCol1_x{ 420 };
 		static const int masterOptionsControlsCol2_x{ 585 };
+		static const int masterOptionsControlsCol3_w{ 70 };
 		static const int masterOptionsControlsCol3_x{ 724 };
+		static const int masterOptionsControlsCol4_w{ 48 };
 		static const int masterOptionsControlsCol4_x{ 897 };
 		static const int masterOptionsControlsRow1_y{ 194 };
 		static const int masterOptionsControlsRow2_y{ masterOptionsControlsRow1_y + controlsVerticalGap };
@@ -193,6 +195,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchChanges{ masterOptionsControlsCol1_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSpillover{ masterOptionsControlsCol1_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSysEx{ masterOptionsControlsCol1_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoWaveType{ masterOptionsControlsCol3_x, masterOptionsControlsRow2_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentPullbutton{ 553, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentPushbutton{ 353, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForBasicChannel { masterOptionsControlsCol1_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
@@ -200,6 +203,8 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForLever3Controller { masterOptionsControlsCol2_x, masterOptionsControlsRow7_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal1Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal2Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoAmplitude{ masterOptionsControlsCol3_x, masterOptionsControlsRow3_y, masterOptionsControlsCol3_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoSpeed{ masterOptionsControlsCol3_x, masterOptionsControlsRow1_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
