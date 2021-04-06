@@ -30,6 +30,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingVibratoSpeed{ unexposedParams },
 	comboBox_ForSelectingVibratoWaveType{ unexposedParams },
 	slider_ForSettingVibratoAmplitude{ unexposedParams },
+	comboBox_ForSelectingVibratoSpeedModSource{ unexposedParams, ID::master_VibratoSpeedModSource },
+	comboBox_ForSelectingVibratoAmplitudeModSource{ unexposedParams, ID::master_VibratoAmplitudeModSource },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -88,6 +90,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingVibratoAmplitude.addListener(this);
 	addAndMakeVisible(slider_ForSettingVibratoAmplitude);
 
+	comboBox_ForSelectingVibratoSpeedModSource.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVibratoSpeedModSource);
+
+	comboBox_ForSelectingVibratoAmplitudeModSource.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVibratoAmplitudeModSource);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -120,6 +128,8 @@ void MasterOptionsComponent::resized() {
 	slider_ForSettingVibratoSpeed.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoSpeed);
 	comboBox_ForSelectingVibratoWaveType.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVibratoWaveType);
 	slider_ForSettingVibratoAmplitude.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoAmplitude);
+	comboBox_ForSelectingVibratoSpeedModSource.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVibratoSpeedModSource);
+	comboBox_ForSelectingVibratoAmplitudeModSource.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVibratoAmpModSource);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -146,6 +156,10 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setLocalControlEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingVibratoWaveType)
 		masterOptions->setVibratoWaveType(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVibratoSpeedModSource)
+		masterOptions->setVibratoSpeedModSource(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVibratoAmplitudeModSource)
+		masterOptions->setVibratoAmplitudeModSource(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -172,6 +186,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingVibratoAmplitudeModSource.removeListener(this);
+	comboBox_ForSelectingVibratoSpeedModSource.removeListener(this);
 	slider_ForSettingVibratoAmplitude.removeListener(this);
 	comboBox_ForSelectingVibratoWaveType.removeListener(this);
 	slider_ForSettingVibratoSpeed.removeListener(this);

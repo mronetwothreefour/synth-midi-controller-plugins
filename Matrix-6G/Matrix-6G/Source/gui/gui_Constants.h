@@ -195,6 +195,8 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchChanges{ masterOptionsControlsCol1_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSpillover{ masterOptionsControlsCol1_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSysEx{ masterOptionsControlsCol1_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoAmpModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow6_y, masterOptionsControlsCol3_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoSpeedModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow4_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoWaveType{ masterOptionsControlsCol3_x, masterOptionsControlsRow2_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentPullbutton{ 553, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentPushbutton{ 353, masterOptionsControlsRow9_y, smallButtons_w, smallButtons_h };

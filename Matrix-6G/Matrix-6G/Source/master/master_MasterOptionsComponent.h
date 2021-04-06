@@ -12,6 +12,7 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
@@ -48,6 +49,8 @@ class MasterOptionsComponent :
     SliderForSettingVibratoSpeed slider_ForSettingVibratoSpeed;
     SliderForSettingVibratoAmplitude slider_ForSettingVibratoAmplitude;
     ComboBoxForSelectingVibratoWaveType comboBox_ForSelectingVibratoWaveType;
+    ComboBoxForSelectingVibratoModSource comboBox_ForSelectingVibratoSpeedModSource;
+    ComboBoxForSelectingVibratoModSource comboBox_ForSelectingVibratoAmplitudeModSource;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

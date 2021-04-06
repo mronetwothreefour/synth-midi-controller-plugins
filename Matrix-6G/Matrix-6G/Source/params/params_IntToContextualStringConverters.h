@@ -346,3 +346,15 @@ public:
 	static IntToZoneTranspose* get() noexcept;
 };
 
+
+
+
+struct IntToVibratoModSource : public IntToContextualStringConverter
+{
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToVibratoModSource* get() noexcept;
+};
+

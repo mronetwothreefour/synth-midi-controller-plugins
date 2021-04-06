@@ -865,3 +865,29 @@ IntToZoneTranspose* IntToZoneTranspose::get() noexcept {
 	static IntToZoneTranspose converter;
 	return &converter;
 }
+
+
+
+
+String IntToVibratoModSource::conversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0)	return "OFF";
+	if (i == 1)	return "LEVER2";
+	if (i == 2)	return "PEDAL1";
+	else
+		return "ERROR";
+}
+
+String IntToVibratoModSource::verboseConversionAlgorithm(const uint8& i) noexcept {
+	jassert(i < 3);
+	if (i == 0)	return "Off";
+	if (i == 1)	return "Lever 2";
+	if (i == 2)	return "Pedal 1";
+	else
+		return "range error";
+}
+
+IntToVibratoModSource* IntToVibratoModSource::get() noexcept {
+	static IntToVibratoModSource converter;
+	return &converter;
+}
