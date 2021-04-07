@@ -16,7 +16,7 @@ class ComboBoxForSelectingOmniModeEnabled :
 public:
 	ComboBoxForSelectingOmniModeEnabled() = delete;
 
-	ComboBoxForSelectingOmniModeEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingOmniModeEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingOmniModeEnabled() override;
 

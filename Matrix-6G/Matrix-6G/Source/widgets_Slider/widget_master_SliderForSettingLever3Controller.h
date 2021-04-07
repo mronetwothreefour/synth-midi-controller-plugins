@@ -16,7 +16,7 @@ class SliderForSettingLever3Controller :
 public:
 	SliderForSettingLever3Controller() = delete;
 
-	SliderForSettingLever3Controller(UnexposedParameters* unexposedParams);
+	explicit SliderForSettingLever3Controller(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~SliderForSettingLever3Controller() override;
 

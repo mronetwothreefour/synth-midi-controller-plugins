@@ -2218,6 +2218,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
@@ -3069,6 +3070,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />

@@ -16,7 +16,7 @@ class ComboBoxForSelectingSpilloverEnabled :
 public:
 	ComboBoxForSelectingSpilloverEnabled() = delete;
 
-	ComboBoxForSelectingSpilloverEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingSpilloverEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingSpilloverEnabled() override;
 

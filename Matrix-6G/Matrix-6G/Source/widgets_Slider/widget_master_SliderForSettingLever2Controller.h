@@ -16,7 +16,7 @@ class SliderForSettingLever2Controller :
 public:
 	SliderForSettingLever2Controller() = delete;
 
-	SliderForSettingLever2Controller(UnexposedParameters* unexposedParams);
+	explicit SliderForSettingLever2Controller(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~SliderForSettingLever2Controller() override;
 

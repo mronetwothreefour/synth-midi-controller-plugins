@@ -19,6 +19,7 @@
 #include "../widgets_Slider/widget_master_SliderForSettingLever3Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingPedalController.h"
 #include "../widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.h"
+#include "../widgets_Slider/widget_master_SliderForSettingVibratoModAmount.h"
 #include "../widgets_Slider/widget_master_SliderForSettingVibratoSpeed.h"
 
 
@@ -50,7 +51,9 @@ class MasterOptionsComponent :
     SliderForSettingVibratoAmplitude slider_ForSettingVibratoAmplitude;
     ComboBoxForSelectingVibratoWaveType comboBox_ForSelectingVibratoWaveType;
     ComboBoxForSelectingVibratoModSource comboBox_ForSelectingVibratoSpeedModSource;
+    SliderForSettingVibratoModAmount sliderForSettingVibratoSpeedModAmount;
     ComboBoxForSelectingVibratoModSource comboBox_ForSelectingVibratoAmplitudeModSource;
+    SliderForSettingVibratoModAmount sliderForSettingVibratoAmplitudeModAmount;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

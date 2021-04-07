@@ -20,7 +20,7 @@ ComboBoxForSelectingVibratoModSource::ComboBoxForSelectingVibratoModSource(Unexp
 	for (uint8 i = 0; i != 3; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ propertyID == ID::master_VibratoAmplitudeModSource ? masterOptions->vibratoAmplitudeModSource() : masterOptions->vibratoSpeedModSource()};
+	auto paramValue{ propertyID == ID::master_VibratoAmplitudeModSource ? masterOptions->vibratoAmplitudeModSource() : masterOptions->vibratoSpeedModSource() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }

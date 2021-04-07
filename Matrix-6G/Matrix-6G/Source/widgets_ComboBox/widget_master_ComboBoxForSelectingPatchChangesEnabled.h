@@ -16,7 +16,7 @@ class ComboBoxForSelectingPatchChangesEnabled :
 public:
 	ComboBoxForSelectingPatchChangesEnabled() = delete;
 
-	ComboBoxForSelectingPatchChangesEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingPatchChangesEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString()  override;
 	~ComboBoxForSelectingPatchChangesEnabled() override;
 

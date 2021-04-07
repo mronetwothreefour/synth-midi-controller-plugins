@@ -16,7 +16,7 @@ class ComboBoxForSelectingSysExEnabled :
 public:
 	ComboBoxForSelectingSysExEnabled() = delete;
 
-	ComboBoxForSelectingSysExEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingSysExEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingSysExEnabled() override;
 

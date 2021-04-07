@@ -16,7 +16,7 @@ class ComboBoxForSelectingActiveSensingEnabled :
 public:
 	ComboBoxForSelectingActiveSensingEnabled() = delete;
 
-	ComboBoxForSelectingActiveSensingEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingActiveSensingEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingActiveSensingEnabled() override;
 

@@ -16,7 +16,7 @@ class ComboBoxForSelectingMIDImonoEnabled :
 public:
 	ComboBoxForSelectingMIDImonoEnabled() = delete;
 
-	ComboBoxForSelectingMIDImonoEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingMIDImonoEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingMIDImonoEnabled() override;
 

@@ -16,7 +16,7 @@ class ComboBoxForSelectingControllersEnabled :
 public:
 	ComboBoxForSelectingControllersEnabled() = delete;
 
-	ComboBoxForSelectingControllersEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingControllersEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingControllersEnabled() override;
 

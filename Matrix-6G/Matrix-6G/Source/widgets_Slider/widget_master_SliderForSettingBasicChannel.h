@@ -15,7 +15,7 @@ class SliderForSettingBasicChannel :
 public:
 	SliderForSettingBasicChannel() = delete;
 
-	SliderForSettingBasicChannel(UnexposedParameters* unexposedParams);
+	explicit SliderForSettingBasicChannel(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;

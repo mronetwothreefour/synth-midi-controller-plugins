@@ -16,7 +16,7 @@ class ComboBoxForSelectingLocalControlEnabled :
 public:
 	ComboBoxForSelectingLocalControlEnabled() = delete;
 
-	ComboBoxForSelectingLocalControlEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingLocalControlEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
 	~ComboBoxForSelectingLocalControlEnabled() override;
 

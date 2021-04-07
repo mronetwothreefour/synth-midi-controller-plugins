@@ -16,7 +16,7 @@ class ComboBoxForSelectingVibratoModSource :
 public:
 	ComboBoxForSelectingVibratoModSource() = delete;
 
-	explicit ComboBoxForSelectingVibratoModSource(UnexposedParameters* unexposedParams, const Identifier& propertyID);
+	ComboBoxForSelectingVibratoModSource(UnexposedParameters* unexposedParams, const Identifier& propertyID);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;

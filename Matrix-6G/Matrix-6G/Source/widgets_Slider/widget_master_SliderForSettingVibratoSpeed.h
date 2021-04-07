@@ -15,7 +15,7 @@ class SliderForSettingVibratoSpeed :
 public:
 	SliderForSettingVibratoSpeed() = delete;
 
-	SliderForSettingVibratoSpeed(UnexposedParameters* unexposedParams);
+	explicit SliderForSettingVibratoSpeed(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;

@@ -6,23 +6,24 @@
 
 
 
-class SliderForSettingVibratoAmplitude :
+class SliderForSettingVibratoModAmount :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
 	UnexposedParameters* unexposedParams;
+	const Identifier& propertyID;
 
 public:
-	SliderForSettingVibratoAmplitude() = delete;
+	SliderForSettingVibratoModAmount() = delete;
 
-	explicit SliderForSettingVibratoAmplitude(UnexposedParameters* unexposedParams);
+	SliderForSettingVibratoModAmount(UnexposedParameters* unexposedParams, const Identifier& propertyID);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
-	~SliderForSettingVibratoAmplitude() override;
+	~SliderForSettingVibratoModAmount() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingVibratoAmplitude)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingVibratoModAmount)
 };
 

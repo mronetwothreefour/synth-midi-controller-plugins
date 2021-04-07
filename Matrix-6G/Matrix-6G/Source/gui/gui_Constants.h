@@ -206,7 +206,9 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal1Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal2Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoAmplitude{ masterOptionsControlsCol3_x, masterOptionsControlsRow3_y, masterOptionsControlsCol3_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoAmplitudeModAmount{ masterOptionsControlsCol3_x, masterOptionsControlsRow7_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoSpeed{ masterOptionsControlsCol3_x, masterOptionsControlsRow1_y, masterOptionsControlsCol3_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoSpeedModAmount{ masterOptionsControlsCol3_x, masterOptionsControlsRow5_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
