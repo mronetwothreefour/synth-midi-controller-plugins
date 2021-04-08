@@ -11,12 +11,14 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever3Controller.h"
+#include "../widgets_Slider/widget_master_SliderForSettingMasterTune.h"
 #include "../widgets_Slider/widget_master_SliderForSettingPedalController.h"
 #include "../widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.h"
 #include "../widgets_Slider/widget_master_SliderForSettingVibratoModAmount.h"
@@ -54,6 +56,8 @@ class MasterOptionsComponent :
     SliderForSettingVibratoModAmount sliderForSettingVibratoSpeedModAmount;
     ComboBoxForSelectingVibratoModSource comboBox_ForSelectingVibratoAmplitudeModSource;
     SliderForSettingVibratoModAmount sliderForSettingVibratoAmplitudeModAmount;
+    SliderForSettingMasterTune slider_ForSettingMasterTune;
+    ComboBoxForSelectingSplitStereoEnabled comboBox_ForSelectingSplitStereoEnabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

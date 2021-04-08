@@ -34,6 +34,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	sliderForSettingVibratoSpeedModAmount{ unexposedParams, ID::master_VibratoSpeedModAmount },
 	comboBox_ForSelectingVibratoAmplitudeModSource{ unexposedParams, ID::master_VibratoAmplitudeModSource },
 	sliderForSettingVibratoAmplitudeModAmount{ unexposedParams, ID::master_VibratoAmplitudeModAmount },
+	slider_ForSettingMasterTune{ unexposedParams },
+	comboBox_ForSelectingSplitStereoEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -104,6 +106,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	sliderForSettingVibratoAmplitudeModAmount.addListener(this);
 	addAndMakeVisible(sliderForSettingVibratoAmplitudeModAmount);
 
+	slider_ForSettingMasterTune.addListener(this);
+	addAndMakeVisible(slider_ForSettingMasterTune);
+
+	comboBox_ForSelectingSplitStereoEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingSplitStereoEnabled);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -140,6 +148,8 @@ void MasterOptionsComponent::resized() {
 	sliderForSettingVibratoSpeedModAmount.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoSpeedModAmount);
 	comboBox_ForSelectingVibratoAmplitudeModSource.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVibratoAmpModSource);
 	sliderForSettingVibratoAmplitudeModAmount.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoAmplitudeModAmount);
+	slider_ForSettingMasterTune.setBounds(GUI::bounds_MasterOptionsComponentSliderForMasterTune);
+	comboBox_ForSelectingSplitStereoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSplitStereo);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -170,6 +180,8 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setVibratoSpeedModSource(currentSelection);
 	if (comboBox == &comboBox_ForSelectingVibratoAmplitudeModSource)
 		masterOptions->setVibratoAmplitudeModSource(currentSelection);
+	if (comboBox == &comboBox_ForSelectingSplitStereoEnabled)
+		masterOptions->setSplitStereoEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -193,6 +205,8 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 		masterOptions->setVibratoSpeedModAmount(currentValue);
 	if (slider == &sliderForSettingVibratoAmplitudeModAmount)
 		masterOptions->setvibratoAmplitudeModAmount(currentValue);
+	if (slider == &slider_ForSettingMasterTune)
+		masterOptions->setMasterTune(currentValue);
 }
 
 void MasterOptionsComponent::hideThisComponent() {
@@ -200,6 +214,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingSplitStereoEnabled.removeListener(this);
+	slider_ForSettingMasterTune.removeListener(this);
 	sliderForSettingVibratoAmplitudeModAmount.removeListener(this);
 	sliderForSettingVibratoSpeedModAmount.removeListener(this);
 	comboBox_ForSelectingVibratoAmplitudeModSource.removeListener(this);

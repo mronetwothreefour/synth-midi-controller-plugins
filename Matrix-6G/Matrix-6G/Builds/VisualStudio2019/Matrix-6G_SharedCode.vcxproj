@@ -2201,6 +2201,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.cpp" />
@@ -2216,6 +2217,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.cpp" />
@@ -3050,6 +3052,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.h" />
@@ -3068,6 +3071,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.h" />

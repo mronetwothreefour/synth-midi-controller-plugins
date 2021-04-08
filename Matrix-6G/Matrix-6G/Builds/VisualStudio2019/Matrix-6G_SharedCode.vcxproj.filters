@@ -2676,6 +2676,12 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.cpp">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5227,6 +5233,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.h">
       <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

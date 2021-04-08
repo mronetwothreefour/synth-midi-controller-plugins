@@ -194,6 +194,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForOmniMode{ masterOptionsControlsCol1_x, masterOptionsControlsRow2_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchChanges{ masterOptionsControlsCol1_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSpillover{ masterOptionsControlsCol1_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSplitStereo{ masterOptionsControlsCol4_x, masterOptionsControlsRow2_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSysEx{ masterOptionsControlsCol1_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoAmpModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow6_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoSpeedModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow4_y, masterOptionsControlsCol3_w, controls_h };
@@ -203,6 +204,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForBasicChannel { masterOptionsControlsCol1_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForLever2Controller { masterOptionsControlsCol2_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForLever3Controller { masterOptionsControlsCol2_x, masterOptionsControlsRow7_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentSliderForMasterTune { masterOptionsControlsCol4_x, masterOptionsControlsRow1_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal1Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForPedal2Controller{ masterOptionsControlsCol2_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoAmplitude{ masterOptionsControlsCol3_x, masterOptionsControlsRow3_y, masterOptionsControlsCol3_w, controls_h };
