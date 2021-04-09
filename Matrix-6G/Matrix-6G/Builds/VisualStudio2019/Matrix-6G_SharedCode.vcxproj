@@ -2200,6 +2200,8 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.cpp" />
@@ -3043,6 +3045,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.h" />
@@ -3051,6 +3054,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h" />

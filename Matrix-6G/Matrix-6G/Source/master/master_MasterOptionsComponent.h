@@ -10,6 +10,8 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
@@ -58,6 +60,8 @@ class MasterOptionsComponent :
     SliderForSettingVibratoModAmount sliderForSettingVibratoAmplitudeModAmount;
     SliderForSettingMasterTune slider_ForSettingMasterTune;
     ComboBoxForSelectingSplitStereoEnabled comboBox_ForSelectingSplitStereoEnabled;
+    ComboBoxForSelectingPatchMapEnabled  comboBox_ForSelectingPatchMapEnabled;
+    ComboBoxForSelectingPatchMapEchoEnabled  comboBox_ForSelectingPatchMapEchoEnabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:

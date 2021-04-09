@@ -36,6 +36,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	sliderForSettingVibratoAmplitudeModAmount{ unexposedParams, ID::master_VibratoAmplitudeModAmount },
 	slider_ForSettingMasterTune{ unexposedParams },
 	comboBox_ForSelectingSplitStereoEnabled{ unexposedParams },
+	comboBox_ForSelectingPatchMapEnabled{ unexposedParams },
+	comboBox_ForSelectingPatchMapEchoEnabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -112,6 +114,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSplitStereoEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingSplitStereoEnabled);
 
+	comboBox_ForSelectingPatchMapEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingPatchMapEnabled);
+
+	comboBox_ForSelectingPatchMapEchoEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingPatchMapEchoEnabled);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -150,6 +158,8 @@ void MasterOptionsComponent::resized() {
 	sliderForSettingVibratoAmplitudeModAmount.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoAmplitudeModAmount);
 	slider_ForSettingMasterTune.setBounds(GUI::bounds_MasterOptionsComponentSliderForMasterTune);
 	comboBox_ForSelectingSplitStereoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSplitStereo);
+	comboBox_ForSelectingPatchMapEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchMap);
+	comboBox_ForSelectingPatchMapEchoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchMapEcho);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -182,6 +192,10 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setVibratoAmplitudeModSource(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSplitStereoEnabled)
 		masterOptions->setSplitStereoEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingPatchMapEnabled)
+		masterOptions->setPatchMapEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingPatchMapEchoEnabled)
+		masterOptions->setPatchMapEchoEnabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -214,6 +228,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingPatchMapEchoEnabled.removeListener(this);
+	comboBox_ForSelectingPatchMapEnabled.removeListener(this);
 	comboBox_ForSelectingSplitStereoEnabled.removeListener(this);
 	slider_ForSettingMasterTune.removeListener(this);
 	sliderForSettingVibratoAmplitudeModAmount.removeListener(this);

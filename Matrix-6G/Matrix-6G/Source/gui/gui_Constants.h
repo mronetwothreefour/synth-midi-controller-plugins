@@ -193,6 +193,8 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForMIDImono{ masterOptionsControlsCol2_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForOmniMode{ masterOptionsControlsCol1_x, masterOptionsControlsRow2_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchChanges{ masterOptionsControlsCol1_x, masterOptionsControlsRow4_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchMapEcho{ masterOptionsControlsCol4_x, masterOptionsControlsRow4_y, masterOptionsControlsCol4_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForPatchMap{ masterOptionsControlsCol4_x, masterOptionsControlsRow3_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSpillover{ masterOptionsControlsCol1_x, masterOptionsControlsRow6_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSplitStereo{ masterOptionsControlsCol4_x, masterOptionsControlsRow2_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSysEx{ masterOptionsControlsCol1_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
