@@ -2688,6 +2688,12 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.cpp">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5250,6 +5256,12 @@
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h">
+      <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.h">
       <Filter>Matrix-6G\Source\widgets_ComboBox</Filter>
     </ClInclude>
   </ItemGroup>

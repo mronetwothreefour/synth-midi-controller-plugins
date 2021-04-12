@@ -2204,6 +2204,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp" />
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.cpp" />
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.cpp" />
@@ -2214,6 +2215,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp" />
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp" />
@@ -3057,6 +3059,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h" />
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.h" />
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.h" />
@@ -3070,6 +3073,7 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h" />
     <ClInclude Include="..\..\Source\widgets_Label\widget_EditableLabel.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h" />

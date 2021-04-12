@@ -38,6 +38,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSplitStereoEnabled{ unexposedParams },
 	comboBox_ForSelectingPatchMapEnabled{ unexposedParams },
 	comboBox_ForSelectingPatchMapEchoEnabled{ unexposedParams },
+	slider_ForSettingDisplayBrightness{ unexposedParams },
+	comboBox_ForSelectingSQUICKenabled{ unexposedParams },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -120,6 +122,12 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingPatchMapEchoEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingPatchMapEchoEnabled);
 
+	slider_ForSettingDisplayBrightness.addListener(this);
+	addAndMakeVisible(slider_ForSettingDisplayBrightness);
+
+	comboBox_ForSelectingSQUICKenabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingSQUICKenabled);
+
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -160,6 +168,8 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingSplitStereoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSplitStereo);
 	comboBox_ForSelectingPatchMapEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchMap);
 	comboBox_ForSelectingPatchMapEchoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchMapEcho);
+	slider_ForSettingDisplayBrightness.setBounds(GUI::bounds_MasterOptionsComponentSliderForDisplayBrightness);
+	comboBox_ForSelectingSQUICKenabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSQUICK);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -196,6 +206,8 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setPatchMapEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingPatchMapEchoEnabled)
 		masterOptions->setPatchMapEchoEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingSQUICKenabled)
+		masterOptions->setSQUICKenabled(currentSelection);
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -221,6 +233,8 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 		masterOptions->setvibratoAmplitudeModAmount(currentValue);
 	if (slider == &slider_ForSettingMasterTune)
 		masterOptions->setMasterTune(currentValue);
+	if (slider == &slider_ForSettingDisplayBrightness)
+		masterOptions->setDisplayBrightness(currentValue);
 }
 
 void MasterOptionsComponent::hideThisComponent() {
@@ -228,6 +242,8 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	comboBox_ForSelectingSQUICKenabled.removeListener(this);
+	slider_ForSettingDisplayBrightness.removeListener(this);
 	comboBox_ForSelectingPatchMapEchoEnabled.removeListener(this);
 	comboBox_ForSelectingPatchMapEnabled.removeListener(this);
 	comboBox_ForSelectingSplitStereoEnabled.removeListener(this);

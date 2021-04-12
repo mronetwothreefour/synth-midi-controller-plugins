@@ -39,6 +39,8 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_SplitStereoEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_PatchMapEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, (uint8)0, nullptr);
+	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)31, nullptr);
+	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
 }
 
 void MasterOptions::addListener(ValueTree::Listener* listener) {

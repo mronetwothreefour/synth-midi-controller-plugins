@@ -14,10 +14,12 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
+#include "../widgets_Slider/widget_master_SliderForSettingDisplayBrightness.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever3Controller.h"
 #include "../widgets_Slider/widget_master_SliderForSettingMasterTune.h"
@@ -60,8 +62,10 @@ class MasterOptionsComponent :
     SliderForSettingVibratoModAmount sliderForSettingVibratoAmplitudeModAmount;
     SliderForSettingMasterTune slider_ForSettingMasterTune;
     ComboBoxForSelectingSplitStereoEnabled comboBox_ForSelectingSplitStereoEnabled;
-    ComboBoxForSelectingPatchMapEnabled  comboBox_ForSelectingPatchMapEnabled;
-    ComboBoxForSelectingPatchMapEchoEnabled  comboBox_ForSelectingPatchMapEchoEnabled;
+    ComboBoxForSelectingPatchMapEnabled comboBox_ForSelectingPatchMapEnabled;
+    ComboBoxForSelectingPatchMapEchoEnabled comboBox_ForSelectingPatchMapEchoEnabled;
+    SliderForSettingDisplayBrightness slider_ForSettingDisplayBrightness;
+    ComboBoxForSelectingSQUICKenabled comboBox_ForSelectingSQUICKenabled;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:
