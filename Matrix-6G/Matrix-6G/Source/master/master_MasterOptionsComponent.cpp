@@ -40,6 +40,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingPatchMapEchoEnabled{ unexposedParams },
 	slider_ForSettingDisplayBrightness{ unexposedParams },
 	comboBox_ForSelectingSQUICKenabled{ unexposedParams },
+	comboBox_ForSelectingDescriptionTipsEnabled{ unexposedParams },
+	comboBox_ForSelectingValueTipsEnabled{ unexposedParams },
+	tipsDelayEditor{ "tipsDelayEditor", "" },
 	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -128,6 +131,20 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSQUICKenabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingSQUICKenabled);
 
+	comboBox_ForSelectingDescriptionTipsEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingDescriptionTipsEnabled);
+
+	comboBox_ForSelectingValueTipsEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingValueTipsEnabled);
+
+	tipsDelayEditor.setComponentID(ID::label_TipsDelayEditor.toString());
+	tipsDelayEditor.addListener(this);
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	tooltipOptions->addListener(this);
+	tipsDelayEditor.setText((String)tooltipOptions->delayInMilliseconds(), dontSendNotification);
+	tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
+	addAndMakeVisible(tipsDelayEditor);
+	
 	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -170,6 +187,9 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingPatchMapEchoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForPatchMapEcho);
 	slider_ForSettingDisplayBrightness.setBounds(GUI::bounds_MasterOptionsComponentSliderForDisplayBrightness);
 	comboBox_ForSelectingSQUICKenabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSQUICK);
+	comboBox_ForSelectingDescriptionTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForDescriptionTips);
+	comboBox_ForSelectingValueTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForValueTips);
+	tipsDelayEditor.setBounds(GUI::bounds_MasterOptionsComponentTipsDelayEditor);
 	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
@@ -208,6 +228,60 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setPatchMapEchoEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSQUICKenabled)
 		masterOptions->setSQUICKenabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingDescriptionTipsEnabled) {
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (comboBox_ForSelectingDescriptionTipsEnabled.getSelectedItemIndex() == 1)
+			tooltipOptions->setShouldShowDescription();
+		else
+			tooltipOptions->setShouldNotShowDescription();
+	}
+	if (comboBox == &comboBox_ForSelectingValueTipsEnabled) {
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (comboBox_ForSelectingValueTipsEnabled.getSelectedItemIndex() == 1)
+			tooltipOptions->setShouldShowCurrentValue();
+		else
+			tooltipOptions->setShouldNotShowCurrentValue();
+	}
+}
+
+void MasterOptionsComponent::editorShown(Label* label, TextEditor& editor) {
+	if (label == &tipsDelayEditor) {
+		editor.setInputRestrictions(matrixParams::maxTipsDelayDigits, "1234567890");
+		auto tooltipsOptions{ unexposedParams->tooltipOptions_get() };
+		editor.setFont(FontsMenu::fontFor_LabelEditors);
+		editor.setText((String)tooltipsOptions->delayInMilliseconds());
+		editor.selectAll();
+	}
+}
+
+void MasterOptionsComponent::labelTextChanged(Label* label) {
+	if (label == &tipsDelayEditor) {
+		auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+		if (label->getText().isNotEmpty())
+		{
+			auto newValue{ label->getText().getIntValue() };
+			if (newValue >= matrixParams::minTipsDelayValue && newValue <= matrixParams::maxTipsDelayValue)
+				tooltipOptions->setDelayInMilliseconds(newValue);
+		}
+		label->setText((String)tooltipOptions->delayInMilliseconds(), dontSendNotification);
+	}
+}
+
+String MasterOptionsComponent::generateTipsDelayTooltipString() {
+	String tooltipText{ "" };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		tooltipText += "Sets the amount of time (in milliseconds) the mouse cursor\n";
+		tooltipText += "must hover over a control before a tooltip box is shown.\n";
+		tooltipText += "Maximum delay: 5000 milliseconds. NOTE: Individual\n";
+		tooltipText += "Master options are not immediately updated on the hard-\n";
+		tooltipText += "ware. Click the PUSH button to update all options.\n";
+	}
+	if (tooltipOptions->shouldShowCurrentValue()) {
+		auto currentValue{ (String)tooltipOptions->delayInMilliseconds() };
+		tooltipText += "Current setting: " + currentValue + " milliseconds";
+	}
+	return tooltipText;
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
@@ -237,11 +311,27 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 		masterOptions->setDisplayBrightness(currentValue);
 }
 
+void MasterOptionsComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+	if (property == ID::tooltips_DelayInMilliseconds) {
+		MessageManagerLock mmLock;
+		tipsDelayEditor.setText(tree.getProperty(property), dontSendNotification);
+		tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
+	}
+	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
+		tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
+	}
+}
+
 void MasterOptionsComponent::hideThisComponent() {
 	setVisible(false);
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	tooltipOptions->removeListener(this);
+	tipsDelayEditor.removeListener(this);
+	comboBox_ForSelectingValueTipsEnabled.removeListener(this);
+	comboBox_ForSelectingDescriptionTipsEnabled.removeListener(this);
 	comboBox_ForSelectingSQUICKenabled.removeListener(this);
 	slider_ForSettingDisplayBrightness.removeListener(this);
 	comboBox_ForSelectingPatchMapEchoEnabled.removeListener(this);

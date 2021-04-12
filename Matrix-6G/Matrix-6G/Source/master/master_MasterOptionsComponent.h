@@ -5,6 +5,7 @@
 #include "../widgets_Button/widget_master_ButtonForPullingMasterOptionsFromHardware.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
@@ -16,8 +17,10 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
+#include "../widgets_Label/widget_EditableLabel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingDisplayBrightness.h"
 #include "../widgets_Slider/widget_master_SliderForSettingLever2Controller.h"
@@ -35,7 +38,9 @@ class UnexposedParameters;
 class MasterOptionsComponent :
     public Component,
     public ComboBox::Listener,
-    public Slider::Listener
+    public Label::Listener,
+    public Slider::Listener,
+    public ValueTree::Listener
 {
     UnexposedParameters* unexposedParams;
     TextButton button_ForClosingMasterOptionsComponent;
@@ -66,6 +71,9 @@ class MasterOptionsComponent :
     ComboBoxForSelectingPatchMapEchoEnabled comboBox_ForSelectingPatchMapEchoEnabled;
     SliderForSettingDisplayBrightness slider_ForSettingDisplayBrightness;
     ComboBoxForSelectingSQUICKenabled comboBox_ForSelectingSQUICKenabled;
+    ComboBoxForSelectingDescriptionTipsEnabled comboBox_ForSelectingDescriptionTipsEnabled;
+    ComboBoxForSelectingValueTipsEnabled comboBox_ForSelectingValueTipsEnabled;
+    EditableLabel tipsDelayEditor;
     ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:
@@ -75,7 +83,11 @@ public:
     void paint(Graphics& g) override;
     void resized() override;
     void comboBoxChanged(ComboBox* comboBox) override;
+    void editorShown(Label* label, TextEditor& editor) override;
+    void labelTextChanged(Label* label) override;
+    String generateTipsDelayTooltipString();
     void sliderValueChanged(Slider* slider) override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
 private:
     void hideThisComponent();

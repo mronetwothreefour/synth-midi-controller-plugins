@@ -10,8 +10,11 @@ namespace constants
 	{
 		static const int maxPatchNameLength{ 8 };
 		static const int maxSplitNameLength{ 6 };
+		static const int maxTipsDelayDigits{ 4 };
 		static const int maxTransmitTimeDigits{ 4 };
+		static const int maxTipsDelayValue{ 5000 };
 		static const int maxTransmitTimeValue{ 5000 };
+		static const int minTipsDelayValue{ 0 };
 		static const int minTransmitTimeValue{ 50 };
 		static const int numberOfHeaderBytesInDataDumpMessages{ 4 };
 

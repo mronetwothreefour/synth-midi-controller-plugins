@@ -188,6 +188,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentXbutton{ 952, 129, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForActiveSensing{ masterOptionsControlsCol2_x, masterOptionsControlsRow2_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForControllers{ masterOptionsControlsCol1_x, masterOptionsControlsRow3_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForDescriptionTips{ masterOptionsControlsCol4_x, masterOptionsControlsRow7_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForLocalControl{ masterOptionsControlsCol2_x, masterOptionsControlsRow3_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForMIDIecho{ masterOptionsControlsCol1_x, masterOptionsControlsRow7_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForMIDImono{ masterOptionsControlsCol2_x, masterOptionsControlsRow1_y, masterOptionsControlsCol1and2_w, controls_h };
@@ -199,6 +200,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSplitStereo{ masterOptionsControlsCol4_x, masterOptionsControlsRow2_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSQUICK{ masterOptionsControlsCol4_x, masterOptionsControlsRow6_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForSysEx{ masterOptionsControlsCol1_x, masterOptionsControlsRow5_y, masterOptionsControlsCol1and2_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForValueTips{ masterOptionsControlsCol4_x, masterOptionsControlsRow8_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoAmpModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow6_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoSpeedModSource{ masterOptionsControlsCol3_x, masterOptionsControlsRow4_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForVibratoWaveType{ masterOptionsControlsCol3_x, masterOptionsControlsRow2_y, masterOptionsControlsCol3_w, controls_h };
@@ -215,6 +217,7 @@ namespace constants
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoAmplitudeModAmount{ masterOptionsControlsCol3_x, masterOptionsControlsRow7_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoSpeed{ masterOptionsControlsCol3_x, masterOptionsControlsRow1_y, masterOptionsControlsCol3_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentSliderForVibratoSpeedModAmount{ masterOptionsControlsCol3_x, masterOptionsControlsRow5_y, masterOptionsControlsCol3_w, controls_h };
+		static const Rectangle<int> bounds_MasterOptionsComponentTipsDelayEditor{ masterOptionsControlsCol4_x, masterOptionsControlsRow9_y, masterOptionsControlsCol4_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_0{ matrixModSlots_x, matrixModFirstSlot_y, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_1{ matrixModSlots_x, matrixModFirstSlot_y + matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };
 		static const Rectangle<int> bounds_MatrixModSlot_2{ matrixModSlots_x, matrixModFirstSlot_y + 2 * matrixModVerticalSpacingBetweenSlots, matrixModSlots_w, controls_h };

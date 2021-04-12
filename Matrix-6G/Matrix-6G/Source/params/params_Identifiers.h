@@ -71,6 +71,7 @@ namespace ID
 
 	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
 	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
+	static const Identifier label_TipsDelayEditor{ "label_TipsDelayEditor" };
 
 	static const Identifier master_ActiveSensingEnabled{ "master_ActiveSensingEnabled" };
 	static const Identifier master_BasicChannel{ "master_BasicChannel" };
