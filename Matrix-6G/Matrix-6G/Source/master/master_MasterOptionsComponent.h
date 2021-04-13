@@ -2,7 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "../widgets_Button/widget_master_ButtonForPullingMasterOptionsFromHardware.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
@@ -74,7 +73,6 @@ class MasterOptionsComponent :
     ComboBoxForSelectingDescriptionTipsEnabled comboBox_ForSelectingDescriptionTipsEnabled;
     ComboBoxForSelectingValueTipsEnabled comboBox_ForSelectingValueTipsEnabled;
     EditableLabel tipsDelayEditor;
-    ButtonForPullingMasterOptionsFromHardware button_ForPullingMasterOptionsFromHardware;
 
 public:
     MasterOptionsComponent() = delete;

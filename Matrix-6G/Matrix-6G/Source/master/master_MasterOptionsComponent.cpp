@@ -42,8 +42,7 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSQUICKenabled{ unexposedParams },
 	comboBox_ForSelectingDescriptionTipsEnabled{ unexposedParams },
 	comboBox_ForSelectingValueTipsEnabled{ unexposedParams },
-	tipsDelayEditor{ "tipsDelayEditor", "" },
-	button_ForPullingMasterOptionsFromHardware{ unexposedParams }
+	tipsDelayEditor{ "tipsDelayEditor", "" }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
 	addAndMakeVisible(button_ForClosingMasterOptionsComponent);
@@ -144,8 +143,6 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	tipsDelayEditor.setText((String)tooltipOptions->delayInMilliseconds(), dontSendNotification);
 	tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
 	addAndMakeVisible(tipsDelayEditor);
-	
-	addAndMakeVisible(button_ForPullingMasterOptionsFromHardware);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -190,7 +187,6 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingDescriptionTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForDescriptionTips);
 	comboBox_ForSelectingValueTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForValueTips);
 	tipsDelayEditor.setBounds(GUI::bounds_MasterOptionsComponentTipsDelayEditor);
-	button_ForPullingMasterOptionsFromHardware.setBounds(GUI::bounds_MasterOptionsComponentPullbutton);
 }
 
 void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
