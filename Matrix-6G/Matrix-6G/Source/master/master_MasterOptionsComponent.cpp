@@ -328,6 +328,7 @@ void MasterOptionsComponent::showPatchMapComponent() {
 	if (patchMapComponent != nullptr) {
 		addAndMakeVisible(patchMapComponent.get());
 		patchMapComponent->setBounds(getLocalBounds());
+		patchMapComponent->setAlwaysOnTop(true);
 	}
 }
 
