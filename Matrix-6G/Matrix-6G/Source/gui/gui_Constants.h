@@ -123,6 +123,8 @@ namespace constants
 		static const int patchBanksTabButtons_y{ 427 };
 		static const int patchBanksTabFooter_x{ 0 };
 		static const int patchBanksTabFooter_y{ 422 };
+		static const int patchMapWindow_x{ 173 };
+		static const int patchMapWindow_y{ 111 };
 		static const int patchSlotRadioButtton_h{ 16 };
 		static const int patchSlotRadioButtton_w{ 81 };
 		static const int patchSlotRadioButtonsHorizontalGap{ 22 };
@@ -241,7 +243,8 @@ namespace constants
 		static const Rectangle<int> bounds_PatchBanksSelectorComboBox{ 488, patchBanksHeaderControls_y, 184, controls_h };
 		static const Rectangle<int> bounds_PatchBanksTransmitTimeLabel{ 771, patchBanksHeaderControls_y, 50, controls_h };
 		static const Rectangle<int> bounds_PatchBanksWindow{ 416, 28, 420, 540 };
-		static const Rectangle<int> bounds_PatchBanksXbutton{ 828, 18, xButton_w, xButton_h };
+		static const Rectangle<int> bounds_PatchBanksXbutton{ 1061, 111, xButton_w, xButton_h };
+		static const Rectangle<int> bounds_PatchMapComponentXbutton{ 873, 367, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_PatchNameEditor{ 873, 367, 117, controls_h };
 		static const Rectangle<int> bounds_PatchNumberSlider{ 840, 367, 28, controls_h };
 		static const Rectangle<int> bounds_PatchSlotsComponent{ 15, 11, patchSlotsComponent_w, patchSlotsComponent_h };

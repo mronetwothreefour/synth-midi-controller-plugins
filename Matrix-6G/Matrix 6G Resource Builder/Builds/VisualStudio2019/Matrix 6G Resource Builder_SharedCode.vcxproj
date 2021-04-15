@@ -2772,6 +2772,8 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Close-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Edit-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Edit-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Load-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Master-Down.png"/>
@@ -2802,6 +2804,7 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-X-Orange-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Master-Window.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Patch-Map-Window.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png"/>

@@ -42,7 +42,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSQUICKenabled{ unexposedParams },
 	comboBox_ForSelectingDescriptionTipsEnabled{ unexposedParams },
 	comboBox_ForSelectingValueTipsEnabled{ unexposedParams },
-	tipsDelayEditor{ "tipsDelayEditor", "" }
+	tipsDelayEditor{ "tipsDelayEditor", "" },
+	button_ForShowingPatchMapComponent{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
 	addAndMakeVisible(button_ForClosingMasterOptionsComponent);
@@ -144,6 +145,9 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
 	addAndMakeVisible(tipsDelayEditor);
 
+	addAndMakeVisible(button_ForShowingPatchMapComponent);
+	button_ForShowingPatchMapComponent.onClick = [this] { showPatchMapComponent(); };
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -187,6 +191,7 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingDescriptionTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForDescriptionTips);
 	comboBox_ForSelectingValueTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForValueTips);
 	tipsDelayEditor.setBounds(GUI::bounds_MasterOptionsComponentTipsDelayEditor);
+	button_ForShowingPatchMapComponent.setBounds(GUI::bounds_MasterOptionsComponentEditbutton);
 }
 
 void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
@@ -318,11 +323,20 @@ void MasterOptionsComponent::valueTreePropertyChanged(ValueTree& tree, const Ide
 	}
 }
 
+void MasterOptionsComponent::showPatchMapComponent() {
+	patchMapComponent.reset(new PatchMapComponent(unexposedParams));
+	if (patchMapComponent != nullptr) {
+		addAndMakeVisible(patchMapComponent.get());
+		patchMapComponent->setBounds(getLocalBounds());
+	}
+}
+
 void MasterOptionsComponent::hideThisComponent() {
 	setVisible(false);
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
+	patchMapComponent = nullptr;
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	tipsDelayEditor.removeListener(this);

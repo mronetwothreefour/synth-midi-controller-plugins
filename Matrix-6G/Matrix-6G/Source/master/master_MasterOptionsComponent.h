@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "master_PatchMapComponent.h"
+#include "../widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
@@ -73,6 +75,8 @@ class MasterOptionsComponent :
     ComboBoxForSelectingDescriptionTipsEnabled comboBox_ForSelectingDescriptionTipsEnabled;
     ComboBoxForSelectingValueTipsEnabled comboBox_ForSelectingValueTipsEnabled;
     EditableLabel tipsDelayEditor;
+    ButtonForShowingPatchMapComponent button_ForShowingPatchMapComponent;
+    std::unique_ptr<PatchMapComponent> patchMapComponent;
 
 public:
     MasterOptionsComponent() = delete;
@@ -86,6 +90,7 @@ public:
     String generateTipsDelayTooltipString();
     void sliderValueChanged(Slider* slider) override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+    void showPatchMapComponent();
 
 private:
     void hideThisComponent();

@@ -23,6 +23,7 @@ namespace ID
 	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
 
 	static const Identifier button_Close{ "button_Close" };
+	static const Identifier button_Edit{ "button_Edit" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_Patches{ "button_Patches" };
@@ -58,6 +59,7 @@ namespace ID
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_X_Master{ "button_X_Master" };
 	static const Identifier button_X_Patches{ "button_X_Patches" };
+	static const Identifier button_X_PatchMap{ "button_X_PatchMap" };
 	static const Identifier button_X_Splits{ "button_X_Splits" };
 
 	static const Identifier comboBox_PatchBankSelector{ "comboBox_PatchBankSelector" };

@@ -2141,6 +2141,7 @@
     <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\master\master_MasterOptionsComponent.cpp" />
+    <ClCompile Include="..\..\Source\master\master_PatchMapComponent.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -2181,6 +2182,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp" />
@@ -2993,6 +2995,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h" />
     <ClInclude Include="..\..\Source\master\master_Constants.h" />
     <ClInclude Include="..\..\Source\master\master_MasterOptionsComponent.h" />
+    <ClInclude Include="..\..\Source\master\master_PatchMapComponent.h" />
     <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h" />
@@ -3039,6 +3042,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h" />

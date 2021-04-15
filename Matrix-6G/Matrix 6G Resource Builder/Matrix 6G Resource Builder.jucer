@@ -18,6 +18,10 @@
           file="../Matrix-6G/Resources/Button-Close-Down.png"/>
     <FILE id="Jp963P" name="Button-Close-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Close-Up.png"/>
+    <FILE id="H4r2N8" name="Button-Edit-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Edit-Down.png"/>
+    <FILE id="fvpvqE" name="Button-Edit-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Edit-Up.png"/>
     <FILE id="SLibq7" name="Button-Load-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Load-Down.png"/>
     <FILE id="KqnnL3" name="Button-Load-Up.png" compile="0" resource="1"
@@ -77,6 +81,8 @@
           file="../Matrix-6G/Resources/Button-X-Orange-Up.png"/>
     <FILE id="xc7V3f" name="Master-Window.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Master-Window.png"/>
+    <FILE id="CyvtJH" name="Patch-Map-Window.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Patch-Map-Window.png"/>
     <FILE id="endN7c" name="Matrix-6G-Main-Window-Background.png" compile="0"
           resource="1" file="../Matrix-6G/Resources/Matrix-6G-Main-Window-Background.png"/>
     <FILE id="jChKZL" name="Patches-Footer-For-Custom-Banks.png" compile="0"
