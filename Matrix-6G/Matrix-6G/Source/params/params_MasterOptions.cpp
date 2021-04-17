@@ -2,6 +2,7 @@
 
 #include "params_Identifiers.h"
 #include "../master/master_Constants.h"
+#include "../patches/patches_Constants.h"
 
 using namespace constants;
 
@@ -41,6 +42,12 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)31, nullptr);
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
+	for (int i = 0; i != patches::numberOfSlotsInBank; ++i) {
+		Identifier inPropertyID{ "master_PatchMapIn_" + (String)i };
+		masterOptionsTree.setProperty(inPropertyID, (uint8)i, nullptr);
+		Identifier outPropertyID{ "master_PatchMapOut_" + (String)i };
+		masterOptionsTree.setProperty(outPropertyID, (uint8)i, nullptr);
+	}
 }
 
 void MasterOptions::addListener(ValueTree::Listener* listener) {
@@ -265,4 +272,20 @@ const uint8 MasterOptions::squickEnabled() {
 
 void MasterOptions::setSQUICKenabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, newValue, nullptr);
+}
+
+const uint8 MasterOptions::patchMapInPatchForProgramNumber(uint8 programNumber) {
+	return (uint8)(int)masterOptionsTree.getProperty("master_PatchMapIn_" + (String)programNumber);
+}
+
+void MasterOptions::setPatchMapInPatchForProgramNumber(uint8 newValue, uint8 programNumber) {
+	masterOptionsTree.setProperty("master_PatchMapIn_" + (String)programNumber, newValue, nullptr);
+}
+
+const uint8 MasterOptions::patchMapOutPatchForProgramNumber(uint8 programNumber) {
+	return (uint8)(int)masterOptionsTree.getProperty("master_PatchMapOut_" + (String)programNumber);
+}
+
+void MasterOptions::setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber) {
+	masterOptionsTree.setProperty("master_PatchMapOut_" + (String)programNumber, newValue, nullptr);
 }

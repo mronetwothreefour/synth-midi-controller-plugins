@@ -99,6 +99,12 @@ public:
 	const uint8 squickEnabled();
 	void setSQUICKenabled(uint8 newValue);
 
+	const uint8 patchMapInPatchForProgramNumber(uint8 programNumber);
+	void setPatchMapInPatchForProgramNumber(uint8 newValue, uint8 programNumber);
+
+	const uint8 patchMapOutPatchForProgramNumber(uint8 programNumber);
+	void setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber);
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MasterOptions)
