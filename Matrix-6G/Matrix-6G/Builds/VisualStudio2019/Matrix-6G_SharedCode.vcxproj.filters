@@ -2706,6 +2706,12 @@
     <ClCompile Include="..\..\Source\master\master_PatchMapComponent.cpp">
       <Filter>Matrix-6G\Source\master</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5287,6 +5293,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\master\master_PatchMapComponent.h">
       <Filter>Matrix-6G\Source\master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.h">
+      <Filter>Matrix-6G\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

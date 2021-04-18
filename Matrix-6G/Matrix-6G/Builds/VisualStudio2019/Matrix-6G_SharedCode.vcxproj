@@ -2232,6 +2232,8 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp" />
     <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.cpp" />
@@ -3094,6 +3096,8 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.h" />
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h" />
     <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.h" />
