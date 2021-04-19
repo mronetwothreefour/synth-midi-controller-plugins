@@ -28,9 +28,9 @@ String SliderForSettingInPatchForProgramNumber::generateTooltipString() {
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "When the Patch Map is enabled, a MIDI program change\n";
 		tooltipText += "message calling program " + (String)programNumber + " will load the patch selected\n";
-		tooltipText += "here into tha hardware instead. NOTE: Changes made here\n";
-		tooltipText += "will not be updated on the hardware until the PUSH\n";
-		tooltipText += "button in the Master window is clicked.\n";
+		tooltipText += "here into tha hardware instead. NOTE: Changes to the\n";
+		tooltipText += "Patch Map will not be updated on the hardware until\n";
+		tooltipText += "the PUSH button in the Master window is clicked.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToUnsignedValueString::get() };
