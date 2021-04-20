@@ -83,6 +83,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return BinaryData::ButtonQuickEditFlash_png;
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return isDown ? BinaryData::ButtonRedoDown_png : BinaryData::ButtonRedoUp_png;
+	if (button.getComponentID() == ID::button_Reset.toString())
+		return isDown ? BinaryData::ButtonResetDown_png : BinaryData::ButtonResetUp_png;
 	if (button.getComponentID() == ID::button_Save.toString())
 		return isDown ? BinaryData::ButtonSaveDown_png : BinaryData::ButtonSaveUp_png;
 	if (button.getComponentID() == ID::button_Splits.toString())
@@ -121,6 +123,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return BinaryData::ButtonQuickEditFlash_pngSize;
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return isDown ? BinaryData::ButtonRedoDown_pngSize : BinaryData::ButtonRedoUp_pngSize;
+	if (button.getComponentID() == ID::button_Reset.toString())
+		return isDown ? BinaryData::ButtonResetDown_pngSize : BinaryData::ButtonResetUp_pngSize;
 	if (button.getComponentID() == ID::button_Save.toString())
 		return isDown ? BinaryData::ButtonSaveDown_pngSize : BinaryData::ButtonSaveUp_pngSize;
 	if (button.getComponentID() == ID::button_Splits.toString())

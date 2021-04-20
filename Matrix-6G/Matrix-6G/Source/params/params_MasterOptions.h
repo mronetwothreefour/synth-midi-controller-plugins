@@ -105,6 +105,8 @@ public:
 	const uint8 patchMapOutPatchForProgramNumber(uint8 programNumber);
 	void setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber);
 
+	void resetPatchMap();
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MasterOptions)

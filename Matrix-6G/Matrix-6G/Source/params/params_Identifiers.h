@@ -52,6 +52,7 @@ namespace ID
 	static const Identifier button_QuickEdit{ "button_QuickEdit" };
 	static const Identifier button_QuickEdit_Flash{ "button_QuickEdit_Flash" };
 	static const Identifier button_Redo{ "button_Redo" };
+	static const Identifier button_Reset{ "button_Reset" };
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Splits{ "button_Splits" };
 	static const Identifier button_SplitSlotRadioButton{ "button_SplitSlotRadioButton" };

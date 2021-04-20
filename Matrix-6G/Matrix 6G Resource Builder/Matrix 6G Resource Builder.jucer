@@ -52,6 +52,10 @@
           file="../Matrix-6G/Resources/Button-Redo-Down.png"/>
     <FILE id="iJNct2" name="Button-Redo-Up.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Redo-Up.png"/>
+    <FILE id="Q9cu2M" name="Button-Reset-Down.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Reset-Down.png"/>
+    <FILE id="vJ1k8a" name="Button-Reset-Up.png" compile="0" resource="1"
+          file="../Matrix-6G/Resources/Button-Reset-Up.png"/>
     <FILE id="QnrVo4" name="Button-Save-Down.png" compile="0" resource="1"
           file="../Matrix-6G/Resources/Button-Save-Down.png"/>
     <FILE id="l9A5Zu" name="Button-Save-Up.png" compile="0" resource="1"

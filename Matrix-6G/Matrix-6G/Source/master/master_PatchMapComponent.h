@@ -13,6 +13,7 @@ class PatchMapComponent :
 {
     UnexposedParameters* unexposedParams;
     TextButton button_ForClosingPatchMapComponent;
+    TextButton button_ForResettingPatchMap;
     PatchMapSlotsColumn slotsColumn_0;
     PatchMapSlotsColumn slotsColumn_1;
     PatchMapSlotsColumn slotsColumn_2;

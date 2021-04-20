@@ -4739,6 +4739,12 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Up.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Reset-Down.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Reset-Up.png">
+      <Filter>Matrix 6G Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Down.png">
       <Filter>Matrix 6G Resource Builder</Filter>
     </None>

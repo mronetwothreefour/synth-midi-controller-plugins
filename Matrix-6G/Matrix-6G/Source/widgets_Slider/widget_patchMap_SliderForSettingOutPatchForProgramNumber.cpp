@@ -29,9 +29,9 @@ String SliderForSettingOutPatchForProgramNumber::generateTooltipString() {
 		tooltipText += "When the Patch Map and Patch Map Echo are both enabled\n";
 		tooltipText += "and a MIDI program change message calling program " + (String)programNumber + " is\n";
 		tooltipText += "received, the hardware will send out a new program change\n";
-		tooltipText += "message to downstream devices calling this program instead\n";
-		tooltipText += "NOTE: Changes to the Patch Map will not be updated on the hard-\n";
-		tooltipText += "ware until the PUSH button in the Master window is clicked.\n";
+		tooltipText += "message to downstream devices calling this program instead.\n";
+		tooltipText += "NOTE: Changes to the Patch Map will not be updated on the\n";
+		tooltipText += "hardware until the PUSH button in the Master window is clicked.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToUnsignedValueString::get() };

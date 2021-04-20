@@ -42,12 +42,7 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)31, nullptr);
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
-	for (int i = 0; i != patches::numberOfSlotsInBank; ++i) {
-		Identifier inPropertyID{ "master_PatchMapIn_" + (String)i };
-		masterOptionsTree.setProperty(inPropertyID, (uint8)i, nullptr);
-		Identifier outPropertyID{ "master_PatchMapOut_" + (String)i };
-		masterOptionsTree.setProperty(outPropertyID, (uint8)i, nullptr);
-	}
+	resetPatchMap();
 }
 
 void MasterOptions::addListener(ValueTree::Listener* listener) {
@@ -288,4 +283,13 @@ const uint8 MasterOptions::patchMapOutPatchForProgramNumber(uint8 programNumber)
 
 void MasterOptions::setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber) {
 	masterOptionsTree.setProperty("master_PatchMapOut_" + (String)programNumber, newValue, nullptr);
+}
+
+void MasterOptions::resetPatchMap() {
+	for (int i = 0; i != patches::numberOfSlotsInBank; ++i) {
+		Identifier inPropertyID{ "master_PatchMapIn_" + (String)i };
+		masterOptionsTree.setProperty(inPropertyID, (uint8)i, nullptr);
+		Identifier outPropertyID{ "master_PatchMapOut_" + (String)i };
+		masterOptionsTree.setProperty(outPropertyID, (uint8)i, nullptr);
+	}
 }

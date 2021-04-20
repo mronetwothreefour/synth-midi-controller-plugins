@@ -5,6 +5,7 @@
 #include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../patches/patches_Constants.h"
 
 using namespace constants;
 
@@ -13,6 +14,7 @@ using namespace constants;
 PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	button_ForClosingPatchMapComponent{ "" },
+	button_ForResettingPatchMap{ "" },
 	slotsColumn_0{ unexposedParams, 0},
 	slotsColumn_1{ unexposedParams, 10 },
 	slotsColumn_2{ unexposedParams, 20 },
@@ -28,6 +30,20 @@ PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 	addAndMakeVisible(button_ForClosingPatchMapComponent);
 	button_ForClosingPatchMapComponent.onClick = [this] { hideThisComponent(); };
 	button_ForClosingPatchMapComponent.setAlwaysOnTop(true);
+
+	button_ForResettingPatchMap.setComponentID(ID::button_Reset.toString());
+	addAndMakeVisible(button_ForResettingPatchMap);
+	auto masterOptions{ unexposedParams->masterOptions_get() };
+	button_ForResettingPatchMap.onClick = [this, masterOptions] { masterOptions->resetPatchMap(); };
+	String tooltipText{ "" };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		tooltipText += "Resets the Patch Map to the default state.\n";
+		tooltipText += "NOTE: Changes to the Patch Map will not\n";
+		tooltipText += "be updated on the hardware until the PUSH\n";
+		tooltipText += "button in the Master window is clicked.\n";
+	}
+	button_ForResettingPatchMap.setTooltip(tooltipText);
 
 	addAndMakeVisible(slotsColumn_0);
 	addAndMakeVisible(slotsColumn_1);
@@ -51,7 +67,8 @@ void PatchMapComponent::paint(Graphics& g) {
 }
 
 void PatchMapComponent::resized() {
-	button_ForClosingPatchMapComponent.setBounds(GUI::bounds_PatchBanksXbutton);
+	button_ForClosingPatchMapComponent.setBounds(GUI::bounds_PatchMapComponentXbutton);
+	button_ForResettingPatchMap.setBounds(GUI::bounds_PatchMapResetButton);
 	slotsColumn_0.setBounds(GUI::bounds_PatchMapSlotsColumn_0);
 	slotsColumn_1.setBounds(GUI::bounds_PatchMapSlotsColumn_1);
 	slotsColumn_2.setBounds(GUI::bounds_PatchMapSlotsColumn_2);
@@ -67,4 +84,5 @@ void PatchMapComponent::resized() {
 void PatchMapComponent::hideThisComponent() {
 	setVisible(false);
 }
+
 
