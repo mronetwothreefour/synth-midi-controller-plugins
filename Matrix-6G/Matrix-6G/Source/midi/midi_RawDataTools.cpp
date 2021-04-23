@@ -1,6 +1,7 @@
 #include "midi_RawDataTools.h"
 
 #include "midi_Constants.h"
+#include "../master/master_Constants.h"
 #include "../patches/patches_Constants.h"
 #include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
@@ -95,10 +96,10 @@ std::vector<uint8> RawSysExDataVector::createSwitchToSplitModeMessage() {
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createMasterOptionsDataMessageHeader() {
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInDataDumpMessages) };
+std::vector<uint8> RawSysExDataVector::initializeMasterOptionsDataMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfMasterDataVector) };
     rawDataVector[2] = MIDI::opcode_MasterData;
-    rawDataVector[3] = 0;
+    rawDataVector[3] = 2;
     return rawDataVector;
 }
 
@@ -204,6 +205,12 @@ const String RawDataTools::extractSplitNameFromRawSplitData(const uint8* splitDa
         splitName += convertStoredASCIIvalueToString(storedASCIIvalue);
     }
     return splitName;
+}
+
+void RawDataTools::addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
+    uint8 checksum{ 0 };
+    addMasterOptionsDataToVector(unexposedParams, dataVector, checksum);
+    dataVector[master::indexOfChecksumByte] = checksum % (uint8)128;
 }
 
 void RawDataTools::applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams) {
@@ -320,7 +327,7 @@ void RawDataTools::addExposedParamDataToVector(AudioProcessorValueTreeState* exp
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
         auto dataByteIndex{ info.dataByteIndexFor(paramIndex) };
-        auto lsbByteLocation{ firstPatchOrSplitParamDataByte + (dataByteIndex * 2) };
+        auto lsbByteLocation{ indexofFirstPatchOrSplitParamDataLSByte + (dataByteIndex * 2) };
         auto rangeType{ info.rangeTypeFor(paramIndex) };
         if (rangeType == RangeType::signed6bitValue)
             paramValue = formatSigned6bitValueForSendingToMatrix(paramValue);
@@ -353,38 +360,125 @@ void RawDataTools::addMatrixModDataToVector(UnexposedParameters* unexposedParams
 void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     auto splitOptions{ unexposedParams->splitOptions_get() };
     auto lowerZoneLimit{ splitOptions->lowerZoneLimit() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneLimit, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZoneLimitLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneLimit, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneLimitLSByte]);
     checksum += lowerZoneLimit;
     auto lowerZoneTranspose{ splitOptions->lowerZoneTranspose() };
     lowerZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(lowerZoneTranspose);
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneTranspose, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZoneTransposeLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneTranspose, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneTransposeLSByte]);
     checksum += lowerZoneTranspose;
     auto lowerZoneMidiOut{ splitOptions->lowerZoneMidiOut() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneMidiOut, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZoneMIDIoutLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneMidiOut, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneMIDIoutLSByte]);
     checksum += lowerZoneMidiOut;
     auto upperZoneLimit{ splitOptions->upperZoneLimit() };
-    addValueToDataVectorAtLSBbyteLocation(upperZoneLimit, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneLimitLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneLimit, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneLimitLSByte]);
     checksum += upperZoneLimit;
     auto upperZoneTranspose{ splitOptions->upperZoneTranspose() };
     upperZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(upperZoneTranspose);
-    addValueToDataVectorAtLSBbyteLocation(upperZoneTranspose, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneTransposeLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneTranspose, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneTransposeLSByte]);
     checksum += upperZoneTranspose;
     auto upperZoneMidiOut{ splitOptions->upperZoneMidiOut() };
-    addValueToDataVectorAtLSBbyteLocation(upperZoneMidiOut, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZoneMIDIoutLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneMidiOut, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneMIDIoutLSByte]);
     checksum += upperZoneMidiOut;
     auto zoneVolumeBalance{ splitOptions->zoneVolumeBalance() };
     zoneVolumeBalance = RawDataTools::formatSigned6bitValueForSendingToMatrix(zoneVolumeBalance);
-    addValueToDataVectorAtLSBbyteLocation(zoneVolumeBalance, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfZoneVolumeBalanceLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(zoneVolumeBalance, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfZoneVolumeBalanceLSByte]);
     checksum += zoneVolumeBalance;
     auto zoneVoiceAssignment{ splitOptions->zoneVoiceAssignment() };
-    addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfZoneVoiceAssignmentLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfZoneVoiceAssignmentLSByte]);
     checksum += zoneVoiceAssignment;
     auto lowerZonePatchNumber{ splitOptions->lowerZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfLowerZonePatchNumberLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZonePatchNumberLSByte]);
     checksum += lowerZonePatchNumber;
     auto upperZonePatchNumber{ splitOptions->upperZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[firstPatchOrSplitParamDataByte + splits::indexOfUpperZonePatchNumberLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZonePatchNumberLSByte]);
     checksum += upperZonePatchNumber;
+}
+
+void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
+    auto masterOptions{ unexposedParams->masterOptions_get() };
+    auto vibratoSpeed{ masterOptions->vibratoSpeed() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeed, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedLSByte]);
+    checksum += vibratoSpeed;
+    auto vibratoSpeedModSource{ masterOptions->vibratoSpeedModSource() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModSource, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedModSourceLSByte]);
+    checksum += vibratoSpeedModSource;
+    auto vibratoSpeedModAmount{ masterOptions->vibratoSpeedModAmount() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedModAmountLSByte]);
+    checksum += vibratoSpeedModAmount;
+    auto vibratoWaveType{ masterOptions->vibratoWaveType() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoWaveType, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoWaveTypeLSByte]);
+    checksum += vibratoWaveType;
+    auto vibratoAmplitude{ masterOptions->vibratoAmplitude() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitude, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeLSByte]);
+    checksum += vibratoAmplitude;
+    auto vibratoAmplitudeModSource{ masterOptions->vibratoAmplitudeModSource() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModSource, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModSourceLSByte]);
+    checksum += vibratoAmplitudeModSource;
+    auto vibratoAmplitudeModAmount{ masterOptions->vibratoAmplitudeModAmount() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModAmountLSByte]);
+    checksum += vibratoAmplitudeModAmount;
+    auto basicChannel{ masterOptions->basicChannel() };
+    addValueToDataVectorAtLSBbyteLocation(basicChannel, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfBasicChannelLSByte]);
+    checksum += basicChannel;
+    auto omniModeEnabled{ masterOptions->omniModeEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(omniModeEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfOmniModeEnableLSByte]);
+    checksum += omniModeEnabled;
+    auto controllersEnabled{ masterOptions->controllersEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(controllersEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfControllersEnableLSByte]);
+    checksum += controllersEnabled;
+    auto patchChangesEnabled{ masterOptions->patchChangesEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(patchChangesEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchChangesEnableLSByte]);
+    checksum += patchChangesEnabled;
+    auto sysExEnabled{ masterOptions->sysExEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(sysExEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSysExEnableLSByte]);
+    checksum += sysExEnabled;
+    auto localControlEnabled{ masterOptions->localControlEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(localControlEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLocalControlEnableLSByte]);
+    checksum += localControlEnabled;
+    auto pedal1ControllerNumber{ masterOptions->pedal1ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(pedal1ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPedal1ControllerNumber]);
+    checksum += pedal1ControllerNumber;
+    auto lever2ControllerNumber{ masterOptions->lever2ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(lever2ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLever2ControllerNumber]);
+    checksum += lever2ControllerNumber;
+    auto lever3ControllerNumber{ masterOptions->lever3ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(lever3ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLever3ControllerNumber]);
+    checksum += lever3ControllerNumber;
+    auto displayBrightness{ masterOptions->displayBrightness() };
+    addValueToDataVectorAtLSBbyteLocation(displayBrightness, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfDisplayBrightnessLSByte]);
+    checksum += displayBrightness;
+    auto squickEnabled{ masterOptions->squickEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSquickEnableLSByte]);
+    checksum += squickEnabled;
+    auto patchMapEchoEnabled{ masterOptions->patchMapEchoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(patchMapEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchMapEchoEnableLSByte]);
+    checksum += patchMapEchoEnabled;
+    auto splitStereoEnabled{ masterOptions->splitStereoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(splitStereoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSplitStereoEnableLSByte]);
+    checksum += splitStereoEnabled;
+    auto spilloverEnabled{ masterOptions->spilloverEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(spilloverEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSpilloverEnableLSByte]);
+    checksum += spilloverEnabled;
+    auto activeSensingEnabled{ masterOptions->activeSensingEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(activeSensingEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfActiveSenseEnableLSByte]);
+    checksum += activeSensingEnabled;
+    auto midiEchoEnabled{ masterOptions->midiEchoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(midiEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDIechoEnableLSByte]);
+    checksum += midiEchoEnabled;
+    auto patchMapEnabled{ masterOptions->patchMapEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(patchMapEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchMapEnableLSByte]);
+    checksum += patchMapEnabled;
+    auto midiMonoEnabled{ masterOptions->midiMonoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDImonoEnableLSByte]);
+    checksum += midiMonoEnabled;
+    for (uint8 i = 0; i != patches::numberOfSlotsInBank; ++i) {
+        auto patchMapInPatch{ masterOptions->patchMapInPatchForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(patchMapInPatch, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfFirstPatchMapInputLSByte + ((int)i * 2)]);
+        checksum += patchMapInPatch;
+        auto patchMapOutPatch{ masterOptions->patchMapOutPatchForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(patchMapOutPatch, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfFirstPatchMapOutputLSByte + ((int)i * 2)]);
+        checksum += patchMapOutPatch;
+    }
 }
 
 uint8 RawDataTools::formatSigned6bitValueForSendingToMatrix(uint8& value) {

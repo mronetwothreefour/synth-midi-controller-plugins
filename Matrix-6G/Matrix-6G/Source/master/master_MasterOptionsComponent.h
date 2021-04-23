@@ -4,6 +4,7 @@
 
 #include "master_PatchMapComponent.h"
 #include "../widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"
+#include "../widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
@@ -76,6 +77,7 @@ class MasterOptionsComponent :
     ComboBoxForSelectingValueTipsEnabled comboBox_ForSelectingValueTipsEnabled;
     EditableLabel tipsDelayEditor;
     ButtonForShowingPatchMapComponent button_ForShowingPatchMapComponent;
+    ButtonForPushingMasterOptionsToHardware button_ForPushingMasterOptionsToHardware;
     std::unique_ptr<PatchMapComponent> patchMapComponent;
 
 public:

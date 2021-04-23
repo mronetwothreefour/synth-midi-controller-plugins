@@ -8,6 +8,9 @@
 
 
 void MasterOptionsDataMessage::addDataMessageForMasterOptionsToOutgoingMidiBuffers(UnexposedParameters* unexposedParams) {
+    auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    auto masterOptionsDataMessage{ createSysExMessageFromCurrentMasterOptions(unexposedParams) };
+    outgoingBuffers->addDataMessage(masterOptionsDataMessage);
 }
 
 void MasterOptionsDataMessage::addRequestForMasterOptionsDataToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
@@ -16,5 +19,7 @@ void MasterOptionsDataMessage::addRequestForMasterOptionsDataToOutgoingMidiBuffe
 }
 
 std::vector<uint8> MasterOptionsDataMessage::createSysExMessageFromCurrentMasterOptions(UnexposedParameters* unexposedParams) {
-	return std::vector<uint8>();
+    auto dataVector{ RawSysExDataVector::initializeMasterOptionsDataMessage() };
+    RawDataTools::addCurrentMasterSettingsToDataVector(unexposedParams, dataVector);
+    return dataVector;
 }

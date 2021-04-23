@@ -2183,7 +2183,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp" />
-    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp" />
@@ -3047,7 +3047,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h" />
-    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h" />

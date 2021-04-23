@@ -43,7 +43,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingDescriptionTipsEnabled{ unexposedParams },
 	comboBox_ForSelectingValueTipsEnabled{ unexposedParams },
 	tipsDelayEditor{ "tipsDelayEditor", "" },
-	button_ForShowingPatchMapComponent{ unexposedParams }
+	button_ForShowingPatchMapComponent{ unexposedParams },
+	button_ForPushingMasterOptionsToHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
 	addAndMakeVisible(button_ForClosingMasterOptionsComponent);
@@ -148,6 +149,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	addAndMakeVisible(button_ForShowingPatchMapComponent);
 	button_ForShowingPatchMapComponent.onClick = [this] { showPatchMapComponent(); };
 
+	addAndMakeVisible(button_ForPushingMasterOptionsToHardware);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -192,6 +195,7 @@ void MasterOptionsComponent::resized() {
 	comboBox_ForSelectingValueTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForValueTips);
 	tipsDelayEditor.setBounds(GUI::bounds_MasterOptionsComponentTipsDelayEditor);
 	button_ForShowingPatchMapComponent.setBounds(GUI::bounds_MasterOptionsComponentEditbutton);
+	button_ForPushingMasterOptionsToHardware.setBounds(GUI::bounds_MasterOptionsComponentPushbutton);
 }
 
 void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {

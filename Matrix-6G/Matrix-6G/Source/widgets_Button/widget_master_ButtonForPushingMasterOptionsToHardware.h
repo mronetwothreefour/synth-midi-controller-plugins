@@ -8,16 +8,16 @@
 
 class UnexposedParameters;
 
-class ButtonForPullingMasterOptionsFromHardware :
+class ButtonForPushingMasterOptionsToHardware :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 
 public:
 
-	ButtonForPullingMasterOptionsFromHardware() = delete;
+	ButtonForPushingMasterOptionsToHardware() = delete;
 
-	explicit ButtonForPullingMasterOptionsFromHardware(UnexposedParameters* unexposedParams);
+	explicit ButtonForPushingMasterOptionsToHardware(UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -25,5 +25,5 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingMasterOptionsFromHardware)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingMasterOptionsToHardware)
 };

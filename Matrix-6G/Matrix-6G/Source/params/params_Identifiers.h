@@ -30,7 +30,6 @@ namespace ID
 	static const Identifier button_PatchSlotRadioButton{ "button_PatchSlotRadioButton" };
 	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
 	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
-	static const Identifier button_PullMasterOptions{ "button_PullMasterOptions" };
 	static const Identifier button_PullSplitsBank{ "button_PullSplitsBank" };
 	static const Identifier button_PullSelectedPatchOrSplit{ "button_PullSelectedPatchOrSplit" };
 	static const Identifier button_Push{ "button_Push" };

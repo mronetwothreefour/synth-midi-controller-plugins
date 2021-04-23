@@ -27,7 +27,7 @@ struct RawSysExDataVector {
     static std::vector<uint8> createSplitDataMessageHeader(uint8 slot);
     static std::vector<uint8> createSplitDataRequestMessage(uint8 slot);
     static std::vector<uint8> createSwitchToSplitModeMessage();
-    static std::vector<uint8> createMasterOptionsDataMessageHeader();
+    static std::vector<uint8> initializeMasterOptionsDataMessage();
     static std::vector<uint8> createMasterOptionsDataRequestMessage();
 
 private:
@@ -47,9 +47,11 @@ struct RawDataTools {
     static void applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector, UnexposedParameters* unexposedParams);
     static const String extractPatchNameFromRawPatchData(const uint8* patchData);
     static const String extractSplitNameFromRawSplitData(const uint8* splitData);
+    static void addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
 
 private:
-    static const uint8 firstPatchOrSplitParamDataByte{ 20 };
+    static const uint8 indexofFirstPatchOrSplitParamDataLSByte{ 20 };
+    static const uint8 indexOfFirstMasterOptionDataLSByte{ 6 };
     static const int negativeValueOffset{ 256 };
 
     static void applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams);
@@ -65,6 +67,7 @@ private:
     static void addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static void addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static void addSplitParamDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
+    static void addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 formatSigned6bitValueForSendingToMatrix(uint8& value);
     static uint8 formatSigned7bitValueForSendingToMatrix(uint8& value);
     static uint8 formatSignedZoneTransposeValueForSendingToMatrix(uint8& value);

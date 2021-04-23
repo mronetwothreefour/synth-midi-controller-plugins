@@ -2601,7 +2601,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.cpp">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp">
@@ -5198,7 +5198,7 @@
     <ClInclude Include="..\..\Source\master\master_MasterOptionsComponent.h">
       <Filter>Matrix-6G\Source\master</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPullingMasterOptionsFromHardware.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.h">
       <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h">
