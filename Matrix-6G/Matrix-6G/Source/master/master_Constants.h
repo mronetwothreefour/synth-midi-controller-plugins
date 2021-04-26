@@ -8,6 +8,7 @@ namespace constants
 {
 	namespace master
 	{
+		static const uint8 basicChannelOffset{ 1 };
 		static const uint16 indexOfVibratoSpeedLSByte{ 0 };
 		static const uint16 indexOfVibratoSpeedModSourceLSByte{ indexOfVibratoSpeedLSByte + 2 };
 		static const uint16 indexOfVibratoSpeedModAmountLSByte{ indexOfVibratoSpeedModSourceLSByte + 2 };
@@ -45,6 +46,6 @@ namespace constants
 		static const uint16 indexOfMIDImonoEnableLSByte{ indexOfUndefinedLSByte3 + 2 };
 		static const uint16 indexOfFirstPatchMapInputLSByte{ indexOfMIDImonoEnableLSByte + 2 };
 		static const uint16 indexOfFirstPatchMapOutputLSByte{ indexOfFirstPatchMapInputLSByte + 200 };
-		static const uint16 indexOfChecksumByte{ indexOfFirstPatchMapOutputLSByte + 205 };
+		static const uint16 indexOfChecksumByte{ indexOfFirstPatchMapOutputLSByte + 206 };
 	}
 }

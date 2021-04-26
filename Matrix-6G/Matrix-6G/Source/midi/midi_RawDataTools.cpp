@@ -417,7 +417,15 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     auto vibratoAmplitudeModAmount{ masterOptions->vibratoAmplitudeModAmount() };
     addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModAmountLSByte]);
     checksum += vibratoAmplitudeModAmount;
+    auto masterTune{ masterOptions->masterTune() };
+    masterTune = RawDataTools::formatSigned7bitValueForSendingToMatrix(masterTune);
+    addValueToDataVectorAtLSBbyteLocation(masterTune, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMasterTuneLSByte]);
+    checksum += masterTune;
+
+    addValueToDataVectorAtLSBbyteLocation((uint8)63, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMasterTuneLSByte] + (uint8)4);
+
     auto basicChannel{ masterOptions->basicChannel() };
+    basicChannel -= master::basicChannelOffset;
     addValueToDataVectorAtLSBbyteLocation(basicChannel, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfBasicChannelLSByte]);
     checksum += basicChannel;
     auto omniModeEnabled{ masterOptions->omniModeEnabled() };
@@ -438,6 +446,9 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     auto pedal1ControllerNumber{ masterOptions->pedal1ControllerNumber() };
     addValueToDataVectorAtLSBbyteLocation(pedal1ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPedal1ControllerNumber]);
     checksum += pedal1ControllerNumber;
+    auto pedal2ControllerNumber{ masterOptions->pedal2ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(pedal2ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPedal2ControllerNumber]);
+    checksum += pedal1ControllerNumber;
     auto lever2ControllerNumber{ masterOptions->lever2ControllerNumber() };
     addValueToDataVectorAtLSBbyteLocation(lever2ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLever2ControllerNumber]);
     checksum += lever2ControllerNumber;
@@ -456,6 +467,12 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     auto splitStereoEnabled{ masterOptions->splitStereoEnabled() };
     addValueToDataVectorAtLSBbyteLocation(splitStereoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSplitStereoEnableLSByte]);
     checksum += splitStereoEnabled;
+
+    auto basicChannelDisplayValue{ masterOptions->basicChannel() };
+    addValueToDataVectorAtLSBbyteLocation(basicChannelDisplayValue, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSplitStereoEnableLSByte] + (uint8)2);
+    basicChannelDisplayValue -= (uint8)1;
+    checksum += basicChannelDisplayValue;
+
     auto spilloverEnabled{ masterOptions->spilloverEnabled() };
     addValueToDataVectorAtLSBbyteLocation(spilloverEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSpilloverEnableLSByte]);
     checksum += spilloverEnabled;
@@ -479,6 +496,7 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
         addValueToDataVectorAtLSBbyteLocation(patchMapOutPatch, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfFirstPatchMapOutputLSByte + ((int)i * 2)]);
         checksum += patchMapOutPatch;
     }
+    checksum -= (uint8)4;
 }
 
 uint8 RawDataTools::formatSigned6bitValueForSendingToMatrix(uint8& value) {
