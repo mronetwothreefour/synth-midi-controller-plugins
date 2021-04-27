@@ -51,7 +51,7 @@ struct RawDataTools {
 
 private:
     static const uint8 indexofFirstPatchOrSplitParamDataLSByte{ 20 };
-    static const uint8 indexOfFirstMasterOptionDataLSByte{ 6 };
+    static const uint16 indexOfFirstMasterOptionDataLSByte{ 6 };
     static const int negativeValueOffset{ 256 };
 
     static void applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams);
