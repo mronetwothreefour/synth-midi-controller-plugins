@@ -2791,6 +2791,8 @@
     <None Include="..\..\..\Matrix-6G\Resources\Button-Redo-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Reset-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Reset-Up.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Retry-Down.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\Button-Retry-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Down.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Save-Up.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Button-Splits-Down.png"/>
@@ -2808,6 +2810,7 @@
     <None Include="..\..\..\Matrix-6G\Resources\Master-Window.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patch-Map-Window.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Matrix-6G-Main-Window-Background.png"/>
+    <None Include="..\..\..\Matrix-6G\Resources\No-SysEx-Warning-Window.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Custom-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Footer-For-Factory-Banks.png"/>
     <None Include="..\..\..\Matrix-6G\Resources\Patches-Header.png"/>
