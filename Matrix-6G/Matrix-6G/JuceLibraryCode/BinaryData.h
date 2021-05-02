@@ -129,7 +129,7 @@ namespace BinaryData
     const int            Matrix6GMainWindowBackground_pngSize = 51164;
 
     extern const char* NoSysExWarningWindow_png;
-    const int            NoSysExWarningWindow_pngSize = 40080;
+    const int            NoSysExWarningWindow_pngSize = 40081;
 
     extern const char* PatchesFooterForCustomBanks_png;
     const int            PatchesFooterForCustomBanks_pngSize = 1335;

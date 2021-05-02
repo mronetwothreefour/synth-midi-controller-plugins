@@ -45,6 +45,7 @@ struct RawDataTools {
     static void addCurrentSplitSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
     static void applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     static void applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector, UnexposedParameters* unexposedParams);
+    static void applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams);
     static const String extractPatchNameFromRawPatchData(const uint8* patchData);
     static const String extractSplitNameFromRawSplitData(const uint8* splitData);
     static void addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);

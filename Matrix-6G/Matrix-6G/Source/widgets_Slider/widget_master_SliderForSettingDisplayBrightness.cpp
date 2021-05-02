@@ -18,7 +18,7 @@ SliderForSettingDisplayBrightness::SliderForSettingDisplayBrightness(UnexposedPa
 	setRange(1.0, 31.0, 1.0);
 	auto paramValue{ (double)masterOptions->displayBrightness() };
 	setValue(paramValue, dontSendNotification);
-	setDoubleClickReturnValue(true, 31.0);
+	setDoubleClickReturnValue(true, 27.0);
 	setMouseDragSensitivity(95);
 	setTooltip(generateTooltipString());
 }

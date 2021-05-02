@@ -21,6 +21,7 @@ namespace constants
 		static const int numberOfHeaderBytesInDataDumpMessages{ 4 };
 		static const int patchAndSplitDumpSlotNumberByte{ 4 };
 		static const int patchAndSplitDumpFirstDataByte{ 5 };
+		static const int masterDumpFirstDataByte{ 6 };
 		static const int sizeOfDataDumpRequestVector{ 5 };
 		static const int sizeOfMasterDataVector{ 477 };
 		static const int sizeOfParamChangeVector{ 5 };

@@ -217,7 +217,7 @@ const uint8 MasterOptions::vibratoAmplitudeModAmount() {
 	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VibratoAmplitudeModAmount);
 }
 
-void MasterOptions::setvibratoAmplitudeModAmount(uint8 newValue) {
+void MasterOptions::setVibratoAmplitudeModAmount(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_VibratoAmplitudeModAmount, newValue, nullptr);
 }
 

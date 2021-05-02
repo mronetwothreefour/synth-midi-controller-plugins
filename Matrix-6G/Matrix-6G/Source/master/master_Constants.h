@@ -9,6 +9,7 @@ namespace constants
 	namespace master
 	{
 		static const uint8 basicChannelOffset{ 1 };
+		static const uint8 indexOfFirstMasterDataByte{ 7 };
 		static const uint8 velocitySensitivity_Unused{ 63 };
 
 		static const uint16 indexOfVibratoSpeedLSByte{ 0 };
@@ -34,8 +35,8 @@ namespace constants
 		static const uint16 indexOfPedal2InvertEnableLSByte_Unused{ indexOfLever3ControllerNumber + 2 };
 		static const uint16 indexOfLeversInvertEnableLSByte_Unused{ indexOfPedal2InvertEnableLSByte_Unused + 2 };
 		static const uint16 indexOfDisplayBrightnessLSByte{ indexOfLeversInvertEnableLSByte_Unused + 2 };
-		static const uint16 indexOfSquickEnableLSByte{ indexOfDisplayBrightnessLSByte + 2 };
-		static const uint16 indexOfPatchMapEchoEnableLSByte{ indexOfSquickEnableLSByte + 2 };
+		static const uint16 indexOfSQUICKenableLSByte{ indexOfDisplayBrightnessLSByte + 2 };
+		static const uint16 indexOfPatchMapEchoEnableLSByte{ indexOfSQUICKenableLSByte + 2 };
 		static const uint16 indexOfSplitStereoEnableLSByte{ indexOfPatchMapEchoEnableLSByte + 2 };
 		static const uint16 indexOfBasicChannelDisplayedValueLSByte{ indexOfSplitStereoEnableLSByte + 2 };
 		static const uint16 indexOfPressureStandoffLSByte_Unused{ indexOfBasicChannelDisplayedValueLSByte + 2 };

@@ -79,7 +79,7 @@ public:
 	void setVibratoAmplitudeModSource(uint8 newValue);
 
 	const uint8 vibratoAmplitudeModAmount();
-	void setvibratoAmplitudeModAmount(uint8 newValue);
+	void setVibratoAmplitudeModAmount(uint8 newValue);
 
 	const uint8 masterTune();
 	void setMasterTune(uint8 newValue);

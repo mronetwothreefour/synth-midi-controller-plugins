@@ -185,6 +185,45 @@ void RawDataTools::applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector
     applyRawSplitDataToGUI(splitDataVector.data(), unexposedParams);
 }
 
+void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams) {
+    auto masterOptions{ unexposedParams->masterOptions_get() };
+    masterOptions->setVibratoSpeed(masterOptionsData[master::indexOfVibratoSpeedLSByte] + (masterOptionsData[master::indexOfVibratoSpeedLSByte + 1] * 16));
+    masterOptions->setVibratoSpeedModSource(masterOptionsData[master::indexOfVibratoSpeedModSourceLSByte]);
+    masterOptions->setVibratoSpeedModAmount(masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte] + (masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte + 1] * 16));
+    masterOptions->setVibratoWaveType(masterOptionsData[master::indexOfVibratoWaveTypeLSByte]);
+    masterOptions->setVibratoAmplitude(masterOptionsData[master::indexOfVibratoAmplitudeLSByte] + (masterOptionsData[master::indexOfVibratoAmplitudeLSByte + 1] * 16));
+    masterOptions->setVibratoAmplitudeModSource(masterOptionsData[master::indexOfVibratoAmplitudeModSourceLSByte]);
+    masterOptions->setVibratoAmplitudeModAmount(masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte] + (masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte + 1] * 16));
+    auto masterTune{ masterOptionsData[master::indexOfMasterTuneLSByte] + (masterOptionsData[master::indexOfMasterTuneLSByte + 1] * 16) };
+    masterTune = RawDataTools::formatSigned7bitValueForStoringInPlugin(masterTune);
+    masterOptions->setMasterTune((uint8)masterTune);
+    masterOptions->setBasicChannel(masterOptionsData[master::indexOfBasicChannelLSByte] + master::basicChannelOffset);
+    masterOptions->setOmniModeEnabled(masterOptionsData[master::indexOfOmniModeEnableLSByte]);
+    masterOptions->setControllersEnabled(masterOptionsData[master::indexOfControllersEnableLSByte]);
+    masterOptions->setPatchChangesEnabled(masterOptionsData[master::indexOfPatchChangesEnableLSByte]);
+    masterOptions->setSysExEnabled(masterOptionsData[master::indexOfSysExEnableLSByte]);
+    masterOptions->setLocalControlEnabled(masterOptionsData[master::indexOfLocalControlEnableLSByte]);
+    masterOptions->setPedal1ControllerNumber(masterOptionsData[master::indexOfPedal1ControllerNumber] + (masterOptionsData[master::indexOfPedal1ControllerNumber + 1] * 16));
+    masterOptions->setPedal2ControllerNumber(masterOptionsData[master::indexOfPedal2ControllerNumber] + (masterOptionsData[master::indexOfPedal2ControllerNumber + 1] * 16));
+    masterOptions->setLever2ControllerNumber(masterOptionsData[master::indexOfLever2ControllerNumber] + (masterOptionsData[master::indexOfLever2ControllerNumber + 1] * 16));
+    masterOptions->setLever3ControllerNumber(masterOptionsData[master::indexOfLever3ControllerNumber] + (masterOptionsData[master::indexOfLever3ControllerNumber + 1] * 16));
+    masterOptions->setDisplayBrightness(masterOptionsData[master::indexOfDisplayBrightnessLSByte] + (masterOptionsData[master::indexOfDisplayBrightnessLSByte + 1] * 16));
+    masterOptions->setSQUICKenabled(masterOptionsData[master::indexOfSQUICKenableLSByte]);
+    masterOptions->setPatchMapEchoEnabled(masterOptionsData[master::indexOfPatchMapEchoEnableLSByte]);
+    masterOptions->setSplitStereoEnabled(masterOptionsData[master::indexOfSplitStereoEnableLSByte]);
+    masterOptions->setSpilloverEnabled(masterOptionsData[master::indexOfSpilloverEnableLSByte]);
+    masterOptions->setActiveSensingEnabled(masterOptionsData[master::indexOfActiveSenseEnableLSByte]);
+    masterOptions->setMIDIechoEnabled(masterOptionsData[master::indexOfMIDIechoEnableLSByte]);
+    masterOptions->setPatchMapEnabled(masterOptionsData[master::indexOfPatchMapEnableLSByte]);
+    masterOptions->setMIDImonoEnabled(masterOptionsData[master::indexOfMIDImonoEnableLSByte]);
+    for (uint8 i = 0; i != patches::numberOfSlotsInBank; ++i) {
+        auto indexOfInputPatchlsByte{ master::indexOfFirstPatchMapInputLSByte + (i * 2) };
+        masterOptions->setPatchMapInPatchForProgramNumber(masterOptionsData[indexOfInputPatchlsByte] + (masterOptionsData[indexOfInputPatchlsByte + 1] * 16), i);
+        auto indexOfOutputPatchlsByte{ master::indexOfFirstPatchMapOutputLSByte + (i * 2) };
+        masterOptions->setPatchMapOutPatchForProgramNumber(masterOptionsData[indexOfOutputPatchlsByte] + (masterOptionsData[indexOfOutputPatchlsByte + 1] * 16), i);
+    }
+}
+
 const String RawDataTools::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
     for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
@@ -479,7 +518,7 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     checksum += displayBrightness;
 
     auto squickEnabled{ masterOptions->squickEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSquickEnableLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSQUICKenableLSByte]);
     checksum += squickEnabled;
 
     auto patchMapEchoEnabled{ masterOptions->patchMapEchoEnabled() };
@@ -512,13 +551,14 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     auto midiMonoEnabled{ masterOptions->midiMonoEnabled() };
     addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDImonoEnableLSByte]);
     checksum += midiMonoEnabled;
+
     for (uint8 i = 0; i != patches::numberOfSlotsInBank; ++i) {
         auto patchMapInPatch{ masterOptions->patchMapInPatchForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(patchMapInPatch, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfFirstPatchMapInputLSByte + (i * 2)]);
+        addValueToDataVectorAtLSBbyteLocation(patchMapInPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstPatchMapInputLSByte + (i * 2)]);
         checksum += patchMapInPatch;
 
         auto patchMapOutPatch{ masterOptions->patchMapOutPatchForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(patchMapOutPatch, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfFirstPatchMapOutputLSByte + (i * 2)]);
+        addValueToDataVectorAtLSBbyteLocation(patchMapOutPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstPatchMapOutputLSByte + (i * 2)]);
         checksum += patchMapOutPatch;
     }
 }

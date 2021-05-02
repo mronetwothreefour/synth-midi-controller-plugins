@@ -309,7 +309,7 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 	if (slider == &sliderForSettingVibratoSpeedModAmount)
 		masterOptions->setVibratoSpeedModAmount(currentValue);
 	if (slider == &sliderForSettingVibratoAmplitudeModAmount)
-		masterOptions->setvibratoAmplitudeModAmount(currentValue);
+		masterOptions->setVibratoAmplitudeModAmount(currentValue);
 	if (slider == &slider_ForSettingMasterTune)
 		masterOptions->setMasterTune(currentValue);
 	if (slider == &slider_ForSettingDisplayBrightness)
