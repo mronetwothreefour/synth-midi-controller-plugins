@@ -2144,6 +2144,7 @@
     <ClCompile Include="..\..\Source\master\master_PatchMapComponent.cpp" />
     <ClCompile Include="..\..\Source\master\master_PatchMapSlot.cpp" />
     <ClCompile Include="..\..\Source\master\master_PatchMapSlotsColumn.cpp" />
+    <ClCompile Include="..\..\Source\master\master_SysExIsOffWarningComponent.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp" />
@@ -3002,6 +3003,7 @@
     <ClInclude Include="..\..\Source\master\master_PatchMapComponent.h" />
     <ClInclude Include="..\..\Source\master\master_PatchMapSlot.h" />
     <ClInclude Include="..\..\Source\master\master_PatchMapSlotsColumn.h" />
+    <ClInclude Include="..\..\Source\master\master_SysExIsOffWarningComponent.h" />
     <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h" />
     <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h" />

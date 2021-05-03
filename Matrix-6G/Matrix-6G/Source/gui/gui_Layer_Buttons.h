@@ -14,10 +14,12 @@
 class MasterOptionsComponent;
 class PatchBanksComponent;
 class SplitsComponent;
+class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
 class ButtonsLayer :
-	public Component
+	public Component,
+	private Timer
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -30,6 +32,7 @@ class ButtonsLayer :
 	std::unique_ptr<PatchBanksComponent> patchBanksComponent;
 	std::unique_ptr<SplitsComponent> splitsComponent;
 	std::unique_ptr<MasterOptionsComponent> masterOptionsComponent;
+	std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -39,7 +42,10 @@ public:
 private:
 	void showPatchBanksComponent();
 	void showSplitsComponent();
+	void prepareToShowMasterOptionsComponent();
+	void showSysExIsOffWarningComponent();
 	void showMasterOptionsComponent();
+	void timerCallback() override;
 
 public:
 	void resized() override;

@@ -178,6 +178,8 @@ namespace constants
 		static const int splitZonePatchNumber_x{ 596 };
 		static const int splitZoneTranspose_w{ 37 };
 		static const int splitZoneTranspose_x{ 678 };
+		static const int sysexIsOffWarningWindow_x{ 377 };
+		static const int sysexIsOffWarningWindow_y{ 119 };
 		static const int trackingGeneratorRenderer_h{ 80 };
 		static const int trackingGeneratorRenderer_w{ 150 };
 		static const int trackingGeneratorRenderer_x{ 840 };
@@ -300,6 +302,8 @@ namespace constants
 		static const Rectangle<int> bounds_SplitUpperZonePatchNumber{ splitZonePatchNumber_x, splitsControlsRow4_y, splitZonePatchNumber_w, controls_h };
 		static const Rectangle<int> bounds_SplitUpperZoneTranspose{ splitZoneTranspose_x, splitsControlsRow4_y, splitZoneTranspose_w, controls_h };
 		static const Rectangle<int> bounds_SplitZoneVolumeBalance{ 594, splitsControlsRow2_y, 172, controls_h };
+		static const Rectangle<int> bounds_SysexisOffWarningComponentCloseButton{ 857, sysexIsOffWarningWindow_y, xButton_w, xButton_h };
+		static const Rectangle<int> bounds_SysexisOffWarningComponentRetryButton{ 606, 432, 40, smallButtons_h };
 		static const Rectangle<int> bounds_TabbedComponentForPatchBanks{ 416, 102, patchBanksTab_w, patchBanksTab_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

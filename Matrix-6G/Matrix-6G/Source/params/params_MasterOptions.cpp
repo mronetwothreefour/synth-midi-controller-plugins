@@ -20,7 +20,7 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_OmniModeEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_ControllersEnabled, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_PatchChangesEnabled, (uint8)1, nullptr);
-	masterOptionsTree.setProperty(ID::master_SysExEnabled, (uint8)1, nullptr);
+	masterOptionsTree.setProperty(ID::master_SysExEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_LocalControlEnabled, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_Pedal1ControllerNumber, (uint8)4, nullptr);
 	masterOptionsTree.setProperty(ID::master_Pedal2ControllerNumber, (uint8)64, nullptr);
@@ -43,6 +43,10 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)27, nullptr);
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
 	resetPatchMap();
+}
+
+void MasterOptions::resetMasterOptionsToDefaults() {
+	fillMasterOptionsTreeWithProperties();
 }
 
 void MasterOptions::addListener(ValueTree::Listener* listener) {

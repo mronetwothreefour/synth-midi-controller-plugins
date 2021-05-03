@@ -2718,6 +2718,9 @@
     <ClCompile Include="..\..\Source\master\master_PatchMapSlotsColumn.cpp">
       <Filter>Matrix-6G\Source\master</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\master\master_SysExIsOffWarningComponent.cpp">
+      <Filter>Matrix-6G\Source\master</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5310,6 +5313,9 @@
       <Filter>Matrix-6G\Source\master</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\master\master_PatchMapSlotsColumn.h">
+      <Filter>Matrix-6G\Source\master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\master\master_SysExIsOffWarningComponent.h">
       <Filter>Matrix-6G\Source\master</Filter>
     </ClInclude>
   </ItemGroup>

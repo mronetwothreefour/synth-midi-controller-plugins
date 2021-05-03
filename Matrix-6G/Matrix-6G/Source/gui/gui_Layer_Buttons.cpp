@@ -1,8 +1,10 @@
 #include "gui_Layer_Buttons.h"
 
 #include "gui_Constants.h"
+#include "../midi/midi_MasterOptionsDataMessage.h"
 #include "../midi/midi_RawDataTools.h"
 #include "../master/master_MasterOptionsComponent.h"
+#include "../master/master_SysExIsOffWarningComponent.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../patches/patches_PatchBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"
@@ -30,7 +32,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForShowingSplitsComponent);
     button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
     addAndMakeVisible(button_ForShowingMasterOptionsComponent);
-    button_ForShowingMasterOptionsComponent.onClick = [this] { showMasterOptionsComponent(); };
+    button_ForShowingMasterOptionsComponent.onClick = [this] { prepareToShowMasterOptionsComponent(); };
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -54,12 +56,35 @@ void ButtonsLayer::showSplitsComponent() {
     }
 }
 
+void ButtonsLayer::prepareToShowMasterOptionsComponent() {
+    auto masterOptions{ unexposedParams->masterOptions_get() };
+    masterOptions->resetMasterOptionsToDefaults();
+    auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    MasterOptionsDataMessage::addRequestForMasterOptionsDataToOutgoingMidiBuffers(outgoingMidiBuffers);
+    callAfterDelay(300, [this, masterOptions] {
+        if (masterOptions->sysExEnabled())
+            showMasterOptionsComponent();
+        else showSysExIsOffWarningComponent();
+     });
+}
+
+void ButtonsLayer::showSysExIsOffWarningComponent() {
+    sysExIsOffWarningComponent.reset(new SysExIsOffWarningComponent(unexposedParams));
+    if (sysExIsOffWarningComponent != nullptr) {
+        addAndMakeVisible(sysExIsOffWarningComponent.get());
+        sysExIsOffWarningComponent->setBounds(getLocalBounds());
+    }
+}
+
 void ButtonsLayer::showMasterOptionsComponent() {
     masterOptionsComponent.reset(new MasterOptionsComponent(unexposedParams));
     if (masterOptionsComponent != nullptr) {
         addAndMakeVisible(masterOptionsComponent.get());
         masterOptionsComponent->setBounds(getLocalBounds());
     }
+}
+
+void ButtonsLayer::timerCallback() {
 }
 
 void ButtonsLayer::resized() {
@@ -73,6 +98,7 @@ void ButtonsLayer::resized() {
 
 ButtonsLayer::~ButtonsLayer() {
     masterOptionsComponent = nullptr;
+    sysExIsOffWarningComponent = nullptr;
     splitsComponent = nullptr;
     patchBanksComponent = nullptr;
 }

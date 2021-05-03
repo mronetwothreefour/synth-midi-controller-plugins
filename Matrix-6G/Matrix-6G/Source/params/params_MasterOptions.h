@@ -15,6 +15,7 @@ private:
 	void fillMasterOptionsTreeWithProperties();
 
 public:
+	void resetMasterOptionsToDefaults();
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 
