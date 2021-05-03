@@ -35,6 +35,3 @@ void NRPNisOffWarningComponent::resized() {
 	button_ForClosingComponent.setBounds(GUI::bounds_NRPNisOffWarningComponentCloseButton);
 	button_ForSendingGlobalParametersDumpRequest.setBounds(GUI::bounds_NRPNisOffWarningComponentRetryButton);
 }
-
-NRPNisOffWarningComponent::~NRPNisOffWarningComponent() {
-}

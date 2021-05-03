@@ -38,6 +38,3 @@ void HardwareSettingsWarningComponent::hideThisComponent() {
 
 void HardwareSettingsWarningComponent::timerCallback() {
 }
-
-HardwareSettingsWarningComponent::~HardwareSettingsWarningComponent() {
-}

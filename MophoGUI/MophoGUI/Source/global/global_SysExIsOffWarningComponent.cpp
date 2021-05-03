@@ -34,6 +34,3 @@ void SysExIsOffWarningComponent::resized() {
 	button_ForClosingComponent.setBounds(GUI::bounds_SysexisOffWarningComponentCloseButton);
 	button_ForSendingGlobalParametersDumpRequest.setBounds(GUI::bounds_SysexisOffWarningComponentRetryButton);
 }
-
-SysExIsOffWarningComponent::~SysExIsOffWarningComponent() {
-}

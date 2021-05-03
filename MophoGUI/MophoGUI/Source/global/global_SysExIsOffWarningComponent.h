@@ -22,7 +22,6 @@ private:
 public:
 	void paint(Graphics& g) override;
 	void resized() override;
-	~SysExIsOffWarningComponent();
 
 private:
 	//==============================================================================
