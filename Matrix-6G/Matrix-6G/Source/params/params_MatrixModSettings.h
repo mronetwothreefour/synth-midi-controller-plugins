@@ -32,6 +32,8 @@ public:
 	void setAmountForModulation(uint8 amount, int modNumber);
 	const uint8 destinationSettingForModulation(int modNumber);
 	void setDestinationForModulation(uint8 destination, int modNumber);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================

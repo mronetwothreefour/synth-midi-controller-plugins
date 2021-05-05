@@ -43,3 +43,13 @@ const String CurrentPatchOptions::currentPatchName() {
 void CurrentPatchOptions::setCurrentPatchName(String newName) {
 	currentPatchOptionsTree.setProperty(ID::currentPatch_Name, newName, unexposedParams->undoManager_get());
 }
+
+XmlElement* CurrentPatchOptions::getStateXml() {
+	auto currentPatchOptionsTreeStateXml{ currentPatchOptionsTree.createXml() };
+	currentPatchOptionsTreeStateXml->setTagName(ID::state_CurrentPatchOptions);
+	return currentPatchOptionsTreeStateXml.release();
+}
+
+void CurrentPatchOptions::replaceState(const ValueTree& newState) {
+	currentPatchOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
+}

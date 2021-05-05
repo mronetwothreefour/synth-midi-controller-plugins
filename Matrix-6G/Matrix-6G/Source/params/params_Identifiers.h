@@ -162,10 +162,19 @@ namespace ID
 	static const Identifier splits_DataHexStrings{ "splits_DataHexStrings" };
 	static const Identifier splits_NameStrings{ "splits_NameStrings" };
 
+	static const Identifier state_CurrentPatchOptions{ "state_CurrentPatchOptions" };
 	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
 	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };
 	static const Identifier state_CustomPatchBanks{ "state_CustomPatchBanks" };
-	static const Identifier state_SplitBanks{ "state_SplitBanks" };
+	static const Identifier state_ExposedParams{ "state_ExposedParams" };
+	static const Identifier state_MatrixModSettings{ "state_MatrixModSettings" };
+	static const Identifier state_PatchBanks{ "state_PatchBanks" };
+	static const Identifier state_PatchTransmissionOptions{ "state_PatchTransmissionOptions" };
+	static const Identifier state_PluginState{ "state_PluginState" };
+	static const Identifier state_SplitsBank{ "state_SplitBanks" };
+	static const Identifier state_SplitOptions{ "state_SplitOptions" };
+	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
+	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };

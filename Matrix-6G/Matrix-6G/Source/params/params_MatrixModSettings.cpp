@@ -83,3 +83,13 @@ void MatrixModSettings::setDestinationForModulation(uint8 destination, int modNu
 	jassert(modNumber < 10);
 	matrixModSettingsTree.setProperty("matrixMod_DestinationForMod_" + (String)modNumber, destination, unexposedParams->undoManager_get());
 }
+
+XmlElement* MatrixModSettings::getStateXml() {
+	auto matrixModSettingsTreeStateXml{ matrixModSettingsTree.createXml() };
+	matrixModSettingsTreeStateXml->setTagName(ID::state_MatrixModSettings);
+	return matrixModSettingsTreeStateXml.release();
+}
+
+void MatrixModSettings::replaceState(const ValueTree& newState) {
+	matrixModSettingsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
+}

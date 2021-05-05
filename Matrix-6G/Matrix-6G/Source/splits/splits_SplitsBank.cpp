@@ -68,13 +68,13 @@ void SplitsBank::valueTreePropertyChanged(ValueTree& tree, const Identifier& pro
 }
 
 XmlElement* SplitsBank::getStateXml() {
-	auto splitBankStateXml{ splitsDataHexStrings.createXml() };
-	splitBankStateXml->setTagName(ID::state_SplitBanks);
-	return splitBankStateXml.release();
+	auto splitsBankStateXml{ splitsDataHexStrings.createXml() };
+	splitsBankStateXml->setTagName(ID::state_SplitsBank);
+	return splitsBankStateXml.release();
 }
 
 void SplitsBank::replaceState(const ValueTree& newState) {
-	splitsDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_SplitBanks), nullptr);
+	splitsDataHexStrings.copyPropertiesAndChildrenFrom(newState, nullptr);
 }
 
 SplitsBank::~SplitsBank() {

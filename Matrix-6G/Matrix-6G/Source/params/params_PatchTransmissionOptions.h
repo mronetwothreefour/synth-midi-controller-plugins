@@ -27,6 +27,8 @@ public:
 	void setParamChangeEchosAreNotBlocked();
 	const int patchTransmitTime();
 	void setPatchTransmitTime(int timeInMilliseconds);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================

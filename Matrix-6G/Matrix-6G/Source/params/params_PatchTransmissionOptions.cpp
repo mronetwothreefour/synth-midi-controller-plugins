@@ -65,3 +65,15 @@ const int PatchTransmissionOptions::patchTransmitTime() {
 void PatchTransmissionOptions::setPatchTransmitTime(int timeInMilliseconds) {
 	patchTransmissionOptionsTree.setProperty(ID::midi_PatchTransmitTime, timeInMilliseconds, nullptr);
 }
+
+XmlElement* PatchTransmissionOptions::getStateXml() {
+	std::unique_ptr<XmlElement> patchTransmissionOptionsTreeStateXml{ new XmlElement(ID::state_PatchTransmissionOptions) };
+	auto patchTransmitTime{ (int)patchTransmissionOptionsTree.getProperty(ID::midi_PatchTransmitTime) };
+	patchTransmissionOptionsTreeStateXml->setAttribute(ID::midi_PatchTransmitTime, patchTransmitTime);
+	return patchTransmissionOptionsTreeStateXml.release();
+}
+
+void PatchTransmissionOptions::replaceState(const ValueTree& newState) {
+	auto patchTransmitTime{ newState.getProperty(ID::midi_PatchTransmitTime) };
+	patchTransmissionOptionsTree.setProperty(ID::midi_PatchTransmitTime, patchTransmitTime, nullptr);
+}

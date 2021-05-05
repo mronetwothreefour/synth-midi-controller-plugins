@@ -26,6 +26,8 @@ public:
 	void setCurrentPatchNumber(uint8 newNumber);
 	const String currentPatchName();
 	void setCurrentPatchName(String newName);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================

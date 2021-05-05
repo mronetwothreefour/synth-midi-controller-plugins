@@ -122,3 +122,13 @@ const uint8 SplitOptions::upperZoneMidiOut() {
 void SplitOptions::setUpperZoneMidiOut(uint8 newValue) {
 	splitOptionsTree.setProperty(ID::split_UpperZoneMidiOut, newValue, nullptr);
 }
+
+XmlElement* SplitOptions::getStateXml() {
+	auto splitOptionsTreeStateXml{ splitOptionsTree.createXml() };
+	splitOptionsTreeStateXml->setTagName(ID::state_SplitOptions);
+	return splitOptionsTreeStateXml.release();
+}
+
+void SplitOptions::replaceState(const ValueTree& newState) {
+	splitOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
+}

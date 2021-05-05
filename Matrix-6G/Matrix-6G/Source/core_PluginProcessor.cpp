@@ -4,6 +4,7 @@
 #include "midi/midi_IncomingSysExHandler.h"
 #include "params/params_ExposedParamsLayout_Factory.h"
 #include "params/params_ExposedParametersListener.h"
+#include "params/params_Identifiers.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
 
@@ -90,10 +91,41 @@ juce::AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor(*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(juce::MemoryBlock& destData) {
+    createPluginStateXml();
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
 }
 
-void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
+void PluginProcessor::createPluginStateXml() {
+    auto exposedParamsStateTree{ exposedParams->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->unexposedParams_getStateXml()) };
+    pluginStateXml.reset(new XmlElement(ID::state_PluginState));
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(unexposedParamsStateXml.release());
+}
+
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    pluginStateXml = getXmlFromBinary(data, sizeInBytes);
+    if (pluginStateXml != nullptr)
+        restorePluginStateFromXml(pluginStateXml.get());
+}
+
+void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
+    auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
+    if (exposedParamsStateXml != nullptr) {
+        auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
+        exposedParams->replaceState(exposedParamsStateTree);
+    }
+    auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    if (unexposedParamsStateXml != nullptr) {
+        auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+        unexposedParams->unexposedParams_replaceState(unexposedParamsStateTree);
+    }
 }
 
 PluginProcessor::~PluginProcessor() {

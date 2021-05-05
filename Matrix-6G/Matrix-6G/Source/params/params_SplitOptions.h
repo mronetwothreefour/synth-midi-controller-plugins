@@ -39,6 +39,8 @@ public:
 	void setUpperZoneTranspose(uint8 newValue);
 	const uint8 upperZoneMidiOut();
 	void setUpperZoneMidiOut(uint8 newValue);
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================
