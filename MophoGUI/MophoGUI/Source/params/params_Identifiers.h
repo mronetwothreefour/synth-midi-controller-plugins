@@ -83,19 +83,12 @@ namespace ID
 	static const Identifier state_CustomBank1ProgramNames{ "state_CustomBank1ProgramNames" };
 	static const Identifier state_CustomBank2ProgramNames{ "state_CustomBank2ProgramNames" };
 	static const Identifier state_CustomBank3ProgramNames{ "state_CustomBank3ProgramNames" };
-	static const Identifier state_FactoryBank1ProgramNames{ "state_FactoryBank1ProgramNames" };
-	static const Identifier state_FactoryBank2ProgramNames{ "state_FactoryBank2ProgramNames" };
-	static const Identifier state_FactoryBank3ProgramNames{ "state_FactoryBank3ProgramNames" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
-	static const Identifier state_ProgramBanks{ "state_ProgramBanks" };
 	static const Identifier state_PluginState{ "state_PluginState" };
+	static const Identifier state_ProgramBanks{ "state_ProgramBanks" };
 	static const Identifier state_CustomProgramBank1{ "state_CustomProgramBank1" };
 	static const Identifier state_CustomProgramBank2{ "state_CustomProgramBank2" };
 	static const Identifier state_CustomProgramBank3{ "state_CustomProgramBank3" };
-	static const Identifier state_FactoryProgramBank1{ "state_FactoryProgramBank1" };
-	static const Identifier state_FactoryProgramBank2{ "state_FactoryProgramBank2" };
-	static const Identifier state_FactoryProgramBank3{ "state_FactoryProgramBank3" };
-	static const Identifier state_ProgramNameStrings{ "state_ProgramNameStrings" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 

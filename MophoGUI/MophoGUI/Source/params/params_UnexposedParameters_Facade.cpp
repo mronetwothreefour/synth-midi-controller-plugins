@@ -56,7 +56,6 @@ XmlElement UnexposedParameters::unexposedParams_getStateXml() {
 void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
 	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_ProgramBanks) };
 	pluginProgramBanks->replaceState(pluginProgramBanksState);
-	auto programNameStringsState{ newState.getChildWithName(ID::state_ProgramNameStrings) };
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
 }
