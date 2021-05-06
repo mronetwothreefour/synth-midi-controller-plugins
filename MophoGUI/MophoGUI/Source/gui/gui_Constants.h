@@ -208,12 +208,12 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowEditNameButtonAndEditor{ 590, 11, 222, 50 };
 		static const Rectangle<int> bounds_MainWindowGlobalButton{ 769, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
 		static const Rectangle<int> bounds_MainWindowReadButton{ 643, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
-		static const Rectangle<int> bounds_MainWindowRedoButton{ undoRedoButtons_x, 26, undoRedoButtons_w, undoRedoButtons_h };
+		static const Rectangle<int> bounds_MainWindowRedoButton{ undoRedoButtons_x, 55, undoRedoButtons_w, undoRedoButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack1ClearButton{ clearButtons_x, 160, clearButtons_w, clearButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack2ClearButton{ clearButtons_x, 243, clearButtons_w, clearButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack3ClearButton{ clearButtons_x, 326, clearButtons_w, clearButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack4ClearButton{ clearButtons_x, 409, clearButtons_w, clearButtons_h };
-		static const Rectangle<int> bounds_MainWindowUndoButton{ undoRedoButtons_x, 55, undoRedoButtons_w, undoRedoButtons_h };
+		static const Rectangle<int> bounds_MainWindowUndoButton{ undoRedoButtons_x, 26, undoRedoButtons_w, undoRedoButtons_h };
 		static const Rectangle<int> bounds_MainWindowWebLinkButton{ 644, 122, 157, 9 };
 		static const Rectangle<int> bounds_MainWindowWriteButton{ 580, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };

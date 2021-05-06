@@ -16,7 +16,8 @@ ButtonForPerformingRedo::ButtonForPerformingRedo(UnexposedParameters* unexposedP
 const String ButtonForPerformingRedo::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Click to redo a previously undone parameter change.";
+		buttonTooltip += "Click this button (or type Ctrl+Shift+Z) to\n";
+		buttonTooltip += "redo a previously undone parameter change.";
 	}
 	return buttonTooltip;
 }

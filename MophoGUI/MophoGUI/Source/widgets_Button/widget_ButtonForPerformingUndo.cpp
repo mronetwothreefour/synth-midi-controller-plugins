@@ -16,7 +16,8 @@ ButtonForPerformingUndo::ButtonForPerformingUndo(UnexposedParameters* unexposedP
 const String ButtonForPerformingUndo::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Click to undo the previous parameter change.";
+		buttonTooltip += "Click this button (or type Ctrl+Z) to\n";
+		buttonTooltip += "undo the previous parameter change.";
 	}
 	return buttonTooltip;
 }

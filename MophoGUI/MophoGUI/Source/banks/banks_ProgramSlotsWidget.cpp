@@ -44,8 +44,8 @@ void ProgramSlotsWidget::setTooltipForProgramSlotToggleButton(uint8 slot) {
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	if (tooltips->shouldShowDescription()) {
 		slotTooltip += "Click a program's name to select it before using the buttons below.\n";
-		slotTooltip += "CTRL-c copies the selected program's settings into the clipboard.\n";
-		slotTooltip += "CTRL-v overwrites the selected program with the settings in the\n";
+		slotTooltip += "CTRL+C copies the selected program's settings into the clipboard.\n";
+		slotTooltip += "CTRL+V overwrites the selected program with the settings in the\n";
 		slotTooltip += "clipboard (only slots in the Custom banks can be overwritten).";
 	}
 	programSlotButtons[slot].setTooltip(slotTooltip);
