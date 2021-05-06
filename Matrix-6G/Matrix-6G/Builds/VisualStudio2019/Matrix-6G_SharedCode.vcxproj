@@ -2179,6 +2179,8 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp" />
@@ -3044,6 +3046,8 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h" />

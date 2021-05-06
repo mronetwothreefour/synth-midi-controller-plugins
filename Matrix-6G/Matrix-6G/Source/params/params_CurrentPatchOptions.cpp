@@ -33,7 +33,9 @@ const uint8 CurrentPatchOptions::currentPatchNumber() {
 }
 
 void CurrentPatchOptions::setCurrentPatchNumber(uint8 newNumber) {
-	currentPatchOptionsTree.setProperty(ID::currentPatch_Number, newNumber, unexposedParams->undoManager_get());
+	auto undoManager{ unexposedParams->undoManager_get() };
+	undoManager->beginNewTransaction();
+	currentPatchOptionsTree.setProperty(ID::currentPatch_Number, newNumber, undoManager);
 }
 
 const String CurrentPatchOptions::currentPatchName() {
@@ -41,7 +43,9 @@ const String CurrentPatchOptions::currentPatchName() {
 }
 
 void CurrentPatchOptions::setCurrentPatchName(String newName) {
-	currentPatchOptionsTree.setProperty(ID::currentPatch_Name, newName, unexposedParams->undoManager_get());
+	auto undoManager{ unexposedParams->undoManager_get() };
+	undoManager->beginNewTransaction();
+	currentPatchOptionsTree.setProperty(ID::currentPatch_Name, newName, undoManager);
 }
 
 XmlElement* CurrentPatchOptions::getStateXml() {

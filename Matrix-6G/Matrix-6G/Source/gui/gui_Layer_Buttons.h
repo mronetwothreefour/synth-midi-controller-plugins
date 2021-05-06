@@ -3,6 +3,8 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
+#include "../widgets_Button/widget_ButtonForPerformingRedo.h"
+#include "../widgets_Button/widget_ButtonForPerformingUndo.h"
 #include "../widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"
@@ -24,6 +26,8 @@ class ButtonsLayer :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ButtonForActivatingQuickPatchEdit button_ForActivatingQuickPatchEdit;
+	ButtonForPerformingUndo button_ForPerformingUndo;
+	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPullingPatchFromHardwareStorageSlot button_ForPullingPatchFromHardware;
 	ButtonForPushingPatchToHardwareStorageSlot button_ForPushingPatchToHardware;
 	ButtonForShowingPatchBanksComponent button_ForShowingPatchBanksComponent;

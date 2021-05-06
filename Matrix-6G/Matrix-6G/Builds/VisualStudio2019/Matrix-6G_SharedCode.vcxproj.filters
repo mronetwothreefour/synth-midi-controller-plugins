@@ -2721,6 +2721,12 @@
     <ClCompile Include="..\..\Source\master\master_SysExIsOffWarningComponent.cpp">
       <Filter>Matrix-6G\Source\master</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5317,6 +5323,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\master\master_SysExIsOffWarningComponent.h">
       <Filter>Matrix-6G\Source\master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
+      <Filter>Matrix-6G\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

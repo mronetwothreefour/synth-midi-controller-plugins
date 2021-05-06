@@ -17,6 +17,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     button_ForActivatingQuickPatchEdit{ unexposedParams },
+    button_ForPerformingUndo{ unexposedParams },
+    button_ForPerformingRedo{ unexposedParams },
     button_ForPullingPatchFromHardware{ unexposedParams },
     button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
     button_ForShowingPatchBanksComponent{ unexposedParams },
@@ -25,6 +27,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
+    addAndMakeVisible(button_ForPerformingUndo);
+    addAndMakeVisible(button_ForPerformingRedo);
     addAndMakeVisible(button_ForPullingPatchFromHardware);
     addAndMakeVisible(button_ForPushingPatchToHardware);
     addAndMakeVisible(button_ForShowingPatchBanksComponent);
@@ -89,6 +93,8 @@ void ButtonsLayer::timerCallback() {
 
 void ButtonsLayer::resized() {
     button_ForActivatingQuickPatchEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
+    button_ForPerformingUndo.setBounds(GUI::bounds_MainWindowUndoButton);
+    button_ForPerformingRedo.setBounds(GUI::bounds_MainWindowRedoButton);
     button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);

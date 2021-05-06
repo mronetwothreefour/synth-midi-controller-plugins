@@ -60,7 +60,9 @@ const uint8 MatrixModSettings::sourceSettingForModulation(int modNumber) {
 void MatrixModSettings::setSourceForModulation(uint8 source, int modNumber) {
 	jassert(source < 21);
 	jassert(modNumber < 10);
-	matrixModSettingsTree.setProperty("matrixMod_SourceForMod_" + (String)modNumber, source, unexposedParams->undoManager_get());
+	auto undoManager{ unexposedParams->undoManager_get() };
+	undoManager->beginNewTransaction();
+	matrixModSettingsTree.setProperty("matrixMod_SourceForMod_" + (String)modNumber, source, undoManager);
 }
 
 const uint8 MatrixModSettings::amountSettingForModulation(int modNumber) {
@@ -71,7 +73,9 @@ const uint8 MatrixModSettings::amountSettingForModulation(int modNumber) {
 void MatrixModSettings::setAmountForModulation(uint8 amount, int modNumber) {
 	jassert(amount < 127);
 	jassert(modNumber < 10);
-	matrixModSettingsTree.setProperty("matrixMod_AmountForMod_" + (String)modNumber, amount, unexposedParams->undoManager_get());
+	auto undoManager{ unexposedParams->undoManager_get() };
+	undoManager->beginNewTransaction();
+	matrixModSettingsTree.setProperty("matrixMod_AmountForMod_" + (String)modNumber, amount, undoManager);
 }
 
 const uint8 MatrixModSettings::destinationSettingForModulation(int modNumber) {
@@ -81,7 +85,9 @@ const uint8 MatrixModSettings::destinationSettingForModulation(int modNumber) {
 void MatrixModSettings::setDestinationForModulation(uint8 destination, int modNumber) {
 	jassert(destination < 33);
 	jassert(modNumber < 10);
-	matrixModSettingsTree.setProperty("matrixMod_DestinationForMod_" + (String)modNumber, destination, unexposedParams->undoManager_get());
+	auto undoManager{ unexposedParams->undoManager_get() };
+	undoManager->beginNewTransaction();
+	matrixModSettingsTree.setProperty("matrixMod_DestinationForMod_" + (String)modNumber, destination, undoManager);
 }
 
 XmlElement* MatrixModSettings::getStateXml() {
