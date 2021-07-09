@@ -25,6 +25,40 @@ public:
 
 
 
+// Like SliderWithMouseWheelMod, but also modifies mouseWheelMove()
+// so that the slider is incremented by 12 (one octave) when the 
+// SHIFT key is being held down. 
+class SliderWithMouseWheelModForPitch : public Slider
+{
+	UnexposedParameters* unexposedParams;
+
+public:
+	SliderWithMouseWheelModForPitch() = delete;
+
+	explicit SliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
+	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
+};
+
+
+
+
+// Like SliderWithMouseWheelMod, but also modifies mouseWheelMove()
+// so that the slider is incremented by 24 (one octave, including 
+// 'bent' pitches) when the SHIFT key is being held down. 
+class SliderWithMouseWheelModForSeqStep : public Slider
+{
+	UnexposedParameters* unexposedParams;
+
+public:
+	SliderWithMouseWheelModForSeqStep() = delete;
+
+	explicit SliderWithMouseWheelModForSeqStep(UnexposedParameters* unexposedParams);
+	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
+};
+
+
+
+
 class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
 {
 public:
@@ -36,12 +70,34 @@ public:
 
 
 
+class RotarySliderWithMouseWheelModForPitch : public SliderWithMouseWheelModForPitch
+{
+public:
+	RotarySliderWithMouseWheelModForPitch() = delete;
+
+	explicit RotarySliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
+};
+
+
+
+
+class RotarySliderWithMouseWheelModForSeqStep : public SliderWithMouseWheelModForSeqStep
+{
+public:
+	RotarySliderWithMouseWheelModForSeqStep() = delete;
+
+	explicit RotarySliderWithMouseWheelModForSeqStep(UnexposedParameters* unexposedParams);
+};
+
+
+
+
 // A custom slider used for setting the values of sequencer steps.
 // The mouseDown() function is overridden so that the slider's value
 // changes to 126 (sequencer track reset) when clicked while the CTRL
 // key is down. If the step is in sequencer track 1, the slider's value
 // is set to 127 (rest) when clicked while the ALT key is down.
-class SliderForSequencerSteps : public RotarySliderWithMouseWheelMod
+class SliderForSequencerSteps : public RotarySliderWithMouseWheelModForSeqStep
 {
 	const int sequencerTrack;
 

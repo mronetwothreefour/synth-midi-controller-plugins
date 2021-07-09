@@ -2640,6 +2640,9 @@
     <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp">
       <Filter>MophoGUI\Source\banks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5143,6 +5146,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_Constants.h">
       <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithValueStringDisplay.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

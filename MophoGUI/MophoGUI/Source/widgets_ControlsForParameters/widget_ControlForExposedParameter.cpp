@@ -17,6 +17,9 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 	case ControlType::knobWithValueStringDisplay:
 		buildKnobWithValueStringDisplayControlForExposedParam(param, unexposedParams);
 		break;
+	case ControlType::knobForPitchWithValueStringDisplay:
+		buildKnobForPitchWithValueStringDisplayControlForExposedParam(param, unexposedParams);
+		break;
 	case ControlType::knobWithWaveShapeDisplay:
 		buildKnobWithWaveShapeDisplayControlForExposedParam(param, unexposedParams);
 		break;
@@ -41,6 +44,12 @@ void ControlForExposedParameter::buildKnobWithValueStringDisplayControlForExpose
 	knobWithValueStringDisplay.reset(new KnobWithValueStringDisplay(param, unexposedParams));
 	addAndMakeVisible(knobWithValueStringDisplay.get());
 	setSize(knobWithValueStringDisplay->getWidth(), knobWithValueStringDisplay->getHeight());
+}
+
+void ControlForExposedParameter::buildKnobForPitchWithValueStringDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
+	knobForPitchWithValueStringDisplay.reset(new KnobForPitchWithValueStringDisplay(param, unexposedParams));
+	addAndMakeVisible(knobForPitchWithValueStringDisplay.get());
+	setSize(knobForPitchWithValueStringDisplay->getWidth(), knobForPitchWithValueStringDisplay->getHeight());
 }
 
 void ControlForExposedParameter::buildKnobWithWaveShapeDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
@@ -89,6 +98,10 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 		if (knobWithValueStringDisplay != nullptr)
 			knobWithValueStringDisplay->attachToExposedParameter(exposedParams);
 		break;
+	case ControlType::knobForPitchWithValueStringDisplay:
+		if (knobForPitchWithValueStringDisplay != nullptr)
+			knobForPitchWithValueStringDisplay->attachToExposedParameter(exposedParams);
+		break;
 	case ControlType::knobWithWaveShapeDisplay:
 		if (knobWithWaveShapeDisplay != nullptr)
 			knobWithWaveShapeDisplay->attachToExposedParameter(exposedParams);
@@ -116,6 +129,8 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 void ControlForExposedParameter::deleteAttachment() const {
 	if (knobWithValueStringDisplay != nullptr)
 		knobWithValueStringDisplay->deleteAttachment();
+	if (knobForPitchWithValueStringDisplay != nullptr)
+		knobForPitchWithValueStringDisplay->deleteAttachment();
 	if (knobWithWaveShapeDisplay != nullptr)
 		knobWithWaveShapeDisplay->deleteAttachment();
 	if (toggleButton != nullptr)
@@ -130,6 +145,7 @@ void ControlForExposedParameter::deleteAttachment() const {
 
 ControlForExposedParameter::~ControlForExposedParameter() {
 	knobWithValueStringDisplay = nullptr;
+	knobForPitchWithValueStringDisplay = nullptr;
 	knobWithWaveShapeDisplay = nullptr;
 	toggleButton = nullptr;
 	comboBox = nullptr;

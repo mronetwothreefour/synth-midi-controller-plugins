@@ -21,13 +21,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	for (uint8 i = 1; i != 3; ++i) {
 		identifiers.add("osc" + (String)i + "Pitch"); // 0 & 6
 		exposedNames.add("Oscillator " + (String)i + " Pitch");
-		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)0 : (uint8)5);
 		converters.add(IntToOscPitchString::get());
 		maxValues.add((uint8)120);
 		defaultValues.add((uint8)24);
 		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s base pitch in semitone steps.\n";
-		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.";
+		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.\n";
+		descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
+		descriptionString += "increment the pitch by one octave (12 semitones).";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
@@ -35,7 +37,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 		identifiers.add("osc" + (String)i + "Fine"); // 1 & 7
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
-		controlTypes.add(ControlType::knobWithValueStringDisplay);
+		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)1 : (uint8)6);
 		converters.add(IntToFineTuneString::get());
 		maxValues.add((uint8)100); 
@@ -245,14 +247,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	identifiers.add("lpfFreq"); // 20
 	exposedNames.add("LPF Cutoff Frequency");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 	NRPNs.add((uint8)15);
 	converters.add(IntToLPFfreqString::get());
 	maxValues.add((uint8)164);
 	defaultValues.add((uint8)148);
-	descriptionString =  "Sets the base cutoff frequency for the\n";
-	descriptionString += "low-pass filter (in semitone steps).\n";
-	descriptionString += "Range: 0 (C 0) to 164 (G# 13).";
+	descriptionString =  "Sets the base cutoff frequency for the low-pass filter\n";
+	descriptionString += "(in semitone steps). Range: 0 (C 0) to 164 (G# 13).\n";
+	descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
+	descriptionString += "increment the frequency by one octave (12 semitones).";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
@@ -982,15 +985,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	identifiers.add("pushItPitch"); // 92
 	exposedNames.add("Push It! Switch Pitch");
-	controlTypes.add(ControlType::knobWithValueStringDisplay);
+	controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 	NRPNs.add((uint8)111);
 	converters.add(IntToOscPitchString::get());
 	maxValues.add((uint8)120);
 	defaultValues.add((uint8)60);
-	descriptionString =  "Sets the note that plays when\n";
-	descriptionString += "the Push It! switch is pressed.\n";
-	descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz).\n";
-	descriptionString += "Middle C is C 5.";
+	descriptionString =  "Sets the note that plays when the Push It! switch is pressed.\n";
+	descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz). Middle C is C 5.\n";
+	descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
+	descriptionString += "increment the pitch by one octave (12 semitones).";
 	descriptions.add(descriptionString);
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
@@ -1267,6 +1270,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 				descriptionString += "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n";
 				descriptionString += "(Rests are only available for the steps in sequencer track 1).";
 			}
+			descriptionString += "\nHold down the SHIFT key while using the mouse wheel to increment the step\n";
+			descriptionString += "value by 24 (equivalent to one octave, including the " + GUI::openQuote + "bent" + GUI::closeQuote + " pitch values).";
 			descriptions.add(descriptionString);
 			controlWidths.add(GUI::seqSteps_w);
 			controlHeights.add(GUI::seqSteps_h);
