@@ -25,12 +25,40 @@ public:
 
 
 
+// Like SliderWithMouseWheelMod, but also modifies mouseWheelMove()
+// so that the slider is incremented by 12 (one octave) when the 
+// SHIFT key is being held down. 
+class SliderWithMouseWheelModForPitch : public Slider
+{
+	UnexposedParameters* unexposedParams;
+
+public:
+	SliderWithMouseWheelModForPitch() = delete;
+
+	explicit SliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
+	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
+};
+
+
+
+
 class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
 {
 public:
 	RotarySliderWithMouseWheelMod() = delete;
 
 	explicit RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
+};
+
+
+
+
+class RotarySliderWithMouseWheelModForPitch : public SliderWithMouseWheelModForPitch
+{
+public:
+	RotarySliderWithMouseWheelModForPitch() = delete;
+
+	explicit RotarySliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
 };
 
 

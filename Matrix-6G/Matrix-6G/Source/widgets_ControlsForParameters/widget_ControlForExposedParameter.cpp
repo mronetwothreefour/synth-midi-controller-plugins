@@ -19,6 +19,9 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 	case ControlType::rotarySlider:
 		buildRotarySliderForExposedParam(param, unexposedParams);
 		break;
+	case ControlType::rotarySliderForPitch:
+		buildRotarySliderForExposedPitchParam(param, unexposedParams);
+		break;
 	case ControlType::linearSlider:
 		buildLinearSliderForExposedParam(param, unexposedParams);
 		break;
@@ -50,6 +53,12 @@ void ControlForExposedParameter::buildRotarySliderForExposedParam(uint8 param, U
 	setSize(rotarySlider->getWidth(), rotarySlider->getHeight());
 }
 
+void ControlForExposedParameter::buildRotarySliderForExposedPitchParam(uint8 param, UnexposedParameters* unexposedParams) {
+	rotarySliderForPitch.reset(new RotarySliderForPitchWithExposedParamAttacher(param, unexposedParams));
+	addAndMakeVisible(rotarySliderForPitch.get());
+	setSize(rotarySliderForPitch->getWidth(), rotarySliderForPitch->getHeight());
+}
+
 void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const {
 	jassert(exposedParams != nullptr);
 	switch (controlType)
@@ -57,6 +66,10 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 	case ControlType::rotarySlider:
 		if (rotarySlider != nullptr)
 			rotarySlider->attachToExposedParameter(exposedParams);
+		break;
+	case ControlType::rotarySliderForPitch:
+		if (rotarySliderForPitch != nullptr)
+			rotarySliderForPitch->attachToExposedParameter(exposedParams);
 		break;
 	case ControlType::linearSlider:
 		if (linearSlider != nullptr)
@@ -80,10 +93,13 @@ void ControlForExposedParameter::deleteAttachment() const {
 		linearSlider->deleteAttachment();
 	if (rotarySlider != nullptr)
 		rotarySlider->deleteAttachment();
+	if (rotarySliderForPitch != nullptr)
+		rotarySliderForPitch->deleteAttachment();
 }
 
 ControlForExposedParameter::~ControlForExposedParameter() {
 	comboBox = nullptr;
 	linearSlider = nullptr;
 	rotarySlider = nullptr;
+	rotarySliderForPitch = nullptr;
 }
