@@ -77,6 +77,10 @@ void PatchBanks::fillAllPatchNameBanks() {
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::miscellaneousA, patchSlot);
 		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertPatchOrSplitHexStringToDataVector(patchDataString).data());
+		miscellaneousBankApatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
+
+		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::miscellaneousB, patchSlot);
+		patchName = RawDataTools::extractPatchNameFromRawPatchData(RawDataTools::convertPatchOrSplitHexStringToDataVector(patchDataString).data());
 		miscellaneousBankBpatchNameStrings.setProperty("patch" + (String)patchSlot, patchName, nullptr);
 
 		patchDataString = getPatchDataHexStringFromBankSlot(PatchBank::strings, patchSlot);
