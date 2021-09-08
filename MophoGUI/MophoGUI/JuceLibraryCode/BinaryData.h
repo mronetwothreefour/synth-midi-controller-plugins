@@ -6,7 +6,7 @@ namespace BinaryData
     const int            OverpassBold_ttfSize = 123228;
 
     extern const char* MophoGUIMainWindowBackground_png;
-    const int            MophoGUIMainWindowBackground_pngSize = 97029;
+    const int            MophoGUIMainWindowBackground_pngSize = 96951;
 
     extern const char* ButtonDownProgramNameEdit_png;
     const int            ButtonDownProgramNameEdit_pngSize = 514;
