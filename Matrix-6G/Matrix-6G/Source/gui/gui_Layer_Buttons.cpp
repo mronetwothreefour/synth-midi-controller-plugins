@@ -23,7 +23,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
     button_ForShowingPatchBanksComponent{ unexposedParams },
     button_ForShowingSplitsComponent{ unexposedParams },
-    button_ForShowingMasterOptionsComponent{ unexposedParams }
+    button_ForShowingMasterOptionsComponent{ unexposedParams },
+    button_ForGoingToWebSite{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForActivatingQuickPatchEdit);
@@ -37,6 +38,9 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
     addAndMakeVisible(button_ForShowingMasterOptionsComponent);
     button_ForShowingMasterOptionsComponent.onClick = [this] { prepareToShowMasterOptionsComponent(); };
+    button_ForGoingToWebSite.setComponentID(ID::component_HyperlinkButton.toString());
+    button_ForGoingToWebSite.setTooltip("Click to go to programming.mr1234.com");
+    addAndMakeVisible(button_ForGoingToWebSite);
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -100,6 +104,7 @@ void ButtonsLayer::resized() {
     button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);
     button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
     button_ForShowingMasterOptionsComponent.setBounds(GUI::bounds_MainWindowMasterOptionsButton);
+    button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {

@@ -33,6 +33,7 @@ class ButtonsLayer :
 	ButtonForShowingPatchBanksComponent button_ForShowingPatchBanksComponent;
 	ButtonForShowingSplitsComponent button_ForShowingSplitsComponent;
 	ButtonForShowingMasterOptionsComponent button_ForShowingMasterOptionsComponent;
+	HyperlinkButton button_ForGoingToWebSite;
 	std::unique_ptr<PatchBanksComponent> patchBanksComponent;
 	std::unique_ptr<SplitsComponent> splitsComponent;
 	std::unique_ptr<MasterOptionsComponent> masterOptionsComponent;

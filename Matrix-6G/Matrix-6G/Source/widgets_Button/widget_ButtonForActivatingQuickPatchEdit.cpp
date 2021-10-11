@@ -1,8 +1,11 @@
 #include "widget_ButtonForActivatingQuickPatchEdit.h"
 
 #include "../midi/midi_RawDataTools.h"
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -27,7 +30,7 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "The Matrix must be set to Quick Patch Edit mode in order\n";
 		buttonTooltip += "for it to respond to remote parameter changes. Click this\n";
-		buttonTooltip += "button before making any edits in the GUI (the hardware's\n";
+		buttonTooltip += "button before making any edits in the GUI (the hardware" + GUI::apostrophe + "s\n";
 		buttonTooltip += "front panel display should switch to PATCH EDIT).";
 	}
 	return buttonTooltip;

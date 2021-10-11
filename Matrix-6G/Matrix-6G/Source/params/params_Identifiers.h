@@ -65,6 +65,7 @@ namespace ID
 
 	static const Identifier comboBox_PatchBankSelector{ "comboBox_PatchBankSelector" };
 
+	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 

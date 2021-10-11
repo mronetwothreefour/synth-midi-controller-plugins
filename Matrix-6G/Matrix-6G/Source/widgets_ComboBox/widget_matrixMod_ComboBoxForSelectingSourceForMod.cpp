@@ -30,10 +30,9 @@ String ComboBoxForSelectingSourceForMatrixMod::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects the modulation source. Matrix Mod settings\n";
-		tooltipText += "cannot be changed via Quick Edit. Use the Push\n";
-		tooltipText += "button (below the logo) to send the entire patch\n";
-		tooltipText += "to the selected storage slot on the hardware.\n";
+		tooltipText += "Selects the modulation source. Matrix Mod parameters\n";
+		tooltipText += "cannot be changed via Quick Patch Edit. Use the\n";
+		tooltipText += "PUSH button to send the entire patch instead.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToModSourceString::get() };

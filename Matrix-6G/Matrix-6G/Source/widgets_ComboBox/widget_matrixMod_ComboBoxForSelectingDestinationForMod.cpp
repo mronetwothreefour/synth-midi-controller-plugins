@@ -31,9 +31,8 @@ String ComboBoxForSelectingDestinationForMatrixMod::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects the destination parameter for modulation.\n";
-		tooltipText += "Matrix Mod settings cannot be changed via Quick Edit.\n";
-		tooltipText += "Use the Push button (below the logo) to send the entire\n";
-		tooltipText += "patch to the selected storage slot on the hardware.\n";
+		tooltipText += "Matrix Mod parameters cannot be changed via Quick Patch Edit.\n";
+		tooltipText += "Use the PUSH button to send the entire patch instead.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToModDestinationString::get() };

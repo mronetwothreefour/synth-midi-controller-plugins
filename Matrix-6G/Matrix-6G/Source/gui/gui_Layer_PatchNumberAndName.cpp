@@ -90,9 +90,8 @@ String PatchNumberAndNameLayer::generatePatchNameTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Click to edit the name of the patch (8 characters max.)\n";
-		tooltipText += "The name cannot be changed via Quick Edit. Use the\n";
-		tooltipText += "Push button to the left to send the entire patch to\n";
-		tooltipText += "the selected storage slot on the hardware.";
+		tooltipText += "The name cannot be changed via Quick Patch Edit. Use the\n";
+		tooltipText += "PUSH button to to send the entire patch instead.";
 	}
 	return tooltipText;
 }

@@ -211,6 +211,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowQuickEditButton{ quickEditButton_x, mainWindowSmallButtons_y, quickEditButton_w, smallButtons_h };
 		static const Rectangle<int> bounds_MainWindowRedoButton{ 710, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
 		static const Rectangle<int> bounds_MainWindowUndoButton{ 671, mainWindowSmallButtons_y, smallButtons_w, smallButtons_h };
+		static const Rectangle<int> bounds_MainWindowWebLinkButton{ 176, 386, 146, 9 };
 		static const Rectangle<int> bounds_MasterOptionsComponentXbutton{ 935, 129, xButton_w, xButton_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForActiveSensing{ masterOptionsControlsCol2_x, masterOptionsControlsRow2_y, masterOptionsControlsCol1and2_w, controls_h };
 		static const Rectangle<int> bounds_MasterOptionsComponentComboBoxForControllers{ masterOptionsControlsCol1_x, masterOptionsControlsRow3_y, masterOptionsControlsCol1and2_w, controls_h };
