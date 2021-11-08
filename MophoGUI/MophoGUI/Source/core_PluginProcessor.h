@@ -13,8 +13,8 @@ if you find this code useful, please consider making a donation to support
 further development at https://programming.mr1234.com/
 
 Proper functioning of this plugin required a few unofficial modifications
-to the Juce framework code, specifically to line 91 of juce_PopupMenu.cpp and
-to lines 548 & 549 of juce_VST3Common.h. You can see these changes in my
+to the Juce framework code, specifically to line 102 of juce_PopupMenu.cpp and
+to lines 728 & 729 of juce_VST3Common.h. You can see these changes in my
 fork off of the Juce repo at https://github.com/mronetwothreefour/JUCE
 
 The build configurations make use of the preprocessor definition
