@@ -436,14 +436,11 @@
     <Filter Include="JUCE Library Code">
       <UniqueIdentifier>{7ED5A90E-41AF-A1EF-659B-37CEEAB9BA61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI Standalone\Source\_core">
+      <UniqueIdentifier>{81f7bde1-e361-4af3-86de-101a6e4b57c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Main.cpp">
-      <Filter>MophoGUI Standalone\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\MainComponent.cpp">
-      <Filter>MophoGUI Standalone\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2406,11 +2403,14 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\core_Main.cpp">
+      <Filter>MophoGUI Standalone\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\core_MainComponent.cpp">
+      <Filter>MophoGUI Standalone\Source\_core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\MainComponent.h">
-      <Filter>MophoGUI Standalone\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClInclude>
@@ -4774,6 +4774,9 @@
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\core_MainComponent.h">
+      <Filter>MophoGUI Standalone\Source\_core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
