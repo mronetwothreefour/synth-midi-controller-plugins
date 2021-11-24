@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="lxTwTC" name="Matrix-6G Standalone" projectType="guiapp"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="Wh8DZR" name="Matrix-6G Standalone">
+    <GROUP id="{C739F7C6-1168-9982-9FEF-83E4D0D7DD2A}" name="Source">
+      <FILE id="BE3TKv" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="RJUqJu" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="YAyp8x" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G Standalone" useRuntimeLibDLL="1"
+                       enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G Standalone"
+                       enableIncrementalLinking="0" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
