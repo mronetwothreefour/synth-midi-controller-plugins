@@ -13,7 +13,7 @@ namespace constants
 		//static const float envelopeRenderMinimum_y{ 75.0f };
 		//static const float envelopeRenderEnvelope_h{ envelopeRenderMinimum_y - envelopeRenderMaximum_y };
 		//static const float envelopeRenderSustainSegment_w{ 28.0f };
-		//static const float tooltipMaxWidth{ 400.0f };
+		static const float tooltipMaxWidth{ 400.0f };
 
 		//static const int bankTransmitTitleLabel_x{ 454 };
 		//static const int bankTransmitTitleLabel_y{ 260 };

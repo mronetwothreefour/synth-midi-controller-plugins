@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="uIIftW" name="MophoGUI Standalone Resource Builder" projectType="guiapp"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="OgH2X2" name="MophoGUI Standalone Resource Builder">
+    <GROUP id="{62BB322D-4BAA-9EEE-C923-907CBB03DC2D}" name="Source">
+      <FILE id="r3ULuO" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="dE0wQF" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="HtPWLA" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+    <FILE id="XY1hcz" name="Overpass-Bold.ttf" compile="0" resource="1"
+          file="../../../../../socl0/Downloads/overpass/Overpass-Bold.ttf"/>
+    <FILE id="jIkoEe" name="Button-Down-Banks.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Banks.png"/>
+    <FILE id="ogdxRc" name="Button-Down-Clear.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Clear.png"/>
+    <FILE id="tCHbzq" name="Button-Down-Close.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Close.png"/>
+    <FILE id="x0U43a" name="Button-Down-Export.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Export.png"/>
+    <FILE id="ZZSXcM" name="Button-Down-Global.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Global.png"/>
+    <FILE id="wrGki3" name="Button-Down-Import.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Import.png"/>
+    <FILE id="LdZ41L" name="Button-Down-Load.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Load.png"/>
+    <FILE id="vcrGAg" name="Button-Down-Program-Name-Edit.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Button-Down-Program-Name-Edit.png"/>
+    <FILE id="y0zLrr" name="Button-Down-Pull.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Pull.png"/>
+    <FILE id="qbROYq" name="Button-Down-Push.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Push.png"/>
+    <FILE id="iQsxvH" name="Button-Down-Read.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Read.png"/>
+    <FILE id="BQiXEf" name="Button-Down-Redo.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Redo.png"/>
+    <FILE id="gPqnc1" name="Button-Down-Retry.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Retry.png"/>
+    <FILE id="soE6Qv" name="Button-Down-Save.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Save.png"/>
+    <FILE id="a01hbM" name="Button-Down-Stop.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Stop.png"/>
+    <FILE id="tL7Oko" name="Button-Down-Undo.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Undo.png"/>
+    <FILE id="Zx9UOV" name="Button-Down-Write.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Down-Write.png"/>
+    <FILE id="Y87RnD" name="Button-Up-Banks.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Banks.png"/>
+    <FILE id="rqQlWv" name="Button-Up-Clear.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Clear.png"/>
+    <FILE id="z0uXBY" name="Button-Up-Close.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Close.png"/>
+    <FILE id="jjyDLe" name="Button-Up-Export.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Export.png"/>
+    <FILE id="rlP9Ed" name="Button-Up-Global.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Global.png"/>
+    <FILE id="FAed5G" name="Button-Up-Import.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Import.png"/>
+    <FILE id="qMU4vb" name="Button-Up-Load.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Load.png"/>
+    <FILE id="lkRoFA" name="Button-Up-Program-Name-Edit.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Button-Up-Program-Name-Edit.png"/>
+    <FILE id="ETgwkC" name="Button-Up-Pull.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Pull.png"/>
+    <FILE id="YwAv6Z" name="Button-Up-Push.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Push.png"/>
+    <FILE id="SOuEr6" name="Button-Up-Read.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Read.png"/>
+    <FILE id="Iu1XTV" name="Button-Up-Redo.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Redo.png"/>
+    <FILE id="KFO9w8" name="Button-Up-Retry.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Retry.png"/>
+    <FILE id="d4G5p5" name="Button-Up-Save.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Save.png"/>
+    <FILE id="agXOw2" name="Button-Up-Stop.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Stop.png"/>
+    <FILE id="cmD0it" name="Button-Up-Undo.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Undo.png"/>
+    <FILE id="CADJqr" name="Button-Up-Write.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Button-Up-Write.png"/>
+    <FILE id="lOF7ZQ" name="Global-Parameters-Background.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Global-Parameters-Background.png"/>
+    <FILE id="vzvs58" name="Label-Bank-1.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Label-Bank-1.png"/>
+    <FILE id="yfVnvI" name="Label-Bank-2.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Label-Bank-2.png"/>
+    <FILE id="EKLvLB" name="Label-Bank-3.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Label-Bank-3.png"/>
+    <FILE id="K4SF3r" name="Label-Custom-Banks.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Label-Custom-Banks.png"/>
+    <FILE id="n9tber" name="Label-Factory-Banks.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/Label-Factory-Banks.png"/>
+    <FILE id="XE3g7g" name="MophoGUI-Main-Window-Background.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/MophoGUI-Main-Window-Background.png"/>
+    <FILE id="k7QDxZ" name="No-NRPN-Warning-Background.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/No-NRPN-Warning-Background.png"/>
+    <FILE id="Qz9xIo" name="No-Sysex-Warning-Background.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/No-Sysex-Warning-Background.png"/>
+    <FILE id="vWbiXT" name="Program-Banks-Tab-Background.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Program-Banks-Tab-Background.png"/>
+    <FILE id="sH81KN" name="Title-Pulling-Entire-Bank.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Title-Pulling-Entire-Bank.png"/>
+    <FILE id="rId3i4" name="Title-Pushing-Entire-Bank.png" compile="0"
+          resource="1" file="../MophoGUI Standalone/Resources/Title-Pushing-Entire-Bank.png"/>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI Standalone Resource Builder"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI Standalone Resource Builder"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

@@ -1,6 +1,13 @@
 #include "core_MainComponent.h"
 
 #include "gui/gui_Constants.h"
+//#include "gui/gui_Layer_Buttons.h"
+//#include "gui/gui_Layer_EnvelopeRenderers.h"
+//#include "gui/gui_Layer_ExposedParamsControls.h"
+//#include "gui/gui_Layer_MatrixMod.h"
+//#include "gui/gui_Layer_PatchNumberAndName.h"
+#include "gui/gui_LookAndFeel.h"
+#include "params/params_Identifiers.h"
 
 using namespace constants;
 
@@ -33,7 +40,10 @@ void MainComponent::releaseResources() {
 }
 
 void MainComponent::paint(Graphics& g) {
-    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
+    MemoryInputStream memInputStream{ BinaryData::Matrix6GMainWindowBackground_png, BinaryData::Matrix6GMainWindowBackground_pngSize, false };
+    PNGImageFormat imageFormat;
+    auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+    g.drawImageAt(backgroundImage, 0, 0);
 }
 
 void MainComponent::resized() {

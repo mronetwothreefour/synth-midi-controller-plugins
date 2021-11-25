@@ -1,15 +1,3 @@
-/*
-
-    IMPORTANT! This file is auto-generated each time you save your
-    project - if you alter its contents, your changes may be overwritten!
-
-    This is the header file that your files should include in order to get all the
-    JUCE library headers. You should avoid including the JUCE headers directly in
-    your own source files, because that wouldn't pick up the correct configuration
-    options for your app.
-
-*/
-
 #pragma once
 
 
@@ -24,6 +12,8 @@
 #include <juce_graphics/juce_graphics.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_gui_extra/juce_gui_extra.h>
+
+#include "BinaryData.h"
 
 
 #if defined (JUCE_PROJUCER_VERSION) && JUCE_PROJUCER_VERSION < JUCE_VERSION

@@ -12,15 +12,6 @@ using namespace constants;
 
 
 
-Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) {
-	const TextLayout tl(layoutTooltipText(tipText, Color::black));
-	auto w = (int)(tl.getWidth() + 16.0f);
-	auto h = (int)(tl.getHeight() + 14.0f);
-	return Rectangle<int>(
-		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
-		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
-}
-
 void GUILookAndFeel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*width*/, int /*height*/, float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& /*slider*/) {
 	auto sliderTab{ LEDsliderTab::createPath() };
 	g.setColour(Color::led_blue);
@@ -39,6 +30,15 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 	g.setColour(Color::offWhiteText);
 	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
 		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
+}
+
+Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) {
+	const TextLayout tl(layoutTooltipText(tipText, Color::black));
+	auto w = (int)(tl.getWidth() + 16.0f);
+	auto h = (int)(tl.getHeight() + 14.0f);
+	return Rectangle<int>(
+		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
+		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
 }
 
 TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {

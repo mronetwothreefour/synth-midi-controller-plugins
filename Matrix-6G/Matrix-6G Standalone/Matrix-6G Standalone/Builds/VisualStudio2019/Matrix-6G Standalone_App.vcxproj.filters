@@ -442,6 +442,9 @@
     <Filter Include="Matrix-6G Standalone\Source\gui">
       <UniqueIdentifier>{10986165-07b3-43ac-9f6a-06f3c81daed1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G Standalone\Source\params">
+      <UniqueIdentifier>{48b67e76-56eb-4ca2-bc50-78d6e5a6e1db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2414,6 +2417,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4792,6 +4798,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
       <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Constants.h">
+      <Filter>Matrix-6G Standalone\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
+      <Filter>Matrix-6G Standalone\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
+      <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -135,6 +135,7 @@
     <Lib />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
     <ClCompile Include="..\..\Source\core_Main.cpp" />
     <ClCompile Include="..\..\Source\core_MainComponent.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2082,6 +2083,7 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\Source\core_MainComponent.h" />
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h" />
@@ -2873,7 +2875,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Constants.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\params\params_Constants.h" />
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
