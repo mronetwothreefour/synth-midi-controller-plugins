@@ -442,6 +442,9 @@
     <Filter Include="MophoGUI Standalone\Source\gui">
       <UniqueIdentifier>{396abeb9-f20c-4111-8d3a-8f4545d3827c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI Standalone\Source\params">
+      <UniqueIdentifier>{61460cad-ca4e-4400-865a-bf9fd37563d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2414,6 +2417,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>MophoGUI Standalone\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4792,6 +4798,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
       <Filter>MophoGUI Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Constants.h">
+      <Filter>MophoGUI Standalone\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
+      <Filter>MophoGUI Standalone\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
+      <Filter>MophoGUI Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

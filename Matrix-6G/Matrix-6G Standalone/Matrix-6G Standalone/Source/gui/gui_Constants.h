@@ -22,7 +22,7 @@ namespace constants
 		//static const float patchNameCharacters_y{ 370.0f };
 		//static const float patchNameCharacter_w{ 11.0f };
 		//static const float patchNameGapBetweenCharacters{ 2.0f };
-		//static const float tooltipMaxWidth{ 400.0f };
+		static const float tooltipMaxWidth{ 400.0f };
 		//static const float trackingGeneratorMaximum_y{ 10.0f };
 		//static const float trackingGeneratorMinimum_y{ 70.0f };
 		//static const float trackingGenerator_h{ trackingGeneratorMinimum_y - trackingGeneratorMaximum_y };

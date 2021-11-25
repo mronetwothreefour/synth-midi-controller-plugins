@@ -2062,6 +2062,7 @@
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp" />
@@ -2867,11 +2868,15 @@
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h" />
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h" />
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\core_MainComponent.h" />
     <ClInclude Include="..\..\Source\gui\gui_Colors.h" />
     <ClInclude Include="..\..\Source\gui\gui_Constants.h" />
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
+    <ClInclude Include="..\..\Source\params\params_Constants.h" />
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />
