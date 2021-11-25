@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="lxTwTC" name="Matrix-6G Standalone" projectType="guiapp"
-              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              useAppConfig="0" addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1"
+              companyName="Mister 1-2-3-4" companyWebsite="www.programming.mr1234.com"
+              companyEmail="programming@mr1234.com" bundleIdentifier="com.Mister1234.Matrix6GStandalone"
+              cppLanguageStandard="17">
   <MAINGROUP id="Wh8DZR" name="Matrix-6G Standalone">
     <GROUP id="{C739F7C6-1168-9982-9FEF-83E4D0D7DD2A}" name="Source">
       <FILE id="BE3TKv" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>

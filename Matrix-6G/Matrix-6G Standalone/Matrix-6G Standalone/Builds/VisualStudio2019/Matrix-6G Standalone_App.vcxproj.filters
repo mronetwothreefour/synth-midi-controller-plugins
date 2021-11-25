@@ -437,7 +437,10 @@
       <UniqueIdentifier>{7ED5A90E-41AF-A1EF-659B-37CEEAB9BA61}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G Standalone\Source\_core">
-      <UniqueIdentifier>{aa251f19-c3c1-49bb-9662-a19a7c78ba89}</UniqueIdentifier>
+      <UniqueIdentifier>{f5bcea17-6988-48b2-8a11-c2a12853f5c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G Standalone\Source\gui">
+      <UniqueIdentifier>{10986165-07b3-43ac-9f6a-06f3c81daed1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4777,6 +4780,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\core_MainComponent.h">
       <Filter>Matrix-6G Standalone\Source\_core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h">
+      <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h">
+      <Filter>Matrix-6G Standalone\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

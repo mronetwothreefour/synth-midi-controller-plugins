@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="QBWW8S" name="MophoGUI Standalone" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
-  <MAINGROUP id="JyiJu1" name="MophoGUI Standalone">
+<JUCERPROJECT id="QBWW8S" name="MophoGUI" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" companyName="Mister 1-2-3-4"
+              companyWebsite="www.programming.mr1234.com" companyEmail="programming@mr1234.com"
+              bundleIdentifier="com.Mister1234.MophoGUIStandalone" cppLanguageStandard="17">
+  <MAINGROUP id="JyiJu1" name="MophoGUI">
     <GROUP id="{FAD9B823-5303-D061-5387-1F70ACB50BBE}" name="Source">
       <FILE id="AlJFzT" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="ExPgsm" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>

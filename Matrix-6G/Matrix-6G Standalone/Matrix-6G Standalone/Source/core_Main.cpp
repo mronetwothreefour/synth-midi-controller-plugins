@@ -4,15 +4,15 @@
 
 
 class StandaloneApplication :
-    public juce::JUCEApplication
+    public JUCEApplication
 {
 public:
     class MainWindow :
-        public juce::DocumentWindow
+        public DocumentWindow
     {
     public:
-        MainWindow(juce::String name) :
-            DocumentWindow(name, juce::Desktop::getInstance().getDefaultLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId),
+        MainWindow(String name) :
+            DocumentWindow(name, Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
                 DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar(true);
@@ -40,11 +40,11 @@ public:
     StandaloneApplication() {
     }
 
-    const juce::String getApplicationName() override {
+    const String getApplicationName() override {
         return ProjectInfo::projectName;
     }
 
-    const juce::String getApplicationVersion() override {
+    const String getApplicationVersion() override {
         return ProjectInfo::versionString;
     }
 
@@ -52,7 +52,7 @@ public:
         return true;
     }
 
-    void initialise(const juce::String& /*commandLine*/) override {
+    void initialise(const String& /*commandLine*/) override {
         mainWindow.reset(new MainWindow(getApplicationName()));
     }
 
@@ -64,7 +64,7 @@ public:
         quit();
     }
 
-    void anotherInstanceStarted(const juce::String& /*commandLine*/) override {
+    void anotherInstanceStarted(const String& /*commandLine*/) override {
     }
 
 private:

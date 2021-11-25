@@ -3,27 +3,27 @@
 
 
 
-class StandaloneApplication : 
-    public juce::JUCEApplication
+class StandaloneApplication :
+    public JUCEApplication
 {
 public:
-    class MainWindow : 
-        public juce::DocumentWindow
+    class MainWindow :
+        public DocumentWindow
     {
     public:
-        MainWindow(juce::String name) : 
-            DocumentWindow(name, juce::Desktop::getInstance().getDefaultLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId),
-            DocumentWindow::allButtons)
+        MainWindow(String name) :
+            DocumentWindow(name, Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
+                DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar(true);
             setContentOwned(new MainComponent(), true);
 
-            #if JUCE_IOS || JUCE_ANDROID
-                setFullScreen(true);
-            #else
-                setResizable(true, true);
-                centreWithSize(getWidth(), getHeight());
-            #endif
+        #if JUCE_IOS || JUCE_ANDROID
+            setFullScreen(true);
+        #else
+            setResizable(true, true);
+            centreWithSize(getWidth(), getHeight());
+        #endif
 
             setVisible(true);
         }
@@ -40,20 +40,20 @@ public:
     StandaloneApplication() {
     }
 
-    const juce::String getApplicationName() override {
-        return ProjectInfo::projectName; 
+    const String getApplicationName() override {
+        return ProjectInfo::projectName;
     }
 
-    const juce::String getApplicationVersion() override { 
-        return ProjectInfo::versionString; 
+    const String getApplicationVersion() override {
+        return ProjectInfo::versionString;
     }
 
     bool moreThanOneInstanceAllowed() override {
-        return true; 
+        return true;
     }
 
-    void initialise (const juce::String& /*commandLine*/) override {
-        mainWindow.reset (new MainWindow (getApplicationName()));
+    void initialise(const String& /*commandLine*/) override {
+        mainWindow.reset(new MainWindow(getApplicationName()));
     }
 
     void shutdown() override {
@@ -64,7 +64,7 @@ public:
         quit();
     }
 
-    void anotherInstanceStarted (const juce::String& /*commandLine*/) override {
+    void anotherInstanceStarted(const String& /*commandLine*/) override {
     }
 
 private:
@@ -72,4 +72,4 @@ private:
 };
 
 //==============================================================================
-START_JUCE_APPLICATION (StandaloneApplication)
+START_JUCE_APPLICATION(StandaloneApplication)

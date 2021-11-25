@@ -1,13 +1,17 @@
 #include "core_MainComponent.h"
 
+#include "gui/gui_Constants.h"
+
+using namespace constants;
+
 
 
 MainComponent::MainComponent() {
-    setSize(800, 600);
+    setSize(GUI::editor_w, GUI::editor_h);
 
-    if (juce::RuntimePermissions::isRequired(juce::RuntimePermissions::recordAudio)
-        && !juce::RuntimePermissions::isGranted(juce::RuntimePermissions::recordAudio)) {
-        juce::RuntimePermissions::request(juce::RuntimePermissions::recordAudio, [&](bool granted) { setAudioChannels(granted ? 2 : 0, 2); });
+    if (RuntimePermissions::isRequired(RuntimePermissions::recordAudio)
+        && !RuntimePermissions::isGranted(RuntimePermissions::recordAudio)) {
+        RuntimePermissions::request(RuntimePermissions::recordAudio, [&](bool granted) { setAudioChannels(granted ? 2 : 0, 2); });
     }
     else {
         setAudioChannels(2, 2);
@@ -21,15 +25,15 @@ MainComponent::~MainComponent() {
 void MainComponent::prepareToPlay(int /*samplesPerBlockExpected*/, double /*sampleRate*/) {
 }
 
-void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) {
+void MainComponent::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill) {
     bufferToFill.clearActiveBufferRegion();
 }
 
 void MainComponent::releaseResources() {
 }
 
-void MainComponent::paint(juce::Graphics& g) {
-    g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
+void MainComponent::paint(Graphics& g) {
+    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
 }
 
 void MainComponent::resized() {

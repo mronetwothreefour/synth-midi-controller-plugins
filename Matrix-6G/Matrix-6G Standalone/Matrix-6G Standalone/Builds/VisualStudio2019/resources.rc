@@ -15,6 +15,7 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
     BEGIN
+      VALUE "CompanyName",  "Mister 1-2-3-4\0"
       VALUE "FileDescription",  "Matrix-6G Standalone\0"
       VALUE "FileVersion",  "1.0.0\0"
       VALUE "ProductName",  "Matrix-6G Standalone\0"

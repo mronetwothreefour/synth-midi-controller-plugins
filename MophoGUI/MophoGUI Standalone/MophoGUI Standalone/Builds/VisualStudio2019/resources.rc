@@ -15,9 +15,10 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
     BEGIN
-      VALUE "FileDescription",  "MophoGUI Standalone\0"
+      VALUE "CompanyName",  "Mister 1-2-3-4\0"
+      VALUE "FileDescription",  "MophoGUI\0"
       VALUE "FileVersion",  "1.0.0\0"
-      VALUE "ProductName",  "MophoGUI Standalone\0"
+      VALUE "ProductName",  "MophoGUI\0"
       VALUE "ProductVersion",  "1.0.0\0"
     END
   END
