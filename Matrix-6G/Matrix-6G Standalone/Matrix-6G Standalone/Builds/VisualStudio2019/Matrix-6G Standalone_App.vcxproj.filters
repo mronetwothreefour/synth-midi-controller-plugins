@@ -2412,6 +2412,9 @@
     <ClCompile Include="..\..\Source\core_MainComponent.cpp">
       <Filter>Matrix-6G Standalone\Source\_core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
+      <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4785,6 +4788,9 @@
       <Filter>Matrix-6G Standalone\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Colors.h">
+      <Filter>Matrix-6G Standalone\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
       <Filter>Matrix-6G Standalone\Source\gui</Filter>
     </ClInclude>
   </ItemGroup>
