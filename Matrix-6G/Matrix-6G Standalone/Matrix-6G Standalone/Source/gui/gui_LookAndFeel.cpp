@@ -12,14 +12,14 @@ using namespace constants;
 
 
 
-Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) {
-	const TextLayout tl(layoutTooltipText(tipText, Color::black));
-	auto w = (int)(tl.getWidth() + 16.0f);
-	auto h = (int)(tl.getHeight() + 14.0f);
-	return Rectangle<int>(
-		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
-		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
-}
+//Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) {
+//	const TextLayout tl(layoutTooltipText(tipText, Color::black));
+//	auto w = (int)(tl.getWidth() + 16.0f);
+//	auto h = (int)(tl.getHeight() + 14.0f);
+//	return Rectangle<int>(
+//		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
+//		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
+//}
 
 //void GUILookAndFeel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*width*/, int /*height*/, float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& /*slider*/) {
 //	auto sliderTab{ LEDsliderTab::createPath() };
@@ -30,16 +30,16 @@ Rectangle<int> GUILookAndFeel::getTooltipBounds(const String& tipText, Point<int
 void GUILookAndFeel::drawRotarySlider(Graphics& /*g*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*sliderPos*/, const float /*startAngle*/, const float /*endAngle*/, Slider& /*slider*/) {
 }
 
-void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
-	Rectangle<int> bounds(width, height);
-	g.setColour(Color::device);
-	g.fillRect(bounds.toFloat());
-	g.setColour(Color::led_blue);
-	g.drawRect(bounds.toFloat(), 1.0f);
-	g.setColour(Color::offWhiteText);
-	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
-		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
-}
+//void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
+//	Rectangle<int> bounds(width, height);
+//	g.setColour(Color::device);
+//	g.fillRect(bounds.toFloat());
+//	g.setColour(Color::led_blue);
+//	g.drawRect(bounds.toFloat(), 1.0f);
+//	g.setColour(Color::offWhiteText);
+//	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
+//		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
+//}
 
 //TextLayout GUILookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
 //	AttributedString s;
@@ -51,16 +51,16 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 //	return tl;
 //}
 
-void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
-	PNGImageFormat imageFormat;
-	auto buttonImageData{ getButtonImageData(button, isDown) };
-	auto buttonImageDataSize{ getButtonImageDataSize(button, isDown) };
-	if (buttonImageData != nullptr) {
-		MemoryInputStream memInputStream{ buttonImageData, buttonImageDataSize, false };
-		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-		g.drawImageAt(buttonImage, 0, 0);
-	}
-}
+//void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+//	PNGImageFormat imageFormat;
+//	auto buttonImageData{ getButtonImageData(button, isDown) };
+//	auto buttonImageDataSize{ getButtonImageDataSize(button, isDown) };
+//	if (buttonImageData != nullptr) {
+//		MemoryInputStream memInputStream{ buttonImageData, buttonImageDataSize, false };
+//		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+//		g.drawImageAt(buttonImage, 0, 0);
+//	}
+//}
 
 //const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 //	if (button.getComponentID() == ID::button_Close.toString())
