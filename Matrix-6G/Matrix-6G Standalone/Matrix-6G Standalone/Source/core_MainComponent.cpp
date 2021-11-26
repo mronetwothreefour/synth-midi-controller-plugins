@@ -15,6 +15,8 @@ using namespace constants;
 
 MainComponent::MainComponent() {
     setSize(GUI::editor_w, GUI::editor_h);
+    setOpaque(true);
+    addToDesktop(0);
 
     if (RuntimePermissions::isRequired(RuntimePermissions::recordAudio)
         && !RuntimePermissions::isGranted(RuntimePermissions::recordAudio)) {
