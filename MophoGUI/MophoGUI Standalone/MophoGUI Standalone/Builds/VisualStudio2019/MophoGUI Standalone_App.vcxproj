@@ -2082,6 +2082,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp" />
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h" />
@@ -2882,6 +2883,7 @@
     <ClInclude Include="..\..\Source\params\params_Constants.h" />
     <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

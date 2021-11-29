@@ -2430,6 +2430,9 @@
     <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp">
       <Filter>Matrix-6G Standalone\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
+      <Filter>Matrix-6G Standalone\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4828,6 +4831,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\patches\patches_Constants.h">
       <Filter>Matrix-6G Standalone\Source\patches</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
+      <Filter>Matrix-6G Standalone\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
