@@ -2433,6 +2433,9 @@
     <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp">
       <Filter>MophoGUI Standalone\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
+      <Filter>MophoGUI Standalone\Source\params</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -4837,6 +4840,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h">
       <Filter>MophoGUI Standalone\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
+      <Filter>MophoGUI Standalone\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

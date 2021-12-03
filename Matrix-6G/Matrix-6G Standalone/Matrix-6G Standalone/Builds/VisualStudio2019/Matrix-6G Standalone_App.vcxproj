@@ -2081,6 +2081,7 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp" />
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp" />
     <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp" />
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h" />
@@ -2882,6 +2883,7 @@
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
     <ClInclude Include="..\..\Source\params\params_MasterOptions.h" />
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h" />
     <ClInclude Include="..\..\Source\patches\patches_Constants.h" />
   </ItemGroup>
   <ItemGroup>
