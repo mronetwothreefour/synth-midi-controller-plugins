@@ -17,7 +17,7 @@ namespace constants
 
 		//static const int bankTransmitTitleLabel_x{ 454 };
 		//static const int bankTransmitTitleLabel_y{ 260 };
-		//static const int comboBox_h{ 16 };
+		static const int comboBox_h{ 16 };
 		//static const int horizGapBtwnControls{ 5 };
 		//static const int knob_diameter{ 40 };
 		//static const int controlsCol1_x{ 48 };
@@ -82,6 +82,8 @@ namespace constants
 		//static const int midiControllerComboBox_w{ 136 };
 		//static const int midiControllersCol1_x{ 680 };
 		//static const int midiControllersCol2_x{ 776 };
+		static const int midiInOutComboBoxes_w{ 310 };
+		static const int midiInOutComboBoxes_x{ 89 };
 		//static const int modulatorComboBox_w{ 126 };
 		//static const int modulatorControlsCol1_x{ 486 };
 		//static const int modulatorControlsCol2_x{ 575 };
@@ -216,6 +218,8 @@ namespace constants
 		//static const Rectangle<int> bounds_MainWindowUndoButton{ undoRedoButtons_x, 26, undoRedoButtons_w, undoRedoButtons_h };
 		//static const Rectangle<int> bounds_MainWindowWebLinkButton{ 644, 122, 157, 9 };
 		//static const Rectangle<int> bounds_MainWindowWriteButton{ 580, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
+		static const Rectangle<int> bounds_MidiInComboBox{ midiInOutComboBoxes_x, 636, midiInOutComboBoxes_w, comboBox_h };
+		static const Rectangle<int> bounds_MidiOutComboBox{ midiInOutComboBoxes_x, 658, midiInOutComboBoxes_w, comboBox_h };
 		//static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		//static const Rectangle<int> bounds_NRPNisOffWarningComponentRetryButton{ 611, 387, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		//static const Rectangle<int> bounds_ProgramBanksCloseButton{ 1130, 117, secondaryWindowsControls_w, secondaryWindowsControls_h };
