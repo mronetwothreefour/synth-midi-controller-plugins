@@ -40,6 +40,9 @@ void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFil
 void MainComponent::releaseResources() {
 }
 
+void MainComponent::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& /*message*/) {
+}
+
 void MainComponent::paint (Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::MophoGUIMainWindowBackground_png, BinaryData::MophoGUIMainWindowBackground_pngSize, false };
     PNGImageFormat imageFormat;

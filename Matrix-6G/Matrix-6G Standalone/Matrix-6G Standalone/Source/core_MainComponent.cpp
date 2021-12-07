@@ -41,6 +41,9 @@ void MainComponent::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill
 void MainComponent::releaseResources() {
 }
 
+void MainComponent::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& /*message*/) {
+}
+
 void MainComponent::paint(Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::Matrix6GMainWindowBackground_png, BinaryData::Matrix6GMainWindowBackground_pngSize, false };
     PNGImageFormat imageFormat;

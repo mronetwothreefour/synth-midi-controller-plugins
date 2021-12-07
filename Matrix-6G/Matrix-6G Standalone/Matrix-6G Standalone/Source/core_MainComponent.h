@@ -5,7 +5,8 @@
 
 
 class MainComponent :
-    public juce::AudioAppComponent
+    public AudioAppComponent,
+    public MidiInputCallback
 {
 public:
     MainComponent();
@@ -13,6 +14,7 @@ public:
     void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override;
     void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) override;
     void releaseResources() override;
+    void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) override;
     void paint(juce::Graphics& g) override;
     void resized() override;
     ~MainComponent() override;
