@@ -448,6 +448,9 @@
     <Filter Include="MophoGUI Standalone\Source\global">
       <UniqueIdentifier>{4ed32546-a89c-4c2a-8c23-b885deb9378b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI Standalone\Source\midi">
+      <UniqueIdentifier>{80decb86-9369-4655-9c79-dd5293d49143}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -4843,6 +4846,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
       <Filter>MophoGUI Standalone\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h">
+      <Filter>MophoGUI Standalone\Source\midi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

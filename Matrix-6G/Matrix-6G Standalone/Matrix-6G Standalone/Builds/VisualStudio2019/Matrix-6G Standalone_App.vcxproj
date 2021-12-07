@@ -2879,6 +2879,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h" />
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h" />
     <ClInclude Include="..\..\Source\master\master_Constants.h" />
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h" />
     <ClInclude Include="..\..\Source\params\params_Constants.h" />
     <ClInclude Include="..\..\Source\params\params_Identifiers.h" />
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h" />
