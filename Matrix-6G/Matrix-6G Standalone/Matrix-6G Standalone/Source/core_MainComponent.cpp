@@ -13,22 +13,16 @@ using namespace constants;
 
 
 
-MainComponent::MainComponent() {
+MainComponent::MainComponent() :
+    lookAndFeel{ new GUILookAndFeel() }
+{
+    setAudioChannels(0, 0);
+
+    LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     setSize(GUI::editor_w, GUI::editor_h);
     setOpaque(true);
     addToDesktop(0);
-
-    if (RuntimePermissions::isRequired(RuntimePermissions::recordAudio)
-        && !RuntimePermissions::isGranted(RuntimePermissions::recordAudio)) {
-        RuntimePermissions::request(RuntimePermissions::recordAudio, [&](bool granted) { setAudioChannels(granted ? 2 : 0, 2); });
-    }
-    else {
-        setAudioChannels(2, 2);
-    }
-}
-
-MainComponent::~MainComponent() {
-    shutdownAudio();
 }
 
 void MainComponent::prepareToPlay(int /*samplesPerBlockExpected*/, double /*sampleRate*/) {
@@ -52,4 +46,8 @@ void MainComponent::paint(Graphics& g) {
 }
 
 void MainComponent::resized() {
+}
+
+MainComponent::~MainComponent() {
+    shutdownAudio();
 }

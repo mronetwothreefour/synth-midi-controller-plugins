@@ -4,10 +4,14 @@
 
 
 
+class GUILookAndFeel;
+
 class MainComponent :
     public AudioAppComponent,
     public MidiInputCallback
 {
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
+
 public:
     MainComponent();
 

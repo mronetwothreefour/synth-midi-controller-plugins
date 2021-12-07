@@ -18,6 +18,8 @@ MainComponent::MainComponent() :
 {
     setAudioChannels(0, 0);
     
+    LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     addAndMakeVisible(comboBox_ForMidiIn);
     comboBox_ForMidiIn.setTextWhenNoChoicesAvailable("No MIDI Inputs Enabled");
     auto availableMidiInputs{ MidiInput::getAvailableDevices() };
@@ -45,7 +47,6 @@ MainComponent::MainComponent() :
         midiOutputNames.add(input.name);
     }
     comboBox_ForMidiOut.addItemList(midiOutputNames, 1);
-
 
     setSize (GUI::editor_w, GUI::editor_h);
     setOpaque(true);

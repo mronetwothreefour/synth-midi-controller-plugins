@@ -4,6 +4,8 @@
 
 
 
+class GUILookAndFeel;
+
 class MainComponent :
     public AudioAppComponent,
     public MidiInputCallback
@@ -12,6 +14,7 @@ class MainComponent :
     int lastOutputIndex;
 
     AudioDeviceManager deviceManager;
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
     ComboBox comboBox_ForMidiIn;
     ComboBox comboBox_ForMidiOut;
 
