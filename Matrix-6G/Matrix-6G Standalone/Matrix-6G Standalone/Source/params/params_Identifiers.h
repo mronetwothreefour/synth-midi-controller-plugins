@@ -144,6 +144,9 @@ namespace ID
 	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
 	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankA{ "midi_IncomingPatchShouldBeSavedInCustomBankA" };
 	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankB{ "midi_IncomingPatchShouldBeSavedInCustomBankB" };
+	static const Identifier midi_IndexOfLastSelectedInput{ "midi_IndexOfLastSelectedInput" };
+	static const Identifier midi_IndexOfSelectedInput{ "midi_IndexOfSelectedInput" };
+	static const Identifier midi_IndexOfSelectedOutput{ "midi_IndexOfSelectedOutput" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_PatchTransmitTime{ "midi_PatchTransmitTime" };

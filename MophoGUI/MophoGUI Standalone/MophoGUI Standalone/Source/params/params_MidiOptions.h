@@ -18,6 +18,12 @@ public:
 	void resetMidiOptionsToDefaults();
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
+	const int indexOfSelectedMidiInput();
+	void setIndexOfSelectedMidiInput(int index);
+	const int indexOfLastSelectedMidiInput();
+	void setIndexOfLastSelectedMidiInput(int index);
+	const int indexOfSelectedMidiOutput();
+	void setIndexOfSelectedMidiOutput(int index);
 	const uint8 transmitChannel();
 	void setTransmitChannel(uint8 newChannel);
 	const uint8 hardwareReceiveChannel();

@@ -64,6 +64,9 @@ namespace ID
 	static const Identifier midi_Clock{ "midi_Clock" };
 	static const Identifier midi_ControllersOn{ "midi_ControllersOn" };
 	static const Identifier midi_HardwareReceiveChannel{ "midi_HardwareReceiveChannel" };
+	static const Identifier midi_IndexOfLastSelectedInput{ "midi_IndexOfLastSelectedInput" };
+	static const Identifier midi_IndexOfSelectedInput{ "midi_IndexOfSelectedInput" };
+	static const Identifier midi_IndexOfSelectedOutput{ "midi_IndexOfSelectedOutput" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
 	static const Identifier midi_ParameterReceiveType{ "midi_ParameterReceiveType" };

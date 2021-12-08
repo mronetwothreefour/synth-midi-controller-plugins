@@ -12,6 +12,9 @@ MidiOptions::MidiOptions() :
 }
 
 void MidiOptions::fillMidiOptionsTreeWithProperties() {
+	midiOptionsTree.setProperty(ID::midi_IndexOfSelectedInput, 0, nullptr);
+	midiOptionsTree.setProperty(ID::midi_IndexOfLastSelectedInput, 0, nullptr);
+	midiOptionsTree.setProperty(ID::midi_IndexOfSelectedOutput, 0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_Clock, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)true, nullptr);
 	midiOptionsTree.setProperty(ID::midi_HardwareReceiveChannel, (uint8)0, nullptr);
@@ -35,6 +38,30 @@ void MidiOptions::addListener(ValueTree::Listener* listener) {
 
 void MidiOptions::removeListener(ValueTree::Listener* listener) {
 	midiOptionsTree.removeListener(listener);
+}
+
+const int MidiOptions::indexOfSelectedMidiInput() {
+	return (int)midiOptionsTree.getProperty(ID::midi_IndexOfSelectedInput);
+}
+
+void MidiOptions::setIndexOfSelectedMidiInput(int index) {
+	midiOptionsTree.setProperty(ID::midi_IndexOfSelectedInput, index, nullptr);
+}
+
+const int MidiOptions::indexOfLastSelectedMidiInput() {
+	return (int)midiOptionsTree.getProperty(ID::midi_IndexOfLastSelectedInput);
+}
+
+void MidiOptions::setIndexOfLastSelectedMidiInput(int index) {
+	midiOptionsTree.setProperty(ID::midi_IndexOfLastSelectedInput, index, nullptr);
+}
+
+const int MidiOptions::indexOfSelectedMidiOutput() {
+	return (int)midiOptionsTree.getProperty(ID::midi_IndexOfSelectedOutput);
+}
+
+void MidiOptions::setIndexOfSelectedMidiOutput(int index) {
+	midiOptionsTree.setProperty(ID::midi_IndexOfSelectedOutput, index, nullptr);
 }
 
 const uint8 MidiOptions::transmitChannel() {

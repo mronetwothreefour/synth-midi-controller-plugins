@@ -16,6 +16,9 @@ MasterOptions::MasterOptions() :
 }
 
 void MasterOptions::fillMasterOptionsTreeWithProperties() {
+	masterOptionsTree.setProperty(ID::midi_IndexOfSelectedInput, 0, nullptr);
+	masterOptionsTree.setProperty(ID::midi_IndexOfLastSelectedInput, 0, nullptr);
+	masterOptionsTree.setProperty(ID::midi_IndexOfSelectedOutput, 0, nullptr);
 	masterOptionsTree.setProperty(ID::master_BasicChannel, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_OmniModeEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_ControllersEnabled, (uint8)1, nullptr);
@@ -55,6 +58,30 @@ void MasterOptions::addListener(ValueTree::Listener* listener) {
 
 void MasterOptions::removeListener(ValueTree::Listener* listener) {
 	masterOptionsTree.removeListener(listener);
+}
+
+const int MasterOptions::indexOfSelectedMidiInput() {
+	return (int)masterOptionsTree.getProperty(ID::midi_IndexOfSelectedInput);
+}
+
+void MasterOptions::setIndexOfSelectedMidiInput(int index) {
+	masterOptionsTree.setProperty(ID::midi_IndexOfSelectedInput, index, nullptr);
+}
+
+const int MasterOptions::indexOfLastSelectedMidiInput() {
+	return (int)masterOptionsTree.getProperty(ID::midi_IndexOfLastSelectedInput);
+}
+
+void MasterOptions::setIndexOfLastSelectedMidiInput(int index) {
+	masterOptionsTree.setProperty(ID::midi_IndexOfLastSelectedInput, index, nullptr);
+}
+
+const int MasterOptions::indexOfSelectedMidiOutput() {
+	return (int)masterOptionsTree.getProperty(ID::midi_IndexOfSelectedOutput);
+}
+
+void MasterOptions::setIndexOfSelectedMidiOutput(int index) {
+	masterOptionsTree.setProperty(ID::midi_IndexOfSelectedOutput, index, nullptr);
 }
 
 const uint8 MasterOptions::basicChannel() {

@@ -19,6 +19,15 @@ public:
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 
+	const int indexOfSelectedMidiInput();
+	void setIndexOfSelectedMidiInput(int index);
+
+	const int indexOfLastSelectedMidiInput();
+	void setIndexOfLastSelectedMidiInput(int index);
+
+	const int indexOfSelectedMidiOutput();
+	void setIndexOfSelectedMidiOutput(int index);
+
 	const uint8 basicChannel();
 	void setBasicChannel(uint8 newValue);
 
