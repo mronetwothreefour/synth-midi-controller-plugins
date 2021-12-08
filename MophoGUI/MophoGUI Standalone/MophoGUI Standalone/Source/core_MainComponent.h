@@ -5,18 +5,16 @@
 
 
 class GUILookAndFeel;
+class ParametersFacade;
 
 class MainComponent :
     public AudioAppComponent,
     public MidiInputCallback
 {
-    int lastInputIndex;
-    int lastOutputIndex;
+    std::unique_ptr<ParametersFacade> parameters;
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
 
     AudioDeviceManager deviceManager;
-    std::unique_ptr<GUILookAndFeel> lookAndFeel;
-    ComboBox comboBox_ForMidiIn;
-    ComboBox comboBox_ForMidiOut;
 
 public:
     MainComponent();
@@ -24,7 +22,6 @@ public:
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
     void getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill) override;
     void releaseResources() override;
-    void setMidiInput(int index);
     void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) override;
     void paint (juce::Graphics& g) override;
     void resized() override;

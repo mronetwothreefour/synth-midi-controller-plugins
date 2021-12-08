@@ -5,11 +5,13 @@
 
 
 class GUILookAndFeel;
+class ParametersFacade;
 
 class MainComponent :
     public AudioAppComponent,
     public MidiInputCallback
 {
+    std::unique_ptr<ParametersFacade> parameters;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
 
 public:

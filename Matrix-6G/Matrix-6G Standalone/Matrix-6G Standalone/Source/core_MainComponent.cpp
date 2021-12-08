@@ -8,12 +8,14 @@
 //#include "gui/gui_Layer_PatchNumberAndName.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
+#include "params/params_ParametersFacade.h"
 
 using namespace constants;
 
 
 
 MainComponent::MainComponent() :
+    parameters{ new ParametersFacade },
     lookAndFeel{ new GUILookAndFeel() }
 {
     setAudioChannels(0, 0);
@@ -50,4 +52,6 @@ void MainComponent::resized() {
 
 MainComponent::~MainComponent() {
     shutdownAudio();
+    parameters->undoManager_get()->clearUndoHistory();
+    parameters = nullptr;
 }
