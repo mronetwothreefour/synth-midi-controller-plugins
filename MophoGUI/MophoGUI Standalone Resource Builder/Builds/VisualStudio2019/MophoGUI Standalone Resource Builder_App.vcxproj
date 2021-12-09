@@ -2925,6 +2925,7 @@
     <None Include="..\..\..\MophoGUI Standalone\Resources\Program-Banks-Tab-Background.png"/>
     <None Include="..\..\..\MophoGUI Standalone\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\..\MophoGUI Standalone\Resources\Title-Pushing-Entire-Bank.png"/>
+    <None Include="..\..\..\MophoGUI Standalone\Resources\MophoGUI-Icon.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

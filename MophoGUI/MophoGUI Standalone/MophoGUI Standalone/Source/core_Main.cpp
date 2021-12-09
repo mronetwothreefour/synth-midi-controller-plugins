@@ -1,6 +1,7 @@
 #include <JuceHeader.h>
 #include "core_MainComponent.h"
 
+#include "gui/gui_Colors.h"
 
 
 class StandaloneApplication :
@@ -12,11 +13,14 @@ public:
     {
     public:
         MainWindow(String name) :
-            DocumentWindow(name, Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
-                DocumentWindow::allButtons)
+            DocumentWindow(name, Color::black, DocumentWindow::closeButton)
         {
-            setTitleBarButtonsRequired(TitleBarButtons::closeButton, true);
-            setUsingNativeTitleBar(true);
+            setUsingNativeTitleBar(false);
+            MemoryInputStream memInputStream{ BinaryData::MophoGUIIcon_png, BinaryData::MophoGUIIcon_pngSize, false };
+            PNGImageFormat imageFormat;
+            auto mophoGUIicon{ imageFormat.decodeImage(memInputStream) };
+            setIcon(mophoGUIicon);
+            setTitleBarTextCentred(false);
             setContentOwned(new MainComponent(), true);
 
         #if JUCE_IOS || JUCE_ANDROID

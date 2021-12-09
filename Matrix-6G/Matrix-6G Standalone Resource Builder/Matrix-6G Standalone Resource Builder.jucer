@@ -105,12 +105,8 @@
           resource="1" file="../Matrix-6G Standalone/Resources/Title-Pulling-Entire-Bank.png"/>
     <FILE id="eYaZ7T" name="Title-Pushing-Entire-Bank.png" compile="0"
           resource="1" file="../Matrix-6G Standalone/Resources/Title-Pushing-Entire-Bank.png"/>
-    <FILE id="YfORPo" name="z_Button-Quick-Edit-Down.png" compile="0" resource="1"
-          file="../Matrix-6G Standalone/Resources/z_Button-Quick-Edit-Down.png"/>
-    <FILE id="duJaFn" name="z_Button-Quick-Edit-Flash.png" compile="0"
-          resource="1" file="../Matrix-6G Standalone/Resources/z_Button-Quick-Edit-Flash.png"/>
-    <FILE id="AjCAtR" name="z_Button-Quick-Edit-Up.png" compile="0" resource="1"
-          file="../Matrix-6G Standalone/Resources/z_Button-Quick-Edit-Up.png"/>
+    <FILE id="nhOLMu" name="Matrix-6G-Icon.png" compile="0" resource="1"
+          file="../Matrix-6G Standalone/Resources/Matrix-6G-Icon.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>

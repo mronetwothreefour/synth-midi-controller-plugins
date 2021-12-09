@@ -2927,9 +2927,7 @@
     <None Include="..\..\..\Matrix-6G Standalone\Resources\Splits-Window.png"/>
     <None Include="..\..\..\Matrix-6G Standalone\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\..\Matrix-6G Standalone\Resources\Title-Pushing-Entire-Bank.png"/>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Down.png"/>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Flash.png"/>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Up.png"/>
+    <None Include="..\..\..\Matrix-6G Standalone\Resources\Matrix-6G-Icon.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

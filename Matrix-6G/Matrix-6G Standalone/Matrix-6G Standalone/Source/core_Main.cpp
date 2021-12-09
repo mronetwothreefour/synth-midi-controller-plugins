@@ -1,6 +1,8 @@
 #include <JuceHeader.h>
 #include "core_MainComponent.h"
 
+#include "gui/gui_Colors.h"
+
 
 
 class StandaloneApplication :
@@ -12,12 +14,15 @@ public:
     {
     public:
         MainWindow(String name) :
-            DocumentWindow(name, Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
-                DocumentWindow::allButtons)
+            DocumentWindow(name, Color::black, DocumentWindow::closeButton)
         {
-            setTitleBarButtonsRequired(TitleBarButtons::closeButton, true);
-            setUsingNativeTitleBar(true);
+            setUsingNativeTitleBar(false);
             setContentOwned(new MainComponent(), true);
+            MemoryInputStream memInputStream{ BinaryData::Matrix6GIcon_png, BinaryData::Matrix6GIcon_pngSize, false };
+            PNGImageFormat imageFormat;
+            auto matrix6Gicon{ imageFormat.decodeImage(memInputStream) };
+            setIcon(matrix6Gicon);
+            setTitleBarTextCentred(false);
 
             #if JUCE_IOS || JUCE_ANDROID
                 setFullScreen(true);

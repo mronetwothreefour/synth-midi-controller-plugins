@@ -103,6 +103,8 @@
           resource="1" file="../MophoGUI Standalone/Resources/Title-Pulling-Entire-Bank.png"/>
     <FILE id="rId3i4" name="Title-Pushing-Entire-Bank.png" compile="0"
           resource="1" file="../MophoGUI Standalone/Resources/Title-Pushing-Entire-Bank.png"/>
+    <FILE id="d6EFbJ" name="MophoGUI-Icon.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/MophoGUI-Icon.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>

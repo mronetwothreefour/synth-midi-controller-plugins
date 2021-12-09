@@ -143,8 +143,11 @@ namespace BinaryData
     extern const char* TitlePushingEntireBank_png;
     const int            TitlePushingEntireBank_pngSize = 2086;
 
+    extern const char* MophoGUIIcon_png;
+    const int            MophoGUIIcon_pngSize = 2870;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 47;
+    const int namedResourceListSize = 48;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

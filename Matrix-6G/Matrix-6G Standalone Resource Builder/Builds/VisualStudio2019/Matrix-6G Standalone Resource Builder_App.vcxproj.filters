@@ -5054,13 +5054,7 @@
     <None Include="..\..\..\Matrix-6G Standalone\Resources\Title-Pushing-Entire-Bank.png">
       <Filter>Matrix-6G Standalone Resource Builder</Filter>
     </None>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Down.png">
-      <Filter>Matrix-6G Standalone Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Flash.png">
-      <Filter>Matrix-6G Standalone Resource Builder</Filter>
-    </None>
-    <None Include="..\..\..\Matrix-6G Standalone\Resources\z_Button-Quick-Edit-Up.png">
+    <None Include="..\..\..\Matrix-6G Standalone\Resources\Matrix-6G-Icon.png">
       <Filter>Matrix-6G Standalone Resource Builder</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
