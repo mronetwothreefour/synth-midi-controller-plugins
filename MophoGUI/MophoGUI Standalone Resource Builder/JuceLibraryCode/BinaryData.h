@@ -132,7 +132,7 @@ namespace BinaryData
     const int            LabelFactoryBanks_pngSize = 831;
 
     extern const char*   MophoGUIMainWindowBackground_png;
-    const int            MophoGUIMainWindowBackground_pngSize = 95887;
+    const int            MophoGUIMainWindowBackground_pngSize = 95837;
 
     extern const char*   NoNRPNWarningBackground_png;
     const int            NoNRPNWarningBackground_pngSize = 21636;

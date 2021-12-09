@@ -82,7 +82,7 @@ namespace constants
 		//static const int midiControllerComboBox_w{ 136 };
 		//static const int midiControllersCol1_x{ 680 };
 		//static const int midiControllersCol2_x{ 776 };
-		static const int midiInOutComboBoxes_w{ 310 };
+		static const int midiInOutComboBoxes_w{ 250 };
 		static const int midiInOutComboBoxes_x{ 89 };
 		//static const int modulatorComboBox_w{ 126 };
 		//static const int modulatorControlsCol1_x{ 486 };
