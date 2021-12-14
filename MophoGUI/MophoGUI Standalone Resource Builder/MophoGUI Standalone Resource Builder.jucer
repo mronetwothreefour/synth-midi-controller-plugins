@@ -105,10 +105,12 @@
           resource="1" file="../MophoGUI Standalone/Resources/Title-Pushing-Entire-Bank.png"/>
     <FILE id="d6EFbJ" name="MophoGUI-Icon.png" compile="0" resource="1"
           file="../MophoGUI Standalone/Resources/MophoGUI-Icon.png"/>
+    <FILE id="rOxjRA" name="MophoGUI-Icon-large.png" compile="0" resource="1"
+          file="../MophoGUI Standalone/Resources/MophoGUI-Icon-large.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
+    <VS2019 targetFolder="Builds/VisualStudio2019" bigIcon="rOxjRA" smallIcon="d6EFbJ">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI Standalone Resource Builder"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI Standalone Resource Builder"/>

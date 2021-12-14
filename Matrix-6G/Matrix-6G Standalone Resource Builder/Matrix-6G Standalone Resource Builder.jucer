@@ -107,10 +107,12 @@
           resource="1" file="../Matrix-6G Standalone/Resources/Title-Pushing-Entire-Bank.png"/>
     <FILE id="nhOLMu" name="Matrix-6G-Icon.png" compile="0" resource="1"
           file="../Matrix-6G Standalone/Resources/Matrix-6G-Icon.png"/>
+    <FILE id="MWTI5S" name="Matrix-6G-Icon-Large.png" compile="0" resource="1"
+          file="../Matrix-6G Standalone/Resources/Matrix-6G-Icon-Large.png"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
+    <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="nhOLMu" bigIcon="MWTI5S">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G Standalone Resource Builder"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G Standalone Resource Builder"/>

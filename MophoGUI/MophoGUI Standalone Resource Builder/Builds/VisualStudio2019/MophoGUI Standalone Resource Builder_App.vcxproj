@@ -2926,6 +2926,7 @@
     <None Include="..\..\..\MophoGUI Standalone\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\..\MophoGUI Standalone\Resources\Title-Pushing-Entire-Bank.png"/>
     <None Include="..\..\..\MophoGUI Standalone\Resources\MophoGUI-Icon.png"/>
+    <None Include="..\..\..\MophoGUI Standalone\Resources\MophoGUI-Icon-large.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
@@ -2943,6 +2944,7 @@
     <None Include="..\..\..\..\..\Juce\modules\juce_core\native\java\README.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_graphics\image_formats\jpglib\changes to libjpeg for JUCE.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt"/>
+    <None Include=".\icon.ico"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>

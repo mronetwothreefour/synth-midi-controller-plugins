@@ -1,32 +1,97 @@
-#pragma code_page(65001)
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
 
-#ifdef JUCE_USER_DEFINED_RC_FILE
- #include JUCE_USER_DEFINED_RC_FILE
-#else
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
 
-#undef  WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  1,0,0,0
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 0,0,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x0L
+ FILETYPE 0x0L
+ FILESUBTYPE 0x0L
 BEGIN
-  BLOCK "StringFileInfo"
-  BEGIN
-    BLOCK "040904E4"
+    BLOCK "StringFileInfo"
     BEGIN
-      VALUE "CompanyName",  "Mister 1-2-3-4\0"
-      VALUE "FileDescription",  "Matrix-6G Standalone\0"
-      VALUE "FileVersion",  "1.0.0\0"
-      VALUE "ProductName",  "Matrix-6G Standalone\0"
-      VALUE "ProductVersion",  "1.0.0\0"
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "Mister 1-2-3-4"
+            VALUE "FileDescription", "Matrix-6G Standalone"
+            VALUE "FileVersion", "1.0.0"
+            VALUE "ProductName", "Matrix-6G Standalone"
+            VALUE "ProductVersion", "1.0.0"
+        END
     END
-  END
-
-  BLOCK "VarFileInfo"
-  BEGIN
-    VALUE "Translation", 0x409, 1252
-  END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
 END
 
-#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "C:\\Users\\Public\\git-repos\\synth-midi-controller-plugins\\Matrix-6G\\Matrix-6G Standalone\\Matrix-6G Standalone\\Builds\\VisualStudio2019\\icon.ico"
+
+IDI_ICON2               ICON                    "icon.ico"
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

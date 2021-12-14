@@ -5057,6 +5057,9 @@
     <None Include="..\..\..\Matrix-6G Standalone\Resources\Matrix-6G-Icon.png">
       <Filter>Matrix-6G Standalone Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\Matrix-6G Standalone\Resources\Matrix-6G-Icon-Large.png">
+      <Filter>Matrix-6G Standalone Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>
@@ -5107,6 +5110,9 @@
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
+    </None>
+    <None Include=".\icon.ico">
+      <Filter>JUCE Library Code</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -158,8 +158,11 @@ namespace BinaryData
     extern const char*   Matrix6GIcon_png;
     const int            Matrix6GIcon_pngSize = 586;
 
+    extern const char*   Matrix6GIconLarge_png;
+    const int            Matrix6GIconLarge_pngSize = 3600;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 50;
+    const int namedResourceListSize = 51;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

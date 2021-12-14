@@ -16,21 +16,10 @@ public:
         MainWindow(String name) :
             DocumentWindow(name, Color::black, DocumentWindow::closeButton)
         {
-            setUsingNativeTitleBar(false);
+            setUsingNativeTitleBar(true);
             setContentOwned(new MainComponent(), true);
-            MemoryInputStream memInputStream{ BinaryData::Matrix6GIcon_png, BinaryData::Matrix6GIcon_pngSize, false };
-            PNGImageFormat imageFormat;
-            auto matrix6Gicon{ imageFormat.decodeImage(memInputStream) };
-            setIcon(matrix6Gicon);
-            setTitleBarTextCentred(false);
-
-            #if JUCE_IOS || JUCE_ANDROID
-                setFullScreen(true);
-            #else
-                setResizable(false, false);
-                centreWithSize(getWidth(), getHeight());
-            #endif
-
+            setResizable(false, false);
+            centreWithSize(getWidth(), getHeight());
             setVisible(true);
         }
 

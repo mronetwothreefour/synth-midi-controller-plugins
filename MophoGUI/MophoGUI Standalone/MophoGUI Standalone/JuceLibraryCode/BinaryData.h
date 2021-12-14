@@ -126,7 +126,7 @@ namespace BinaryData
     const int            LabelFactoryBanks_pngSize = 831;
 
     extern const char* MophoGUIMainWindowBackground_png;
-    const int            MophoGUIMainWindowBackground_pngSize = 95837;
+    const int            MophoGUIMainWindowBackground_pngSize = 99186;
 
     extern const char* NoNRPNWarningBackground_png;
     const int            NoNRPNWarningBackground_pngSize = 21636;
@@ -146,8 +146,11 @@ namespace BinaryData
     extern const char* MophoGUIIcon_png;
     const int            MophoGUIIcon_pngSize = 2870;
 
+    extern const char* MophoGUIIconlarge_png;
+    const int            MophoGUIIconlarge_pngSize = 19211;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 48;
+    const int namedResourceListSize = 49;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

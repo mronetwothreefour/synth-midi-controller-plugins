@@ -31,7 +31,7 @@ namespace constants
 		//static const int controlsCol9_x{ controlsCol8_x + knob_diameter + horizGapBtwnControls };
 		//static const int controlsCol10_x{ 500 };
 		static const int editor_w{ 1273 };
-		static const int editor_h{ 684 };
+		static const int editor_h{ 706 };
 		//static const int editProgramNameButtonAndLabel_h{ 50 };
 		//static const int editProgramNameButtonAndLabel_w{ 222 };
 		//static const int env3ControlsRow1_y{ 531 };

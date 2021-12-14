@@ -4853,6 +4853,7 @@
     <ClInclude Include="..\..\Source\params\params_ParametersFacade.h">
       <Filter>Matrix-6G Standalone\Source\params</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
@@ -4911,5 +4912,10 @@
     <ResourceCompile Include=".\resources.rc">
       <Filter>JUCE Library Code</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico">
+      <Filter>JUCE Library Code</Filter>
+    </Image>
   </ItemGroup>
 </Project>

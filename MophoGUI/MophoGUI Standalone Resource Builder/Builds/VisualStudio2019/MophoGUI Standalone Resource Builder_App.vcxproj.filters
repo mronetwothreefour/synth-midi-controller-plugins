@@ -5051,6 +5051,9 @@
     <None Include="..\..\..\MophoGUI Standalone\Resources\MophoGUI-Icon.png">
       <Filter>MophoGUI Standalone Resource Builder</Filter>
     </None>
+    <None Include="..\..\..\MophoGUI Standalone\Resources\MophoGUI-Icon-large.png">
+      <Filter>MophoGUI Standalone Resource Builder</Filter>
+    </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>
@@ -5101,6 +5104,9 @@
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
+    </None>
+    <None Include=".\icon.ico">
+      <Filter>JUCE Library Code</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

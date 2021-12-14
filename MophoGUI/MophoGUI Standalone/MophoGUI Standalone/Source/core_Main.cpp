@@ -15,21 +15,10 @@ public:
         MainWindow(String name) :
             DocumentWindow(name, Color::black, DocumentWindow::closeButton)
         {
-            setUsingNativeTitleBar(false);
-            MemoryInputStream memInputStream{ BinaryData::MophoGUIIcon_png, BinaryData::MophoGUIIcon_pngSize, false };
-            PNGImageFormat imageFormat;
-            auto mophoGUIicon{ imageFormat.decodeImage(memInputStream) };
-            setIcon(mophoGUIicon);
-            setTitleBarTextCentred(false);
+            setUsingNativeTitleBar(true);
             setContentOwned(new MainComponent(), true);
-
-        #if JUCE_IOS || JUCE_ANDROID
-            setFullScreen(true);
-        #else
             setResizable(false, false);
             centreWithSize(getWidth(), getHeight());
-        #endif
-
             setVisible(true);
         }
 
