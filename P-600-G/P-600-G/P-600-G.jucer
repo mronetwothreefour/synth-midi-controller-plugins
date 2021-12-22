@@ -9,15 +9,23 @@
               includeBinaryInJuceHeader="1">
   <MAINGROUP id="Vp8OBw" name="P-600-G">
     <GROUP id="{BEFB6A0B-A161-EF57-95D3-865D08CB7C7B}" name="Source">
-      <FILE id="e3zmdX" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="U4ogUd" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="XgpzK6" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="lIbtH5" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <GROUP id="{A6497F07-A7EF-7D5B-0AA0-8846D30EAB48}" name="core">
+        <FILE id="e3zmdX" name="core_PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/core_PluginProcessor.cpp"/>
+        <FILE id="U4ogUd" name="core_PluginProcessor.h" compile="0" resource="0"
+              file="Source/core_PluginProcessor.h"/>
+        <FILE id="XgpzK6" name="core_PluginEditor.cpp" compile="1" resource="0"
+              file="Source/core_PluginEditor.cpp"/>
+        <FILE id="lIbtH5" name="core_PluginEditor.h" compile="0" resource="0"
+              file="Source/core_PluginEditor.h"/>
+      </GROUP>
+      <GROUP id="{47111F00-9D2E-A6A6-5ED2-BA5C9AD38F66}" name="gui">
+        <FILE id="hLyTHj" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{DB488691-CA34-5B01-32B7-E6AEB615FC6E}" name="Resources">
+      <FILE id="zTWXe6" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
+      <FILE id="h5mScc" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
       <FILE id="KtFGfx" name="Button-Pgm-Bank-Down.png" compile="0" resource="1"
             file="../Resources/Button-Pgm-Bank-Down.png"/>
       <FILE id="AQQmeH" name="Button-Pgm-Bank-Up.png" compile="0" resource="1"
