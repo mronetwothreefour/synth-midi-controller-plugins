@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="dklsNJ" name="P-600-G" projectType="audioplug" jucerFormatVersion="1"
+              version="1.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+              companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginManufacturerCode="TimD" pluginDesc="Voice editor and librarian for the Sequential Circuits Prophet-600 synthesizer"
+              pluginChannelConfigs="{0, 0}" pluginVST3Category="Tools" cppLanguageStandard="20"
+              includeBinaryInJuceHeader="1">
+  <MAINGROUP id="Vp8OBw" name="P-600-G">
+    <GROUP id="{BEFB6A0B-A161-EF57-95D3-865D08CB7C7B}" name="Source">
+      <FILE id="e3zmdX" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="U4ogUd" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="XgpzK6" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="lIbtH5" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{DB488691-CA34-5B01-32B7-E6AEB615FC6E}" name="Resources">
+      <FILE id="KtFGfx" name="Button-Pgm-Bank-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Pgm-Bank-Down.png"/>
+      <FILE id="AQQmeH" name="Button-Pgm-Bank-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Pgm-Bank-Up.png"/>
+      <FILE id="FNQcJY" name="Button-Pull-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Pull-Down.png"/>
+      <FILE id="BTIIs3" name="Button-Pull-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Pull-Up.png"/>
+      <FILE id="Es56qw" name="Button-Push-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Push-Down.png"/>
+      <FILE id="Lkqrgc" name="Button-Push-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Push-Up.png"/>
+      <FILE id="W16Qpx" name="Button-Rand-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Rand-Down.png"/>
+      <FILE id="egfw3G" name="Button-Rand-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Rand-Up.png"/>
+      <FILE id="lwdgLL" name="Button-Redo-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Redo-Down.png"/>
+      <FILE id="xoF0MV" name="Button-Redo-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Redo-Up.png"/>
+      <FILE id="p76QXD" name="Button-Undo-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Undo-Down.png"/>
+      <FILE id="VrNx7s" name="Button-Undo-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Undo-Up.png"/>
+      <FILE id="gNkCzD" name="P-600-G-Main-Window-Background.png" compile="0"
+            resource="1" file="../Resources/P-600-G-Main-Window-Background.png"/>
+      <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
