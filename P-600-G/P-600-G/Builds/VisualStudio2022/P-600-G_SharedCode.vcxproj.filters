@@ -8,6 +8,12 @@
     <Filter Include="P-600-G\Source\gui">
       <UniqueIdentifier>{615BB840-6D79-9353-BF94-4FE9423A301E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\params">
+      <UniqueIdentifier>{1B8D9807-4224-2D5D-0DBE-A889FA30188C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G\Source\widgets_ControlsForParameters">
+      <UniqueIdentifier>{40E3888A-4BE6-074A-1895-C6237CA03CFE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source">
       <UniqueIdentifier>{434CBA13-68FA-CAF1-033C-3318264536B2}</UniqueIdentifier>
     </Filter>
@@ -2573,6 +2579,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h">
       <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
+      <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

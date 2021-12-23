@@ -22,6 +22,16 @@
       <GROUP id="{47111F00-9D2E-A6A6-5ED2-BA5C9AD38F66}" name="gui">
         <FILE id="hLyTHj" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
       </GROUP>
+      <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
+        <FILE id="kvSUFS" name="params_ExposedParamsInfo_Singleton.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
+        <FILE id="vDK4PF" name="params_Identifiers.h" compile="0" resource="0"
+              file="Source/params/params_Identifiers.h"/>
+      </GROUP>
+      <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
+        <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"
+              file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{DB488691-CA34-5B01-32B7-E6AEB615FC6E}" name="Resources">
       <FILE id="zTWXe6" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
