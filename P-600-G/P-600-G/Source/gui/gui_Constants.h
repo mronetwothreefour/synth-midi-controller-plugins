@@ -11,7 +11,9 @@ namespace constants
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
 		static const int knobOscB_Fine_x{ 609 };
+		static const int knobsMixerAndGlide_x{ 999 };
 		static const int knobsOscFrequency_x{ 523 };
+		static const int knobsOscPulseWidth_x{ 877 };
 		static const int knobRow1_y{ 67 };
 		static const int knobRow2_y{ 170 };
 		static const int knobRow3_y{ 308 };
