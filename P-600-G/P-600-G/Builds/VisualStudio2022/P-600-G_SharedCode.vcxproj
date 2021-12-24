@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2098,6 +2099,7 @@
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>

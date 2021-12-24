@@ -4,8 +4,7 @@
 
 
 
-enum class ControlType
-{
+enum class ControlType {
 	nullControl = -1,
 	rotarySlider,
 	rotarySliderForPitch,

@@ -23,6 +23,10 @@
         <FILE id="hLyTHj" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
       </GROUP>
       <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
+        <FILE id="HPzAy2" name="params_ExposedParameters_EnumClass.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParameters_EnumClass.h"/>
+        <FILE id="rNvFPc" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.cpp"/>
         <FILE id="kvSUFS" name="params_ExposedParamsInfo_Singleton.h" compile="0"
               resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
         <FILE id="vDK4PF" name="params_Identifiers.h" compile="0" resource="0"

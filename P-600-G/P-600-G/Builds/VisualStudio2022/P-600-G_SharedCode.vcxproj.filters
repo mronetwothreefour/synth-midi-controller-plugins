@@ -466,6 +466,9 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>P-600-G\Source\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2579,6 +2582,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h">
       <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h">
+      <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h">
       <Filter>P-600-G\Source\params</Filter>

@@ -10,6 +10,18 @@ namespace constants
 	{
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
+		static const int knobsOscFrequency_x{ 523 };
+		static const int knobRow1_y{ 67 };
+		static const int knobRow2_y{ 170 };
+		static const int knobRow3_y{ 308 };
+		static const int switchOscASync_x{ 609 };
+		static const int switchRow1_y{ 72 };
+		static const int switchRow2_y{ 177 };
+		static const int switchRow3_y{ 315 };
+
+		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
+		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
+		static const String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
 
 		static const std::vector<uint8> pathDataForSegment_A{ 110,109,20,174,11,65,0,0,0,0,108,246,40,170,65,0,0,0,0,108,123,20,162,65,225,122,100,64,108,184,30,17,65,225,122,100,64,99,101,0,0 };
 		static const std::vector<uint8> pathDataForSegment_B{ 110,109,0,0,0,65,0,0,0,0,108,102,102,6,65,164,112,133,64,108,31,133,219,64,10,215,107,65,108,62,10,151,64,215,163,134,65,108,72,225,74,64,215,163,134,65,98,72,225,74,64,215,163,134,65,185,30,53,64,51,51,127,65,123,20,62,64,102,102,114,65,98,61,10,71,64,153,153,101,65,82,184,150,64,143,194,5,64,82,184,150,64,143,194,5,64,98,51,51,155,64,123,20,174,62,184,30,213,64,0,0,0,0,0,0,0,65,0,0,0,0,99,101,0,0 };
