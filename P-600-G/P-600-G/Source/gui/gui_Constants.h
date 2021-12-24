@@ -10,11 +10,15 @@ namespace constants
 	{
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
+		static const int knobOscB_Fine_x{ 609 };
 		static const int knobsOscFrequency_x{ 523 };
 		static const int knobRow1_y{ 67 };
 		static const int knobRow2_y{ 170 };
 		static const int knobRow3_y{ 308 };
-		static const int switchOscASync_x{ 609 };
+		static const int switchesOscSaw_x{ 683 };
+		static const int switchesOscTri_x{ switchesOscSaw_x + 60 };
+		static const int switchesOscPulse_x{ switchesOscTri_x + 60 };
+		static const int switchOscA_Sync_x{ knobOscB_Fine_x };
 		static const int switchRow1_y{ 72 };
 		static const int switchRow2_y{ 177 };
 		static const int switchRow3_y{ 315 };
