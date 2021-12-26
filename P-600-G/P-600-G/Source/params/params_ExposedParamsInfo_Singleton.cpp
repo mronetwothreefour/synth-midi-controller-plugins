@@ -124,7 +124,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	exposedNames.add("Glide");
 	controlTypes.add(ControlType::knob);
 	descriptionString = GUI::openQuote + "Glide" + GUI::closeQuote + " is a smooth pitch transition between two consecutive notes.\n";
-	descriptionString += "This knob adjusts the length of time for the transition to complete.\n";
+	descriptionString += "This knob adjusts the amount of time for the transition to complete.\n";
 	descriptionString += "The actual time is dependent upon the distance between the two notes.\n";
 	descriptionString += "Range: 0 (instantaneous, i.e. no glide) to 15 (longest glide time).";
 	descriptions.add(descriptionString);
@@ -132,5 +132,44 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)15);
 	defaultValues.add((uint8)0);
 	firstNybbleIndices.add((uint8)25);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("filterCutoff"); // Parameter 14
+	exposedNames.add("Filter Cutoff Frequency");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Adjusts the cutoff frequency of the 4-pole low-pass filter.\n";
+	descriptionString += "Increasing the cutoff lets through higher and higher fre-\n";
+	descriptionString += "quencies and makes the sound 'brighter.' Range: 0 to 127.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsCutoffAndAttack_x, GUI::knobRow1_y));
+	maxValues.add((uint8)127);
+	defaultValues.add((uint8)66);
+	firstNybbleIndices.add((uint8)13);
+	firstBitIndices.add((uint8)0);
+
+	identifiers.add("filterReso"); // Parameter 15
+	exposedNames.add("Filter Resonance");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Increasing filter resonance boosts frequencies near the\n";
+	descriptionString += "cutoff frequency. At high resonance settings, the filter\n";
+	descriptionString += "will self-oscillate, producing a sine wave with a pitch\n";
+	descriptionString += "determined by the cutoff frequency. Range: 0 to 63.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsResoAndDelay_x, GUI::knobRow1_y));
+	maxValues.add((uint8)63);
+	defaultValues.add((uint8)32);
+	firstNybbleIndices.add((uint8)14);
+	firstBitIndices.add((uint8)3);
+
+	identifiers.add("filterEnvAmt"); // Parameter 16
+	exposedNames.add("Filter Envelope Amount");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the depth of the envelope which modulates the filter\n";
+	descriptionString += "cutoff frequency. Range: 0 (no modulation) to 15 (maximum depth).";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsEnvAmtAndSustain_x, GUI::knobRow1_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)16);
 	firstBitIndices.add((uint8)1);
 }
