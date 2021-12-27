@@ -155,7 +155,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptionString += "will self-oscillate, producing a sine wave with a pitch\n";
 	descriptionString += "determined by the cutoff frequency. Range: 0 to 63.";
 	descriptions.add(descriptionString);
-	controlCenterPoints.add(Point<int>(GUI::knobsResoAndDelay_x, GUI::knobRow1_y));
+	controlCenterPoints.add(Point<int>(GUI::knobsResoAndDecay_x, GUI::knobRow1_y));
 	maxValues.add((uint8)63);
 	defaultValues.add((uint8)32);
 	firstNybbleIndices.add((uint8)14);
@@ -171,5 +171,127 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	maxValues.add((uint8)15);
 	defaultValues.add((uint8)0);
 	firstNybbleIndices.add((uint8)16);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("filterKeyTrack"); // Parameter 17
+	exposedNames.add("Filter Keyboard Tracking");
+	controlTypes.add(ControlType::threePoleSwitch);
+	descriptionString = "When set to FULL, the filter cutoff frequency " + GUI::openQuote + "tracks" + GUI::closeQuote + " the notes\n";
+	descriptionString += "played on the keyboard, rising and falling so that all pitches have\n";
+	descriptionString += "consistent brightness and loudness. When set to OFF, the cutoff\n";
+	descriptionString += "frequency does not change. As you go higher up the keyboard past\n";
+	descriptionString += "the cutoff frequency, the pitches are progressively duller and\n";
+	descriptionString += "quieter. 1/2 selects the midrange between these two effects.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchKeyFollow_x, GUI::switchRow1_y));
+	maxValues.add((uint8)2);
+	defaultValues.add((uint8)1);
+	firstNybbleIndices.add((uint8)28);
+	firstBitIndices.add((uint8)2);
+
+	identifiers.add("filterAttack"); // Parameter 18
+	exposedNames.add("Filter Envelope Attack");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the filter\n";
+	descriptionString += "envelope to rise from zero to maximum level.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsCutoffAndAttack_x, GUI::knobRow2_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)20);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("filterDecay"); // Parameter 19
+	exposedNames.add("Filter Envelope Decay");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the filter envelope\n";
+	descriptionString += "to fall from maximum level down to the sustain level.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsResoAndDecay_x, GUI::knobRow2_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)19);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("filterSustain"); // Parameter 20
+	exposedNames.add("Filter Envelope Sustain");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the sustain level for the filter envelope.\n";
+	descriptionString += "The envelope decays to this level and stays\n";
+	descriptionString += "there until the note is released.\n";
+	descriptionString += "Range: 0 to 15 (maximum level)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsEnvAmtAndSustain_x, GUI::knobRow2_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)18);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("filterRelease"); // Parameter 21
+	exposedNames.add("Filter Envelope Release.");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the filter\n";
+	descriptionString += "envelope to fall to zero once the note is released.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsRelease_x, GUI::knobRow2_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)17);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("amplifierAttack"); // Parameter 22
+	exposedNames.add("Amplifier Envelope Attack");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the amplifier\n";
+	descriptionString += "envelope to rise from zero to maximum level.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsCutoffAndAttack_x, GUI::knobRow3_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)24);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("amplifierDecay"); // Parameter 23
+	exposedNames.add("Amplifier Envelope Decay");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the amplifier envelope\n";
+	descriptionString += "to fall from maximum level down to the sustain level.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsResoAndDecay_x, GUI::knobRow3_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)23);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("amplifierSustain"); // Parameter 24
+	exposedNames.add("Amplifier Envelope Sustain");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the sustain level for the amplifier envelope.\n";
+	descriptionString += "The envelope decays to this level and stays\n";
+	descriptionString += "there until the note is released.\n";
+	descriptionString += "Range: 0 to 15 (maximum level)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsEnvAmtAndSustain_x, GUI::knobRow3_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)15);
+	firstNybbleIndices.add((uint8)22);
+	firstBitIndices.add((uint8)1);
+
+	identifiers.add("amplifierRelease"); // Parameter 25
+	exposedNames.add("Amplifier Envelope Release.");
+	controlTypes.add(ControlType::knob);
+	descriptionString = "Sets the amount of time it takes for the amplifier\n";
+	descriptionString += "envelope to fall to zero once the note is released.\n";
+	descriptionString += "Range: 0 (instantaneous) to 15 (longest time)";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::knobsRelease_x, GUI::knobRow3_y));
+	maxValues.add((uint8)15);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)21);
 	firstBitIndices.add((uint8)1);
 }

@@ -13,8 +13,8 @@ namespace constants
 		static const int knobOscB_Fine_x{ 609 };
 		static const int knobsFilterAndAmplifierHorizSpacing_x{ 75 };
 		static const int knobsCutoffAndAttack_x{ 1117 };
-		static const int knobsResoAndDelay_x{ knobsCutoffAndAttack_x + knobsFilterAndAmplifierHorizSpacing_x };
-		static const int knobsEnvAmtAndSustain_x{ knobsResoAndDelay_x + knobsFilterAndAmplifierHorizSpacing_x };
+		static const int knobsResoAndDecay_x{ knobsCutoffAndAttack_x + knobsFilterAndAmplifierHorizSpacing_x };
+		static const int knobsEnvAmtAndSustain_x{ knobsResoAndDecay_x + knobsFilterAndAmplifierHorizSpacing_x };
 		static const int knobsRelease_x{ knobsEnvAmtAndSustain_x + knobsFilterAndAmplifierHorizSpacing_x };
 		static const int knobsMixerAndGlide_x{ 999 };
 		static const int knobsOscFrequency_x{ 523 };
@@ -27,6 +27,7 @@ namespace constants
 		static const int switchesOscTri_x{ switchesOscSaw_x + switchesWaveShapeHorizSpacing };
 		static const int switchesOscPulse_x{ switchesOscTri_x + switchesWaveShapeHorizSpacing };
 		static const int switchOscA_Sync_x{ knobOscB_Fine_x };
+		static const int switchKeyFollow_x{ 1338 };
 		static const int switchRow1_y{ 72 };
 		static const int switchRow2_y{ 177 };
 		static const int switchRow3_y{ 315 };
