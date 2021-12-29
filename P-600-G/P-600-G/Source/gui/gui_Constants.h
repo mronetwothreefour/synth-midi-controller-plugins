@@ -10,7 +10,9 @@ namespace constants
 	{
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
+		static const int knobLFOamount_x{ 232 };
 		static const int knobOscB_Fine_x{ 609 };
+		static const int knobPmodOscB_x{ 204 };
 		static const int knobsFilterAndAmplifierHorizSpacing_x{ 75 };
 		static const int knobsCutoffAndAttack_x{ 1117 };
 		static const int knobsResoAndDecay_x{ knobsCutoffAndAttack_x + knobsFilterAndAmplifierHorizSpacing_x };
@@ -19,18 +21,25 @@ namespace constants
 		static const int knobsMixerAndGlide_x{ 999 };
 		static const int knobsOscFrequency_x{ 523 };
 		static const int knobsOscPulseWidth_x{ 877 };
+		static const int knobsPmodFilterEnvAndLFOfreq_x{ 60 };
 		static const int knobRow1_y{ 67 };
 		static const int knobRow2_y{ 170 };
 		static const int knobRow3_y{ 308 };
-		static const int switchesWaveShapeHorizSpacing{ 60 };
+		static const int switchesHorizSpacing{ 60 };
 		static const int switchesOscSaw_x{ 683 };
-		static const int switchesOscTri_x{ switchesOscSaw_x + switchesWaveShapeHorizSpacing };
-		static const int switchesOscPulse_x{ switchesOscTri_x + switchesWaveShapeHorizSpacing };
+		static const int switchesOscTri_x{ switchesOscSaw_x + switchesHorizSpacing };
+		static const int switchesOscPulse_x{ switchesOscTri_x + switchesHorizSpacing };
+		static const int switchesPmodDestOscAandLFOdestFreq_x{ 307 };
+		static const int switchesPmodDestFilterandLFOdestPW_x{ switchesPmodDestOscAandLFOdestFreq_x + switchesHorizSpacing };
+		static const int switchLFOdestFilter_x{ switchesPmodDestFilterandLFOdestPW_x + switchesHorizSpacing };
+		static const int switchLFOshape_x{ 146 };
 		static const int switchOscA_Sync_x{ knobOscB_Fine_x };
+		static const int switchPmodFilter_x{ switchesPmodDestOscAandLFOdestFreq_x + switchesHorizSpacing };
 		static const int switchKeyFollow_x{ 1338 };
 		static const int switchRow1_y{ 72 };
 		static const int switchRow2_y{ 177 };
 		static const int switchRow3_y{ 315 };
+		static const int switchUnison_x{ 441 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
