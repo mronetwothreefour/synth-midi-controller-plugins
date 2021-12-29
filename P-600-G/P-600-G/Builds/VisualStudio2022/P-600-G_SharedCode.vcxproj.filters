@@ -8,6 +8,9 @@
     <Filter Include="P-600-G\Source\gui">
       <UniqueIdentifier>{615BB840-6D79-9353-BF94-4FE9423A301E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\midi">
+      <UniqueIdentifier>{D82CCC19-80D9-5CD3-BC41-94FD325163EC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\params">
       <UniqueIdentifier>{1B8D9807-4224-2D5D-0DBE-A889FA30188C}</UniqueIdentifier>
     </Filter>
@@ -465,6 +468,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>P-600-G\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
+      <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
       <Filter>P-600-G\Source\params</Filter>
@@ -2591,6 +2597,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h">
       <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
+      <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h">
       <Filter>P-600-G\Source\params</Filter>
