@@ -481,6 +481,9 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
@@ -2614,6 +2617,9 @@
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">

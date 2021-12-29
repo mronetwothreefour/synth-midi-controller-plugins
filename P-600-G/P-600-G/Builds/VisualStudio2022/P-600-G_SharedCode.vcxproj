@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp"/>
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -2109,6 +2110,7 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h"/>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h"/>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

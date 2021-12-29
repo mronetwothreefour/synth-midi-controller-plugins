@@ -44,6 +44,10 @@
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="DQxPK3" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="cFrSnO" name="params_TooltipOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_TooltipOptions.cpp"/>
+        <FILE id="HhGhEU" name="params_TooltipOptions.h" compile="0" resource="0"
+              file="Source/params/params_TooltipOptions.h"/>
         <FILE id="X28ypo" name="params_UnexposedParameters_Facade.cpp" compile="1"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
         <FILE id="q85jHa" name="params_UnexposedParameters_Facade.h" compile="0"
