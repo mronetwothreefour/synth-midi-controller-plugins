@@ -67,6 +67,12 @@
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"
               file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
       </GROUP>
+      <GROUP id="{687022F4-A08B-9C40-7A8B-98C01C8CC06E}" name="widgets_Slider">
+        <FILE id="iN3gOX" name="widget_ModifiedJuceSliders.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
+        <FILE id="GPigKe" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
+              file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{DB488691-CA34-5B01-32B7-E6AEB615FC6E}" name="Resources">
       <FILE id="zTWXe6" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>

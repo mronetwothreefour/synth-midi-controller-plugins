@@ -20,6 +20,9 @@
     <Filter Include="P-600-G\Source\widgets_ControlsForParameters">
       <UniqueIdentifier>{40E3888A-4BE6-074A-1895-C6237CA03CFE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\widgets_Slider">
+      <UniqueIdentifier>{88BBF352-2BCE-7B1A-FF03-472BB13120E4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source">
       <UniqueIdentifier>{434CBA13-68FA-CAF1-033C-3318264536B2}</UniqueIdentifier>
     </Filter>
@@ -495,6 +498,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2642,6 +2648,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

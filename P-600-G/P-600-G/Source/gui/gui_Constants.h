@@ -8,6 +8,9 @@ namespace constants
 {
 	namespace GUI
 	{
+		static const float knobEndAngleInDegrees{ 420.0f };
+		static const float knobStartAngleInDegrees{ 210.0f };
+
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
 		static const int knobLFOamount_x{ 232 };
