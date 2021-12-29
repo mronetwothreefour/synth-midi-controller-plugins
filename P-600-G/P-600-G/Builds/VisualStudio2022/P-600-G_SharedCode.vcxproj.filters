@@ -14,6 +14,9 @@
     <Filter Include="P-600-G\Source\params">
       <UniqueIdentifier>{1B8D9807-4224-2D5D-0DBE-A889FA30188C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\tooltipSetters">
+      <UniqueIdentifier>{C9E2CBAB-F06D-33F6-5F2C-F95BA1C0DC37}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\widgets_ControlsForParameters">
       <UniqueIdentifier>{40E3888A-4BE6-074A-1895-C6237CA03CFE}</UniqueIdentifier>
     </Filter>
@@ -486,6 +489,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>P-600-G\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
+      <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2624,6 +2630,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>P-600-G\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
+      <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>

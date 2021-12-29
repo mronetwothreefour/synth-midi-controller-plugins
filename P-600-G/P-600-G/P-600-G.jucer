@@ -53,6 +53,12 @@
         <FILE id="q85jHa" name="params_UnexposedParameters_Facade.h" compile="0"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
       </GROUP>
+      <GROUP id="{5CB6F16B-5917-0CF3-F056-4C83F3D48EAD}" name="tooltipSetters">
+        <FILE id="RR3RHA" name="tooltipSetter_Base.cpp" compile="1" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
+        <FILE id="dGfFh7" name="tooltipSetter_Base.h" compile="0" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.h"/>
+      </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"
               file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
