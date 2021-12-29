@@ -5090,6 +5090,12 @@
     <None Include="..\..\..\Resources\Button-Redo-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Button-Tips-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Tips-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Button-Undo-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>

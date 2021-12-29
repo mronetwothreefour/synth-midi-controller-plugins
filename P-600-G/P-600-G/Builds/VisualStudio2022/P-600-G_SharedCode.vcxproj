@@ -2934,6 +2934,8 @@
     <None Include="..\..\..\Resources\Button-Rand-Up.png"/>
     <None Include="..\..\..\Resources\Button-Redo-Down.png"/>
     <None Include="..\..\..\Resources\Button-Redo-Up.png"/>
+    <None Include="..\..\..\Resources\Button-Tips-Down.png"/>
+    <None Include="..\..\..\Resources\Button-Tips-Up.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Down.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Up.png"/>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>

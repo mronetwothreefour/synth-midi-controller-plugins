@@ -91,6 +91,10 @@
             file="../Resources/Button-Redo-Down.png"/>
       <FILE id="xoF0MV" name="Button-Redo-Up.png" compile="0" resource="1"
             file="../Resources/Button-Redo-Up.png"/>
+      <FILE id="SsJHLC" name="Button-Tips-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Tips-Down.png"/>
+      <FILE id="R95wBH" name="Button-Tips-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Tips-Up.png"/>
       <FILE id="p76QXD" name="Button-Undo-Down.png" compile="0" resource="1"
             file="../Resources/Button-Undo-Down.png"/>
       <FILE id="VrNx7s" name="Button-Undo-Up.png" compile="0" resource="1"
