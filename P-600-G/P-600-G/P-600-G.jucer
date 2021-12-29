@@ -5,8 +5,7 @@
               companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
               pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
               pluginManufacturerCode="TimD" pluginDesc="Voice editor and librarian for the Sequential Circuits Prophet-600 synthesizer"
-              pluginChannelConfigs="{0, 0}" pluginVST3Category="Tools" cppLanguageStandard="20"
-              includeBinaryInJuceHeader="1">
+              pluginVST3Category="Tools" cppLanguageStandard="20" includeBinaryInJuceHeader="1">
   <MAINGROUP id="Vp8OBw" name="P-600-G">
     <GROUP id="{BEFB6A0B-A161-EF57-95D3-865D08CB7C7B}" name="Source">
       <GROUP id="{A6497F07-A7EF-7D5B-0AA0-8846D30EAB48}" name="core">
@@ -29,12 +28,20 @@
               resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.cpp"/>
         <FILE id="kvSUFS" name="params_ExposedParamsInfo_Singleton.h" compile="0"
               resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
+        <FILE id="OLTsRg" name="params_ExposedParamsLayout_Factory.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
+        <FILE id="K7oqZe" name="params_ExposedParamsLayout_Factory.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
         <FILE id="vDK4PF" name="params_Identifiers.h" compile="0" resource="0"
               file="Source/params/params_Identifiers.h"/>
         <FILE id="K4gKCB" name="params_IntToContextualStringConverters.cpp"
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="DQxPK3" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="X28ypo" name="params_UnexposedParameters_Facade.cpp" compile="1"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
+        <FILE id="q85jHa" name="params_UnexposedParameters_Facade.h" compile="0"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
       </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"

@@ -469,3 +469,61 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	firstNybbleIndices.add((uint8)29);
 	firstBitIndices.add((uint8)3);
 }
+
+InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
+	static InfoForExposedParameters exposedParamsInfo;
+	return exposedParamsInfo;
+}
+
+int InfoForExposedParameters::paramOutOfRange() const noexcept {
+	return identifiers.size();
+}
+
+Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
+	return identifiers[paramIndex];
+}
+
+String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
+	return exposedNames[paramIndex];
+}
+
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
+	return controlTypes[paramIndex];
+}
+
+IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
+	return converters[paramIndex];
+}
+
+uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
+	return maxValues[paramIndex];
+}
+
+uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
+	return defaultValues[paramIndex];
+}
+
+uint8 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
+	return maxValues[paramIndex] + 1;
+}
+
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
+	return descriptions[paramIndex];
+}
+
+Point<int> InfoForExposedParameters::controlCenterPointFor(uint8 paramIndex) const {
+	return controlCenterPoints[paramIndex];
+}
+
+uint8 InfoForExposedParameters::firstNybbleIndexFor(uint8 paramIndex) const {
+	return firstNybbleIndices[paramIndex];
+}
+
+uint8 InfoForExposedParameters::firstBitIndexFor(uint8 paramIndex) const {
+	return firstBitIndices[paramIndex];
+}
+
+uint8 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
+	return (uint8)identifiers.indexOf(Identifier(parameterID));
+}
+

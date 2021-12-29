@@ -1,10 +1,15 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "params/params_ExposedParamsLayout_Factory.h"
+#include "params/params_UnexposedParameters_Facade.h"
+
 
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor{ BusesProperties() }
+    AudioProcessor{ BusesProperties() },
+    unexposedParams{ new UnexposedParameters() },
+    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
 {
 }
 
@@ -77,8 +82,10 @@ void PluginProcessor::getStateInformation (juce::MemoryBlock& /*destData*/) {
 void PluginProcessor::setStateInformation (const void* /*data*/, int /*sizeInBytes*/) {
 }
 
-
 PluginProcessor::~PluginProcessor() {
+    unexposedParams->undoManager_get()->clearUndoHistory();
+    exposedParams = nullptr;
+    unexposedParams = nullptr;
 }
 
 //==============================================================================
