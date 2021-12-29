@@ -493,6 +493,9 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
+      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2632,6 +2635,9 @@
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
+      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">

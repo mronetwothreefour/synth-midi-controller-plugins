@@ -147,6 +147,7 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2114,6 +2115,7 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
