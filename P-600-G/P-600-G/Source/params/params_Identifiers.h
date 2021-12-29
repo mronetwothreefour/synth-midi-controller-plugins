@@ -6,6 +6,8 @@
 
 namespace ID
 {
+	static const Identifier component_Knob{ "component_Knob" };
+
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };

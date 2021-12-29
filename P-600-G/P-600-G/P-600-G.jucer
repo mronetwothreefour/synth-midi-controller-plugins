@@ -68,6 +68,10 @@
               file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
       </GROUP>
       <GROUP id="{687022F4-A08B-9C40-7A8B-98C01C8CC06E}" name="widgets_Slider">
+        <FILE id="h0JNSL" name="widget_KnobWithExposedParamAttacher.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacher.cpp"/>
+        <FILE id="my5sKJ" name="widget_KnobWithExposedParamAttacher.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacher.h"/>
         <FILE id="iN3gOX" name="widget_ModifiedJuceSliders.cpp" compile="1"
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="GPigKe" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
