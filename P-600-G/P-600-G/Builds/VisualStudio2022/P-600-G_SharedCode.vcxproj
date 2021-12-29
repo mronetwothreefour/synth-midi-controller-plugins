@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2102,6 +2103,7 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>

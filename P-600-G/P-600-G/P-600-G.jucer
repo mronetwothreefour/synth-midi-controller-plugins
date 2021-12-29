@@ -31,6 +31,10 @@
               resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
         <FILE id="vDK4PF" name="params_Identifiers.h" compile="0" resource="0"
               file="Source/params/params_Identifiers.h"/>
+        <FILE id="K4gKCB" name="params_IntToContextualStringConverters.cpp"
+              compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
+        <FILE id="DQxPK3" name="params_IntToContextualStringConverters.h" compile="0"
+              resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
       </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"

@@ -5,12 +5,14 @@
 
 
 enum class ControlType;
+struct IntToContextualStringConverter;
 
 class InfoForExposedParameters
 {
 	Array<Identifier> identifiers;
 	Array<String> exposedNames;
 	Array<ControlType> controlTypes;
+	Array<IntToContextualStringConverter*> converters;
 	Array<String> descriptions;
 	Array<Point<int>> controlCenterPoints;
 	Array<uint8> maxValues;
