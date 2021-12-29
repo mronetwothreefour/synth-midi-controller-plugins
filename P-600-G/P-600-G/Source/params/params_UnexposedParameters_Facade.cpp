@@ -22,4 +22,5 @@ UndoManager* UnexposedParameters::undoManager_get() {
 
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
+	outgoingMidiBuffers = nullptr;
 }

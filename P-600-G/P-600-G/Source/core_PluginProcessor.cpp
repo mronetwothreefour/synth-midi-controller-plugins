@@ -9,7 +9,8 @@
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
+    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() }
 {
 }
 
@@ -51,6 +52,12 @@ void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiB
     buffer.clear();
 
     if (!midiMessages.isEmpty()) {
+    }
+
+    if (!aggregatedOutgoingBuffers->isEmpty()) {
+        for (auto event : aggregatedOutgoingBuffers->removeAndReturn(0)) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
+        }
     }
 }
 
