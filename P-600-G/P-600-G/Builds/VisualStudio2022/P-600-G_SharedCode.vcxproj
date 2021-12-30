@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp"/>
@@ -2107,7 +2108,10 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
@@ -2926,6 +2930,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Down.png"/>
