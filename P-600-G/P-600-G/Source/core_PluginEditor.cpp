@@ -3,6 +3,7 @@
 
 #include "gui/gui_Constants.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
+#include "gui/gui_LookAndFeel.h"
 
 using namespace constants;
 
@@ -13,8 +14,11 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     processor{ processor },
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
+    lookAndFeel{ new GUILookAndFeel() },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) }
 {
+    LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
+
     addAndMakeVisible(exposedParamsControlsLayer.get());
     
     setSize(GUI::editor_w, GUI::editor_h);

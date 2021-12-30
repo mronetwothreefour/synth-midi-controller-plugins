@@ -26,6 +26,10 @@
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
         <FILE id="rCSYIv" name="gui_Layer_ExposedParamsControls.h" compile="0"
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
+        <FILE id="mVVWta" name="gui_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_LookAndFeel.cpp"/>
+        <FILE id="fKotxy" name="gui_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_LookAndFeel.h"/>
       </GROUP>
       <GROUP id="{72756720-CCA7-428F-B620-287BFF90ECA5}" name="guiRenderers">
         <FILE id="htUeva" name="guiRenderer_ForKnobValueStrings.cpp" compile="1"

@@ -7,5 +7,5 @@
 namespace Color
 {
 	static const Colour black{ 0xff000000 };
-	static const Colour offWhiteText{ 0xffaeaeae };
+	static const Colour offWhite{ 0xffaeaeae };
 }
