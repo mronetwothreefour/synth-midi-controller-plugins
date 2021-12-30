@@ -22,6 +22,10 @@
         <FILE id="jqYy1j" name="gui_Colors.h" compile="0" resource="0" file="Source/gui/gui_Colors.h"/>
         <FILE id="hLyTHj" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
         <FILE id="QImWDz" name="gui_Fonts.h" compile="0" resource="0" file="Source/gui/gui_Fonts.h"/>
+        <FILE id="dT6teI" name="gui_Layer_ExposedParamsControls.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
+        <FILE id="rCSYIv" name="gui_Layer_ExposedParamsControls.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
       </GROUP>
       <GROUP id="{72756720-CCA7-428F-B620-287BFF90ECA5}" name="guiRenderers">
         <FILE id="htUeva" name="guiRenderer_ForKnobValueStrings.cpp" compile="1"
@@ -76,6 +80,10 @@
               resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.cpp"/>
         <FILE id="W9Q7kC" name="widget_ControlForExposedParameter.h" compile="0"
               resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.h"/>
+        <FILE id="lKFMyP" name="widget_ControlsForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.cpp"/>
+        <FILE id="Ly6mpF" name="widget_ControlsForExposedParameters.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"/>
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"
               file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
       </GROUP>

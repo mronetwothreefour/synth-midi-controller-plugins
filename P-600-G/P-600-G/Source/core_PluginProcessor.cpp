@@ -38,14 +38,14 @@ int PluginProcessor::getCurrentProgram() {
     return 0;
 }
 
-void PluginProcessor::setCurrentProgram (int /*index*/) {
+void PluginProcessor::setCurrentProgram(int /*index*/) {
 }
 
-const juce::String PluginProcessor::getProgramName (int /*index*/) {
+const juce::String PluginProcessor::getProgramName(int /*index*/) {
     return {};
 }
 
-void PluginProcessor::changeProgramName (int /*index*/, const juce::String& /*newName*/) {
+void PluginProcessor::changeProgramName(int /*index*/, const juce::String& /*newName*/) {
 }
 
 void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
@@ -65,7 +65,7 @@ bool PluginProcessor::isBusesLayoutSupported(const BusesLayout& /*layouts*/) con
     return true;
 }
 
-void PluginProcessor::prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/) {
+void PluginProcessor::prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/) {
 }
 
 void PluginProcessor::releaseResources() {
@@ -80,13 +80,13 @@ bool PluginProcessor::hasEditor() const {
 }
 
 juce::AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this);
+    return new PluginEditor(*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation (juce::MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
 }
 
-void PluginProcessor::setStateInformation (const void* /*data*/, int /*sizeInBytes*/) {
+void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
 }
 
 PluginProcessor::~PluginProcessor() {

@@ -2,20 +2,26 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Constants.h"
+#include "gui/gui_Layer_ExposedParamsControls.h"
 
 using namespace constants;
 
 
 
-PluginEditor::PluginEditor (PluginProcessor& processor) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }
+    processor{ processor },
+    exposedParams{ exposedParams },
+    unexposedParams{ unexposedParams },
+    exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) }
 {
+    addAndMakeVisible(exposedParamsControlsLayer.get());
+    
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
 }
 
-void PluginEditor::paint (juce::Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::P600GMainWindowBackground_png, BinaryData::P600GMainWindowBackground_pngSize, false };
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
@@ -23,7 +29,9 @@ void PluginEditor::paint (juce::Graphics& g) {
 }
 
 void PluginEditor::resized() {
+    exposedParamsControlsLayer->setBounds(getLocalBounds());
 }
 
 PluginEditor::~PluginEditor() {
+    exposedParamsControlsLayer = nullptr;
 }

@@ -478,6 +478,9 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>P-600-G\Source\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClCompile>
@@ -506,6 +509,9 @@
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
+      <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp">
@@ -2637,6 +2643,9 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClInclude>
@@ -2671,6 +2680,9 @@
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
+      <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">

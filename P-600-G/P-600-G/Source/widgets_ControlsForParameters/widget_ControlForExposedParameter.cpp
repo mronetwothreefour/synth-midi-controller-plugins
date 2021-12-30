@@ -49,6 +49,8 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 		if (knobForPitchWithValueStringDisplay != nullptr)
 			knobForPitchWithValueStringDisplay->attachToExposedParameter(exposedParams);
 		break;
+	default:
+		break;
 	}
 }
 
