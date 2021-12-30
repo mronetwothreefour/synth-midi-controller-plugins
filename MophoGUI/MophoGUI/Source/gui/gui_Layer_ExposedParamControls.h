@@ -12,8 +12,6 @@ class ExposedParamsControlsLayer :
 	public Component,
 	private ControlsForExposedParameters
 {
-	UnexposedParameters* unexposedParams;
-
 public:
 	ExposedParamsControlsLayer() = delete;
 

@@ -6,8 +6,7 @@
 
 
 ExposedParamsControlsLayer::ExposedParamsControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	ControlsForExposedParameters(unexposedParams),
-	unexposedParams{ unexposedParams }
+	ControlsForExposedParameters(unexposedParams)
 {
     rebuildControls(unexposedParams);
     for (uint8 param = 0; param != paramOutOfRange(); ++param) {
