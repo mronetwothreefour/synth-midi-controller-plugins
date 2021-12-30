@@ -505,6 +505,12 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
+      <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClCompile>
@@ -2664,10 +2670,22 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
+      <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithValueStringDisplay.h">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">

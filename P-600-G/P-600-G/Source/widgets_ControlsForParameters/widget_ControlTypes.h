@@ -6,7 +6,8 @@
 
 enum class ControlType {
 	nullControl = -1,
-	knob,
+	knobWithValueStringDisplay,
+	knobForPitchWithValueStringDisplay,
 	twoPoleSwitch,
 	threePoleSwitch,
 	pgmSlotRadioButton

@@ -28,6 +28,8 @@ namespace constants
 		static const int knobRow1_y{ 67 };
 		static const int knobRow2_y{ 170 };
 		static const int knobRow3_y{ 308 };
+		static const int knobs_h{ 34 };
+		static const int knobs_w{ knobs_h };
 		static const int switchesHorizSpacing{ 60 };
 		static const int switchesOscSaw_x{ 683 };
 		static const int switchesOscTri_x{ switchesOscSaw_x + switchesHorizSpacing };
