@@ -60,3 +60,14 @@ public:
 
 	explicit RotarySliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
 };
+
+
+
+
+class LinearSliderWithMouseWheelMod : public SliderWithMouseWheelMod
+{
+public:
+	LinearSliderWithMouseWheelMod() = delete;
+
+	explicit LinearSliderWithMouseWheelMod(UnexposedParameters* unexposedParams);
+};

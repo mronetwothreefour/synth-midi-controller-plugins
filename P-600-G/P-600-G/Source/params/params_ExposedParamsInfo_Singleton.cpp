@@ -32,20 +32,20 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		firstNybbleIndices.add(i == 0 ? (uint8)8 : (uint8)6);
 		firstBitIndices.add(i == 0 ? (uint8)1 : (uint8)3);
 
-		//if (i == 0) {
-		//	identifiers.add("oscA_Sync"); // Parameter 1 
-		//	exposedNames.add("Oscillator A Sync");
-		//	controlTypes.add(ControlType::twoPoleSwitch);
-		//	converters.add(IntToOffOnString::get());
-		//	descriptionString = "When on, oscillator A is forced to follow\n";
-		//	descriptionString += "oscillator B in " + GUI::openQuote + "hard" + GUI::closeQuote + "synchronization.";
-		//	descriptions.add(descriptionString);
-		//	controlCenterPoints.add(Point<int>(GUI::switchOscA_Sync_x, GUI::switchRow2_y));
-		//	maxValues.add((uint8)1);
-		//	defaultValues.add((uint8)1);
-		//	firstNybbleIndices.add((uint8)30);
-		//	firstBitIndices.add((uint8)2);
-		//}
+		if (i == 0) {
+			identifiers.add("oscA_Sync"); // Parameter 1 
+			exposedNames.add("Oscillator A Sync");
+			controlTypes.add(ControlType::twoPoleSwitch);
+			converters.add(IntToOffOnString::get());
+			descriptionString = "When on, oscillator A is forced to follow\n";
+			descriptionString += "oscillator B in " + GUI::openQuote + "hard" + GUI::closeQuote + "synchronization.";
+			descriptions.add(descriptionString);
+			controlCenterPoints.add(Point<int>(GUI::switchOscA_Sync_x, GUI::switchRow2_y));
+			maxValues.add((uint8)1);
+			defaultValues.add((uint8)1);
+			firstNybbleIndices.add((uint8)30);
+			firstBitIndices.add((uint8)2);
+		}
 
 		if (i == 1) {
 			identifiers.add("oscB_Fine"); // Parameter 7 
@@ -62,41 +62,41 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			firstBitIndices.add((uint8)3);
 		}
 
-		//identifiers.add("osc" + oscLetter + "_Saw"); // Parameters 2 & 8 
-		//exposedNames.add("Oscillator " + oscLetter + " Shape: Sawtooth");
-		//controlTypes.add(ControlType::twoPoleSwitch);
-		//converters.add(IntToOffOnString::get());
-		//descriptionString = "When on, oscillator " + oscLetter + " outputs a sawtooth wave.";
-		//descriptions.add(descriptionString);
-		//controlCenterPoints.add(Point<int>(GUI::switchesOscSaw_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
-		//maxValues.add((uint8)1);
-		//defaultValues.add((uint8)0);
-		//firstNybbleIndices.add((uint8)30);
-		//firstBitIndices.add(i == 0 ? (uint8)0 : (uint8)3);
+		identifiers.add("osc" + oscLetter + "_Saw"); // Parameters 2 & 8 
+		exposedNames.add("Oscillator " + oscLetter + " Shape: Sawtooth");
+		controlTypes.add(ControlType::twoPoleSwitch);
+		converters.add(IntToOffOnString::get());
+		descriptionString = "When on, oscillator " + oscLetter + " outputs a sawtooth wave.";
+		descriptions.add(descriptionString);
+		controlCenterPoints.add(Point<int>(GUI::switchesOscSaw_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
+		maxValues.add((uint8)1);
+		defaultValues.add((uint8)0);
+		firstNybbleIndices.add((uint8)30);
+		firstBitIndices.add(i == 0 ? (uint8)0 : (uint8)3);
 
-		//identifiers.add("osc" + oscLetter + "_Tri"); // Parameters 3 & 9 
-		//exposedNames.add("Oscillator " + oscLetter + " Shape: Triangle");
-		//controlTypes.add(ControlType::twoPoleSwitch);
-		//converters.add(IntToOffOnString::get());
-		//descriptionString = "When on, oscillator " + oscLetter + " outputs a triangle wave.";
-		//descriptions.add(descriptionString);
-		//controlCenterPoints.add(Point<int>(GUI::switchesOscTri_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
-		//maxValues.add((uint8)1);
-		//defaultValues.add((uint8)0);
-		//firstNybbleIndices.add(i == 0 ? (uint8)30 : 31);
-		//firstBitIndices.add(i == 0 ? (uint8)1 : (uint8)0);
+		identifiers.add("osc" + oscLetter + "_Tri"); // Parameters 3 & 9 
+		exposedNames.add("Oscillator " + oscLetter + " Shape: Triangle");
+		controlTypes.add(ControlType::twoPoleSwitch);
+		converters.add(IntToOffOnString::get());
+		descriptionString = "When on, oscillator " + oscLetter + " outputs a triangle wave.";
+		descriptions.add(descriptionString);
+		controlCenterPoints.add(Point<int>(GUI::switchesOscTri_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
+		maxValues.add((uint8)1);
+		defaultValues.add((uint8)0);
+		firstNybbleIndices.add(i == 0 ? (uint8)30 : 31);
+		firstBitIndices.add(i == 0 ? (uint8)1 : (uint8)0);
 
-		//identifiers.add("osc" + oscLetter + "_Pulse"); // Parameters 4 & 10 
-		//exposedNames.add("Oscillator " + oscLetter + " Shape: Pulse");
-		//controlTypes.add(ControlType::twoPoleSwitch);
-		//converters.add(IntToOffOnString::get());
-		//descriptionString = "When on, oscillator " + oscLetter + " outputs a pulse wave.";
-		//descriptions.add(descriptionString);
-		//controlCenterPoints.add(Point<int>(GUI::switchesOscPulse_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
-		//maxValues.add((uint8)1);
-		//defaultValues.add((uint8)1);
-		//firstNybbleIndices.add((uint8)28);
-		//firstBitIndices.add(i == 0 ? (uint8)0 : (uint8)1);
+		identifiers.add("osc" + oscLetter + "_Pulse"); // Parameters 4 & 10 
+		exposedNames.add("Oscillator " + oscLetter + " Shape: Pulse");
+		controlTypes.add(ControlType::twoPoleSwitch);
+		converters.add(IntToOffOnString::get());
+		descriptionString = "When on, oscillator " + oscLetter + " outputs a pulse wave.";
+		descriptions.add(descriptionString);
+		controlCenterPoints.add(Point<int>(GUI::switchesOscPulse_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
+		maxValues.add((uint8)1);
+		defaultValues.add((uint8)1);
+		firstNybbleIndices.add((uint8)28);
+		firstBitIndices.add(i == 0 ? (uint8)0 : (uint8)1);
 
 		identifiers.add("osc" + oscLetter + "_PulseWidth"); // Parameters 5 & 11
 		exposedNames.add("Oscillator " + oscLetter + " Pulse Width");
@@ -186,22 +186,22 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	firstNybbleIndices.add((uint8)16);
 	firstBitIndices.add((uint8)1);
 
-	//identifiers.add("filterKeyTrack"); // Parameter 17
-	//exposedNames.add("Filter Keyboard Tracking");
-	//controlTypes.add(ControlType::threePoleSwitch);
-	//converters.add(IntToKeyTrackString::get());
-	//descriptionString = "When set to FULL, the filter cutoff frequency " + GUI::openQuote + "tracks" + GUI::closeQuote + " the notes\n";
-	//descriptionString += "played on the keyboard, rising and falling so that all pitches have\n";
-	//descriptionString += "consistent brightness and loudness. When set to OFF, the cutoff\n";
-	//descriptionString += "frequency does not change. As you go higher up the keyboard past\n";
-	//descriptionString += "the cutoff frequency, the pitches are progressively duller and\n";
-	//descriptionString += "quieter. 1/2 selects the midrange between these two effects.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchKeyFollow_x, GUI::switchRow1_y));
-	//maxValues.add((uint8)2);
-	//defaultValues.add((uint8)2);
-	//firstNybbleIndices.add((uint8)28);
-	//firstBitIndices.add((uint8)2);
+	identifiers.add("filterKeyTrack"); // Parameter 17
+	exposedNames.add("Filter Keyboard Tracking");
+	controlTypes.add(ControlType::threePoleSwitch);
+	converters.add(IntToKeyTrackString::get());
+	descriptionString = "When set to FULL, the filter cutoff frequency " + GUI::openQuote + "tracks" + GUI::closeQuote + " the notes\n";
+	descriptionString += "played on the keyboard, rising and falling so that all pitches have\n";
+	descriptionString += "consistent brightness and loudness. When set to OFF, the cutoff\n";
+	descriptionString += "frequency does not change. As you go higher up the keyboard past\n";
+	descriptionString += "the cutoff frequency, the pitches are progressively duller and\n";
+	descriptionString += "quieter. 1/2 selects the midrange between these two effects.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchKeyFollow_x, GUI::switchRow1_y));
+	maxValues.add((uint8)2);
+	defaultValues.add((uint8)2);
+	firstNybbleIndices.add((uint8)28);
+	firstBitIndices.add((uint8)2);
 
 	identifiers.add("filterAttack"); // Parameter 18
 	exposedNames.add("Filter Envelope Attack");
@@ -345,50 +345,50 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	firstNybbleIndices.add((uint8)3);
 	firstBitIndices.add((uint8)3);
 
-	//identifiers.add("polyModDest_OscAfreq"); // Parameter 28 
-	//exposedNames.add("Poly-Mod Destination: Oscillator A Frequency");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToOffOnString::get());
-	//descriptionString = "Enables modulation of oscillator A" + GUI::apostrophe + "s\n";
-	//descriptionString = "frequency by the two poly-mod sources.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow2_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)0);
-	//firstNybbleIndices.add((uint8)31);
-	//firstBitIndices.add((uint8)1);
+	identifiers.add("polyModDest_OscAfreq"); // Parameter 28 
+	exposedNames.add("Poly-Mod Destination: Oscillator A Frequency");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToOffOnString::get());
+	descriptionString = "Enables modulation of oscillator A" + GUI::apostrophe + "s\n";
+	descriptionString = "frequency by the two poly-mod sources.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow2_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)31);
+	firstBitIndices.add((uint8)1);
 
-	//identifiers.add("polyModDest_Filter"); // Parameter 29 
-	//exposedNames.add("Poly-Mod Destination: Filter Cutoff Frequency");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToOffOnString::get());
-	//descriptionString = "Enables modulation of the filter" + GUI::apostrophe + "s cutoff\n";
-	//descriptionString = "frequency by the two poly-mod sources.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchPmodFilter_x, GUI::switchRow2_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)0);
-	//firstNybbleIndices.add((uint8)31);
-	//firstBitIndices.add((uint8)2);
+	identifiers.add("polyModDest_Filter"); // Parameter 29 
+	exposedNames.add("Poly-Mod Destination: Filter Cutoff Frequency");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToOffOnString::get());
+	descriptionString = "Enables modulation of the filter" + GUI::apostrophe + "s cutoff\n";
+	descriptionString = "frequency by the two poly-mod sources.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchPmodFilter_x, GUI::switchRow2_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)31);
+	firstBitIndices.add((uint8)2);
 
-	//identifiers.add("unisonTrack"); // Parameter 30 
-	//exposedNames.add("Unison Tracking");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToOffOnString::get());
-	//descriptionString = "Enables one of the three unison keyboard tracking modes:\n";
-	//descriptionString = "Normal: Switch unison on while no keys are pressed. All 6 voices play\n";
-	//descriptionString = "at once at a single pitch (the lowest triggered note has priority).\n";
-	//descriptionString = "Chord Track: Switch unison on while holding down multiple notes.\n";
-	//descriptionString = "When new notes are triggered, the same note intervals are played,\n";
-	//descriptionString = "but with the lowest triggered new note as the root.\n";
-	//descriptionString = "Single Voice: Switch unison on while holding down a single note.\n";
-	//descriptionString = "Similar to normal unison, but only one voice plays at a time.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchUnison_x, GUI::switchRow2_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)0);
-	//firstNybbleIndices.add((uint8)31);
-	//firstBitIndices.add((uint8)3);
+	identifiers.add("unisonTrack"); // Parameter 30 
+	exposedNames.add("Unison Tracking");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToOffOnString::get());
+	descriptionString = "Enables one of the three unison keyboard tracking modes:\n";
+	descriptionString = "Normal: Switch unison on while no keys are pressed. All 6 voices play\n";
+	descriptionString = "at once at a single pitch (the lowest triggered note has priority).\n";
+	descriptionString = "Chord Track: Switch unison on while holding down multiple notes.\n";
+	descriptionString = "When new notes are triggered, the same note intervals are played,\n";
+	descriptionString = "but with the lowest triggered new note as the root.\n";
+	descriptionString = "Single Voice: Switch unison on while holding down a single note.\n";
+	descriptionString = "Similar to normal unison, but only one voice plays at a time.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchUnison_x, GUI::switchRow2_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)31);
+	firstBitIndices.add((uint8)3);
 
 	identifiers.add("lfoFreq"); // Parameter 31
 	exposedNames.add("LFO Frequency");
@@ -403,18 +403,18 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	firstNybbleIndices.add((uint8)2);
 	firstBitIndices.add((uint8)3);
 
-	//identifiers.add("lfoShape"); // Parameter 32 
-	//exposedNames.add("LFO Wave Shape");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToLFOshapeString::get());
-	//descriptionString = "Sets the low-frequency oscillator" + GUI::apostrophe + "s\n";
-	//descriptionString = "wave shape (square or triangle).";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow3_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)1);
-	//firstNybbleIndices.add((uint8)29);
-	//firstBitIndices.add((uint8)0);
+	identifiers.add("lfoShape"); // Parameter 32 
+	exposedNames.add("LFO Wave Shape");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToLFOshapeString::get());
+	descriptionString = "Sets the low-frequency oscillator" + GUI::apostrophe + "s\n";
+	descriptionString = "wave shape (square or triangle).";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchLFOshape_x, GUI::switchRow3_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)1);
+	firstNybbleIndices.add((uint8)29);
+	firstBitIndices.add((uint8)0);
 
 	identifiers.add("lfoInitAmount"); // Parameter 33
 	exposedNames.add("LFO Initial Amount");
@@ -430,44 +430,44 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	firstNybbleIndices.add((uint8)5);
 	firstBitIndices.add((uint8)2);
 
-	//identifiers.add("lfoDest_Freq"); // Parameter 34 
-	//exposedNames.add("LFO Destination: Oscillator Frequency");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToOffOnString::get());
-	//descriptionString = "Enables modulation of the frequencies of both\n";
-	//descriptionString = "oscillators by the low-frequency oscillator.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow3_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)0);
-	//firstNybbleIndices.add((uint8)29);
-	//firstBitIndices.add((uint8)1);
+	identifiers.add("lfoDest_Freq"); // Parameter 34 
+	exposedNames.add("LFO Destination: Oscillator Frequency");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToOffOnString::get());
+	descriptionString = "Enables modulation of the frequencies of both\n";
+	descriptionString = "oscillators by the low-frequency oscillator.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow3_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)29);
+	firstBitIndices.add((uint8)1);
 
-	//identifiers.add("lfoDest_PW"); // Parameter 35 
-	//exposedNames.add("LFO Destination: Oscillator Pulse Width");
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//converters.add(IntToOffOnString::get());
-	//descriptionString = "Enables modulation of the pulse widths of both\n";
-	//descriptionString = "oscillators by the low-frequency oscillator.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchesPmodDestFilterandLFOdestPW_x, GUI::switchRow3_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)1);
-	//firstNybbleIndices.add((uint8)29);
-	//firstBitIndices.add((uint8)2);
+	identifiers.add("lfoDest_PW"); // Parameter 35 
+	exposedNames.add("LFO Destination: Oscillator Pulse Width");
+	controlTypes.add(ControlType::twoPoleSwitch);
+	converters.add(IntToOffOnString::get());
+	descriptionString = "Enables modulation of the pulse widths of both\n";
+	descriptionString = "oscillators by the low-frequency oscillator.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestFilterandLFOdestPW_x, GUI::switchRow3_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)1);
+	firstNybbleIndices.add((uint8)29);
+	firstBitIndices.add((uint8)2);
 
-	//identifiers.add("lfoDest_Filter"); // Parameter 36
-	//exposedNames.add("LFO Destination: Filter Cutoff");
-	//converters.add(IntToOffOnString::get());
-	//controlTypes.add(ControlType::twoPoleSwitch);
-	//descriptionString = "Enables modulation of the filter's cutoff\n";
-	//descriptionString = "frequency by the low-frequency oscillator.";
-	//descriptions.add(descriptionString);
-	//controlCenterPoints.add(Point<int>(GUI::switchLFOdestFilter_x, GUI::switchRow3_y));
-	//maxValues.add((uint8)1);
-	//defaultValues.add((uint8)0);
-	//firstNybbleIndices.add((uint8)29);
-	//firstBitIndices.add((uint8)3);
+	identifiers.add("lfoDest_Filter"); // Parameter 36
+	exposedNames.add("LFO Destination: Filter Cutoff");
+	converters.add(IntToOffOnString::get());
+	controlTypes.add(ControlType::twoPoleSwitch);
+	descriptionString = "Enables modulation of the filter's cutoff\n";
+	descriptionString = "frequency by the low-frequency oscillator.";
+	descriptions.add(descriptionString);
+	controlCenterPoints.add(Point<int>(GUI::switchLFOdestFilter_x, GUI::switchRow3_y));
+	maxValues.add((uint8)1);
+	defaultValues.add((uint8)0);
+	firstNybbleIndices.add((uint8)29);
+	firstBitIndices.add((uint8)3);
 }
 
 InfoForExposedParameters& InfoForExposedParameters::get() noexcept {

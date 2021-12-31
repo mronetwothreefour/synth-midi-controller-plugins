@@ -16,8 +16,17 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y, int w, int 
 	line.setStart(sliderCenter.x, float(y + 34));
 	line.setEnd(sliderCenter.x, float(y + 30));
 	Path pointerPath;
-	pointerPath.addLineSegment(line, 2.0f);
+	pointerPath.addLineSegment(line, 1.5f);
 	g.setColour(Color::offWhite);
-	PathStrokeType stroke{ 2.0f, PathStrokeType::mitered };
+	PathStrokeType stroke{ 1.5f, PathStrokeType::mitered };
 	g.strokePath(pointerPath, stroke, AffineTransform::rotation(pointerAngle, sliderCenter.x, sliderCenter.y));
 }
+
+void GUILookAndFeel::drawLinearSlider(Graphics& g, int x, int /*y*/, int /*w*/, int h, float /*sliderPos*/, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*sliderStyle*/, Slider& slider) {
+	MemoryInputStream memInputStream{ BinaryData::Switch_png, BinaryData::Switch_pngSize, false };
+	PNGImageFormat imageFormat;
+	auto switchTab{ imageFormat.decodeImage(memInputStream) };
+	auto currentValue{ (int)slider.getValue() };
+	g.drawImageAt(switchTab, x, h - (currentValue * GUI::switchTabs_h) + GUI::theWeirdOffsetThatJucePutsOnLinearSliders);
+}
+

@@ -7,6 +7,7 @@
 namespace ID
 {
 	static const Identifier component_Knob{ "component_Knob" };
+	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
 
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 

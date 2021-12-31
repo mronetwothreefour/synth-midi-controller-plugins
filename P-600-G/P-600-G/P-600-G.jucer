@@ -108,6 +108,10 @@
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="GPigKe" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
               file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+        <FILE id="IZOqj1" name="widget_SwitchSliderWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_SwitchSliderWithExposedParamAttacher.cpp"/>
+        <FILE id="bGvpcA" name="widget_SwitchSliderWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_SwitchSliderWithExposedParamAttacher.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{DB488691-CA34-5B01-32B7-E6AEB615FC6E}" name="Resources">

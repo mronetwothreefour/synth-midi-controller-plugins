@@ -526,6 +526,9 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.cpp">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2707,6 +2710,9 @@
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
+      <Filter>P-600-G\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.h">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

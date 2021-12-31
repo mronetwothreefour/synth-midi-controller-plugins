@@ -62,3 +62,13 @@ RotarySliderWithMouseWheelModForPitch::RotarySliderWithMouseWheelModForPitch(Une
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 	setRotaryParameters(degreesToRadians(GUI::knobStartAngleInDegrees), degreesToRadians(GUI::knobEndAngleInDegrees), true);
 }
+
+
+
+
+LinearSliderWithMouseWheelMod::LinearSliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelMod{ unexposedParams }
+{
+	setSliderStyle(Slider::LinearVertical);
+	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+}

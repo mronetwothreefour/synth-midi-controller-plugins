@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2137,6 +2138,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h"/>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h"/>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

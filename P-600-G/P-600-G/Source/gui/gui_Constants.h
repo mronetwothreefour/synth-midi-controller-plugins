@@ -30,6 +30,7 @@ namespace constants
 		static const int knobRow3_y{ 308 };
 		static const int knobs_h{ 34 };
 		static const int knobs_w{ knobs_h };
+		static const int switches_w{ 20 };
 		static const int switchesHorizSpacing{ 60 };
 		static const int switchesOscSaw_x{ 683 };
 		static const int switchesOscTri_x{ switchesOscSaw_x + switchesHorizSpacing };
@@ -44,7 +45,11 @@ namespace constants
 		static const int switchRow1_y{ 72 };
 		static const int switchRow2_y{ 177 };
 		static const int switchRow3_y{ 315 };
+		static const int switchTabs_h{ 16 };
+		static const int switchThreePole_h{ 3 * switchTabs_h };
+		static const int switchTwoPole_h{ 2 * switchTabs_h };
 		static const int switchUnison_x{ 441 };
+		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
