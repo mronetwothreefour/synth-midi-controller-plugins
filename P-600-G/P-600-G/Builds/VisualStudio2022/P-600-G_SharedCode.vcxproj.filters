@@ -2664,6 +2664,9 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ProgramNumber.h">
+      <Filter>P-600-G\Source\guiRenderers</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
