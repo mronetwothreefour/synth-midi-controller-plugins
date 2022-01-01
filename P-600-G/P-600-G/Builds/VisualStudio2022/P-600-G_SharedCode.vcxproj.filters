@@ -484,6 +484,9 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>P-600-G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClCompile>
@@ -2653,6 +2656,9 @@
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.h">
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h">

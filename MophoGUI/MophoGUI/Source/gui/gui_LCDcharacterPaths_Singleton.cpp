@@ -6,8 +6,7 @@ using namespace constants;
 
 
 
-LCDcharacterPaths::LCDcharacterPaths()
-{
+LCDcharacterPaths::LCDcharacterPaths() {
 	fillCharacterPaths();
 }
 

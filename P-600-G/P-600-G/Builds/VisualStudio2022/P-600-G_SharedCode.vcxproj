@@ -142,6 +142,7 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
@@ -2119,6 +2120,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
