@@ -6,6 +6,7 @@
 
 UnexposedParameters::UnexposedParameters() :
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
+	currentProgramOptions{ new CurrentProgramOptions(this) },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -19,6 +20,10 @@ OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
+CurrentProgramOptions* UnexposedParameters::currentProgramOptions_get() {
+	return currentProgramOptions.get();
+}
+
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
 	return tooltipOptions.get();
 }
@@ -30,5 +35,6 @@ UndoManager* UnexposedParameters::undoManager_get() {
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
+	currentProgramOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 }

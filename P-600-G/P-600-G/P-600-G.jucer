@@ -40,8 +40,8 @@
               resource="0" file="Source/guiRenderers/guiRenderer_ForKnobValueStrings.cpp"/>
         <FILE id="k43rlB" name="guiRenderer_ForKnobValueStrings.h" compile="0"
               resource="0" file="Source/guiRenderers/guiRenderer_ForKnobValueStrings.h"/>
-        <FILE id="Os8PJQ" name="guiRenderer_ProgramNumber.h" compile="0" resource="0"
-              file="Source/guiRenderers/guiRenderer_ProgramNumber.h"/>
+        <FILE id="Os8PJQ" name="guiRenderer_LCDNumber.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_LCDNumber.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Ge6hXW" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"

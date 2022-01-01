@@ -2123,7 +2123,7 @@
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
-    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ProgramNumber.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\params\params_CurrentProgramOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
