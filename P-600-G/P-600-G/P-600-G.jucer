@@ -118,6 +118,10 @@
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="GPigKe" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
               file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+        <FILE id="bxqcch" name="widget_SliderForProgramNumber.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_SliderForProgramNumber.cpp"/>
+        <FILE id="RWPUlP" name="widget_SliderForProgramNumber.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_SliderForProgramNumber.h"/>
         <FILE id="IZOqj1" name="widget_SwitchSliderWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_SwitchSliderWithExposedParamAttacher.cpp"/>
         <FILE id="bGvpcA" name="widget_SwitchSliderWithExposedParamAttacher.h"

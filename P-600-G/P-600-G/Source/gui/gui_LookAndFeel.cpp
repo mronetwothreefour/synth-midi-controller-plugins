@@ -23,10 +23,12 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y, int w, int 
 }
 
 void GUILookAndFeel::drawLinearSlider(Graphics& g, int x, int /*y*/, int /*w*/, int h, float /*sliderPos*/, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*sliderStyle*/, Slider& slider) {
-	MemoryInputStream memInputStream{ BinaryData::Switch_png, BinaryData::Switch_pngSize, false };
-	PNGImageFormat imageFormat;
-	auto switchTab{ imageFormat.decodeImage(memInputStream) };
-	auto currentValue{ (int)slider.getValue() };
-	g.drawImageAt(switchTab, x, h - (currentValue * GUI::switchTabs_h) + GUI::theWeirdOffsetThatJucePutsOnLinearSliders);
+	if (slider.getComponentID() == ID::component_Knob.toString()) {
+		MemoryInputStream memInputStream{ BinaryData::Switch_png, BinaryData::Switch_pngSize, false };
+		PNGImageFormat imageFormat;
+		auto switchTab{ imageFormat.decodeImage(memInputStream) };
+		auto currentValue{ (int)slider.getValue() };
+		g.drawImageAt(switchTab, x, h - (currentValue * GUI::switchTabs_h) + GUI::theWeirdOffsetThatJucePutsOnLinearSliders);
+	}
 }
 

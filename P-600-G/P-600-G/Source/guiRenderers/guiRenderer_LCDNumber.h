@@ -11,8 +11,10 @@ using namespace constants;
 
 
 struct LCDnumberRenderer {
-	static void paintLCDnumberInComponent(Graphics& g, Slider* slider, const int& totalNumberOfDigits, int inset_x, int inset_y) {
-		String currentValueString{ (int)slider->getValue() };
+	static void paintSliderValueWithLCDdigits(Graphics& g, Slider* slider, const int& totalNumberOfDigits, int inset_x, int inset_y) {
+		auto currentValue{ slider->getValue() };
+		jassert(currentValue < std::pow(10.0, totalNumberOfDigits));
+		String currentValueString{ (int)currentValue };
 		currentValueString = currentValueString.paddedLeft('0', totalNumberOfDigits);
 		g.setColour(Color::lcdRed);
 		auto& digitPaths{ PathsForLCDdigits::get() };
