@@ -50,6 +50,10 @@
               file="Source/midi/midi_OutgoingMidiBuffers.h"/>
       </GROUP>
       <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
+        <FILE id="mXA3s2" name="params_CurrentProgramOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_CurrentProgramOptions.cpp"/>
+        <FILE id="iJINc9" name="params_CurrentProgramOptions.h" compile="0"
+              resource="0" file="Source/params/params_CurrentProgramOptions.h"/>
         <FILE id="HPzAy2" name="params_ExposedParameters_EnumClass.h" compile="0"
               resource="0" file="Source/params/params_ExposedParameters_EnumClass.h"/>
         <FILE id="rNvFPc" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"

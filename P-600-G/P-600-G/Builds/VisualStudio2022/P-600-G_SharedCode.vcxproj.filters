@@ -493,6 +493,9 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_CurrentProgramOptions.cpp">
+      <Filter>P-600-G\Source\params</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
@@ -2669,6 +2672,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>P-600-G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_CurrentProgramOptions.h">
+      <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h">
       <Filter>P-600-G\Source\params</Filter>
