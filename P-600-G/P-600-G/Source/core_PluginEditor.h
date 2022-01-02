@@ -6,6 +6,7 @@
 
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
+class ProgramNumberLayer;
 
 class PluginEditor :
     public juce::AudioProcessorEditor
@@ -15,6 +16,7 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
+    std::unique_ptr<ProgramNumberLayer> programNumberLayer;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);

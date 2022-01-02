@@ -10,6 +10,8 @@ namespace constants
 	{
 		static const float knobEndAngleInDegrees{ 330.0f };
 		static const float knobStartAngleInDegrees{ 30.0f };
+		static const float programNumberInset_x{ 4.0f };
+		static const float programNumberInset_y{ 8.0f };
 
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
@@ -31,8 +33,6 @@ namespace constants
 		static const int knobs_h{ 34 };
 		static const int knobs_w{ knobs_h };
 		static const int lcdDigit_w{ 26 };
-		static const int programNumberInset_x{ 4 };
-		static const int programNumberInset_y{ 8 };
 		static const int switches_w{ 20 };
 		static const int switchesHorizSpacing{ 60 };
 		static const int switchesOscSaw_x{ 683 };

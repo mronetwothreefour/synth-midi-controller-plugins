@@ -481,6 +481,9 @@
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp">
       <Filter>P-600-G\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ProgramNumber.cpp">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>P-600-G\Source\gui</Filter>
     </ClCompile>
@@ -2659,6 +2662,9 @@
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h">
+      <Filter>P-600-G\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ProgramNumber.h">
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">

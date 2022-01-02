@@ -26,6 +26,10 @@
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
         <FILE id="rCSYIv" name="gui_Layer_ExposedParamsControls.h" compile="0"
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
+        <FILE id="HH2uy7" name="gui_Layer_ProgramNumber.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_ProgramNumber.cpp"/>
+        <FILE id="VrBhNz" name="gui_Layer_ProgramNumber.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_ProgramNumber.h"/>
         <FILE id="mVVWta" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="fKotxy" name="gui_LookAndFeel.h" compile="0" resource="0"
