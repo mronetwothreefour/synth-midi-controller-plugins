@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
@@ -2138,6 +2139,7 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>

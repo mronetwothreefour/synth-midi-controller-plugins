@@ -20,6 +20,9 @@
     <Filter Include="P-600-G\Source\tooltipSetters">
       <UniqueIdentifier>{C9E2CBAB-F06D-33F6-5F2C-F95BA1C0DC37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\widgets_Button">
+      <UniqueIdentifier>{1E3F1D34-778E-5BEB-692A-5C6CF4946E86}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\widgets_ControlsForParameters">
       <UniqueIdentifier>{40E3888A-4BE6-074A-1895-C6237CA03CFE}</UniqueIdentifier>
     </Filter>
@@ -519,6 +522,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
@@ -2711,6 +2717,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
