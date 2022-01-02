@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 
-
+class ButtonsLayer;
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
 class ProgramNumberLayer;
@@ -15,6 +15,7 @@ class PluginEditor :
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
+    std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<ProgramNumberLayer> programNumberLayer;
 

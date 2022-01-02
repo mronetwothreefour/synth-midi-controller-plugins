@@ -32,3 +32,27 @@ void GUILookAndFeel::drawLinearSlider(Graphics& g, int x, int /*y*/, int /*w*/, 
 	g.drawImageAt(switchTab, x, h - (currentValue * GUI::switchTabs_h) + GUI::theWeirdOffsetThatJucePutsOnLinearSliders);
 }
 
+void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+	PNGImageFormat imageFormat;
+	auto buttonImageData{ getButtonImageData(button, isDown) };
+	auto buttonImageDataSize{ getButtonImageDataSize(button, isDown) };
+	if (buttonImageData != nullptr) {
+		MemoryInputStream memInputStream{ buttonImageData, buttonImageDataSize, false };
+		auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+		g.drawImageAt(buttonImage, 0, 0);
+	}
+}
+
+const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_Pull"))
+		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
+}
+
+size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_Pull"))
+		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
+}
+
+void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
+}
+

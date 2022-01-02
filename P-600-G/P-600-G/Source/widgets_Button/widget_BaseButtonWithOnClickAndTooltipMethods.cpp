@@ -13,7 +13,7 @@ BaseButtonWithOnClickAndTooltipMethods::BaseButtonWithOnClickAndTooltipMethods(U
 	onClick = [this] { onClickMethod(); };
 }
 
-void BaseButtonWithOnClickAndTooltipMethods::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void BaseButtonWithOnClickAndTooltipMethods::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == ID::tooltips_ShouldShowDescription)
 		setTooltip(createButtonTooltipString());
 }

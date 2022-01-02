@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "gui/gui_Constants.h"
+#include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
 #include "gui/gui_Layer_ProgramNumber.h"
 #include "gui/gui_LookAndFeel.h"
@@ -16,11 +17,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
+    buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     programNumberLayer{ new ProgramNumberLayer(unexposedParams) }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
+    addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(programNumberLayer.get());
     
@@ -36,6 +39,7 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
+    buttonsLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     programNumberLayer->setBounds(getLocalBounds());
 }
@@ -43,4 +47,5 @@ void PluginEditor::resized() {
 PluginEditor::~PluginEditor() {
     programNumberLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
+    buttonsLayer = nullptr;
 }

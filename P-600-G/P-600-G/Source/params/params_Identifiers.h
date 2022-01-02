@@ -6,6 +6,8 @@
 
 namespace ID
 {
+	static const Identifier button_PullSelectedProgram{ "button_PullSelectedProgram" };
+
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
 

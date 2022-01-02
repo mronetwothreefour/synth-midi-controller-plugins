@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_Layer_ProgramNumber.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
@@ -155,6 +156,7 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
@@ -2122,6 +2124,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Colors.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Constants.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Fonts.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_Layer_ProgramNumber.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
@@ -2140,6 +2143,7 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
