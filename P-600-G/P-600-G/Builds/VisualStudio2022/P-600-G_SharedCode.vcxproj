@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.cpp"/>
@@ -2146,6 +2147,7 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.h"/>

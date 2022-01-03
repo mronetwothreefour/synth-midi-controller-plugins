@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingProgramBankComponent.h"
@@ -17,6 +18,7 @@ class ButtonsLayer :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
+	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPullingProgramFromHardwareStorageSlot button_ForPullingProgramFromHardware;
 	ButtonForPushingProgramToHardwareStorageSlot button_ForPushingProgramToHardware;
 	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;

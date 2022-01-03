@@ -102,6 +102,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
         <FILE id="PMpRl4" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+        <FILE id="yPPIZ0" name="widget_ButtonForPerformingRedo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
+        <FILE id="nq9SPk" name="widget_ButtonForPerformingRedo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.h"/>
         <FILE id="I1Y9Zw" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
         <FILE id="j2vsdM" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
