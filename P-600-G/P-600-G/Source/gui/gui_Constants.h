@@ -62,6 +62,7 @@ namespace constants
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_ProgramNumberSlider{ 411, 42, 60, 50 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

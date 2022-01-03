@@ -532,6 +532,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
     </ClCompile>
@@ -2731,6 +2734,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">

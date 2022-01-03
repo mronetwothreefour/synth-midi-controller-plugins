@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
+#include "../widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"
 
 
 
@@ -15,6 +16,7 @@ class ButtonsLayer :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ButtonForPullingProgramFromHardwareStorageSlot button_ForPullingProgramFromHardware;
+	ButtonForPushingProgramToHardwareStorageSlot button_ForPushingProgramToHardware;
 
 public:
 	ButtonsLayer() = delete;

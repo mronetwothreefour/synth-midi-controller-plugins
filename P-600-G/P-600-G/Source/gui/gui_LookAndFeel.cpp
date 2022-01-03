@@ -46,11 +46,17 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
+	if (button.getComponentID().startsWith("button_Push"))
+		return isDown ? BinaryData::ButtonPushDown_png : BinaryData::ButtonPushUp_png;
+	return nullptr;
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
+	if (button.getComponentID().startsWith("button_Push"))
+		return isDown ? BinaryData::ButtonPushDown_pngSize : BinaryData::ButtonPushUp_pngSize;
+	return size_t();
 }
 
 void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {

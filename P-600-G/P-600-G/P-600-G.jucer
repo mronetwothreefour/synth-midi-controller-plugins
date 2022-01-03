@@ -106,6 +106,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
         <FILE id="j2vsdM" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"/>
+        <FILE id="AJFuhw" name="widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"/>
+        <FILE id="WWAKjo" name="widget_ButtonForPushingProgramToHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"/>
       </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="gGcYEi" name="widget_ControlForExposedParameter.cpp" compile="1"
