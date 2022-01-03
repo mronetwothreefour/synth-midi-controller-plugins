@@ -54,6 +54,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonRedoDown_png : BinaryData::ButtonRedoUp_png;
 	if (button.getComponentID() == ID::button_Tips.toString())
 		return isDown ? BinaryData::ButtonTipsDown_png : BinaryData::ButtonTipsUp_png;
+	if (button.getComponentID() == ID::button_Undo.toString())
+		return isDown ? BinaryData::ButtonUndoDown_png : BinaryData::ButtonUndoUp_png;
 	return nullptr;
 }
 
@@ -68,6 +70,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonRedoDown_pngSize : BinaryData::ButtonRedoUp_pngSize;
 	if (button.getComponentID() == ID::button_Tips.toString())
 		return isDown ? BinaryData::ButtonTipsDown_pngSize : BinaryData::ButtonTipsUp_pngSize;
+	if (button.getComponentID() == ID::button_Undo.toString())
+		return isDown ? BinaryData::ButtonUndoDown_pngSize : BinaryData::ButtonUndoUp_pngSize;
 	return size_t();
 }
 

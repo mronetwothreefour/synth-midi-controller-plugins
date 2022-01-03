@@ -11,6 +11,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     button_ForPerformingRedo{ unexposedParams },
+    button_ForPerformingUndo{ unexposedParams },
     button_ForPullingProgramFromHardware{ unexposedParams },
     button_ForPushingProgramToHardware{ exposedParams, unexposedParams },
     button_ForShowingProgramBankComponent{ unexposedParams },
@@ -18,6 +19,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForPerformingRedo);
+    addAndMakeVisible(button_ForPerformingUndo);
     addAndMakeVisible(button_ForPullingProgramFromHardware);
     addAndMakeVisible(button_ForPushingProgramToHardware);
     addAndMakeVisible(button_ForShowingProgramBankComponent);
@@ -29,6 +31,7 @@ void ButtonsLayer::timerCallback() {
 
 void ButtonsLayer::resized() {
     button_ForPerformingRedo.setBounds(GUI::bounds_RedoButton);
+    button_ForPerformingUndo.setBounds(GUI::bounds_UndoButton);
     button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingProgramBankComponent.setBounds(GUI::bounds_PgmBankButton);

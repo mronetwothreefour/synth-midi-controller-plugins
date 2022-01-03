@@ -532,6 +532,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
@@ -2743,6 +2746,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h">

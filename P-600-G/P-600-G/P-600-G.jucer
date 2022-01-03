@@ -106,6 +106,10 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
         <FILE id="nq9SPk" name="widget_ButtonForPerformingRedo.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.h"/>
+        <FILE id="G6SLov" name="widget_ButtonForPerformingUndo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
+        <FILE id="KNzW4w" name="widget_ButtonForPerformingUndo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
         <FILE id="I1Y9Zw" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
         <FILE id="j2vsdM" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
