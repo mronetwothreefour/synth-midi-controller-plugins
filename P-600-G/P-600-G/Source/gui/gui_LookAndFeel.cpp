@@ -44,6 +44,8 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_PgmBank.toString())
+		return isDown ? BinaryData::ButtonPgmBankDown_png : BinaryData::ButtonPgmBankUp_png;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
 	if (button.getComponentID().startsWith("button_Push"))
@@ -52,6 +54,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_PgmBank.toString())
+		return isDown ? BinaryData::ButtonPgmBankDown_pngSize : BinaryData::ButtonPgmBankUp_pngSize;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
 	if (button.getComponentID().startsWith("button_Push"))

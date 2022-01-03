@@ -6,6 +6,7 @@
 
 namespace ID
 {
+	static const Identifier button_PgmBank{ "button_PgmBank" };
 	static const Identifier button_PullSelectedProgram{ "button_PullSelectedProgram" };
 	static const Identifier button_PushSelectedProgram{ "button_PushSelectedProgram" };
 

@@ -61,9 +61,10 @@ namespace constants
 		static const int switchUnison_x{ 441 };
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
+		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_ProgramNumberSlider{ 411, 42, 60, 50 };
+		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, 60, 50 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
