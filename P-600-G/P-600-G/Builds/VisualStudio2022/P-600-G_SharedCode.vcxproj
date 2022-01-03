@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
@@ -2148,6 +2149,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>

@@ -50,6 +50,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
 	if (button.getComponentID().startsWith("button_Push"))
 		return isDown ? BinaryData::ButtonPushDown_png : BinaryData::ButtonPushUp_png;
+	if (button.getComponentID() == ID::button_Tips.toString())
+		return isDown ? BinaryData::ButtonTipsDown_png : BinaryData::ButtonTipsUp_png;
 	return nullptr;
 }
 
@@ -60,6 +62,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
 	if (button.getComponentID().startsWith("button_Push"))
 		return isDown ? BinaryData::ButtonPushDown_pngSize : BinaryData::ButtonPushUp_pngSize;
+	if (button.getComponentID() == ID::button_Tips.toString())
+		return isDown ? BinaryData::ButtonTipsDown_pngSize : BinaryData::ButtonTipsUp_pngSize;
 	return size_t();
 }
 

@@ -9,6 +9,7 @@ namespace ID
 	static const Identifier button_PgmBank{ "button_PgmBank" };
 	static const Identifier button_PullSelectedProgram{ "button_PullSelectedProgram" };
 	static const Identifier button_PushSelectedProgram{ "button_PushSelectedProgram" };
+	static const Identifier button_Tips{ "button_Tips" };
 
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };

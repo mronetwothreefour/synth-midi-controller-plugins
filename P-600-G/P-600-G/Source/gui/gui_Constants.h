@@ -19,6 +19,7 @@ namespace constants
 		static const int buttonMainWindowPush_x{ 478 };
 		static const int buttonMainWindowPull_x{ buttonMainWindowPush_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonMainWindowPgmBank_x{ buttonMainWindowPull_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonMainWindowTips_x{ 687 };
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
 		static const int knobLFOamount_x{ 232 };
@@ -64,6 +65,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_MainWindowTipsButton{ buttonMainWindowTips_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, 60, 50 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
