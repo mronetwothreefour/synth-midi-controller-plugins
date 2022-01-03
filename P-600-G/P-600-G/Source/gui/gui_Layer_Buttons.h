@@ -7,6 +7,7 @@
 #include "../widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingProgramBankComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingRandomizeComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingTipsComponent.h"
 
 
@@ -24,6 +25,7 @@ class ButtonsLayer :
 	ButtonForPullingProgramFromHardwareStorageSlot button_ForPullingProgramFromHardware;
 	ButtonForPushingProgramToHardwareStorageSlot button_ForPushingProgramToHardware;
 	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;
+	ButtonForShowingRandomizeComponent button_ForShowingRandomizeComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
 
 public:

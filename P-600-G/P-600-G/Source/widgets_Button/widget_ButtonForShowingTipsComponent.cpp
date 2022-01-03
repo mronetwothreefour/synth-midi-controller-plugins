@@ -18,7 +18,7 @@ const String ButtonForShowingTipsComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Opens a window where you can set\n";
-		buttonTooltip += "display options for control tooltips";
+		buttonTooltip += "display options for control tooltips.";
 	}
 	return buttonTooltip;
 }

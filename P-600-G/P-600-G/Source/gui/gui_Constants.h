@@ -20,6 +20,7 @@ namespace constants
 		static const int buttonMainWindowPull_x{ buttonMainWindowPush_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonPgmBank_x{ buttonMainWindowPull_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonMainWindowTips_x{ 687 };
+		static const int buttonRand_x{ 979 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
 		static const int editor_w{ 1402 };
@@ -67,6 +68,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankButton{ buttonPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_RandButton{ buttonRand_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RedoButton{ buttonRedo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_TipsButton{ buttonMainWindowTips_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_UndoButton{ buttonUndo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };

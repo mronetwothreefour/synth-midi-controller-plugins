@@ -15,6 +15,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPullingProgramFromHardware{ unexposedParams },
     button_ForPushingProgramToHardware{ exposedParams, unexposedParams },
     button_ForShowingProgramBankComponent{ unexposedParams },
+    button_ForShowingRandomizeComponent{ exposedParams, unexposedParams },
     button_ForShowingTipsComponent{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
@@ -23,6 +24,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForPullingProgramFromHardware);
     addAndMakeVisible(button_ForPushingProgramToHardware);
     addAndMakeVisible(button_ForShowingProgramBankComponent);
+    addAndMakeVisible(button_ForShowingRandomizeComponent);
     addAndMakeVisible(button_ForShowingTipsComponent);
 }
 
@@ -35,6 +37,7 @@ void ButtonsLayer::resized() {
     button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingProgramBankComponent.setBounds(GUI::bounds_PgmBankButton);
+    button_ForShowingRandomizeComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
 }
 
