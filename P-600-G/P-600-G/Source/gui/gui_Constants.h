@@ -12,6 +12,7 @@ namespace constants
 		static const float knobStartAngleInDegrees{ 30.0f };
 		static const float programNumberInset_x{ 4.0f };
 		static const float programNumberInset_y{ 8.0f };
+		static const float tooltipMaxWidth{ 400.0f };
 
 		static const int buttons_h{ 40 };
 		static const int buttons_w{ buttons_h };

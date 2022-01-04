@@ -9,7 +9,8 @@ class GUILookAndFeel;
 class ProgramNumberLayer;
 
 class PluginEditor :
-    public juce::AudioProcessorEditor
+    public juce::AudioProcessorEditor,
+    public ValueTree::Listener
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
@@ -18,11 +19,13 @@ class PluginEditor :
     std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<ProgramNumberLayer> programNumberLayer;
+    std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void resized() override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
     ~PluginEditor() override;
 
 private:

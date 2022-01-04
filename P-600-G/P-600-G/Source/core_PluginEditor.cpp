@@ -6,6 +6,7 @@
 #include "gui/gui_Layer_ExposedParamsControls.h"
 #include "gui/gui_Layer_ProgramNumber.h"
 #include "gui/gui_LookAndFeel.h"
+#include "params/params_Identifiers.h"
 
 using namespace constants;
 
@@ -19,14 +20,21 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
-    programNumberLayer{ new ProgramNumberLayer(unexposedParams) }
+    programNumberLayer{ new ProgramNumberLayer(unexposedParams) },
+    tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(programNumberLayer.get());
-    
+
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->addListener(this);
+    addChildComponent(tooltipWindow.get());
+    tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    tooltipWindow->setComponentEffect(nullptr);
+
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
 }
@@ -44,7 +52,17 @@ void PluginEditor::resized() {
     programNumberLayer->setBounds(getLocalBounds());
 }
 
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+    if (property == ID::tooltips_DelayInMilliseconds) {
+        auto tooltips{ unexposedParams->tooltipOptions_get() };
+        tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    }
+}
+
 PluginEditor::~PluginEditor() {
+    auto tooltips{ unexposedParams->tooltipOptions_get() };
+    tooltips->removeListener(this);
+    tooltipWindow = nullptr;
     programNumberLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     buttonsLayer = nullptr;
