@@ -52,16 +52,22 @@
               file="Source/guiRenderers/guiRenderer_LCDNumber.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
+        <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
+              file="Source/midi/midi_Constants.h"/>
         <FILE id="Ge6hXW" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="NHEuDh" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.h"/>
+        <FILE id="g4Hb5b" name="midi_ProgramDataDump.cpp" compile="1" resource="0"
+              file="Source/midi/midi_ProgramDataDump.cpp"/>
+        <FILE id="tXbCX0" name="midi_ProgramDataDump.h" compile="0" resource="0"
+              file="Source/midi/midi_ProgramDataDump.h"/>
+        <FILE id="mLXyIU" name="midi_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_RawDataTools.cpp"/>
+        <FILE id="Qmqhn6" name="midi_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_RawDataTools.h"/>
       </GROUP>
       <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
-        <FILE id="mXA3s2" name="params_CurrentProgramOptions.cpp" compile="1"
-              resource="0" file="Source/params/params_CurrentProgramOptions.cpp"/>
-        <FILE id="iJINc9" name="params_CurrentProgramOptions.h" compile="0"
-              resource="0" file="Source/params/params_CurrentProgramOptions.h"/>
         <FILE id="HPzAy2" name="params_ExposedParameters_EnumClass.h" compile="0"
               resource="0" file="Source/params/params_ExposedParameters_EnumClass.h"/>
         <FILE id="rNvFPc" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"
@@ -78,6 +84,10 @@
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="DQxPK3" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="mXA3s2" name="params_ProgramDataOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_ProgramDataOptions.cpp"/>
+        <FILE id="iJINc9" name="params_ProgramDataOptions.h" compile="0" resource="0"
+              file="Source/params/params_ProgramDataOptions.h"/>
         <FILE id="cFrSnO" name="params_TooltipOptions.cpp" compile="1" resource="0"
               file="Source/params/params_TooltipOptions.cpp"/>
         <FILE id="HhGhEU" name="params_TooltipOptions.h" compile="0" resource="0"
@@ -86,6 +96,10 @@
               resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
         <FILE id="q85jHa" name="params_UnexposedParameters_Facade.h" compile="0"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+      </GROUP>
+      <GROUP id="{563ADC3D-4B11-C153-17A0-179589BB3BB0}" name="pgmData">
+        <FILE id="oQrS68" name="pgmData_Constants.h" compile="0" resource="0"
+              file="Source/pgmData/pgmData_Constants.h"/>
       </GROUP>
       <GROUP id="{5CB6F16B-5917-0CF3-F056-4C83F3D48EAD}" name="tooltipSetters">
         <FILE id="RR3RHA" name="tooltipSetter_Base.cpp" compile="1" resource="0"

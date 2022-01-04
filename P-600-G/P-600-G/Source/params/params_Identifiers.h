@@ -17,8 +17,9 @@ namespace ID
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
 
-	static const Identifier currentProgram_Number{ "currentProgram_Number" };
-	static const Identifier currentProgram_Options{ "currentProgram_Options" };
+	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
+	static const Identifier pgmData_Options{ "pgmData_Options" };
+	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };
 
 	static const Identifier state_CurrentProgramOptions{ "state_CurrentProgramOptions" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };

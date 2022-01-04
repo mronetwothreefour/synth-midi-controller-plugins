@@ -12,9 +12,9 @@ using namespace::constants;
 SliderForProgramNumber::SliderForProgramNumber(UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::currentProgram_Number }
+	parameterID{ ID::pgmData_CurrentProgramNumber }
 {
-	auto currentProgramOptions{ unexposedParams->currentProgramOptions_get() };
+	auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
 	currentProgramOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
 	auto paramValue{ currentProgramOptions->currentProgramNumber() };
@@ -35,6 +35,6 @@ void SliderForProgramNumber::paint(Graphics& g) {
 }
 
 SliderForProgramNumber::~SliderForProgramNumber() {
-	auto currentProgramOptions{ unexposedParams->currentProgramOptions_get() };
+	auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
 	currentProgramOptions->removeListener(this);
 }

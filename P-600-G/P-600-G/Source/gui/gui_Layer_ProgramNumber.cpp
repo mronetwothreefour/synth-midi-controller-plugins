@@ -31,7 +31,7 @@ void ProgramNumberLayer::resized() {
 void ProgramNumberLayer::sliderValueChanged(Slider* slider) {
 	if (slider == &slider_ForProgramNumber) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		auto currentProgramOptions{ unexposedParams->currentProgramOptions_get() };
+		auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
 		currentProgramOptions->setCurrentProgramNumber(currentKnobValue);
 	}
 }
@@ -55,7 +55,7 @@ void ProgramNumberLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Ide
 }
 
 ProgramNumberLayer::~ProgramNumberLayer() {
-	auto currentPatchOptions{ unexposedParams->currentProgramOptions_get() };
+	auto currentPatchOptions{ unexposedParams->programDataOptions_get() };
 	currentPatchOptions->removeListener(this);
 	slider_ForProgramNumber.removeListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

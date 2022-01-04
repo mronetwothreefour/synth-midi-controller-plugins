@@ -1,7 +1,11 @@
 #include "widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
 
+#include "../midi/midi_Constants.h"
+#include "../midi/midi_ProgramDataDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -26,6 +30,18 @@ const String ButtonForPullingProgramFromHardwareStorageSlot::createButtonTooltip
 }
 
 void ButtonForPullingProgramFromHardwareStorageSlot::onClickMethod() {
+	auto currentPgmOptions{ unexposedParams->programDataOptions_get() };
+	auto slot{ currentPgmOptions->currentProgramNumber() };
+	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+	ProgramDataDump::addRequestForPgmDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
+	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+	auto transmitTime{ pgmDataOptions->programTransmitTime() };
+	callAfterDelay(transmitTime, [this, slot]
+		{
+			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+			outgoingBuffers->addProgramChangeMessage(MIDI::channel, slot);
+		}
+	);
 }
 
 void ButtonForPullingProgramFromHardwareStorageSlot::timerCallback() {

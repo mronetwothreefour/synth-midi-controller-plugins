@@ -6,15 +6,15 @@
 
 class UnexposedParameters;
 
-class CurrentProgramOptions
+class ProgramDataOptions
 {
 	UnexposedParameters* unexposedParams;
-	ValueTree currentProgramOptionsTree;
+	ValueTree programDataOptionsTree;
 
 public:
-	CurrentProgramOptions() = delete;
+	ProgramDataOptions() = delete;
 
-	explicit CurrentProgramOptions(UnexposedParameters* unexposedParams);
+	explicit ProgramDataOptions(UnexposedParameters* unexposedParams);
 
 private:
 	void fillCurrentProgramOptionsTreeWithProperties();
@@ -24,10 +24,12 @@ public:
 	void removeListener(ValueTree::Listener* listener);
 	const uint8 currentProgramNumber();
 	void setCurrentProgramNumber(uint8 newNumber);
+	const int programTransmitTime();
+	void setProgramTransmitTime(int timeInMilliseconds);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CurrentProgramOptions)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramDataOptions)
 };
