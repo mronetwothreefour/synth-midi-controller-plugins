@@ -1,6 +1,7 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "midi/midi_IncomingSysExHandler.h"
 #include "params/params_ExposedParamsLayout_Factory.h"
 #include "params/params_UnexposedParameters_Facade.h"
 
@@ -10,11 +11,12 @@ PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
     exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
-    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() }
+    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() },
+    incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get(), unexposedParams.get()) }
 {
 }
 
-const juce::String PluginProcessor::getName() const {
+const String PluginProcessor::getName() const {
     return JucePlugin_Name;
 }
 
@@ -41,17 +43,20 @@ int PluginProcessor::getCurrentProgram() {
 void PluginProcessor::setCurrentProgram(int /*index*/) {
 }
 
-const juce::String PluginProcessor::getProgramName(int /*index*/) {
+const String PluginProcessor::getProgramName(int /*index*/) {
     return {};
 }
 
-void PluginProcessor::changeProgramName(int /*index*/, const juce::String& /*newName*/) {
+void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
+void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
 
     if (!midiMessages.isEmpty()) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingSysExHandler->pullSysExWithMatchingIDOutOfBuffer(midiMessages);
+        midiMessages.swapWith(midiMessagesToPassThrough);
     }
 
     if (!aggregatedOutgoingBuffers->isEmpty()) {
@@ -79,11 +84,11 @@ bool PluginProcessor::hasEditor() const {
     return true;
 }
 
-juce::AudioProcessorEditor* PluginProcessor::createEditor() {
+AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor(*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation(juce::MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
 }
 
 void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
@@ -93,10 +98,11 @@ PluginProcessor::~PluginProcessor() {
     unexposedParams->undoManager_get()->clearUndoHistory();
     exposedParams = nullptr;
     unexposedParams = nullptr;
+    incomingSysExHandler = nullptr;
 }
 
 //==============================================================================
 // This creates new instances of the plugin..
-juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
+AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
     return new PluginProcessor();
 }

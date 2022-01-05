@@ -502,6 +502,9 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
+      <Filter>P-600-G\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
@@ -2722,6 +2725,9 @@
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
+      <Filter>P-600-G\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">

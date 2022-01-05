@@ -54,6 +54,10 @@
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
               file="Source/midi/midi_Constants.h"/>
+        <FILE id="tnr8l9" name="midi_IncomingSysExHandler.cpp" compile="1"
+              resource="0" file="Source/midi/midi_IncomingSysExHandler.cpp"/>
+        <FILE id="UZXRDN" name="midi_IncomingSysExHandler.h" compile="0" resource="0"
+              file="Source/midi/midi_IncomingSysExHandler.h"/>
         <FILE id="Ge6hXW" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="NHEuDh" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"

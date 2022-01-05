@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramDataDump.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp"/>
@@ -2140,6 +2141,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_ProgramDataDump.h"/>
     <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h"/>
