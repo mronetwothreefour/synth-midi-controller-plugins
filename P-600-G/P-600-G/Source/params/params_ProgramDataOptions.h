@@ -24,6 +24,9 @@ public:
 	void removeListener(ValueTree::Listener* listener);
 	const uint8 currentProgramNumber();
 	void setCurrentProgramNumber(uint8 newNumber);
+	bool paramChangeEchosAreNotBlocked();
+	void setParamChangeEchosAreBlocked();
+	void setParamChangeEchosAreNotBlocked();
 	const int programTransmitTime();
 	void setProgramTransmitTime(int timeInMilliseconds);
 	XmlElement* getStateXml();

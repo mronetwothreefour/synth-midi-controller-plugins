@@ -14,6 +14,7 @@ ProgramDataOptions::ProgramDataOptions(UnexposedParameters* unexposedParams) :
 
 void ProgramDataOptions::fillCurrentProgramOptionsTreeWithProperties() {
 	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, (uint8)0, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 300, nullptr);
 }
 
@@ -34,6 +35,18 @@ void ProgramDataOptions::setCurrentProgramNumber(uint8 newNumber) {
 	auto undoManager{ unexposedParams->undoManager_get() };
 	undoManager->beginNewTransaction();
 	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, newNumber, undoManager);
+}
+
+bool ProgramDataOptions::paramChangeEchosAreNotBlocked() {
+	return !(bool)programDataOptionsTree.getProperty(ID::pgmData_ParamChangeEchosAreBlocked);
+}
+
+void ProgramDataOptions::setParamChangeEchosAreBlocked() {
+	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)true, nullptr);
+}
+
+void ProgramDataOptions::setParamChangeEchosAreNotBlocked() {
+	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 }
 
 const int ProgramDataOptions::programTransmitTime() {

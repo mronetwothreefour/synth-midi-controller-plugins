@@ -523,6 +523,12 @@ uint8 InfoForExposedParameters::firstBitIndexFor(uint8 paramIndex) const {
 	return firstBitIndices[paramIndex];
 }
 
+uint8 InfoForExposedParameters::totalNumberOfBitsNeededFor(uint8 paramIndex) const {
+	auto numberOfSteps{ numberOfStepsFor(paramIndex) };
+	auto totalNumberOfBits{ (uint8)roundToInt(std::ceil(std::log(numberOfSteps) / std::log(2))) };
+	return totalNumberOfBits;
+}
+
 uint8 InfoForExposedParameters::indexForParamID(const String& parameterID) const {
 	return (uint8)identifiers.indexOf(Identifier(parameterID));
 }

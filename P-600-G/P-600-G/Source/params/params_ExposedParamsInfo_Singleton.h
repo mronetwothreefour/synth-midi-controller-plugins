@@ -40,6 +40,7 @@ public:
 	Point<int> controlCenterPointFor(uint8 paramIndex) const;
 	uint8 firstNybbleIndexFor(uint8 paramIndex) const;
 	uint8 firstBitIndexFor(uint8 paramIndex) const;
+	uint8 totalNumberOfBitsNeededFor(uint8 paramIndex) const;
 	uint8 indexForParamID(const String& parameterID) const;
 
 private:

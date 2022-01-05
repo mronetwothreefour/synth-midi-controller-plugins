@@ -19,6 +19,7 @@ namespace ID
 
 	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
 	static const Identifier pgmData_Options{ "pgmData_Options" };
+	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
 	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };
 
 	static const Identifier state_CurrentProgramOptions{ "state_CurrentProgramOptions" };
