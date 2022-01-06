@@ -19,7 +19,8 @@ public:
 
 private:
 	bool incomingSysExHasMatchingID(MidiMessage midiMessage);
-	void handleIncomingPgmDump(const uint8* sysExData);
+	void handleIncomingPgmDump(const uint8* sysExData, int sysExDataSize);
+	std::vector<uint8> stripHeaderBytesFromPgmDump(const uint8* sysExData, int sysExDataSize);
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IncomingSysExHandler)

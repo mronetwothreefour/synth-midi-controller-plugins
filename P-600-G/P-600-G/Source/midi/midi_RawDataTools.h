@@ -22,4 +22,5 @@ private:
     static void applyPgmNumberToGUI(const uint8 pgmNumber, UnexposedParameters* unexposedParams);
     static void applyRawPgmDataToExposedParameters(const uint8* pgmData, AudioProcessorValueTreeState* exposedParams);
     static uint8 extractParamValueFromPgmData(uint8 param, const uint8* pgmData);
+    static uint8 extractFilterKeyTrackValueFromPgmData(uint8 param, const uint8* pgmData);
 };

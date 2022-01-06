@@ -27,8 +27,9 @@ MidiBuffer IncomingSysExHandler::pullSysExWithMatchingIDOutOfBuffer(const MidiBu
 bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
     if (midiMessage.isSysEx()) {
         auto sysExData{ midiMessage.getSysExData() };
+        auto sysExDataSize{ midiMessage.getSysExDataSize() };
         if (sysExData[MIDI::sysExByteHolding_ManufacturerID] == MIDI::manufacturerID && MIDI::sysExByteHolding_Opcode == MIDI::opcode_PgmDataDump) {
-            handleIncomingPgmDump(midiMessage.getSysExData());
+            handleIncomingPgmDump(midiMessage.getSysExData(), sysExDataSize);
             return true;
         }
         else
@@ -38,11 +39,15 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
         return false;
 }
 
-void IncomingSysExHandler::handleIncomingPgmDump(const uint8* sysExData) {
+void IncomingSysExHandler::handleIncomingPgmDump(const uint8* sysExData, int sysExDataSize) {
     auto pgmNum{ sysExData[MIDI::sysExByteHolding_PgmNum] };
-    std::vector<uint8> pgmDataVector;
-    for (auto dataByte = MIDI::sysExByteHolding_FirstPgmDataNybble; dataByte != MIDI::sizeOfPgmDataDumpVector; ++dataByte)
-        pgmDataVector.push_back(*(sysExData + dataByte));
-    const MessageManagerLock mmLock;
+    auto pgmDataVector{ stripHeaderBytesFromPgmDump(sysExData, sysExDataSize) };
     RawDataTools::applyPgmDataVectorToGUI(pgmNum, pgmDataVector, exposedParams,unexposedParams);
+}
+
+std::vector<uint8> IncomingSysExHandler::stripHeaderBytesFromPgmDump(const uint8* sysExData, int sysExDataSize) {
+    std::vector<uint8> pgmDataWithoutHeaderBytes;
+    for (auto byteIndex = MIDI::sysExByteHolding_FirstPgmDataNybble; byteIndex != (uint8)sysExDataSize; ++byteIndex)
+        pgmDataWithoutHeaderBytes.push_back(*(sysExData + byteIndex));
+    return pgmDataWithoutHeaderBytes;
 }
