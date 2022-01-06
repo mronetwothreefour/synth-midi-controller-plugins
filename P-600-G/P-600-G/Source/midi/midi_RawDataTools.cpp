@@ -20,6 +20,14 @@ std::vector<uint8> RawSysExDataVector::createPgmDataRequestMessage(uint8 slot)
     return rawDataVector;
 }
 
+std::vector<uint8> RawSysExDataVector::initializePgmDataDumpMessage(uint8 slot) {
+    jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
+    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfPgmDataDumpVector) };
+    rawDataVector[1] = MIDI::opcode_PgmDataDump;
+    rawDataVector[2] = slot;
+    return rawDataVector;
+}
+
 std::vector<uint8> RawSysExDataVector::createRawDataVectorWithManufacturerIDheaderByte(int vectorSize) {
     jassert(vectorSize > 0);
     std::vector<uint8> rawDataVector(vectorSize);
@@ -29,6 +37,35 @@ std::vector<uint8> RawSysExDataVector::createRawDataVectorWithManufacturerIDhead
 
 
 
+
+void RawDataTools::addCurrentExposedParamsSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector) {
+    auto& info{ InfoForExposedParameters::get() };
+    for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
+        auto paramID{ info.IDfor(paramIndex) };
+        auto param{ exposedParams->getParameter(paramID) };
+        auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
+        auto nybbleIndex{ 3 + info.firstNybbleIndexFor(paramIndex)};
+        if (info.IDfor(paramIndex).toString() == "filterKeyTrack") {
+            if (paramValue == 1)
+                dataVector[nybbleIndex] += 8;
+            if (paramValue == 2)
+                dataVector[nybbleIndex] += 4;
+        }
+        else {
+            auto firstBitIndex{ info.firstBitIndexFor(paramIndex) };
+            auto totalNumberOfBits{ info.totalNumberOfBitsNeededFor(paramIndex) };
+            for (uint8 bitCounter = 0; bitCounter != totalNumberOfBits; ++bitCounter) {
+                auto currentBit{ firstBitIndex + bitCounter };
+                if (currentBit == 4 || currentBit == 8)
+                    ++nybbleIndex;
+                currentBit %= 4;
+                auto bitIsOn{ paramValue & roundToInt(std::pow(2, bitCounter)) };
+                if (bitIsOn)
+                    dataVector[nybbleIndex] += (uint8)roundToInt(std::pow(2, currentBit));
+            }
+        }
+    }
+}
 
 void RawDataTools::applyPgmDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     applyPgmNumberToGUI(pgmNumber, unexposedParams);
@@ -65,9 +102,7 @@ uint8 RawDataTools::extractParamValueFromPgmData(uint8 param, const uint8* pgmDa
     auto paramValue{ (uint8)0 };
     for (uint8 bitCounter = 0; bitCounter != totalNumberOfBits; ++bitCounter) {
         auto currentBit{ firstBitIndex + bitCounter };
-        if (currentBit == 4)
-            ++nybbleIndex;
-        if (currentBit == 8)
+        if (currentBit == 4 || currentBit == 8)
             ++nybbleIndex;
         currentBit %= 4;
         auto bitIsOn{ pgmData[nybbleIndex] & roundToInt(std::pow(2, currentBit)) };
@@ -77,8 +112,7 @@ uint8 RawDataTools::extractParamValueFromPgmData(uint8 param, const uint8* pgmDa
     return paramValue;
 }
 
-uint8 RawDataTools::extractFilterKeyTrackValueFromPgmData(uint8 param, const uint8* pgmData)
-{
+uint8 RawDataTools::extractFilterKeyTrackValueFromPgmData(uint8 param, const uint8* pgmData) {
     auto& info{ InfoForExposedParameters::get() };
     auto nybbleIndex{ info.firstNybbleIndexFor(param) };
     auto firstBitIndex{ info.firstBitIndexFor(param) };

@@ -6,6 +6,7 @@
 
 struct RawSysExDataVector {
     static std::vector<uint8> createPgmDataRequestMessage(uint8 slot);
+    static std::vector<uint8> initializePgmDataDumpMessage(uint8 slot);
 
 private:
     static std::vector<uint8> createRawDataVectorWithManufacturerIDheaderByte(int vectorSize);
@@ -16,6 +17,7 @@ private:
 class UnexposedParameters;
 
 struct RawDataTools {
+    static void addCurrentExposedParamsSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);
     static void applyPgmDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
