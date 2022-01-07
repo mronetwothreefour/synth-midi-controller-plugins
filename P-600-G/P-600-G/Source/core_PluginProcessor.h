@@ -4,6 +4,7 @@
 
 
 
+class ExposedParametersListener;
 class IncomingSysExHandler;
 class UnexposedParameters;
 
@@ -11,6 +12,7 @@ class PluginProcessor : public AudioProcessor
 {
     std::unique_ptr<UnexposedParameters> unexposedParams;
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
+    std::unique_ptr<ExposedParametersListener> exposedParamsListener;
     Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers;
     std::unique_ptr<IncomingSysExHandler> incomingSysExHandler;
 
