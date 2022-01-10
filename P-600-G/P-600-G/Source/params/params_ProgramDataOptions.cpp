@@ -58,9 +58,9 @@ void ProgramDataOptions::setProgramTransmitTime(int timeInMilliseconds) {
 }
 
 XmlElement* ProgramDataOptions::getStateXml() {
-	auto currentPatchOptionsTreeStateXml{ programDataOptionsTree.createXml() };
-	currentPatchOptionsTreeStateXml->setTagName(ID::state_CurrentProgramOptions);
-	return currentPatchOptionsTreeStateXml.release();
+	auto pgmDataOptionsTreeStateXml{ programDataOptionsTree.createXml() };
+	pgmDataOptionsTreeStateXml->setTagName(ID::state_PgmDataOptions);
+	return pgmDataOptionsTreeStateXml.release();
 }
 
 void ProgramDataOptions::replaceState(const ValueTree& newState) {

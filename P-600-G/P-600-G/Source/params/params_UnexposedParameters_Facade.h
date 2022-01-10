@@ -12,7 +12,7 @@ class UnexposedParameters
 {
 	std::unique_ptr<UndoManager> undoManager;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
-	std::unique_ptr<ProgramDataOptions> currentProgramOptions;
+	std::unique_ptr<ProgramDataOptions> pgmDataOptions;
 	std::unique_ptr<TooltipOptions> tooltipOptions;
 
 public:
@@ -22,6 +22,8 @@ public:
 	ProgramDataOptions* programDataOptions_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
+	XmlElement unexposedParams_getStateXml();
+	void unexposedParams_replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

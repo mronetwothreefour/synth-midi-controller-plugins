@@ -15,6 +15,7 @@ class PluginProcessor : public AudioProcessor
     std::unique_ptr<ExposedParametersListener> exposedParamsListener;
     Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers;
     std::unique_ptr<IncomingSysExHandler> incomingSysExHandler;
+    std::unique_ptr<XmlElement> pluginStateXml;
 
 public:
     PluginProcessor();
@@ -42,8 +43,17 @@ public:
     AudioProcessorEditor* createEditor() override;
 
     void getStateInformation(MemoryBlock& destData) override;
+
+private:
+    void createPluginStateXml();
+
+public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
+private:
+    void restorePluginStateFromXml(XmlElement* sourceXml);
+
+public:
     ~PluginProcessor() override;
 
 private:

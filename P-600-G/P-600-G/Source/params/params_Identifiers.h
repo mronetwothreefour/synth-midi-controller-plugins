@@ -22,8 +22,11 @@ namespace ID
 	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
 	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };
 
-	static const Identifier state_CurrentProgramOptions{ "state_CurrentProgramOptions" };
+	static const Identifier state_ExposedParams{ "state_ExposedParams" };
+	static const Identifier state_PgmDataOptions{ "state_PgmDataOptions" };
+	static const Identifier state_PluginState{ "state_PluginState" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
+	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };

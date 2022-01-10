@@ -14,10 +14,10 @@ SliderForProgramNumber::SliderForProgramNumber(UnexposedParameters* unexposedPar
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::pgmData_CurrentProgramNumber }
 {
-	auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
-	currentProgramOptions->addListener(this);
+	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+	pgmDataOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ currentProgramOptions->currentProgramNumber() };
+	auto paramValue{ pgmDataOptions->currentProgramNumber() };
 	setValue((double)paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 0.0);
 	setMouseDragSensitivity(160);
@@ -35,6 +35,6 @@ void SliderForProgramNumber::paint(Graphics& g) {
 }
 
 SliderForProgramNumber::~SliderForProgramNumber() {
-	auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
-	currentProgramOptions->removeListener(this);
+	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+	pgmDataOptions->removeListener(this);
 }

@@ -31,8 +31,8 @@ void ProgramNumberLayer::resized() {
 void ProgramNumberLayer::sliderValueChanged(Slider* slider) {
 	if (slider == &slider_ForProgramNumber) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		auto currentProgramOptions{ unexposedParams->programDataOptions_get() };
-		currentProgramOptions->setCurrentProgramNumber(currentKnobValue);
+		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+		pgmDataOptions->setCurrentProgramNumber(currentKnobValue);
 	}
 }
 
