@@ -350,7 +350,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToOffOnString::get());
 	descriptionString = "Enables modulation of oscillator A" + GUI::apostrophe + "s\n";
-	descriptionString = "frequency by the two poly-mod sources.";
+	descriptionString += "frequency by the two poly-mod sources.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow2_y));
 	maxValues.add((uint8)1);
@@ -363,7 +363,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToOffOnString::get());
 	descriptionString = "Enables modulation of the filter" + GUI::apostrophe + "s cutoff\n";
-	descriptionString = "frequency by the two poly-mod sources.";
+	descriptionString += "frequency by the two poly-mod sources.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchPmodFilter_x, GUI::switchRow2_y));
 	maxValues.add((uint8)1);
@@ -376,13 +376,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToOffOnString::get());
 	descriptionString = "Enables one of the three unison keyboard tracking modes:\n";
-	descriptionString = "Normal: Switch unison on while no keys are pressed. All 6 voices play\n";
-	descriptionString = "at once at a single pitch (the lowest triggered note has priority).\n";
-	descriptionString = "Chord Track: Switch unison on while holding down multiple notes.\n";
-	descriptionString = "When new notes are triggered, the same note intervals are played,\n";
-	descriptionString = "but with the lowest triggered new note as the root.\n";
-	descriptionString = "Single Voice: Switch unison on while holding down a single note.\n";
-	descriptionString = "Similar to normal unison, but only one voice plays at a time.";
+	descriptionString += "Normal: Switch unison on while no keys are pressed. All 6 voices play\n";
+	descriptionString += "at once at a single pitch (the lowest triggered note has priority).\n";
+	descriptionString += "Chord Track: Switch unison on while holding down multiple notes.\n";
+	descriptionString += "When new notes are triggered, the same note intervals are played,\n";
+	descriptionString += "but with the lowest triggered new note as the root.\n";
+	descriptionString += "Single Voice: Switch unison on while holding down a single note.\n";
+	descriptionString += "Similar to normal unison, but only one voice plays at a time.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchUnison_x, GUI::switchRow2_y));
 	maxValues.add((uint8)1);
@@ -395,7 +395,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	converters.add(IntToPlainValueString::get());
 	descriptionString = "Adjusts the frequency of the low-frequency oscillator.\n";
-	descriptionString = "Range: 0 (~0.25 Hz) to 16 (~20 Hz)\n";
+	descriptionString += "Range: 0 (~0.25 Hz) to 16 (~20 Hz)";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::knobsPmodFilterEnvAndLFOfreq_x, GUI::knobRow3_y));
 	maxValues.add((uint8)15);
@@ -408,7 +408,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToLFOshapeString::get());
 	descriptionString = "Sets the low-frequency oscillator" + GUI::apostrophe + "s\n";
-	descriptionString = "wave shape (square or triangle).";
+	descriptionString += "wave shape (square or triangle).";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchLFOshape_x, GUI::switchRow3_y));
 	maxValues.add((uint8)1);
@@ -421,8 +421,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	converters.add(IntToPlainValueString::get());
 	descriptionString = "Sets the baseline amount of modulation produced by the low-\n";
-	descriptionString = "frequency oscillator when the modulation wheel is at zero.\n";
-	descriptionString = "Range: 0 (no modulation) to 31 (maximum modulation)\n";
+	descriptionString += "frequency oscillator when the modulation wheel is at zero.\n";
+	descriptionString += "Range: 0 (no modulation) to 31 (maximum modulation)";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::knobLFOamount_x, GUI::knobRow3_y));
 	maxValues.add((uint8)31);
@@ -435,7 +435,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToOffOnString::get());
 	descriptionString = "Enables modulation of the frequencies of both\n";
-	descriptionString = "oscillators by the low-frequency oscillator.";
+	descriptionString += "oscillators by the low-frequency oscillator.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestOscAandLFOdestFreq_x, GUI::switchRow3_y));
 	maxValues.add((uint8)1);
@@ -448,7 +448,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlTypes.add(ControlType::twoPoleSwitch);
 	converters.add(IntToOffOnString::get());
 	descriptionString = "Enables modulation of the pulse widths of both\n";
-	descriptionString = "oscillators by the low-frequency oscillator.";
+	descriptionString += "oscillators by the low-frequency oscillator.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestFilterandLFOdestPW_x, GUI::switchRow3_y));
 	maxValues.add((uint8)1);
@@ -461,7 +461,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	converters.add(IntToOffOnString::get());
 	controlTypes.add(ControlType::twoPoleSwitch);
 	descriptionString = "Enables modulation of the filter's cutoff\n";
-	descriptionString = "frequency by the low-frequency oscillator.";
+	descriptionString += "frequency by the low-frequency oscillator.";
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchLFOdestFilter_x, GUI::switchRow3_y));
 	maxValues.add((uint8)1);
