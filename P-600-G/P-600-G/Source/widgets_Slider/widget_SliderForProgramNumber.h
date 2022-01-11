@@ -7,7 +7,7 @@
 
 
 class SliderForProgramNumber :
-	public RotarySliderWithMouseWheelMod,
+	public RotarySliderWithMouseWheelModForProgramNumber,
 	public ValueTree::Listener
 {
 	UnexposedParameters* unexposedParams;

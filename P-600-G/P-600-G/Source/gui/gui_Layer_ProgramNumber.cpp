@@ -43,6 +43,8 @@ String ProgramNumberLayer::generateProgramNumberTooltipString() {
 		tooltipText += "Selects which program storage slot\n";
 		tooltipText += "on the hardware is the target of the\n";
 		tooltipText += "Push and Pull buttons to the right.\n";
+		tooltipText += "Hold down the SHIFT key when using\n";
+		tooltipText += "the mouse wheel to increment by 10.\n";
 		tooltipText += "Range: 0 to 99.";
 	}
 	return tooltipText;

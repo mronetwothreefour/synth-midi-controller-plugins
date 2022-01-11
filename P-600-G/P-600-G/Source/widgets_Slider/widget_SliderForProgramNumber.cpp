@@ -10,7 +10,7 @@ using namespace::constants;
 
 
 SliderForProgramNumber::SliderForProgramNumber(UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMod{ unexposedParams },
+	RotarySliderWithMouseWheelModForProgramNumber{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::pgmData_CurrentProgramNumber }
 {

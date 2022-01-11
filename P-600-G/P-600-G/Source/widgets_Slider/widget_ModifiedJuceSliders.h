@@ -42,6 +42,22 @@ public:
 
 
 
+// Like SliderWithMouseWheelMod, but also modifies mouseWheelMove() so that
+// the slider is incremented by 10 when the SHIFT key is being held down. 
+class SliderWithMouseWheelModForProgramNumber : public Slider
+{
+	UnexposedParameters* unexposedParams;
+
+public:
+	SliderWithMouseWheelModForProgramNumber() = delete;
+
+	explicit SliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams);
+	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
+};
+
+
+
+
 class RotarySliderWithMouseWheelMod : public SliderWithMouseWheelMod
 {
 public:
@@ -59,6 +75,17 @@ public:
 	RotarySliderWithMouseWheelModForPitch() = delete;
 
 	explicit RotarySliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams);
+};
+
+
+
+
+class RotarySliderWithMouseWheelModForProgramNumber : public SliderWithMouseWheelModForProgramNumber
+{
+public:
+	RotarySliderWithMouseWheelModForProgramNumber() = delete;
+
+	explicit RotarySliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams);
 };
 
 

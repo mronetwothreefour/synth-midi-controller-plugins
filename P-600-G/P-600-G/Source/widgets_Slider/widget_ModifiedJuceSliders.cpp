@@ -44,6 +44,26 @@ void SliderWithMouseWheelModForPitch::mouseWheelMove(const MouseEvent& event, co
 
 
 
+SliderWithMouseWheelModForProgramNumber::SliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams) :
+	unexposedParams{ unexposedParams }
+{
+}
+
+void SliderWithMouseWheelModForProgramNumber::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
+	unexposedParams->undoManager_get()->beginNewTransaction();
+	auto delta{ wheel.deltaY };
+	auto currentValue{ getValue() };
+	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
+	if (event.mods == ModifierKeys::shiftModifier)
+		interval *= 10.0;
+	if (delta != 0.0f)
+		setValue(currentValue + interval);
+	unexposedParams->undoManager_get()->beginNewTransaction();
+}
+
+
+
+
 RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters* unexposedParams) :
 	SliderWithMouseWheelMod{ unexposedParams }
 {
@@ -57,6 +77,17 @@ RotarySliderWithMouseWheelMod::RotarySliderWithMouseWheelMod(UnexposedParameters
 
 RotarySliderWithMouseWheelModForPitch::RotarySliderWithMouseWheelModForPitch(UnexposedParameters* unexposedParams) :
 	SliderWithMouseWheelModForPitch{ unexposedParams }
+{
+	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	setRotaryParameters(degreesToRadians(GUI::knobStartAngleInDegrees), degreesToRadians(GUI::knobEndAngleInDegrees), true);
+}
+
+
+
+
+RotarySliderWithMouseWheelModForProgramNumber::RotarySliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelModForProgramNumber{ unexposedParams }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
