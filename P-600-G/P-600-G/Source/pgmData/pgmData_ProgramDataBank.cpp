@@ -30,14 +30,14 @@ int ProgramDataBank::pgmSlotOutOfRange() {
 
 const String ProgramDataBank::nameOfPgmInSlot(uint8 slot) {
 	jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-	auto pgmDataHexString{ (String)pgmDataHexStrings.getProperty("pgm" + (String)slot)};
+	auto pgmDataHexString{ pgmDataHexStrings.getProperty("pgm" + (String)slot).toString() };
 	auto nameString{ pgmDataHexString.substring(pgmData::indexOfFirstNameCharInPgmDataHexString) };
 	return nameString;
 }
 
 void ProgramDataBank::setNameOfPgmInSlot(String newName, uint8 slot) {
 	jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-	auto oldPgmDataHexString{ (String)pgmDataHexStrings.getProperty("pgm" + (String)slot) };
+	auto oldPgmDataHexString{ pgmDataHexStrings.getProperty("pgm" + (String)slot).toString() };
 	auto newPgmDataHexString{ oldPgmDataHexString.substring(0, pgmData::indexOfFirstNameCharInPgmDataHexString) };
 	newPgmDataHexString.append(newName, pgmData::maxLengthOfPgmName);
 	pgmDataHexStrings.setProperty("pgm" + (String)slot, newPgmDataHexString, nullptr);
@@ -45,7 +45,7 @@ void ProgramDataBank::setNameOfPgmInSlot(String newName, uint8 slot) {
 
 const String ProgramDataBank::getPgmDataHexStringFromSlot(uint8 slot) const {
 	jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-	return pgmDataHexStrings.getProperty("pgm" + (String)slot);
+	return pgmDataHexStrings.getProperty("pgm" + (String)slot).toString();
 }
 
 void ProgramDataBank::storePgmDataHexStringInSlot(String pgmDataHexString, uint8 slot) {

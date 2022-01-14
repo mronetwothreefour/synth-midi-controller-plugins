@@ -16,16 +16,21 @@ struct LCDnumberRenderer {
 		jassert(currentValue < std::pow(10.0, totalNumberOfDigits));
 		String currentValueString{ roundToInt(currentValue) };
 		currentValueString = currentValueString.paddedLeft('0', totalNumberOfDigits);
-		g.setColour(Color::lcdRed);
 		auto& digitPaths{ PathsForLCDdigits::get() };
-		Path positionPath;
+		Path unlitSegmentsPath;
+		Path litSegmentsPath;
 		for (int i = 0; i < totalNumberOfDigits; ++i) {
+			auto pathForAllSegments{ digitPaths.getPathForDigit(8) };
+			unlitSegmentsPath.addPath(pathForAllSegments, AffineTransform::translation(inset_x + i * GUI::lcdDigit_w, inset_y));
 			String digitString{ currentValueString[i] };
 			auto digit{ (uint8)(digitString.getIntValue() - (int)'0')};
 			auto pathForDigit{ digitPaths.getPathForDigit(digit) };
-			positionPath.addPath(pathForDigit, AffineTransform::translation(inset_x + i * GUI::lcdDigit_w, inset_y));
+			litSegmentsPath.addPath(pathForDigit, AffineTransform::translation(inset_x + i * GUI::lcdDigit_w, inset_y));
 		}
-		g.fillPath(positionPath);
+		g.setColour(Color::lcdRedUnlit);
+		g.fillPath(unlitSegmentsPath);
+		g.setColour(Color::lcdRed);
+		g.fillPath(litSegmentsPath);
 	}
 
 private:
