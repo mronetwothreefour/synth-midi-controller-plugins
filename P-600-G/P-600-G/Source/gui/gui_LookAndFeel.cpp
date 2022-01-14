@@ -73,6 +73,16 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Exit.toString())
+		return isDown ? BinaryData::ButtonExitDown_png : BinaryData::ButtonExitUp_png;
+	if (button.getComponentID().startsWith("button_Expt"))
+		return isDown ? BinaryData::ButtonExptDown_png : BinaryData::ButtonExptUp_png;
+	if (button.getComponentID() == ID::button_Fact.toString())
+		return isDown ? BinaryData::ButtonFactDown_png : BinaryData::ButtonFactUp_png;
+	if (button.getComponentID().startsWith("button_Impt"))
+		return isDown ? BinaryData::ButtonImptDown_png : BinaryData::ButtonImptUp_png;
+	if (button.getComponentID() == ID::button_Load.toString())
+		return isDown ? BinaryData::ButtonLoadDown_png : BinaryData::ButtonLoadUp_png;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_png : BinaryData::ButtonPgmBankUp_png;
 	if (button.getComponentID().startsWith("button_Pull"))
@@ -83,6 +93,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonRandDown_png : BinaryData::ButtonRandUp_png;
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return isDown ? BinaryData::ButtonRedoDown_png : BinaryData::ButtonRedoUp_png;
+	if (button.getComponentID() == ID::button_Save.toString())
+		return isDown ? BinaryData::ButtonSaveDown_png : BinaryData::ButtonSaveUp_png;
 	if (button.getComponentID() == ID::button_Tips.toString())
 		return isDown ? BinaryData::ButtonTipsDown_png : BinaryData::ButtonTipsUp_png;
 	if (button.getComponentID() == ID::button_Undo.toString())
@@ -91,6 +103,16 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID() == ID::button_Exit.toString())
+		return isDown ? BinaryData::ButtonExitDown_pngSize : BinaryData::ButtonExitUp_pngSize;
+	if (button.getComponentID().startsWith("button_Expt"))
+		return isDown ? BinaryData::ButtonExptDown_pngSize : BinaryData::ButtonExptUp_pngSize;
+	if (button.getComponentID() == ID::button_Fact.toString())
+		return isDown ? BinaryData::ButtonFactDown_pngSize : BinaryData::ButtonFactUp_pngSize;
+	if (button.getComponentID().startsWith("button_Impt"))
+		return isDown ? BinaryData::ButtonImptDown_pngSize : BinaryData::ButtonImptUp_pngSize;
+	if (button.getComponentID() == ID::button_Load.toString())
+		return isDown ? BinaryData::ButtonLoadDown_pngSize : BinaryData::ButtonLoadUp_pngSize;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_pngSize : BinaryData::ButtonPgmBankUp_pngSize;
 	if (button.getComponentID().startsWith("button_Pull"))
@@ -101,6 +123,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonRandDown_pngSize : BinaryData::ButtonRandUp_pngSize;
 	if (button.getComponentID() == ID::button_Redo.toString())
 		return isDown ? BinaryData::ButtonRedoDown_pngSize : BinaryData::ButtonRedoUp_pngSize;
+	if (button.getComponentID() == ID::button_Save.toString())
+		return isDown ? BinaryData::ButtonSaveDown_pngSize : BinaryData::ButtonSaveUp_pngSize;
 	if (button.getComponentID() == ID::button_Tips.toString())
 		return isDown ? BinaryData::ButtonTipsDown_pngSize : BinaryData::ButtonTipsUp_pngSize;
 	if (button.getComponentID() == ID::button_Undo.toString())

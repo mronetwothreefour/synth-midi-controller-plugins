@@ -108,6 +108,14 @@
       <GROUP id="{563ADC3D-4B11-C153-17A0-179589BB3BB0}" name="pgmData">
         <FILE id="oQrS68" name="pgmData_Constants.h" compile="0" resource="0"
               file="Source/pgmData/pgmData_Constants.h"/>
+        <FILE id="KwlBqU" name="pgmData_FactoryPgmDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.cpp"/>
+        <FILE id="MH5HDo" name="pgmData_FactoryPgmDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.h"/>
+        <FILE id="m8qkNS" name="pgmData_ProgramDataBank.cpp" compile="1" resource="0"
+              file="Source/pgmData/pgmData_ProgramDataBank.cpp"/>
+        <FILE id="uaJlV4" name="pgmData_ProgramDataBank.h" compile="0" resource="0"
+              file="Source/pgmData/pgmData_ProgramDataBank.h"/>
       </GROUP>
       <GROUP id="{5CB6F16B-5917-0CF3-F056-4C83F3D48EAD}" name="tooltipSetters">
         <FILE id="RR3RHA" name="tooltipSetter_Base.cpp" compile="1" resource="0"
@@ -196,6 +204,26 @@
       <FILE id="xrkVUe" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="zTWXe6" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
       <FILE id="h5mScc" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
+      <FILE id="zMKdN2" name="Button-Exit-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Exit-Down.png"/>
+      <FILE id="T4pAPN" name="Button-Exit-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Exit-Up.png"/>
+      <FILE id="qjiOMb" name="Button-Expt-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Expt-Down.png"/>
+      <FILE id="al19US" name="Button-Expt-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Expt-Up.png"/>
+      <FILE id="NehvJc" name="Button-Fact-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Fact-Down.png"/>
+      <FILE id="oAdHVX" name="Button-Fact-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Fact-Up.png"/>
+      <FILE id="nwT99F" name="Button-Impt-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Impt-Down.png"/>
+      <FILE id="d5wv41" name="Button-Impt-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Impt-Up.png"/>
+      <FILE id="EAo056" name="Button-Load-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Load-Down.png"/>
+      <FILE id="wRJZwD" name="Button-Load-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Load-Up.png"/>
       <FILE id="KtFGfx" name="Button-Pgm-Bank-Down.png" compile="0" resource="1"
             file="../Resources/Button-Pgm-Bank-Down.png"/>
       <FILE id="AQQmeH" name="Button-Pgm-Bank-Up.png" compile="0" resource="1"
@@ -216,6 +244,10 @@
             file="../Resources/Button-Redo-Down.png"/>
       <FILE id="xoF0MV" name="Button-Redo-Up.png" compile="0" resource="1"
             file="../Resources/Button-Redo-Up.png"/>
+      <FILE id="HtNW4U" name="Button-Save-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Save-Down.png"/>
+      <FILE id="H1qpnG" name="Button-Save-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Save-Up.png"/>
       <FILE id="SsJHLC" name="Button-Tips-Down.png" compile="0" resource="1"
             file="../Resources/Button-Tips-Down.png"/>
       <FILE id="R95wBH" name="Button-Tips-Up.png" compile="0" resource="1"
@@ -226,6 +258,8 @@
             file="../Resources/Button-Undo-Up.png"/>
       <FILE id="gNkCzD" name="P-600-G-Main-Window-Background.png" compile="0"
             resource="1" file="../Resources/P-600-G-Main-Window-Background.png"/>
+      <FILE id="ngecEd" name="Pgm-Bank-Window-Background.png" compile="0"
+            resource="1" file="../Resources/Pgm-Bank-Window-Background.png"/>
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
     </GROUP>
   </MAINGROUP>

@@ -17,6 +17,36 @@ namespace BinaryData
     extern const char*   SWISSCL_TTF;
     const int            SWISSCL_TTFSize = 35064;
 
+    extern const char*   ButtonExitDown_png;
+    const int            ButtonExitDown_pngSize = 622;
+
+    extern const char*   ButtonExitUp_png;
+    const int            ButtonExitUp_pngSize = 626;
+
+    extern const char*   ButtonExptDown_png;
+    const int            ButtonExptDown_pngSize = 656;
+
+    extern const char*   ButtonExptUp_png;
+    const int            ButtonExptUp_pngSize = 668;
+
+    extern const char*   ButtonFactDown_png;
+    const int            ButtonFactDown_pngSize = 708;
+
+    extern const char*   ButtonFactUp_png;
+    const int            ButtonFactUp_pngSize = 724;
+
+    extern const char*   ButtonImptDown_png;
+    const int            ButtonImptDown_pngSize = 591;
+
+    extern const char*   ButtonImptUp_png;
+    const int            ButtonImptUp_pngSize = 591;
+
+    extern const char*   ButtonLoadDown_png;
+    const int            ButtonLoadDown_pngSize = 670;
+
+    extern const char*   ButtonLoadUp_png;
+    const int            ButtonLoadUp_pngSize = 688;
+
     extern const char*   ButtonPgmBankDown_png;
     const int            ButtonPgmBankDown_pngSize = 984;
 
@@ -47,6 +77,12 @@ namespace BinaryData
     extern const char*   ButtonRedoUp_png;
     const int            ButtonRedoUp_pngSize = 689;
 
+    extern const char*   ButtonSaveDown_png;
+    const int            ButtonSaveDown_pngSize = 752;
+
+    extern const char*   ButtonSaveUp_png;
+    const int            ButtonSaveUp_pngSize = 762;
+
     extern const char*   ButtonTipsDown_png;
     const int            ButtonTipsDown_pngSize = 652;
 
@@ -62,11 +98,14 @@ namespace BinaryData
     extern const char*   P600GMainWindowBackground_png;
     const int            P600GMainWindowBackground_pngSize = 1136047;
 
+    extern const char*   PgmBankWindowBackground_png;
+    const int            PgmBankWindowBackground_pngSize = 755373;
+
     extern const char*   Switch_png;
     const int            Switch_pngSize = 139;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 19;
+    const int namedResourceListSize = 32;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
