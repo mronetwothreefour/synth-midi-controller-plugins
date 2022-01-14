@@ -16,7 +16,7 @@ public:
 	FactoryProgramDataHexStrings& operator=(FactoryProgramDataHexStrings&&) = delete;
 
 	static FactoryProgramDataHexStrings& get() noexcept;
-	int patchSlotOutOfRange();
+	int pgmSlotOutOfRange();
 	const StringArray& getFactoryPgmDataBank();
 
 private:

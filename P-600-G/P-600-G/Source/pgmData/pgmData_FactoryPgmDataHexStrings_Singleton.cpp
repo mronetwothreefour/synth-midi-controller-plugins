@@ -114,7 +114,7 @@ FactoryProgramDataHexStrings& FactoryProgramDataHexStrings::get() noexcept {
 	return factoryProgramDataHexStrings;
 }
 
-int FactoryProgramDataHexStrings::patchSlotOutOfRange() {
+int FactoryProgramDataHexStrings::pgmSlotOutOfRange() {
 	return factoryPgmData.size();
 }
 

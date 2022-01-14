@@ -17,12 +17,14 @@ namespace ID
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
 
+	static const Identifier pgmData_Bank{ "pgmData_Bank" };
 	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
 	static const Identifier pgmData_Options{ "pgmData_Options" };
 	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
 	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };
 
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
+	static const Identifier state_PgmDataBank{ "state_PgmDataBank" };
 	static const Identifier state_PgmDataOptions{ "state_PgmDataOptions" };
 	static const Identifier state_PluginState{ "state_PluginState" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };

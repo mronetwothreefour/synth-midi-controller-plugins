@@ -2565,6 +2565,9 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.cpp">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
@@ -5118,6 +5121,9 @@
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.h">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClInclude>
   </ItemGroup>

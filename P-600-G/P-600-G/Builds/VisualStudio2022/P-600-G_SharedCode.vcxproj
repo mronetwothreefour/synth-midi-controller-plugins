@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp" />
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp" />
     <ClCompile Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.cpp" />
+    <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp" />
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp" />
@@ -2151,6 +2152,7 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h" />
     <ClInclude Include="..\..\Source\pgmData\pgmData_Constants.h" />
     <ClInclude Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.h" />
+    <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h" />
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h" />
