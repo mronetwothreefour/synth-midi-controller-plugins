@@ -25,7 +25,6 @@ class PatchBanksComponent :
     TextButton button_ForClosingPatchBanks;
     std::unique_ptr<PatchBankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<PatchBankTransmissionComponent> pullEntireBankComponent;
-    std::unique_ptr<FileBrowserComponent> fileBrowser;
 
 public:
     PatchBanksComponent() = delete;
