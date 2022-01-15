@@ -16,6 +16,7 @@ void ProgramDataOptions::fillCurrentProgramOptionsTreeWithProperties() {
 	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, (uint8)0, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 300, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank, (bool)false, nullptr);
 }
 
 void ProgramDataOptions::addListener(ValueTree::Listener* listener) {
@@ -55,6 +56,18 @@ const int ProgramDataOptions::programTransmitTime() {
 
 void ProgramDataOptions::setProgramTransmitTime(int timeInMilliseconds) {
 	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, timeInMilliseconds, nullptr);
+}
+
+bool ProgramDataOptions::incomingPgmDataDumpShouldBeSavedInStorageBank() {
+	return (bool)programDataOptionsTree.getProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank);
+}
+
+void ProgramDataOptions::setIncomingPgmDataDumpShouldBeSavedInStorageBank() {
+	programDataOptionsTree.setProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank, (bool)true, nullptr);
+}
+
+void ProgramDataOptions::setIncomingPgmDataDumpShouldNotBeSavedInStorageBank() {
+	programDataOptionsTree.setProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank, (bool)false, nullptr);
 }
 
 XmlElement* ProgramDataOptions::getStateXml() {

@@ -29,6 +29,9 @@ public:
 	void setParamChangeEchosAreNotBlocked();
 	const int programTransmitTime();
 	void setProgramTransmitTime(int timeInMilliseconds);
+	bool incomingPgmDataDumpShouldBeSavedInStorageBank();
+	void setIncomingPgmDataDumpShouldBeSavedInStorageBank();
+	void setIncomingPgmDataDumpShouldNotBeSavedInStorageBank();
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 

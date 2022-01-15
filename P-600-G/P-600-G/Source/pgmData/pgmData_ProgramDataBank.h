@@ -16,6 +16,8 @@ private:
 
 public:
 	int pgmSlotOutOfRange();
+	void addListenerToPgmDataHexStrings(ValueTree::Listener* listener);
+	void removeListenerFromPgmDataHexStrings(ValueTree::Listener* listener);
 	const String nameOfPgmInSlot(uint8 slot);
 	void setNameOfPgmInSlot(String newName, uint8 slot);
 	const String getPgmDataHexStringFromSlot(uint8 slot) const;

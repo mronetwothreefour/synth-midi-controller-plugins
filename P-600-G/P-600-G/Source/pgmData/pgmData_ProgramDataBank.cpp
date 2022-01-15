@@ -28,6 +28,14 @@ int ProgramDataBank::pgmSlotOutOfRange() {
 	return factoryPgmDataHexStrings.pgmSlotOutOfRange();
 }
 
+void ProgramDataBank::addListenerToPgmDataHexStrings(ValueTree::Listener* listener) {
+	pgmDataHexStrings.addListener(listener);
+}
+
+void ProgramDataBank::removeListenerFromPgmDataHexStrings(ValueTree::Listener* listener) {
+	pgmDataHexStrings.removeListener(listener);
+}
+
 const String ProgramDataBank::nameOfPgmInSlot(uint8 slot) {
 	jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
 	auto pgmDataHexString{ pgmDataHexStrings.getProperty("pgm" + (String)slot).toString() };

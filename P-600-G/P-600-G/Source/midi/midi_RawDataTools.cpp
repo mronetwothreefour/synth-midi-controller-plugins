@@ -38,6 +38,20 @@ std::vector<uint8> RawSysExDataVector::createRawDataVectorWithManufacturerIDhead
 
 
 
+const String RawDataTools::convertPgmDataVectorToHexString(const std::vector<uint8>& dataVector) {
+    auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
+    return hexString;
+}
+
+const std::vector<uint8> RawDataTools::convertPgmDataHexStringToDataVector(const String& hexString) {
+    std::vector<uint8> dataVector;
+    for (auto i = 0; i < pgmData::indexOfFirstNameCharInPgmDataHexString; i += 2) {
+        auto hexValueString{ hexString.substring(i, i + 2) };
+        dataVector.push_back((uint8)hexValueString.getHexValue32());
+    }
+    return dataVector;
+}
+
 void RawDataTools::addCurrentExposedParamsSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {

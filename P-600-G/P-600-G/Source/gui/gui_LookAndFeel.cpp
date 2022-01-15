@@ -135,3 +135,23 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 void GUILookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
 
+void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) {
+	drawTickBox(g, button, 0.0f, 0.0f, (float)button.getWidth(), (float)button.getHeight(), button.getToggleState(), button.isEnabled(), isHighlighted, isDown);
+}
+
+void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
+	if (component.getComponentID() == ID::button_PgmDataSlotRadioButton.toString()) {
+		auto buttonColor{ Color::offWhite.withAlpha(0.0f) };
+		if (isHighlighted)
+			buttonColor = buttonColor.withAlpha(0.25f);
+		if (isTicked)
+			buttonColor = buttonColor.brighter(0.5f);
+		g.setColour(buttonColor);
+		g.fillRect(x, y, w, h);
+		g.setColour(Color::offWhite);
+		g.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
+		Rectangle<float> textArea{ x, y, w, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+}
+

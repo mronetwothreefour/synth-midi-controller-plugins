@@ -14,6 +14,7 @@ namespace ID
 	static const Identifier button_ImptSelectedProgram{ "button_ImptSelectedProgram" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_PgmBank{ "button_PgmBank" };
+	static const Identifier button_PgmDataSlotRadioButton{ "button_PgmDataSlotRadioButton" };
 	static const Identifier button_PullBank{ "button_PullBank" };
 	static const Identifier button_PullSelectedProgram{ "button_PullSelectedProgram" };
 	static const Identifier button_PushBank{ "button_PushBank" };
@@ -29,6 +30,7 @@ namespace ID
 
 	static const Identifier pgmData_Bank{ "pgmData_Bank" };
 	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
+	static const Identifier pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank{ "pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank" };
 	static const Identifier pgmData_Options{ "pgmData_Options" };
 	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
 	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };

@@ -123,15 +123,15 @@ std::vector<uint8> RawSysExDataVector::createRawDataVectorWithSysExIDheaderBytes
 
 
 const std::vector<uint8> RawDataTools::convertPatchOrSplitHexStringToDataVector(const String& hexString) {
-    std::vector<uint8> programData;
+    std::vector<uint8> dataVector;
     auto indexOfChecksumByte{ hexString.length() - 2 };
     for (auto i = 0; i != indexOfChecksumByte; ++i) {
         auto hexValueString{ hexString.substring(i, i + 1) };
-        programData.push_back((uint8)hexValueString.getHexValue32());
+        dataVector.push_back((uint8)hexValueString.getHexValue32());
     }
     auto checksumHexValueString{ hexString.substring(indexOfChecksumByte, hexString.length()) };
-    programData.push_back((uint8)checksumHexValueString.getHexValue32());
-    return programData;
+    dataVector.push_back((uint8)checksumHexValueString.getHexValue32());
+    return dataVector;
 }
 
 const String RawDataTools::convertPatchOrSplitDataVectorToHexString(const std::vector<uint8>& dataVector) {

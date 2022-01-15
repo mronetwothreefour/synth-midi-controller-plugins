@@ -43,8 +43,8 @@ void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
 	String slotTooltip{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	if (tooltips->shouldShowDescription()) {
-		slotTooltip += "Click a patch's name to select it before using the buttons below.\n";
-		slotTooltip += "CTRL-C copies the selected patch's settings into the clipboard.\n";
+		slotTooltip += "Click a patch" + GUI::apostrophe + "s name to select it before using the buttons below.\n";
+		slotTooltip += "CTRL-C copies the selected patch" + GUI::apostrophe + "s settings into the clipboard.\n";
 		slotTooltip += "CTRL-V overwrites the selected patch with the settings in the\n";
 		slotTooltip += "clipboard (only slots in Custom User Banks A & B can be overwritten).";
 	}
@@ -52,6 +52,7 @@ void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
 }
 
 void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
+	jassert(slot < patches::numberOfSlotsInBank);
 	String slotNumber;
 	if (slot < 10) 
 		slotNumber = "0" + (String)(slot);
