@@ -25,9 +25,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    addAndMakeVisible(buttonsLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(programNumberLayer.get());
+    addAndMakeVisible(buttonsLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->addListener(this);

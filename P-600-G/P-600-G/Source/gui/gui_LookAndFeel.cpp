@@ -143,14 +143,14 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 	if (component.getComponentID() == ID::button_PgmDataSlotRadioButton.toString()) {
 		auto buttonColor{ Color::offWhite.withAlpha(0.0f) };
 		if (isHighlighted)
-			buttonColor = buttonColor.withAlpha(0.25f);
+			buttonColor = buttonColor.withAlpha(0.1f);
 		if (isTicked)
-			buttonColor = buttonColor.brighter(0.5f);
+			buttonColor = buttonColor.withAlpha(0.25f);
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::offWhite);
 		g.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
-		Rectangle<float> textArea{ x, y, w, h };
+		Rectangle<float> textArea{ x + 2, y, w, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
 }

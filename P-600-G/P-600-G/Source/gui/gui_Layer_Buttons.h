@@ -13,6 +13,7 @@
 
 
 class UnexposedParameters;
+class ProgramDataBankComponent;
 
 class ButtonsLayer :
 	public Component,
@@ -27,6 +28,7 @@ class ButtonsLayer :
 	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;
 	ButtonForShowingRandomizeComponent button_ForShowingRandomizeComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
+	std::unique_ptr<ProgramDataBankComponent> pgmDataBankComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -34,6 +36,7 @@ public:
 	ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
+	void showProgramDataBankComponent();
 	void timerCallback() override;
 
 public:

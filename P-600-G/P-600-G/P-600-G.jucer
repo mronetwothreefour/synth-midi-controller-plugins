@@ -112,6 +112,14 @@
               compile="1" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.cpp"/>
         <FILE id="MH5HDo" name="pgmData_FactoryPgmDataHexStrings_Singleton.h"
               compile="0" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.h"/>
+        <FILE id="flahy9" name="pgmData_PgmDataBankComponent.cpp" compile="1"
+              resource="0" file="Source/pgmData/pgmData_PgmDataBankComponent.cpp"/>
+        <FILE id="GUt7zG" name="pgmData_PgmDataBankComponent.h" compile="0"
+              resource="0" file="Source/pgmData/pgmData_PgmDataBankComponent.h"/>
+        <FILE id="lQtlAL" name="pgmData_PgmDataSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/pgmData/pgmData_PgmDataSlotsComponent.cpp"/>
+        <FILE id="i7WhQU" name="pgmData_PgmDataSlotsComponent.h" compile="0"
+              resource="0" file="Source/pgmData/pgmData_PgmDataSlotsComponent.h"/>
         <FILE id="m8qkNS" name="pgmData_ProgramDataBank.cpp" compile="1" resource="0"
               file="Source/pgmData/pgmData_ProgramDataBank.cpp"/>
         <FILE id="uaJlV4" name="pgmData_ProgramDataBank.h" compile="0" resource="0"

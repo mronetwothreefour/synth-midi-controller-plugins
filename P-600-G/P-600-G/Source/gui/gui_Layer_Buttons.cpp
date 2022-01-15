@@ -2,6 +2,7 @@
 
 #include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../pgmData/pgmData_PgmDataBankComponent.h"
 
 using namespace constants;
 
@@ -24,8 +25,17 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForPullingProgramFromHardware);
     addAndMakeVisible(button_ForPushingProgramToHardware);
     addAndMakeVisible(button_ForShowingProgramBankComponent);
+    button_ForShowingProgramBankComponent.onClick = [this] { showProgramDataBankComponent(); };
     addAndMakeVisible(button_ForShowingRandomizeComponent);
     addAndMakeVisible(button_ForShowingTipsComponent);
+}
+
+void ButtonsLayer::showProgramDataBankComponent() {
+    pgmDataBankComponent.reset(new ProgramDataBankComponent(exposedParams, unexposedParams));
+    if (pgmDataBankComponent != nullptr) {
+        addAndMakeVisible(pgmDataBankComponent.get());
+        pgmDataBankComponent->setBounds(getLocalBounds());
+    }
 }
 
 void ButtonsLayer::timerCallback() {
@@ -36,10 +46,11 @@ void ButtonsLayer::resized() {
     button_ForPerformingUndo.setBounds(GUI::bounds_UndoButton);
     button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
-    button_ForShowingProgramBankComponent.setBounds(GUI::bounds_PgmBankButton);
+    button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowPgmBankButton);
     button_ForShowingRandomizeComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
+    pgmDataBankComponent = nullptr;
 }
