@@ -24,6 +24,16 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y, int w, int 
 	}
 }
 
+void GUILookAndFeel::drawLabel(Graphics& /*g*/, Label& /*label*/) {
+}
+
+void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) {
+	g.fillAll(Color::black);
+}
+
+void GUILookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+}
+
 void GUILookAndFeel::drawLinearSlider(Graphics& g, int x, int /*y*/, int /*w*/, int h, float /*sliderPos*/, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*sliderStyle*/, Slider& slider) {
 	MemoryInputStream memInputStream{ BinaryData::Switch_png, BinaryData::Switch_pngSize, false };
 	PNGImageFormat imageFormat;

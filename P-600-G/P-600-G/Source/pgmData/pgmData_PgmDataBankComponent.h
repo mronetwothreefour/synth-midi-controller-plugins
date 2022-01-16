@@ -11,11 +11,14 @@ class UnexposedParameters;
 
 class ProgramDataBankComponent :
     public Component,
-    public Button::Listener
+    public Button::Listener,
+    public Label::Listener
 {
     UnexposedParameters* unexposedParams;
     ProgramDataSlotsComponent slotsComponent;
+    TextButton button_ForNamingSelectedPgm;
     TextButton button_ForClosingPgmDataBank;
+    Label label_PgmNameEditor;
 
 public:
     ProgramDataBankComponent() = delete;
@@ -23,10 +26,14 @@ public:
     ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void resized() override;
+    void editorShown(Label* label, TextEditor& editor) override;
+    void labelTextChanged(Label* label) override;
     void buttonClicked(Button* button) override;
 
 private:
+    void setComponentTooltips();
     void hideThisComponent();
+    void positionAndShowNameEditorForSelectedPgm();
 
 public:
     ~ProgramDataBankComponent();

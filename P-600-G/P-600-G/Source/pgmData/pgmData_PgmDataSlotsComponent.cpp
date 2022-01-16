@@ -85,7 +85,6 @@ void ProgramDataSlotsComponent::pullSelectedPgmDataFromHardware() {
 	if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		auto transmitTime{ pgmDataOptions->programTransmitTime() };
 		pgmDataOptions->setIncomingPgmDataDumpShouldBeSavedInStorageBank();
 		ProgramDataDump::addRequestForPgmDataStoredInHardwareSlotToOutgoingMidiBuffers(selectedSlot, outgoingBuffers);
 	}

@@ -22,6 +22,12 @@ namespace constants
 		static const int buttonMainWindowPgmBank_x{ buttonMainWindowPull_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonMainWindowTips_x{ 687 };
 		static const int buttonPgmBankWindowExit_x{ 1336 };
+		static const int buttonPgmBankWindowLoadSelectedPgm_x{ 360 };
+		static const int buttonPgmBankWindowSaveSelectedPgm_x{ buttonPgmBankWindowLoadSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankWindowPullSelectedPgm_x{ buttonPgmBankWindowSaveSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankWindowImptSelectedPgm_x{ buttonPgmBankWindowPullSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankWindowExptSelectedPgm_x{ buttonPgmBankWindowImptSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankWindowNameSelectedPgm_x{ buttonPgmBankWindowExptSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonRand_x{ 979 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
@@ -55,6 +61,8 @@ namespace constants
 		static const int pgmDataSlotsComponent_w{ 1350 };
 		static const int pgmDataSlotsComponent_x{ 26 };
 		static const int pgmDataSlotsComponent_y{ 156 };
+		static const int pgmNameEditorLabel_horizInset{ 43 };
+		static const int pgmNameEditorLabel_w{ 118 };
 		static const int switches_w{ 20 };
 		static const int switchesHorizSpacing{ 60 };
 		static const int switchesOscSaw_x{ 683 };
@@ -80,6 +88,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmDataBankWindowExitButton{ buttonPgmBankWindowExit_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmDataBankWindowNameButton{ buttonPgmBankWindowNameSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmDataSlotsComponent{ pgmDataSlotsComponent_x, pgmDataSlotsComponent_y, pgmDataSlotsComponent_w, pgmDataSlotsComponent_h };
 		static const Rectangle<int> bounds_RandButton{ buttonRand_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RedoButton{ buttonRedo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };

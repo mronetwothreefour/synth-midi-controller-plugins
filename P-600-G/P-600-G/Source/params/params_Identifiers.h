@@ -29,6 +29,8 @@ namespace ID
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
 
+	static const Identifier label_PgmNameEditor{ "label_PgmNameEditor" };
+
 	static const Identifier pgmData_Bank{ "pgmData_Bank" };
 	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
 	static const Identifier pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank{ "pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank" };
