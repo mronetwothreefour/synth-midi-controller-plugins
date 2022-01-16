@@ -13,6 +13,7 @@ namespace ID
 	static const Identifier button_ImptBank{ "button_ImptBank" };
 	static const Identifier button_ImptSelectedProgram{ "button_ImptSelectedProgram" };
 	static const Identifier button_Load{ "button_Load" };
+	static const Identifier button_Name{ "button_Name" };
 	static const Identifier button_PgmBank{ "button_PgmBank" };
 	static const Identifier button_PgmDataSlotRadioButton{ "button_PgmDataSlotRadioButton" };
 	static const Identifier button_PullBank{ "button_PullBank" };

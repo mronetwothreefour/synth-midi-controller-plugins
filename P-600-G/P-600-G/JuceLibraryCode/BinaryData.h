@@ -47,6 +47,12 @@ namespace BinaryData
     extern const char*   ButtonLoadUp_png;
     const int            ButtonLoadUp_pngSize = 688;
 
+    extern const char*   ButtonNameDown_png;
+    const int            ButtonNameDown_pngSize = 705;
+
+    extern const char*   ButtonNameUp_png;
+    const int            ButtonNameUp_pngSize = 695;
+
     extern const char*   ButtonPgmBankDown_png;
     const int            ButtonPgmBankDown_pngSize = 984;
 
@@ -99,13 +105,13 @@ namespace BinaryData
     const int            P600GMainWindowBackground_pngSize = 1136047;
 
     extern const char*   PgmBankWindowBackground_png;
-    const int            PgmBankWindowBackground_pngSize = 755373;
+    const int            PgmBankWindowBackground_pngSize = 755365;
 
     extern const char*   Switch_png;
     const int            Switch_pngSize = 139;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 32;
+    const int namedResourceListSize = 34;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

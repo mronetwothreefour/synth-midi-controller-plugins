@@ -232,6 +232,10 @@
             file="../Resources/Button-Load-Down.png"/>
       <FILE id="wRJZwD" name="Button-Load-Up.png" compile="0" resource="1"
             file="../Resources/Button-Load-Up.png"/>
+      <FILE id="xiV9py" name="Button-Name-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Name-Down.png"/>
+      <FILE id="PoVJtE" name="Button-Name-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Name-Up.png"/>
       <FILE id="KtFGfx" name="Button-Pgm-Bank-Down.png" compile="0" resource="1"
             file="../Resources/Button-Pgm-Bank-Down.png"/>
       <FILE id="AQQmeH" name="Button-Pgm-Bank-Up.png" compile="0" resource="1"

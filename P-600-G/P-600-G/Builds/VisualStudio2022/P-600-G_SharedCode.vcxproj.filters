@@ -5306,6 +5306,12 @@
     <None Include="..\..\..\Resources\Button-Load-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Button-Name-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Name-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>

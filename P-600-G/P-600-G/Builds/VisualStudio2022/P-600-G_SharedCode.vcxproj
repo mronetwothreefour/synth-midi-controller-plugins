@@ -3002,6 +3002,8 @@
     <None Include="..\..\..\Resources\Button-Impt-Up.png"/>
     <None Include="..\..\..\Resources\Button-Load-Down.png"/>
     <None Include="..\..\..\Resources\Button-Load-Up.png"/>
+    <None Include="..\..\..\Resources\Button-Name-Down.png"/>
+    <None Include="..\..\..\Resources\Button-Name-Up.png"/>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Down.png"/>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Up.png"/>
     <None Include="..\..\..\Resources\Button-Pull-Down.png"/>

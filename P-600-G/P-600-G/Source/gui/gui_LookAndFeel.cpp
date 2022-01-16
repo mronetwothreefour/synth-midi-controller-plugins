@@ -83,6 +83,8 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonImptDown_png : BinaryData::ButtonImptUp_png;
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonLoadDown_png : BinaryData::ButtonLoadUp_png;
+	if (button.getComponentID() == ID::button_Name.toString())
+		return isDown ? BinaryData::ButtonNameDown_png : BinaryData::ButtonNameUp_png;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_png : BinaryData::ButtonPgmBankUp_png;
 	if (button.getComponentID().startsWith("button_Pull"))
@@ -113,6 +115,8 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonImptDown_pngSize : BinaryData::ButtonImptUp_pngSize;
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonLoadDown_pngSize : BinaryData::ButtonLoadUp_pngSize;
+	if (button.getComponentID() == ID::button_Name.toString())
+		return isDown ? BinaryData::ButtonNameDown_pngSize : BinaryData::ButtonNameUp_pngSize;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_pngSize : BinaryData::ButtonPgmBankUp_pngSize;
 	if (button.getComponentID().startsWith("button_Pull"))
