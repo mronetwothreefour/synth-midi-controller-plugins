@@ -4,6 +4,7 @@
 
 #include "pgmData_ProgramDataBank.h"
 #include "pgmData_PgmDataSlotsComponent.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"
 
 
@@ -18,7 +19,7 @@ class ProgramDataBankComponent :
     UnexposedParameters* unexposedParams;
     ProgramDataSlotsComponent slotsComponent;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
-    TextButton button_ForNamingSelectedPgm;
+    ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
 
@@ -33,9 +34,7 @@ public:
     void buttonClicked(Button* button) override;
 
 private:
-    void setComponentTooltips();
     void hideThisComponent();
-    void positionAndShowNameEditorForSelectedPgm();
 
 public:
     ~ProgramDataBankComponent();
