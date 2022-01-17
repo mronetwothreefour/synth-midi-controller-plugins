@@ -13,9 +13,11 @@ using namespace constants;
 
 ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	slotsComponent{ exposedParams, unexposedParams }
+	slotsComponent{ exposedParams, unexposedParams },
+	button_ForLoadingSelectedProgram{ slotsComponent, unexposedParams }
 {
 	addAndMakeVisible(slotsComponent);
+	addAndMakeVisible(button_ForLoadingSelectedProgram);
 
 	addAndMakeVisible(button_ForNamingSelectedPgm);
 	button_ForNamingSelectedPgm.setComponentID(ID::button_Name.toString());
@@ -46,6 +48,7 @@ void ProgramDataBankComponent::paint(Graphics& g) {
 }
 
 void ProgramDataBankComponent::resized() {
+	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PgmDataBankWindowLoadSelectedPgmButton);
 	button_ForNamingSelectedPgm.setBounds(GUI::bounds_PgmDataBankWindowNameButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmDataBankWindowExitButton);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
