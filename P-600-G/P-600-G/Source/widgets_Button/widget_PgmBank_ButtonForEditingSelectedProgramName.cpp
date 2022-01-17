@@ -24,9 +24,7 @@ const String ButtonForEditingSelectedProgramName::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Click to change the name of the selected program.\n";
-		buttonTooltip += "NOTE: The hardware has no provisions for storing\n";
-		buttonTooltip += "program names. The name is deleted when a pro-\n";
-		buttonTooltip += "gram is pulled from the hardware into a plugin slot.";
+		buttonTooltip += "NOTE: The Prophet-600 hardware does store program names.";
 	}
 	return buttonTooltip;
 }
@@ -37,6 +35,6 @@ void ButtonForEditingSelectedProgramName::onClickMethod() {
 		auto editor_x{ GUI::pgmNameEditorLabel_horizInset + (slot / 10 * GUI::pgmDataSlotRadioButton_w) };
 		auto editor_y{ GUI::pgmDataSlotsComponent_y + (slot % 10 * GUI::pgmDataSlotRadioButton_h) };
 		nameEditor.setBounds(editor_x, editor_y, GUI::pgmNameEditorLabel_w, GUI::pgmDataSlotRadioButton_h);
+		nameEditor.showEditor();
 	}
-	nameEditor.showEditor();
 }
