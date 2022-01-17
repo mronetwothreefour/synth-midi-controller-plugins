@@ -30,6 +30,7 @@ TabForCustomPatchBank::TabForCustomPatchBank(PatchBank bank, AudioProcessorValue
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
+
 	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
 }
 

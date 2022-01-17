@@ -24,6 +24,7 @@ TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorVal
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
+
 	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
 }
 
