@@ -34,6 +34,9 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	label_PgmNameEditor.addListener(this);
 	addAndMakeVisible(label_PgmNameEditor);
 
+	commandManager.registerAllCommandsForTarget(this);
+	addKeyListener(commandManager.getKeyMappings());
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -73,6 +76,54 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 }
 
 void ProgramDataBankComponent::buttonClicked(Button* /*button*/) {
+}
+
+ApplicationCommandTarget* ProgramDataBankComponent::getNextCommandTarget() {
+	return nullptr;
+}
+
+void ProgramDataBankComponent::getAllCommands(Array<CommandID>& commands) {
+	Array<CommandID> IDs{ copyPgm, pastePgm };
+	commands.addArray(IDs);
+}
+
+void ProgramDataBankComponent::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+	switch (commandID)
+	{
+	case copyPgm:
+		result.setInfo("Copy Patch", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
+		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
+		break;
+	case pastePgm:
+		result.setInfo("Paste Patch", "Replace the program in the selected storage slot with the program in the clipboard", "CopyAndPaste", 0);
+		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
+		break;
+	default:
+		break;
+	}
+}
+
+bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
+	auto pgmDataBank{ unexposedParams->programDataBank_get() };
+	auto selectedSlot{ slotsComponent.selectedSlot };
+	switch (info.commandID)
+	{
+	case copyPgm:
+		if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
+			auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(selectedSlot) };
+			pgmCopyBuffer = pgmDataHexString;
+			return true;
+		}
+		else return false;
+	case pastePgm:
+		if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank && pgmCopyBuffer != "") {
+			pgmDataBank->storePgmDataHexStringInSlot(pgmCopyBuffer, selectedSlot);
+			return true;
+		}
+		else return false;
+	default:
+		return false;
+	}
 }
 
 void ProgramDataBankComponent::hideThisComponent() {

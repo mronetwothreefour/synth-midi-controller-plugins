@@ -14,7 +14,8 @@ class UnexposedParameters;
 class ProgramDataBankComponent :
     public Component,
     public Button::Listener,
-    public Label::Listener
+    public Label::Listener,
+    public ApplicationCommandTarget
 {
     UnexposedParameters* unexposedParams;
     ProgramDataSlotsComponent slotsComponent;
@@ -22,8 +23,15 @@ class ProgramDataBankComponent :
     ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
+    ApplicationCommandManager commandManager;
+    String pgmCopyBuffer;
 
 public:
+    enum commandChoices {
+        copyPgm = 1,
+        pastePgm
+    };
+
     ProgramDataBankComponent() = delete;
 
     ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
@@ -32,6 +40,10 @@ public:
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
     void buttonClicked(Button* button) override;
+    ApplicationCommandTarget* getNextCommandTarget() override;
+    void getAllCommands(Array<CommandID>& commands) override;
+    void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
+    bool perform(const InvocationInfo& info) override;
 
 private:
     void hideThisComponent();
