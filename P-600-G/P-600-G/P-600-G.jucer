@@ -3,7 +3,7 @@
 <JUCERPROJECT id="dklsNJ" name="P-600-G" projectType="audioplug" jucerFormatVersion="1"
               version="1.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
               companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
-              pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginManufacturerCode="TimD" pluginDesc="Voice editor and librarian for the Sequential Circuits Prophet-600 synthesizer"
               pluginVST3Category="Tools" cppLanguageStandard="20" includeBinaryInJuceHeader="1">
   <MAINGROUP id="Vp8OBw" name="P-600-G">
