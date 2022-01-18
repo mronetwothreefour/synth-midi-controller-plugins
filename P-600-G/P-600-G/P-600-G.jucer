@@ -176,6 +176,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
         <FILE id="PyYWiA" name="widget_PgmBank_ButtonForLoadingSelectedPgm.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
+        <FILE id="RzBqjI" name="widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
+        <FILE id="RNF1Yy" name="widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
         <FILE id="CoONUH" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
         <FILE id="vJ9Ocp" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"

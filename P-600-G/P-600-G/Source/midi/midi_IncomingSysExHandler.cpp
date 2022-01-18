@@ -43,6 +43,13 @@ void IncomingSysExHandler::handleIncomingPgmDump(const uint8* sysExData, int sys
     auto pgmNum{ sysExData[MIDI::sysExByteHolding_PgmNum] };
     auto pgmDataVector{ stripHeaderBytesFromPgmDump(sysExData, sysExDataSize) };
     RawDataTools::applyPgmDataVectorToGUI(pgmNum, pgmDataVector, exposedParams,unexposedParams);
+    auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+    if (pgmDataOptions->incomingPgmDataDumpShouldBeSavedInStorageBank()) {
+        auto pgmDataBank{ unexposedParams->programDataBank_get() };
+        auto pgmDataHexString{ RawDataTools::convertPgmDataVectorToHexString(pgmDataVector) };
+        pgmDataBank->storePgmDataHexStringInSlot(pgmDataHexString, pgmNum);
+        pgmDataOptions->setIncomingPgmDataDumpShouldNotBeSavedInStorageBank();
+    }
 }
 
 std::vector<uint8> IncomingSysExHandler::stripHeaderBytesFromPgmDump(const uint8* sysExData, int sysExDataSize) {

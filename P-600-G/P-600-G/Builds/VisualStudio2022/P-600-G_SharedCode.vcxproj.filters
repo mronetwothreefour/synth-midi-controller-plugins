@@ -583,6 +583,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
@@ -2839,6 +2842,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h">

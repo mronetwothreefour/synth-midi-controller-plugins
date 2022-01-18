@@ -16,11 +16,13 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	slotsComponent{ exposedParams, unexposedParams },
 	button_ForLoadingSelectedProgram{ slotsComponent, unexposedParams },
 	button_ForSavingPgmInSelectedSlot{ slotsComponent, unexposedParams, label_PgmNameEditor },
+	button_ForPullingSelectedPgmFromHardware{ slotsComponent, unexposedParams, label_PgmNameEditor },
 	button_ForEditingSelectedPgmName{ label_PgmNameEditor, slotsComponent, unexposedParams }
 {
 	addAndMakeVisible(slotsComponent);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
 	addAndMakeVisible(button_ForSavingPgmInSelectedSlot);
+	addAndMakeVisible(button_ForPullingSelectedPgmFromHardware);
 	addAndMakeVisible(button_ForEditingSelectedPgmName);
 
 	addAndMakeVisible(button_ForClosingPgmDataBank);
@@ -53,6 +55,7 @@ void ProgramDataBankComponent::paint(Graphics& g) {
 void ProgramDataBankComponent::resized() {
 	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PgmBankWindowLoadSelectedPgmButton);
 	button_ForSavingPgmInSelectedSlot.setBounds(GUI::bounds_PgmBankWindowSavePgmButton);
+	button_ForPullingSelectedPgmFromHardware.setBounds(GUI::bounds_PgmBankWindowPullSelectedPgmButton);
 	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_PgmBankWindowNameButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);

@@ -89,6 +89,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowExitButton{ buttonPgmBankWindowExit_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowLoadSelectedPgmButton{ buttonPgmBankWindowLoadSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowPullSelectedPgmButton{ buttonPgmBankWindowPullSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowSavePgmButton{ buttonPgmBankWindowSavePgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowNameButton{ buttonPgmBankWindowNameSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmDataSlotsComponent{ pgmDataSlotsComponent_x, pgmDataSlotsComponent_y, pgmDataSlotsComponent_w, pgmDataSlotsComponent_h };
