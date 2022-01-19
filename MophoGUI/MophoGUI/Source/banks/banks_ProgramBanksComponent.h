@@ -20,7 +20,6 @@ class ProgramBanksComponent :
     TextButton button_ForClosingProgramBanks;
     std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
-    std::unique_ptr<FileBrowserComponent> fileBrowser;
     Label label_txTime;
 
 public:
