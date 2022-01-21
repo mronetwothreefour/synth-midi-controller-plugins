@@ -35,6 +35,7 @@ void ButtonsLayer::showProgramDataBankComponent() {
     if (pgmDataBankComponent != nullptr) {
         addAndMakeVisible(pgmDataBankComponent.get());
         pgmDataBankComponent->setBounds(getLocalBounds());
+        pgmDataBankComponent->grabKeyboardFocus();
     }
 }
 

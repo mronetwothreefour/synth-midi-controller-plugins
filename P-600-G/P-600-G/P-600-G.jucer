@@ -51,6 +51,14 @@
         <FILE id="Os8PJQ" name="guiRenderer_LCDNumber.h" compile="0" resource="0"
               file="Source/guiRenderers/guiRenderer_LCDNumber.h"/>
       </GROUP>
+      <GROUP id="{0D76A8E8-444D-DF66-1318-ED5518103DEB}" name="imptExpt">
+        <FILE id="BgHuil" name="imptExpt_ExportPgmDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.cpp"/>
+        <FILE id="iiwJLk" name="imptExpt_ExportPgmDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.h"/>
+        <FILE id="v8xm8M" name="imptExpt_FileFilters.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FileFilters.h"/>
+      </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
               file="Source/midi/midi_Constants.h"/>
@@ -172,6 +180,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
         <FILE id="tfpxNb" name="widget_PgmBank_ButtonForEditingSelectedProgramName.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
+        <FILE id="NTa9us" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
+        <FILE id="xbBwJ0" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
         <FILE id="GkNYqi" name="widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
         <FILE id="PyYWiA" name="widget_PgmBank_ButtonForLoadingSelectedPgm.h"
@@ -228,6 +240,10 @@
       <FILE id="xrkVUe" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="zTWXe6" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
       <FILE id="h5mScc" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
+      <FILE id="GOyu7x" name="Button-Esc-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Esc-Down.png"/>
+      <FILE id="Pn50BI" name="Button-Esc-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Esc-Up.png"/>
       <FILE id="zMKdN2" name="Button-Exit-Down.png" compile="0" resource="1"
             file="../Resources/Button-Exit-Down.png"/>
       <FILE id="T4pAPN" name="Button-Exit-Up.png" compile="0" resource="1"
@@ -252,6 +268,14 @@
             file="../Resources/Button-Name-Down.png"/>
       <FILE id="PoVJtE" name="Button-Name-Up.png" compile="0" resource="1"
             file="../Resources/Button-Name-Up.png"/>
+      <FILE id="B5gElh" name="Button-New-Fldr-Down.png" compile="0" resource="1"
+            file="../Resources/Button-New-Fldr-Down.png"/>
+      <FILE id="pUtAjh" name="Button-New-Fldr-Up.png" compile="0" resource="1"
+            file="../Resources/Button-New-Fldr-Up.png"/>
+      <FILE id="bG95Zm" name="Button-OK-Down.png" compile="0" resource="1"
+            file="../Resources/Button-OK-Down.png"/>
+      <FILE id="x0e4tl" name="Button-OK-Up.png" compile="0" resource="1"
+            file="../Resources/Button-OK-Up.png"/>
       <FILE id="KtFGfx" name="Button-Pgm-Bank-Down.png" compile="0" resource="1"
             file="../Resources/Button-Pgm-Bank-Down.png"/>
       <FILE id="AQQmeH" name="Button-Pgm-Bank-Up.png" compile="0" resource="1"
@@ -284,6 +308,8 @@
             file="../Resources/Button-Undo-Down.png"/>
       <FILE id="VrNx7s" name="Button-Undo-Up.png" compile="0" resource="1"
             file="../Resources/Button-Undo-Up.png"/>
+      <FILE id="IgFQEy" name="Import-Export-Window-Background.png" compile="0"
+            resource="1" file="../Resources/Import-Export-Window-Background.png"/>
       <FILE id="gNkCzD" name="P-600-G-Main-Window-Background.png" compile="0"
             resource="1" file="../Resources/P-600-G-Main-Window-Background.png"/>
       <FILE id="ngecEd" name="Pgm-Bank-Window-Background.png" compile="0"

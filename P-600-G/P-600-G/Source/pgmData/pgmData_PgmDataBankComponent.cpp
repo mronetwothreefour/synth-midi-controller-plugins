@@ -3,6 +3,7 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
+#include "../imptExpt/imptExpt_ExportPgmDataComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -17,20 +18,25 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForLoadingSelectedProgram{ slotsComponent, unexposedParams },
 	button_ForSavingPgmInSelectedSlot{ slotsComponent, unexposedParams, label_PgmNameEditor },
 	button_ForPullingSelectedPgmFromHardware{ slotsComponent, unexposedParams, label_PgmNameEditor },
+	button_ForExportingSelectedPgmToFile{ unexposedParams },
 	button_ForEditingSelectedPgmName{ label_PgmNameEditor, slotsComponent, unexposedParams }
 {
 	addAndMakeVisible(slotsComponent);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
 	addAndMakeVisible(button_ForSavingPgmInSelectedSlot);
 	addAndMakeVisible(button_ForPullingSelectedPgmFromHardware);
+	addAndMakeVisible(button_ForExportingSelectedPgmToFile);
 	addAndMakeVisible(button_ForEditingSelectedPgmName);
-
 	addAndMakeVisible(button_ForClosingPgmDataBank);
+
+	button_ForExportingSelectedPgmToFile.onClick = [this] { showExportSelectedPgmComponent(); };
+
 	button_ForClosingPgmDataBank.setComponentID(ID::button_Exit.toString());
+	button_ForClosingPgmDataBank.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingPgmDataBank.onClick = [this] { hideThisComponent(); };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription())
-		button_ForClosingPgmDataBank.setTooltip("Closes the Program Storage Bank window.");
+		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank\nwindow (or press the ESC key).");
 
 	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
 	label_PgmNameEditor.setComponentID(ID::label_PgmNameEditor.toString());
@@ -49,13 +55,14 @@ void ProgramDataBankComponent::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::PgmBankWindowBackground_png, BinaryData::PgmBankWindowBackground_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, GUI::pgmDataBankWindowInset_x, GUI::pgmDataBankWindowInset_y);
+	g.drawImageAt(backgroundImage, GUI::pgmDataBankWindow_x, GUI::pgmDataBankWindow_y);
 }
 
 void ProgramDataBankComponent::resized() {
 	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PgmBankWindowLoadSelectedPgmButton);
 	button_ForSavingPgmInSelectedSlot.setBounds(GUI::bounds_PgmBankWindowSavePgmButton);
 	button_ForPullingSelectedPgmFromHardware.setBounds(GUI::bounds_PgmBankWindowPullSelectedPgmButton);
+	button_ForExportingSelectedPgmToFile.setBounds(GUI::bounds_PgmBankWindowExptSelectedPgmButton);
 	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_PgmBankWindowNameButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
@@ -79,9 +86,6 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
 		pgmDataBank->setNameOfPgmInSlot(newName, slot);
 	}
-}
-
-void ProgramDataBankComponent::buttonClicked(Button* /*button*/) {
 }
 
 ApplicationCommandTarget* ProgramDataBankComponent::getNextCommandTarget() {
@@ -132,10 +136,22 @@ bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
 	}
 }
 
+void ProgramDataBankComponent::showExportSelectedPgmComponent(){
+	if (slotsComponent.selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
+		exportSelectedPgmComponent.reset(new ExportProgramDataComponent(slotsComponent, unexposedParams));
+		if (exportSelectedPgmComponent != nullptr) {
+			addAndMakeVisible(exportSelectedPgmComponent.get());
+			exportSelectedPgmComponent->setBounds(getLocalBounds());
+			exportSelectedPgmComponent->grabKeyboardFocus();
+		}
+	}
+}
+
 void ProgramDataBankComponent::hideThisComponent() {
 	setVisible(false);
 }
 
 ProgramDataBankComponent::~ProgramDataBankComponent() {
+	exportSelectedPgmComponent = nullptr;
 	label_PgmNameEditor.removeListener(this);
 }

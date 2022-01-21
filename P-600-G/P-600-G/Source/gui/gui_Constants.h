@@ -21,6 +21,9 @@ namespace constants
 		static const int buttonMainWindowPull_x{ buttonMainWindowPush_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonMainWindowPgmBank_x{ buttonMainWindowPull_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonMainWindowTips_x{ 687 };
+		static const int buttonImptExptWindowEsc_x{ 846 };
+		static const int buttonImptExptWindowOK_x{ buttonImptExptWindowEsc_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonImptExptWindowNewFldr_x{ 466 };
 		static const int buttonPgmBankWindowExit_x{ 1336 };
 		static const int buttonPgmBankWindowLoadSelectedPgm_x{ 360 };
 		static const int buttonPgmBankWindowSavePgm_x{ buttonPgmBankWindowLoadSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
@@ -33,6 +36,13 @@ namespace constants
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
+		static const int imptExptWindowBrowserComponent_h{ 245 };
+		static const int imptExptWindowBrowserComponent_w{ 470 };
+		static const int imptExptWindowBrowserComponent_x{ 466 };
+		static const int imptExptWindowBrowserComponent_y{ 61 };
+		static const int imptExptWindow_x{ 451 };
+		static const int imptExptWindow_y{ 21 };
+		static const int imptExptWindowButtonsRow_y{ 316 };
 		static const int knobLFOamount_x{ 232 };
 		static const int knobOscB_Fine_x{ 609 };
 		static const int knobPmodOscB_x{ 204 };
@@ -53,8 +63,10 @@ namespace constants
 		static const int lcdDigit_w{ 26 };
 		static const int mainWindowButtonsRow_y{ 47 };
 		static const int pgmDataBankWindowButtonsRow_y{ 84 };
-		static const int pgmDataBankWindowInset_x{ 11 };
-		static const int pgmDataBankWindowInset_y{ 61 };
+		static const int pgmDataBankWindow_h{ 270 };
+		static const int pgmDataBankWindow_w{ 1380 };
+		static const int pgmDataBankWindow_x{ 11 };
+		static const int pgmDataBankWindow_y{ 61 };
 		static const int pgmDataSlotRadioButton_h{ 16 };
 		static const int pgmDataSlotRadioButton_w{ 135 };
 		static const int pgmDataSlotsComponent_h{ 160 };
@@ -84,10 +96,16 @@ namespace constants
 		static const int switchUnison_x{ 441 };
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
+		static const Rectangle<int> bounds_ImptExptWindowBrowserComponent{ imptExptWindowBrowserComponent_x, imptExptWindowBrowserComponent_y, imptExptWindowBrowserComponent_w, imptExptWindowBrowserComponent_h };
+		static const Rectangle<int> bounds_ImptExptWindowEscButton{ buttonImptExptWindowEsc_x, imptExptWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_ImptExptWindowNewFldrButton{ buttonImptExptWindowNewFldr_x, imptExptWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_ImptExptWindowOKbutton{ buttonImptExptWindowOK_x, imptExptWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindow{ pgmDataBankWindow_x, pgmDataBankWindow_y, pgmDataBankWindow_w, pgmDataBankWindow_h };
 		static const Rectangle<int> bounds_PgmBankWindowExitButton{ buttonPgmBankWindowExit_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowExptSelectedPgmButton{ buttonPgmBankWindowExptSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowLoadSelectedPgmButton{ buttonPgmBankWindowLoadSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPullSelectedPgmButton{ buttonPgmBankWindowPullSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowSavePgmButton{ buttonPgmBankWindowSavePgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };

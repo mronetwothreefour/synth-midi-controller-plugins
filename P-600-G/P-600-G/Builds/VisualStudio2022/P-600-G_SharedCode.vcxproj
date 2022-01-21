@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramDataDump.cpp"/>
@@ -172,6 +173,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
@@ -2149,6 +2151,8 @@
     <ClInclude Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
@@ -2179,6 +2183,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
@@ -3000,6 +3005,8 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
+    <None Include="..\..\..\Resources\Button-Esc-Down.png"/>
+    <None Include="..\..\..\Resources\Button-Esc-Up.png"/>
     <None Include="..\..\..\Resources\Button-Exit-Down.png"/>
     <None Include="..\..\..\Resources\Button-Exit-Up.png"/>
     <None Include="..\..\..\Resources\Button-Expt-Down.png"/>
@@ -3012,6 +3019,10 @@
     <None Include="..\..\..\Resources\Button-Load-Up.png"/>
     <None Include="..\..\..\Resources\Button-Name-Down.png"/>
     <None Include="..\..\..\Resources\Button-Name-Up.png"/>
+    <None Include="..\..\..\Resources\Button-New-Fldr-Down.png"/>
+    <None Include="..\..\..\Resources\Button-New-Fldr-Up.png"/>
+    <None Include="..\..\..\Resources\Button-OK-Down.png"/>
+    <None Include="..\..\..\Resources\Button-OK-Up.png"/>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Down.png"/>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Up.png"/>
     <None Include="..\..\..\Resources\Button-Pull-Down.png"/>
@@ -3028,6 +3039,7 @@
     <None Include="..\..\..\Resources\Button-Tips-Up.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Down.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Up.png"/>
+    <None Include="..\..\..\Resources\Import-Export-Window-Background.png"/>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>

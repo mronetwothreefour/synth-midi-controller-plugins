@@ -17,6 +17,12 @@ namespace BinaryData
     extern const char*   SWISSCL_TTF;
     const int            SWISSCL_TTFSize = 35064;
 
+    extern const char*   ButtonEscDown_png;
+    const int            ButtonEscDown_pngSize = 658;
+
+    extern const char*   ButtonEscUp_png;
+    const int            ButtonEscUp_pngSize = 677;
+
     extern const char*   ButtonExitDown_png;
     const int            ButtonExitDown_pngSize = 622;
 
@@ -52,6 +58,18 @@ namespace BinaryData
 
     extern const char*   ButtonNameUp_png;
     const int            ButtonNameUp_pngSize = 695;
+
+    extern const char*   ButtonNewFldrDown_png;
+    const int            ButtonNewFldrDown_pngSize = 905;
+
+    extern const char*   ButtonNewFldrUp_png;
+    const int            ButtonNewFldrUp_pngSize = 927;
+
+    extern const char*   ButtonOKDown_png;
+    const int            ButtonOKDown_pngSize = 637;
+
+    extern const char*   ButtonOKUp_png;
+    const int            ButtonOKUp_pngSize = 652;
 
     extern const char*   ButtonPgmBankDown_png;
     const int            ButtonPgmBankDown_pngSize = 984;
@@ -101,6 +119,9 @@ namespace BinaryData
     extern const char*   ButtonUndoUp_png;
     const int            ButtonUndoUp_pngSize = 691;
 
+    extern const char*   ImportExportWindowBackground_png;
+    const int            ImportExportWindowBackground_pngSize = 151136;
+
     extern const char*   P600GMainWindowBackground_png;
     const int            P600GMainWindowBackground_pngSize = 1136047;
 
@@ -111,7 +132,7 @@ namespace BinaryData
     const int            Switch_pngSize = 139;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 34;
+    const int namedResourceListSize = 41;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

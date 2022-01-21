@@ -5,17 +5,18 @@
 #include "pgmData_ProgramDataBank.h"
 #include "pgmData_PgmDataSlotsComponent.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
 
 
 
+class ExportProgramDataComponent;
 class UnexposedParameters;
 
 class ProgramDataBankComponent :
     public Component,
-    public Button::Listener,
     public Label::Listener,
     public ApplicationCommandTarget
 {
@@ -24,11 +25,13 @@ class ProgramDataBankComponent :
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingPgmInSelectedSlot;
     ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedPgmFromHardware;
+    ButtonForExportingSelectedProgramToFile button_ForExportingSelectedPgmToFile;
     ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
     ApplicationCommandManager commandManager;
     String pgmCopyBuffer;
+    std::unique_ptr<ExportProgramDataComponent> exportSelectedPgmComponent;
 
 public:
     enum commandChoices {
@@ -43,13 +46,13 @@ public:
     void resized() override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
-    void buttonClicked(Button* button) override;
     ApplicationCommandTarget* getNextCommandTarget() override;
     void getAllCommands(Array<CommandID>& commands) override;
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
     bool perform(const InvocationInfo& info) override;
 
 private:
+    void showExportSelectedPgmComponent();
     void hideThisComponent();
 
 public:

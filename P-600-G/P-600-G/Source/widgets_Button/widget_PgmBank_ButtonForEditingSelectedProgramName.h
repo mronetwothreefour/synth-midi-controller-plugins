@@ -17,7 +17,6 @@ class ButtonForEditingSelectedProgramName :
 	UnexposedParameters* unexposedParams;
 
 public:
-
 	ButtonForEditingSelectedProgramName() = delete;
 
 	ButtonForEditingSelectedProgramName(Label& nameEditor, ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);

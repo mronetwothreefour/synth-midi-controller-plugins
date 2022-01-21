@@ -11,6 +11,9 @@
     <Filter Include="P-600-G\Source\guiRenderers">
       <UniqueIdentifier>{0081A189-B1ED-C455-7832-4B254DC72CB9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\imptExpt">
+      <UniqueIdentifier>{9078E88C-6160-154E-617F-47DB9F8D93D1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\midi">
       <UniqueIdentifier>{D82CCC19-80D9-5CD3-BC41-94FD325163EC}</UniqueIdentifier>
     </Filter>
@@ -502,6 +505,9 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
@@ -578,6 +584,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp">
@@ -2751,6 +2760,12 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
@@ -2839,6 +2854,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h">
@@ -5300,6 +5318,12 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Button-Esc-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Esc-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Button-Exit-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
@@ -5334,6 +5358,18 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Name-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-New-Fldr-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-New-Fldr-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-OK-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-OK-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Pgm-Bank-Down.png">
@@ -5382,6 +5418,9 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Undo-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Import-Export-Window-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png">

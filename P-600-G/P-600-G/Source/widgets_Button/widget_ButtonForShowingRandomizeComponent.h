@@ -8,7 +8,8 @@
 
 class UnexposedParameters;
 
-class ButtonForShowingRandomizeComponent : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForShowingRandomizeComponent : 
+	public BaseButtonWithOnClickAndTooltipMethods
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;

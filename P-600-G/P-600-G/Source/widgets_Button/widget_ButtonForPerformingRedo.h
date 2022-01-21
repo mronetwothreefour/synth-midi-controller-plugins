@@ -8,7 +8,8 @@
 
 class UnexposedParameters;
 
-class ButtonForPerformingRedo : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForPerformingRedo : 
+	public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 

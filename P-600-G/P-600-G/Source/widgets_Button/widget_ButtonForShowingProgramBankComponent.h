@@ -8,7 +8,8 @@
 
 class UnexposedParameters;
 
-class ButtonForShowingProgramBankComponent : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForShowingProgramBankComponent : 
+	public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 
