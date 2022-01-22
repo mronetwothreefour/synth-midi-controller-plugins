@@ -10,13 +10,25 @@ using namespace constants;
 
 
 
-ExportProgramDataComponent::ExportProgramDataComponent(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams) :
-	slotsComponent{ slotsComponent },
+ExportProgramDataComponent::ExportProgramDataComponent(uint8 slot, UnexposedParameters* unexposedParams) :
+	slot{ slot },
 	unexposedParams{ unexposedParams }
 {
+	label_Title.setText("Export P-600-G Program...", dontSendNotification);
+	label_Title.setComponentID(ID::label_ImptExptComponentTitle.toString());
+
+	String userDocsPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
+	String p600gDir{ "\\P-600-G\\" };
+	auto defaultDirPath{ userDocsPath + p600gDir };
+	auto pgmDataBank{ unexposedParams->programDataBank_get() };
+	auto pgmName{ pgmDataBank->nameOfPgmInSlot(slot) };
+	pgmName = File::createLegalFileName(pgmName);
+	File defaultFile{ defaultDirPath + pgmName + pgmDataFileFilter.getDescription() };
 	auto browserFlags{ FileBrowserComponent::saveMode | FileBrowserComponent::canSelectFiles | FileBrowserComponent::warnAboutOverwriting | FileBrowserComponent::doNotClearFileNameOnRootChange };
-	browserComponent.reset(new FileBrowserComponent(browserFlags, File::getSpecialLocation(File::userDocumentsDirectory), &pgmDataFileFilter, nullptr));
+	browserComponent.reset(new FileBrowserComponent(browserFlags, defaultFile, &pgmDataFileFilter, nullptr));
 	if (browserComponent != nullptr) {
+		browserComponent->setComponentID(ID::component_ImptExptBrowser.toString());
+		browserComponent->setFilenameBoxLabel("");
 		addAndMakeVisible(browserComponent.get());
 		browserComponent->addListener(this);
 	}
@@ -35,6 +47,13 @@ ExportProgramDataComponent::ExportProgramDataComponent(ProgramDataSlotsComponent
 	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 	button_OK.onClick = [this] { okButtonClicked(); };
 
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	if (tooltipOptions->shouldShowDescription()) {
+		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
+		button_Esc.setTooltip("Click to cancel the file export\n(or press the ESC key).");
+		button_OK.setTooltip("Click to export the selected program" + GUI::apostrophe + "s\ndata to the specified file.");
+	}
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -49,10 +68,10 @@ void ExportProgramDataComponent::paint(Graphics& g) {
 }
 
 void ExportProgramDataComponent::resized() {
-	browserComponent->setBounds(GUI::bounds_ImptExptWindowBrowserComponent);
-	button_NewFolder.setBounds(GUI::bounds_ImptExptWindowNewFldrButton);
-	button_Esc.setBounds(GUI::bounds_ImptExptWindowEscButton);
-	button_OK.setBounds(GUI::bounds_ImptExptWindowOKbutton);
+	browserComponent->setBounds(GUI::bounds_ImptExptBrowserComponent);
+	button_NewFolder.setBounds(GUI::bounds_ImptExptNewFldrButton);
+	button_Esc.setBounds(GUI::bounds_ImptExptEscButton);
+	button_OK.setBounds(GUI::bounds_ImptExptOKbutton);
 }
 
 void ExportProgramDataComponent::selectionChanged()
@@ -72,6 +91,15 @@ void ExportProgramDataComponent::createNewFolder() {
 }
 
 void ExportProgramDataComponent::okButtonClicked() {
+	auto pgmDataBank{ unexposedParams->programDataBank_get() };
+	auto pgmName{ pgmDataBank->nameOfPgmInSlot(slot) };
+	auto testPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
+	String appendString{ "\\Test Folder\\" + pgmName + pgmDataFileFilter.getDescription() };
+	testPath.append(appendString, appendString.length());
+	File testFile(testPath);
+	testFile.create();
+	auto result{ testFile.existsAsFile() };
+	result = false;
 }
 
 void ExportProgramDataComponent::hideThisComponent() {

@@ -137,8 +137,9 @@ bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
 }
 
 void ProgramDataBankComponent::showExportSelectedPgmComponent(){
-	if (slotsComponent.selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
-		exportSelectedPgmComponent.reset(new ExportProgramDataComponent(slotsComponent, unexposedParams));
+	auto slot{ slotsComponent.selectedSlot };
+	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
+		exportSelectedPgmComponent.reset(new ExportProgramDataComponent(slot, unexposedParams));
 		if (exportSelectedPgmComponent != nullptr) {
 			addAndMakeVisible(exportSelectedPgmComponent.get());
 			exportSelectedPgmComponent->setBounds(getLocalBounds());

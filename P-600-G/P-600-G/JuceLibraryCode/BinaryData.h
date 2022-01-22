@@ -120,7 +120,7 @@ namespace BinaryData
     const int            ButtonUndoUp_pngSize = 691;
 
     extern const char*   ImportExportWindowBackground_png;
-    const int            ImportExportWindowBackground_pngSize = 151136;
+    const int            ImportExportWindowBackground_pngSize = 152409;
 
     extern const char*   P600GMainWindowBackground_png;
     const int            P600GMainWindowBackground_pngSize = 1136047;

@@ -13,8 +13,9 @@ class ExportProgramDataComponent :
 	public Component,
 	private FileBrowserListener
 {
-	ProgramDataSlotsComponent& slotsComponent;
+	uint8 slot;
 	UnexposedParameters* unexposedParams;
+	Label label_Title;
 	TextButton button_NewFolder;
 	TextButton button_Esc;
 	TextButton button_OK;
@@ -24,7 +25,7 @@ class ExportProgramDataComponent :
 public:
 	ExportProgramDataComponent() = delete;
 
-	ExportProgramDataComponent(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);
+	ExportProgramDataComponent(uint8 slot, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 

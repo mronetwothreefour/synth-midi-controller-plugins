@@ -24,11 +24,37 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y, int w, int 
 	}
 }
 
-void GUILookAndFeel::drawLabel(Graphics& /*g*/, Label& /*label*/) {
+void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
+	auto isInImptExptBrowser{ label.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() ||
+		label.getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString()
+	};
+	if (isInImptExptBrowser) {
+		auto textArea{ label.getLocalBounds() };
+		textArea.removeFromLeft(5);
+		g.setColour(Color::offWhite);
+		g.setFont(FontsMenu::fontFor_BrowserText);
+		g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
+	}
 }
 
-void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) {
-	g.fillAll(Color::black);
+void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& textEditor) {
+	textEditor.applyColourToAllText(Color::offWhite);
+	textEditor.setColour(TextEditor::highlightedTextColourId, Color::offWhite);
+	auto isFileNameEditorInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (isFileNameEditorInImptExptComponent) {
+		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
+		textEditor.applyColourToAllText(Color::offWhite);
+	}
+	auto isEditorInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (isEditorInPathComboBoxInImptExptComponent) {
+		auto fillArea{ textEditor.getLocalBounds() };
+		fillArea.removeFromLeft(5);
+		fillArea.reduced(0, 8);
+		g.setColour(Color::black);
+		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
+	}
+	if (textEditor.getParentComponent()->getComponentID() == ID::label_PgmNameEditor.toString())
+		g.fillAll(Color::black);
 }
 
 void GUILookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
@@ -179,5 +205,35 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		Rectangle<float> textArea{ x + 2, y, w, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
+}
+
+void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*/, DirectoryContentsDisplayComponent* dirContentsBox, FilePreviewComponent* /*previewComponent*/, ComboBox* currentPathBox, TextEditor* fileNameBox, Button* goUpButton) {
+	currentPathBox->setBounds(GUI::bounds_ImptExptCurrentPathBox);
+	goUpButton->setBounds(GUI::bounds_ImptExptGoUpButton);
+	if (auto* listAsComp = dynamic_cast<Component*> (dirContentsBox))
+		listAsComp->setBounds(GUI::bounds_ImptExptDirContentsBox);
+	fileNameBox->setBounds(GUI::bounds_ImptExptFileNameBox);
+	fileNameBox->applyFontToAllText(FontsMenu::fontFor_BrowserText, true);
+}
+
+Button* GUILookAndFeel::createFileBrowserGoUpButton() {
+	auto* goUpButton = new DrawableButton("up", DrawableButton::ImageOnButtonBackgroundOriginalSize);
+	Path arrowPath;
+	arrowPath.addArrow({ 10, 22, 10, 4 }, 7, 15, 10);
+	DrawablePath arrowImage;
+	arrowImage.setFill(Color::offWhite);
+	arrowImage.setPath(arrowPath);
+	goUpButton->setImages(&arrowImage);
+	return goUpButton;
+}
+
+void GUILookAndFeel::drawComboBox(Graphics& g, int width, int height, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
+	Rectangle<int> arrowZone(width - 30, 0, 20, height);
+	Path path;
+	path.startNewSubPath((float)arrowZone.getX() + 3.0f, (float)arrowZone.getCentreY() - 2.0f);
+	path.lineTo((float)arrowZone.getCentreX(), (float)arrowZone.getCentreY() + 3.0f);
+	path.lineTo((float)arrowZone.getRight() - 3.0f, (float)arrowZone.getCentreY() - 2.0f);
+	g.setColour(Color::offWhite);
+	g.strokePath(path, PathStrokeType(2.0f));
 }
 
