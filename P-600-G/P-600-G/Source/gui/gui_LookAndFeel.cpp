@@ -37,6 +37,21 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 	}
 }
 
+int GUILookAndFeel::getDefaultScrollbarWidth(){
+	return 15;
+}
+
+void GUILookAndFeel::drawScrollbar(Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/) {
+	Rectangle<int> thumbBounds;
+	if (isVertical)
+		thumbBounds = { x, thumbStartPosition, w, thumbSize };
+	else
+		thumbBounds = { thumbStartPosition, y, thumbSize, h };
+	thumbBounds.reduce(2, 2);
+	g.setColour(Color::knobGray.brighter(0.3f));
+	g.fillRoundedRectangle(thumbBounds.toFloat(), 4.0f);
+}
+
 void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& textEditor) {
 	textEditor.applyColourToAllText(Color::offWhite);
 	textEditor.setColour(TextEditor::highlightedTextColourId, Color::offWhite);
@@ -219,7 +234,7 @@ void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*
 }
 
 void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* icon, const String& fileSizeDescription, 
-	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& dirContentsDisplay) {
+	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& /*dirContentsDisplay*/) {
 	if (itemIsSelected)
 		g.fillAll(Color::knobGray.brighter(0.2f));
 	const int x = 32;
