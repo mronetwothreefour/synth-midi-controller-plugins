@@ -210,10 +210,42 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*/, DirectoryContentsDisplayComponent* dirContentsBox, FilePreviewComponent* /*previewComponent*/, ComboBox* currentPathBox, TextEditor* fileNameBox, Button* goUpButton) {
 	currentPathBox->setBounds(GUI::bounds_ImptExptCurrentPathBox);
 	goUpButton->setBounds(GUI::bounds_ImptExptGoUpButton);
+	setColour(ListBox::backgroundColourId, Colours::transparentBlack);
+	setColour(ListBox::outlineColourId, Colours::transparentBlack);
 	if (auto* listAsComp = dynamic_cast<Component*> (dirContentsBox))
 		listAsComp->setBounds(GUI::bounds_ImptExptDirContentsBox);
 	fileNameBox->setBounds(GUI::bounds_ImptExptFileNameBox);
 	fileNameBox->applyFontToAllText(FontsMenu::fontFor_BrowserText, true);
+}
+
+void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* icon, const String& fileSizeDescription, 
+	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& dirContentsDisplay) {
+	if (itemIsSelected)
+		g.fillAll(Color::knobGray.brighter(0.2f));
+	const int x = 32;
+	g.setColour(Color::black);
+	if (icon != nullptr && icon->isValid()) {
+		g.drawImageWithin(*icon, 2, 2, x - 4, h - 4, RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, false);
+	}
+	else {
+		if (isDirectory)
+			getDefaultFolderImage()->drawWithin(g, Rectangle<float>(2.0f, 2.0f, x - 4.0f, (float)h - 4.0f), RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, 1.0f);
+		else
+			getDefaultDocumentFileImage()->drawWithin(g, Rectangle<float>(2.0f, 2.0f, x - 4.0f, (float)h - 4.0f), RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, 1.0f);
+
+	}
+	g.setColour(Color::offWhite);
+	g.setFont(FontsMenu::fontFor_BrowserText);
+	if (w > 450 && !isDirectory) {
+		auto sizeX = roundToInt((float)w * 0.7f);
+		auto dateX = roundToInt((float)w * 0.8f);
+		g.drawFittedText(filename, x, 0, sizeX - x, h, Justification::centredLeft, 1);
+		g.drawFittedText(fileSizeDescription, sizeX, 0, dateX - sizeX - 8, h, Justification::centredRight, 1);
+		g.drawFittedText(fileTimeDescription, dateX, 0, w - 8 - dateX, h, Justification::centredRight, 1);
+	}
+	else {
+		g.drawFittedText(filename, x, 0, w - x, h, Justification::centredLeft, 1);
+	}
 }
 
 Button* GUILookAndFeel::createFileBrowserGoUpButton() {
@@ -235,5 +267,30 @@ void GUILookAndFeel::drawComboBox(Graphics& g, int width, int height, bool /*isD
 	path.lineTo((float)arrowZone.getRight() - 3.0f, (float)arrowZone.getCentreY() - 2.0f);
 	g.setColour(Color::offWhite);
 	g.strokePath(path, PathStrokeType(2.0f));
+}
+
+void GUILookAndFeel::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
+	g.fillAll(Color::knobGray);
+}
+
+void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool isSeparator, const bool /*isActive*/, const bool isHighlighted, 
+	const bool /*isTicked*/, const bool /*hasSubMenu*/, const String& text, const String& /*shortcutText*/, const Drawable* /*icon*/, const Colour* const /*textColor*/) {
+	if (isSeparator) {
+		auto separatorArea = area.reduced(5, 0);
+		separatorArea.removeFromTop(roundToInt(((float)separatorArea.getHeight() * 0.5f) - 0.5f));
+		g.setColour(Color::offWhite);
+		g.fillRect(separatorArea.removeFromTop(1));
+	}
+	else {
+		auto highlightedArea = area.reduced(1);
+		if (isHighlighted) 		{
+			g.setColour(Color::knobGray.brighter(0.2f));
+			g.fillRect(highlightedArea);
+		}
+		g.setColour(Color::offWhite);
+		auto textArea{ highlightedArea.reduced(4, 0) };
+		g.setFont(FontsMenu::fontFor_BrowserText);
+		g.drawFittedText(text, textArea, Justification::centredLeft, 1);
+	}
 }
 
