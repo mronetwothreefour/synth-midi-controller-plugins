@@ -122,6 +122,9 @@ namespace BinaryData
     extern const char*   ImportExportWindowBackground_png;
     const int            ImportExportWindowBackground_pngSize = 152409;
 
+    extern const char*   OverwriteConfirmationBackground_png;
+    const int            OverwriteConfirmationBackground_pngSize = 53509;
+
     extern const char*   P600GMainWindowBackground_png;
     const int            P600GMainWindowBackground_pngSize = 1136047;
 
@@ -135,7 +138,7 @@ namespace BinaryData
     const int            WindowTitleExportProgram_pngSize = 2401;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 42;
+    const int namedResourceListSize = 43;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

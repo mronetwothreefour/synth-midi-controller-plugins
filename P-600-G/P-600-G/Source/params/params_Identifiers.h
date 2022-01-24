@@ -6,7 +6,8 @@
 
 namespace ID
 {
-	static const Identifier button_Esc{ "button_Esc" };
+	static const Identifier button_EscFileOverwrite{ "button_EscFileOverwrite" };
+	static const Identifier button_EscImptExpt{ "button_EscImptExpt" };
 	static const Identifier button_Exit{ "button_Exit" };
 	static const Identifier button_ExptBank{ "button_ExptBank" };
 	static const Identifier button_ExptSelectedProgram{ "button_ExptSelectedProgram" };
@@ -16,7 +17,8 @@ namespace ID
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Name{ "button_Name" };
 	static const Identifier button_NewFldr{ "button_NewFldr" };
-	static const Identifier button_OK{ "button_OK" };
+	static const Identifier button_OKfileOverwrite{ "button_OKfileOverwrite" };
+	static const Identifier button_OKimptExpt{ "button_OKimptExpt" };
 	static const Identifier button_PgmBank{ "button_PgmBank" };
 	static const Identifier button_PgmDataSlotRadioButton{ "button_PgmDataSlotRadioButton" };
 	static const Identifier button_PullBank{ "button_PullBank" };

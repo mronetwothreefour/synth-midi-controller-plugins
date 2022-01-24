@@ -310,6 +310,8 @@
             file="../Resources/Button-Undo-Up.png"/>
       <FILE id="IgFQEy" name="Import-Export-Window-Background.png" compile="0"
             resource="1" file="../Resources/Import-Export-Window-Background.png"/>
+      <FILE id="ryKnYs" name="Overwrite-Confirmation-Background.png" compile="0"
+            resource="1" file="../Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="gNkCzD" name="P-600-G-Main-Window-Background.png" compile="0"
             resource="1" file="../Resources/P-600-G-Main-Window-Background.png"/>
       <FILE id="ngecEd" name="Pgm-Bank-Window-Background.png" compile="0"

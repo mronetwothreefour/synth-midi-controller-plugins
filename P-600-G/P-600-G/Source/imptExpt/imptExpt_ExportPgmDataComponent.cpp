@@ -38,12 +38,12 @@ ExportProgramDataComponent::ExportProgramDataComponent(uint8 slot, UnexposedPara
 	button_NewFolder.onClick = [this] { createNewFolder(); };
 
 	addAndMakeVisible(button_Esc);
-	button_Esc.setComponentID(ID::button_Esc.toString());
+	button_Esc.setComponentID(ID::button_EscImptExpt.toString());
 	button_Esc.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_Esc.onClick = [this] { hideThisComponent(); };
 
 	addAndMakeVisible(button_OK);
-	button_OK.setComponentID(ID::button_OK.toString());
+	button_OK.setComponentID(ID::button_OKimptExpt.toString());
 	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 	button_OK.onClick = [this] { okButtonClicked(); };
 

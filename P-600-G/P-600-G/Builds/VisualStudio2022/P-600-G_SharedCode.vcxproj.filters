@@ -5423,6 +5423,9 @@
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Overwrite-Confirmation-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>

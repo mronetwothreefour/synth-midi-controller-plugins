@@ -38,6 +38,11 @@ namespace constants
 		static const int editor_h{ 392 };
 		static const int fileBrowserIcon_h{ 22 };
 		static const int fileBrowserIcon_w{ 32 };
+		static const int fileOverwriteConfirmBox_x{ 601 };
+		static const int fileOverwriteConfirmBox_y{ 121 };
+		static const int fileOverwriteConfirmBoxButtons_y{ 191 };
+		static const int fileOverwriteConfirmEscButton_x{ 656 };
+		static const int fileOverwriteConfirmOKbutton_x{ fileOverwriteConfirmEscButton_x + buttonsHorizSpacingForGroupedButtons };
 		static const int imptExptBrowserComponent_h{ 245 };
 		static const int imptExptBrowserComponent_w{ 470 };
 		static const int imptExptBrowserComponent_x{ 466 };
@@ -114,6 +119,8 @@ namespace constants
 		static const int switchUnison_x{ 441 };
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
+		static const Rectangle<int> bounds_fileOverwriteConfirmBoxEscButton{ fileOverwriteConfirmEscButton_x, fileOverwriteConfirmBoxButtons_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
+		static const Rectangle<int> bounds_fileOverwriteConfirmBoxOKbutton{ fileOverwriteConfirmOKbutton_x, fileOverwriteConfirmBoxButtons_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptCurrentPathBox{ imptExptCurrentPathBox_x, imptExptCurrentPathBox_y, imptExptCurrentPathBox_w, imptExptCurrentPathBox_h };
 		static const Rectangle<int> bounds_ImptExptDirContentsBox{ imptExptDirContentsBox_x, imptExptDirContentsBox_y, imptExptDirContentsBox_w, imptExptDirContentsBox_h };

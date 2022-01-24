@@ -124,7 +124,7 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
-	if (button.getComponentID() == ID::button_Esc.toString())
+	if (button.getComponentID().startsWith("button_Esc"))
 		return isDown ? BinaryData::ButtonEscDown_png : BinaryData::ButtonEscUp_png;
 	if (button.getComponentID() == ID::button_Exit.toString())
 		return isDown ? BinaryData::ButtonExitDown_png : BinaryData::ButtonExitUp_png;
@@ -140,7 +140,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonNameDown_png : BinaryData::ButtonNameUp_png;
 	if (button.getComponentID() == ID::button_NewFldr.toString())
 		return isDown ? BinaryData::ButtonNewFldrDown_png : BinaryData::ButtonNewFldrUp_png;
-	if (button.getComponentID() == ID::button_OK.toString())
+	if (button.getComponentID().startsWith("button_OK"))
 		return isDown ? BinaryData::ButtonOKDown_png : BinaryData::ButtonOKUp_png;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_png : BinaryData::ButtonPgmBankUp_png;
@@ -162,7 +162,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
-	if (button.getComponentID() == ID::button_Esc.toString())
+	if (button.getComponentID().startsWith("button_Esc"))
 		return isDown ? BinaryData::ButtonEscDown_pngSize : BinaryData::ButtonEscUp_pngSize;
 	if (button.getComponentID() == ID::button_Exit.toString())
 		return isDown ? BinaryData::ButtonExitDown_pngSize : BinaryData::ButtonExitUp_pngSize;
@@ -178,7 +178,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonNameDown_pngSize : BinaryData::ButtonNameUp_pngSize;
 	if (button.getComponentID() == ID::button_NewFldr.toString())
 		return isDown ? BinaryData::ButtonNewFldrDown_pngSize : BinaryData::ButtonNewFldrUp_pngSize;
-	if (button.getComponentID() == ID::button_OK.toString())
+	if (button.getComponentID().startsWith("button_OK"))
 		return isDown ? BinaryData::ButtonOKDown_pngSize : BinaryData::ButtonOKUp_pngSize;
 	if (button.getComponentID() == ID::button_PgmBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_pngSize : BinaryData::ButtonPgmBankUp_pngSize;

@@ -3040,6 +3040,7 @@
     <None Include="..\..\..\Resources\Button-Undo-Down.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Up.png"/>
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png"/>
+    <None Include="..\..\..\Resources\Overwrite-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
