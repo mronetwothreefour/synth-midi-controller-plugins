@@ -147,6 +147,7 @@
     <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramDataDump.cpp"/>
@@ -2153,6 +2154,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>

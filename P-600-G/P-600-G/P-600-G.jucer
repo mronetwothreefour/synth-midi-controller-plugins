@@ -58,6 +58,10 @@
               resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.h"/>
         <FILE id="v8xm8M" name="imptExpt_FileFilters.h" compile="0" resource="0"
               file="Source/imptExpt/imptExpt_FileFilters.h"/>
+        <FILE id="IeazfO" name="imptExpt_FileOverwriteConfirmDialogBox.cpp"
+              compile="1" resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
+        <FILE id="DM2ngm" name="imptExpt_FileOverwriteConfirmDialogBox.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"

@@ -508,6 +508,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
@@ -2764,6 +2767,9 @@
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">

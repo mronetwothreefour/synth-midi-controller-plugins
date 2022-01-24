@@ -77,30 +77,89 @@ void ExportProgramDataComponent::resized() {
 	button_OK.setBounds(GUI::bounds_ImptExptOKbutton);
 }
 
-void ExportProgramDataComponent::selectionChanged()
-{
+void ExportProgramDataComponent::buttonClicked(Button* button) {
+	if (fileOverwriteConfirmDialogBox != nullptr) {
+		if (button->getComponentID() == ID::button_EscFileOverwrite.toString())
+			fileOverwriteConfirmDialogBox->hideThisComponent();
+		if (button->getComponentID() == ID::button_OKfileOverwrite.toString()) {
+			auto selectedFile{ browserComponent->getSelectedFile(0) };
+			writeProgramDataIntoFile(selectedFile);
+		}
+	}
 }
 
-void ExportProgramDataComponent::fileClicked(const File&, const MouseEvent&) {
+void ExportProgramDataComponent::selectionChanged() {
 }
 
-void ExportProgramDataComponent::fileDoubleClicked(const File&) {
+void ExportProgramDataComponent::fileClicked(const File& file, const MouseEvent& /*mouseEvent*/) {
+	if (!file.isDirectory()) {
+		auto fileName{ file.getFileName() };
+		browserComponent->setFileName(fileName);
+	}
 }
 
-void ExportProgramDataComponent::browserRootChanged(const File&) {
+void ExportProgramDataComponent::fileDoubleClicked(const File& file) {
+	if (!file.isDirectory()) {
+		auto fileName{ file.getFileName() };
+		browserComponent->setFileName(fileName);
+		okButtonClicked();
+	}
+}
+
+void ExportProgramDataComponent::browserRootChanged(const File& /*file*/) {
 }
 
 void ExportProgramDataComponent::createNewFolder() {
+	File currentDirectory{ browserComponent->getRoot() };
+	auto directoryPathString{ currentDirectory.getFullPathName() };
+	String testNewFolder{ "\\Test New Folder" };
+	directoryPathString.append(testNewFolder, testNewFolder.length());
+	File newDirectory{ directoryPathString };
+	if (!newDirectory.exists()) {
+		newDirectory.createDirectory();
+		browserComponent->refresh();
+	}
 }
 
 void ExportProgramDataComponent::okButtonClicked() {
-	auto pgmDataBank{ unexposedParams->programDataBank_get() };
-	auto pgmName{ pgmDataBank->nameOfPgmInSlot(slot) };
-	auto testPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
-	String appendString{ "\\Test Folder\\" + pgmName + pgmDataFileFilter.getDescription() };
-	testPath.append(appendString, appendString.length());
-	File testFile(testPath);
-	testFile.create();
+	auto selectedFile{ browserComponent->getSelectedFile(0) };
+	if (selectedFile.existsAsFile()) {
+		showFileOverwriteConfirmDialogBox();
+	}
+	else {
+		auto fileToWriteTo{ createFileToWriteTo(selectedFile) };
+		writeProgramDataIntoFile(fileToWriteTo);
+	}
+}
+
+void ExportProgramDataComponent::showFileOverwriteConfirmDialogBox() {
+	fileOverwriteConfirmDialogBox.reset(new FileOverwriteConfirmDialogBox(unexposedParams));
+	fileOverwriteConfirmDialogBox->addListenerToButtons(this);
+	addAndMakeVisible(fileOverwriteConfirmDialogBox.get());
+	fileOverwriteConfirmDialogBox->setBounds(getLocalBounds());
+	fileOverwriteConfirmDialogBox->grabKeyboardFocus();
+}
+
+File ExportProgramDataComponent::createFileToWriteTo(File& file) {
+	auto fullPath{ file.getFullPathName() };
+	auto fileType{ pgmDataFileFilter.getDescription() };
+	if (!fullPath.endsWith(fileType))
+		fullPath.append(fileType, fileType.length());
+	File fileToWriteTo{ fullPath };
+	fileToWriteTo.create();
+	return fileToWriteTo;
+}
+
+void ExportProgramDataComponent::writeProgramDataIntoFile(File& file) {
+	FileOutputStream outStream{ file };
+	if (outStream.openedOk()) {
+		outStream.setPosition(0);
+		outStream.truncate();
+		auto pgmDataBank{ unexposedParams->programDataBank_get() };
+		auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
+		outStream.writeText(pgmDataHexString, false, false, nullptr);
+		hideThisComponent();
+	}
 }
 
 void ExportProgramDataComponent::hideThisComponent() {
@@ -108,6 +167,10 @@ void ExportProgramDataComponent::hideThisComponent() {
 }
 
 ExportProgramDataComponent::~ExportProgramDataComponent() {
+	if (fileOverwriteConfirmDialogBox != nullptr) {
+		fileOverwriteConfirmDialogBox->removeListenerFromButtons(this);
+		fileOverwriteConfirmDialogBox = nullptr;
+	}
 	if (browserComponent != nullptr) {
 		browserComponent->removeListener(this);
 		browserComponent = nullptr;

@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "imptExpt_FileFilters.h"
+#include "imptExpt_FileOverwriteConfirmDialogBox.h"
 
 
 
@@ -11,6 +12,7 @@ class UnexposedParameters;
 
 class ExportProgramDataComponent :
 	public Component,
+	public Button::Listener,
 	private FileBrowserListener
 {
 	uint8 slot;
@@ -21,6 +23,7 @@ class ExportProgramDataComponent :
 	TextButton button_OK;
 	std::unique_ptr<FileBrowserComponent> browserComponent;
 	ProgramDataFileFilter pgmDataFileFilter;
+	std::unique_ptr<FileOverwriteConfirmDialogBox> fileOverwriteConfirmDialogBox;
 
 public:
 	ExportProgramDataComponent() = delete;
@@ -28,14 +31,18 @@ public:
 	ExportProgramDataComponent(uint8 slot, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
+	void buttonClicked(Button* button) override;
 
 private:
 	void selectionChanged() override;
-	void fileClicked(const File&, const MouseEvent&) override;
-	void fileDoubleClicked(const File&) override;
-	void browserRootChanged(const File&) override;
+	void fileClicked(const File& file, const MouseEvent& mouseEvent) override;
+	void fileDoubleClicked(const File& file) override;
+	void browserRootChanged(const File& file) override;
 	void createNewFolder();
 	void okButtonClicked();
+	void showFileOverwriteConfirmDialogBox();
+	File createFileToWriteTo(File& file);
+	void writeProgramDataIntoFile(File& file);
 	void hideThisComponent();
 
 public:
