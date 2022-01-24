@@ -131,8 +131,11 @@ namespace BinaryData
     extern const char*   Switch_png;
     const int            Switch_pngSize = 139;
 
+    extern const char*   WindowTitleExportProgram_png;
+    const int            WindowTitleExportProgram_pngSize = 2401;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 41;
+    const int namedResourceListSize = 42;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

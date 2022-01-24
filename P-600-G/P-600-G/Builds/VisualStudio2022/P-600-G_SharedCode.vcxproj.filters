@@ -5432,6 +5432,9 @@
     <None Include="..\..\..\Resources\Switch.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Window-Title-Export-Program.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>

@@ -315,6 +315,8 @@
       <FILE id="ngecEd" name="Pgm-Bank-Window-Background.png" compile="0"
             resource="1" file="../Resources/Pgm-Bank-Window-Background.png"/>
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
+      <FILE id="FVUwN2" name="Window-Title-Export-Program.png" compile="0"
+            resource="1" file="../Resources/Window-Title-Export-Program.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

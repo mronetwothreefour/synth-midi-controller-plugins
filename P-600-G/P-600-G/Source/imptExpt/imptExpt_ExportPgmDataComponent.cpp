@@ -61,10 +61,13 @@ void ExportProgramDataComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_PgmBankWindow);
 	g.setOpacity(1.0f);
-	MemoryInputStream memInputStream{ BinaryData::ImportExportWindowBackground_png, BinaryData::ImportExportWindowBackground_pngSize, false };
+	MemoryInputStream backgroundInputStream{ BinaryData::ImportExportWindowBackground_png, BinaryData::ImportExportWindowBackground_pngSize, false };
 	PNGImageFormat imageFormat;
-	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	auto backgroundImage{ imageFormat.decodeImage(backgroundInputStream) };
 	g.drawImageAt(backgroundImage, GUI::imptExptWindow_x, GUI::imptExptWindow_y);
+	MemoryInputStream titleInputStream{ BinaryData::WindowTitleExportProgram_png, BinaryData::WindowTitleExportProgram_pngSize, false };
+	auto titleImage{ imageFormat.decodeImage(titleInputStream) };
+	g.drawImageAt(titleImage, GUI::imptExptWindow_x, GUI::imptExptWindow_y);
 }
 
 void ExportProgramDataComponent::resized() {
@@ -98,8 +101,6 @@ void ExportProgramDataComponent::okButtonClicked() {
 	testPath.append(appendString, appendString.length());
 	File testFile(testPath);
 	testFile.create();
-	auto result{ testFile.existsAsFile() };
-	result = false;
 }
 
 void ExportProgramDataComponent::hideThisComponent() {

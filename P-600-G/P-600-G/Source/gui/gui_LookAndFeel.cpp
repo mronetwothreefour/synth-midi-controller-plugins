@@ -41,7 +41,7 @@ int GUILookAndFeel::getDefaultScrollbarWidth(){
 	return 15;
 }
 
-void GUILookAndFeel::drawScrollbar(Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/) {
+void GUILookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int x, int y, int w, int h, bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/) {
 	Rectangle<int> thumbBounds;
 	if (isVertical)
 		thumbBounds = { x, thumbStartPosition, w, thumbSize };
@@ -233,33 +233,28 @@ void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*
 	fileNameBox->applyFontToAllText(FontsMenu::fontFor_BrowserText, true);
 }
 
-void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* icon, const String& fileSizeDescription, 
+void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* /*icon*/, const String& fileSizeDescription, 
 	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& /*dirContentsDisplay*/) {
 	if (itemIsSelected)
 		g.fillAll(Color::knobGray.brighter(0.2f));
-	const int x = 32;
 	g.setColour(Color::black);
-	if (icon != nullptr && icon->isValid()) {
-		g.drawImageWithin(*icon, 2, 2, x - 4, h - 4, RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, false);
-	}
-	else {
-		if (isDirectory)
-			getDefaultFolderImage()->drawWithin(g, Rectangle<float>(2.0f, 2.0f, x - 4.0f, (float)h - 4.0f), RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, 1.0f);
-		else
-			getDefaultDocumentFileImage()->drawWithin(g, Rectangle<float>(2.0f, 2.0f, x - 4.0f, (float)h - 4.0f), RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, 1.0f);
-
-	}
+	Path iconPath;
+	if (isDirectory)
+		iconPath.loadPathFromData(GUI::pathDataForFolderIcon.data(), GUI::pathDataForFolderIcon.size());
+	else
+		iconPath.loadPathFromData(GUI::pathDataForFileIcon.data(), GUI::pathDataForFileIcon.size());
 	g.setColour(Color::offWhite);
+	g.fillPath(iconPath);
 	g.setFont(FontsMenu::fontFor_BrowserText);
 	if (w > 450 && !isDirectory) {
 		auto sizeX = roundToInt((float)w * 0.7f);
 		auto dateX = roundToInt((float)w * 0.8f);
-		g.drawFittedText(filename, x, 0, sizeX - x, h, Justification::centredLeft, 1);
+		g.drawFittedText(filename, GUI::fileBrowserIcon_w, 0, sizeX - GUI::fileBrowserIcon_w, h, Justification::centredLeft, 1);
 		g.drawFittedText(fileSizeDescription, sizeX, 0, dateX - sizeX - 8, h, Justification::centredRight, 1);
 		g.drawFittedText(fileTimeDescription, dateX, 0, w - 8 - dateX, h, Justification::centredRight, 1);
 	}
 	else {
-		g.drawFittedText(filename, x, 0, w - x, h, Justification::centredLeft, 1);
+		g.drawFittedText(filename, GUI::fileBrowserIcon_w, 0, w - GUI::fileBrowserIcon_w, h, Justification::centredLeft, 1);
 	}
 }
 

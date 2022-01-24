@@ -3043,6 +3043,7 @@
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
+    <None Include="..\..\..\Resources\Window-Title-Export-Program.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
