@@ -6,6 +6,7 @@
 #include "pgmData_PgmDataSlotsComponent.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
@@ -13,6 +14,7 @@
 
 
 class ExportProgramDataComponent;
+class ImportProgramDataComponent;
 class UnexposedParameters;
 
 class ProgramDataBankComponent :
@@ -25,6 +27,7 @@ class ProgramDataBankComponent :
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingPgmInSelectedSlot;
     ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedPgmFromHardware;
+    ButtonForImportingProgramFromFile button_ForImportingPgmFromFile;
     ButtonForExportingSelectedProgramToFile button_ForExportingSelectedPgmToFile;
     ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
     TextButton button_ForClosingPgmDataBank;
@@ -32,6 +35,7 @@ class ProgramDataBankComponent :
     ApplicationCommandManager commandManager;
     String pgmCopyBuffer;
     std::unique_ptr<ExportProgramDataComponent> exportSelectedPgmComponent;
+    std::unique_ptr<ImportProgramDataComponent> importPgmComponent;
 
 public:
     enum commandChoices {
@@ -52,6 +56,7 @@ public:
     bool perform(const InvocationInfo& info) override;
 
 private:
+    void showImportPgmComponent();
     void showExportSelectedPgmComponent();
     void hideThisComponent();
 

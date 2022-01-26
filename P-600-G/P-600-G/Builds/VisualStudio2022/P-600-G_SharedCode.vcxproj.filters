@@ -508,6 +508,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
@@ -515,6 +518,9 @@
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
@@ -596,6 +602,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp">
@@ -2775,6 +2784,9 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
@@ -2782,6 +2794,9 @@
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
@@ -2875,6 +2890,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h">
@@ -5438,6 +5456,9 @@
     <None Include="..\..\..\Resources\Button-Undo-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\File-Not-Valid-Alert-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Folder-Exists-Alert-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
@@ -5460,6 +5481,15 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Window-Title-Export-Program-Bank.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Window-Title-Import-Program.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Window-Title-Import-Program-Bank.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

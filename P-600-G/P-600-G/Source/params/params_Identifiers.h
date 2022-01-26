@@ -19,6 +19,7 @@ namespace ID
 	static const Identifier button_Name{ "button_Name" };
 	static const Identifier button_NewFldr{ "button_NewFldr" };
 	static const Identifier button_OKfileOverwrite{ "button_OKfileOverwrite" };
+	static const Identifier button_OKfileNotValid{ "button_OKfileNotValid" };
 	static const Identifier button_OKfolderExists{ "button_OKfolderExists" };
 	static const Identifier button_OKfolderName{ "button_OKfolderName" };
 	static const Identifier button_OKimptExpt{ "button_OKimptExpt" };

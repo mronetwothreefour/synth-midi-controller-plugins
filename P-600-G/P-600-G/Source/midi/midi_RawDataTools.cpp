@@ -63,6 +63,17 @@ void RawDataTools::addCurrentExposedParamsSettingsToDataVector(AudioProcessorVal
     }
 }
 
+bool RawDataTools::isValidPgmDataHexString(const String& hexString) {
+    auto isNotLongEnough{ hexString.length() < pgmData::lengthOfPgmDataHexString };
+    if (isNotLongEnough)
+        return false;
+    for (int indexOfMSByte = 0; indexOfMSByte < pgmData::lengthOfPgmDataHexString; indexOfMSByte += 2) {
+        if (hexString[indexOfMSByte] != '0')
+            return false;
+    }
+    return true;
+}
+
 void RawDataTools::insertFilterKeyTrackValueIntoDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector) {
     auto& info{ InfoForExposedParameters::get() };
     auto filterKeyTrackParam{ info.indexForParamID("filterKeyTrack") };

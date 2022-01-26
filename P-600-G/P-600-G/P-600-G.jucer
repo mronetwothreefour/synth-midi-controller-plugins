@@ -58,6 +58,10 @@
               resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.h"/>
         <FILE id="v8xm8M" name="imptExpt_FileFilters.h" compile="0" resource="0"
               file="Source/imptExpt/imptExpt_FileFilters.h"/>
+        <FILE id="HA4Zfz" name="imptExpt_FileNotValidAlert.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FileNotValidAlert.cpp"/>
+        <FILE id="KP2wqn" name="imptExpt_FileNotValidAlert.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FileNotValidAlert.h"/>
         <FILE id="IeazfO" name="imptExpt_FileOverwriteConfirmDialogBox.cpp"
               compile="1" resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
         <FILE id="DM2ngm" name="imptExpt_FileOverwriteConfirmDialogBox.h" compile="0"
@@ -70,6 +74,10 @@
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
         <FILE id="f4pJIF" name="imptExpt_FolderNameDialogBox.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
+        <FILE id="wlB9pt" name="imptExpt_ImportPgmDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataComponent.cpp"/>
+        <FILE id="m7uvZl" name="imptExpt_ImportPgmDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataComponent.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
@@ -196,6 +204,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
         <FILE id="xbBwJ0" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
+        <FILE id="TG2eUA" name="widget_PgmBank_ButtonForImportingPgmFromFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
+        <FILE id="p1KuSg" name="widget_PgmBank_ButtonForImportingPgmFromFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
         <FILE id="GkNYqi" name="widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
         <FILE id="PyYWiA" name="widget_PgmBank_ButtonForLoadingSelectedPgm.h"
@@ -320,6 +332,8 @@
             file="../Resources/Button-Undo-Down.png"/>
       <FILE id="VrNx7s" name="Button-Undo-Up.png" compile="0" resource="1"
             file="../Resources/Button-Undo-Up.png"/>
+      <FILE id="Of0Zdj" name="File-Not-Valid-Alert-Background.png" compile="0"
+            resource="1" file="../Resources/File-Not-Valid-Alert-Background.png"/>
       <FILE id="yHPFqq" name="Folder-Exists-Alert-Background.png" compile="0"
             resource="1" file="../Resources/Folder-Exists-Alert-Background.png"/>
       <FILE id="rXxr4Z" name="Folder-Name-Dialog-Background.png" compile="0"
@@ -335,6 +349,12 @@
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
       <FILE id="FVUwN2" name="Window-Title-Export-Program.png" compile="0"
             resource="1" file="../Resources/Window-Title-Export-Program.png"/>
+      <FILE id="V7wyMy" name="Window-Title-Export-Program-Bank.png" compile="0"
+            resource="1" file="../Resources/Window-Title-Export-Program-Bank.png"/>
+      <FILE id="ib1wr6" name="Window-Title-Import-Program.png" compile="0"
+            resource="1" file="../Resources/Window-Title-Import-Program.png"/>
+      <FILE id="qSX2q4" name="Window-Title-Import-Program-Bank.png" compile="0"
+            resource="1" file="../Resources/Window-Title-Import-Program-Bank.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

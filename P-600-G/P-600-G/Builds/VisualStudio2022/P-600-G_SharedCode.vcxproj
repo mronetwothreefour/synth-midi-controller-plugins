@@ -147,9 +147,11 @@
     <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramDataDump.cpp"/>
@@ -177,6 +179,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
@@ -2156,9 +2159,11 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
@@ -2190,6 +2195,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
@@ -3045,6 +3051,7 @@
     <None Include="..\..\..\Resources\Button-Tips-Up.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Down.png"/>
     <None Include="..\..\..\Resources\Button-Undo-Up.png"/>
+    <None Include="..\..\..\Resources\File-Not-Valid-Alert-Background.png"/>
     <None Include="..\..\..\Resources\Folder-Exists-Alert-Background.png"/>
     <None Include="..\..\..\Resources\Folder-Name-Dialog-Background.png"/>
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png"/>
@@ -3053,6 +3060,9 @@
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png"/>
+    <None Include="..\..\..\Resources\Window-Title-Export-Program-Bank.png"/>
+    <None Include="..\..\..\Resources\Window-Title-Import-Program.png"/>
+    <None Include="..\..\..\Resources\Window-Title-Import-Program-Bank.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

@@ -4,7 +4,6 @@
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
 
 using namespace constants;
 
@@ -14,9 +13,6 @@ ExportProgramDataComponent::ExportProgramDataComponent(uint8 slot, UnexposedPara
 	slot{ slot },
 	unexposedParams{ unexposedParams }
 {
-	label_Title.setText("Export P-600-G Program...", dontSendNotification);
-	label_Title.setComponentID(ID::label_ImptExptComponentTitle.toString());
-
 	String userDocsPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
 	String p600gDir{ "\\P-600-G\\" };
 	auto defaultDirPath{ userDocsPath + p600gDir };
@@ -137,10 +133,11 @@ void ExportProgramDataComponent::showFileOverwriteConfirmDialogBox() {
 
 File ExportProgramDataComponent::createFileToWriteTo(File& file) {
 	auto fullPath{ file.getFullPathName() };
+	auto legalPath{ File::createLegalPathName(fullPath) };
 	auto fileType{ pgmDataFileFilter.getDescription() };
-	if (!fullPath.endsWith(fileType))
-		fullPath.append(fileType, fileType.length());
-	File fileToWriteTo{ fullPath };
+	if (!legalPath.endsWith(fileType))
+		legalPath.append(fileType, fileType.length());
+	File fileToWriteTo{ legalPath };
 	fileToWriteTo.create();
 	return fileToWriteTo;
 }

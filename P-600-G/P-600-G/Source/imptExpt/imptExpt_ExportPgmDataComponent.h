@@ -8,7 +8,6 @@
 
 
 
-class ProgramDataSlotsComponent;
 class UnexposedParameters;
 
 class ExportProgramDataComponent :
@@ -18,7 +17,6 @@ class ExportProgramDataComponent :
 {
 	uint8 slot;
 	UnexposedParameters* unexposedParams;
-	Label label_Title;
 	TextButton button_NewFolder;
 	TextButton button_Esc;
 	TextButton button_OK;

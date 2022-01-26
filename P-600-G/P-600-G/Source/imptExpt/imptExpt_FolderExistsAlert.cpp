@@ -30,7 +30,7 @@ void FolderExistsAlert::paint(Graphics& g) {
 }
 
 void FolderExistsAlert::resized() {
-	button_OK.setBounds(GUI::bounds_folderExistsAlertOKbutton);
+	button_OK.setBounds(GUI::bounds_AlertWindowOKbutton);
 }
 
 void FolderExistsAlert::hideThisComponent() {

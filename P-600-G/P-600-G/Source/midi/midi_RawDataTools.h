@@ -20,6 +20,7 @@ struct RawDataTools {
     static const String convertPgmDataVectorToHexString(const std::vector<uint8>& dataVector);
     static const std::vector<uint8> convertPgmDataHexStringToDataVector(const String& hexString);
     static void addCurrentExposedParamsSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);
+    static bool isValidPgmDataHexString(const String& hexString);
 
 private:
     static void insertFilterKeyTrackValueIntoDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);

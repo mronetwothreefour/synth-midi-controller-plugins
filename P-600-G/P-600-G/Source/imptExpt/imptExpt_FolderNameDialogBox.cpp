@@ -18,6 +18,7 @@ FolderNameDialogBox::FolderNameDialogBox(FileBrowserComponent* browserComponent,
 	label_FolderName.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 	label_FolderName.applyColourToAllText(Color::offWhite);
 	label_FolderName.setText("New Folder");
+	label_FolderName.selectAll();
 	label_FolderName.onReturnKey = [this] { createNewFolder(); };
 	label_FolderName.onEscapeKey = [this] { hideThisComponent(); };
 
@@ -61,8 +62,9 @@ void FolderNameDialogBox::resized() {
 void FolderNameDialogBox::createNewFolder() {
 	File currentDirectory{ browserComponent->getRoot() };
 	auto directoryPathString{ currentDirectory.getFullPathName() };
-	auto newFolderName{ "\\" + label_FolderName.getText()};
-	directoryPathString.append(newFolderName, newFolderName.length());
+	auto newFolderName{ label_FolderName.getText() };
+	auto newFolderPath{ "\\" + File::createLegalFileName(newFolderName) };
+	directoryPathString.append(newFolderPath, newFolderPath.length());
 	File newDirectory{ directoryPathString };
 	if (newDirectory.exists() && !newDirectory.existsAsFile())
 		showFolderExistsAlert();
