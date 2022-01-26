@@ -14,9 +14,10 @@ FileOverwriteConfirmDialogBox::FileOverwriteConfirmDialogBox(UnexposedParameters
 	addAndMakeVisible(button_Esc);
 	button_Esc.setComponentID(ID::button_EscFileOverwrite.toString());
 	button_Esc.addShortcut(KeyPress(KeyPress::escapeKey));
+
 	addAndMakeVisible(button_OK);
-	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 	button_OK.setComponentID(ID::button_OKfileOverwrite.toString());
+	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
@@ -39,7 +40,7 @@ void FileOverwriteConfirmDialogBox::removeListenerFromButtons(Button::Listener* 
 
 void FileOverwriteConfirmDialogBox::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_ImptExptBrowserComponent);
+	g.fillRect(GUI::bounds_folderNameDialogBox);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::OverwriteConfirmationBackground_png, BinaryData::OverwriteConfirmationBackground_pngSize, false };
 	PNGImageFormat imageFormat;
@@ -53,5 +54,6 @@ void FileOverwriteConfirmDialogBox::resized() {
 }
 
 void FileOverwriteConfirmDialogBox::hideThisComponent() {
+	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }

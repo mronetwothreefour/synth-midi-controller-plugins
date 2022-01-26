@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "imptExpt_FileFilters.h"
+#include "imptExpt_FolderNameDialogBox.h"
 #include "imptExpt_FileOverwriteConfirmDialogBox.h"
 
 
@@ -23,6 +24,7 @@ class ExportProgramDataComponent :
 	TextButton button_OK;
 	std::unique_ptr<FileBrowserComponent> browserComponent;
 	ProgramDataFileFilter pgmDataFileFilter;
+	std::unique_ptr<FolderNameDialogBox> folderNameDialogBox;
 	std::unique_ptr<FileOverwriteConfirmDialogBox> fileOverwriteConfirmDialogBox;
 
 public:
@@ -38,7 +40,7 @@ private:
 	void fileClicked(const File& file, const MouseEvent& mouseEvent) override;
 	void fileDoubleClicked(const File& file) override;
 	void browserRootChanged(const File& file) override;
-	void createNewFolder();
+	void showFolderNameDialogBox();
 	void okButtonClicked();
 	void showFileOverwriteConfirmDialogBox();
 	File createFileToWriteTo(File& file);

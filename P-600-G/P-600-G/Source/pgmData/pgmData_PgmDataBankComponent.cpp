@@ -36,7 +36,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForClosingPgmDataBank.onClick = [this] { hideThisComponent(); };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription())
-		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank\nwindow (or press the ESC key).");
+		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank window.");
 
 	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
 	label_PgmNameEditor.setComponentID(ID::label_PgmNameEditor.toString());
@@ -143,12 +143,12 @@ void ProgramDataBankComponent::showExportSelectedPgmComponent(){
 		if (exportSelectedPgmComponent != nullptr) {
 			addAndMakeVisible(exportSelectedPgmComponent.get());
 			exportSelectedPgmComponent->setBounds(getLocalBounds());
-			exportSelectedPgmComponent->grabKeyboardFocus();
 		}
 	}
 }
 
 void ProgramDataBankComponent::hideThisComponent() {
+	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 

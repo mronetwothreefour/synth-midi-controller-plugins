@@ -35,7 +35,7 @@ ExportProgramDataComponent::ExportProgramDataComponent(uint8 slot, UnexposedPara
 
 	addAndMakeVisible(button_NewFolder);
 	button_NewFolder.setComponentID(ID::button_NewFldr.toString());
-	button_NewFolder.onClick = [this] { createNewFolder(); };
+	button_NewFolder.onClick = [this] { showFolderNameDialogBox(); };
 
 	addAndMakeVisible(button_Esc);
 	button_Esc.setComponentID(ID::button_EscImptExpt.toString());
@@ -50,7 +50,7 @@ ExportProgramDataComponent::ExportProgramDataComponent(uint8 slot, UnexposedPara
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
-		button_Esc.setTooltip("Click to cancel the file export\n(or press the ESC key).");
+		button_Esc.setTooltip("Click to cancel the file export.");
 		button_OK.setTooltip("Click to export the selected program" + GUI::apostrophe + "s\ndata to the specified file.");
 	}
 
@@ -109,16 +109,11 @@ void ExportProgramDataComponent::fileDoubleClicked(const File& file) {
 void ExportProgramDataComponent::browserRootChanged(const File& /*file*/) {
 }
 
-void ExportProgramDataComponent::createNewFolder() {
-	File currentDirectory{ browserComponent->getRoot() };
-	auto directoryPathString{ currentDirectory.getFullPathName() };
-	String testNewFolder{ "\\Test New Folder" };
-	directoryPathString.append(testNewFolder, testNewFolder.length());
-	File newDirectory{ directoryPathString };
-	if (!newDirectory.exists()) {
-		newDirectory.createDirectory();
-		browserComponent->refresh();
-	}
+void ExportProgramDataComponent::showFolderNameDialogBox() {
+	folderNameDialogBox.reset(new FolderNameDialogBox(browserComponent.get(), unexposedParams));
+	addAndMakeVisible(folderNameDialogBox.get());
+	folderNameDialogBox->setBounds(getLocalBounds());
+	folderNameDialogBox->grabKeyboardFocus();
 }
 
 void ExportProgramDataComponent::okButtonClicked() {
@@ -163,16 +158,16 @@ void ExportProgramDataComponent::writeProgramDataIntoFile(File& file) {
 }
 
 void ExportProgramDataComponent::hideThisComponent() {
+	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 ExportProgramDataComponent::~ExportProgramDataComponent() {
-	if (fileOverwriteConfirmDialogBox != nullptr) {
+	folderNameDialogBox = nullptr;
+	if (fileOverwriteConfirmDialogBox != nullptr)
 		fileOverwriteConfirmDialogBox->removeListenerFromButtons(this);
-		fileOverwriteConfirmDialogBox = nullptr;
-	}
-	if (browserComponent != nullptr) {
+	fileOverwriteConfirmDialogBox = nullptr;
+	if (browserComponent != nullptr) 
 		browserComponent->removeListener(this);
-		browserComponent = nullptr;
-	}
+	browserComponent = nullptr;
 }

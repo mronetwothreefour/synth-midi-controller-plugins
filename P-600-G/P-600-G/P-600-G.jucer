@@ -62,6 +62,14 @@
               compile="1" resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
         <FILE id="DM2ngm" name="imptExpt_FileOverwriteConfirmDialogBox.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.h"/>
+        <FILE id="fyX7hE" name="imptExpt_FolderExistsAlert.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FolderExistsAlert.cpp"/>
+        <FILE id="XgyoCD" name="imptExpt_FolderExistsAlert.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FolderExistsAlert.h"/>
+        <FILE id="QMCVsw" name="imptExpt_FolderNameDialogBox.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
+        <FILE id="f4pJIF" name="imptExpt_FolderNameDialogBox.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
@@ -312,6 +320,10 @@
             file="../Resources/Button-Undo-Down.png"/>
       <FILE id="VrNx7s" name="Button-Undo-Up.png" compile="0" resource="1"
             file="../Resources/Button-Undo-Up.png"/>
+      <FILE id="yHPFqq" name="Folder-Exists-Alert-Background.png" compile="0"
+            resource="1" file="../Resources/Folder-Exists-Alert-Background.png"/>
+      <FILE id="rXxr4Z" name="Folder-Name-Dialog-Background.png" compile="0"
+            resource="1" file="../Resources/Folder-Name-Dialog-Background.png"/>
       <FILE id="IgFQEy" name="Import-Export-Window-Background.png" compile="0"
             resource="1" file="../Resources/Import-Export-Window-Background.png"/>
       <FILE id="ryKnYs" name="Overwrite-Confirmation-Background.png" compile="0"

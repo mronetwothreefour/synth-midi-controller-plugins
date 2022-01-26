@@ -119,6 +119,12 @@ namespace BinaryData
     extern const char*   ButtonUndoUp_png;
     const int            ButtonUndoUp_pngSize = 691;
 
+    extern const char*   FolderExistsAlertBackground_png;
+    const int            FolderExistsAlertBackground_pngSize = 47038;
+
+    extern const char*   FolderNameDialogBackground_png;
+    const int            FolderNameDialogBackground_pngSize = 51632;
+
     extern const char*   ImportExportWindowBackground_png;
     const int            ImportExportWindowBackground_pngSize = 152409;
 
@@ -138,7 +144,7 @@ namespace BinaryData
     const int            WindowTitleExportProgram_pngSize = 2401;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 43;
+    const int namedResourceListSize = 45;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

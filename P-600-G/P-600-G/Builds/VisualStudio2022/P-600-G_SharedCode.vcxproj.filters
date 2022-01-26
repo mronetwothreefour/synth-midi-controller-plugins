@@ -511,6 +511,12 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
@@ -2770,6 +2776,12 @@
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
@@ -5424,6 +5436,12 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Undo-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Folder-Exists-Alert-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Folder-Name-Dialog-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png">

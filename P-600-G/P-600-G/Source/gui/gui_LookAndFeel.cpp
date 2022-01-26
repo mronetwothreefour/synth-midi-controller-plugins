@@ -55,13 +55,13 @@ void GUILookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int x,
 void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& textEditor) {
 	textEditor.applyColourToAllText(Color::offWhite);
 	textEditor.setColour(TextEditor::highlightedTextColourId, Color::offWhite);
-	auto isFileNameEditorInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
-	if (isFileNameEditorInImptExptComponent) {
+	auto editorIsInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (editorIsInImptExptComponent) {
 		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 		textEditor.applyColourToAllText(Color::offWhite);
 	}
-	auto isEditorInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
-	if (isEditorInPathComboBoxInImptExptComponent) {
+	auto editorIsInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (editorIsInPathComboBoxInImptExptComponent) {
 		auto fillArea{ textEditor.getLocalBounds() };
 		fillArea.removeFromLeft(5);
 		fillArea.reduced(0, 8);

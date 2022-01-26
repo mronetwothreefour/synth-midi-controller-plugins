@@ -43,6 +43,21 @@ namespace constants
 		static const int fileOverwriteConfirmBoxButtons_y{ 191 };
 		static const int fileOverwriteConfirmEscButton_x{ 656 };
 		static const int fileOverwriteConfirmOKbutton_x{ fileOverwriteConfirmEscButton_x + buttonsHorizSpacingForGroupedButtons };
+		static const int folderExistAlert_x{ 591 };
+		static const int folderExistAlert_y{ 133 };
+		static const int folderExistAlertOKbutton_x{ 681 };
+		static const int folderExistAlertOKbutton_y{ 179 };
+		static const int folderNameDialogBox_h{ 133 };
+		static const int folderNameDialogBox_w{ 220 };
+		static const int folderNameDialogBox_x{ 591 };
+		static const int folderNameDialogBox_y{ 117 };
+		static const int folderNameDialogBoxButtonsRow_y{ 195 };
+		static const int folderNameDialogBoxEditor_h{ 20 };
+		static const int folderNameDialogBoxEditor_w{ 184 };
+		static const int folderNameDialogBoxEditor_x{ 609 };
+		static const int folderNameDialogBoxEditor_y{ 161 };
+		static const int folderNameDialogBoxEscButton_x{ 656 };
+		static const int folderNameDialogBoxOKbutton_x{ folderNameDialogBoxEscButton_x + buttonsHorizSpacingForGroupedButtons };
 		static const int imptExptBrowserComponent_h{ 245 };
 		static const int imptExptBrowserComponent_w{ 470 };
 		static const int imptExptBrowserComponent_x{ 466 };
@@ -121,6 +136,11 @@ namespace constants
 
 		static const Rectangle<int> bounds_fileOverwriteConfirmBoxEscButton{ fileOverwriteConfirmEscButton_x, fileOverwriteConfirmBoxButtons_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_fileOverwriteConfirmBoxOKbutton{ fileOverwriteConfirmOKbutton_x, fileOverwriteConfirmBoxButtons_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
+		static const Rectangle<int> bounds_folderExistsAlertOKbutton{ folderExistAlertOKbutton_x, folderExistAlertOKbutton_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
+		static const Rectangle<int> bounds_folderNameDialogBox{ folderNameDialogBox_x, folderNameDialogBox_y, folderNameDialogBox_w, folderNameDialogBox_h };
+		static const Rectangle<int> bounds_folderNameDialogBoxEditor{ folderNameDialogBoxEditor_x, folderNameDialogBoxEditor_y, folderNameDialogBoxEditor_w, folderNameDialogBoxEditor_h };
+		static const Rectangle<int> bounds_folderNameDialogBoxEscButton{ folderNameDialogBoxEscButton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_folderNameDialogBoxOKbutton{ folderNameDialogBoxOKbutton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptCurrentPathBox{ imptExptCurrentPathBox_x, imptExptCurrentPathBox_y, imptExptCurrentPathBox_w, imptExptCurrentPathBox_h };
 		static const Rectangle<int> bounds_ImptExptDirContentsBox{ imptExptDirContentsBox_x, imptExptDirContentsBox_y, imptExptDirContentsBox_w, imptExptDirContentsBox_h };
