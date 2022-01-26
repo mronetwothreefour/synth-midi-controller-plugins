@@ -3,11 +3,10 @@
 #include <JuceHeader.h>
 
 #include "imptExpt_FileFilters.h"
-#include "imptExpt_FolderNameDialogBox.h"
-#include "imptExpt_FileOverwriteConfirmDialogBox.h"
 
 
-
+class FileOverwriteConfirmDialogBox;
+class FolderNameDialogBox;
 class UnexposedParameters;
 
 class ExportProgramDataComponent :

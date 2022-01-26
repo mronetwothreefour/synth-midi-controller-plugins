@@ -2,10 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "imptExpt_FolderExistsAlert.h"
 
 
-
+class FolderExistsAlert;
 class UnexposedParameters;
 
 class FolderNameDialogBox :

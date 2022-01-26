@@ -1,5 +1,7 @@
 #include "imptExpt_ExportPgmDataComponent.h"
 
+#include "imptExpt_FileOverwriteConfirmDialogBox.h"
+#include "imptExpt_FolderNameDialogBox.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"

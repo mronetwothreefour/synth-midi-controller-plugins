@@ -1,5 +1,6 @@
 #include "imptExpt_FolderNameDialogBox.h"
 
+#include "imptExpt_FolderExistsAlert.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
