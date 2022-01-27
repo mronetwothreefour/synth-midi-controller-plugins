@@ -46,7 +46,7 @@ void SplitsBankTransmissionComponent::timerCallback() {
 		startTimer(transmitTime);
 	}
 	else {
-		makeClosebuttonVisible();
+		makeCloseButtonVisible();
 		repaint();
 	}
 }
@@ -107,11 +107,11 @@ size_t SplitsBankTransmissionComponent::getTitleLabelImageDataSize() {
 
 void SplitsBankTransmissionComponent::cancelTransmission() {
 	stopTimer();
-	makeClosebuttonVisible();
+	makeCloseButtonVisible();
 	repaint();
 }
 
-void SplitsBankTransmissionComponent::makeClosebuttonVisible() {
+void SplitsBankTransmissionComponent::makeCloseButtonVisible() {
 	button_Stop.setVisible(false);
 	button_Close.setVisible(true);
 }

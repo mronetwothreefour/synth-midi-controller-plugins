@@ -57,7 +57,7 @@ void PatchBankTransmissionComponent::timerCallback() {
 		startTimer(transmitTime);
 	}
 	else {
-		makeClosebuttonVisible();
+		makeCloseButtonVisible();
 		repaint();
 	}
 }
@@ -123,11 +123,11 @@ size_t PatchBankTransmissionComponent::getTitleLabelImageDataSize() {
 
 void PatchBankTransmissionComponent::cancelTransmission() {
 	stopTimer();
-	makeClosebuttonVisible();
+	makeCloseButtonVisible();
 	repaint();
 }
 
-void PatchBankTransmissionComponent::makeClosebuttonVisible() {
+void PatchBankTransmissionComponent::makeCloseButtonVisible() {
 	button_Stop.setVisible(false);
 	button_Close.setVisible(true);
 }

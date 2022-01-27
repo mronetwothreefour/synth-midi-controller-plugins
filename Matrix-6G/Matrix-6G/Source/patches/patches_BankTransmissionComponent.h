@@ -43,7 +43,7 @@ private:
 	const char* getTitleLabelImageData();
 	size_t getTitleLabelImageDataSize();
 	void cancelTransmission();
-	void makeClosebuttonVisible();
+	void makeCloseButtonVisible();
 	void hideThisComponent();
 
 	//==============================================================================
