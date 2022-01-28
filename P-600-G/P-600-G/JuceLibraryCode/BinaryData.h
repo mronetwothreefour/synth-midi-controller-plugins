@@ -17,6 +17,9 @@ namespace BinaryData
     extern const char*   SWISSCL_TTF;
     const int            SWISSCL_TTFSize = 35064;
 
+    extern const char*   BankTransmissionWindowBackground_png;
+    const int            BankTransmissionWindowBackground_pngSize = 83994;
+
     extern const char*   ButtonEscDown_png;
     const int            ButtonEscDown_pngSize = 658;
 
@@ -140,6 +143,12 @@ namespace BinaryData
     extern const char*   PgmBankWindowBackground_png;
     const int            PgmBankWindowBackground_pngSize = 755365;
 
+    extern const char*   PullingBankTitle_png;
+    const int            PullingBankTitle_pngSize = 2211;
+
+    extern const char*   PushingBankTitle_png;
+    const int            PushingBankTitle_pngSize = 2138;
+
     extern const char*   Switch_png;
     const int            Switch_pngSize = 139;
 
@@ -156,7 +165,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2721;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 49;
+    const int namedResourceListSize = 52;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

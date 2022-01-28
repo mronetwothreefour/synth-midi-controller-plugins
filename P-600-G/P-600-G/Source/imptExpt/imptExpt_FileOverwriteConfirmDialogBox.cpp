@@ -40,7 +40,7 @@ void FileOverwriteConfirmDialogBox::removeListenerFromButtons(Button::Listener* 
 
 void FileOverwriteConfirmDialogBox::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_folderNameDialogBox);
+	g.fillRect(GUI::bounds_FolderNameDialogBox);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::OverwriteConfirmationBackground_png, BinaryData::OverwriteConfirmationBackground_pngSize, false };
 	PNGImageFormat imageFormat;
@@ -49,8 +49,8 @@ void FileOverwriteConfirmDialogBox::paint(Graphics& g) {
 }
 
 void FileOverwriteConfirmDialogBox::resized() {
-	button_Esc.setBounds(GUI::bounds_fileOverwriteConfirmBoxEscButton);
-	button_OK.setBounds(GUI::bounds_fileOverwriteConfirmBoxOKbutton);
+	button_Esc.setBounds(GUI::bounds_FileOverwriteConfirmBoxEscButton);
+	button_OK.setBounds(GUI::bounds_FileOverwriteConfirmBoxOKbutton);
 }
 
 void FileOverwriteConfirmDialogBox::hideThisComponent() {

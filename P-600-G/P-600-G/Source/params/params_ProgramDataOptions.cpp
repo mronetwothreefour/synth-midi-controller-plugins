@@ -15,7 +15,7 @@ ProgramDataOptions::ProgramDataOptions(UnexposedParameters* unexposedParams) :
 void ProgramDataOptions::fillCurrentProgramOptionsTreeWithProperties() {
 	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, (uint8)0, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
-	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 300, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 500, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank, (bool)false, nullptr);
 }
 

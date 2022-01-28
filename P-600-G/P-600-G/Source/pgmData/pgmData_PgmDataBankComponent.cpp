@@ -21,7 +21,9 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForPullingSelectedPgmFromHardware{ slotsComponent, unexposedParams, label_PgmNameEditor },
 	button_ForImportingPgmFromFile{ unexposedParams },
 	button_ForExportingSelectedPgmToFile{ unexposedParams },
-	button_ForEditingSelectedPgmName{ label_PgmNameEditor, slotsComponent, unexposedParams }
+	button_ForEditingSelectedPgmName{ label_PgmNameEditor, slotsComponent, unexposedParams },
+	button_ForPullingEntireBankFromHardware{ unexposedParams },
+	button_ForPushingEntireBankToHardware{ unexposedParams }
 {
 	addAndMakeVisible(slotsComponent);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
@@ -31,9 +33,13 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	addAndMakeVisible(button_ForExportingSelectedPgmToFile);
 	addAndMakeVisible(button_ForEditingSelectedPgmName);
 	addAndMakeVisible(button_ForClosingPgmDataBank);
+	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
+	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 
 	button_ForImportingPgmFromFile.onClick = [this] { showImportPgmComponent(); };
 	button_ForExportingSelectedPgmToFile.onClick = [this] { showExportSelectedPgmComponent(); };
+	button_ForPullingEntireBankFromHardware.onClick = [this] { showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType::pull); };
+	button_ForPushingEntireBankToHardware.onClick = [this] { showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType::push); };
 
 	button_ForClosingPgmDataBank.setComponentID(ID::button_Exit.toString());
 	button_ForClosingPgmDataBank.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -69,6 +75,8 @@ void ProgramDataBankComponent::resized() {
 	button_ForImportingPgmFromFile.setBounds(GUI::bounds_PgmBankWindowImptPgmButton);
 	button_ForExportingSelectedPgmToFile.setBounds(GUI::bounds_PgmBankWindowExptSelectedPgmButton);
 	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_PgmBankWindowNameButton);
+	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PgmBankWindowPullBankButton);
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PgmBankWindowPushBankButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
 }
@@ -165,12 +173,22 @@ void ProgramDataBankComponent::showExportSelectedPgmComponent(){
 	}
 }
 
+void ProgramDataBankComponent::showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType transmitType) {
+	pgmBankTransmissionComponent.reset(new ProgramBankTransmissionComponent(transmitType, unexposedParams));
+	if (pgmBankTransmissionComponent != nullptr) {
+		addAndMakeVisible(pgmBankTransmissionComponent.get());
+		pgmBankTransmissionComponent->setBounds(getLocalBounds());
+		pgmBankTransmissionComponent->grabKeyboardFocus();
+	}
+}
+
 void ProgramDataBankComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 ProgramDataBankComponent::~ProgramDataBankComponent() {
+	pgmBankTransmissionComponent = nullptr;
 	exportSelectedPgmComponent = nullptr;
 	importPgmComponent = nullptr;
 	label_PgmNameEditor.removeListener(this);

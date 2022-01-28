@@ -16,6 +16,8 @@ namespace constants
 
 		static const int alertWindowOKbutton_x{ 681 };
 		static const int alertWindowOKbutton_y{ 179 };
+		static const int bankTransmitWindow_x{ 526 };
+		static const int bankTransmitWindow_y{ 130 };
 		static const int buttons_h{ 40 };
 		static const int buttons_w{ buttons_h };
 		static const int buttonsHorizSpacingForGroupedButtons{ 50 };
@@ -33,6 +35,11 @@ namespace constants
 		static const int buttonPgmBankWindowImptPgm_x{ buttonPgmBankWindowPullSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonPgmBankWindowExptSelectedPgm_x{ buttonPgmBankWindowImptPgm_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonPgmBankWindowNameSelectedPgm_x{ buttonPgmBankWindowExptSelectedPgm_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankPullBank_x{ 780 };
+		static const int buttonPgmBankPushBank_x{ buttonPgmBankPullBank_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankImptBank_x{ buttonPgmBankPushBank_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankExptBank_x{ buttonPgmBankImptBank_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonPgmBankFact_x{ buttonPgmBankExptBank_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonRand_x{ 979 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
@@ -136,13 +143,15 @@ namespace constants
 		static const int switchUnison_x{ 441 };
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
 
-		static const Rectangle<int> bounds_fileOverwriteConfirmBoxEscButton{ fileOverwriteConfirmEscButton_x, fileOverwriteConfirmBoxButtons_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_fileOverwriteConfirmBoxOKbutton{ fileOverwriteConfirmOKbutton_x, fileOverwriteConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_AlertWindowOKbutton{ alertWindowOKbutton_x, alertWindowOKbutton_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_folderNameDialogBox{ folderNameDialogBox_x, folderNameDialogBox_y, folderNameDialogBox_w, folderNameDialogBox_h };
-		static const Rectangle<int> bounds_folderNameDialogBoxEditor{ folderNameDialogBoxEditor_x, folderNameDialogBoxEditor_y, folderNameDialogBoxEditor_w, folderNameDialogBoxEditor_h };
-		static const Rectangle<int> bounds_folderNameDialogBoxEscButton{ folderNameDialogBoxEscButton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_folderNameDialogBoxOKbutton{ folderNameDialogBoxOKbutton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_BankTransmitButtons{ 681, 207, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_BankTransmitProgressBar{ 541, 176, 320, 18 };
+		static const Rectangle<int> bounds_FileOverwriteConfirmBoxEscButton{ fileOverwriteConfirmEscButton_x, fileOverwriteConfirmBoxButtons_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_FileOverwriteConfirmBoxOKbutton{ fileOverwriteConfirmOKbutton_x, fileOverwriteConfirmBoxButtons_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_FolderNameDialogBox{ folderNameDialogBox_x, folderNameDialogBox_y, folderNameDialogBox_w, folderNameDialogBox_h };
+		static const Rectangle<int> bounds_FolderNameDialogBoxEditor{ folderNameDialogBoxEditor_x, folderNameDialogBoxEditor_y, folderNameDialogBoxEditor_w, folderNameDialogBoxEditor_h };
+		static const Rectangle<int> bounds_FolderNameDialogBoxEscButton{ folderNameDialogBoxEscButton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_FolderNameDialogBoxOKbutton{ folderNameDialogBoxOKbutton_x, folderNameDialogBoxButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptCurrentPathBox{ imptExptCurrentPathBox_x, imptExptCurrentPathBox_y, imptExptCurrentPathBox_w, imptExptCurrentPathBox_h };
 		static const Rectangle<int> bounds_ImptExptDirContentsBox{ imptExptDirContentsBox_x, imptExptDirContentsBox_y, imptExptDirContentsBox_w, imptExptDirContentsBox_h };
@@ -159,6 +168,8 @@ namespace constants
 		static const Rectangle<int> bounds_PgmBankWindowExptSelectedPgmButton{ buttonPgmBankWindowExptSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowImptPgmButton{ buttonPgmBankWindowImptPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowLoadSelectedPgmButton{ buttonPgmBankWindowLoadSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowPullBankButton{ buttonPgmBankPullBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowPushBankButton{ buttonPgmBankPushBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPullSelectedPgmButton{ buttonPgmBankWindowPullSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowSavePgmButton{ buttonPgmBankWindowSavePgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowNameButton{ buttonPgmBankWindowNameSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };

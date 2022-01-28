@@ -6,6 +6,7 @@
 
 namespace ID
 {
+	static const Identifier button_EscBankTransmit{ "button_EscBankTransmit" };
 	static const Identifier button_EscFileOverwrite{ "button_EscFileOverwrite" };
 	static const Identifier button_EscFolderName{ "button_EscFolderName" };
 	static const Identifier button_EscImptExpt{ "button_EscImptExpt" };
@@ -18,6 +19,7 @@ namespace ID
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Name{ "button_Name" };
 	static const Identifier button_NewFldr{ "button_NewFldr" };
+	static const Identifier button_OKBankTransmit{ "button_OKBankTransmit" };
 	static const Identifier button_OKfileOverwrite{ "button_OKfileOverwrite" };
 	static const Identifier button_OKfileNotValid{ "button_OKfileNotValid" };
 	static const Identifier button_OKfolderExists{ "button_OKfolderExists" };

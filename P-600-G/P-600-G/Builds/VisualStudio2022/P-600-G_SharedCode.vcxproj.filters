@@ -556,6 +556,9 @@
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.cpp">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.cpp">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClCompile>
@@ -607,10 +610,16 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp">
@@ -2841,6 +2850,9 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.h">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\pgmData\pgmData_Constants.h">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClInclude>
@@ -2895,10 +2907,16 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h">
@@ -5354,6 +5372,9 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Bank-Transmission-Window-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Button-Esc-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
@@ -5475,6 +5496,12 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Pulling-Bank-Title.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Pushing-Bank-Title.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Switch.png">

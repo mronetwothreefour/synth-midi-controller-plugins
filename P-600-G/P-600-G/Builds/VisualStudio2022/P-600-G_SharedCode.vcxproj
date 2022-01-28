@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\Source\params\params_ProgramDataOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
+    <ClCompile Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.cpp"/>
@@ -180,8 +181,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
@@ -2178,6 +2181,7 @@
     <ClInclude Include="..\..\Source\params\params_ProgramDataOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
+    <ClInclude Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_Constants.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.h"/>
@@ -2196,8 +2200,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
@@ -3017,6 +3023,7 @@
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
+    <None Include="..\..\..\Resources\Bank-Transmission-Window-Background.png"/>
     <None Include="..\..\..\Resources\Button-Esc-Down.png"/>
     <None Include="..\..\..\Resources\Button-Esc-Up.png"/>
     <None Include="..\..\..\Resources\Button-Exit-Down.png"/>
@@ -3058,6 +3065,8 @@
     <None Include="..\..\..\Resources\Overwrite-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
+    <None Include="..\..\..\Resources\Pulling-Bank-Title.png"/>
+    <None Include="..\..\..\Resources\Pushing-Bank-Title.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program-Bank.png"/>

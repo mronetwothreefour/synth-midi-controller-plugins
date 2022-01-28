@@ -11,4 +11,5 @@ namespace Color
 	static const Colour lcdRed{ 0xffed1c24 };
 	static const Colour lcdRedUnlit{ 0xff460000 };
 	static const Colour offWhite{ 0xffaeaeae };
+	static const Colour progressBarGray{ 0xff333333 };
 }

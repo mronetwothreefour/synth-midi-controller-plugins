@@ -28,6 +28,14 @@ std::vector<uint8> RawSysExDataVector::initializePgmDataDumpMessage(uint8 slot) 
     return rawDataVector;
 }
 
+std::vector<uint8> RawSysExDataVector::createPgmDataDumpHeader(uint8 slot) {
+    jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
+    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::numberOfHeaderBytesInPgmDataDump) };
+    rawDataVector[1] = MIDI::opcode_PgmDataDump;
+    rawDataVector[2] = slot;
+    return rawDataVector;
+}
+
 std::vector<uint8> RawSysExDataVector::createRawDataVectorWithManufacturerIDheaderByte(int vectorSize) {
     jassert(vectorSize > 0);
     std::vector<uint8> rawDataVector(vectorSize);

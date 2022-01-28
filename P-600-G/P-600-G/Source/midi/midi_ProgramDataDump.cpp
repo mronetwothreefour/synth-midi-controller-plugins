@@ -8,8 +8,14 @@
 
 void ProgramDataDump::addPgmDataDumpForCurrentExposedParamsSettingsToOutgoingMidiBuffers(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-    auto patchDataMessage{ createSysExMessageFromCurrentExposedParamsSettings(exposedParams, unexposedParams) };
-    outgoingBuffers->addDataMessage(patchDataMessage);
+    auto pgmDataDump{ createSysExMessageFromCurrentExposedParamsSettings(exposedParams, unexposedParams) };
+    outgoingBuffers->addDataMessage(pgmDataDump);
+}
+
+void ProgramDataDump::addPgmDataDumpForProgramStoredInSlotToOutgoingMidiBuffers(uint8 slot, UnexposedParameters* unexposedParams) {
+    auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
+    auto pgmDataDump{ createSysExMessageFromProgramDataStoredInSlot(slot, unexposedParams) };
+    outgoingBuffers->addDataMessage(pgmDataDump);
 }
 
 void ProgramDataDump::addRequestForPgmDataStoredInHardwareSlotToOutgoingMidiBuffers(uint8 slot, OutgoingMidiBuffers* outgoingBuffers) {
@@ -22,5 +28,15 @@ std::vector<uint8> ProgramDataDump::createSysExMessageFromCurrentExposedParamsSe
     auto currentPgmNumber{ pgmDataOptions->currentProgramNumber() };
     auto dataVector{ RawSysExDataVector::initializePgmDataDumpMessage(currentPgmNumber) };
     RawDataTools::addCurrentExposedParamsSettingsToDataVector(exposedParams, dataVector);
+    return dataVector;
+}
+
+std::vector<uint8> ProgramDataDump::createSysExMessageFromProgramDataStoredInSlot(uint8 slot, UnexposedParameters* unexposedParams) {
+    auto dataVector{ RawSysExDataVector::createPgmDataDumpHeader(slot) };
+    auto pgmDataBank{ unexposedParams->programDataBank_get() };
+    auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
+    auto pgmDataVector{ RawDataTools::convertPgmDataHexStringToDataVector(pgmDataHexString) };
+    for (auto dataByte : pgmDataVector)
+        dataVector.push_back(dataByte);
     return dataVector;
 }

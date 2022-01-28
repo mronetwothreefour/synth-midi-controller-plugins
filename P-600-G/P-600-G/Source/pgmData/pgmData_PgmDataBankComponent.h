@@ -4,11 +4,14 @@
 
 #include "pgmData_ProgramDataBank.h"
 #include "pgmData_PgmDataSlotsComponent.h"
+#include "pgmData_BankTransmissionComponent.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
 
 
@@ -30,12 +33,15 @@ class ProgramDataBankComponent :
     ButtonForImportingProgramFromFile button_ForImportingPgmFromFile;
     ButtonForExportingSelectedProgramToFile button_ForExportingSelectedPgmToFile;
     ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
+    ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
+    ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
     ApplicationCommandManager commandManager;
     String pgmCopyBuffer;
     std::unique_ptr<ExportProgramDataComponent> exportSelectedPgmComponent;
     std::unique_ptr<ImportProgramDataComponent> importPgmComponent;
+    std::unique_ptr<ProgramBankTransmissionComponent> pgmBankTransmissionComponent;
 
 public:
     enum commandChoices {
@@ -58,6 +64,7 @@ public:
 private:
     void showImportPgmComponent();
     void showExportSelectedPgmComponent();
+    void showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType transmitType);
     void hideThisComponent();
 
 public:

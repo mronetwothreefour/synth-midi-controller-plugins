@@ -55,9 +55,9 @@ void FolderNameDialogBox::paint(Graphics& g) {
 }
 
 void FolderNameDialogBox::resized() {
-	label_FolderName.setBounds(GUI::bounds_folderNameDialogBoxEditor);
-	button_Esc.setBounds(GUI::bounds_folderNameDialogBoxEscButton);
-	button_OK.setBounds(GUI::bounds_folderNameDialogBoxOKbutton);
+	label_FolderName.setBounds(GUI::bounds_FolderNameDialogBoxEditor);
+	button_Esc.setBounds(GUI::bounds_FolderNameDialogBoxEscButton);
+	button_OK.setBounds(GUI::bounds_FolderNameDialogBoxOKbutton);
 }
 
 void FolderNameDialogBox::createNewFolder() {
