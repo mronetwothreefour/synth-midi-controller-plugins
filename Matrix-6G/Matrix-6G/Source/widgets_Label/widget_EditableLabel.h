@@ -12,6 +12,8 @@ class EditableLabel :
 	public Label
 {
 public:
+	EditableLabel() = delete;
+
 	EditableLabel(const String& componentName, const String& labelText) :
 		Label{ componentName, labelText }
 	{
@@ -28,4 +30,8 @@ public:
 	void paint(Graphics& g) override {
 		ControlValueRenderer::paintValueStringInComponent(g, getText(), this);
 	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(EditableLabel)
 };
