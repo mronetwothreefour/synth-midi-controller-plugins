@@ -52,6 +52,14 @@
               file="Source/guiRenderers/guiRenderer_LCDNumber.h"/>
       </GROUP>
       <GROUP id="{0D76A8E8-444D-DF66-1318-ED5518103DEB}" name="imptExpt">
+        <FILE id="Nen8xS" name="imptExpt_BaseImptExptComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.cpp"/>
+        <FILE id="OTXYiO" name="imptExpt_BaseImptExptComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.h"/>
+        <FILE id="yX540e" name="imptExpt_ExportPgmDataBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataBankComponent.cpp"/>
+        <FILE id="BaGdAt" name="imptExpt_ExportPgmDataBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataBankComponent.h"/>
         <FILE id="BgHuil" name="imptExpt_ExportPgmDataComponent.cpp" compile="1"
               resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.cpp"/>
         <FILE id="iiwJLk" name="imptExpt_ExportPgmDataComponent.h" compile="0"
@@ -204,6 +212,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
         <FILE id="tfpxNb" name="widget_PgmBank_ButtonForEditingSelectedProgramName.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
+        <FILE id="iQEcef" name="widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"/>
+        <FILE id="fdMlNd" name="widget_PgmBank_ButtonForExportingPgmBankToFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.h"/>
         <FILE id="NTa9us" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
         <FILE id="xbBwJ0" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"

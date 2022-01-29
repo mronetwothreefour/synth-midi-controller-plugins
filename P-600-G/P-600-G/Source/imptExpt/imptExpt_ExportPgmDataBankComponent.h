@@ -9,28 +9,28 @@ class FileOverwriteConfirmDialogBox;
 class ProgramDataSlotsComponent;
 class UnexposedParameters;
 
-class ExportProgramDataComponent :
+class ExportProgramDataBankComponent :
 	public BaseImportExportComponent,
 	public Button::Listener
 {
 	std::unique_ptr<FileOverwriteConfirmDialogBox> fileOverwriteConfirmDialogBox;
 
 public:
-	ExportProgramDataComponent() = delete;
+	ExportProgramDataBankComponent() = delete;
 
-	ExportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
+	explicit ExportProgramDataBankComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void buttonClicked(Button* button) override;
 
 private:
-	void okButtonClicked() override;
+	void okButtonClicked();
 	void showFileOverwriteConfirmDialogBox();
-	void writeProgramDataIntoFile(File& file);
+	void writeProgramBankDataIntoFile(File& file);
 
 public:
-	~ExportProgramDataComponent();
+	~ExportProgramDataBankComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExportProgramDataComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExportProgramDataBankComponent)
 };

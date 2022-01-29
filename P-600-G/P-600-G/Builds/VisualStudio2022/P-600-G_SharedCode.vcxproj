@@ -146,6 +146,8 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
@@ -179,6 +181,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp"/>
@@ -2160,6 +2163,8 @@
     <ClInclude Include="..\..\Source\gui\gui_PathsForLCDnumbers_Singleton.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h"/>
@@ -2198,6 +2203,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"/>

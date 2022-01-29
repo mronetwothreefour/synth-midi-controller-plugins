@@ -1,4 +1,4 @@
-#include "imptExpt_ExportPgmDataComponent.h"
+#include "imptExpt_ExportPgmDataBankComponent.h"
 
 #include "imptExpt_FileOverwriteConfirmDialogBox.h"
 #include "../gui/gui_Colors.h"
@@ -11,49 +11,49 @@ using namespace constants;
 
 
 
-ExportProgramDataComponent::ExportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
-	BaseImportExportComponent{ ImptExptType::exportProgram, slotsComponent, unexposedParams }
+ExportProgramDataBankComponent::ExportProgramDataBankComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+	BaseImportExportComponent{ ImptExptType::exportProgramBank, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
 		button_Esc.setTooltip("Click to cancel the file export.");
-		button_OK.setTooltip("Click to export the selected program" + GUI::apostrophe + "s\ndata to the specified file.");
+		button_OK.setTooltip("Click to export the program data\nbank to the specified file.");
 	}
 }
 
-void ExportProgramDataComponent::paint(Graphics& g) {
+void ExportProgramDataBankComponent::paint(Graphics& g) {
 	drawBackgroundImage(g);
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::WindowTitleExportProgram_png, BinaryData::WindowTitleExportProgram_pngSize, false };
+	MemoryInputStream memInputStream{ BinaryData::WindowTitleExportProgramBank_png, BinaryData::WindowTitleExportProgramBank_pngSize, false };
 	auto titleImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(titleImage, GUI::imptExptWindow_x, GUI::imptExptWindow_y);
 }
 
-void ExportProgramDataComponent::buttonClicked(Button* button) {
+void ExportProgramDataBankComponent::buttonClicked(Button* button) {
 	if (fileOverwriteConfirmDialogBox != nullptr) {
 		if (button->getComponentID() == ID::button_EscFileOverwrite.toString())
 			fileOverwriteConfirmDialogBox->hideThisComponent();
 		if (button->getComponentID() == ID::button_OKfileOverwrite.toString()) {
 			fileOverwriteConfirmDialogBox->hideThisComponent();
 			auto selectedFile{ browserComponent->getSelectedFile(0) };
-			writeProgramDataIntoFile(selectedFile);
+			writeProgramBankDataIntoFile(selectedFile);
 		}
 	}
 }
 
-void ExportProgramDataComponent::okButtonClicked() {
+void ExportProgramDataBankComponent::okButtonClicked() {
 	auto selectedFile{ browserComponent->getSelectedFile(0) };
 	if (selectedFile.existsAsFile()) {
 		showFileOverwriteConfirmDialogBox();
 	}
 	else {
 		auto fileToWriteTo{ createFileToWriteTo(selectedFile) };
-		writeProgramDataIntoFile(fileToWriteTo);
+		writeProgramBankDataIntoFile(fileToWriteTo);
 	}
 }
 
-void ExportProgramDataComponent::showFileOverwriteConfirmDialogBox() {
+void ExportProgramDataBankComponent::showFileOverwriteConfirmDialogBox() {
 	fileOverwriteConfirmDialogBox.reset(new FileOverwriteConfirmDialogBox(unexposedParams));
 	fileOverwriteConfirmDialogBox->addListenerToButtons(this);
 	addAndMakeVisible(fileOverwriteConfirmDialogBox.get());
@@ -61,20 +61,21 @@ void ExportProgramDataComponent::showFileOverwriteConfirmDialogBox() {
 	fileOverwriteConfirmDialogBox->grabKeyboardFocus();
 }
 
-void ExportProgramDataComponent::writeProgramDataIntoFile(File& file) {
+void ExportProgramDataBankComponent::writeProgramBankDataIntoFile(File& file) {
 	FileOutputStream outStream{ file };
 	if (outStream.openedOk()) {
 		outStream.setPosition(0);
 		outStream.truncate();
-		auto slot{ slotsComponent->selectedSlot };
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
-		auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
-		outStream.writeText(pgmDataHexString, false, false, nullptr);
+		for (uint8 slot = 0; slot != pgmData::numberOfSlotsInPgmDataBank; ++slot) {
+			auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
+			outStream.writeText(pgmDataHexString + "\r\n", false, false, nullptr);
+		}
 		hideThisComponent();
 	}
 }
 
-ExportProgramDataComponent::~ExportProgramDataComponent() {
+ExportProgramDataBankComponent::~ExportProgramDataBankComponent() {
 	if (fileOverwriteConfirmDialogBox != nullptr)
 		fileOverwriteConfirmDialogBox->removeListenerFromButtons(this);
 	fileOverwriteConfirmDialogBox = nullptr;

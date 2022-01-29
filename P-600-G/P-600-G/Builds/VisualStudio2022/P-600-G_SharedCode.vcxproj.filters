@@ -505,6 +505,12 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
@@ -602,6 +608,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp">
@@ -2787,6 +2796,12 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_LCDNumber.h">
       <Filter>P-600-G\Source\guiRenderers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
@@ -2899,6 +2914,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h">
