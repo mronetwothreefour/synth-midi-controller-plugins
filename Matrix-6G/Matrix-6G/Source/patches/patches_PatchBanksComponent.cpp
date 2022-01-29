@@ -39,7 +39,7 @@ PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedPa
 	if (tooltips->shouldShowDescription()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single patch between the plugin and the Matrix-6R hardware. Increase this\n";
-		label_txTimeTooltip += "value if patches are getting 'lost' during pushes or pulls.\n";
+		label_txTimeTooltip += "value if patches are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
 		label_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 
