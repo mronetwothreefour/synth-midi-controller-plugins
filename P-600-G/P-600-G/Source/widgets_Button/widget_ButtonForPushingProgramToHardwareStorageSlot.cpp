@@ -22,9 +22,10 @@ ButtonForPushingProgramToHardwareStorageSlot::ButtonForPushingProgramToHardwareS
 const String ButtonForPushingProgramToHardwareStorageSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Sends a dump of all the program data to the hardware storage\n";
-		buttonTooltip += "slot specified by the program number control to the left.\n";
-		buttonTooltip += "This overwrites the data that is currently stored in the slot.";
+		buttonTooltip += "Sends a dump of all the program data to the hardware\n";
+		buttonTooltip += "storage slot specified by the program number control\n";
+		buttonTooltip += "to the left. NOTE: This overwrites the data that is\n";
+		buttonTooltip += "currently stored in the slot and cannot be undone.";
 	}
 	return buttonTooltip;
 }

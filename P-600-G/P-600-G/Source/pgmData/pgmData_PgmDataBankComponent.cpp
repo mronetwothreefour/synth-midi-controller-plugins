@@ -1,5 +1,6 @@
 #include "pgmData_PgmDataBankComponent.h"
 
+#include "pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
@@ -27,7 +28,8 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForPullingEntireBankFromHardware{ unexposedParams },
 	button_ForPushingEntireBankToHardware{ unexposedParams },
 	button_ForImportingProgramBankFromFile{ unexposedParams },
-	button_ForExportingProgramBankToFile{ unexposedParams }
+	button_ForExportingProgramBankToFile{ unexposedParams },
+	button_ForRestoringFactoryPrograms{ unexposedParams }
 {
 	addAndMakeVisible(slotsComponent);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
@@ -41,6 +43,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 	addAndMakeVisible(button_ForImportingProgramBankFromFile);
 	addAndMakeVisible(button_ForExportingProgramBankToFile);
+	addAndMakeVisible(button_ForRestoringFactoryPrograms);
 
 	button_ForImportingPgmFromFile.onClick = [this] { showImportPgmComponent(); };
 	button_ForExportingSelectedPgmToFile.onClick = [this] { showExportSelectedPgmComponent(); };
@@ -48,6 +51,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForPushingEntireBankToHardware.onClick = [this] { showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType::push); };
 	button_ForImportingProgramBankFromFile.onClick = [this] { showImportPgmDataBankComponent(); };
 	button_ForExportingProgramBankToFile.onClick = [this] { showExportPgmDataBankComponent(); };
+	button_ForRestoringFactoryPrograms.onClick = [this] { showRestoreFactoryPgmsConfirmDialogBox(); };
 
 	button_ForClosingPgmDataBank.setComponentID(ID::button_Exit.toString());
 	button_ForClosingPgmDataBank.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -88,6 +92,7 @@ void ProgramDataBankComponent::resized() {
 	button_ForImportingProgramBankFromFile.setBounds(GUI::bounds_PgmBankWindowImptPgmBankButton);
 	button_ForExportingProgramBankToFile.setBounds(GUI::bounds_PgmBankWindowExptPgmBankButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
+	button_ForRestoringFactoryPrograms.setBounds(GUI::bounds_PgmBankWindowFactButton);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
 }
 
@@ -108,6 +113,18 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 		auto slot{ slotsComponent.selectedSlot };
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
 		pgmDataBank->setNameOfPgmInSlot(newName, slot);
+	}
+}
+
+void ProgramDataBankComponent::buttonClicked(Button* button) {
+	if (restoreFactoryPgmsConfirmDialogBox != nullptr) {
+		if (button->getComponentID() == ID::button_EscRestoreFactory.toString())
+			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
+		if (button->getComponentID() == ID::button_OKrestoreFactory.toString()) {
+			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
+			auto pgmDataBank{ unexposedParams->programDataBank_get() };
+			pgmDataBank->restoreFactoryPgmData();
+		}
 	}
 }
 
@@ -210,12 +227,25 @@ void ProgramDataBankComponent::showExportPgmDataBankComponent() {
 	}
 }
 
+void ProgramDataBankComponent::showRestoreFactoryPgmsConfirmDialogBox() {
+	restoreFactoryPgmsConfirmDialogBox.reset(new RestoreFactoryProgramsConfirmDialogBox(unexposedParams));
+	if (restoreFactoryPgmsConfirmDialogBox != nullptr) {
+		addAndMakeVisible(restoreFactoryPgmsConfirmDialogBox.get());
+		restoreFactoryPgmsConfirmDialogBox->addListenerToButtons(this);
+		restoreFactoryPgmsConfirmDialogBox->setBounds(getLocalBounds());
+		restoreFactoryPgmsConfirmDialogBox->grabKeyboardFocus();
+	}
+}
+
 void ProgramDataBankComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 ProgramDataBankComponent::~ProgramDataBankComponent() {
+	if (restoreFactoryPgmsConfirmDialogBox != nullptr)
+		restoreFactoryPgmsConfirmDialogBox->removeListenerFromButtons(this);
+	restoreFactoryPgmsConfirmDialogBox = nullptr;
 	exportPgmDataBankComponent = nullptr;
 	importPgmDataBankComponent = nullptr;
 	pgmBankTransmissionComponent = nullptr;

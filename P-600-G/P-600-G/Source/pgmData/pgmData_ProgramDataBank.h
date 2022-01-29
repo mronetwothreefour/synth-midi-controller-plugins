@@ -22,6 +22,7 @@ public:
 	void setNameOfPgmInSlot(String newName, uint8 slot);
 	const String getPgmDataHexStringFromSlot(uint8 slot) const;
 	void storePgmDataHexStringInSlot(String pgmDataHexString, uint8 slot);
+	void restoreFactoryPgmData();
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 

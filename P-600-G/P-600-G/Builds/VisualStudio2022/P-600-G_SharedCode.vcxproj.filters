@@ -580,6 +580,9 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClCompile>
@@ -635,6 +638,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp">
@@ -2892,6 +2898,9 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h">
+      <Filter>P-600-G\Source\pgmData</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
       <Filter>P-600-G\Source\tooltipSetters</Filter>
     </ClInclude>
@@ -2947,6 +2956,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h">
@@ -5532,6 +5544,9 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Pushing-Bank-Title.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Restore-Factory-Programs-Confirmation-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Switch.png">

@@ -149,6 +149,9 @@ namespace BinaryData
     extern const char*   PushingBankTitle_png;
     const int            PushingBankTitle_pngSize = 2138;
 
+    extern const char*   RestoreFactoryProgramsConfirmationBackground_png;
+    const int            RestoreFactoryProgramsConfirmationBackground_pngSize = 78267;
+
     extern const char*   Switch_png;
     const int            Switch_pngSize = 139;
 
@@ -165,7 +168,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2721;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 52;
+    const int namedResourceListSize = 53;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

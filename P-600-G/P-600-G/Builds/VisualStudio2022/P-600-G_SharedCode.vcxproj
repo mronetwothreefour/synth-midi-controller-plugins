@@ -171,6 +171,7 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp"/>
+    <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
@@ -190,6 +191,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
@@ -2195,6 +2197,7 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h"/>
+    <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
@@ -2214,6 +2217,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
@@ -3077,6 +3081,7 @@
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pulling-Bank-Title.png"/>
     <None Include="..\..\..\Resources\Pushing-Bank-Title.png"/>
+    <None Include="..\..\..\Resources\Restore-Factory-Programs-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program-Bank.png"/>

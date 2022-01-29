@@ -61,6 +61,10 @@ void ProgramDataBank::storePgmDataHexStringInSlot(String pgmDataHexString, uint8
 	pgmDataHexStrings.setProperty("pgm" + (String)slot, pgmDataHexString, nullptr);
 }
 
+void ProgramDataBank::restoreFactoryPgmData() {
+	fillPgmDataHexStrings();
+}
+
 XmlElement* ProgramDataBank::getStateXml() {
 	auto pgmDataBankStateXml{ pgmDataHexStrings.createXml() };
 	pgmDataBankStateXml->setTagName(ID::state_PgmDataBank);

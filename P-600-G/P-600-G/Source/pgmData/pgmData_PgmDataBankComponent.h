@@ -14,6 +14,7 @@
 #include "../widgets_Button/widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
 
 
@@ -22,11 +23,13 @@ class ExportProgramDataBankComponent;
 class ExportProgramDataComponent;
 class ImportProgramDataBankComponent;
 class ImportProgramDataComponent;
+class RestoreFactoryProgramsConfirmDialogBox;
 class UnexposedParameters;
 
 class ProgramDataBankComponent :
     public Component,
     public Label::Listener,
+    public Button::Listener,
     public ApplicationCommandTarget
 {
     UnexposedParameters* unexposedParams;
@@ -41,6 +44,7 @@ class ProgramDataBankComponent :
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ButtonForImportingProgramBankFromFile button_ForImportingProgramBankFromFile;
     ButtonForExportingProgramBankToFile button_ForExportingProgramBankToFile;
+    ButtonForRestoringFactoryPrograms button_ForRestoringFactoryPrograms;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
     ApplicationCommandManager commandManager;
@@ -50,6 +54,7 @@ class ProgramDataBankComponent :
     std::unique_ptr<ProgramBankTransmissionComponent> pgmBankTransmissionComponent;
     std::unique_ptr<ImportProgramDataBankComponent> importPgmDataBankComponent;
     std::unique_ptr<ExportProgramDataBankComponent> exportPgmDataBankComponent;
+    std::unique_ptr<RestoreFactoryProgramsConfirmDialogBox> restoreFactoryPgmsConfirmDialogBox;
 
 public:
     enum commandChoices {
@@ -64,6 +69,7 @@ public:
     void resized() override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
+    void buttonClicked(Button* button) override;
     ApplicationCommandTarget* getNextCommandTarget() override;
     void getAllCommands(Array<CommandID>& commands) override;
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;
@@ -75,6 +81,7 @@ private:
     void showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType transmitType);
     void showImportPgmDataBankComponent();
     void showExportPgmDataBankComponent();
+    void showRestoreFactoryPgmsConfirmDialogBox();
     void hideThisComponent();
 
 public:

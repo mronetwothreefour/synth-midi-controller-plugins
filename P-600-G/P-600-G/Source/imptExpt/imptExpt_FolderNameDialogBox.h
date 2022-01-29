@@ -17,6 +17,8 @@ class FolderNameDialogBox :
 	std::unique_ptr<FolderExistsAlert> folderExistsAlert;
 
 public:
+	FolderNameDialogBox() = delete;
+
 	FolderNameDialogBox(FileBrowserComponent* browserComponent, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;

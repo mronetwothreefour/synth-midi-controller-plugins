@@ -13,6 +13,8 @@ class FileOverwriteConfirmDialogBox :
 	TextButton button_OK;
 
 public:
+	FileOverwriteConfirmDialogBox() = delete;
+
 	explicit FileOverwriteConfirmDialogBox(UnexposedParameters* unexposedParams);
 	void addListenerToButtons(Button::Listener* listener);
 	void removeListenerFromButtons(Button::Listener* listener);

@@ -168,6 +168,10 @@
               file="Source/pgmData/pgmData_ProgramDataBank.cpp"/>
         <FILE id="uaJlV4" name="pgmData_ProgramDataBank.h" compile="0" resource="0"
               file="Source/pgmData/pgmData_ProgramDataBank.h"/>
+        <FILE id="WA7Obx" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"
+              compile="1" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"/>
+        <FILE id="IcenXc" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
+              compile="0" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
       </GROUP>
       <GROUP id="{5CB6F16B-5917-0CF3-F056-4C83F3D48EAD}" name="tooltipSetters">
         <FILE id="RR3RHA" name="tooltipSetter_Base.cpp" compile="1" resource="0"
@@ -248,6 +252,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"/>
         <FILE id="lp6AsV" name="widget_PgmBank_ButtonForPushingEntireBankToHardware.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="HezzG8" name="widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"/>
+        <FILE id="YZhIrE" name="widget_PgmBank_ButtonForRestoringFactoryPrograms.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.h"/>
         <FILE id="CoONUH" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
         <FILE id="vJ9Ocp" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
@@ -384,6 +392,8 @@
             file="../Resources/Pulling-Bank-Title.png"/>
       <FILE id="briP40" name="Pushing-Bank-Title.png" compile="0" resource="1"
             file="../Resources/Pushing-Bank-Title.png"/>
+      <FILE id="SHqfJN" name="Restore-Factory-Programs-Confirmation-Background.png"
+            compile="0" resource="1" file="../Resources/Restore-Factory-Programs-Confirmation-Background.png"/>
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
       <FILE id="FVUwN2" name="Window-Title-Export-Program.png" compile="0"
             resource="1" file="../Resources/Window-Title-Export-Program.png"/>
