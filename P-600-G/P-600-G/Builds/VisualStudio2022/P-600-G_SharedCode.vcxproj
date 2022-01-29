@@ -153,6 +153,7 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
@@ -183,6 +184,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
@@ -2171,6 +2173,7 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
@@ -2205,6 +2208,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>

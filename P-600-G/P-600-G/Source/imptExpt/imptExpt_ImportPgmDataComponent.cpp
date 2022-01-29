@@ -18,7 +18,7 @@ ImportProgramDataComponent::ImportProgramDataComponent(ProgramDataSlotsComponent
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		button_Esc.setTooltip("Click to cancel the data import.");
-		button_OK.setTooltip("Click to import program data\nfrom the selected file.");
+		button_OK.setTooltip("Click to import the program\ndata from the selected file.");
 	}
 }
 

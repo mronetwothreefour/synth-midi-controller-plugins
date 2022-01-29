@@ -82,6 +82,10 @@
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
         <FILE id="f4pJIF" name="imptExpt_FolderNameDialogBox.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
+        <FILE id="KOk0Fc" name="imptExpt_ImportPgmDataBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataBankComponent.cpp"/>
+        <FILE id="KjD8si" name="imptExpt_ImportPgmDataBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataBankComponent.h"/>
         <FILE id="wlB9pt" name="imptExpt_ImportPgmDataComponent.cpp" compile="1"
               resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataComponent.cpp"/>
         <FILE id="m7uvZl" name="imptExpt_ImportPgmDataComponent.h" compile="0"
@@ -220,6 +224,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
         <FILE id="xbBwJ0" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
+        <FILE id="sBz1At" name="widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp"/>
+        <FILE id="cDJ7uG" name="widget_PgmBank_ButtonForImportingPgmBankFromFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmBankFromFile.h"/>
         <FILE id="TG2eUA" name="widget_PgmBank_ButtonForImportingPgmFromFile.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
         <FILE id="p1KuSg" name="widget_PgmBank_ButtonForImportingPgmFromFile.h"

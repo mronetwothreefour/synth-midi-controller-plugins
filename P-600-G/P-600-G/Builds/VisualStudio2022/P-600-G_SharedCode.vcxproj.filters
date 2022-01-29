@@ -526,6 +526,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.cpp">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
@@ -614,6 +617,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp">
@@ -2820,6 +2826,9 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.h">
+      <Filter>P-600-G\Source\imptExpt</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
@@ -2920,6 +2929,9 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h">
