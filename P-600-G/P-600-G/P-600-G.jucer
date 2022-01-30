@@ -273,6 +273,10 @@
         <FILE id="USJKap" name="widget_ControlTypes.h" compile="0" resource="0"
               file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
       </GROUP>
+      <GROUP id="{4FC48E36-27DC-D1DC-9617-666E4D53A944}" name="widgets_LCDdisplayEditor">
+        <FILE id="V1th0u" name="widget_LCDdisplayEditor.h" compile="0" resource="0"
+              file="Source/widgets_LCDdisplayEditor/widget_LCDdisplayEditor.h"/>
+      </GROUP>
       <GROUP id="{687022F4-A08B-9C40-7A8B-98C01C8CC06E}" name="widgets_Slider">
         <FILE id="FnOkHO" name="widget_KnobForPitchWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_KnobForPitchWithExposedParamAttacher.cpp"/>

@@ -1,5 +1,6 @@
 #include "pgmData_PgmDataBankComponent.h"
 
+#include "pgmData_Constants.h"
 #include "pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
@@ -29,7 +30,8 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForPushingEntireBankToHardware{ unexposedParams },
 	button_ForImportingProgramBankFromFile{ unexposedParams },
 	button_ForExportingProgramBankToFile{ unexposedParams },
-	button_ForRestoringFactoryPrograms{ unexposedParams }
+	button_ForRestoringFactoryPrograms{ unexposedParams },
+	editor_txTime{ "transmitTime", "" }
 {
 	addAndMakeVisible(slotsComponent);
 	addAndMakeVisible(button_ForLoadingSelectedProgram);
@@ -66,6 +68,21 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	label_PgmNameEditor.addListener(this);
 	addAndMakeVisible(label_PgmNameEditor);
 
+	auto tooltips{ unexposedParams->tooltipOptions_get() };
+	String editor_txTimeTooltip{ "" };
+	if (tooltips->shouldShowDescription()) {
+		editor_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
+		editor_txTimeTooltip += "of a single program between the plugin and the Prophet-600 hardware.\n";
+		editor_txTimeTooltip += "Increase this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
+		editor_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
+	}
+
+	editor_txTime.setTooltip(editor_txTimeTooltip);
+	editor_txTime.addListener(this);
+	editor_txTime.setEditable(true);
+	labelTextChanged(&editor_txTime);
+	addAndMakeVisible(editor_txTime);
+
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
@@ -93,6 +110,7 @@ void ProgramDataBankComponent::resized() {
 	button_ForExportingProgramBankToFile.setBounds(GUI::bounds_PgmBankWindowExptPgmBankButton);
 	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
 	button_ForRestoringFactoryPrograms.setBounds(GUI::bounds_PgmBankWindowFactButton);
+	editor_txTime.setBounds(GUI::bounds_PgmBankWindowTransmitTimeEditor);
 	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
 }
 
@@ -105,6 +123,13 @@ void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
 		editor.setText(pgmDataBank->nameOfPgmInSlot(slot));
 		editor.selectAll();
 	}
+	if (label == &editor_txTime) {
+		editor.setInputRestrictions(GUI::maxNumberOfDigitsInLCDeditor, "0123456789");
+		editor.setFont(FontsMenu::fontFor_LCDdisplayEditor);
+		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+		editor.setText((String)pgmDataOptions->programTransmitTime());
+		editor.selectAll();
+	}
 }
 
 void ProgramDataBankComponent::labelTextChanged(Label* label) {
@@ -113,6 +138,16 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 		auto slot{ slotsComponent.selectedSlot };
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
 		pgmDataBank->setNameOfPgmInSlot(newName, slot);
+	}
+	if (label == &editor_txTime) {
+		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+		if (label->getText().isNotEmpty())
+		{
+			auto newValue{ label->getText().getIntValue() };
+			if (newValue >= pgmData::minTransmitTimeValue && newValue <= pgmData::maxTransmitTimeValue)
+				pgmDataOptions->setProgramTransmitTime(newValue);
+		}
+		label->setText((String)pgmDataOptions->programTransmitTime(), dontSendNotification);
 	}
 }
 

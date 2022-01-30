@@ -5,6 +5,7 @@
 #include "pgmData_ProgramDataBank.h"
 #include "pgmData_PgmDataSlotsComponent.h"
 #include "pgmData_BankTransmissionComponent.h"
+#include "../widgets_LCDdisplayEditor/widget_LCDdisplayEditor.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
@@ -47,6 +48,7 @@ class ProgramDataBankComponent :
     ButtonForRestoringFactoryPrograms button_ForRestoringFactoryPrograms;
     TextButton button_ForClosingPgmDataBank;
     Label label_PgmNameEditor;
+    LCDdisplayEditor editor_txTime;
     ApplicationCommandManager commandManager;
     String pgmCopyBuffer;
     std::unique_ptr<ExportProgramDataComponent> exportSelectedPgmComponent;

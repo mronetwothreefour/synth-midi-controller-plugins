@@ -45,6 +45,7 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 	static const Identifier label_ImptExptComponentTitle{ "label_ImptExptComponentTitle" };
+	static const Identifier label_LCDdisplayEditor{ "label_LCDdisplayEditor" };
 	static const Identifier label_PgmNameEditor{ "label_PgmNameEditor" };
 
 	static const Identifier pgmData_Bank{ "pgmData_Bank" };

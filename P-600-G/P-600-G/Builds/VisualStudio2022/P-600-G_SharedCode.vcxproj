@@ -2222,6 +2222,7 @@
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
+    <ClInclude Include="..\..\Source\widgets_LCDdisplayEditor\widget_LCDdisplayEditor.h"/>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h"/>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithValueStringDisplay.h"/>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h"/>

@@ -32,6 +32,9 @@
     <Filter Include="P-600-G\Source\widgets_ControlsForParameters">
       <UniqueIdentifier>{40E3888A-4BE6-074A-1895-C6237CA03CFE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\widgets_LCDdisplayEditor">
+      <UniqueIdentifier>{CBD7D007-3640-4F9D-C485-410CED1C7E66}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\widgets_Slider">
       <UniqueIdentifier>{88BBF352-2BCE-7B1A-FF03-472BB13120E4}</UniqueIdentifier>
     </Filter>
@@ -2972,6 +2975,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
       <Filter>P-600-G\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_LCDdisplayEditor\widget_LCDdisplayEditor.h">
+      <Filter>P-600-G\Source\widgets_LCDdisplayEditor</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h">
       <Filter>P-600-G\Source\widgets_Slider</Filter>

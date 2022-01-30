@@ -68,7 +68,8 @@ void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*
 		g.setColour(Color::black);
 		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 	}
-	if (textEditor.getParentComponent()->getComponentID() == ID::label_PgmNameEditor.toString())
+	if (textEditor.getParentComponent()->getComponentID() == ID::label_PgmNameEditor.toString() || 
+		textEditor.getParentComponent()->getComponentID() == ID::label_LCDdisplayEditor.toString())
 		g.fillAll(Color::black);
 }
 

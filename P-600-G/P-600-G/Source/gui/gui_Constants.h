@@ -10,8 +10,8 @@ namespace constants
 	{
 		static const float knobEndAngleInDegrees{ 330.0f };
 		static const float knobStartAngleInDegrees{ 30.0f };
-		static const float programNumberInset_x{ 4.0f };
-		static const float programNumberInset_y{ 8.0f };
+		static const float lcdDigitInset_x{ 4.0f };
+		static const float lcdDigitInset_y{ 8.0f };
 		static const float tooltipMaxWidth{ 400.0f };
 
 		static const int alertWindowOKbutton_x{ 681 };
@@ -106,6 +106,7 @@ namespace constants
 		static const int knobs_h{ 34 };
 		static const int knobs_w{ knobs_h };
 		static const int lcdDigit_w{ 26 };
+		static const int maxNumberOfDigitsInLCDeditor{ 4 };
 		static const int mainWindowButtonsRow_y{ 47 };
 		static const int pgmDataBankWindowButtonsRow_y{ 84 };
 		static const int pgmDataBankWindow_h{ 270 };
@@ -172,19 +173,20 @@ namespace constants
 		static const Rectangle<int> bounds_PgmBankWindowImptPgmButton{ buttonPgmBankWindowImptPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowImptPgmBankButton{ buttonPgmBankImptBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowLoadSelectedPgmButton{ buttonPgmBankWindowLoadSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowNameButton{ buttonPgmBankWindowNameSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPullBankButton{ buttonPgmBankPullBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPushBankButton{ buttonPgmBankPushBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPullSelectedPgmButton{ buttonPgmBankWindowPullSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowSavePgmButton{ buttonPgmBankWindowSavePgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_PgmBankWindowNameButton{ buttonPgmBankWindowNameSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_PgmBankWindowTransmitTimeEditor{ 1155, 76, 112, 50 };
 		static const Rectangle<int> bounds_PgmDataSlotsComponent{ pgmDataSlotsComponent_x, pgmDataSlotsComponent_y, pgmDataSlotsComponent_w, pgmDataSlotsComponent_h };
+		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, 60, 50 };
 		static const Rectangle<int> bounds_RandButton{ buttonRand_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RedoButton{ buttonRedo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxEscButton{ dialogBoxEscButton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxOKbutton{ dialogBoxOKbutton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_TipsButton{ buttonMainWindowTips_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_UndoButton{ buttonUndo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, 60, 50 };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };

@@ -11,21 +11,17 @@ using namespace constants;
 
 
 struct LCDnumberRenderer {
-	static void paintSliderValueWithLCDdigits(Graphics& g, Slider* slider, const int& totalNumberOfDigits, float inset_x, float inset_y) {
-		auto currentValue{ slider->getValue() };
-		jassert(currentValue < std::pow(10.0, totalNumberOfDigits));
-		String currentValueString{ roundToInt(currentValue) };
-		currentValueString = currentValueString.paddedLeft('0', totalNumberOfDigits);
+	static void paintValueStringInComponent(Graphics& g, const String& valueString) {
 		auto& digitPaths{ PathsForLCDdigits::get() };
 		Path unlitSegmentsPath;
 		Path litSegmentsPath;
-		for (int i = 0; i < totalNumberOfDigits; ++i) {
+		for (int i = 0; i < valueString.length(); ++i) {
 			auto pathForAllSegments{ digitPaths.getPathForDigit(8) };
-			unlitSegmentsPath.addPath(pathForAllSegments, AffineTransform::translation(inset_x + i * GUI::lcdDigit_w, inset_y));
-			String digitString{ currentValueString[i] };
-			auto digit{ (uint8)(digitString.getIntValue() - (int)'0')};
+			unlitSegmentsPath.addPath(pathForAllSegments, AffineTransform::translation(GUI::lcdDigitInset_x + i * GUI::lcdDigit_w, GUI::lcdDigitInset_y));
+			String digitString{ valueString[i] };
+			auto digit{ (uint8)(digitString.getIntValue() - (int)'0') };
 			auto pathForDigit{ digitPaths.getPathForDigit(digit) };
-			litSegmentsPath.addPath(pathForDigit, AffineTransform::translation(inset_x + i * GUI::lcdDigit_w, inset_y));
+			litSegmentsPath.addPath(pathForDigit, AffineTransform::translation(GUI::lcdDigitInset_x + i * GUI::lcdDigit_w, GUI::lcdDigitInset_y));
 		}
 		g.setColour(Color::lcdRedUnlit);
 		g.fillPath(unlitSegmentsPath);

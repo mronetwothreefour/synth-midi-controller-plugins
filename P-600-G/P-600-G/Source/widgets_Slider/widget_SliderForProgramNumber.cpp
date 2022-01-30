@@ -4,6 +4,7 @@
 #include "../guiRenderers/guiRenderer_LCDNumber.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../pgmData/pgmData_Constants.h"
 
 using namespace::constants;
 
@@ -31,7 +32,11 @@ void SliderForProgramNumber::valueTreePropertyChanged(ValueTree& tree, const Ide
 }
 
 void SliderForProgramNumber::paint(Graphics& g) {
-	LCDnumberRenderer::paintSliderValueWithLCDdigits(g, this, 2, GUI::programNumberInset_x, GUI::programNumberInset_y);
+	auto currentValue{ getValue() };
+	jassert(currentValue < pgmData::numberOfSlotsInPgmDataBank);
+	String currentValueString{ roundToInt(currentValue) };
+	currentValueString = currentValueString.paddedLeft('0', 2);
+	LCDnumberRenderer::paintValueStringInComponent(g, currentValueString);
 }
 
 SliderForProgramNumber::~SliderForProgramNumber() {
