@@ -59,7 +59,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	button_ForClosingPgmDataBank.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingPgmDataBank.onClick = [this] { hideThisComponent(); };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription())
+	if (tooltipOptions->shouldShowDescriptions())
 		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank window.");
 
 	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
@@ -70,7 +70,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String editor_txTimeTooltip{ "" };
-	if (tooltips->shouldShowDescription()) {
+	if (tooltips->shouldShowDescriptions()) {
 		editor_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		editor_txTimeTooltip += "of a single program between the plugin and the Prophet-600 hardware.\n";
 		editor_txTimeTooltip += "Increase this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";

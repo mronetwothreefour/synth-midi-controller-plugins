@@ -17,7 +17,7 @@ ButtonForShowingRandomizeComponent::ButtonForShowingRandomizeComponent(AudioProc
 
 const String ButtonForShowingRandomizeComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens a window where you can apply random\n";
 		buttonTooltip += "settings to specific program parameters.";
 	}

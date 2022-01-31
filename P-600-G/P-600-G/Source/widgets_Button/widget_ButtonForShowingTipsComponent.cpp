@@ -16,7 +16,7 @@ ButtonForShowingTipsComponent::ButtonForShowingTipsComponent(UnexposedParameters
 
 const String ButtonForShowingTipsComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens a window where you can set\n";
 		buttonTooltip += "display options for control tooltips.";
 	}

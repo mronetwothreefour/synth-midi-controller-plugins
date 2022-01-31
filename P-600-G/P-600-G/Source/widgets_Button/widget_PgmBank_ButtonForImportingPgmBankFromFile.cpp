@@ -15,7 +15,7 @@ ButtonForImportingProgramBankFromFile::ButtonForImportingProgramBankFromFile(Une
 
 const String ButtonForImportingProgramBankFromFile::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Replace all the programs in the storage\n";
 		buttonTooltip += "bank with those stored in a file.";
 	}

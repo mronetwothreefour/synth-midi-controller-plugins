@@ -42,6 +42,8 @@ namespace ID
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };
+	static const Identifier component_SwitchSliderCurrentSettingsTips{ "component_SwitchSliderCurrentSettingsTips" };
+	static const Identifier component_SwitchSliderDescriptionsTips{ "component_SwitchSliderDescriptionsTips" };
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 	static const Identifier label_ImptExptComponentTitle{ "label_ImptExptComponentTitle" };
@@ -64,6 +66,6 @@ namespace ID
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };
-	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
-	static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+	static const Identifier tooltips_ShouldShowCurrentSettings{ "tooltips_ShouldShowCurrentSettings" };
+	static const Identifier tooltips_ShouldShowDescriptions{ "tooltips_ShouldShowDescriptions" };
 }

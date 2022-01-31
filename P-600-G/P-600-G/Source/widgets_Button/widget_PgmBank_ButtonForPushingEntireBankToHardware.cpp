@@ -15,7 +15,7 @@ ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(Unexp
 
 const String ButtonForPushingEntireBankToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Push all the programs stored in the plugin bank to\n";
 		buttonTooltip += "the Prophet-600 hardware's storage bank. NOTE:\n";
 		buttonTooltip += "All the patch data stored in the hardware will be\n";

@@ -23,8 +23,8 @@
     <Filter Include="P-600-G\Source\pgmData">
       <UniqueIdentifier>{F9E79EFC-44FB-3F6D-418B-887E2AE3A319}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G\Source\tooltipSetters">
-      <UniqueIdentifier>{C9E2CBAB-F06D-33F6-5F2C-F95BA1C0DC37}</UniqueIdentifier>
+    <Filter Include="P-600-G\Source\tooltips">
+      <UniqueIdentifier>{26EBAAF3-5E59-0DC1-21D2-136CF58D7C04}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G\Source\widgets_Button">
       <UniqueIdentifier>{1E3F1D34-778E-5BEB-692A-5C6CF4946E86}</UniqueIdentifier>
@@ -586,11 +586,14 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
-      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    <ClCompile Include="..\..\Source\tooltips\tooltipOptionsComponent.cpp">
+      <Filter>P-600-G\Source\tooltips</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
-      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    <ClCompile Include="..\..\Source\tooltips\tooltipSetter_Base.cpp">
+      <Filter>P-600-G\Source\tooltips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.cpp">
+      <Filter>P-600-G\Source\tooltips</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
@@ -2904,11 +2907,17 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
-      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    <ClInclude Include="..\..\Source\tooltips\tooltipOptionsComponent.h">
+      <Filter>P-600-G\Source\tooltips</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
-      <Filter>P-600-G\Source\tooltipSetters</Filter>
+    <ClInclude Include="..\..\Source\tooltips\tooltips_Constants.h">
+      <Filter>P-600-G\Source\tooltips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltips\tooltipSetter_Base.h">
+      <Filter>P-600-G\Source\tooltips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.h">
+      <Filter>P-600-G\Source\tooltips</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
@@ -5556,6 +5565,9 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Switch.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Tooltip-Options-Window-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png">

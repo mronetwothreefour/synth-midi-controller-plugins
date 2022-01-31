@@ -20,7 +20,7 @@ FileOverwriteConfirmDialogBox::FileOverwriteConfirmDialogBox(UnexposedParameters
 	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_Esc.setTooltip("Cancel file overwrite.");
 		button_OK.setTooltip("Confirm file overwrite.");
 	}

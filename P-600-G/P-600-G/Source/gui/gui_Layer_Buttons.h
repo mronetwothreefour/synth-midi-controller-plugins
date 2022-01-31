@@ -14,6 +14,7 @@
 
 class UnexposedParameters;
 class ProgramDataBankComponent;
+class TooltipOptionsComponent;
 
 class ButtonsLayer :
 	public Component,
@@ -29,6 +30,7 @@ class ButtonsLayer :
 	ButtonForShowingRandomizeComponent button_ForShowingRandomizeComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
 	std::unique_ptr<ProgramDataBankComponent> pgmDataBankComponent;
+	std::unique_ptr<TooltipOptionsComponent> tooltipOptionsComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -37,6 +39,7 @@ public:
 
 private:
 	void showProgramDataBankComponent();
+	void showTooltipOptionsComponent();
 	void timerCallback() override;
 
 public:

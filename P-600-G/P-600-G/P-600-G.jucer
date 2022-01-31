@@ -173,15 +173,21 @@
         <FILE id="IcenXc" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
               compile="0" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
       </GROUP>
-      <GROUP id="{5CB6F16B-5917-0CF3-F056-4C83F3D48EAD}" name="tooltipSetters">
-        <FILE id="RR3RHA" name="tooltipSetter_Base.cpp" compile="1" resource="0"
-              file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
-        <FILE id="dGfFh7" name="tooltipSetter_Base.h" compile="0" resource="0"
-              file="Source/tooltipSetters/tooltipSetter_Base.h"/>
-        <FILE id="gUtPuT" name="tooltipSetter_ForExposedParamSliders.cpp" compile="1"
-              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.cpp"/>
-        <FILE id="Q33M0A" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
-              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.h"/>
+      <GROUP id="{641E7559-AE24-134B-F603-7D9604E19BB1}" name="tooltips">
+        <FILE id="B3ppiG" name="tooltipOptionsComponent.h" compile="0" resource="0"
+              file="Source/tooltips/tooltipOptionsComponent.h"/>
+        <FILE id="UTW0QC" name="tooltipOptionsComponent.cpp" compile="1" resource="0"
+              file="Source/tooltips/tooltipOptionsComponent.cpp"/>
+        <FILE id="TrF4kL" name="tooltips_Constants.h" compile="0" resource="0"
+              file="Source/tooltips/tooltips_Constants.h"/>
+        <FILE id="EGcYTw" name="tooltipSetter_Base.cpp" compile="1" resource="0"
+              file="Source/tooltips/tooltipSetter_Base.cpp"/>
+        <FILE id="FyHtjB" name="tooltipSetter_Base.h" compile="0" resource="0"
+              file="Source/tooltips/tooltipSetter_Base.h"/>
+        <FILE id="aAJAOd" name="tooltipSetter_ForExposedParamSliders.cpp" compile="1"
+              resource="0" file="Source/tooltips/tooltipSetter_ForExposedParamSliders.cpp"/>
+        <FILE id="fMSyLF" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
+              resource="0" file="Source/tooltips/tooltipSetter_ForExposedParamSliders.h"/>
       </GROUP>
       <GROUP id="{263908A0-0951-A8DA-0B58-03FF8A6CCFFE}" name="widgets_Button">
         <FILE id="Y4FFSp" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
@@ -399,6 +405,8 @@
       <FILE id="SHqfJN" name="Restore-Factory-Programs-Confirmation-Background.png"
             compile="0" resource="1" file="../Resources/Restore-Factory-Programs-Confirmation-Background.png"/>
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>
+      <FILE id="qk3jUA" name="Tooltip-Options-Window-Background.png" compile="0"
+            resource="1" file="../Resources/Tooltip-Options-Window-Background.png"/>
       <FILE id="FVUwN2" name="Window-Title-Export-Program.png" compile="0"
             resource="1" file="../Resources/Window-Title-Export-Program.png"/>
       <FILE id="V7wyMy" name="Window-Title-Export-Program-Bank.png" compile="0"

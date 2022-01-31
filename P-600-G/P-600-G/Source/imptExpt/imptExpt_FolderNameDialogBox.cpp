@@ -35,7 +35,7 @@ FolderNameDialogBox::FolderNameDialogBox(FileBrowserComponent* browserComponent,
 
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		label_FolderName.setTooltip("Type in the name of the new folder.");
 		button_Esc.setTooltip("Cancel new folder creation.");
 		button_OK.setTooltip("Create new folder.");

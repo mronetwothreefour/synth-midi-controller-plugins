@@ -43,6 +43,8 @@ namespace constants
 		static const int buttonRand_x{ 979 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonTooltipOptionsExit_x{ 782 };
+		static const int buttonTooltipOptionsExit_y{ 82 };
 		static const int editor_w{ 1402 };
 		static const int editor_h{ 392 };
 		static const int fileBrowserIcon_h{ 22 };
@@ -106,6 +108,9 @@ namespace constants
 		static const int knobs_h{ 34 };
 		static const int knobs_w{ knobs_h };
 		static const int lcdDigit_w{ 26 };
+		static const int lcdDisplay_h{ 50 };
+		static const int lcdDisplay2digit_w{ 60 };
+		static const int lcdDisplay4digit_w{ 112 };
 		static const int maxNumberOfDigitsInLCDeditor{ 4 };
 		static const int mainWindowButtonsRow_y{ 47 };
 		static const int pgmDataBankWindowButtonsRow_y{ 84 };
@@ -141,9 +146,14 @@ namespace constants
 		static const int switchRow3_y{ 315 };
 		static const int switchTabs_h{ 16 };
 		static const int switchThreePole_h{ 3 * switchTabs_h };
+		static const int switchTooltipOptionsCurrentSettings_x{ 736 };
+		static const int switchTooltipOptionsDescriptions_x{ 646 };
 		static const int switchTwoPole_h{ 2 * switchTabs_h };
 		static const int switchUnison_x{ 441 };
 		static const int theWeirdOffsetThatJucePutsOnLinearSliders{ 4 };
+		static const int tooltipOptionsSwitchesRow_y{ 157 };
+		static const int tooltipOptionsWindow_x{ 565 };
+		static const int tooltipOptionsWindow_y{ 67 };
 
 		static const Rectangle<int> bounds_AlertWindowOKbutton{ alertWindowOKbutton_x, alertWindowOKbutton_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_BankTransmitButtons{ 681, 207, buttons_w, buttons_h };
@@ -178,14 +188,18 @@ namespace constants
 		static const Rectangle<int> bounds_PgmBankWindowPushBankButton{ buttonPgmBankPushBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowPullSelectedPgmButton{ buttonPgmBankWindowPullSelectedPgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowSavePgmButton{ buttonPgmBankWindowSavePgm_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
-		static const Rectangle<int> bounds_PgmBankWindowTransmitTimeEditor{ 1155, 76, 112, 50 };
+		static const Rectangle<int> bounds_PgmBankWindowTransmitTimeEditor{ 1155, 76, lcdDisplay4digit_w, lcdDisplay_h };
 		static const Rectangle<int> bounds_PgmDataSlotsComponent{ pgmDataSlotsComponent_x, pgmDataSlotsComponent_y, pgmDataSlotsComponent_w, pgmDataSlotsComponent_h };
-		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, 60, 50 };
+		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, lcdDisplay2digit_w, lcdDisplay_h };
 		static const Rectangle<int> bounds_RandButton{ buttonRand_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RedoButton{ buttonRedo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxEscButton{ dialogBoxEscButton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxOKbutton{ dialogBoxOKbutton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_TipsButton{ buttonMainWindowTips_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_TooltipOptionsCurrentSettingsSwitch{ switchTooltipOptionsCurrentSettings_x, tooltipOptionsSwitchesRow_y, switches_w, switchTwoPole_h };
+		static const Rectangle<int> bounds_TooltipOptionsDescriptionsSwitch{ switchTooltipOptionsDescriptions_x, tooltipOptionsSwitchesRow_y, switches_w, switchTwoPole_h };
+		static const Rectangle<int> bounds_TooltipOptionsDelayTimeEditor{ 645, 241, lcdDisplay4digit_w, lcdDisplay_h };
+		static const Rectangle<int> bounds_TooltipOptionsExitButton{ buttonTooltipOptionsExit_x, buttonTooltipOptionsExit_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_UndoButton{ buttonUndo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

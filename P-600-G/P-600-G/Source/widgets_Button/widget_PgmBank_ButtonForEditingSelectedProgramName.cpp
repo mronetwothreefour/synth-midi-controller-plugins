@@ -22,7 +22,7 @@ ButtonForEditingSelectedProgramName::ButtonForEditingSelectedProgramName(Label& 
 
 const String ButtonForEditingSelectedProgramName::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Click to change the name of the selected program.\n";
 		buttonTooltip += "NOTE: The Prophet-600 hardware does store program names.";
 	}

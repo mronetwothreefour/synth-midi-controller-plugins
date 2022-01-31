@@ -20,7 +20,7 @@ RestoreFactoryProgramsConfirmDialogBox::RestoreFactoryProgramsConfirmDialogBox(U
 	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_Esc.setTooltip("Cancel restore.");
 		button_OK.setTooltip("Confirm restore.");
 	}

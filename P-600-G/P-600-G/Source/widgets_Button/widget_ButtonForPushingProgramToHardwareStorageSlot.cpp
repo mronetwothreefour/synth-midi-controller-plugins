@@ -21,7 +21,7 @@ ButtonForPushingProgramToHardwareStorageSlot::ButtonForPushingProgramToHardwareS
 
 const String ButtonForPushingProgramToHardwareStorageSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Sends a dump of all the program data to the hardware\n";
 		buttonTooltip += "storage slot specified by the program number control\n";
 		buttonTooltip += "to the left. NOTE: This overwrites the data that is\n";

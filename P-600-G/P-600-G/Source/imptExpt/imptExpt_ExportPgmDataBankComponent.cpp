@@ -15,7 +15,7 @@ ExportProgramDataBankComponent::ExportProgramDataBankComponent(ProgramDataSlotsC
 	BaseImportExportComponent{ ImptExptType::exportProgramBank, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
 		button_Esc.setTooltip("Click to cancel the file export.");
 		button_OK.setTooltip("Click to export the program data\nbank to the specified file.");

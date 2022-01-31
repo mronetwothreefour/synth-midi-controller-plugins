@@ -14,7 +14,7 @@ BaseButtonWithOnClickAndTooltipMethods::BaseButtonWithOnClickAndTooltipMethods(U
 }
 
 void BaseButtonWithOnClickAndTooltipMethods::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_ShouldShowDescription)
+	if (property == ID::tooltips_ShouldShowDescriptions)
 		setTooltip(createButtonTooltipString());
 }
 

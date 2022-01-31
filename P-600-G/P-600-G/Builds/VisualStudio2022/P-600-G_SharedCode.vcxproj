@@ -172,8 +172,9 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"/>
-    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
-    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
+    <ClCompile Include="..\..\Source\tooltips\tooltipOptionsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\tooltips\tooltipSetter_Base.cpp"/>
+    <ClCompile Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp"/>
@@ -2198,8 +2199,10 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
-    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
-    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
+    <ClInclude Include="..\..\Source\tooltips\tooltipOptionsComponent.h"/>
+    <ClInclude Include="..\..\Source\tooltips\tooltips_Constants.h"/>
+    <ClInclude Include="..\..\Source\tooltips\tooltipSetter_Base.h"/>
+    <ClInclude Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h"/>
@@ -3084,6 +3087,7 @@
     <None Include="..\..\..\Resources\Pushing-Bank-Title.png"/>
     <None Include="..\..\..\Resources\Restore-Factory-Programs-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
+    <None Include="..\..\..\Resources\Tooltip-Options-Window-Background.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program.png"/>
     <None Include="..\..\..\Resources\Window-Title-Export-Program-Bank.png"/>
     <None Include="..\..\..\Resources\Window-Title-Import-Program.png"/>

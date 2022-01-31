@@ -15,7 +15,7 @@ ExportProgramDataComponent::ExportProgramDataComponent(ProgramDataSlotsComponent
 	BaseImportExportComponent{ ImptExptType::exportProgram, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
 		button_Esc.setTooltip("Click to cancel the file export.");
 		button_OK.setTooltip("Click to export the selected program" + GUI::apostrophe + "s\ndata to the specified file.");

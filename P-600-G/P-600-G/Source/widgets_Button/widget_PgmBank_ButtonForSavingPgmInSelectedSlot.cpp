@@ -23,7 +23,7 @@ ButtonForSavingProgramInSelectedSlot::ButtonForSavingProgramInSelectedSlot(Progr
 
 const String ButtonForSavingProgramInSelectedSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Saves the plugin GUI" + GUI::apostrophe + "s current settings in the\n";
 		buttonTooltip += "selected program storage slot, both in this\n";
 		buttonTooltip += "storage bank and in the Prophet-600 hardware.\n";

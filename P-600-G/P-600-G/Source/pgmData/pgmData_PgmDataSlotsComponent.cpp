@@ -36,7 +36,7 @@ void ProgramDataSlotsComponent::setUpPgmDataSlotToggleButton(uint8 slot) {
 void ProgramDataSlotsComponent::setTooltipForPgmDataSlotToggleButton(uint8 slot) {
 	String slotTooltip{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
-	if (tooltips->shouldShowDescription()) {
+	if (tooltips->shouldShowDescriptions()) {
 		slotTooltip += "Click a program" + GUI::apostrophe + "s name to select it before using the buttons above.\n";
 		slotTooltip += "CTRL-C copies the selected program" + GUI::apostrophe + "s settings into the clipboard.\n";
 		slotTooltip += "CTRL-V overwrites the selected program with the settings in the clipboard.";

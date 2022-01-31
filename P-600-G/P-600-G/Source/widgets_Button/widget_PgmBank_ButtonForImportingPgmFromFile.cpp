@@ -15,7 +15,7 @@ ButtonForImportingProgramFromFile::ButtonForImportingProgramFromFile(UnexposedPa
 
 const String ButtonForImportingProgramFromFile::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Imports the program data stored in\n";
 		buttonTooltip += "a file into the selected storage slot.";
 	}

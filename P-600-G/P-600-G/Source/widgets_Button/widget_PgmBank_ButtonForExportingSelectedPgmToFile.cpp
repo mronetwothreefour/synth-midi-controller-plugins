@@ -15,7 +15,7 @@ ButtonForExportingSelectedProgramToFile::ButtonForExportingSelectedProgramToFile
 
 const String ButtonForExportingSelectedProgramToFile::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Exports the program data stored in the selected slot to a file\n";
 		buttonTooltip += "which can be read by other instances of the P-600-G plugin.";
 	}

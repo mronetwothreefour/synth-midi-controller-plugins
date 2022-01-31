@@ -42,7 +42,7 @@ ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionT
 	button_OK.setBounds(GUI::bounds_BankTransmitButtons);
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_Esc.setTooltip("Cancels the bank transmission.");
 		button_OK.setTooltip("Close this window.");
 	}

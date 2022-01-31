@@ -39,7 +39,7 @@ void ProgramNumberLayer::sliderValueChanged(Slider* slider) {
 String ProgramNumberLayer::generateProgramNumberTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects which program storage slot\n";
 		tooltipText += "on the hardware is the target of the\n";
 		tooltipText += "Push and Pull buttons to the right.\n";
@@ -51,7 +51,7 @@ String ProgramNumberLayer::generateProgramNumberTooltipString() {
 }
 
 void ProgramNumberLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_ShouldShowDescription) {
+	if (property == ID::tooltips_ShouldShowDescriptions) {
 		slider_ForProgramNumber.setTooltip(generateProgramNumberTooltipString());
 	}
 }

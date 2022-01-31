@@ -16,7 +16,7 @@ ImportProgramDataBankComponent::ImportProgramDataBankComponent(ProgramDataSlotsC
 	BaseImportExportComponent{ ImptExptType::importProgramBank, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		button_Esc.setTooltip("Click to cancel the data import.");
 		button_OK.setTooltip("Click to import the program data\nbank from the selected file.");
 	}

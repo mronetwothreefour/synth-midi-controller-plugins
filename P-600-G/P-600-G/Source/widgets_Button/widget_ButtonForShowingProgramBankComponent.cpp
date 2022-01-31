@@ -15,7 +15,7 @@ ButtonForShowingProgramBankComponent::ButtonForShowingProgramBankComponent(Unexp
 
 const String ButtonForShowingProgramBankComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens a window where you can\n";
 		buttonTooltip += "load and store program presets.";
 	}

@@ -15,7 +15,7 @@ ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(U
 
 const String ButtonForPullingEntireBankFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Pull all the programs stored in the Prophet-600\n";
 		buttonTooltip += "hardware into the plugin storage bank. Note:\n";
 		buttonTooltip += "The Prophet-600 does not store program names,\n";

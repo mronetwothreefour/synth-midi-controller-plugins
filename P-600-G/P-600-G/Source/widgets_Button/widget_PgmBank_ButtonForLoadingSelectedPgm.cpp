@@ -21,7 +21,7 @@ ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(ProgramDataSlot
 
 const String ButtonForLoadingSelectedProgram::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Applies the program settings stored in the selected slot\n";
 		buttonTooltip += "to the plugin GUI and pushes them to the corresponding\n";
 		buttonTooltip += "hardware storage slot. NOTE: This overwrites the program\n";

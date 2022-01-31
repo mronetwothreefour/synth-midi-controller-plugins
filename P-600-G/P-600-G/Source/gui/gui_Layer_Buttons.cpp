@@ -3,6 +3,7 @@
 #include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../pgmData/pgmData_PgmDataBankComponent.h"
+#include "../tooltips/tooltipOptionsComponent.h"
 
 using namespace constants;
 
@@ -28,6 +29,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingProgramBankComponent.onClick = [this] { showProgramDataBankComponent(); };
     addAndMakeVisible(button_ForShowingRandomizeComponent);
     addAndMakeVisible(button_ForShowingTipsComponent);
+    button_ForShowingTipsComponent.onClick = [this] { showTooltipOptionsComponent(); };
 }
 
 void ButtonsLayer::showProgramDataBankComponent() {
@@ -36,6 +38,15 @@ void ButtonsLayer::showProgramDataBankComponent() {
         addAndMakeVisible(pgmDataBankComponent.get());
         pgmDataBankComponent->setBounds(getLocalBounds());
         pgmDataBankComponent->grabKeyboardFocus();
+    }
+}
+
+void ButtonsLayer::showTooltipOptionsComponent() {
+    tooltipOptionsComponent.reset(new TooltipOptionsComponent(unexposedParams));
+    if (tooltipOptionsComponent != nullptr) {
+        addAndMakeVisible(tooltipOptionsComponent.get());
+        tooltipOptionsComponent->setBounds(getLocalBounds());
+        tooltipOptionsComponent->grabKeyboardFocus();
     }
 }
 
@@ -53,5 +64,6 @@ void ButtonsLayer::resized() {
 }
 
 ButtonsLayer::~ButtonsLayer() {
+    tooltipOptionsComponent = nullptr;
     pgmDataBankComponent = nullptr;
 }

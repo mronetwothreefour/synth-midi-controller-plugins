@@ -21,7 +21,7 @@ ButtonForPullingProgramFromHardwareStorageSlot::ButtonForPullingProgramFromHardw
 
 const String ButtonForPullingProgramFromHardwareStorageSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Pull the data from a program storage slot in the\n";
 		buttonTooltip += "Prophet-600 hardware (specified by the program number\n";
 		buttonTooltip += "control to the left) and apply it to the plugin GUI.";
