@@ -41,6 +41,12 @@ namespace constants
 		static const int buttonPgmBankExptBank_x{ buttonPgmBankImptBank_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonPgmBankFact_x{ buttonPgmBankExptBank_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonRand_x{ 979 };
+		static const int buttonRandomizationLockAll_x{ 815 };
+		static const int buttonRandomizationLockNone_x{ buttonRandomizationLockAll_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonRandomizationOK_x{ buttonRandomizationLockNone_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonRandomizationExit_x{ buttonRandomizationOK_x + buttonsHorizSpacingForGroupedButtons };
+		static const int buttonRandomizationParamLock_h{ 20 };
+		static const int buttonRandomizationParamLock_w{ 12 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonTooltipOptionsExit_x{ 782 };
@@ -126,6 +132,7 @@ namespace constants
 		static const int pgmDataSlotsComponent_y{ 156 };
 		static const int pgmNameEditorLabel_horizInset{ 43 };
 		static const int pgmNameEditorLabel_w{ 118 };
+		static const int randomizationButtonsRow_y{ 40 };
 		static const int restoreFactoryConfirmBoxButtons_y{ 204 };
 		static const int restoreFactoryConfirmBox_x{ 554 };
 		static const int restoreFactoryConfirmBox_y{ 133 };
@@ -192,6 +199,10 @@ namespace constants
 		static const Rectangle<int> bounds_PgmDataSlotsComponent{ pgmDataSlotsComponent_x, pgmDataSlotsComponent_y, pgmDataSlotsComponent_w, pgmDataSlotsComponent_h };
 		static const Rectangle<int> bounds_ProgramNumberSlider{ 408, 42, lcdDisplay2digit_w, lcdDisplay_h };
 		static const Rectangle<int> bounds_RandButton{ buttonRand_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_RandomizationExitButton{ buttonRandomizationExit_x, randomizationButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_RandomizationLockAllButton{ buttonRandomizationLockAll_x, randomizationButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_RandomizationLockNoneButton{ buttonRandomizationLockNone_x, randomizationButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_RandomizationOKbutton{ buttonRandomizationOK_x, randomizationButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RedoButton{ buttonRedo_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxEscButton{ dialogBoxEscButton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_RestoreFactoryConfirmBoxOKbutton{ dialogBoxOKbutton_x, restoreFactoryConfirmBoxButtons_y, buttons_w, buttons_h };

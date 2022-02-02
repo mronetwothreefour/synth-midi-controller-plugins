@@ -17,7 +17,7 @@ public:
 	explicit ProgramDataOptions(UnexposedParameters* unexposedParams);
 
 private:
-	void fillCurrentProgramOptionsTreeWithProperties();
+	void fillProgramDataOptionsTreeWithProperties();
 
 public:
 	void addListener(ValueTree::Listener* listener);

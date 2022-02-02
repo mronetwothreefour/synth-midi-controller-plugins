@@ -18,6 +18,8 @@ namespace ID
 	static const Identifier button_ImptBank{ "button_ImptBank" };
 	static const Identifier button_ImptSelectedProgram{ "button_ImptSelectedProgram" };
 	static const Identifier button_Load{ "button_Load" };
+	static const Identifier button_LockAll{ "button_LockAll" };
+	static const Identifier button_LockNone{ "button_LockNone" };
 	static const Identifier button_Name{ "button_Name" };
 	static const Identifier button_NewFldr{ "button_NewFldr" };
 	static const Identifier button_OKBankTransmit{ "button_OKBankTransmit" };
@@ -27,6 +29,7 @@ namespace ID
 	static const Identifier button_OKfolderName{ "button_OKfolderName" };
 	static const Identifier button_OKimptExpt{ "button_OKimptExpt" };
 	static const Identifier button_OKrestoreFactory{ "button_OKrestoreFactory" };
+	static const Identifier button_OKrandomization{ "button_OKrandomization" };
 	static const Identifier button_PgmBank{ "button_PgmBank" };
 	static const Identifier button_PgmDataSlotRadioButton{ "button_PgmDataSlotRadioButton" };
 	static const Identifier button_PullBank{ "button_PullBank" };

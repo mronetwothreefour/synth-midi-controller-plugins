@@ -12,7 +12,7 @@ public:
 	TooltipOptions();
 
 private:
-	void addTooltipOptionsProperties();
+	void fillTooltipOptionsTreeWithProperties();
 
 public:
 	void addListener(ValueTree::Listener* listener);

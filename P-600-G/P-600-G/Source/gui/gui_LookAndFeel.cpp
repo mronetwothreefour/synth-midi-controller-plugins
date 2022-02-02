@@ -137,6 +137,10 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonImptDown_png : BinaryData::ButtonImptUp_png;
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonLoadDown_png : BinaryData::ButtonLoadUp_png;
+	if (button.getComponentID() == ID::button_LockAll.toString())
+		return isDown ? BinaryData::ButtonLockAllDown_png : BinaryData::ButtonLockAllUp_png;
+	if (button.getComponentID() == ID::button_LockNone.toString())
+		return isDown ? BinaryData::ButtonLockNoneDown_png : BinaryData::ButtonLockNoneUp_png;
 	if (button.getComponentID() == ID::button_Name.toString())
 		return isDown ? BinaryData::ButtonNameDown_png : BinaryData::ButtonNameUp_png;
 	if (button.getComponentID() == ID::button_NewFldr.toString())
@@ -175,6 +179,10 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonImptDown_pngSize : BinaryData::ButtonImptUp_pngSize;
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonLoadDown_pngSize : BinaryData::ButtonLoadUp_pngSize;
+	if (button.getComponentID() == ID::button_LockAll.toString())
+		return isDown ? BinaryData::ButtonLockAllDown_pngSize : BinaryData::ButtonLockAllUp_pngSize;
+	if (button.getComponentID() == ID::button_LockNone.toString())
+		return isDown ? BinaryData::ButtonLockNoneDown_pngSize : BinaryData::ButtonLockNoneUp_pngSize;
 	if (button.getComponentID() == ID::button_Name.toString())
 		return isDown ? BinaryData::ButtonNameDown_pngSize : BinaryData::ButtonNameUp_pngSize;
 	if (button.getComponentID() == ID::button_NewFldr.toString())
@@ -220,6 +228,16 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
 		Rectangle<float> textArea{ x + 2, y, w, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+	if (component.getComponentID().startsWith("lockButton_")) {
+		auto imageData{ isTicked ? BinaryData::ButtonLockClosed_png : BinaryData::ButtonLockOpen_png };
+		auto imageSize{ isTicked ? BinaryData::ButtonLockClosed_pngSize : BinaryData::ButtonLockOpen_pngSize };
+		if (imageData != nullptr) {
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ imageData, (size_t)imageSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, 0, 0);
+		}
 	}
 }
 

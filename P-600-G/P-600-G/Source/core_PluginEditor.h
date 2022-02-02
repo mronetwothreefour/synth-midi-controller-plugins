@@ -13,7 +13,6 @@ class PluginEditor :
     public ValueTree::Listener
 {
     PluginProcessor& processor;
-    AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<ButtonsLayer> buttonsLayer;

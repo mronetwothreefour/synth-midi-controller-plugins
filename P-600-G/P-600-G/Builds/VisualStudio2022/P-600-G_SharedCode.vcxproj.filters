@@ -23,6 +23,9 @@
     <Filter Include="P-600-G\Source\pgmData">
       <UniqueIdentifier>{F9E79EFC-44FB-3F6D-418B-887E2AE3A319}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G\Source\randomization">
+      <UniqueIdentifier>{3C04EA3E-8A9E-7C2C-D5C9-FD3D9103AC58}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G\Source\tooltips">
       <UniqueIdentifier>{26EBAAF3-5E59-0DC1-21D2-136CF58D7C04}</UniqueIdentifier>
     </Filter>
@@ -586,6 +589,9 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomizationComponent.cpp">
+      <Filter>P-600-G\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\tooltips\tooltipOptionsComponent.cpp">
       <Filter>P-600-G\Source\tooltips</Filter>
     </ClCompile>
@@ -650,6 +656,15 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
@@ -2907,6 +2922,9 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h">
       <Filter>P-600-G\Source\pgmData</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomizationComponent.h">
+      <Filter>P-600-G\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\tooltips\tooltipOptionsComponent.h">
       <Filter>P-600-G\Source\tooltips</Filter>
     </ClInclude>
@@ -2974,6 +2992,15 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
@@ -5468,6 +5495,24 @@
     <None Include="..\..\..\Resources\Button-Load-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
+    <None Include="..\..\..\Resources\Button-Lock-All-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Lock-All-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Lock-Closed.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Lock-None-Down.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Lock-None-Up.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Button-Lock-Open.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
     <None Include="..\..\..\Resources\Button-Name-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
@@ -5559,6 +5604,9 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Pushing-Bank-Title.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Randomization-Window-Background.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Restore-Factory-Programs-Confirmation-Background.png">

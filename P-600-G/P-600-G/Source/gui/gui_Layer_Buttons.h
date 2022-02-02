@@ -12,9 +12,10 @@
 
 
 
-class UnexposedParameters;
 class ProgramDataBankComponent;
+class RandomizationComponent;
 class TooltipOptionsComponent;
+class UnexposedParameters;
 
 class ButtonsLayer :
 	public Component,
@@ -27,10 +28,11 @@ class ButtonsLayer :
 	ButtonForPullingProgramFromHardwareStorageSlot button_ForPullingProgramFromHardware;
 	ButtonForPushingProgramToHardwareStorageSlot button_ForPushingProgramToHardware;
 	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;
-	ButtonForShowingRandomizeComponent button_ForShowingRandomizeComponent;
+	ButtonForShowingRandomizeComponent button_ForShowingRandomizationComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
 	std::unique_ptr<ProgramDataBankComponent> pgmDataBankComponent;
 	std::unique_ptr<TooltipOptionsComponent> tooltipOptionsComponent;
+	std::unique_ptr<RandomizationComponent> randomizationComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -40,6 +42,7 @@ public:
 private:
 	void showProgramDataBankComponent();
 	void showTooltipOptionsComponent();
+	void showRandomizationComponent();
 	void timerCallback() override;
 
 public:

@@ -3,6 +3,7 @@
 #include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../pgmData/pgmData_PgmDataBankComponent.h"
+#include "../randomization/randomizationComponent.h"
 #include "../tooltips/tooltipOptionsComponent.h"
 
 using namespace constants;
@@ -17,7 +18,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPullingProgramFromHardware{ unexposedParams },
     button_ForPushingProgramToHardware{ exposedParams, unexposedParams },
     button_ForShowingProgramBankComponent{ unexposedParams },
-    button_ForShowingRandomizeComponent{ exposedParams, unexposedParams },
+    button_ForShowingRandomizationComponent{ exposedParams, unexposedParams },
     button_ForShowingTipsComponent{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
@@ -27,9 +28,10 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForPushingProgramToHardware);
     addAndMakeVisible(button_ForShowingProgramBankComponent);
     button_ForShowingProgramBankComponent.onClick = [this] { showProgramDataBankComponent(); };
-    addAndMakeVisible(button_ForShowingRandomizeComponent);
     addAndMakeVisible(button_ForShowingTipsComponent);
     button_ForShowingTipsComponent.onClick = [this] { showTooltipOptionsComponent(); };
+    addAndMakeVisible(button_ForShowingRandomizationComponent);
+    button_ForShowingRandomizationComponent.onClick = [this] { showRandomizationComponent();  };
 }
 
 void ButtonsLayer::showProgramDataBankComponent() {
@@ -50,6 +52,15 @@ void ButtonsLayer::showTooltipOptionsComponent() {
     }
 }
 
+void ButtonsLayer::showRandomizationComponent() {
+    randomizationComponent.reset(new RandomizationComponent(exposedParams, unexposedParams));
+    if (randomizationComponent != nullptr) {
+        addAndMakeVisible(randomizationComponent.get());
+        randomizationComponent->setBounds(getLocalBounds());
+        randomizationComponent->grabKeyboardFocus();
+    }
+}
+
 void ButtonsLayer::timerCallback() {
 }
 
@@ -59,11 +70,12 @@ void ButtonsLayer::resized() {
     button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowPgmBankButton);
-    button_ForShowingRandomizeComponent.setBounds(GUI::bounds_RandButton);
+    button_ForShowingRandomizationComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
+    randomizationComponent = nullptr;
     tooltipOptionsComponent = nullptr;
     pgmDataBankComponent = nullptr;
 }

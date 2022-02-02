@@ -16,7 +16,6 @@ using namespace constants;
 
 
 
-
 ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	slotsComponent{ exposedParams, unexposedParams },

@@ -15,7 +15,6 @@ using namespace constants;
 PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new GUILookAndFeel() },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },

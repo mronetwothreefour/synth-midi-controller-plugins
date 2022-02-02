@@ -173,6 +173,12 @@
         <FILE id="IcenXc" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
               compile="0" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
       </GROUP>
+      <GROUP id="{54002099-46A0-A97C-5A3A-F159E193FA6C}" name="randomization">
+        <FILE id="ro2Prb" name="randomizationComponent.cpp" compile="1" resource="0"
+              file="Source/randomization/randomizationComponent.cpp"/>
+        <FILE id="RC7iS6" name="randomizationComponent.h" compile="0" resource="0"
+              file="Source/randomization/randomizationComponent.h"/>
+      </GROUP>
       <GROUP id="{641E7559-AE24-134B-F603-7D9604E19BB1}" name="tooltips">
         <FILE id="B3ppiG" name="tooltipOptionsComponent.h" compile="0" resource="0"
               file="Source/tooltips/tooltipOptionsComponent.h"/>
@@ -266,6 +272,18 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
         <FILE id="vJ9Ocp" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
+        <FILE id="EA1ma5" name="widget_Randomization_ButtonForLockingAllParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
+        <FILE id="JqPxkP" name="widget_Randomization_ButtonForLockingAllParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"/>
+        <FILE id="OLNqkt" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
+        <FILE id="sQmmdP" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="WFjmvc" name="widget_Randomization_ButtonForUnlockingAllParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
+        <FILE id="BAGvqn" name="widget_Randomization_ButtonForUnlockingAllParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"/>
       </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="gGcYEi" name="widget_ControlForExposedParameter.cpp" compile="1"
@@ -340,6 +358,18 @@
             file="../Resources/Button-Load-Down.png"/>
       <FILE id="wRJZwD" name="Button-Load-Up.png" compile="0" resource="1"
             file="../Resources/Button-Load-Up.png"/>
+      <FILE id="FnNx5C" name="Button-Lock-All-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-All-Down.png"/>
+      <FILE id="woroDh" name="Button-Lock-All-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-All-Up.png"/>
+      <FILE id="Mm3xoC" name="Button-Lock-Closed.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-Closed.png"/>
+      <FILE id="BMCllu" name="Button-Lock-None-Down.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-None-Down.png"/>
+      <FILE id="FiUj0k" name="Button-Lock-None-Up.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-None-Up.png"/>
+      <FILE id="sjcTEo" name="Button-Lock-Open.png" compile="0" resource="1"
+            file="../Resources/Button-Lock-Open.png"/>
       <FILE id="xiV9py" name="Button-Name-Down.png" compile="0" resource="1"
             file="../Resources/Button-Name-Down.png"/>
       <FILE id="PoVJtE" name="Button-Name-Up.png" compile="0" resource="1"
@@ -402,6 +432,8 @@
             file="../Resources/Pulling-Bank-Title.png"/>
       <FILE id="briP40" name="Pushing-Bank-Title.png" compile="0" resource="1"
             file="../Resources/Pushing-Bank-Title.png"/>
+      <FILE id="RnEc9A" name="Randomization-Window-Background.png" compile="0"
+            resource="1" file="../Resources/Randomization-Window-Background.png"/>
       <FILE id="SHqfJN" name="Restore-Factory-Programs-Confirmation-Background.png"
             compile="0" resource="1" file="../Resources/Restore-Factory-Programs-Confirmation-Background.png"/>
       <FILE id="VqHgqH" name="Switch.png" compile="0" resource="1" file="../Resources/Switch.png"/>

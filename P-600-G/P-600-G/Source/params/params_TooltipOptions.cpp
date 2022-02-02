@@ -7,10 +7,10 @@
 TooltipOptions::TooltipOptions() :
 	tooltipOptionsTree{ ID::tooltips_Options }
 {
-	addTooltipOptionsProperties();
+	fillTooltipOptionsTreeWithProperties();
 }
 
-void TooltipOptions::addTooltipOptionsProperties() {
+void TooltipOptions::fillTooltipOptionsTreeWithProperties() {
 	tooltipOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentSettings, (bool)true, nullptr);
 	tooltipOptionsTree.setProperty(ID::tooltips_ShouldShowDescriptions, (bool)true, nullptr);
 	tooltipOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, 1000, nullptr);

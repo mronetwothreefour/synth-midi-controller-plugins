@@ -9,10 +9,10 @@ ProgramDataOptions::ProgramDataOptions(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	programDataOptionsTree{ ID::pgmData_Options }
 {
-	fillCurrentProgramOptionsTreeWithProperties();
+	fillProgramDataOptionsTreeWithProperties();
 }
 
-void ProgramDataOptions::fillCurrentProgramOptionsTreeWithProperties() {
+void ProgramDataOptions::fillProgramDataOptionsTreeWithProperties() {
 	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, (uint8)0, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 500, nullptr);

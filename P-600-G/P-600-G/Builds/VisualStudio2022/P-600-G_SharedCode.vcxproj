@@ -172,6 +172,7 @@
     <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp"/>
     <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\tooltips\tooltipOptionsComponent.cpp"/>
     <ClCompile Include="..\..\Source\tooltips\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.cpp"/>
@@ -194,6 +195,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
@@ -2199,6 +2203,7 @@
     <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h"/>
     <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomizationComponent.h"/>
     <ClInclude Include="..\..\Source\tooltips\tooltipOptionsComponent.h"/>
     <ClInclude Include="..\..\Source\tooltips\tooltips_Constants.h"/>
     <ClInclude Include="..\..\Source\tooltips\tooltipSetter_Base.h"/>
@@ -2222,6 +2227,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
@@ -3054,6 +3062,12 @@
     <None Include="..\..\..\Resources\Button-Impt-Up.png"/>
     <None Include="..\..\..\Resources\Button-Load-Down.png"/>
     <None Include="..\..\..\Resources\Button-Load-Up.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-All-Down.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-All-Up.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-Closed.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-None-Down.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-None-Up.png"/>
+    <None Include="..\..\..\Resources\Button-Lock-Open.png"/>
     <None Include="..\..\..\Resources\Button-Name-Down.png"/>
     <None Include="..\..\..\Resources\Button-Name-Up.png"/>
     <None Include="..\..\..\Resources\Button-New-Fldr-Down.png"/>
@@ -3085,6 +3099,7 @@
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pulling-Bank-Title.png"/>
     <None Include="..\..\..\Resources\Pushing-Bank-Title.png"/>
+    <None Include="..\..\..\Resources\Randomization-Window-Background.png"/>
     <None Include="..\..\..\Resources\Restore-Factory-Programs-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\Switch.png"/>
     <None Include="..\..\..\Resources\Tooltip-Options-Window-Background.png"/>
