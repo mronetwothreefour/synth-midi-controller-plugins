@@ -24,7 +24,7 @@ const String ButtonForEditingSelectedProgramName::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Click to change the name of the selected program.\n";
-		buttonTooltip += "NOTE: The Prophet-600 hardware does store program names.";
+		buttonTooltip += "NOTE: The Prophet-600 hardware does" + GUI::apostrophe + "t store program names.";
 	}
 	return buttonTooltip;
 }

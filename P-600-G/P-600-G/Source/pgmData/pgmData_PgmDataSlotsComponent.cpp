@@ -53,6 +53,7 @@ void ProgramDataSlotsComponent::setTextForPgmDataSlotToggleButton(uint8 slot) {
 		slotNumber = (String)(slot);
 	auto pgmDataBank{ unexposedParams->programDataBank_get() };
 	auto pgmName{ pgmDataBank->nameOfPgmInSlot(slot) };
+	MessageManagerLock mmLock;
 	pgmDataSlotButtons[slot].setName(slotNumber + "  " + pgmName);
 	pgmDataSlotButtons[slot].repaint();
 }

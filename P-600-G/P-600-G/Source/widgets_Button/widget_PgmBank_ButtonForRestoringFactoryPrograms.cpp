@@ -16,8 +16,8 @@ ButtonForRestoringFactoryPrograms::ButtonForRestoringFactoryPrograms(UnexposedPa
 const String ButtonForRestoringFactoryPrograms::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
-		buttonTooltip += "Restores the entire bank to the original factory\n";
-		buttonTooltip += "programs. NOTE: This cannot be undone.";
+		buttonTooltip += "Restores the entire plugin bank to the original\n";
+		buttonTooltip += "factory programs. NOTE: This cannot be undone.";
 	}
 	return buttonTooltip;
 }
