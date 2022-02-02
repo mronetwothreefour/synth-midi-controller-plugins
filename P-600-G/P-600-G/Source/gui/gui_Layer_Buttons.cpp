@@ -19,7 +19,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPushingProgramToHardware{ exposedParams, unexposedParams },
     button_ForShowingProgramBankComponent{ unexposedParams },
     button_ForShowingRandomizationComponent{ exposedParams, unexposedParams },
-    button_ForShowingTipsComponent{ unexposedParams }
+    button_ForShowingTipsComponent{ unexposedParams },
+    button_ForGoingToWebSite{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForPerformingRedo);
@@ -32,6 +33,9 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingTipsComponent.onClick = [this] { showTooltipOptionsComponent(); };
     addAndMakeVisible(button_ForShowingRandomizationComponent);
     button_ForShowingRandomizationComponent.onClick = [this] { showRandomizationComponent();  };
+    button_ForGoingToWebSite.setComponentID(ID::component_HyperlinkButton.toString());
+    button_ForGoingToWebSite.setTooltip("Click to go to programming.mr1234.com");
+    addAndMakeVisible(button_ForGoingToWebSite);
 }
 
 void ButtonsLayer::showProgramDataBankComponent() {
@@ -72,6 +76,7 @@ void ButtonsLayer::resized() {
     button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowPgmBankButton);
     button_ForShowingRandomizationComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
+    button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {

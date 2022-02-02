@@ -182,6 +182,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPgmBankButton{ buttonMainWindowPgmBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_MainWindowWebLinkButton{ 100, 88, 187, 8 };
 		static const Rectangle<int> bounds_PgmBankWindow{ pgmDataBankWindow_x, pgmDataBankWindow_y, pgmDataBankWindow_w, pgmDataBankWindow_h };
 		static const Rectangle<int> bounds_PgmBankWindowExitButton{ buttonPgmBankWindowExit_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_PgmBankWindowExptPgmBankButton{ buttonPgmBankExptBank_x, pgmDataBankWindowButtonsRow_y, buttons_w, buttons_h };

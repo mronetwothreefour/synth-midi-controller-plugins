@@ -42,6 +42,7 @@ namespace ID
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_Tips{ "button_Tips" };
 
+	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_SwitchSlider{ "component_SwitchSlider" };

@@ -168,7 +168,7 @@ namespace BinaryData
     const int            PushingBankTitle_pngSize = 2138;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 117289;
+    const int            RandomizationWindowBackground_pngSize = 117819;
 
     extern const char*   RestoreFactoryProgramsConfirmationBackground_png;
     const int            RestoreFactoryProgramsConfirmationBackground_pngSize = 78267;

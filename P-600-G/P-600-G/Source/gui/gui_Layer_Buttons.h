@@ -30,6 +30,7 @@ class ButtonsLayer :
 	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;
 	ButtonForShowingRandomizeComponent button_ForShowingRandomizationComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
+	HyperlinkButton button_ForGoingToWebSite;
 	std::unique_ptr<ProgramDataBankComponent> pgmDataBankComponent;
 	std::unique_ptr<TooltipOptionsComponent> tooltipOptionsComponent;
 	std::unique_ptr<RandomizationComponent> randomizationComponent;
