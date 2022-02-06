@@ -82,7 +82,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlCenterPoints.add(Point<int>(GUI::switchesOscTri_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
 		maxValues.add((uint8)1);
-		defaultValues.add((uint8)0);
+		defaultValues.add((uint8)1);
 		firstNybbleIndices.add(i == 0 ? (uint8)30 : 31);
 		firstBitIndices.add(i == 0 ? (uint8)1 : (uint8)0);
 
@@ -94,7 +94,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlCenterPoints.add(Point<int>(GUI::switchesOscPulse_x, i == 0 ? GUI::switchRow2_y : GUI::switchRow3_y));
 		maxValues.add((uint8)1);
-		defaultValues.add((uint8)1);
+		defaultValues.add((uint8)0);
 		firstNybbleIndices.add((uint8)28);
 		firstBitIndices.add(i == 0 ? (uint8)0 : (uint8)1);
 
@@ -154,7 +154,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::knobsCutoffAndAttack_x, GUI::knobRow1_y));
 	maxValues.add((uint8)127);
-	defaultValues.add((uint8)66);
+	defaultValues.add((uint8)64);
 	firstNybbleIndices.add((uint8)13);
 	firstBitIndices.add((uint8)0);
 
@@ -399,7 +399,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::knobsPmodFilterEnvAndLFOfreq_x, GUI::knobRow3_y));
 	maxValues.add((uint8)15);
-	defaultValues.add((uint8)9);
+	defaultValues.add((uint8)0);
 	firstNybbleIndices.add((uint8)2);
 	firstBitIndices.add((uint8)3);
 
@@ -452,7 +452,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	descriptions.add(descriptionString);
 	controlCenterPoints.add(Point<int>(GUI::switchesPmodDestFilterandLFOdestPW_x, GUI::switchRow3_y));
 	maxValues.add((uint8)1);
-	defaultValues.add((uint8)1);
+	defaultValues.add((uint8)0);
 	firstNybbleIndices.add((uint8)29);
 	firstBitIndices.add((uint8)2);
 
