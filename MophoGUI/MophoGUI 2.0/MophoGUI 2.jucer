@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="YgWG45" name="MophoGUI 2" projectType="audioplug" jucerFormatVersion="1"
+              version="2.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+              companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Sound editor/librarian plugin for use with the DSI Mopho synthesizer"
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+  <MAINGROUP id="bESqsD" name="MophoGUI 2">
+    <GROUP id="{DA7CF7F1-35A4-9559-7D41-177380A1BF4B}" name="Source">
+      <GROUP id="{E7EA50CA-7C6F-0CE9-5192-646520E3C865}" name="core">
+        <FILE id="lKjLEq" name="core_PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/core_PluginProcessor.cpp"/>
+        <FILE id="mz0fVN" name="core_PluginProcessor.h" compile="0" resource="0"
+              file="Source/core_PluginProcessor.h"/>
+        <FILE id="mcOZZS" name="core_PluginEditor.cpp" compile="1" resource="0"
+              file="Source/core_PluginEditor.cpp"/>
+        <FILE id="K91Aty" name="core_PluginEditor.h" compile="0" resource="0"
+              file="Source/core_PluginEditor.h"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{81451CC4-A49B-65F3-AE97-D7F42BE36753}" name="Resources">
+      <FILE id="gVNEld" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
+            file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      <FILE id="TShkGd" name="Button-Down-Banks.png" compile="0" resource="1"
+            file="Resources/Button-Down-Banks.png"/>
+      <FILE id="e49d4X" name="Button-Down-Clear.png" compile="0" resource="1"
+            file="Resources/Button-Down-Clear.png"/>
+      <FILE id="SxdgCT" name="Button-Down-Close.png" compile="0" resource="1"
+            file="Resources/Button-Down-Close.png"/>
+      <FILE id="FcidwK" name="Button-Down-Export.png" compile="0" resource="1"
+            file="Resources/Button-Down-Export.png"/>
+      <FILE id="S2zZfd" name="Button-Down-Global.png" compile="0" resource="1"
+            file="Resources/Button-Down-Global.png"/>
+      <FILE id="X9VGEE" name="Button-Down-Import.png" compile="0" resource="1"
+            file="Resources/Button-Down-Import.png"/>
+      <FILE id="r3V1uE" name="Button-Down-Load.png" compile="0" resource="1"
+            file="Resources/Button-Down-Load.png"/>
+      <FILE id="e4B3vm" name="Button-Down-Program-Name-Edit.png" compile="0"
+            resource="1" file="Resources/Button-Down-Program-Name-Edit.png"/>
+      <FILE id="twFEBA" name="Button-Down-Pull.png" compile="0" resource="1"
+            file="Resources/Button-Down-Pull.png"/>
+      <FILE id="F7US4e" name="Button-Down-Push.png" compile="0" resource="1"
+            file="Resources/Button-Down-Push.png"/>
+      <FILE id="id8qqe" name="Button-Down-Random.png" compile="0" resource="1"
+            file="Resources/Button-Down-Random.png"/>
+      <FILE id="YnTI2h" name="Button-Down-Read.png" compile="0" resource="1"
+            file="Resources/Button-Down-Read.png"/>
+      <FILE id="WLapmT" name="Button-Down-Redo.png" compile="0" resource="1"
+            file="Resources/Button-Down-Redo.png"/>
+      <FILE id="Eoo2FF" name="Button-Down-Retry.png" compile="0" resource="1"
+            file="Resources/Button-Down-Retry.png"/>
+      <FILE id="ItfJs1" name="Button-Down-Save.png" compile="0" resource="1"
+            file="Resources/Button-Down-Save.png"/>
+      <FILE id="yQj26a" name="Button-Down-Stop.png" compile="0" resource="1"
+            file="Resources/Button-Down-Stop.png"/>
+      <FILE id="kDPc3V" name="Button-Down-Undo.png" compile="0" resource="1"
+            file="Resources/Button-Down-Undo.png"/>
+      <FILE id="ECAOIW" name="Button-Down-Write.png" compile="0" resource="1"
+            file="Resources/Button-Down-Write.png"/>
+      <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
+            file="Resources/Button-Up-Banks.png"/>
+      <FILE id="mgZNCA" name="Button-Up-Clear.png" compile="0" resource="1"
+            file="Resources/Button-Up-Clear.png"/>
+      <FILE id="qUspOX" name="Button-Up-Close.png" compile="0" resource="1"
+            file="Resources/Button-Up-Close.png"/>
+      <FILE id="y5uDHw" name="Button-Up-Export.png" compile="0" resource="1"
+            file="Resources/Button-Up-Export.png"/>
+      <FILE id="oULfdn" name="Button-Up-Global.png" compile="0" resource="1"
+            file="Resources/Button-Up-Global.png"/>
+      <FILE id="uFuudZ" name="Button-Up-Import.png" compile="0" resource="1"
+            file="Resources/Button-Up-Import.png"/>
+      <FILE id="jx8txZ" name="Button-Up-Load.png" compile="0" resource="1"
+            file="Resources/Button-Up-Load.png"/>
+      <FILE id="o5Z6oj" name="Button-Up-Program-Name-Edit.png" compile="0"
+            resource="1" file="Resources/Button-Up-Program-Name-Edit.png"/>
+      <FILE id="mHT54h" name="Button-Up-Pull.png" compile="0" resource="1"
+            file="Resources/Button-Up-Pull.png"/>
+      <FILE id="fyqcci" name="Button-Up-Push.png" compile="0" resource="1"
+            file="Resources/Button-Up-Push.png"/>
+      <FILE id="W9jXfS" name="Button-Up-Random.png" compile="0" resource="1"
+            file="Resources/Button-Up-Random.png"/>
+      <FILE id="fOhvB1" name="Button-Up-Read.png" compile="0" resource="1"
+            file="Resources/Button-Up-Read.png"/>
+      <FILE id="skcMua" name="Button-Up-Redo.png" compile="0" resource="1"
+            file="Resources/Button-Up-Redo.png"/>
+      <FILE id="ZRe0Di" name="Button-Up-Retry.png" compile="0" resource="1"
+            file="Resources/Button-Up-Retry.png"/>
+      <FILE id="GOTqQq" name="Button-Up-Save.png" compile="0" resource="1"
+            file="Resources/Button-Up-Save.png"/>
+      <FILE id="UByWpI" name="Button-Up-Stop.png" compile="0" resource="1"
+            file="Resources/Button-Up-Stop.png"/>
+      <FILE id="nzlgfx" name="Button-Up-Undo.png" compile="0" resource="1"
+            file="Resources/Button-Up-Undo.png"/>
+      <FILE id="IPLtYu" name="Button-Up-Write.png" compile="0" resource="1"
+            file="Resources/Button-Up-Write.png"/>
+      <FILE id="GuoMWE" name="Global-Parameters-Background.png" compile="0"
+            resource="1" file="Resources/Global-Parameters-Background.png"/>
+      <FILE id="tHfVch" name="Label-Bank-1.png" compile="0" resource="1"
+            file="Resources/Label-Bank-1.png"/>
+      <FILE id="Pzcvhd" name="Label-Bank-2.png" compile="0" resource="1"
+            file="Resources/Label-Bank-2.png"/>
+      <FILE id="wQ5MA8" name="Label-Bank-3.png" compile="0" resource="1"
+            file="Resources/Label-Bank-3.png"/>
+      <FILE id="tHUJw7" name="Label-Custom-Banks.png" compile="0" resource="1"
+            file="Resources/Label-Custom-Banks.png"/>
+      <FILE id="sp6MEE" name="Label-Factory-Banks.png" compile="0" resource="1"
+            file="Resources/Label-Factory-Banks.png"/>
+      <FILE id="yoDU1x" name="MophoGUI-Main-Window-Background.png" compile="0"
+            resource="1" file="Resources/MophoGUI-Main-Window-Background.png"/>
+      <FILE id="kcVJ6n" name="No-NRPN-Warning-Background.png" compile="0"
+            resource="1" file="Resources/No-NRPN-Warning-Background.png"/>
+      <FILE id="ZPkxoA" name="No-Sysex-Warning-Background.png" compile="0"
+            resource="1" file="Resources/No-Sysex-Warning-Background.png"/>
+      <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
+            resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
+      <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
+      <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pushing-Entire-Bank.png"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

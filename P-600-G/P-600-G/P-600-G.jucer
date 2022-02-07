@@ -455,7 +455,7 @@
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
                        defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" enableIncrementalLinking="1"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release"
                        defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

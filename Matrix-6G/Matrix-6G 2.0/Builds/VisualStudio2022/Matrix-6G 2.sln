@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 17
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G 2 - VST3", "Matrix-6G 2_VST3.vcxproj", "{12985AAA-E0B9-1DDC-B6B2-141BBBE998C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B7799D0-F093-F35E-DFBA-00B4153EF63E} = {2B7799D0-F093-F35E-DFBA-00B4153EF63E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G 2 - Shared Code", "Matrix-6G 2_SharedCode.vcxproj", "{2B7799D0-F093-F35E-DFBA-00B4153EF63E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12985AAA-E0B9-1DDC-B6B2-141BBBE998C3}.Debug|x64.ActiveCfg = Debug|x64
+		{12985AAA-E0B9-1DDC-B6B2-141BBBE998C3}.Debug|x64.Build.0 = Debug|x64
+		{12985AAA-E0B9-1DDC-B6B2-141BBBE998C3}.Release|x64.ActiveCfg = Release|x64
+		{12985AAA-E0B9-1DDC-B6B2-141BBBE998C3}.Release|x64.Build.0 = Release|x64
+		{2B7799D0-F093-F35E-DFBA-00B4153EF63E}.Debug|x64.ActiveCfg = Debug|x64
+		{2B7799D0-F093-F35E-DFBA-00B4153EF63E}.Debug|x64.Build.0 = Debug|x64
+		{2B7799D0-F093-F35E-DFBA-00B4153EF63E}.Release|x64.ActiveCfg = Release|x64
+		{2B7799D0-F093-F35E-DFBA-00B4153EF63E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
