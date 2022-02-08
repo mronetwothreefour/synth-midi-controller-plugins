@@ -251,7 +251,7 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 
 void MasterOptionsComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &tipsDelayEditor) {
-		editor.setInputRestrictions(matrixParams::maxTipsDelayDigits, "1234567890");
+		editor.setInputRestrictions(params::maxTipsDelayDigits, "1234567890");
 		auto tooltipsOptions{ unexposedParams->tooltipOptions_get() };
 		editor.setFont(FontsMenu::fontFor_LabelEditors);
 		editor.setText((String)tooltipsOptions->delayInMilliseconds());
@@ -265,7 +265,7 @@ void MasterOptionsComponent::labelTextChanged(Label* label) {
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
-			if (newValue >= matrixParams::minTipsDelayValue && newValue <= matrixParams::maxTipsDelayValue)
+			if (newValue >= params::minTipsDelayValue && newValue <= params::maxTipsDelayValue)
 				tooltipOptions->setDelayInMilliseconds(newValue);
 		}
 		label->setText((String)tooltipOptions->delayInMilliseconds(), dontSendNotification);

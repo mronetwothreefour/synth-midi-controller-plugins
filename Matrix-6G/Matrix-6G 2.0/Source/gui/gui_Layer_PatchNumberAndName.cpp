@@ -44,7 +44,7 @@ void PatchNumberAndNameLayer::resized() {
 
 void PatchNumberAndNameLayer::editorShown(Label* label, TextEditor& editor) {
 	if (label == &patchNameEditor)
-		editor.setInputRestrictions(matrixParams::maxPatchNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
+		editor.setInputRestrictions(params::maxVoiceNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
 }
 
 void PatchNumberAndNameLayer::labelTextChanged(Label* label) {
@@ -60,7 +60,7 @@ void PatchNumberAndNameLayer::labelTextChanged(Label* label) {
 }
 
 void PatchNumberAndNameLayer::padNameLessThan8CharactersLongWithSpaces(String& name) {
-	for(auto i = name.length(); i != matrixParams::maxPatchNameLength; ++i)
+	for(auto i = name.length(); i != params::maxVoiceNameLength; ++i)
 		name += " ";
 }
 

@@ -68,7 +68,7 @@ void PatchBanksComponent::paint(Graphics& g) {
 
 void PatchBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
-		editor.setInputRestrictions(matrixParams::maxTransmitTimeDigits, "0123456789");
+		editor.setInputRestrictions(params::maxTransmitTimeDigits, "0123456789");
 		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
 		editor.setFont(FontsMenu::fontFor_LabelEditors);
 		editor.setText((String)patchTransmissionOptions->patchTransmitTime());
@@ -82,7 +82,7 @@ void PatchBanksComponent::labelTextChanged(Label* label) {
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
-			if (newValue >= matrixParams::minTransmitTimeValue && newValue <= matrixParams::maxTransmitTimeValue)
+			if (newValue >= params::minTransmitTimeValue && newValue <= params::maxTransmitTimeValue)
 				patchTransmissionOptions->setPatchTransmitTime(newValue);
 		}
 		label->setText((String)patchTransmissionOptions->patchTransmitTime(), dontSendNotification);

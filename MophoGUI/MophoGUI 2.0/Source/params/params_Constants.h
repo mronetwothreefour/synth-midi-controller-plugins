@@ -6,7 +6,7 @@
 
 namespace constants
 {
-	namespace mophoParams
+	namespace params
 	{
 		const uint8 arpeggiator{ 98 };
 		const uint8 clockTempoIndex{ 95 };

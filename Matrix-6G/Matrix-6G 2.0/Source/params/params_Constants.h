@@ -6,9 +6,9 @@
 
 namespace constants
 {
-	namespace matrixParams
+	namespace params
 	{
-		static const int maxPatchNameLength{ 8 };
+		static const int maxVoiceNameLength{ 8 };
 		static const int maxSplitNameLength{ 6 };
 		static const int maxTipsDelayDigits{ 4 };
 		static const int maxTransmitTimeDigits{ 4 };

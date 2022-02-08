@@ -150,7 +150,7 @@ void RawDataTools::addCurrentParameterSettingsToDataVector(AudioProcessorValueTr
     uint8 checksum{ 0 };
     auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
     auto currentPatchName{ currentPatchOptions->currentPatchName() };
-    addPatchOrSplitNameDataToVector(currentPatchName, matrixParams::maxPatchNameLength, dataVector, checksum);
+    addPatchOrSplitNameDataToVector(currentPatchName, params::maxVoiceNameLength, dataVector, checksum);
     addExposedParamDataToVector(exposedParams, dataVector, checksum);
     addMatrixModDataToVector(unexposedParams, dataVector, checksum);
     dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
@@ -160,7 +160,7 @@ void RawDataTools::addCurrentSplitSettingsToDataVector(UnexposedParameters* unex
     uint8 checksum{ 0 };
     auto splitOptions{ unexposedParams->splitOptions_get() };
     auto splitName{ splitOptions->splitName() };
-    addPatchOrSplitNameDataToVector(splitName, matrixParams::maxSplitNameLength, dataVector, checksum);
+    addPatchOrSplitNameDataToVector(splitName, params::maxSplitNameLength, dataVector, checksum);
     addSplitParamDataToVector(unexposedParams, dataVector, checksum);
     dataVector[splits::rawSplitDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
@@ -226,7 +226,7 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
 
 const String RawDataTools::extractPatchNameFromRawPatchData(const uint8* patchData) {
     String patchName{ "" };
-    for (auto byte = 0; byte != (2 * matrixParams::maxPatchNameLength); byte += 2) {
+    for (auto byte = 0; byte != (2 * params::maxVoiceNameLength); byte += 2) {
         auto lsbByteValue{ (uint8)patchData[byte] };
         auto msbByteValue{ (uint8)patchData[byte + 1] };
         auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
@@ -237,7 +237,7 @@ const String RawDataTools::extractPatchNameFromRawPatchData(const uint8* patchDa
 
 const String RawDataTools::extractSplitNameFromRawSplitData(const uint8* splitData) {
     String splitName{ "" };
-    for (auto byte = 0; byte != (2 * matrixParams::maxSplitNameLength); byte += 2) {
+    for (auto byte = 0; byte != (2 * params::maxSplitNameLength); byte += 2) {
         auto lsbByteValue{ (uint8)splitData[byte] };
         auto msbByteValue{ (uint8)splitData[byte + 1] };
         auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
@@ -328,31 +328,31 @@ void RawDataTools::addPatchOrSplitNameDataToVector(String & name, int maxLength,
     for (auto i = 0; i != maxLength; ++i) {
         auto asciiValue{ (uint8)name[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
-        auto lsbByteLocation{ matrixParams::numberOfHeaderBytesInDataDumpMessages + (2 * i) };
+        auto lsbByteLocation{ params::numberOfHeaderBytesInDataDumpMessages + (2 * i) };
         addValueToDataVectorAtLSBbyteLocation(truncatedValue, &dataVector[lsbByteLocation]);
         checksum += truncatedValue;
     }
 }
 
 uint8 RawDataTools::truncateASCIIvalueToLowest6bits(uint8 value) {
-    auto truncatedValue{ uint8(value % matrixParams::seventhBit) };
-    if (value == matrixParams::valueForBarSymbol_ASCII) {
-        truncatedValue = matrixParams::valueForBarSymbol_Matrix;
+    auto truncatedValue{ uint8(value % params::seventhBit) };
+    if (value == params::valueForBarSymbol_ASCII) {
+        truncatedValue = params::valueForBarSymbol_Matrix;
     }
     return truncatedValue;
 }
 
 void RawDataTools::restoreTruncated7thBitToASCIIvalue(uint8& value) {
-    value += matrixParams::seventhBit;
+    value += params::seventhBit;
 }
 
 String RawDataTools::convertStoredASCIIvalueToString(const uint8& value) {
     String characterString;
-    if (value == matrixParams::valueForBarSymbol_Matrix)
+    if (value == params::valueForBarSymbol_Matrix)
         characterString = "|";
     else {
         auto splitNameCharASCIIValue{ value };
-        if (splitNameCharASCIIValue < matrixParams::sixthBit)
+        if (splitNameCharASCIIValue < params::sixthBit)
             restoreTruncated7thBitToASCIIvalue(splitNameCharASCIIValue);
         characterString = (String)std::string(1, splitNameCharASCIIValue);
     }
@@ -564,21 +564,21 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
 }
 
 uint8 RawDataTools::formatSigned6bitValueForSendingToMatrix(uint8& value) {
-    auto valueWithOffset{ value - matrixParams::offsetForSigned6bitRange };
+    auto valueWithOffset{ value - params::offsetForSigned6bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
 }
 
 uint8 RawDataTools::formatSigned7bitValueForSendingToMatrix(uint8& value) {
-    auto valueWithOffset{ value - matrixParams::offsetForSigned7bitRange };
+    auto valueWithOffset{ value - params::offsetForSigned7bitRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
 }
 
 uint8 RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(uint8& value) {
-    auto valueWithOffset{ value - matrixParams::offsetForSignedZoneTransposeRange };
+    auto valueWithOffset{ value - params::offsetForSignedZoneTransposeRange };
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     return (uint8)valueWithOffset;
@@ -587,21 +587,21 @@ uint8 RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(uint8& valu
 uint8 RawDataTools::formatSigned6bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto valueWithOffset{ value + matrixParams::offsetForSigned6bitRange };
+    auto valueWithOffset{ value + params::offsetForSigned6bitRange };
     return (uint8)valueWithOffset;
 }
 
 uint8 RawDataTools::formatSigned7bitValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto valueWithOffset{ value + matrixParams::offsetForSigned7bitRange };
+    auto valueWithOffset{ value + params::offsetForSigned7bitRange };
     return (uint8)valueWithOffset;
 }
 
 uint8 RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(int& value) {
     if (value > 127)
         value -= negativeValueOffset;
-    auto valueWithOffset{ value + matrixParams::offsetForSignedZoneTransposeRange };
+    auto valueWithOffset{ value + params::offsetForSignedZoneTransposeRange };
     return (uint8)valueWithOffset;
 }
 

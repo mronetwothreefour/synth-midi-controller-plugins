@@ -133,7 +133,7 @@ void SplitsComponent::comboBoxChanged(ComboBox* comboBox) {
 
 void SplitsComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &splitNameEditor)
-	 editor.setInputRestrictions(matrixParams::maxSplitNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
+	 editor.setInputRestrictions(params::maxSplitNameLength, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[");
 }
 
 void SplitsComponent::labelTextChanged(Label* label) {
@@ -149,7 +149,7 @@ void SplitsComponent::labelTextChanged(Label* label) {
 }
 
 void SplitsComponent::padNameLessThan6CharactersLongWithSpaces(String& name) {
-	for (auto i = name.length(); i != matrixParams::maxSplitNameLength; ++i)
+	for (auto i = name.length(); i != params::maxSplitNameLength; ++i)
 		name += " ";
 }
 
