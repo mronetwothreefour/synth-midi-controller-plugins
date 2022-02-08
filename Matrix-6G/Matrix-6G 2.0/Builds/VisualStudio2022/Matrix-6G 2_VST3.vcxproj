@@ -45,12 +45,12 @@
     <TargetExt>.vst3</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Matrix-6G (Debug)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Matrix-6G 2 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Shared Code</LibraryPath>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Matrix-6G</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Matrix-6G 2</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\Shared Code</LibraryPath>
   </PropertyGroup>
@@ -72,7 +72,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G (Debug).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2 (Debug).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -82,21 +82,21 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G (Debug).vst3</OutputFile>
+      <OutputFile>$(OutDir)\Matrix-6G 2 (Debug).vst3</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G (Debug).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2 (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>Matrix-6G (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Matrix-6G 2 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G (Debug).bsc</OutputFile>
+      <OutputFile>$(IntDir)\Matrix-6G 2 (Debug).bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>Matrix-6G (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Matrix-6G 2 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -116,7 +116,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -126,24 +126,24 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G.vst3</OutputFile>
+      <OutputFile>$(OutDir)\Matrix-6G 2.vst3</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <AdditionalDependencies>Matrix-6G.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Matrix-6G 2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Matrix-6G 2.bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>Matrix-6G.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Matrix-6G 2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

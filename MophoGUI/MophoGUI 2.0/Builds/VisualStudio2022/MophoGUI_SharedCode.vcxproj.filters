@@ -2,6 +2,51 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MophoGUI\Source\core">
+      <UniqueIdentifier>{D2990702-AE88-1E75-81B8-04404EAF26E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\banks">
+      <UniqueIdentifier>{2B307555-6549-F69D-4FD5-0CC91D04D163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\global">
+      <UniqueIdentifier>{BD73CE6E-5DB7-E97D-F1A4-B365CCB24D47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\gui">
+      <UniqueIdentifier>{FCAE6687-518D-B290-2CD6-AE7C1FF2271F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\guiRenderers">
+      <UniqueIdentifier>{E77D70CF-6512-9F47-DCDE-626E7576E0E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\midi">
+      <UniqueIdentifier>{659EB38A-00A5-673F-B1DD-A6404345D2EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\params">
+      <UniqueIdentifier>{F4B38819-5C90-894D-B822-B6BA0DCF3D73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\tooltipSetters">
+      <UniqueIdentifier>{ACB96EFE-668F-B43B-884B-8651BC6D1A00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_BankTransmission">
+      <UniqueIdentifier>{2E3F0396-6B09-E19F-8BB0-66AA1D34D07F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Button">
+      <UniqueIdentifier>{D1CFCBBF-5CF9-FF09-B4EA-4CAE6EDEF1DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ComboBox">
+      <UniqueIdentifier>{C499002B-E3E3-B1C3-0E0F-4735E5EA4714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ControlsForParameters">
+      <UniqueIdentifier>{6C896665-6721-36BB-0281-B4B53F50E22B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Labels">
+      <UniqueIdentifier>{6692245C-40F9-7FF1-2CF0-6061CB4A8C70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_Slider">
+      <UniqueIdentifier>{03B53F85-C073-583F-D631-3A042F98BCC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI\Source\widgets_ToggleButton">
+      <UniqueIdentifier>{21AA7B4A-61D6-65AD-A44D-0D252FCA5141}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI\Source">
       <UniqueIdentifier>{887E1AC2-93E5-65C6-F536-38E88A953C76}</UniqueIdentifier>
     </Filter>
@@ -449,10 +494,265 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
-      <Filter>MophoGUI\Source</Filter>
+      <Filter>MophoGUI\Source\core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
-      <Filter>MophoGUI\Source</Filter>
+      <Filter>MophoGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_HardwareSettingsWarningComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_NRPNisOffWarningComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_SysExIsOffWarningComponent.cpp">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_BankTransmission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.cpp">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.cpp">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForDescriptionTooltip.cpp">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2569,10 +2869,310 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
-      <Filter>MophoGUI\Source</Filter>
+      <Filter>MophoGUI\Source\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
-      <Filter>MophoGUI\Source</Filter>
+      <Filter>MophoGUI\Source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_Constants.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h">
+      <Filter>MophoGUI\Source\banks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersConstants.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_NRPNisOffWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_SysExIsOffWarningComponent.h">
+      <Filter>MophoGUI\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>MophoGUI\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h">
+      <Filter>MophoGUI\Source\guiRenderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
+      <Filter>MophoGUI\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Constants.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
+      <Filter>MophoGUI\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h">
+      <Filter>MophoGUI\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h">
+      <Filter>MophoGUI\Source\widgets_BankTransmission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h">
+      <Filter>MophoGUI\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h">
+      <Filter>MophoGUI\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h">
+      <Filter>MophoGUI\Source\widgets_ControlsForParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.h">
+      <Filter>MophoGUI\Source\widgets_Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithValueStringDisplay.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForDescriptionTooltip.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h">
+      <Filter>MophoGUI\Source\widgets_ToggleButton</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -4997,6 +5597,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF">
+      <Filter>MophoGUI\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Down-Banks.png">
       <Filter>MophoGUI\Resources</Filter>
     </None>
@@ -5025,6 +5628,9 @@
       <Filter>MophoGUI\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Push.png">
+      <Filter>MophoGUI\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Down-Random.png">
       <Filter>MophoGUI\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Read.png">
@@ -5076,6 +5682,9 @@
       <Filter>MophoGUI\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Push.png">
+      <Filter>MophoGUI\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Up-Random.png">
       <Filter>MophoGUI\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Read.png">

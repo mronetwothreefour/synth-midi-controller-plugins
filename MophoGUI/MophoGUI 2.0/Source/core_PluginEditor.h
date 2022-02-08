@@ -1,33 +1,41 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <JuceHeader.h>
-#include "core_PluginProcessor.h"
 
-//==============================================================================
-/**
-*/
-class MophoGUI2_0AudioProcessorEditor  : public juce::AudioProcessorEditor
+
+
+class ButtonForShowingGlobalParametersComponent;
+class ButtonsLayer;
+class EnvelopeRenderersLayer;
+class ExposedParamsControlsLayer;
+class GUILookAndFeel;
+class UnexposedParameters;
+
+class PluginEditor :
+    public AudioProcessorEditor,
+    public ValueTree::Listener
 {
-public:
-    MophoGUI2_0AudioProcessorEditor (MophoGUI2_0AudioProcessor&);
-    ~MophoGUI2_0AudioProcessorEditor() override;
+    PluginProcessor& processor;
+    AudioProcessorValueTreeState* exposedParams;
+    UnexposedParameters* unexposedParams;
+    std::unique_ptr<GUILookAndFeel> lookAndFeel;
+    std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
+    std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
+    std::unique_ptr<ButtonsLayer> buttonsLayer;
+    std::unique_ptr<TooltipWindow> tooltipWindow;
 
-    //==============================================================================
-    void paint (juce::Graphics&) override;
+public:
+    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+
+public:
+    void paint(Graphics& g) override;
     void resized() override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+
+public:
+    ~PluginEditor() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    MophoGUI2_0AudioProcessor& audioProcessor;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MophoGUI2_0AudioProcessorEditor)
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginEditor)
 };

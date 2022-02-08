@@ -45,11 +45,11 @@
     <TargetExt>.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Matrix-6G (Debug)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Matrix-6G 2 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Matrix-6G</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Matrix-6G 2</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -70,7 +70,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G (Debug).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2 (Debug).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -80,17 +80,17 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G (Debug).lib</OutputFile>
+      <OutputFile>$(OutDir)\Matrix-6G 2 (Debug).lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G (Debug).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2 (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G (Debug).bsc</OutputFile>
+      <OutputFile>$(IntDir)\Matrix-6G 2 (Debug).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,7 +110,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -120,11 +120,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G.lib</OutputFile>
+      <OutputFile>$(OutDir)\Matrix-6G 2.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -133,12 +133,127 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Matrix-6G 2.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_MatrixMod.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_matrixMod_Slot.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_Envelopes.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_Tracking.cpp"/>
+    <ClCompile Include="..\..\Source\master\master_MasterOptionsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\master\master_PatchMapComponent.cpp"/>
+    <ClCompile Include="..\..\Source\master\master_PatchMapSlot.cpp"/>
+    <ClCompile Include="..\..\Source\master\master_PatchMapSlotsColumn.cpp"/>
+    <ClCompile Include="..\..\Source\master\master_SysExIsOffWarningComponent.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_PatchDataMessage.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_SplitDataMessage.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_CurrentPatchOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_PatchTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_BankTransmissionComponent.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_PatchBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp"/>
+    <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_BankTransmissionComponent.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_SplitsBank.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_SplitsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_SplitSlotsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingValueTipsEnabled.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderForPitchWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneTranspose.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2105,6 +2220,138 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_MatrixMod.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_PatchNumberAndName.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_matrixMod_Slot.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Path_LEDcharacters_Singleton.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Path_LEDsliderTab.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Path_VerticalBarLED.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ControlValue.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Envelopes.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_PopupMenuItem.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Tracking.h"/>
+    <ClInclude Include="..\..\Source\master\master_Constants.h"/>
+    <ClInclude Include="..\..\Source\master\master_MasterOptionsComponent.h"/>
+    <ClInclude Include="..\..\Source\master\master_PatchMapComponent.h"/>
+    <ClInclude Include="..\..\Source\master\master_PatchMapSlot.h"/>
+    <ClInclude Include="..\..\Source\master\master_PatchMapSlotsColumn.h"/>
+    <ClInclude Include="..\..\Source\master\master_SysExIsOffWarningComponent.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_PatchDataMessage.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_SplitDataMessage.h"/>
+    <ClInclude Include="..\..\Source\params\params_Constants.h"/>
+    <ClInclude Include="..\..\Source\params\params_CurrentPatchOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h"/>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h"/>
+    <ClInclude Include="..\..\Source\params\params_MasterOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h"/>
+    <ClInclude Include="..\..\Source\params\params_PatchTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_RangeTypes.h"/>
+    <ClInclude Include="..\..\Source\params\params_SplitOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_BankTransmissionComponent.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_Constants.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_PatchBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h"/>
+    <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_BankTransmissionComponent.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_Constants.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_SplitsBank.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_SplitsComponent.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_SplitSlotsComponent.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingEntireBankFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPullingSelectedSplitFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForPushingEntireBankToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchChangesEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingPatchMapEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingValueTipsEnabled.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneMIDIout.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
+    <ClInclude Include="..\..\Source\widgets_Label\widget_EditableLabel.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingInPatchForProgramNumber.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderForPitchWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_RotarySliderWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForPatchNumber.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneLimit.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZonePatchNumber.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneTranspose.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_splits_SliderForSettingZoneVolumeBalance.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -2932,6 +3179,7 @@
     <None Include="..\..\Resources\Button-Push-Up.png"/>
     <None Include="..\..\Resources\Button-Quick-Edit-Down.png"/>
     <None Include="..\..\Resources\Button-Quick-Edit-Flash.png"/>
+    <None Include="..\..\Resources\Button-Quick-Edit-Up.png"/>
     <None Include="..\..\Resources\Button-Rand-Down.png"/>
     <None Include="..\..\Resources\Button-Rand-Up.png"/>
     <None Include="..\..\Resources\Button-Redo-Down.png"/>
@@ -2964,9 +3212,6 @@
     <None Include="..\..\Resources\Splits-Window.png"/>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\Resources\Title-Pushing-Entire-Bank.png"/>
-    <None Include="..\..\Resources\z_Button-Quick-Edit-Down.png"/>
-    <None Include="..\..\Resources\z_Button-Quick-Edit-Flash.png"/>
-    <None Include="..\..\Resources\z_Button-Quick-Edit-Up.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

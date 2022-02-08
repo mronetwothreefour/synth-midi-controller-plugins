@@ -38,7 +38,7 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Matrix-6G"
+ #define JucePlugin_Name                   "Matrix-6G 2"
 #endif
 #ifndef  JucePlugin_Desc
  #define JucePlugin_Desc                   "Sound editor/librarian plugin for use with the Oberheim Matrix-6G synthesizer"
@@ -149,7 +149,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: Matrix-6G"
+ #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: Matrix-6G 2"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16

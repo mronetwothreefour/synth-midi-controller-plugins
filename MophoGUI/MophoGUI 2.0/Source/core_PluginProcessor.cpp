@@ -1,191 +1,149 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-//==============================================================================
-MophoGUI2_0AudioProcessor::MophoGUI2_0AudioProcessor()
-#ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
-                     #endif
-                       )
-#endif
+#include "midi/midi_IncomingNRPNhandler.h"
+#include "midi/midi_IncomingSysExHandler.h"
+#include "params/params_ExposedParamsLayout_Factory.h"
+#include "params/params_ExposedParametersListener.h"
+#include "params/params_Identifiers.h"
+#include "params/params_UnexposedParameters_Facade.h"
+
+
+
+PluginProcessor::PluginProcessor() :
+    AudioProcessor{ BusesProperties() },
+    unexposedParams{ new UnexposedParameters() },
+    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
+    exposedParamsListener{ new ExposedParametersListener(exposedParams.get(), unexposedParams.get()) },
+    aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() },
+    incomingNRPNhandler{ new IncomingNRPNhandler(exposedParams.get(), unexposedParams.get()) },
+    incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get(), unexposedParams.get()) }
 {
 }
 
-MophoGUI2_0AudioProcessor::~MophoGUI2_0AudioProcessor()
-{
-}
-
-//==============================================================================
-const juce::String MophoGUI2_0AudioProcessor::getName() const
-{
+const String PluginProcessor::getName() const {
     return JucePlugin_Name;
 }
 
-bool MophoGUI2_0AudioProcessor::acceptsMidi() const
-{
-   #if JucePlugin_WantsMidiInput
+bool PluginProcessor::acceptsMidi() const {
     return true;
-   #else
-    return false;
-   #endif
 }
 
-bool MophoGUI2_0AudioProcessor::producesMidi() const
-{
-   #if JucePlugin_ProducesMidiOutput
+bool PluginProcessor::producesMidi() const {
     return true;
-   #else
-    return false;
-   #endif
 }
 
-bool MophoGUI2_0AudioProcessor::isMidiEffect() const
-{
-   #if JucePlugin_IsMidiEffect
+bool PluginProcessor::isMidiEffect() const {
     return true;
-   #else
-    return false;
-   #endif
 }
 
-double MophoGUI2_0AudioProcessor::getTailLengthSeconds() const
-{
-    return 0.0;
+int PluginProcessor::getNumPrograms() {
+    return 1;
 }
 
-int MophoGUI2_0AudioProcessor::getNumPrograms()
-{
-    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
-                // so this should be at least 1, even if you're not really implementing programs.
-}
-
-int MophoGUI2_0AudioProcessor::getCurrentProgram()
-{
+int PluginProcessor::getCurrentProgram() {
     return 0;
 }
 
-void MophoGUI2_0AudioProcessor::setCurrentProgram (int index)
-{
+void PluginProcessor::setCurrentProgram(int /*index*/) {
 }
 
-const juce::String MophoGUI2_0AudioProcessor::getProgramName (int index)
-{
+const String PluginProcessor::getProgramName(int /*index*/) {
     return {};
 }
 
-void MophoGUI2_0AudioProcessor::changeProgramName (int index, const juce::String& newName)
-{
+void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/) {
 }
 
-//==============================================================================
-void MophoGUI2_0AudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
-{
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
-}
+void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
+    buffer.clear();
 
-void MophoGUI2_0AudioProcessor::releaseResources()
-{
-    // When playback stops, you can use this as an opportunity to free up any
-    // spare memory, etc.
-}
+    if (!midiMessages.isEmpty()) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingSysExHandler->pullSysExWithMatchingIDOutOfBuffer(midiMessages);
+        midiMessagesToPassThrough = incomingNRPNhandler->pullFullyFormedNRPNmessageOutOfBuffer(midiMessagesToPassThrough);
+        midiMessages.swapWith(midiMessagesToPassThrough);
+    }
 
-#ifndef JucePlugin_PreferredChannelConfigurations
-bool MophoGUI2_0AudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
-{
-  #if JucePlugin_IsMidiEffect
-    juce::ignoreUnused (layouts);
-    return true;
-  #else
-    // This is the place where you check if the layout is supported.
-    // In this template code we only support mono or stereo.
-    // Some plugin hosts, such as certain GarageBand versions, will only
-    // load plugins that support stereo bus layouts.
-    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
-     && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
-        return false;
-
-    // This checks if the input layout matches the output layout
-   #if ! JucePlugin_IsSynth
-    if (layouts.getMainOutputChannelSet() != layouts.getMainInputChannelSet())
-        return false;
-   #endif
-
-    return true;
-  #endif
-}
-#endif
-
-void MophoGUI2_0AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
-{
-    juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
-
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
+    if (!aggregatedOutgoingBuffers->isEmpty()) {
+        for (auto event : aggregatedOutgoingBuffers->removeAndReturn(0)) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
+        }
     }
 }
 
-//==============================================================================
-bool MophoGUI2_0AudioProcessor::hasEditor() const
-{
-    return true; // (change this to false if you choose to not supply an editor)
+bool PluginProcessor::isBusesLayoutSupported(const BusesLayout& /*layouts*/) const {
+    return true;
 }
 
-juce::AudioProcessorEditor* MophoGUI2_0AudioProcessor::createEditor()
-{
-    return new MophoGUI2_0AudioProcessorEditor (*this);
+void PluginProcessor::prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/) {
 }
 
-//==============================================================================
-void MophoGUI2_0AudioProcessor::getStateInformation (juce::MemoryBlock& destData)
-{
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+void PluginProcessor::releaseResources() {
 }
 
-void MophoGUI2_0AudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+double PluginProcessor::getTailLengthSeconds() const {
+    return 0.0;
+}
+
+bool PluginProcessor::hasEditor() const {
+    return true;
+}
+
+AudioProcessorEditor* PluginProcessor::createEditor() {
+    return new PluginEditor(*this, exposedParams.get(), unexposedParams.get());
+}
+
+void PluginProcessor::getStateInformation(MemoryBlock& destData) {
+    createPluginStateXml();
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
+}
+
+void PluginProcessor::createPluginStateXml() {
+    auto exposedParamsStateTree{ exposedParams->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->unexposedParams_getStateXml()) };
+    pluginStateXml.reset(new XmlElement(ID::state_PluginState));
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(unexposedParamsStateXml.release());
+}
+
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    pluginStateXml = getXmlFromBinary(data, sizeInBytes);
+    if (pluginStateXml != nullptr)
+        restorePluginStateFromXml(pluginStateXml.get());
+}
+
+void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
+    auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
+    if (exposedParamsStateXml != nullptr) {
+        auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
+        exposedParams->replaceState(exposedParamsStateTree);
+    }
+    auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    if (unexposedParamsStateXml != nullptr) {
+        auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+        unexposedParams->unexposedParams_replaceState(unexposedParamsStateTree);
+    }
+}
+
+PluginProcessor::~PluginProcessor() {
+    pluginStateXml = nullptr;
+    unexposedParams->undoManager_get()->clearUndoHistory();
+    incomingSysExHandler = nullptr;
+    incomingNRPNhandler = nullptr;
+    exposedParamsListener = nullptr;
+    exposedParams = nullptr;
+    unexposedParams = nullptr;
 }
 
 //==============================================================================
 // This creates new instances of the plugin..
-juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
-{
-    return new MophoGUI2_0AudioProcessor();
+AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
+    return new PluginProcessor();
 }
+

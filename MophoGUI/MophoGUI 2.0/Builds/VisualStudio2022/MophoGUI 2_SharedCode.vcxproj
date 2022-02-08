@@ -46,11 +46,11 @@
     <TargetExt>.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MophoGUI (Debug)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MophoGUI 2 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MophoGUI</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MophoGUI 2</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -71,7 +71,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\MophoGUI (Debug).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2 (Debug).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -81,17 +81,17 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\MophoGUI (Debug).lib</OutputFile>
+      <OutputFile>$(OutDir)\MophoGUI 2 (Debug).lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\MophoGUI (Debug).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2 (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\MophoGUI (Debug).bsc</OutputFile>
+      <OutputFile>$(IntDir)\MophoGUI 2 (Debug).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -111,7 +111,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\MophoGUI.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -121,11 +121,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\MophoGUI.lib</OutputFile>
+      <OutputFile>$(OutDir)\MophoGUI 2.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\MophoGUI.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -134,12 +134,97 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\MophoGUI.bsc</OutputFile>
+      <OutputFile>$(IntDir)\MophoGUI 2.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp"/>
+    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_HardwareSettingsWarningComponent.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_NRPNisOffWarningComponent.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_SysExIsOffWarningComponent.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamControls.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp"/>
+    <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
+    <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForDescriptionTooltip.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2106,6 +2191,106 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_Constants.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h"/>
+    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h"/>
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h"/>
+    <ClInclude Include="..\..\Source\global\global_GlobalParametersConstants.h"/>
+    <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h"/>
+    <ClInclude Include="..\..\Source\global\global_NRPNisOffWarningComponent.h"/>
+    <ClInclude Include="..\..\Source\global\global_ParameterReceiveType.h"/>
+    <ClInclude Include="..\..\Source\global\global_SysExIsOffWarningComponent.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Colors.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Constants.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Fonts.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_Buttons.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_EnvelopeRenderers.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_LCDcharacterPaths_Singleton.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForEnvelopes.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h"/>
+    <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h"/>
+    <ClInclude Include="..\..\Source\params\params_Constants.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
+    <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h"/>
+    <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
+    <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h"/>
+    <ClInclude Include="..\..\Source\params\params_MidiOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h"/>
+    <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
+    <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
+    <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h"/>
+    <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForMidiClock.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForParameterSend.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h"/>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlsForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlTypes.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForAudioOutput.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForBalanceTweak.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForMidiControllers.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForParameterReceive.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_DisplayLabelForSysEx.h"/>
+    <ClInclude Include="..\..\Source\widgets_Labels\widget_global_LabelForSettingTooltipDelay.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalFineTune.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalMidiChannel.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_KnobForGlobalTranspose.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobForPitchWithValueStringDisplay.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithExposedParamAttacherForOscWaveShapes.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithValueStringDisplay.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_KnobWithWaveShapeDisplay.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.h"/>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForDescriptionTooltip.h"/>
+    <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_ToggleButtonWithWithExposedParamAttacher.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

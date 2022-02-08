@@ -4,7 +4,7 @@
               version="2.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
               companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
               pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
-              pluginName="Matrix-6G" pluginDesc="Sound editor/librarian plugin for use with the Oberheim Matrix-6G synthesizer"
+              pluginDesc="Sound editor/librarian plugin for use with the Oberheim Matrix-6G synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
   <MAINGROUP id="l7DnAO" name="Matrix-6G 2">
     <GROUP id="{EDC5CFC0-B718-A47B-71D1-C65EF337CA4E}" name="Source">
@@ -17,6 +17,523 @@
               file="Source/core_PluginEditor.cpp"/>
         <FILE id="bsEkLi" name="core_PluginEditor.h" compile="0" resource="0"
               file="Source/core_PluginEditor.h"/>
+      </GROUP>
+      <GROUP id="{112BC586-2E49-A77D-C951-D9AC91CE4B0B}" name="gui">
+        <FILE id="Ti6uoR" name="gui_Colors.h" compile="0" resource="0" file="Source/gui/gui_Colors.h"/>
+        <FILE id="NR2a0S" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
+        <FILE id="xWKOc2" name="gui_Fonts.h" compile="0" resource="0" file="Source/gui/gui_Fonts.h"/>
+        <FILE id="NKDjjg" name="gui_Layer_Buttons.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_Buttons.cpp"/>
+        <FILE id="hpP9o3" name="gui_Layer_Buttons.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_Buttons.h"/>
+        <FILE id="YkN58d" name="gui_Layer_EnvelopeRenderers.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_EnvelopeRenderers.h"/>
+        <FILE id="nSFzGH" name="gui_Layer_ExposedParamsControls.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
+        <FILE id="gY0vVA" name="gui_Layer_ExposedParamsControls.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
+        <FILE id="mfGpwI" name="gui_Layer_MatrixMod.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_MatrixMod.cpp"/>
+        <FILE id="xHhNb8" name="gui_Layer_MatrixMod.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_MatrixMod.h"/>
+        <FILE id="AwtP94" name="gui_Layer_PatchNumberAndName.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_PatchNumberAndName.cpp"/>
+        <FILE id="eQZ2O8" name="gui_Layer_PatchNumberAndName.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_PatchNumberAndName.h"/>
+        <FILE id="hxhqs1" name="gui_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_LookAndFeel.cpp"/>
+        <FILE id="b8ImPm" name="gui_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_LookAndFeel.h"/>
+        <FILE id="kydofC" name="gui_matrixMod_Slot.cpp" compile="1" resource="0"
+              file="Source/gui/gui_matrixMod_Slot.cpp"/>
+        <FILE id="X9iHBy" name="gui_matrixMod_Slot.h" compile="0" resource="0"
+              file="Source/gui/gui_matrixMod_Slot.h"/>
+        <FILE id="WyGEkl" name="gui_Path_LEDcharacters_Singleton.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Path_LEDcharacters_Singleton.cpp"/>
+        <FILE id="wtY6er" name="gui_Path_LEDcharacters_Singleton.h" compile="0"
+              resource="0" file="Source/gui/gui_Path_LEDcharacters_Singleton.h"/>
+        <FILE id="OYOzV9" name="gui_Path_LEDsliderTab.h" compile="0" resource="0"
+              file="Source/gui/gui_Path_LEDsliderTab.h"/>
+        <FILE id="dQClep" name="gui_Path_VerticalBarLED.h" compile="0" resource="0"
+              file="Source/gui/gui_Path_VerticalBarLED.h"/>
+      </GROUP>
+      <GROUP id="{11E19CE5-933C-C862-6AD9-15FD54D33483}" name="guiRenderers">
+        <FILE id="EXt24k" name="guiRenderer_ControlValue.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_ControlValue.h"/>
+        <FILE id="PDSofE" name="guiRenderer_Envelopes.cpp" compile="1" resource="0"
+              file="Source/guiRenderers/guiRenderer_Envelopes.cpp"/>
+        <FILE id="TcxciB" name="guiRenderer_Envelopes.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_Envelopes.h"/>
+        <FILE id="UCbfyn" name="guiRenderer_PopupMenuItem.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_PopupMenuItem.h"/>
+        <FILE id="kJBQ4n" name="guiRenderer_Tracking.cpp" compile="1" resource="0"
+              file="Source/guiRenderers/guiRenderer_Tracking.cpp"/>
+        <FILE id="XhxUPA" name="guiRenderer_Tracking.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_Tracking.h"/>
+      </GROUP>
+      <GROUP id="{A9650340-9335-68CF-9DE1-351D87BB328B}" name="master">
+        <FILE id="WS4UZN" name="master_Constants.h" compile="0" resource="0"
+              file="Source/master/master_Constants.h"/>
+        <FILE id="Zy3Xcb" name="master_MasterOptionsComponent.cpp" compile="1"
+              resource="0" file="Source/master/master_MasterOptionsComponent.cpp"/>
+        <FILE id="QTSxSl" name="master_MasterOptionsComponent.h" compile="0"
+              resource="0" file="Source/master/master_MasterOptionsComponent.h"/>
+        <FILE id="HAcvmy" name="master_PatchMapComponent.cpp" compile="1" resource="0"
+              file="Source/master/master_PatchMapComponent.cpp"/>
+        <FILE id="sgaSh3" name="master_PatchMapComponent.h" compile="0" resource="0"
+              file="Source/master/master_PatchMapComponent.h"/>
+        <FILE id="aTLy5R" name="master_PatchMapSlot.cpp" compile="1" resource="0"
+              file="Source/master/master_PatchMapSlot.cpp"/>
+        <FILE id="wIQdFn" name="master_PatchMapSlot.h" compile="0" resource="0"
+              file="Source/master/master_PatchMapSlot.h"/>
+        <FILE id="tYtn5K" name="master_PatchMapSlotsColumn.cpp" compile="1"
+              resource="0" file="Source/master/master_PatchMapSlotsColumn.cpp"/>
+        <FILE id="we5pUI" name="master_PatchMapSlotsColumn.h" compile="0" resource="0"
+              file="Source/master/master_PatchMapSlotsColumn.h"/>
+        <FILE id="sESKiV" name="master_SysExIsOffWarningComponent.cpp" compile="1"
+              resource="0" file="Source/master/master_SysExIsOffWarningComponent.cpp"/>
+        <FILE id="CRMPvY" name="master_SysExIsOffWarningComponent.h" compile="0"
+              resource="0" file="Source/master/master_SysExIsOffWarningComponent.h"/>
+      </GROUP>
+      <GROUP id="{41D2C7F7-132C-7288-59AA-D2313EEDD12E}" name="midi">
+        <FILE id="Ugvy3r" name="midi_Constants.h" compile="0" resource="0"
+              file="Source/midi/midi_Constants.h"/>
+        <FILE id="k33q0T" name="midi_IncomingSysExHandler.cpp" compile="1"
+              resource="0" file="Source/midi/midi_IncomingSysExHandler.cpp"/>
+        <FILE id="Y972EO" name="midi_IncomingSysExHandler.h" compile="0" resource="0"
+              file="Source/midi/midi_IncomingSysExHandler.h"/>
+        <FILE id="JiZqwa" name="midi_MasterOptionsDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_MasterOptionsDataMessage.cpp"/>
+        <FILE id="L7KP7I" name="midi_MasterOptionsDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_MasterOptionsDataMessage.h"/>
+        <FILE id="r4hp7O" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
+        <FILE id="gAhKl2" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.h"/>
+        <FILE id="FpwsSc" name="midi_PatchDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_PatchDataMessage.cpp"/>
+        <FILE id="N07qzW" name="midi_PatchDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_PatchDataMessage.h"/>
+        <FILE id="pyiaAd" name="midi_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_RawDataTools.cpp"/>
+        <FILE id="UnQtvd" name="midi_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_RawDataTools.h"/>
+        <FILE id="u1k9rc" name="midi_SplitDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_SplitDataMessage.cpp"/>
+        <FILE id="aEvQ0M" name="midi_SplitDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_SplitDataMessage.h"/>
+      </GROUP>
+      <GROUP id="{5FBF3653-1A60-2484-7D9F-19F4C03DCDA3}" name="params">
+        <FILE id="TZsnTq" name="params_Constants.h" compile="0" resource="0"
+              file="Source/params/params_Constants.h"/>
+        <FILE id="FO3Pfr" name="params_CurrentPatchOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_CurrentPatchOptions.cpp"/>
+        <FILE id="BjgAjg" name="params_CurrentPatchOptions.h" compile="0" resource="0"
+              file="Source/params/params_CurrentPatchOptions.h"/>
+        <FILE id="WK2pFx" name="params_ExposedParametersListener.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParametersListener.cpp"/>
+        <FILE id="Lr4YbU" name="params_ExposedParametersListener.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParametersListener.h"/>
+        <FILE id="wm7z6z" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.cpp"/>
+        <FILE id="avfGE0" name="params_ExposedParamsInfo_Singleton.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
+        <FILE id="BY502Y" name="params_ExposedParamsLayout_Factory.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
+        <FILE id="dUFlkh" name="params_ExposedParamsLayout_Factory.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
+        <FILE id="rnPrcY" name="params_Identifiers.h" compile="0" resource="0"
+              file="Source/params/params_Identifiers.h"/>
+        <FILE id="AL9Suk" name="params_IntToContextualStringConverters.cpp"
+              compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
+        <FILE id="K9nC2c" name="params_IntToContextualStringConverters.h" compile="0"
+              resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="jbSaNQ" name="params_MasterOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_MasterOptions.cpp"/>
+        <FILE id="jaSexq" name="params_MasterOptions.h" compile="0" resource="0"
+              file="Source/params/params_MasterOptions.h"/>
+        <FILE id="sGSn5d" name="params_MatrixModSettings.cpp" compile="1" resource="0"
+              file="Source/params/params_MatrixModSettings.cpp"/>
+        <FILE id="KjRXei" name="params_MatrixModSettings.h" compile="0" resource="0"
+              file="Source/params/params_MatrixModSettings.h"/>
+        <FILE id="bsH11Y" name="params_PatchTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_PatchTransmissionOptions.cpp"/>
+        <FILE id="YkHJgd" name="params_PatchTransmissionOptions.h" compile="0"
+              resource="0" file="Source/params/params_PatchTransmissionOptions.h"/>
+        <FILE id="Baw5Kz" name="params_RangeTypes.h" compile="0" resource="0"
+              file="Source/params/params_RangeTypes.h"/>
+        <FILE id="vvxMtI" name="params_SplitOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_SplitOptions.cpp"/>
+        <FILE id="n6ESeg" name="params_SplitOptions.h" compile="0" resource="0"
+              file="Source/params/params_SplitOptions.h"/>
+        <FILE id="fljn1t" name="params_TooltipOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_TooltipOptions.cpp"/>
+        <FILE id="o5IGNV" name="params_TooltipOptions.h" compile="0" resource="0"
+              file="Source/params/params_TooltipOptions.h"/>
+        <FILE id="W6iqhy" name="params_UnexposedParameters_Facade.cpp" compile="1"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
+        <FILE id="hpY4YK" name="params_UnexposedParameters_Facade.h" compile="0"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+      </GROUP>
+      <GROUP id="{D9ACF7D2-79C2-25CC-F886-05E14DE862D4}" name="patches">
+        <FILE id="yzHp5n" name="patches_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/patches/patches_BankTransmissionComponent.cpp"/>
+        <FILE id="TSoWuw" name="patches_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/patches/patches_BankTransmissionComponent.h"/>
+        <FILE id="RVCdvR" name="patches_Constants.h" compile="0" resource="0"
+              file="Source/patches/patches_Constants.h"/>
+        <FILE id="GKLE4H" name="patches_FactoryPatchDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/patches/patches_FactoryPatchDataHexStrings_Singleton.cpp"/>
+        <FILE id="Bno1AL" name="patches_FactoryPatchDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/patches/patches_FactoryPatchDataHexStrings_Singleton.h"/>
+        <FILE id="kvc1Qp" name="patches_PatchBanks.cpp" compile="1" resource="0"
+              file="Source/patches/patches_PatchBanks.cpp"/>
+        <FILE id="LsJ0my" name="patches_PatchBanks.h" compile="0" resource="0"
+              file="Source/patches/patches_PatchBanks.h"/>
+        <FILE id="oMerHO" name="patches_PatchBanksComponent.cpp" compile="1"
+              resource="0" file="Source/patches/patches_PatchBanksComponent.cpp"/>
+        <FILE id="btOGMc" name="patches_PatchBanksComponent.h" compile="0"
+              resource="0" file="Source/patches/patches_PatchBanksComponent.h"/>
+        <FILE id="OJZsNQ" name="patches_PatchSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/patches/patches_PatchSlotsComponent.cpp"/>
+        <FILE id="IoyteO" name="patches_PatchSlotsComponent.h" compile="0"
+              resource="0" file="Source/patches/patches_PatchSlotsComponent.h"/>
+        <FILE id="PS3KAe" name="patches_TabbedComponentForPatchBanks.cpp" compile="1"
+              resource="0" file="Source/patches/patches_TabbedComponentForPatchBanks.cpp"/>
+        <FILE id="GavO2D" name="patches_TabbedComponentForPatchBanks.h" compile="0"
+              resource="0" file="Source/patches/patches_TabbedComponentForPatchBanks.h"/>
+        <FILE id="paRlrD" name="patches_TabForCustomPatchBank.cpp" compile="1"
+              resource="0" file="Source/patches/patches_TabForCustomPatchBank.cpp"/>
+        <FILE id="eMJOBv" name="patches_TabForCustomPatchBank.h" compile="0"
+              resource="0" file="Source/patches/patches_TabForCustomPatchBank.h"/>
+        <FILE id="xJjZgJ" name="patches_TabForFactoryPatchBank.cpp" compile="1"
+              resource="0" file="Source/patches/patches_TabForFactoryPatchBank.cpp"/>
+        <FILE id="IxCFKF" name="patches_TabForFactoryPatchBank.h" compile="0"
+              resource="0" file="Source/patches/patches_TabForFactoryPatchBank.h"/>
+      </GROUP>
+      <GROUP id="{43DB3D97-0148-8EAA-1353-E719854D2AF2}" name="splits">
+        <FILE id="asdVzA" name="splits_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/splits/splits_BankTransmissionComponent.cpp"/>
+        <FILE id="BnFB3L" name="splits_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/splits/splits_BankTransmissionComponent.h"/>
+        <FILE id="TR7wh3" name="splits_Constants.h" compile="0" resource="0"
+              file="Source/splits/splits_Constants.h"/>
+        <FILE id="BVPaei" name="splits_SplitsBank.cpp" compile="1" resource="0"
+              file="Source/splits/splits_SplitsBank.cpp"/>
+        <FILE id="hDXYiN" name="splits_SplitsBank.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitsBank.h"/>
+        <FILE id="V83k8B" name="splits_SplitsComponent.cpp" compile="1" resource="0"
+              file="Source/splits/splits_SplitsComponent.cpp"/>
+        <FILE id="Xgianq" name="splits_SplitsComponent.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitsComponent.h"/>
+        <FILE id="Q64Aoa" name="splits_SplitSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/splits/splits_SplitSlotsComponent.cpp"/>
+        <FILE id="FAW3bJ" name="splits_SplitSlotsComponent.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitSlotsComponent.h"/>
+      </GROUP>
+      <GROUP id="{DC2D9C9F-CE61-5592-7820-A98419FBA5AF}" name="tooltipSetters">
+        <FILE id="VfM9TW" name="tooltipSetter_Base.cpp" compile="1" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
+        <FILE id="uBJ81J" name="tooltipSetter_Base.h" compile="0" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.h"/>
+        <FILE id="n0nIv9" name="tooltipSetter_ForExposedParamComboBoxes.cpp"
+              compile="1" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.cpp"/>
+        <FILE id="VbG928" name="tooltipSetter_ForExposedParamComboBoxes.h"
+              compile="0" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.h"/>
+        <FILE id="lyhrUf" name="tooltipSetter_ForExposedParamSliders.cpp" compile="1"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.cpp"/>
+        <FILE id="GCBWwQ" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.h"/>
+      </GROUP>
+      <GROUP id="{77A907EF-4AAD-6EDF-4C50-7AF6DF493844}" name="widgets_Button">
+        <FILE id="AoSJEl" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+        <FILE id="bOMhy4" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+        <FILE id="IA6zLh" name="widget_ButtonForActivatingQuickPatchEdit.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickPatchEdit.cpp"/>
+        <FILE id="U4cKZV" name="widget_ButtonForActivatingQuickPatchEdit.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"/>
+        <FILE id="LfEnHM" name="widget_ButtonForPerformingRedo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
+        <FILE id="aUwJ1a" name="widget_ButtonForPerformingRedo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.h"/>
+        <FILE id="KB7mi4" name="widget_ButtonForPerformingUndo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
+        <FILE id="Y1LVKU" name="widget_ButtonForPerformingUndo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
+        <FILE id="Rbia78" name="widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp"/>
+        <FILE id="AdXHPb" name="widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"/>
+        <FILE id="iE2QjT" name="widget_ButtonForPushingPatchToHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.cpp"/>
+        <FILE id="lx8O0d" name="widget_ButtonForPushingPatchToHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"/>
+        <FILE id="zt0Y5a" name="widget_ButtonForShowingMasterOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.cpp"/>
+        <FILE id="MZheDM" name="widget_ButtonForShowingMasterOptionsComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"/>
+        <FILE id="gn81r5" name="widget_ButtonForShowingPatchBanksComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingPatchBanksComponent.cpp"/>
+        <FILE id="hF9oDw" name="widget_ButtonForShowingPatchBanksComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingPatchBanksComponent.h"/>
+        <FILE id="WOC0PK" name="widget_ButtonForShowingSplitsComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.cpp"/>
+        <FILE id="DufaKi" name="widget_ButtonForShowingSplitsComponent.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.h"/>
+        <FILE id="JwE7oX" name="widget_master_ButtonForPushingMasterOptionsToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.cpp"/>
+        <FILE id="ZsVHJ9" name="widget_master_ButtonForPushingMasterOptionsToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.h"/>
+        <FILE id="JrGvZn" name="widget_master_ButtonForShowingPatchMapComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.cpp"/>
+        <FILE id="iutpPp" name="widget_master_ButtonForShowingPatchMapComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"/>
+        <FILE id="Wgj0pH" name="widget_patches_ButtonForLoadingSelectedPatch.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForLoadingSelectedPatch.cpp"/>
+        <FILE id="XvwmoM" name="widget_patches_ButtonForLoadingSelectedPatch.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForLoadingSelectedPatch.h"/>
+        <FILE id="OV4Azs" name="widget_patches_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="fmwPdx" name="widget_patches_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="yVUO7k" name="widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp"/>
+        <FILE id="dX1swv" name="widget_patches_ButtonForPullingSelectedPatchFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingSelectedPatchFromHardware.h"/>
+        <FILE id="i0Pe2d" name="widget_patches_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="R81J6R" name="widget_patches_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="bjQMFH" name="widget_patches_ButtonForSavingPatchInSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForSavingPatchInSelectedSlot.cpp"/>
+        <FILE id="BHLOT6" name="widget_patches_ButtonForSavingPatchInSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForSavingPatchInSelectedSlot.h"/>
+        <FILE id="QBRXou" name="widget_splits_ButtonForLoadingSelectedSplit.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
+        <FILE id="GsbYgs" name="widget_splits_ButtonForLoadingSelectedSplit.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.h"/>
+        <FILE id="MgpBAc" name="widget_splits_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="NDRc5P" name="widget_splits_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="LZQy4C" name="widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp"/>
+        <FILE id="qnnISY" name="widget_splits_ButtonForPullingSelectedSplitFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.h"/>
+        <FILE id="LeSQbd" name="widget_splits_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="ZbZetT" name="widget_splits_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="OF1LhS" name="widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"/>
+        <FILE id="WqNUpR" name="widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"/>
+      </GROUP>
+      <GROUP id="{6BF79D82-0E7C-60A9-D463-82B9462A76C2}" name="widgets_ComboBox">
+        <FILE id="QQhltc" name="widget_BaseComboBoxForOffOnValueTreeProperty.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_BaseComboBoxForOffOnValueTreeProperty.cpp"/>
+        <FILE id="n9CQpP" name="widget_BaseComboBoxForOffOnValueTreeProperty.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_BaseComboBoxForOffOnValueTreeProperty.h"/>
+        <FILE id="HG8uEO" name="widget_ComboBoxWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.cpp"/>
+        <FILE id="bLDLvl" name="widget_ComboBoxWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.h"/>
+        <FILE id="g3uHDt" name="widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp"/>
+        <FILE id="SUlFrj" name="widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"/>
+        <FILE id="eXKNcF" name="widget_master_ComboBoxForSelectingControllersEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.cpp"/>
+        <FILE id="OzRC4T" name="widget_master_ComboBoxForSelectingControllersEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"/>
+        <FILE id="ldLhFZ" name="widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp"/>
+        <FILE id="R4PMtt" name="widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"/>
+        <FILE id="mzSUdg" name="widget_master_ComboBoxForSelectingLocalControlEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.cpp"/>
+        <FILE id="KVFPDh" name="widget_master_ComboBoxForSelectingLocalControlEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.h"/>
+        <FILE id="KzOPww" name="widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp"/>
+        <FILE id="nkd40A" name="widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"/>
+        <FILE id="RX0YXh" name="widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp"/>
+        <FILE id="hrdqPJ" name="widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"/>
+        <FILE id="pwd8eW" name="widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"/>
+        <FILE id="dfggzH" name="widget_master_ComboBoxForSelectingOmniModeEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"/>
+        <FILE id="A0JuOf" name="widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp"/>
+        <FILE id="q6qtes" name="widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"/>
+        <FILE id="H8crCY" name="widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp"/>
+        <FILE id="VKNn7Q" name="widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"/>
+        <FILE id="EhB4Jj" name="widget_master_ComboBoxForSelectingPatchMapEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.cpp"/>
+        <FILE id="xE4ZnT" name="widget_master_ComboBoxForSelectingPatchMapEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.h"/>
+        <FILE id="hyozR3" name="widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"/>
+        <FILE id="i7dYOF" name="widget_master_ComboBoxForSelectingSpilloverEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"/>
+        <FILE id="DT3Kh4" name="widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp"/>
+        <FILE id="MoBj8N" name="widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"/>
+        <FILE id="ygDOB9" name="widget_master_ComboBoxForSelectingSQUICKenabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.cpp"/>
+        <FILE id="fzoAXC" name="widget_master_ComboBoxForSelectingSQUICKenabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.h"/>
+        <FILE id="mzmpg2" name="widget_master_ComboBoxForSelectingSysExEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.cpp"/>
+        <FILE id="iVv82I" name="widget_master_ComboBoxForSelectingSysExEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"/>
+        <FILE id="WtLfFP" name="widget_master_ComboBoxForSelectingValueTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.cpp"/>
+        <FILE id="vNYbCl" name="widget_master_ComboBoxForSelectingValueTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.h"/>
+        <FILE id="rgS07N" name="widget_master_ComboBoxForSelectingVibratoModSource.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.cpp"/>
+        <FILE id="rXoM19" name="widget_master_ComboBoxForSelectingVibratoModSource.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"/>
+        <FILE id="eIhIZi" name="widget_master_ComboBoxForSelectingVibratoWaveType.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.cpp"/>
+        <FILE id="lodiS5" name="widget_master_ComboBoxForSelectingVibratoWaveType.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"/>
+        <FILE id="NFqaLN" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"/>
+        <FILE id="zyKEZD" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"/>
+        <FILE id="iTrF3p" name="widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"/>
+        <FILE id="FzFelQ" name="widget_matrixMod_ComboBoxForSelectingSourceForMod.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.h"/>
+        <FILE id="ifkO64" name="widget_patches_ComboBoxForSelectingPatchBank.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_patches_ComboBoxForSelectingPatchBank.cpp"/>
+        <FILE id="v3qrBg" name="widget_patches_ComboBoxForSelectingPatchBank.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_patches_ComboBoxForSelectingPatchBank.h"/>
+        <FILE id="olUGbk" name="widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"/>
+        <FILE id="pPTkCt" name="widget_splits_ComboBoxForSelectingZoneMIDIout.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.h"/>
+        <FILE id="TTEOJN" name="widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"/>
+        <FILE id="PYIFUe" name="widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"/>
+      </GROUP>
+      <GROUP id="{93DD19EC-05B5-E896-1662-DA903C62E6EC}" name="widgets_ControlsForParameters">
+        <FILE id="ks1X1U" name="widget_ControlForExposedParameter.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.cpp"/>
+        <FILE id="AkxuxK" name="widget_ControlForExposedParameter.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.h"/>
+        <FILE id="SCn615" name="widget_ControlsForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.cpp"/>
+        <FILE id="FYD9gv" name="widget_ControlsForExposedParameters.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"/>
+        <FILE id="rdcFVG" name="widget_ControlTypes.h" compile="0" resource="0"
+              file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
+      </GROUP>
+      <GROUP id="{597D30C1-7E28-A557-D8D2-530C3179F5CD}" name="widgets_Label">
+        <FILE id="G7g9Iv" name="widget_EditableLabel.h" compile="0" resource="0"
+              file="Source/widgets_Label/widget_EditableLabel.h"/>
+      </GROUP>
+      <GROUP id="{84B2F553-C0C5-2019-A2BE-1AC61064A459}" name="widgets_Slider">
+        <FILE id="vBOBrr" name="widget_BaseSliderForSettingControllerNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_BaseSliderForSettingControllerNumber.cpp"/>
+        <FILE id="SYutKm" name="widget_BaseSliderForSettingControllerNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_BaseSliderForSettingControllerNumber.h"/>
+        <FILE id="zAmF7d" name="widget_LinearSliderWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.cpp"/>
+        <FILE id="NCDuSM" name="widget_LinearSliderWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.h"/>
+        <FILE id="CnLvSY" name="widget_master_SliderForSettingBasicChannel.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingBasicChannel.cpp"/>
+        <FILE id="LNvkUA" name="widget_master_SliderForSettingBasicChannel.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingBasicChannel.h"/>
+        <FILE id="lDH9FU" name="widget_master_SliderForSettingDisplayBrightness.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingDisplayBrightness.cpp"/>
+        <FILE id="bYtFoT" name="widget_master_SliderForSettingDisplayBrightness.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingDisplayBrightness.h"/>
+        <FILE id="F2bmhd" name="widget_master_SliderForSettingLever2Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever2Controller.cpp"/>
+        <FILE id="v7hzbI" name="widget_master_SliderForSettingLever2Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever2Controller.h"/>
+        <FILE id="rrba50" name="widget_master_SliderForSettingLever3Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever3Controller.cpp"/>
+        <FILE id="hJ0n9l" name="widget_master_SliderForSettingLever3Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever3Controller.h"/>
+        <FILE id="DuthOu" name="widget_master_SliderForSettingMasterTune.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingMasterTune.cpp"/>
+        <FILE id="Fl0LAW" name="widget_master_SliderForSettingMasterTune.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingMasterTune.h"/>
+        <FILE id="IAWyRp" name="widget_master_SliderForSettingPedalController.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingPedalController.cpp"/>
+        <FILE id="nF1Tnc" name="widget_master_SliderForSettingPedalController.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingPedalController.h"/>
+        <FILE id="qDFhOJ" name="widget_master_SliderForSettingVibratoAmplitude.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.cpp"/>
+        <FILE id="V7BoO2" name="widget_master_SliderForSettingVibratoAmplitude.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.h"/>
+        <FILE id="Lfd0xa" name="widget_master_SliderForSettingVibratoModAmount.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoModAmount.cpp"/>
+        <FILE id="kVXbym" name="widget_master_SliderForSettingVibratoModAmount.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoModAmount.h"/>
+        <FILE id="X6FytU" name="widget_master_SliderForSettingVibratoSpeed.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoSpeed.cpp"/>
+        <FILE id="yoVT3A" name="widget_master_SliderForSettingVibratoSpeed.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoSpeed.h"/>
+        <FILE id="pERCFz" name="widget_matrixMod_SliderForSettingAmountForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_matrixMod_SliderForSettingAmountForMod.cpp"/>
+        <FILE id="NfFXqY" name="widget_matrixMod_SliderForSettingAmountForMod.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_matrixMod_SliderForSettingAmountForMod.h"/>
+        <FILE id="rtMy4Y" name="widget_ModifiedJuceSliders.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
+        <FILE id="VGqW8u" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
+              file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+        <FILE id="Pp5sDq" name="widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp"/>
+        <FILE id="lO6A6H" name="widget_patchMap_SliderForSettingInPatchForProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingInPatchForProgramNumber.h"/>
+        <FILE id="BLTbQ9" name="widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp"/>
+        <FILE id="ezNdN4" name="widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"/>
+        <FILE id="mDAkyu" name="widget_RotarySliderForPitchWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderForPitchWithExposedParamAttacher.cpp"/>
+        <FILE id="PkEvBN" name="widget_RotarySliderForPitchWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_RotarySliderForPitchWithExposedParamAttacher.h"/>
+        <FILE id="CB2ll3" name="widget_RotarySliderWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.cpp"/>
+        <FILE id="PAzkfo" name="widget_RotarySliderWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.h"/>
+        <FILE id="eIfbg9" name="widget_SliderForPatchNumber.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_SliderForPatchNumber.cpp"/>
+        <FILE id="I1Xozr" name="widget_SliderForPatchNumber.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_SliderForPatchNumber.h"/>
+        <FILE id="aD8cMq" name="widget_splits_SliderForSettingZoneLimit.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.cpp"/>
+        <FILE id="TOkH3K" name="widget_splits_SliderForSettingZoneLimit.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.h"/>
+        <FILE id="WlZU71" name="widget_splits_SliderForSettingZonePatchNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.cpp"/>
+        <FILE id="DxBxx4" name="widget_splits_SliderForSettingZonePatchNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.h"/>
+        <FILE id="ag5wM5" name="widget_splits_SliderForSettingZoneTranspose.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.cpp"/>
+        <FILE id="Q0z0yi" name="widget_splits_SliderForSettingZoneTranspose.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.h"/>
+        <FILE id="zup1tp" name="widget_splits_SliderForSettingZoneVolumeBalance.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.cpp"/>
+        <FILE id="vJfamF" name="widget_splits_SliderForSettingZoneVolumeBalance.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{ACAB5C26-26C1-DB80-037D-577F9CE8BE5B}" name="Resources">
@@ -54,6 +571,8 @@
             file="Resources/Button-Quick-Edit-Down.png"/>
       <FILE id="wbIsVU" name="Button-Quick-Edit-Flash.png" compile="0" resource="1"
             file="Resources/Button-Quick-Edit-Flash.png"/>
+      <FILE id="i0gduo" name="Button-Quick-Edit-Up.png" compile="0" resource="1"
+            file="Resources/Button-Quick-Edit-Up.png"/>
       <FILE id="D8QDAK" name="Button-Rand-Down.png" compile="0" resource="1"
             file="Resources/Button-Rand-Down.png"/>
       <FILE id="h946w9" name="Button-Rand-Up.png" compile="0" resource="1"
@@ -117,21 +636,15 @@
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="UyJcX7" name="Title-Pushing-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pushing-Entire-Bank.png"/>
-      <FILE id="Wc3R74" name="z_Button-Quick-Edit-Down.png" compile="0" resource="1"
-            file="Resources/z_Button-Quick-Edit-Down.png"/>
-      <FILE id="jYjQA8" name="z_Button-Quick-Edit-Flash.png" compile="0"
-            resource="1" file="Resources/z_Button-Quick-Edit-Flash.png"/>
-      <FILE id="sfjMQt" name="z_Button-Quick-Edit-Up.png" compile="0" resource="1"
-            file="Resources/z_Button-Quick-Edit-Up.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G 2 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
                        defines="HOST_DOES_NOT_ADD_F0_AND_F7=1"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release"
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G 2" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release"
                        defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

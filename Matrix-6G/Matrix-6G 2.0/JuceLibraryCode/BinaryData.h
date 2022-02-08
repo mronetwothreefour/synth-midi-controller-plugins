@@ -62,6 +62,9 @@ namespace BinaryData
     extern const char*   ButtonQuickEditFlash_png;
     const int            ButtonQuickEditFlash_pngSize = 477;
 
+    extern const char*   ButtonQuickEditUp_png;
+    const int            ButtonQuickEditUp_pngSize = 481;
+
     extern const char*   ButtonRandDown_png;
     const int            ButtonRandDown_pngSize = 417;
 
@@ -158,17 +161,8 @@ namespace BinaryData
     extern const char*   TitlePushingEntireBank_png;
     const int            TitlePushingEntireBank_pngSize = 2468;
 
-    extern const char*   z_ButtonQuickEditDown_png;
-    const int            z_ButtonQuickEditDown_pngSize = 708;
-
-    extern const char*   z_ButtonQuickEditFlash_png;
-    const int            z_ButtonQuickEditFlash_pngSize = 686;
-
-    extern const char*   z_ButtonQuickEditUp_png;
-    const int            z_ButtonQuickEditUp_pngSize = 709;
-
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 53;
+    const int namedResourceListSize = 51;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
