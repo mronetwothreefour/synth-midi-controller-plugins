@@ -10,64 +10,64 @@ using namespace constants;
 
 
 
-TabForCustomPatchBank::TabForCustomPatchBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
+TabForCustomVoicesBank::TabForCustomVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
-	patchSlots{ bank, exposedParams, unexposedParams },
+	voiceSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	patchCopyBuffer{ patchCopyBuffer },
-	button_ForLoadingSelectedPatch{ patchSlots, unexposedParams },
-	button_ForSavingPatchInSelectedSlot{ patchSlots, unexposedParams },
+	voiceCopyBuffer{ voiceCopyBuffer },
+	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
+	button_ForSavingVoiceIntoSelectedSlot{ voiceSlots, unexposedParams },
 	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
-	button_ForPullingSelectedPatchFromHardware{ patchSlots, unexposedParams },
+	button_ForPullingSelectedVoiceFromHardware{ voiceSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams }
 {
-	addAndMakeVisible(patchSlots);
-	addAndMakeVisible(button_ForLoadingSelectedPatch);
-	addAndMakeVisible(button_ForSavingPatchInSelectedSlot);
-	addAndMakeVisible(button_ForPullingSelectedPatchFromHardware);
+	addAndMakeVisible(voiceSlots);
+	addAndMakeVisible(button_ForLoadingSelectedVoice);
+	addAndMakeVisible(button_ForSavingVoiceIntoSelectedSlot);
+	addAndMakeVisible(button_ForPullingSelectedVoiceFromHardware);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
-	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
+	setSize(GUI::voicesBanksTab_w, GUI::voicesBanksTab_h);
 }
 
-void TabForCustomPatchBank::paint(Graphics& g) {
+void TabForCustomVoicesBank::paint(Graphics& g) {
 	g.fillAll(Color::device);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::PatchesFooterForCustomBanks_png, BinaryData::PatchesFooterForCustomBanks_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, GUI::patchBanksTabFooter_x, GUI::patchBanksTabFooter_y);
+	g.drawImageAt(backgroundImage, GUI::voicesBanksTabFooter_x, GUI::voicesBanksTabFooter_y);
 }
 
-void TabForCustomPatchBank::resized() {
-	patchSlots.setBounds(GUI::bounds_PatchSlotsComponent);
-	button_ForLoadingSelectedPatch.setBounds(GUI::bounds_PatchBanksCustomTabLoadButton);
-	button_ForSavingPatchInSelectedSlot.setBounds(GUI::bounds_PatchBanksCustomTabSaveButton);
-	button_ForPullingSelectedPatchFromHardware.setBounds(GUI::bounds_PatchBanksCustomTabPullSelectedPatchButton);
-	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PatchBanksCustomTabPushButton);
-	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PatchBanksCustomTabPullEntireBankButton);
+void TabForCustomVoicesBank::resized() {
+	voiceSlots.setBounds(GUI::bounds_VoiceSlotsComponent);
+	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_VoicesBanksCustomTabLoadButton);
+	button_ForSavingVoiceIntoSelectedSlot.setBounds(GUI::bounds_VoicesBanksCustomTabSaveButton);
+	button_ForPullingSelectedVoiceFromHardware.setBounds(GUI::bounds_VoicesBanksCustomTabPullSelectedVoiceButton);
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_VoicesBanksCustomTabPushButton);
+	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_VoicesBanksCustomTabPullEntireBankButton);
 }
 
-ApplicationCommandTarget* TabForCustomPatchBank::getNextCommandTarget() {
+ApplicationCommandTarget* TabForCustomVoicesBank::getNextCommandTarget() {
 	return nullptr;
 }
 
-void TabForCustomPatchBank::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> IDs{ copyPatch, pastePatch };
+void TabForCustomVoicesBank::getAllCommands(Array<CommandID>& commands) {
+	Array<CommandID> IDs{ copyVoice, pasteVoice };
 	commands.addArray(IDs);
 }
 
-void TabForCustomPatchBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void TabForCustomVoicesBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
-	case copyPatch:
+	case copyVoice:
 		result.setInfo("Copy Patch", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
-	case pastePatch:
+	case pasteVoice:
 		result.setInfo("Paste Patch", "Replace the patch in the selected storage slot with the patch in the clipboard", "CopyAndPaste", 0);
 		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
 		break;
@@ -76,21 +76,21 @@ void TabForCustomPatchBank::getCommandInfo(CommandID commandID, ApplicationComma
 	}
 }
 
-bool TabForCustomPatchBank::perform(const InvocationInfo& info) {
+bool TabForCustomVoicesBank::perform(const InvocationInfo& info) {
 	auto voicesBanks{ unexposedParams->voicesBanks_get() };
-	auto selectedSlot{ patchSlots.selectedSlot };
+	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
-	case copyPatch:
+	case copyVoice:
 		if (selectedSlot < voices::numberOfSlotsInBank) {
-			auto PatchDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
-			patchCopyBuffer = PatchDataHexString;
+			auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
+			voiceCopyBuffer = voiceDataHexString;
 			return true;
 		}
 		else return false;
-	case pastePatch:
-		if (selectedSlot < voices::numberOfSlotsInBank && patchCopyBuffer != "") {
-			voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchCopyBuffer, bank, selectedSlot);
+	case pasteVoice:
+		if (selectedSlot < voices::numberOfSlotsInBank && voiceCopyBuffer != "") {
+			voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceCopyBuffer, bank, selectedSlot);
 			return true;
 		}
 		else return false;
@@ -99,25 +99,25 @@ bool TabForCustomPatchBank::perform(const InvocationInfo& info) {
 	}
 }
 
-void TabForCustomPatchBank::addListenerToPullEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoicesBank::addListenerToPullEntireBankButton(Button::Listener* listener) {
 	button_ForPullingEntireBankFromHardware.addListener(listener);
 }
 
-void TabForCustomPatchBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoicesBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.addListener(listener);
 }
 
-void TabForCustomPatchBank::removeListenerFromPullEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoicesBank::removeListenerFromPullEntireBankButton(Button::Listener* listener) {
 	button_ForPullingEntireBankFromHardware.removeListener(listener);
 }
 
-void TabForCustomPatchBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoicesBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
-void TabForCustomPatchBank::timerCallback() {
+void TabForCustomVoicesBank::timerCallback() {
 }
 
-TabForCustomPatchBank::~TabForCustomPatchBank() {
+TabForCustomVoicesBank::~TabForCustomVoicesBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

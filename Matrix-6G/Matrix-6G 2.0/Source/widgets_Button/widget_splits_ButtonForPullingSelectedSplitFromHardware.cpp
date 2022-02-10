@@ -14,7 +14,7 @@ ButtonForPullingSelectedSplitFromHardware::ButtonForPullingSelectedSplitFromHard
 	splitSlots{ splitSlots },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_PullSelectedPatchOrSplit.toString());
+	setComponentID(ID::button_PullSelectedVoiceOrSplit.toString());
 	setTooltip(createButtonTooltipString());
 }
 

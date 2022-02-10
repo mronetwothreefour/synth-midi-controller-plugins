@@ -45,10 +45,10 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
 }
 
 void ButtonsLayer::showPatchBanksComponent() {
-    patchBanksComponent.reset(new PatchBanksComponent(exposedParams, unexposedParams));
-    if (patchBanksComponent != nullptr) {
-        addAndMakeVisible(patchBanksComponent.get());
-        patchBanksComponent->setBounds(getLocalBounds());
+    voicesBanksComponent.reset(new VoicesBanksComponent(exposedParams, unexposedParams));
+    if (voicesBanksComponent != nullptr) {
+        addAndMakeVisible(voicesBanksComponent.get());
+        voicesBanksComponent->setBounds(getLocalBounds());
     }
 }
 
@@ -101,7 +101,7 @@ void ButtonsLayer::resized() {
     button_ForPerformingRedo.setBounds(GUI::bounds_MainWindowRedoButton);
     button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
-    button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowPatchesButton);
+    button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowVoicesButton);
     button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
     button_ForShowingMasterOptionsComponent.setBounds(GUI::bounds_MainWindowMasterOptionsButton);
     button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
@@ -111,5 +111,5 @@ ButtonsLayer::~ButtonsLayer() {
     masterOptionsComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
     splitsComponent = nullptr;
-    patchBanksComponent = nullptr;
+    voicesBanksComponent = nullptr;
 }

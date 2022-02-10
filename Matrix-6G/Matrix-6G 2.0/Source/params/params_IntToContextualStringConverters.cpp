@@ -787,11 +787,11 @@ IntToLFOtrigString* IntToLFOtrigString::get() noexcept {
 
 
 
-String IntToPatchBankName::conversionAlgorithm(const uint8& i) noexcept {
+String IntToVoicesBankName::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
 
-String IntToPatchBankName::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToVoicesBankName::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 13);
 	if (i == 0) return "ANALOG SYNTHS A";
 	if (i == 1) return "ANALOG SYNTHS B";
@@ -809,8 +809,8 @@ String IntToPatchBankName::verboseConversionAlgorithm(const uint8& i) noexcept {
 	else return "ERROR";
 }
 
-IntToPatchBankName* IntToPatchBankName::get() noexcept {
-	static IntToPatchBankName converter;
+IntToVoicesBankName* IntToVoicesBankName::get() noexcept {
+	static IntToVoicesBankName converter;
 	return &converter;
 }
 

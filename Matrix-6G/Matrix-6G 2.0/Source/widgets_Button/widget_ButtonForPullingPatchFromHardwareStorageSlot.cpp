@@ -12,7 +12,7 @@ ButtonForPullingPatchFromHardwareStorageSlot::ButtonForPullingPatchFromHardwareS
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());
-	setComponentID(ID::button_PullSelectedPatchOrSplit.toString());
+	setComponentID(ID::button_PullSelectedVoiceOrSplit.toString());
 }
 
 const String ButtonForPullingPatchFromHardwareStorageSlot::createButtonTooltipString() {

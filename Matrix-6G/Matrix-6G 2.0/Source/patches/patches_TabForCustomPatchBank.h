@@ -14,31 +14,31 @@
 
 class UnexposedParameters;
 
-class TabForCustomPatchBank :
+class TabForCustomVoicesBank :
     public Component,
     private Timer,
     public ApplicationCommandTarget
 {
     VoicesBank bank;
-    VoiceSlotsComponent patchSlots;
+    VoiceSlotsComponent voiceSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
-    ButtonForSavingPatchInSelectedSlot button_ForSavingPatchInSelectedSlot;
+    ButtonForLoadingSelectedVoice button_ForLoadingSelectedVoice;
+    ButtonForSavingVoiceIntoSelectedSlot button_ForSavingVoiceIntoSelectedSlot;
     ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
-    ButtonForPullingSelectedPatchFromHardware button_ForPullingSelectedPatchFromHardware;
+    ButtonForPullingSelectedVoiceFromHardware button_ForPullingSelectedVoiceFromHardware;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ApplicationCommandManager commandManager;
-    String& patchCopyBuffer;
+    String& voiceCopyBuffer;
 
 public:
     enum commandChoices {
-        copyPatch = 1,
-        pastePatch
+        copyVoice = 1,
+        pasteVoice
     };
 
-    TabForCustomPatchBank() = delete;
+    TabForCustomVoicesBank() = delete;
 
-    TabForCustomPatchBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
+    TabForCustomVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;
@@ -54,9 +54,9 @@ private:
     void timerCallback() override;
 
 public:
-    ~TabForCustomPatchBank();
+    ~TabForCustomVoicesBank();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForCustomPatchBank)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForCustomVoicesBank)
 };

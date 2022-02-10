@@ -9,7 +9,7 @@ ButtonForShowingPatchBanksComponent::ButtonForShowingPatchBanksComponent(Unexpos
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Patches.toString());
+	setComponentID(ID::button_Voices.toString());
 	setTooltip(createButtonTooltipString());
 }
 

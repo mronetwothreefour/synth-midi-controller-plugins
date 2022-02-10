@@ -26,7 +26,7 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 	slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	addAndMakeVisible(slider_ForPatchNumber);
 
-	patchNameEditor.setComponentID(ID::label_PatchNameEditor.toString());
+	patchNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
 	patchNameEditor.addListener(this);
 	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
 	currentVoiceOptions->addListener(this);
@@ -38,8 +38,8 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 }
 
 void PatchNumberAndNameLayer::resized() {
-	slider_ForPatchNumber.setBounds(GUI::bounds_PatchNumberSlider);
-	patchNameEditor.setBounds(GUI::bounds_PatchNameEditor);
+	slider_ForPatchNumber.setBounds(GUI::bounds_VoiceNumberSlider);
+	patchNameEditor.setBounds(GUI::bounds_VoiceNameEditor);
 }
 
 void PatchNumberAndNameLayer::editorShown(Label* label, TextEditor& editor) {

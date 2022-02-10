@@ -23,8 +23,8 @@ void SplitOptions::fillSplitOptionsTreeWithProperties() {
 	splitOptionsTree.setProperty(ID::split_UpperZoneLimit, (uint8)36, nullptr);
 	splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, (uint8)36, nullptr);
 	splitOptionsTree.setProperty(ID::split_UpperZoneMidiOut, (uint8)1, nullptr);
-	splitOptionsTree.setProperty(ID::split_LowerZonePatchNumber, (uint8)0, nullptr);
-	splitOptionsTree.setProperty(ID::split_UpperZonePatchNumber, (uint8)1, nullptr);
+	splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, (uint8)0, nullptr);
+	splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, (uint8)1, nullptr);
 }
 
 void SplitOptions::addListener(ValueTree::Listener* listener) {
@@ -68,11 +68,11 @@ void SplitOptions::setLowerZoneLimit(uint8 newValue) {
 }
 
 const uint8 SplitOptions::lowerZonePatchNumber() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZonePatchNumber);
+	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneVoiceNumber);
 }
 
 void SplitOptions::setLowerZonePatchNumber(uint8 newValue) {
-	splitOptionsTree.setProperty(ID::split_LowerZonePatchNumber, newValue, nullptr);
+	splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, newValue, nullptr);
 }
 
 const uint8 SplitOptions::lowerZoneTranspose() {
@@ -100,11 +100,11 @@ void SplitOptions::setUpperZoneLimit(uint8 newValue) {
 }
 
 const uint8 SplitOptions::upperZonePatchNumber() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZonePatchNumber);
+	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneVoiceNumber);
 }
 
 void SplitOptions::setUpperZonePatchNumber(uint8 newValue) {
-	splitOptionsTree.setProperty(ID::split_UpperZonePatchNumber, newValue, nullptr);
+	splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, newValue, nullptr);
 }
 
 const uint8 SplitOptions::upperZoneTranspose() {

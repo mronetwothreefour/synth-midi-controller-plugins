@@ -10,22 +10,22 @@ using namespace constants;
 
 
 
-TabForFactoryVoicesBank::TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
+TabForFactoryVoicesBank::TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
-	patchSlots{ bank, exposedParams, unexposedParams },
+	voiceSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	patchCopyBuffer{ patchCopyBuffer },
-	button_ForLoadingSelectedPatch{ patchSlots, unexposedParams },
+	voiceCopyBuffer{ voiceCopyBuffer },
+	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams }
 {
-	addAndMakeVisible(patchSlots);
-	addAndMakeVisible(button_ForLoadingSelectedPatch);
+	addAndMakeVisible(voiceSlots);
+	addAndMakeVisible(button_ForLoadingSelectedVoice);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
 
-	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
+	setSize(GUI::voicesBanksTab_w, GUI::voicesBanksTab_h);
 }
 
 void TabForFactoryVoicesBank::paint(Graphics& g) {
@@ -33,13 +33,13 @@ void TabForFactoryVoicesBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::PatchesFooterForFactoryBanks_png, BinaryData::PatchesFooterForFactoryBanks_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, GUI::patchBanksTabFooter_x, GUI::patchBanksTabFooter_y);
+	g.drawImageAt(backgroundImage, GUI::voicesBanksTabFooter_x, GUI::voicesBanksTabFooter_y);
 }
 
 void TabForFactoryVoicesBank::resized() {
-	patchSlots.setBounds(GUI::bounds_PatchSlotsComponent);
-	button_ForLoadingSelectedPatch.setBounds(GUI::bounds_PatchBanksFactoryTabLoadButton);
-	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PatchBanksFactoryTabPushBankButton);
+	voiceSlots.setBounds(GUI::bounds_VoiceSlotsComponent);
+	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_VoicesBanksFactoryTabLoadButton);
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_VoicesBanksFactoryTabPushBankButton);
 }
 
 ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {
@@ -47,14 +47,14 @@ ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {
 }
 
 void TabForFactoryVoicesBank::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> IDs{ copyPatch };
+	Array<CommandID> IDs{ copyVoice };
 	commands.addArray(IDs);
 }
 
 void TabForFactoryVoicesBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
-	case copyPatch:
+	case copyVoice:
 		result.setInfo("Copy Patch", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
@@ -65,12 +65,12 @@ void TabForFactoryVoicesBank::getCommandInfo(CommandID commandID, ApplicationCom
 
 bool TabForFactoryVoicesBank::perform(const InvocationInfo& info) {
 	auto voicesBanks{ unexposedParams->voicesBanks_get() };
-	auto selectedSlot{ patchSlots.selectedSlot };
+	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
-	case copyPatch:
+	case copyVoice:
 		if (selectedSlot < voices::numberOfSlotsInBank) {
-			patchCopyBuffer = voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
+			voiceCopyBuffer = voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;

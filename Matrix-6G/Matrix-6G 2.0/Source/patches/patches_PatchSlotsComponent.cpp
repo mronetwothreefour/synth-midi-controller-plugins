@@ -28,11 +28,11 @@ VoiceSlotsComponent::VoiceSlotsComponent(VoicesBank bank, AudioProcessorValueTre
 		voicesBanks->addListenerToNameStringsForCustomBank(this, bank);
 	}
 
-	setSize(GUI::patchSlotsComponent_w, GUI::patchSlotsComponent_h);
+	setSize(GUI::voiceSlotsComponent_w, GUI::voiceSlotsComponent_h);
 }
 
 void VoiceSlotsComponent::setUpVoiceSlotToggleButton(uint8 slot) {
-	voiceSlotButtons[slot].setComponentID(ID::button_PatchSlotRadioButton.toString());
+	voiceSlotButtons[slot].setComponentID(ID::button_VoiceSlotRadioButton.toString());
 	voiceSlotButtons[slot].setRadioGroupId(1);
 	voiceSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
 	setTooltipForVoiceSlotToggleButton(slot);
@@ -59,8 +59,8 @@ void VoiceSlotsComponent::setTextForVoiceSlotToggleButton(uint8 slot) {
 	else 
 		slotNumber = (String)(slot);
 	auto voicesBanks{ unexposedParams->voicesBanks_get() };
-	auto patchName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
-	voiceSlotButtons[slot].setName(slotNumber + " - " + patchName);
+	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
+	voiceSlotButtons[slot].setName(slotNumber + " - " + voiceName);
 	voiceSlotButtons[slot].repaint();
 }
 
@@ -69,9 +69,9 @@ void VoiceSlotsComponent::storeCurrentVoiceSettingsInSelectedSlot() {
 		auto dataVector{ RawSysExDataVector::initializeVoiceDataMessage(selectedSlot) };
 		RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
 		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInDataDumpMessages);
-		auto patchDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(dataVector) };
+		auto voiceDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(dataVector) };
 		auto voicesBanks{ unexposedParams->voicesBanks_get() };
-		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
+		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);
 		repaint();
 		callAfterDelay(100, [this] { VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams); });
@@ -81,9 +81,9 @@ void VoiceSlotsComponent::storeCurrentVoiceSettingsInSelectedSlot() {
 void VoiceSlotsComponent::loadVoiceFromSelectedSlot() {
 	if (selectedSlot < voices::numberOfSlotsInBank) {
 		auto voicesBanks{ unexposedParams->voicesBanks_get() };
-		auto patchDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
-		auto patchDataVector{ RawDataTools::convertVoiceOrSplitHexStringToDataVector(patchDataHexString) };
-		RawDataTools::applyVoiceDataVectorToGUI(selectedSlot, patchDataVector, exposedParams, unexposedParams);
+		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
+		auto voiceDataVector{ RawDataTools::convertVoiceOrSplitHexStringToDataVector(voiceDataHexString) };
+		RawDataTools::applyVoiceDataVectorToGUI(selectedSlot, voiceDataVector, exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
@@ -95,15 +95,15 @@ void VoiceSlotsComponent::pullSelectedVoiceFromHardware() {
 
 void VoiceSlotsComponent::resized() {
 	for (auto i = 0; i != voices::numberOfSlotsInBank; ++i) {
-		auto col_x{ (i / 25) * (GUI::patchSlotRadioButtton_w + GUI::patchSlotRadioButtonsHorizontalGap) };
-		auto row_y{ (i % 25) * GUI::patchSlotRadioButtton_h };
-		voiceSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtton_h);
+		auto col_x{ (i / 25) * (GUI::voiceSlotRadioButtton_w + GUI::voiceSlotRadioButtonsHorizontalGap) };
+		auto row_y{ (i % 25) * GUI::voiceSlotRadioButtton_h };
+		voiceSlotButtons[i].setBounds(col_x, row_y, GUI::voiceSlotRadioButtton_w, GUI::voiceSlotRadioButtton_h);
 	}
 }
 
 void VoiceSlotsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	auto propertyName{ property.toString() };
-	auto slotString{ propertyName.fromLastOccurrenceOf("patch", false, true) };
+	auto slotString{ propertyName.fromLastOccurrenceOf("voice", false, true) };
 	setTextForVoiceSlotToggleButton((uint8)slotString.getIntValue());
 }
 

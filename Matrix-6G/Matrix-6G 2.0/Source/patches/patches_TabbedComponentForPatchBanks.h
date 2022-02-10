@@ -9,11 +9,11 @@
 
 class UnexposedParameters;
 
-class TabbedComponentForPatchBanks :
+class TabbedComponentForVoicesBanks :
     public TabbedComponent
 {
-    TabForCustomPatchBank customA;
-    TabForCustomPatchBank customB;
+    TabForCustomVoicesBank customA;
+    TabForCustomVoicesBank customB;
     TabForFactoryVoicesBank analogSynthsA;
     TabForFactoryVoicesBank analogSynthsB;
     TabForFactoryVoicesBank basses;
@@ -26,12 +26,12 @@ class TabbedComponentForPatchBanks :
     TabForFactoryVoicesBank miscellaneousB;
     TabForFactoryVoicesBank strings;
     UnexposedParameters* unexposedParams;
-    String patchCopyBuffer;
+    String voiceCopyBuffer;
 
 public:
-    TabbedComponentForPatchBanks() = delete;
+    TabbedComponentForVoicesBanks() = delete;
 
-    TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    TabbedComponentForVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener);
     void addListenerToPushBankButtonInAllTabs(Button::Listener* listener);
     void removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener);
@@ -39,5 +39,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabbedComponentForPatchBanks)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabbedComponentForVoicesBanks)
 };

@@ -19,7 +19,7 @@ struct ControlValueRenderer {
 		auto ledDisplayLastCharacter_x{ component->getWidth() - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
 		auto lastCharacterIndex{ (int)valueString.toStdString().size() - 1 };
 		auto spaceBetweenCharacters{ 0 };
-		if (component->getComponentID() == ID::label_PatchNameEditor.toString())
+		if (component->getComponentID() == ID::label_VoiceNameEditor.toString())
 			spaceBetweenCharacters = 3;
 		for (auto i = lastCharacterIndex; i != -1; --i) {
 			auto charNum{ (uint8)valueString[i] };

@@ -26,7 +26,7 @@ PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 	slotsColumn_8{ unexposedParams, 80 },
 	slotsColumn_9{ unexposedParams, 90 }
 {
-	button_ForClosingPatchMapComponent.setComponentID(ID::button_X_PatchMap.toString());
+	button_ForClosingPatchMapComponent.setComponentID(ID::button_X_VoicesMap.toString());
 	addAndMakeVisible(button_ForClosingPatchMapComponent);
 	button_ForClosingPatchMapComponent.onClick = [this] { hideThisComponent(); };
 	button_ForClosingPatchMapComponent.setAlwaysOnTop(true);
@@ -63,22 +63,22 @@ void PatchMapComponent::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::PatchMapWindow_png, BinaryData::PatchMapWindow_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto windowImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(windowImage, GUI::patchMapWindow_x, GUI::patchMapWindow_y);
+	g.drawImageAt(windowImage, GUI::voicesMapWindow_x, GUI::voicesMapWindow_y);
 }
 
 void PatchMapComponent::resized() {
-	button_ForClosingPatchMapComponent.setBounds(GUI::bounds_PatchMapComponentXbutton);
-	button_ForResettingPatchMap.setBounds(GUI::bounds_PatchMapResetButton);
-	slotsColumn_0.setBounds(GUI::bounds_PatchMapSlotsColumn_0);
-	slotsColumn_1.setBounds(GUI::bounds_PatchMapSlotsColumn_1);
-	slotsColumn_2.setBounds(GUI::bounds_PatchMapSlotsColumn_2);
-	slotsColumn_3.setBounds(GUI::bounds_PatchMapSlotsColumn_3);
-	slotsColumn_4.setBounds(GUI::bounds_PatchMapSlotsColumn_4);
-	slotsColumn_5.setBounds(GUI::bounds_PatchMapSlotsColumn_5);
-	slotsColumn_6.setBounds(GUI::bounds_PatchMapSlotsColumn_6);
-	slotsColumn_7.setBounds(GUI::bounds_PatchMapSlotsColumn_7);
-	slotsColumn_8.setBounds(GUI::bounds_PatchMapSlotsColumn_8);
-	slotsColumn_9.setBounds(GUI::bounds_PatchMapSlotsColumn_9);
+	button_ForClosingPatchMapComponent.setBounds(GUI::bounds_VoicesMapComponentXbutton);
+	button_ForResettingPatchMap.setBounds(GUI::bounds_VoicesMapResetButton);
+	slotsColumn_0.setBounds(GUI::bounds_VoicesMapSlotsColumn_0);
+	slotsColumn_1.setBounds(GUI::bounds_VoicesMapSlotsColumn_1);
+	slotsColumn_2.setBounds(GUI::bounds_VoicesMapSlotsColumn_2);
+	slotsColumn_3.setBounds(GUI::bounds_VoicesMapSlotsColumn_3);
+	slotsColumn_4.setBounds(GUI::bounds_VoicesMapSlotsColumn_4);
+	slotsColumn_5.setBounds(GUI::bounds_VoicesMapSlotsColumn_5);
+	slotsColumn_6.setBounds(GUI::bounds_VoicesMapSlotsColumn_6);
+	slotsColumn_7.setBounds(GUI::bounds_VoicesMapSlotsColumn_7);
+	slotsColumn_8.setBounds(GUI::bounds_VoicesMapSlotsColumn_8);
+	slotsColumn_9.setBounds(GUI::bounds_VoicesMapSlotsColumn_9);
 }
 
 void PatchMapComponent::hideThisComponent() {

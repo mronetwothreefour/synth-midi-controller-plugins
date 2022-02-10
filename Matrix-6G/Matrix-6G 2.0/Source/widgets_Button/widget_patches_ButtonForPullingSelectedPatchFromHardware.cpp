@@ -9,16 +9,16 @@ using namespace constants;
 
 
 
-ButtonForPullingSelectedPatchFromHardware::ButtonForPullingSelectedPatchFromHardware(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForPullingSelectedVoiceFromHardware::ButtonForPullingSelectedVoiceFromHardware(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	patchSlots{ patchSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_PullSelectedPatchOrSplit.toString());
+	setComponentID(ID::button_PullSelectedVoiceOrSplit.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForPullingSelectedPatchFromHardware::createButtonTooltipString() {
+const String ButtonForPullingSelectedVoiceFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Pull the data from the selected patch storage slot in\n";
@@ -28,15 +28,15 @@ const String ButtonForPullingSelectedPatchFromHardware::createButtonTooltipStrin
 	return buttonTooltip;
 }
 
-void ButtonForPullingSelectedPatchFromHardware::onClickMethod() {
-	auto slot{ patchSlots.selectedSlot };
-	if (slot < voices::numberOfSlotsInBank && (patchSlots.bank == VoicesBank::customA || patchSlots.bank == VoicesBank::customB)) {
+void ButtonForPullingSelectedVoiceFromHardware::onClickMethod() {
+	auto slot{ voiceSlots.selectedSlot };
+	if (slot < voices::numberOfSlotsInBank && (voiceSlots.bank == VoicesBank::customA || voiceSlots.bank == VoicesBank::customB)) {
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-		if (patchSlots.bank == VoicesBank::customA)
+		if (voiceSlots.bank == VoicesBank::customA)
 			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankA();
 		else
 			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankB();
-		patchSlots.pullSelectedVoiceFromHardware();
+		voiceSlots.pullSelectedVoiceFromHardware();
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
@@ -49,5 +49,5 @@ void ButtonForPullingSelectedPatchFromHardware::onClickMethod() {
 	}
 }
 
-void ButtonForPullingSelectedPatchFromHardware::timerCallback() {
+void ButtonForPullingSelectedVoiceFromHardware::timerCallback() {
 }

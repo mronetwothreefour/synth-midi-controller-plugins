@@ -9,16 +9,16 @@ using namespace constants;
 
 
 
-ButtonForSavingPatchInSelectedSlot::ButtonForSavingPatchInSelectedSlot(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForSavingVoiceIntoSelectedSlot::ButtonForSavingVoiceIntoSelectedSlot(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	patchSlots{ patchSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_Save.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForSavingPatchInSelectedSlot::createButtonTooltipString() {
+const String ButtonForSavingVoiceIntoSelectedSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Saves the plugin GUI's current settings\n";
@@ -30,9 +30,9 @@ const String ButtonForSavingPatchInSelectedSlot::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForSavingPatchInSelectedSlot::onClickMethod() {
-	if (patchSlots.selectedSlot < voices::numberOfSlotsInBank) {
-		patchSlots.storeCurrentVoiceSettingsInSelectedSlot();
+void ButtonForSavingVoiceIntoSelectedSlot::onClickMethod() {
+	if (voiceSlots.selectedSlot < voices::numberOfSlotsInBank) {
+		voiceSlots.storeCurrentVoiceSettingsInSelectedSlot();
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this]
@@ -40,11 +40,11 @@ void ButtonForSavingPatchInSelectedSlot::onClickMethod() {
 				auto masterOptions{ unexposedParams->masterOptions_get() };
 				auto basicChannel{ masterOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)patchSlots.selectedSlot);
+				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)voiceSlots.selectedSlot);
 			}
 		);
 	}
 }
 
-void ButtonForSavingPatchInSelectedSlot::timerCallback() {
+void ButtonForSavingVoiceIntoSelectedSlot::timerCallback() {
 }

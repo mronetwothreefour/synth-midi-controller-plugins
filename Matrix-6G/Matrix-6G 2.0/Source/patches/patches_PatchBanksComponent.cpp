@@ -11,10 +11,10 @@ using namespace constants;
 
 
 
-PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	tabbedComponent{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	button_ForClosingPatchBanks{ "" },
+	button_ForClosingVoicesBanks{ "" },
 	comboBox_ForSelectingBank{ unexposedParams },
 	label_txTime{ "transmitTime", "" }
 {
@@ -23,16 +23,16 @@ PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedPa
 
 	setSize(GUI::editor_w, GUI::editor_h);
 
-	button_ForClosingPatchBanks.setComponentID(ID::button_X_Patches.toString());
-	addAndMakeVisible(button_ForClosingPatchBanks);
-	button_ForClosingPatchBanks.setBounds(GUI::bounds_PatchBanksXbutton);
-	button_ForClosingPatchBanks.onClick = [this] { hideThisComponent(); };
-	button_ForClosingPatchBanks.setAlwaysOnTop(true);
+	button_ForClosingVoicesBanks.setComponentID(ID::button_X_VoicesBanks.toString());
+	addAndMakeVisible(button_ForClosingVoicesBanks);
+	button_ForClosingVoicesBanks.setBounds(GUI::bounds_VoicesBanksXbutton);
+	button_ForClosingVoicesBanks.onClick = [this] { hideThisComponent(); };
+	button_ForClosingVoicesBanks.setAlwaysOnTop(true);
 
-	comboBox_ForSelectingBank.setComponentID(ID::comboBox_PatchBankSelector.toString());
+	comboBox_ForSelectingBank.setComponentID(ID::comboBox_VoicesBankSelector.toString());
 	addAndMakeVisible(comboBox_ForSelectingBank);
 	comboBox_ForSelectingBank.addListener(this);
-	comboBox_ForSelectingBank.setBounds(GUI::bounds_PatchBanksSelectorComboBox);
+	comboBox_ForSelectingBank.setBounds(GUI::bounds_VoicesBanksSelectorComboBox);
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String label_txTimeTooltip{ "" };
@@ -48,16 +48,16 @@ PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedPa
 	label_txTime.setEditable(true);
 	labelTextChanged(&label_txTime);
 	addAndMakeVisible(label_txTime);
-	label_txTime.setBounds(GUI::bounds_PatchBanksTransmitTimeLabel);
+	label_txTime.setBounds(GUI::bounds_VoicesBanksTransmitTimeLabel);
 
 	addAndMakeVisible(tabbedComponent);
-	tabbedComponent.setBounds(GUI::bounds_TabbedComponentForPatchBanks);
+	tabbedComponent.setBounds(GUI::bounds_TabbedComponentForVoicesBanks);
 }
 
-void PatchBanksComponent::paint(Graphics& g) {
+void VoicesBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::button_blue);
-	auto componentBounds{ GUI::bounds_PatchBanksWindow };
+	auto componentBounds{ GUI::bounds_VoicesBanksWindow };
 	auto componentOutlineBounds{ componentBounds.expanded(GUI::windowBorderThickness) };
 	g.fillRect(componentOutlineBounds);
 	PNGImageFormat imageFormat;
@@ -66,7 +66,7 @@ void PatchBanksComponent::paint(Graphics& g) {
 	g.drawImageAt(headerImage, componentBounds.getX(), componentBounds.getY());
 }
 
-void PatchBanksComponent::editorShown(Label* label, TextEditor& editor) {
+void VoicesBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(params::maxTransmitTimeDigits, "0123456789");
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
@@ -76,7 +76,7 @@ void PatchBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	}
 }
 
-void PatchBanksComponent::labelTextChanged(Label* label) {
+void VoicesBanksComponent::labelTextChanged(Label* label) {
 	if (label == &label_txTime) {
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		if (label->getText().isNotEmpty())
@@ -89,7 +89,7 @@ void PatchBanksComponent::labelTextChanged(Label* label) {
 	}
 }
 
-void PatchBanksComponent::buttonClicked(Button* button) {
+void VoicesBanksComponent::buttonClicked(Button* button) {
 	if (button->getComponentID() == ID::button_PullCustomBankA.toString())
 		showPullEntireBankComponentForBank(VoicesBank::customA);
 	if (button->getComponentID() == ID::button_PullCustomBankB.toString())
@@ -122,15 +122,15 @@ void PatchBanksComponent::buttonClicked(Button* button) {
 		showPushEntireBankComponentForBank(VoicesBank::strings);
 }
 
-void PatchBanksComponent::comboBoxChanged(ComboBox* comboBox) {
-	if (comboBox->getComponentID() == ID::comboBox_PatchBankSelector.toString()) {
+void VoicesBanksComponent::comboBoxChanged(ComboBox* comboBox) {
+	if (comboBox->getComponentID() == ID::comboBox_VoicesBankSelector.toString()) {
 		auto selectedBank{ comboBox->getSelectedItemIndex() };
 		tabbedComponent.setCurrentTabIndex(selectedBank);
 	}
 }
 
-void PatchBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
-	pushEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::push, unexposedParams));
+void VoicesBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
+	pushEntireBankComponent.reset(new VoicesBankTransmissionComponent(bank, VoicesBankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
 		pushEntireBankComponent->setBounds(getLocalBounds());
@@ -138,8 +138,8 @@ void PatchBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
 	}
 }
 
-void PatchBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
-	pullEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::pull, unexposedParams));
+void VoicesBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
+	pullEntireBankComponent.reset(new VoicesBankTransmissionComponent(bank, VoicesBankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());
 		pullEntireBankComponent->setBounds(getLocalBounds());
@@ -147,11 +147,11 @@ void PatchBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
 	}
 }
 
-void PatchBanksComponent::hideThisComponent() {
+void VoicesBanksComponent::hideThisComponent() {
 	setVisible(false);
 }
 
-PatchBanksComponent::~PatchBanksComponent() {
+VoicesBanksComponent::~VoicesBanksComponent() {
 	pullEntireBankComponent = nullptr;
 	pushEntireBankComponent = nullptr;
 	tabbedComponent.removeListenerFromPullEntireBankButtonInAllCustomTabs(this);

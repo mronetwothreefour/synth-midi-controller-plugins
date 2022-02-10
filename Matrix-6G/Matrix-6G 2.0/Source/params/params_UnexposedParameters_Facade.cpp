@@ -102,7 +102,7 @@ void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState
 		splitsBank->replaceState(splitsBankState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
-	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_PatchTransmissionOptions) };
+	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
 	voiceTransmissionOptions->replaceState(voiceTransmissionOptionsState);
 }
 

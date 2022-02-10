@@ -6,10 +6,10 @@
 
 
 
-class TabbedComponentForPatchBanks;
+class TabbedComponentForVoicesBanks;
 class UnexposedParameters;
 
-class PatchBankTransmissionComponent :
+class VoicesBankTransmissionComponent :
 	public Component,
 	private Timer
 {
@@ -21,20 +21,20 @@ private:
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
 	int transmitTime;
-	uint8 patchCounter;
+	uint8 voiceCounter;
 	double progress;
 	ProgressBar progressBar;
 	TextButton button_Stop;
 	TextButton button_Close;
 
 public:
-	PatchBankTransmissionComponent() = delete;
+	VoicesBankTransmissionComponent() = delete;
 
-	PatchBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	VoicesBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;
-	void transmitMidiBufferForPatchSlot(uint8 patchSlot);
+	void transmitMidiBufferForVoiceSlot(uint8 voiceSlot);
 
 public:
 	void paint(Graphics& g) override;
@@ -47,6 +47,6 @@ private:
 	void hideThisComponent();
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PatchBankTransmissionComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicesBankTransmissionComponent)
 };
 

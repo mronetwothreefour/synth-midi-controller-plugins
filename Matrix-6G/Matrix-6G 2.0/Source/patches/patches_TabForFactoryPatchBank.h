@@ -16,21 +16,21 @@ class TabForFactoryVoicesBank :
     public ApplicationCommandTarget
 {
     VoicesBank bank;
-    VoiceSlotsComponent patchSlots;
+    VoiceSlotsComponent voiceSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
+    ButtonForLoadingSelectedVoice button_ForLoadingSelectedVoice;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ApplicationCommandManager commandManager;
-    String& patchCopyBuffer;
+    String& voiceCopyBuffer;
 
 public:
     enum commandChoices {
-        copyPatch = 1
+        copyVoice = 1
     };
 
     TabForFactoryVoicesBank() = delete;
 
-    TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
+    TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

@@ -6,21 +6,21 @@
 
 
 
-class VoiceSlotsComponent;
 class UnexposedParameters;
+class VoiceSlotsComponent;
 
-class ButtonForLoadingSelectedPatch :
+class ButtonForLoadingSelectedVoice :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	private Timer
 {
-	VoiceSlotsComponent& patchSlots;
+	VoiceSlotsComponent& voiceSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
-	ButtonForLoadingSelectedPatch() = delete;
+	ButtonForLoadingSelectedVoice() = delete;
 
-	ButtonForLoadingSelectedPatch(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForLoadingSelectedVoice(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -30,5 +30,5 @@ private:
 	void timerCallback() override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedPatch)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedVoice)
 };

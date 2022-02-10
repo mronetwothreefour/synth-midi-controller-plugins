@@ -17,12 +17,12 @@ PatchMapSlot::PatchMapSlot(UnexposedParameters* unexposedParams, uint8 programNu
 	addAndMakeVisible(slider_ForSettingInPatch);
 	slider_ForSettingOutPatch.addListener(this);
 	addAndMakeVisible(slider_ForSettingOutPatch);
-	setSize(GUI::patchMapSlot_w, GUI::patchMapSlot_h);
+	setSize(GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
 }
 
 void PatchMapSlot::resized() {
-	slider_ForSettingInPatch.setBounds(GUI::bounds_PatchMapSlotInSlider);
-	slider_ForSettingOutPatch.setBounds(GUI::bounds_PatchMapSlotOutSlider);
+	slider_ForSettingInPatch.setBounds(GUI::bounds_VoicesMapSlotInSlider);
+	slider_ForSettingOutPatch.setBounds(GUI::bounds_VoicesMapSlotOutSlider);
 }
 
 void PatchMapSlot::sliderValueChanged(Slider* slider) {

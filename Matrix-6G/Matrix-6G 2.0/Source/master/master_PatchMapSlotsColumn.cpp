@@ -29,18 +29,18 @@ PatchMapSlotsColumn::PatchMapSlotsColumn(UnexposedParameters* unexposedParams, u
 	addAndMakeVisible(slot_7);
 	addAndMakeVisible(slot_8);
 	addAndMakeVisible(slot_9);
-	setSize(GUI::patchMapSlotsColumn_w, GUI::patchMapSlotsColumn_h);
+	setSize(GUI::voicesMapSlotsColumn_w, GUI::voicesMapSlotsColumn_h);
 }
 
 void PatchMapSlotsColumn::resized() {
-	slot_0.setBounds(0, 0, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_1.setBounds(0, GUI::controlsVerticalGap, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_2.setBounds(0, GUI::controlsVerticalGap * 2, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_3.setBounds(0, GUI::controlsVerticalGap * 3, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_4.setBounds(0, GUI::controlsVerticalGap * 4, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_5.setBounds(0, GUI::controlsVerticalGap * 5, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_6.setBounds(0, GUI::controlsVerticalGap * 6, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_7.setBounds(0, GUI::controlsVerticalGap * 7, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_8.setBounds(0, GUI::controlsVerticalGap * 8, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
-	slot_9.setBounds(0, GUI::controlsVerticalGap * 9, GUI::patchMapSlot_w, GUI::patchMapSlot_h);
+	slot_0.setBounds(0, 0, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_1.setBounds(0, GUI::controlsVerticalGap, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_2.setBounds(0, GUI::controlsVerticalGap * 2, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_3.setBounds(0, GUI::controlsVerticalGap * 3, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_4.setBounds(0, GUI::controlsVerticalGap * 4, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_5.setBounds(0, GUI::controlsVerticalGap * 5, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_6.setBounds(0, GUI::controlsVerticalGap * 6, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_7.setBounds(0, GUI::controlsVerticalGap * 7, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_8.setBounds(0, GUI::controlsVerticalGap * 8, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
+	slot_9.setBounds(0, GUI::controlsVerticalGap * 9, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
 }

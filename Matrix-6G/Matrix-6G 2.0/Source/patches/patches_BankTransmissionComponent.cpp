@@ -13,12 +13,12 @@ using namespace constants;
 
 
 
-PatchBankTransmissionComponent::PatchBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+VoicesBankTransmissionComponent::VoicesBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
 	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
-	patchCounter{ voices::numberOfSlotsInBank },
+	voiceCounter{ voices::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -43,16 +43,16 @@ PatchBankTransmissionComponent::PatchBankTransmissionComponent(VoicesBank& bank,
 	button_Close.setBounds(GUI::bounds_BankTransmitButtons);
 	button_Stop.setBounds(GUI::bounds_BankTransmitButtons);
 
-	patchCounter = 0;
+	voiceCounter = 0;
 	startTimer(transmitTime);
 }
 
-void PatchBankTransmissionComponent::timerCallback() {
+void VoicesBankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (patchCounter < voices::numberOfSlotsInBank) {
-		transmitMidiBufferForPatchSlot(patchCounter);
-		++patchCounter;
-		progress = patchCounter / (double)voices::numberOfSlotsInBank;
+	if (voiceCounter < voices::numberOfSlotsInBank) {
+		transmitMidiBufferForVoiceSlot(voiceCounter);
+		++voiceCounter;
+		progress = voiceCounter / (double)voices::numberOfSlotsInBank;
 		repaint();
 		startTimer(transmitTime);
 	}
@@ -62,7 +62,7 @@ void PatchBankTransmissionComponent::timerCallback() {
 	}
 }
 
-void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
+void VoicesBankTransmissionComponent::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
@@ -70,23 +70,23 @@ void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchS
 			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankA();
 		else
 			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankB();
-		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
+		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(voiceSlot, outgoingBuffers);
 	}
 	else {
-		VoiceDataMessage::addDataMessageForVoiceStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
-		callAfterDelay(10, [this, outgoingBuffers, patchSlot]
+		VoiceDataMessage::addDataMessageForVoiceStoredInBankAndSlotToOutgoingMidiBuffers(bank, voiceSlot, unexposedParams);
+		callAfterDelay(10, [this, outgoingBuffers, voiceSlot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };
 				auto basicChannel{ masterOptions->basicChannel() };
-				outgoingBuffers->addProgramChangeMessage(basicChannel, patchSlot);
+				outgoingBuffers->addProgramChangeMessage(basicChannel, voiceSlot);
 			}
 		);
 	}
 }
 
-void PatchBankTransmissionComponent::paint(Graphics& g) {
+void VoicesBankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_PatchBanksWindow);
+	g.fillRect(GUI::bounds_VoicesBanksWindow);
 	g.setColour(Color::button_blue);
 	auto componentBounds{ GUI::bounds_BankTransmitComponent };
 	auto componentOutlineBounds{ componentBounds.expanded(GUI::windowBorderThickness) };
@@ -103,7 +103,7 @@ void PatchBankTransmissionComponent::paint(Graphics& g) {
 	}
 }
 
-const char* PatchBankTransmissionComponent::getTitleLabelImageData() {
+const char* VoicesBankTransmissionComponent::getTitleLabelImageData() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::TitlePullingEntireBank_png;
 	if (transmissionType == TransmissionType::push)
@@ -112,7 +112,7 @@ const char* PatchBankTransmissionComponent::getTitleLabelImageData() {
 		return nullptr;
 }
 
-size_t PatchBankTransmissionComponent::getTitleLabelImageDataSize() {
+size_t VoicesBankTransmissionComponent::getTitleLabelImageDataSize() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::TitlePullingEntireBank_pngSize;
 	if (transmissionType == TransmissionType::push)
@@ -121,17 +121,17 @@ size_t PatchBankTransmissionComponent::getTitleLabelImageDataSize() {
 		return (size_t)0;
 }
 
-void PatchBankTransmissionComponent::cancelTransmission() {
+void VoicesBankTransmissionComponent::cancelTransmission() {
 	stopTimer();
 	makeCloseButtonVisible();
 	repaint();
 }
 
-void PatchBankTransmissionComponent::makeCloseButtonVisible() {
+void VoicesBankTransmissionComponent::makeCloseButtonVisible() {
 	button_Stop.setVisible(false);
 	button_Close.setVisible(true);
 }
 
-void PatchBankTransmissionComponent::hideThisComponent() {
+void VoicesBankTransmissionComponent::hideThisComponent() {
 	setVisible(false);
 }

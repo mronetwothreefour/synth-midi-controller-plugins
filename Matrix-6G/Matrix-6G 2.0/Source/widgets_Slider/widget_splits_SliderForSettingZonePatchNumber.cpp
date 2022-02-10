@@ -12,11 +12,11 @@ SliderForSettingZonePatchNumber::SliderForSettingZonePatchNumber(UnexposedParame
 	unexposedParams{ unexposedParams },
 	parameterID{ parameterID }
 {
-	jassert(parameterID == ID::split_LowerZonePatchNumber || parameterID == ID::split_UpperZonePatchNumber);
+	jassert(parameterID == ID::split_LowerZoneVoiceNumber || parameterID == ID::split_UpperZoneVoiceNumber);
 	auto splitOptions{ unexposedParams->splitOptions_get() };
 	splitOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ parameterID == ID::split_LowerZonePatchNumber ? splitOptions->lowerZonePatchNumber() : splitOptions->upperZonePatchNumber() };
+	auto paramValue{ parameterID == ID::split_LowerZoneVoiceNumber ? splitOptions->lowerZonePatchNumber() : splitOptions->upperZonePatchNumber() };
 	setValue((double)paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 0.0);
 	setMouseDragSensitivity(160);
@@ -28,7 +28,7 @@ String SliderForSettingZonePatchNumber::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects which patch will be played by the\n";
-		if (parameterID == ID::split_LowerZonePatchNumber)
+		if (parameterID == ID::split_LowerZoneVoiceNumber)
 			tooltipText += "lower zone (the left side of the keyboard).\n";
 		else
 			tooltipText += "upper zone (the right side of the keyboard).\n";

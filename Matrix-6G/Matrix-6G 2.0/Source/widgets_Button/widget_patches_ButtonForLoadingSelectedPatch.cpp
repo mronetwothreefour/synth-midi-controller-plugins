@@ -9,16 +9,16 @@ using namespace constants;
 
 
 
-ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForLoadingSelectedVoice::ButtonForLoadingSelectedVoice(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	patchSlots{ patchSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_Load.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForLoadingSelectedPatch::createButtonTooltipString() {
+const String ButtonForLoadingSelectedVoice::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Loads the patch settings stored in the selected slot into the plugin GUI\n";
@@ -28,10 +28,10 @@ const String ButtonForLoadingSelectedPatch::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForLoadingSelectedPatch::onClickMethod() {
-	auto slot{ patchSlots.selectedSlot };
+void ButtonForLoadingSelectedVoice::onClickMethod() {
+	auto slot{ voiceSlots.selectedSlot };
 	if (slot < voices::numberOfSlotsInBank) {
-		patchSlots.loadVoiceFromSelectedSlot();
+		voiceSlots.loadVoiceFromSelectedSlot();
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
@@ -45,5 +45,5 @@ void ButtonForLoadingSelectedPatch::onClickMethod() {
 	}
 }
 
-void ButtonForLoadingSelectedPatch::timerCallback() {
+void ButtonForLoadingSelectedVoice::timerCallback() {
 }

@@ -71,7 +71,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonLoadDown_png : BinaryData::ButtonLoadUp_png;
 	if (button.getComponentID() == ID::button_Master.toString())
 		return isDown ? BinaryData::ButtonMasterDown_png : BinaryData::ButtonMasterUp_png;
-	if (button.getComponentID() == ID::button_Patches.toString())
+	if (button.getComponentID() == ID::button_Voices.toString())
 		return isDown ? BinaryData::ButtonPatchesDown_png : BinaryData::ButtonPatchesUp_png;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
@@ -95,9 +95,9 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_png : BinaryData::ButtonStopUp_png;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_png : BinaryData::ButtonUndoUp_png;
-	if (button.getComponentID() == ID::button_X_Master.toString() || button.getComponentID() == ID::button_X_PatchMap.toString())
+	if (button.getComponentID() == ID::button_X_Master.toString() || button.getComponentID() == ID::button_X_VoicesMap.toString())
 		return isDown ? BinaryData::ButtonXOrangeDown_png : BinaryData::ButtonXOrangeUp_png;
-	if (button.getComponentID() == ID::button_X_Patches.toString())
+	if (button.getComponentID() == ID::button_X_VoicesBanks.toString())
 		return isDown ? BinaryData::ButtonXDown_png : BinaryData::ButtonXUp_png;
 	if (button.getComponentID() == ID::button_X_Splits.toString())
 		return isDown ? BinaryData::ButtonXGrayDown_png : BinaryData::ButtonXGrayUp_png;
@@ -113,7 +113,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonLoadDown_pngSize : BinaryData::ButtonLoadUp_pngSize;
 	if (button.getComponentID() == ID::button_Master.toString())
 		return isDown ? BinaryData::ButtonMasterDown_pngSize : BinaryData::ButtonMasterUp_pngSize;
-	if (button.getComponentID() == ID::button_Patches.toString())
+	if (button.getComponentID() == ID::button_Voices.toString())
 		return isDown ? BinaryData::ButtonPatchesDown_pngSize : BinaryData::ButtonPatchesUp_pngSize;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
@@ -137,9 +137,9 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonStopDown_pngSize : BinaryData::ButtonStopUp_pngSize;
 	if (button.getComponentID() == ID::button_Undo.toString())
 		return isDown ? BinaryData::ButtonUndoDown_pngSize : BinaryData::ButtonUndoUp_pngSize;
-	if (button.getComponentID() == ID::button_X_Master.toString() || button.getComponentID() == ID::button_X_PatchMap.toString())
+	if (button.getComponentID() == ID::button_X_Master.toString() || button.getComponentID() == ID::button_X_VoicesMap.toString())
 		return isDown ? BinaryData::ButtonXOrangeDown_pngSize : BinaryData::ButtonXOrangeUp_pngSize;
-	if (button.getComponentID() == ID::button_X_Patches.toString())
+	if (button.getComponentID() == ID::button_X_VoicesBanks.toString())
 		return isDown ? BinaryData::ButtonXDown_pngSize : BinaryData::ButtonXUp_pngSize;
 	if (button.getComponentID() == ID::button_X_Splits.toString())
 		return isDown ? BinaryData::ButtonXGrayDown_pngSize : BinaryData::ButtonXGrayUp_pngSize;
@@ -154,7 +154,7 @@ void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool is
 }
 
 void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
-	if (component.getComponentID() == ID::button_PatchSlotRadioButton.toString() || component.getComponentID() == ID::button_SplitSlotRadioButton.toString()) {
+	if (component.getComponentID() == ID::button_VoiceSlotRadioButton.toString() || component.getComponentID() == ID::button_SplitSlotRadioButton.toString()) {
 		auto buttonColor{ Color::device };
 		if (isHighlighted)
 			buttonColor = buttonColor.brighter(0.4f);

@@ -19,11 +19,11 @@ SplitsComponent::SplitsComponent(UnexposedParameters* unexposedParams) :
 	comboBox_ForSelectingZoneVoiceAssignments{ unexposedParams },
 	slider_ForSettingZoneVolumeBalance{ unexposedParams },
 	slider_ForSettingLowerZoneLimit{ unexposedParams, ID::split_LowerZoneLimit },
-	slider_ForSettingLowerZonePatchNumber{ unexposedParams, ID::split_LowerZonePatchNumber },
+	slider_ForSettingLowerZonePatchNumber{ unexposedParams, ID::split_LowerZoneVoiceNumber },
 	slider_ForSettingLowerZoneTranspose{ unexposedParams, ID::split_LowerZoneTranspose },
 	comboBox_ForSelectingLowerZoneMIDIout{ unexposedParams, ID::split_LowerZoneMidiOut },
 	slider_ForSettingUpperZoneLimit{ unexposedParams, ID::split_UpperZoneLimit },
-	slider_ForSettingUpperZonePatchNumber{ unexposedParams, ID::split_UpperZonePatchNumber },
+	slider_ForSettingUpperZonePatchNumber{ unexposedParams, ID::split_UpperZoneVoiceNumber },
 	slider_ForSettingUpperZoneTranspose{ unexposedParams, ID::split_UpperZoneTranspose },
 	comboBox_ForSelectingUpperZoneMIDIout{ unexposedParams, ID::split_UpperZoneMidiOut },
 	splitSlots{ unexposedParams },
@@ -105,11 +105,11 @@ void SplitsComponent::resized() {
 	comboBox_ForSelectingZoneVoiceAssignments.setBounds(GUI::bounds_SplitsComboBoxForZoneVoiceAssignment);
 	slider_ForSettingZoneVolumeBalance.setBounds(GUI::bounds_SplitZoneVolumeBalance);
 	slider_ForSettingLowerZoneLimit.setBounds(GUI::bounds_SplitLowerZoneLimit);
-	slider_ForSettingLowerZonePatchNumber.setBounds(GUI::bounds_SplitLowerZonePatchNumber);
+	slider_ForSettingLowerZonePatchNumber.setBounds(GUI::bounds_SplitLowerZoneVoiceNumber);
 	slider_ForSettingLowerZoneTranspose.setBounds(GUI::bounds_SplitLowerZoneTranspose);
 	comboBox_ForSelectingLowerZoneMIDIout.setBounds(GUI::bounds_SplitLowerZoneMIDIout);
 	slider_ForSettingUpperZoneLimit.setBounds(GUI::bounds_SplitUpperZoneLimit);
-	slider_ForSettingUpperZonePatchNumber.setBounds(GUI::bounds_SplitUpperZonePatchNumber);
+	slider_ForSettingUpperZonePatchNumber.setBounds(GUI::bounds_SplitUpperZoneVoiceNumber);
 	slider_ForSettingUpperZoneTranspose.setBounds(GUI::bounds_SplitUpperZoneTranspose);
 	comboBox_ForSelectingUpperZoneMIDIout.setBounds(GUI::bounds_SplitUpperZoneMIDIout);
 	splitSlots.setBounds(GUI::bounds_SplitSlotsComponent);

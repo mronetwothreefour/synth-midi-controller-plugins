@@ -7,7 +7,7 @@
 
 
 ComboBoxForSelectingPatchMapEnabled::ComboBoxForSelectingPatchMapEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_PatchMapEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_VoicesMapEnabled },
 	unexposedParams{ unexposedParams }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };

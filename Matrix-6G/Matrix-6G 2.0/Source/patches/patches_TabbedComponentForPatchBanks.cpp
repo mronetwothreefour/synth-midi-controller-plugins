@@ -10,25 +10,25 @@ using namespace constants;
 
 
 
-TabbedComponentForPatchBanks::TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+TabbedComponentForVoicesBanks::TabbedComponentForVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
 	unexposedParams{ unexposedParams },
-	analogSynthsA{ VoicesBank::analogSynthsA, exposedParams, unexposedParams, patchCopyBuffer },
-	analogSynthsB{ VoicesBank::analogSynthsB, exposedParams, unexposedParams, patchCopyBuffer },
-	basses{ VoicesBank::basses, exposedParams, unexposedParams, patchCopyBuffer },
-	brassAndWoodwinds{ VoicesBank::brassAndWoodwinds, exposedParams, unexposedParams, patchCopyBuffer },
-	customA{ VoicesBank::customA, exposedParams, unexposedParams, patchCopyBuffer },
-	customB{ VoicesBank::customB, exposedParams, unexposedParams, patchCopyBuffer },
-	fxAndPercussion{ VoicesBank::fxAndPercussion, exposedParams, unexposedParams, patchCopyBuffer },
-	keyboardsA{ VoicesBank::keyboardsA, exposedParams, unexposedParams, patchCopyBuffer },
-	keyboardsB{ VoicesBank::keyboardsB, exposedParams, unexposedParams, patchCopyBuffer },
-	leads{ VoicesBank::leads, exposedParams, unexposedParams, patchCopyBuffer },
-	miscellaneousA{ VoicesBank::miscellaneousA, exposedParams, unexposedParams, patchCopyBuffer },
-	miscellaneousB{ VoicesBank::miscellaneousB, exposedParams, unexposedParams, patchCopyBuffer },
-	strings{ VoicesBank::strings, exposedParams, unexposedParams, patchCopyBuffer }
+	analogSynthsA{ VoicesBank::analogSynthsA, exposedParams, unexposedParams, voiceCopyBuffer },
+	analogSynthsB{ VoicesBank::analogSynthsB, exposedParams, unexposedParams, voiceCopyBuffer },
+	basses{ VoicesBank::basses, exposedParams, unexposedParams, voiceCopyBuffer },
+	brassAndWoodwinds{ VoicesBank::brassAndWoodwinds, exposedParams, unexposedParams, voiceCopyBuffer },
+	customA{ VoicesBank::customA, exposedParams, unexposedParams, voiceCopyBuffer },
+	customB{ VoicesBank::customB, exposedParams, unexposedParams, voiceCopyBuffer },
+	fxAndPercussion{ VoicesBank::fxAndPercussion, exposedParams, unexposedParams, voiceCopyBuffer },
+	keyboardsA{ VoicesBank::keyboardsA, exposedParams, unexposedParams, voiceCopyBuffer },
+	keyboardsB{ VoicesBank::keyboardsB, exposedParams, unexposedParams, voiceCopyBuffer },
+	leads{ VoicesBank::leads, exposedParams, unexposedParams, voiceCopyBuffer },
+	miscellaneousA{ VoicesBank::miscellaneousA, exposedParams, unexposedParams, voiceCopyBuffer },
+	miscellaneousB{ VoicesBank::miscellaneousB, exposedParams, unexposedParams, voiceCopyBuffer },
+	strings{ VoicesBank::strings, exposedParams, unexposedParams, voiceCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForCustomBanks.toString());
-	setTabBarDepth(GUI::patchBanksTabBarDepth);
+	setTabBarDepth(GUI::voicesBanksTabBarDepth);
 	setOutline(0);
 	addTab("Analog Synths A", Color::device, &analogSynthsA, true, 1);
 	addTab("Analog Synths B", Color::device, &analogSynthsB, true, 2);
@@ -43,15 +43,15 @@ TabbedComponentForPatchBanks::TabbedComponentForPatchBanks(AudioProcessorValueTr
 	addTab("Miscellaneous A", Color::device, &miscellaneousA, true, 11);
 	addTab("Miscellaneous B", Color::device, &miscellaneousB, true, 12);
 	addTab("Strings", Color::device, &strings, true, 13);
-	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
+	setSize(GUI::voicesBanksTab_w, GUI::voicesBanksTab_h);
 }
 
-void TabbedComponentForPatchBanks::addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener) {
+void TabbedComponentForVoicesBanks::addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener) {
 	customA.addListenerToPullEntireBankButton(listener);
 	customB.addListenerToPullEntireBankButton(listener);
 }
 
-void TabbedComponentForPatchBanks::addListenerToPushBankButtonInAllTabs(Button::Listener* listener) {
+void TabbedComponentForVoicesBanks::addListenerToPushBankButtonInAllTabs(Button::Listener* listener) {
 	analogSynthsA.addListenerToPushEntireBankButton(listener);
 	analogSynthsB.addListenerToPushEntireBankButton(listener);
 	basses.addListenerToPushEntireBankButton(listener);
@@ -67,12 +67,12 @@ void TabbedComponentForPatchBanks::addListenerToPushBankButtonInAllTabs(Button::
 	strings.addListenerToPushEntireBankButton(listener);
 }
 
-void TabbedComponentForPatchBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
+void TabbedComponentForVoicesBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
 	customA.removeListenerFromPullEntireBankButton(listener);
 	customB.removeListenerFromPullEntireBankButton(listener);
 }
 
-void TabbedComponentForPatchBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
+void TabbedComponentForVoicesBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
 	analogSynthsA.removeListenerFromPushEntireBankButton(listener);
 	analogSynthsB.removeListenerFromPushEntireBankButton(listener);
 	basses.removeListenerFromPushEntireBankButton(listener);

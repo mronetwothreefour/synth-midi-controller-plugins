@@ -313,13 +313,13 @@ public:
 
 
 
-struct IntToPatchBankName : public IntToContextualStringConverter
+struct IntToVoicesBankName : public IntToContextualStringConverter
 {
 	String conversionAlgorithm(const uint8& i) noexcept override;
 	String verboseConversionAlgorithm(const uint8& i) noexcept override;
 
 public:
-	static IntToPatchBankName* get() noexcept;
+	static IntToVoicesBankName* get() noexcept;
 };
 
 

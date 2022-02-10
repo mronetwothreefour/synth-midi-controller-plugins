@@ -9,18 +9,18 @@
 class VoiceSlotsComponent;
 class UnexposedParameters;
 
-class ButtonForPullingSelectedPatchFromHardware :
+class ButtonForPullingSelectedVoiceFromHardware :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	public Timer
 {
-	VoiceSlotsComponent& patchSlots;
+	VoiceSlotsComponent& voiceSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
-	ButtonForPullingSelectedPatchFromHardware() = delete;
+	ButtonForPullingSelectedVoiceFromHardware() = delete;
 
-	ButtonForPullingSelectedPatchFromHardware(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForPullingSelectedVoiceFromHardware(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -30,5 +30,5 @@ private:
 	void timerCallback() override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingSelectedPatchFromHardware)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingSelectedVoiceFromHardware)
 };

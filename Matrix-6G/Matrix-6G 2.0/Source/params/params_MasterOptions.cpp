@@ -19,7 +19,7 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_BasicChannel, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_OmniModeEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_ControllersEnabled, (uint8)1, nullptr);
-	masterOptionsTree.setProperty(ID::master_PatchChangesEnabled, (uint8)1, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoiceChangesEnabled, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_SysExEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_LocalControlEnabled, (uint8)1, nullptr);
 	masterOptionsTree.setProperty(ID::master_Pedal1ControllerNumber, (uint8)4, nullptr);
@@ -38,8 +38,8 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_VibratoAmplitudeModAmount, (uint8)63, nullptr);
 	masterOptionsTree.setProperty(ID::master_Tune, (uint8)63, nullptr);
 	masterOptionsTree.setProperty(ID::master_SplitStereoEnabled, (uint8)0, nullptr);
-	masterOptionsTree.setProperty(ID::master_PatchMapEnabled, (uint8)0, nullptr);
-	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, (uint8)0, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoicesMapEnabled, (uint8)0, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoicesMapEchoEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)27, nullptr);
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
 	resetPatchMap();
@@ -82,11 +82,11 @@ void MasterOptions::setControllersEnabled(uint8 newValue) {
 }
 
 const uint8 MasterOptions::patchChangesEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_PatchChangesEnabled);
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoiceChangesEnabled);
 }
 
 void MasterOptions::setPatchChangesEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_PatchChangesEnabled, newValue, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoiceChangesEnabled, newValue, nullptr);
 }
 
 const uint8 MasterOptions::sysExEnabled() {
@@ -242,19 +242,19 @@ void MasterOptions::setSplitStereoEnabled(uint8 newValue) {
 }
 
 const uint8 MasterOptions::patchMapEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_PatchMapEnabled);
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoicesMapEnabled);
 }
 
 void MasterOptions::setPatchMapEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_PatchMapEnabled, newValue, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoicesMapEnabled, newValue, nullptr);
 }
 
 const uint8 MasterOptions::patchMapEchoEnabled() {
-	return (uint8)(int)masterOptionsTree.getProperty(ID::master_PatchMapEchoEnabled);
+	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoicesMapEchoEnabled);
 }
 
 void MasterOptions::setPatchMapEchoEnabled(uint8 newValue) {
-	masterOptionsTree.setProperty(ID::master_PatchMapEchoEnabled, newValue, nullptr);
+	masterOptionsTree.setProperty(ID::master_VoicesMapEchoEnabled, newValue, nullptr);
 }
 
 const uint8 MasterOptions::displayBrightness() {

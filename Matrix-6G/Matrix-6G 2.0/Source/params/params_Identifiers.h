@@ -26,12 +26,10 @@ namespace ID
 	static const Identifier button_Edit{ "button_Edit" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Master{ "button_Master" };
-	static const Identifier button_Patches{ "button_Patches" };
-	static const Identifier button_PatchSlotRadioButton{ "button_PatchSlotRadioButton" };
 	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
 	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
 	static const Identifier button_PullSplitsBank{ "button_PullSplitsBank" };
-	static const Identifier button_PullSelectedPatchOrSplit{ "button_PullSelectedPatchOrSplit" };
+	static const Identifier button_PullSelectedVoiceOrSplit{ "button_PullSelectedVoiceOrSplit" };
 	static const Identifier button_Push{ "button_Push" };
 	static const Identifier button_PushAnalogSynthsBankA{ "button_PushAnalogSynthsBankA" };
 	static const Identifier button_PushAnalogSynthsBankB{ "button_PushAnalogSynthsBankB" };
@@ -58,12 +56,14 @@ namespace ID
 	static const Identifier button_SplitSlotRadioButton{ "button_SplitSlotRadioButton" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
+	static const Identifier button_Voices{ "button_Voices" };
+	static const Identifier button_VoiceSlotRadioButton{ "button_VoiceSlotRadioButton" };
 	static const Identifier button_X_Master{ "button_X_Master" };
-	static const Identifier button_X_Patches{ "button_X_Patches" };
-	static const Identifier button_X_PatchMap{ "button_X_PatchMap" };
 	static const Identifier button_X_Splits{ "button_X_Splits" };
+	static const Identifier button_X_VoicesBanks{ "button_X_VoicesBanks" };
+	static const Identifier button_X_VoicesMap{ "button_X_VoicesMap" };
 
-	static const Identifier comboBox_PatchBankSelector{ "comboBox_PatchBankSelector" };
+	static const Identifier comboBox_VoicesBankSelector{ "comboBox_VoicesBankSelector" };
 
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
@@ -73,7 +73,7 @@ namespace ID
 	static const Identifier currentVoice_Number{ "currentVoice_Number" };
 	static const Identifier currentVoice_Options{ "currentVoice_Options" };
 
-	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
+	static const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
 	static const Identifier label_TipsDelayEditor{ "label_TipsDelayEditor" };
 
@@ -88,9 +88,6 @@ namespace ID
 	static const Identifier master_MIDImonoEnabled{ "master_MIDImonoEnabled" };
 	static const Identifier master_OmniModeEnabled{ "master_OmniModeEnabled" };
 	static const Identifier master_Options{ "master_Options" };
-	static const Identifier master_PatchChangesEnabled{ "master_PatchChangesEnabled" };
-	static const Identifier master_PatchMapEnabled{ "master_PatchMapEnabled" };
-	static const Identifier master_PatchMapEchoEnabled{ "master_PatchMapEchoEnabled" };
 	static const Identifier master_Pedal1ControllerNumber{ "master_Pedal1ControllerNumber" };
 	static const Identifier master_Pedal2ControllerNumber{ "master_Pedal2ControllerNumber" };
 	static const Identifier master_SpilloverEnabled{ "master_SpilloverEnabled" };
@@ -105,6 +102,9 @@ namespace ID
 	static const Identifier master_VibratoSpeedModAmount{ "master_VibratoSpeedModAmount" };
 	static const Identifier master_VibratoSpeedModSource{ "master_VibratoSpeedModSource" };
 	static const Identifier master_VibratoWaveType{ "master_VibratoWaveType" };
+	static const Identifier master_VoiceChangesEnabled{ "master_VoiceChangesEnabled" };
+	static const Identifier master_VoicesMapEnabled{ "master_VoicesMapEnabled" };
+	static const Identifier master_VoicesMapEchoEnabled{ "master_VoicesMapEchoEnabled" };
 
 	static const Identifier matrixMod_AmountForMod_0{ "matrixMod_AmountForMod_0" };
 	static const Identifier matrixMod_AmountForMod_1{ "matrixMod_AmountForMod_1" };
@@ -152,12 +152,12 @@ namespace ID
 	static const Identifier split_Options{ "split_Options" };
 	static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
 	static const Identifier split_LowerZoneMidiOut{ "split_LowerZoneMidiOut" };
-	static const Identifier split_LowerZonePatchNumber{ "split_LowerZonePatchNumber" };
 	static const Identifier split_LowerZoneTranspose{ "split_LowerZoneTranspose" };
+	static const Identifier split_LowerZoneVoiceNumber{ "split_LowerZoneVoiceNumber" };
 	static const Identifier split_UpperZoneLimit{ "split_UpperZoneLimit" };
 	static const Identifier split_UpperZoneMidiOut{ "split_UpperZoneMidiOut" };
-	static const Identifier split_UpperZonePatchNumber{ "split_UpperZonePatchNumber" };
 	static const Identifier split_UpperZoneTranspose{ "split_UpperZoneTranspose" };
+	static const Identifier split_UpperZoneVoiceNumber{ "split_UpperZoneVoiceNumber" };
 	static const Identifier split_ZoneVoiceAssignment{ "split_ZoneVoiceAssignment" };
 	static const Identifier split_ZoneVolumeBalance{ "split_ZoneVolumeBalance" };
 	static const Identifier splits_DataHexStrings{ "splits_DataHexStrings" };
@@ -169,8 +169,8 @@ namespace ID
 	static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
 	static const Identifier state_MatrixModSettings{ "state_MatrixModSettings" };
-	static const Identifier state_PatchBanks{ "state_PatchBanks" };
-	static const Identifier state_PatchTransmissionOptions{ "state_PatchTransmissionOptions" };
+	static const Identifier state_VoicesBanks{ "state_VoicesBanks" };
+	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };
 	static const Identifier state_PluginState{ "state_PluginState" };
 	static const Identifier state_SplitsBank{ "state_SplitBanks" };
 	static const Identifier state_SplitOptions{ "state_SplitOptions" };

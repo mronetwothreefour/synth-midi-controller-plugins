@@ -6,19 +6,19 @@
 
 class UnexposedParameters;
 
-class ComboBoxForSelectingPatchBank :
+class ComboBoxForSelectingVoicesBank :
 	public ComboBox
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ComboBoxForSelectingPatchBank() = delete;
+	ComboBoxForSelectingVoicesBank() = delete;
 
-	explicit ComboBoxForSelectingPatchBank(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingVoicesBank(UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForSelectingPatchBank)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForSelectingVoicesBank)
 };
 
