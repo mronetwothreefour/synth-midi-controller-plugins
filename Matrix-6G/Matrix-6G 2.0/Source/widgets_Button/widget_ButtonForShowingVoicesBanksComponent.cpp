@@ -1,11 +1,11 @@
-#include "widget_ButtonForShowingPatchBanksComponent.h"
+#include "widget_ButtonForShowingVoicesBanksComponent.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-ButtonForShowingPatchBanksComponent::ButtonForShowingPatchBanksComponent(UnexposedParameters* unexposedParams) :
+ButtonForShowingVoicesBanksComponent::ButtonForShowingVoicesBanksComponent(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
@@ -13,7 +13,7 @@ ButtonForShowingPatchBanksComponent::ButtonForShowingPatchBanksComponent(Unexpos
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForShowingPatchBanksComponent::createButtonTooltipString() {
+const String ButtonForShowingVoicesBanksComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Opens a window where you can manage\n";
@@ -22,5 +22,5 @@ const String ButtonForShowingPatchBanksComponent::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForShowingPatchBanksComponent::onClickMethod() {
+void ButtonForShowingVoicesBanksComponent::onClickMethod() {
 }

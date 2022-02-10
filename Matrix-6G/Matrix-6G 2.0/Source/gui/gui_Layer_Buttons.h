@@ -2,13 +2,13 @@
 
 #include <JuceHeader.h>
 
-#include "../widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"
+#include "../widgets_Button/widget_ButtonForActivatingQuickEdit.h"
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
-#include "../widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
-#include "../widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"
+#include "../widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
+#include "../widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"
-#include "../widgets_Button/widget_ButtonForShowingPatchBanksComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingSplitsComponent.h"
 
 
@@ -25,12 +25,12 @@ class ButtonsLayer :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	ButtonForActivatingQuickPatchEdit button_ForActivatingQuickPatchEdit;
+	ButtonForActivatingQuickEdit button_ForActivatingQuickEdit;
 	ButtonForPerformingUndo button_ForPerformingUndo;
 	ButtonForPerformingRedo button_ForPerformingRedo;
-	ButtonForPullingPatchFromHardwareStorageSlot button_ForPullingPatchFromHardware;
-	ButtonForPushingPatchToHardwareStorageSlot button_ForPushingPatchToHardware;
-	ButtonForShowingPatchBanksComponent button_ForShowingPatchBanksComponent;
+	ButtonForPullingVoiceFromHardwareStorageSlot button_ForPullingVoiceFromHardware;
+	ButtonForPushingVoiceToHardwareStorageSlot button_ForPushingVoiceToHardware;
+	ButtonForShowingVoicesBanksComponent button_ForShowingVoicesBanksComponent;
 	ButtonForShowingSplitsComponent button_ForShowingSplitsComponent;
 	ButtonForShowingMasterOptionsComponent button_ForShowingMasterOptionsComponent;
 	HyperlinkButton button_ForGoingToWebSite;
@@ -45,7 +45,7 @@ public:
 	ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void showPatchBanksComponent();
+	void showVoicesBanksComponent();
 	void showSplitsComponent();
 	void prepareToShowMasterOptionsComponent();
 	void showSysExIsOffWarningComponent();

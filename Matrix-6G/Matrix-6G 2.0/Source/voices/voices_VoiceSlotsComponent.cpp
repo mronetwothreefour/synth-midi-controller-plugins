@@ -1,6 +1,6 @@
-#include "patches_PatchSlotsComponent.h"
+#include "voices_VoiceSlotsComponent.h"
 
-#include "patches_Constants.h"
+#include "voices_Constants.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_VoiceDataMessage.h"

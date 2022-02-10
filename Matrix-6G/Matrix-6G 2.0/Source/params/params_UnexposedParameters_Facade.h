@@ -9,7 +9,7 @@
 #include "params_TooltipOptions.h"
 #include "params_VoiceTransmissionOptions.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
-#include "../patches/patches_PatchBanks.h"
+#include "../voices/voices_VoicesBanks.h"
 #include "../splits/splits_SplitsBank.h"
 
 

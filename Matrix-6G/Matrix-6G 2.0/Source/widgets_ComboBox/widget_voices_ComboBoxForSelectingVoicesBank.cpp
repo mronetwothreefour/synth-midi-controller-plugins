@@ -1,4 +1,4 @@
-#include "widget_patches_ComboBoxForSelectingPatchBank.h"
+#include "widget_voices_ComboBoxForSelectingVoicesBank.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
@@ -23,7 +23,7 @@ ComboBoxForSelectingVoicesBank::ComboBoxForSelectingVoicesBank(UnexposedParamete
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects which bank of stored patches to work with.\n";
-		tooltipText += "Only voices in the Custom A & B banks can be overwritten.";
+		tooltipText += "Only patches in the Custom A & B banks can be overwritten.";
 	}
 	setTooltip(tooltipText);
 }

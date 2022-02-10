@@ -2,7 +2,7 @@
 
 #include "midi_Constants.h"
 #include "../master/master_Constants.h"
-#include "../patches/patches_Constants.h"
+#include "../voices/voices_Constants.h"
 #include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_UnexposedParameters_Facade.h"

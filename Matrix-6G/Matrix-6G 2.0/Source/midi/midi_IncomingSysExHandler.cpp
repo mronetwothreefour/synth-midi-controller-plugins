@@ -3,7 +3,7 @@
 #include "midi_Constants.h"
 #include "midi_RawDataTools.h"
 #include "../master/master_Constants.h"
-#include "../patches/patches_PatchBanks.h"
+#include "../voices/voices_VoicesBanks.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 using namespace constants;

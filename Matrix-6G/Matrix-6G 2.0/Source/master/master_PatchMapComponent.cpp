@@ -5,7 +5,7 @@
 #include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../patches/patches_Constants.h"
+#include "../voices/voices_Constants.h"
 
 using namespace constants;
 

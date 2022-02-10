@@ -1,4 +1,4 @@
-#include "widget_ButtonForActivatingQuickPatchEdit.h"
+#include "widget_ButtonForActivatingQuickEdit.h"
 
 #include "../midi/midi_RawDataTools.h"
 #include "../gui/gui_Constants.h"
@@ -9,7 +9,7 @@ using namespace constants;
 
 
 
-ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedParameters* unexposedParams) :
+ButtonForActivatingQuickEdit::ButtonForActivatingQuickEdit(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
@@ -25,7 +25,7 @@ ButtonForActivatingQuickPatchEdit::ButtonForActivatingQuickPatchEdit(UnexposedPa
 	callAfterDelay(800, [this] { setComponentID(ID::button_QuickEdit.toString()); repaint(); });
 }
 
-const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
+const String ButtonForActivatingQuickEdit::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "The Matrix must be set to Quick Patch Edit mode in order\n";
@@ -36,11 +36,11 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForActivatingQuickPatchEdit::onClickMethod() {
+void ButtonForActivatingQuickEdit::onClickMethod() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickEditMessage() };
-	outgoingMidiBuffers->addDataMessage(activateQuickPatchEditingMessage);
+	auto activateQuickEditMessage{ RawSysExDataVector::createActivateQuickEditMessage() };
+	outgoingMidiBuffers->addDataMessage(activateQuickEditMessage);
 }
 
-void ButtonForActivatingQuickPatchEdit::timerCallback() {
+void ButtonForActivatingQuickEdit::timerCallback() {
 }

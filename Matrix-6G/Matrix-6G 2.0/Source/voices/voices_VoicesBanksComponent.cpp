@@ -1,6 +1,6 @@
-#include "patches_PatchBanksComponent.h"
+#include "voices_VoicesBanksComponent.h"
 
-#include "patches_BankTransmissionComponent.h"
+#include "voices_BankTransmissionComponent.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../params/params_Constants.h"
@@ -39,7 +39,7 @@ VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposed
 	if (tooltips->shouldShowDescription()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single patch between the plugin and the Matrix-6R hardware. Increase this\n";
-		label_txTimeTooltip += "value if voices are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
+		label_txTimeTooltip += "value if patches are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
 		label_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 

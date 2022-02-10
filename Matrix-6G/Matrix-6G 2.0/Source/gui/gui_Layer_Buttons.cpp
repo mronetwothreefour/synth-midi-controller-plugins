@@ -6,7 +6,7 @@
 #include "../master/master_MasterOptionsComponent.h"
 #include "../master/master_SysExIsOffWarningComponent.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../patches/patches_PatchBanksComponent.h"
+#include "../voices/voices_VoicesBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"
 
 using namespace constants;
@@ -16,24 +16,24 @@ using namespace constants;
 ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
-    button_ForActivatingQuickPatchEdit{ unexposedParams },
+    button_ForActivatingQuickEdit{ unexposedParams },
     button_ForPerformingUndo{ unexposedParams },
     button_ForPerformingRedo{ unexposedParams },
-    button_ForPullingPatchFromHardware{ unexposedParams },
-    button_ForPushingPatchToHardware{ exposedParams, unexposedParams },
-    button_ForShowingPatchBanksComponent{ unexposedParams },
+    button_ForPullingVoiceFromHardware{ unexposedParams },
+    button_ForPushingVoiceToHardware{ exposedParams, unexposedParams },
+    button_ForShowingVoicesBanksComponent{ unexposedParams },
     button_ForShowingSplitsComponent{ unexposedParams },
     button_ForShowingMasterOptionsComponent{ unexposedParams },
     button_ForGoingToWebSite{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
-    addAndMakeVisible(button_ForActivatingQuickPatchEdit);
+    addAndMakeVisible(button_ForActivatingQuickEdit);
     addAndMakeVisible(button_ForPerformingUndo);
     addAndMakeVisible(button_ForPerformingRedo);
-    addAndMakeVisible(button_ForPullingPatchFromHardware);
-    addAndMakeVisible(button_ForPushingPatchToHardware);
-    addAndMakeVisible(button_ForShowingPatchBanksComponent);
-    button_ForShowingPatchBanksComponent.onClick = [this] { showPatchBanksComponent(); };
+    addAndMakeVisible(button_ForPullingVoiceFromHardware);
+    addAndMakeVisible(button_ForPushingVoiceToHardware);
+    addAndMakeVisible(button_ForShowingVoicesBanksComponent);
+    button_ForShowingVoicesBanksComponent.onClick = [this] { showVoicesBanksComponent(); };
     addAndMakeVisible(button_ForShowingSplitsComponent);
     button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
     addAndMakeVisible(button_ForShowingMasterOptionsComponent);
@@ -44,7 +44,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void ButtonsLayer::showPatchBanksComponent() {
+void ButtonsLayer::showVoicesBanksComponent() {
     voicesBanksComponent.reset(new VoicesBanksComponent(exposedParams, unexposedParams));
     if (voicesBanksComponent != nullptr) {
         addAndMakeVisible(voicesBanksComponent.get());
@@ -96,12 +96,12 @@ void ButtonsLayer::timerCallback() {
 }
 
 void ButtonsLayer::resized() {
-    button_ForActivatingQuickPatchEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
+    button_ForActivatingQuickEdit.setBounds(GUI::bounds_MainWindowQuickEditButton);
     button_ForPerformingUndo.setBounds(GUI::bounds_MainWindowUndoButton);
     button_ForPerformingRedo.setBounds(GUI::bounds_MainWindowRedoButton);
-    button_ForPullingPatchFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
-    button_ForPushingPatchToHardware.setBounds(GUI::bounds_MainWindowPushButton);
-    button_ForShowingPatchBanksComponent.setBounds(GUI::bounds_MainWindowVoicesButton);
+    button_ForPullingVoiceFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
+    button_ForPushingVoiceToHardware.setBounds(GUI::bounds_MainWindowPushButton);
+    button_ForShowingVoicesBanksComponent.setBounds(GUI::bounds_MainWindowVoicesButton);
     button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
     button_ForShowingMasterOptionsComponent.setBounds(GUI::bounds_MainWindowMasterOptionsButton);
     button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);

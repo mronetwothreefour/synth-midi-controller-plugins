@@ -1,7 +1,7 @@
-#include "patches_PatchBanks.h"
+#include "voices_VoicesBanks.h"
 
-#include "patches_Constants.h"
-#include "patches_FactoryPatchDataHexStrings_Singleton.h"
+#include "voices_Constants.h"
+#include "voices_FactoryVoiceDataHexStrings_Singleton.h"
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 

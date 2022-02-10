@@ -1,7 +1,7 @@
-#include "widget_patches_ButtonForSavingPatchInSelectedSlot.h"
+#include "widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
 
-#include "../patches/patches_Constants.h"
-#include "../patches/patches_PatchSlotsComponent.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 

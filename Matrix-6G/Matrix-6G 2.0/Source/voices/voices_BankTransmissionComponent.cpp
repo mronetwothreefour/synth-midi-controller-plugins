@@ -1,7 +1,7 @@
-#include "patches_BankTransmissionComponent.h"
+#include "voices_BankTransmissionComponent.h"
 
-#include "patches_Constants.h"
-#include "patches_TabbedComponentForPatchBanks.h"
+#include "voices_Constants.h"
+#include "voices_TabbedComponentForVoicesBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"

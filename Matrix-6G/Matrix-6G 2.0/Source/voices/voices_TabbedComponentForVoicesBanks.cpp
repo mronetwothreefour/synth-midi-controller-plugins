@@ -1,6 +1,6 @@
-#include "patches_TabbedComponentForPatchBanks.h"
+#include "voices_TabbedComponentForVoicesBanks.h"
 
-#include "patches_PatchBanks.h"
+#include "voices_VoicesBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"

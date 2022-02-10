@@ -3,20 +3,20 @@
 #include <JuceHeader.h>
 
 #include "widget_BaseButtonWithOnClickAndTooltipMethods.h"
-#include "../patches/patches_PatchBanks.h"
+#include "../voices/voices_VoicesBanks.h"
 
 
 
 class UnexposedParameters;
 
-class ButtonForPullingEntireBankFromHardware : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForPushingEntireBankToHardware : public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForPullingEntireBankFromHardware() = delete;
+	ButtonForPushingEntireBankToHardware() = delete;
 
-	ButtonForPullingEntireBankFromHardware(VoicesBank bank, UnexposedParameters* unexposedParams);
+	ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -24,6 +24,6 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingEntireBankFromHardware)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingEntireBankToHardware)
 };
 

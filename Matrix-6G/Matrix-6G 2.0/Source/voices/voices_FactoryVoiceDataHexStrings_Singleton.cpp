@@ -1,4 +1,4 @@
-#include "patches_FactoryPatchDataHexStrings_Singleton.h"
+#include "voices_FactoryVoiceDataHexStrings_Singleton.h"
 
 
 

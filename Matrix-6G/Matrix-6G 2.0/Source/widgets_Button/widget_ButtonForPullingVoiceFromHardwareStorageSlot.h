@@ -8,16 +8,16 @@
 
 class UnexposedParameters;
 
-class ButtonForActivatingQuickPatchEdit : 
+class ButtonForPullingVoiceFromHardwareStorageSlot :
 	public BaseButtonWithOnClickAndTooltipMethods,
-	private Timer
+	public Timer
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForActivatingQuickPatchEdit() = delete;
+	ButtonForPullingVoiceFromHardwareStorageSlot() = delete;
 
-	explicit ButtonForActivatingQuickPatchEdit(UnexposedParameters* unexposedParams);
+	explicit ButtonForPullingVoiceFromHardwareStorageSlot(UnexposedParameters* unexposedParams);
 
 
 protected:
@@ -28,6 +28,6 @@ private:
 	void timerCallback() override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForActivatingQuickPatchEdit)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingVoiceFromHardwareStorageSlot)
 };
 

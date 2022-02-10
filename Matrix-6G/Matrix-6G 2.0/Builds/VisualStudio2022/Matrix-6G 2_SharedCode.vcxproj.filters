@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Matrix-6G 2\Source\core">
@@ -19,14 +20,14 @@
     <Filter Include="Matrix-6G 2\Source\params">
       <UniqueIdentifier>{D0CDEFE9-5A2A-5393-0EC5-93000A7E69B8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2\Source\patches">
-      <UniqueIdentifier>{952D6630-DA3B-E8C5-AECF-1866C951C2DC}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Matrix-6G 2\Source\splits">
       <UniqueIdentifier>{E7D414DC-2D7D-F1E3-FA7D-885640547D07}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G 2\Source\tooltipSetters">
       <UniqueIdentifier>{C91BE8E5-3782-EACC-A48C-A11909CBB052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2\Source\voices">
+      <UniqueIdentifier>{B653C471-0F6B-40B0-6A20-112C61BD496C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G 2\Source\widgets_Button">
       <UniqueIdentifier>{D10318A9-DC90-29DA-2885-983980454858}</UniqueIdentifier>
@@ -588,30 +589,6 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>Matrix-6G 2\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_BankTransmissionComponent.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_PatchBanks.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_PatchBanksComponent.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_PatchSlotsComponent.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_TabForCustomPatchBank.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\patches\patches_TabForFactoryPatchBank.cpp">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_BankTransmissionComponent.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
@@ -633,10 +610,34 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>Matrix-6G 2\Source\tooltipSetters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_BankTransmissionComponent.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForVoicesBanks.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabForCustomVoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanks.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanksComponent.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsComponent.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickEdit.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
@@ -645,16 +646,16 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp">
@@ -664,21 +665,6 @@
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.cpp">
@@ -694,6 +680,21 @@
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.cpp">
@@ -759,13 +760,13 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.cpp">
-      <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneMIDIout.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp">
+      <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_voices_ComboBoxForSelectingVoicesBank.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
@@ -958,6 +959,9 @@
       <Filter>JUCE Modules\juce_audio_basics\utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.cpp">
+      <Filter>JUCE Modules\juce_audio_basics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.mm">
       <Filter>JUCE Modules\juce_audio_basics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\audio_io\juce_AudioDeviceManager.cpp">
@@ -1173,6 +1177,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_CoreAudio.cpp">
       <Filter>JUCE Modules\juce_audio_devices\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_CoreMidi.mm">
+      <Filter>JUCE Modules\juce_audio_devices\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\juce_win32_ASIO.cpp">
       <Filter>JUCE Modules\juce_audio_devices\native</Filter>
     </ClCompile>
@@ -1192,6 +1199,9 @@
       <Filter>JUCE Modules\juce_audio_devices\sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.cpp">
+      <Filter>JUCE Modules\juce_audio_devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.mm">
       <Filter>JUCE Modules\juce_audio_devices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\libFLAC\bitmath.c">
@@ -1365,10 +1375,16 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.cpp">
       <Filter>JUCE Modules\juce_audio_formats</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.mm">
+      <Filter>JUCE Modules\juce_audio_formats</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp">
       <Filter>JUCE Modules\juce_audio_plugin_client\utility</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_plugin_client\juce_audio_plugin_client_utils.cpp">
+      <Filter>JUCE Modules\juce_audio_plugin_client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST_utils.mm">
       <Filter>JUCE Modules\juce_audio_plugin_client</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\format\juce_AudioPluginFormat.cpp">
@@ -1446,6 +1462,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vstpresetfile.cpp">
       <Filter>JUCE Modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.mm">
+      <Filter>JUCE Modules\juce_audio_processors\format_types</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.cpp">
       <Filter>JUCE Modules\juce_audio_processors\format_types</Filter>
     </ClCompile>
@@ -1518,6 +1537,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.cpp">
       <Filter>JUCE Modules\juce_audio_processors</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.mm">
+      <Filter>JUCE Modules\juce_audio_processors</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\audio_cd\juce_AudioCDReader.cpp">
       <Filter>JUCE Modules\juce_audio_utils\audio_cd</Filter>
     </ClCompile>
@@ -1548,10 +1570,22 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_android_BluetoothMidiDevicePairingDialogue.cpp">
       <Filter>JUCE Modules\juce_audio_utils\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_ios_BluetoothMidiDevicePairingDialogue.mm">
+      <Filter>JUCE Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_linux_AudioCDReader.cpp">
       <Filter>JUCE Modules\juce_audio_utils\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_linux_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>JUCE Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_mac_AudioCDBurner.mm">
+      <Filter>JUCE Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_mac_AudioCDReader.mm">
+      <Filter>JUCE Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_mac_BluetoothMidiDevicePairingDialogue.mm">
       <Filter>JUCE Modules\juce_audio_utils\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\native\juce_win_BluetoothMidiDevicePairingDialogue.cpp">
@@ -1570,6 +1604,9 @@
       <Filter>JUCE Modules\juce_audio_utils\players</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.cpp">
+      <Filter>JUCE Modules\juce_audio_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.mm">
       <Filter>JUCE Modules\juce_audio_utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\containers\juce_AbstractFifo.cpp">
@@ -1705,6 +1742,21 @@
       <Filter>JUCE Modules\juce_core\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_linux_Threads.cpp">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_mac_Files.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_mac_Network.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_mac_Strings.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_mac_SystemStats.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_mac_Threads.mm">
       <Filter>JUCE Modules\juce_core\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\native\juce_posix_NamedPipe.cpp">
@@ -1884,6 +1936,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\juce_core.cpp">
       <Filter>JUCE Modules\juce_core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_core\juce_core.mm">
+      <Filter>JUCE Modules\juce_core</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_data_structures\app_properties\juce_ApplicationProperties.cpp">
       <Filter>JUCE Modules\juce_data_structures\app_properties</Filter>
     </ClCompile>
@@ -1909,6 +1964,9 @@
       <Filter>JUCE Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.cpp">
+      <Filter>JUCE Modules\juce_data_structures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.mm">
       <Filter>JUCE Modules\juce_data_structures</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\broadcasters\juce_ActionBroadcaster.cpp">
@@ -1947,7 +2005,13 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\native\juce_android_Messaging.cpp">
       <Filter>JUCE Modules\juce_events\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\native\juce_ios_MessageManager.mm">
+      <Filter>JUCE Modules\juce_events\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\native\juce_linux_Messaging.cpp">
+      <Filter>JUCE Modules\juce_events\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\native\juce_mac_MessageManager.mm">
       <Filter>JUCE Modules\juce_events\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\native\juce_ScopedLowPowerModeDisabler.cpp">
@@ -1966,6 +2030,9 @@
       <Filter>JUCE Modules\juce_events\timers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\juce_events.cpp">
+      <Filter>JUCE Modules\juce_events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_events\juce_events.mm">
       <Filter>JUCE Modules\juce_events</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\colour\juce_Colour.cpp">
@@ -2253,6 +2320,12 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\native\juce_linux_IconHelpers.cpp">
       <Filter>JUCE Modules\juce_graphics\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.mm">
+      <Filter>JUCE Modules\juce_graphics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_Fonts.mm">
+      <Filter>JUCE Modules\juce_graphics\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_IconHelpers.cpp">
       <Filter>JUCE Modules\juce_graphics\native</Filter>
     </ClCompile>
@@ -2275,6 +2348,9 @@
       <Filter>JUCE Modules\juce_graphics\placement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\juce_graphics.cpp">
+      <Filter>JUCE Modules\juce_graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_graphics\juce_graphics.mm">
       <Filter>JUCE Modules\juce_graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\accessibility\juce_AccessibilityHandler.cpp">
@@ -2538,6 +2614,15 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\accessibility\juce_android_Accessibility.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native\accessibility</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\accessibility\juce_ios_Accessibility.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native\accessibility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\accessibility\juce_mac_Accessibility.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native\accessibility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\accessibility\juce_mac_AccessibilitySharedCode.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native\accessibility</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\accessibility\juce_win32_Accessibility.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native\accessibility</Filter>
     </ClCompile>
@@ -2568,10 +2653,34 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_ContentSharer.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_FileChooser.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_UIViewComponentPeer.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_Windowing.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_FileChooser.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_Windowing.cpp">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_FileChooser.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MainMenu.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MouseCursor.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_NSViewComponentPeer.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_Windowing.mm">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\native\juce_win32_DragAndDrop.cpp">
@@ -2697,6 +2806,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.cpp">
       <Filter>JUCE Modules\juce_gui_basics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.mm">
+      <Filter>JUCE Modules\juce_gui_basics</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\code_editor\juce_CodeDocument.cpp">
       <Filter>JUCE Modules\juce_gui_extra\code_editor</Filter>
     </ClCompile>
@@ -2757,6 +2869,9 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_ios_PushNotifications.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_ios_UIViewComponent.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_X11_SystemTrayIcon.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
@@ -2766,10 +2881,19 @@
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_XEmbedComponent.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_AppleRemote.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_NSViewComponent.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_PushNotifications.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_SystemTrayIcon.cpp">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_WebBrowserComponent.mm">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\native\juce_win32_ActiveXComponent.cpp">
@@ -2785,6 +2909,9 @@
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.cpp">
+      <Filter>JUCE Modules\juce_gui_extra</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.mm">
       <Filter>JUCE Modules\juce_gui_extra</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
@@ -2963,32 +3090,8 @@
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>Matrix-6G 2\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_BankTransmissionComponent.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_Constants.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_FactoryPatchDataHexStrings_Singleton.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_PatchBanks.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_PatchBanksComponent.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_PatchSlotsComponent.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_TabbedComponentForPatchBanks.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_TabForCustomPatchBank.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\patches\patches_TabForFactoryPatchBank.h">
-      <Filter>Matrix-6G 2\Source\patches</Filter>
+    <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
+      <Filter>Matrix-6G 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_BankTransmissionComponent.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
@@ -3014,10 +3117,37 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h">
       <Filter>Matrix-6G 2\Source\tooltipSetters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_BankTransmissionComponent.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_Constants.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForVoicesBanks.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabForCustomVoicesBank.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanks.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanksComponent.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsComponent.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickPatchEdit.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForActivatingQuickEdit.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
@@ -3026,16 +3156,16 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingPatchFromHardwareStorageSlot.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingVoiceFromHardwareStorageSlot.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingPatchToHardwareStorageSlot.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingPatchBanksComponent.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h">
@@ -3045,21 +3175,6 @@
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingPatchMapComponent.h">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForLoadingSelectedPatch.h">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingEntireBankFromHardware.h">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPullingSelectedPatchFromHardware.h">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForPushingEntireBankToHardware.h">
-      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_patches_ButtonForSavingPatchInSelectedSlot.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h">
@@ -3075,6 +3190,21 @@
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.h">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.h">
+      <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_BaseComboBoxForOffOnValueTreeProperty.h">
@@ -3140,13 +3270,13 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingSourceForMod.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_patches_ComboBoxForSelectingPatchBank.h">
-      <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneMIDIout.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h">
+      <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_voices_ComboBoxForSelectingVoicesBank.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
@@ -5647,9 +5777,6 @@
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
-      <Filter>Matrix-6G 2\Source\params</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

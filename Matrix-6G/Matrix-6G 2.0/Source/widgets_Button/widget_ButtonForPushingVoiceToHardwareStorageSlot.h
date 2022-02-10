@@ -8,16 +8,17 @@
 
 class UnexposedParameters;
 
-class ButtonForPullingPatchFromHardwareStorageSlot :
+class ButtonForPushingVoiceToHardwareStorageSlot :
 	public BaseButtonWithOnClickAndTooltipMethods,
-	public Timer
+	private Timer
 {
+	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForPullingPatchFromHardwareStorageSlot() = delete;
+	ButtonForPushingVoiceToHardwareStorageSlot() = delete;
 
-	explicit ButtonForPullingPatchFromHardwareStorageSlot(UnexposedParameters* unexposedParams);
+	ButtonForPushingVoiceToHardwareStorageSlot(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 
 protected:
@@ -28,6 +29,6 @@ private:
 	void timerCallback() override;
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingPatchFromHardwareStorageSlot)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingVoiceToHardwareStorageSlot)
 };
 

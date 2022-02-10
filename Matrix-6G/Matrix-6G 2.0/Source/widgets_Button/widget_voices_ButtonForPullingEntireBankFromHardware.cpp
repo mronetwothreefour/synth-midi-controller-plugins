@@ -1,4 +1,4 @@
-#include "widget_patches_ButtonForPullingEntireBankFromHardware.h"
+#include "widget_voices_ButtonForPullingEntireBankFromHardware.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -19,7 +19,7 @@ ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(V
 const String ButtonForPullingEntireBankFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Pull all the voices stored in the Matrix-6R\n";
+		buttonTooltip += "Pull all the patches stored in the Matrix-6R\n";
 		buttonTooltip += "hardware into this plugin storage bank.";
 	}
 	return buttonTooltip;

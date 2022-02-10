@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "patches_PatchBanks.h"
+#include "voices_VoicesBanks.h"
 
 
 

@@ -1,6 +1,6 @@
-#include "patches_TabForCustomPatchBank.h"
+#include "voices_TabForCustomVoicesBank.h"
 
-#include "../patches/patches_Constants.h"
+#include "../voices/voices_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"

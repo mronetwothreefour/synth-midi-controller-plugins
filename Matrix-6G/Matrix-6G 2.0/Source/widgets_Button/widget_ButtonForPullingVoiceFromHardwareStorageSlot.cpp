@@ -1,4 +1,4 @@
-#include "widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
+#include "widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
 
 #include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
@@ -7,7 +7,7 @@
 
 
 
-ButtonForPullingPatchFromHardwareStorageSlot::ButtonForPullingPatchFromHardwareStorageSlot(UnexposedParameters* unexposedParams) :
+ButtonForPullingVoiceFromHardwareStorageSlot::ButtonForPullingVoiceFromHardwareStorageSlot(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
@@ -15,7 +15,7 @@ ButtonForPullingPatchFromHardwareStorageSlot::ButtonForPullingPatchFromHardwareS
 	setComponentID(ID::button_PullSelectedVoiceOrSplit.toString());
 }
 
-const String ButtonForPullingPatchFromHardwareStorageSlot::createButtonTooltipString() {
+const String ButtonForPullingVoiceFromHardwareStorageSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Pull the data from the selected patch storage slot in\n";
@@ -24,7 +24,7 @@ const String ButtonForPullingPatchFromHardwareStorageSlot::createButtonTooltipSt
 	return buttonTooltip;
 }
 
-void ButtonForPullingPatchFromHardwareStorageSlot::onClickMethod() {
+void ButtonForPullingVoiceFromHardwareStorageSlot::onClickMethod() {
 	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
 	auto slot{ currentVoiceOptions->currentVoiceNumber() };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
@@ -41,5 +41,5 @@ void ButtonForPullingPatchFromHardwareStorageSlot::onClickMethod() {
 	);
 }
 
-void ButtonForPullingPatchFromHardwareStorageSlot::timerCallback() {
+void ButtonForPullingVoiceFromHardwareStorageSlot::timerCallback() {
 }

@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "patches_TabForCustomPatchBank.h"
-#include "patches_TabForFactoryPatchBank.h"
+#include "voices_TabForCustomVoicesBank.h"
+#include "voices_TabForFactoryVoicesBank.h"
 
 
 

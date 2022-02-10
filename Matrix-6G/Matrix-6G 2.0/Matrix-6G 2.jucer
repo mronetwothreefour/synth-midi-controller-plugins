@@ -175,42 +175,6 @@
         <FILE id="YkHJgd" name="params_VoiceTransmissionOptions.h" compile="0"
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
-      <GROUP id="{D9ACF7D2-79C2-25CC-F886-05E14DE862D4}" name="patches">
-        <FILE id="yzHp5n" name="patches_BankTransmissionComponent.cpp" compile="1"
-              resource="0" file="Source/patches/patches_BankTransmissionComponent.cpp"/>
-        <FILE id="TSoWuw" name="patches_BankTransmissionComponent.h" compile="0"
-              resource="0" file="Source/patches/patches_BankTransmissionComponent.h"/>
-        <FILE id="RVCdvR" name="patches_Constants.h" compile="0" resource="0"
-              file="Source/patches/patches_Constants.h"/>
-        <FILE id="GKLE4H" name="patches_FactoryPatchDataHexStrings_Singleton.cpp"
-              compile="1" resource="0" file="Source/patches/patches_FactoryPatchDataHexStrings_Singleton.cpp"/>
-        <FILE id="Bno1AL" name="patches_FactoryPatchDataHexStrings_Singleton.h"
-              compile="0" resource="0" file="Source/patches/patches_FactoryPatchDataHexStrings_Singleton.h"/>
-        <FILE id="kvc1Qp" name="patches_PatchBanks.cpp" compile="1" resource="0"
-              file="Source/patches/patches_PatchBanks.cpp"/>
-        <FILE id="LsJ0my" name="patches_PatchBanks.h" compile="0" resource="0"
-              file="Source/patches/patches_PatchBanks.h"/>
-        <FILE id="oMerHO" name="patches_PatchBanksComponent.cpp" compile="1"
-              resource="0" file="Source/patches/patches_PatchBanksComponent.cpp"/>
-        <FILE id="btOGMc" name="patches_PatchBanksComponent.h" compile="0"
-              resource="0" file="Source/patches/patches_PatchBanksComponent.h"/>
-        <FILE id="OJZsNQ" name="patches_PatchSlotsComponent.cpp" compile="1"
-              resource="0" file="Source/patches/patches_PatchSlotsComponent.cpp"/>
-        <FILE id="IoyteO" name="patches_PatchSlotsComponent.h" compile="0"
-              resource="0" file="Source/patches/patches_PatchSlotsComponent.h"/>
-        <FILE id="PS3KAe" name="patches_TabbedComponentForPatchBanks.cpp" compile="1"
-              resource="0" file="Source/patches/patches_TabbedComponentForPatchBanks.cpp"/>
-        <FILE id="GavO2D" name="patches_TabbedComponentForPatchBanks.h" compile="0"
-              resource="0" file="Source/patches/patches_TabbedComponentForPatchBanks.h"/>
-        <FILE id="paRlrD" name="patches_TabForCustomPatchBank.cpp" compile="1"
-              resource="0" file="Source/patches/patches_TabForCustomPatchBank.cpp"/>
-        <FILE id="eMJOBv" name="patches_TabForCustomPatchBank.h" compile="0"
-              resource="0" file="Source/patches/patches_TabForCustomPatchBank.h"/>
-        <FILE id="xJjZgJ" name="patches_TabForFactoryPatchBank.cpp" compile="1"
-              resource="0" file="Source/patches/patches_TabForFactoryPatchBank.cpp"/>
-        <FILE id="IxCFKF" name="patches_TabForFactoryPatchBank.h" compile="0"
-              resource="0" file="Source/patches/patches_TabForFactoryPatchBank.h"/>
-      </GROUP>
       <GROUP id="{43DB3D97-0148-8EAA-1353-E719854D2AF2}" name="splits">
         <FILE id="asdVzA" name="splits_BankTransmissionComponent.cpp" compile="1"
               resource="0" file="Source/splits/splits_BankTransmissionComponent.cpp"/>
@@ -245,15 +209,51 @@
         <FILE id="GCBWwQ" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
               resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.h"/>
       </GROUP>
+      <GROUP id="{12212230-9C65-3524-3BF0-D40DB561BC01}" name="voices">
+        <FILE id="Tf55Vc" name="voices_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.cpp"/>
+        <FILE id="eCyM3l" name="voices_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.h"/>
+        <FILE id="AZMteZ" name="voices_Constants.h" compile="0" resource="0"
+              file="Source/voices/voices_Constants.h"/>
+        <FILE id="rmIvSs" name="voices_FactoryVoiceDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.cpp"/>
+        <FILE id="TLct4o" name="voices_FactoryVoiceDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.h"/>
+        <FILE id="G1MPAP" name="voices_TabbedComponentForVoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabbedComponentForVoicesBanks.cpp"/>
+        <FILE id="EXMON5" name="voices_TabbedComponentForVoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/voices_TabbedComponentForVoicesBanks.h"/>
+        <FILE id="ZCGJx3" name="voices_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.cpp"/>
+        <FILE id="UuQyC3" name="voices_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.h"/>
+        <FILE id="BIZd8O" name="voices_TabForFactoryVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="ZbXQaS" name="voices_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.h"/>
+        <FILE id="FTAQtj" name="voices_VoicesBanks.cpp" compile="1" resource="0"
+              file="Source/voices/voices_VoicesBanks.cpp"/>
+        <FILE id="W27nlj" name="voices_VoicesBanks.h" compile="0" resource="0"
+              file="Source/voices/voices_VoicesBanks.h"/>
+        <FILE id="TbCGDb" name="voices_VoicesBanksComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.cpp"/>
+        <FILE id="c8K4y7" name="voices_VoicesBanksComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.h"/>
+        <FILE id="gT0gwk" name="voices_VoiceSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoiceSlotsComponent.cpp"/>
+        <FILE id="wBj2DB" name="voices_VoiceSlotsComponent.h" compile="0" resource="0"
+              file="Source/voices/voices_VoiceSlotsComponent.h"/>
+      </GROUP>
       <GROUP id="{77A907EF-4AAD-6EDF-4C50-7AF6DF493844}" name="widgets_Button">
         <FILE id="AoSJEl" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
         <FILE id="bOMhy4" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
-        <FILE id="IA6zLh" name="widget_ButtonForActivatingQuickPatchEdit.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickPatchEdit.cpp"/>
-        <FILE id="U4cKZV" name="widget_ButtonForActivatingQuickPatchEdit.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickPatchEdit.h"/>
+        <FILE id="IA6zLh" name="widget_ButtonForActivatingQuickEdit.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickEdit.cpp"/>
+        <FILE id="U4cKZV" name="widget_ButtonForActivatingQuickEdit.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickEdit.h"/>
         <FILE id="LfEnHM" name="widget_ButtonForPerformingRedo.cpp" compile="1"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
         <FILE id="aUwJ1a" name="widget_ButtonForPerformingRedo.h" compile="0"
@@ -262,22 +262,22 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
         <FILE id="Y1LVKU" name="widget_ButtonForPerformingUndo.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
-        <FILE id="Rbia78" name="widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.cpp"/>
-        <FILE id="AdXHPb" name="widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingPatchFromHardwareStorageSlot.h"/>
-        <FILE id="iE2QjT" name="widget_ButtonForPushingPatchToHardwareStorageSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.cpp"/>
-        <FILE id="lx8O0d" name="widget_ButtonForPushingPatchToHardwareStorageSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingPatchToHardwareStorageSlot.h"/>
+        <FILE id="Rbia78" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"/>
+        <FILE id="AdXHPb" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"/>
+        <FILE id="iE2QjT" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"/>
+        <FILE id="lx8O0d" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"/>
         <FILE id="zt0Y5a" name="widget_ButtonForShowingMasterOptionsComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.cpp"/>
         <FILE id="MZheDM" name="widget_ButtonForShowingMasterOptionsComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"/>
-        <FILE id="gn81r5" name="widget_ButtonForShowingPatchBanksComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingPatchBanksComponent.cpp"/>
-        <FILE id="hF9oDw" name="widget_ButtonForShowingPatchBanksComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingPatchBanksComponent.h"/>
+        <FILE id="gn81r5" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
+        <FILE id="hF9oDw" name="widget_ButtonForShowingVoicesBanksComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
         <FILE id="WOC0PK" name="widget_ButtonForShowingSplitsComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.cpp"/>
         <FILE id="DufaKi" name="widget_ButtonForShowingSplitsComponent.h" compile="0"
@@ -290,26 +290,6 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.cpp"/>
         <FILE id="iutpPp" name="widget_master_ButtonForShowingPatchMapComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"/>
-        <FILE id="Wgj0pH" name="widget_patches_ButtonForLoadingSelectedPatch.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForLoadingSelectedPatch.cpp"/>
-        <FILE id="XvwmoM" name="widget_patches_ButtonForLoadingSelectedPatch.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForLoadingSelectedPatch.h"/>
-        <FILE id="OV4Azs" name="widget_patches_ButtonForPullingEntireBankFromHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingEntireBankFromHardware.cpp"/>
-        <FILE id="fmwPdx" name="widget_patches_ButtonForPullingEntireBankFromHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingEntireBankFromHardware.h"/>
-        <FILE id="yVUO7k" name="widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingSelectedPatchFromHardware.cpp"/>
-        <FILE id="dX1swv" name="widget_patches_ButtonForPullingSelectedPatchFromHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPullingSelectedPatchFromHardware.h"/>
-        <FILE id="i0Pe2d" name="widget_patches_ButtonForPushingEntireBankToHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPushingEntireBankToHardware.cpp"/>
-        <FILE id="R81J6R" name="widget_patches_ButtonForPushingEntireBankToHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForPushingEntireBankToHardware.h"/>
-        <FILE id="bjQMFH" name="widget_patches_ButtonForSavingPatchInSelectedSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_patches_ButtonForSavingPatchInSelectedSlot.cpp"/>
-        <FILE id="BHLOT6" name="widget_patches_ButtonForSavingPatchInSelectedSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_patches_ButtonForSavingPatchInSelectedSlot.h"/>
         <FILE id="QBRXou" name="widget_splits_ButtonForLoadingSelectedSplit.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
         <FILE id="GsbYgs" name="widget_splits_ButtonForLoadingSelectedSplit.h"
@@ -330,6 +310,26 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"/>
         <FILE id="WqNUpR" name="widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"/>
+        <FILE id="Wgj0pH" name="widget_voices_ButtonForLoadingSelectedVoice.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
+        <FILE id="XvwmoM" name="widget_voices_ButtonForLoadingSelectedVoice.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"/>
+        <FILE id="OV4Azs" name="widget_voices_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="fmwPdx" name="widget_voices_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="yVUO7k" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"/>
+        <FILE id="dX1swv" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"/>
+        <FILE id="i0Pe2d" name="widget_voices_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="R81J6R" name="widget_voices_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="bjQMFH" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"/>
+        <FILE id="BHLOT6" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"/>
       </GROUP>
       <GROUP id="{6BF79D82-0E7C-60A9-D463-82B9462A76C2}" name="widgets_ComboBox">
         <FILE id="QQhltc" name="widget_BaseComboBoxForOffOnValueTreeProperty.cpp"
@@ -416,10 +416,6 @@
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"/>
         <FILE id="FzFelQ" name="widget_matrixMod_ComboBoxForSelectingSourceForMod.h"
               compile="0" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.h"/>
-        <FILE id="ifkO64" name="widget_patches_ComboBoxForSelectingPatchBank.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_patches_ComboBoxForSelectingPatchBank.cpp"/>
-        <FILE id="v3qrBg" name="widget_patches_ComboBoxForSelectingPatchBank.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_patches_ComboBoxForSelectingPatchBank.h"/>
         <FILE id="olUGbk" name="widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"/>
         <FILE id="pPTkCt" name="widget_splits_ComboBoxForSelectingZoneMIDIout.h"
@@ -428,6 +424,10 @@
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"/>
         <FILE id="PYIFUe" name="widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
               compile="0" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"/>
+        <FILE id="ifkO64" name="widget_voices_ComboBoxForSelectingVoicesBank.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_voices_ComboBoxForSelectingVoicesBank.cpp"/>
+        <FILE id="v3qrBg" name="widget_voices_ComboBoxForSelectingVoicesBank.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_voices_ComboBoxForSelectingVoicesBank.h"/>
       </GROUP>
       <GROUP id="{93DD19EC-05B5-E896-1662-DA903C62E6EC}" name="widgets_ControlsForParameters">
         <FILE id="ks1X1U" name="widget_ControlForExposedParameter.cpp" compile="1"

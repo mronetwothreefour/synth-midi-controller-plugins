@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "patches_PatchBanks.h"
-#include "patches_TabbedComponentForPatchBanks.h"
-#include "../widgets_ComboBox/widget_patches_ComboBoxForSelectingPatchBank.h"
+#include "voices_VoicesBanks.h"
+#include "voices_TabbedComponentForVoicesBanks.h"
+#include "../widgets_ComboBox/widget_voices_ComboBoxForSelectingVoicesBank.h"
 #include "../widgets_Label/widget_EditableLabel.h"
 
 
