@@ -61,7 +61,7 @@ void SplitSlotsComponent::storeCurrentSplitSettingsInSelectedSlot() {
 		auto dataVector{ RawSysExDataVector::initializeSplitDataMessage(selectedSlot) };
 		RawDataTools::addCurrentSplitSettingsToDataVector(unexposedParams, dataVector);
 		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInDataDumpMessages);
-		auto splitDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
+		auto splitDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(dataVector) };
 		auto splitsBank{ unexposedParams->splitsBank_get() };
 		splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, selectedSlot);
 		setTextForSplitSlotToggleButton(selectedSlot);
@@ -74,7 +74,7 @@ void SplitSlotsComponent::loadSplitFromSelectedSlot() {
 	if (selectedSlot < splits::numberOfSlotsInBank) {
 		auto splitsBank{ unexposedParams->splitsBank_get() };
 		auto splitDataHexString{ splitsBank->getSplitDataHexStringFromSlot(selectedSlot) };
-		auto splitDataVector{ RawDataTools::convertPatchOrSplitHexStringToDataVector(splitDataHexString) };
+		auto splitDataVector{ RawDataTools::convertVoiceOrSplitHexStringToDataVector(splitDataHexString) };
 		RawDataTools::applySplitDataVectorToGUI(splitDataVector, unexposedParams);
 		callAfterDelay(100, [this] { SplitDataMessage::addDataMessageForSplitStoredInSlotToOutgoingMidiBuffers(selectedSlot, unexposedParams); });
 	}

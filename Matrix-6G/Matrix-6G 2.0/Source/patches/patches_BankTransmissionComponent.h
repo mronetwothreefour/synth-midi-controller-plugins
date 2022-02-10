@@ -17,7 +17,7 @@ public:
 	enum class TransmissionType { push = 0, pull };
 
 private:
-	PatchBank bank;
+	VoicesBank bank;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
 	int transmitTime;
@@ -30,7 +30,7 @@ private:
 public:
 	PatchBankTransmissionComponent() = delete;
 
-	PatchBankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	PatchBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;

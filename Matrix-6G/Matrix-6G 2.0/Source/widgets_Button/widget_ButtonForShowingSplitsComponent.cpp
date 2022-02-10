@@ -20,7 +20,7 @@ const String ButtonForShowingSplitsComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Opens a window where you can create and store\n";
-		buttonTooltip += (GUI::openQuote + "splits," + GUI::closeQuote + " which allow you to play two patches\n");
+		buttonTooltip += (GUI::openQuote + "splits," + GUI::closeQuote + " which allow you to play two voices\n");
 		buttonTooltip += "at once with a single keyboard controller.";
 	}
 	return buttonTooltip;

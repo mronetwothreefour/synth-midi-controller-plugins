@@ -13,19 +13,19 @@ using namespace constants;
 TabbedComponentForPatchBanks::TabbedComponentForPatchBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
 	unexposedParams{ unexposedParams },
-	analogSynthsA{ PatchBank::analogSynthsA, exposedParams, unexposedParams, patchCopyBuffer },
-	analogSynthsB{ PatchBank::analogSynthsB, exposedParams, unexposedParams, patchCopyBuffer },
-	basses{ PatchBank::basses, exposedParams, unexposedParams, patchCopyBuffer },
-	brassAndWoodwinds{ PatchBank::brassAndWoodwinds, exposedParams, unexposedParams, patchCopyBuffer },
-	customA{ PatchBank::customA, exposedParams, unexposedParams, patchCopyBuffer },
-	customB{ PatchBank::customB, exposedParams, unexposedParams, patchCopyBuffer },
-	fxAndPercussion{ PatchBank::fxAndPercussion, exposedParams, unexposedParams, patchCopyBuffer },
-	keyboardsA{ PatchBank::keyboardsA, exposedParams, unexposedParams, patchCopyBuffer },
-	keyboardsB{ PatchBank::keyboardsB, exposedParams, unexposedParams, patchCopyBuffer },
-	leads{ PatchBank::leads, exposedParams, unexposedParams, patchCopyBuffer },
-	miscellaneousA{ PatchBank::miscellaneousA, exposedParams, unexposedParams, patchCopyBuffer },
-	miscellaneousB{ PatchBank::miscellaneousB, exposedParams, unexposedParams, patchCopyBuffer },
-	strings{ PatchBank::strings, exposedParams, unexposedParams, patchCopyBuffer }
+	analogSynthsA{ VoicesBank::analogSynthsA, exposedParams, unexposedParams, patchCopyBuffer },
+	analogSynthsB{ VoicesBank::analogSynthsB, exposedParams, unexposedParams, patchCopyBuffer },
+	basses{ VoicesBank::basses, exposedParams, unexposedParams, patchCopyBuffer },
+	brassAndWoodwinds{ VoicesBank::brassAndWoodwinds, exposedParams, unexposedParams, patchCopyBuffer },
+	customA{ VoicesBank::customA, exposedParams, unexposedParams, patchCopyBuffer },
+	customB{ VoicesBank::customB, exposedParams, unexposedParams, patchCopyBuffer },
+	fxAndPercussion{ VoicesBank::fxAndPercussion, exposedParams, unexposedParams, patchCopyBuffer },
+	keyboardsA{ VoicesBank::keyboardsA, exposedParams, unexposedParams, patchCopyBuffer },
+	keyboardsB{ VoicesBank::keyboardsB, exposedParams, unexposedParams, patchCopyBuffer },
+	leads{ VoicesBank::leads, exposedParams, unexposedParams, patchCopyBuffer },
+	miscellaneousA{ VoicesBank::miscellaneousA, exposedParams, unexposedParams, patchCopyBuffer },
+	miscellaneousB{ VoicesBank::miscellaneousB, exposedParams, unexposedParams, patchCopyBuffer },
+	strings{ VoicesBank::strings, exposedParams, unexposedParams, patchCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForCustomBanks.toString());
 	setTabBarDepth(GUI::patchBanksTabBarDepth);

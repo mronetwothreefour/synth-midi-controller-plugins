@@ -14,17 +14,17 @@ class TabbedComponentForPatchBanks :
 {
     TabForCustomPatchBank customA;
     TabForCustomPatchBank customB;
-    TabForFactoryPatchBank analogSynthsA;
-    TabForFactoryPatchBank analogSynthsB;
-    TabForFactoryPatchBank basses;
-    TabForFactoryPatchBank brassAndWoodwinds;
-    TabForFactoryPatchBank fxAndPercussion;
-    TabForFactoryPatchBank keyboardsA;
-    TabForFactoryPatchBank keyboardsB;
-    TabForFactoryPatchBank leads;
-    TabForFactoryPatchBank miscellaneousA;
-    TabForFactoryPatchBank miscellaneousB;
-    TabForFactoryPatchBank strings;
+    TabForFactoryVoicesBank analogSynthsA;
+    TabForFactoryVoicesBank analogSynthsB;
+    TabForFactoryVoicesBank basses;
+    TabForFactoryVoicesBank brassAndWoodwinds;
+    TabForFactoryVoicesBank fxAndPercussion;
+    TabForFactoryVoicesBank keyboardsA;
+    TabForFactoryVoicesBank keyboardsB;
+    TabForFactoryVoicesBank leads;
+    TabForFactoryVoicesBank miscellaneousA;
+    TabForFactoryVoicesBank miscellaneousB;
+    TabForFactoryVoicesBank strings;
     UnexposedParameters* unexposedParams;
     String patchCopyBuffer;
 

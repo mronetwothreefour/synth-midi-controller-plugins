@@ -33,8 +33,8 @@ void ButtonForLoadingSelectedSplit::onClickMethod() {
 	auto slot{ splitSlots.selectedSlot };
 	if (slot < splits::numberOfSlotsInBank) {
 		splitSlots.loadSplitFromSelectedSlot();
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

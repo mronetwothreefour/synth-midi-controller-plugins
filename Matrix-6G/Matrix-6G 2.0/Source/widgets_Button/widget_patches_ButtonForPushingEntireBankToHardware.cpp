@@ -5,35 +5,35 @@
 
 
 
-ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(PatchBank bank, UnexposedParameters* unexposedParams) :
+ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	if (bank == PatchBank::analogSynthsA)
+	if (bank == VoicesBank::analogSynthsA)
 		setComponentID(ID::button_PushAnalogSynthsBankA.toString());
-	if (bank == PatchBank::analogSynthsB)
+	if (bank == VoicesBank::analogSynthsB)
 		setComponentID(ID::button_PushAnalogSynthsBankB.toString());
-	if (bank == PatchBank::basses)
+	if (bank == VoicesBank::basses)
 		setComponentID(ID::button_PushBassesBank.toString());
-	if (bank == PatchBank::brassAndWoodwinds)
+	if (bank == VoicesBank::brassAndWoodwinds)
 		setComponentID(ID::button_PushBrassAndWoodwindsBank.toString());
-	if (bank == PatchBank::customA)
+	if (bank == VoicesBank::customA)
 		setComponentID(ID::button_PushCustomBankA.toString());
-	if (bank == PatchBank::customB)
+	if (bank == VoicesBank::customB)
 		setComponentID(ID::button_PushCustomBankB.toString());
-	if (bank == PatchBank::fxAndPercussion)
+	if (bank == VoicesBank::fxAndPercussion)
 		setComponentID(ID::button_PushFXandndPercussionBank.toString());
-	if (bank == PatchBank::keyboardsA)
+	if (bank == VoicesBank::keyboardsA)
 		setComponentID(ID::button_PushKeyboardsBankA.toString());
-	if (bank == PatchBank::keyboardsB)
+	if (bank == VoicesBank::keyboardsB)
 		setComponentID(ID::button_PushKeyboardsBankB.toString());
-	if (bank == PatchBank::leads)
+	if (bank == VoicesBank::leads)
 		setComponentID(ID::button_PushLeadsBank.toString());
-	if (bank == PatchBank::miscellaneousA)
+	if (bank == VoicesBank::miscellaneousA)
 		setComponentID(ID::button_PushMiscellaneousBankA.toString());
-	if (bank == PatchBank::miscellaneousB)
+	if (bank == VoicesBank::miscellaneousB)
 		setComponentID(ID::button_PushMiscellaneousBankB.toString());
-	if (bank == PatchBank::strings)
+	if (bank == VoicesBank::strings)
 		setComponentID(ID::button_PushStringsBank.toString());
 	setTooltip(createButtonTooltipString());
 }
@@ -41,7 +41,7 @@ ButtonForPushingEntireBankToHardware::ButtonForPushingEntireBankToHardware(Patch
 const String ButtonForPushingEntireBankToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Push all the patches stored in this bank to\n";
+		buttonTooltip += "Push all the voices stored in this bank to\n";
 		buttonTooltip += "the Matrix hardware's storage bank. NOTE: All\n";
 		buttonTooltip += "the patch data stored in the hardware will be\n";
 		buttonTooltip += "overwritten and this cannot be undone.";

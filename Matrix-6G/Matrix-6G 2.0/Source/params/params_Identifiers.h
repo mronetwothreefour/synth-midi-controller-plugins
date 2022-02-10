@@ -6,21 +6,21 @@
 
 namespace ID
 {
-	static const Identifier bank_AnalogSynthsA_PatchNameStrings{ "bank_AnalogSynthsA_PatchNameStrings" };
-	static const Identifier bank_AnalogSynthsB_PatchNameStrings{ "bank_AnalogSynthsB_PatchNameStrings" };
-	static const Identifier bank_Basses_PatchNameStrings{ "bank_Basses_PatchNameStrings" };
-	static const Identifier bank_BrassAndWoodwinds_PatchNameStrings{ "bank_BrassAndWoodwinds_PatchNameStrings" };
-	static const Identifier bank_CustomA_PatchDataHexStrings{ "bank_CustomA_PatchDataHexStrings" };
-	static const Identifier bank_CustomA_PatchNameStrings{ "bank_CustomA_PatchNameStrings" };
-	static const Identifier bank_CustomB_PatchDataHexStrings{ "bank_CustomB_PatchDataHexStrings" };
-	static const Identifier bank_CustomB_PatchNameStrings{ "bank_CustomB_PatchNameStrings" };
-	static const Identifier bank_FXandPercussion_PatchNameStrings{ "bank_FXandPercussion_PatchNameStrings" };
-	static const Identifier bank_KeyboardsA_PatchNameStrings{ "bank_KeyboardsA_PatchNameStrings" };
-	static const Identifier bank_KeyboardsB_PatchNameStrings{ "bank_KeyboardsB_PatchNameStrings" };
-	static const Identifier bank_Leads_PatchNameStrings{ "bank_Leads_PatchNameStrings" };
-	static const Identifier bank_MiscellaneousA_PatchNameStrings{ "bank_MiscellaneousA_PatchNameStrings" };
-	static const Identifier bank_MiscellaneousB_PatchNameStrings{ "bank_MiscellaneousB_PatchNameStrings" };
-	static const Identifier bank_Strings_PatchNameStrings{ "bank_Strings_PatchNameStrings" };
+	static const Identifier bank_AnalogSynthsA_VoiceNameStrings{ "bank_AnalogSynthsA_VoiceNameStrings" };
+	static const Identifier bank_AnalogSynthsB_VoiceNameStrings{ "bank_AnalogSynthsB_VoiceNameStrings" };
+	static const Identifier bank_Basses_VoiceNameStrings{ "bank_Basses_VoiceNameStrings" };
+	static const Identifier bank_BrassAndWoodwinds_VoiceNameStrings{ "bank_BrassAndWoodwinds_VoiceNameStrings" };
+	static const Identifier bank_CustomA_VoiceDataHexStrings{ "bank_CustomA_VoiceDataHexStrings" };
+	static const Identifier bank_CustomA_VoiceNameStrings{ "bank_CustomA_VoiceNameStrings" };
+	static const Identifier bank_CustomB_VoiceDataHexStrings{ "bank_CustomB_VoiceDataHexStrings" };
+	static const Identifier bank_CustomB_VoiceNameStrings{ "bank_CustomB_VoiceNameStrings" };
+	static const Identifier bank_FXandPercussion_VoiceNameStrings{ "bank_FXandPercussion_VoiceNameStrings" };
+	static const Identifier bank_KeyboardsA_VoiceNameStrings{ "bank_KeyboardsA_VoiceNameStrings" };
+	static const Identifier bank_KeyboardsB_VoiceNameStrings{ "bank_KeyboardsB_VoiceNameStrings" };
+	static const Identifier bank_Leads_VoiceNameStrings{ "bank_Leads_VoiceNameStrings" };
+	static const Identifier bank_MiscellaneousA_VoiceNameStrings{ "bank_MiscellaneousA_VoiceNameStrings" };
+	static const Identifier bank_MiscellaneousB_VoiceNameStrings{ "bank_MiscellaneousB_VoiceNameStrings" };
+	static const Identifier bank_Strings_VoiceNameStrings{ "bank_Strings_VoiceNameStrings" };
 
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_Edit{ "button_Edit" };
@@ -69,9 +69,9 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 
-	static const Identifier currentPatch_Name{ "currentPatch_Name" };
-	static const Identifier currentPatch_Number{ "currentPatch_Number" };
-	static const Identifier currentPatch_Options{ "currentPatch_Options" };
+	static const Identifier currentVoice_Name{ "currentVoice_Name" };
+	static const Identifier currentVoice_Number{ "currentVoice_Number" };
+	static const Identifier currentVoice_Options{ "currentVoice_Options" };
 
 	static const Identifier label_PatchNameEditor{ "label_PatchNameEditor" };
 	static const Identifier label_SplitNameEditor{ "label_SplitNameEditor" };
@@ -142,11 +142,11 @@ namespace ID
 	static const Identifier matrixMod_SourceForMod_9{ "matrixMod_SourceForMod_9" };
 
 	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
-	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankA{ "midi_IncomingPatchShouldBeSavedInCustomBankA" };
-	static const Identifier midi_IncomingPatchShouldBeSavedInCustomBankB{ "midi_IncomingPatchShouldBeSavedInCustomBankB" };
+	static const Identifier midi_IncomingVoiceShouldBeSavedInCustomBankA{ "midi_IncomingVoiceShouldBeSavedInCustomBankA" };
+	static const Identifier midi_IncomingVoiceShouldBeSavedInCustomBankB{ "midi_IncomingVoiceShouldBeSavedInCustomBankB" };
 	static const Identifier midi_Options{ "midi_Options" };
 	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
-	static const Identifier midi_PatchTransmitTime{ "midi_PatchTransmitTime" };
+	static const Identifier midi_VoiceTransmitTime{ "midi_VoiceTransmitTime" };
 
 	static const Identifier split_Name{ "split_Name" };
 	static const Identifier split_Options{ "split_Options" };
@@ -163,10 +163,10 @@ namespace ID
 	static const Identifier splits_DataHexStrings{ "splits_DataHexStrings" };
 	static const Identifier splits_NameStrings{ "splits_NameStrings" };
 
-	static const Identifier state_CurrentPatchOptions{ "state_CurrentPatchOptions" };
-	static const Identifier state_CustomPatchBankA{ "state_CustomPatchBankA" };
-	static const Identifier state_CustomPatchBankB{ "state_CustomPatchBankB" };
-	static const Identifier state_CustomPatchBanks{ "state_CustomPatchBanks" };
+	static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };
+	static const Identifier state_CustomVoicesBankA{ "state_CustomVoicesBankA" };
+	static const Identifier state_CustomVoicesBankB{ "state_CustomVoicesBankB" };
+	static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
 	static const Identifier state_MatrixModSettings{ "state_MatrixModSettings" };
 	static const Identifier state_PatchBanks{ "state_PatchBanks" };

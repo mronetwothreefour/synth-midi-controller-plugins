@@ -5,7 +5,7 @@
 
 
 
-class PatchTransmissionOptions;
+class VoiceTransmissionOptions;
 class UnexposedParameters;
 
 class ExposedParametersListener :
@@ -13,7 +13,7 @@ class ExposedParametersListener :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	PatchTransmissionOptions* patchTransmissionOptions;
+	VoiceTransmissionOptions* voiceTransmissionOptions;
 
 public:
 	ExposedParametersListener() = delete;

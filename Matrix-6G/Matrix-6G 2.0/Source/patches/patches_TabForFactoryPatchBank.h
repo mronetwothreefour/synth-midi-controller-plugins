@@ -11,12 +11,12 @@
 
 class UnexposedParameters;
 
-class TabForFactoryPatchBank :
+class TabForFactoryVoicesBank :
     public Component,
     public ApplicationCommandTarget
 {
-    PatchBank bank;
-    PatchSlotsComponent patchSlots;
+    VoicesBank bank;
+    VoiceSlotsComponent patchSlots;
     UnexposedParameters* unexposedParams;
     ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
@@ -28,9 +28,9 @@ public:
         copyPatch = 1
     };
 
-    TabForFactoryPatchBank() = delete;
+    TabForFactoryVoicesBank() = delete;
 
-    TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
+    TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;
@@ -39,9 +39,9 @@ public:
     bool perform(const InvocationInfo& info) override;
     void addListenerToPushEntireBankButton(Button::Listener* listener);
     void removeListenerFromPushEntireBankButton(Button::Listener* listener);
-    ~TabForFactoryPatchBank();
+    ~TabForFactoryVoicesBank();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForFactoryPatchBank)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForFactoryVoicesBank)
 };

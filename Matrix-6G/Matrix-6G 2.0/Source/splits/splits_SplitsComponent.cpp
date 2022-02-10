@@ -219,7 +219,7 @@ void SplitsComponent::showPullEntireBankComponent() {
 
 void SplitsComponent::hideThisComponent() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickPatchEditingMessage() };
+	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickEditMessage() };
 	outgoingMidiBuffers->addDataMessage(activateQuickPatchEditingMessage);
 	setVisible(false);
 }

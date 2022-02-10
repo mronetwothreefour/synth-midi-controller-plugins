@@ -6,21 +6,21 @@
 
 
 
-class PatchSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForLoadingSelectedPatch :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	private Timer
 {
-	PatchSlotsComponent& patchSlots;
+	VoiceSlotsComponent& patchSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
 	ButtonForLoadingSelectedPatch() = delete;
 
-	ButtonForLoadingSelectedPatch(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForLoadingSelectedPatch(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

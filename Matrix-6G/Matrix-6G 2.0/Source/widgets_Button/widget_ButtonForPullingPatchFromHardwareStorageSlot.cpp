@@ -1,6 +1,6 @@
 #include "widget_ButtonForPullingPatchFromHardwareStorageSlot.h"
 
-#include "../midi/midi_PatchDataMessage.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -25,12 +25,12 @@ const String ButtonForPullingPatchFromHardwareStorageSlot::createButtonTooltipSt
 }
 
 void ButtonForPullingPatchFromHardwareStorageSlot::onClickMethod() {
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	auto slot{ currentPatchOptions->currentPatchNumber() };
+	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+	auto slot{ currentVoiceOptions->currentVoiceNumber() };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
-	auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-	auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+	VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
+	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 	callAfterDelay(transmitTime, [this, slot] 
 		{
 			auto masterOptions{ unexposedParams->masterOptions_get() };

@@ -290,7 +290,7 @@ void MasterOptions::setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 pr
 }
 
 void MasterOptions::resetPatchMap() {
-	for (int i = 0; i != patches::numberOfSlotsInBank; ++i) {
+	for (int i = 0; i != voices::numberOfSlotsInBank; ++i) {
 		Identifier inPropertyID{ "master_PatchMapIn_" + (String)i };
 		masterOptionsTree.setProperty(inPropertyID, (uint8)i, nullptr);
 		Identifier outPropertyID{ "master_PatchMapOut_" + (String)i };

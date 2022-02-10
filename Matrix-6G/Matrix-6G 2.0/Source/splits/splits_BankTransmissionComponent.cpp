@@ -15,7 +15,7 @@ using namespace constants;
 SplitsBankTransmissionComponent::SplitsBankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	transmitTime{ unexposedParams->patchTransmissionOptions_get()->patchTransmitTime() },
+	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
 	splitCounter{ splits::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },

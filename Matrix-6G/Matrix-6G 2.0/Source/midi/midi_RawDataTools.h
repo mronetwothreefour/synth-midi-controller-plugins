@@ -19,10 +19,10 @@ struct SysExID {
 
 struct RawSysExDataVector {
     static std::vector<uint8> createParamChangeMessage(uint8 newValue, uint8 param);
-    static std::vector<uint8> initializePatchDataMessage(uint8 slot);
-    static std::vector<uint8> createPatchDataMessageHeader(uint8 slot);
-    static std::vector<uint8> createPatchDataRequestMessage(uint8 slot);
-    static std::vector<uint8> createActivateQuickPatchEditingMessage();
+    static std::vector<uint8> initializeVoiceDataMessage(uint8 slot);
+    static std::vector<uint8> createVoiceDataMessageHeader(uint8 slot);
+    static std::vector<uint8> createVoiceDataRequestMessage(uint8 slot);
+    static std::vector<uint8> createActivateQuickEditMessage();
     static std::vector<uint8> initializeSplitDataMessage(uint8 slot);
     static std::vector<uint8> createSplitDataMessageHeader(uint8 slot);
     static std::vector<uint8> createSplitDataRequestMessage(uint8 slot);
@@ -39,29 +39,29 @@ private:
 class UnexposedParameters;
 
 struct RawDataTools {
-    static const std::vector<uint8> convertPatchOrSplitHexStringToDataVector(const String& hexString);
-    static const String convertPatchOrSplitDataVectorToHexString(const std::vector<uint8>& dataVector);
+    static const std::vector<uint8> convertVoiceOrSplitHexStringToDataVector(const String& hexString);
+    static const String convertVoiceOrSplitDataVectorToHexString(const std::vector<uint8>& dataVector);
     static void addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
     static void addCurrentSplitSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
-    static void applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    static void applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vector<uint8>& voiceDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     static void applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector, UnexposedParameters* unexposedParams);
     static void applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams);
-    static const String extractPatchNameFromRawPatchData(const uint8* patchData);
+    static const String extractVoiceNameFromRawVoiceData(const uint8* voiceData);
     static const String extractSplitNameFromRawSplitData(const uint8* splitData);
     static void addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
 
 private:
-    static const uint8 indexofFirstPatchOrSplitParamDataLSByte{ 20 };
+    static const uint8 indexOfFirstVoiceOrSplitParamDataLSByte{ 20 };
     static const uint16 indexOfFirstMasterOptionDataLSByte{ 6 };
     static const int negativeValueOffset{ 256 };
 
-    static void applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams);
-    static void applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams);
+    static void applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams);
+    static void applyNameOfVoiceInRawDataToGUI(const uint8* voiceData, UnexposedParameters* unexposedParams);
     static void applyNameOfSplitInRawDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams);
-    static void applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams);
+    static void applyRawVoiceDataToExposedParameters(const uint8* voiceData, AudioProcessorValueTreeState* exposedParams);
     static void applyRawSplitDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams);
-    static void applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams);
-    static void addPatchOrSplitNameDataToVector(String & name, int maxLength, std::vector<uint8>& dataVector, uint8& checksum);
+    static void applyRawVoiceDataToMatrixModParameters(const uint8* voiceData, UnexposedParameters* unexposedParams);
+    static void addVoiceOrSplitNameDataToVector(String & name, int maxLength, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 truncateASCIIvalueToLowest6bits(uint8 value);
     static void restoreTruncated7thBitToASCIIvalue(uint8& value);
     static String convertStoredASCIIvalueToString(const uint8& value);

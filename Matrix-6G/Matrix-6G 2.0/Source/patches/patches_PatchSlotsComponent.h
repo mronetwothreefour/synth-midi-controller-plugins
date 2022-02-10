@@ -8,28 +8,28 @@
 
 class UnexposedParameters;
 
-class PatchSlotsComponent :
+class VoiceSlotsComponent :
     public Component,
     public ValueTree::Listener,
     private Timer
 {
-    ToggleButton patchSlotButtons[100];
+    ToggleButton voiceSlotButtons[100];
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
 
 public:
-    const PatchBank bank;
+    const VoicesBank bank;
     uint8 selectedSlot;
 
-    PatchSlotsComponent() = delete;
+    VoiceSlotsComponent() = delete;
 
-    PatchSlotsComponent(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-    void setUpPatchSlotToggleButton(uint8 slot);
-    void setTooltipForPatchSlotToggleButton(uint8 slot);
-    void setTextForPatchSlotToggleButton(uint8 slot);
-    void storeCurrentPatchSettingsInSelectedSlot();
-    void loadPatchFromSelectedSlot();
-    void pullSelectedPatchFromHardware();
+    VoiceSlotsComponent(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    void setUpVoiceSlotToggleButton(uint8 slot);
+    void setTooltipForVoiceSlotToggleButton(uint8 slot);
+    void setTextForVoiceSlotToggleButton(uint8 slot);
+    void storeCurrentVoiceSettingsInSelectedSlot();
+    void loadVoiceFromSelectedSlot();
+    void pullSelectedVoiceFromHardware();
     void resized() override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 
@@ -37,9 +37,9 @@ private:
     void timerCallback() override;
 
 public:
-    ~PatchSlotsComponent();
+    ~VoiceSlotsComponent();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PatchSlotsComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoiceSlotsComponent)
 };

@@ -9,7 +9,7 @@ using namespace constants;
 
 
 
-ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForLoadingSelectedPatch::ButtonForLoadingSelectedPatch(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	patchSlots{ patchSlots },
 	unexposedParams{ unexposedParams }
@@ -30,10 +30,10 @@ const String ButtonForLoadingSelectedPatch::createButtonTooltipString() {
 
 void ButtonForLoadingSelectedPatch::onClickMethod() {
 	auto slot{ patchSlots.selectedSlot };
-	if (slot < patches::numberOfSlotsInBank) {
-		patchSlots.loadPatchFromSelectedSlot();
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+	if (slot < voices::numberOfSlotsInBank) {
+		patchSlots.loadVoiceFromSelectedSlot();
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

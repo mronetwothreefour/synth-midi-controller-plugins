@@ -22,8 +22,8 @@ ComboBoxForSelectingPatchBank::ComboBoxForSelectingPatchBank(UnexposedParameters
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects which bank of stored patches to work with.\n";
-		tooltipText += "Only patches in the Custom A & B banks can be overwritten.";
+		tooltipText += "Selects which bank of stored voices to work with.\n";
+		tooltipText += "Only voices in the Custom A & B banks can be overwritten.";
 	}
 	setTooltip(tooltipText);
 }

@@ -6,21 +6,21 @@
 
 
 
-class PatchSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForPullingSelectedPatchFromHardware :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	public Timer
 {
-	PatchSlotsComponent& patchSlots;
+	VoiceSlotsComponent& patchSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
 	ButtonForPullingSelectedPatchFromHardware() = delete;
 
-	ButtonForPullingSelectedPatchFromHardware(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
+	ButtonForPullingSelectedPatchFromHardware(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

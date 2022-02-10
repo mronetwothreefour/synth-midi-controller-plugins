@@ -9,7 +9,7 @@ using namespace constants;
 
 
 
-ButtonForSavingPatchInSelectedSlot::ButtonForSavingPatchInSelectedSlot(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForSavingPatchInSelectedSlot::ButtonForSavingPatchInSelectedSlot(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	patchSlots{ patchSlots },
 	unexposedParams{ unexposedParams }
@@ -31,10 +31,10 @@ const String ButtonForSavingPatchInSelectedSlot::createButtonTooltipString() {
 }
 
 void ButtonForSavingPatchInSelectedSlot::onClickMethod() {
-	if (patchSlots.selectedSlot < patches::numberOfSlotsInBank) {
-		patchSlots.storeCurrentPatchSettingsInSelectedSlot();
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+	if (patchSlots.selectedSlot < voices::numberOfSlotsInBank) {
+		patchSlots.storeCurrentVoiceSettingsInSelectedSlot();
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

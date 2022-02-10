@@ -31,9 +31,9 @@ const String ButtonForPullingSelectedSplitFromHardware::createButtonTooltipStrin
 void ButtonForPullingSelectedSplitFromHardware::onClickMethod() {
 	auto slot{ splitSlots.selectedSlot };
 	if (slot < splits::numberOfSlotsInBank) {
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		splitSlots.pullSelectedSplitFromHardware();
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

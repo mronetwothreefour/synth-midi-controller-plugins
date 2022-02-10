@@ -33,8 +33,8 @@ const String ButtonForSavingCurrentSplitSettingsInSelectedSlot::createButtonTool
 void ButtonForSavingCurrentSplitSettingsInSelectedSlot::onClickMethod() {
 	if (splitSlots.selectedSlot < splits::numberOfSlotsInBank) {
 		splitSlots.storeCurrentSplitSettingsInSelectedSlot();
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

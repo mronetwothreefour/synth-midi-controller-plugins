@@ -19,8 +19,8 @@ class TabForCustomPatchBank :
     private Timer,
     public ApplicationCommandTarget
 {
-    PatchBank bank;
-    PatchSlotsComponent patchSlots;
+    VoicesBank bank;
+    VoiceSlotsComponent patchSlots;
     UnexposedParameters* unexposedParams;
     ButtonForLoadingSelectedPatch button_ForLoadingSelectedPatch;
     ButtonForSavingPatchInSelectedSlot button_ForSavingPatchInSelectedSlot;
@@ -38,7 +38,7 @@ public:
 
     TabForCustomPatchBank() = delete;
 
-    TabForCustomPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
+    TabForCustomPatchBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

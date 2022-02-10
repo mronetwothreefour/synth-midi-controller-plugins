@@ -10,7 +10,7 @@ using namespace constants;
 
 
 
-TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
+TabForFactoryVoicesBank::TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
 	bank{ bank },
 	patchSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
@@ -28,7 +28,7 @@ TabForFactoryPatchBank::TabForFactoryPatchBank(PatchBank bank, AudioProcessorVal
 	setSize(GUI::patchBanksTab_w, GUI::patchBanksTab_h);
 }
 
-void TabForFactoryPatchBank::paint(Graphics& g) {
+void TabForFactoryVoicesBank::paint(Graphics& g) {
 	g.fillAll(Color::device);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::PatchesFooterForFactoryBanks_png, BinaryData::PatchesFooterForFactoryBanks_pngSize, false };
@@ -36,22 +36,22 @@ void TabForFactoryPatchBank::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, GUI::patchBanksTabFooter_x, GUI::patchBanksTabFooter_y);
 }
 
-void TabForFactoryPatchBank::resized() {
+void TabForFactoryVoicesBank::resized() {
 	patchSlots.setBounds(GUI::bounds_PatchSlotsComponent);
 	button_ForLoadingSelectedPatch.setBounds(GUI::bounds_PatchBanksFactoryTabLoadButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PatchBanksFactoryTabPushBankButton);
 }
 
-ApplicationCommandTarget* TabForFactoryPatchBank::getNextCommandTarget() {
+ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {
 	return nullptr;
 }
 
-void TabForFactoryPatchBank::getAllCommands(Array<CommandID>& commands) {
+void TabForFactoryVoicesBank::getAllCommands(Array<CommandID>& commands) {
 	Array<CommandID> IDs{ copyPatch };
 	commands.addArray(IDs);
 }
 
-void TabForFactoryPatchBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void TabForFactoryVoicesBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
 	case copyPatch:
@@ -63,14 +63,14 @@ void TabForFactoryPatchBank::getCommandInfo(CommandID commandID, ApplicationComm
 	}
 }
 
-bool TabForFactoryPatchBank::perform(const InvocationInfo& info) {
-	auto patchBanks{ unexposedParams->patchBanks_get() };
+bool TabForFactoryVoicesBank::perform(const InvocationInfo& info) {
+	auto voicesBanks{ unexposedParams->voicesBanks_get() };
 	auto selectedSlot{ patchSlots.selectedSlot };
 	switch (info.commandID)
 	{
 	case copyPatch:
-		if (selectedSlot < patches::numberOfSlotsInBank) {
-			patchCopyBuffer = patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot);
+		if (selectedSlot < voices::numberOfSlotsInBank) {
+			patchCopyBuffer = voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;
@@ -79,14 +79,14 @@ bool TabForFactoryPatchBank::perform(const InvocationInfo& info) {
 	}
 }
 
-void TabForFactoryPatchBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryVoicesBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.addListener(listener);
 }
 
-void TabForFactoryPatchBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryVoicesBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
-TabForFactoryPatchBank::~TabForFactoryPatchBank() {
+TabForFactoryVoicesBank::~TabForFactoryVoicesBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

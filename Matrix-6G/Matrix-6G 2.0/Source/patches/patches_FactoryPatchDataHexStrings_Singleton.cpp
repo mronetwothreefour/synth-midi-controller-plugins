@@ -2,11 +2,11 @@
 
 
 
-FactoryPatchDataHexStrings::FactoryPatchDataHexStrings() {
+FactoryVoiceDataHexStrings::FactoryVoiceDataHexStrings() {
 	fillAllStringArrays();
 }
 
-void FactoryPatchDataHexStrings::fillAllStringArrays() {
+void FactoryVoiceDataHexStrings::fillAllStringArrays() {
 	analogSynthsBankA.add("02A202939302A202000000F13020C0F3C230309FF100002000000090002000F3000000F3000000009000E10000000090000000C0C0C2A03100000000C0A023A08200000000E0A0F2F3F300009000F0F1F2F300000000000000C3D30000F353F300F3F30000000000110001110051B0FC9141008030F31000000000000000000000000000000042");
 	analogSynthsBankA.add("02F0208110D2132310426191303000E10230302FF100002000309100000000200000008200106000D0F343000000009000000000A0E1E1820000000000D2F091820000000000410041820000903202E132620000000000D2008DD2004143F3F3F300F3000000000010F3B02073C0B0F390D082C010F3B0B082C04012904020401191511141011F");
 	analogSynthsBankA.add("02F0208110D21023100000D23010000043301060F100002000008200002000300000008200106000D0F3E10000000090000000001141F000000000000082002141000000000041004182000090C121D0F0410000000000000000A2005023F3F3F300F3000000000011F25110F311B07390D082C020F3B0B0F3C04012904020400000000000002C");
@@ -1119,55 +1119,55 @@ void FactoryPatchDataHexStrings::fillAllStringArrays() {
 	miscellaneousBankB.add("F0205021805090D00000F1F1302000F181301020F100002000007300002000F300000082000000009000E1000000009000000000A023A0820000000000A023A08200000000004100418200009000F0F1F2F30000000000000000A20000F3F3F3F3F3F30000000000110001110051B0009041008000000000000000000000000000000000000028");
 }
 
-FactoryPatchDataHexStrings& FactoryPatchDataHexStrings::get() noexcept {
-	static FactoryPatchDataHexStrings factoryPatchDataHexStrings;
-	return factoryPatchDataHexStrings;
+FactoryVoiceDataHexStrings& FactoryVoiceDataHexStrings::get() noexcept {
+	static FactoryVoiceDataHexStrings factoryVoiceDataHexStrings;
+	return factoryVoiceDataHexStrings;
 }
 
-int FactoryPatchDataHexStrings::patchSlotOutOfRange() {
+int FactoryVoiceDataHexStrings::slotOutOfRange() {
 	return analogSynthsBankA.size();
 }
 
-const StringArray& FactoryPatchDataHexStrings::getAnalogSynthsBankA() {
+const StringArray& FactoryVoiceDataHexStrings::getAnalogSynthsBankA() {
 	return analogSynthsBankA;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getAnalogSynthsBankB() {
+const StringArray& FactoryVoiceDataHexStrings::getAnalogSynthsBankB() {
 	return analogSynthsBankB;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getBassesBank() {
+const StringArray& FactoryVoiceDataHexStrings::getBassesBank() {
 	return bassesBank;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getBrassAndWoodwindsBank() {
+const StringArray& FactoryVoiceDataHexStrings::getBrassAndWoodwindsBank() {
 	return brassAndWoodwindsBank;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getFXandPercussionBank() {
+const StringArray& FactoryVoiceDataHexStrings::getFXandPercussionBank() {
 	return fxAndPercussionBank;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getKeyboardsBankA() {
+const StringArray& FactoryVoiceDataHexStrings::getKeyboardsBankA() {
 	return keyboardsBankA;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getKeyboardsBankB() {
+const StringArray& FactoryVoiceDataHexStrings::getKeyboardsBankB() {
 	return keyboardsBankB;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getLeadsBank() {
+const StringArray& FactoryVoiceDataHexStrings::getLeadsBank() {
 	return leadsBank;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getStringsBank() {
+const StringArray& FactoryVoiceDataHexStrings::getStringsBank() {
 	return stringsBank;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getMiscellaneousBankA() {
+const StringArray& FactoryVoiceDataHexStrings::getMiscellaneousBankA() {
 	return miscellaneousBankA;
 }
 
-const StringArray& FactoryPatchDataHexStrings::getMiscellaneousBankB() {
+const StringArray& FactoryVoiceDataHexStrings::getMiscellaneousBankB() {
 	return miscellaneousBankB;
 }

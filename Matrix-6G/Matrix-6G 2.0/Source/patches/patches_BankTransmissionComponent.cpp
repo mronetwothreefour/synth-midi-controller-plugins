@@ -5,7 +5,7 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
-#include "../midi/midi_PatchDataMessage.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -13,12 +13,12 @@ using namespace constants;
 
 
 
-PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+PatchBankTransmissionComponent::PatchBankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	transmitTime{ unexposedParams->patchTransmissionOptions_get()->patchTransmitTime() },
-	patchCounter{ patches::numberOfSlotsInBank },
+	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
+	patchCounter{ voices::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -33,9 +33,9 @@ PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, 
 	addAndMakeVisible(button_Stop);
 	button_Close.onClick = [this, bank, transmissionType, unexposedParams] { 
 		if (transmissionType == TransmissionType::pull) {
-			auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-			if (bank == PatchBank::customA || bank == PatchBank::customB)
-				patchTransmissionOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
+			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+			if (bank == VoicesBank::customA || bank == VoicesBank::customB)
+				voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInCustomBank();
 		}
 		hideThisComponent();
 	};
@@ -49,10 +49,10 @@ PatchBankTransmissionComponent::PatchBankTransmissionComponent(PatchBank& bank, 
 
 void PatchBankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (patchCounter < patches::numberOfSlotsInBank) {
+	if (patchCounter < voices::numberOfSlotsInBank) {
 		transmitMidiBufferForPatchSlot(patchCounter);
 		++patchCounter;
-		progress = patchCounter / (double)patches::numberOfSlotsInBank;
+		progress = patchCounter / (double)voices::numberOfSlotsInBank;
 		repaint();
 		startTimer(transmitTime);
 	}
@@ -65,15 +65,15 @@ void PatchBankTransmissionComponent::timerCallback() {
 void PatchBankTransmissionComponent::transmitMidiBufferForPatchSlot(uint8 patchSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		if (bank == PatchBank::customA)
-			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankA();
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		if (bank == VoicesBank::customA)
+			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankA();
 		else
-			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankB();
-		PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
+			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankB();
+		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(patchSlot, outgoingBuffers);
 	}
 	else {
-		PatchDataMessage::addDataMessageForPatchStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
+		VoiceDataMessage::addDataMessageForVoiceStoredInBankAndSlotToOutgoingMidiBuffers(bank, patchSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, patchSlot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

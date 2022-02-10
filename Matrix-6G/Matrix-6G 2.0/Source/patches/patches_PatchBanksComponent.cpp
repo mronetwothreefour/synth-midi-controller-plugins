@@ -39,7 +39,7 @@ PatchBanksComponent::PatchBanksComponent(AudioProcessorValueTreeState* exposedPa
 	if (tooltips->shouldShowDescription()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single patch between the plugin and the Matrix-6R hardware. Increase this\n";
-		label_txTimeTooltip += "value if patches are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
+		label_txTimeTooltip += "value if voices are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
 		label_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 
@@ -69,57 +69,57 @@ void PatchBanksComponent::paint(Graphics& g) {
 void PatchBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(params::maxTransmitTimeDigits, "0123456789");
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		editor.setFont(FontsMenu::fontFor_LabelEditors);
-		editor.setText((String)patchTransmissionOptions->patchTransmitTime());
+		editor.setText((String)voiceTransmissionOptions->voiceTransmitTime());
 		editor.selectAll();
 	}
 }
 
 void PatchBanksComponent::labelTextChanged(Label* label) {
 	if (label == &label_txTime) {
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
 			if (newValue >= params::minTransmitTimeValue && newValue <= params::maxTransmitTimeValue)
-				patchTransmissionOptions->setPatchTransmitTime(newValue);
+				voiceTransmissionOptions->setVoiceTransmitTime(newValue);
 		}
-		label->setText((String)patchTransmissionOptions->patchTransmitTime(), dontSendNotification);
+		label->setText((String)voiceTransmissionOptions->voiceTransmitTime(), dontSendNotification);
 	}
 }
 
 void PatchBanksComponent::buttonClicked(Button* button) {
 	if (button->getComponentID() == ID::button_PullCustomBankA.toString())
-		showPullEntireBankComponentForBank(PatchBank::customA);
+		showPullEntireBankComponentForBank(VoicesBank::customA);
 	if (button->getComponentID() == ID::button_PullCustomBankB.toString())
-		showPullEntireBankComponentForBank(PatchBank::customB);
+		showPullEntireBankComponentForBank(VoicesBank::customB);
 	if (button->getComponentID() == ID::button_PushAnalogSynthsBankA.toString())
-		showPushEntireBankComponentForBank(PatchBank::analogSynthsA);
+		showPushEntireBankComponentForBank(VoicesBank::analogSynthsA);
 	if (button->getComponentID() == ID::button_PushAnalogSynthsBankB.toString())
-		showPushEntireBankComponentForBank(PatchBank::analogSynthsB);
+		showPushEntireBankComponentForBank(VoicesBank::analogSynthsB);
 	if (button->getComponentID() == ID::button_PushBassesBank.toString())
-		showPushEntireBankComponentForBank(PatchBank::basses);
+		showPushEntireBankComponentForBank(VoicesBank::basses);
 	if (button->getComponentID() == ID::button_PushBrassAndWoodwindsBank.toString())
-		showPushEntireBankComponentForBank(PatchBank::brassAndWoodwinds);
+		showPushEntireBankComponentForBank(VoicesBank::brassAndWoodwinds);
 	if (button->getComponentID() == ID::button_PushCustomBankA.toString())
-		showPushEntireBankComponentForBank(PatchBank::customA);
+		showPushEntireBankComponentForBank(VoicesBank::customA);
 	if (button->getComponentID() == ID::button_PushCustomBankB.toString())
-		showPushEntireBankComponentForBank(PatchBank::customB);
+		showPushEntireBankComponentForBank(VoicesBank::customB);
 	if (button->getComponentID() == ID::button_PushFXandndPercussionBank.toString())
-		showPushEntireBankComponentForBank(PatchBank::fxAndPercussion);
+		showPushEntireBankComponentForBank(VoicesBank::fxAndPercussion);
 	if (button->getComponentID() == ID::button_PushKeyboardsBankA.toString())
-		showPushEntireBankComponentForBank(PatchBank::keyboardsA);
+		showPushEntireBankComponentForBank(VoicesBank::keyboardsA);
 	if (button->getComponentID() == ID::button_PushKeyboardsBankB.toString())
-		showPushEntireBankComponentForBank(PatchBank::keyboardsB);
+		showPushEntireBankComponentForBank(VoicesBank::keyboardsB);
 	if (button->getComponentID() == ID::button_PushLeadsBank.toString())
-		showPushEntireBankComponentForBank(PatchBank::leads);
+		showPushEntireBankComponentForBank(VoicesBank::leads);
 	if (button->getComponentID() == ID::button_PushMiscellaneousBankA.toString())
-		showPushEntireBankComponentForBank(PatchBank::miscellaneousA);
+		showPushEntireBankComponentForBank(VoicesBank::miscellaneousA);
 	if (button->getComponentID() == ID::button_PushMiscellaneousBankB.toString())
-		showPushEntireBankComponentForBank(PatchBank::miscellaneousB);
+		showPushEntireBankComponentForBank(VoicesBank::miscellaneousB);
 	if (button->getComponentID() == ID::button_PushStringsBank.toString())
-		showPushEntireBankComponentForBank(PatchBank::strings);
+		showPushEntireBankComponentForBank(VoicesBank::strings);
 }
 
 void PatchBanksComponent::comboBoxChanged(ComboBox* comboBox) {
@@ -129,7 +129,7 @@ void PatchBanksComponent::comboBoxChanged(ComboBox* comboBox) {
 	}
 }
 
-void PatchBanksComponent::showPushEntireBankComponentForBank(PatchBank bank) {
+void PatchBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
 	pushEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
@@ -138,7 +138,7 @@ void PatchBanksComponent::showPushEntireBankComponentForBank(PatchBank bank) {
 	}
 }
 
-void PatchBanksComponent::showPullEntireBankComponentForBank(PatchBank bank) {
+void PatchBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
 	pullEntireBankComponent.reset(new PatchBankTransmissionComponent(bank, PatchBankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());

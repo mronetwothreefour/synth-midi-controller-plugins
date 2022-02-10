@@ -3,7 +3,7 @@
 #include "patches_Constants.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_PatchDataMessage.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -12,34 +12,34 @@ using namespace constants;
 
 
 
-PatchSlotsComponent::PatchSlotsComponent(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+VoiceSlotsComponent::VoiceSlotsComponent(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	selectedSlot{ patches::numberOfSlotsInBank }
+	selectedSlot{ voices::numberOfSlotsInBank }
 {
-	auto patchBanks{ unexposedParams->patchBanks_get() };
-	for (uint8 slot = 0; slot != patches::numberOfSlotsInBank; ++slot) {
-		setUpPatchSlotToggleButton(slot);
-		addAndMakeVisible(patchSlotButtons[slot]);
+	auto voicesBanks{ unexposedParams->voicesBanks_get() };
+	for (uint8 slot = 0; slot != voices::numberOfSlotsInBank; ++slot) {
+		setUpVoiceSlotToggleButton(slot);
+		addAndMakeVisible(voiceSlotButtons[slot]);
 	}
 
-	if (bank == PatchBank::customA || bank == PatchBank::customB) {
-		patchBanks->addListenerToNameStringsForCustomBank(this, bank);
+	if (bank == VoicesBank::customA || bank == VoicesBank::customB) {
+		voicesBanks->addListenerToNameStringsForCustomBank(this, bank);
 	}
 
 	setSize(GUI::patchSlotsComponent_w, GUI::patchSlotsComponent_h);
 }
 
-void PatchSlotsComponent::setUpPatchSlotToggleButton(uint8 slot) {
-	patchSlotButtons[slot].setComponentID(ID::button_PatchSlotRadioButton.toString());
-	patchSlotButtons[slot].setRadioGroupId(1);
-	patchSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
-	setTooltipForPatchSlotToggleButton(slot);
-	setTextForPatchSlotToggleButton(slot);
+void VoiceSlotsComponent::setUpVoiceSlotToggleButton(uint8 slot) {
+	voiceSlotButtons[slot].setComponentID(ID::button_PatchSlotRadioButton.toString());
+	voiceSlotButtons[slot].setRadioGroupId(1);
+	voiceSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
+	setTooltipForVoiceSlotToggleButton(slot);
+	setTextForVoiceSlotToggleButton(slot);
 }
 
-void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
+void VoiceSlotsComponent::setTooltipForVoiceSlotToggleButton(uint8 slot) {
 	String slotTooltip{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	if (tooltips->shouldShowDescription()) {
@@ -48,71 +48,71 @@ void PatchSlotsComponent::setTooltipForPatchSlotToggleButton(uint8 slot) {
 		slotTooltip += "CTRL-V overwrites the selected patch with the settings in the\n";
 		slotTooltip += "clipboard (only slots in Custom User Banks A & B can be overwritten).";
 	}
-	patchSlotButtons[slot].setTooltip(slotTooltip);
+	voiceSlotButtons[slot].setTooltip(slotTooltip);
 }
 
-void PatchSlotsComponent::setTextForPatchSlotToggleButton(uint8 slot) {
-	jassert(slot < patches::numberOfSlotsInBank);
+void VoiceSlotsComponent::setTextForVoiceSlotToggleButton(uint8 slot) {
+	jassert(slot < voices::numberOfSlotsInBank);
 	String slotNumber;
 	if (slot < 10) 
 		slotNumber = "0" + (String)(slot);
 	else 
 		slotNumber = (String)(slot);
-	auto patchBanks{ unexposedParams->patchBanks_get() };
-	auto patchName{ patchBanks->nameOfPatchInBankSlot(bank, slot) };
-	patchSlotButtons[slot].setName(slotNumber + " - " + patchName);
-	patchSlotButtons[slot].repaint();
+	auto voicesBanks{ unexposedParams->voicesBanks_get() };
+	auto patchName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
+	voiceSlotButtons[slot].setName(slotNumber + " - " + patchName);
+	voiceSlotButtons[slot].repaint();
 }
 
-void PatchSlotsComponent::storeCurrentPatchSettingsInSelectedSlot() {
-	if (selectedSlot < patches::numberOfSlotsInBank) {
-		auto dataVector{ RawSysExDataVector::initializePatchDataMessage(selectedSlot) };
+void VoiceSlotsComponent::storeCurrentVoiceSettingsInSelectedSlot() {
+	if (selectedSlot < voices::numberOfSlotsInBank) {
+		auto dataVector{ RawSysExDataVector::initializeVoiceDataMessage(selectedSlot) };
 		RawDataTools::addCurrentParameterSettingsToDataVector(exposedParams, unexposedParams, dataVector);
 		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInDataDumpMessages);
-		auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(dataVector) };
-		auto patchBanks{ unexposedParams->patchBanks_get() };
-		patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
-		setTextForPatchSlotToggleButton(selectedSlot);
+		auto patchDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(dataVector) };
+		auto voicesBanks{ unexposedParams->voicesBanks_get() };
+		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, bank, selectedSlot);
+		setTextForVoiceSlotToggleButton(selectedSlot);
 		repaint();
-		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
+		callAfterDelay(100, [this] { VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
 
-void PatchSlotsComponent::loadPatchFromSelectedSlot() {
-	if (selectedSlot < patches::numberOfSlotsInBank) {
-		auto patchBanks{ unexposedParams->patchBanks_get() };
-		auto patchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot) };
-		auto patchDataVector{ RawDataTools::convertPatchOrSplitHexStringToDataVector(patchDataHexString) };
-		RawDataTools::applyPatchDataVectorToGUI(selectedSlot, patchDataVector, exposedParams, unexposedParams);
-		callAfterDelay(100, [this] { PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams); });
+void VoiceSlotsComponent::loadVoiceFromSelectedSlot() {
+	if (selectedSlot < voices::numberOfSlotsInBank) {
+		auto voicesBanks{ unexposedParams->voicesBanks_get() };
+		auto patchDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
+		auto patchDataVector{ RawDataTools::convertVoiceOrSplitHexStringToDataVector(patchDataHexString) };
+		RawDataTools::applyVoiceDataVectorToGUI(selectedSlot, patchDataVector, exposedParams, unexposedParams);
+		callAfterDelay(100, [this] { VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams); });
 	}
 }
 
-void PatchSlotsComponent::pullSelectedPatchFromHardware() {
+void VoiceSlotsComponent::pullSelectedVoiceFromHardware() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	PatchDataMessage::addRequestForPatchDataStoredInHardwareSlotToOutgoingMidiBuffers(selectedSlot, outgoingMidiBuffers);
+	VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(selectedSlot, outgoingMidiBuffers);
 }
 
-void PatchSlotsComponent::resized() {
-	for (auto i = 0; i != patches::numberOfSlotsInBank; ++i) {
+void VoiceSlotsComponent::resized() {
+	for (auto i = 0; i != voices::numberOfSlotsInBank; ++i) {
 		auto col_x{ (i / 25) * (GUI::patchSlotRadioButtton_w + GUI::patchSlotRadioButtonsHorizontalGap) };
 		auto row_y{ (i % 25) * GUI::patchSlotRadioButtton_h };
-		patchSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtton_h);
+		voiceSlotButtons[i].setBounds(col_x, row_y, GUI::patchSlotRadioButtton_w, GUI::patchSlotRadioButtton_h);
 	}
 }
 
-void PatchSlotsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+void VoiceSlotsComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	auto propertyName{ property.toString() };
 	auto slotString{ propertyName.fromLastOccurrenceOf("patch", false, true) };
-	setTextForPatchSlotToggleButton((uint8)slotString.getIntValue());
+	setTextForVoiceSlotToggleButton((uint8)slotString.getIntValue());
 }
 
-void PatchSlotsComponent::timerCallback() {
+void VoiceSlotsComponent::timerCallback() {
 }
 
-PatchSlotsComponent::~PatchSlotsComponent() {
-	if (bank == PatchBank::customA || bank == PatchBank::customB) {
-		auto patchBanks{ unexposedParams->patchBanks_get() };
-		patchBanks->removeListenerFromNameStringsForCustomBank(this, bank);
+VoiceSlotsComponent::~VoiceSlotsComponent() {
+	if (bank == VoicesBank::customA || bank == VoicesBank::customB) {
+		auto voicesBanks{ unexposedParams->voicesBanks_get() };
+		voicesBanks->removeListenerFromNameStringsForCustomBank(this, bank);
 	}
 }

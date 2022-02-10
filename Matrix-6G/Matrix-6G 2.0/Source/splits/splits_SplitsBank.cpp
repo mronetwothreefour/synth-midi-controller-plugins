@@ -62,7 +62,7 @@ void SplitsBank::valueTreePropertyChanged(ValueTree& tree, const Identifier& pro
 		auto slotString{ propertyName.fromLastOccurrenceOf("split", false, true) };
 		auto slot{ (uint8)slotString.getIntValue() };
 		auto splitDataHexString{ getSplitDataHexStringFromSlot(slot) };
-		auto splitName{ RawDataTools::extractSplitNameFromRawSplitData(RawDataTools::convertPatchOrSplitHexStringToDataVector(splitDataHexString).data()) };
+		auto splitName{ RawDataTools::extractSplitNameFromRawSplitData(RawDataTools::convertVoiceOrSplitHexStringToDataVector(splitDataHexString).data()) };
 		splitsNameStrings.setProperty(property, splitName, nullptr);
 	}
 }

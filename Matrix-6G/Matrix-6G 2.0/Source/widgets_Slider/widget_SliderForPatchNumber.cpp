@@ -10,12 +10,12 @@
 SliderForPatchNumber::SliderForPatchNumber(UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::currentPatch_Number }
+	parameterID{ ID::currentVoice_Number }
 {
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	currentPatchOptions->addListener(this);
+	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+	currentVoiceOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ currentPatchOptions->currentPatchNumber() };
+	auto paramValue{ currentVoiceOptions->currentVoiceNumber() };
 	setValue((double)paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 0.0);
 	setMouseDragSensitivity(160);
@@ -36,6 +36,6 @@ void SliderForPatchNumber::paint(Graphics& g) {
 }
 
 SliderForPatchNumber::~SliderForPatchNumber() {
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	currentPatchOptions->removeListener(this);
+	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+	currentVoiceOptions->removeListener(this);
 }

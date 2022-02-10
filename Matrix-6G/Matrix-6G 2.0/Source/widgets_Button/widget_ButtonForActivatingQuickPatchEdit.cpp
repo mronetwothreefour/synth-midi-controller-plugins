@@ -38,7 +38,7 @@ const String ButtonForActivatingQuickPatchEdit::createButtonTooltipString() {
 
 void ButtonForActivatingQuickPatchEdit::onClickMethod() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickPatchEditingMessage() };
+	auto activateQuickPatchEditingMessage{ RawSysExDataVector::createActivateQuickEditMessage() };
 	outgoingMidiBuffers->addDataMessage(activateQuickPatchEditingMessage);
 }
 

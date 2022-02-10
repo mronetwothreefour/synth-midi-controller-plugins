@@ -1,6 +1,6 @@
 #include "widget_ButtonForPushingPatchToHardwareStorageSlot.h"
 
-#include "../midi/midi_PatchDataMessage.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -27,13 +27,13 @@ const String ButtonForPushingPatchToHardwareStorageSlot::createButtonTooltipStri
 }
 
 void ButtonForPushingPatchToHardwareStorageSlot::onClickMethod() {
-	PatchDataMessage::addDataMessageForCurrentPatchToOutgoingMidiBuffers(exposedParams, unexposedParams);
+	VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams);
 	callAfterDelay(10, [this]
 		{
 			auto masterOptions{ unexposedParams->masterOptions_get() };
 			auto basicChannel{ masterOptions->basicChannel() };
-			auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-			auto patchSlot{ currentPatchOptions->currentPatchNumber() };
+			auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+			auto patchSlot{ currentVoiceOptions->currentVoiceNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			outgoingBuffers->addProgramChangeMessage(basicChannel, patchSlot);
 		}

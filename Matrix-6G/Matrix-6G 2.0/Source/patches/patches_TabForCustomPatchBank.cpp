@@ -10,7 +10,7 @@ using namespace constants;
 
 
 
-TabForCustomPatchBank::TabForCustomPatchBank(PatchBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
+TabForCustomPatchBank::TabForCustomPatchBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& patchCopyBuffer) :
 	bank{ bank },
 	patchSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
@@ -77,20 +77,20 @@ void TabForCustomPatchBank::getCommandInfo(CommandID commandID, ApplicationComma
 }
 
 bool TabForCustomPatchBank::perform(const InvocationInfo& info) {
-	auto patchBanks{ unexposedParams->patchBanks_get() };
+	auto voicesBanks{ unexposedParams->voicesBanks_get() };
 	auto selectedSlot{ patchSlots.selectedSlot };
 	switch (info.commandID)
 	{
 	case copyPatch:
-		if (selectedSlot < patches::numberOfSlotsInBank) {
-			auto PatchDataHexString{ patchBanks->getPatchDataHexStringFromBankSlot(bank, selectedSlot) };
+		if (selectedSlot < voices::numberOfSlotsInBank) {
+			auto PatchDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 			patchCopyBuffer = PatchDataHexString;
 			return true;
 		}
 		else return false;
 	case pastePatch:
-		if (selectedSlot < patches::numberOfSlotsInBank && patchCopyBuffer != "") {
-			patchBanks->storePatchDataHexStringInCustomBankSlot(patchCopyBuffer, bank, selectedSlot);
+		if (selectedSlot < voices::numberOfSlotsInBank && patchCopyBuffer != "") {
+			voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchCopyBuffer, bank, selectedSlot);
 			return true;
 		}
 		else return false;

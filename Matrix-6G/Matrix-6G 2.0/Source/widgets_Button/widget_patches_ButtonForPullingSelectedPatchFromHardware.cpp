@@ -9,7 +9,7 @@ using namespace constants;
 
 
 
-ButtonForPullingSelectedPatchFromHardware::ButtonForPullingSelectedPatchFromHardware(PatchSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
+ButtonForPullingSelectedPatchFromHardware::ButtonForPullingSelectedPatchFromHardware(VoiceSlotsComponent& patchSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	patchSlots{ patchSlots },
 	unexposedParams{ unexposedParams }
@@ -30,14 +30,14 @@ const String ButtonForPullingSelectedPatchFromHardware::createButtonTooltipStrin
 
 void ButtonForPullingSelectedPatchFromHardware::onClickMethod() {
 	auto slot{ patchSlots.selectedSlot };
-	if (slot < patches::numberOfSlotsInBank && (patchSlots.bank == PatchBank::customA || patchSlots.bank == PatchBank::customB)) {
-		auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-		if (patchSlots.bank == PatchBank::customA)
-			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankA();
+	if (slot < voices::numberOfSlotsInBank && (patchSlots.bank == VoicesBank::customA || patchSlots.bank == VoicesBank::customB)) {
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		if (patchSlots.bank == VoicesBank::customA)
+			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankA();
 		else
-			patchTransmissionOptions->setIncomingPatchShouldBeSavedInCustomBankB();
-		patchSlots.pullSelectedPatchFromHardware();
-		auto transmitTime{ patchTransmissionOptions->patchTransmitTime() };
+			voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInCustomBankB();
+		patchSlots.pullSelectedVoiceFromHardware();
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto masterOptions{ unexposedParams->masterOptions_get() };

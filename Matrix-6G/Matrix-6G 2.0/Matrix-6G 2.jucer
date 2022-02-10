@@ -110,10 +110,6 @@
               file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="gAhKl2" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.h"/>
-        <FILE id="FpwsSc" name="midi_PatchDataMessage.cpp" compile="1" resource="0"
-              file="Source/midi/midi_PatchDataMessage.cpp"/>
-        <FILE id="N07qzW" name="midi_PatchDataMessage.h" compile="0" resource="0"
-              file="Source/midi/midi_PatchDataMessage.h"/>
         <FILE id="pyiaAd" name="midi_RawDataTools.cpp" compile="1" resource="0"
               file="Source/midi/midi_RawDataTools.cpp"/>
         <FILE id="UnQtvd" name="midi_RawDataTools.h" compile="0" resource="0"
@@ -122,14 +118,18 @@
               file="Source/midi/midi_SplitDataMessage.cpp"/>
         <FILE id="aEvQ0M" name="midi_SplitDataMessage.h" compile="0" resource="0"
               file="Source/midi/midi_SplitDataMessage.h"/>
+        <FILE id="FpwsSc" name="midi_VoiceDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.cpp"/>
+        <FILE id="N07qzW" name="midi_VoiceDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{5FBF3653-1A60-2484-7D9F-19F4C03DCDA3}" name="params">
         <FILE id="TZsnTq" name="params_Constants.h" compile="0" resource="0"
               file="Source/params/params_Constants.h"/>
-        <FILE id="FO3Pfr" name="params_CurrentPatchOptions.cpp" compile="1"
-              resource="0" file="Source/params/params_CurrentPatchOptions.cpp"/>
-        <FILE id="BjgAjg" name="params_CurrentPatchOptions.h" compile="0" resource="0"
-              file="Source/params/params_CurrentPatchOptions.h"/>
+        <FILE id="FO3Pfr" name="params_CurrentVoiceOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_CurrentVoiceOptions.cpp"/>
+        <FILE id="BjgAjg" name="params_CurrentVoiceOptions.h" compile="0" resource="0"
+              file="Source/params/params_CurrentVoiceOptions.h"/>
         <FILE id="WK2pFx" name="params_ExposedParametersListener.cpp" compile="1"
               resource="0" file="Source/params/params_ExposedParametersListener.cpp"/>
         <FILE id="Lr4YbU" name="params_ExposedParametersListener.h" compile="0"
@@ -156,10 +156,6 @@
               file="Source/params/params_MatrixModSettings.cpp"/>
         <FILE id="KjRXei" name="params_MatrixModSettings.h" compile="0" resource="0"
               file="Source/params/params_MatrixModSettings.h"/>
-        <FILE id="bsH11Y" name="params_PatchTransmissionOptions.cpp" compile="1"
-              resource="0" file="Source/params/params_PatchTransmissionOptions.cpp"/>
-        <FILE id="YkHJgd" name="params_PatchTransmissionOptions.h" compile="0"
-              resource="0" file="Source/params/params_PatchTransmissionOptions.h"/>
         <FILE id="Baw5Kz" name="params_RangeTypes.h" compile="0" resource="0"
               file="Source/params/params_RangeTypes.h"/>
         <FILE id="vvxMtI" name="params_SplitOptions.cpp" compile="1" resource="0"
@@ -174,6 +170,10 @@
               resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
         <FILE id="hpY4YK" name="params_UnexposedParameters_Facade.h" compile="0"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+        <FILE id="bsH11Y" name="params_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.cpp"/>
+        <FILE id="YkHJgd" name="params_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{D9ACF7D2-79C2-25CC-F886-05E14DE862D4}" name="patches">
         <FILE id="yzHp5n" name="patches_BankTransmissionComponent.cpp" compile="1"

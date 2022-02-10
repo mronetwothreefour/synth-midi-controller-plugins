@@ -22,7 +22,7 @@ String ComboBoxForSelectingPatchMapEnabled::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "When enabled, incoming program change messages\n";
-		tooltipText += "will load patches on the hardware according to\n";
+		tooltipText += "will load voices on the hardware according to\n";
 		tooltipText += "the Patch Map. Click the EDIT button below to make\n";
 		tooltipText += "changes to the Patch Map. NOTE: Individual Master\n";
 		tooltipText += "options are not immediately updated on the hardware.\n";

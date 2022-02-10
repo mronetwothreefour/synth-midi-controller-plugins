@@ -36,24 +36,24 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 }
 
 void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
-    if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_PatchData) {
-        auto slot{ sysExData[MIDI::patchAndSplitDumpSlotNumberByte] };
+    if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_VoiceData) {
+        auto slot{ sysExData[MIDI::voiceAndSplitDumpSlotNumberByte] };
         std::vector<uint8> patchDataVector;
-        for (auto dataByte = MIDI::patchAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfPatchDataVector; ++dataByte)
+        for (auto dataByte = MIDI::voiceAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfVoiceDataVector; ++dataByte)
             patchDataVector.push_back(*(sysExData + dataByte));
-        auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-        if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankA() || patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankB()) {
-            auto patchBanks{ unexposedParams->patchBanks_get() };
-            auto patchDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(patchDataVector) };
+        auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+        if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankA() || voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankB()) {
+            auto voicesBanks{ unexposedParams->voicesBanks_get() };
+            auto patchDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(patchDataVector) };
             const MessageManagerLock mmLock;
-            if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankA())
-                patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customA, slot);
-            if (patchTransmissionOptions->incomingPatchShouldBeSavedInCustomBankB())
-                patchBanks->storePatchDataHexStringInCustomBankSlot(patchDataHexString, PatchBank::customB, slot);
-            patchTransmissionOptions->setIncomingPatchShouldNotBeSavedInCustomBank();
+            if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankA())
+                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, VoicesBank::customA, slot);
+            if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankB())
+                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, VoicesBank::customB, slot);
+            voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInCustomBank();
         }
         const MessageManagerLock mmLock;
-        RawDataTools::applyPatchDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
+        RawDataTools::applyVoiceDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
     }
     else
         handleIncomingSplitDump(sysExData);
@@ -61,12 +61,12 @@ void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
 
 void IncomingSysExHandler::handleIncomingSplitDump(const uint8* sysExData) {
     if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_SplitData) {
-        auto slot{ sysExData[MIDI::patchAndSplitDumpSlotNumberByte] };
+        auto slot{ sysExData[MIDI::voiceAndSplitDumpSlotNumberByte] };
         std::vector<uint8> splitDataVector;
-        for (auto dataByte = MIDI::patchAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfSplitDataVector; ++dataByte)
+        for (auto dataByte = MIDI::voiceAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfSplitDataVector; ++dataByte)
             splitDataVector.push_back(*(sysExData + dataByte));
         auto splitsBank{ unexposedParams->splitsBank_get() };
-        auto splitDataHexString{ RawDataTools::convertPatchOrSplitDataVectorToHexString(splitDataVector) };
+        auto splitDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(splitDataVector) };
         const MessageManagerLock mmLock;
         splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, slot);
         RawDataTools::applySplitDataVectorToGUI(splitDataVector, unexposedParams);

@@ -28,9 +28,9 @@ PatchNumberAndNameLayer::PatchNumberAndNameLayer(UnexposedParameters* unexposedP
 
 	patchNameEditor.setComponentID(ID::label_PatchNameEditor.toString());
 	patchNameEditor.addListener(this);
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	currentPatchOptions->addListener(this);
-	patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
+	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+	currentVoiceOptions->addListener(this);
+	patchNameEditor.setText(currentVoiceOptions->currentVoiceName(), dontSendNotification);
 	patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	addAndMakeVisible(patchNameEditor);
 
@@ -53,8 +53,8 @@ void PatchNumberAndNameLayer::labelTextChanged(Label* label) {
 		String newName(labelText.toUpperCase());
 		padNameLessThan8CharactersLongWithSpaces(newName);
 		patchNameEditor.setText(newName, dontSendNotification);
-		auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-		currentPatchOptions->setCurrentPatchName(newName);
+		auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+		currentVoiceOptions->setCurrentVoiceName(newName);
 		repaint();
 	}
 }
@@ -67,8 +67,8 @@ void PatchNumberAndNameLayer::padNameLessThan8CharactersLongWithSpaces(String& n
 void PatchNumberAndNameLayer::sliderValueChanged(Slider* slider) {
 	if (slider == &slider_ForPatchNumber) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-		currentPatchOptions->setCurrentPatchNumber(currentKnobValue);
+		auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+		currentVoiceOptions->setCurrentVoiceNumber(currentKnobValue);
 		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 	}
 }
@@ -101,16 +101,16 @@ void PatchNumberAndNameLayer::valueTreePropertyChanged(ValueTree& /*tree*/, cons
 		slider_ForPatchNumber.setTooltip(generatePatchNumberTooltipString());
 		patchNameEditor.setTooltip(generatePatchNameTooltipString());
 	}
-	if (property == ID::currentPatch_Name) {
-		auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-		patchNameEditor.setText(currentPatchOptions->currentPatchName(), dontSendNotification);
+	if (property == ID::currentVoice_Name) {
+		auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+		patchNameEditor.setText(currentVoiceOptions->currentVoiceName(), dontSendNotification);
 		repaint();
 	}
 }
 
 PatchNumberAndNameLayer::~PatchNumberAndNameLayer() {
-	auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-	currentPatchOptions->removeListener(this);
+	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+	currentVoiceOptions->removeListener(this);
 	patchNameEditor.removeListener(this);
 	slider_ForPatchNumber.removeListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

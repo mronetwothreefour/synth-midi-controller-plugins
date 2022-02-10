@@ -32,32 +32,32 @@ std::vector<uint8> RawSysExDataVector::createParamChangeMessage(uint8 newValue, 
     return messageVector;
 }
 
-std::vector<uint8> RawSysExDataVector::initializePatchDataMessage(uint8 slot) {
-    jassert(slot < patches::numberOfSlotsInBank);
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfPatchDataVector) };
-    rawDataVector[2] = MIDI::opcode_PatchData;
+std::vector<uint8> RawSysExDataVector::initializeVoiceDataMessage(uint8 slot) {
+    jassert(slot < voices::numberOfSlotsInBank);
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfVoiceDataVector) };
+    rawDataVector[2] = MIDI::opcode_VoiceData;
     rawDataVector[3] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createPatchDataMessageHeader(uint8 slot) {
-    jassert(slot < patches::numberOfSlotsInBank);
+std::vector<uint8> RawSysExDataVector::createVoiceDataMessageHeader(uint8 slot) {
+    jassert(slot < voices::numberOfSlotsInBank);
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::numberOfHeaderBytesInDataDumpMessages) };
-    rawDataVector[2] = MIDI::opcode_PatchData;
+    rawDataVector[2] = MIDI::opcode_VoiceData;
     rawDataVector[3] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createPatchDataRequestMessage(uint8 slot) {
-    jassert(slot < patches::numberOfSlotsInBank);
+std::vector<uint8> RawSysExDataVector::createVoiceDataRequestMessage(uint8 slot) {
+    jassert(slot < voices::numberOfSlotsInBank);
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
     rawDataVector[2] = MIDI::opcode_DataRequest;
-    rawDataVector[3] = MIDI::transmitCode_Patch;
+    rawDataVector[3] = MIDI::transmitCode_Voice;
     rawDataVector[4] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createActivateQuickPatchEditingMessage() {
+std::vector<uint8> RawSysExDataVector::createActivateQuickEditMessage() {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfQuickEditSelectVector) };
     rawDataVector[2] = MIDI::opcode_ActivateQuickEdit;
     return rawDataVector;
@@ -122,7 +122,7 @@ std::vector<uint8> RawSysExDataVector::createRawDataVectorWithSysExIDheaderBytes
 
 
 
-const std::vector<uint8> RawDataTools::convertPatchOrSplitHexStringToDataVector(const String& hexString) {
+const std::vector<uint8> RawDataTools::convertVoiceOrSplitHexStringToDataVector(const String& hexString) {
     std::vector<uint8> dataVector;
     auto indexOfChecksumByte{ hexString.length() - 2 };
     for (auto i = 0; i != indexOfChecksumByte; ++i) {
@@ -134,7 +134,7 @@ const std::vector<uint8> RawDataTools::convertPatchOrSplitHexStringToDataVector(
     return dataVector;
 }
 
-const String RawDataTools::convertPatchOrSplitDataVectorToHexString(const std::vector<uint8>& dataVector) {
+const String RawDataTools::convertVoiceOrSplitDataVectorToHexString(const std::vector<uint8>& dataVector) {
     String hexString{ "" };
     auto indexOfChecksumByte{ dataVector.size() - 1 };
     for (auto i = 0; i < indexOfChecksumByte; ++i) {
@@ -148,35 +148,35 @@ const String RawDataTools::convertPatchOrSplitDataVectorToHexString(const std::v
 
 void RawDataTools::addCurrentParameterSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
     uint8 checksum{ 0 };
-    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-    auto currentPatchName{ currentPatchOptions->currentPatchName() };
-    addPatchOrSplitNameDataToVector(currentPatchName, params::maxVoiceNameLength, dataVector, checksum);
+    auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+    auto currentVoiceName{ currentVoiceOptions->currentVoiceName() };
+    addVoiceOrSplitNameDataToVector(currentVoiceName, params::maxVoiceNameLength, dataVector, checksum);
     addExposedParamDataToVector(exposedParams, dataVector, checksum);
     addMatrixModDataToVector(unexposedParams, dataVector, checksum);
-    dataVector[patches::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
+    dataVector[voices::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
 void RawDataTools::addCurrentSplitSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
     uint8 checksum{ 0 };
     auto splitOptions{ unexposedParams->splitOptions_get() };
     auto splitName{ splitOptions->splitName() };
-    addPatchOrSplitNameDataToVector(splitName, params::maxSplitNameLength, dataVector, checksum);
+    addVoiceOrSplitNameDataToVector(splitName, params::maxSplitNameLength, dataVector, checksum);
     addSplitParamDataToVector(unexposedParams, dataVector, checksum);
     dataVector[splits::rawSplitDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
-void RawDataTools::applyPatchDataVectorToGUI(const uint8 patchNumber, std::vector<uint8>& patchDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-    applyPatchNumberToGUI(patchNumber, unexposedParams);
-    applyNameOfPatchInRawDataToGUI(patchDataVector.data(), unexposedParams);
+void RawDataTools::applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vector<uint8>& voiceDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+    applyVoiceNumberToGUI(voiceNumber, unexposedParams);
+    applyNameOfVoiceInRawDataToGUI(voiceDataVector.data(), unexposedParams);
 
-    patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeExposedParams);
-    auto patchTransmissionOptions{ unexposedParams->patchTransmissionOptions_get() };
-    patchTransmissionOptions->setParamChangeEchosAreBlocked();
-    applyRawPatchDataToExposedParameters(patchDataVector.data(), exposedParams);
-    patchTransmissionOptions->setParamChangeEchosAreNotBlocked();
+    voiceDataVector.erase(voiceDataVector.begin(), voiceDataVector.begin() + voices::indexOfLastDataByteBeforeExposedParams);
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setParamChangeEchosAreBlocked();
+    applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams);
+    voiceTransmissionOptions->setParamChangeEchosAreNotBlocked();
 
-    patchDataVector.erase(patchDataVector.begin(), patchDataVector.begin() + patches::indexOfLastDataByteBeforeMatrixModSettings);
-    applyRawPatchDataToMatrixModParameters(patchDataVector.data(), unexposedParams);
+    voiceDataVector.erase(voiceDataVector.begin(), voiceDataVector.begin() + voices::indexOfLastDataByteBeforeMatrixModSettings);
+    applyRawVoiceDataToMatrixModParameters(voiceDataVector.data(), unexposedParams);
 }
 
 void RawDataTools::applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector, UnexposedParameters* unexposedParams) {
@@ -216,7 +216,7 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
     masterOptions->setMIDIechoEnabled(masterOptionsData[master::indexOfMIDIechoEnableLSByte]);
     masterOptions->setPatchMapEnabled(masterOptionsData[master::indexOfPatchMapEnableLSByte]);
     masterOptions->setMIDImonoEnabled(masterOptionsData[master::indexOfMIDImonoEnableLSByte]);
-    for (uint8 i = 0; i != patches::numberOfSlotsInBank; ++i) {
+    for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
         auto indexOfInputPatchlsByte{ master::indexOfFirstPatchMapInputLSByte + (i * 2) };
         masterOptions->setPatchMapInPatchForProgramNumber(masterOptionsData[indexOfInputPatchlsByte] + (masterOptionsData[indexOfInputPatchlsByte + 1] * 16), i);
         auto indexOfOutputPatchlsByte{ master::indexOfFirstPatchMapOutputLSByte + (i * 2) };
@@ -224,15 +224,15 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
     }
 }
 
-const String RawDataTools::extractPatchNameFromRawPatchData(const uint8* patchData) {
-    String patchName{ "" };
+const String RawDataTools::extractVoiceNameFromRawVoiceData(const uint8* voiceData) {
+    String voiceName{ "" };
     for (auto byte = 0; byte != (2 * params::maxVoiceNameLength); byte += 2) {
-        auto lsbByteValue{ (uint8)patchData[byte] };
-        auto msbByteValue{ (uint8)patchData[byte + 1] };
+        auto lsbByteValue{ (uint8)voiceData[byte] };
+        auto msbByteValue{ (uint8)voiceData[byte + 1] };
         auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
-        patchName += convertStoredASCIIvalueToString(storedASCIIvalue);
+        voiceName += convertStoredASCIIvalueToString(storedASCIIvalue);
     }
-    return patchName;
+    return voiceName;
 }
 
 const String RawDataTools::extractSplitNameFromRawSplitData(const uint8* splitData) {
@@ -252,15 +252,15 @@ void RawDataTools::addCurrentMasterSettingsToDataVector(UnexposedParameters* une
     dataVector[master::indexOfChecksumByte] = checksum % (uint8)128;
 }
 
-void RawDataTools::applyPatchNumberToGUI(const uint8 patchNumber, UnexposedParameters* unexposedParams) {
-    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-    currentPatchOptions->setCurrentPatchNumber(patchNumber);
+void RawDataTools::applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams) {
+    auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+    currentVoiceOptions->setCurrentVoiceNumber(voiceNumber);
 }
 
-void RawDataTools::applyNameOfPatchInRawDataToGUI(const uint8* patchData, UnexposedParameters* unexposedParams) {
-    auto patchNameString{ extractPatchNameFromRawPatchData(patchData) };
-    auto currentPatchOptions{ unexposedParams->currentPatchOptions_get() };
-    currentPatchOptions->setCurrentPatchName(patchNameString);
+void RawDataTools::applyNameOfVoiceInRawDataToGUI(const uint8* voiceData, UnexposedParameters* unexposedParams) {
+    auto patchNameString{ extractVoiceNameFromRawVoiceData(voiceData) };
+    auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
+    currentVoiceOptions->setCurrentVoiceName(patchNameString);
 }
 
 void RawDataTools::applyNameOfSplitInRawDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams) {
@@ -269,13 +269,13 @@ void RawDataTools::applyNameOfSplitInRawDataToGUI(const uint8* splitData, Unexpo
     splitOptions->setSplitName(splitNameString);
 }
 
-void RawDataTools::applyRawPatchDataToExposedParameters(const uint8* patchData, AudioProcessorValueTreeState* exposedParams) {
+void RawDataTools::applyRawVoiceDataToExposedParameters(const uint8* voiceData, AudioProcessorValueTreeState* exposedParams) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
         auto lsByteLocation{ info.dataByteIndexFor(param) * 2 };
-        auto lsByteValue{ patchData[lsByteLocation] };
-        auto msByteValue{ patchData[lsByteLocation + 1] * 16 };
+        auto lsByteValue{ voiceData[lsByteLocation] };
+        auto msByteValue{ voiceData[lsByteLocation + 1] * 16 };
         auto newValue{ lsByteValue + msByteValue };
         if (info.rangeTypeFor(param) == RangeType::signed6bitValue)
             newValue = { formatSigned6bitValueForStoringInPlugin(newValue) };
@@ -306,25 +306,25 @@ void RawDataTools::applyRawSplitDataToGUI(const uint8* splitData, UnexposedParam
     splitOptions->setUpperZonePatchNumber(splitData[splits::indexOfUpperZonePatchNumberLSByte] + (splitData[splits::indexOfUpperZonePatchNumberLSByte + 1] * 16));
 }
 
-void RawDataTools::applyRawPatchDataToMatrixModParameters(const uint8* patchData, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyRawVoiceDataToMatrixModParameters(const uint8* voiceData, UnexposedParameters* unexposedParams) {
     for (auto i = 0; i != 10; ++i) {
         auto matrixModSettings{ unexposedParams->matrixModSettings_get() };
-        auto modSourceLSByteValue{ patchData[i * 6] };
-        auto modSourceMSByteValue{ patchData[(i * 6) + 1] * 16 };
+        auto modSourceLSByteValue{ voiceData[i * 6] };
+        auto modSourceMSByteValue{ voiceData[(i * 6) + 1] * 16 };
         auto modSource{ modSourceLSByteValue + modSourceMSByteValue };
         matrixModSettings->setSourceForModulation((uint8)modSource, i);
-        auto modAmountLSByteValue{ patchData[(i * 6) + 2] };
-        auto modAmountMSByteValue{ patchData[(i * 6) + 3] * 16 };
+        auto modAmountLSByteValue{ voiceData[(i * 6) + 2] };
+        auto modAmountMSByteValue{ voiceData[(i * 6) + 3] * 16 };
         auto modAmount{ modAmountLSByteValue + modAmountMSByteValue };
         matrixModSettings->setAmountForModulation(formatSigned7bitValueForStoringInPlugin(modAmount), i);
-        auto modDestinationLSByteValue{ patchData[(i * 6) + 4] };
-        auto modDestinationMSByteValue{ patchData[(i * 6) + 5] * 16 };
+        auto modDestinationLSByteValue{ voiceData[(i * 6) + 4] };
+        auto modDestinationMSByteValue{ voiceData[(i * 6) + 5] * 16 };
         auto modDestination{ modDestinationLSByteValue + modDestinationMSByteValue };
         matrixModSettings->setDestinationForModulation((uint8)modDestination, i);
     }
 }
 
-void RawDataTools::addPatchOrSplitNameDataToVector(String & name, int maxLength, std::vector<uint8>& dataVector, uint8& checksum) {
+void RawDataTools::addVoiceOrSplitNameDataToVector(String & name, int maxLength, std::vector<uint8>& dataVector, uint8& checksum) {
     for (auto i = 0; i != maxLength; ++i) {
         auto asciiValue{ (uint8)name[i] };
         auto truncatedValue{ truncateASCIIvalueToLowest6bits(asciiValue) };
@@ -366,7 +366,7 @@ void RawDataTools::addExposedParamDataToVector(AudioProcessorValueTreeState* exp
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
         auto dataByteIndex{ info.dataByteIndexFor(paramIndex) };
-        auto lsbByteLocation{ indexofFirstPatchOrSplitParamDataLSByte + (dataByteIndex * 2) };
+        auto lsbByteLocation{ indexOfFirstVoiceOrSplitParamDataLSByte + (dataByteIndex * 2) };
         auto rangeType{ info.rangeTypeFor(paramIndex) };
         if (rangeType == RangeType::signed6bitValue)
             paramValue = formatSigned6bitValueForSendingToMatrix(paramValue);
@@ -399,37 +399,37 @@ void RawDataTools::addMatrixModDataToVector(UnexposedParameters* unexposedParams
 void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
     auto splitOptions{ unexposedParams->splitOptions_get() };
     auto lowerZoneLimit{ splitOptions->lowerZoneLimit() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneLimit, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneLimitLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneLimit, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZoneLimitLSByte]);
     checksum += lowerZoneLimit;
     auto lowerZoneTranspose{ splitOptions->lowerZoneTranspose() };
     lowerZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(lowerZoneTranspose);
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneTranspose, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneTransposeLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneTranspose, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZoneTransposeLSByte]);
     checksum += lowerZoneTranspose;
     auto lowerZoneMidiOut{ splitOptions->lowerZoneMidiOut() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZoneMidiOut, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZoneMIDIoutLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneMidiOut, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZoneMIDIoutLSByte]);
     checksum += lowerZoneMidiOut;
     auto upperZoneLimit{ splitOptions->upperZoneLimit() };
-    addValueToDataVectorAtLSBbyteLocation(upperZoneLimit, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneLimitLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneLimit, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZoneLimitLSByte]);
     checksum += upperZoneLimit;
     auto upperZoneTranspose{ splitOptions->upperZoneTranspose() };
     upperZoneTranspose = RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(upperZoneTranspose);
-    addValueToDataVectorAtLSBbyteLocation(upperZoneTranspose, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneTransposeLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneTranspose, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZoneTransposeLSByte]);
     checksum += upperZoneTranspose;
     auto upperZoneMidiOut{ splitOptions->upperZoneMidiOut() };
-    addValueToDataVectorAtLSBbyteLocation(upperZoneMidiOut, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZoneMIDIoutLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZoneMidiOut, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZoneMIDIoutLSByte]);
     checksum += upperZoneMidiOut;
     auto zoneVolumeBalance{ splitOptions->zoneVolumeBalance() };
     zoneVolumeBalance = RawDataTools::formatSigned6bitValueForSendingToMatrix(zoneVolumeBalance);
-    addValueToDataVectorAtLSBbyteLocation(zoneVolumeBalance, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfZoneVolumeBalanceLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(zoneVolumeBalance, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfZoneVolumeBalanceLSByte]);
     checksum += zoneVolumeBalance;
     auto zoneVoiceAssignment{ splitOptions->zoneVoiceAssignment() };
-    addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfZoneVoiceAssignmentLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfZoneVoiceAssignmentLSByte]);
     checksum += zoneVoiceAssignment;
     auto lowerZonePatchNumber{ splitOptions->lowerZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfLowerZonePatchNumberLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZonePatchNumberLSByte]);
     checksum += lowerZonePatchNumber;
     auto upperZonePatchNumber{ splitOptions->upperZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[indexofFirstPatchOrSplitParamDataLSByte + splits::indexOfUpperZonePatchNumberLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZonePatchNumberLSByte]);
     checksum += upperZonePatchNumber;
 }
 
@@ -552,7 +552,7 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDImonoEnableLSByte]);
     checksum += midiMonoEnabled;
 
-    for (uint8 i = 0; i != patches::numberOfSlotsInBank; ++i) {
+    for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
         auto patchMapInPatch{ masterOptions->patchMapInPatchForProgramNumber(i) };
         addValueToDataVectorAtLSBbyteLocation(patchMapInPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstPatchMapInputLSByte + (i * 2)]);
         checksum += patchMapInPatch;

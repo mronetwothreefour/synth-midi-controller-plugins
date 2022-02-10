@@ -36,7 +36,7 @@ String SliderForSettingZoneLimit::generateTooltipString() {
 			tooltipText += "up to G 10 (MIDI note number 127).\n";
 		}
 		tooltipText += "The lower and upper zones can overlap,\n";
-		tooltipText += "making it possible to play two patches\n";
+		tooltipText += "making it possible to play two voices\n";
 		tooltipText += "at the same time. Range: C0 to G10.\n";
 		tooltipText += "NOTE: Changes made to split parameters\n";
 		tooltipText += "are not sent to the hardware until you\n";

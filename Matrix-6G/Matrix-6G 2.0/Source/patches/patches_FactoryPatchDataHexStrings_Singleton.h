@@ -4,7 +4,7 @@
 
 
 
-class FactoryPatchDataHexStrings
+class FactoryVoiceDataHexStrings
 {
 	StringArray analogSynthsBankA;
 	StringArray analogSynthsBankB;
@@ -18,15 +18,15 @@ class FactoryPatchDataHexStrings
 	StringArray miscellaneousBankA;
 	StringArray miscellaneousBankB;
 
-	FactoryPatchDataHexStrings();
+	FactoryVoiceDataHexStrings();
 	void fillAllStringArrays();
 
 public:
-	FactoryPatchDataHexStrings(FactoryPatchDataHexStrings&&) = delete;
-	FactoryPatchDataHexStrings& operator=(FactoryPatchDataHexStrings&&) = delete;
+	FactoryVoiceDataHexStrings(FactoryVoiceDataHexStrings&&) = delete;
+	FactoryVoiceDataHexStrings& operator=(FactoryVoiceDataHexStrings&&) = delete;
 
-	static FactoryPatchDataHexStrings& get() noexcept;
-	int patchSlotOutOfRange();
+	static FactoryVoiceDataHexStrings& get() noexcept;
+	int slotOutOfRange();
 	const StringArray& getAnalogSynthsBankA();
 	const StringArray& getAnalogSynthsBankB();
 	const StringArray& getBassesBank();
@@ -41,5 +41,5 @@ public:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FactoryPatchDataHexStrings)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FactoryVoiceDataHexStrings)
 };

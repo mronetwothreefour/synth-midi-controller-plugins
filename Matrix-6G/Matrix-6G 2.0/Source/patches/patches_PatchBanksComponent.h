@@ -37,8 +37,8 @@ public:
     void comboBoxChanged(ComboBox* comboBox) override;
 
 private:
-    void showPushEntireBankComponentForBank(PatchBank bank);
-    void showPullEntireBankComponentForBank(PatchBank bank);
+    void showPushEntireBankComponentForBank(VoicesBank bank);
+    void showPullEntireBankComponentForBank(VoicesBank bank);
     void hideThisComponent();
 
 public:

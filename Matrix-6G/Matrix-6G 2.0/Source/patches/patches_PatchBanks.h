@@ -4,7 +4,7 @@
 
 
 
-enum class PatchBank {
+enum class VoicesBank {
 	analogSynthsA = 0,
 	analogSynthsB,
 	basses,
@@ -22,45 +22,45 @@ enum class PatchBank {
 
 
 
-class PatchBanks :
+class VoicesBanks :
 	public ValueTree::Listener
 {
-	ValueTree analogSynthsBankApatchNameStrings;
-	ValueTree analogSynthsBankBpatchNameStrings;
-	ValueTree bassesBankPatchNameStrings;
-	ValueTree brassAndWoodwindsBankPatchNameStrings;
-	ValueTree customBankApatchDataHexStrings;
-	ValueTree customBankBpatchDataHexStrings;
-	ValueTree customBankApatchNameStrings;
-	ValueTree customBankBpatchNameStrings;
-	ValueTree fxAndPercussionBankPatchNameStrings;
-	ValueTree keyboardsBankApatchNameStrings;
-	ValueTree keyboardsBankBpatchNameStrings;
-	ValueTree leadsBankPatchNameStrings;
-	ValueTree miscellaneousBankApatchNameStrings;
-	ValueTree miscellaneousBankBpatchNameStrings;
-	ValueTree stringsBankPatchNameStrings;
+	ValueTree analogSynthsBankAvoiceNameStrings;
+	ValueTree analogSynthsBankBvoiceNameStrings;
+	ValueTree bassesBankVoiceNameStrings;
+	ValueTree brassAndWoodwindsBankVoiceNameStrings;
+	ValueTree customBankAvoiceDataHexStrings;
+	ValueTree customBankBvoiceDataHexStrings;
+	ValueTree customBankAvoiceNameStrings;
+	ValueTree customBankBvoiceNameStrings;
+	ValueTree fxAndPercussionBankVoiceNameStrings;
+	ValueTree keyboardsBankAvoiceNameStrings;
+	ValueTree keyboardsBankBvoiceNameStrings;
+	ValueTree leadsBankVoiceNameStrings;
+	ValueTree miscellaneousBankAvoiceNameStrings;
+	ValueTree miscellaneousBankBvoiceNameStrings;
+	ValueTree stringsBankVoiceNameStrings;
 
 public:
-	PatchBanks();
+	VoicesBanks();
 
 private:
-	void fillAllCustomPatchDataBanks();
-	void fillAllPatchNameBanks();
+	void fillAllCustomVoiceDataBanks();
+	void fillAllVoiceNameBanks();
 
 public:
-	int patchSlotOutOfRange();
-	const String nameOfPatchInBankSlot(PatchBank bank, uint8 slot);
-	const String getPatchDataHexStringFromBankSlot(PatchBank bank, uint8 slot) const;
-	void storePatchDataHexStringInCustomBankSlot(String patchDataHexString, PatchBank bank, uint8 slot);
-	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, PatchBank bank);
-	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, PatchBank bank);
+	int slotOutOfRange();
+	const String nameOfVoiceInBankSlot(VoicesBank bank, uint8 slot);
+	const String getVoiceDataHexStringFromBankSlot(VoicesBank bank, uint8 slot) const;
+	void storeVoiceDataHexStringInCustomBankSlot(String voiceDataHexString, VoicesBank bank, uint8 slot);
+	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
+	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
-	~PatchBanks();
+	~VoicesBanks();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PatchBanks)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicesBanks)
 };

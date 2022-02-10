@@ -18,7 +18,7 @@ const String ButtonForShowingPatchMapComponent::createButtonTooltipString() {
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "When enabled, the Patch Map lets you easliy customize which patch gets\n";
 		buttonTooltip += "loaded when the hardware receives a program change message, without\n";
-		buttonTooltip += "having to physically reorder the patches in the storage bank. For example,\n";
+		buttonTooltip += "having to physically reorder the voices in the storage bank. For example,\n";
 		buttonTooltip += "a program change message calling program 0 can be specified to load\n";
 		buttonTooltip += "patch 23 instead, and to also load patch 57 on a second device further\n";
 		buttonTooltip += "on in the MIDI chain. Click this button to open a window where you can\n";
