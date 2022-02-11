@@ -13,9 +13,9 @@ using namespace constants;
 TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	unexposedParams{ unexposedParams },
-	bank1{ ProgramBank::factory1, exposedParams, unexposedParams, programCopyBuffer },
-	bank2{ ProgramBank::factory2, exposedParams, unexposedParams, programCopyBuffer },
-	bank3{ ProgramBank::factory3, exposedParams, unexposedParams, programCopyBuffer }
+	bank1{ VoicesBank::factory1, exposedParams, unexposedParams, programCopyBuffer },
+	bank2{ VoicesBank::factory2, exposedParams, unexposedParams, programCopyBuffer },
+	bank3{ VoicesBank::factory3, exposedParams, unexposedParams, programCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForFactoryBanks.toString());
 	setTabBarDepth(GUI::tabBarDepth);

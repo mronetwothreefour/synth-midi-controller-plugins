@@ -36,7 +36,7 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 }
 
 void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysExData) {
-    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::programEditBufferDump) {
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::editBufferData) {
         RawDataTools::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
         return;
     }
@@ -45,38 +45,38 @@ void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysE
 }
 
 void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
-    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::programDump) {
-        auto bankNum{ sysExData[MIDI::programDumpBankByte] };
-        ProgramBank bank;
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::voiceData) {
+        auto bankNum{ sysExData[MIDI::voiceDumpBankByte] };
+        VoicesBank bank;
         switch (bankNum)
         {
         case 0:
-            bank = ProgramBank::custom1;
+            bank = VoicesBank::custom1;
             break;
         case 1:
-            bank = ProgramBank::custom2;
+            bank = VoicesBank::custom2;
             break;
         case 2:
-            bank = ProgramBank::custom3;
+            bank = VoicesBank::custom3;
             break;
         default:
-            bank = ProgramBank::custom1;
+            bank = VoicesBank::custom1;
             break;
         }
-        auto slot{ sysExData[MIDI::programDumpSlotByte] };
+        auto slot{ sysExData[MIDI::voiceDumpSlotByte] };
         std::vector<uint8> programDataVector;
-        for (auto dataByte = MIDI::firstProgramDataByte; dataByte != MIDI::firstUnusedProgramDataByte; ++dataByte)
+        for (auto dataByte = MIDI::firstVoiceDataByte; dataByte != MIDI::firstUnusedPVoiceDataByte; ++dataByte)
             programDataVector.push_back(*(sysExData + dataByte));
         auto programDataHexString{ RawDataTools::convertDataVectorToHexString(programDataVector) };
-        auto programBanks{ unexposedParams->programBanks_get() };
-        programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
+        auto programBanks{ unexposedParams->voicesBanks_get() };
+        programBanks->storeVoiceDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
     }
     else
         handleIncomingGlobalParametersDump(sysExData);
 }
 
 void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysExData) {
-    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersDump) {
+    if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersData) {
         updateMidiOptions(sysExData);
         updateGlobalAudioOptions(sysExData);
     }
@@ -113,11 +113,11 @@ void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
         midiOptions->setPedalModeToArpLatch();
     else
         midiOptions->setPedalModeToNormal();
-    auto programChangeIsOn{ (bool)sysExData[MIDI::globalProgramChangeOnByte] };
-    if (programChangeIsOn)
-        midiOptions->setProgramChangeOn();
+    auto voiceChangeIsOn{ (bool)sysExData[MIDI::globalVoiceChangeOnByte] };
+    if (voiceChangeIsOn)
+        midiOptions->setVoiceChangeOn();
     else
-        midiOptions->setProgramChangeOff();
+        midiOptions->setVoiceChangeOff();
     midiOptions->setParamChangeEchosAreNotBlocked();
 }
 

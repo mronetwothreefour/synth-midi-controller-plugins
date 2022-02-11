@@ -10,23 +10,23 @@ using namespace constants;
 
 
 
-TabForCustomProgramBank::TabForCustomProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForCustomProgramBank::TabForCustomProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	bank{ bank },
-	programSlots{ bank, exposedParams, unexposedParams },
+	voiceSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
 	programCopyBuffer{ programCopyBuffer },
-	button_ForLoadingSelectedProgram{ programSlots, unexposedParams },
-	button_ForSavingProgramInSelectedSlot{ programSlots, unexposedParams },
+	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
+	button_ForSavingVoiceIntoSelectedSlot{ voiceSlots, unexposedParams },
 	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
-	button_ForPullingSelectedProgramFromHardware{ programSlots, unexposedParams },
+	button_ForPullingSelectedVoiceFromHardware{ voiceSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
-	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams }
+	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams }
 {
-	addAndMakeVisible(programSlots);
-	addAndMakeVisible(button_ForLoadingSelectedProgram);
-	addAndMakeVisible(button_ForSavingProgramInSelectedSlot);
-	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
-	addAndMakeVisible(button_ForPullingSelectedProgramFromHardware);
+	addAndMakeVisible(voiceSlots);
+	addAndMakeVisible(button_ForLoadingSelectedVoice);
+	addAndMakeVisible(button_ForSavingVoiceIntoSelectedSlot);
+	addAndMakeVisible(button_ForPushingSelectedVoiceToHardware);
+	addAndMakeVisible(button_ForPullingSelectedVoiceFromHardware);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
 
@@ -43,11 +43,11 @@ void TabForCustomProgramBank::paint(Graphics& g) {
 }
 
 void TabForCustomProgramBank::resized() {
-	programSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedVoiceButton);
-	button_ForSavingProgramInSelectedSlot.setBounds(GUI::bounds_SaveVoiceIntoSelectedSlotButton);
-	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedCustomVoiceButton);
-	button_ForPullingSelectedProgramFromHardware.setBounds(GUI::bounds_PullSelectedVoiceButton);
+	voiceSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
+	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_LoadSelectedVoiceButton);
+	button_ForSavingVoiceIntoSelectedSlot.setBounds(GUI::bounds_SaveVoiceIntoSelectedSlotButton);
+	button_ForPushingSelectedVoiceToHardware.setBounds(GUI::bounds_PushSelectedCustomVoiceButton);
+	button_ForPullingSelectedVoiceFromHardware.setBounds(GUI::bounds_PullSelectedVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PullEntireBankButton);
 }
@@ -78,20 +78,20 @@ void TabForCustomProgramBank::getCommandInfo(CommandID commandID, ApplicationCom
 }
 
 bool TabForCustomProgramBank::perform(const InvocationInfo& info) {
-	auto programBanks{ unexposedParams->programBanks_get() };
-	auto selectedSlot{ programSlots.selectedSlot };
+	auto programBanks{ unexposedParams->voicesBanks_get() };
+	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
 	case copyProgram:
 		if (selectedSlot < banks::numberOfSlotsInBank) {
-			auto ProgramDataHexString{ programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot) };
+			auto ProgramDataHexString{ programBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 			programCopyBuffer = ProgramDataHexString;
 			return true;
 		}
 		else return false;
 	case pasteProgram:
 		if (selectedSlot < banks::numberOfSlotsInBank && programCopyBuffer != "") {
-			programBanks->storeProgramDataHexStringInCustomBankSlot(programCopyBuffer, bank, selectedSlot);
+			programBanks->storeVoiceDataHexStringInCustomBankSlot(programCopyBuffer, bank, selectedSlot);
 			return true;
 		}
 		else return false;

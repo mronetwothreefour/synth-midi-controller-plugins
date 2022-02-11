@@ -1,21 +1,21 @@
-#include "widget_banks_ButtonForPushingSelectedProgramToHardware.h"
+#include "widget_voices_ButtonForPushingSelectedVoiceToHardware.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../voices/voices_VoiceSlotsWidget.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 
 
-ButtonForPushingSelectedProgramToHardware::ButtonForPushingSelectedProgramToHardware(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
+ButtonForPushingSelectedVoiceToHardware::ButtonForPushingSelectedVoiceToHardware(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	programSlots{ programSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_PushSelectedVoice.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForPushingSelectedProgramToHardware::createButtonTooltipString() {
+const String ButtonForPushingSelectedVoiceToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Push the data in the selected program storage slot\n";
@@ -24,7 +24,7 @@ const String ButtonForPushingSelectedProgramToHardware::createButtonTooltipStrin
 	return buttonTooltip;
 }
 
-void ButtonForPushingSelectedProgramToHardware::onClickMethod() {
-	programSlots.pushSelectedProgramToHardware();
+void ButtonForPushingSelectedVoiceToHardware::onClickMethod() {
+	voiceSlots.pushSelectedVoiceToHardware();
 }
 

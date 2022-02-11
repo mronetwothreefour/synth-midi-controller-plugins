@@ -7,6 +7,6 @@
 
 void GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
     auto requestVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
-    requestVector.push_back((uint8)SysExMessageType::globalParametersDumpRequest);
+    requestVector.push_back((uint8)SysExMessageType::globalParametersDataRequest);
     outgoingBuffers->addDataMessage(requestVector);
 }

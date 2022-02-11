@@ -160,10 +160,10 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		auto isOn{ (bool)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		if (isOn)
-			midiOptions->setProgramChangeOn();
+			midiOptions->setVoiceChangeOn();
 		else
-			midiOptions->setProgramChangeOff();
-		sendNewValueForNRPNtypeToOutgoingMidiBuffers((uint8)isOn, globalParams::nrpnType_ProgramChange);
+			midiOptions->setVoiceChangeOff();
+		sendNewValueForNRPNtypeToOutgoingMidiBuffers((uint8)isOn, globalParams::nrpnType_VoiceChange);
 	}
 	if (comboBox == &comboBox_ForParameterSend) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };

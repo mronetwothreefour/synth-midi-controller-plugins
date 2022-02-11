@@ -4,25 +4,25 @@
 
 
 
-class FactoryProgramDataHexStrings
+class FactoryVoiceDataHexStrings
 {
 	StringArray bank1;
 	StringArray bank2;
 	StringArray bank3;
 
-	FactoryProgramDataHexStrings();
+	FactoryVoiceDataHexStrings();
 	void fillAllStringArrays();
 
 public:
-	FactoryProgramDataHexStrings(FactoryProgramDataHexStrings&&) = delete;
-	FactoryProgramDataHexStrings& operator=(FactoryProgramDataHexStrings&&) = delete;
+	FactoryVoiceDataHexStrings(FactoryVoiceDataHexStrings&&) = delete;
+	FactoryVoiceDataHexStrings& operator=(FactoryVoiceDataHexStrings&&) = delete;
 
-	static FactoryProgramDataHexStrings& get() noexcept;
+	static FactoryVoiceDataHexStrings& get() noexcept;
 	const StringArray& getBank1();
 	const StringArray& getBank2();
 	const StringArray& getBank3();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FactoryProgramDataHexStrings)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FactoryVoiceDataHexStrings)
 };

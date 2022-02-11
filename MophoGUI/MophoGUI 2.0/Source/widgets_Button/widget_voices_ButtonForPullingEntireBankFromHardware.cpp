@@ -1,19 +1,19 @@
-#include "widget_banks_ButtonForPullingEntireBankFromHardware.h"
+#include "widget_Voices_ButtonForPullingEntireBankFromHardware.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(ProgramBank bank, UnexposedParameters* unexposedParams) :
+ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(VoicesBank bank, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	if (bank == ProgramBank::custom1)
+	if (bank == VoicesBank::custom1)
 		setComponentID(ID::button_PullCustomBank1.toString());
-	if (bank == ProgramBank::custom2)
+	if (bank == VoicesBank::custom2)
 		setComponentID(ID::button_PullCustomBank2.toString());
-	if (bank == ProgramBank::custom3)
+	if (bank == VoicesBank::custom3)
 		setComponentID(ID::button_PullCustomBank3.toString());
 	setTooltip(createButtonTooltipString());
 }

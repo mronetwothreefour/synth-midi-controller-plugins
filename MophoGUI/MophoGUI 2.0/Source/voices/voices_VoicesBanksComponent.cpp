@@ -60,7 +60,7 @@ void ProgramBanksComponent::editorShown(Label* label, TextEditor& editor) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		editor.setFont(FontsMenu::fontFor_Labels);
-		editor.setText((String)midiOptions->programTransmitTime());
+		editor.setText((String)midiOptions->voiceTransmitTime());
 		editor.selectAll();
 	}
 }
@@ -72,34 +72,34 @@ void ProgramBanksComponent::labelTextChanged(Label* label) {
 		{
 			auto newValue{ label->getText().getIntValue() };
 			if (newValue > 49 && newValue < 5001)
-				midiOptions->setProgramTransmitTime(newValue);
+				midiOptions->setVoiceTransmitTime(newValue);
 		}
-		label->setText((String)midiOptions->programTransmitTime() + " ms", dontSendNotification);
+		label->setText((String)midiOptions->voiceTransmitTime() + " ms", dontSendNotification);
 	}
 }
 
 void ProgramBanksComponent::buttonClicked(Button* button) {
 	if (button->getComponentID() == ID::button_PullCustomBank1.toString())
-		showPullEntireBankComponentForBank(ProgramBank::custom1);
+		showPullEntireBankComponentForBank(VoicesBank::custom1);
 	if (button->getComponentID() == ID::button_PullCustomBank2.toString())
-		showPullEntireBankComponentForBank(ProgramBank::custom2);
+		showPullEntireBankComponentForBank(VoicesBank::custom2);
 	if (button->getComponentID() == ID::button_PullCustomBank3.toString())
-		showPullEntireBankComponentForBank(ProgramBank::custom3);
+		showPullEntireBankComponentForBank(VoicesBank::custom3);
 	if (button->getComponentID() == ID::button_PushCustomBank1.toString())
-		showPushEntireBankComponentForBank(ProgramBank::custom1);
+		showPushEntireBankComponentForBank(VoicesBank::custom1);
 	if (button->getComponentID() == ID::button_PushCustomBank2.toString())
-		showPushEntireBankComponentForBank(ProgramBank::custom2);
+		showPushEntireBankComponentForBank(VoicesBank::custom2);
 	if (button->getComponentID() == ID::button_PushCustomBank3.toString())
-		showPushEntireBankComponentForBank(ProgramBank::custom3);
+		showPushEntireBankComponentForBank(VoicesBank::custom3);
 	if (button->getComponentID() == ID::button_PushFactoryBank1.toString())
-		showPushEntireBankComponentForBank(ProgramBank::factory1);
+		showPushEntireBankComponentForBank(VoicesBank::factory1);
 	if (button->getComponentID() == ID::button_PushFactoryBank2.toString())
-		showPushEntireBankComponentForBank(ProgramBank::factory2);
+		showPushEntireBankComponentForBank(VoicesBank::factory2);
 	if (button->getComponentID() == ID::button_PushFactoryBank3.toString())
-		showPushEntireBankComponentForBank(ProgramBank::factory3);
+		showPushEntireBankComponentForBank(VoicesBank::factory3);
 }
 
-void ProgramBanksComponent::showPushEntireBankComponentForBank(ProgramBank bank) {
+void ProgramBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
 	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
@@ -108,7 +108,7 @@ void ProgramBanksComponent::showPushEntireBankComponentForBank(ProgramBank bank)
 	}
 }
 
-void ProgramBanksComponent::showPullEntireBankComponentForBank(ProgramBank bank) {
+void ProgramBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
 	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());

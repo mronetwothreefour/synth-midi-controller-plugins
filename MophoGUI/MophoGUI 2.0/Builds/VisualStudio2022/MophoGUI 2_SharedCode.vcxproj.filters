@@ -535,6 +535,9 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp">
       <Filter>MophoGUI 2\Source\guiRenderers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
@@ -550,16 +553,13 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_VoiceDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp">
@@ -625,29 +625,11 @@
     <ClCompile Include="..\..\Source\voices\voices_VoicesBanksComponent.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsWidget.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsComponent.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp">
       <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
@@ -677,6 +659,24 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingSelectedVoiceToHardware.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
@@ -2931,6 +2931,9 @@
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_EditBufferDataMessage.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
@@ -2949,16 +2952,13 @@
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_VoiceDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_Constants.h">
@@ -3033,29 +3033,11 @@
     <ClInclude Include="..\..\Source\voices\voices_VoicesBanksComponent.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsWidget.h">
+    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsComponent.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h">
       <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingSelectedProgramFromHardware.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingEntireBankToHardware.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPushingSelectedProgramToHardware.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForSavingProgramInSelectedSlot.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
@@ -3085,6 +3067,24 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingSelectedVoiceToHardware.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">

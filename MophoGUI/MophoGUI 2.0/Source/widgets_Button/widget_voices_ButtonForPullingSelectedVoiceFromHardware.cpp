@@ -1,21 +1,21 @@
-#include "widget_banks_ButtonForPullingSelectedProgramFromHardware.h"
+#include "widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../voices/voices_VoiceSlotsWidget.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 
 
-ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFromHardware(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
+ButtonForPullingSelectedVoiceFromHardware::ButtonForPullingSelectedVoiceFromHardware(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	programSlots{ programSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_PullSelectedVoice.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForPullingSelectedProgramFromHardware::createButtonTooltipString() {
+const String ButtonForPullingSelectedVoiceFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Pull the data from the selected program storage slot in the Mopho hardware\n";
@@ -24,7 +24,7 @@ const String ButtonForPullingSelectedProgramFromHardware::createButtonTooltipStr
 	return buttonTooltip;
 }
 
-void ButtonForPullingSelectedProgramFromHardware::onClickMethod() {
-	programSlots.pullSelectedProgramFromHardware();
+void ButtonForPullingSelectedVoiceFromHardware::onClickMethod() {
+	voiceSlots.pullSelectedVoiceFromHardware();
 }
 

@@ -17,7 +17,7 @@ public:
 	enum class TransmissionType { push = 0, pull };
 
 private:
-	ProgramBank bank;
+	VoicesBank bank;
 	String bankName;
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
@@ -32,7 +32,7 @@ private:
 public:
 	BankTransmissionComponent() = delete;
 
-	BankTransmissionComponent(ProgramBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	BankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;

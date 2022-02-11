@@ -7,8 +7,8 @@ namespace constants
 	namespace MIDI
 	{
         static const int controllerFlag{ 0xB0 };
-        static const int firstProgramDataByte{ 6 };
-        static const int firstUnusedProgramDataByte{ 236 };
+        static const int firstVoiceDataByte{ 6 };
+        static const int firstUnusedPVoiceDataByte{ 236 };
         static const int globalBalanceByte{ 24 };
         static const int globalTransposeLSByte{ 4 };
         static const int globalTransposeMSByte{ 5 };
@@ -21,7 +21,7 @@ namespace constants
         static const int globalParameterSendTypetByte{ 12 };
         static const int globalParameterReceiveTypeByte{ 14 };
         static const int globalPedalModeIsArpByte{ 26 };
-        static const int globalProgramChangeOnByte{ 28 };
+        static const int globalVoiceChangeOnByte{ 28 };
         static const int globalSysExOnByte{ 18 };
         static const int globalStereoOutByte{ 20 };
         static const int nrpnTypeForGlobalFineTune{ 385 };
@@ -30,8 +30,8 @@ namespace constants
 		static const int nrpnTypeLSB{ 98 };
 		static const int nrpnValueMSB{ 6 };
 		static const int nrpnValueLSB{ 38 };
-        static const int programDumpBankByte{ 4 };
-        static const int programDumpSlotByte{ 5 };
+        static const int voiceDumpBankByte{ 4 };
+        static const int voiceDumpSlotByte{ 5 };
         static const int sysExMessageTypeByte{ 3 };
     }
 }

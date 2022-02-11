@@ -10,18 +10,18 @@ using namespace constants;
 
 
 
-TabForFactoryProgramBank::TabForFactoryProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForFactoryProgramBank::TabForFactoryProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
 	bank{ bank },
-	programSlots{ bank, exposedParams, unexposedParams },
+	voiceSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
 	programCopyBuffer{ programCopyBuffer },
-	button_ForLoadingSelectedProgram{ programSlots, unexposedParams },
+	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
-	button_ForPushingSelectedProgramToHardware{ programSlots, unexposedParams }
+	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams }
 {
-	addAndMakeVisible(programSlots);
-	addAndMakeVisible(button_ForLoadingSelectedProgram);
-	addAndMakeVisible(button_ForPushingSelectedProgramToHardware);
+	addAndMakeVisible(voiceSlots);
+	addAndMakeVisible(button_ForLoadingSelectedVoice);
+	addAndMakeVisible(button_ForPushingSelectedVoiceToHardware);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 
 	commandManager.registerAllCommandsForTarget(this);
@@ -37,9 +37,9 @@ void TabForFactoryProgramBank::paint(Graphics& g) {
 }
 
 void TabForFactoryProgramBank::resized() {
-	programSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedVoiceButton);
-	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedFactoryVoiceButton);
+	voiceSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
+	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_LoadSelectedVoiceButton);
+	button_ForPushingSelectedVoiceToHardware.setBounds(GUI::bounds_PushSelectedFactoryVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 }
 
@@ -65,13 +65,13 @@ void TabForFactoryProgramBank::getCommandInfo(CommandID commandID, ApplicationCo
 }
 
 bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
-	auto programBanks{ unexposedParams->programBanks_get() };
-	auto selectedSlot{ programSlots.selectedSlot };
+	auto programBanks{ unexposedParams->voicesBanks_get() };
+	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
 	case copyProgram:
 		if (selectedSlot < banks::numberOfSlotsInBank) {
-			programCopyBuffer = programBanks->getProgramDataHexStringFromBankSlot(bank, selectedSlot);
+			programCopyBuffer = programBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;

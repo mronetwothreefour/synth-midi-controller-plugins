@@ -3,13 +3,13 @@
 #include <JuceHeader.h>
 
 #include "voices_VoicesBanks.h"
-#include "voices_VoiceSlotsWidget.h"
-#include "../widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"
-#include "../widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"
-#include "../widgets_Button/widget_banks_ButtonForPullingSelectedProgramFromHardware.h"
-#include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
-#include "../widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.h"
-#include "../widgets_Button/widget_banks_ButtonForSavingProgramInSelectedSlot.h"
+#include "voices_VoiceSlotsComponent.h"
+#include "../widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"
+#include "../widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPushingSelectedVoiceToHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
 
 
 
@@ -20,15 +20,15 @@ class TabForCustomProgramBank :
     private Timer,
     public ApplicationCommandTarget
 {
-    ProgramBank bank;
-    ProgramSlotsWidget programSlots;
+    VoicesBank bank;
+    VoiceSlotsComponent voiceSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
-    ButtonForSavingProgramInSelectedSlot button_ForSavingProgramInSelectedSlot;
+    ButtonForLoadingSelectedVoice button_ForLoadingSelectedVoice;
+    ButtonForSavingVoiceIntoSelectedSlot button_ForSavingVoiceIntoSelectedSlot;
     ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
-    ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedProgramFromHardware;
+    ButtonForPullingSelectedVoiceFromHardware button_ForPullingSelectedVoiceFromHardware;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
-    ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
+    ButtonForPushingSelectedVoiceToHardware button_ForPushingSelectedVoiceToHardware;
     ApplicationCommandManager commandManager;
     String& programCopyBuffer;
 
@@ -40,7 +40,7 @@ public:
 
     TabForCustomProgramBank() = delete;
 
-    TabForCustomProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForCustomProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

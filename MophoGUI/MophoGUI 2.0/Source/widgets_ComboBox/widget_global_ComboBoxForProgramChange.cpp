@@ -19,7 +19,7 @@ ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexpose
 	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ midiOptions->programChangeIsOn() };
+	auto paramValue{ midiOptions->voiceChangeIsOn() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }

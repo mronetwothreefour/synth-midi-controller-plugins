@@ -1,21 +1,21 @@
-#include "widget_banks_ButtonForLoadingSelectedProgram.h"
+#include "widget_voices_ButtonForLoadingSelectedVoice.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../voices/voices_VoiceSlotsWidget.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 
 
-ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams) :
+ButtonForLoadingSelectedVoice::ButtonForLoadingSelectedVoice(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	programSlots{ programSlots },
+	voiceSlots{ voiceSlots },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_Load.toString());
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForLoadingSelectedProgram::createButtonTooltipString() {
+const String ButtonForLoadingSelectedVoice::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Applies the program settings stored in the selected slot to the\n";
@@ -24,7 +24,7 @@ const String ButtonForLoadingSelectedProgram::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForLoadingSelectedProgram::onClickMethod() {
-	programSlots.loadProgramFromSelectedSlot();
+void ButtonForLoadingSelectedVoice::onClickMethod() {
+	voiceSlots.loadVoiceFromSelectedSlot();
 }
 

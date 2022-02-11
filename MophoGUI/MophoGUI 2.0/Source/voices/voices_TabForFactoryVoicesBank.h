@@ -3,10 +3,10 @@
 #include <JuceHeader.h>
 
 #include "voices_VoicesBanks.h"
-#include "voices_VoiceSlotsWidget.h"
-#include "../widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"
-#include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
-#include "../widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.h"
+#include "voices_VoiceSlotsComponent.h"
+#include "../widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"
+#include "../widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPushingSelectedVoiceToHardware.h"
 
 
 
@@ -16,12 +16,12 @@ class TabForFactoryProgramBank :
     public Component,
     public ApplicationCommandTarget
 {
-    ProgramBank bank;
-    ProgramSlotsWidget programSlots;
+    VoicesBank bank;
+    VoiceSlotsComponent voiceSlots;
     UnexposedParameters* unexposedParams;
-    ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
+    ButtonForLoadingSelectedVoice button_ForLoadingSelectedVoice;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
-    ButtonForPushingSelectedProgramToHardware button_ForPushingSelectedProgramToHardware;
+    ButtonForPushingSelectedVoiceToHardware button_ForPushingSelectedVoiceToHardware;
     ApplicationCommandManager commandManager;
     String& programCopyBuffer;
 
@@ -32,7 +32,7 @@ public:
 
     TabForFactoryProgramBank() = delete;
 
-    TabForFactoryProgramBank(ProgramBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForFactoryProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;

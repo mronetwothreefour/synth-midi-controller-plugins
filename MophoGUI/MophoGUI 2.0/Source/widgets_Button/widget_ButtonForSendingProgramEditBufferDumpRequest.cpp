@@ -1,6 +1,6 @@
 #include "widget_ButtonForSendingProgramEditBufferDumpRequest.h"
 
-#include "../midi/midi_ProgramEditBufferDump.h"
+#include "../midi/midi_EditBufferDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -24,6 +24,6 @@ const String ButtonForSendingProgramEditBufferDumpRequest::createButtonTooltipSt
 }
 
 void ButtonForSendingProgramEditBufferDumpRequest::onClickMethod() {
-	ProgramEditBufferDump::addRequestForDumpToOutgoingMidiBuffers(unexposedParams->outgoingMidiBuffers_get());
+	EditBufferDataMessage::addRequestForEditBufferDataMessageToOutgoingMidiBuffers(unexposedParams->outgoingMidiBuffers_get());
 }
 

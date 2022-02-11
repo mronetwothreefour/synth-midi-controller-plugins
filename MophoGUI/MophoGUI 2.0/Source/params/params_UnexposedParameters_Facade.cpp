@@ -61,6 +61,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 }
 
 UnexposedParameters::~UnexposedParameters() {
+	voicesBanks = nullptr;
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
 	outgoingMidiBuffers = nullptr;

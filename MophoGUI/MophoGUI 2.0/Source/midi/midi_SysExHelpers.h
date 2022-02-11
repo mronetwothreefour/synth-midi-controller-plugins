@@ -5,12 +5,12 @@
 
 
 enum class SysExMessageType {
-    programDump = 2,
-    programEditBufferDump = 3,
-    programDumpRequest = 5,
-    programEditBufferDumpRequest = 6,
-    globalParametersDumpRequest = 14,
-    globalParametersDump = 15
+    voiceData = 2,
+    editBufferData = 3,
+    voiceDataRequest = 5,
+    editBufferDataRequest = 6,
+    globalParametersDataRequest = 14,
+    globalParametersData = 15
 };
 
 

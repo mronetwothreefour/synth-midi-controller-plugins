@@ -3,7 +3,7 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
-#include "../midi/midi_ProgramDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../voices/voices_Constants.h"
@@ -13,12 +13,12 @@ using namespace constants;
 
 
 
-BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
 	message{ "" },
-	transmitTime{ unexposedParams->midiOptions_get()->programTransmitTime() },
+	transmitTime{ unexposedParams->midiOptions_get()->voiceTransmitTime() },
 	programCounter{ banks::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
@@ -27,22 +27,22 @@ BankTransmissionComponent::BankTransmissionComponent(ProgramBank& bank, Transmis
 {
 	switch (bank)
 	{
-	case ProgramBank::factory1:
+	case VoicesBank::factory1:
 		bankName = "Factory Bank 1";
 		break;
-	case ProgramBank::factory2:
+	case VoicesBank::factory2:
 		bankName = "Factory Bank 2";
 		break;
-	case ProgramBank::factory3:
+	case VoicesBank::factory3:
 		bankName = "Factory Bank 3";
 		break;
-	case ProgramBank::custom1:
+	case VoicesBank::custom1:
 		bankName = "Custom Bank 1";
 		break;
-	case ProgramBank::custom2:
+	case VoicesBank::custom2:
 		bankName = "Custom Bank 2";
 		break;
-	case ProgramBank::custom3:
+	case VoicesBank::custom3:
 		bankName = "Custom Bank 3";
 		break;
 	default:
@@ -90,9 +90,9 @@ void BankTransmissionComponent::timerCallback() {
 void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull)
-		ProgramDump::addRequestForProgramInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
+		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
 	else {
-		auto programDumpVector{ ProgramDump::createProgramDumpForBankAndSlot(bank, programSlot, unexposedParams) };
+		auto programDumpVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, programSlot, unexposedParams) };
 		outgoingBuffers->addDataMessage(programDumpVector);
 	}
 }

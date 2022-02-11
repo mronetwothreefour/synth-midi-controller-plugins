@@ -16,7 +16,7 @@ class ButtonForPushingEntireBankToHardware : public BaseButtonWithOnClickAndTool
 public:
 	ButtonForPushingEntireBankToHardware() = delete;
 
-	ButtonForPushingEntireBankToHardware(ProgramBank bank, UnexposedParameters* unexposedParams);
+	ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

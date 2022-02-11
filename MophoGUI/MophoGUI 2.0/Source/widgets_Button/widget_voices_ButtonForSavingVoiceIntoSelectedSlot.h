@@ -6,20 +6,20 @@
 
 
 
-class ProgramSlotsWidget;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
-class ButtonForPushingSelectedProgramToHardware :
+class ButtonForSavingVoiceIntoSelectedSlot :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
-	ProgramSlotsWidget& programSlots;
+	VoiceSlotsComponent& voiceSlots;
 	UnexposedParameters* unexposedParams;
 
 public:
 
-	ButtonForPushingSelectedProgramToHardware() = delete;
+	ButtonForSavingVoiceIntoSelectedSlot() = delete;
 
-	ButtonForPushingSelectedProgramToHardware(ProgramSlotsWidget& programSlots, UnexposedParameters* unexposedParams);
+	ButtonForSavingVoiceIntoSelectedSlot(VoiceSlotsComponent& voiceSlots, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -27,5 +27,5 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPushingSelectedProgramToHardware)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingVoiceIntoSelectedSlot)
 };

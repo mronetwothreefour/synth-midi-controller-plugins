@@ -41,14 +41,14 @@ public:
 	const bool pedalModeIsArpLatch();
 	void setPedalModeToArpLatch();
 	void setPedalModeToNormal();
-	const bool programChangeIsOn();
-	void setProgramChangeOn();
-	void setProgramChangeOff();
+	const bool voiceChangeIsOn();
+	void setVoiceChangeOn();
+	void setVoiceChangeOff();
 	const bool paramChangeEchosAreNotBlocked();
 	void setParamChangeEchosAreBlocked();
 	void setParamChangeEchosAreNotBlocked();
-	const int programTransmitTime();
-	void setProgramTransmitTime(int timeInMilliseconds);
+	const int voiceTransmitTime();
+	void setVoiceTransmitTime(int timeInMilliseconds);
 
 private:
 	//==============================================================================

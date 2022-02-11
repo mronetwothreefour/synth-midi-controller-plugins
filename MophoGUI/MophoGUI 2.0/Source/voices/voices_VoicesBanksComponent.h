@@ -32,8 +32,8 @@ public:
     void buttonClicked(Button* button) override;
 
 private:
-    void showPushEntireBankComponentForBank(ProgramBank bank);
-    void showPullEntireBankComponentForBank(ProgramBank bank);
+    void showPushEntireBankComponentForBank(VoicesBank bank);
+    void showPullEntireBankComponentForBank(VoicesBank bank);
     void hideThisComponent();
 
 public:

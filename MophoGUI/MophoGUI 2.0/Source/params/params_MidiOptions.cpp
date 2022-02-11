@@ -136,15 +136,15 @@ void MidiOptions::setPedalModeToNormal() {
 	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)false, nullptr);
 }
 
-const bool MidiOptions::programChangeIsOn() {
+const bool MidiOptions::voiceChangeIsOn() {
 	return (bool)midiOptionsTree.getProperty(ID::midi_VoiceChangeOn);
 }
 
-void MidiOptions::setProgramChangeOn() {
+void MidiOptions::setVoiceChangeOn() {
 	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)true, nullptr);
 }
 
-void MidiOptions::setProgramChangeOff() {
+void MidiOptions::setVoiceChangeOff() {
 	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)false, nullptr);
 }
 
@@ -160,10 +160,10 @@ void MidiOptions::setParamChangeEchosAreNotBlocked() {
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 }
 
-const int MidiOptions::programTransmitTime() {
+const int MidiOptions::voiceTransmitTime() {
 	return (int)midiOptionsTree.getProperty(ID::midi_VoiceTransmitTime);
 }
 
-void MidiOptions::setProgramTransmitTime(int timeInMilliseconds) {
+void MidiOptions::setVoiceTransmitTime(int timeInMilliseconds) {
 	midiOptionsTree.setProperty(ID::midi_VoiceTransmitTime, timeInMilliseconds, nullptr);
 }
