@@ -62,7 +62,7 @@ VoiceTransmissionOptions* UnexposedParameters::voiceTransmissionOptions_get() {
 	return voiceTransmissionOptions.get();
 }
 
-XmlElement UnexposedParameters::unexposedParams_getStateXml() {
+XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
 	auto currentPatchOptionsStateXml{ currentVoiceOptions->getStateXml() };
 	if (currentPatchOptionsStateXml != nullptr)
@@ -88,7 +88,7 @@ XmlElement UnexposedParameters::unexposedParams_getStateXml() {
 	return unexposedParamsStateXml;
 }
 
-void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
+void UnexposedParameters::replaceState(const ValueTree& newState) {
 	auto currentVoiceOptionsState{ newState.getChildWithName(ID::state_CurrentVoiceOptions) };
 	currentVoiceOptions->replaceState(currentVoiceOptionsState);
 	auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };

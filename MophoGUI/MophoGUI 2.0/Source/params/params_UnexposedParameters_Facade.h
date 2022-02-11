@@ -15,9 +15,9 @@ class UnexposedParameters
 	std::unique_ptr<GlobalAudioOptions> globalAudioOptions;
 	std::unique_ptr<MidiOptions> midiOptions;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
-	std::unique_ptr<ProgramBanks> pluginProgramBanks;
 	std::unique_ptr<TooltipOptions> tooltipOptions;
 	std::unique_ptr<UndoManager> undoManager;
+	std::unique_ptr<VoicesBanks> voicesBanks;
 
 public:
 	UnexposedParameters();
@@ -25,11 +25,11 @@ public:
 	GlobalAudioOptions* globalAudioOptions_get();
 	MidiOptions* midiOptions_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
-	ProgramBanks* programBanks_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
-	XmlElement unexposedParams_getStateXml();
-	void unexposedParams_replaceState(const ValueTree& newState);
+	VoicesBanks* voicesBanks_get();
+	XmlElement getStateXml();
+	void replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

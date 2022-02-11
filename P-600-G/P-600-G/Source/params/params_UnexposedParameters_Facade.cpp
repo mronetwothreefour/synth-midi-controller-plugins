@@ -37,7 +37,7 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
-XmlElement UnexposedParameters::unexposedParams_getStateXml() {
+XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
 	auto pgmDataBankStateXml{ pgmDataBank->getStateXml() };
 	if (pgmDataBankStateXml != nullptr)
@@ -51,7 +51,7 @@ XmlElement UnexposedParameters::unexposedParams_getStateXml() {
 	return unexposedParamsStateXml;
 }
 
-void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
+void UnexposedParameters::replaceState(const ValueTree& newState) {
 	auto pgmDataBankState{ newState.getChildWithName(ID::state_PgmDataBank) };
 	pgmDataBank->replaceState(pgmDataBankState);
 	auto pgmDataOptionsState{ newState.getChildWithName(ID::state_PgmDataOptions) };

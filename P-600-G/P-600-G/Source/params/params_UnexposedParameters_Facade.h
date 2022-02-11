@@ -25,8 +25,8 @@ public:
 	ProgramDataOptions* programDataOptions_get();
 	TooltipOptions* tooltipOptions_get();
 	UndoManager* undoManager_get();
-	XmlElement unexposedParams_getStateXml();
-	void unexposedParams_replaceState(const ValueTree& newState);
+	XmlElement getStateXml();
+	void replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

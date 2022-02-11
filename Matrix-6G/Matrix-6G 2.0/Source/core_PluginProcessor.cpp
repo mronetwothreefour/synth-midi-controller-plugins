@@ -101,7 +101,7 @@ void PluginProcessor::createPluginStateXml() {
     auto exposedParamsStateTree{ exposedParams->copyState() };
     auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
     exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
-    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->unexposedParams_getStateXml()) };
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
     pluginStateXml.reset(new XmlElement(ID::state_PluginState));
     if (exposedParamsStateXml != nullptr)
         pluginStateXml->addChildElement(exposedParamsStateXml.release());
@@ -124,7 +124,7 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
     auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
     if (unexposedParamsStateXml != nullptr) {
         auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
-        unexposedParams->unexposedParams_replaceState(unexposedParamsStateTree);
+        unexposedParams->replaceState(unexposedParamsStateTree);
     }
 }
 

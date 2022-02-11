@@ -8,7 +8,7 @@ UnexposedParameters::UnexposedParameters() :
 	globalAudioOptions{ new GlobalAudioOptions() },
 	midiOptions{ new MidiOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
-	pluginProgramBanks{ new ProgramBanks() },
+	voicesBanks{ new VoicesBanks() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -30,8 +30,8 @@ OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
-ProgramBanks* UnexposedParameters::programBanks_get() {
-	return pluginProgramBanks.get();
+VoicesBanks* UnexposedParameters::voicesBanks_get() {
+	return voicesBanks.get();
 }
 
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
@@ -42,20 +42,20 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
-XmlElement UnexposedParameters::unexposedParams_getStateXml() {
+XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
-	auto pluginProgramBanksStateXml{ pluginProgramBanks->getStateXml() };
-	if (pluginProgramBanksStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(pluginProgramBanksStateXml);
+	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
+	if (voicesBanksStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voicesBanksStateXml);
 	auto tooltipOptionsStateXml{ tooltipOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
 	return unexposedParamsStateXml;
 }
 
-void UnexposedParameters::unexposedParams_replaceState(const ValueTree& newState) {
-	auto pluginProgramBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
-	pluginProgramBanks->replaceState(pluginProgramBanksState);
+void UnexposedParameters::replaceState(const ValueTree& newState) {
+	auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
+	voicesBanks->replaceState(voicesBanksState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
 }
