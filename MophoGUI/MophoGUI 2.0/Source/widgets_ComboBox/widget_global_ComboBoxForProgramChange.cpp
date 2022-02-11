@@ -8,7 +8,7 @@
 
 ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_ProgramChangeOn }
+	parameterID{ ID::midi_VoiceChangeOn }
 {
 	auto midiOptions{ unexposedParams->midiOptions_get() };
 	midiOptions->addListener(this);

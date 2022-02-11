@@ -1187,11 +1187,11 @@ IntToSeqStepValueString* IntToSeqStepValueString::get() noexcept {
 
 
 
-String IntToPgmNameCharString::conversionAlgorithm(const uint8& i) noexcept {
+String IntToVoiceNameCharString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }
 
-String IntToPgmNameCharString::verboseConversionAlgorithm(const uint8& i) noexcept {
+String IntToVoiceNameCharString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 128);
 	if (i > 31)
 	{
@@ -1220,8 +1220,8 @@ String IntToPgmNameCharString::verboseConversionAlgorithm(const uint8& i) noexce
 	else return "Control Character (" + (String)i + ")";
 }
 
-IntToPgmNameCharString* IntToPgmNameCharString::get() noexcept {
-	static IntToPgmNameCharString converter;
+IntToVoiceNameCharString* IntToVoiceNameCharString::get() noexcept {
+	static IntToVoiceNameCharString converter;
 	return &converter;
 }
 

@@ -5,9 +5,6 @@
     <Filter Include="MophoGUI 2\Source\core">
       <UniqueIdentifier>{B44A4FAC-3FAD-B837-1502-C411933EDB2B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI 2\Source\banks">
-      <UniqueIdentifier>{DA662DA3-2DF1-23E3-8C27-4C4EA76B80B8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MophoGUI 2\Source\global">
       <UniqueIdentifier>{FEE37698-8F20-C630-FD7F-6F8727A0C4D6}</UniqueIdentifier>
     </Filter>
@@ -25,6 +22,9 @@
     </Filter>
     <Filter Include="MophoGUI 2\Source\tooltipSetters">
       <UniqueIdentifier>{FA356A20-B704-CD2F-866B-C827CD5F70A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI 2\Source\voices">
+      <UniqueIdentifier>{5FA9AFF4-B31B-2EC4-32E2-B3AEBE861D82}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2\Source\widgets_BankTransmission">
       <UniqueIdentifier>{BB1D6239-304B-E982-9665-D168ECD52A8C}</UniqueIdentifier>
@@ -499,36 +499,6 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
@@ -586,6 +556,9 @@
     <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
@@ -627,6 +600,33 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForAllVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForCustomVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForFactoryVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabForCustomVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanksComponent.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsWidget.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp">
       <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>
@@ -2874,39 +2874,6 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>MophoGUI 2\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_Constants.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h">
-      <Filter>MophoGUI 2\Source\banks</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
@@ -2988,6 +2955,9 @@
     <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
@@ -3035,6 +3005,36 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_Constants.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForAllVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForCustomVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForFactoryVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabForCustomVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanksComponent.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsWidget.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h">
       <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>

@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "banks_TabbedComponentForCustomProgramBanks.h"
-#include "banks_TabbedComponentForFactoryProgramBanks.h"
+#include "voices_TabbedComponentForCustomVoicesBanks.h"
+#include "voices_TabbedComponentForFactoryVoicesBanks.h"
 
 
 

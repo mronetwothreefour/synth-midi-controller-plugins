@@ -19,50 +19,6 @@
         <FILE id="K91Aty" name="core_PluginEditor.h" compile="0" resource="0"
               file="Source/core_PluginEditor.h"/>
       </GROUP>
-      <GROUP id="{1351F135-73E6-2F55-3603-435BC0BD4110}" name="banks">
-        <FILE id="FhgGNx" name="banks_Constants.h" compile="0" resource="0"
-              file="Source/banks/banks_Constants.h"/>
-        <FILE id="TgcPN8" name="banks_FactoryProgamDataHexStrings_Singleton.cpp"
-              compile="1" resource="0" file="Source/banks/banks_FactoryProgamDataHexStrings_Singleton.cpp"/>
-        <FILE id="NqiuiO" name="banks_FactoryProgamDataHexStrings_Singleton.h"
-              compile="0" resource="0" file="Source/banks/banks_FactoryProgamDataHexStrings_Singleton.h"/>
-        <FILE id="ENIRKH" name="banks_ProgramBanks.cpp" compile="1" resource="0"
-              file="Source/banks/banks_ProgramBanks.cpp"/>
-        <FILE id="JlSgJZ" name="banks_ProgramBanks.h" compile="0" resource="0"
-              file="Source/banks/banks_ProgramBanks.h"/>
-        <FILE id="rsN6kb" name="banks_ProgramBanksComponent.cpp" compile="1"
-              resource="0" file="Source/banks/banks_ProgramBanksComponent.cpp"/>
-        <FILE id="QNyUUO" name="banks_ProgramBanksComponent.h" compile="0"
-              resource="0" file="Source/banks/banks_ProgramBanksComponent.h"/>
-        <FILE id="yRBDl2" name="banks_ProgramSlotsWidget.cpp" compile="1" resource="0"
-              file="Source/banks/banks_ProgramSlotsWidget.cpp"/>
-        <FILE id="z2TlJw" name="banks_ProgramSlotsWidget.h" compile="0" resource="0"
-              file="Source/banks/banks_ProgramSlotsWidget.h"/>
-        <FILE id="xFyQRj" name="banks_RawProgramData.cpp" compile="1" resource="0"
-              file="Source/banks/banks_RawProgramData.cpp"/>
-        <FILE id="iWODc7" name="banks_RawProgramData.h" compile="0" resource="0"
-              file="Source/banks/banks_RawProgramData.h"/>
-        <FILE id="Fhicr1" name="banks_TabbedComponentForAllProgramBanks.cpp"
-              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForAllProgramBanks.cpp"/>
-        <FILE id="z8UZFR" name="banks_TabbedComponentForAllProgramBanks.h"
-              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForAllProgramBanks.h"/>
-        <FILE id="t4Dnic" name="banks_TabbedComponentForCustomProgramBanks.cpp"
-              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForCustomProgramBanks.cpp"/>
-        <FILE id="xHwjUm" name="banks_TabbedComponentForCustomProgramBanks.h"
-              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForCustomProgramBanks.h"/>
-        <FILE id="KCgmIv" name="banks_TabbedComponentForFactoryProgramBanks.cpp"
-              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForFactoryProgramBanks.cpp"/>
-        <FILE id="vu56Rn" name="banks_TabbedComponentForFactoryProgramBanks.h"
-              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForFactoryProgramBanks.h"/>
-        <FILE id="fxVgr6" name="banks_TabForCustomProgramBank.cpp" compile="1"
-              resource="0" file="Source/banks/banks_TabForCustomProgramBank.cpp"/>
-        <FILE id="We4BHG" name="banks_TabForCustomProgramBank.h" compile="0"
-              resource="0" file="Source/banks/banks_TabForCustomProgramBank.h"/>
-        <FILE id="kP5d3m" name="banks_TabForFactoryProgramBank.cpp" compile="1"
-              resource="0" file="Source/banks/banks_TabForFactoryProgramBank.cpp"/>
-        <FILE id="QnWfdN" name="banks_TabForFactoryProgramBank.h" compile="0"
-              resource="0" file="Source/banks/banks_TabForFactoryProgramBank.h"/>
-      </GROUP>
       <GROUP id="{6C387EB9-8030-F954-F3C8-864164FD0DCA}" name="global">
         <FILE id="n7bvU9" name="global_GlobalParametersComponent.cpp" compile="1"
               resource="0" file="Source/global/global_GlobalParametersComponent.cpp"/>
@@ -159,6 +115,10 @@
               resource="0" file="Source/midi/midi_ProgramEditBufferDump.cpp"/>
         <FILE id="fgKnMD" name="midi_ProgramEditBufferDump.h" compile="0" resource="0"
               file="Source/midi/midi_ProgramEditBufferDump.h"/>
+        <FILE id="PduGZU" name="midi_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_RawDataTools.cpp"/>
+        <FILE id="dlaQPm" name="midi_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_RawDataTools.h"/>
         <FILE id="IlhGoA" name="midi_SysExHelpers.cpp" compile="1" resource="0"
               file="Source/midi/midi_SysExHelpers.cpp"/>
         <FILE id="CA8NQ6" name="midi_SysExHelpers.h" compile="0" resource="0"
@@ -223,6 +183,46 @@
               resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamToggles.cpp"/>
         <FILE id="I4tLAW" name="tooltipSetter_ForExposedParamToggles.h" compile="0"
               resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamToggles.h"/>
+      </GROUP>
+      <GROUP id="{D6DBCC60-6D69-780F-BF99-8C7D1502B799}" name="voices">
+        <FILE id="T0EH6X" name="voices_Constants.h" compile="0" resource="0"
+              file="Source/voices/voices_Constants.h"/>
+        <FILE id="RG3lSJ" name="voices_FactoryVoiceDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.cpp"/>
+        <FILE id="Spjol3" name="voices_FactoryVoiceDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.h"/>
+        <FILE id="CGtDal" name="voices_TabbedComponentForAllVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_TabbedComponentForAllVoicesBanks.cpp"/>
+        <FILE id="FibMJg" name="voices_TabbedComponentForAllVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_TabbedComponentForAllVoicesBanks.h"/>
+        <FILE id="TQTHZN" name="voices_TabbedComponentForCustomVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_TabbedComponentForCustomVoicesBanks.cpp"/>
+        <FILE id="BFrEIc" name="voices_TabbedComponentForCustomVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_TabbedComponentForCustomVoicesBanks.h"/>
+        <FILE id="uwgLYm" name="voices_TabbedComponentForFactoryVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_TabbedComponentForFactoryVoicesBanks.cpp"/>
+        <FILE id="pkEKey" name="voices_TabbedComponentForFactoryVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_TabbedComponentForFactoryVoicesBanks.h"/>
+        <FILE id="LmixvQ" name="voices_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.cpp"/>
+        <FILE id="SN0Liq" name="voices_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.h"/>
+        <FILE id="Ej4EXK" name="voices_TabForFactoryVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="t0pLKH" name="voices_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.h"/>
+        <FILE id="OF6eaR" name="voices_VoicesBanks.cpp" compile="1" resource="0"
+              file="Source/voices/voices_VoicesBanks.cpp"/>
+        <FILE id="CGMOH6" name="voices_VoicesBanks.h" compile="0" resource="0"
+              file="Source/voices/voices_VoicesBanks.h"/>
+        <FILE id="mvY6ys" name="voices_VoicesBanksComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.cpp"/>
+        <FILE id="HGaH30" name="voices_VoicesBanksComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.h"/>
+        <FILE id="lClkOQ" name="voices_VoiceSlotsWidget.cpp" compile="1" resource="0"
+              file="Source/voices/voices_VoiceSlotsWidget.cpp"/>
+        <FILE id="xb9z8k" name="voices_VoiceSlotsWidget.h" compile="0" resource="0"
+              file="Source/voices/voices_VoiceSlotsWidget.h"/>
       </GROUP>
       <GROUP id="{3280BE76-A967-116C-98B0-127D53EFBE15}" name="widgets_BankTransmission">
         <FILE id="WvWTHD" name="widget_BankTransmissionComponent.cpp" compile="1"

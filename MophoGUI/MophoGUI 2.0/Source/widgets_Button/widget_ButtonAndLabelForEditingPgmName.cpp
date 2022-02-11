@@ -19,8 +19,8 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	setInterceptsMouseClicks(false, true);
 
 	pgmNameEditor.setInterceptsMouseClicks(false, true);
-	pgmNameEditor.setFont(FontsMenu::fontFor_PgmNameEditorText);
-	pgmNameEditor.setComponentID(ID::component_PgmNameEditLabel.toString());
+	pgmNameEditor.setFont(FontsMenu::fontFor_VoiceNameEditorText);
+	pgmNameEditor.setComponentID(ID::component_VoiceNameEditLabel.toString());
 	pgmNameEditor.setJustificationType(Justification::centredLeft);
 	pgmNameEditor.setColour(Label::backgroundColourId, Colours::transparentBlack);
 	pgmNameEditor.setColour(Label::outlineColourId, Colours::transparentBlack);
@@ -32,9 +32,9 @@ ButtonAndLabelForEditingPgmName::ButtonAndLabelForEditingPgmName(AudioProcessorV
 	addAndMakeVisible(pgmNameEditor);
 	addAndMakeVisible(button_ForOpeningPgmNameEditor);
 
-	setSize(GUI::editProgramNameButtonAndLabel_w, GUI::editProgramNameButtonAndLabel_h);
-	button_ForOpeningPgmNameEditor.setBounds(GUI::bounds_ProgramNameEditorButton);
-	pgmNameEditor.setBounds(GUI::bounds_ProgramNameEditorLabel);
+	setSize(GUI::editVoiceNameButtonAndLabel_w, GUI::editVoiceNameButtonAndLabel_h);
+	button_ForOpeningPgmNameEditor.setBounds(GUI::bounds_VoiceNameEditorButton);
+	pgmNameEditor.setBounds(GUI::bounds_VoiceNameEditorLabel);
 }
 
 void ButtonAndLabelForEditingPgmName::labelTextChanged(Label* labelThatHasChanged) {

@@ -1,4 +1,4 @@
-#include "banks_TabbedComponentForAllProgramBanks.h"
+#include "voices_TabbedComponentForAllVoicesBanks.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
@@ -20,7 +20,7 @@ TabbedComponentForAllProgramBanks::TabbedComponentForAllProgramBanks(AudioProces
 	addTab("FACTORY   BANKS", Color::device, &tabbedComponentForFactoryProgramBanks, true, 1);
 	addTab("CUSTOM   BANKS", Color::device, &tabbedComponentForCustomProgramBanks, true, 1);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
-	setSize(GUI::tabbedComponentForAllProgramBanks_w, GUI::tabbedComponentForAllProgramBanks_h);
+	setSize(GUI::tabbedComponentForAllVoicesBanks_w, GUI::tabbedComponentForAllVoicesBanks_h);
 }
 
 void TabbedComponentForAllProgramBanks::addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {

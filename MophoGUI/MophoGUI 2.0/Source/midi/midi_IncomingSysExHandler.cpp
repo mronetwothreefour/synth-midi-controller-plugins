@@ -2,9 +2,9 @@
 
 #include "midi_Constants.h"
 #include "midi_SysExHelpers.h"
-#include "../banks/banks_ProgramBanks.h"
-#include "../banks/banks_RawProgramData.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_VoicesBanks.h"
 
 using namespace constants;
 
@@ -37,7 +37,7 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 
 void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysExData) {
     if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::programEditBufferDump) {
-        RawProgramData::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
+        RawDataTools::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
         return;
     }
     else
@@ -67,7 +67,7 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
         std::vector<uint8> programDataVector;
         for (auto dataByte = MIDI::firstProgramDataByte; dataByte != MIDI::firstUnusedProgramDataByte; ++dataByte)
             programDataVector.push_back(*(sysExData + dataByte));
-        auto programDataHexString{ RawProgramData::convertDataVectorToHexString(programDataVector) };
+        auto programDataHexString{ RawDataTools::convertDataVectorToHexString(programDataVector) };
         auto programBanks{ unexposedParams->programBanks_get() };
         programBanks->storeProgramDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
     }

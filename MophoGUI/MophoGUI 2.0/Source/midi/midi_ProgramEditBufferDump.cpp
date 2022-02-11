@@ -2,7 +2,7 @@
 
 #include "midi_OutgoingMidiBuffers.h"
 #include "midi_SysExHelpers.h"
-#include "../banks/banks_RawProgramData.h"
+#include "midi_RawDataTools.h"
 
 
 
@@ -20,7 +20,7 @@ void ProgramEditBufferDump::addDumpToOutgoingMidiBuffers(AudioProcessorValueTree
 std::vector<uint8> ProgramEditBufferDump::createProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams) {
     auto dumpVector{ SysExID::createRawDataVectorWithSysExIDheaderBytes() };
     dumpVector.push_back((uint8)SysExMessageType::programEditBufferDump);
-    auto rawProgramData{ RawProgramData::extractFromExposedParameters(exposedParams) };
+    auto rawProgramData{ RawDataTools::extractFromExposedParameters(exposedParams) };
     for (auto dataByte : rawProgramData)
         dumpVector.push_back(dataByte);
     return dumpVector;

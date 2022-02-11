@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "banks_TabForCustomProgramBank.h"
+#include "voices_TabForCustomVoicesBank.h"
 
 
 

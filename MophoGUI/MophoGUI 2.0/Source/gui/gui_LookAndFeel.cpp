@@ -35,8 +35,8 @@ void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
 			g.setColour(label.findColour(label.textColourId));
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
-		if (label.getComponentID() == ID::component_PgmNameEditLabel.toString()) {
-			g.setFont(FontsMenu::fontFor_PgmNameEditorText);
+		if (label.getComponentID() == ID::component_VoiceNameEditLabel.toString()) {
+			g.setFont(FontsMenu::fontFor_VoiceNameEditorText);
 			g.setColour(Colours::transparentBlack);
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		}
@@ -107,16 +107,16 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
 
-	if (button.getComponentID() == ID::button_PgmNameEdit.toString()) 
+	if (button.getComponentID() == ID::button_VoiceNameEdit.toString()) 
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
 
 	if (button.getComponentID().startsWith(ID::button_PullCustomBank1.toString().dropLastCharacters(1)) ||
-		button.getComponentID() == ID::button_PullSelectedProgram.toString())
+		button.getComponentID() == ID::button_PullSelectedVoice.toString())
 		return isDown ? BinaryData::ButtonDownPull_png : BinaryData::ButtonUpPull_png;
 
 	if (button.getComponentID().startsWith(ID::button_PushCustomBank1.toString().dropLastCharacters(1)) ||
 		button.getComponentID().startsWith(ID::button_PushFactoryBank1.toString().dropLastCharacters(1)) ||
-		button.getComponentID() == ID::button_PushSelectedProgram.toString())
+		button.getComponentID() == ID::button_PushSelectedVoice.toString())
 		return isDown ? BinaryData::ButtonDownPush_png : BinaryData::ButtonUpPush_png;
 
 	if (button.getComponentID() == ID::button_Read.toString()) 
@@ -159,16 +159,16 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);
 
-	if (button.getComponentID() == ID::button_PgmNameEdit.toString())
+	if (button.getComponentID() == ID::button_VoiceNameEdit.toString())
 		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);
 
 	if (button.getComponentID().startsWith(ID::button_PullCustomBank1.toString().dropLastCharacters(1)) ||
-		button.getComponentID() == ID::button_PullSelectedProgram.toString())
+		button.getComponentID() == ID::button_PullSelectedVoice.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPull_pngSize : BinaryData::ButtonUpPull_pngSize);
 
 	if (button.getComponentID().startsWith(ID::button_PushCustomBank1.toString().dropLastCharacters(1)) ||
 		button.getComponentID().startsWith(ID::button_PushFactoryBank1.toString().dropLastCharacters(1)) ||
-		button.getComponentID() == ID::button_PushSelectedProgram.toString())
+		button.getComponentID() == ID::button_PushSelectedVoice.toString())
 		return size_t(isDown ? BinaryData::ButtonDownPush_pngSize : BinaryData::ButtonUpPush_pngSize);
 
 	if (button.getComponentID() == ID::button_Read.toString())
@@ -207,7 +207,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(isTicked ? Color::switchOn : Color::switchOff);
 		g.fillEllipse(x, y, w, h);
 	}
-	if (component.getComponentID() == ID::component_PgmSlotRadioButton.toString()) {
+	if (component.getComponentID() == ID::component_VoiceSlotRadioButton.toString()) {
 		auto buttonColor{ Color::device };
 		if (isHighlighted)
 			buttonColor = buttonColor.brighter(0.4f);
@@ -216,7 +216,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::black);
-		g.setFont(FontsMenu::fontFor_PgmSlotButtons);
+		g.setFont(FontsMenu::fontFor_VoiceSlotButtons);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}

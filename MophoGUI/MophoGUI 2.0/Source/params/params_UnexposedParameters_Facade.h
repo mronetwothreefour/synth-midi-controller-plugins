@@ -5,8 +5,8 @@
 #include "params_GlobalAudioOptions.h"
 #include "params_MidiOptions.h"
 #include "params_TooltipOptions.h"
-#include "../banks/banks_ProgramBanks.h"
 #include "../midi/midi_OutgoingMidiBuffers.h"
+#include "../voices/voices_VoicesBanks.h"
 
 
 

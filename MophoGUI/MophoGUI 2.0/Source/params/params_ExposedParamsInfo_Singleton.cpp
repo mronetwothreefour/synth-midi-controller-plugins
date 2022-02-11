@@ -1288,16 +1288,16 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		exposedNames.add("Program Name Character " + charNumString);
 		controlTypes.add(ControlType::pgmNameChar);
 		NRPNs.add((uint8)(184 + charNum));
-		converters.add(IntToPgmNameCharString::get());
+		converters.add(IntToVoiceNameCharString::get());
 		maxValues.add((uint8)127);
 		descriptionString =  "To change character " + charNumString + " of the program" + GUI::apostrophe + "s name,\n";
 		descriptionString += "click-and-drag the character or hover over\n";
 		descriptionString += "it and turn the mouse wheel. Click the edit\n";
 		descriptionString += "button above to type in the entire name.";
 		descriptions.add(descriptionString);
-		controlWidths.add(GUI::pgmNameCharacters_w);
-		controlHeights.add(GUI::pgmNameCharacters_h);
-		controlCenterPoints.add(Point<int>(GUI::pgmNameCharacter1_x + (charNum * GUI::pgmNameCharactersHorizontalSpacer), GUI::pgmNameCharacters_y));
+		controlWidths.add(GUI::voiceNameCharacters_w);
+		controlHeights.add(GUI::voiceNameCharacters_h);
+		controlCenterPoints.add(Point<int>(GUI::voiceNameCharacter1_x + (charNum * GUI::voiceNameCharactersHorizontalSpacer), GUI::voiceNameCharacters_y));
 	}
 	defaultValues.add((uint8)66);	// B
 	defaultValues.add((uint8)97);	// a

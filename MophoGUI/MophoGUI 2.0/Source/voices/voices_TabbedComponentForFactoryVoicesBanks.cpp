@@ -1,6 +1,6 @@
-#include "banks_TabbedComponentForFactoryProgramBanks.h"
+#include "voices_TabbedComponentForFactoryVoicesBanks.h"
 
-#include "banks_ProgramBanks.h"
+#include "voices_VoicesBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
@@ -24,7 +24,7 @@ TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(Aud
 	addTab("2", Color::device, &bank2, true, 2);
 	addTab("3", Color::device, &bank3, true, 3);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
-	setSize(GUI::tabbedComponentForProgramBanks_w, GUI::tabbedComponentForProgramBanks_h);
+	setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h);
 }
 
 void TabbedComponentForFactoryProgramBanks::addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener) {

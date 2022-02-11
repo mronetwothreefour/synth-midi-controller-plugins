@@ -11,7 +11,7 @@ ButtonForOpeningPgmNameEditor::ButtonForOpeningPgmNameEditor(AudioProcessorValue
 	unexposedParams{ unexposedParams },
 	pgmNameEditor{ pgmNameEditor }
 {
-	setComponentID(ID::button_PgmNameEdit.toString());
+	setComponentID(ID::button_VoiceNameEdit.toString());
 	setTooltip(createButtonTooltipString());
 }
 

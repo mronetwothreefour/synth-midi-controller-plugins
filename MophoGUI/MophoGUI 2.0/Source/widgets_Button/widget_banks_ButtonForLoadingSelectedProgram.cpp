@@ -1,8 +1,8 @@
 #include "widget_banks_ButtonForLoadingSelectedProgram.h"
 
-#include "../banks/banks_ProgramSlotsWidget.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_VoiceSlotsWidget.h"
 
 
 

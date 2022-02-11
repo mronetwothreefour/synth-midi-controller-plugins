@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "banks_ProgramBanks.h"
-#include "banks_ProgramSlotsWidget.h"
+#include "voices_VoicesBanks.h"
+#include "voices_VoiceSlotsWidget.h"
 #include "../widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"
 #include "../widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.h"

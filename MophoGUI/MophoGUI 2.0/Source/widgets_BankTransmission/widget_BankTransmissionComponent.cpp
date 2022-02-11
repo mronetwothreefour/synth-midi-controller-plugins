@@ -1,13 +1,13 @@
 #include "widget_BankTransmissionComponent.h"
 
-#include "../banks/banks_Constants.h"
-#include "../banks/banks_TabbedComponentForFactoryProgramBanks.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_ProgramDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_TabbedComponentForFactoryVoicesBanks.h"
 
 using namespace constants;
 

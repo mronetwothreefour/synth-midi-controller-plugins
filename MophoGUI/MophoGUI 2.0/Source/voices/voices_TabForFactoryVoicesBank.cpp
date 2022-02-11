@@ -1,6 +1,6 @@
-#include "banks_TabForFactoryProgramBank.h"
+#include "voices_TabForFactoryVoicesBank.h"
 
-#include "../banks/banks_Constants.h"
+#include "voices_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
@@ -26,7 +26,7 @@ TabForFactoryProgramBank::TabForFactoryProgramBank(ProgramBank bank, AudioProces
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
-	setSize(GUI::programBanksTab_w, GUI::programBanksTab_h);
+	setSize(GUI::tabForVoicesBank_w, GUI::tabForVoicesBank_h);
 }
 
 void TabForFactoryProgramBank::paint(Graphics& g) {
@@ -37,9 +37,9 @@ void TabForFactoryProgramBank::paint(Graphics& g) {
 }
 
 void TabForFactoryProgramBank::resized() {
-	programSlots.setBounds(GUI::bounds_ProgramSlotsWidget);
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedProgramButton);
-	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedFactoryProgramButton);
+	programSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
+	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedVoiceButton);
+	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedFactoryVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 }
 

@@ -1,8 +1,8 @@
-#include "banks_ProgramBanks.h"
+#include "voices_VoicesBanks.h"
 
-#include "banks_Constants.h"
-#include "banks_FactoryProgamDataHexStrings_Singleton.h"
-#include "banks_RawProgramData.h"
+#include "voices_Constants.h"
+#include "voices_FactoryVoiceDataHexStrings_Singleton.h"
+#include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 
 using namespace constants;
@@ -10,15 +10,15 @@ using namespace constants;
 
 
 ProgramBanks::ProgramBanks() :
-	customBank1ProgramDataHexStrings{ ID::bank_custom1_ProgramDataHexStrings },
-	customBank2ProgramDataHexStrings{ ID::bank_custom2_ProgramDataHexStrings },
-	customBank3ProgramDataHexStrings{ ID::bank_custom3_ProgramDataHexStrings },
-	factoryBank1ProgramNameStrings{ ID::bank_factory1_ProgramNameStrings },
-	factoryBank2ProgramNameStrings{ ID::bank_factory2_ProgramNameStrings },
-	factoryBank3ProgramNameStrings{ ID::bank_factory3_ProgramNameStrings },
-	customBank1ProgramNameStrings{ ID::bank_custom1_ProgramNameStrings },
-	customBank2ProgramNameStrings{ ID::bank_custom2_ProgramNameStrings },
-	customBank3ProgramNameStrings{ ID::bank_custom3_ProgramNameStrings }
+	customBank1ProgramDataHexStrings{ ID::bank_custom1_VoiceDataHexStrings },
+	customBank2ProgramDataHexStrings{ ID::bank_custom2_VoiceDataHexStrings },
+	customBank3ProgramDataHexStrings{ ID::bank_custom3_VoiceDataHexStrings },
+	factoryBank1ProgramNameStrings{ ID::bank_factory1_VoiceNameStrings },
+	factoryBank2ProgramNameStrings{ ID::bank_factory2_VoiceNameStrings },
+	factoryBank3ProgramNameStrings{ ID::bank_factory3_VoiceNameStrings },
+	customBank1ProgramNameStrings{ ID::bank_custom1_VoiceNameStrings },
+	customBank2ProgramNameStrings{ ID::bank_custom2_VoiceNameStrings },
+	customBank3ProgramNameStrings{ ID::bank_custom3_VoiceNameStrings }
 {
 	fillAllCustomProgramDataBanks();
 	fillAllProgramNameBanks();
@@ -29,9 +29,9 @@ ProgramBanks::ProgramBanks() :
 
 void ProgramBanks::fillAllCustomProgramDataBanks() {
 	for (uint8 programSlot = 0; programSlot != banks::numberOfSlotsInBank; ++programSlot) {
-		customBank1ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchDataHexString, nullptr);
-		customBank2ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchDataHexString, nullptr);
-		customBank3ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchDataHexString, nullptr);
+		customBank1ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceDataHexString, nullptr);
+		customBank2ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceDataHexString, nullptr);
+		customBank3ProgramDataHexStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceDataHexString, nullptr);
 	}
 }
 
@@ -40,17 +40,17 @@ void ProgramBanks::fillAllProgramNameBanks() {
 	String programDataString;
 	for (uint8 programSlot = 0; programSlot != banks::numberOfSlotsInBank; ++programSlot) {
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory1, programSlot);
-		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataString));
 		factoryBank1ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory2, programSlot);
-		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataString));
 		factoryBank2ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
 		programDataString = getProgramDataHexStringFromBankSlot(ProgramBank::factory3, programSlot);
-		programName = extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataString));
+		programName = extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataString));
 		factoryBank3ProgramNameStrings.setProperty("pgm" + (String)programSlot, programName, nullptr);
-		customBank1ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchNameString, nullptr);
-		customBank2ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchNameString, nullptr);
-		customBank3ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicPatchNameString, nullptr);
+		customBank1ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceNameString, nullptr);
+		customBank2ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceNameString, nullptr);
+		customBank3ProgramNameStrings.setProperty("pgm" + (String)programSlot, banks::basicVoiceNameString, nullptr);
 	}
 }
 
@@ -99,8 +99,8 @@ const String ProgramBanks::getProgramDataHexStringFromBankSlot(ProgramBank bank,
 const String ProgramBanks::extractProgramNameFromDataVector(const std::vector<uint8>& dataVector) {
 	String programName{ "" };
 	auto data{ dataVector.data() };
-	for (auto byte = banks::firstProgramNameCharByte; byte <= banks::lastProgramNameCharByte; ++byte) {
-		if (byte != banks::ignoredProgramNamePackByte1 && byte != banks::ignoredProgramNamePackByte2)
+	for (auto byte = banks::firstVoiceNameCharByte; byte <= banks::lastVoiceNameCharByte; ++byte) {
+		if (byte != banks::ignoredVoiceNamePackByte1 && byte != banks::ignoredVoiceNamePackByte2)
 			programName += (String)std::string(1, (char)*(data + byte));
 	}
 	return programName;
@@ -165,31 +165,31 @@ void ProgramBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& p
 	auto propertyName{ property.toString() };
 	auto slotString{ propertyName.fromLastOccurrenceOf("pgm", false, true) };
 	auto slot{ (uint8)slotString.getIntValue() };
-	if (tree.hasType(ID::bank_custom1_ProgramDataHexStrings)) {
+	if (tree.hasType(ID::bank_custom1_VoiceDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom1, slot) };
-		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataHexString)) };
 		customBank1ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
-	if (tree.hasType(ID::bank_custom2_ProgramDataHexStrings)) {
+	if (tree.hasType(ID::bank_custom2_VoiceDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom2, slot) };
-		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataHexString)) };
 		customBank2ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
-	if (tree.hasType(ID::bank_custom3_ProgramDataHexStrings)) {
+	if (tree.hasType(ID::bank_custom3_VoiceDataHexStrings)) {
 		auto programDataHexString{ getProgramDataHexStringFromBankSlot(ProgramBank::custom3, slot) };
-		auto programName{ extractProgramNameFromDataVector(RawProgramData::convertHexStringToDataVector(programDataHexString)) };
+		auto programName{ extractProgramNameFromDataVector(RawDataTools::convertHexStringToDataVector(programDataHexString)) };
 		customBank3ProgramNameStrings.setProperty(property, programName, nullptr);
 	}
 }
 
 XmlElement* ProgramBanks::getStateXml() {
-	auto customProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_ProgramBanks) };
+	auto customProgramBanksStateXml{ std::make_unique<XmlElement>(ID::state_VoicesBanks) };
 	auto customBank1StateXml{ customBank1ProgramDataHexStrings.createXml() };
 	auto customBank2StateXml{ customBank2ProgramDataHexStrings.createXml() };
 	auto customBank3StateXml{ customBank3ProgramDataHexStrings.createXml() };
-	customBank1StateXml->setTagName(ID::state_CustomProgramBank1);
-	customBank2StateXml->setTagName(ID::state_CustomProgramBank2);
-	customBank3StateXml->setTagName(ID::state_CustomProgramBank3);
+	customBank1StateXml->setTagName(ID::state_CustomVoicesBank1);
+	customBank2StateXml->setTagName(ID::state_CustomVoicesBank2);
+	customBank3StateXml->setTagName(ID::state_CustomVoicesBank3);
 	customProgramBanksStateXml->addChildElement(customBank1StateXml.release());
 	customProgramBanksStateXml->addChildElement(customBank2StateXml.release());
 	customProgramBanksStateXml->addChildElement(customBank3StateXml.release());
@@ -197,9 +197,9 @@ XmlElement* ProgramBanks::getStateXml() {
 }
 
 void ProgramBanks::replaceState(const ValueTree& newState) {
-	customBank1ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank1), nullptr);
-	customBank2ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank2), nullptr);
-	customBank3ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomProgramBank3), nullptr);
+	customBank1ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomVoicesBank1), nullptr);
+	customBank2ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomVoicesBank2), nullptr);
+	customBank3ProgramDataHexStrings.copyPropertiesAndChildrenFrom(newState.getChildWithName(ID::state_CustomVoicesBank3), nullptr);
 }
 
 ProgramBanks::~ProgramBanks() {

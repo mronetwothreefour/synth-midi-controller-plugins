@@ -19,8 +19,8 @@ void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterReceiveType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterSendType, (uint8)0, nullptr);
-	midiOptionsTree.setProperty(ID::midi_ProgramTransmitTime, 300, nullptr);
-	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_VoiceTransmitTime, 300, nullptr);
+	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_SysExOn, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_TransmitChannel, (uint8)0, nullptr);
 }
@@ -137,15 +137,15 @@ void MidiOptions::setPedalModeToNormal() {
 }
 
 const bool MidiOptions::programChangeIsOn() {
-	return (bool)midiOptionsTree.getProperty(ID::midi_ProgramChangeOn);
+	return (bool)midiOptionsTree.getProperty(ID::midi_VoiceChangeOn);
 }
 
 void MidiOptions::setProgramChangeOn() {
-	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)true, nullptr);
+	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)true, nullptr);
 }
 
 void MidiOptions::setProgramChangeOff() {
-	midiOptionsTree.setProperty(ID::midi_ProgramChangeOn, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)false, nullptr);
 }
 
 const bool MidiOptions::paramChangeEchosAreNotBlocked() {
@@ -161,9 +161,9 @@ void MidiOptions::setParamChangeEchosAreNotBlocked() {
 }
 
 const int MidiOptions::programTransmitTime() {
-	return (int)midiOptionsTree.getProperty(ID::midi_ProgramTransmitTime);
+	return (int)midiOptionsTree.getProperty(ID::midi_VoiceTransmitTime);
 }
 
 void MidiOptions::setProgramTransmitTime(int timeInMilliseconds) {
-	midiOptionsTree.setProperty(ID::midi_ProgramTransmitTime, timeInMilliseconds, nullptr);
+	midiOptionsTree.setProperty(ID::midi_VoiceTransmitTime, timeInMilliseconds, nullptr);
 }

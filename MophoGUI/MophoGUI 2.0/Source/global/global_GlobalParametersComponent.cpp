@@ -112,7 +112,7 @@ void GlobalParametersComponent::resized() {
 	valueDisplay_ForGlobalMidiChannel.setBounds(GUI::bounds_GlobalParametersMidiChannelKnob);
 	comboBox_ForMidiClock.setBounds(GUI::bounds_GlobalParametersMidiClockComboBox);
 	comboBox_ForPedalMode.setBounds(GUI::bounds_GlobalParametersPedalModeComboBox);
-	comboBox_ForProgramChange.setBounds(GUI::bounds_GlobalParametersProgramChangeComboBox);
+	comboBox_ForProgramChange.setBounds(GUI::bounds_GlobalParametersVoiceChangeComboBox);
 	comboBox_ForParameterSend.setBounds(GUI::bounds_GlobalParametersParameterSendComboBox);
 	displayLabel_ForParameterReceive.setBounds(GUI::bounds_GlobalParametersParameterReceiveDisplayLabel);
 	displayLabel_ForMidiControllers.setBounds(GUI::bounds_GlobalParametersMidiControllersDisplayLabel);

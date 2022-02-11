@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "widget_BaseButtonWithOnClickAndTooltipMethods.h"
-#include "../banks/banks_ProgramBanks.h"
+#include "../voices/voices_VoicesBanks.h"
 
 
 

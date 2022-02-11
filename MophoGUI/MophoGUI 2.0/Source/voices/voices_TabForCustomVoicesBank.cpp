@@ -1,6 +1,6 @@
-#include "banks_TabForCustomProgramBank.h"
+#include "voices_TabForCustomVoicesBank.h"
 
-#include "../banks/banks_Constants.h"
+#include "voices_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
@@ -32,7 +32,7 @@ TabForCustomProgramBank::TabForCustomProgramBank(ProgramBank bank, AudioProcesso
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
-	setSize(GUI::programBanksTab_w, GUI::programBanksTab_h);
+	setSize(GUI::tabForVoicesBank_w, GUI::tabForVoicesBank_h);
 }
 
 void TabForCustomProgramBank::paint(Graphics& g) {
@@ -43,11 +43,11 @@ void TabForCustomProgramBank::paint(Graphics& g) {
 }
 
 void TabForCustomProgramBank::resized() {
-	programSlots.setBounds(GUI::bounds_ProgramSlotsWidget);
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedProgramButton);
-	button_ForSavingProgramInSelectedSlot.setBounds(GUI::bounds_SaveProgramInSelectedSlotButton);
-	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedCustomProgramButton);
-	button_ForPullingSelectedProgramFromHardware.setBounds(GUI::bounds_PullSelectedProgramButton);
+	programSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
+	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_LoadSelectedVoiceButton);
+	button_ForSavingProgramInSelectedSlot.setBounds(GUI::bounds_SaveVoiceIntoSelectedSlotButton);
+	button_ForPushingSelectedProgramToHardware.setBounds(GUI::bounds_PushSelectedCustomVoiceButton);
+	button_ForPullingSelectedProgramFromHardware.setBounds(GUI::bounds_PullSelectedVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PullEntireBankButton);
 }

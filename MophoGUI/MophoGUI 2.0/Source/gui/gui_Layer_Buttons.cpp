@@ -1,13 +1,13 @@
 #include "gui_Layer_Buttons.h"
 
 #include "gui_Constants.h"
-#include "../banks/banks_ProgramBanksComponent.h"
 #include "../global/global_GlobalParametersComponent.h"
 #include "../global/global_NRPNisOffWarningComponent.h"
 #include "../global/global_SysExIsOffWarningComponent.h"
 #include "../midi/midi_GlobalParametersDump.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_VoicesBanksComponent.h"
 
 using namespace constants;
 

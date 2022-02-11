@@ -140,16 +140,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBanks.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramBanksComponent.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_ProgramSlotsWidget.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_RawProgramData.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_TabForCustomProgramBank.cpp"/>
-    <ClCompile Include="..\..\Source\banks\banks_TabForFactoryProgramBank.cpp"/>
     <ClCompile Include="..\..\Source\global\global_GlobalParametersComponent.cpp"/>
     <ClCompile Include="..\..\Source\global\global_HardwareSettingsWarningComponent.cpp"/>
     <ClCompile Include="..\..\Source\global\global_NRPNisOffWarningComponent.cpp"/>
@@ -169,6 +159,7 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramDump.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_ProgramEditBufferDump.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_SysExHelpers.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
@@ -183,6 +174,15 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForAllVoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForCustomVoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_TabbedComponentForFactoryVoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_TabForCustomVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsWidget.cpp"/>
     <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.cpp"/>
@@ -2191,17 +2191,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_Constants.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_FactoryProgamDataHexStrings_Singleton.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBanks.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramBanksComponent.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_ProgramSlotsWidget.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_RawProgramData.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForAllProgramBanks.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForCustomProgramBanks.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_TabbedComponentForFactoryProgramBanks.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_TabForCustomProgramBank.h"/>
-    <ClInclude Include="..\..\Source\banks\banks_TabForFactoryProgramBank.h"/>
     <ClInclude Include="..\..\Source\global\global_GlobalParametersComponent.h"/>
     <ClInclude Include="..\..\Source\global\global_GlobalParametersConstants.h"/>
     <ClInclude Include="..\..\Source\global\global_HardwareSettingsWarningComponent.h"/>
@@ -2229,6 +2218,7 @@
     <ClInclude Include="..\..\Source\midi\midi_ParameterChangeMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_ProgramDump.h"/>
     <ClInclude Include="..\..\Source\midi\midi_ProgramEditBufferDump.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\midi\midi_SysExHelpers.h"/>
     <ClInclude Include="..\..\Source\params\params_Constants.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h"/>
@@ -2245,6 +2235,16 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_Constants.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForAllVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForCustomVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_TabbedComponentForFactoryVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_TabForCustomVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_TabForFactoryVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsWidget.h"/>
     <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForLoadingSelectedProgram.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_banks_ButtonForPullingEntireBankFromHardware.h"/>

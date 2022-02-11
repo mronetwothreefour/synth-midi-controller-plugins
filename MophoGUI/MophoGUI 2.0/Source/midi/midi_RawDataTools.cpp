@@ -1,4 +1,4 @@
-#include "banks_RawProgramData.h"
+#include "midi_RawDataTools.h"
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_SpecialValueOffsets.h"
@@ -6,21 +6,21 @@
 
 
 
-const std::vector<uint8> RawProgramData::convertHexStringToDataVector(const String& hexString) {
-    std::vector<uint8> programData;
+const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
+    std::vector<uint8> voiceData;
     for (auto i = 0; i != hexString.length(); i += 2) {
         auto hexValueString{ hexString.substring(i, i + 2) };
-        programData.push_back((uint8)hexValueString.getHexValue32());
+        voiceData.push_back((uint8)hexValueString.getHexValue32());
     }
-    return programData;
+    return voiceData;
 }
 
-const String RawProgramData::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
+const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
     auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
     return hexString;
 }
 
-void RawProgramData::applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
     midiOptions->setParamChangeEchosAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
@@ -39,10 +39,10 @@ void RawProgramData::applyToExposedParameters(const uint8* dumpData, AudioProces
     midiOptions->setParamChangeEchosAreNotBlocked();
 }
 
-const std::vector<uint8> RawProgramData::extractFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {
-    std::vector<uint8> programData;
-    for (auto i = 0; i != rawProgramDataSize; ++i) {
-        programData.push_back((uint8)0);
+const std::vector<uint8> RawDataTools::extractFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {
+    std::vector<uint8> voiceData;
+    for (auto i = 0; i != rawVoiceDataSize; ++i) {
+        voiceData.push_back((uint8)0);
     }
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
@@ -53,9 +53,9 @@ const std::vector<uint8> RawProgramData::extractFromExposedParameters(AudioProce
         auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) };
         auto lsbLocation{ info.lsByteLocationFor(paramIndex) };
         if (paramValue > 127) {
-            programData[msbLocation] += info.msBitMaskFor(paramIndex);
+            voiceData[msbLocation] += info.msBitMaskFor(paramIndex);
         }
-        programData[lsbLocation] = paramValue % 128;
+        voiceData[lsbLocation] = paramValue % 128;
     }
-    return programData;
+    return voiceData;
 }

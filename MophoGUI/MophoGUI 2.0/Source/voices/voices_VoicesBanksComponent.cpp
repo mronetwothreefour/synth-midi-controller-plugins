@@ -1,4 +1,4 @@
-#include "banks_ProgramBanksComponent.h"
+#include "voices_VoicesBanksComponent.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
@@ -22,11 +22,11 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	setSize(GUI::editor_w, GUI::editor_h);
 
 	addAndMakeVisible(tabbedComponent);
-	tabbedComponent.setBounds(GUI::bounds_ProgramBanksTabbedComponent);
+	tabbedComponent.setBounds(GUI::bounds_VoicesBanksTabbedComponent);
 
 	button_ForClosingProgramBanks.setComponentID(ID::button_Close.toString());
 	addAndMakeVisible(button_ForClosingProgramBanks);
-	button_ForClosingProgramBanks.setBounds(GUI::bounds_ProgramBanksCloseButton);
+	button_ForClosingProgramBanks.setBounds(GUI::bounds_VoicesBanksCloseButton);
 	button_ForClosingProgramBanks.onClick = [this] { hideThisComponent(); };
 	button_ForClosingProgramBanks.setAlwaysOnTop(true);
 
@@ -45,13 +45,13 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	label_txTime.setEditable(true);
 	labelTextChanged(&label_txTime);
 	addAndMakeVisible(label_txTime);
-	label_txTime.setBounds(GUI::bounds_ProgramBanksTransmitTimeLabel);
+	label_txTime.setBounds(GUI::bounds_VoicesBanksTransmitTimeLabel);
 }
 
 void ProgramBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
-	Rectangle<int> componentOutlineBounds{ GUI::bounds_ProgramBanksTabbedComponent.expanded(GUI::windowOutlineThickness) };
+	Rectangle<int> componentOutlineBounds{ GUI::bounds_VoicesBanksTabbedComponent.expanded(GUI::windowOutlineThickness) };
 	g.fillRect(componentOutlineBounds);
 }
 
