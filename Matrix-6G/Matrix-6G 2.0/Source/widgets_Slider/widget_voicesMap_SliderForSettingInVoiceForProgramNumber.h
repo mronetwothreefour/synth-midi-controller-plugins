@@ -6,24 +6,26 @@
 
 
 
-class SliderForSettingZonePatchNumber :
+class UnexposedParameters;
+
+class SliderForSettingInVoiceForProgramNumber :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
 	UnexposedParameters* unexposedParams;
-	Identifier parameterID;
+	uint8 programNumber;
+	Identifier sliderID;
 
 public:
-	SliderForSettingZonePatchNumber() = delete;
+	SliderForSettingInVoiceForProgramNumber() = delete;
 
-	SliderForSettingZonePatchNumber(UnexposedParameters* unexposedParams, Identifier parameterID);
+	SliderForSettingInVoiceForProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
-	~SliderForSettingZonePatchNumber() override;
+	~SliderForSettingInVoiceForProgramNumber() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingZonePatchNumber)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingInVoiceForProgramNumber)
 };
-

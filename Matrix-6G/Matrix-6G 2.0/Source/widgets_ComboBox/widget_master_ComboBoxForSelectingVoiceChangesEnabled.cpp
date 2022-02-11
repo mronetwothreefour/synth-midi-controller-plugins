@@ -1,4 +1,4 @@
-#include "widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"
+#include "widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,25 +6,25 @@
 
 
 
-ComboBoxForSelectingPatchMapEchoEnabled::ComboBoxForSelectingPatchMapEchoEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_VoicesMapEchoEnabled },
+ComboBoxForSelectingVoiceChangesEnabled::ComboBoxForSelectingVoiceChangesEnabled(UnexposedParameters* unexposedParams) :
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_VoiceChangesEnabled },
 	unexposedParams{ unexposedParams }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->addListener(this);
-	auto paramValue{ masterOptions->patchMapEchoEnabled() };
+	auto paramValue{ masterOptions->voiceChangesEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
-String ComboBoxForSelectingPatchMapEchoEnabled::generateTooltipString() {
+String ComboBoxForSelectingVoiceChangesEnabled::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "When the Patch Map is enabled and this option is\n";
-		tooltipText += "on, the hardware will send program changes to a\n";
-		tooltipText += "device further on in the MIDI chain in accordance\n";
-		tooltipText += "with the Patch Map settings. NOTE: Individual Master\n";
+		tooltipText += "When set to on, incoming MIDI program change messages\n";
+		tooltipText += "will switch the hardware to the specified patch number.\n";
+		tooltipText += "It is recommended that this option be set to on for this\n";
+		tooltipText += "plugin to operate properly. NOTE: Individual Master\n";
 		tooltipText += "options are not immediately updated on the hardware.\n";
 		tooltipText += "Click the PUSH button to update all options.\n";
 	}
@@ -37,7 +37,7 @@ String ComboBoxForSelectingPatchMapEchoEnabled::generateTooltipString() {
 	return tooltipText;
 }
 
-ComboBoxForSelectingPatchMapEchoEnabled::~ComboBoxForSelectingPatchMapEchoEnabled() {
+ComboBoxForSelectingVoiceChangesEnabled::~ComboBoxForSelectingVoiceChangesEnabled() {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->removeListener(this);
 }

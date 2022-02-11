@@ -153,7 +153,7 @@ void RawDataTools::addCurrentParameterSettingsToDataVector(AudioProcessorValueTr
     addVoiceOrSplitNameDataToVector(currentVoiceName, params::maxVoiceNameLength, dataVector, checksum);
     addExposedParamDataToVector(exposedParams, dataVector, checksum);
     addMatrixModDataToVector(unexposedParams, dataVector, checksum);
-    dataVector[voices::rawPatchDataVectorChecksumByteIndex] = checksum % (uint8)128;
+    dataVector[voices::rawVoiceDataVectorChecksumByteIndex] = checksum % (uint8)128;
 }
 
 void RawDataTools::addCurrentSplitSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
@@ -200,7 +200,7 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
     masterOptions->setBasicChannel(masterOptionsData[master::indexOfBasicChannelLSByte] + master::basicChannelOffset);
     masterOptions->setOmniModeEnabled(masterOptionsData[master::indexOfOmniModeEnableLSByte]);
     masterOptions->setControllersEnabled(masterOptionsData[master::indexOfControllersEnableLSByte]);
-    masterOptions->setPatchChangesEnabled(masterOptionsData[master::indexOfPatchChangesEnableLSByte]);
+    masterOptions->setVoiceChangesEnabled(masterOptionsData[master::indexOfVoiceChangesEnableLSByte]);
     masterOptions->setSysExEnabled(masterOptionsData[master::indexOfSysExEnableLSByte]);
     masterOptions->setLocalControlEnabled(masterOptionsData[master::indexOfLocalControlEnableLSByte]);
     masterOptions->setPedal1ControllerNumber(masterOptionsData[master::indexOfPedal1ControllerNumber] + (masterOptionsData[master::indexOfPedal1ControllerNumber + 1] * 16));
@@ -209,18 +209,18 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
     masterOptions->setLever3ControllerNumber(masterOptionsData[master::indexOfLever3ControllerNumber] + (masterOptionsData[master::indexOfLever3ControllerNumber + 1] * 16));
     masterOptions->setDisplayBrightness(masterOptionsData[master::indexOfDisplayBrightnessLSByte] + (masterOptionsData[master::indexOfDisplayBrightnessLSByte + 1] * 16));
     masterOptions->setSQUICKenabled(masterOptionsData[master::indexOfSQUICKenableLSByte]);
-    masterOptions->setPatchMapEchoEnabled(masterOptionsData[master::indexOfPatchMapEchoEnableLSByte]);
+    masterOptions->setVoicesMapEchoEnabled(masterOptionsData[master::indexOfVoicesMapEchoEnableLSByte]);
     masterOptions->setSplitStereoEnabled(masterOptionsData[master::indexOfSplitStereoEnableLSByte]);
     masterOptions->setSpilloverEnabled(masterOptionsData[master::indexOfSpilloverEnableLSByte]);
     masterOptions->setActiveSensingEnabled(masterOptionsData[master::indexOfActiveSenseEnableLSByte]);
     masterOptions->setMIDIechoEnabled(masterOptionsData[master::indexOfMIDIechoEnableLSByte]);
-    masterOptions->setPatchMapEnabled(masterOptionsData[master::indexOfPatchMapEnableLSByte]);
+    masterOptions->setVoicesMapEnabled(masterOptionsData[master::indexOfVoicesMapEnableLSByte]);
     masterOptions->setMIDImonoEnabled(masterOptionsData[master::indexOfMIDImonoEnableLSByte]);
     for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
-        auto indexOfInputPatchlsByte{ master::indexOfFirstPatchMapInputLSByte + (i * 2) };
-        masterOptions->setPatchMapInPatchForProgramNumber(masterOptionsData[indexOfInputPatchlsByte] + (masterOptionsData[indexOfInputPatchlsByte + 1] * 16), i);
-        auto indexOfOutputPatchlsByte{ master::indexOfFirstPatchMapOutputLSByte + (i * 2) };
-        masterOptions->setPatchMapOutPatchForProgramNumber(masterOptionsData[indexOfOutputPatchlsByte] + (masterOptionsData[indexOfOutputPatchlsByte + 1] * 16), i);
+        auto indexOfInputVoicelsByte{ master::indexOfFirstVoicesMapInputLSByte + (i * 2) };
+        masterOptions->setVoicesMapInVoiceForProgramNumber(masterOptionsData[indexOfInputVoicelsByte] + (masterOptionsData[indexOfInputVoicelsByte + 1] * 16), i);
+        auto indexOfOutputVoicelsByte{ master::indexOfFirstVoicesMapOutputLSByte + (i * 2) };
+        masterOptions->setVoicesMapOutVoiceForProgramNumber(masterOptionsData[indexOfOutputVoicelsByte] + (masterOptionsData[indexOfOutputVoicelsByte + 1] * 16), i);
     }
 }
 
@@ -258,9 +258,9 @@ void RawDataTools::applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParam
 }
 
 void RawDataTools::applyNameOfVoiceInRawDataToGUI(const uint8* voiceData, UnexposedParameters* unexposedParams) {
-    auto patchNameString{ extractVoiceNameFromRawVoiceData(voiceData) };
+    auto voiceNameString{ extractVoiceNameFromRawVoiceData(voiceData) };
     auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
-    currentVoiceOptions->setCurrentVoiceName(patchNameString);
+    currentVoiceOptions->setCurrentVoiceName(voiceNameString);
 }
 
 void RawDataTools::applyNameOfSplitInRawDataToGUI(const uint8* splitData, UnexposedParameters* unexposedParams) {
@@ -302,8 +302,8 @@ void RawDataTools::applyRawSplitDataToGUI(const uint8* splitData, UnexposedParam
     zoneVolumeBalance = RawDataTools::formatSigned6bitValueForStoringInPlugin(zoneVolumeBalance);
     splitOptions->setZoneVolumeBalance((uint8)zoneVolumeBalance);
     splitOptions->setZoneVoiceAssignment(splitData[splits::indexOfZoneVoiceAssignmentLSByte] + (splitData[splits::indexOfZoneVoiceAssignmentLSByte + 1] * 16));
-    splitOptions->setLowerZonePatchNumber(splitData[splits::indexOfLowerZonePatchNumberLSByte] + (splitData[splits::indexOfLowerZonePatchNumberLSByte + 1] * 16));
-    splitOptions->setUpperZonePatchNumber(splitData[splits::indexOfUpperZonePatchNumberLSByte] + (splitData[splits::indexOfUpperZonePatchNumberLSByte + 1] * 16));
+    splitOptions->setLowerZoneVoiceNumber(splitData[splits::indexOfLowerZoneVoiceNumberLSByte] + (splitData[splits::indexOfLowerZoneVoiceNumberLSByte + 1] * 16));
+    splitOptions->setUpperZoneVoiceNumber(splitData[splits::indexOfUpperZoneVoiceNumberLSByte] + (splitData[splits::indexOfUpperZoneVoiceNumberLSByte + 1] * 16));
 }
 
 void RawDataTools::applyRawVoiceDataToMatrixModParameters(const uint8* voiceData, UnexposedParameters* unexposedParams) {
@@ -425,12 +425,12 @@ void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParam
     auto zoneVoiceAssignment{ splitOptions->zoneVoiceAssignment() };
     addValueToDataVectorAtLSBbyteLocation(zoneVoiceAssignment, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfZoneVoiceAssignmentLSByte]);
     checksum += zoneVoiceAssignment;
-    auto lowerZonePatchNumber{ splitOptions->lowerZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lowerZonePatchNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZonePatchNumberLSByte]);
-    checksum += lowerZonePatchNumber;
-    auto upperZonePatchNumber{ splitOptions->upperZonePatchNumber() };
-    addValueToDataVectorAtLSBbyteLocation(upperZonePatchNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZonePatchNumberLSByte]);
-    checksum += upperZonePatchNumber;
+    auto lowerZoneVoiceNumber{ splitOptions->lowerZoneVoiceNumber() };
+    addValueToDataVectorAtLSBbyteLocation(lowerZoneVoiceNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfLowerZoneVoiceNumberLSByte]);
+    checksum += lowerZoneVoiceNumber;
+    auto upperZoneVoiceNumber{ splitOptions->upperZoneVoiceNumber() };
+    addValueToDataVectorAtLSBbyteLocation(upperZoneVoiceNumber, &dataVector[indexOfFirstVoiceOrSplitParamDataLSByte + splits::indexOfUpperZoneVoiceNumberLSByte]);
+    checksum += upperZoneVoiceNumber;
 }
 
 void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
@@ -485,9 +485,9 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     addValueToDataVectorAtLSBbyteLocation(controllersEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfControllersEnableLSByte]);
     checksum += controllersEnabled;
 
-    auto patchChangesEnabled{ masterOptions->patchChangesEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(patchChangesEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchChangesEnableLSByte]);
-    checksum += patchChangesEnabled;
+    auto voiceChangesEnabled{ masterOptions->voiceChangesEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voiceChangesEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoiceChangesEnableLSByte]);
+    checksum += voiceChangesEnabled;
 
     auto sysExEnabled{ masterOptions->sysExEnabled() };
     addValueToDataVectorAtLSBbyteLocation(sysExEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSysExEnableLSByte]);
@@ -521,9 +521,9 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSQUICKenableLSByte]);
     checksum += squickEnabled;
 
-    auto patchMapEchoEnabled{ masterOptions->patchMapEchoEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(patchMapEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchMapEchoEnableLSByte]);
-    checksum += patchMapEchoEnabled;
+    auto voicesMapEchoEnabled{ masterOptions->voicesMapEchoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voicesMapEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoicesMapEchoEnableLSByte]);
+    checksum += voicesMapEchoEnabled;
 
     auto splitStereoEnabled{ masterOptions->splitStereoEnabled() };
     addValueToDataVectorAtLSBbyteLocation(splitStereoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSplitStereoEnableLSByte]);
@@ -544,22 +544,22 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     addValueToDataVectorAtLSBbyteLocation(midiEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDIechoEnableLSByte]);
     checksum += midiEchoEnabled;
 
-    auto patchMapEnabled{ masterOptions->patchMapEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(patchMapEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPatchMapEnableLSByte]);
-    checksum += patchMapEnabled;
+    auto voicesMapEnabled{ masterOptions->voicesMapEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voicesMapEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoicesMapEnableLSByte]);
+    checksum += voicesMapEnabled;
 
     auto midiMonoEnabled{ masterOptions->midiMonoEnabled() };
     addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDImonoEnableLSByte]);
     checksum += midiMonoEnabled;
 
     for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
-        auto patchMapInPatch{ masterOptions->patchMapInPatchForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(patchMapInPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstPatchMapInputLSByte + (i * 2)]);
-        checksum += patchMapInPatch;
+        auto voicesMapInPatch{ masterOptions->voicesMapInVoiceForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(voicesMapInPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstVoicesMapInputLSByte + (i * 2)]);
+        checksum += voicesMapInPatch;
 
-        auto patchMapOutPatch{ masterOptions->patchMapOutPatchForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(patchMapOutPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstPatchMapOutputLSByte + (i * 2)]);
-        checksum += patchMapOutPatch;
+        auto voicesMapOutPatch{ masterOptions->voicesMapOutVoiceForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(voicesMapOutPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstVoicesMapOutputLSByte + (i * 2)]);
+        checksum += voicesMapOutPatch;
     }
 }
 

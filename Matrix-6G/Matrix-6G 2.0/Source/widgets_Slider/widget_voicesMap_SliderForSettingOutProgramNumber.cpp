@@ -1,4 +1,4 @@
-#include "widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"
+#include "widget_voicesMap_SliderForSettingOutProgramNumber.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,23 +6,23 @@
 
 
 
-SliderForSettingOutPatchForProgramNumber::SliderForSettingOutPatchForProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber) :
+SliderForSettingOutProgramNumber::SliderForSettingOutProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	programNumber{ programNumber },
-	sliderID{ "master_PatchMapOut_" + (String)programNumber }
+	sliderID{ "master_VoicesMapOut_" + (String)programNumber }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ (double)masterOptions->patchMapOutPatchForProgramNumber(programNumber) };
+	auto paramValue{ (double)masterOptions->voicesMapOutVoiceForProgramNumber(programNumber) };
 	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, (double)programNumber);
 	setMouseDragSensitivity(130);
 	setTooltip(generateTooltipString());
 }
 
-String SliderForSettingOutPatchForProgramNumber::generateTooltipString() {
+String SliderForSettingOutProgramNumber::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
@@ -42,7 +42,7 @@ String SliderForSettingOutPatchForProgramNumber::generateTooltipString() {
 	return tooltipText;
 }
 
-void SliderForSettingOutPatchForProgramNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void SliderForSettingOutProgramNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == sliderID) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
@@ -50,14 +50,14 @@ void SliderForSettingOutPatchForProgramNumber::valueTreePropertyChanged(ValueTre
 	}
 }
 
-void SliderForSettingOutPatchForProgramNumber::paint(Graphics& g) {
+void SliderForSettingOutProgramNumber::paint(Graphics& g) {
 	auto currentValue{ (uint8)roundToInt(getValue()) };
 	auto converter{ IntToUnsignedValueString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
-SliderForSettingOutPatchForProgramNumber::~SliderForSettingOutPatchForProgramNumber() {
+SliderForSettingOutProgramNumber::~SliderForSettingOutProgramNumber() {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->removeListener(this);
 }

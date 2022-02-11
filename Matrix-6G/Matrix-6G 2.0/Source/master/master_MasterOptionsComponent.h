@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "master_PatchMapComponent.h"
-#include "../widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"
+#include "master_VoicesMapComponent.h"
+#include "../widgets_Button/widget_master_ButtonForShowingVoicesMapComponent.h"
 #include "../widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"
@@ -12,9 +12,6 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"
-#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
-#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"
-#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.h"
@@ -22,6 +19,9 @@
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"
 #include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h"
+#include "../widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEnabled.h"
 #include "../widgets_Label/widget_EditableLabel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingBasicChannel.h"
 #include "../widgets_Slider/widget_master_SliderForSettingDisplayBrightness.h"
@@ -49,7 +49,7 @@ class MasterOptionsComponent :
     SliderForSettingBasicChannel slider_ForSettingBasicChannel;
     ComboBoxForSelectingOmniModeEnabled comboBox_ForSelectingOmniModeEnabled;
     ComboBoxForSelectingControllersEnabled comboBox_ForSelectingControllersEnabled;
-    ComboBoxForSelectingPatchChangesEnabled comboBox_ForSelectingPatchChangesEnabled;
+    ComboBoxForSelectingVoiceChangesEnabled comboBox_ForSelectingVoiceChangesEnabled;
     ComboBoxForSelectingSysExEnabled comboBox_ForSelectingSysExEnabled;
     ComboBoxForSelectingSpilloverEnabled comboBox_ForSelectingSpilloverEnabled;
     ComboBoxForSelectingMIDIechoEnabled comboBox_ForSelectingMIDIechoEnabled;
@@ -69,16 +69,16 @@ class MasterOptionsComponent :
     SliderForSettingVibratoModAmount sliderForSettingVibratoAmplitudeModAmount;
     SliderForSettingMasterTune slider_ForSettingMasterTune;
     ComboBoxForSelectingSplitStereoEnabled comboBox_ForSelectingSplitStereoEnabled;
-    ComboBoxForSelectingPatchMapEnabled comboBox_ForSelectingPatchMapEnabled;
-    ComboBoxForSelectingPatchMapEchoEnabled comboBox_ForSelectingPatchMapEchoEnabled;
+    ComboBoxForSelectingVoiceMapEnabled comboBox_ForSelectingVoicesMapEnabled;
+    ComboBoxForSelectingVoicesMapEchoEnabled comboBox_ForSelectingVoiceMapEchoEnabled;
     SliderForSettingDisplayBrightness slider_ForSettingDisplayBrightness;
     ComboBoxForSelectingSQUICKenabled comboBox_ForSelectingSQUICKenabled;
     ComboBoxForSelectingDescriptionTipsEnabled comboBox_ForSelectingDescriptionTipsEnabled;
     ComboBoxForSelectingValueTipsEnabled comboBox_ForSelectingValueTipsEnabled;
     EditableLabel tipsDelayEditor;
-    ButtonForShowingPatchMapComponent button_ForShowingPatchMapComponent;
+    ButtonForShowingVoicesMapComponent button_ForShowingVoiceMapComponent;
     ButtonForPushingMasterOptionsToHardware button_ForPushingMasterOptionsToHardware;
-    std::unique_ptr<PatchMapComponent> patchMapComponent;
+    std::unique_ptr<VoicesMapComponent> voicesMapComponent;
 
 public:
     MasterOptionsComponent() = delete;
@@ -92,7 +92,7 @@ public:
     String generateTipsDelayTooltipString();
     void sliderValueChanged(Slider* slider) override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-    void showPatchMapComponent();
+    void showVoicesMapComponent();
 
 private:
     void hideThisComponent();

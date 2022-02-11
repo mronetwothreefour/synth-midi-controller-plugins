@@ -37,8 +37,8 @@ void SplitSlotsComponent::setTooltipForSplitSlotToggleButton(uint8 slot) {
 	String slotTooltip{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	if (tooltips->shouldShowDescription()) {
-		slotTooltip += "Click a split's name to select it before using the buttons below.\n";
-		slotTooltip += "CTRL-C copies the selected split's settings into the clipboard.\n";
+		slotTooltip += "Click a split" + GUI::apostrophe + "s name to select it before using the buttons below.\n";
+		slotTooltip += "CTRL-C copies the selected split" + GUI::apostrophe + "s settings into the clipboard.\n";
 		slotTooltip += "CTRL-V overwrites the selected split with the settings in the clipboard.";
 	}
 	splitSlotButtons[slot].setTooltip(slotTooltip);

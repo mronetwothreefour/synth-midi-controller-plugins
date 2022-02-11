@@ -67,11 +67,11 @@ void SplitOptions::setLowerZoneLimit(uint8 newValue) {
 	splitOptionsTree.setProperty(ID::split_LowerZoneLimit, newValue, nullptr);
 }
 
-const uint8 SplitOptions::lowerZonePatchNumber() {
+const uint8 SplitOptions::lowerZoneVoiceNumber() {
 	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneVoiceNumber);
 }
 
-void SplitOptions::setLowerZonePatchNumber(uint8 newValue) {
+void SplitOptions::setLowerZoneVoiceNumber(uint8 newValue) {
 	splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, newValue, nullptr);
 }
 
@@ -99,11 +99,11 @@ void SplitOptions::setUpperZoneLimit(uint8 newValue) {
 	splitOptionsTree.setProperty(ID::split_UpperZoneLimit, newValue, nullptr);
 }
 
-const uint8 SplitOptions::upperZonePatchNumber() {
+const uint8 SplitOptions::upperZoneVoiceNumber() {
 	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneVoiceNumber);
 }
 
-void SplitOptions::setUpperZonePatchNumber(uint8 newValue) {
+void SplitOptions::setUpperZoneVoiceNumber(uint8 newValue) {
 	splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, newValue, nullptr);
 }
 

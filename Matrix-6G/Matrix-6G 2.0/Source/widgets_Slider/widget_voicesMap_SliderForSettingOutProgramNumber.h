@@ -8,7 +8,7 @@
 
 class UnexposedParameters;
 
-class SliderForSettingOutPatchForProgramNumber :
+class SliderForSettingOutProgramNumber :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
@@ -17,15 +17,15 @@ class SliderForSettingOutPatchForProgramNumber :
 	Identifier sliderID;
 
 public:
-	SliderForSettingOutPatchForProgramNumber() = delete;
+	SliderForSettingOutProgramNumber() = delete;
 
-	SliderForSettingOutPatchForProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber);
+	SliderForSettingOutProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
-	~SliderForSettingOutPatchForProgramNumber() override;
+	~SliderForSettingOutProgramNumber() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingOutPatchForProgramNumber)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForSettingOutProgramNumber)
 };

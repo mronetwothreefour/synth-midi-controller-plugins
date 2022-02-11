@@ -16,7 +16,7 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingBasicChannel{ unexposedParams },
 	comboBox_ForSelectingOmniModeEnabled{ unexposedParams },
 	comboBox_ForSelectingControllersEnabled{ unexposedParams },
-	comboBox_ForSelectingPatchChangesEnabled{ unexposedParams },
+	comboBox_ForSelectingVoiceChangesEnabled{ unexposedParams },
 	comboBox_ForSelectingSysExEnabled{ unexposedParams },
 	comboBox_ForSelectingSpilloverEnabled{ unexposedParams },
 	comboBox_ForSelectingMIDIechoEnabled{ unexposedParams },
@@ -36,14 +36,14 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	sliderForSettingVibratoAmplitudeModAmount{ unexposedParams, ID::master_VibratoAmplitudeModAmount },
 	slider_ForSettingMasterTune{ unexposedParams },
 	comboBox_ForSelectingSplitStereoEnabled{ unexposedParams },
-	comboBox_ForSelectingPatchMapEnabled{ unexposedParams },
-	comboBox_ForSelectingPatchMapEchoEnabled{ unexposedParams },
+	comboBox_ForSelectingVoicesMapEnabled{ unexposedParams },
+	comboBox_ForSelectingVoiceMapEchoEnabled{ unexposedParams },
 	slider_ForSettingDisplayBrightness{ unexposedParams },
 	comboBox_ForSelectingSQUICKenabled{ unexposedParams },
 	comboBox_ForSelectingDescriptionTipsEnabled{ unexposedParams },
 	comboBox_ForSelectingValueTipsEnabled{ unexposedParams },
 	tipsDelayEditor{ "tipsDelayEditor", "" },
-	button_ForShowingPatchMapComponent{ unexposedParams },
+	button_ForShowingVoiceMapComponent{ unexposedParams },
 	button_ForPushingMasterOptionsToHardware{ unexposedParams }
 {
 	button_ForClosingMasterOptionsComponent.setComponentID(ID::button_X_Master.toString());
@@ -60,8 +60,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingControllersEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingControllersEnabled);
 
-	comboBox_ForSelectingPatchChangesEnabled.addListener(this);
-	addAndMakeVisible(comboBox_ForSelectingPatchChangesEnabled);
+	comboBox_ForSelectingVoiceChangesEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVoiceChangesEnabled);
 
 	comboBox_ForSelectingSysExEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingSysExEnabled);
@@ -120,11 +120,11 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	comboBox_ForSelectingSplitStereoEnabled.addListener(this);
 	addAndMakeVisible(comboBox_ForSelectingSplitStereoEnabled);
 
-	comboBox_ForSelectingPatchMapEnabled.addListener(this);
-	addAndMakeVisible(comboBox_ForSelectingPatchMapEnabled);
+	comboBox_ForSelectingVoicesMapEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVoicesMapEnabled);
 
-	comboBox_ForSelectingPatchMapEchoEnabled.addListener(this);
-	addAndMakeVisible(comboBox_ForSelectingPatchMapEchoEnabled);
+	comboBox_ForSelectingVoiceMapEchoEnabled.addListener(this);
+	addAndMakeVisible(comboBox_ForSelectingVoiceMapEchoEnabled);
 
 	slider_ForSettingDisplayBrightness.addListener(this);
 	addAndMakeVisible(slider_ForSettingDisplayBrightness);
@@ -146,8 +146,8 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	tipsDelayEditor.setTooltip(generateTipsDelayTooltipString());
 	addAndMakeVisible(tipsDelayEditor);
 
-	addAndMakeVisible(button_ForShowingPatchMapComponent);
-	button_ForShowingPatchMapComponent.onClick = [this] { showPatchMapComponent(); };
+	addAndMakeVisible(button_ForShowingVoiceMapComponent);
+	button_ForShowingVoiceMapComponent.onClick = [this] { showVoicesMapComponent(); };
 
 	addAndMakeVisible(button_ForPushingMasterOptionsToHardware);
 
@@ -167,7 +167,7 @@ void MasterOptionsComponent::resized() {
 	slider_ForSettingBasicChannel.setBounds(GUI::bounds_MasterOptionsComponentSliderForBasicChannel);
 	comboBox_ForSelectingOmniModeEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForOmniMode);
 	comboBox_ForSelectingControllersEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForControllers);
-	comboBox_ForSelectingPatchChangesEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceChanges);
+	comboBox_ForSelectingVoiceChangesEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceChanges);
 	comboBox_ForSelectingSysExEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSysEx);
 	comboBox_ForSelectingSpilloverEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSpillover);
 	comboBox_ForSelectingMIDIechoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForMIDIecho);
@@ -187,14 +187,14 @@ void MasterOptionsComponent::resized() {
 	sliderForSettingVibratoAmplitudeModAmount.setBounds(GUI::bounds_MasterOptionsComponentSliderForVibratoAmplitudeModAmount);
 	slider_ForSettingMasterTune.setBounds(GUI::bounds_MasterOptionsComponentSliderForMasterTune);
 	comboBox_ForSelectingSplitStereoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSplitStereo);
-	comboBox_ForSelectingPatchMapEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceMap);
-	comboBox_ForSelectingPatchMapEchoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceMapEcho);
+	comboBox_ForSelectingVoicesMapEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceMap);
+	comboBox_ForSelectingVoiceMapEchoEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForVoiceMapEcho);
 	slider_ForSettingDisplayBrightness.setBounds(GUI::bounds_MasterOptionsComponentSliderForDisplayBrightness);
 	comboBox_ForSelectingSQUICKenabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForSQUICK);
 	comboBox_ForSelectingDescriptionTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForDescriptionTips);
 	comboBox_ForSelectingValueTipsEnabled.setBounds(GUI::bounds_MasterOptionsComponentComboBoxForValueTips);
 	tipsDelayEditor.setBounds(GUI::bounds_MasterOptionsComponentTipsDelayEditor);
-	button_ForShowingPatchMapComponent.setBounds(GUI::bounds_MasterOptionsComponentEditbutton);
+	button_ForShowingVoiceMapComponent.setBounds(GUI::bounds_MasterOptionsComponentEditbutton);
 	button_ForPushingMasterOptionsToHardware.setBounds(GUI::bounds_MasterOptionsComponentPushbutton);
 }
 
@@ -205,8 +205,8 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setOmniModeEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingControllersEnabled)
 		masterOptions->setControllersEnabled(currentSelection);
-	if (comboBox == &comboBox_ForSelectingPatchChangesEnabled)
-		masterOptions->setPatchChangesEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVoiceChangesEnabled)
+		masterOptions->setVoiceChangesEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSysExEnabled)
 		masterOptions->setSysExEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSpilloverEnabled)
@@ -227,10 +227,10 @@ void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 		masterOptions->setVibratoAmplitudeModSource(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSplitStereoEnabled)
 		masterOptions->setSplitStereoEnabled(currentSelection);
-	if (comboBox == &comboBox_ForSelectingPatchMapEnabled)
-		masterOptions->setPatchMapEnabled(currentSelection);
-	if (comboBox == &comboBox_ForSelectingPatchMapEchoEnabled)
-		masterOptions->setPatchMapEchoEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVoicesMapEnabled)
+		masterOptions->setVoicesMapEnabled(currentSelection);
+	if (comboBox == &comboBox_ForSelectingVoiceMapEchoEnabled)
+		masterOptions->setVoicesMapEchoEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingSQUICKenabled)
 		masterOptions->setSQUICKenabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingDescriptionTipsEnabled) {
@@ -327,12 +327,12 @@ void MasterOptionsComponent::valueTreePropertyChanged(ValueTree& tree, const Ide
 	}
 }
 
-void MasterOptionsComponent::showPatchMapComponent() {
-	patchMapComponent.reset(new PatchMapComponent(unexposedParams));
-	if (patchMapComponent != nullptr) {
-		addAndMakeVisible(patchMapComponent.get());
-		patchMapComponent->setBounds(getLocalBounds());
-		patchMapComponent->setAlwaysOnTop(true);
+void MasterOptionsComponent::showVoicesMapComponent() {
+	voicesMapComponent.reset(new VoicesMapComponent(unexposedParams));
+	if (voicesMapComponent != nullptr) {
+		addAndMakeVisible(voicesMapComponent.get());
+		voicesMapComponent->setBounds(getLocalBounds());
+		voicesMapComponent->setAlwaysOnTop(true);
 	}
 }
 
@@ -341,7 +341,7 @@ void MasterOptionsComponent::hideThisComponent() {
 }
 
 MasterOptionsComponent::~MasterOptionsComponent() {
-	patchMapComponent = nullptr;
+	voicesMapComponent = nullptr;
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	tipsDelayEditor.removeListener(this);
@@ -349,8 +349,8 @@ MasterOptionsComponent::~MasterOptionsComponent() {
 	comboBox_ForSelectingDescriptionTipsEnabled.removeListener(this);
 	comboBox_ForSelectingSQUICKenabled.removeListener(this);
 	slider_ForSettingDisplayBrightness.removeListener(this);
-	comboBox_ForSelectingPatchMapEchoEnabled.removeListener(this);
-	comboBox_ForSelectingPatchMapEnabled.removeListener(this);
+	comboBox_ForSelectingVoiceMapEchoEnabled.removeListener(this);
+	comboBox_ForSelectingVoicesMapEnabled.removeListener(this);
 	comboBox_ForSelectingSplitStereoEnabled.removeListener(this);
 	slider_ForSettingMasterTune.removeListener(this);
 	sliderForSettingVibratoAmplitudeModAmount.removeListener(this);
@@ -370,7 +370,7 @@ MasterOptionsComponent::~MasterOptionsComponent() {
 	comboBox_ForSelectingMIDIechoEnabled.removeListener(this);
 	comboBox_ForSelectingSpilloverEnabled.removeListener(this);
 	comboBox_ForSelectingSysExEnabled.removeListener(this);
-	comboBox_ForSelectingPatchChangesEnabled.removeListener(this);
+	comboBox_ForSelectingVoiceChangesEnabled.removeListener(this);
 	comboBox_ForSelectingControllersEnabled.removeListener(this);
 	comboBox_ForSelectingOmniModeEnabled.removeListener(this);
 	slider_ForSettingBasicChannel.removeListener(this);

@@ -163,7 +163,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setColour(buttonColor);
 		g.fillRect(x, y, w, h);
 		g.setColour(Color::offWhiteText);
-		g.setFont(FontsMenu::fontFor_PatchAndSplitSlotRadioButtons);
+		g.setFont(FontsMenu::fontFor_VoiceAndSplitSlotRadioButtons);
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);
 	}

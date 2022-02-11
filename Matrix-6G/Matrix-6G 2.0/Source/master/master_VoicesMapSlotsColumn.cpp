@@ -1,4 +1,4 @@
-#include "master_PatchMapSlotsColumn.h"
+#include "master_VoicesMapSlotsColumn.h"
 
 #include "../gui/gui_Constants.h"
 
@@ -6,7 +6,7 @@ using namespace constants;
 
 
 
-PatchMapSlotsColumn::PatchMapSlotsColumn(UnexposedParameters* unexposedParams, uint8 firstProgramNumber) :
+VoicesMapSlotsColumn::VoicesMapSlotsColumn(UnexposedParameters* unexposedParams, uint8 firstProgramNumber) :
 	slot_0{ unexposedParams, firstProgramNumber },
 	slot_1{ unexposedParams, firstProgramNumber + 1 },
 	slot_2{ unexposedParams, firstProgramNumber + 2 },
@@ -32,7 +32,7 @@ PatchMapSlotsColumn::PatchMapSlotsColumn(UnexposedParameters* unexposedParams, u
 	setSize(GUI::voicesMapSlotsColumn_w, GUI::voicesMapSlotsColumn_h);
 }
 
-void PatchMapSlotsColumn::resized() {
+void VoicesMapSlotsColumn::resized() {
 	slot_0.setBounds(0, 0, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
 	slot_1.setBounds(0, GUI::controlsVerticalGap, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);
 	slot_2.setBounds(0, GUI::controlsVerticalGap * 2, GUI::voicesMapSlot_w, GUI::voicesMapSlot_h);

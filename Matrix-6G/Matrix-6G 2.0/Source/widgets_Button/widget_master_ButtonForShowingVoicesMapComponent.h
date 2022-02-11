@@ -8,14 +8,14 @@
 
 class UnexposedParameters;
 
-class ButtonForShowingPatchMapComponent : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForShowingVoicesMapComponent : public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForShowingPatchMapComponent() = delete;
+	ButtonForShowingVoicesMapComponent() = delete;
 
-	explicit ButtonForShowingPatchMapComponent(UnexposedParameters* unexposedParams);
+	explicit ButtonForShowingVoicesMapComponent(UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -23,6 +23,6 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForShowingPatchMapComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForShowingVoicesMapComponent)
 };
 

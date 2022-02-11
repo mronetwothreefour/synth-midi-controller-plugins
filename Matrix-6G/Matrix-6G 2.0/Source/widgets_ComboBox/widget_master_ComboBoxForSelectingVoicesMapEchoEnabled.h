@@ -8,20 +8,20 @@
 
 class UnexposedParameters;
 
-class ComboBoxForSelectingPatchMapEnabled :
+class ComboBoxForSelectingVoicesMapEchoEnabled :
 	public BaseComboBoxForOffOnValueTreeProperty
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ComboBoxForSelectingPatchMapEnabled() = delete;
+	ComboBoxForSelectingVoicesMapEchoEnabled() = delete;
 
-	explicit ComboBoxForSelectingPatchMapEnabled(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForSelectingVoicesMapEchoEnabled(UnexposedParameters* unexposedParams);
 	String generateTooltipString() override;
-	~ComboBoxForSelectingPatchMapEnabled() override;
+	~ComboBoxForSelectingVoicesMapEchoEnabled() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForSelectingPatchMapEnabled)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForSelectingVoicesMapEchoEnabled)
 };
 

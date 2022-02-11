@@ -1,4 +1,4 @@
-#include "widget_SliderForPatchNumber.h"
+#include "widget_SliderForVoiceNumber.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
@@ -7,7 +7,7 @@
 
 
 
-SliderForPatchNumber::SliderForPatchNumber(UnexposedParameters* unexposedParams) :
+SliderForVoiceNumber::SliderForVoiceNumber(UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::currentVoice_Number }
@@ -21,21 +21,21 @@ SliderForPatchNumber::SliderForPatchNumber(UnexposedParameters* unexposedParams)
 	setMouseDragSensitivity(160);
 }
 
-void SliderForPatchNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void SliderForVoiceNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
 	}
 }
 
-void SliderForPatchNumber::paint(Graphics& g) {
+void SliderForVoiceNumber::paint(Graphics& g) {
 	auto currentValue{ (uint8)roundToInt(getValue()) };
 	auto converter{ IntToUnsignedValueWithLeadingZeroString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
-SliderForPatchNumber::~SliderForPatchNumber() {
+SliderForVoiceNumber::~SliderForVoiceNumber() {
 	auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
 	currentVoiceOptions->removeListener(this);
 }

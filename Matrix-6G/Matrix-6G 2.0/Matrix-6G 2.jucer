@@ -36,10 +36,10 @@
               file="Source/gui/gui_Layer_MatrixMod.cpp"/>
         <FILE id="xHhNb8" name="gui_Layer_MatrixMod.h" compile="0" resource="0"
               file="Source/gui/gui_Layer_MatrixMod.h"/>
-        <FILE id="AwtP94" name="gui_Layer_PatchNumberAndName.cpp" compile="1"
-              resource="0" file="Source/gui/gui_Layer_PatchNumberAndName.cpp"/>
-        <FILE id="eQZ2O8" name="gui_Layer_PatchNumberAndName.h" compile="0"
-              resource="0" file="Source/gui/gui_Layer_PatchNumberAndName.h"/>
+        <FILE id="AwtP94" name="gui_Layer_VoiceNumberAndName.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_VoiceNumberAndName.cpp"/>
+        <FILE id="eQZ2O8" name="gui_Layer_VoiceNumberAndName.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_VoiceNumberAndName.h"/>
         <FILE id="hxhqs1" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="b8ImPm" name="gui_LookAndFeel.h" compile="0" resource="0"
@@ -78,22 +78,22 @@
               resource="0" file="Source/master/master_MasterOptionsComponent.cpp"/>
         <FILE id="QTSxSl" name="master_MasterOptionsComponent.h" compile="0"
               resource="0" file="Source/master/master_MasterOptionsComponent.h"/>
-        <FILE id="HAcvmy" name="master_PatchMapComponent.cpp" compile="1" resource="0"
-              file="Source/master/master_PatchMapComponent.cpp"/>
-        <FILE id="sgaSh3" name="master_PatchMapComponent.h" compile="0" resource="0"
-              file="Source/master/master_PatchMapComponent.h"/>
-        <FILE id="aTLy5R" name="master_PatchMapSlot.cpp" compile="1" resource="0"
-              file="Source/master/master_PatchMapSlot.cpp"/>
-        <FILE id="wIQdFn" name="master_PatchMapSlot.h" compile="0" resource="0"
-              file="Source/master/master_PatchMapSlot.h"/>
-        <FILE id="tYtn5K" name="master_PatchMapSlotsColumn.cpp" compile="1"
-              resource="0" file="Source/master/master_PatchMapSlotsColumn.cpp"/>
-        <FILE id="we5pUI" name="master_PatchMapSlotsColumn.h" compile="0" resource="0"
-              file="Source/master/master_PatchMapSlotsColumn.h"/>
         <FILE id="sESKiV" name="master_SysExIsOffWarningComponent.cpp" compile="1"
               resource="0" file="Source/master/master_SysExIsOffWarningComponent.cpp"/>
         <FILE id="CRMPvY" name="master_SysExIsOffWarningComponent.h" compile="0"
               resource="0" file="Source/master/master_SysExIsOffWarningComponent.h"/>
+        <FILE id="HAcvmy" name="master_VoicesMapComponent.cpp" compile="1"
+              resource="0" file="Source/master/master_VoicesMapComponent.cpp"/>
+        <FILE id="sgaSh3" name="master_VoicesMapComponent.h" compile="0" resource="0"
+              file="Source/master/master_VoicesMapComponent.h"/>
+        <FILE id="aTLy5R" name="master_VoicesMapSlot.cpp" compile="1" resource="0"
+              file="Source/master/master_VoicesMapSlot.cpp"/>
+        <FILE id="wIQdFn" name="master_VoicesMapSlot.h" compile="0" resource="0"
+              file="Source/master/master_VoicesMapSlot.h"/>
+        <FILE id="tYtn5K" name="master_VoicesMapSlotsColumn.cpp" compile="1"
+              resource="0" file="Source/master/master_VoicesMapSlotsColumn.cpp"/>
+        <FILE id="we5pUI" name="master_VoicesMapSlotsColumn.h" compile="0"
+              resource="0" file="Source/master/master_VoicesMapSlotsColumn.h"/>
       </GROUP>
       <GROUP id="{41D2C7F7-132C-7288-59AA-D2313EEDD12E}" name="midi">
         <FILE id="Ugvy3r" name="midi_Constants.h" compile="0" resource="0"
@@ -286,10 +286,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.cpp"/>
         <FILE id="ZsVHJ9" name="widget_master_ButtonForPushingMasterOptionsToHardware.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.h"/>
-        <FILE id="JrGvZn" name="widget_master_ButtonForShowingPatchMapComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.cpp"/>
-        <FILE id="iutpPp" name="widget_master_ButtonForShowingPatchMapComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingPatchMapComponent.h"/>
+        <FILE id="JrGvZn" name="widget_master_ButtonForShowingVoicesMapComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingVoicesMapComponent.cpp"/>
+        <FILE id="iutpPp" name="widget_master_ButtonForShowingVoicesMapComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingVoicesMapComponent.h"/>
         <FILE id="QBRXou" name="widget_splits_ButtonForLoadingSelectedSplit.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
         <FILE id="GsbYgs" name="widget_splits_ButtonForLoadingSelectedSplit.h"
@@ -368,18 +368,6 @@
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"/>
         <FILE id="dfggzH" name="widget_master_ComboBoxForSelectingOmniModeEnabled.h"
               compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"/>
-        <FILE id="A0JuOf" name="widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.cpp"/>
-        <FILE id="q6qtes" name="widget_master_ComboBoxForSelectingPatchChangesEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchChangesEnabled.h"/>
-        <FILE id="H8crCY" name="widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.cpp"/>
-        <FILE id="VKNn7Q" name="widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEchoEnabled.h"/>
-        <FILE id="EhB4Jj" name="widget_master_ComboBoxForSelectingPatchMapEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.cpp"/>
-        <FILE id="xE4ZnT" name="widget_master_ComboBoxForSelectingPatchMapEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingPatchMapEnabled.h"/>
         <FILE id="hyozR3" name="widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"/>
         <FILE id="i7dYOF" name="widget_master_ComboBoxForSelectingSpilloverEnabled.h"
@@ -408,6 +396,18 @@
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.cpp"/>
         <FILE id="lodiS5" name="widget_master_ComboBoxForSelectingVibratoWaveType.h"
               compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"/>
+        <FILE id="A0JuOf" name="widget_master_ComboBoxForSelectingVoiceChangesEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoiceChangesEnabled.cpp"/>
+        <FILE id="q6qtes" name="widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"/>
+        <FILE id="H8crCY" name="widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"/>
+        <FILE id="VKNn7Q" name="widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h"/>
+        <FILE id="EhB4Jj" name="widget_master_ComboBoxForSelectingVoicesMapEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEnabled.cpp"/>
+        <FILE id="xE4ZnT" name="widget_master_ComboBoxForSelectingVoicesMapEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEnabled.h"/>
         <FILE id="NFqaLN" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"/>
         <FILE id="zyKEZD" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"
@@ -498,14 +498,6 @@
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="VGqW8u" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
               file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
-        <FILE id="Pp5sDq" name="widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingInPatchForProgramNumber.cpp"/>
-        <FILE id="lO6A6H" name="widget_patchMap_SliderForSettingInPatchForProgramNumber.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingInPatchForProgramNumber.h"/>
-        <FILE id="BLTbQ9" name="widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingOutPatchForProgramNumber.cpp"/>
-        <FILE id="ezNdN4" name="widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_patchMap_SliderForSettingOutPatchForProgramNumber.h"/>
         <FILE id="mDAkyu" name="widget_RotarySliderForPitchWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderForPitchWithExposedParamAttacher.cpp"/>
         <FILE id="PkEvBN" name="widget_RotarySliderForPitchWithExposedParamAttacher.h"
@@ -514,26 +506,34 @@
               compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.cpp"/>
         <FILE id="PAzkfo" name="widget_RotarySliderWithExposedParamAttacher.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.h"/>
-        <FILE id="eIfbg9" name="widget_SliderForPatchNumber.cpp" compile="1"
-              resource="0" file="Source/widgets_Slider/widget_SliderForPatchNumber.cpp"/>
-        <FILE id="I1Xozr" name="widget_SliderForPatchNumber.h" compile="0"
-              resource="0" file="Source/widgets_Slider/widget_SliderForPatchNumber.h"/>
+        <FILE id="eIfbg9" name="widget_SliderForVoiceNumber.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.cpp"/>
+        <FILE id="I1Xozr" name="widget_SliderForVoiceNumber.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.h"/>
         <FILE id="aD8cMq" name="widget_splits_SliderForSettingZoneLimit.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.cpp"/>
         <FILE id="TOkH3K" name="widget_splits_SliderForSettingZoneLimit.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.h"/>
-        <FILE id="WlZU71" name="widget_splits_SliderForSettingZonePatchNumber.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.cpp"/>
-        <FILE id="DxBxx4" name="widget_splits_SliderForSettingZonePatchNumber.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.h"/>
         <FILE id="ag5wM5" name="widget_splits_SliderForSettingZoneTranspose.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.cpp"/>
         <FILE id="Q0z0yi" name="widget_splits_SliderForSettingZoneTranspose.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.h"/>
+        <FILE id="WlZU71" name="widget_splits_SliderForSettingZoneVoiceNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVoiceNumber.cpp"/>
+        <FILE id="DxBxx4" name="widget_splits_SliderForSettingZoneVoiceNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVoiceNumber.h"/>
         <FILE id="zup1tp" name="widget_splits_SliderForSettingZoneVolumeBalance.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.cpp"/>
         <FILE id="vJfamF" name="widget_splits_SliderForSettingZoneVolumeBalance.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.h"/>
+        <FILE id="Pp5sDq" name="widget_voicesMap_SliderForSettingInVoiceForProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingInVoiceForProgramNumber.cpp"/>
+        <FILE id="lO6A6H" name="widget_voicesMap_SliderForSettingInVoiceForProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingInVoiceForProgramNumber.h"/>
+        <FILE id="BLTbQ9" name="widget_voicesMap_SliderForSettingOutProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingOutProgramNumber.cpp"/>
+        <FILE id="ezNdN4" name="widget_voicesMap_SliderForSettingOutProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingOutProgramNumber.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{ACAB5C26-26C1-DB80-037D-577F9CE8BE5B}" name="Resources">

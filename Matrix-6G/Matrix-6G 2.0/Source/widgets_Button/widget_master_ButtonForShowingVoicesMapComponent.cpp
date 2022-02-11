@@ -1,11 +1,11 @@
-#include "widget_master_ButtonForShowingPatchMapComponent.h"
+#include "widget_master_ButtonForShowingVoicesMapComponent.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-ButtonForShowingPatchMapComponent::ButtonForShowingPatchMapComponent(UnexposedParameters* unexposedParams) :
+ButtonForShowingVoicesMapComponent::ButtonForShowingVoicesMapComponent(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
@@ -13,10 +13,10 @@ ButtonForShowingPatchMapComponent::ButtonForShowingPatchMapComponent(UnexposedPa
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForShowingPatchMapComponent::createButtonTooltipString() {
+const String ButtonForShowingVoicesMapComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "When enabled, the Patch Map lets you easliy customize which patch gets\n";
+		buttonTooltip += "When enabled, the Patch Map lets you easily customize which patch gets\n";
 		buttonTooltip += "loaded when the hardware receives a program change message, without\n";
 		buttonTooltip += "having to physically reorder the voices in the storage bank. For example,\n";
 		buttonTooltip += "a program change message calling program 0 can be specified to load\n";
@@ -28,5 +28,5 @@ const String ButtonForShowingPatchMapComponent::createButtonTooltipString() {
 	return buttonTooltip;
 }
 
-void ButtonForShowingPatchMapComponent::onClickMethod() {
+void ButtonForShowingVoicesMapComponent::onClickMethod() {
 }

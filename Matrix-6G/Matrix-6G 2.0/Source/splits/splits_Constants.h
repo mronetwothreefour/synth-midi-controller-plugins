@@ -20,8 +20,8 @@ namespace constants
 		static const uint8 indexOfUpperZoneMIDIoutLSByte{ indexOfUpperZoneTransposeLSByte + 2 };
 		static const uint8 indexOfZoneVolumeBalanceLSByte{ indexOfUpperZoneMIDIoutLSByte + 2 };
 		static const uint8 indexOfZoneVoiceAssignmentLSByte{ indexOfZoneVolumeBalanceLSByte + 2 };
-		static const uint8 indexOfLowerZonePatchNumberLSByte{ indexOfZoneVoiceAssignmentLSByte + 2 };
-		static const uint8 indexOfUpperZonePatchNumberLSByte{ indexOfLowerZonePatchNumberLSByte + 2 };
+		static const uint8 indexOfLowerZoneVoiceNumberLSByte{ indexOfZoneVoiceAssignmentLSByte + 2 };
+		static const uint8 indexOfUpperZoneVoiceNumberLSByte{ indexOfLowerZoneVoiceNumberLSByte + 2 };
 
 		static const String initialSplitDataHexString{ "90E0904102020000320010420010000000103E" };
 		static const String initialSplitNameString{ "INIT  " };

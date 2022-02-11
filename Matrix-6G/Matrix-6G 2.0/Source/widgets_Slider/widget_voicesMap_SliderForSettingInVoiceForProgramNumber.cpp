@@ -1,4 +1,4 @@
-#include "widget_patchMap_SliderForSettingInPatchForProgramNumber.h"
+#include "widget_voicesMap_SliderForSettingInVoiceForProgramNumber.h"
 
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,29 +6,29 @@
 
 
 
-SliderForSettingInPatchForProgramNumber::SliderForSettingInPatchForProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber) :
+SliderForSettingInVoiceForProgramNumber::SliderForSettingInVoiceForProgramNumber(UnexposedParameters* unexposedParams, uint8 programNumber) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	programNumber{ programNumber },
-	sliderID{ "master_PatchMapIn_" + (String)programNumber }
+	sliderID{ "master_VoicesMapIn_" + (String)programNumber }
 {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ (double)masterOptions->patchMapInPatchForProgramNumber(programNumber) };
+	auto paramValue{ (double)masterOptions->voicesMapInVoiceForProgramNumber(programNumber) };
 	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, (double)programNumber);
 	setMouseDragSensitivity(130);
 	setTooltip(generateTooltipString());
 }
 
-String SliderForSettingInPatchForProgramNumber::generateTooltipString() {
+String SliderForSettingInVoiceForProgramNumber::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "When the Patch Map is enabled, a MIDI program change\n";
 		tooltipText += "message calling program " + (String)programNumber + " will load the patch selected\n";
-		tooltipText += "here into tha hardware instead. NOTE: Changes to the\n";
+		tooltipText += "here into the hardware instead. NOTE: Changes to the\n";
 		tooltipText += "Patch Map will not be updated on the hardware until\n";
 		tooltipText += "the PUSH button in the Master window is clicked.\n";
 	}
@@ -41,7 +41,7 @@ String SliderForSettingInPatchForProgramNumber::generateTooltipString() {
 	return tooltipText;
 }
 
-void SliderForSettingInPatchForProgramNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void SliderForSettingInVoiceForProgramNumber::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == sliderID) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
@@ -49,14 +49,14 @@ void SliderForSettingInPatchForProgramNumber::valueTreePropertyChanged(ValueTree
 	}
 }
 
-void SliderForSettingInPatchForProgramNumber::paint(Graphics& g) {
+void SliderForSettingInVoiceForProgramNumber::paint(Graphics& g) {
 	auto currentValue{ (uint8)roundToInt(getValue()) };
 	auto converter{ IntToUnsignedValueString::get() };
 	String valueString{ converter->convert(currentValue) };
 	ControlValueRenderer::paintValueStringInComponent(g, valueString, this);
 }
 
-SliderForSettingInPatchForProgramNumber::~SliderForSettingInPatchForProgramNumber() {
+SliderForSettingInVoiceForProgramNumber::~SliderForSettingInVoiceForProgramNumber() {
 	auto masterOptions{ unexposedParams->masterOptions_get() };
 	masterOptions->removeListener(this);
 }

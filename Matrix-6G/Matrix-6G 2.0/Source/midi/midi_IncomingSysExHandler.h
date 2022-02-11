@@ -19,7 +19,7 @@ public:
 
 private:
 	bool incomingSysExHasMatchingID(MidiMessage midiMessage);
-	void handleIncomingPatchDump(const uint8* sysExData);
+	void handleIncomingVoiceDump(const uint8* sysExData);
 	void handleIncomingSplitDump(const uint8* sysExData);
 	void handleIncomingMasterOptionsDump(const uint8* sysExData);
 

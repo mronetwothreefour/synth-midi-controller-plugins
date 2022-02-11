@@ -12,7 +12,7 @@
 #include "../widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"
 #include "../widgets_Label/widget_EditableLabel.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZoneLimit.h"
-#include "../widgets_Slider/widget_splits_SliderForSettingZonePatchNumber.h"
+#include "../widgets_Slider/widget_splits_SliderForSettingZoneVoiceNumber.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZoneTranspose.h"
 #include "../widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.h"
 
@@ -35,11 +35,11 @@ class SplitsComponent :
     ComboBoxForSelectingZoneVoiceAssignments comboBox_ForSelectingZoneVoiceAssignments;
     SliderForSettingZoneVolumeBalance slider_ForSettingZoneVolumeBalance;
     SliderForSettingZoneLimit slider_ForSettingLowerZoneLimit;
-    SliderForSettingZonePatchNumber slider_ForSettingLowerZonePatchNumber;
+    SliderForSettingZoneVoiceNumber slider_ForSettingLowerZoneVoiceNumber;
     SliderForSettingZoneTranspose slider_ForSettingLowerZoneTranspose;
     ComboBoxForSelectingZoneMIDIout comboBox_ForSelectingLowerZoneMIDIout;
     SliderForSettingZoneLimit slider_ForSettingUpperZoneLimit;
-    SliderForSettingZonePatchNumber slider_ForSettingUpperZonePatchNumber;
+    SliderForSettingZoneVoiceNumber slider_ForSettingUpperZoneVoiceNumber;
     SliderForSettingZoneTranspose slider_ForSettingUpperZoneTranspose;
     ComboBoxForSelectingZoneMIDIout comboBox_ForSelectingUpperZoneMIDIout;
     SplitSlotsComponent splitSlots;

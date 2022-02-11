@@ -6,7 +6,7 @@
 
 
 
-class SliderForPatchNumber :
+class SliderForVoiceNumber :
 	public RotarySliderWithMouseWheelMod,
 	public ValueTree::Listener
 {
@@ -14,15 +14,15 @@ class SliderForPatchNumber :
 	Identifier parameterID;
 
 public:
-	SliderForPatchNumber() = delete;
+	SliderForVoiceNumber() = delete;
 
-	explicit SliderForPatchNumber(UnexposedParameters* unexposedParams);
+	explicit SliderForVoiceNumber(UnexposedParameters* unexposedParams);
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	void paint(Graphics& g) override;
-	~SliderForPatchNumber() override;
+	~SliderForVoiceNumber() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForPatchNumber)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SliderForVoiceNumber)
 };
 

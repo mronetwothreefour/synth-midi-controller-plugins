@@ -11,7 +11,7 @@ class EnvelopeRenderersLayer;
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
 class MatrixModLayer;
-class PatchNumberAndNameLayer;
+class VoiceNumberAndNameLayer;
 
 class PluginEditor :
     public juce::AudioProcessorEditor,
@@ -23,7 +23,7 @@ class PluginEditor :
     std::unique_ptr<EnvelopeRenderersLayer> envelopeRenderersLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
     std::unique_ptr<MatrixModLayer> matrixModLayer;
-    std::unique_ptr<PatchNumberAndNameLayer> patchNumberAndNameLayer;
+    std::unique_ptr<VoiceNumberAndNameLayer> voiceNumberAndNameLayer;
     std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;

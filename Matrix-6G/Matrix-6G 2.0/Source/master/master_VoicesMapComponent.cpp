@@ -1,4 +1,4 @@
-#include "master_PatchMapComponent.h"
+#include "master_VoicesMapComponent.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
@@ -11,10 +11,10 @@ using namespace constants;
 
 
 
-PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
+VoicesMapComponent::VoicesMapComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	button_ForClosingPatchMapComponent{ "" },
-	button_ForResettingPatchMap{ "" },
+	button_ForClosingVoicesMapComponent{ "" },
+	button_ForResettingVoicesMap{ "" },
 	slotsColumn_0{ unexposedParams, 0},
 	slotsColumn_1{ unexposedParams, 10 },
 	slotsColumn_2{ unexposedParams, 20 },
@@ -26,15 +26,15 @@ PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 	slotsColumn_8{ unexposedParams, 80 },
 	slotsColumn_9{ unexposedParams, 90 }
 {
-	button_ForClosingPatchMapComponent.setComponentID(ID::button_X_VoicesMap.toString());
-	addAndMakeVisible(button_ForClosingPatchMapComponent);
-	button_ForClosingPatchMapComponent.onClick = [this] { hideThisComponent(); };
-	button_ForClosingPatchMapComponent.setAlwaysOnTop(true);
+	button_ForClosingVoicesMapComponent.setComponentID(ID::button_X_VoicesMap.toString());
+	addAndMakeVisible(button_ForClosingVoicesMapComponent);
+	button_ForClosingVoicesMapComponent.onClick = [this] { hideThisComponent(); };
+	button_ForClosingVoicesMapComponent.setAlwaysOnTop(true);
 
-	button_ForResettingPatchMap.setComponentID(ID::button_Reset.toString());
-	addAndMakeVisible(button_ForResettingPatchMap);
+	button_ForResettingVoicesMap.setComponentID(ID::button_Reset.toString());
+	addAndMakeVisible(button_ForResettingVoicesMap);
 	auto masterOptions{ unexposedParams->masterOptions_get() };
-	button_ForResettingPatchMap.onClick = [this, masterOptions] { masterOptions->resetPatchMap(); };
+	button_ForResettingVoicesMap.onClick = [this, masterOptions] { masterOptions->resetVoicesMap(); };
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
@@ -43,7 +43,7 @@ PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 		tooltipText += "be updated on the hardware until the PUSH\n";
 		tooltipText += "button in the Master window is clicked.\n";
 	}
-	button_ForResettingPatchMap.setTooltip(tooltipText);
+	button_ForResettingVoicesMap.setTooltip(tooltipText);
 
 	addAndMakeVisible(slotsColumn_0);
 	addAndMakeVisible(slotsColumn_1);
@@ -59,16 +59,16 @@ PatchMapComponent::PatchMapComponent(UnexposedParameters* unexposedParams) :
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void PatchMapComponent::paint(Graphics& g) {
+void VoicesMapComponent::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::PatchMapWindow_png, BinaryData::PatchMapWindow_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto windowImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(windowImage, GUI::voicesMapWindow_x, GUI::voicesMapWindow_y);
 }
 
-void PatchMapComponent::resized() {
-	button_ForClosingPatchMapComponent.setBounds(GUI::bounds_VoicesMapComponentXbutton);
-	button_ForResettingPatchMap.setBounds(GUI::bounds_VoicesMapResetButton);
+void VoicesMapComponent::resized() {
+	button_ForClosingVoicesMapComponent.setBounds(GUI::bounds_VoicesMapComponentXbutton);
+	button_ForResettingVoicesMap.setBounds(GUI::bounds_VoicesMapResetButton);
 	slotsColumn_0.setBounds(GUI::bounds_VoicesMapSlotsColumn_0);
 	slotsColumn_1.setBounds(GUI::bounds_VoicesMapSlotsColumn_1);
 	slotsColumn_2.setBounds(GUI::bounds_VoicesMapSlotsColumn_2);
@@ -81,7 +81,7 @@ void PatchMapComponent::resized() {
 	slotsColumn_9.setBounds(GUI::bounds_VoicesMapSlotsColumn_9);
 }
 
-void PatchMapComponent::hideThisComponent() {
+void VoicesMapComponent::hideThisComponent() {
 	setVisible(false);
 }
 

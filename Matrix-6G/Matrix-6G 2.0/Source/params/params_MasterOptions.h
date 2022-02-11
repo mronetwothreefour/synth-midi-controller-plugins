@@ -28,8 +28,8 @@ public:
 	const uint8 controllersEnabled();
 	void setControllersEnabled(uint8 newValue);
 
-	const uint8 patchChangesEnabled();
-	void setPatchChangesEnabled(uint8 newValue);
+	const uint8 voiceChangesEnabled();
+	void setVoiceChangesEnabled(uint8 newValue);
 
 	const uint8 sysExEnabled();
 	void setSysExEnabled(uint8 newValue);
@@ -88,11 +88,11 @@ public:
 	const uint8 splitStereoEnabled();
 	void setSplitStereoEnabled(uint8 newValue);
 
-	const uint8 patchMapEnabled();
-	void setPatchMapEnabled(uint8 newValue);
+	const uint8 voicesMapEnabled();
+	void setVoicesMapEnabled(uint8 newValue);
 
-	const uint8 patchMapEchoEnabled();
-	void setPatchMapEchoEnabled(uint8 newValue);
+	const uint8 voicesMapEchoEnabled();
+	void setVoicesMapEchoEnabled(uint8 newValue);
 
 	const uint8 displayBrightness();
 	void setDisplayBrightness(uint8 newValue);
@@ -100,13 +100,13 @@ public:
 	const uint8 squickEnabled();
 	void setSQUICKenabled(uint8 newValue);
 
-	const uint8 patchMapInPatchForProgramNumber(uint8 programNumber);
-	void setPatchMapInPatchForProgramNumber(uint8 newValue, uint8 programNumber);
+	const uint8 voicesMapInVoiceForProgramNumber(uint8 programNumber);
+	void setVoicesMapInVoiceForProgramNumber(uint8 newValue, uint8 programNumber);
 
-	const uint8 patchMapOutPatchForProgramNumber(uint8 programNumber);
-	void setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber);
+	const uint8 voicesMapOutVoiceForProgramNumber(uint8 programNumber);
+	void setVoicesMapOutVoiceForProgramNumber(uint8 newValue, uint8 programNumber);
 
-	void resetPatchMap();
+	void resetVoicesMap();
 
 private:
 	//==============================================================================

@@ -21,7 +21,7 @@ const String ButtonForShowingMasterOptionsComponent::createButtonTooltipString()
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Opens a window where you can edit\n";
 		buttonTooltip += ("the " + GUI::openQuote + "master" + GUI::closeQuote + " options which apply\n");
-		buttonTooltip += "uniformly to all voices.";
+		buttonTooltip += "uniformly to all patches.";
 	}
 	return buttonTooltip;
 }

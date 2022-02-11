@@ -2,7 +2,7 @@
 
 #include "params_Identifiers.h"
 #include "../master/master_Constants.h"
-#include "../patches/patches_Constants.h"
+#include "../voices/voices_Constants.h"
 
 using namespace constants;
 
@@ -42,7 +42,7 @@ void MasterOptions::fillMasterOptionsTreeWithProperties() {
 	masterOptionsTree.setProperty(ID::master_VoicesMapEchoEnabled, (uint8)0, nullptr);
 	masterOptionsTree.setProperty(ID::master_DisplayBrightness, (uint8)27, nullptr);
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, (uint8)0, nullptr);
-	resetPatchMap();
+	resetVoicesMap();
 }
 
 void MasterOptions::resetMasterOptionsToDefaults() {
@@ -81,11 +81,11 @@ void MasterOptions::setControllersEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_ControllersEnabled, newValue, nullptr);
 }
 
-const uint8 MasterOptions::patchChangesEnabled() {
+const uint8 MasterOptions::voiceChangesEnabled() {
 	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoiceChangesEnabled);
 }
 
-void MasterOptions::setPatchChangesEnabled(uint8 newValue) {
+void MasterOptions::setVoiceChangesEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_VoiceChangesEnabled, newValue, nullptr);
 }
 
@@ -241,19 +241,19 @@ void MasterOptions::setSplitStereoEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_SplitStereoEnabled, newValue, nullptr);
 }
 
-const uint8 MasterOptions::patchMapEnabled() {
+const uint8 MasterOptions::voicesMapEnabled() {
 	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoicesMapEnabled);
 }
 
-void MasterOptions::setPatchMapEnabled(uint8 newValue) {
+void MasterOptions::setVoicesMapEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_VoicesMapEnabled, newValue, nullptr);
 }
 
-const uint8 MasterOptions::patchMapEchoEnabled() {
+const uint8 MasterOptions::voicesMapEchoEnabled() {
 	return (uint8)(int)masterOptionsTree.getProperty(ID::master_VoicesMapEchoEnabled);
 }
 
-void MasterOptions::setPatchMapEchoEnabled(uint8 newValue) {
+void MasterOptions::setVoicesMapEchoEnabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_VoicesMapEchoEnabled, newValue, nullptr);
 }
 
@@ -273,27 +273,27 @@ void MasterOptions::setSQUICKenabled(uint8 newValue) {
 	masterOptionsTree.setProperty(ID::master_SQUICKenabled, newValue, nullptr);
 }
 
-const uint8 MasterOptions::patchMapInPatchForProgramNumber(uint8 programNumber) {
-	return (uint8)(int)masterOptionsTree.getProperty("master_PatchMapIn_" + (String)programNumber);
+const uint8 MasterOptions::voicesMapInVoiceForProgramNumber(uint8 programNumber) {
+	return (uint8)(int)masterOptionsTree.getProperty("master_VoicesMapIn_" + (String)programNumber);
 }
 
-void MasterOptions::setPatchMapInPatchForProgramNumber(uint8 newValue, uint8 programNumber) {
-	masterOptionsTree.setProperty("master_PatchMapIn_" + (String)programNumber, newValue, nullptr);
+void MasterOptions::setVoicesMapInVoiceForProgramNumber(uint8 newValue, uint8 programNumber) {
+	masterOptionsTree.setProperty("master_VoicesMapIn_" + (String)programNumber, newValue, nullptr);
 }
 
-const uint8 MasterOptions::patchMapOutPatchForProgramNumber(uint8 programNumber) {
-	return (uint8)(int)masterOptionsTree.getProperty("master_PatchMapOut_" + (String)programNumber);
+const uint8 MasterOptions::voicesMapOutVoiceForProgramNumber(uint8 programNumber) {
+	return (uint8)(int)masterOptionsTree.getProperty("master_VoicesMapOut_" + (String)programNumber);
 }
 
-void MasterOptions::setPatchMapOutPatchForProgramNumber(uint8 newValue, uint8 programNumber) {
-	masterOptionsTree.setProperty("master_PatchMapOut_" + (String)programNumber, newValue, nullptr);
+void MasterOptions::setVoicesMapOutVoiceForProgramNumber(uint8 newValue, uint8 programNumber) {
+	masterOptionsTree.setProperty("master_VoicesMapOut_" + (String)programNumber, newValue, nullptr);
 }
 
-void MasterOptions::resetPatchMap() {
+void MasterOptions::resetVoicesMap() {
 	for (int i = 0; i != voices::numberOfSlotsInBank; ++i) {
-		Identifier inPropertyID{ "master_PatchMapIn_" + (String)i };
+		Identifier inPropertyID{ "master_VoicesMapIn_" + (String)i };
 		masterOptionsTree.setProperty(inPropertyID, (uint8)i, nullptr);
-		Identifier outPropertyID{ "master_PatchMapOut_" + (String)i };
+		Identifier outPropertyID{ "master_VoicesMapOut_" + (String)i };
 		masterOptionsTree.setProperty(outPropertyID, (uint8)i, nullptr);
 	}
 }

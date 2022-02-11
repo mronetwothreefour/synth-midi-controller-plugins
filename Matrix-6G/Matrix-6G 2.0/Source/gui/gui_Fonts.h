@@ -18,7 +18,7 @@ namespace FontsMenu
 	static const Typeface::Ptr Swiss721_CndLt{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
 
 	static const Font fontFor_LabelEditors{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
-	static const Font fontFor_PatchAndSplitSlotRadioButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndLt, 13.0f, 0.0f) };
+	static const Font fontFor_VoiceAndSplitSlotRadioButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndLt, 13.0f, 0.0f) };
 	static const Font fontFor_TooltipText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
 }
 

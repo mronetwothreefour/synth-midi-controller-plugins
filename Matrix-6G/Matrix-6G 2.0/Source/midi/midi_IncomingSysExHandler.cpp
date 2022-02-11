@@ -28,32 +28,32 @@ MidiBuffer IncomingSysExHandler::pullSysExWithMatchingIDOutOfBuffer(const MidiBu
 
 bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
     if (SysExID::matchesHardwareSynthID(midiMessage)) {
-        handleIncomingPatchDump(midiMessage.getSysExData());
+        handleIncomingVoiceDump(midiMessage.getSysExData());
         return true;
     }
     else
         return false;
 }
 
-void IncomingSysExHandler::handleIncomingPatchDump(const uint8* sysExData) {
+void IncomingSysExHandler::handleIncomingVoiceDump(const uint8* sysExData) {
     if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_VoiceData) {
         auto slot{ sysExData[MIDI::voiceAndSplitDumpSlotNumberByte] };
-        std::vector<uint8> patchDataVector;
+        std::vector<uint8> voiceDataVector;
         for (auto dataByte = MIDI::voiceAndSplitDumpFirstDataByte; dataByte != MIDI::sizeOfVoiceDataVector; ++dataByte)
-            patchDataVector.push_back(*(sysExData + dataByte));
+            voiceDataVector.push_back(*(sysExData + dataByte));
         auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
         if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankA() || voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankB()) {
             auto voicesBanks{ unexposedParams->voicesBanks_get() };
-            auto patchDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(patchDataVector) };
+            auto voiceDataHexString{ RawDataTools::convertVoiceOrSplitDataVectorToHexString(voiceDataVector) };
             const MessageManagerLock mmLock;
             if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankA())
-                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, VoicesBank::customA, slot);
+                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, VoicesBank::customA, slot);
             if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInCustomBankB())
-                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(patchDataHexString, VoicesBank::customB, slot);
+                voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, VoicesBank::customB, slot);
             voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInCustomBank();
         }
         const MessageManagerLock mmLock;
-        RawDataTools::applyVoiceDataVectorToGUI(slot, patchDataVector, exposedParams, unexposedParams);
+        RawDataTools::applyVoiceDataVectorToGUI(slot, voiceDataVector, exposedParams, unexposedParams);
     }
     else
         handleIncomingSplitDump(sysExData);

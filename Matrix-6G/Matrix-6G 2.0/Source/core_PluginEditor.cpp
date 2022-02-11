@@ -6,7 +6,7 @@
 #include "gui/gui_Layer_EnvelopeRenderers.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
 #include "gui/gui_Layer_MatrixMod.h"
-#include "gui/gui_Layer_PatchNumberAndName.h"
+#include "gui/gui_Layer_VoiceNumberAndName.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 
@@ -23,7 +23,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     envelopeRenderersLayer{ new EnvelopeRenderersLayer(exposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
     matrixModLayer{ new MatrixModLayer(unexposedParams) },
-    patchNumberAndNameLayer{ new PatchNumberAndNameLayer(unexposedParams) },
+    voiceNumberAndNameLayer{ new VoiceNumberAndNameLayer(unexposedParams) },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
@@ -32,7 +32,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(envelopeRenderersLayer.get());
     addAndMakeVisible(exposedParamsControlsLayer.get());
     addAndMakeVisible(matrixModLayer.get());
-    addAndMakeVisible(patchNumberAndNameLayer.get());
+    addAndMakeVisible(voiceNumberAndNameLayer.get());
     addAndMakeVisible(buttonsLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
@@ -56,7 +56,7 @@ void PluginEditor::resized() {
     envelopeRenderersLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
     matrixModLayer->setBounds(getLocalBounds());
-    patchNumberAndNameLayer->setBounds(getLocalBounds());
+    voiceNumberAndNameLayer->setBounds(getLocalBounds());
     buttonsLayer->setBounds(getLocalBounds());
 }
 
@@ -72,7 +72,7 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     buttonsLayer = nullptr;
-    patchNumberAndNameLayer = nullptr;
+    voiceNumberAndNameLayer = nullptr;
     matrixModLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     envelopeRenderersLayer = nullptr;
