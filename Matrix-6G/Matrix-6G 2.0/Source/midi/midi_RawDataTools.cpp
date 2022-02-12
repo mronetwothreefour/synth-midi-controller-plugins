@@ -171,9 +171,9 @@ void RawDataTools::applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vecto
 
     voiceDataVector.erase(voiceDataVector.begin(), voiceDataVector.begin() + voices::indexOfLastDataByteBeforeExposedParams);
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-    voiceTransmissionOptions->setParamChangeEchosAreBlocked();
+    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
     applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams);
-    voiceTransmissionOptions->setParamChangeEchosAreNotBlocked();
+    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 
     voiceDataVector.erase(voiceDataVector.begin(), voiceDataVector.begin() + voices::indexOfLastDataByteBeforeMatrixModSettings);
     applyRawVoiceDataToMatrixModParameters(voiceDataVector.data(), unexposedParams);

@@ -21,7 +21,7 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (voiceTransmissionOptions->paramChangeEchosAreNotBlocked()) {
+	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto paramIndex{ info.indexForParamID(parameterID) };
 		auto outputValue{ (int8)roundToInt(newValue) };

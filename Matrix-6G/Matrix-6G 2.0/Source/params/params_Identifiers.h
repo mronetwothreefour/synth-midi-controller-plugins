@@ -141,13 +141,6 @@ namespace ID
 	static const Identifier matrixMod_SourceForMod_8{ "matrixMod_SourceForMod_8" };
 	static const Identifier matrixMod_SourceForMod_9{ "matrixMod_SourceForMod_9" };
 
-	static const Identifier midi_BasicChannel{ "midi_BasicChannel" };
-	static const Identifier midi_IncomingVoiceShouldBeSavedInCustomBankA{ "midi_IncomingVoiceShouldBeSavedInCustomBankA" };
-	static const Identifier midi_IncomingVoiceShouldBeSavedInCustomBankB{ "midi_IncomingVoiceShouldBeSavedInCustomBankB" };
-	static const Identifier midi_Options{ "midi_Options" };
-	static const Identifier midi_ParamChangeEchosAreBlocked{ "midi_ParamChangeEchosAreBlocked" };
-	static const Identifier midi_VoiceTransmitTime{ "midi_VoiceTransmitTime" };
-
 	static const Identifier split_Name{ "split_Name" };
 	static const Identifier split_Options{ "split_Options" };
 	static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
@@ -181,4 +174,10 @@ namespace ID
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
 	static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
+	static const Identifier voiceTx_IncomingVoiceShouldBeSavedInCustomBankA{ "voiceTx_IncomingVoiceShouldBeSavedInCustomBankA" };
+	static const Identifier voiceTx_IncomingVoiceShouldBeSavedInCustomBankB{ "voiceTx_IncomingVoiceShouldBeSavedInCustomBankB" };
+	static const Identifier voiceTx_Options{ "voiceTx_Options" };
+	static const Identifier voiceTx_ParamChangeEchoesAreBlocked{ "voiceTx_ParamChangeEchoesAreBlocked" };
+	static const Identifier voiceTx_Time{ "voiceTx_Time" };
 }

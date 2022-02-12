@@ -22,9 +22,9 @@ public:
 	void setIncomingVoiceShouldBeSavedInCustomBankA();
 	void setIncomingVoiceShouldBeSavedInCustomBankB();
 	void setIncomingVoiceShouldNotBeSavedInCustomBank();
-	bool paramChangeEchosAreNotBlocked();
-	void setParamChangeEchosAreBlocked();
-	void setParamChangeEchosAreNotBlocked();
+	bool paramChangeEchoesAreNotBlocked();
+	void setParamChangeEchoesAreBlocked();
+	void setParamChangeEchoesAreNotBlocked();
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(int timeInMilliseconds);
 	XmlElement* getStateXml();
