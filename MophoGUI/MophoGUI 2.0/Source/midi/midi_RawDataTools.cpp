@@ -22,7 +22,7 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
 
 void RawDataTools::applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchosAreBlocked();
+    midiOptions->setParamChangeEchoesAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
@@ -36,7 +36,7 @@ void RawDataTools::applyToExposedParameters(const uint8* dumpData, AudioProcesso
         auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
         exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     }
-    midiOptions->setParamChangeEchosAreNotBlocked();
+    midiOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 const std::vector<uint8> RawDataTools::extractFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {

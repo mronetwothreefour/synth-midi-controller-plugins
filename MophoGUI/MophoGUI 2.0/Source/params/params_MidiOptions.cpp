@@ -16,7 +16,7 @@ void MidiOptions::fillMidiOptionsTreeWithProperties() {
 	midiOptionsTree.setProperty(ID::midi_ControllersOn, (bool)true, nullptr);
 	midiOptionsTree.setProperty(ID::midi_HardwareReceiveChannel, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_PedalModeArpLatch, (bool)false, nullptr);
-	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+	midiOptionsTree.setProperty(ID::midi_ParamChangeEchoesAreBlocked, (bool)false, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterReceiveType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_ParameterSendType, (uint8)0, nullptr);
 	midiOptionsTree.setProperty(ID::midi_VoiceTransmitTime, 300, nullptr);
@@ -148,16 +148,16 @@ void MidiOptions::setVoiceChangeOff() {
 	midiOptionsTree.setProperty(ID::midi_VoiceChangeOn, (bool)false, nullptr);
 }
 
-const bool MidiOptions::paramChangeEchosAreNotBlocked() {
-	return !(bool)midiOptionsTree.getProperty(ID::midi_ParamChangeEchosAreBlocked);
+const bool MidiOptions::paramChangeEchoesAreNotBlocked() {
+	return !(bool)midiOptionsTree.getProperty(ID::midi_ParamChangeEchoesAreBlocked);
 }
 
-void MidiOptions::setParamChangeEchosAreBlocked() {
-	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)true, nullptr);
+void MidiOptions::setParamChangeEchoesAreBlocked() {
+	midiOptionsTree.setProperty(ID::midi_ParamChangeEchoesAreBlocked, (bool)true, nullptr);
 }
 
-void MidiOptions::setParamChangeEchosAreNotBlocked() {
-	midiOptionsTree.setProperty(ID::midi_ParamChangeEchosAreBlocked, (bool)false, nullptr);
+void MidiOptions::setParamChangeEchoesAreNotBlocked() {
+	midiOptionsTree.setProperty(ID::midi_ParamChangeEchoesAreBlocked, (bool)false, nullptr);
 }
 
 const int MidiOptions::voiceTransmitTime() {

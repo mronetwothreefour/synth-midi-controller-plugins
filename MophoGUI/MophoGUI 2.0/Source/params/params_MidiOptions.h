@@ -44,9 +44,9 @@ public:
 	const bool voiceChangeIsOn();
 	void setVoiceChangeOn();
 	void setVoiceChangeOff();
-	const bool paramChangeEchosAreNotBlocked();
-	void setParamChangeEchosAreBlocked();
-	void setParamChangeEchosAreNotBlocked();
+	const bool paramChangeEchoesAreNotBlocked();
+	void setParamChangeEchoesAreBlocked();
+	void setParamChangeEchoesAreNotBlocked();
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(int timeInMilliseconds);
 

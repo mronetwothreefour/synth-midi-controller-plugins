@@ -101,18 +101,18 @@ void IncomingNRPNhandler::handleControllerWhichTargetsNRPNvalueLSB(MidiMessage m
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToExposedParameter(int nrpnType, int newValue) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchosAreBlocked();
+    midiOptions->setParamChangeEchoesAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
     auto param{ info.indexForNRPN((uint8)nrpnType) };
     auto paramID{ info.IDfor(param) };
     auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
     exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
-    midiOptions->setParamChangeEchosAreNotBlocked();
+    midiOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToUnexposedParameter(int nrpnType, int newValue) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchosAreBlocked();
+    midiOptions->setParamChangeEchoesAreBlocked();
     auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
     switch (nrpnType)
     {
@@ -125,7 +125,7 @@ void IncomingNRPNhandler::applyIncomingNRPNvalueToUnexposedParameter(int nrpnTyp
     default:
         break;
     }
-    midiOptions->setParamChangeEchosAreNotBlocked();
+    midiOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 IncomingNRPNhandler::~IncomingNRPNhandler() {

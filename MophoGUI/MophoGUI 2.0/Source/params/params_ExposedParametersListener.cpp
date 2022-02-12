@@ -21,7 +21,7 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (midiOptions->paramChangeEchosAreNotBlocked()) {
+	if (midiOptions->paramChangeEchoesAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
 		auto nrpn{ info.NRPNfor(param) };

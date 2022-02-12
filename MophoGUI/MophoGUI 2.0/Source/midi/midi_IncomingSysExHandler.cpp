@@ -84,7 +84,7 @@ void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysEx
 
 void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
     auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchosAreBlocked();
+    midiOptions->setParamChangeEchoesAreBlocked();
     auto globalHardwareReceiveChannel{ sysExData[MIDI::globalHardwareReceiveChannelMSByte] * 16 + sysExData[MIDI::globalHardwareReceiveChannelLSByte] };
     midiOptions->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
     auto allChannels{ 0 };
@@ -118,7 +118,7 @@ void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
         midiOptions->setVoiceChangeOn();
     else
         midiOptions->setVoiceChangeOff();
-    midiOptions->setParamChangeEchosAreNotBlocked();
+    midiOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 void IncomingSysExHandler::updateGlobalAudioOptions(const uint8* sysExData) {
