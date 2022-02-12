@@ -3,17 +3,17 @@
 #include <JuceHeader.h>
 
 #include "../widgets_Button/widget_ButtonForClearingSequencerTrack.h"
-#include "../widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"
+#include "../widgets_Button/widget_ButtonAndLabelForEditingVoiceName.h"
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
-#include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"
-#include "../widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"
-#include "../widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"
+#include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessage.h"
+#include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessageRequest.h"
+#include "../widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
 
 class GlobalParametersComponent;
-class ProgramBanksComponent;
+class VoicesBanksComponent;
 class NRPNisOffWarningComponent;
 class SysExIsOffWarningComponent;
 class UnexposedParameters;
@@ -24,10 +24,10 @@ class ButtonsLayer :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	ButtonAndLabelForEditingPgmName button_ForEditingPgmName;
-	ButtonForSendingProgramEditBufferDump button_ForSendingProgramEditBufferDump;
-	ButtonForSendingProgramEditBufferDumpRequest button_ForSendingProgramEditBufferDumpRequest;
-	ButtonForShowingProgramBanksComponent button_ForShowingProgramBanksComponent;
+	ButtonAndLabelForEditingVoiceName button_ForEditingVoiceName;
+	ButtonForSendingEditBufferDataMessage button_ForSendingEditBufferDataMessage;
+	ButtonForSendingEditBufferDataMessageRequest button_ForSendingEditBufferDataMessageRequest;
+	ButtonForShowingVoicesBanksComponent button_ForShowingVoicesBanksComponent;
 	ButtonForShowingGlobalParametersComponent button_ForShowingGlobalParametersComponent;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
@@ -36,7 +36,7 @@ class ButtonsLayer :
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack3;
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack4;
 	HyperlinkButton button_ForGoingToWebSite;
-	std::unique_ptr<ProgramBanksComponent> programBanksComponent;
+	std::unique_ptr<VoicesBanksComponent> voicesBanksComponent;
 	std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
 	std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
 	std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
@@ -47,7 +47,7 @@ public:
 	ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void showProgramBanksComponent();
+	void showVoicesBanksComponent();
 	void prepareToShowGlobalParametersComponent();
 	void showSysExIsOffWarningComponent();
 	void showNRPNisOffWarningComponent();

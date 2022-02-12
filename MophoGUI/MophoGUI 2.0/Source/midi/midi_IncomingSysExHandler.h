@@ -19,8 +19,8 @@ public:
 
 private:
 	bool incomingSysExHasMatchingID(MidiMessage midiMessage);
-	void handleIncomingProgramEditBufferDump(const uint8* sysExData);
-	void handleIncomingProgramDump(const uint8* sysExData);
+	void handleIncomingEditBufferDataMessage(const uint8* sysExData);
+	void handleIncomingVoiceDataMessage(const uint8* sysExData);
 	void handleIncomingGlobalParametersDump(const uint8* sysExData);
 	void updateMidiOptions(const uint8* sysExData);
 	void updateGlobalAudioOptions(const uint8* sysExData);

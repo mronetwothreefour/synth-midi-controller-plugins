@@ -1,4 +1,4 @@
-#include "widget_global_ComboBoxForProgramChange.h"
+#include "widget_global_ComboBoxForVoiceChange.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
@@ -6,7 +6,7 @@
 
 
 
-ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexposedParams) :
+ComboBoxForVoiceChange::ComboBoxForVoiceChange(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::midi_VoiceChangeOn }
 {
@@ -24,7 +24,7 @@ ComboBoxForProgramChange::ComboBoxForProgramChange(UnexposedParameters* unexpose
 	setTooltip(generateTooltipString());
 }
 
-String ComboBoxForProgramChange::generateTooltipString() {
+String ComboBoxForVoiceChange::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
@@ -41,7 +41,7 @@ String ComboBoxForProgramChange::generateTooltipString() {
 	return tooltipText;
 }
 
-void ComboBoxForProgramChange::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
+void ComboBoxForVoiceChange::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == parameterID) {
 		MessageManagerLock mmLock;
 		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
@@ -52,7 +52,7 @@ void ComboBoxForProgramChange::valueTreePropertyChanged(ValueTree& tree, const I
 	}
 }
 
-ComboBoxForProgramChange::~ComboBoxForProgramChange() {
+ComboBoxForVoiceChange::~ComboBoxForVoiceChange() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 	auto midiOptions{ unexposedParams->midiOptions_get() };

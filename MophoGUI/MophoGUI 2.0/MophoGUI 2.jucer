@@ -185,6 +185,10 @@
               resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamToggles.h"/>
       </GROUP>
       <GROUP id="{D6DBCC60-6D69-780F-BF99-8C7D1502B799}" name="voices">
+        <FILE id="jYeeKQ" name="voices_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.cpp"/>
+        <FILE id="upqaDr" name="voices_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.h"/>
         <FILE id="T0EH6X" name="voices_Constants.h" compile="0" resource="0"
               file="Source/voices/voices_Constants.h"/>
         <FILE id="RG3lSJ" name="voices_FactoryVoiceDataHexStrings_Singleton.cpp"
@@ -224,29 +228,23 @@
         <FILE id="xb9z8k" name="voices_VoiceSlotsComponent.h" compile="0" resource="0"
               file="Source/voices/voices_VoiceSlotsComponent.h"/>
       </GROUP>
-      <GROUP id="{3280BE76-A967-116C-98B0-127D53EFBE15}" name="widgets_BankTransmission">
-        <FILE id="WvWTHD" name="widget_BankTransmissionComponent.cpp" compile="1"
-              resource="0" file="Source/widgets_BankTransmission/widget_BankTransmissionComponent.cpp"/>
-        <FILE id="Th3khl" name="widget_BankTransmissionComponent.h" compile="0"
-              resource="0" file="Source/widgets_BankTransmission/widget_BankTransmissionComponent.h"/>
-      </GROUP>
       <GROUP id="{B524C997-BB24-2B52-B0EB-EF6B7F64137A}" name="widgets_Button">
         <FILE id="PvmtOT" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
         <FILE id="RI6nfo" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
-        <FILE id="qdTL0G" name="widget_ButtonAndLabelForEditingPgmName.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingPgmName.cpp"/>
-        <FILE id="XkTlJq" name="widget_ButtonAndLabelForEditingPgmName.h" compile="0"
-              resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"/>
+        <FILE id="qdTL0G" name="widget_ButtonAndLabelForEditingVoiceName.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingVoiceName.cpp"/>
+        <FILE id="XkTlJq" name="widget_ButtonAndLabelForEditingVoiceName.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingVoiceName.h"/>
         <FILE id="eMvL2s" name="widget_ButtonForClearingSequencerTrack.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForClearingSequencerTrack.cpp"/>
         <FILE id="QjPHTs" name="widget_ButtonForClearingSequencerTrack.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForClearingSequencerTrack.h"/>
-        <FILE id="ep5YxO" name="widget_ButtonForOpeningPgmNameEditor.cpp" compile="1"
-              resource="0" file="Source/widgets_Button/widget_ButtonForOpeningPgmNameEditor.cpp"/>
-        <FILE id="AAnRV4" name="widget_ButtonForOpeningPgmNameEditor.h" compile="0"
-              resource="0" file="Source/widgets_Button/widget_ButtonForOpeningPgmNameEditor.h"/>
+        <FILE id="ep5YxO" name="widget_ButtonForOpeningVoiceNameEditor.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForOpeningVoiceNameEditor.cpp"/>
+        <FILE id="AAnRV4" name="widget_ButtonForOpeningVoiceNameEditor.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForOpeningVoiceNameEditor.h"/>
         <FILE id="usQSUN" name="widget_ButtonForPerformingRedo.cpp" compile="1"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
         <FILE id="ok8Lh3" name="widget_ButtonForPerformingRedo.h" compile="0"
@@ -255,22 +253,22 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
         <FILE id="nXO4Si" name="widget_ButtonForPerformingUndo.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
-        <FILE id="CkYWX7" name="widget_ButtonForSendingProgramEditBufferDump.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDump.cpp"/>
-        <FILE id="OeAQv7" name="widget_ButtonForSendingProgramEditBufferDump.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"/>
-        <FILE id="Urweoa" name="widget_ButtonForSendingProgramEditBufferDumpRequest.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.cpp"/>
-        <FILE id="zBrnOl" name="widget_ButtonForSendingProgramEditBufferDumpRequest.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"/>
+        <FILE id="CkYWX7" name="widget_ButtonForSendingEditBufferDataMessage.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingEditBufferDataMessage.cpp"/>
+        <FILE id="OeAQv7" name="widget_ButtonForSendingEditBufferDataMessage.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingEditBufferDataMessage.h"/>
+        <FILE id="Urweoa" name="widget_ButtonForSendingEditBufferDataMessageRequest.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingEditBufferDataMessageRequest.cpp"/>
+        <FILE id="zBrnOl" name="widget_ButtonForSendingEditBufferDataMessageRequest.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingEditBufferDataMessageRequest.h"/>
         <FILE id="W7Omxf" name="widget_ButtonForShowingGlobalParametersComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.cpp"/>
         <FILE id="YPePuD" name="widget_ButtonForShowingGlobalParametersComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"/>
-        <FILE id="MidhH7" name="widget_ButtonForShowingProgramBanksComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBanksComponent.cpp"/>
-        <FILE id="AsEpJa" name="widget_ButtonForShowingProgramBanksComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"/>
+        <FILE id="MidhH7" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
+        <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
         <FILE id="fgPxyu" name="widget_voices_ButtonForLoadingSelectedVoice.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
         <FILE id="w53TUf" name="widget_voices_ButtonForLoadingSelectedVoice.h"
@@ -313,10 +311,10 @@
               resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForPedalMode.cpp"/>
         <FILE id="Lgfi0t" name="widget_global_ComboBoxForPedalMode.h" compile="0"
               resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"/>
-        <FILE id="DVWav5" name="widget_global_ComboBoxForProgramChange.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForProgramChange.cpp"/>
-        <FILE id="VHwn8D" name="widget_global_ComboBoxForProgramChange.h" compile="0"
-              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForProgramChange.h"/>
+        <FILE id="DVWav5" name="widget_global_ComboBoxForVoiceChange.cpp" compile="1"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForVoiceChange.cpp"/>
+        <FILE id="VHwn8D" name="widget_global_ComboBoxForVoiceChange.h" compile="0"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForVoiceChange.h"/>
       </GROUP>
       <GROUP id="{29968742-BBC8-C1DB-7697-3C4B0E5AA288}" name="widgets_ControlsForParameters">
         <FILE id="mVpKjE" name="widget_ControlForExposedParameter.cpp" compile="1"
@@ -391,14 +389,14 @@
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="qkA62b" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
               file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
-        <FILE id="fwIulp" name="widget_ProgramNameCharWithExposedParamAttacher.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_ProgramNameCharWithExposedParamAttacher.cpp"/>
-        <FILE id="asSwGU" name="widget_ProgramNameCharWithExposedParamAttacher.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_ProgramNameCharWithExposedParamAttacher.h"/>
         <FILE id="O4qAIh" name="widget_SequencerStepWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_SequencerStepWithExposedParamAttacher.cpp"/>
         <FILE id="deXdHb" name="widget_SequencerStepWithExposedParamAttacher.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_SequencerStepWithExposedParamAttacher.h"/>
+        <FILE id="fwIulp" name="widget_VoiceNameCharWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_VoiceNameCharWithExposedParamAttacher.cpp"/>
+        <FILE id="asSwGU" name="widget_VoiceNameCharWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_VoiceNameCharWithExposedParamAttacher.h"/>
       </GROUP>
       <GROUP id="{4F195C51-A103-6BCC-009A-D6F8E7257188}" name="widgets_ToggleButton">
         <FILE id="sKJwPH" name="widget_global_ToggleButtonForCurrentSettingTooltip.cpp"

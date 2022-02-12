@@ -6,7 +6,7 @@
 
 class UnexposedParameters;
 
-class ComboBoxForProgramChange :
+class ComboBoxForVoiceChange :
 	public ComboBox,
 	public ValueTree::Listener
 {
@@ -14,14 +14,14 @@ class ComboBoxForProgramChange :
 	Identifier parameterID;
 
 public:
-	ComboBoxForProgramChange() = delete;
+	ComboBoxForVoiceChange() = delete;
 
-	explicit ComboBoxForProgramChange(UnexposedParameters* unexposedParams);
+	explicit ComboBoxForVoiceChange(UnexposedParameters* unexposedParams);
 	String generateTooltipString();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ComboBoxForProgramChange();
+	~ComboBoxForVoiceChange();
 
 private:
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForProgramChange)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForVoiceChange)
 };
 

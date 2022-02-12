@@ -26,9 +26,6 @@
     <Filter Include="MophoGUI 2\Source\voices">
       <UniqueIdentifier>{5FA9AFF4-B31B-2EC4-32E2-B3AEBE861D82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI 2\Source\widgets_BankTransmission">
-      <UniqueIdentifier>{BB1D6239-304B-E982-9665-D168ECD52A8C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MophoGUI 2\Source\widgets_Button">
       <UniqueIdentifier>{0C3D72B7-EF23-63D5-8990-928F97BA5FF6}</UniqueIdentifier>
     </Filter>
@@ -601,6 +598,9 @@
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.cpp">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_BankTransmissionComponent.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
@@ -628,19 +628,16 @@
     <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsComponent.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.cpp">
-      <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingVoiceName.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningVoiceNameEditor.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp">
@@ -649,16 +646,16 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessage.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp">
@@ -691,7 +688,7 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.cpp">
       <Filter>MophoGUI 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForVoiceChange.cpp">
       <Filter>MophoGUI 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
@@ -739,10 +736,10 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_VoiceNameCharWithExposedParamAttacher.cpp">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.cpp">
@@ -3006,6 +3003,9 @@
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamToggles.h">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_BankTransmissionComponent.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_Constants.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
@@ -3036,19 +3036,16 @@
     <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsComponent.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_BankTransmission\widget_BankTransmissionComponent.h">
-      <Filter>MophoGUI 2\Source\widgets_BankTransmission</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingPgmName.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonAndLabelForEditingVoiceName.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForClearingSequencerTrack.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningPgmNameEditor.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningVoiceNameEditor.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h">
@@ -3057,16 +3054,16 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDump.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessage.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingProgramEditBufferDumpRequest.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBanksComponent.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h">
@@ -3099,7 +3096,7 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForPedalMode.h">
       <Filter>MophoGUI 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForProgramChange.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForVoiceChange.h">
       <Filter>MophoGUI 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
@@ -3159,10 +3156,10 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_ProgramNameCharWithExposedParamAttacher.h">
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_SequencerStepWithExposedParamAttacher.h">
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_VoiceNameCharWithExposedParamAttacher.h">
       <Filter>MophoGUI 2\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ToggleButton\widget_global_ToggleButtonForCurrentSettingTooltip.h">

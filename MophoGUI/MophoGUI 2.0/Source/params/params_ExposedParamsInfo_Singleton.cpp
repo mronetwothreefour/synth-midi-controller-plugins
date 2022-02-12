@@ -1,5 +1,6 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 
+#include "params_Constants.h"
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
 #include "../gui/gui_Constants.h"
@@ -564,7 +565,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("pgmVolume"); // 40
+	identifiers.add("voiceVolume"); // 40
 	exposedNames.add("Program Volume");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)29);
@@ -1286,7 +1287,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		auto charNumString{ (String)(charNum + 1) };
 		identifiers.add("nameChar" + charNumString);
 		exposedNames.add("Program Name Character " + charNumString);
-		controlTypes.add(ControlType::pgmNameChar);
+		controlTypes.add(ControlType::voiceNameChar);
 		NRPNs.add((uint8)(184 + charNum));
 		converters.add(IntToVoiceNameCharString::get());
 		maxValues.add((uint8)127);
@@ -1299,24 +1300,24 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::voiceNameCharacters_h);
 		controlCenterPoints.add(Point<int>(GUI::voiceNameCharacter1_x + (charNum * GUI::voiceNameCharactersHorizontalSpacer), GUI::voiceNameCharacters_y));
 	}
-	defaultValues.add((uint8)66);	// B
-	defaultValues.add((uint8)97);	// a
-	defaultValues.add((uint8)115);	// s
-	defaultValues.add((uint8)105);	// i
-	defaultValues.add((uint8)99);	// c
-	defaultValues.add((uint8)32);	// space
-	defaultValues.add((uint8)80);	// P
-	defaultValues.add((uint8)97);	// a
-	defaultValues.add((uint8)116);	// t
-	defaultValues.add((uint8)99);	// c
-	defaultValues.add((uint8)104);	// h
-	defaultValues.add((uint8)32);	// space
-	defaultValues.add((uint8)32);	// space
-	defaultValues.add((uint8)32);	// space
-	defaultValues.add((uint8)32);	// space
-	defaultValues.add((uint8)32);	// space
+	defaultValues.add((uint8)'B');
+	defaultValues.add((uint8)'a');
+	defaultValues.add((uint8)'s');
+	defaultValues.add((uint8)'i');
+	defaultValues.add((uint8)'c');
+	defaultValues.add((uint8)' ');
+	defaultValues.add((uint8)'P');
+	defaultValues.add((uint8)'r');
+	defaultValues.add((uint8)'o');
+	defaultValues.add((uint8)'g');
+	defaultValues.add((uint8)'r');
+	defaultValues.add((uint8)'a');
+	defaultValues.add((uint8)'m');
+	defaultValues.add((uint8)' ');
+	defaultValues.add((uint8)' ');
+	defaultValues.add((uint8)' ');
 
-	for (uint16 param = 0; param != 189; ++param) {
+	for (uint16 param = 0; param != params::numberOfExposedParams; ++param) {
 		fillDataByteLocationsFor(param);
 	}
 }

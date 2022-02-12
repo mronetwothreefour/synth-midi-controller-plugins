@@ -8,14 +8,14 @@
 
 class UnexposedParameters;
 
-class ButtonForSendingProgramEditBufferDumpRequest : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForSendingEditBufferDataMessageRequest : public BaseButtonWithOnClickAndTooltipMethods
 {
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForSendingProgramEditBufferDumpRequest() = delete;
+	ButtonForSendingEditBufferDataMessageRequest() = delete;
 
-	explicit ButtonForSendingProgramEditBufferDumpRequest(UnexposedParameters* unexposedParams);
+	explicit ButtonForSendingEditBufferDataMessageRequest(UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -23,5 +23,5 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingProgramEditBufferDumpRequest)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingEditBufferDataMessageRequest)
 };

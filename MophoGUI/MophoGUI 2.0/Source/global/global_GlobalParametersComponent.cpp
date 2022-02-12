@@ -24,7 +24,7 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	valueDisplay_ForGlobalMidiChannel{&knob_ForGlobalMidiChannel, IntToGlobalMidiChannelString::get() },
 	comboBox_ForMidiClock{ unexposedParams },
 	comboBox_ForPedalMode{ unexposedParams },
-	comboBox_ForProgramChange{ unexposedParams },
+	comboBox_ForVoiceChange{ unexposedParams },
 	comboBox_ForParameterSend{ unexposedParams },
 	displayLabel_ForParameterReceive{ unexposedParams },
 	displayLabel_ForMidiControllers{ unexposedParams },
@@ -66,8 +66,8 @@ GlobalParametersComponent::GlobalParametersComponent(UnexposedParameters* unexpo
 	comboBox_ForPedalMode.addListener(this);
 	addAndMakeVisible(comboBox_ForPedalMode);
 
-	comboBox_ForProgramChange.addListener(this);
-	addAndMakeVisible(comboBox_ForProgramChange);
+	comboBox_ForVoiceChange.addListener(this);
+	addAndMakeVisible(comboBox_ForVoiceChange);
 
 	comboBox_ForParameterSend.addListener(this);
 	addAndMakeVisible(comboBox_ForParameterSend);
@@ -112,7 +112,7 @@ void GlobalParametersComponent::resized() {
 	valueDisplay_ForGlobalMidiChannel.setBounds(GUI::bounds_GlobalParametersMidiChannelKnob);
 	comboBox_ForMidiClock.setBounds(GUI::bounds_GlobalParametersMidiClockComboBox);
 	comboBox_ForPedalMode.setBounds(GUI::bounds_GlobalParametersPedalModeComboBox);
-	comboBox_ForProgramChange.setBounds(GUI::bounds_GlobalParametersVoiceChangeComboBox);
+	comboBox_ForVoiceChange.setBounds(GUI::bounds_GlobalParametersVoiceChangeComboBox);
 	comboBox_ForParameterSend.setBounds(GUI::bounds_GlobalParametersParameterSendComboBox);
 	displayLabel_ForParameterReceive.setBounds(GUI::bounds_GlobalParametersParameterReceiveDisplayLabel);
 	displayLabel_ForMidiControllers.setBounds(GUI::bounds_GlobalParametersMidiControllersDisplayLabel);
@@ -156,7 +156,7 @@ void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 		midiOptions->setParameterReceiveType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_PedalMode);
 	}
-	if (comboBox == &comboBox_ForProgramChange) {
+	if (comboBox == &comboBox_ForVoiceChange) {
 		auto isOn{ (bool)comboBox->getSelectedItemIndex() };
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		if (isOn)
@@ -237,7 +237,7 @@ GlobalParametersComponent::~GlobalParametersComponent() {
 	toggle_ForCurrentSettingTooltip.removeListener(this);
 	toggle_ForDescriptionTooltip.removeListener(this);
 	comboBox_ForParameterSend.removeListener(this);
-	comboBox_ForProgramChange.removeListener(this);
+	comboBox_ForVoiceChange.removeListener(this);
 	comboBox_ForPedalMode.removeListener(this);
 	comboBox_ForMidiClock.removeListener(this);
 	knob_ForGlobalMidiChannel.removeListener(this);

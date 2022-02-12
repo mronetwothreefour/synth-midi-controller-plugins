@@ -1,7 +1,5 @@
 #include "widget_ButtonForShowingGlobalParametersComponent.h"
 
-#include "widget_ButtonForShowingProgramBanksComponent.h"
-
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 

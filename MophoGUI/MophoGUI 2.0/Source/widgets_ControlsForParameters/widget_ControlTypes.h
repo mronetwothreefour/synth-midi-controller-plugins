@@ -14,6 +14,6 @@ enum class ControlType {
 	utilityButton,
 	comboBox,
 	sequencerStep,
-	pgmNameChar
+	voiceNameChar
 };
 

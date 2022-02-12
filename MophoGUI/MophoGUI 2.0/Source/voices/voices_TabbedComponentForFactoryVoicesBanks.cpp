@@ -10,12 +10,12 @@ using namespace constants;
 
 
 
-TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabbedComponentForFactoryVoicesBanks::TabbedComponentForFactoryVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	unexposedParams{ unexposedParams },
-	bank1{ VoicesBank::factory1, exposedParams, unexposedParams, programCopyBuffer },
-	bank2{ VoicesBank::factory2, exposedParams, unexposedParams, programCopyBuffer },
-	bank3{ VoicesBank::factory3, exposedParams, unexposedParams, programCopyBuffer }
+	bank1{ VoicesBank::factory1, exposedParams, unexposedParams, voiceCopyBuffer },
+	bank2{ VoicesBank::factory2, exposedParams, unexposedParams, voiceCopyBuffer },
+	bank3{ VoicesBank::factory3, exposedParams, unexposedParams, voiceCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForFactoryBanks.toString());
 	setTabBarDepth(GUI::tabBarDepth);
@@ -27,13 +27,13 @@ TabbedComponentForFactoryProgramBanks::TabbedComponentForFactoryProgramBanks(Aud
 	setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h);
 }
 
-void TabbedComponentForFactoryProgramBanks::addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+void TabbedComponentForFactoryVoicesBanks::addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
 	bank1.addListenerToPushEntireBankButton(listener);
 	bank2.addListenerToPushEntireBankButton(listener);
 	bank3.addListenerToPushEntireBankButton(listener);
 }
 
-void TabbedComponentForFactoryProgramBanks::removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+void TabbedComponentForFactoryVoicesBanks::removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
 	bank1.removeListenerFromPushEntireBankButton(listener);
 	bank2.removeListenerFromPushEntireBankButton(listener);
 	bank3.removeListenerFromPushEntireBankButton(listener);

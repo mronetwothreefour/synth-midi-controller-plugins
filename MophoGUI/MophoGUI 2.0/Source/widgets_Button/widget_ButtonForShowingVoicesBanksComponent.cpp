@@ -1,11 +1,11 @@
-#include "widget_ButtonForShowingProgramBanksComponent.h"
+#include "widget_ButtonForShowingVoicesBanksComponent.h"
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-ButtonForShowingProgramBanksComponent::ButtonForShowingProgramBanksComponent(UnexposedParameters* unexposedParams) :
+ButtonForShowingVoicesBanksComponent::ButtonForShowingVoicesBanksComponent(UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
@@ -13,15 +13,15 @@ ButtonForShowingProgramBanksComponent::ButtonForShowingProgramBanksComponent(Une
 	setTooltip(createButtonTooltipString());
 }
 
-const String ButtonForShowingProgramBanksComponent::createButtonTooltipString() {
+const String ButtonForShowingVoicesBanksComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Opens a window where you can manage the\n";
-		buttonTooltip += "three storage banks for program presets.";
+		buttonTooltip += "six storage voices for program presets.";
 	}
 	return buttonTooltip;
 }
 
-void ButtonForShowingProgramBanksComponent::onClickMethod() {
+void ButtonForShowingVoicesBanksComponent::onClickMethod() {
 }
 

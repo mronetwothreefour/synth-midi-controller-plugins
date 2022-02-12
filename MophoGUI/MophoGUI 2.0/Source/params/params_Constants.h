@@ -15,5 +15,7 @@ namespace constants
 		const uint8 knobAssignLastIndex{ 108 };
 		const uint8 knobAssignOffset{ 15 };
 		const uint8 sequencer{ 100 };
+
+		const uint16 numberOfExposedParams{ 189 };
 	}
 }

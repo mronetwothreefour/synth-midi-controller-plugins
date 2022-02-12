@@ -1,9 +1,12 @@
 #include "widget_global_DisplayLabelForSysEx.h"
 
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -39,7 +42,7 @@ String DisplayLabelForSysEx::generateTooltipString() {
 		tooltipText += "MIDI system exclusive messages. WARNING: Program data is\n";
 		tooltipText += "transferred between the plugin and the hardware via system\n";
 		tooltipText += "exclusive messages. It is imperative that this option\n";
-		tooltipText += "be set to \"ON\" for the plugin to function correctly.";
+		tooltipText += "be set to " + GUI::openQuote + "ON" + GUI::closeQuote + " for the plugin to function correctly.";
 	}
 	return tooltipText;
 }

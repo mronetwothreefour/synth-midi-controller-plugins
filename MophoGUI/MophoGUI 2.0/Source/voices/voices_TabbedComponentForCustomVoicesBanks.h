@@ -8,18 +8,18 @@
 
 class UnexposedParameters;
 
-class TabbedComponentForCustomProgramBanks :
+class TabbedComponentForCustomVoicesBanks :
     public TabbedComponent
 {
-    TabForCustomProgramBank bank1;
-    TabForCustomProgramBank bank2;
-    TabForCustomProgramBank bank3;
+    TabForCustomVoiceBank bank1;
+    TabForCustomVoiceBank bank2;
+    TabForCustomVoiceBank bank3;
     UnexposedParameters* unexposedParams;
 
 public:
-    TabbedComponentForCustomProgramBanks() = delete;
+    TabbedComponentForCustomVoicesBanks() = delete;
 
-    TabbedComponentForCustomProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabbedComponentForCustomVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener);
     void addListenerToPushBankButtonInAllCustomTabs(Button::Listener* listener);
     void removeListenerFromPullBankButtonInAllCustomTabs(Button::Listener* listener);
@@ -27,5 +27,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabbedComponentForCustomProgramBanks)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabbedComponentForCustomVoicesBanks)
 };

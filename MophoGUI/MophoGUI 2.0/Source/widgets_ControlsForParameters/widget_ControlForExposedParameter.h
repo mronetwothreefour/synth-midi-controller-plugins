@@ -6,7 +6,7 @@
 #include "../widgets_Slider/widget_KnobForPitchWithValueStringDisplay.h"
 #include "../widgets_Slider/widget_KnobWithValueStringDisplay.h"
 #include "../widgets_Slider/widget_KnobWithWaveShapeDisplay.h"
-#include "../widgets_Slider/widget_ProgramNameCharWithExposedParamAttacher.h"
+#include "../widgets_Slider/widget_VoiceNameCharWithExposedParamAttacher.h"
 #include "../widgets_Slider/widget_SequencerStepWithExposedParamAttacher.h"
 #include "../widgets_ToggleButton/widget_ToggleButtonWithWithExposedParamAttacher.h"
 
@@ -21,7 +21,7 @@ class ControlForExposedParameter : public Component
 	std::unique_ptr<ToggleButtonWithWithExposedParamAttacher> toggleButton;
 	std::unique_ptr<ComboBoxWithExposedParamAttacher> comboBox;
 	std::unique_ptr<SequencerStepWithExposedParamAttacher> sequencerStep;
-	std::unique_ptr<ProgramNameCharWithExposedParamAttacher> pgmNameChar;
+	std::unique_ptr<VoiceNameCharWithExposedParamAttacher> voiceNameChar;
 
 	ControlForExposedParameter();
 
@@ -34,7 +34,7 @@ private:
 	void buildKnobWithWaveShapeDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
 	void buildToggleButtonControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
 	void buildComboBoxControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildProgramNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
+	void buildVoiceNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
 	void buildSequencerStepControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
 	int sequencerTrackThisStepIsOn(uint8 param);
 

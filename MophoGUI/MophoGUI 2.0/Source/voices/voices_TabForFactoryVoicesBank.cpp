@@ -10,11 +10,11 @@ using namespace constants;
 
 
 
-TabForFactoryProgramBank::TabForFactoryProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer) :
+TabForFactoryVoicesBank::TabForFactoryVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
 	voiceSlots{ bank, exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	programCopyBuffer{ programCopyBuffer },
+	voiceCopyBuffer{ voiceCopyBuffer },
 	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
 	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams }
@@ -29,33 +29,33 @@ TabForFactoryProgramBank::TabForFactoryProgramBank(VoicesBank bank, AudioProcess
 	setSize(GUI::tabForVoicesBank_w, GUI::tabForVoicesBank_h);
 }
 
-void TabForFactoryProgramBank::paint(Graphics& g) {
+void TabForFactoryVoicesBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::ProgramBanksTabBackground_png, BinaryData::ProgramBanksTabBackground_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
 }
 
-void TabForFactoryProgramBank::resized() {
+void TabForFactoryVoicesBank::resized() {
 	voiceSlots.setBounds(GUI::bounds_VoiceSlotsWidget);
 	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_LoadSelectedVoiceButton);
 	button_ForPushingSelectedVoiceToHardware.setBounds(GUI::bounds_PushSelectedFactoryVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 }
 
-ApplicationCommandTarget* TabForFactoryProgramBank::getNextCommandTarget() {
+ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {
 	return nullptr;
 }
 
-void TabForFactoryProgramBank::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> IDs{ copyProgram };
+void TabForFactoryVoicesBank::getAllCommands(Array<CommandID>& commands) {
+	Array<CommandID> IDs{ copyVoice };
 	commands.addArray(IDs);
 }
 
-void TabForFactoryProgramBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void TabForFactoryVoicesBank::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
-	case copyProgram:
+	case copyVoice:
 		result.setInfo("Copy Program", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
@@ -64,14 +64,14 @@ void TabForFactoryProgramBank::getCommandInfo(CommandID commandID, ApplicationCo
 	}
 }
 
-bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
-	auto programBanks{ unexposedParams->voicesBanks_get() };
+bool TabForFactoryVoicesBank::perform(const InvocationInfo& info) {
+	auto voicesBanks{ unexposedParams->voicesBanks_get() };
 	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
-	case copyProgram:
-		if (selectedSlot < banks::numberOfSlotsInBank) {
-			programCopyBuffer = programBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
+	case copyVoice:
+		if (selectedSlot < voices::numberOfSlotsInBank) {
+			voiceCopyBuffer = voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}
 		else return false;
@@ -80,14 +80,14 @@ bool TabForFactoryProgramBank::perform(const InvocationInfo& info) {
 	}
 }
 
-void TabForFactoryProgramBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryVoicesBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.addListener(listener);
 }
 
-void TabForFactoryProgramBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+void TabForFactoryVoicesBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
 	button_ForPushingEntireBankToHardware.removeListener(listener);
 }
 
-TabForFactoryProgramBank::~TabForFactoryProgramBank() {
+TabForFactoryVoicesBank::~TabForFactoryVoicesBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

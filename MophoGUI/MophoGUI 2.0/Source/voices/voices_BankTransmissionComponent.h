@@ -6,7 +6,7 @@
 
 
 
-class TabbedComponentForFactoryProgramBanks;
+class TabbedComponentForFactoryVoicesBanks;
 class UnexposedParameters;
 
 class BankTransmissionComponent :
@@ -23,7 +23,7 @@ private:
 	UnexposedParameters* unexposedParams;
 	String message;
 	int transmitTime;
-	uint8 programCounter;
+	uint8 voiceCounter;
 	double progress;
 	ProgressBar progressBar;
 	TextButton button_Stop;
@@ -36,7 +36,7 @@ public:
 
 private:
 	void timerCallback() override;
-	void transmitMidiBufferForProgramSlot(uint8 programSlot);
+	void transmitMidiBufferForVoiceSlot(uint8 voiceSlot);
 
 public:
 	void paint(Graphics& g) override;

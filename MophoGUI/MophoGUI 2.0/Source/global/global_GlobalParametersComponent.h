@@ -7,7 +7,7 @@
 #include "../widgets_ComboBox/widget_global_ComboBoxForMidiClock.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForParameterSend.h"
 #include "../widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"
-#include "../widgets_ComboBox/widget_global_ComboBoxForProgramChange.h"
+#include "../widgets_ComboBox/widget_global_ComboBoxForVoiceChange.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForAudioOutput.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForBalanceTweak.h"
 #include "../widgets_Labels/widget_global_DisplayLabelForMidiControllers.h"
@@ -42,7 +42,7 @@ class GlobalParametersComponent :
     RendererForKnobValueStrings valueDisplay_ForGlobalMidiChannel;
     ComboBoxForMidiClock comboBox_ForMidiClock;
     ComboBoxForPedalMode comboBox_ForPedalMode;
-    ComboBoxForProgramChange comboBox_ForProgramChange;
+    ComboBoxForVoiceChange comboBox_ForVoiceChange;
     ComboBoxForParameterSend comboBox_ForParameterSend;
     DisplayLabelForParameterReceive displayLabel_ForParameterReceive;
     DisplayLabelForMidiControllers displayLabel_ForMidiControllers;

@@ -15,7 +15,7 @@
 
 class UnexposedParameters;
 
-class TabForCustomProgramBank :
+class TabForCustomVoiceBank :
     public Component,
     private Timer,
     public ApplicationCommandTarget
@@ -30,17 +30,17 @@ class TabForCustomProgramBank :
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
     ButtonForPushingSelectedVoiceToHardware button_ForPushingSelectedVoiceToHardware;
     ApplicationCommandManager commandManager;
-    String& programCopyBuffer;
+    String& voiceCopyBuffer;
 
 public:
     enum commandChoices {
-        copyProgram = 1,
-        pasteProgram
+        copyVoice = 1,
+        pasteVoice
     };
 
-    TabForCustomProgramBank() = delete;
+    TabForCustomVoiceBank() = delete;
 
-    TabForCustomProgramBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& programCopyBuffer);
+    TabForCustomVoiceBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void paint(Graphics& g) override;
     void resized() override;
     ApplicationCommandTarget* getNextCommandTarget() override;
@@ -56,9 +56,9 @@ private:
     void timerCallback() override;
 
 public:
-    ~TabForCustomProgramBank();
+    ~TabForCustomVoiceBank();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForCustomProgramBank)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TabForCustomVoiceBank)
 };

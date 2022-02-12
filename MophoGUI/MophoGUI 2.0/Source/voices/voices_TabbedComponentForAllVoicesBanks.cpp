@@ -8,36 +8,36 @@ using namespace constants;
 
 
 
-TabbedComponentForAllProgramBanks::TabbedComponentForAllProgramBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+TabbedComponentForAllVoicesBanks::TabbedComponentForAllVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
 	unexposedParams{ unexposedParams },
-	tabbedComponentForCustomProgramBanks{ exposedParams, unexposedParams, programCopyBuffer },
-	tabbedComponentForFactoryProgramBanks{ exposedParams, unexposedParams, programCopyBuffer }
+	tabbedComponentForCustomVoicesBanks{ exposedParams, unexposedParams, voiceCopyBuffer },
+	tabbedComponentForFactoryVoicesBanks{ exposedParams, unexposedParams, voiceCopyBuffer }
 {
 	setComponentID(ID::component_TabbedComponentForAllBanks.toString());
 	setTabBarDepth(GUI::tabBarDepth);
 	setOutline(0);
-	addTab("FACTORY   BANKS", Color::device, &tabbedComponentForFactoryProgramBanks, true, 1);
-	addTab("CUSTOM   BANKS", Color::device, &tabbedComponentForCustomProgramBanks, true, 1);
+	addTab("FACTORY   BANKS", Color::device, &tabbedComponentForFactoryVoicesBanks, true, 1);
+	addTab("CUSTOM   BANKS", Color::device, &tabbedComponentForCustomVoicesBanks, true, 1);
 	setColour(backgroundColourId, Color::device.darker(0.25f));
 	setSize(GUI::tabbedComponentForAllVoicesBanks_w, GUI::tabbedComponentForAllVoicesBanks_h);
 }
 
-void TabbedComponentForAllProgramBanks::addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
-	tabbedComponentForCustomProgramBanks.addListenerToPullBankButtonInAllCustomTabs(listener);
+void TabbedComponentForAllVoicesBanks::addListenerToPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
+	tabbedComponentForCustomVoicesBanks.addListenerToPullBankButtonInAllCustomTabs(listener);
 }
 
-void TabbedComponentForAllProgramBanks::addListenerToPushEntireBankButtonInAllTabs(Button::Listener* listener) {
-	tabbedComponentForCustomProgramBanks.addListenerToPushBankButtonInAllCustomTabs(listener);
-	tabbedComponentForFactoryProgramBanks.addListenerToPushBankButtonInAllFactoryTabs(listener);
+void TabbedComponentForAllVoicesBanks::addListenerToPushEntireBankButtonInAllTabs(Button::Listener* listener) {
+	tabbedComponentForCustomVoicesBanks.addListenerToPushBankButtonInAllCustomTabs(listener);
+	tabbedComponentForFactoryVoicesBanks.addListenerToPushBankButtonInAllFactoryTabs(listener);
 }
 
-void TabbedComponentForAllProgramBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
-	tabbedComponentForCustomProgramBanks.removeListenerFromPullBankButtonInAllCustomTabs(listener);
+void TabbedComponentForAllVoicesBanks::removeListenerFromPullEntireBankButtonInAllCustomTabs(Button::Listener* listener) {
+	tabbedComponentForCustomVoicesBanks.removeListenerFromPullBankButtonInAllCustomTabs(listener);
 }
 
-void TabbedComponentForAllProgramBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
-	tabbedComponentForCustomProgramBanks.removeListenerFromPushBankButtonInAllCustomTabs(listener);
-	tabbedComponentForFactoryProgramBanks.removeListenerFromPushBankButtonInAllFactoryTabs(listener);
+void TabbedComponentForAllVoicesBanks::removeListenerFromPushEntireBankButtonInAllTabs(Button::Listener* listener) {
+	tabbedComponentForCustomVoicesBanks.removeListenerFromPushBankButtonInAllCustomTabs(listener);
+	tabbedComponentForFactoryVoicesBanks.removeListenerFromPushBankButtonInAllFactoryTabs(listener);
 }
 

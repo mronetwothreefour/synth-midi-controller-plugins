@@ -28,23 +28,23 @@ MidiBuffer IncomingSysExHandler::pullSysExWithMatchingIDOutOfBuffer(const MidiBu
 
 bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
     if (SysExID::matchesHardwareSynthID(midiMessage)) {
-        handleIncomingProgramEditBufferDump(midiMessage.getSysExData());
+        handleIncomingEditBufferDataMessage(midiMessage.getSysExData());
         return true;
     }
     else
         return false;
 }
 
-void IncomingSysExHandler::handleIncomingProgramEditBufferDump(const uint8* sysExData) {
+void IncomingSysExHandler::handleIncomingEditBufferDataMessage(const uint8* sysExData) {
     if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::editBufferData) {
         RawDataTools::applyToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
         return;
     }
     else
-        handleIncomingProgramDump(sysExData);
+        handleIncomingVoiceDataMessage(sysExData);
 }
 
-void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
+void IncomingSysExHandler::handleIncomingVoiceDataMessage(const uint8* sysExData) {
     if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::voiceData) {
         auto bankNum{ sysExData[MIDI::voiceDumpBankByte] };
         VoicesBank bank;
@@ -64,12 +64,12 @@ void IncomingSysExHandler::handleIncomingProgramDump(const uint8* sysExData) {
             break;
         }
         auto slot{ sysExData[MIDI::voiceDumpSlotByte] };
-        std::vector<uint8> programDataVector;
+        std::vector<uint8> voiceDataVector;
         for (auto dataByte = MIDI::firstVoiceDataByte; dataByte != MIDI::firstUnusedPVoiceDataByte; ++dataByte)
-            programDataVector.push_back(*(sysExData + dataByte));
-        auto programDataHexString{ RawDataTools::convertDataVectorToHexString(programDataVector) };
-        auto programBanks{ unexposedParams->voicesBanks_get() };
-        programBanks->storeVoiceDataHexStringInCustomBankSlot(programDataHexString, bank, slot);
+            voiceDataVector.push_back(*(sysExData + dataByte));
+        auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
+        auto voicesBanks{ unexposedParams->voicesBanks_get() };
+        voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slot);
     }
     else
         handleIncomingGlobalParametersDump(sysExData);

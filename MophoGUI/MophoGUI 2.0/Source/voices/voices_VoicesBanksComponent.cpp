@@ -1,20 +1,20 @@
 #include "voices_VoicesBanksComponent.h"
 
+#include "voices_BankTransmissionComponent.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../widgets_BankTransmission/widget_BankTransmissionComponent.h"
 
 using namespace constants;
 
 
 
-ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	tabbedComponent{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	button_ForClosingProgramBanks{ "" }
+	button_ForClosingVoicesBanksComponent{ "" }
 {
 	tabbedComponent.addListenerToPushEntireBankButtonInAllTabs(this);
 	tabbedComponent.addListenerToPullEntireBankButtonInAllCustomTabs(this);
@@ -24,18 +24,18 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	addAndMakeVisible(tabbedComponent);
 	tabbedComponent.setBounds(GUI::bounds_VoicesBanksTabbedComponent);
 
-	button_ForClosingProgramBanks.setComponentID(ID::button_Close.toString());
-	addAndMakeVisible(button_ForClosingProgramBanks);
-	button_ForClosingProgramBanks.setBounds(GUI::bounds_VoicesBanksCloseButton);
-	button_ForClosingProgramBanks.onClick = [this] { hideThisComponent(); };
-	button_ForClosingProgramBanks.setAlwaysOnTop(true);
+	button_ForClosingVoicesBanksComponent.setComponentID(ID::button_Close.toString());
+	addAndMakeVisible(button_ForClosingVoicesBanksComponent);
+	button_ForClosingVoicesBanksComponent.setBounds(GUI::bounds_VoicesBanksCloseButton);
+	button_ForClosingVoicesBanksComponent.onClick = [this] { hideThisComponent(); };
+	button_ForClosingVoicesBanksComponent.setAlwaysOnTop(true);
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String label_txTimeTooltip{ "" };
 	if (tooltips->shouldShowDescription()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
-		label_txTimeTooltip += "this value if programs are getting 'lost' during pushes or pulls.\n";
+		label_txTimeTooltip += "this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
 		label_txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 
@@ -48,14 +48,14 @@ ProgramBanksComponent::ProgramBanksComponent(AudioProcessorValueTreeState* expos
 	label_txTime.setBounds(GUI::bounds_VoicesBanksTransmitTimeLabel);
 }
 
-void ProgramBanksComponent::paint(Graphics& g) {
+void VoicesBanksComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	g.setColour(Color::black);
 	Rectangle<int> componentOutlineBounds{ GUI::bounds_VoicesBanksTabbedComponent.expanded(GUI::windowOutlineThickness) };
 	g.fillRect(componentOutlineBounds);
 }
 
-void ProgramBanksComponent::editorShown(Label* label, TextEditor& editor) {
+void VoicesBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(4, "0123456789");
 		auto midiOptions{ unexposedParams->midiOptions_get() };
@@ -65,7 +65,7 @@ void ProgramBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	}
 }
 
-void ProgramBanksComponent::labelTextChanged(Label* label) {
+void VoicesBanksComponent::labelTextChanged(Label* label) {
 	if (label == &label_txTime) {
 		auto midiOptions{ unexposedParams->midiOptions_get() };
 		if (label->getText().isNotEmpty())
@@ -78,7 +78,7 @@ void ProgramBanksComponent::labelTextChanged(Label* label) {
 	}
 }
 
-void ProgramBanksComponent::buttonClicked(Button* button) {
+void VoicesBanksComponent::buttonClicked(Button* button) {
 	if (button->getComponentID() == ID::button_PullCustomBank1.toString())
 		showPullEntireBankComponentForBank(VoicesBank::custom1);
 	if (button->getComponentID() == ID::button_PullCustomBank2.toString())
@@ -99,7 +99,7 @@ void ProgramBanksComponent::buttonClicked(Button* button) {
 		showPushEntireBankComponentForBank(VoicesBank::factory3);
 }
 
-void ProgramBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
+void VoicesBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
 	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
@@ -108,7 +108,7 @@ void ProgramBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) 
 	}
 }
 
-void ProgramBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
+void VoicesBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
 	pullEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::pull, unexposedParams));
 	if (pullEntireBankComponent != nullptr) {
 		addAndMakeVisible(pullEntireBankComponent.get());
@@ -117,11 +117,11 @@ void ProgramBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) 
 	}
 }
 
-void ProgramBanksComponent::hideThisComponent() {
+void VoicesBanksComponent::hideThisComponent() {
 	setVisible(false);
 }
 
-ProgramBanksComponent::~ProgramBanksComponent() {
+VoicesBanksComponent::~VoicesBanksComponent() {
 	pullEntireBankComponent = nullptr;
 	pushEntireBankComponent = nullptr;
 	tabbedComponent.removeListenerFromPullEntireBankButtonInAllCustomTabs(this);

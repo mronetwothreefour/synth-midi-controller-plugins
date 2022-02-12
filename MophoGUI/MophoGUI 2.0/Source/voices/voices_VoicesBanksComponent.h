@@ -10,22 +10,22 @@
 class BankTransmissionComponent;
 class UnexposedParameters;
 
-class ProgramBanksComponent : 
+class VoicesBanksComponent : 
     public Component,
     public Label::Listener,
     public Button::Listener
 {
-    TabbedComponentForAllProgramBanks tabbedComponent;
+    TabbedComponentForAllVoicesBanks tabbedComponent;
     UnexposedParameters* unexposedParams;
-    TextButton button_ForClosingProgramBanks;
+    TextButton button_ForClosingVoicesBanksComponent;
     std::unique_ptr<BankTransmissionComponent> pushEntireBankComponent;
     std::unique_ptr<BankTransmissionComponent> pullEntireBankComponent;
     Label label_txTime;
 
 public:
-    ProgramBanksComponent() = delete;
+    VoicesBanksComponent() = delete;
 
-    ProgramBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    VoicesBanksComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;
@@ -37,9 +37,9 @@ private:
     void hideThisComponent();
 
 public:
-    ~ProgramBanksComponent();
+    ~VoicesBanksComponent();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBanksComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicesBanksComponent)
 };

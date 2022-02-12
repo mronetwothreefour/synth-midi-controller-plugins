@@ -1,4 +1,4 @@
-#include "widget_BankTransmissionComponent.h"
+#include "voices_BankTransmissionComponent.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
@@ -19,7 +19,7 @@ BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, Transmiss
 	unexposedParams{ unexposedParams },
 	message{ "" },
 	transmitTime{ unexposedParams->midiOptions_get()->voiceTransmitTime() },
-	programCounter{ banks::numberOfSlotsInBank },
+	voiceCounter{ voices::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -64,18 +64,18 @@ BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, Transmiss
 
 	setSize(GUI::editor_w, GUI::editor_h);
 
-	programCounter = 0;
+	voiceCounter = 0;
 	startTimer(transmitTime);
 }
 
 void BankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (programCounter < banks::numberOfSlotsInBank) {
-		transmitMidiBufferForProgramSlot(programCounter);
-		++programCounter;
-		progress = programCounter / (double)banks::numberOfSlotsInBank;
+	if (voiceCounter < voices::numberOfSlotsInBank) {
+		transmitMidiBufferForVoiceSlot(voiceCounter);
+		++voiceCounter;
+		progress = voiceCounter / (double)voices::numberOfSlotsInBank;
 		message = transmissionType == TransmissionType::push ? "Pushing " : "Pulling ";
-		message += bankName + " Program " + (String)programCounter;
+		message += bankName + " Program " + (String)voiceCounter;
 		message += transmissionType == TransmissionType::push ? " To Hardware" : " From Hardware";
 		repaint();
 		startTimer(transmitTime);
@@ -87,13 +87,13 @@ void BankTransmissionComponent::timerCallback() {
 	}
 }
 
-void BankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 programSlot) {
+void BankTransmissionComponent::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull)
-		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingMidiBuffers(bank, programSlot, outgoingBuffers);
+		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingMidiBuffers(bank, voiceSlot, outgoingBuffers);
 	else {
-		auto programDumpVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, programSlot, unexposedParams) };
-		outgoingBuffers->addDataMessage(programDumpVector);
+		auto voiceDataMessageVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, voiceSlot, unexposedParams) };
+		outgoingBuffers->addDataMessage(voiceDataMessageVector);
 	}
 }
 

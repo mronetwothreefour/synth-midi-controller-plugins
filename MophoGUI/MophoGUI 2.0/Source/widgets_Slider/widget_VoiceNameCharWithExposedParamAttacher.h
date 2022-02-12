@@ -9,7 +9,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class ProgramNameCharWithExposedParamAttacher :
+class VoiceNameCharWithExposedParamAttacher :
 	public Component,
 	public Slider::Listener
 {
@@ -19,17 +19,17 @@ class ProgramNameCharWithExposedParamAttacher :
 	TooltipSetterForExposedParamSliders tooltipSetter;
 
 public:
-	ProgramNameCharWithExposedParamAttacher() = delete;
+	VoiceNameCharWithExposedParamAttacher() = delete;
 
-	ProgramNameCharWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
+	VoiceNameCharWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
 	void sliderValueChanged(Slider* sliderThatChanged) override;
 	void paint(Graphics& g) override;
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void limitSliderRangeToBasicASCIICharsThatAreVisible();
 	void deleteAttachment();
-	~ProgramNameCharWithExposedParamAttacher();
+	~VoiceNameCharWithExposedParamAttacher();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramNameCharWithExposedParamAttacher)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoiceNameCharWithExposedParamAttacher)
 };

@@ -8,15 +8,15 @@
 
 class UnexposedParameters;
 
-class ButtonForSendingProgramEditBufferDump : public BaseButtonWithOnClickAndTooltipMethods
+class ButtonForSendingEditBufferDataMessage : public BaseButtonWithOnClickAndTooltipMethods
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 
 public:
-	ButtonForSendingProgramEditBufferDump() = delete;
+	ButtonForSendingEditBufferDataMessage() = delete;
 
-	ButtonForSendingProgramEditBufferDump(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	ButtonForSendingEditBufferDataMessage(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -24,6 +24,6 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingProgramEditBufferDump)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSendingEditBufferDataMessage)
 };
 

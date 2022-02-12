@@ -29,8 +29,8 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 	case ControlType::comboBox:
 		buildComboBoxControlForExposedParam(param, unexposedParams);
 		break;
-	case ControlType::pgmNameChar:
-		buildProgramNameCharacterControlForExposedParam(param, unexposedParams);
+	case ControlType::voiceNameChar:
+		buildVoiceNameCharacterControlForExposedParam(param, unexposedParams);
 		break;
 	case ControlType::sequencerStep:
 		buildSequencerStepControlForExposedParam(param, unexposedParams);
@@ -71,10 +71,10 @@ void ControlForExposedParameter::buildComboBoxControlForExposedParam(uint8 param
 	setSize(comboBox->getWidth(), comboBox->getHeight());
 }
 
-void ControlForExposedParameter::buildProgramNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
-	pgmNameChar.reset(new ProgramNameCharWithExposedParamAttacher(param, unexposedParams));
-	addAndMakeVisible(pgmNameChar.get());
-	setSize(pgmNameChar->getWidth(), pgmNameChar->getHeight());
+void ControlForExposedParameter::buildVoiceNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
+	voiceNameChar.reset(new VoiceNameCharWithExposedParamAttacher(param, unexposedParams));
+	addAndMakeVisible(voiceNameChar.get());
+	setSize(voiceNameChar->getWidth(), voiceNameChar->getHeight());
 }
 
 void ControlForExposedParameter::buildSequencerStepControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams) {
@@ -118,9 +118,9 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 		if (sequencerStep != nullptr)
 			sequencerStep->attachToExposedParameter(exposedParams);
 		break;
-	case ControlType::pgmNameChar:
-		if (pgmNameChar != nullptr)
-			pgmNameChar->attachToExposedParameter(exposedParams);
+	case ControlType::voiceNameChar:
+		if (voiceNameChar != nullptr)
+			voiceNameChar->attachToExposedParameter(exposedParams);
 		break;
 	default: break;
 	}
@@ -139,8 +139,8 @@ void ControlForExposedParameter::deleteAttachment() const {
 		comboBox->deleteAttachment();
 	if (sequencerStep != nullptr)
 		sequencerStep->deleteAttachment();
-	if (pgmNameChar != nullptr)
-		pgmNameChar->deleteAttachment();
+	if (voiceNameChar != nullptr)
+		voiceNameChar->deleteAttachment();
 }
 
 ControlForExposedParameter::~ControlForExposedParameter() {
