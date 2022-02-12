@@ -89,10 +89,10 @@
               resource="0" file="Source/midi/midi_EditBufferDataMessage.cpp"/>
         <FILE id="fgKnMD" name="midi_EditBufferDataMessage.h" compile="0" resource="0"
               file="Source/midi/midi_EditBufferDataMessage.h"/>
-        <FILE id="Ak9m9R" name="midi_GlobalParametersDump.cpp" compile="1"
-              resource="0" file="Source/midi/midi_GlobalParametersDump.cpp"/>
-        <FILE id="PEMuDg" name="midi_GlobalParametersDump.h" compile="0" resource="0"
-              file="Source/midi/midi_GlobalParametersDump.h"/>
+        <FILE id="Ak9m9R" name="midi_GlobalParametersDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_GlobalParametersDataMessage.cpp"/>
+        <FILE id="PEMuDg" name="midi_GlobalParametersDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_GlobalParametersDataMessage.h"/>
         <FILE id="KIBFDk" name="midi_IncomingNRPNhandler.cpp" compile="1" resource="0"
               file="Source/midi/midi_IncomingNRPNhandler.cpp"/>
         <FILE id="H1i3r6" name="midi_IncomingNRPNhandler.h" compile="0" resource="0"

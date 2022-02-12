@@ -535,7 +535,7 @@
     <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp">
@@ -2931,7 +2931,7 @@
     <ClInclude Include="..\..\Source\midi\midi_EditBufferDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h">
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h">

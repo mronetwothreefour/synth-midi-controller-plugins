@@ -1,7 +1,7 @@
 #include "global_HardwareSettingsWarningComponent.h"
 
 #include "../gui/gui_Constants.h"
-#include "../midi/midi_GlobalParametersDump.h"
+#include "../midi/midi_GlobalParametersDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -28,7 +28,7 @@ void HardwareSettingsWarningComponent::addButtonsToComponent() {
 
 void HardwareSettingsWarningComponent::sendRequestForGlobalParametersDump() {
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
+	GlobalParametersDataMessage::addRequestForDataMessageToOutgoingMidiBuffers(outgoingMidiBuffers);
 	callAfterDelay(200, [this] { checkHardwareSettings(); });
 }
 

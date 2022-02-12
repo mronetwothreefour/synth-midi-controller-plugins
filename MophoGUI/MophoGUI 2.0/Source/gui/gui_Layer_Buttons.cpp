@@ -4,7 +4,7 @@
 #include "../global/global_GlobalParametersComponent.h"
 #include "../global/global_NRPNisOffWarningComponent.h"
 #include "../global/global_SysExIsOffWarningComponent.h"
-#include "../midi/midi_GlobalParametersDump.h"
+#include "../midi/midi_GlobalParametersDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../voices/voices_VoicesBanksComponent.h"
@@ -62,7 +62,7 @@ void ButtonsLayer::prepareToShowGlobalParametersComponent() {
     auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
     globalAudioOptions->resetGlobalAudioOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-    GlobalParametersDump::addRequestForDumpToOutgoingMidiBuffers(outgoingMidiBuffers);
+    GlobalParametersDataMessage::addRequestForDataMessageToOutgoingMidiBuffers(outgoingMidiBuffers);
     callAfterDelay(300, [this, midiOptions] {
         if (midiOptions->sysExIsOn()) {
             if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())

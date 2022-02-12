@@ -153,7 +153,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp"/>
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp"/>
-    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDump.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.cpp"/>
@@ -2211,7 +2211,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_EditBufferDataMessage.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDump.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDataMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingNRPNhandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h"/>
     <ClInclude Include="..\..\Source\midi\midi_NRPNbufferWithLeadingMSBs.h"/>
