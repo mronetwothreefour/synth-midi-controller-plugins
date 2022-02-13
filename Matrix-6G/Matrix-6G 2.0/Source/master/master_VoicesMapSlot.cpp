@@ -26,7 +26,7 @@ void VoicesMapSlot::resized() {
 }
 
 void VoicesMapSlot::sliderValueChanged(Slider* slider) {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	auto currentValue{ (uint8)roundToInt(slider->getValue()) };
 	if (slider == &slider_ForSettingInVoice)
 		masterOptions->setVoicesMapInVoiceForProgramNumber(currentValue, programNumber);

@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingLocalControlEnabled::ComboBoxForSelectingLocalControlEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_LocalControlEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_LocalControlEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->localControlEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -38,6 +38,6 @@ String ComboBoxForSelectingLocalControlEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingLocalControlEnabled::~ComboBoxForSelectingLocalControlEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "params_CurrentVoiceOptions.h"
-#include "params_MasterOptions.h"
+#include "params_GlobalOptions.h"
 #include "params_MatrixModSettings.h"
 #include "params_SplitOptions.h"
 #include "params_TooltipOptions.h"
@@ -17,7 +17,7 @@
 class UnexposedParameters
 {
 	std::unique_ptr<CurrentVoiceOptions> currentVoiceOptions;
-	std::unique_ptr<MasterOptions> masterOptions;
+	std::unique_ptr<GlobalOptions> globalOptions;
 	std::unique_ptr<MatrixModSettings> matrixModSettings;
 	std::unique_ptr<OutgoingMidiBuffers> outgoingMidiBuffers;
 	std::unique_ptr<SplitOptions> splitOptions;
@@ -31,7 +31,7 @@ public:
 	UnexposedParameters();
 	Array<MidiBuffer, CriticalSection>* aggregatedOutgoingBuffers_get();
 	CurrentVoiceOptions* currentVoiceOptions_get();
-	MasterOptions* masterOptions_get();
+	GlobalOptions* globalOptions_get();
 	MatrixModSettings* matrixModSettings_get();
 	OutgoingMidiBuffers* outgoingMidiBuffers_get();
 	SplitOptions* splitOptions_get();

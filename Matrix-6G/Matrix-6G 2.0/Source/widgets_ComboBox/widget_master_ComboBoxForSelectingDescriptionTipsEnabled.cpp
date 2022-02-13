@@ -7,7 +7,7 @@
 
 
 ComboBoxForSelectingDescriptionTipsEnabled::ComboBoxForSelectingDescriptionTipsEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_SQUICKenabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_SQUICKenabled },
 	unexposedParams{ unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

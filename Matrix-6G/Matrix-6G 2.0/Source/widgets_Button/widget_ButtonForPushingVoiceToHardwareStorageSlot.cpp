@@ -30,7 +30,7 @@ void ButtonForPushingVoiceToHardwareStorageSlot::onClickMethod() {
 	VoiceDataMessage::addDataMessageForCurrentVoiceToOutgoingMidiBuffers(exposedParams, unexposedParams);
 	callAfterDelay(10, [this]
 		{
-			auto masterOptions{ unexposedParams->masterOptions_get() };
+			auto masterOptions{ unexposedParams->globalOptions_get() };
 			auto basicChannel{ masterOptions->basicChannel() };
 			auto currentVoiceOptions{ unexposedParams->currentVoiceOptions_get() };
 			auto voiceSlot{ currentVoiceOptions->currentVoiceNumber() };

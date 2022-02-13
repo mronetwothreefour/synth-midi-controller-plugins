@@ -10,10 +10,10 @@ using namespace constants;
 
 
 ComboBoxForSelectingActiveSensingEnabled::ComboBoxForSelectingActiveSensingEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_ActiveSensingEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_ActiveSensingEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->activeSensingEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -42,6 +42,6 @@ String ComboBoxForSelectingActiveSensingEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingActiveSensingEnabled::~ComboBoxForSelectingActiveSensingEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

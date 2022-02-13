@@ -10,10 +10,10 @@ using namespace constants;
 
 
 ComboBoxForSelectingControllersEnabled::ComboBoxForSelectingControllersEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_ControllersEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_ControllersEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->controllersEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -42,6 +42,6 @@ String ComboBoxForSelectingControllersEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingControllersEnabled::~ComboBoxForSelectingControllersEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

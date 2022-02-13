@@ -76,7 +76,7 @@ void VoicesBankTransmissionComponent::transmitMidiBufferForVoiceSlot(uint8 voice
 		VoiceDataMessage::addDataMessageForVoiceStoredInBankAndSlotToOutgoingMidiBuffers(bank, voiceSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, voiceSlot]
 			{
-				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto masterOptions{ unexposedParams->globalOptions_get() };
 				auto basicChannel{ masterOptions->basicChannel() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, voiceSlot);
 			}

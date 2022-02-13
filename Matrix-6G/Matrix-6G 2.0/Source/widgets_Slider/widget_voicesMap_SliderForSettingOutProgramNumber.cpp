@@ -12,7 +12,7 @@ SliderForSettingOutProgramNumber::SliderForSettingOutProgramNumber(UnexposedPara
 	programNumber{ programNumber },
 	sliderID{ "master_VoicesMapOut_" + (String)programNumber }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
 	auto paramValue{ (double)masterOptions->voicesMapOutVoiceForProgramNumber(programNumber) };
@@ -58,6 +58,6 @@ void SliderForSettingOutProgramNumber::paint(Graphics& g) {
 }
 
 SliderForSettingOutProgramNumber::~SliderForSettingOutProgramNumber() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

@@ -11,7 +11,7 @@ SliderForSettingVibratoSpeed::SliderForSettingVibratoSpeed(UnexposedParameters* 
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
@@ -44,7 +44,7 @@ String SliderForSettingVibratoSpeed::generateTooltipString() {
 }
 
 void SliderForSettingVibratoSpeed::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_VibratoSpeed) {
+	if (property == ID::global_VibratoSpeed) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
 		setTooltip(generateTooltipString());
@@ -64,6 +64,6 @@ void SliderForSettingVibratoSpeed::paint(Graphics& g) {
 SliderForSettingVibratoSpeed::~SliderForSettingVibratoSpeed() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

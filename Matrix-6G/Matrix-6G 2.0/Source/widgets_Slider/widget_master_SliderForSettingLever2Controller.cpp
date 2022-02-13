@@ -10,10 +10,10 @@ using namespace constants;
 
 
 SliderForSettingLever2Controller::SliderForSettingLever2Controller(UnexposedParameters* unexposedParams) :
-	BaseSliderForSettingControllerNumber{ unexposedParams, ID::master_Lever2ControllerNumber },
+	BaseSliderForSettingControllerNumber{ unexposedParams, ID::global_Lever2ControllerNumber },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ (double)masterOptions->lever2ControllerNumber() };
 	setValue(paramValue, dontSendNotification);
@@ -43,6 +43,6 @@ String SliderForSettingLever2Controller::generateTooltipString() {
 }
 
 SliderForSettingLever2Controller::~SliderForSettingLever2Controller() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

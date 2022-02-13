@@ -9,9 +9,9 @@
 
 ComboBoxForSelectingVibratoWaveType::ComboBoxForSelectingVibratoWaveType(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::master_VibratoWaveType }
+	parameterID{ ID::global_VibratoWaveType }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
 	StringArray choices;
@@ -53,7 +53,7 @@ String ComboBoxForSelectingVibratoWaveType::generateTooltipString() {
 }
 
 void ComboBoxForSelectingVibratoWaveType::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_VibratoWaveType) {
+	if (property == ID::global_VibratoWaveType) {
 		MessageManagerLock mmLock;
 		setSelectedItemIndex((int)tree.getProperty(property), dontSendNotification);
 		setTooltip(generateTooltipString());
@@ -71,6 +71,6 @@ void ComboBoxForSelectingVibratoWaveType::paint(Graphics& g) {
 }
 
 ComboBoxForSelectingVibratoWaveType::~ComboBoxForSelectingVibratoWaveType() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

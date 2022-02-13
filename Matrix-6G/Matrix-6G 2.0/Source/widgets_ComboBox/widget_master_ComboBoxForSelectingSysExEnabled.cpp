@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingSysExEnabled::ComboBoxForSelectingSysExEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_SysExEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_SysExEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->sysExEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -38,6 +38,6 @@ String ComboBoxForSelectingSysExEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingSysExEnabled::~ComboBoxForSelectingSysExEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

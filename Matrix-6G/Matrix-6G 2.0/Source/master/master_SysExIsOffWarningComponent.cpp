@@ -46,7 +46,7 @@ void SysExIsOffWarningComponent::sendRequestForMasterOptionsDump() {
 }
 
 void SysExIsOffWarningComponent::checkHardwareSettings() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	if (masterOptions->sysExEnabled())
 		hideThisComponent();
 }

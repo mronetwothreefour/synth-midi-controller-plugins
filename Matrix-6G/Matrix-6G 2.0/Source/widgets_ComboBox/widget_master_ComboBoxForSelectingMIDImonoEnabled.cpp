@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingMIDImonoEnabled::ComboBoxForSelectingMIDImonoEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_MIDImonoEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_MIDImonoEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->midiMonoEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -42,6 +42,6 @@ String ComboBoxForSelectingMIDImonoEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingMIDImonoEnabled::~ComboBoxForSelectingMIDImonoEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

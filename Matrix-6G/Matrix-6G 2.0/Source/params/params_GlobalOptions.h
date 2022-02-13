@@ -4,18 +4,18 @@
 
 
 
-class MasterOptions
+class GlobalOptions
 {
-	ValueTree masterOptionsTree;
+	ValueTree globalOptionsTree;
 
 public:
-	MasterOptions();
+	GlobalOptions();
 
 private:
-	void fillMasterOptionsTreeWithProperties();
+	void fillGlobalOptionsTreeWithProperties();
 
 public:
-	void resetMasterOptionsToDefaults();
+	void resetAllOptionsToDefaults();
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 
@@ -82,8 +82,8 @@ public:
 	const uint8 vibratoAmplitudeModAmount();
 	void setVibratoAmplitudeModAmount(uint8 newValue);
 
-	const uint8 masterTune();
-	void setMasterTune(uint8 newValue);
+	const uint8 globalTune();
+	void setGlobalTune(uint8 newValue);
 
 	const uint8 splitStereoEnabled();
 	void setSplitStereoEnabled(uint8 newValue);
@@ -110,5 +110,5 @@ public:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MasterOptions)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalOptions)
 };

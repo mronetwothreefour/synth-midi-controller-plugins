@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingOmniModeEnabled::ComboBoxForSelectingOmniModeEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_OmniModeEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_OmniModeEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->omniModeEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -39,6 +39,6 @@ String ComboBoxForSelectingOmniModeEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingOmniModeEnabled::~ComboBoxForSelectingOmniModeEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

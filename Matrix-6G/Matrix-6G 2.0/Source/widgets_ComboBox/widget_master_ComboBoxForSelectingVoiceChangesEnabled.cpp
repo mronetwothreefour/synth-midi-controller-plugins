@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingVoiceChangesEnabled::ComboBoxForSelectingVoiceChangesEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_VoiceChangesEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_VoiceChangesEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->voiceChangesEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -38,6 +38,6 @@ String ComboBoxForSelectingVoiceChangesEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingVoiceChangesEnabled::~ComboBoxForSelectingVoiceChangesEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

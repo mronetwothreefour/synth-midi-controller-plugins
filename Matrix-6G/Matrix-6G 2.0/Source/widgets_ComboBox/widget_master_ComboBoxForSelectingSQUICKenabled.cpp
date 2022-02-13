@@ -10,10 +10,10 @@ using namespace constants;
 
 
 ComboBoxForSelectingSQUICKenabled::ComboBoxForSelectingSQUICKenabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_SQUICKenabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_SQUICKenabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->squickEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -41,6 +41,6 @@ String ComboBoxForSelectingSQUICKenabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingSQUICKenabled::~ComboBoxForSelectingSQUICKenabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

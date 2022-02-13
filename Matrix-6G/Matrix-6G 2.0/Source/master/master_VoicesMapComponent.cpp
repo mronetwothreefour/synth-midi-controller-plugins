@@ -33,7 +33,7 @@ VoicesMapComponent::VoicesMapComponent(UnexposedParameters* unexposedParams) :
 
 	button_ForResettingVoicesMap.setComponentID(ID::button_Reset.toString());
 	addAndMakeVisible(button_ForResettingVoicesMap);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	button_ForResettingVoicesMap.onClick = [this, masterOptions] { masterOptions->resetVoicesMap(); };
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

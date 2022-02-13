@@ -163,8 +163,8 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.cpp"/>
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp"/>
+    <ClCompile Include="..\..\Source\params\params_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp"/>
-    <ClCompile Include="..\..\Source\params\params_MasterOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_MatrixModSettings.cpp"/>
     <ClCompile Include="..\..\Source\params\params_SplitOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
@@ -2255,9 +2255,9 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h"/>
+    <ClInclude Include="..\..\Source\params\params_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h"/>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h"/>
-    <ClInclude Include="..\..\Source\params\params_MasterOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_MatrixModSettings.h"/>
     <ClInclude Include="..\..\Source\params\params_RangeTypes.h"/>
     <ClInclude Include="..\..\Source\params\params_SplitOptions.h"/>

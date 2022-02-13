@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingSplitStereoEnabled::ComboBoxForSelectingSplitStereoEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_SplitStereoEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_SplitStereoEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->splitStereoEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -40,6 +40,6 @@ String ComboBoxForSelectingSplitStereoEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingSplitStereoEnabled::~ComboBoxForSelectingSplitStereoEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

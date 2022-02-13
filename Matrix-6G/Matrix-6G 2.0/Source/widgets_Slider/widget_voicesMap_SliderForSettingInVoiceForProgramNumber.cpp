@@ -12,7 +12,7 @@ SliderForSettingInVoiceForProgramNumber::SliderForSettingInVoiceForProgramNumber
 	programNumber{ programNumber },
 	sliderID{ "master_VoicesMapIn_" + (String)programNumber }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
 	auto paramValue{ (double)masterOptions->voicesMapInVoiceForProgramNumber(programNumber) };
@@ -57,6 +57,6 @@ void SliderForSettingInVoiceForProgramNumber::paint(Graphics& g) {
 }
 
 SliderForSettingInVoiceForProgramNumber::~SliderForSettingInVoiceForProgramNumber() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

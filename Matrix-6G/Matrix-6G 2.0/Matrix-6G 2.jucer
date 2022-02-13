@@ -142,16 +142,16 @@
               resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
         <FILE id="dUFlkh" name="params_ExposedParamsLayout_Factory.h" compile="0"
               resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
+        <FILE id="jbSaNQ" name="params_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_GlobalOptions.cpp"/>
+        <FILE id="jaSexq" name="params_GlobalOptions.h" compile="0" resource="0"
+              file="Source/params/params_GlobalOptions.h"/>
         <FILE id="rnPrcY" name="params_Identifiers.h" compile="0" resource="0"
               file="Source/params/params_Identifiers.h"/>
         <FILE id="AL9Suk" name="params_IntToContextualStringConverters.cpp"
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="K9nC2c" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
-        <FILE id="jbSaNQ" name="params_MasterOptions.cpp" compile="1" resource="0"
-              file="Source/params/params_MasterOptions.cpp"/>
-        <FILE id="jaSexq" name="params_MasterOptions.h" compile="0" resource="0"
-              file="Source/params/params_MasterOptions.h"/>
         <FILE id="sGSn5d" name="params_MatrixModSettings.cpp" compile="1" resource="0"
               file="Source/params/params_MatrixModSettings.cpp"/>
         <FILE id="KjRXei" name="params_MatrixModSettings.h" compile="0" resource="0"

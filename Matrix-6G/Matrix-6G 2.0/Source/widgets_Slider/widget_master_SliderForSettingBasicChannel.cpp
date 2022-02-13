@@ -11,7 +11,7 @@ SliderForSettingBasicChannel::SliderForSettingBasicChannel(UnexposedParameters* 
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
@@ -44,7 +44,7 @@ String SliderForSettingBasicChannel::generateTooltipString() {
 }
 
 void SliderForSettingBasicChannel::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_BasicChannel) {
+	if (property == ID::global_BasicChannel) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
 		setTooltip(generateTooltipString());
@@ -64,6 +64,6 @@ void SliderForSettingBasicChannel::paint(Graphics& g) {
 SliderForSettingBasicChannel::~SliderForSettingBasicChannel() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

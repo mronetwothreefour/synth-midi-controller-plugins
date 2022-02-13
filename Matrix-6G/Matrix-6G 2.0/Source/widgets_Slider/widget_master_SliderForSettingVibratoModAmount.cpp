@@ -12,15 +12,15 @@ SliderForSettingVibratoModAmount::SliderForSettingVibratoModAmount(UnexposedPara
 	unexposedParams{ unexposedParams },
 	propertyID{ propertyID }
 {
-	jassert(propertyID == ID::master_VibratoAmplitudeModAmount || propertyID == ID::master_VibratoSpeedModAmount);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	jassert(propertyID == ID::global_VibratoAmplitudeModAmount || propertyID == ID::global_VibratoSpeedModAmount);
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setRange(0.0, 63.0, 1.0);
-	auto paramValue{ propertyID == ID::master_VibratoAmplitudeModAmount ? masterOptions->vibratoAmplitudeModAmount() : masterOptions->vibratoSpeedModAmount() };
+	auto paramValue{ propertyID == ID::global_VibratoAmplitudeModAmount ? masterOptions->vibratoAmplitudeModAmount() : masterOptions->vibratoSpeedModAmount() };
 	setValue(paramValue, dontSendNotification);
-	setDoubleClickReturnValue(true, propertyID == ID::master_VibratoAmplitudeModAmount ? 63.0 : 0.0);
+	setDoubleClickReturnValue(true, propertyID == ID::global_VibratoAmplitudeModAmount ? 63.0 : 0.0);
 	setMouseDragSensitivity(110);
 	setTooltip(generateTooltipString());
 }
@@ -30,7 +30,7 @@ String SliderForSettingVibratoModAmount::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Sets the degree to which the selected source modulates the ";
-		tooltipText += propertyID == ID::master_VibratoAmplitudeModAmount ? "amplitude\n" : "speed\n";
+		tooltipText += propertyID == ID::global_VibratoAmplitudeModAmount ? "amplitude\n" : "speed\n";
 		tooltipText += "of low-frequency oscillator 3, which is dedicated to vibrato.\n";
 		tooltipText += "Range: 0 (no modulation) to 63 (maximum modulation).\n";
 		tooltipText += "NOTE: Individual Master options are not immediately updated\n";
@@ -66,6 +66,6 @@ void SliderForSettingVibratoModAmount::paint(Graphics& g) {
 SliderForSettingVibratoModAmount::~SliderForSettingVibratoModAmount() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

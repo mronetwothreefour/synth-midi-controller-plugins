@@ -30,10 +30,10 @@ MasterOptionsComponent::MasterOptionsComponent(UnexposedParameters* unexposedPar
 	slider_ForSettingVibratoSpeed{ unexposedParams },
 	comboBox_ForSelectingVibratoWaveType{ unexposedParams },
 	slider_ForSettingVibratoAmplitude{ unexposedParams },
-	comboBox_ForSelectingVibratoSpeedModSource{ unexposedParams, ID::master_VibratoSpeedModSource },
-	sliderForSettingVibratoSpeedModAmount{ unexposedParams, ID::master_VibratoSpeedModAmount },
-	comboBox_ForSelectingVibratoAmplitudeModSource{ unexposedParams, ID::master_VibratoAmplitudeModSource },
-	sliderForSettingVibratoAmplitudeModAmount{ unexposedParams, ID::master_VibratoAmplitudeModAmount },
+	comboBox_ForSelectingVibratoSpeedModSource{ unexposedParams, ID::global_VibratoSpeedModSource },
+	sliderForSettingVibratoSpeedModAmount{ unexposedParams, ID::global_VibratoSpeedModAmount },
+	comboBox_ForSelectingVibratoAmplitudeModSource{ unexposedParams, ID::global_VibratoAmplitudeModSource },
+	sliderForSettingVibratoAmplitudeModAmount{ unexposedParams, ID::global_VibratoAmplitudeModAmount },
 	slider_ForSettingMasterTune{ unexposedParams },
 	comboBox_ForSelectingSplitStereoEnabled{ unexposedParams },
 	comboBox_ForSelectingVoicesMapEnabled{ unexposedParams },
@@ -200,7 +200,7 @@ void MasterOptionsComponent::resized() {
 
 void MasterOptionsComponent::comboBoxChanged(ComboBox* comboBox) {
 	auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	if (comboBox == &comboBox_ForSelectingOmniModeEnabled)
 		masterOptions->setOmniModeEnabled(currentSelection);
 	if (comboBox == &comboBox_ForSelectingControllersEnabled)
@@ -290,7 +290,7 @@ String MasterOptionsComponent::generateTipsDelayTooltipString() {
 }
 
 void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	auto currentValue{ (uint8)roundToInt(slider->getValue()) };
 	if (slider == &slider_ForSettingBasicChannel)
 		masterOptions->setBasicChannel(currentValue);
@@ -311,7 +311,7 @@ void MasterOptionsComponent::sliderValueChanged(Slider* slider) {
 	if (slider == &sliderForSettingVibratoAmplitudeModAmount)
 		masterOptions->setVibratoAmplitudeModAmount(currentValue);
 	if (slider == &slider_ForSettingMasterTune)
-		masterOptions->setMasterTune(currentValue);
+		masterOptions->setGlobalTune(currentValue);
 	if (slider == &slider_ForSettingDisplayBrightness)
 		masterOptions->setDisplayBrightness(currentValue);
 }

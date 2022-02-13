@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingVoicesMapEchoEnabled::ComboBoxForSelectingVoicesMapEchoEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_VoicesMapEchoEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_VoicesMapEchoEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->voicesMapEchoEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -38,6 +38,6 @@ String ComboBoxForSelectingVoicesMapEchoEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingVoicesMapEchoEnabled::~ComboBoxForSelectingVoicesMapEchoEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

@@ -7,12 +7,12 @@
 
 
 SliderForSettingPedalController::SliderForSettingPedalController(UnexposedParameters* unexposedParams, int pedalNumber) :
-	BaseSliderForSettingControllerNumber{ unexposedParams, pedalNumber == 1 ? ID::master_Pedal1ControllerNumber : ID::master_Pedal2ControllerNumber },
+	BaseSliderForSettingControllerNumber{ unexposedParams, pedalNumber == 1 ? ID::global_Pedal1ControllerNumber : ID::global_Pedal2ControllerNumber },
 	unexposedParams{ unexposedParams },
 	pedalNumber{ pedalNumber }
 {
 	jassert(pedalNumber == 1 || pedalNumber == 2);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ pedalNumber == 1 ? (double)masterOptions->pedal1ControllerNumber() : (double)masterOptions->pedal2ControllerNumber() };
 	setValue(paramValue, dontSendNotification);
@@ -40,6 +40,6 @@ String SliderForSettingPedalController::generateTooltipString() {
 }
 
 SliderForSettingPedalController::~SliderForSettingPedalController() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

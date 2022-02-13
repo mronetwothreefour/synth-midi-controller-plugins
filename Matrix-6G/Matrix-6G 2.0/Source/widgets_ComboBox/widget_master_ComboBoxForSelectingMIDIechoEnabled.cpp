@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingMIDIechoEnabled::ComboBoxForSelectingMIDIechoEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_MIDIechoEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_MIDIechoEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->midiEchoEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -39,6 +39,6 @@ String ComboBoxForSelectingMIDIechoEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingMIDIechoEnabled::~ComboBoxForSelectingMIDIechoEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

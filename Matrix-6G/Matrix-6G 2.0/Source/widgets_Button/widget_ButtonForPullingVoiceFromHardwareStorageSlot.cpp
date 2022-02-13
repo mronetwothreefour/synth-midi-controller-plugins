@@ -33,7 +33,7 @@ void ButtonForPullingVoiceFromHardwareStorageSlot::onClickMethod() {
 	auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 	callAfterDelay(transmitTime, [this, slot] 
 		{
-			auto masterOptions{ unexposedParams->masterOptions_get() };
+			auto masterOptions{ unexposedParams->globalOptions_get() };
 			auto basicChannel{ masterOptions->basicChannel() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			outgoingBuffers->addProgramChangeMessage(basicChannel, slot);

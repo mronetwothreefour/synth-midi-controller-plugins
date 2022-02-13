@@ -12,10 +12,10 @@ BaseSliderForSettingControllerNumber::BaseSliderForSettingControllerNumber(Unexp
 	unexposedParams{ unexposedParams },
 	propertyID{ propertyID }
 {
-	jassert(propertyID == ID::master_Lever2ControllerNumber ||
-			propertyID == ID::master_Lever3ControllerNumber ||
-			propertyID == ID::master_Pedal1ControllerNumber ||
-			propertyID == ID::master_Pedal2ControllerNumber
+	jassert(propertyID == ID::global_Lever2ControllerNumber ||
+			propertyID == ID::global_Lever3ControllerNumber ||
+			propertyID == ID::global_Pedal1ControllerNumber ||
+			propertyID == ID::global_Pedal2ControllerNumber
 	);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);

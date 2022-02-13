@@ -186,7 +186,7 @@ void RawDataTools::applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector
 }
 
 void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams) {
-    auto masterOptions{ unexposedParams->masterOptions_get() };
+    auto masterOptions{ unexposedParams->globalOptions_get() };
     masterOptions->setVibratoSpeed(masterOptionsData[master::indexOfVibratoSpeedLSByte] + (masterOptionsData[master::indexOfVibratoSpeedLSByte + 1] * 16));
     masterOptions->setVibratoSpeedModSource(masterOptionsData[master::indexOfVibratoSpeedModSourceLSByte]);
     masterOptions->setVibratoSpeedModAmount(masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte] + (masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte + 1] * 16));
@@ -196,7 +196,7 @@ void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData
     masterOptions->setVibratoAmplitudeModAmount(masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte] + (masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte + 1] * 16));
     auto masterTune{ masterOptionsData[master::indexOfMasterTuneLSByte] + (masterOptionsData[master::indexOfMasterTuneLSByte + 1] * 16) };
     masterTune = RawDataTools::formatSigned7bitValueForStoringInPlugin(masterTune);
-    masterOptions->setMasterTune((uint8)masterTune);
+    masterOptions->setGlobalTune((uint8)masterTune);
     masterOptions->setBasicChannel(masterOptionsData[master::indexOfBasicChannelLSByte] + master::basicChannelOffset);
     masterOptions->setOmniModeEnabled(masterOptionsData[master::indexOfOmniModeEnableLSByte]);
     masterOptions->setControllersEnabled(masterOptionsData[master::indexOfControllersEnableLSByte]);
@@ -434,7 +434,7 @@ void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParam
 }
 
 void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
-    auto masterOptions{ unexposedParams->masterOptions_get() };
+    auto masterOptions{ unexposedParams->globalOptions_get() };
 
     auto vibratoSpeed{ masterOptions->vibratoSpeed() };
     addValueToDataVectorAtLSBbyteLocation(vibratoSpeed, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedLSByte]);
@@ -464,7 +464,7 @@ void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedPa
     addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModAmountLSByte]);
     checksum += vibratoAmplitudeModAmount;
 
-    auto masterTune{ masterOptions->masterTune() };
+    auto masterTune{ masterOptions->globalTune() };
     masterTune = RawDataTools::formatSigned7bitValueForSendingToMatrix(masterTune);
     addValueToDataVectorAtLSBbyteLocation(masterTune, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMasterTuneLSByte]);
     checksum += masterTune;

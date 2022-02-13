@@ -6,7 +6,7 @@
 
 UnexposedParameters::UnexposedParameters() :
 	currentVoiceOptions{ new CurrentVoiceOptions(this) },
-	masterOptions{ new MasterOptions() },
+	globalOptions{ new GlobalOptions() },
 	matrixModSettings{ new MatrixModSettings(this) },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	splitOptions{ new SplitOptions() },
@@ -26,8 +26,8 @@ CurrentVoiceOptions* UnexposedParameters::currentVoiceOptions_get() {
 	return currentVoiceOptions.get();
 }
 
-MasterOptions* UnexposedParameters::masterOptions_get() {
-	return masterOptions.get();
+GlobalOptions* UnexposedParameters::globalOptions_get() {
+	return globalOptions.get();
 }
 
 MatrixModSettings* UnexposedParameters::matrixModSettings_get() {
@@ -115,6 +115,6 @@ UnexposedParameters::~UnexposedParameters() {
 	splitOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	matrixModSettings = nullptr;
-	masterOptions = nullptr;
+	globalOptions = nullptr;
 	currentVoiceOptions = nullptr;
 }

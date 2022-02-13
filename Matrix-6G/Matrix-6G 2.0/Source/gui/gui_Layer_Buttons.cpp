@@ -65,8 +65,8 @@ void ButtonsLayer::showSplitsComponent() {
 }
 
 void ButtonsLayer::prepareToShowMasterOptionsComponent() {
-    auto masterOptions{ unexposedParams->masterOptions_get() };
-    masterOptions->resetMasterOptionsToDefaults();
+    auto masterOptions{ unexposedParams->globalOptions_get() };
+    masterOptions->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     MasterOptionsDataMessage::addRequestForMasterOptionsDataToOutgoingMidiBuffers(outgoingMidiBuffers);
     callAfterDelay(300, [this, masterOptions] {

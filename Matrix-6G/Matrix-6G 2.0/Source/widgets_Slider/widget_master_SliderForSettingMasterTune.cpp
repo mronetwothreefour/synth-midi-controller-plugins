@@ -11,12 +11,12 @@ SliderForSettingMasterTune::SliderForSettingMasterTune(UnexposedParameters* unex
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setRange(0.0, 126.0, 1.0);
-	auto paramValue{ (double)masterOptions->masterTune() };
+	auto paramValue{ (double)masterOptions->globalTune() };
 	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, 63.0);
 	setMouseDragSensitivity(143);
@@ -43,7 +43,7 @@ String SliderForSettingMasterTune::generateTooltipString() {
 }
 
 void SliderForSettingMasterTune::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
-	if (property == ID::master_Tune) {
+	if (property == ID::global_Tune) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
 		setTooltip(generateTooltipString());
@@ -63,6 +63,6 @@ void SliderForSettingMasterTune::paint(Graphics& g) {
 SliderForSettingMasterTune::~SliderForSettingMasterTune() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

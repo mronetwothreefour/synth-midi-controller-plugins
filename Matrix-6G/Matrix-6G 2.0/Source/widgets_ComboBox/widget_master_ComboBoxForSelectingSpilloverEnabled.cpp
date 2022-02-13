@@ -7,10 +7,10 @@
 
 
 ComboBoxForSelectingSpilloverEnabled::ComboBoxForSelectingSpilloverEnabled(UnexposedParameters* unexposedParams) :
-	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::master_SpilloverEnabled },
+	BaseComboBoxForOffOnValueTreeProperty{ unexposedParams, ID::global_SpilloverEnabled },
 	unexposedParams{ unexposedParams }
 {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	auto paramValue{ masterOptions->spilloverEnabled() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
@@ -41,6 +41,6 @@ String ComboBoxForSelectingSpilloverEnabled::generateTooltipString() {
 }
 
 ComboBoxForSelectingSpilloverEnabled::~ComboBoxForSelectingSpilloverEnabled() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

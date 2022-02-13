@@ -11,8 +11,8 @@ ComboBoxForSelectingVibratoModSource::ComboBoxForSelectingVibratoModSource(Unexp
 	unexposedParams{ unexposedParams },
 	propertyID{ propertyID }
 {
-	jassert(propertyID == ID::master_VibratoAmplitudeModSource || propertyID == ID::master_VibratoSpeedModSource);
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	jassert(propertyID == ID::global_VibratoAmplitudeModSource || propertyID == ID::global_VibratoSpeedModSource);
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->addListener(this);
 	setColour(ComboBox::ColourIds::textColourId, Colours::transparentBlack);
 	StringArray choices;
@@ -20,7 +20,7 @@ ComboBoxForSelectingVibratoModSource::ComboBoxForSelectingVibratoModSource(Unexp
 	for (uint8 i = 0; i != 3; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ propertyID == ID::master_VibratoAmplitudeModSource ? masterOptions->vibratoAmplitudeModSource() : masterOptions->vibratoSpeedModSource() };
+	auto paramValue{ propertyID == ID::global_VibratoAmplitudeModSource ? masterOptions->vibratoAmplitudeModSource() : masterOptions->vibratoSpeedModSource() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -30,7 +30,7 @@ String ComboBoxForSelectingVibratoModSource::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Sets the source for modulating the\n";
-		tooltipText += propertyID == ID::master_VibratoAmplitudeModSource ? "amplitude" : "speed";
+		tooltipText += propertyID == ID::global_VibratoAmplitudeModSource ? "amplitude" : "speed";
 		tooltipText += " of low-frequency oscillator 3,\n";
 		tooltipText += "which is dedicated to vibrato.\n";
 		tooltipText += "Options: Off (no modulation), Lever 2,\n";
@@ -67,6 +67,6 @@ void ComboBoxForSelectingVibratoModSource::paint(Graphics& g) {
 }
 
 ComboBoxForSelectingVibratoModSource::~ComboBoxForSelectingVibratoModSource() {
-	auto masterOptions{ unexposedParams->masterOptions_get() };
+	auto masterOptions{ unexposedParams->globalOptions_get() };
 	masterOptions->removeListener(this);
 }

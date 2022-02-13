@@ -37,7 +37,7 @@ void ButtonForSavingVoiceIntoSelectedSlot::onClickMethod() {
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this]
 			{
-				auto masterOptions{ unexposedParams->masterOptions_get() };
+				auto masterOptions{ unexposedParams->globalOptions_get() };
 				auto basicChannel{ masterOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)voiceSlots.selectedSlot);
