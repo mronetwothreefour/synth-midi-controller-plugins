@@ -1,7 +1,10 @@
 #include "widget_ButtonForClearingSequencerTrack.h"
 
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -20,7 +23,7 @@ const String ButtonForClearingSequencerTrack::createButtonTooltipString() {
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Sets all steps in sequencer\n";
 		if (trackNum == 1)
-			buttonTooltip += "track 1 to 127 (\"rest\")";
+			buttonTooltip += "track 1 to 127 (" + GUI::openQuote + "rest" + GUI::closeQuote + ")";
 		else
 			buttonTooltip += "track " + (String)trackNum + " to 0 (C0)";
 	}

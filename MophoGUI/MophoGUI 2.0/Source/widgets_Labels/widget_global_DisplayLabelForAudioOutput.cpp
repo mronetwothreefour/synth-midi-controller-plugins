@@ -1,9 +1,12 @@
 #include "widget_global_DisplayLabelForAudioOutput.h"
 
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -34,7 +37,7 @@ String DisplayLabelForAudioOutput::generateTooltipString() {
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects whether the hardware should output audio in mono\n";
 		tooltipText += "or in stereo. This option cannot be changed remotely and\n";
-		tooltipText += "must be set within the hardware's Global Parameters menus.";
+		tooltipText += "must be set within the hardware" + GUI::apostrophe + "s Global Parameters menus.";
 	}
 	return tooltipText;
 }

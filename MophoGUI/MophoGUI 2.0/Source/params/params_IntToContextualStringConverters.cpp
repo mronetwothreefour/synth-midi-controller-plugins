@@ -1,5 +1,8 @@
 #include "params_IntToContextualStringConverters.h"
 
+#include "../gui/gui_Constants.h"
+
+using namespace constants;
 
 
 
@@ -1305,9 +1308,9 @@ String IntToMidiClockString::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToMidiClockString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 4);
-	if (i == 0) return "Use Internal, Don't Transmit";
+	if (i == 0) return "Use Internal, Don" + GUI::apostrophe + "t Transmit";
 	if (i == 1) return "Use Internal, Transmit";
-	if (i == 2) return "Use Incoming, Don't Re-Transmit";
+	if (i == 2) return "Use Incoming, Don" + GUI::apostrophe + "t Re-Transmit";
 	if (i == 3) return "Use Incoming, Re-Transmit";
 	else return "range error";
 }
@@ -1463,7 +1466,7 @@ String IntToShowDontShowString::conversionAlgorithm(const uint8& i) noexcept {
 
 String IntToShowDontShowString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	jassert(i < 2);
-	if (i == 0) return "Don't Show";
+	if (i == 0) return "Don" + GUI::apostrophe + "t Show";
 	if (i == 1) return "Show";
 	else return "range error";
 }

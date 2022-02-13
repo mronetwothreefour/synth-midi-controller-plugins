@@ -1,9 +1,12 @@
 #include "widget_global_DisplayLabelForBalanceTweak.h"
 
+#include "../gui/gui_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -32,10 +35,10 @@ String DisplayLabelForBalanceTweak::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Applies a small adjustment to the balance of the hardware's\n";
+		tooltipText += "Applies a small adjustment to the balance of the hardware" + GUI::apostrophe + "s\n";
 		tooltipText += "audio output jacks. This option cannot be changed remotely\n";
-		tooltipText += "and must be set within the hardware's Global Parameters menus.\n";
-		tooltipText += "(This option is only available in Mopho firmware version 1.4)";
+		tooltipText += "and must be set within the hardware" + GUI::apostrophe + "s Global Parameters menus.\n";
+		tooltipText += "(This option was added in Mopho firmware version 1.4)";
 	}
 	return tooltipText;
 }
