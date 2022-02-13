@@ -11,8 +11,8 @@ DisplayLabelForBalanceTweak::DisplayLabelForBalanceTweak(UnexposedParameters* un
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::global_Balance }
 {
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_DisplayLabel.toString());
@@ -23,8 +23,8 @@ DisplayLabelForBalanceTweak::DisplayLabelForBalanceTweak(UnexposedParameters* un
 }
 
 void DisplayLabelForBalanceTweak::setTextAccordingToParameterSetting() {
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	auto paramValue{ globalAudioOptions->globalBalance() };
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	auto paramValue{ globalOptions->globalBalance() };
 	setText(IntToBalanceTweakString::get()->verboseConvert(paramValue), dontSendNotification);
 }
 
@@ -53,6 +53,6 @@ void DisplayLabelForBalanceTweak::valueTreePropertyChanged(ValueTree& /*tree*/, 
 DisplayLabelForBalanceTweak::~DisplayLabelForBalanceTweak() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

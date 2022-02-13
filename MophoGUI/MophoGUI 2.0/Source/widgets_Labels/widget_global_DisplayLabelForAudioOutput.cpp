@@ -11,8 +11,8 @@ DisplayLabelForAudioOutput::DisplayLabelForAudioOutput(UnexposedParameters* unex
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::global_HardwareOutputIsStereo }
 {
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_DisplayLabel.toString());
@@ -23,8 +23,8 @@ DisplayLabelForAudioOutput::DisplayLabelForAudioOutput(UnexposedParameters* unex
 }
 
 void DisplayLabelForAudioOutput::setTextAccordingToParameterSetting() {
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	auto paramValue{ (uint8)globalAudioOptions->hardwareOutputIsStereo() };
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	auto paramValue{ (uint8)globalOptions->hardwareOutputIsStereo() };
 	setText(IntToMonoStereoString::get()->verboseConvert(paramValue), dontSendNotification);
 }
 
@@ -52,6 +52,6 @@ void DisplayLabelForAudioOutput::valueTreePropertyChanged(ValueTree& /*tree*/, c
 DisplayLabelForAudioOutput::~DisplayLabelForAudioOutput() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

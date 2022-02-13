@@ -18,7 +18,7 @@ BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, Transmiss
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
 	message{ "" },
-	transmitTime{ unexposedParams->midiOptions_get()->voiceTransmitTime() },
+	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
 	voiceCounter{ voices::numberOfSlotsInBank },
 	progress{ 0.0 },
 	progressBar{ progress },

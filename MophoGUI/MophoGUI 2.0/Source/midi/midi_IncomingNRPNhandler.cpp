@@ -19,10 +19,10 @@ MidiBuffer IncomingNRPNhandler::pullFullyFormedNRPNmessageOutOfBuffer(const Midi
     midiMessagesToPassThrough.clear();
     incompleteNRPN.clear();
     for (auto event : midiMessages) {
-        auto midiOptions{ unexposedParams->midiOptions_get() };
+        auto globalOptions{ unexposedParams->globalOptions_get() };
         auto midiMessage{ event.getMessage() };
         auto messageChannel{ midiMessage.getChannel() - 1 };
-        auto pluginChannel{ midiOptions->transmitChannel() };
+        auto pluginChannel{ globalOptions->transmitChannel() };
         if (midiMessage.isController() && messageChannel == pluginChannel)
             checkIfControllerTypeIsNRPN(midiMessage);
         else {
@@ -100,32 +100,32 @@ void IncomingNRPNhandler::handleControllerWhichTargetsNRPNvalueLSB(MidiMessage m
 }
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToExposedParameter(int nrpnType, int newValue) {
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchoesAreBlocked();
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
     auto param{ info.indexForNRPN((uint8)nrpnType) };
     auto paramID{ info.IDfor(param) };
     auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
     exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
-    midiOptions->setParamChangeEchoesAreNotBlocked();
+    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 void IncomingNRPNhandler::applyIncomingNRPNvalueToUnexposedParameter(int nrpnType, int newValue) {
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchoesAreBlocked();
-    auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    auto globalOptions{ unexposedParams->globalOptions_get() };
     switch (nrpnType)
     {
     case MIDI::nrpnTypeForGlobalTranspose:
-        globalAudioOptions->setGlobalTranspose((uint8)newValue);
+        globalOptions->setGlobalTranspose((uint8)newValue);
         break;
     case MIDI::nrpnTypeForGlobalFineTune:
-        globalAudioOptions->setGlobalFineTune((uint8)newValue);
+        globalOptions->setGlobalFineTune((uint8)newValue);
         break;
     default:
         break;
     }
-    midiOptions->setParamChangeEchoesAreNotBlocked();
+    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 IncomingNRPNhandler::~IncomingNRPNhandler() {

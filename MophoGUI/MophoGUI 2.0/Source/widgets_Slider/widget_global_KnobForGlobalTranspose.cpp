@@ -11,12 +11,12 @@ KnobForGlobalTranspose::KnobForGlobalTranspose(UnexposedParameters* unexposedPar
 	unexposedParams{ unexposedParams },
 	parameterID{ ID::global_Transpose }
 {
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setRange(0.0, 24.0, 1.0);
-	auto paramValue{ globalAudioOptions->globalTranspose() };
+	auto paramValue{ globalOptions->globalTranspose() };
 	setValue((double)paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -52,6 +52,6 @@ void KnobForGlobalTranspose::valueTreePropertyChanged(ValueTree& tree, const Ide
 KnobForGlobalTranspose::~KnobForGlobalTranspose() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-	globalAudioOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

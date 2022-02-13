@@ -12,10 +12,10 @@ using namespace constants;
 
 DisplayLabelForSysEx::DisplayLabelForSysEx(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_SysExOn }
+	parameterID{ ID::global_SysExOn }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_DisplayLabel.toString());
@@ -25,12 +25,12 @@ DisplayLabelForSysEx::DisplayLabelForSysEx(UnexposedParameters* unexposedParams)
 }
 
 void DisplayLabelForSysEx::setTextAccordingToParameterSetting() {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	if (midiOptions->sysExIsOff())
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	if (globalOptions->sysExIsOff())
 		setColour(textColourId, Color::button);
 	else
 		setColour(textColourId, Color::black);
-	auto paramValue{ midiOptions->sysExIsOn() };
+	auto paramValue{ globalOptions->sysExIsOn() };
 	setText(IntToSysExOffOnString::get()->verboseConvert(paramValue), dontSendNotification);
 }
 
@@ -58,8 +58,8 @@ void DisplayLabelForSysEx::valueTreePropertyChanged(ValueTree& /*tree*/, const I
 }
 
 DisplayLabelForSysEx::~DisplayLabelForSysEx() {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
 }

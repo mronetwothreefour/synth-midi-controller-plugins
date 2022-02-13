@@ -1,17 +1,20 @@
 #include "widget_global_ComboBoxForMidiClock.h"
 
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
 ComboBoxForMidiClock::ComboBoxForMidiClock(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_Clock }
+	parameterID{ ID::global_Clock }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	StringArray choices;
@@ -19,7 +22,7 @@ ComboBoxForMidiClock::ComboBoxForMidiClock(UnexposedParameters* unexposedParams)
 	for (uint8 i = 0; i != 4; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ midiOptions->clockType() };
+	auto paramValue{ globalOptions->clockType() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -28,7 +31,7 @@ String ComboBoxForMidiClock::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects the hardware's MIDI clock status.\n";
+		tooltipText += "Selects the hardware" + GUI::apostrophe + "s MIDI clock status.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {
 		auto converter{ IntToMidiClockString::get() };
@@ -53,6 +56,6 @@ void ComboBoxForMidiClock::valueTreePropertyChanged(ValueTree& tree, const Ident
 ComboBoxForMidiClock::~ComboBoxForMidiClock() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

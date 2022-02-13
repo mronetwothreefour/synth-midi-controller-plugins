@@ -30,8 +30,8 @@ namespace constants
 		static const int nrpnTypeLSB{ 98 };
 		static const int nrpnValueMSB{ 6 };
 		static const int nrpnValueLSB{ 38 };
-        static const int voiceDumpBankByte{ 4 };
-        static const int voiceDumpSlotByte{ 5 };
+        static const int voiceDataMessageBankByte{ 4 };
+        static const int voiceDataMessageSlotByte{ 5 };
         static const int sysExMessageTypeByte{ 3 };
     }
 }

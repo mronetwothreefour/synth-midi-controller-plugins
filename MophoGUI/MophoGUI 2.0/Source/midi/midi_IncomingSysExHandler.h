@@ -21,9 +21,8 @@ private:
 	bool incomingSysExHasMatchingID(MidiMessage midiMessage);
 	void handleIncomingEditBufferDataMessage(const uint8* sysExData);
 	void handleIncomingVoiceDataMessage(const uint8* sysExData);
-	void handleIncomingGlobalParametersDump(const uint8* sysExData);
-	void updateMidiOptions(const uint8* sysExData);
-	void updateGlobalAudioOptions(const uint8* sysExData);
+	void handleIncomingGlobalDataMessage(const uint8* sysExData);
+	void updateGlobalOptions(const uint8* sysExData);
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IncomingSysExHandler)

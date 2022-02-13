@@ -139,20 +139,16 @@
               resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
         <FILE id="zZsxkG" name="params_ExposedParamsLayout_Factory.h" compile="0"
               resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
-        <FILE id="igTWSC" name="params_GlobalAudioOptions.cpp" compile="1"
-              resource="0" file="Source/params/params_GlobalAudioOptions.cpp"/>
-        <FILE id="z9P4lt" name="params_GlobalAudioOptions.h" compile="0" resource="0"
-              file="Source/params/params_GlobalAudioOptions.h"/>
+        <FILE id="igTWSC" name="params_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_GlobalOptions.cpp"/>
+        <FILE id="z9P4lt" name="params_GlobalOptions.h" compile="0" resource="0"
+              file="Source/params/params_GlobalOptions.h"/>
         <FILE id="YjQJ6X" name="params_Identifiers.h" compile="0" resource="0"
               file="Source/params/params_Identifiers.h"/>
         <FILE id="WVCcvh" name="params_IntToContextualStringConverters.cpp"
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="e0iQfC" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
-        <FILE id="y0F4c4" name="params_MidiOptions.cpp" compile="1" resource="0"
-              file="Source/params/params_MidiOptions.cpp"/>
-        <FILE id="fKqWhk" name="params_MidiOptions.h" compile="0" resource="0"
-              file="Source/params/params_MidiOptions.h"/>
         <FILE id="A43lpL" name="params_SpecialValueOffsets.cpp" compile="1"
               resource="0" file="Source/params/params_SpecialValueOffsets.cpp"/>
         <FILE id="WFPrHU" name="params_SpecialValueOffsets.h" compile="0" resource="0"
@@ -165,6 +161,10 @@
               resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
         <FILE id="QSXHbG" name="params_UnexposedParameters_Facade.h" compile="0"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+        <FILE id="y0F4c4" name="params_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.cpp"/>
+        <FILE id="fKqWhk" name="params_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{28703D8D-42BD-75ED-262A-A113EC7DF561}" name="tooltipSetters">
         <FILE id="TuIiFj" name="tooltipSetter_Base.cpp" compile="1" resource="0"

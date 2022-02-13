@@ -8,10 +8,10 @@
 
 ComboBoxForVoiceChange::ComboBoxForVoiceChange(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_VoiceChangeOn }
+	parameterID{ ID::global_VoiceChangeOn }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	StringArray choices;
@@ -19,7 +19,7 @@ ComboBoxForVoiceChange::ComboBoxForVoiceChange(UnexposedParameters* unexposedPar
 	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ midiOptions->voiceChangeIsOn() };
+	auto paramValue{ globalOptions->voiceChangeIsOn() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -55,6 +55,6 @@ void ComboBoxForVoiceChange::valueTreePropertyChanged(ValueTree& tree, const Ide
 ComboBoxForVoiceChange::~ComboBoxForVoiceChange() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

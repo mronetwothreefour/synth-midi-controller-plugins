@@ -8,10 +8,10 @@
 
 ComboBoxForParameterSend::ComboBoxForParameterSend(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_ParameterSendType }
+	parameterID{ ID::global_ParameterSendType }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	StringArray choices;
@@ -19,7 +19,7 @@ ComboBoxForParameterSend::ComboBoxForParameterSend(UnexposedParameters* unexpose
 	for (uint8 i = 0; i != 3; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ midiOptions->parameterSendType() };
+	auto paramValue{ globalOptions->parameterSendType() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -56,6 +56,6 @@ void ComboBoxForParameterSend::valueTreePropertyChanged(ValueTree& tree, const I
 ComboBoxForParameterSend::~ComboBoxForParameterSend() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

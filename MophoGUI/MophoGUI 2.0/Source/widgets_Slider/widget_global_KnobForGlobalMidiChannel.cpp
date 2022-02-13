@@ -9,14 +9,14 @@
 KnobForGlobalMidiChannel::KnobForGlobalMidiChannel(UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_HardwareReceiveChannel }
+	parameterID{ ID::global_HardwareReceiveChannel }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setRange(0.0, 16.0, 1.0);
-	auto paramValue{ midiOptions->hardwareReceiveChannel() };
+	auto paramValue{ globalOptions->hardwareReceiveChannel() };
 	setValue((double)paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -53,6 +53,6 @@ void KnobForGlobalMidiChannel::valueTreePropertyChanged(ValueTree& tree, const I
 KnobForGlobalMidiChannel::~KnobForGlobalMidiChannel() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

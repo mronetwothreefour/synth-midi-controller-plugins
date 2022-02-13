@@ -57,15 +57,13 @@ void ButtonsLayer::showVoicesBanksComponent() {
 }
 
 void ButtonsLayer::prepareToShowGlobalParametersComponent() {
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->resetMidiOptionsToDefaults();
-    auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-    globalAudioOptions->resetGlobalAudioOptionsToDefaults();
+    auto globalOptions{ unexposedParams->globalOptions_get() };
+    globalOptions->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
     GlobalParametersDataMessage::addRequestForDataMessageToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(300, [this, midiOptions] {
-        if (midiOptions->sysExIsOn()) {
-            if (midiOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+    callAfterDelay(300, [this, globalOptions] {
+        if (globalOptions->sysExIsOn()) {
+            if (globalOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
                 showNRPNisOffWarningComponent();
             else
                 showGlobalParametersComponent();

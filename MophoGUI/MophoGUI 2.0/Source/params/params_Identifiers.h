@@ -55,25 +55,20 @@ namespace ID
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 
-	static const Identifier global_AudioOptions{ "global_AudioOptions" };
 	static const Identifier global_Balance{ "global_Balance" };
+	static const Identifier global_Clock{ "global_Clock" };
+	static const Identifier global_ControllersOn{ "global_ControllersOn" };
 	static const Identifier global_FineTune{ "global_FineTune" };
 	static const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
+	static const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
+	static const Identifier global_Options{ "global_Options" };
+	static const Identifier global_ParameterReceiveType{ "global_ParameterReceiveType" };
+	static const Identifier global_ParameterSendType{ "global_ParameterSendType" };
+	static const Identifier global_PedalModeArpLatch{ "global_PedalModeArpLatch" };
+	static const Identifier global_SysExOn{ "global_SysExOn" };
+	static const Identifier global_TransmitChannel{ "global_TransmitChannel" };
 	static const Identifier global_Transpose{ "global_Transpose" };
-
-	static const Identifier midi_Clock{ "midi_Clock" };
-	static const Identifier midi_ControllersOn{ "midi_ControllersOn" };
-	static const Identifier midi_HardwareReceiveChannel{ "midi_HardwareReceiveChannel" };
-	static const Identifier midi_Options{ "midi_Options" };
-	static const Identifier midi_ParamChangeEchoesAreBlocked{ "midi_ParamChangeEchoesAreBlocked" };
-	static const Identifier midi_ParameterReceiveType{ "midi_ParameterReceiveType" };
-	static const Identifier midi_ParameterSendType{ "midi_ParameterSendType" };
-	static const Identifier midi_PedalModeArpLatch{ "midi_PedalModeArpLatch" };
-	static const Identifier midi_VoiceChangeOn{ "midi_VoiceChangeOn" };
-	static const Identifier midi_VoiceTransmitTime{ "midi_VoiceTransmitTime" };
-	static const Identifier midi_SysExOn{ "midi_SysExOn" };
-	static const Identifier midi_ThruOn{ "midi_ThruOn" };
-	static const Identifier midi_TransmitChannel{ "midi_TransmitChannel" };
+	static const Identifier global_VoiceChangeOn{ "global_VoiceChangeOn" };
 
 	static const Identifier param_SeqTrack1Dest{ "seqTrack1Dest" };
 	static const Identifier param_SeqTrack2Dest{ "seqTrack2Dest" };
@@ -91,10 +86,15 @@ namespace ID
 	static const Identifier state_CustomVoicesBank3{ "state_CustomVoicesBank3" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
 	static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
+	static const Identifier voiceTx_Options{ "voiceTx_Options" };
+	static const Identifier voiceTx_ParamChangeEchoesAreBlocked{ "voiceTx_ParamChangeEchoesAreBlocked" };
+	static const Identifier voiceTx_Time{ "voiceTx_Time" };
 }
 

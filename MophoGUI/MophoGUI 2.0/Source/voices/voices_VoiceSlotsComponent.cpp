@@ -84,8 +84,8 @@ void VoiceSlotsComponent::loadVoiceFromSelectedSlot() {
 void VoiceSlotsComponent::pullSelectedVoiceFromHardware() {
 	if (selectedSlot < voices::numberOfSlotsInBank) {
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		auto transmitTime{ midiOptions->voiceTransmitTime() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingMidiBuffers(bank, selectedSlot, outgoingBuffers);
 		callAfterDelay(transmitTime, [this] { setTextForVoiceSlotToggleButton(selectedSlot); });
 		callAfterDelay(transmitTime + 20, [this] { voiceSlotButtons[selectedSlot].repaint(); });

@@ -5,7 +5,7 @@
 
 
 
-class MidiOptions;
+class VoiceTransmissionOptions;
 class UnexposedParameters;
 
 class ExposedParametersListener :
@@ -13,7 +13,7 @@ class ExposedParametersListener :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	MidiOptions* midiOptions;
+	VoiceTransmissionOptions* voiceTransmissionOptions;
 
 public:
 	ExposedParametersListener() = delete;

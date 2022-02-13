@@ -18,8 +18,8 @@ NRPNisOffWarningComponent::NRPNisOffWarningComponent(UnexposedParameters* unexpo
 }
 
 void NRPNisOffWarningComponent::checkHardwareSettings() {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	if (midiOptions->hardwareIsSetToReceiveNRPNcontrollers())
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	if (globalOptions->hardwareIsSetToReceiveNRPNcontrollers())
 		hideThisComponent();
 }
 

@@ -17,8 +17,8 @@ SysExIsOffWarningComponent::SysExIsOffWarningComponent(UnexposedParameters* unex
 }
 
 void SysExIsOffWarningComponent::checkHardwareSettings() {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	if (midiOptions->sysExIsOn())
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	if (globalOptions->sysExIsOn())
 		hideThisComponent();
 }
 

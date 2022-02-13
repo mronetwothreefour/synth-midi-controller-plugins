@@ -58,23 +58,23 @@ void VoicesBanksComponent::paint(Graphics& g) {
 void VoicesBanksComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTime) {
 		editor.setInputRestrictions(4, "0123456789");
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		editor.setFont(FontsMenu::fontFor_Labels);
-		editor.setText((String)midiOptions->voiceTransmitTime());
+		editor.setText((String)voiceTransmissionOptions->voiceTransmitTime());
 		editor.selectAll();
 	}
 }
 
 void VoicesBanksComponent::labelTextChanged(Label* label) {
 	if (label == &label_txTime) {
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
 			if (newValue > 49 && newValue < 5001)
-				midiOptions->setVoiceTransmitTime(newValue);
+				voiceTransmissionOptions->setVoiceTransmitTime(newValue);
 		}
-		label->setText((String)midiOptions->voiceTransmitTime() + " ms", dontSendNotification);
+		label->setText((String)voiceTransmissionOptions->voiceTransmitTime() + " ms", dontSendNotification);
 	}
 }
 

@@ -568,13 +568,10 @@
     <ClCompile Include="..\..\Source\params\params_ExposedParamsLayout_Factory.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_GlobalAudioOptions.cpp">
+    <ClCompile Include="..\..\Source\params\params_GlobalOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
-      <Filter>MophoGUI 2\Source\params</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_MidiOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_SpecialValueOffsets.cpp">
@@ -584,6 +581,9 @@
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
+      <Filter>MophoGUI 2\Source\params</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
@@ -2970,16 +2970,13 @@
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_GlobalAudioOptions.h">
+    <ClInclude Include="..\..\Source\params\params_GlobalOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_Identifiers.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
-      <Filter>MophoGUI 2\Source\params</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_MidiOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_SpecialValueOffsets.h">
@@ -2989,6 +2986,9 @@
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
+      <Filter>MophoGUI 2\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">

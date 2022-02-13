@@ -8,10 +8,10 @@
 
 ComboBoxForPedalMode::ComboBoxForPedalMode(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::midi_PedalModeArpLatch }
+	parameterID{ ID::global_PedalModeArpLatch }
 {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	StringArray choices;
@@ -19,7 +19,7 @@ ComboBoxForPedalMode::ComboBoxForPedalMode(UnexposedParameters* unexposedParams)
 	for (uint8 i = 0; i != 2; ++i)
 		choices.add(converter->convert(i));
 	addItemList(choices, 1);
-	auto paramValue{ (uint8)midiOptions->pedalModeIsArpLatch() };
+	auto paramValue{ (uint8)globalOptions->pedalModeIsArpLatch() };
 	setSelectedItemIndex(paramValue, dontSendNotification);
 	setTooltip(generateTooltipString());
 }
@@ -56,6 +56,6 @@ void ComboBoxForPedalMode::valueTreePropertyChanged(ValueTree& tree, const Ident
 ComboBoxForPedalMode::~ComboBoxForPedalMode() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->removeListener(this);
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	midiOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

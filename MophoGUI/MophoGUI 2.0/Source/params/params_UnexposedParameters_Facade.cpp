@@ -5,12 +5,12 @@
 
 
 UnexposedParameters::UnexposedParameters() :
-	globalAudioOptions{ new GlobalAudioOptions() },
-	midiOptions{ new MidiOptions() },
+	globalOptions{ new GlobalOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	voicesBanks{ new VoicesBanks() },
 	tooltipOptions{ new TooltipOptions() },
-	undoManager{ new UndoManager() }
+	undoManager{ new UndoManager() },
+	voiceTransmissionOptions{ new VoiceTransmissionOptions() }
 {
 }
 
@@ -18,20 +18,12 @@ Array<MidiBuffer, CriticalSection>* UnexposedParameters::aggregatedOutgoingBuffe
 	return outgoingMidiBuffers->aggregatedOutgoingBuffers_get();
 }
 
-GlobalAudioOptions* UnexposedParameters::globalAudioOptions_get() {
-	return globalAudioOptions.get();
-}
-
-MidiOptions* UnexposedParameters::midiOptions_get() {
-	return midiOptions.get();
+GlobalOptions* UnexposedParameters::globalOptions_get() {
+	return globalOptions.get();
 }
 
 OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
-}
-
-VoicesBanks* UnexposedParameters::voicesBanks_get() {
-	return voicesBanks.get();
 }
 
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
@@ -42,6 +34,14 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
+VoicesBanks* UnexposedParameters::voicesBanks_get() {
+	return voicesBanks.get();
+}
+
+VoiceTransmissionOptions* UnexposedParameters::voiceTransmissionOptions_get() {
+	return voiceTransmissionOptions.get();
+}
+
 XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
 	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
@@ -50,6 +50,9 @@ XmlElement UnexposedParameters::getStateXml() {
 	auto tooltipOptionsStateXml{ tooltipOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
+	auto voiceTransmissionOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
+	if (voiceTransmissionOptionsStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voiceTransmissionOptionsStateXml);
 	return unexposedParamsStateXml;
 }
 
@@ -58,13 +61,15 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 	voicesBanks->replaceState(voicesBanksState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
+	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
+	voiceTransmissionOptions->replaceState(voiceTransmissionOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {
+	voiceTransmissionOptions = nullptr;
 	voicesBanks = nullptr;
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
-	midiOptions = nullptr;
-	globalAudioOptions = nullptr;
+	globalOptions = nullptr;
 }

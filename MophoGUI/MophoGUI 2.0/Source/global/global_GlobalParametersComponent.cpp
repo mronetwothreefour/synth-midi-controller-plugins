@@ -146,29 +146,29 @@ void GlobalParametersComponent::buttonClicked(Button* button) {
 void GlobalParametersComponent::comboBoxChanged(ComboBox* comboBox) {
 	if (comboBox == &comboBox_ForMidiClock) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		midiOptions->setClockType(currentSelection);
+		auto globalOptions{ unexposedParams->globalOptions_get() };
+		globalOptions->setClockType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_MidiClock);
 	}
 	if (comboBox == &comboBox_ForPedalMode) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		midiOptions->setParameterReceiveType(currentSelection);
+		auto globalOptions{ unexposedParams->globalOptions_get() };
+		globalOptions->setParameterReceiveType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_PedalMode);
 	}
 	if (comboBox == &comboBox_ForVoiceChange) {
 		auto isOn{ (bool)comboBox->getSelectedItemIndex() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto globalOptions{ unexposedParams->globalOptions_get() };
 		if (isOn)
-			midiOptions->setVoiceChangeOn();
+			globalOptions->setVoiceChangeOn();
 		else
-			midiOptions->setVoiceChangeOff();
+			globalOptions->setVoiceChangeOff();
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers((uint8)isOn, globalParams::nrpnType_VoiceChange);
 	}
 	if (comboBox == &comboBox_ForParameterSend) {
 		auto currentSelection{ (uint8)comboBox->getSelectedItemIndex() };
-		auto midiOptions{ unexposedParams->midiOptions_get() };
-		midiOptions->setParameterSendType(currentSelection);
+		auto globalOptions{ unexposedParams->globalOptions_get() };
+		globalOptions->setParameterSendType(currentSelection);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentSelection, globalParams::nrpnType_ParameterSendType);
 	}
 }
@@ -199,31 +199,31 @@ void GlobalParametersComponent::labelTextChanged(Label* label) {
 void GlobalParametersComponent::sliderValueChanged(Slider* slider) {
 	if (slider == &knob_ForGlobalTranspose) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-		globalAudioOptions->setGlobalTranspose(currentKnobValue);
+		auto globalOptions{ unexposedParams->globalOptions_get() };
+		globalOptions->setGlobalTranspose(currentKnobValue);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalTranspose);
 	}
 	if (slider == &knob_ForGlobalFineTune) {
-		auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
+		auto globalOptions{ unexposedParams->globalOptions_get() };
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		globalAudioOptions->setGlobalFineTune(currentKnobValue);
+		globalOptions->setGlobalFineTune(currentKnobValue);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalFineTune);
 	}
 	if (slider == &knob_ForGlobalMidiChannel) {
-		auto midiOptions{ unexposedParams->midiOptions_get() };
+		auto globalOptions{ unexposedParams->globalOptions_get() };
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		midiOptions->setHardwareReceiveChannel(currentKnobValue);
+		globalOptions->setHardwareReceiveChannel(currentKnobValue);
 		sendNewValueForNRPNtypeToOutgoingMidiBuffers(currentKnobValue, globalParams::nrpnType_GlobalMidiChannel);
 		if (currentKnobValue == 0)
-			midiOptions->setTransmitChannel(currentKnobValue);
+			globalOptions->setTransmitChannel(currentKnobValue);
 		else
-			midiOptions->setTransmitChannel(currentKnobValue - 1);
+			globalOptions->setTransmitChannel(currentKnobValue - 1);
 	}
 }
 
 void GlobalParametersComponent::sendNewValueForNRPNtypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType) {
-	auto midiOptions{ unexposedParams->midiOptions_get() };
-	auto channel{ midiOptions->transmitChannel() };
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	auto channel{ globalOptions->transmitChannel() };
 	auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(channel, nrpnType, newValue) };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	outgoingMidiBuffers->addMidiBuffer(nrpnBuffer);

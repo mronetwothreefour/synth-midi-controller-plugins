@@ -13,7 +13,7 @@ using namespace constants;
 ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	midiOptions{ unexposedParams->midiOptions_get() }
+	voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
@@ -21,7 +21,7 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (midiOptions->paramChangeEchoesAreNotBlocked()) {
+	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
 		auto nrpn{ info.NRPNfor(param) };

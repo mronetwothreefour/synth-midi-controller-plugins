@@ -46,7 +46,7 @@ void IncomingSysExHandler::handleIncomingEditBufferDataMessage(const uint8* sysE
 
 void IncomingSysExHandler::handleIncomingVoiceDataMessage(const uint8* sysExData) {
     if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::voiceData) {
-        auto bankNum{ sysExData[MIDI::voiceDumpBankByte] };
+        auto bankNum{ sysExData[MIDI::voiceDataMessageBankByte] };
         VoicesBank bank;
         switch (bankNum)
         {
@@ -63,7 +63,7 @@ void IncomingSysExHandler::handleIncomingVoiceDataMessage(const uint8* sysExData
             bank = VoicesBank::custom1;
             break;
         }
-        auto slot{ sysExData[MIDI::voiceDumpSlotByte] };
+        auto slot{ sysExData[MIDI::voiceDataMessageSlotByte] };
         std::vector<uint8> voiceDataVector;
         for (auto dataByte = MIDI::firstVoiceDataByte; dataByte != MIDI::firstUnusedPVoiceDataByte; ++dataByte)
             voiceDataVector.push_back(*(sysExData + dataByte));
@@ -72,67 +72,76 @@ void IncomingSysExHandler::handleIncomingVoiceDataMessage(const uint8* sysExData
         voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slot);
     }
     else
-        handleIncomingGlobalParametersDump(sysExData);
+        handleIncomingGlobalDataMessage(sysExData);
 }
 
-void IncomingSysExHandler::handleIncomingGlobalParametersDump(const uint8* sysExData) {
+void IncomingSysExHandler::handleIncomingGlobalDataMessage(const uint8* sysExData) {
     if (sysExData[MIDI::sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersData) {
-        updateMidiOptions(sysExData);
-        updateGlobalAudioOptions(sysExData);
+        updateGlobalOptions(sysExData);
     }
 }
 
-void IncomingSysExHandler::updateMidiOptions(const uint8* sysExData) {
-    auto midiOptions{ unexposedParams->midiOptions_get() };
-    midiOptions->setParamChangeEchoesAreBlocked();
+void IncomingSysExHandler::updateGlobalOptions(const uint8* sysExData) {
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    auto globalOptions{ unexposedParams->globalOptions_get() };
+
+    auto globalTranspose{ sysExData[MIDI::globalTransposeMSByte] * 16 + sysExData[MIDI::globalTransposeLSByte] };
+    globalOptions->setGlobalTranspose((uint8)globalTranspose);
+
+    auto globalFineTune{ sysExData[MIDI::globalFineTuneMSByte] * 16 + sysExData[MIDI::globalFineTuneLSByte] };
+    globalOptions->setGlobalFineTune((uint8)globalFineTune);
+
     auto globalHardwareReceiveChannel{ sysExData[MIDI::globalHardwareReceiveChannelMSByte] * 16 + sysExData[MIDI::globalHardwareReceiveChannelLSByte] };
-    midiOptions->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
+    globalOptions->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
     auto allChannels{ 0 };
     if (globalHardwareReceiveChannel == allChannels)
-        midiOptions->setTransmitChannel((uint8)globalHardwareReceiveChannel);
+        globalOptions->setTransmitChannel((uint8)globalHardwareReceiveChannel);
     else
-        midiOptions->setTransmitChannel((uint8)(globalHardwareReceiveChannel - 1));
+        globalOptions->setTransmitChannel((uint8)(globalHardwareReceiveChannel - 1));
+
     auto midiClockType{ sysExData[MIDI::globalMidiClockTypeByte] };
-    midiOptions->setClockType(midiClockType);
-    auto paramSendType{ sysExData[MIDI::globalParameterSendTypetByte] };
-    midiOptions->setParameterSendType(paramSendType);
-    auto paramReceiveType{ sysExData[MIDI::globalParameterReceiveTypeByte] };
-    midiOptions->setParameterReceiveType(paramReceiveType);
-    auto controllersAreOn{ (bool)sysExData[MIDI::globalMidiControllersOnByte] };
-    if (controllersAreOn)
-        midiOptions->setControllersOn();
-    else
-        midiOptions->setControllersOff();
-    auto sysExIsOn{ (bool)sysExData[MIDI::globalSysExOnByte] };
-    if (sysExIsOn)
-        midiOptions->setSysExOn();
-    else
-        midiOptions->setSysExOff();
+    globalOptions->setClockType(midiClockType);
+
     auto pedalModeIsArpLatch{ (bool)sysExData[MIDI::globalPedalModeIsArpByte] };
     if (pedalModeIsArpLatch)
-        midiOptions->setPedalModeToArpLatch();
+        globalOptions->setPedalModeToArpLatch();
     else
-        midiOptions->setPedalModeToNormal();
+        globalOptions->setPedalModeToNormal();
+
     auto voiceChangeIsOn{ (bool)sysExData[MIDI::globalVoiceChangeOnByte] };
     if (voiceChangeIsOn)
-        midiOptions->setVoiceChangeOn();
+        globalOptions->setVoiceChangeOn();
     else
-        midiOptions->setVoiceChangeOff();
-    midiOptions->setParamChangeEchoesAreNotBlocked();
-}
+        globalOptions->setVoiceChangeOff();
 
-void IncomingSysExHandler::updateGlobalAudioOptions(const uint8* sysExData) {
-    auto globalAudioOptions{ unexposedParams->globalAudioOptions_get() };
-    auto globalTranspose{ sysExData[MIDI::globalTransposeMSByte] * 16 + sysExData[MIDI::globalTransposeLSByte] };
-    globalAudioOptions->setGlobalTranspose((uint8)globalTranspose);
-    auto globalFineTune{ sysExData[MIDI::globalFineTuneMSByte] * 16 + sysExData[MIDI::globalFineTuneLSByte] };
-    globalAudioOptions->setGlobalFineTune((uint8)globalFineTune);
+    auto paramSendType{ sysExData[MIDI::globalParameterSendTypetByte] };
+    globalOptions->setParameterSendType(paramSendType);
+
+    auto paramReceiveType{ sysExData[MIDI::globalParameterReceiveTypeByte] };
+    globalOptions->setParameterReceiveType(paramReceiveType);
+
+    auto controllersAreOn{ (bool)sysExData[MIDI::globalMidiControllersOnByte] };
+    if (controllersAreOn)
+        globalOptions->setControllersOn();
+    else
+        globalOptions->setControllersOff();
+
+    auto sysExIsOn{ (bool)sysExData[MIDI::globalSysExOnByte] };
+    if (sysExIsOn)
+        globalOptions->setSysExOn();
+    else
+        globalOptions->setSysExOff();
+
     auto outputIsMono{ (bool)sysExData[MIDI::globalStereoOutByte] };
     if (outputIsMono)
-        globalAudioOptions->setHardwareOutputMono();
+        globalOptions->setHardwareOutputMono();
     else
-        globalAudioOptions->setHardwareOutputStereo();
+        globalOptions->setHardwareOutputStereo();
+
     auto globalBalance{ sysExData[MIDI::globalBalanceByte] };
-    globalAudioOptions->setGlobalBalance(globalBalance);
+    globalOptions->setGlobalBalance(globalBalance);
+
+    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
