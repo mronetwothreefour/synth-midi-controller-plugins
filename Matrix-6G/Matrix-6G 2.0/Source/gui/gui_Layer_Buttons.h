@@ -7,13 +7,13 @@
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
 #include "../widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
-#include "../widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingGlobalOptionsComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingSplitsComponent.h"
 
 
 
-class MasterOptionsComponent;
+class GlobalOptionsComponent;
 class VoicesBanksComponent;
 class SplitsComponent;
 class SysExIsOffWarningComponent;
@@ -32,11 +32,11 @@ class ButtonsLayer :
 	ButtonForPushingVoiceToHardwareStorageSlot button_ForPushingVoiceToHardware;
 	ButtonForShowingVoicesBanksComponent button_ForShowingVoicesBanksComponent;
 	ButtonForShowingSplitsComponent button_ForShowingSplitsComponent;
-	ButtonForShowingMasterOptionsComponent button_ForShowingMasterOptionsComponent;
+	ButtonForShowingGlobalOptionsComponent button_ForShowingGlobalOptionsComponent;
 	HyperlinkButton button_ForGoingToWebSite;
 	std::unique_ptr<VoicesBanksComponent> voicesBanksComponent;
 	std::unique_ptr<SplitsComponent> splitsComponent;
-	std::unique_ptr<MasterOptionsComponent> masterOptionsComponent;
+	std::unique_ptr<GlobalOptionsComponent> globalOptionsComponent;
 	std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
 
 public:
@@ -47,9 +47,9 @@ public:
 private:
 	void showVoicesBanksComponent();
 	void showSplitsComponent();
-	void prepareToShowMasterOptionsComponent();
+	void prepareToShowGlobalOptionsComponent();
 	void showSysExIsOffWarningComponent();
-	void showMasterOptionsComponent();
+	void showGlobalOptionsComponent();
 	void timerCallback() override;
 
 public:

@@ -10,12 +10,12 @@ SliderForSettingOutProgramNumber::SliderForSettingOutProgramNumber(UnexposedPara
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	programNumber{ programNumber },
-	sliderID{ "master_VoicesMapOut_" + (String)programNumber }
+	sliderID{ "global_VoicesMapOut_" + (String)programNumber }
 {
-	auto masterOptions{ unexposedParams->globalOptions_get() };
-	masterOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ (double)masterOptions->voicesMapOutVoiceForProgramNumber(programNumber) };
+	auto paramValue{ (double)globalOptions->voicesMapOutVoiceForProgramNumber(programNumber) };
 	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, (double)programNumber);
 	setMouseDragSensitivity(130);
@@ -58,6 +58,6 @@ void SliderForSettingOutProgramNumber::paint(Graphics& g) {
 }
 
 SliderForSettingOutProgramNumber::~SliderForSettingOutProgramNumber() {
-	auto masterOptions{ unexposedParams->globalOptions_get() };
-	masterOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }

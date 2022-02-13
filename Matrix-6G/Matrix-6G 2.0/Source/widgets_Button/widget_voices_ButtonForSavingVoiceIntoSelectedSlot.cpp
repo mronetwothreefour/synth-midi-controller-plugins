@@ -1,9 +1,10 @@
 #include "widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
 
-#include "../voices/voices_Constants.h"
-#include "../voices/voices_VoiceSlotsComponent.h"
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
@@ -21,7 +22,7 @@ ButtonForSavingVoiceIntoSelectedSlot::ButtonForSavingVoiceIntoSelectedSlot(Voice
 const String ButtonForSavingVoiceIntoSelectedSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
-		buttonTooltip += "Saves the plugin GUI's current settings\n";
+		buttonTooltip += "Saves the plugin GUI" + GUI::apostrophe + "s current settings\n";
 		buttonTooltip += "in the selected patch storage slot, both\n";
 		buttonTooltip += "in this storage bank and in the Matrix-6R\n";
 		buttonTooltip += "hardware. NOTE: This will overwrite the data\n";
@@ -37,8 +38,8 @@ void ButtonForSavingVoiceIntoSelectedSlot::onClickMethod() {
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this]
 			{
-				auto masterOptions{ unexposedParams->globalOptions_get() };
-				auto basicChannel{ masterOptions->basicChannel() };
+				auto globalOptions{ unexposedParams->globalOptions_get() };
+				auto basicChannel{ globalOptions->basicChannel() };
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, (int)voiceSlots.selectedSlot);
 			}

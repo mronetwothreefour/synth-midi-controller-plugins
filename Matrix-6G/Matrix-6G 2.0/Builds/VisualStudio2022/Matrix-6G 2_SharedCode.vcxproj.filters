@@ -5,14 +5,14 @@
     <Filter Include="Matrix-6G 2\Source\core">
       <UniqueIdentifier>{70FE584C-1969-D153-1554-BFB78A61398A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\global">
+      <UniqueIdentifier>{A6ECB19A-5D72-DD81-9A6E-A72CE9F53D11}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\gui">
       <UniqueIdentifier>{2F6CE252-972C-3886-C397-BBF45D797DE2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G 2\Source\guiRenderers">
       <UniqueIdentifier>{9BAB8F72-824D-99AB-4E78-20E92B90C594}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Matrix-6G 2\Source\master">
-      <UniqueIdentifier>{3D3C7FAB-10CE-78E6-AD63-4267A5B3CC58}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G 2\Source\midi">
       <UniqueIdentifier>{AC46BDE4-178E-D14E-BB04-E4CFAEAA8B5F}</UniqueIdentifier>
@@ -496,6 +496,21 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>Matrix-6G 2\Source\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_GlobalOptionsComponent.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_SysExIsOffWarningComponent.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_VoicesMapComponent.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_VoicesMapSlot.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_VoicesMapSlotsColumn.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_Layer_Buttons.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -523,25 +538,10 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_Tracking.cpp">
       <Filter>Matrix-6G 2\Source\guiRenderers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\master\master_MasterOptionsComponent.cpp">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\master\master_SysExIsOffWarningComponent.cpp">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\master\master_VoicesMapComponent.cpp">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\master\master_VoicesMapSlot.cpp">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\master\master_VoicesMapSlotsColumn.cpp">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_GlobalOptionsDataMessage.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_MasterOptionsDataMessage.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
@@ -652,7 +652,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalOptionsComponent.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp">
@@ -661,10 +661,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_global_ButtonForPushingGlobalOptionsToHardware.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingVoicesMapComponent.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_global_ButtonForShowingVoicesMapComponent.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.cpp">
@@ -703,55 +703,55 @@
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingActiveSensingEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingControllersEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingDescriptionTipsEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingLocalControlEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingMIDIechoEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingMIDImonoEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingOmniModeEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSpilloverEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSplitStereoEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSQUICKenabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSysExEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingValueTipsEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingValueTipsEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVibratoModSource.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVibratoWaveType.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoiceChangesEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoiceChangesEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoicesMapEnabled.cpp">
+    <ClCompile Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoicesMapEnabled.cpp">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp">
@@ -781,31 +781,31 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingBasicChannel.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingDisplayBrightness.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingGlobalTune.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingLever2Controller.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingLever3Controller.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingPedalController.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoAmplitude.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoModAmount.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoSpeed.cpp">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.cpp">
@@ -2961,6 +2961,24 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>Matrix-6G 2\Source\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_Constants.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_GlobalOptionsComponent.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_SysExIsOffWarningComponent.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_VoicesMapComponent.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_VoicesMapSlot.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_VoicesMapSlotsColumn.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_Colors.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
@@ -3012,31 +3030,13 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_Tracking.h">
       <Filter>Matrix-6G 2\Source\guiRenderers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_Constants.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_MasterOptionsComponent.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_SysExIsOffWarningComponent.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_VoicesMapComponent.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_VoicesMapSlot.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\master\master_VoicesMapSlotsColumn.h">
-      <Filter>Matrix-6G 2\Source\master</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
+    <ClInclude Include="..\..\Source\midi\midi_GlobalOptionsDataMessage.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_MasterOptionsDataMessage.h">
+    <ClInclude Include="..\..\Source\midi\midi_IncomingSysExHandler.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
@@ -3162,7 +3162,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingMasterOptionsComponent.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalOptionsComponent.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h">
@@ -3171,10 +3171,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingSplitsComponent.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForPushingMasterOptionsToHardware.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_global_ButtonForPushingGlobalOptionsToHardware.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_master_ButtonForShowingVoicesMapComponent.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_global_ButtonForShowingVoicesMapComponent.h">
       <Filter>Matrix-6G 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_splits_ButtonForLoadingSelectedSplit.h">
@@ -3213,55 +3213,55 @@
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_ComboBoxWithExposedParamAttacher.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingActiveSensingEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingActiveSensingEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingControllersEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingControllersEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingDescriptionTipsEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingLocalControlEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingLocalControlEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDIechoEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingMIDIechoEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingMIDImonoEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingMIDImonoEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingOmniModeEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingOmniModeEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSpilloverEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSpilloverEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSplitStereoEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSplitStereoEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSQUICKenabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSQUICKenabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingSysExEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingSysExEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingValueTipsEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingValueTipsEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoModSource.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVibratoModSource.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVibratoWaveType.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVibratoWaveType.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoiceChangesEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoiceChangesEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_master_ComboBoxForSelectingVoicesMapEnabled.h">
+    <ClInclude Include="..\..\Source\widgets_ComboBox\widget_global_ComboBoxForSelectingVoicesMapEnabled.h">
       <Filter>Matrix-6G 2\Source\widgets_ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ComboBox\widget_matrixMod_ComboBoxForSelectingDestinationForMod.h">
@@ -3294,34 +3294,34 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_BaseSliderForSettingControllerNumber.h">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingBasicChannel.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingDisplayBrightness.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingGlobalTune.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingLever2Controller.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingLever3Controller.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingPedalController.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoAmplitude.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoModAmount.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_global_SliderForSettingVibratoSpeed.h">
+      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_LinearSliderWithExposedParamAttacher.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingBasicChannel.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingDisplayBrightness.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever2Controller.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingLever3Controller.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingMasterTune.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingPedalController.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoAmplitude.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoModAmount.h">
-      <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_master_SliderForSettingVibratoSpeed.h">
       <Filter>Matrix-6G 2\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_matrixMod_SliderForSettingAmountForMod.h">

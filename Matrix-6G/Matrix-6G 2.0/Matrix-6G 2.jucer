@@ -18,6 +18,30 @@
         <FILE id="bsEkLi" name="core_PluginEditor.h" compile="0" resource="0"
               file="Source/core_PluginEditor.h"/>
       </GROUP>
+      <GROUP id="{7C3FD5B2-5867-42DE-882C-085B4F60185A}" name="global">
+        <FILE id="C4NPwI" name="global_Constants.h" compile="0" resource="0"
+              file="Source/global/global_Constants.h"/>
+        <FILE id="dHNqk1" name="global_GlobalOptionsComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_GlobalOptionsComponent.cpp"/>
+        <FILE id="WogU0g" name="global_GlobalOptionsComponent.h" compile="0"
+              resource="0" file="Source/global/global_GlobalOptionsComponent.h"/>
+        <FILE id="eZrnxp" name="global_SysExIsOffWarningComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.cpp"/>
+        <FILE id="orsgWZ" name="global_SysExIsOffWarningComponent.h" compile="0"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.h"/>
+        <FILE id="yZWucY" name="global_VoicesMapComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_VoicesMapComponent.cpp"/>
+        <FILE id="p9n9ng" name="global_VoicesMapComponent.h" compile="0" resource="0"
+              file="Source/global/global_VoicesMapComponent.h"/>
+        <FILE id="aj1KnP" name="global_VoicesMapSlot.cpp" compile="1" resource="0"
+              file="Source/global/global_VoicesMapSlot.cpp"/>
+        <FILE id="TPdlb5" name="global_VoicesMapSlot.h" compile="0" resource="0"
+              file="Source/global/global_VoicesMapSlot.h"/>
+        <FILE id="jtYK7G" name="global_VoicesMapSlotsColumn.cpp" compile="1"
+              resource="0" file="Source/global/global_VoicesMapSlotsColumn.cpp"/>
+        <FILE id="HklRYj" name="global_VoicesMapSlotsColumn.h" compile="0"
+              resource="0" file="Source/global/global_VoicesMapSlotsColumn.h"/>
+      </GROUP>
       <GROUP id="{112BC586-2E49-A77D-C951-D9AC91CE4B0B}" name="gui">
         <FILE id="Ti6uoR" name="gui_Colors.h" compile="0" resource="0" file="Source/gui/gui_Colors.h"/>
         <FILE id="NR2a0S" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
@@ -71,41 +95,17 @@
         <FILE id="XhxUPA" name="guiRenderer_Tracking.h" compile="0" resource="0"
               file="Source/guiRenderers/guiRenderer_Tracking.h"/>
       </GROUP>
-      <GROUP id="{A9650340-9335-68CF-9DE1-351D87BB328B}" name="master">
-        <FILE id="WS4UZN" name="master_Constants.h" compile="0" resource="0"
-              file="Source/master/master_Constants.h"/>
-        <FILE id="Zy3Xcb" name="master_MasterOptionsComponent.cpp" compile="1"
-              resource="0" file="Source/master/master_MasterOptionsComponent.cpp"/>
-        <FILE id="QTSxSl" name="master_MasterOptionsComponent.h" compile="0"
-              resource="0" file="Source/master/master_MasterOptionsComponent.h"/>
-        <FILE id="sESKiV" name="master_SysExIsOffWarningComponent.cpp" compile="1"
-              resource="0" file="Source/master/master_SysExIsOffWarningComponent.cpp"/>
-        <FILE id="CRMPvY" name="master_SysExIsOffWarningComponent.h" compile="0"
-              resource="0" file="Source/master/master_SysExIsOffWarningComponent.h"/>
-        <FILE id="HAcvmy" name="master_VoicesMapComponent.cpp" compile="1"
-              resource="0" file="Source/master/master_VoicesMapComponent.cpp"/>
-        <FILE id="sgaSh3" name="master_VoicesMapComponent.h" compile="0" resource="0"
-              file="Source/master/master_VoicesMapComponent.h"/>
-        <FILE id="aTLy5R" name="master_VoicesMapSlot.cpp" compile="1" resource="0"
-              file="Source/master/master_VoicesMapSlot.cpp"/>
-        <FILE id="wIQdFn" name="master_VoicesMapSlot.h" compile="0" resource="0"
-              file="Source/master/master_VoicesMapSlot.h"/>
-        <FILE id="tYtn5K" name="master_VoicesMapSlotsColumn.cpp" compile="1"
-              resource="0" file="Source/master/master_VoicesMapSlotsColumn.cpp"/>
-        <FILE id="we5pUI" name="master_VoicesMapSlotsColumn.h" compile="0"
-              resource="0" file="Source/master/master_VoicesMapSlotsColumn.h"/>
-      </GROUP>
       <GROUP id="{41D2C7F7-132C-7288-59AA-D2313EEDD12E}" name="midi">
         <FILE id="Ugvy3r" name="midi_Constants.h" compile="0" resource="0"
               file="Source/midi/midi_Constants.h"/>
+        <FILE id="JiZqwa" name="midi_GlobalOptionsDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_GlobalOptionsDataMessage.cpp"/>
+        <FILE id="L7KP7I" name="midi_GlobalOptionsDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_GlobalOptionsDataMessage.h"/>
         <FILE id="k33q0T" name="midi_IncomingSysExHandler.cpp" compile="1"
               resource="0" file="Source/midi/midi_IncomingSysExHandler.cpp"/>
         <FILE id="Y972EO" name="midi_IncomingSysExHandler.h" compile="0" resource="0"
               file="Source/midi/midi_IncomingSysExHandler.h"/>
-        <FILE id="JiZqwa" name="midi_MasterOptionsDataMessage.cpp" compile="1"
-              resource="0" file="Source/midi/midi_MasterOptionsDataMessage.cpp"/>
-        <FILE id="L7KP7I" name="midi_MasterOptionsDataMessage.h" compile="0"
-              resource="0" file="Source/midi/midi_MasterOptionsDataMessage.h"/>
         <FILE id="r4hp7O" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="gAhKl2" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
@@ -270,10 +270,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"/>
         <FILE id="lx8O0d" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"/>
-        <FILE id="zt0Y5a" name="widget_ButtonForShowingMasterOptionsComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.cpp"/>
-        <FILE id="MZheDM" name="widget_ButtonForShowingMasterOptionsComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingMasterOptionsComponent.h"/>
+        <FILE id="zt0Y5a" name="widget_ButtonForShowingGlobalOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalOptionsComponent.cpp"/>
+        <FILE id="MZheDM" name="widget_ButtonForShowingGlobalOptionsComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalOptionsComponent.h"/>
         <FILE id="gn81r5" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="hF9oDw" name="widget_ButtonForShowingVoicesBanksComponent.h"
@@ -282,14 +282,14 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.cpp"/>
         <FILE id="DufaKi" name="widget_ButtonForShowingSplitsComponent.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.h"/>
-        <FILE id="JwE7oX" name="widget_master_ButtonForPushingMasterOptionsToHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.cpp"/>
-        <FILE id="ZsVHJ9" name="widget_master_ButtonForPushingMasterOptionsToHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForPushingMasterOptionsToHardware.h"/>
-        <FILE id="JrGvZn" name="widget_master_ButtonForShowingVoicesMapComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingVoicesMapComponent.cpp"/>
-        <FILE id="iutpPp" name="widget_master_ButtonForShowingVoicesMapComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_master_ButtonForShowingVoicesMapComponent.h"/>
+        <FILE id="JwE7oX" name="widget_global_ButtonForPushingGlobalOptionsToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_global_ButtonForPushingGlobalOptionsToHardware.cpp"/>
+        <FILE id="ZsVHJ9" name="widget_global_ButtonForPushingGlobalOptionsToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_global_ButtonForPushingGlobalOptionsToHardware.h"/>
+        <FILE id="JrGvZn" name="widget_global_ButtonForShowingVoicesMapComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_global_ButtonForShowingVoicesMapComponent.cpp"/>
+        <FILE id="iutpPp" name="widget_global_ButtonForShowingVoicesMapComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_global_ButtonForShowingVoicesMapComponent.h"/>
         <FILE id="QBRXou" name="widget_splits_ButtonForLoadingSelectedSplit.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
         <FILE id="GsbYgs" name="widget_splits_ButtonForLoadingSelectedSplit.h"
@@ -340,74 +340,74 @@
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.cpp"/>
         <FILE id="bLDLvl" name="widget_ComboBoxWithExposedParamAttacher.h"
               compile="0" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.h"/>
-        <FILE id="g3uHDt" name="widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.cpp"/>
-        <FILE id="SUlFrj" name="widget_master_ComboBoxForSelectingActiveSensingEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingActiveSensingEnabled.h"/>
-        <FILE id="eXKNcF" name="widget_master_ComboBoxForSelectingControllersEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.cpp"/>
-        <FILE id="OzRC4T" name="widget_master_ComboBoxForSelectingControllersEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingControllersEnabled.h"/>
-        <FILE id="ldLhFZ" name="widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.cpp"/>
-        <FILE id="R4PMtt" name="widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingDescriptionTipsEnabled.h"/>
-        <FILE id="mzSUdg" name="widget_master_ComboBoxForSelectingLocalControlEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.cpp"/>
-        <FILE id="KVFPDh" name="widget_master_ComboBoxForSelectingLocalControlEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingLocalControlEnabled.h"/>
-        <FILE id="KzOPww" name="widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.cpp"/>
-        <FILE id="nkd40A" name="widget_master_ComboBoxForSelectingMIDIechoEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDIechoEnabled.h"/>
-        <FILE id="RX0YXh" name="widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.cpp"/>
-        <FILE id="hrdqPJ" name="widget_master_ComboBoxForSelectingMIDImonoEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingMIDImonoEnabled.h"/>
-        <FILE id="pwd8eW" name="widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.cpp"/>
-        <FILE id="dfggzH" name="widget_master_ComboBoxForSelectingOmniModeEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingOmniModeEnabled.h"/>
-        <FILE id="hyozR3" name="widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.cpp"/>
-        <FILE id="i7dYOF" name="widget_master_ComboBoxForSelectingSpilloverEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSpilloverEnabled.h"/>
-        <FILE id="DT3Kh4" name="widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.cpp"/>
-        <FILE id="MoBj8N" name="widget_master_ComboBoxForSelectingSplitStereoEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSplitStereoEnabled.h"/>
-        <FILE id="ygDOB9" name="widget_master_ComboBoxForSelectingSQUICKenabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.cpp"/>
-        <FILE id="fzoAXC" name="widget_master_ComboBoxForSelectingSQUICKenabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSQUICKenabled.h"/>
-        <FILE id="mzmpg2" name="widget_master_ComboBoxForSelectingSysExEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.cpp"/>
-        <FILE id="iVv82I" name="widget_master_ComboBoxForSelectingSysExEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingSysExEnabled.h"/>
-        <FILE id="WtLfFP" name="widget_master_ComboBoxForSelectingValueTipsEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.cpp"/>
-        <FILE id="vNYbCl" name="widget_master_ComboBoxForSelectingValueTipsEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingValueTipsEnabled.h"/>
-        <FILE id="rgS07N" name="widget_master_ComboBoxForSelectingVibratoModSource.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.cpp"/>
-        <FILE id="rXoM19" name="widget_master_ComboBoxForSelectingVibratoModSource.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoModSource.h"/>
-        <FILE id="eIhIZi" name="widget_master_ComboBoxForSelectingVibratoWaveType.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.cpp"/>
-        <FILE id="lodiS5" name="widget_master_ComboBoxForSelectingVibratoWaveType.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVibratoWaveType.h"/>
-        <FILE id="A0JuOf" name="widget_master_ComboBoxForSelectingVoiceChangesEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoiceChangesEnabled.cpp"/>
-        <FILE id="q6qtes" name="widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoiceChangesEnabled.h"/>
-        <FILE id="H8crCY" name="widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"/>
-        <FILE id="VKNn7Q" name="widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEchoEnabled.h"/>
-        <FILE id="EhB4Jj" name="widget_master_ComboBoxForSelectingVoicesMapEnabled.cpp"
-              compile="1" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEnabled.cpp"/>
-        <FILE id="xE4ZnT" name="widget_master_ComboBoxForSelectingVoicesMapEnabled.h"
-              compile="0" resource="0" file="Source/widgets_ComboBox/widget_master_ComboBoxForSelectingVoicesMapEnabled.h"/>
+        <FILE id="g3uHDt" name="widget_global_ComboBoxForSelectingActiveSensingEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingActiveSensingEnabled.cpp"/>
+        <FILE id="SUlFrj" name="widget_global_ComboBoxForSelectingActiveSensingEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingActiveSensingEnabled.h"/>
+        <FILE id="eXKNcF" name="widget_global_ComboBoxForSelectingControllersEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingControllersEnabled.cpp"/>
+        <FILE id="OzRC4T" name="widget_global_ComboBoxForSelectingControllersEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingControllersEnabled.h"/>
+        <FILE id="ldLhFZ" name="widget_global_ComboBoxForSelectingDescriptionTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingDescriptionTipsEnabled.cpp"/>
+        <FILE id="R4PMtt" name="widget_global_ComboBoxForSelectingDescriptionTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingDescriptionTipsEnabled.h"/>
+        <FILE id="mzSUdg" name="widget_global_ComboBoxForSelectingLocalControlEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingLocalControlEnabled.cpp"/>
+        <FILE id="KVFPDh" name="widget_global_ComboBoxForSelectingLocalControlEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingLocalControlEnabled.h"/>
+        <FILE id="KzOPww" name="widget_global_ComboBoxForSelectingMIDIechoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDIechoEnabled.cpp"/>
+        <FILE id="nkd40A" name="widget_global_ComboBoxForSelectingMIDIechoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDIechoEnabled.h"/>
+        <FILE id="Si9BNM" name="widget_global_ComboBoxForSelectingMIDImonoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDImonoEnabled.cpp"/>
+        <FILE id="O2HTwt" name="widget_global_ComboBoxForSelectingMIDImonoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDImonoEnabled.h"/>
+        <FILE id="S7bAkm" name="widget_global_ComboBoxForSelectingOmniModeEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingOmniModeEnabled.cpp"/>
+        <FILE id="jovOe8" name="widget_global_ComboBoxForSelectingOmniModeEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingOmniModeEnabled.h"/>
+        <FILE id="rGPCaO" name="widget_global_ComboBoxForSelectingSpilloverEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSpilloverEnabled.cpp"/>
+        <FILE id="kppASO" name="widget_global_ComboBoxForSelectingSpilloverEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSpilloverEnabled.h"/>
+        <FILE id="IBAcqO" name="widget_global_ComboBoxForSelectingSplitStereoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSplitStereoEnabled.cpp"/>
+        <FILE id="CvlFCl" name="widget_global_ComboBoxForSelectingSplitStereoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSplitStereoEnabled.h"/>
+        <FILE id="cxzz8T" name="widget_global_ComboBoxForSelectingSQUICKenabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSQUICKenabled.cpp"/>
+        <FILE id="ZxeBeY" name="widget_global_ComboBoxForSelectingSQUICKenabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSQUICKenabled.h"/>
+        <FILE id="QhnyDU" name="widget_global_ComboBoxForSelectingSysExEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSysExEnabled.cpp"/>
+        <FILE id="tu2gp8" name="widget_global_ComboBoxForSelectingSysExEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSysExEnabled.h"/>
+        <FILE id="RpggY2" name="widget_global_ComboBoxForSelectingValueTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingValueTipsEnabled.cpp"/>
+        <FILE id="zD4N4w" name="widget_global_ComboBoxForSelectingValueTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingValueTipsEnabled.h"/>
+        <FILE id="iCA5hG" name="widget_global_ComboBoxForSelectingVibratoModSource.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoModSource.cpp"/>
+        <FILE id="G5ZMlm" name="widget_global_ComboBoxForSelectingVibratoModSource.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoModSource.h"/>
+        <FILE id="DtNwB3" name="widget_global_ComboBoxForSelectingVibratoWaveType.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoWaveType.cpp"/>
+        <FILE id="bZ5Op1" name="widget_global_ComboBoxForSelectingVibratoWaveType.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoWaveType.h"/>
+        <FILE id="vmhbyg" name="widget_global_ComboBoxForSelectingVoiceChangesEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoiceChangesEnabled.cpp"/>
+        <FILE id="KU2E2I" name="widget_global_ComboBoxForSelectingVoiceChangesEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoiceChangesEnabled.h"/>
+        <FILE id="ZwlZj0" name="widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"/>
+        <FILE id="rQqNkF" name="widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.h"/>
+        <FILE id="RrG2CW" name="widget_global_ComboBoxForSelectingVoicesMapEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEnabled.cpp"/>
+        <FILE id="p185Bk" name="widget_global_ComboBoxForSelectingVoicesMapEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEnabled.h"/>
         <FILE id="NFqaLN" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"
               compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"/>
         <FILE id="zyKEZD" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"
@@ -452,44 +452,44 @@
               compile="0" resource="0" file="Source/widgets_Slider/widget_BaseSliderForSettingControllerNumber.h"/>
         <FILE id="zAmF7d" name="widget_LinearSliderWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.cpp"/>
+        <FILE id="fyvFzr" name="widget_global_SliderForSettingBasicChannel.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingBasicChannel.cpp"/>
+        <FILE id="fdkd9Z" name="widget_global_SliderForSettingBasicChannel.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingBasicChannel.h"/>
+        <FILE id="FoO2sJ" name="widget_global_SliderForSettingDisplayBrightness.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingDisplayBrightness.cpp"/>
+        <FILE id="Dw2Kfk" name="widget_global_SliderForSettingDisplayBrightness.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingDisplayBrightness.h"/>
+        <FILE id="GYw6U3" name="widget_global_SliderForSettingGlobalTune.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingGlobalTune.cpp"/>
+        <FILE id="lsGEYD" name="widget_global_SliderForSettingGlobalTune.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingGlobalTune.h"/>
+        <FILE id="qZMlnJ" name="widget_global_SliderForSettingLever2Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever2Controller.cpp"/>
+        <FILE id="XVziG3" name="widget_global_SliderForSettingLever2Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever2Controller.h"/>
+        <FILE id="BS5mXh" name="widget_global_SliderForSettingLever3Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever3Controller.cpp"/>
+        <FILE id="uQzhVg" name="widget_global_SliderForSettingLever3Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever3Controller.h"/>
+        <FILE id="Ijk3Lg" name="widget_global_SliderForSettingPedalController.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingPedalController.cpp"/>
+        <FILE id="r8KCGW" name="widget_global_SliderForSettingPedalController.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingPedalController.h"/>
+        <FILE id="pqg1EC" name="widget_global_SliderForSettingVibratoAmplitude.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoAmplitude.cpp"/>
+        <FILE id="Tcfx43" name="widget_global_SliderForSettingVibratoAmplitude.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoAmplitude.h"/>
+        <FILE id="pJIyUY" name="widget_global_SliderForSettingVibratoModAmount.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoModAmount.cpp"/>
+        <FILE id="k1Rbun" name="widget_global_SliderForSettingVibratoModAmount.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoModAmount.h"/>
+        <FILE id="gfRcaG" name="widget_global_SliderForSettingVibratoSpeed.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoSpeed.cpp"/>
+        <FILE id="F8Egls" name="widget_global_SliderForSettingVibratoSpeed.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoSpeed.h"/>
         <FILE id="NCDuSM" name="widget_LinearSliderWithExposedParamAttacher.h"
               compile="0" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.h"/>
-        <FILE id="CnLvSY" name="widget_master_SliderForSettingBasicChannel.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingBasicChannel.cpp"/>
-        <FILE id="LNvkUA" name="widget_master_SliderForSettingBasicChannel.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingBasicChannel.h"/>
-        <FILE id="lDH9FU" name="widget_master_SliderForSettingDisplayBrightness.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingDisplayBrightness.cpp"/>
-        <FILE id="bYtFoT" name="widget_master_SliderForSettingDisplayBrightness.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingDisplayBrightness.h"/>
-        <FILE id="F2bmhd" name="widget_master_SliderForSettingLever2Controller.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever2Controller.cpp"/>
-        <FILE id="v7hzbI" name="widget_master_SliderForSettingLever2Controller.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever2Controller.h"/>
-        <FILE id="rrba50" name="widget_master_SliderForSettingLever3Controller.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever3Controller.cpp"/>
-        <FILE id="hJ0n9l" name="widget_master_SliderForSettingLever3Controller.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingLever3Controller.h"/>
-        <FILE id="DuthOu" name="widget_master_SliderForSettingMasterTune.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingMasterTune.cpp"/>
-        <FILE id="Fl0LAW" name="widget_master_SliderForSettingMasterTune.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingMasterTune.h"/>
-        <FILE id="IAWyRp" name="widget_master_SliderForSettingPedalController.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingPedalController.cpp"/>
-        <FILE id="nF1Tnc" name="widget_master_SliderForSettingPedalController.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingPedalController.h"/>
-        <FILE id="qDFhOJ" name="widget_master_SliderForSettingVibratoAmplitude.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.cpp"/>
-        <FILE id="V7BoO2" name="widget_master_SliderForSettingVibratoAmplitude.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoAmplitude.h"/>
-        <FILE id="Lfd0xa" name="widget_master_SliderForSettingVibratoModAmount.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoModAmount.cpp"/>
-        <FILE id="kVXbym" name="widget_master_SliderForSettingVibratoModAmount.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoModAmount.h"/>
-        <FILE id="X6FytU" name="widget_master_SliderForSettingVibratoSpeed.cpp"
-              compile="1" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoSpeed.cpp"/>
-        <FILE id="yoVT3A" name="widget_master_SliderForSettingVibratoSpeed.h"
-              compile="0" resource="0" file="Source/widgets_Slider/widget_master_SliderForSettingVibratoSpeed.h"/>
         <FILE id="pERCFz" name="widget_matrixMod_SliderForSettingAmountForMod.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_matrixMod_SliderForSettingAmountForMod.cpp"/>
         <FILE id="NfFXqY" name="widget_matrixMod_SliderForSettingAmountForMod.h"

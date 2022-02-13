@@ -60,8 +60,8 @@ void SplitsBankTransmissionComponent::transmitMidiBufferForSplitSlot(uint8 split
 		SplitDataMessage::addDataMessageForSplitStoredInSlotToOutgoingMidiBuffers(splitSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, splitSlot]
 			{
-				auto masterOptions{ unexposedParams->globalOptions_get() };
-				auto basicChannel{ masterOptions->basicChannel() };
+				auto globalOptions{ unexposedParams->globalOptions_get() };
+				auto basicChannel{ globalOptions->basicChannel() };
 				outgoingBuffers->addProgramChangeMessage(basicChannel, splitSlot);
 			}
 		);

@@ -1,9 +1,12 @@
 #include "widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
 
+#include "../gui/gui_Constants.h"
 #include "../guiRenderers/guiRenderer_ControlValue.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -28,7 +31,7 @@ String ComboBoxForSelectingZoneVoiceAssignments::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
-		tooltipText += "Selects how the hardware's six voices are distributed\n";
+		tooltipText += "Selects how the hardware" + GUI::apostrophe + "s six voices are distributed\n";
 		tooltipText += "between the lower and upper zones. Options where\n";
 		tooltipText += "one of the zones is assigned no voices are intended\n";
 		tooltipText += "for playing the Matrix-6R and another MIDI device\n";

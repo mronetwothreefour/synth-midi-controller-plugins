@@ -2,7 +2,7 @@
 
 #include "midi_Constants.h"
 #include "midi_RawDataTools.h"
-#include "../master/master_Constants.h"
+#include "../global/global_Constants.h"
 #include "../voices/voices_VoicesBanks.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -72,12 +72,12 @@ void IncomingSysExHandler::handleIncomingSplitDump(const uint8* sysExData) {
         RawDataTools::applySplitDataVectorToGUI(splitDataVector, unexposedParams);
     }
     else
-        handleIncomingMasterOptionsDump(sysExData);
+        handleIncomingGlobalOptionsDataMessage(sysExData);
 }
 
-void IncomingSysExHandler::handleIncomingMasterOptionsDump(const uint8* sysExData) {
-    if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_MasterData) {
+void IncomingSysExHandler::handleIncomingGlobalOptionsDataMessage(const uint8* sysExData) {
+    if (sysExData[MIDI::sysexMessageOpcodeByte] == MIDI::opcode_GlobalData) {
         const MessageManagerLock mmLock;
-        RawDataTools::applyMasterOptionsRawDataToGUI(sysExData + master::indexOfFirstMasterDataByte, unexposedParams);
+        RawDataTools::applyGlobalOptionsRawDataToGUI(sysExData + global::indexOfFirstGlobalDataByte, unexposedParams);
     }
 }

@@ -24,8 +24,8 @@ namespace ID
 
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_Edit{ "button_Edit" };
+	static const Identifier button_Global{ "button_Global" };
 	static const Identifier button_Load{ "button_Load" };
-	static const Identifier button_Master{ "button_Master" };
 	static const Identifier button_PullCustomBankA{ "button_PullCustomBankA" };
 	static const Identifier button_PullCustomBankB{ "button_PullCustomBankB" };
 	static const Identifier button_PullSplitsBank{ "button_PullSplitsBank" };
@@ -38,10 +38,10 @@ namespace ID
 	static const Identifier button_PushCustomBankA{ "button_PushCustomBankA" };
 	static const Identifier button_PushCustomBankB{ "button_PushCustomBankB" };
 	static const Identifier button_PushFXandndPercussionBank{ "button_PushFXandndPercussionBank" };
+	static const Identifier button_PushGlobalOptions{ "button_PushGlobalOptions" };
 	static const Identifier button_PushKeyboardsBankA{ "button_PushKeyboardsBankA" };
 	static const Identifier button_PushKeyboardsBankB{ "button_PushKeyboardsBankB" };
 	static const Identifier button_PushLeadsBank{ "button_PushLeadsBank" };
-	static const Identifier button_PushMasterOptions{ "button_PushMasterOptions" };
 	static const Identifier button_PushMiscellaneousBankA{ "button_PushMiscellaneousBankA" };
 	static const Identifier button_PushMiscellaneousBankB{ "button_PushMiscellaneousBankB" };
 	static const Identifier button_PushSplitsBank{ "button_PushSplitsBank" };
@@ -58,7 +58,7 @@ namespace ID
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_Voices{ "button_Voices" };
 	static const Identifier button_VoiceSlotRadioButton{ "button_VoiceSlotRadioButton" };
-	static const Identifier button_X_Master{ "button_X_Master" };
+	static const Identifier button_X_Global{ "button_X_Global" };
 	static const Identifier button_X_Splits{ "button_X_Splits" };
 	static const Identifier button_X_VoicesBanks{ "button_X_VoicesBanks" };
 	static const Identifier button_X_VoicesMap{ "button_X_VoicesMap" };

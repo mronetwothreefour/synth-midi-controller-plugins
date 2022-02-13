@@ -1,7 +1,7 @@
 #include "midi_RawDataTools.h"
 
 #include "midi_Constants.h"
-#include "../master/master_Constants.h"
+#include "../global/global_Constants.h"
 #include "../voices/voices_Constants.h"
 #include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
@@ -96,17 +96,17 @@ std::vector<uint8> RawSysExDataVector::createSwitchToSplitModeMessage() {
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::initializeMasterOptionsDataMessage() {
-    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfMasterDataVector) };
-    rawDataVector[2] = MIDI::opcode_MasterData;
+std::vector<uint8> RawSysExDataVector::initializeGlobalOptionsDataMessage() {
+    auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfGlobalDataVector) };
+    rawDataVector[2] = MIDI::opcode_GlobalData;
     rawDataVector[3] = 2;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createMasterOptionsDataRequestMessage() {
+std::vector<uint8> RawSysExDataVector::createGlobalOptionsDataRequestMessage() {
     auto rawDataVector{ createRawDataVectorWithSysExIDheaderBytes(MIDI::sizeOfDataDumpRequestVector) };
     rawDataVector[2] = MIDI::opcode_DataRequest;
-    rawDataVector[3] = MIDI::transmitCode_Master;
+    rawDataVector[3] = MIDI::transmitCode_Global;
     rawDataVector[4] = 0;
     return rawDataVector;
 }
@@ -185,42 +185,42 @@ void RawDataTools::applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector
     applyRawSplitDataToGUI(splitDataVector.data(), unexposedParams);
 }
 
-void RawDataTools::applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams) {
-    auto masterOptions{ unexposedParams->globalOptions_get() };
-    masterOptions->setVibratoSpeed(masterOptionsData[master::indexOfVibratoSpeedLSByte] + (masterOptionsData[master::indexOfVibratoSpeedLSByte + 1] * 16));
-    masterOptions->setVibratoSpeedModSource(masterOptionsData[master::indexOfVibratoSpeedModSourceLSByte]);
-    masterOptions->setVibratoSpeedModAmount(masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte] + (masterOptionsData[master::indexOfVibratoSpeedModAmountLSByte + 1] * 16));
-    masterOptions->setVibratoWaveType(masterOptionsData[master::indexOfVibratoWaveTypeLSByte]);
-    masterOptions->setVibratoAmplitude(masterOptionsData[master::indexOfVibratoAmplitudeLSByte] + (masterOptionsData[master::indexOfVibratoAmplitudeLSByte + 1] * 16));
-    masterOptions->setVibratoAmplitudeModSource(masterOptionsData[master::indexOfVibratoAmplitudeModSourceLSByte]);
-    masterOptions->setVibratoAmplitudeModAmount(masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte] + (masterOptionsData[master::indexOfVibratoAmplitudeModAmountLSByte + 1] * 16));
-    auto masterTune{ masterOptionsData[master::indexOfMasterTuneLSByte] + (masterOptionsData[master::indexOfMasterTuneLSByte + 1] * 16) };
-    masterTune = RawDataTools::formatSigned7bitValueForStoringInPlugin(masterTune);
-    masterOptions->setGlobalTune((uint8)masterTune);
-    masterOptions->setBasicChannel(masterOptionsData[master::indexOfBasicChannelLSByte] + master::basicChannelOffset);
-    masterOptions->setOmniModeEnabled(masterOptionsData[master::indexOfOmniModeEnableLSByte]);
-    masterOptions->setControllersEnabled(masterOptionsData[master::indexOfControllersEnableLSByte]);
-    masterOptions->setVoiceChangesEnabled(masterOptionsData[master::indexOfVoiceChangesEnableLSByte]);
-    masterOptions->setSysExEnabled(masterOptionsData[master::indexOfSysExEnableLSByte]);
-    masterOptions->setLocalControlEnabled(masterOptionsData[master::indexOfLocalControlEnableLSByte]);
-    masterOptions->setPedal1ControllerNumber(masterOptionsData[master::indexOfPedal1ControllerNumber] + (masterOptionsData[master::indexOfPedal1ControllerNumber + 1] * 16));
-    masterOptions->setPedal2ControllerNumber(masterOptionsData[master::indexOfPedal2ControllerNumber] + (masterOptionsData[master::indexOfPedal2ControllerNumber + 1] * 16));
-    masterOptions->setLever2ControllerNumber(masterOptionsData[master::indexOfLever2ControllerNumber] + (masterOptionsData[master::indexOfLever2ControllerNumber + 1] * 16));
-    masterOptions->setLever3ControllerNumber(masterOptionsData[master::indexOfLever3ControllerNumber] + (masterOptionsData[master::indexOfLever3ControllerNumber + 1] * 16));
-    masterOptions->setDisplayBrightness(masterOptionsData[master::indexOfDisplayBrightnessLSByte] + (masterOptionsData[master::indexOfDisplayBrightnessLSByte + 1] * 16));
-    masterOptions->setSQUICKenabled(masterOptionsData[master::indexOfSQUICKenableLSByte]);
-    masterOptions->setVoicesMapEchoEnabled(masterOptionsData[master::indexOfVoicesMapEchoEnableLSByte]);
-    masterOptions->setSplitStereoEnabled(masterOptionsData[master::indexOfSplitStereoEnableLSByte]);
-    masterOptions->setSpilloverEnabled(masterOptionsData[master::indexOfSpilloverEnableLSByte]);
-    masterOptions->setActiveSensingEnabled(masterOptionsData[master::indexOfActiveSenseEnableLSByte]);
-    masterOptions->setMIDIechoEnabled(masterOptionsData[master::indexOfMIDIechoEnableLSByte]);
-    masterOptions->setVoicesMapEnabled(masterOptionsData[master::indexOfVoicesMapEnableLSByte]);
-    masterOptions->setMIDImonoEnabled(masterOptionsData[master::indexOfMIDImonoEnableLSByte]);
+void RawDataTools::applyGlobalOptionsRawDataToGUI(const uint8* globalOptionsData, UnexposedParameters* unexposedParams) {
+    auto globalOptions{ unexposedParams->globalOptions_get() };
+    globalOptions->setVibratoSpeed(globalOptionsData[global::indexOfVibratoSpeedLSByte] + (globalOptionsData[global::indexOfVibratoSpeedLSByte + 1] * 16));
+    globalOptions->setVibratoSpeedModSource(globalOptionsData[global::indexOfVibratoSpeedModSourceLSByte]);
+    globalOptions->setVibratoSpeedModAmount(globalOptionsData[global::indexOfVibratoSpeedModAmountLSByte] + (globalOptionsData[global::indexOfVibratoSpeedModAmountLSByte + 1] * 16));
+    globalOptions->setVibratoWaveType(globalOptionsData[global::indexOfVibratoWaveTypeLSByte]);
+    globalOptions->setVibratoAmplitude(globalOptionsData[global::indexOfVibratoAmplitudeLSByte] + (globalOptionsData[global::indexOfVibratoAmplitudeLSByte + 1] * 16));
+    globalOptions->setVibratoAmplitudeModSource(globalOptionsData[global::indexOfVibratoAmplitudeModSourceLSByte]);
+    globalOptions->setVibratoAmplitudeModAmount(globalOptionsData[global::indexOfVibratoAmplitudeModAmountLSByte] + (globalOptionsData[global::indexOfVibratoAmplitudeModAmountLSByte + 1] * 16));
+    auto globalTune{ globalOptionsData[global::indexOfGlobalTuneLSByte] + (globalOptionsData[global::indexOfGlobalTuneLSByte + 1] * 16) };
+    globalTune = RawDataTools::formatSigned7bitValueForStoringInPlugin(globalTune);
+    globalOptions->setGlobalTune((uint8)globalTune);
+    globalOptions->setBasicChannel(globalOptionsData[global::indexOfBasicChannelLSByte] + global::basicChannelOffset);
+    globalOptions->setOmniModeEnabled(globalOptionsData[global::indexOfOmniModeEnableLSByte]);
+    globalOptions->setControllersEnabled(globalOptionsData[global::indexOfControllersEnableLSByte]);
+    globalOptions->setVoiceChangesEnabled(globalOptionsData[global::indexOfVoiceChangesEnableLSByte]);
+    globalOptions->setSysExEnabled(globalOptionsData[global::indexOfSysExEnableLSByte]);
+    globalOptions->setLocalControlEnabled(globalOptionsData[global::indexOfLocalControlEnableLSByte]);
+    globalOptions->setPedal1ControllerNumber(globalOptionsData[global::indexOfPedal1ControllerNumber] + (globalOptionsData[global::indexOfPedal1ControllerNumber + 1] * 16));
+    globalOptions->setPedal2ControllerNumber(globalOptionsData[global::indexOfPedal2ControllerNumber] + (globalOptionsData[global::indexOfPedal2ControllerNumber + 1] * 16));
+    globalOptions->setLever2ControllerNumber(globalOptionsData[global::indexOfLever2ControllerNumber] + (globalOptionsData[global::indexOfLever2ControllerNumber + 1] * 16));
+    globalOptions->setLever3ControllerNumber(globalOptionsData[global::indexOfLever3ControllerNumber] + (globalOptionsData[global::indexOfLever3ControllerNumber + 1] * 16));
+    globalOptions->setDisplayBrightness(globalOptionsData[global::indexOfDisplayBrightnessLSByte] + (globalOptionsData[global::indexOfDisplayBrightnessLSByte + 1] * 16));
+    globalOptions->setSQUICKenabled(globalOptionsData[global::indexOfSQUICKenableLSByte]);
+    globalOptions->setVoicesMapEchoEnabled(globalOptionsData[global::indexOfVoicesMapEchoEnableLSByte]);
+    globalOptions->setSplitStereoEnabled(globalOptionsData[global::indexOfSplitStereoEnableLSByte]);
+    globalOptions->setSpilloverEnabled(globalOptionsData[global::indexOfSpilloverEnableLSByte]);
+    globalOptions->setActiveSensingEnabled(globalOptionsData[global::indexOfActiveSenseEnableLSByte]);
+    globalOptions->setMIDIechoEnabled(globalOptionsData[global::indexOfMIDIechoEnableLSByte]);
+    globalOptions->setVoicesMapEnabled(globalOptionsData[global::indexOfVoicesMapEnableLSByte]);
+    globalOptions->setMIDImonoEnabled(globalOptionsData[global::indexOfMIDImonoEnableLSByte]);
     for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
-        auto indexOfInputVoicelsByte{ master::indexOfFirstVoicesMapInputLSByte + (i * 2) };
-        masterOptions->setVoicesMapInVoiceForProgramNumber(masterOptionsData[indexOfInputVoicelsByte] + (masterOptionsData[indexOfInputVoicelsByte + 1] * 16), i);
-        auto indexOfOutputVoicelsByte{ master::indexOfFirstVoicesMapOutputLSByte + (i * 2) };
-        masterOptions->setVoicesMapOutVoiceForProgramNumber(masterOptionsData[indexOfOutputVoicelsByte] + (masterOptionsData[indexOfOutputVoicelsByte + 1] * 16), i);
+        auto indexOfInputVoicelsByte{ global::indexOfFirstVoicesMapInputLSByte + (i * 2) };
+        globalOptions->setVoicesMapInVoiceForProgramNumber(globalOptionsData[indexOfInputVoicelsByte] + (globalOptionsData[indexOfInputVoicelsByte + 1] * 16), i);
+        auto indexOfOutputVoicelsByte{ global::indexOfFirstVoicesMapOutputLSByte + (i * 2) };
+        globalOptions->setVoicesMapOutVoiceForProgramNumber(globalOptionsData[indexOfOutputVoicelsByte] + (globalOptionsData[indexOfOutputVoicelsByte + 1] * 16), i);
     }
 }
 
@@ -246,10 +246,10 @@ const String RawDataTools::extractSplitNameFromRawSplitData(const uint8* splitDa
     return splitName;
 }
 
-void RawDataTools::addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
+void RawDataTools::addCurrentGlobalSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector) {
     uint8 checksum{ 0 };
-    addMasterOptionsDataToVector(unexposedParams, dataVector, checksum);
-    dataVector[master::indexOfChecksumByte] = checksum % (uint8)128;
+    addGlobalOptionsDataToVector(unexposedParams, dataVector, checksum);
+    dataVector[global::indexOfChecksumByte] = checksum % (uint8)128;
 }
 
 void RawDataTools::applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams) {
@@ -433,132 +433,132 @@ void RawDataTools::addSplitParamDataToVector(UnexposedParameters* unexposedParam
     checksum += upperZoneVoiceNumber;
 }
 
-void RawDataTools::addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
-    auto masterOptions{ unexposedParams->globalOptions_get() };
+void RawDataTools::addGlobalOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum) {
+    auto globalOptions{ unexposedParams->globalOptions_get() };
 
-    auto vibratoSpeed{ masterOptions->vibratoSpeed() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoSpeed, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedLSByte]);
+    auto vibratoSpeed{ globalOptions->vibratoSpeed() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeed, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoSpeedLSByte]);
     checksum += vibratoSpeed;
 
-    auto vibratoSpeedModSource{ masterOptions->vibratoSpeedModSource() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModSource, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedModSourceLSByte]);
+    auto vibratoSpeedModSource{ globalOptions->vibratoSpeedModSource() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModSource, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoSpeedModSourceLSByte]);
     checksum += vibratoSpeedModSource;
 
-    auto vibratoSpeedModAmount{ masterOptions->vibratoSpeedModAmount() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoSpeedModAmountLSByte]);
+    auto vibratoSpeedModAmount{ globalOptions->vibratoSpeedModAmount() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoSpeedModAmount, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoSpeedModAmountLSByte]);
     checksum += vibratoSpeedModAmount;
 
-    auto vibratoWaveType{ masterOptions->vibratoWaveType() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoWaveType, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoWaveTypeLSByte]);
+    auto vibratoWaveType{ globalOptions->vibratoWaveType() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoWaveType, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoWaveTypeLSByte]);
     checksum += vibratoWaveType;
 
-    auto vibratoAmplitude{ masterOptions->vibratoAmplitude() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitude, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeLSByte]);
+    auto vibratoAmplitude{ globalOptions->vibratoAmplitude() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitude, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoAmplitudeLSByte]);
     checksum += vibratoAmplitude;
 
-    auto vibratoAmplitudeModSource{ masterOptions->vibratoAmplitudeModSource() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModSource, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModSourceLSByte]);
+    auto vibratoAmplitudeModSource{ globalOptions->vibratoAmplitudeModSource() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModSource, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoAmplitudeModSourceLSByte]);
     checksum += vibratoAmplitudeModSource;
 
-    auto vibratoAmplitudeModAmount{ masterOptions->vibratoAmplitudeModAmount() };
-    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModAmount, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVibratoAmplitudeModAmountLSByte]);
+    auto vibratoAmplitudeModAmount{ globalOptions->vibratoAmplitudeModAmount() };
+    addValueToDataVectorAtLSBbyteLocation(vibratoAmplitudeModAmount, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVibratoAmplitudeModAmountLSByte]);
     checksum += vibratoAmplitudeModAmount;
 
-    auto masterTune{ masterOptions->globalTune() };
-    masterTune = RawDataTools::formatSigned7bitValueForSendingToMatrix(masterTune);
-    addValueToDataVectorAtLSBbyteLocation(masterTune, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMasterTuneLSByte]);
-    checksum += masterTune;
+    auto globalTune{ globalOptions->globalTune() };
+    globalTune = RawDataTools::formatSigned7bitValueForSendingToMatrix(globalTune);
+    addValueToDataVectorAtLSBbyteLocation(globalTune, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfGlobalTuneLSByte]);
+    checksum += globalTune;
 
-    addValueToDataVectorAtLSBbyteLocation(master::velocitySensitivity_Unused, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVelocitySensitivityLSByte_Unused]);
-    checksum += master::velocitySensitivity_Unused;
+    addValueToDataVectorAtLSBbyteLocation(global::velocitySensitivity_Unused, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVelocitySensitivityLSByte_Unused]);
+    checksum += global::velocitySensitivity_Unused;
 
-    auto basicChannel_DisplayedValue{ masterOptions->basicChannel() };
-    auto basicChannel_DataValue{ uint8(basicChannel_DisplayedValue - master::basicChannelOffset) };
-    addValueToDataVectorAtLSBbyteLocation(basicChannel_DataValue, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfBasicChannelLSByte]);
+    auto basicChannel_DisplayedValue{ globalOptions->basicChannel() };
+    auto basicChannel_DataValue{ uint8(basicChannel_DisplayedValue - global::basicChannelOffset) };
+    addValueToDataVectorAtLSBbyteLocation(basicChannel_DataValue, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfBasicChannelLSByte]);
     checksum += basicChannel_DataValue;
 
-    auto omniModeEnabled{ masterOptions->omniModeEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(omniModeEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfOmniModeEnableLSByte]);
+    auto omniModeEnabled{ globalOptions->omniModeEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(omniModeEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfOmniModeEnableLSByte]);
     checksum += omniModeEnabled;
 
-    auto controllersEnabled{ masterOptions->controllersEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(controllersEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfControllersEnableLSByte]);
+    auto controllersEnabled{ globalOptions->controllersEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(controllersEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfControllersEnableLSByte]);
     checksum += controllersEnabled;
 
-    auto voiceChangesEnabled{ masterOptions->voiceChangesEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(voiceChangesEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoiceChangesEnableLSByte]);
+    auto voiceChangesEnabled{ globalOptions->voiceChangesEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voiceChangesEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVoiceChangesEnableLSByte]);
     checksum += voiceChangesEnabled;
 
-    auto sysExEnabled{ masterOptions->sysExEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(sysExEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSysExEnableLSByte]);
+    auto sysExEnabled{ globalOptions->sysExEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(sysExEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfSysExEnableLSByte]);
     checksum += sysExEnabled;
 
-    auto localControlEnabled{ masterOptions->localControlEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(localControlEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLocalControlEnableLSByte]);
+    auto localControlEnabled{ globalOptions->localControlEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(localControlEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfLocalControlEnableLSByte]);
     checksum += localControlEnabled;
 
-    auto pedal1ControllerNumber{ masterOptions->pedal1ControllerNumber() };
-    addValueToDataVectorAtLSBbyteLocation(pedal1ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPedal1ControllerNumber]);
+    auto pedal1ControllerNumber{ globalOptions->pedal1ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(pedal1ControllerNumber, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfPedal1ControllerNumber]);
     checksum += pedal1ControllerNumber;
 
-    auto pedal2ControllerNumber{ masterOptions->pedal2ControllerNumber() };
-    addValueToDataVectorAtLSBbyteLocation(pedal2ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfPedal2ControllerNumber]);
+    auto pedal2ControllerNumber{ globalOptions->pedal2ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(pedal2ControllerNumber, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfPedal2ControllerNumber]);
     checksum += pedal2ControllerNumber;
 
-    auto lever2ControllerNumber{ masterOptions->lever2ControllerNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lever2ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLever2ControllerNumber]);
+    auto lever2ControllerNumber{ globalOptions->lever2ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(lever2ControllerNumber, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfLever2ControllerNumber]);
     checksum += lever2ControllerNumber;
 
-    auto lever3ControllerNumber{ masterOptions->lever3ControllerNumber() };
-    addValueToDataVectorAtLSBbyteLocation(lever3ControllerNumber, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfLever3ControllerNumber]);
+    auto lever3ControllerNumber{ globalOptions->lever3ControllerNumber() };
+    addValueToDataVectorAtLSBbyteLocation(lever3ControllerNumber, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfLever3ControllerNumber]);
     checksum += lever3ControllerNumber;
 
-    auto displayBrightness{ masterOptions->displayBrightness() };
-    addValueToDataVectorAtLSBbyteLocation(displayBrightness, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfDisplayBrightnessLSByte]);
+    auto displayBrightness{ globalOptions->displayBrightness() };
+    addValueToDataVectorAtLSBbyteLocation(displayBrightness, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfDisplayBrightnessLSByte]);
     checksum += displayBrightness;
 
-    auto squickEnabled{ masterOptions->squickEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSQUICKenableLSByte]);
+    auto squickEnabled{ globalOptions->squickEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(squickEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfSQUICKenableLSByte]);
     checksum += squickEnabled;
 
-    auto voicesMapEchoEnabled{ masterOptions->voicesMapEchoEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(voicesMapEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoicesMapEchoEnableLSByte]);
+    auto voicesMapEchoEnabled{ globalOptions->voicesMapEchoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voicesMapEchoEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVoicesMapEchoEnableLSByte]);
     checksum += voicesMapEchoEnabled;
 
-    auto splitStereoEnabled{ masterOptions->splitStereoEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(splitStereoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSplitStereoEnableLSByte]);
+    auto splitStereoEnabled{ globalOptions->splitStereoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(splitStereoEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfSplitStereoEnableLSByte]);
     checksum += splitStereoEnabled;
 
-    addValueToDataVectorAtLSBbyteLocation(basicChannel_DisplayedValue, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfBasicChannelDisplayedValueLSByte]);
+    addValueToDataVectorAtLSBbyteLocation(basicChannel_DisplayedValue, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfBasicChannelDisplayedValueLSByte]);
     checksum += basicChannel_DisplayedValue;
 
-    auto spilloverEnabled{ masterOptions->spilloverEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(spilloverEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfSpilloverEnableLSByte]);
+    auto spilloverEnabled{ globalOptions->spilloverEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(spilloverEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfSpilloverEnableLSByte]);
     checksum += spilloverEnabled;
 
-    auto activeSensingEnabled{ masterOptions->activeSensingEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(activeSensingEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfActiveSenseEnableLSByte]);
+    auto activeSensingEnabled{ globalOptions->activeSensingEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(activeSensingEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfActiveSenseEnableLSByte]);
     checksum += activeSensingEnabled;
 
-    auto midiEchoEnabled{ masterOptions->midiEchoEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(midiEchoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDIechoEnableLSByte]);
+    auto midiEchoEnabled{ globalOptions->midiEchoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(midiEchoEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfMIDIechoEnableLSByte]);
     checksum += midiEchoEnabled;
 
-    auto voicesMapEnabled{ masterOptions->voicesMapEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(voicesMapEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfVoicesMapEnableLSByte]);
+    auto voicesMapEnabled{ globalOptions->voicesMapEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(voicesMapEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfVoicesMapEnableLSByte]);
     checksum += voicesMapEnabled;
 
-    auto midiMonoEnabled{ masterOptions->midiMonoEnabled() };
-    addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstMasterOptionDataLSByte + master::indexOfMIDImonoEnableLSByte]);
+    auto midiMonoEnabled{ globalOptions->midiMonoEnabled() };
+    addValueToDataVectorAtLSBbyteLocation(midiMonoEnabled, &dataVector[indexOfFirstGlobalOptionDataLSByte + global::indexOfMIDImonoEnableLSByte]);
     checksum += midiMonoEnabled;
 
     for (uint8 i = 0; i != voices::numberOfSlotsInBank; ++i) {
-        auto voicesMapInPatch{ masterOptions->voicesMapInVoiceForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(voicesMapInPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstVoicesMapInputLSByte + (i * 2)]);
+        auto voicesMapInPatch{ globalOptions->voicesMapInVoiceForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(voicesMapInPatch, &dataVector[(int)indexOfFirstGlobalOptionDataLSByte + (int)global::indexOfFirstVoicesMapInputLSByte + (i * 2)]);
         checksum += voicesMapInPatch;
 
-        auto voicesMapOutPatch{ masterOptions->voicesMapOutVoiceForProgramNumber(i) };
-        addValueToDataVectorAtLSBbyteLocation(voicesMapOutPatch, &dataVector[(int)indexOfFirstMasterOptionDataLSByte + (int)master::indexOfFirstVoicesMapOutputLSByte + (i * 2)]);
+        auto voicesMapOutPatch{ globalOptions->voicesMapOutVoiceForProgramNumber(i) };
+        addValueToDataVectorAtLSBbyteLocation(voicesMapOutPatch, &dataVector[(int)indexOfFirstGlobalOptionDataLSByte + (int)global::indexOfFirstVoicesMapOutputLSByte + (i * 2)]);
         checksum += voicesMapOutPatch;
     }
 }

@@ -27,8 +27,8 @@ struct RawSysExDataVector {
     static std::vector<uint8> createSplitDataMessageHeader(uint8 slot);
     static std::vector<uint8> createSplitDataRequestMessage(uint8 slot);
     static std::vector<uint8> createSwitchToSplitModeMessage();
-    static std::vector<uint8> initializeMasterOptionsDataMessage();
-    static std::vector<uint8> createMasterOptionsDataRequestMessage();
+    static std::vector<uint8> initializeGlobalOptionsDataMessage();
+    static std::vector<uint8> createGlobalOptionsDataRequestMessage();
 
 private:
     static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytes(int vectorSize);
@@ -45,14 +45,14 @@ struct RawDataTools {
     static void addCurrentSplitSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
     static void applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vector<uint8>& voiceDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     static void applySplitDataVectorToGUI(std::vector<uint8>& splitDataVector, UnexposedParameters* unexposedParams);
-    static void applyMasterOptionsRawDataToGUI(const uint8* masterOptionsData, UnexposedParameters* unexposedParams);
+    static void applyGlobalOptionsRawDataToGUI(const uint8* globalOptionsData, UnexposedParameters* unexposedParams);
     static const String extractVoiceNameFromRawVoiceData(const uint8* voiceData);
     static const String extractSplitNameFromRawSplitData(const uint8* splitData);
-    static void addCurrentMasterSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
+    static void addCurrentGlobalSettingsToDataVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector);
 
 private:
     static const uint8 indexOfFirstVoiceOrSplitParamDataLSByte{ 20 };
-    static const uint16 indexOfFirstMasterOptionDataLSByte{ 6 };
+    static const uint16 indexOfFirstGlobalOptionDataLSByte{ 6 };
     static const int negativeValueOffset{ 256 };
 
     static void applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams);
@@ -68,7 +68,7 @@ private:
     static void addExposedParamDataToVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static void addMatrixModDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static void addSplitParamDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
-    static void addMasterOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
+    static void addGlobalOptionsDataToVector(UnexposedParameters* unexposedParams, std::vector<uint8>& dataVector, uint8& checksum);
     static uint8 formatSigned6bitValueForSendingToMatrix(uint8& value);
     static uint8 formatSigned7bitValueForSendingToMatrix(uint8& value);
     static uint8 formatSignedZoneTransposeValueForSendingToMatrix(uint8& value);

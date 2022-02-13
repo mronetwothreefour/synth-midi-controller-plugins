@@ -1,7 +1,10 @@
 #include "widget_voices_ButtonForPushingEntireBankToHardware.h"
 
+#include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
@@ -42,7 +45,7 @@ const String ButtonForPushingEntireBankToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
 		buttonTooltip += "Push all the patches stored in this bank to the\n";
-		buttonTooltip += "Matrix-6R hardware's storage bank. NOTE: All\n";
+		buttonTooltip += "Matrix-6R hardware" + GUI::apostrophe + "s storage bank. NOTE: All\n";
 		buttonTooltip += "the patch data stored in the hardware will be\n";
 		buttonTooltip += "overwritten and this cannot be undone.";
 	}

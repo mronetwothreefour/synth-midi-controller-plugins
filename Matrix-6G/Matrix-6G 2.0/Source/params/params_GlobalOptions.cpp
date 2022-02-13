@@ -1,7 +1,7 @@
 #include "params_GlobalOptions.h"
 
 #include "params_Identifiers.h"
-#include "../master/master_Constants.h"
+#include "../global/global_Constants.h"
 #include "../voices/voices_Constants.h"
 
 using namespace constants;

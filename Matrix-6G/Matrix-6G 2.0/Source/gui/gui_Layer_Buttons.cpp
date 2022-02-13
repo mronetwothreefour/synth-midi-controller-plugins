@@ -1,10 +1,10 @@
 #include "gui_Layer_Buttons.h"
 
 #include "gui_Constants.h"
-#include "../midi/midi_MasterOptionsDataMessage.h"
+#include "../midi/midi_GlobalOptionsDataMessage.h"
 #include "../midi/midi_RawDataTools.h"
-#include "../master/master_MasterOptionsComponent.h"
-#include "../master/master_SysExIsOffWarningComponent.h"
+#include "../global/global_GlobalOptionsComponent.h"
+#include "../global/global_SysExIsOffWarningComponent.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../voices/voices_VoicesBanksComponent.h"
 #include "../splits/splits_SplitsComponent.h"
@@ -23,7 +23,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForPushingVoiceToHardware{ exposedParams, unexposedParams },
     button_ForShowingVoicesBanksComponent{ unexposedParams },
     button_ForShowingSplitsComponent{ unexposedParams },
-    button_ForShowingMasterOptionsComponent{ unexposedParams },
+    button_ForShowingGlobalOptionsComponent{ unexposedParams },
     button_ForGoingToWebSite{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
@@ -36,8 +36,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingVoicesBanksComponent.onClick = [this] { showVoicesBanksComponent(); };
     addAndMakeVisible(button_ForShowingSplitsComponent);
     button_ForShowingSplitsComponent.onClick = [this] { showSplitsComponent(); };
-    addAndMakeVisible(button_ForShowingMasterOptionsComponent);
-    button_ForShowingMasterOptionsComponent.onClick = [this] { prepareToShowMasterOptionsComponent(); };
+    addAndMakeVisible(button_ForShowingGlobalOptionsComponent);
+    button_ForShowingGlobalOptionsComponent.onClick = [this] { prepareToShowGlobalOptionsComponent(); };
     button_ForGoingToWebSite.setComponentID(ID::component_HyperlinkButton.toString());
     button_ForGoingToWebSite.setTooltip("Click to go to programming.mr1234.com");
     addAndMakeVisible(button_ForGoingToWebSite);
@@ -64,14 +64,14 @@ void ButtonsLayer::showSplitsComponent() {
     }
 }
 
-void ButtonsLayer::prepareToShowMasterOptionsComponent() {
-    auto masterOptions{ unexposedParams->globalOptions_get() };
-    masterOptions->resetAllOptionsToDefaults();
+void ButtonsLayer::prepareToShowGlobalOptionsComponent() {
+    auto global{ unexposedParams->globalOptions_get() };
+    global->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-    MasterOptionsDataMessage::addRequestForMasterOptionsDataToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(300, [this, masterOptions] {
-        if (masterOptions->sysExEnabled())
-            showMasterOptionsComponent();
+    GlobalOptionsDataMessage::addRequestForGlobalOptionsDataToOutgoingMidiBuffers(outgoingMidiBuffers);
+    callAfterDelay(300, [this, global] {
+        if (global->sysExEnabled())
+            showGlobalOptionsComponent();
         else showSysExIsOffWarningComponent();
      });
 }
@@ -84,11 +84,11 @@ void ButtonsLayer::showSysExIsOffWarningComponent() {
     }
 }
 
-void ButtonsLayer::showMasterOptionsComponent() {
-    masterOptionsComponent.reset(new MasterOptionsComponent(unexposedParams));
-    if (masterOptionsComponent != nullptr) {
-        addAndMakeVisible(masterOptionsComponent.get());
-        masterOptionsComponent->setBounds(getLocalBounds());
+void ButtonsLayer::showGlobalOptionsComponent() {
+    globalOptionsComponent.reset(new GlobalOptionsComponent(unexposedParams));
+    if (globalOptionsComponent != nullptr) {
+        addAndMakeVisible(globalOptionsComponent.get());
+        globalOptionsComponent->setBounds(getLocalBounds());
     }
 }
 
@@ -103,12 +103,12 @@ void ButtonsLayer::resized() {
     button_ForPushingVoiceToHardware.setBounds(GUI::bounds_MainWindowPushButton);
     button_ForShowingVoicesBanksComponent.setBounds(GUI::bounds_MainWindowVoicesButton);
     button_ForShowingSplitsComponent.setBounds(GUI::bounds_MainWindowSplitsButton);
-    button_ForShowingMasterOptionsComponent.setBounds(GUI::bounds_MainWindowMasterOptionsButton);
+    button_ForShowingGlobalOptionsComponent.setBounds(GUI::bounds_MainWindowGlobalOptionsButton);
     button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
 }
 
 ButtonsLayer::~ButtonsLayer() {
-    masterOptionsComponent = nullptr;
+    globalOptionsComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
     splitsComponent = nullptr;
     voicesBanksComponent = nullptr;

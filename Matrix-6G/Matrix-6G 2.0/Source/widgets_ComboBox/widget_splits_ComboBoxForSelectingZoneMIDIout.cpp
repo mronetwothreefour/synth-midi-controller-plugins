@@ -24,7 +24,7 @@ String ComboBoxForSelectingZoneMIDIout::generateTooltipString() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescription()) {
 		tooltipText += "Selects whether the zone transmits and receives MIDI\n";
-		tooltipText += "messages on the basic channel (set in MASTER).\n";
+		tooltipText += "messages on the basic channel (set in Master options).\n";
 		tooltipText += "NOTE: Changes made to split parameters are not\n";
 		tooltipText += "sent to the hardware until you SAVE the split in\n";
 		tooltipText += "one of the storage bank slots below.\n";

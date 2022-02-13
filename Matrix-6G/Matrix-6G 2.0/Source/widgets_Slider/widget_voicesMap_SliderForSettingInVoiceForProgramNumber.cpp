@@ -10,12 +10,12 @@ SliderForSettingInVoiceForProgramNumber::SliderForSettingInVoiceForProgramNumber
 	RotarySliderWithMouseWheelMod{ unexposedParams },
 	unexposedParams{ unexposedParams },
 	programNumber{ programNumber },
-	sliderID{ "master_VoicesMapIn_" + (String)programNumber }
+	sliderID{ "global_VoicesMapIn_" + (String)programNumber }
 {
-	auto masterOptions{ unexposedParams->globalOptions_get() };
-	masterOptions->addListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->addListener(this);
 	setRange(0.0, 99.0, 1.0);
-	auto paramValue{ (double)masterOptions->voicesMapInVoiceForProgramNumber(programNumber) };
+	auto paramValue{ (double)globalOptions->voicesMapInVoiceForProgramNumber(programNumber) };
 	setValue(paramValue, dontSendNotification);
 	setDoubleClickReturnValue(true, (double)programNumber);
 	setMouseDragSensitivity(130);
@@ -57,6 +57,6 @@ void SliderForSettingInVoiceForProgramNumber::paint(Graphics& g) {
 }
 
 SliderForSettingInVoiceForProgramNumber::~SliderForSettingInVoiceForProgramNumber() {
-	auto masterOptions{ unexposedParams->globalOptions_get() };
-	masterOptions->removeListener(this);
+	auto globalOptions{ unexposedParams->globalOptions_get() };
+	globalOptions->removeListener(this);
 }
