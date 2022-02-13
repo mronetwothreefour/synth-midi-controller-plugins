@@ -13,7 +13,7 @@ using namespace::constants;
 SliderForProgramNumber::SliderForProgramNumber(UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelModForProgramNumber{ unexposedParams },
 	unexposedParams{ unexposedParams },
-	parameterID{ ID::pgmData_CurrentProgramNumber }
+	parameterID{ ID::pgmData_CurrentVoiceNumber }
 {
 	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
 	pgmDataOptions->addListener(this);

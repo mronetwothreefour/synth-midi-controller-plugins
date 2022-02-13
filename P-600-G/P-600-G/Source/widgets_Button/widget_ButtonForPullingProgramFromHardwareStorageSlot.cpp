@@ -16,7 +16,7 @@ ButtonForPullingProgramFromHardwareStorageSlot::ButtonForPullingProgramFromHardw
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());
-	setComponentID(ID::button_PullSelectedProgram.toString());
+	setComponentID(ID::button_PullSelectedVoice.toString());
 }
 
 const String ButtonForPullingProgramFromHardwareStorageSlot::createButtonTooltipString() {

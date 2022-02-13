@@ -9,7 +9,7 @@ ButtonForExportingSelectedProgramToFile::ButtonForExportingSelectedProgramToFile
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_ExptSelectedProgram.toString());
+	setComponentID(ID::button_ExptSelectedVoice.toString());
 	setTooltip(createButtonTooltipString());
 }
 

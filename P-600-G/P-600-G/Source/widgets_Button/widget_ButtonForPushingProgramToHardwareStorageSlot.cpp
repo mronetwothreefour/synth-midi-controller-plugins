@@ -16,7 +16,7 @@ ButtonForPushingProgramToHardwareStorageSlot::ButtonForPushingProgramToHardwareS
 	unexposedParams{ unexposedParams }
 {
 	setTooltip(createButtonTooltipString());
-	setComponentID(ID::button_PushSelectedProgram.toString());
+	setComponentID(ID::button_PushSelectedVoice.toString());
 }
 
 const String ButtonForPushingProgramToHardwareStorageSlot::createButtonTooltipString() {

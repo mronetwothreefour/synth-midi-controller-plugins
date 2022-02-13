@@ -9,7 +9,7 @@ ButtonForShowingProgramBankComponent::ButtonForShowingProgramBankComponent(Unexp
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_PgmBank.toString());
+	setComponentID(ID::button_VoicesBank.toString());
 	setTooltip(createButtonTooltipString());
 }
 

@@ -18,7 +18,7 @@ ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFrom
 	unexposedParams{ unexposedParams },
 	nameEditor{ nameEditor }
 {
-	setComponentID(ID::button_PullSelectedProgram.toString());
+	setComponentID(ID::button_PullSelectedVoice.toString());
 	setTooltip(createButtonTooltipString());
 }
 

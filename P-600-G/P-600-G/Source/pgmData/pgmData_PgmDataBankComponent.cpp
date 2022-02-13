@@ -62,7 +62,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank window.");
 
 	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
-	label_PgmNameEditor.setComponentID(ID::label_PgmNameEditor.toString());
+	label_PgmNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
 	label_PgmNameEditor.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
 	label_PgmNameEditor.addListener(this);
 	addAndMakeVisible(label_PgmNameEditor);
@@ -114,7 +114,7 @@ void ProgramDataBankComponent::resized() {
 }
 
 void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
-	if (label->getComponentID() == ID::label_PgmNameEditor.toString()) {
+	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		editor.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
 		editor.setInputRestrictions(pgmData::maxLengthOfPgmName);
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
@@ -132,7 +132,7 @@ void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
 }
 
 void ProgramDataBankComponent::labelTextChanged(Label* label) {
-	if (label->getComponentID() == ID::label_PgmNameEditor.toString()) {
+	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		auto newName{ label->getText() };
 		auto slot{ slotsComponent.selectedSlot };
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };

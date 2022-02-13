@@ -9,7 +9,7 @@ ButtonForImportingProgramFromFile::ButtonForImportingProgramFromFile(UnexposedPa
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_ImptSelectedProgram.toString());
+	setComponentID(ID::button_ImptSelectedVoice.toString());
 	setTooltip(createButtonTooltipString());
 }
 

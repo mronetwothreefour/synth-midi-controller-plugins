@@ -13,9 +13,9 @@ ProgramDataOptions::ProgramDataOptions(UnexposedParameters* unexposedParams) :
 }
 
 void ProgramDataOptions::fillProgramDataOptionsTreeWithProperties() {
-	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, (uint8)0, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_CurrentVoiceNumber, (uint8)0, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_ParamChangeEchosAreBlocked, (bool)false, nullptr);
-	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, 500, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_VoiceTransmitTime, 500, nullptr);
 	programDataOptionsTree.setProperty(ID::pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank, (bool)false, nullptr);
 }
 
@@ -28,14 +28,14 @@ void ProgramDataOptions::removeListener(ValueTree::Listener* listener) {
 }
 
 const uint8 ProgramDataOptions::currentProgramNumber() {
-	return (uint8)(int)programDataOptionsTree.getProperty(ID::pgmData_CurrentProgramNumber);
+	return (uint8)(int)programDataOptionsTree.getProperty(ID::pgmData_CurrentVoiceNumber);
 }
 
 void ProgramDataOptions::setCurrentProgramNumber(uint8 newNumber) {
 	jassert(newNumber < 100);
 	auto undoManager{ unexposedParams->undoManager_get() };
 	undoManager->beginNewTransaction();
-	programDataOptionsTree.setProperty(ID::pgmData_CurrentProgramNumber, newNumber, undoManager);
+	programDataOptionsTree.setProperty(ID::pgmData_CurrentVoiceNumber, newNumber, undoManager);
 }
 
 bool ProgramDataOptions::paramChangeEchosAreNotBlocked() {
@@ -51,11 +51,11 @@ void ProgramDataOptions::setParamChangeEchosAreNotBlocked() {
 }
 
 const int ProgramDataOptions::programTransmitTime() {
-	return (int)programDataOptionsTree.getProperty(ID::pgmData_ProgramTransmitTime);
+	return (int)programDataOptionsTree.getProperty(ID::pgmData_VoiceTransmitTime);
 }
 
 void ProgramDataOptions::setProgramTransmitTime(int timeInMilliseconds) {
-	programDataOptionsTree.setProperty(ID::pgmData_ProgramTransmitTime, timeInMilliseconds, nullptr);
+	programDataOptionsTree.setProperty(ID::pgmData_VoiceTransmitTime, timeInMilliseconds, nullptr);
 }
 
 bool ProgramDataOptions::incomingPgmDataDumpShouldBeSavedInStorageBank() {

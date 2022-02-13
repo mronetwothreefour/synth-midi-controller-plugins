@@ -68,7 +68,7 @@ void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*
 		g.setColour(Color::black);
 		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 	}
-	if (textEditor.getParentComponent()->getComponentID() == ID::label_PgmNameEditor.toString() || 
+	if (textEditor.getParentComponent()->getComponentID() == ID::label_VoiceNameEditor.toString() || 
 		textEditor.getParentComponent()->getComponentID() == ID::label_LCDdisplayEditor.toString())
 		g.fillAll(Color::black);
 }
@@ -147,7 +147,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonNewFldrDown_png : BinaryData::ButtonNewFldrUp_png;
 	if (button.getComponentID().startsWith("button_OK"))
 		return isDown ? BinaryData::ButtonOKDown_png : BinaryData::ButtonOKUp_png;
-	if (button.getComponentID() == ID::button_PgmBank.toString())
+	if (button.getComponentID() == ID::button_VoicesBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_png : BinaryData::ButtonPgmBankUp_png;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_png : BinaryData::ButtonPullUp_png;
@@ -189,7 +189,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 		return isDown ? BinaryData::ButtonNewFldrDown_pngSize : BinaryData::ButtonNewFldrUp_pngSize;
 	if (button.getComponentID().startsWith("button_OK"))
 		return isDown ? BinaryData::ButtonOKDown_pngSize : BinaryData::ButtonOKUp_pngSize;
-	if (button.getComponentID() == ID::button_PgmBank.toString())
+	if (button.getComponentID() == ID::button_VoicesBank.toString())
 		return isDown ? BinaryData::ButtonPgmBankDown_pngSize : BinaryData::ButtonPgmBankUp_pngSize;
 	if (button.getComponentID().startsWith("button_Pull"))
 		return isDown ? BinaryData::ButtonPullDown_pngSize : BinaryData::ButtonPullUp_pngSize;
@@ -216,7 +216,7 @@ void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool is
 }
 
 void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
-	if (component.getComponentID() == ID::button_PgmDataSlotRadioButton.toString()) {
+	if (component.getComponentID() == ID::button_VoiceDataSlotRadioButton.toString()) {
 		auto buttonColor{ Color::offWhite.withAlpha(0.0f) };
 		if (isHighlighted)
 			buttonColor = buttonColor.withAlpha(0.1f);

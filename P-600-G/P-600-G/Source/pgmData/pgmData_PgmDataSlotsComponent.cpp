@@ -26,7 +26,7 @@ ProgramDataSlotsComponent::ProgramDataSlotsComponent(AudioProcessorValueTreeStat
 }
 
 void ProgramDataSlotsComponent::setUpPgmDataSlotToggleButton(uint8 slot) {
-	pgmDataSlotButtons[slot].setComponentID(ID::button_PgmDataSlotRadioButton.toString());
+	pgmDataSlotButtons[slot].setComponentID(ID::button_VoiceDataSlotRadioButton.toString());
 	pgmDataSlotButtons[slot].setRadioGroupId(1);
 	pgmDataSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
 	setTooltipForPgmDataSlotToggleButton(slot);

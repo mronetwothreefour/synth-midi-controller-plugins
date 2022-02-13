@@ -13,10 +13,10 @@ namespace ID
 	static const Identifier button_EscRestoreFactory{ "button_EscRestoreFactory" };
 	static const Identifier button_Exit{ "button_Exit" };
 	static const Identifier button_ExptBank{ "button_ExptBank" };
-	static const Identifier button_ExptSelectedProgram{ "button_ExptSelectedProgram" };
+	static const Identifier button_ExptSelectedVoice{ "button_ExptSelectedVoice" };
 	static const Identifier button_Fact{ "button_Fact" };
 	static const Identifier button_ImptBank{ "button_ImptBank" };
-	static const Identifier button_ImptSelectedProgram{ "button_ImptSelectedProgram" };
+	static const Identifier button_ImptSelectedVoice{ "button_ImptSelectedVoice" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_LockAll{ "button_LockAll" };
 	static const Identifier button_LockNone{ "button_LockNone" };
@@ -30,17 +30,17 @@ namespace ID
 	static const Identifier button_OKimptExpt{ "button_OKimptExpt" };
 	static const Identifier button_OKrestoreFactory{ "button_OKrestoreFactory" };
 	static const Identifier button_OKrandomization{ "button_OKrandomization" };
-	static const Identifier button_PgmBank{ "button_PgmBank" };
-	static const Identifier button_PgmDataSlotRadioButton{ "button_PgmDataSlotRadioButton" };
 	static const Identifier button_PullBank{ "button_PullBank" };
-	static const Identifier button_PullSelectedProgram{ "button_PullSelectedProgram" };
+	static const Identifier button_PullSelectedVoice{ "button_PullSelectedVoice" };
 	static const Identifier button_PushBank{ "button_PushBank" };
-	static const Identifier button_PushSelectedProgram{ "button_PushSelectedProgram" };
+	static const Identifier button_PushSelectedVoice{ "button_PushSelectedVoice" };
 	static const Identifier button_Rand{ "button_Rand" };
 	static const Identifier button_Redo{ "button_Redo" };
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_Tips{ "button_Tips" };
+	static const Identifier button_VoicesBank{ "button_VoicesBank" };
+	static const Identifier button_VoiceDataSlotRadioButton{ "button_VoiceDataSlotRadioButton" };
 
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
@@ -52,14 +52,14 @@ namespace ID
 	static const Identifier label_FolderName{ "label_FolderName" };
 	static const Identifier label_ImptExptComponentTitle{ "label_ImptExptComponentTitle" };
 	static const Identifier label_LCDdisplayEditor{ "label_LCDdisplayEditor" };
-	static const Identifier label_PgmNameEditor{ "label_PgmNameEditor" };
+	static const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 
 	static const Identifier pgmData_Bank{ "pgmData_Bank" };
-	static const Identifier pgmData_CurrentProgramNumber{ "pgmData_CurrentProgramNumber" };
+	static const Identifier pgmData_CurrentVoiceNumber{ "pgmData_CurrentVoiceNumber" };
 	static const Identifier pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank{ "pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank" };
 	static const Identifier pgmData_Options{ "pgmData_Options" };
 	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
-	static const Identifier pgmData_ProgramTransmitTime{ "pgmData_ProgramTransmitTime" };
+	static const Identifier pgmData_VoiceTransmitTime{ "pgmData_VoiceTransmitTime" };
 
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
 	static const Identifier state_PgmDataBank{ "state_PgmDataBank" };
