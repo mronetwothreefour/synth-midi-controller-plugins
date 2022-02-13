@@ -17,14 +17,6 @@ void VoiceTransmissionOptions::fillVoiceTransmissionOptionsTreeWithProperties() 
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, 300, nullptr);
 }
 
-void VoiceTransmissionOptions::addListener(ValueTree::Listener* listener) {
-	voiceTransmissionOptionsTree.addListener(listener);
-}
-
-void VoiceTransmissionOptions::removeListener(ValueTree::Listener* listener) {
-	voiceTransmissionOptionsTree.removeListener(listener);
-}
-
 bool VoiceTransmissionOptions::incomingVoiceShouldBeSavedInCustomBankA() {
 	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_IncomingVoiceShouldBeSavedInCustomBankA);
 }

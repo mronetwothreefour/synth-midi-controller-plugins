@@ -15,8 +15,6 @@ private:
 	void fillVoiceTransmissionOptionsTreeWithProperties();
 
 public:
-	void addListener(ValueTree::Listener* listener);
-	void removeListener(ValueTree::Listener* listener);
 	bool incomingVoiceShouldBeSavedInCustomBankA();
 	bool incomingVoiceShouldBeSavedInCustomBankB();
 	void setIncomingVoiceShouldBeSavedInCustomBankA();
