@@ -24,8 +24,12 @@ public:
     VoiceSlotsComponent() = delete;
 
     VoiceSlotsComponent(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+
+private:
     void setUpVoiceSlotToggleButton(uint8 slot);
     void setTooltipForVoiceSlotToggleButton(uint8 slot);
+
+public:
     void setTextForVoiceSlotToggleButton(uint8 slot);
     void saveCurrentVoiceSettingsIntoSelectedSlot();
     void loadVoiceFromSelectedSlot();
