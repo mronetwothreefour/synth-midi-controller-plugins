@@ -22,7 +22,7 @@ ProgramDataSlotsComponent::ProgramDataSlotsComponent(AudioProcessorValueTreeStat
 
 	pgmDataBank->addListenerToPgmDataHexStrings(this);
 
-	setSize(GUI::pgmDataSlotsComponent_w, GUI::pgmDataSlotsComponent_h);
+	setSize(GUI::voiceSlotsComponent_w, GUI::voiceSlotsComponent_h);
 }
 
 void ProgramDataSlotsComponent::setUpPgmDataSlotToggleButton(uint8 slot) {
@@ -62,7 +62,7 @@ void ProgramDataSlotsComponent::storeCurrentPgmDataSettingsInSelectedSlot() {
 	if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
 		auto dataVector{ RawSysExDataVector::initializePgmDataDumpMessage(selectedSlot) };
 		RawDataTools::addCurrentExposedParamsSettingsToDataVector(exposedParams, dataVector);
-		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInPgmDataDump);
+		dataVector.erase(dataVector.begin(), dataVector.begin() + MIDI::numberOfHeaderBytesInVoiceDataMessage);
 		auto pgmDataHexString{ RawDataTools::convertPgmDataVectorToHexString(dataVector) };
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
 		pgmDataBank->storePgmDataHexStringInSlot(pgmDataHexString, selectedSlot);
@@ -93,9 +93,9 @@ void ProgramDataSlotsComponent::pullSelectedPgmDataFromHardware() {
 
 void ProgramDataSlotsComponent::resized() {
 	for (auto i = 0; i != pgmData::numberOfSlotsInPgmDataBank; ++i) {
-		auto col_x{ (i / 10) * GUI::pgmDataSlotRadioButton_w };
-		auto row_y{ (i % 10) * GUI::pgmDataSlotRadioButton_h };
-		pgmDataSlotButtons[i].setBounds(col_x, row_y, GUI::pgmDataSlotRadioButton_w, GUI::pgmDataSlotRadioButton_h);
+		auto col_x{ (i / 10) * GUI::voiceSlotRadioButton_w };
+		auto row_y{ (i % 10) * GUI::voiceSlotRadioButton_h };
+		pgmDataSlotButtons[i].setBounds(col_x, row_y, GUI::voiceSlotRadioButton_w, GUI::voiceSlotRadioButton_h);
 	}
 }
 

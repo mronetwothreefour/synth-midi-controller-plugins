@@ -162,13 +162,13 @@ namespace ID
 	static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
 	static const Identifier state_MatrixModSettings{ "state_MatrixModSettings" };
-	static const Identifier state_VoicesBanks{ "state_VoicesBanks" };
-	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };
 	static const Identifier state_PluginState{ "state_PluginState" };
 	static const Identifier state_SplitsBank{ "state_SplitBanks" };
 	static const Identifier state_SplitOptions{ "state_SplitOptions" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+	static const Identifier state_VoicesBanks{ "state_VoicesBanks" };
+	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };

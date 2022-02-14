@@ -73,7 +73,7 @@ void ButtonsLayer::resized() {
     button_ForPerformingUndo.setBounds(GUI::bounds_UndoButton);
     button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
     button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
-    button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowPgmBankButton);
+    button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowVoicesBankButton);
     button_ForShowingRandomizationComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
     button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);

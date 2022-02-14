@@ -14,24 +14,24 @@ using namespace ID;
 std::vector<uint8> RawSysExDataVector::createPgmDataRequestMessage(uint8 slot)
 {
     jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfPgmDataDumpRequestVector) };
-    rawDataVector[1] = MIDI::opcode_RequestPgmDataDump;
+    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfVoiceDataRequestVector) };
+    rawDataVector[1] = MIDI::opcode_RequestVoiceData;
     rawDataVector[2] = slot;
     return rawDataVector;
 }
 
 std::vector<uint8> RawSysExDataVector::initializePgmDataDumpMessage(uint8 slot) {
     jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfPgmDataDumpVector) };
-    rawDataVector[1] = MIDI::opcode_PgmDataDump;
+    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfVoiceDataMessageVector) };
+    rawDataVector[1] = MIDI::opcode_VoiceDataMessage;
     rawDataVector[2] = slot;
     return rawDataVector;
 }
 
 std::vector<uint8> RawSysExDataVector::createPgmDataDumpHeader(uint8 slot) {
     jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
-    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::numberOfHeaderBytesInPgmDataDump) };
-    rawDataVector[1] = MIDI::opcode_PgmDataDump;
+    auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::numberOfHeaderBytesInVoiceDataMessage) };
+    rawDataVector[1] = MIDI::opcode_VoiceDataMessage;
     rawDataVector[2] = slot;
     return rawDataVector;
 }
@@ -85,7 +85,7 @@ bool RawDataTools::isValidPgmDataHexString(const String& hexString) {
 void RawDataTools::insertFilterKeyTrackValueIntoDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector) {
     auto& info{ InfoForExposedParameters::get() };
     auto filterKeyTrackParam{ info.indexForParamID("filterKeyTrack") };
-    auto nybbleIndex{ MIDI::numberOfHeaderBytesInPgmDataDump + info.firstNybbleIndexFor(filterKeyTrackParam) };
+    auto nybbleIndex{ MIDI::numberOfHeaderBytesInVoiceDataMessage + info.firstNybbleIndexFor(filterKeyTrackParam) };
     auto param{ exposedParams->getParameter("filterKeyTrack") };
     auto paramValue{ uint8(param->getValue() * info.maxValueFor(filterKeyTrackParam)) };
     if (paramValue == 1)
@@ -99,7 +99,7 @@ void RawDataTools::insertExposedParamValueIntoDataVector(uint8 paramIndex, Audio
     auto paramID{ info.IDfor(paramIndex) };
     auto param{ exposedParams->getParameter(paramID) };
     auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };
-    auto nybbleIndex{ MIDI::numberOfHeaderBytesInPgmDataDump + info.firstNybbleIndexFor(paramIndex) };
+    auto nybbleIndex{ MIDI::numberOfHeaderBytesInVoiceDataMessage + info.firstNybbleIndexFor(paramIndex) };
     auto firstBitIndex{ info.firstBitIndexFor(paramIndex) };
     auto totalNumberOfBits{ info.totalNumberOfBitsNeededFor(paramIndex) };
     for (uint8 bitCounter = 0; bitCounter != totalNumberOfBits; ++bitCounter) {

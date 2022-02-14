@@ -85,7 +85,7 @@ void ProgramBankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 pg
 
 void ProgramBankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_PgmBankWindow);
+	g.fillRect(GUI::bounds_VoicesBankWindow);
 	g.setColour(Color::progressBarGray);
 	PNGImageFormat imageFormat;
 	MemoryInputStream bkgrndMemInputStream{ BinaryData::BankTransmissionWindowBackground_png, BinaryData::BankTransmissionWindowBackground_pngSize, false };

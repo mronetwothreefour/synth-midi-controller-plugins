@@ -43,9 +43,9 @@ void ButtonForPullingSelectedProgramFromHardware::onClickMethod() {
 			{
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 				outgoingBuffers->addProgramChangeMessage(MIDI::channel, slot);
-				auto editor_x{ GUI::pgmNameEditorLabel_horizInset + (slot / 10 * GUI::pgmDataSlotRadioButton_w) };
-				auto editor_y{ GUI::pgmDataSlotsComponent_y + (slot % 10 * GUI::pgmDataSlotRadioButton_h) };
-				nameEditor.setBounds(editor_x, editor_y, GUI::pgmNameEditorLabel_w, GUI::pgmDataSlotRadioButton_h);
+				auto editor_x{ GUI::voiceNameEditorLabel_horizInset + (slot / 10 * GUI::voiceSlotRadioButton_w) };
+				auto editor_y{ GUI::voiceSlotsComponent_y + (slot % 10 * GUI::voiceSlotRadioButton_h) };
+				nameEditor.setBounds(editor_x, editor_y, GUI::voiceNameEditorLabel_w, GUI::voiceSlotRadioButton_h);
 				nameEditor.showEditor();
 			}
 		);

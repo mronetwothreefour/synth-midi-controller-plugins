@@ -54,22 +54,23 @@ namespace ID
 	static const Identifier label_LCDdisplayEditor{ "label_LCDdisplayEditor" };
 	static const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 
-	static const Identifier pgmData_Bank{ "pgmData_Bank" };
-	static const Identifier pgmData_CurrentVoiceNumber{ "pgmData_CurrentVoiceNumber" };
-	static const Identifier pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank{ "pgmData_IncomingPgmDataDumpShouldBeSavedInStorageBank" };
-	static const Identifier pgmData_Options{ "pgmData_Options" };
-	static const Identifier pgmData_ParamChangeEchosAreBlocked{ "pgmData_ParamChangeEchosAreBlocked" };
-	static const Identifier pgmData_VoiceTransmitTime{ "pgmData_VoiceTransmitTime" };
-
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
-	static const Identifier state_PgmDataBank{ "state_PgmDataBank" };
-	static const Identifier state_PgmDataOptions{ "state_PgmDataOptions" };
 	static const Identifier state_PluginState{ "state_PluginState" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+	static const Identifier state_VoicesBank{ "state_VoicesBank" };
+	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };
 
 	static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 	static const Identifier tooltips_Options{ "tooltips_Options" };
 	static const Identifier tooltips_ShouldShowCurrentSettings{ "tooltips_ShouldShowCurrentSettings" };
 	static const Identifier tooltips_ShouldShowDescriptions{ "tooltips_ShouldShowDescriptions" };
+
+	static const Identifier voicesBank{ "voicesBank" };
+
+	static const Identifier voiceTx_CurrentVoiceNumber{ "voiceTx_CurrentVoiceNumber" };
+	static const Identifier voiceTx_IncomingVoiceShouldBeSavedInStorageBank{ "voiceTx_IncomingVoiceShouldBeSavedInStorageBank" };
+	static const Identifier voiceTx_Options{ "voiceTx_Options" };
+	static const Identifier voiceTx_ParamChangeEchoesAreBlocked{ "voiceTx_ParamChangeEchoesAreBlocked" };
+	static const Identifier voiceTx_Time{ "voiceTx_Time" };
 }

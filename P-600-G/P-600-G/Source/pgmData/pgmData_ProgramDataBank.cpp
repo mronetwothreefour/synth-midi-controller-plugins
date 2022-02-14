@@ -9,7 +9,7 @@ using namespace constants;
 
 
 ProgramDataBank::ProgramDataBank() :
-	pgmDataHexStrings{ ID::pgmData_Bank }
+	pgmDataHexStrings{ ID::voicesBank }
 {
 	fillPgmDataHexStrings();
 }
@@ -67,7 +67,7 @@ void ProgramDataBank::restoreFactoryPgmData() {
 
 XmlElement* ProgramDataBank::getStateXml() {
 	auto pgmDataBankStateXml{ pgmDataHexStrings.createXml() };
-	pgmDataBankStateXml->setTagName(ID::state_PgmDataBank);
+	pgmDataBankStateXml->setTagName(ID::state_VoicesBank);
 	return pgmDataBankStateXml.release();
 }
 

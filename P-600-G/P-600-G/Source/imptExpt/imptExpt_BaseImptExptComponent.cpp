@@ -81,7 +81,7 @@ void BaseImportExportComponent::resized() {
 
 void BaseImportExportComponent::drawBackgroundImage(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_PgmBankWindow);
+	g.fillRect(GUI::bounds_VoicesBankWindow);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::ImportExportWindowBackground_png, BinaryData::ImportExportWindowBackground_pngSize, false };
 	PNGImageFormat imageFormat;

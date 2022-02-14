@@ -52,9 +52,9 @@ XmlElement UnexposedParameters::getStateXml() {
 }
 
 void UnexposedParameters::replaceState(const ValueTree& newState) {
-	auto pgmDataBankState{ newState.getChildWithName(ID::state_PgmDataBank) };
+	auto pgmDataBankState{ newState.getChildWithName(ID::state_VoicesBank) };
 	pgmDataBank->replaceState(pgmDataBankState);
-	auto pgmDataOptionsState{ newState.getChildWithName(ID::state_PgmDataOptions) };
+	auto pgmDataOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
 	pgmDataOptions->replaceState(pgmDataOptionsState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);

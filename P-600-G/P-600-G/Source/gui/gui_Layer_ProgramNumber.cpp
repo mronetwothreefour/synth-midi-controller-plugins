@@ -25,7 +25,7 @@ ProgramNumberLayer::ProgramNumberLayer(UnexposedParameters* unexposedParams) :
 }
 
 void ProgramNumberLayer::resized() {
-	slider_ForProgramNumber.setBounds(GUI::bounds_ProgramNumberSlider);
+	slider_ForProgramNumber.setBounds(GUI::bounds_VoiceNumberSlider);
 }
 
 void ProgramNumberLayer::sliderValueChanged(Slider* slider) {

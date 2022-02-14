@@ -21,6 +21,6 @@ namespace FontsMenu
 	static const Font fontFor_BrowserText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
 	static const Font fontFor_LCDdisplayEditor{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 36.0f, 0.0f) };
 	static const Font fontFor_KnobValueDisplay{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 14.0f, 0.0f) };
-	static const Font fontFor_ProgramSlotRadioButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 13.0f, 0.0f) };
+	static const Font fontFor_VoiceSlotRadioButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 13.0f, 0.0f) };
 	static const Font fontFor_TooltipText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
 }

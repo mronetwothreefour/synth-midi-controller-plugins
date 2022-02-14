@@ -63,7 +63,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 
 	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
 	label_PgmNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
-	label_PgmNameEditor.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
+	label_PgmNameEditor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
 	label_PgmNameEditor.addListener(this);
 	addAndMakeVisible(label_PgmNameEditor);
 
@@ -93,29 +93,29 @@ void ProgramDataBankComponent::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::PgmBankWindowBackground_png, BinaryData::PgmBankWindowBackground_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, GUI::pgmDataBankWindow_x, GUI::pgmDataBankWindow_y);
+	g.drawImageAt(backgroundImage, GUI::voicesBankWindow_x, GUI::voicesBankWindow_y);
 }
 
 void ProgramDataBankComponent::resized() {
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_PgmBankWindowLoadSelectedPgmButton);
-	button_ForSavingPgmInSelectedSlot.setBounds(GUI::bounds_PgmBankWindowSavePgmButton);
-	button_ForPullingSelectedPgmFromHardware.setBounds(GUI::bounds_PgmBankWindowPullSelectedPgmButton);
-	button_ForImportingPgmFromFile.setBounds(GUI::bounds_PgmBankWindowImptPgmButton);
-	button_ForExportingSelectedPgmToFile.setBounds(GUI::bounds_PgmBankWindowExptSelectedPgmButton);
-	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_PgmBankWindowNameButton);
-	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PgmBankWindowPullBankButton);
-	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PgmBankWindowPushBankButton);
-	button_ForImportingProgramBankFromFile.setBounds(GUI::bounds_PgmBankWindowImptPgmBankButton);
-	button_ForExportingProgramBankToFile.setBounds(GUI::bounds_PgmBankWindowExptPgmBankButton);
-	button_ForClosingPgmDataBank.setBounds(GUI::bounds_PgmBankWindowExitButton);
-	button_ForRestoringFactoryPrograms.setBounds(GUI::bounds_PgmBankWindowFactButton);
-	editor_txTime.setBounds(GUI::bounds_PgmBankWindowTransmitTimeEditor);
-	slotsComponent.setBounds(GUI::bounds_PgmDataSlotsComponent);
+	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_VoicesBankWindowLoadSelectedVoiceButton);
+	button_ForSavingPgmInSelectedSlot.setBounds(GUI::bounds_VoicesBankWindowSaveVoiceButton);
+	button_ForPullingSelectedPgmFromHardware.setBounds(GUI::bounds_VoicesBankWindowPullSelectedVoiceButton);
+	button_ForImportingPgmFromFile.setBounds(GUI::bounds_VoicesBankWindowImptVoiceButton);
+	button_ForExportingSelectedPgmToFile.setBounds(GUI::bounds_VoicesBankWindowExptSelectedVoiceButton);
+	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_VoicesBankWindowNameButton);
+	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_VoicesBankWindowPullBankButton);
+	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_VoicesBankWindowPushBankButton);
+	button_ForImportingProgramBankFromFile.setBounds(GUI::bounds_VoicesBankWindowImptBankButton);
+	button_ForExportingProgramBankToFile.setBounds(GUI::bounds_VoicesBankWindowExptBankButton);
+	button_ForClosingPgmDataBank.setBounds(GUI::bounds_VoicesBankWindowExitButton);
+	button_ForRestoringFactoryPrograms.setBounds(GUI::bounds_VoicesBankWindowFactButton);
+	editor_txTime.setBounds(GUI::bounds_VoicesBankWindowTransmitTimeEditor);
+	slotsComponent.setBounds(GUI::bounds_VoiceSlotsComponent);
 }
 
 void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
-		editor.setFont(FontsMenu::fontFor_ProgramSlotRadioButtons);
+		editor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
 		editor.setInputRestrictions(pgmData::maxLengthOfPgmName);
 		auto pgmDataBank{ unexposedParams->programDataBank_get() };
 		auto slot{ slotsComponent.selectedSlot };
