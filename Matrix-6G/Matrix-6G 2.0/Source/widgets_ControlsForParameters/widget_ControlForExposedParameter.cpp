@@ -25,8 +25,6 @@ ControlForExposedParameter::ControlForExposedParameter(uint8 param, UnexposedPar
 	case ControlType::linearSlider:
 		buildLinearSliderForExposedParam(param, unexposedParams);
 		break;
-	case ControlType::pgmSlotRadioButton:
-		break;
 	case ControlType::comboBox:
 		buildComboBoxControlForExposedParam(param, unexposedParams);
 		break;
@@ -74,8 +72,6 @@ void ControlForExposedParameter::attachToExposedParameter(AudioProcessorValueTre
 	case ControlType::linearSlider:
 		if (linearSlider != nullptr)
 			linearSlider->attachToExposedParameter(exposedParams);
-		break;
-	case ControlType::pgmSlotRadioButton:
 		break;
 	case ControlType::comboBox:
 		if (comboBox != nullptr)
