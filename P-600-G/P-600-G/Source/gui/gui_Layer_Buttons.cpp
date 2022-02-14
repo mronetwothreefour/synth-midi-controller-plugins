@@ -15,20 +15,20 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     unexposedParams{ unexposedParams },
     button_ForPerformingRedo{ unexposedParams },
     button_ForPerformingUndo{ unexposedParams },
-    button_ForPullingProgramFromHardware{ unexposedParams },
-    button_ForPushingProgramToHardware{ exposedParams, unexposedParams },
-    button_ForShowingProgramBankComponent{ unexposedParams },
+    button_ForPullingVoiceFromHardware{ unexposedParams },
+    button_ForPushingVoiceToHardware{ exposedParams, unexposedParams },
     button_ForShowingRandomizationComponent{ exposedParams, unexposedParams },
     button_ForShowingTipsComponent{ unexposedParams },
+    button_ForShowingVoicesBankComponent{ unexposedParams },
     button_ForGoingToWebSite{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
     addAndMakeVisible(button_ForPerformingRedo);
     addAndMakeVisible(button_ForPerformingUndo);
-    addAndMakeVisible(button_ForPullingProgramFromHardware);
-    addAndMakeVisible(button_ForPushingProgramToHardware);
-    addAndMakeVisible(button_ForShowingProgramBankComponent);
-    button_ForShowingProgramBankComponent.onClick = [this] { showProgramDataBankComponent(); };
+    addAndMakeVisible(button_ForPullingVoiceFromHardware);
+    addAndMakeVisible(button_ForPushingVoiceToHardware);
+    addAndMakeVisible(button_ForShowingVoicesBankComponent);
+    button_ForShowingVoicesBankComponent.onClick = [this] { showVoicesBankComponent(); };
     addAndMakeVisible(button_ForShowingTipsComponent);
     button_ForShowingTipsComponent.onClick = [this] { showTooltipOptionsComponent(); };
     addAndMakeVisible(button_ForShowingRandomizationComponent);
@@ -36,15 +36,6 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForGoingToWebSite.setComponentID(ID::component_HyperlinkButton.toString());
     button_ForGoingToWebSite.setTooltip("Click to go to programming.mr1234.com");
     addAndMakeVisible(button_ForGoingToWebSite);
-}
-
-void ButtonsLayer::showProgramDataBankComponent() {
-    pgmDataBankComponent.reset(new ProgramDataBankComponent(exposedParams, unexposedParams));
-    if (pgmDataBankComponent != nullptr) {
-        addAndMakeVisible(pgmDataBankComponent.get());
-        pgmDataBankComponent->setBounds(getLocalBounds());
-        pgmDataBankComponent->grabKeyboardFocus();
-    }
 }
 
 void ButtonsLayer::showTooltipOptionsComponent() {
@@ -65,15 +56,24 @@ void ButtonsLayer::showRandomizationComponent() {
     }
 }
 
+void ButtonsLayer::showVoicesBankComponent() {
+    voicesBankComponent.reset(new VoicesBankComponent(exposedParams, unexposedParams));
+    if (voicesBankComponent != nullptr) {
+        addAndMakeVisible(voicesBankComponent.get());
+        voicesBankComponent->setBounds(getLocalBounds());
+        voicesBankComponent->grabKeyboardFocus();
+    }
+}
+
 void ButtonsLayer::timerCallback() {
 }
 
 void ButtonsLayer::resized() {
     button_ForPerformingRedo.setBounds(GUI::bounds_RedoButton);
     button_ForPerformingUndo.setBounds(GUI::bounds_UndoButton);
-    button_ForPullingProgramFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
-    button_ForPushingProgramToHardware.setBounds(GUI::bounds_MainWindowPushButton);
-    button_ForShowingProgramBankComponent.setBounds(GUI::bounds_MainWindowVoicesBankButton);
+    button_ForPullingVoiceFromHardware.setBounds(GUI::bounds_MainWindowPullButton);
+    button_ForPushingVoiceToHardware.setBounds(GUI::bounds_MainWindowPushButton);
+    button_ForShowingVoicesBankComponent.setBounds(GUI::bounds_MainWindowVoicesBankButton);
     button_ForShowingRandomizationComponent.setBounds(GUI::bounds_RandButton);
     button_ForShowingTipsComponent.setBounds(GUI::bounds_TipsButton);
     button_ForGoingToWebSite.setBounds(GUI::bounds_MainWindowWebLinkButton);
@@ -82,5 +82,5 @@ void ButtonsLayer::resized() {
 ButtonsLayer::~ButtonsLayer() {
     randomizationComponent = nullptr;
     tooltipOptionsComponent = nullptr;
-    pgmDataBankComponent = nullptr;
+    voicesBankComponent = nullptr;
 }

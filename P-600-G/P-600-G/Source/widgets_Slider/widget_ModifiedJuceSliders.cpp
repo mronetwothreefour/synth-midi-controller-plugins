@@ -44,12 +44,12 @@ void SliderWithMouseWheelModForPitch::mouseWheelMove(const MouseEvent& event, co
 
 
 
-SliderWithMouseWheelModForProgramNumber::SliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams) :
+SliderWithMouseWheelModForVoiceNumber::SliderWithMouseWheelModForVoiceNumber(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams }
 {
 }
 
-void SliderWithMouseWheelModForProgramNumber::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
+void SliderWithMouseWheelModForVoiceNumber::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
 	unexposedParams->undoManager_get()->beginNewTransaction();
 	auto delta{ wheel.deltaY };
 	auto currentValue{ getValue() };
@@ -86,8 +86,8 @@ RotarySliderWithMouseWheelModForPitch::RotarySliderWithMouseWheelModForPitch(Une
 
 
 
-RotarySliderWithMouseWheelModForProgramNumber::RotarySliderWithMouseWheelModForProgramNumber(UnexposedParameters* unexposedParams) :
-	SliderWithMouseWheelModForProgramNumber{ unexposedParams }
+RotarySliderWithMouseWheelModForVoiceNumber::RotarySliderWithMouseWheelModForVoiceNumber(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelModForVoiceNumber{ unexposedParams }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);

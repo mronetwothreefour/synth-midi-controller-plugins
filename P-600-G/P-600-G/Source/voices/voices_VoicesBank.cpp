@@ -15,17 +15,17 @@ VoicesBank::VoicesBank() :
 }
 
 void VoicesBank::fillVoiceDataHexStrings() {
-	auto& factoryPgmDataHexStrings{ FactoryVoiceDataHexStrings::get() };
-	auto factoryPgmDataBank{ factoryPgmDataHexStrings.getFactoryVoicesBank() };
-	for (uint8 pgmSlot = 0; pgmSlot != slotOutOfRange(); ++pgmSlot) {
-		auto pgmDataHexString{ factoryPgmDataBank[pgmSlot] };
-		voiceDataHexStrings.setProperty("pgm" + (String)pgmSlot, pgmDataHexString, nullptr);
+	auto& factoryVoiceDataHexStrings{ FactoryVoiceDataHexStrings::get() };
+	auto factoryVoicesBank{ factoryVoiceDataHexStrings.getFactoryVoicesBank() };
+	for (uint8 slot = 0; slot != slotOutOfRange(); ++slot) {
+		auto voiceDataHexString{ factoryVoicesBank[slot] };
+		voiceDataHexStrings.setProperty("voice" + (String)slot, voiceDataHexString, nullptr);
 	}
 }
 
 int VoicesBank::slotOutOfRange() {
-	auto& factoryPgmDataHexStrings{ FactoryVoiceDataHexStrings::get() };
-	return factoryPgmDataHexStrings.slotOutOfRange();
+	auto& factoryVoiceDataHexStrings{ FactoryVoiceDataHexStrings::get() };
+	return factoryVoiceDataHexStrings.slotOutOfRange();
 }
 
 void VoicesBank::addListenerToVoiceDataHexStrings(ValueTree::Listener* listener) {
@@ -38,37 +38,37 @@ void VoicesBank::removeListenerFromVoiceDataHexStrings(ValueTree::Listener* list
 
 const String VoicesBank::nameOfVoiceInSlot(uint8 slot) {
 	jassert(slot < voices::numberOfSlotsInVoicesBank);
-	auto pgmDataHexString{ voiceDataHexStrings.getProperty("pgm" + (String)slot).toString() };
-	auto nameString{ pgmDataHexString.substring(voices::indexOfFirstNameCharInVoiceDataHexString) };
+	auto voiceDataHexString{ voiceDataHexStrings.getProperty("voice" + (String)slot).toString() };
+	auto nameString{ voiceDataHexString.substring(voices::indexOfFirstNameCharInVoiceDataHexString) };
 	return nameString;
 }
 
 void VoicesBank::setNameOfVoiceInSlot(String newName, uint8 slot) {
 	jassert(slot < voices::numberOfSlotsInVoicesBank);
-	auto oldPgmDataHexString{ voiceDataHexStrings.getProperty("pgm" + (String)slot).toString() };
-	auto newPgmDataHexString{ oldPgmDataHexString.substring(0, voices::indexOfFirstNameCharInVoiceDataHexString) };
-	newPgmDataHexString.append(newName, voices::maxLengthOfVoiceName);
-	voiceDataHexStrings.setProperty("pgm" + (String)slot, newPgmDataHexString, nullptr);
+	auto oldVoiceDataHexString{ voiceDataHexStrings.getProperty("voice" + (String)slot).toString() };
+	auto newVoiceDataHexString{ oldVoiceDataHexString.substring(0, voices::indexOfFirstNameCharInVoiceDataHexString) };
+	newVoiceDataHexString.append(newName, voices::maxLengthOfVoiceName);
+	voiceDataHexStrings.setProperty("voice" + (String)slot, newVoiceDataHexString, nullptr);
 }
 
 const String VoicesBank::getVoiceDataHexStringFromSlot(uint8 slot) const {
 	jassert(slot < voices::numberOfSlotsInVoicesBank);
-	return voiceDataHexStrings.getProperty("pgm" + (String)slot).toString();
+	return voiceDataHexStrings.getProperty("voice" + (String)slot).toString();
 }
 
-void VoicesBank::storeVoiceDataHexStringInSlot(String pgmDataHexString, uint8 slot) {
+void VoicesBank::storeVoiceDataHexStringInSlot(String voiceDataHexString, uint8 slot) {
 	jassert(slot < voices::numberOfSlotsInVoicesBank);
-	voiceDataHexStrings.setProperty("pgm" + (String)slot, pgmDataHexString, nullptr);
+	voiceDataHexStrings.setProperty("voice" + (String)slot, voiceDataHexString, nullptr);
 }
 
-void VoicesBank::restoreFactoryPgmData() {
+void VoicesBank::restoreFactoryVoicesBank() {
 	fillVoiceDataHexStrings();
 }
 
 XmlElement* VoicesBank::getStateXml() {
-	auto pgmDataBankStateXml{ voiceDataHexStrings.createXml() };
-	pgmDataBankStateXml->setTagName(ID::state_VoicesBank);
-	return pgmDataBankStateXml.release();
+	auto voicesBankStateXml{ voiceDataHexStrings.createXml() };
+	voicesBankStateXml->setTagName(ID::state_VoicesBank);
+	return voicesBankStateXml.release();
 }
 
 void VoicesBank::replaceState(const ValueTree& newState) {

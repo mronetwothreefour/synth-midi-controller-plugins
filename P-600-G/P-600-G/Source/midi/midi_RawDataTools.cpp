@@ -113,49 +113,49 @@ void RawDataTools::insertExposedParamValueIntoDataVector(uint8 paramIndex, Audio
     }
 }
 
-void RawDataTools::applyVoiceDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-    applyVoiceNumberToGUI(pgmNumber, unexposedParams);
+void RawDataTools::applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vector<uint8>& voiceDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+    applyVoiceNumberToGUI(voiceNumber, unexposedParams);
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
     voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
-    applyRawVoiceDataToExposedParameters(pgmDataVector.data(), exposedParams);
+    applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams);
     voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
-void RawDataTools::applyVoiceNumberToGUI(const uint8 pgmNumber, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams) {
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-    voiceTransmissionOptions->setCurrentVoiceNumber(pgmNumber);
+    voiceTransmissionOptions->setCurrentVoiceNumber(voiceNumber);
 }
 
-void RawDataTools::applyRawVoiceDataToExposedParameters(const uint8* pgmData, AudioProcessorValueTreeState* exposedParams) {
+void RawDataTools::applyRawVoiceDataToExposedParameters(const uint8* voiceData, AudioProcessorValueTreeState* exposedParams) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
         uint8 newValue{ (uint8)0 };
         if (info.IDfor(param).toString() == "filterKeyTrack")
-            newValue = extractFilterKeyTrackValueFromRawVoiceData(pgmData);
+            newValue = extractFilterKeyTrackValueFromRawVoiceData(voiceData);
         else
-            newValue = extractParamValueFromRawVoiceData(param, pgmData);
+            newValue = extractParamValueFromRawVoiceData(param, voiceData);
         auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
         exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     }
 }
 
-uint8 RawDataTools::extractFilterKeyTrackValueFromRawVoiceData(const uint8* pgmData) {
+uint8 RawDataTools::extractFilterKeyTrackValueFromRawVoiceData(const uint8* voiceData) {
     auto& info{ InfoForExposedParameters::get() };
     auto filterKeyTrackParam{ info.indexForParamID("filterKeyTrack") };
     auto nybbleIndex{ info.firstNybbleIndexFor(filterKeyTrackParam) };
     auto firstBitIndex{ info.firstBitIndexFor(filterKeyTrackParam) };
     auto filterKeyTrackValue{ (uint8)0 };
-    auto firstBitIsOn{ pgmData[nybbleIndex] & roundToInt(std::pow(2, firstBitIndex)) };
+    auto firstBitIsOn{ voiceData[nybbleIndex] & roundToInt(std::pow(2, firstBitIndex)) };
     if (firstBitIsOn)
         filterKeyTrackValue = 2;
-    auto secondBitIsOn{ pgmData[nybbleIndex] & roundToInt(std::pow(2, firstBitIndex + 1)) };
+    auto secondBitIsOn{ voiceData[nybbleIndex] & roundToInt(std::pow(2, firstBitIndex + 1)) };
     if (secondBitIsOn)
         filterKeyTrackValue = 1;
     return filterKeyTrackValue;
 }
 
-uint8 RawDataTools::extractParamValueFromRawVoiceData(uint8 param, const uint8* pgmData) {
+uint8 RawDataTools::extractParamValueFromRawVoiceData(uint8 param, const uint8* voiceData) {
     auto& info{ InfoForExposedParameters::get() };
     auto nybbleIndex{ info.firstNybbleIndexFor(param) };
     auto firstBitIndex{ info.firstBitIndexFor(param) };
@@ -166,7 +166,7 @@ uint8 RawDataTools::extractParamValueFromRawVoiceData(uint8 param, const uint8* 
         if (currentBit == 4 || currentBit == 8)
             ++nybbleIndex;
         currentBit %= 4;
-        auto bitIsOn{ pgmData[nybbleIndex] & roundToInt(std::pow(2, currentBit)) };
+        auto bitIsOn{ voiceData[nybbleIndex] & roundToInt(std::pow(2, currentBit)) };
         if (bitIsOn)
             paramValue += (uint8)roundToInt(std::pow(2, bitCounter));
     }

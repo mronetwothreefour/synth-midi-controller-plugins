@@ -4,15 +4,15 @@
 
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
-#include "../widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
-#include "../widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"
-#include "../widgets_Button/widget_ButtonForShowingProgramBankComponent.h"
+#include "../widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
+#include "../widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
 #include "../widgets_Button/widget_ButtonForShowingRandomizeComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingTipsComponent.h"
+#include "../widgets_Button/widget_ButtonForShowingVoicesBankComponent.h"
 
 
 
-class ProgramDataBankComponent;
+class VoicesBankComponent;
 class RandomizationComponent;
 class TooltipOptionsComponent;
 class UnexposedParameters;
@@ -25,15 +25,15 @@ class ButtonsLayer :
 	UnexposedParameters* unexposedParams;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
-	ButtonForPullingProgramFromHardwareStorageSlot button_ForPullingProgramFromHardware;
-	ButtonForPushingProgramToHardwareStorageSlot button_ForPushingProgramToHardware;
-	ButtonForShowingProgramBankComponent button_ForShowingProgramBankComponent;
+	ButtonForPullingVoiceFromHardwareStorageSlot button_ForPullingVoiceFromHardware;
+	ButtonForPushingVoiceToHardwareStorageSlot button_ForPushingVoiceToHardware;
 	ButtonForShowingRandomizeComponent button_ForShowingRandomizationComponent;
 	ButtonForShowingTipsComponent button_ForShowingTipsComponent;
+	ButtonForShowingVoicesBankComponent button_ForShowingVoicesBankComponent;
 	HyperlinkButton button_ForGoingToWebSite;
-	std::unique_ptr<ProgramDataBankComponent> pgmDataBankComponent;
 	std::unique_ptr<TooltipOptionsComponent> tooltipOptionsComponent;
 	std::unique_ptr<RandomizationComponent> randomizationComponent;
+	std::unique_ptr<VoicesBankComponent> voicesBankComponent;
 
 public:
 	ButtonsLayer() = delete;
@@ -41,9 +41,9 @@ public:
 	ButtonsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void showProgramDataBankComponent();
 	void showTooltipOptionsComponent();
 	void showRandomizationComponent();
+	void showVoicesBankComponent();
 	void timerCallback() override;
 
 public:

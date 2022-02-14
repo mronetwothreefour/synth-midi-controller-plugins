@@ -9,7 +9,6 @@ enum class ControlType {
 	rotarySlider,
 	rotarySliderForPitch,
 	linearSlider,
-	pgmSlotRadioButton,
 	comboBox
 };
 

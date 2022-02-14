@@ -29,7 +29,7 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
         auto sysExData{ midiMessage.getSysExData() };
         auto sysExDataSize{ midiMessage.getSysExDataSize() };
         if (sysExData[MIDI::sysExByteHolding_ManufacturerID] == MIDI::manufacturerID && MIDI::sysExByteHolding_Opcode == MIDI::opcode_VoiceDataMessage) {
-            handleIncomingPgmDump(midiMessage.getSysExData(), sysExDataSize);
+            handleIncomingVoiceDataMessage(midiMessage.getSysExData(), sysExDataSize);
             return true;
         }
         else
@@ -39,22 +39,22 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
         return false;
 }
 
-void IncomingSysExHandler::handleIncomingPgmDump(const uint8* sysExData, int sysExDataSize) {
-    auto pgmNum{ sysExData[MIDI::sysExByteHolding_VoiceNum] };
-    auto pgmDataVector{ stripHeaderBytesFromPgmDump(sysExData, sysExDataSize) };
-    RawDataTools::applyVoiceDataVectorToGUI(pgmNum, pgmDataVector, exposedParams,unexposedParams);
+void IncomingSysExHandler::handleIncomingVoiceDataMessage(const uint8* sysExData, int sysExDataSize) {
+    auto voiceNum{ sysExData[MIDI::sysExByteHolding_VoiceNum] };
+    auto voiceDataVector{ stripHeaderBytesFromVoiceDataMessage(sysExData, sysExDataSize) };
+    RawDataTools::applyVoiceDataVectorToGUI(voiceNum, voiceDataVector, exposedParams,unexposedParams);
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
     if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInVoicesBank()) {
         auto voicesBank{ unexposedParams->voicesBank_get() };
-        auto pgmDataHexString{ RawDataTools::convertDataVectorToHexString(pgmDataVector) };
-        voicesBank->storeVoiceDataHexStringInSlot(pgmDataHexString, pgmNum);
+        auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
+        voicesBank->storeVoiceDataHexStringInSlot(voiceDataHexString, voiceNum);
         voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInVoicesBank();
     }
 }
 
-std::vector<uint8> IncomingSysExHandler::stripHeaderBytesFromPgmDump(const uint8* sysExData, int sysExDataSize) {
-    std::vector<uint8> pgmDataWithoutHeaderBytes;
+std::vector<uint8> IncomingSysExHandler::stripHeaderBytesFromVoiceDataMessage(const uint8* sysExData, int sysExDataSize) {
+    std::vector<uint8> voiceDataWithoutHeaderBytes;
     for (auto byteIndex = MIDI::sysExByteHolding_FirstVoiceDataNybble; byteIndex != (uint8)sysExDataSize; ++byteIndex)
-        pgmDataWithoutHeaderBytes.push_back(*(sysExData + byteIndex));
-    return pgmDataWithoutHeaderBytes;
+        voiceDataWithoutHeaderBytes.push_back(*(sysExData + byteIndex));
+    return voiceDataWithoutHeaderBytes;
 }

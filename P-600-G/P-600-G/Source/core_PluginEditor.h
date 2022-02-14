@@ -6,7 +6,7 @@
 class ButtonsLayer;
 class ExposedParamsControlsLayer;
 class GUILookAndFeel;
-class ProgramNumberLayer;
+class VoiceNumberLayer;
 
 class PluginEditor :
     public juce::AudioProcessorEditor,
@@ -17,7 +17,7 @@ class PluginEditor :
     std::unique_ptr<GUILookAndFeel> lookAndFeel;
     std::unique_ptr<ButtonsLayer> buttonsLayer;
     std::unique_ptr<ExposedParamsControlsLayer> exposedParamsControlsLayer;
-    std::unique_ptr<ProgramNumberLayer> programNumberLayer;
+    std::unique_ptr<VoiceNumberLayer> voiceNumberLayer;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:

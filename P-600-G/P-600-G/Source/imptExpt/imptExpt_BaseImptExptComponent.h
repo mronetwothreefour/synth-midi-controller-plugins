@@ -4,12 +4,16 @@
 
 #include "imptExpt_FileFilters.h"
 
+
+
 enum class ImptExptType {
-	exportProgram,
-	exportProgramBank,
-	importProgram,
-	importProgramBank
+	exportVoice,
+	exportVoicesBank,
+	importVoice,
+	importVoicesBank
 };
+
+
 
 
 class FileNotValidAlert;
@@ -29,8 +33,8 @@ protected:
 	TextButton button_Esc;
 	TextButton button_OK;
 	std::unique_ptr<FileBrowserComponent> browserComponent;
-	ProgramDataFileFilter pgmDataFileFilter;
-	ProgramDataBankFileFilter pgmDataBankFileFilter;
+	VoiceDataFileFilter voiceDataFileFilter;
+	VoicesBankFileFilter voicesBankFileFilter;
 	std::unique_ptr<FolderNameDialogBox> folderNameDialogBox;
 	std::unique_ptr<FileNotValidAlert> fileNotValidAlert;
 
