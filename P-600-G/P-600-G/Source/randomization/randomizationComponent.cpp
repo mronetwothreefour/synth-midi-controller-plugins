@@ -2,7 +2,7 @@
 
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_ProgramDataDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -81,8 +81,8 @@ void RandomizationComponent::unlockAllParameters() {
 }
 
 void RandomizationComponent::randomizeUnlockedParameters() {
-	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-	pgmDataOptions->setParamChangeEchosAreBlocked();
+	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		Random rndmNumGenerator{};
@@ -92,16 +92,16 @@ void RandomizationComponent::randomizeUnlockedParameters() {
 			exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 		}
 	}
-	ProgramDataDump::addPgmDataDumpForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
+	VoiceDataMessage::addVoiceDataMessageForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
 	callAfterDelay(10, [this]
 		{
-			auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-			auto pgmSlot{ pgmDataOptions->currentProgramNumber() };
+			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+			auto pgmSlot{ voiceTransmissionOptions->currentVoiceNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);
 		}
 	);
-	pgmDataOptions->setParamChangeEchosAreNotBlocked();
+	voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 void RandomizationComponent::hideThisComponent() {

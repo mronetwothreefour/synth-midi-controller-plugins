@@ -3,7 +3,7 @@
 #include "params_ExposedParamsInfo_Singleton.h"
 #include "params_UnexposedParameters_Facade.h"
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_ProgramDataDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 
 using namespace constants;
 
@@ -20,11 +20,11 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 }
 
 void ExposedParametersListener::parameterChanged(const String& /*parameterID*/, float /*newValue*/) {
-	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-	if (pgmDataOptions->paramChangeEchosAreNotBlocked()) {
-		ProgramDataDump::addPgmDataDumpForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
-		auto pgmSlot{ pgmDataOptions->currentProgramNumber() };
-		auto transmitTime{ pgmDataOptions->programTransmitTime() };
+	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
+		VoiceDataMessage::addVoiceDataMessageForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
+		auto pgmSlot{ voiceTransmissionOptions->currentVoiceNumber() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, pgmSlot]
 			{
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };

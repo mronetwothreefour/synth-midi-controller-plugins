@@ -1,16 +1,16 @@
 #include "widget_PgmBank_ButtonForLoadingSelectedPgm.h"
 
 #include "../midi/midi_Constants.h"
-#include "../pgmData/pgmData_Constants.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams) :
+ButtonForLoadingSelectedProgram::ButtonForLoadingSelectedProgram(VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	slotsComponent{ slotsComponent },
 	unexposedParams{ unexposedParams }
@@ -32,10 +32,10 @@ const String ButtonForLoadingSelectedProgram::createButtonTooltipString() {
 
 void ButtonForLoadingSelectedProgram::onClickMethod() {
 	auto slot{ slotsComponent.selectedSlot };
-	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
-		slotsComponent.loadPgmDataFromSelectedSlot();
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		auto transmitTime{ pgmDataOptions->programTransmitTime() };
+	if (slot < voices::numberOfSlotsInVoicesBank) {
+		slotsComponent.loadVoiceFromSelectedSlot();
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };

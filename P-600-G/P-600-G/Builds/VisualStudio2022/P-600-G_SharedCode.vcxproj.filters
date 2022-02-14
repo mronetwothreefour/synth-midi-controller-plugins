@@ -20,14 +20,14 @@
     <Filter Include="P-600-G\Source\params">
       <UniqueIdentifier>{1B8D9807-4224-2D5D-0DBE-A889FA30188C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G\Source\pgmData">
-      <UniqueIdentifier>{F9E79EFC-44FB-3F6D-418B-887E2AE3A319}</UniqueIdentifier>
-    </Filter>
     <Filter Include="P-600-G\Source\randomization">
       <UniqueIdentifier>{3C04EA3E-8A9E-7C2C-D5C9-FD3D9103AC58}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G\Source\tooltips">
       <UniqueIdentifier>{26EBAAF3-5E59-0DC1-21D2-136CF58D7C04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G\Source\voices">
+      <UniqueIdentifier>{7BDB0D0B-7E91-0652-622D-2D18079B26E3}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G\Source\widgets_Button">
       <UniqueIdentifier>{1E3F1D34-778E-5BEB-692A-5C6CF4946E86}</UniqueIdentifier>
@@ -544,10 +544,10 @@
     <ClCompile Include="..\..\Source\midi\midi_OutgoingMidiBuffers.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_ProgramDataDump.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\midi_RawDataTools.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_VoiceDataMessage.cpp">
       <Filter>P-600-G\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_ExposedParametersListener.cpp">
@@ -562,32 +562,14 @@
     <ClCompile Include="..\..\Source\params\params_IntToContextualStringConverters.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_ProgramDataOptions.cpp">
-      <Filter>P-600-G\Source\params</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp">
       <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_ProgramDataBank.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp">
-      <Filter>P-600-G\Source\pgmData</Filter>
+    <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
+      <Filter>P-600-G\Source\params</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomizationComponent.cpp">
       <Filter>P-600-G\Source\randomization</Filter>
@@ -600,6 +582,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.cpp">
       <Filter>P-600-G\Source\tooltips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_BankTransmissionComponent.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_RestoreFactoryVoicesConfirmDialogBox.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBank.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoicesBankComponent.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_VoiceSlotsComponent.cpp">
+      <Filter>P-600-G\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
@@ -2877,10 +2877,10 @@
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_ProgramDataDump.h">
+    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h">
+    <ClInclude Include="..\..\Source\midi\midi_VoiceDataMessage.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h">
@@ -2901,35 +2901,14 @@
     <ClInclude Include="..\..\Source\params\params_IntToContextualStringConverters.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_ProgramDataOptions.h">
-      <Filter>P-600-G\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_BankTransmissionComponent.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_Constants.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_FactoryPgmDataHexStrings_Singleton.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataBankComponent.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_PgmDataSlotsComponent.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_ProgramDataBank.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\pgmData\pgmData_RestoreFactoryPgmsConfirmDialogBox.h">
-      <Filter>P-600-G\Source\pgmData</Filter>
+    <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
+      <Filter>P-600-G\Source\params</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomizationComponent.h">
       <Filter>P-600-G\Source\randomization</Filter>
@@ -2945,6 +2924,27 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\tooltips\tooltipSetter_ForExposedParamSliders.h">
       <Filter>P-600-G\Source\tooltips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_BankTransmissionComponent.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_Constants.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_FactoryVoiceDataHexStrings_Singleton.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_RestoreFactoryVoicesConfirmDialogBox.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBank.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoicesBankComponent.h">
+      <Filter>P-600-G\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_VoiceSlotsComponent.h">
+      <Filter>P-600-G\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_BaseButtonWithOnClickAndTooltipMethods.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>

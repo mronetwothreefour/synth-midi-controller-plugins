@@ -1,7 +1,7 @@
 #include "widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
 
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_ProgramDataDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -30,12 +30,12 @@ const String ButtonForPullingProgramFromHardwareStorageSlot::createButtonTooltip
 }
 
 void ButtonForPullingProgramFromHardwareStorageSlot::onClickMethod() {
-	auto currentPgmOptions{ unexposedParams->programDataOptions_get() };
-	auto slot{ currentPgmOptions->currentProgramNumber() };
+	auto currentPgmOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	auto slot{ currentPgmOptions->currentVoiceNumber() };
 	auto outgoingMidiBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-	ProgramDataDump::addRequestForPgmDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
-	auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-	auto transmitTime{ pgmDataOptions->programTransmitTime() };
+	VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(slot, outgoingMidiBuffers);
+	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 	callAfterDelay(transmitTime, [this, slot]
 		{
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };

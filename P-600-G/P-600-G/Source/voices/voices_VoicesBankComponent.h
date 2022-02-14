@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "pgmData_ProgramDataBank.h"
-#include "pgmData_PgmDataSlotsComponent.h"
-#include "pgmData_BankTransmissionComponent.h"
+#include "voices_VoicesBank.h"
+#include "voices_VoiceSlotsComponent.h"
+#include "voices_BankTransmissionComponent.h"
 #include "../widgets_LCDdisplayEditor/widget_LCDdisplayEditor.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 #include "../widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.h"
@@ -34,7 +34,7 @@ class ProgramDataBankComponent :
     public ApplicationCommandTarget
 {
     UnexposedParameters* unexposedParams;
-    ProgramDataSlotsComponent slotsComponent;
+    VoiceSlotsComponent slotsComponent;
     ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
     ButtonForSavingProgramInSelectedSlot button_ForSavingPgmInSelectedSlot;
     ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedPgmFromHardware;

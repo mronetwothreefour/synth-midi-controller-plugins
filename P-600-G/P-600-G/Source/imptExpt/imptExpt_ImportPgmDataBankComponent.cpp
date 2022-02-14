@@ -5,14 +5,14 @@
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_Constants.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ImportProgramDataBankComponent::ImportProgramDataBankComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+ImportProgramDataBankComponent::ImportProgramDataBankComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseImportExportComponent{ ImptExptType::importProgramBank, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -37,14 +37,14 @@ void ImportProgramDataBankComponent::okButtonClicked() {
 		StringArray pgmDataArray{};
 		while (!inputStream.isExhausted()) {
 			auto pgmDataString{ inputStream.readNextLine() };
-			if (RawDataTools::isValidPgmDataHexString(pgmDataString))
+			if (RawDataTools::isValidVoiceDataHexString(pgmDataString))
 				pgmDataArray.add(pgmDataString);
 			else {
 				showFileIsNotValidAlert();
 				return;
 			}
 		}
-		if (pgmDataArray.size() == pgmData::numberOfSlotsInPgmDataBank)
+		if (pgmDataArray.size() == voices::numberOfSlotsInVoicesBank)
 			importProgramDataFromStringArray(pgmDataArray);
 		else {
 			showFileIsNotValidAlert();
@@ -58,9 +58,9 @@ void ImportProgramDataBankComponent::okButtonClicked() {
 }
 
 void ImportProgramDataBankComponent::importProgramDataFromStringArray(StringArray stringArray) {
-	for (uint8 slot = 0; slot != pgmData::numberOfSlotsInPgmDataBank; ++slot) {
-		auto pgmDataBank{ unexposedParams->programDataBank_get() };
-		pgmDataBank->storePgmDataHexStringInSlot(stringArray[slot], slot);
+	for (uint8 slot = 0; slot != voices::numberOfSlotsInVoicesBank; ++slot) {
+		auto voicesBank{ unexposedParams->voicesBank_get() };
+		voicesBank->storeVoiceDataHexStringInSlot(stringArray[slot], slot);
 	}
 	hideThisComponent();
 }

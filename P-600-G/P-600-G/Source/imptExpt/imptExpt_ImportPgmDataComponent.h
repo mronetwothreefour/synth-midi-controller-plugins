@@ -6,7 +6,7 @@
 
 
 
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ImportProgramDataComponent :
@@ -15,7 +15,7 @@ class ImportProgramDataComponent :
 public:
 	ImportProgramDataComponent() = delete;
 
-	ImportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
+	ImportProgramDataComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

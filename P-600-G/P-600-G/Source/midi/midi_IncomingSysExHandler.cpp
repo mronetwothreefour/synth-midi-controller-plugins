@@ -42,13 +42,13 @@ bool IncomingSysExHandler::incomingSysExHasMatchingID(MidiMessage midiMessage) {
 void IncomingSysExHandler::handleIncomingPgmDump(const uint8* sysExData, int sysExDataSize) {
     auto pgmNum{ sysExData[MIDI::sysExByteHolding_VoiceNum] };
     auto pgmDataVector{ stripHeaderBytesFromPgmDump(sysExData, sysExDataSize) };
-    RawDataTools::applyPgmDataVectorToGUI(pgmNum, pgmDataVector, exposedParams,unexposedParams);
-    auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-    if (pgmDataOptions->incomingPgmDataDumpShouldBeSavedInStorageBank()) {
-        auto pgmDataBank{ unexposedParams->programDataBank_get() };
-        auto pgmDataHexString{ RawDataTools::convertPgmDataVectorToHexString(pgmDataVector) };
-        pgmDataBank->storePgmDataHexStringInSlot(pgmDataHexString, pgmNum);
-        pgmDataOptions->setIncomingPgmDataDumpShouldNotBeSavedInStorageBank();
+    RawDataTools::applyVoiceDataVectorToGUI(pgmNum, pgmDataVector, exposedParams,unexposedParams);
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    if (voiceTransmissionOptions->incomingVoiceShouldBeSavedInVoicesBank()) {
+        auto voicesBank{ unexposedParams->voicesBank_get() };
+        auto pgmDataHexString{ RawDataTools::convertDataVectorToHexString(pgmDataVector) };
+        voicesBank->storeVoiceDataHexStringInSlot(pgmDataHexString, pgmNum);
+        voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInVoicesBank();
     }
 }
 

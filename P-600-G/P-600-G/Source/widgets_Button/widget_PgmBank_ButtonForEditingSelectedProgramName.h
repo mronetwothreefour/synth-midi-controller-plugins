@@ -6,20 +6,20 @@
 
 
 
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForEditingSelectedProgramName :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
 	Label& nameEditor;
-	ProgramDataSlotsComponent& slotsComponent;
+	VoiceSlotsComponent& slotsComponent;
 	UnexposedParameters* unexposedParams;
 
 public:
 	ButtonForEditingSelectedProgramName() = delete;
 
-	ButtonForEditingSelectedProgramName(Label& nameEditor, ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);
+	ButtonForEditingSelectedProgramName(Label& nameEditor, VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

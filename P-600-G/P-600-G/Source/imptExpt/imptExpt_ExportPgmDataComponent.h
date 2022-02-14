@@ -6,7 +6,7 @@
 
 
 class FileOverwriteConfirmDialogBox;
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ExportProgramDataComponent :
@@ -18,7 +18,7 @@ class ExportProgramDataComponent :
 public:
 	ExportProgramDataComponent() = delete;
 
-	ExportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
+	ExportProgramDataComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void buttonClicked(Button* button) override;
 

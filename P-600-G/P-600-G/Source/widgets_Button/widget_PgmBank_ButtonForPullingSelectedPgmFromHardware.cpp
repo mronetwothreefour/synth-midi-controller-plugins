@@ -2,17 +2,17 @@
 
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
-#include "../pgmData/pgmData_Constants.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
 
-ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFromHardware(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor) :
+ButtonForPullingSelectedProgramFromHardware::ButtonForPullingSelectedProgramFromHardware(VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	slotsComponent{ slotsComponent },
 	unexposedParams{ unexposedParams },
@@ -35,10 +35,10 @@ const String ButtonForPullingSelectedProgramFromHardware::createButtonTooltipStr
 
 void ButtonForPullingSelectedProgramFromHardware::onClickMethod() {
 	auto slot{ slotsComponent.selectedSlot };
-	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		slotsComponent.pullSelectedPgmDataFromHardware();
-		auto transmitTime{ pgmDataOptions->programTransmitTime() };
+	if (slot < voices::numberOfSlotsInVoicesBank) {
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		slotsComponent.pullSelectedVoiceFromHardware();
+		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
 		callAfterDelay(transmitTime, [this, slot]
 			{
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };

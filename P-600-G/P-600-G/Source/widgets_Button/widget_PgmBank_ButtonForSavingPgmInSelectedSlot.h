@@ -6,14 +6,14 @@
 
 
 
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForSavingProgramInSelectedSlot :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	private Timer
 {
-	ProgramDataSlotsComponent& slotsComponent;
+	VoiceSlotsComponent& slotsComponent;
 	UnexposedParameters* unexposedParams;
 	Label& nameEditor;
 
@@ -21,7 +21,7 @@ public:
 
 	ButtonForSavingProgramInSelectedSlot() = delete;
 
-	ButtonForSavingProgramInSelectedSlot(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor);
+	ButtonForSavingProgramInSelectedSlot(VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor);
 
 protected:
 	const String createButtonTooltipString() override;

@@ -1,16 +1,16 @@
 #include "widget_PgmBank_ButtonForEditingSelectedProgramName.h"
 
 #include "../gui/gui_Constants.h"
-#include "../pgmData/pgmData_Constants.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ButtonForEditingSelectedProgramName::ButtonForEditingSelectedProgramName(Label& nameEditor, ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams) :
+ButtonForEditingSelectedProgramName::ButtonForEditingSelectedProgramName(Label& nameEditor, VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	nameEditor{ nameEditor },
 	slotsComponent{ slotsComponent },
@@ -31,7 +31,7 @@ const String ButtonForEditingSelectedProgramName::createButtonTooltipString() {
 
 void ButtonForEditingSelectedProgramName::onClickMethod() {
 	auto slot{ slotsComponent.selectedSlot };
-	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
+	if (slot < voices::numberOfSlotsInVoicesBank) {
 		auto editor_x{ GUI::voiceNameEditorLabel_horizInset + (slot / 10 * GUI::voiceSlotRadioButton_w) };
 		auto editor_y{ GUI::voiceSlotsComponent_y + (slot % 10 * GUI::voiceSlotRadioButton_h) };
 		nameEditor.setBounds(editor_x, editor_y, GUI::voiceNameEditorLabel_w, GUI::voiceSlotRadioButton_h);

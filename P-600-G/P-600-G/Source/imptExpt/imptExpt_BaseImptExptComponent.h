@@ -14,7 +14,7 @@ enum class ImptExptType {
 
 class FileNotValidAlert;
 class FolderNameDialogBox;
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class BaseImportExportComponent  :
@@ -23,7 +23,7 @@ class BaseImportExportComponent  :
 {
 protected:
 	ImptExptType type;
-	ProgramDataSlotsComponent* slotsComponent;
+	VoiceSlotsComponent* slotsComponent;
 	UnexposedParameters* unexposedParams;
 	TextButton button_NewFolder;
 	TextButton button_Esc;
@@ -37,7 +37,7 @@ protected:
 public:
 	BaseImportExportComponent() = delete;
 
-	BaseImportExportComponent(ImptExptType type, ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
+	BaseImportExportComponent(ImptExptType type, VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams);
 	void resized() override;
 
 protected:

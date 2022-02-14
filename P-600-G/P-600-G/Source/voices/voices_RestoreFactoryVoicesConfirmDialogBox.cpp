@@ -1,4 +1,4 @@
-#include "pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
+#include "voices_RestoreFactoryVoicesConfirmDialogBox.h"
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"

@@ -5,14 +5,14 @@
 #include "../midi/midi_RawDataTools.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_Constants.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
+#include "../voices/voices_Constants.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ImportProgramDataComponent::ImportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+ImportProgramDataComponent::ImportProgramDataComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseImportExportComponent{ ImptExptType::importProgram, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -35,8 +35,8 @@ void ImportProgramDataComponent::okButtonClicked() {
 	FileInputStream inputStream{ selectedFile };
 	if (inputStream.openedOk()) {
 		auto incomingString{ inputStream.readString() };
-		auto pgmDataString{ incomingString.initialSectionContainingOnly("1234567890ABCDEF") };
-		if (RawDataTools::isValidPgmDataHexString(pgmDataString)) {
+		auto voiceDataHexString{ incomingString.initialSectionContainingOnly("1234567890ABCDEF") };
+		if (RawDataTools::isValidVoiceDataHexString(voiceDataHexString)) {
 			importProgramDataFromString(incomingString);
 			return;
 		}
@@ -51,8 +51,8 @@ void ImportProgramDataComponent::okButtonClicked() {
 
 void ImportProgramDataComponent::importProgramDataFromString(String incomingString) {
 	auto slot{ slotsComponent->selectedSlot };
-	auto pgmDataBank{ unexposedParams->programDataBank_get() };
-	pgmDataBank->storePgmDataHexStringInSlot(incomingString, slot);
+	auto voicesBank{ unexposedParams->voicesBank_get() };
+	voicesBank->storeVoiceDataHexStringInSlot(incomingString, slot);
 	hideThisComponent();
 }
 

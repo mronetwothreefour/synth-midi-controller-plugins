@@ -6,13 +6,13 @@
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
 	type{ type },
 	slotsComponent{ slotsComponent },
 	unexposedParams{ unexposedParams }
@@ -34,8 +34,8 @@ BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, ProgramD
 		String defaultFileName{ "" };
 		if (type == ImptExptType::exportProgram) {
 			auto slot{ slotsComponent->selectedSlot };
-			auto pgmDataBank{ unexposedParams->programDataBank_get() };
-			auto selectedPgmName{ pgmDataBank->nameOfPgmInSlot(slot) };
+			auto voicesBank{ unexposedParams->voicesBank_get() };
+			auto selectedPgmName{ voicesBank->nameOfVoiceInSlot(slot) };
 			defaultFileName = File::createLegalFileName(selectedPgmName) + pgmDataBankFileFilter.getDescription();
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &pgmDataFileFilter, nullptr));
 		}

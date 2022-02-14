@@ -1,7 +1,7 @@
 #include "widget_ButtonForPushingProgramToHardwareStorageSlot.h"
 
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_ProgramDataDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -31,11 +31,11 @@ const String ButtonForPushingProgramToHardwareStorageSlot::createButtonTooltipSt
 }
 
 void ButtonForPushingProgramToHardwareStorageSlot::onClickMethod() {
-	ProgramDataDump::addPgmDataDumpForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
+	VoiceDataMessage::addVoiceDataMessageForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
 	callAfterDelay(10, [this]
 		{
-			auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-			auto pgmSlot{ pgmDataOptions->currentProgramNumber() };
+			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+			auto pgmSlot{ voiceTransmissionOptions->currentVoiceNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 			outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);
 		}

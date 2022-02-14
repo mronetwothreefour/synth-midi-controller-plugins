@@ -1,7 +1,7 @@
 #include "midi_RawDataTools.h"
 
 #include "midi_Constants.h"
-#include "../pgmData/pgmData_Constants.h"
+#include "../voices/voices_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -11,25 +11,25 @@ using namespace ID;
 
 
 
-std::vector<uint8> RawSysExDataVector::createPgmDataRequestMessage(uint8 slot)
+std::vector<uint8> RawSysExDataVector::createVoiceDataRequestMessage(uint8 slot)
 {
-    jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
+    jassert(slot < voices::numberOfSlotsInVoicesBank);
     auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfVoiceDataRequestVector) };
     rawDataVector[1] = MIDI::opcode_RequestVoiceData;
     rawDataVector[2] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::initializePgmDataDumpMessage(uint8 slot) {
-    jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
+std::vector<uint8> RawSysExDataVector::initializeVoiceDataMessage(uint8 slot) {
+    jassert(slot < voices::numberOfSlotsInVoicesBank);
     auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::sizeOfVoiceDataMessageVector) };
     rawDataVector[1] = MIDI::opcode_VoiceDataMessage;
     rawDataVector[2] = slot;
     return rawDataVector;
 }
 
-std::vector<uint8> RawSysExDataVector::createPgmDataDumpHeader(uint8 slot) {
-    jassert(slot < pgmData::numberOfSlotsInPgmDataBank);
+std::vector<uint8> RawSysExDataVector::createVoiceDataMessageHeader(uint8 slot) {
+    jassert(slot < voices::numberOfSlotsInVoicesBank);
     auto rawDataVector{ createRawDataVectorWithManufacturerIDheaderByte(MIDI::numberOfHeaderBytesInVoiceDataMessage) };
     rawDataVector[1] = MIDI::opcode_VoiceDataMessage;
     rawDataVector[2] = slot;
@@ -46,14 +46,14 @@ std::vector<uint8> RawSysExDataVector::createRawDataVectorWithManufacturerIDhead
 
 
 
-const String RawDataTools::convertPgmDataVectorToHexString(const std::vector<uint8>& dataVector) {
+const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
     auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
     return hexString;
 }
 
-const std::vector<uint8> RawDataTools::convertPgmDataHexStringToDataVector(const String& hexString) {
+const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> dataVector;
-    for (auto i = 0; i < pgmData::indexOfFirstNameCharInPgmDataHexString; i += 2) {
+    for (auto i = 0; i < voices::indexOfFirstNameCharInVoiceDataHexString; i += 2) {
         auto hexValueString{ hexString.substring(i, i + 2) };
         dataVector.push_back((uint8)hexValueString.getHexValue32());
     }
@@ -71,11 +71,11 @@ void RawDataTools::addCurrentExposedParamsSettingsToDataVector(AudioProcessorVal
     }
 }
 
-bool RawDataTools::isValidPgmDataHexString(const String& hexString) {
-    auto isNotLongEnough{ hexString.length() < pgmData::lengthOfPgmDataHexString };
+bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
+    auto isNotLongEnough{ hexString.length() < voices::lengthOfVoiceDataHexString };
     if (isNotLongEnough)
         return false;
-    for (int indexOfMSByte = 0; indexOfMSByte < pgmData::lengthOfPgmDataHexString; indexOfMSByte += 2) {
+    for (int indexOfMSByte = 0; indexOfMSByte < voices::lengthOfVoiceDataHexString; indexOfMSByte += 2) {
         if (hexString[indexOfMSByte] != '0')
             return false;
     }
@@ -113,34 +113,34 @@ void RawDataTools::insertExposedParamValueIntoDataVector(uint8 paramIndex, Audio
     }
 }
 
-void RawDataTools::applyPgmDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-    applyPgmNumberToGUI(pgmNumber, unexposedParams);
-    auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-    pgmDataOptions->setParamChangeEchosAreBlocked();
-    applyRawPgmDataToExposedParameters(pgmDataVector.data(), exposedParams);
-    pgmDataOptions->setParamChangeEchosAreNotBlocked();
+void RawDataTools::applyVoiceDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+    applyVoiceNumberToGUI(pgmNumber, unexposedParams);
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    applyRawVoiceDataToExposedParameters(pgmDataVector.data(), exposedParams);
+    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
-void RawDataTools::applyPgmNumberToGUI(const uint8 pgmNumber, UnexposedParameters* unexposedParams) {
-    auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-    pgmDataOptions->setCurrentProgramNumber(pgmNumber);
+void RawDataTools::applyVoiceNumberToGUI(const uint8 pgmNumber, UnexposedParameters* unexposedParams) {
+    auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+    voiceTransmissionOptions->setCurrentVoiceNumber(pgmNumber);
 }
 
-void RawDataTools::applyRawPgmDataToExposedParameters(const uint8* pgmData, AudioProcessorValueTreeState* exposedParams) {
+void RawDataTools::applyRawVoiceDataToExposedParameters(const uint8* pgmData, AudioProcessorValueTreeState* exposedParams) {
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
         auto paramID{ info.IDfor(param) };
         uint8 newValue{ (uint8)0 };
         if (info.IDfor(param).toString() == "filterKeyTrack")
-            newValue = extractFilterKeyTrackValueFromPgmData(pgmData);
+            newValue = extractFilterKeyTrackValueFromRawVoiceData(pgmData);
         else
-            newValue = extractParamValueFromPgmData(param, pgmData);
+            newValue = extractParamValueFromRawVoiceData(param, pgmData);
         auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
         exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     }
 }
 
-uint8 RawDataTools::extractFilterKeyTrackValueFromPgmData(const uint8* pgmData) {
+uint8 RawDataTools::extractFilterKeyTrackValueFromRawVoiceData(const uint8* pgmData) {
     auto& info{ InfoForExposedParameters::get() };
     auto filterKeyTrackParam{ info.indexForParamID("filterKeyTrack") };
     auto nybbleIndex{ info.firstNybbleIndexFor(filterKeyTrackParam) };
@@ -155,7 +155,7 @@ uint8 RawDataTools::extractFilterKeyTrackValueFromPgmData(const uint8* pgmData) 
     return filterKeyTrackValue;
 }
 
-uint8 RawDataTools::extractParamValueFromPgmData(uint8 param, const uint8* pgmData) {
+uint8 RawDataTools::extractParamValueFromRawVoiceData(uint8 param, const uint8* pgmData) {
     auto& info{ InfoForExposedParameters::get() };
     auto nybbleIndex{ info.firstNybbleIndexFor(param) };
     auto firstBitIndex{ info.firstBitIndexFor(param) };

@@ -6,21 +6,21 @@
 
 
 
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForLoadingSelectedProgram :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	private Timer
 {
-	ProgramDataSlotsComponent& slotsComponent;
+	VoiceSlotsComponent& slotsComponent;
 	UnexposedParameters* unexposedParams;
 
 public:
 
 	ButtonForLoadingSelectedProgram() = delete;
 
-	ButtonForLoadingSelectedProgram(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);
+	ButtonForLoadingSelectedProgram(VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

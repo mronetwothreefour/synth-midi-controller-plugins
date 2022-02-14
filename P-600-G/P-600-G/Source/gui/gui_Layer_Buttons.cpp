@@ -2,7 +2,7 @@
 
 #include "gui_Constants.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_PgmDataBankComponent.h"
+#include "../voices/voices_VoicesBankComponent.h"
 #include "../randomization/randomizationComponent.h"
 #include "../tooltips/tooltipOptionsComponent.h"
 

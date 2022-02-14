@@ -5,13 +5,13 @@
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ExportProgramDataComponent::ExportProgramDataComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+ExportProgramDataComponent::ExportProgramDataComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseImportExportComponent{ ImptExptType::exportProgram, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -67,8 +67,8 @@ void ExportProgramDataComponent::writeProgramDataIntoFile(File& file) {
 		outStream.setPosition(0);
 		outStream.truncate();
 		auto slot{ slotsComponent->selectedSlot };
-		auto pgmDataBank{ unexposedParams->programDataBank_get() };
-		auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
+		auto voicesBank{ unexposedParams->voicesBank_get() };
+		auto pgmDataHexString{ voicesBank->getVoiceDataHexStringFromSlot(slot) };
 		outStream.writeText(pgmDataHexString, false, false, nullptr);
 		hideThisComponent();
 	}

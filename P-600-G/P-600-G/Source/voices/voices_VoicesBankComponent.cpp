@@ -1,7 +1,7 @@
-#include "pgmData_PgmDataBankComponent.h"
+#include "voices_VoicesBankComponent.h"
 
-#include "pgmData_Constants.h"
-#include "pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
+#include "voices_Constants.h"
+#include "voices_RestoreFactoryVoicesConfirmDialogBox.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
@@ -116,17 +116,17 @@ void ProgramDataBankComponent::resized() {
 void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		editor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
-		editor.setInputRestrictions(pgmData::maxLengthOfPgmName);
-		auto pgmDataBank{ unexposedParams->programDataBank_get() };
+		editor.setInputRestrictions(voices::maxLengthOfVoiceName);
+		auto voicesBank{ unexposedParams->voicesBank_get() };
 		auto slot{ slotsComponent.selectedSlot };
-		editor.setText(pgmDataBank->nameOfPgmInSlot(slot));
+		editor.setText(voicesBank->nameOfVoiceInSlot(slot));
 		editor.selectAll();
 	}
 	if (label == &editor_txTime) {
 		editor.setInputRestrictions(GUI::maxNumberOfDigitsInLCDeditor, "0123456789");
 		editor.setFont(FontsMenu::fontFor_LCDdisplayEditor);
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		editor.setText((String)pgmDataOptions->programTransmitTime());
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		editor.setText((String)voiceTransmissionOptions->voiceTransmitTime());
 		editor.selectAll();
 	}
 }
@@ -135,18 +135,18 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		auto newName{ label->getText() };
 		auto slot{ slotsComponent.selectedSlot };
-		auto pgmDataBank{ unexposedParams->programDataBank_get() };
-		pgmDataBank->setNameOfPgmInSlot(newName, slot);
+		auto voicesBank{ unexposedParams->voicesBank_get() };
+		voicesBank->setNameOfVoiceInSlot(newName, slot);
 	}
 	if (label == &editor_txTime) {
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
-			if (newValue >= pgmData::minTransmitTimeValue && newValue <= pgmData::maxTransmitTimeValue)
-				pgmDataOptions->setProgramTransmitTime(newValue);
+			if (newValue >= voices::minTransmitTimeValue && newValue <= voices::maxTransmitTimeValue)
+				voiceTransmissionOptions->setVoiceTransmitTime(newValue);
 		}
-		label->setText((String)pgmDataOptions->programTransmitTime(), dontSendNotification);
+		label->setText((String)voiceTransmissionOptions->voiceTransmitTime(), dontSendNotification);
 	}
 }
 
@@ -156,8 +156,8 @@ void ProgramDataBankComponent::buttonClicked(Button* button) {
 			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
 		if (button->getComponentID() == ID::button_OKrestoreFactory.toString()) {
 			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
-			auto pgmDataBank{ unexposedParams->programDataBank_get() };
-			pgmDataBank->restoreFactoryPgmData();
+			auto voicesBank{ unexposedParams->voicesBank_get() };
+			voicesBank->restoreFactoryPgmData();
 		}
 	}
 }
@@ -188,20 +188,20 @@ void ProgramDataBankComponent::getCommandInfo(CommandID commandID, ApplicationCo
 }
 
 bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
-	auto pgmDataBank{ unexposedParams->programDataBank_get() };
+	auto voicesBank{ unexposedParams->voicesBank_get() };
 	auto selectedSlot{ slotsComponent.selectedSlot };
 	switch (info.commandID)
 	{
 	case copyPgm:
-		if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank) {
-			auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(selectedSlot) };
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
+			auto pgmDataHexString{ voicesBank->getVoiceDataHexStringFromSlot(selectedSlot) };
 			pgmCopyBuffer = pgmDataHexString;
 			return true;
 		}
 		else return false;
 	case pastePgm:
-		if (selectedSlot < pgmData::numberOfSlotsInPgmDataBank && pgmCopyBuffer != "") {
-			pgmDataBank->storePgmDataHexStringInSlot(pgmCopyBuffer, selectedSlot);
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank && pgmCopyBuffer != "") {
+			voicesBank->storeVoiceDataHexStringInSlot(pgmCopyBuffer, selectedSlot);
 			return true;
 		}
 		else return false;
@@ -212,7 +212,7 @@ bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
 
 void ProgramDataBankComponent::showImportPgmComponent() {
 	auto slot{ slotsComponent.selectedSlot };
-	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
+	if (slot < voices::numberOfSlotsInVoicesBank) {
 		importPgmComponent.reset(new ImportProgramDataComponent(&slotsComponent, unexposedParams));
 		if (importPgmComponent != nullptr) {
 			addAndMakeVisible(importPgmComponent.get());
@@ -224,7 +224,7 @@ void ProgramDataBankComponent::showImportPgmComponent() {
 
 void ProgramDataBankComponent::showExportSelectedPgmComponent() {
 	auto slot{ slotsComponent.selectedSlot };
-	if (slot < pgmData::numberOfSlotsInPgmDataBank) {
+	if (slot < voices::numberOfSlotsInVoicesBank) {
 		exportSelectedPgmComponent.reset(new ExportProgramDataComponent(&slotsComponent, unexposedParams));
 		if (exportSelectedPgmComponent != nullptr) {
 			addAndMakeVisible(exportSelectedPgmComponent.get());

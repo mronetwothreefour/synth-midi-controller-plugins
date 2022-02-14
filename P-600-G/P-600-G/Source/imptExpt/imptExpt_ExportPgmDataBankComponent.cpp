@@ -5,13 +5,13 @@
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../pgmData/pgmData_PgmDataSlotsComponent.h"
+#include "../voices/voices_VoiceSlotsComponent.h"
 
 using namespace constants;
 
 
 
-ExportProgramDataBankComponent::ExportProgramDataBankComponent(ProgramDataSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
+ExportProgramDataBankComponent::ExportProgramDataBankComponent(VoiceSlotsComponent* slotsComponent, UnexposedParameters* unexposedParams) :
 	BaseImportExportComponent{ ImptExptType::exportProgramBank, slotsComponent, unexposedParams }
 {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -66,9 +66,9 @@ void ExportProgramDataBankComponent::writeProgramBankDataIntoFile(File& file) {
 	if (outStream.openedOk()) {
 		outStream.setPosition(0);
 		outStream.truncate();
-		auto pgmDataBank{ unexposedParams->programDataBank_get() };
-		for (uint8 slot = 0; slot != pgmData::numberOfSlotsInPgmDataBank; ++slot) {
-			auto pgmDataHexString{ pgmDataBank->getPgmDataHexStringFromSlot(slot) };
+		auto voicesBank{ unexposedParams->voicesBank_get() };
+		for (uint8 slot = 0; slot != voices::numberOfSlotsInVoicesBank; ++slot) {
+			auto pgmDataHexString{ voicesBank->getVoiceDataHexStringFromSlot(slot) };
 			outStream.writeText(pgmDataHexString + "\r\n", false, false, nullptr);
 		}
 		hideThisComponent();

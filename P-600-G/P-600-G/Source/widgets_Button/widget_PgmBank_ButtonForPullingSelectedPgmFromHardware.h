@@ -6,14 +6,14 @@
 
 
 
-class ProgramDataSlotsComponent;
+class VoiceSlotsComponent;
 class UnexposedParameters;
 
 class ButtonForPullingSelectedProgramFromHardware :
 	public BaseButtonWithOnClickAndTooltipMethods,
 	public Timer
 {
-	ProgramDataSlotsComponent& slotsComponent;
+	VoiceSlotsComponent& slotsComponent;
 	UnexposedParameters* unexposedParams;
 	Label& nameEditor;
 
@@ -21,7 +21,7 @@ public:
 
 	ButtonForPullingSelectedProgramFromHardware() = delete;
 
-	ButtonForPullingSelectedProgramFromHardware(ProgramDataSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor);
+	ButtonForPullingSelectedProgramFromHardware(VoiceSlotsComponent& slotsComponent, UnexposedParameters* unexposedParams, Label& nameEditor);
 
 protected:
 	const String createButtonTooltipString() override;

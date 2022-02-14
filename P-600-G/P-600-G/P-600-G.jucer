@@ -102,14 +102,14 @@
               file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="NHEuDh" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_OutgoingMidiBuffers.h"/>
-        <FILE id="g4Hb5b" name="midi_ProgramDataDump.cpp" compile="1" resource="0"
-              file="Source/midi/midi_ProgramDataDump.cpp"/>
-        <FILE id="tXbCX0" name="midi_ProgramDataDump.h" compile="0" resource="0"
-              file="Source/midi/midi_ProgramDataDump.h"/>
         <FILE id="mLXyIU" name="midi_RawDataTools.cpp" compile="1" resource="0"
               file="Source/midi/midi_RawDataTools.cpp"/>
         <FILE id="Qmqhn6" name="midi_RawDataTools.h" compile="0" resource="0"
               file="Source/midi/midi_RawDataTools.h"/>
+        <FILE id="g4Hb5b" name="midi_VoiceDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.cpp"/>
+        <FILE id="tXbCX0" name="midi_VoiceDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
         <FILE id="HPzAy2" name="params_ExposedParameters_EnumClass.h" compile="0"
@@ -132,10 +132,6 @@
               compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
         <FILE id="DQxPK3" name="params_IntToContextualStringConverters.h" compile="0"
               resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
-        <FILE id="mXA3s2" name="params_ProgramDataOptions.cpp" compile="1"
-              resource="0" file="Source/params/params_ProgramDataOptions.cpp"/>
-        <FILE id="iJINc9" name="params_ProgramDataOptions.h" compile="0" resource="0"
-              file="Source/params/params_ProgramDataOptions.h"/>
         <FILE id="cFrSnO" name="params_TooltipOptions.cpp" compile="1" resource="0"
               file="Source/params/params_TooltipOptions.cpp"/>
         <FILE id="HhGhEU" name="params_TooltipOptions.h" compile="0" resource="0"
@@ -144,34 +140,10 @@
               resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
         <FILE id="q85jHa" name="params_UnexposedParameters_Facade.h" compile="0"
               resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
-      </GROUP>
-      <GROUP id="{563ADC3D-4B11-C153-17A0-179589BB3BB0}" name="pgmData">
-        <FILE id="umLVXi" name="pgmData_BankTransmissionComponent.cpp" compile="1"
-              resource="0" file="Source/pgmData/pgmData_BankTransmissionComponent.cpp"/>
-        <FILE id="PAtlQJ" name="pgmData_BankTransmissionComponent.h" compile="0"
-              resource="0" file="Source/pgmData/pgmData_BankTransmissionComponent.h"/>
-        <FILE id="oQrS68" name="pgmData_Constants.h" compile="0" resource="0"
-              file="Source/pgmData/pgmData_Constants.h"/>
-        <FILE id="KwlBqU" name="pgmData_FactoryPgmDataHexStrings_Singleton.cpp"
-              compile="1" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.cpp"/>
-        <FILE id="MH5HDo" name="pgmData_FactoryPgmDataHexStrings_Singleton.h"
-              compile="0" resource="0" file="Source/pgmData/pgmData_FactoryPgmDataHexStrings_Singleton.h"/>
-        <FILE id="flahy9" name="pgmData_PgmDataBankComponent.cpp" compile="1"
-              resource="0" file="Source/pgmData/pgmData_PgmDataBankComponent.cpp"/>
-        <FILE id="GUt7zG" name="pgmData_PgmDataBankComponent.h" compile="0"
-              resource="0" file="Source/pgmData/pgmData_PgmDataBankComponent.h"/>
-        <FILE id="lQtlAL" name="pgmData_PgmDataSlotsComponent.cpp" compile="1"
-              resource="0" file="Source/pgmData/pgmData_PgmDataSlotsComponent.cpp"/>
-        <FILE id="i7WhQU" name="pgmData_PgmDataSlotsComponent.h" compile="0"
-              resource="0" file="Source/pgmData/pgmData_PgmDataSlotsComponent.h"/>
-        <FILE id="m8qkNS" name="pgmData_ProgramDataBank.cpp" compile="1" resource="0"
-              file="Source/pgmData/pgmData_ProgramDataBank.cpp"/>
-        <FILE id="uaJlV4" name="pgmData_ProgramDataBank.h" compile="0" resource="0"
-              file="Source/pgmData/pgmData_ProgramDataBank.h"/>
-        <FILE id="WA7Obx" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"
-              compile="1" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.cpp"/>
-        <FILE id="IcenXc" name="pgmData_RestoreFactoryPgmsConfirmDialogBox.h"
-              compile="0" resource="0" file="Source/pgmData/pgmData_RestoreFactoryPgmsConfirmDialogBox.h"/>
+        <FILE id="mXA3s2" name="params_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.cpp"/>
+        <FILE id="iJINc9" name="params_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{54002099-46A0-A97C-5A3A-F159E193FA6C}" name="randomization">
         <FILE id="ro2Prb" name="randomizationComponent.cpp" compile="1" resource="0"
@@ -194,6 +166,34 @@
               resource="0" file="Source/tooltips/tooltipSetter_ForExposedParamSliders.cpp"/>
         <FILE id="fMSyLF" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
               resource="0" file="Source/tooltips/tooltipSetter_ForExposedParamSliders.h"/>
+      </GROUP>
+      <GROUP id="{20B7FD47-C423-C8E5-90D8-552DB76B96FF}" name="voices">
+        <FILE id="P51kg8" name="voices_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.cpp"/>
+        <FILE id="DS96qD" name="voices_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.h"/>
+        <FILE id="UIsNnt" name="voices_Constants.h" compile="0" resource="0"
+              file="Source/voices/voices_Constants.h"/>
+        <FILE id="z4t0CA" name="voices_FactoryVoiceDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.cpp"/>
+        <FILE id="DHvDvH" name="voices_FactoryVoiceDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.h"/>
+        <FILE id="nZ3ToX" name="voices_RestoreFactoryVoicesConfirmDialogBox.cpp"
+              compile="1" resource="0" file="Source/voices/voices_RestoreFactoryVoicesConfirmDialogBox.cpp"/>
+        <FILE id="mNRXfI" name="voices_RestoreFactoryVoicesConfirmDialogBox.h"
+              compile="0" resource="0" file="Source/voices/voices_RestoreFactoryVoicesConfirmDialogBox.h"/>
+        <FILE id="aC6z89" name="voices_VoicesBank.cpp" compile="1" resource="0"
+              file="Source/voices/voices_VoicesBank.cpp"/>
+        <FILE id="YFeilF" name="voices_VoicesBank.h" compile="0" resource="0"
+              file="Source/voices/voices_VoicesBank.h"/>
+        <FILE id="x91HsM" name="voices_VoicesBankComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoicesBankComponent.cpp"/>
+        <FILE id="OkI09E" name="voices_VoicesBankComponent.h" compile="0" resource="0"
+              file="Source/voices/voices_VoicesBankComponent.h"/>
+        <FILE id="B27QcP" name="voices_VoiceSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoiceSlotsComponent.cpp"/>
+        <FILE id="doBqtu" name="voices_VoiceSlotsComponent.h" compile="0" resource="0"
+              file="Source/voices/voices_VoiceSlotsComponent.h"/>
       </GROUP>
       <GROUP id="{263908A0-0951-A8DA-0B58-03FF8A6CCFFE}" name="widgets_Button">
         <FILE id="Y4FFSp" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"

@@ -5,9 +5,9 @@
 
 
 struct RawSysExDataVector {
-    static std::vector<uint8> createPgmDataRequestMessage(uint8 slot);
-    static std::vector<uint8> initializePgmDataDumpMessage(uint8 slot);
-    static std::vector<uint8> createPgmDataDumpHeader(uint8 slot);
+    static std::vector<uint8> createVoiceDataRequestMessage(uint8 slot);
+    static std::vector<uint8> initializeVoiceDataMessage(uint8 slot);
+    static std::vector<uint8> createVoiceDataMessageHeader(uint8 slot);
 
 private:
     static std::vector<uint8> createRawDataVectorWithManufacturerIDheaderByte(int vectorSize);
@@ -18,21 +18,21 @@ private:
 class UnexposedParameters;
 
 struct RawDataTools {
-    static const String convertPgmDataVectorToHexString(const std::vector<uint8>& dataVector);
-    static const std::vector<uint8> convertPgmDataHexStringToDataVector(const String& hexString);
+    static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
+    static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static void addCurrentExposedParamsSettingsToDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);
-    static bool isValidPgmDataHexString(const String& hexString);
+    static bool isValidVoiceDataHexString(const String& hexString);
 
 private:
     static void insertFilterKeyTrackValueIntoDataVector(AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);
     static void insertExposedParamValueIntoDataVector(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, std::vector<uint8>& dataVector);
 
 public:
-    static void applyPgmDataVectorToGUI(const uint8 pgmNumber, std::vector<uint8>& pgmDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    static void applyVoiceDataVectorToGUI(const uint8 voiceNumber, std::vector<uint8>& voiceDataVector, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-    static void applyPgmNumberToGUI(const uint8 pgmNumber, UnexposedParameters* unexposedParams);
-    static void applyRawPgmDataToExposedParameters(const uint8* pgmData, AudioProcessorValueTreeState* exposedParams);
-    static uint8 extractFilterKeyTrackValueFromPgmData(const uint8* pgmData);
-    static uint8 extractParamValueFromPgmData(uint8 param, const uint8* pgmData);
+    static void applyVoiceNumberToGUI(const uint8 voiceNumber, UnexposedParameters* unexposedParams);
+    static void applyRawVoiceDataToExposedParameters(const uint8* voiceData, AudioProcessorValueTreeState* exposedParams);
+    static uint8 extractFilterKeyTrackValueFromRawVoiceData(const uint8* voiceData);
+    static uint8 extractParamValueFromRawVoiceData(uint8 param, const uint8* voiceData);
 };

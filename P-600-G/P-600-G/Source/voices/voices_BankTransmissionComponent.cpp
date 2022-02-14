@@ -1,11 +1,11 @@
-#include "pgmData_BankTransmissionComponent.h"
+#include "voices_BankTransmissionComponent.h"
 
-#include "pgmData_Constants.h"
+#include "voices_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_ProgramDataDump.h"
+#include "../midi/midi_VoiceDataMessage.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -16,8 +16,8 @@ using namespace constants;
 ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
-	transmitTime{ unexposedParams->programDataOptions_get()->programTransmitTime() },
-	pgmCounter{ pgmData::numberOfSlotsInPgmDataBank },
+	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
+	pgmCounter{ voices::numberOfSlotsInVoicesBank },
 	progress{ 0.0 },
 	progressBar{ progress }
 {
@@ -34,8 +34,8 @@ ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionT
 	addChildComponent(button_OK);
 	button_OK.onClick = [this, transmissionType, unexposedParams] {
 		if (transmissionType == TransmissionType::pull) {
-			auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-			pgmDataOptions->setIncomingPgmDataDumpShouldNotBeSavedInStorageBank();
+			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+			voiceTransmissionOptions->setIncomingVoiceShouldNotBeSavedInVoicesBank();
 		}
 		hideThisComponent();
 	};
@@ -53,10 +53,10 @@ ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionT
 
 void ProgramBankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (pgmCounter < pgmData::numberOfSlotsInPgmDataBank) {
+	if (pgmCounter < voices::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForProgramSlot(pgmCounter);
 		++pgmCounter;
-		progress = pgmCounter / (double)pgmData::numberOfSlotsInPgmDataBank;
+		progress = pgmCounter / (double)voices::numberOfSlotsInVoicesBank;
 		repaint();
 		startTimer(transmitTime);
 	}
@@ -69,12 +69,12 @@ void ProgramBankTransmissionComponent::timerCallback() {
 void ProgramBankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 pgmSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		pgmDataOptions->setIncomingPgmDataDumpShouldBeSavedInStorageBank();
-		ProgramDataDump::addRequestForPgmDataStoredInHardwareSlotToOutgoingMidiBuffers(pgmSlot, outgoingBuffers);
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInVoicesBank();
+		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(pgmSlot, outgoingBuffers);
 	}
 	else {
-		ProgramDataDump::addPgmDataDumpForProgramStoredInSlotToOutgoingMidiBuffers(pgmSlot, unexposedParams);
+		VoiceDataMessage::addVoiceDataMessageForVoiceStoredInSlotToOutgoingMidiBuffers(pgmSlot, unexposedParams);
 		callAfterDelay(10, [this, outgoingBuffers, pgmSlot]
 			{
 				outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);

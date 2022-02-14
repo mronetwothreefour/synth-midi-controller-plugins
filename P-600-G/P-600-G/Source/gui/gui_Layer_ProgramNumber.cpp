@@ -31,8 +31,8 @@ void ProgramNumberLayer::resized() {
 void ProgramNumberLayer::sliderValueChanged(Slider* slider) {
 	if (slider == &slider_ForProgramNumber) {
 		auto currentKnobValue{ (uint8)roundToInt(slider->getValue()) };
-		auto pgmDataOptions{ unexposedParams->programDataOptions_get() };
-		pgmDataOptions->setCurrentProgramNumber(currentKnobValue);
+		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+		voiceTransmissionOptions->setCurrentVoiceNumber(currentKnobValue);
 	}
 }
 
@@ -57,7 +57,7 @@ void ProgramNumberLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Ide
 }
 
 ProgramNumberLayer::~ProgramNumberLayer() {
-	auto currentPatchOptions{ unexposedParams->programDataOptions_get() };
+	auto currentPatchOptions{ unexposedParams->voiceTransmissionOptions_get() };
 	currentPatchOptions->removeListener(this);
 	slider_ForProgramNumber.removeListener(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

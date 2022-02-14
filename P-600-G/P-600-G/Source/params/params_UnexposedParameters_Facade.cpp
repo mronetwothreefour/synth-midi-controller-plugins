@@ -6,8 +6,8 @@
 
 UnexposedParameters::UnexposedParameters() :
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
-	pgmDataBank{ new ProgramDataBank() },
-	pgmDataOptions{ new ProgramDataOptions(this) },
+	voicesBank{ new VoicesBank() },
+	voiceTransmissionOptions{ new VoiceTransmissionOptions(this) },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() }
 {
@@ -21,14 +21,6 @@ OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
 }
 
-ProgramDataBank* UnexposedParameters::programDataBank_get() {
-	return pgmDataBank.get();
-}
-
-ProgramDataOptions* UnexposedParameters::programDataOptions_get() {
-	return pgmDataOptions.get();
-}
-
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
 	return tooltipOptions.get();
 }
@@ -37,33 +29,41 @@ UndoManager* UnexposedParameters::undoManager_get() {
 	return undoManager.get();
 }
 
+VoicesBank* UnexposedParameters::voicesBank_get() {
+	return voicesBank.get();
+}
+
+VoiceTransmissionOptions* UnexposedParameters::voiceTransmissionOptions_get() {
+	return voiceTransmissionOptions.get();
+}
+
 XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
-	auto pgmDataBankStateXml{ pgmDataBank->getStateXml() };
-	if (pgmDataBankStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(pgmDataBankStateXml);
-	auto pgmDataOptionsStateXml{ pgmDataOptions->getStateXml() };
-	if (pgmDataOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(pgmDataOptionsStateXml);
 	auto tooltipOptionsStateXml{ tooltipOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
+	auto voicesBankStateXml{ voicesBank->getStateXml() };
+	if (voicesBankStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voicesBankStateXml);
+	auto voiceTransmissionOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
+	if (voiceTransmissionOptionsStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voiceTransmissionOptionsStateXml);
 	return unexposedParamsStateXml;
 }
 
 void UnexposedParameters::replaceState(const ValueTree& newState) {
-	auto pgmDataBankState{ newState.getChildWithName(ID::state_VoicesBank) };
-	pgmDataBank->replaceState(pgmDataBankState);
-	auto pgmDataOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
-	pgmDataOptions->replaceState(pgmDataOptionsState);
+	auto voicesBankState{ newState.getChildWithName(ID::state_VoicesBank) };
+	voicesBank->replaceState(voicesBankState);
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipOptions) };
 	tooltipOptions->replaceState(tooltipOptionsState);
+	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
+	voiceTransmissionOptions->replaceState(voiceTransmissionOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
-	pgmDataBank = nullptr;
-	pgmDataOptions = nullptr;
+	voicesBank = nullptr;
+	voiceTransmissionOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 }
