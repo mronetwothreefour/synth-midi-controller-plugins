@@ -30,10 +30,10 @@
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
         <FILE id="rCSYIv" name="gui_Layer_ExposedParamsControls.h" compile="0"
               resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
-        <FILE id="HH2uy7" name="gui_Layer_ProgramNumber.cpp" compile="1" resource="0"
-              file="Source/gui/gui_Layer_ProgramNumber.cpp"/>
-        <FILE id="VrBhNz" name="gui_Layer_ProgramNumber.h" compile="0" resource="0"
-              file="Source/gui/gui_Layer_ProgramNumber.h"/>
+        <FILE id="HH2uy7" name="gui_Layer_VoiceNumber.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_VoiceNumber.cpp"/>
+        <FILE id="VrBhNz" name="gui_Layer_VoiceNumber.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_VoiceNumber.h"/>
         <FILE id="mVVWta" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="fKotxy" name="gui_LookAndFeel.h" compile="0" resource="0"
@@ -56,14 +56,14 @@
               resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.cpp"/>
         <FILE id="OTXYiO" name="imptExpt_BaseImptExptComponent.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.h"/>
-        <FILE id="yX540e" name="imptExpt_ExportPgmDataBankComponent.cpp" compile="1"
-              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataBankComponent.cpp"/>
-        <FILE id="BaGdAt" name="imptExpt_ExportPgmDataBankComponent.h" compile="0"
-              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataBankComponent.h"/>
-        <FILE id="BgHuil" name="imptExpt_ExportPgmDataComponent.cpp" compile="1"
-              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.cpp"/>
-        <FILE id="iiwJLk" name="imptExpt_ExportPgmDataComponent.h" compile="0"
-              resource="0" file="Source/imptExpt/imptExpt_ExportPgmDataComponent.h"/>
+        <FILE id="BgHuil" name="imptExpt_ExportVoiceDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.cpp"/>
+        <FILE id="iiwJLk" name="imptExpt_ExportVoiceDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.h"/>
+        <FILE id="yX540e" name="imptExpt_ExportVoicesBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoicesBankComponent.cpp"/>
+        <FILE id="BaGdAt" name="imptExpt_ExportVoicesBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoicesBankComponent.h"/>
         <FILE id="v8xm8M" name="imptExpt_FileFilters.h" compile="0" resource="0"
               file="Source/imptExpt/imptExpt_FileFilters.h"/>
         <FILE id="HA4Zfz" name="imptExpt_FileNotValidAlert.cpp" compile="1"
@@ -82,14 +82,14 @@
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
         <FILE id="f4pJIF" name="imptExpt_FolderNameDialogBox.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
-        <FILE id="KOk0Fc" name="imptExpt_ImportPgmDataBankComponent.cpp" compile="1"
-              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataBankComponent.cpp"/>
-        <FILE id="KjD8si" name="imptExpt_ImportPgmDataBankComponent.h" compile="0"
-              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataBankComponent.h"/>
-        <FILE id="wlB9pt" name="imptExpt_ImportPgmDataComponent.cpp" compile="1"
-              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataComponent.cpp"/>
-        <FILE id="m7uvZl" name="imptExpt_ImportPgmDataComponent.h" compile="0"
-              resource="0" file="Source/imptExpt/imptExpt_ImportPgmDataComponent.h"/>
+        <FILE id="wlB9pt" name="imptExpt_ImportVoiceDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.cpp"/>
+        <FILE id="m7uvZl" name="imptExpt_ImportVoiceDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.h"/>
+        <FILE id="KOk0Fc" name="imptExpt_ImportVoicesBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoicesBankComponent.cpp"/>
+        <FILE id="KjD8si" name="imptExpt_ImportVoicesBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoicesBankComponent.h"/>
       </GROUP>
       <GROUP id="{96F26EAD-8207-525A-63A4-5429EF7B1609}" name="midi">
         <FILE id="Oewu0h" name="midi_Constants.h" compile="0" resource="0"
@@ -208,18 +208,14 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
         <FILE id="KNzW4w" name="widget_ButtonForPerformingUndo.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
-        <FILE id="I1Y9Zw" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp"/>
-        <FILE id="j2vsdM" name="widget_ButtonForPullingProgramFromHardwareStorageSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingProgramFromHardwareStorageSlot.h"/>
-        <FILE id="AJFuhw" name="widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.cpp"/>
-        <FILE id="WWAKjo" name="widget_ButtonForPushingProgramToHardwareStorageSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingProgramToHardwareStorageSlot.h"/>
-        <FILE id="XlnXIy" name="widget_ButtonForShowingProgramBankComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBankComponent.cpp"/>
-        <FILE id="H3r0sJ" name="widget_ButtonForShowingProgramBankComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBankComponent.h"/>
+        <FILE id="I1Y9Zw" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"/>
+        <FILE id="j2vsdM" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"/>
+        <FILE id="AJFuhw" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"/>
+        <FILE id="WWAKjo" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"/>
         <FILE id="YkJmpQ" name="widget_ButtonForShowingRandomizeComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingRandomizeComponent.cpp"/>
         <FILE id="GuyPLp" name="widget_ButtonForShowingRandomizeComponent.h"
@@ -228,50 +224,10 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForShowingTipsComponent.cpp"/>
         <FILE id="BqHhPG" name="widget_ButtonForShowingTipsComponent.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForShowingTipsComponent.h"/>
-        <FILE id="nJW1ks" name="widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.cpp"/>
-        <FILE id="tfpxNb" name="widget_PgmBank_ButtonForEditingSelectedProgramName.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"/>
-        <FILE id="iQEcef" name="widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.cpp"/>
-        <FILE id="fdMlNd" name="widget_PgmBank_ButtonForExportingPgmBankToFile.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.h"/>
-        <FILE id="NTa9us" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp"/>
-        <FILE id="xbBwJ0" name="widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"/>
-        <FILE id="sBz1At" name="widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp"/>
-        <FILE id="cDJ7uG" name="widget_PgmBank_ButtonForImportingPgmBankFromFile.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmBankFromFile.h"/>
-        <FILE id="TG2eUA" name="widget_PgmBank_ButtonForImportingPgmFromFile.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.cpp"/>
-        <FILE id="p1KuSg" name="widget_PgmBank_ButtonForImportingPgmFromFile.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.h"/>
-        <FILE id="WnWT98" name="widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp"/>
-        <FILE id="ytt5b4" name="widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"/>
-        <FILE id="GkNYqi" name="widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.cpp"/>
-        <FILE id="PyYWiA" name="widget_PgmBank_ButtonForLoadingSelectedPgm.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"/>
-        <FILE id="RzBqjI" name="widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp"/>
-        <FILE id="RNF1Yy" name="widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"/>
-        <FILE id="uGjxVh" name="widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp"/>
-        <FILE id="lp6AsV" name="widget_PgmBank_ButtonForPushingEntireBankToHardware.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.h"/>
-        <FILE id="HezzG8" name="widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp"/>
-        <FILE id="YZhIrE" name="widget_PgmBank_ButtonForRestoringFactoryPrograms.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.h"/>
-        <FILE id="CoONUH" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp"/>
-        <FILE id="vJ9Ocp" name="widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"/>
+        <FILE id="XlnXIy" name="widget_ButtonForShowingVoicesBankComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBankComponent.cpp"/>
+        <FILE id="H3r0sJ" name="widget_ButtonForShowingVoicesBankComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBankComponent.h"/>
         <FILE id="EA1ma5" name="widget_Randomization_ButtonForLockingAllParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
         <FILE id="JqPxkP" name="widget_Randomization_ButtonForLockingAllParameters.h"
@@ -284,6 +240,50 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
         <FILE id="BAGvqn" name="widget_Randomization_ButtonForUnlockingAllParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"/>
+        <FILE id="c64AzE" name="widget_voices_ButtonForEditingSelectedVoiceName.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForEditingSelectedVoiceName.cpp"/>
+        <FILE id="bUQawD" name="widget_voices_ButtonForEditingSelectedVoiceName.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForEditingSelectedVoiceName.h"/>
+        <FILE id="jOQEGX" name="widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
+        <FILE id="E3Pi1K" name="widget_voices_ButtonForExportingSelectedVoiceToFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.h"/>
+        <FILE id="OhyZzP" name="widget_voices_ButtonForExportingVoicesBankToFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingVoicesBankToFile.cpp"/>
+        <FILE id="dqHf8U" name="widget_voices_ButtonForExportingVoicesBankToFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingVoicesBankToFile.h"/>
+        <FILE id="aU2WbZ" name="widget_voices_ButtonForImportingVoiceFromFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForImportingVoiceFromFile.cpp"/>
+        <FILE id="HmZCNO" name="widget_voices_ButtonForImportingVoiceFromFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForImportingVoiceFromFile.h"/>
+        <FILE id="p2yAMT" name="widget_voices_ButtonForImportingVoicesBankFromFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForImportingVoicesBankFromFile.cpp"/>
+        <FILE id="Itd7QT" name="widget_voices_ButtonForImportingVoicesBankFromFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForImportingVoicesBankFromFile.h"/>
+        <FILE id="ZStDuY" name="widget_voices_ButtonForLoadingSelectedVoice.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
+        <FILE id="UReeVe" name="widget_voices_ButtonForLoadingSelectedVoice.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"/>
+        <FILE id="lIMTwh" name="widget_voices_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="flLdaR" name="widget_voices_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="FA0aEA" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"/>
+        <FILE id="avrRy2" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"/>
+        <FILE id="ZgW2oq" name="widget_voices_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="LHcrvg" name="widget_voices_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="FTEksY" name="widget_voices_ButtonForRestoringFactoryVoices.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForRestoringFactoryVoices.cpp"/>
+        <FILE id="NIXgz9" name="widget_voices_ButtonForRestoringFactoryVoices.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForRestoringFactoryVoices.h"/>
+        <FILE id="K4NccZ" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"/>
+        <FILE id="a4C0rt" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"/>
       </GROUP>
       <GROUP id="{13107AF0-E537-9D5D-A1CE-CE08BB07A43F}" name="widgets_ControlsForParameters">
         <FILE id="gGcYEi" name="widget_ControlForExposedParameter.cpp" compile="1"
@@ -318,10 +318,10 @@
               resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
         <FILE id="GPigKe" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
               file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
-        <FILE id="bxqcch" name="widget_SliderForProgramNumber.cpp" compile="1"
-              resource="0" file="Source/widgets_Slider/widget_SliderForProgramNumber.cpp"/>
-        <FILE id="RWPUlP" name="widget_SliderForProgramNumber.h" compile="0"
-              resource="0" file="Source/widgets_Slider/widget_SliderForProgramNumber.h"/>
+        <FILE id="bxqcch" name="widget_SliderForVoiceNumber.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.cpp"/>
+        <FILE id="RWPUlP" name="widget_SliderForVoiceNumber.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.h"/>
         <FILE id="IZOqj1" name="widget_SwitchSliderWithExposedParamAttacher.cpp"
               compile="1" resource="0" file="Source/widgets_Slider/widget_SwitchSliderWithExposedParamAttacher.cpp"/>
         <FILE id="bGvpcA" name="widget_SwitchSliderWithExposedParamAttacher.h"

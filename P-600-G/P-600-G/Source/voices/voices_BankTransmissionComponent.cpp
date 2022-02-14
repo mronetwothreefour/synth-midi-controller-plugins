@@ -13,11 +13,11 @@ using namespace constants;
 
 
 
-ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
+BankTransmissionComponent::BankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams) :
 	transmissionType{ transmissionType },
 	unexposedParams{ unexposedParams },
 	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
-	pgmCounter{ voices::numberOfSlotsInVoicesBank },
+	voiceCounter{ voices::numberOfSlotsInVoicesBank },
 	progress{ 0.0 },
 	progressBar{ progress }
 {
@@ -47,16 +47,16 @@ ProgramBankTransmissionComponent::ProgramBankTransmissionComponent(TransmissionT
 		button_OK.setTooltip("Close this window.");
 	}
 
-	pgmCounter = 0;
+	voiceCounter = 0;
 	startTimer(transmitTime);
 }
 
-void ProgramBankTransmissionComponent::timerCallback() {
+void BankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (pgmCounter < voices::numberOfSlotsInVoicesBank) {
-		transmitMidiBufferForProgramSlot(pgmCounter);
-		++pgmCounter;
-		progress = pgmCounter / (double)voices::numberOfSlotsInVoicesBank;
+	if (voiceCounter < voices::numberOfSlotsInVoicesBank) {
+		transmitMidiBufferForVoiceSlot(voiceCounter);
+		++voiceCounter;
+		progress = voiceCounter / (double)voices::numberOfSlotsInVoicesBank;
 		repaint();
 		startTimer(transmitTime);
 	}
@@ -66,24 +66,24 @@ void ProgramBankTransmissionComponent::timerCallback() {
 	}
 }
 
-void ProgramBankTransmissionComponent::transmitMidiBufferForProgramSlot(uint8 pgmSlot) {
+void BankTransmissionComponent::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 	if (transmissionType == TransmissionType::pull) {
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		voiceTransmissionOptions->setIncomingVoiceShouldBeSavedInVoicesBank();
-		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(pgmSlot, outgoingBuffers);
+		VoiceDataMessage::addRequestForVoiceDataStoredInHardwareSlotToOutgoingMidiBuffers(voiceSlot, outgoingBuffers);
 	}
 	else {
-		VoiceDataMessage::addVoiceDataMessageForVoiceStoredInSlotToOutgoingMidiBuffers(pgmSlot, unexposedParams);
-		callAfterDelay(10, [this, outgoingBuffers, pgmSlot]
+		VoiceDataMessage::addVoiceDataMessageForVoiceStoredInSlotToOutgoingMidiBuffers(voiceSlot, unexposedParams);
+		callAfterDelay(10, [this, outgoingBuffers, voiceSlot]
 			{
-				outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);
+				outgoingBuffers->addProgramChangeMessage(MIDI::channel, voiceSlot);
 			}
 		);
 	}
 }
 
-void ProgramBankTransmissionComponent::paint(Graphics& g) {
+void BankTransmissionComponent::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_VoicesBankWindow);
 	g.setColour(Color::progressBarGray);
@@ -100,7 +100,7 @@ void ProgramBankTransmissionComponent::paint(Graphics& g) {
 	}
 }
 
-const char* ProgramBankTransmissionComponent::getTitleLabelImageData() {
+const char* BankTransmissionComponent::getTitleLabelImageData() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::PullingBankTitle_png;
 	if (transmissionType == TransmissionType::push)
@@ -109,7 +109,7 @@ const char* ProgramBankTransmissionComponent::getTitleLabelImageData() {
 		return nullptr;
 }
 
-size_t ProgramBankTransmissionComponent::getTitleLabelImageDataSize() {
+size_t BankTransmissionComponent::getTitleLabelImageDataSize() {
 	if (transmissionType == TransmissionType::pull)
 		return BinaryData::PullingBankTitle_pngSize;
 	if (transmissionType == TransmissionType::push)
@@ -118,13 +118,13 @@ size_t ProgramBankTransmissionComponent::getTitleLabelImageDataSize() {
 		return (size_t)0;
 }
 
-void ProgramBankTransmissionComponent::cancelTransmission() {
+void BankTransmissionComponent::cancelTransmission() {
 	stopTimer();
 	makeOKbuttonVisible();
 	repaint();
 }
 
-void ProgramBankTransmissionComponent::makeOKbuttonVisible() {
+void BankTransmissionComponent::makeOKbuttonVisible() {
 	button_Esc.setVisible(false);
 	button_Esc.clearShortcuts();
 	button_OK.setVisible(true);
@@ -132,7 +132,7 @@ void ProgramBankTransmissionComponent::makeOKbuttonVisible() {
 	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
 }
 
-void ProgramBankTransmissionComponent::hideThisComponent() {
+void BankTransmissionComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }

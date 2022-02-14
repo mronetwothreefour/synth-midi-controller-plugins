@@ -6,16 +6,16 @@
 
 class UnexposedParameters;
 
-class RestoreFactoryProgramsConfirmDialogBox :
+class RestoreFactoryVoicesConfirmDialogBox :
 	public Component
 {
 	TextButton button_Esc;
 	TextButton button_OK;
 
 public:
-	RestoreFactoryProgramsConfirmDialogBox() = delete;
+	RestoreFactoryVoicesConfirmDialogBox() = delete;
 
-	explicit RestoreFactoryProgramsConfirmDialogBox(UnexposedParameters* unexposedParams);
+	explicit RestoreFactoryVoicesConfirmDialogBox(UnexposedParameters* unexposedParams);
 	void addListenerToButtons(Button::Listener* listener);
 	void removeListenerFromButtons(Button::Listener* listener);
 	void paint(Graphics& g) override;
@@ -24,5 +24,5 @@ public:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RestoreFactoryProgramsConfirmDialogBox)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RestoreFactoryVoicesConfirmDialogBox)
 };

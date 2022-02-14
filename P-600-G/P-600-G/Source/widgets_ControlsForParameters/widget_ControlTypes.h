@@ -9,7 +9,6 @@ enum class ControlType {
 	knobWithValueStringDisplay,
 	knobForPitchWithValueStringDisplay,
 	twoPoleSwitch,
-	threePoleSwitch,
-	pgmSlotRadioButton
+	threePoleSwitch
 };
 

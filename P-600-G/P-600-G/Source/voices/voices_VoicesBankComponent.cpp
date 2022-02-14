@@ -5,10 +5,10 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
-#include "../imptExpt/imptExpt_ExportPgmDataComponent.h"
-#include "../imptExpt/imptExpt_ExportPgmDataBankComponent.h"
-#include "../imptExpt/imptExpt_ImportPgmDataComponent.h"
-#include "../imptExpt/imptExpt_ImportPgmDataBankComponent.h"
+#include "../imptExpt/imptExpt_ExportVoiceDataComponent.h"
+#include "../imptExpt/imptExpt_ExportVoicesBankComponent.h"
+#include "../imptExpt/imptExpt_ImportVoiceDataComponent.h"
+#include "../imptExpt/imptExpt_ImportVoicesBankComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -16,56 +16,56 @@ using namespace constants;
 
 
 
-ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+VoicesBankComponent::VoicesBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	slotsComponent{ exposedParams, unexposedParams },
-	button_ForLoadingSelectedProgram{ slotsComponent, unexposedParams },
-	button_ForSavingPgmInSelectedSlot{ slotsComponent, unexposedParams, label_PgmNameEditor },
-	button_ForPullingSelectedPgmFromHardware{ slotsComponent, unexposedParams, label_PgmNameEditor },
-	button_ForImportingPgmFromFile{ unexposedParams },
-	button_ForExportingSelectedPgmToFile{ unexposedParams },
-	button_ForEditingSelectedPgmName{ label_PgmNameEditor, slotsComponent, unexposedParams },
+	button_ForLoadingSelectedVoice{ slotsComponent, unexposedParams },
+	button_ForSavingVoiceIntoSelectedSlot{ slotsComponent, unexposedParams, label_VoiceNameEditor },
+	button_ForPullingSelectedVoiceFromHardware{ slotsComponent, unexposedParams, label_VoiceNameEditor },
+	button_ForImportingVoiceFromFile{ unexposedParams },
+	button_ForExportingSelectedVoiceToFile{ unexposedParams },
+	button_ForEditingSelectedVoiceName{ label_VoiceNameEditor, slotsComponent, unexposedParams },
 	button_ForPullingEntireBankFromHardware{ unexposedParams },
 	button_ForPushingEntireBankToHardware{ unexposedParams },
-	button_ForImportingProgramBankFromFile{ unexposedParams },
-	button_ForExportingProgramBankToFile{ unexposedParams },
-	button_ForRestoringFactoryPrograms{ unexposedParams },
+	button_ForImportingVoicesBankFromFile{ unexposedParams },
+	button_ForExportingVoicesBankToFile{ unexposedParams },
+	button_ForRestoringFactoryVoices{ unexposedParams },
 	editor_txTime{ "transmitTime", "" }
 {
 	addAndMakeVisible(slotsComponent);
-	addAndMakeVisible(button_ForLoadingSelectedProgram);
-	addAndMakeVisible(button_ForSavingPgmInSelectedSlot);
-	addAndMakeVisible(button_ForPullingSelectedPgmFromHardware);
-	addAndMakeVisible(button_ForImportingPgmFromFile);
-	addAndMakeVisible(button_ForExportingSelectedPgmToFile);
-	addAndMakeVisible(button_ForEditingSelectedPgmName);
-	addAndMakeVisible(button_ForClosingPgmDataBank);
+	addAndMakeVisible(button_ForLoadingSelectedVoice);
+	addAndMakeVisible(button_ForSavingVoiceIntoSelectedSlot);
+	addAndMakeVisible(button_ForPullingSelectedVoiceFromHardware);
+	addAndMakeVisible(button_ForImportingVoiceFromFile);
+	addAndMakeVisible(button_ForExportingSelectedVoiceToFile);
+	addAndMakeVisible(button_ForEditingSelectedVoiceName);
+	addAndMakeVisible(button_ForClosingVoicesBank);
 	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
-	addAndMakeVisible(button_ForImportingProgramBankFromFile);
-	addAndMakeVisible(button_ForExportingProgramBankToFile);
-	addAndMakeVisible(button_ForRestoringFactoryPrograms);
+	addAndMakeVisible(button_ForImportingVoicesBankFromFile);
+	addAndMakeVisible(button_ForExportingVoicesBankToFile);
+	addAndMakeVisible(button_ForRestoringFactoryVoices);
 
-	button_ForImportingPgmFromFile.onClick = [this] { showImportPgmComponent(); };
-	button_ForExportingSelectedPgmToFile.onClick = [this] { showExportSelectedPgmComponent(); };
-	button_ForPullingEntireBankFromHardware.onClick = [this] { showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType::pull); };
-	button_ForPushingEntireBankToHardware.onClick = [this] { showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType::push); };
-	button_ForImportingProgramBankFromFile.onClick = [this] { showImportPgmDataBankComponent(); };
-	button_ForExportingProgramBankToFile.onClick = [this] { showExportPgmDataBankComponent(); };
-	button_ForRestoringFactoryPrograms.onClick = [this] { showRestoreFactoryPgmsConfirmDialogBox(); };
+	button_ForImportingVoiceFromFile.onClick = [this] { showImportVoiceComponent(); };
+	button_ForExportingSelectedVoiceToFile.onClick = [this] { showExportSelectedVoiceComponent(); };
+	button_ForPullingEntireBankFromHardware.onClick = [this] { showBankTransmissionComponent(BankTransmissionComponent::TransmissionType::pull); };
+	button_ForPushingEntireBankToHardware.onClick = [this] { showBankTransmissionComponent(BankTransmissionComponent::TransmissionType::push); };
+	button_ForImportingVoicesBankFromFile.onClick = [this] { showImportVoicesBankComponent(); };
+	button_ForExportingVoicesBankToFile.onClick = [this] { showExportVoicesBankComponent(); };
+	button_ForRestoringFactoryVoices.onClick = [this] { showRestoreFactoryVoicesConfirmDialogBox(); };
 
-	button_ForClosingPgmDataBank.setComponentID(ID::button_Exit.toString());
-	button_ForClosingPgmDataBank.addShortcut(KeyPress(KeyPress::escapeKey));
-	button_ForClosingPgmDataBank.onClick = [this] { hideThisComponent(); };
+	button_ForClosingVoicesBank.setComponentID(ID::button_Exit.toString());
+	button_ForClosingVoicesBank.addShortcut(KeyPress(KeyPress::escapeKey));
+	button_ForClosingVoicesBank.onClick = [this] { hideThisComponent(); };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescriptions())
-		button_ForClosingPgmDataBank.setTooltip("Click to close the Program Storage Bank window.");
+		button_ForClosingVoicesBank.setTooltip("Click to close the Program Storage Bank window.");
 
-	label_PgmNameEditor.setInterceptsMouseClicks(false, true);
-	label_PgmNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
-	label_PgmNameEditor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
-	label_PgmNameEditor.addListener(this);
-	addAndMakeVisible(label_PgmNameEditor);
+	label_VoiceNameEditor.setInterceptsMouseClicks(false, true);
+	label_VoiceNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
+	label_VoiceNameEditor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
+	label_VoiceNameEditor.addListener(this);
+	addAndMakeVisible(label_VoiceNameEditor);
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String editor_txTimeTooltip{ "" };
@@ -88,7 +88,7 @@ ProgramDataBankComponent::ProgramDataBankComponent(AudioProcessorValueTreeState*
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void ProgramDataBankComponent::paint(Graphics& g) {
+void VoicesBankComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	MemoryInputStream memInputStream{ BinaryData::PgmBankWindowBackground_png, BinaryData::PgmBankWindowBackground_pngSize, false };
 	PNGImageFormat imageFormat;
@@ -96,24 +96,24 @@ void ProgramDataBankComponent::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, GUI::voicesBankWindow_x, GUI::voicesBankWindow_y);
 }
 
-void ProgramDataBankComponent::resized() {
-	button_ForLoadingSelectedProgram.setBounds(GUI::bounds_VoicesBankWindowLoadSelectedVoiceButton);
-	button_ForSavingPgmInSelectedSlot.setBounds(GUI::bounds_VoicesBankWindowSaveVoiceButton);
-	button_ForPullingSelectedPgmFromHardware.setBounds(GUI::bounds_VoicesBankWindowPullSelectedVoiceButton);
-	button_ForImportingPgmFromFile.setBounds(GUI::bounds_VoicesBankWindowImptVoiceButton);
-	button_ForExportingSelectedPgmToFile.setBounds(GUI::bounds_VoicesBankWindowExptSelectedVoiceButton);
-	button_ForEditingSelectedPgmName.setBounds(GUI::bounds_VoicesBankWindowNameButton);
+void VoicesBankComponent::resized() {
+	button_ForLoadingSelectedVoice.setBounds(GUI::bounds_VoicesBankWindowLoadSelectedVoiceButton);
+	button_ForSavingVoiceIntoSelectedSlot.setBounds(GUI::bounds_VoicesBankWindowSaveVoiceButton);
+	button_ForPullingSelectedVoiceFromHardware.setBounds(GUI::bounds_VoicesBankWindowPullSelectedVoiceButton);
+	button_ForImportingVoiceFromFile.setBounds(GUI::bounds_VoicesBankWindowImptVoiceButton);
+	button_ForExportingSelectedVoiceToFile.setBounds(GUI::bounds_VoicesBankWindowExptSelectedVoiceButton);
+	button_ForEditingSelectedVoiceName.setBounds(GUI::bounds_VoicesBankWindowNameButton);
 	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_VoicesBankWindowPullBankButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_VoicesBankWindowPushBankButton);
-	button_ForImportingProgramBankFromFile.setBounds(GUI::bounds_VoicesBankWindowImptBankButton);
-	button_ForExportingProgramBankToFile.setBounds(GUI::bounds_VoicesBankWindowExptBankButton);
-	button_ForClosingPgmDataBank.setBounds(GUI::bounds_VoicesBankWindowExitButton);
-	button_ForRestoringFactoryPrograms.setBounds(GUI::bounds_VoicesBankWindowFactButton);
+	button_ForImportingVoicesBankFromFile.setBounds(GUI::bounds_VoicesBankWindowImptBankButton);
+	button_ForExportingVoicesBankToFile.setBounds(GUI::bounds_VoicesBankWindowExptBankButton);
+	button_ForClosingVoicesBank.setBounds(GUI::bounds_VoicesBankWindowExitButton);
+	button_ForRestoringFactoryVoices.setBounds(GUI::bounds_VoicesBankWindowFactButton);
 	editor_txTime.setBounds(GUI::bounds_VoicesBankWindowTransmitTimeEditor);
 	slotsComponent.setBounds(GUI::bounds_VoiceSlotsComponent);
 }
 
-void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
+void VoicesBankComponent::editorShown(Label* label, TextEditor& editor) {
 	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		editor.setFont(FontsMenu::fontFor_VoiceSlotRadioButtons);
 		editor.setInputRestrictions(voices::maxLengthOfVoiceName);
@@ -131,7 +131,7 @@ void ProgramDataBankComponent::editorShown(Label* label, TextEditor& editor) {
 	}
 }
 
-void ProgramDataBankComponent::labelTextChanged(Label* label) {
+void VoicesBankComponent::labelTextChanged(Label* label) {
 	if (label->getComponentID() == ID::label_VoiceNameEditor.toString()) {
 		auto newName{ label->getText() };
 		auto slot{ slotsComponent.selectedSlot };
@@ -150,35 +150,35 @@ void ProgramDataBankComponent::labelTextChanged(Label* label) {
 	}
 }
 
-void ProgramDataBankComponent::buttonClicked(Button* button) {
-	if (restoreFactoryPgmsConfirmDialogBox != nullptr) {
+void VoicesBankComponent::buttonClicked(Button* button) {
+	if (restoreFactoryVoicesConfirmDialogBox != nullptr) {
 		if (button->getComponentID() == ID::button_EscRestoreFactory.toString())
-			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
+			restoreFactoryVoicesConfirmDialogBox->hideThisComponent();
 		if (button->getComponentID() == ID::button_OKrestoreFactory.toString()) {
-			restoreFactoryPgmsConfirmDialogBox->hideThisComponent();
+			restoreFactoryVoicesConfirmDialogBox->hideThisComponent();
 			auto voicesBank{ unexposedParams->voicesBank_get() };
-			voicesBank->restoreFactoryPgmData();
+			voicesBank->restoreFactoryVoicesBank();
 		}
 	}
 }
 
-ApplicationCommandTarget* ProgramDataBankComponent::getNextCommandTarget() {
+ApplicationCommandTarget* VoicesBankComponent::getNextCommandTarget() {
 	return nullptr;
 }
 
-void ProgramDataBankComponent::getAllCommands(Array<CommandID>& commands) {
-	Array<CommandID> IDs{ copyPgm, pastePgm };
+void VoicesBankComponent::getAllCommands(Array<CommandID>& commands) {
+	Array<CommandID> IDs{ copyVoice, pasteVoice };
 	commands.addArray(IDs);
 }
 
-void ProgramDataBankComponent::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
+void VoicesBankComponent::getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) {
 	switch (commandID)
 	{
-	case copyPgm:
+	case copyVoice:
 		result.setInfo("Copy Patch", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
-	case pastePgm:
+	case pasteVoice:
 		result.setInfo("Paste Patch", "Replace the program in the selected storage slot with the program in the clipboard", "CopyAndPaste", 0);
 		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
 		break;
@@ -187,21 +187,21 @@ void ProgramDataBankComponent::getCommandInfo(CommandID commandID, ApplicationCo
 	}
 }
 
-bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
+bool VoicesBankComponent::perform(const InvocationInfo& info) {
 	auto voicesBank{ unexposedParams->voicesBank_get() };
 	auto selectedSlot{ slotsComponent.selectedSlot };
 	switch (info.commandID)
 	{
-	case copyPgm:
+	case copyVoice:
 		if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
-			auto pgmDataHexString{ voicesBank->getVoiceDataHexStringFromSlot(selectedSlot) };
-			pgmCopyBuffer = pgmDataHexString;
+			auto voiceDataHexString{ voicesBank->getVoiceDataHexStringFromSlot(selectedSlot) };
+			voiceCopyBuffer = voiceDataHexString;
 			return true;
 		}
 		else return false;
-	case pastePgm:
-		if (selectedSlot < voices::numberOfSlotsInVoicesBank && pgmCopyBuffer != "") {
-			voicesBank->storeVoiceDataHexStringInSlot(pgmCopyBuffer, selectedSlot);
+	case pasteVoice:
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank && voiceCopyBuffer != "") {
+			voicesBank->storeVoiceDataHexStringInSlot(voiceCopyBuffer, selectedSlot);
 			return true;
 		}
 		else return false;
@@ -210,80 +210,80 @@ bool ProgramDataBankComponent::perform(const InvocationInfo& info) {
 	}
 }
 
-void ProgramDataBankComponent::showImportPgmComponent() {
+void VoicesBankComponent::showImportVoiceComponent() {
 	auto slot{ slotsComponent.selectedSlot };
 	if (slot < voices::numberOfSlotsInVoicesBank) {
-		importPgmComponent.reset(new ImportProgramDataComponent(&slotsComponent, unexposedParams));
-		if (importPgmComponent != nullptr) {
-			addAndMakeVisible(importPgmComponent.get());
-			importPgmComponent->setBounds(getLocalBounds());
-			importPgmComponent->grabKeyboardFocus();
+		importVoiceComponent.reset(new ImportVoiceDataComponent(&slotsComponent, unexposedParams));
+		if (importVoiceComponent != nullptr) {
+			addAndMakeVisible(importVoiceComponent.get());
+			importVoiceComponent->setBounds(getLocalBounds());
+			importVoiceComponent->grabKeyboardFocus();
 		}
 	}
 }
 
-void ProgramDataBankComponent::showExportSelectedPgmComponent() {
+void VoicesBankComponent::showExportSelectedVoiceComponent() {
 	auto slot{ slotsComponent.selectedSlot };
 	if (slot < voices::numberOfSlotsInVoicesBank) {
-		exportSelectedPgmComponent.reset(new ExportProgramDataComponent(&slotsComponent, unexposedParams));
-		if (exportSelectedPgmComponent != nullptr) {
-			addAndMakeVisible(exportSelectedPgmComponent.get());
-			exportSelectedPgmComponent->setBounds(getLocalBounds());
-			exportSelectedPgmComponent->grabKeyboardFocus();
+		exportSelectedVoiceComponent.reset(new ExportVoiceDataComponent(&slotsComponent, unexposedParams));
+		if (exportSelectedVoiceComponent != nullptr) {
+			addAndMakeVisible(exportSelectedVoiceComponent.get());
+			exportSelectedVoiceComponent->setBounds(getLocalBounds());
+			exportSelectedVoiceComponent->grabKeyboardFocus();
 		}
 	}
 }
 
-void ProgramDataBankComponent::showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType transmitType) {
-	pgmBankTransmissionComponent.reset(new ProgramBankTransmissionComponent(transmitType, unexposedParams));
-	if (pgmBankTransmissionComponent != nullptr) {
-		addAndMakeVisible(pgmBankTransmissionComponent.get());
-		pgmBankTransmissionComponent->setBounds(getLocalBounds());
-		pgmBankTransmissionComponent->grabKeyboardFocus();
+void VoicesBankComponent::showBankTransmissionComponent(BankTransmissionComponent::TransmissionType transmitType) {
+	bankTransmissionComponent.reset(new BankTransmissionComponent(transmitType, unexposedParams));
+	if (bankTransmissionComponent != nullptr) {
+		addAndMakeVisible(bankTransmissionComponent.get());
+		bankTransmissionComponent->setBounds(getLocalBounds());
+		bankTransmissionComponent->grabKeyboardFocus();
 	}
 }
 
-void ProgramDataBankComponent::showImportPgmDataBankComponent() {
-	importPgmDataBankComponent.reset(new ImportProgramDataBankComponent(&slotsComponent, unexposedParams));
-	if (importPgmDataBankComponent != nullptr) {
-		addAndMakeVisible(importPgmDataBankComponent.get());
-		importPgmDataBankComponent->setBounds(getLocalBounds());
-		importPgmDataBankComponent->grabKeyboardFocus();
+void VoicesBankComponent::showImportVoicesBankComponent() {
+	importVoicesBankComponent.reset(new ImportVoicesBankComponent(&slotsComponent, unexposedParams));
+	if (importVoicesBankComponent != nullptr) {
+		addAndMakeVisible(importVoicesBankComponent.get());
+		importVoicesBankComponent->setBounds(getLocalBounds());
+		importVoicesBankComponent->grabKeyboardFocus();
 	}
 }
 
-void ProgramDataBankComponent::showExportPgmDataBankComponent() {
-	exportPgmDataBankComponent.reset(new ExportProgramDataBankComponent(&slotsComponent, unexposedParams));
-	if (exportPgmDataBankComponent != nullptr) {
-		addAndMakeVisible(exportPgmDataBankComponent.get());
-		exportPgmDataBankComponent->setBounds(getLocalBounds());
-		exportPgmDataBankComponent->grabKeyboardFocus();
+void VoicesBankComponent::showExportVoicesBankComponent() {
+	exportVoicesBankComponent.reset(new ExportVoicesBankComponent(&slotsComponent, unexposedParams));
+	if (exportVoicesBankComponent != nullptr) {
+		addAndMakeVisible(exportVoicesBankComponent.get());
+		exportVoicesBankComponent->setBounds(getLocalBounds());
+		exportVoicesBankComponent->grabKeyboardFocus();
 	}
 }
 
-void ProgramDataBankComponent::showRestoreFactoryPgmsConfirmDialogBox() {
-	restoreFactoryPgmsConfirmDialogBox.reset(new RestoreFactoryProgramsConfirmDialogBox(unexposedParams));
-	if (restoreFactoryPgmsConfirmDialogBox != nullptr) {
-		addAndMakeVisible(restoreFactoryPgmsConfirmDialogBox.get());
-		restoreFactoryPgmsConfirmDialogBox->addListenerToButtons(this);
-		restoreFactoryPgmsConfirmDialogBox->setBounds(getLocalBounds());
-		restoreFactoryPgmsConfirmDialogBox->grabKeyboardFocus();
+void VoicesBankComponent::showRestoreFactoryVoicesConfirmDialogBox() {
+	restoreFactoryVoicesConfirmDialogBox.reset(new RestoreFactoryVoicesConfirmDialogBox(unexposedParams));
+	if (restoreFactoryVoicesConfirmDialogBox != nullptr) {
+		addAndMakeVisible(restoreFactoryVoicesConfirmDialogBox.get());
+		restoreFactoryVoicesConfirmDialogBox->addListenerToButtons(this);
+		restoreFactoryVoicesConfirmDialogBox->setBounds(getLocalBounds());
+		restoreFactoryVoicesConfirmDialogBox->grabKeyboardFocus();
 	}
 }
 
-void ProgramDataBankComponent::hideThisComponent() {
+void VoicesBankComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
-ProgramDataBankComponent::~ProgramDataBankComponent() {
-	if (restoreFactoryPgmsConfirmDialogBox != nullptr)
-		restoreFactoryPgmsConfirmDialogBox->removeListenerFromButtons(this);
-	restoreFactoryPgmsConfirmDialogBox = nullptr;
-	exportPgmDataBankComponent = nullptr;
-	importPgmDataBankComponent = nullptr;
-	pgmBankTransmissionComponent = nullptr;
-	exportSelectedPgmComponent = nullptr;
-	importPgmComponent = nullptr;
-	label_PgmNameEditor.removeListener(this);
+VoicesBankComponent::~VoicesBankComponent() {
+	if (restoreFactoryVoicesConfirmDialogBox != nullptr)
+		restoreFactoryVoicesConfirmDialogBox->removeListenerFromButtons(this);
+	restoreFactoryVoicesConfirmDialogBox = nullptr;
+	exportVoicesBankComponent = nullptr;
+	importVoicesBankComponent = nullptr;
+	bankTransmissionComponent = nullptr;
+	exportSelectedVoiceComponent = nullptr;
+	importVoiceComponent = nullptr;
+	label_VoiceNameEditor.removeListener(this);
 }

@@ -4,11 +4,11 @@
 
 
 
-class ProgramDataFileFilter :
+class VoiceDataFileFilter :
 	public FileFilter
 {
 public:
-	ProgramDataFileFilter() :
+	VoiceDataFileFilter() :
 		FileFilter{ ".p600gPgm" }
 	{
 	}
@@ -23,17 +23,17 @@ public:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramDataFileFilter)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoiceDataFileFilter)
 };
 
 
 
 
-class ProgramDataBankFileFilter :
+class VoicesBankFileFilter :
 	public FileFilter
 {
 public:
-	ProgramDataBankFileFilter() :
+	VoicesBankFileFilter() :
 		FileFilter{ ".p600gBank" }
 	{
 	}
@@ -48,5 +48,5 @@ public:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramDataBankFileFilter)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicesBankFileFilter)
 };

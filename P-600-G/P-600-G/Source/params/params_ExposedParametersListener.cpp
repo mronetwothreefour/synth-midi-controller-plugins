@@ -23,12 +23,12 @@ void ExposedParametersListener::parameterChanged(const String& /*parameterID*/, 
 	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
 		VoiceDataMessage::addVoiceDataMessageForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
-		auto pgmSlot{ voiceTransmissionOptions->currentVoiceNumber() };
+		auto voiceSlot{ voiceTransmissionOptions->currentVoiceNumber() };
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
-		callAfterDelay(transmitTime, [this, pgmSlot]
+		callAfterDelay(transmitTime, [this, voiceSlot]
 			{
 				auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-				outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);
+				outgoingBuffers->addProgramChangeMessage(MIDI::channel, voiceSlot);
 			}
 		);
 	}

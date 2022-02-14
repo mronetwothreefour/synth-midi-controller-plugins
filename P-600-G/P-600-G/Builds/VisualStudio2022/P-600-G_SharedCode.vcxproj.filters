@@ -499,7 +499,7 @@
     <ClCompile Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.cpp">
       <Filter>P-600-G\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_Layer_ProgramNumber.cpp">
+    <ClCompile Include="..\..\Source\gui\gui_Layer_VoiceNumber.cpp">
       <Filter>P-600-G\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
@@ -514,10 +514,10 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.cpp">
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.cpp">
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp">
@@ -532,10 +532,10 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.cpp">
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.cpp">
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportVoicesBankComponent.cpp">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_IncomingSysExHandler.cpp">
@@ -610,13 +610,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.cpp">
@@ -625,37 +622,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.cpp">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBankComponent.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp">
@@ -665,6 +632,39 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForEditingSelectedVoiceName.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoicesBankFromFile.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForRestoringFactoryVoices.cpp">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.cpp">
@@ -682,7 +682,7 @@
     <ClCompile Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.cpp">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForProgramNumber.cpp">
+    <ClCompile Include="..\..\Source\widgets_Slider\widget_SliderForVoiceNumber.cpp">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.cpp">
@@ -2823,7 +2823,7 @@
     <ClInclude Include="..\..\Source\gui\gui_Layer_ExposedParamsControls.h">
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_Layer_ProgramNumber.h">
+    <ClInclude Include="..\..\Source\gui\gui_Layer_VoiceNumber.h">
       <Filter>P-600-G\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
@@ -2841,10 +2841,10 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataBankComponent.h">
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportPgmDataComponent.h">
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h">
@@ -2862,10 +2862,10 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataBankComponent.h">
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportPgmDataComponent.h">
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportVoicesBankComponent.h">
       <Filter>P-600-G\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">
@@ -2955,13 +2955,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingProgramFromHardwareStorageSlot.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPullingVoiceFromHardwareStorageSlot.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingProgramToHardwareStorageSlot.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingProgramBankComponent.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPushingVoiceToHardwareStorageSlot.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizeComponent.h">
@@ -2970,37 +2967,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingTipsComponent.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForEditingSelectedProgramName.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingPgmBankToFile.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForExportingSelectedPgmToFile.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmBankFromFile.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForImportingPgmFromFile.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingEntireBankFromHardware.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForLoadingSelectedPgm.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForPushingEntireBankToHardware.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForRestoringFactoryPrograms.h">
-      <Filter>P-600-G\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBankComponent.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h">
@@ -3010,6 +2977,39 @@
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForEditingSelectedVoiceName.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoicesBankFromFile.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPushingEntireBankToHardware.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForRestoringFactoryVoices.h">
+      <Filter>P-600-G\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h">
       <Filter>P-600-G\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_ControlsForParameters\widget_ControlForExposedParameter.h">
@@ -3039,7 +3039,7 @@
     <ClInclude Include="..\..\Source\widgets_Slider\widget_ModifiedJuceSliders.h">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForProgramNumber.h">
+    <ClInclude Include="..\..\Source\widgets_Slider\widget_SliderForVoiceNumber.h">
       <Filter>P-600-G\Source\widgets_Slider</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Slider\widget_SwitchSliderWithExposedParamAttacher.h">

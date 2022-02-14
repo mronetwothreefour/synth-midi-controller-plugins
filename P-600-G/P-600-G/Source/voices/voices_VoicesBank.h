@@ -22,7 +22,7 @@ public:
 	void setNameOfVoiceInSlot(String newName, uint8 slot);
 	const String getVoiceDataHexStringFromSlot(uint8 slot) const;
 	void storeVoiceDataHexStringInSlot(String voiceDataHexString, uint8 slot);
-	void restoreFactoryPgmData();
+	void restoreFactoryVoicesBank();
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 

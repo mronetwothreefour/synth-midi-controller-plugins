@@ -21,27 +21,27 @@ BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, VoiceSlo
 	String p600gDir{ "\\P-600-G\\" };
 	auto defaultDirectory{ userDocsPath + p600gDir };
 
-	if (type == ImptExptType::importProgram || type == ImptExptType::importProgramBank) {
+	if (type == ImptExptType::importVoice || type == ImptExptType::importVoicesBank) {
 		auto browserFlags{ FileBrowserComponent::openMode | FileBrowserComponent::canSelectFiles };
-		if (type == ImptExptType::importProgram)
-			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory, &pgmDataFileFilter, nullptr));
+		if (type == ImptExptType::importVoice)
+			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory, &voiceDataFileFilter, nullptr));
 		else
-			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory, &pgmDataBankFileFilter, nullptr));
+			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory, &voicesBankFileFilter, nullptr));
 	}
 
-	if (type == ImptExptType::exportProgram || type == ImptExptType::exportProgramBank) {
+	if (type == ImptExptType::exportVoice || type == ImptExptType::exportVoicesBank) {
 		auto browserFlags{ FileBrowserComponent::saveMode | FileBrowserComponent::canSelectFiles | FileBrowserComponent::warnAboutOverwriting | FileBrowserComponent::doNotClearFileNameOnRootChange };
 		String defaultFileName{ "" };
-		if (type == ImptExptType::exportProgram) {
+		if (type == ImptExptType::exportVoice) {
 			auto slot{ slotsComponent->selectedSlot };
 			auto voicesBank{ unexposedParams->voicesBank_get() };
-			auto selectedPgmName{ voicesBank->nameOfVoiceInSlot(slot) };
-			defaultFileName = File::createLegalFileName(selectedPgmName) + pgmDataBankFileFilter.getDescription();
-			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &pgmDataFileFilter, nullptr));
+			auto selectedVoiceName{ voicesBank->nameOfVoiceInSlot(slot) };
+			defaultFileName = File::createLegalFileName(selectedVoiceName) + voicesBankFileFilter.getDescription();
+			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voiceDataFileFilter, nullptr));
 		}
 		else {
-			defaultFileName = "P-600-G Program Data Bank" + pgmDataBankFileFilter.getDescription();
-			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &pgmDataBankFileFilter, nullptr));
+			defaultFileName = "P-600-G Program Data Bank" + voicesBankFileFilter.getDescription();
+			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voicesBankFileFilter, nullptr));
 		}
 	}
 
@@ -52,7 +52,7 @@ BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, VoiceSlo
 		browserComponent->addListener(this);
 	}
 
-	if (type == ImptExptType::exportProgram || type == ImptExptType::exportProgramBank) {
+	if (type == ImptExptType::exportVoice || type == ImptExptType::exportVoicesBank) {
 		addAndMakeVisible(button_NewFolder);
 		button_NewFolder.setComponentID(ID::button_NewFldr.toString());
 		button_NewFolder.onClick = [this] { showFolderNameDialogBox(); };
@@ -120,7 +120,7 @@ void BaseImportExportComponent::showFolderNameDialogBox() {
 File BaseImportExportComponent::createFileToWriteTo(File& file) {
 	auto fullPath{ file.getFullPathName() };
 	auto legalPath{ File::createLegalPathName(fullPath) };
-	auto fileType{ type == ImptExptType::exportProgram ? pgmDataFileFilter.getDescription() : pgmDataBankFileFilter.getDescription() };
+	auto fileType{ type == ImptExptType::exportVoice ? voiceDataFileFilter.getDescription() : voicesBankFileFilter.getDescription() };
 	if (!legalPath.endsWith(fileType))
 		legalPath.append(fileType, fileType.length());
 	File fileToWriteTo{ legalPath };

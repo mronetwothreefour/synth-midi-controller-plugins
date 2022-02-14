@@ -96,9 +96,9 @@ void RandomizationComponent::randomizeUnlockedParameters() {
 	callAfterDelay(10, [this]
 		{
 			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-			auto pgmSlot{ voiceTransmissionOptions->currentVoiceNumber() };
+			auto voiceSlot{ voiceTransmissionOptions->currentVoiceNumber() };
 			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			outgoingBuffers->addProgramChangeMessage(MIDI::channel, pgmSlot);
+			outgoingBuffers->addProgramChangeMessage(MIDI::channel, voiceSlot);
 		}
 	);
 	voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();

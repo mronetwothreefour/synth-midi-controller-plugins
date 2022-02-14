@@ -10,8 +10,6 @@ enum class ControlType {
 	knobForPitchWithValueStringDisplay,
 	knobWithWaveShapeDisplay,
 	toggleButton,
-	pgmSlotRadioButton,
-	utilityButton,
 	comboBox,
 	sequencerStep,
 	voiceNameChar

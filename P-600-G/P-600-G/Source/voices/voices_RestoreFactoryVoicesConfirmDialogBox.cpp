@@ -9,7 +9,7 @@ using namespace constants;
 
 
 
-RestoreFactoryProgramsConfirmDialogBox::RestoreFactoryProgramsConfirmDialogBox(UnexposedParameters* unexposedParams)
+RestoreFactoryVoicesConfirmDialogBox::RestoreFactoryVoicesConfirmDialogBox(UnexposedParameters* unexposedParams)
 {
 	addAndMakeVisible(button_Esc);
 	button_Esc.setComponentID(ID::button_EscRestoreFactory.toString());
@@ -28,17 +28,17 @@ RestoreFactoryProgramsConfirmDialogBox::RestoreFactoryProgramsConfirmDialogBox(U
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void RestoreFactoryProgramsConfirmDialogBox::addListenerToButtons(Button::Listener* listener) {
+void RestoreFactoryVoicesConfirmDialogBox::addListenerToButtons(Button::Listener* listener) {
 	button_Esc.addListener(listener);
 	button_OK.addListener(listener);
 }
 
-void RestoreFactoryProgramsConfirmDialogBox::removeListenerFromButtons(Button::Listener* listener) {
+void RestoreFactoryVoicesConfirmDialogBox::removeListenerFromButtons(Button::Listener* listener) {
 	button_Esc.removeListener(listener);
 	button_OK.removeListener(listener);
 }
 
-void RestoreFactoryProgramsConfirmDialogBox::paint(Graphics& g) {
+void RestoreFactoryVoicesConfirmDialogBox::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_FolderNameDialogBox);
 	g.setOpacity(1.0f);
@@ -48,12 +48,12 @@ void RestoreFactoryProgramsConfirmDialogBox::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, GUI::restoreFactoryConfirmBox_x, GUI::restoreFactoryConfirmBox_y);
 }
 
-void RestoreFactoryProgramsConfirmDialogBox::resized() {
+void RestoreFactoryVoicesConfirmDialogBox::resized() {
 	button_Esc.setBounds(GUI::bounds_RestoreFactoryConfirmBoxEscButton);
 	button_OK.setBounds(GUI::bounds_RestoreFactoryConfirmBoxOKbutton);
 }
 
-void RestoreFactoryProgramsConfirmDialogBox::hideThisComponent() {
+void RestoreFactoryVoicesConfirmDialogBox::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }

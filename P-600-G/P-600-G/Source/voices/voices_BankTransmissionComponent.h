@@ -6,7 +6,7 @@
 
 class UnexposedParameters;
 
-class ProgramBankTransmissionComponent :
+class BankTransmissionComponent :
 	public Component,
 	private Timer
 {
@@ -17,20 +17,20 @@ private:
 	TransmissionType transmissionType;
 	UnexposedParameters* unexposedParams;
 	int transmitTime;
-	uint8 pgmCounter;
+	uint8 voiceCounter;
 	double progress;
 	ProgressBar progressBar;
 	TextButton button_Esc;
 	TextButton button_OK;
 
 public:
-	ProgramBankTransmissionComponent() = delete;
+	BankTransmissionComponent() = delete;
 
-	ProgramBankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams);
+	BankTransmissionComponent(TransmissionType transmissionType, UnexposedParameters* unexposedParams);
 
 private:
 	void timerCallback() override;
-	void transmitMidiBufferForProgramSlot(uint8 pgmSlot);
+	void transmitMidiBufferForVoiceSlot(uint8 voiceSlot);
 
 public:
 	void paint(Graphics& g) override;
@@ -43,6 +43,6 @@ private:
 	void hideThisComponent();
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramBankTransmissionComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BankTransmissionComponent)
 };
 

@@ -4,7 +4,7 @@
 #include "gui/gui_Constants.h"
 #include "gui/gui_Layer_Buttons.h"
 #include "gui/gui_Layer_ExposedParamsControls.h"
-#include "gui/gui_Layer_ProgramNumber.h"
+#include "gui/gui_Layer_VoiceNumber.h"
 #include "gui/gui_LookAndFeel.h"
 #include "params/params_Identifiers.h"
 
@@ -19,13 +19,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new GUILookAndFeel() },
     buttonsLayer{ new ButtonsLayer(exposedParams, unexposedParams) },
     exposedParamsControlsLayer{ new ExposedParamsControlsLayer(exposedParams, unexposedParams) },
-    programNumberLayer{ new ProgramNumberLayer(unexposedParams) },
+    voiceNumberLayer{ new VoiceNumberLayer(unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(exposedParamsControlsLayer.get());
-    addAndMakeVisible(programNumberLayer.get());
+    addAndMakeVisible(voiceNumberLayer.get());
     addAndMakeVisible(buttonsLayer.get());
 
     auto tooltips{ unexposedParams->tooltipOptions_get() };
@@ -48,7 +48,7 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
     buttonsLayer->setBounds(getLocalBounds());
     exposedParamsControlsLayer->setBounds(getLocalBounds());
-    programNumberLayer->setBounds(getLocalBounds());
+    voiceNumberLayer->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -62,7 +62,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->tooltipOptions_get() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
-    programNumberLayer = nullptr;
+    voiceNumberLayer = nullptr;
     exposedParamsControlsLayer = nullptr;
     buttonsLayer = nullptr;
 }

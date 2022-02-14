@@ -6,28 +6,28 @@
 #include "voices_VoiceSlotsComponent.h"
 #include "voices_BankTransmissionComponent.h"
 #include "../widgets_LCDdisplayEditor/widget_LCDdisplayEditor.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForEditingSelectedProgramName.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForExportingPgmBankToFile.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForExportingSelectedPgmToFile.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForImportingPgmBankFromFile.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForImportingPgmFromFile.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForLoadingSelectedPgm.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForPullingEntireBankFromHardware.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForPullingSelectedPgmFromHardware.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForPushingEntireBankToHardware.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForRestoringFactoryPrograms.h"
-#include "../widgets_Button/widget_PgmBank_ButtonForSavingPgmInSelectedSlot.h"
+#include "../widgets_Button/widget_voices_ButtonForEditingSelectedVoiceName.h"
+#include "../widgets_Button/widget_voices_ButtonForExportingVoicesBankToFile.h"
+#include "../widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.h"
+#include "../widgets_Button/widget_voices_ButtonForImportingVoicesBankFromFile.h"
+#include "../widgets_Button/widget_voices_ButtonForImportingVoiceFromFile.h"
+#include "../widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"
+#include "../widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"
+#include "../widgets_Button/widget_voices_ButtonForRestoringFactoryVoices.h"
+#include "../widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
 
 
 
-class ExportProgramDataBankComponent;
-class ExportProgramDataComponent;
-class ImportProgramDataBankComponent;
-class ImportProgramDataComponent;
-class RestoreFactoryProgramsConfirmDialogBox;
+class ExportVoicesBankComponent;
+class ExportVoiceDataComponent;
+class ImportVoicesBankComponent;
+class ImportVoiceDataComponent;
+class RestoreFactoryVoicesConfirmDialogBox;
 class UnexposedParameters;
 
-class ProgramDataBankComponent :
+class VoicesBankComponent :
     public Component,
     public Label::Listener,
     public Button::Listener,
@@ -35,38 +35,38 @@ class ProgramDataBankComponent :
 {
     UnexposedParameters* unexposedParams;
     VoiceSlotsComponent slotsComponent;
-    ButtonForLoadingSelectedProgram button_ForLoadingSelectedProgram;
-    ButtonForSavingProgramInSelectedSlot button_ForSavingPgmInSelectedSlot;
-    ButtonForPullingSelectedProgramFromHardware button_ForPullingSelectedPgmFromHardware;
-    ButtonForImportingProgramFromFile button_ForImportingPgmFromFile;
-    ButtonForExportingSelectedProgramToFile button_ForExportingSelectedPgmToFile;
-    ButtonForEditingSelectedProgramName button_ForEditingSelectedPgmName;
+    ButtonForLoadingSelectedVoice button_ForLoadingSelectedVoice;
+    ButtonForSavingVoiceIntoSelectedSlot button_ForSavingVoiceIntoSelectedSlot;
+    ButtonForPullingSelectedVoiceFromHardware button_ForPullingSelectedVoiceFromHardware;
+    ButtonForImportingVoiceFromFile button_ForImportingVoiceFromFile;
+    ButtonForExportingSelectedVoiceToFile button_ForExportingSelectedVoiceToFile;
+    ButtonForEditingSelectedVoiceName button_ForEditingSelectedVoiceName;
     ButtonForPullingEntireBankFromHardware button_ForPullingEntireBankFromHardware;
     ButtonForPushingEntireBankToHardware button_ForPushingEntireBankToHardware;
-    ButtonForImportingProgramBankFromFile button_ForImportingProgramBankFromFile;
-    ButtonForExportingProgramBankToFile button_ForExportingProgramBankToFile;
-    ButtonForRestoringFactoryPrograms button_ForRestoringFactoryPrograms;
-    TextButton button_ForClosingPgmDataBank;
-    Label label_PgmNameEditor;
+    ButtonForImportingVoicesBankFromFile button_ForImportingVoicesBankFromFile;
+    ButtonForExportingVoicesBankToFile button_ForExportingVoicesBankToFile;
+    ButtonForRestoringFactoryVoices button_ForRestoringFactoryVoices;
+    TextButton button_ForClosingVoicesBank;
+    Label label_VoiceNameEditor;
     LCDdisplayEditor editor_txTime;
     ApplicationCommandManager commandManager;
-    String pgmCopyBuffer;
-    std::unique_ptr<ExportProgramDataComponent> exportSelectedPgmComponent;
-    std::unique_ptr<ImportProgramDataComponent> importPgmComponent;
-    std::unique_ptr<ProgramBankTransmissionComponent> pgmBankTransmissionComponent;
-    std::unique_ptr<ImportProgramDataBankComponent> importPgmDataBankComponent;
-    std::unique_ptr<ExportProgramDataBankComponent> exportPgmDataBankComponent;
-    std::unique_ptr<RestoreFactoryProgramsConfirmDialogBox> restoreFactoryPgmsConfirmDialogBox;
+    String voiceCopyBuffer;
+    std::unique_ptr<ExportVoiceDataComponent> exportSelectedVoiceComponent;
+    std::unique_ptr<ImportVoiceDataComponent> importVoiceComponent;
+    std::unique_ptr<BankTransmissionComponent> bankTransmissionComponent;
+    std::unique_ptr<ImportVoicesBankComponent> importVoicesBankComponent;
+    std::unique_ptr<ExportVoicesBankComponent> exportVoicesBankComponent;
+    std::unique_ptr<RestoreFactoryVoicesConfirmDialogBox> restoreFactoryVoicesConfirmDialogBox;
 
 public:
     enum commandChoices {
-        copyPgm = 1,
-        pastePgm
+        copyVoice = 1,
+        pasteVoice
     };
 
-    ProgramDataBankComponent() = delete;
+    VoicesBankComponent() = delete;
 
-    ProgramDataBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    VoicesBankComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void resized() override;
     void editorShown(Label* label, TextEditor& editor) override;
@@ -78,18 +78,18 @@ public:
     bool perform(const InvocationInfo& info) override;
 
 private:
-    void showImportPgmComponent();
-    void showExportSelectedPgmComponent();
-    void showProgramBankTransmissionComponent(ProgramBankTransmissionComponent::TransmissionType transmitType);
-    void showImportPgmDataBankComponent();
-    void showExportPgmDataBankComponent();
-    void showRestoreFactoryPgmsConfirmDialogBox();
+    void showImportVoiceComponent();
+    void showExportSelectedVoiceComponent();
+    void showBankTransmissionComponent(BankTransmissionComponent::TransmissionType transmitType);
+    void showImportVoicesBankComponent();
+    void showExportVoicesBankComponent();
+    void showRestoreFactoryVoicesConfirmDialogBox();
     void hideThisComponent();
 
 public:
-    ~ProgramDataBankComponent();
+    ~VoicesBankComponent();
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProgramDataBankComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicesBankComponent)
 };
