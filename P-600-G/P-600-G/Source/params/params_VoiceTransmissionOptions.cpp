@@ -72,12 +72,20 @@ void VoiceTransmissionOptions::setIncomingVoiceShouldNotBeSavedInVoicesBank() {
 
 XmlElement* VoiceTransmissionOptions::getStateXml() {
 	std::unique_ptr<XmlElement> voiceTransmissionOptionsTreeStateXml{ new XmlElement(ID::state_VoiceTransmissionOptions) };
+	auto currentVoiceNumber{ (int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_CurrentVoiceNumber) };
+	voiceTransmissionOptionsTreeStateXml->setAttribute(ID::voiceTx_CurrentVoiceNumber, currentVoiceNumber);
 	auto voiceTransmitTime{ (int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_Time) };
 	voiceTransmissionOptionsTreeStateXml->setAttribute(ID::voiceTx_Time, voiceTransmitTime);
 	return voiceTransmissionOptionsTreeStateXml.release();
 }
 
 void VoiceTransmissionOptions::replaceState(const ValueTree& newState) {
-	auto voiceTransmitTime{ newState.getProperty(ID::voiceTx_Time) };
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, voiceTransmitTime, nullptr);
+	if (newState.hasProperty(ID::voiceTx_CurrentVoiceNumber)) {
+		auto currentVoiceNumber{ newState.getProperty(ID::voiceTx_CurrentVoiceNumber) };
+		voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CurrentVoiceNumber, currentVoiceNumber, nullptr);
+	}
+	if (newState.hasProperty(ID::voiceTx_Time)) {
+		auto voiceTransmitTime{ newState.getProperty(ID::voiceTx_Time) };
+		voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, voiceTransmitTime, nullptr);
+	}
 }

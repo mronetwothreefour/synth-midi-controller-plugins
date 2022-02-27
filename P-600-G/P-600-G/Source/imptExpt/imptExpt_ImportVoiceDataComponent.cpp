@@ -35,7 +35,7 @@ void ImportVoiceDataComponent::okButtonClicked() {
 	FileInputStream inputStream{ selectedFile };
 	if (inputStream.openedOk()) {
 		auto incomingString{ inputStream.readString() };
-		auto voiceDataHexString{ incomingString.initialSectionContainingOnly("1234567890ABCDEF") };
+		auto voiceDataHexString{ incomingString.initialSectionContainingOnly("1234567890ABCDEFabcdef") };
 		if (RawDataTools::isValidVoiceDataHexString(voiceDataHexString)) {
 			importVoiceDataFromString(incomingString);
 			return;
