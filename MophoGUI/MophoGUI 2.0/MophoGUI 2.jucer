@@ -418,10 +418,16 @@
             file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
       <FILE id="TShkGd" name="Button-Down-Banks.png" compile="0" resource="1"
             file="Resources/Button-Down-Banks.png"/>
+      <FILE id="B3pyG0" name="Button-Down-Cancel.png" compile="0" resource="1"
+            file="Resources/Button-Down-Cancel.png"/>
       <FILE id="e49d4X" name="Button-Down-Clear.png" compile="0" resource="1"
             file="Resources/Button-Down-Clear.png"/>
       <FILE id="SxdgCT" name="Button-Down-Close.png" compile="0" resource="1"
             file="Resources/Button-Down-Close.png"/>
+      <FILE id="JRN3WX" name="Button-Down-Create.png" compile="0" resource="1"
+            file="Resources/Button-Down-Create.png"/>
+      <FILE id="ykhdhK" name="Button-Down-File-Overwrite.png" compile="0"
+            resource="1" file="Resources/Button-Down-File-Overwrite.png"/>
       <FILE id="FcidwK" name="Button-Down-Export.png" compile="0" resource="1"
             file="Resources/Button-Down-Export.png"/>
       <FILE id="S2zZfd" name="Button-Down-Global.png" compile="0" resource="1"
@@ -430,6 +436,8 @@
             file="Resources/Button-Down-Import.png"/>
       <FILE id="r3V1uE" name="Button-Down-Load.png" compile="0" resource="1"
             file="Resources/Button-Down-Load.png"/>
+      <FILE id="w6cMID" name="Button-Down-New-Folder.png" compile="0" resource="1"
+            file="Resources/Button-Down-New-Folder.png"/>
       <FILE id="e4B3vm" name="Button-Down-Program-Name-Edit.png" compile="0"
             resource="1" file="Resources/Button-Down-Program-Name-Edit.png"/>
       <FILE id="twFEBA" name="Button-Down-Pull.png" compile="0" resource="1"
@@ -454,18 +462,26 @@
             file="Resources/Button-Down-Write.png"/>
       <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
             file="Resources/Button-Up-Banks.png"/>
+      <FILE id="jfl2o6" name="Button-Up-Cancel.png" compile="0" resource="1"
+            file="Resources/Button-Up-Cancel.png"/>
       <FILE id="mgZNCA" name="Button-Up-Clear.png" compile="0" resource="1"
             file="Resources/Button-Up-Clear.png"/>
       <FILE id="qUspOX" name="Button-Up-Close.png" compile="0" resource="1"
             file="Resources/Button-Up-Close.png"/>
+      <FILE id="tAbXiH" name="Button-Up-Create.png" compile="0" resource="1"
+            file="Resources/Button-Up-Create.png"/>
       <FILE id="y5uDHw" name="Button-Up-Export.png" compile="0" resource="1"
             file="Resources/Button-Up-Export.png"/>
+      <FILE id="rKG10H" name="Button-Up-File-Overwrite.png" compile="0" resource="1"
+            file="Resources/Button-Up-File-Overwrite.png"/>
       <FILE id="oULfdn" name="Button-Up-Global.png" compile="0" resource="1"
             file="Resources/Button-Up-Global.png"/>
       <FILE id="uFuudZ" name="Button-Up-Import.png" compile="0" resource="1"
             file="Resources/Button-Up-Import.png"/>
       <FILE id="jx8txZ" name="Button-Up-Load.png" compile="0" resource="1"
             file="Resources/Button-Up-Load.png"/>
+      <FILE id="jl2lH3" name="Button-Up-New-Folder.png" compile="0" resource="1"
+            file="Resources/Button-Up-New-Folder.png"/>
       <FILE id="o5Z6oj" name="Button-Up-Program-Name-Edit.png" compile="0"
             resource="1" file="Resources/Button-Up-Program-Name-Edit.png"/>
       <FILE id="mHT54h" name="Button-Up-Pull.png" compile="0" resource="1"
@@ -488,8 +504,16 @@
             file="Resources/Button-Up-Undo.png"/>
       <FILE id="IPLtYu" name="Button-Up-Write.png" compile="0" resource="1"
             file="Resources/Button-Up-Write.png"/>
+      <FILE id="Rc4Ho1" name="File-Not-Valid-Alert-Background.png" compile="0"
+            resource="1" file="Resources/File-Not-Valid-Alert-Background.png"/>
+      <FILE id="ehgQtK" name="Folder-Exists-Alert-Background.png" compile="0"
+            resource="1" file="Resources/Folder-Exists-Alert-Background.png"/>
+      <FILE id="Gzg8SH" name="Folder-Name-Dialog-Background.png" compile="0"
+            resource="1" file="Resources/Folder-Name-Dialog-Background.png"/>
       <FILE id="GuoMWE" name="Global-Parameters-Background.png" compile="0"
             resource="1" file="Resources/Global-Parameters-Background.png"/>
+      <FILE id="ncHq6R" name="Import-Export-Window-Background.png" compile="0"
+            resource="1" file="Resources/Import-Export-Window-Background.png"/>
       <FILE id="tHfVch" name="Label-Bank-1.png" compile="0" resource="1"
             file="Resources/Label-Bank-1.png"/>
       <FILE id="Pzcvhd" name="Label-Bank-2.png" compile="0" resource="1"
@@ -506,6 +530,8 @@
             resource="1" file="Resources/No-NRPN-Warning-Background.png"/>
       <FILE id="ZPkxoA" name="No-Sysex-Warning-Background.png" compile="0"
             resource="1" file="Resources/No-Sysex-Warning-Background.png"/>
+      <FILE id="fGFh5U" name="Overwrite-Confirmation-Background.png" compile="0"
+            resource="1" file="Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"

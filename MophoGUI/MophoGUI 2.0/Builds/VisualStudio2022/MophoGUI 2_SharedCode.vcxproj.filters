@@ -5600,10 +5600,19 @@
     <None Include="..\..\Resources\Button-Down-Banks.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Button-Down-Cancel.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Down-Clear.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Close.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Down-Create.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Down-File-Overwrite.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Export.png">
@@ -5616,6 +5625,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Load.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Down-New-Folder.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Program-Name-Edit.png">
@@ -5654,13 +5666,22 @@
     <None Include="..\..\Resources\Button-Up-Banks.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Button-Up-Cancel.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Up-Clear.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Close.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Button-Up-Create.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Up-Export.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Up-File-Overwrite.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Global.png">
@@ -5670,6 +5691,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Load.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Up-New-Folder.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Program-Name-Edit.png">
@@ -5705,7 +5729,19 @@
     <None Include="..\..\Resources\Button-Up-Write.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\File-Not-Valid-Alert-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Folder-Exists-Alert-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Folder-Name-Dialog-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Global-Parameters-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Import-Export-Window-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Label-Bank-1.png">
@@ -5730,6 +5766,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\No-Sysex-Warning-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Overwrite-Confirmation-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png">

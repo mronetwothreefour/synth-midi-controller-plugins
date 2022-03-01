@@ -3102,12 +3102,16 @@
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF"/>
     <None Include="..\..\Resources\Button-Down-Banks.png"/>
+    <None Include="..\..\Resources\Button-Down-Cancel.png"/>
     <None Include="..\..\Resources\Button-Down-Clear.png"/>
     <None Include="..\..\Resources\Button-Down-Close.png"/>
+    <None Include="..\..\Resources\Button-Down-Create.png"/>
+    <None Include="..\..\Resources\Button-Down-File-Overwrite.png"/>
     <None Include="..\..\Resources\Button-Down-Export.png"/>
     <None Include="..\..\Resources\Button-Down-Global.png"/>
     <None Include="..\..\Resources\Button-Down-Import.png"/>
     <None Include="..\..\Resources\Button-Down-Load.png"/>
+    <None Include="..\..\Resources\Button-Down-New-Folder.png"/>
     <None Include="..\..\Resources\Button-Down-Program-Name-Edit.png"/>
     <None Include="..\..\Resources\Button-Down-Pull.png"/>
     <None Include="..\..\Resources\Button-Down-Push.png"/>
@@ -3120,12 +3124,16 @@
     <None Include="..\..\Resources\Button-Down-Undo.png"/>
     <None Include="..\..\Resources\Button-Down-Write.png"/>
     <None Include="..\..\Resources\Button-Up-Banks.png"/>
+    <None Include="..\..\Resources\Button-Up-Cancel.png"/>
     <None Include="..\..\Resources\Button-Up-Clear.png"/>
     <None Include="..\..\Resources\Button-Up-Close.png"/>
+    <None Include="..\..\Resources\Button-Up-Create.png"/>
     <None Include="..\..\Resources\Button-Up-Export.png"/>
+    <None Include="..\..\Resources\Button-Up-File-Overwrite.png"/>
     <None Include="..\..\Resources\Button-Up-Global.png"/>
     <None Include="..\..\Resources\Button-Up-Import.png"/>
     <None Include="..\..\Resources\Button-Up-Load.png"/>
+    <None Include="..\..\Resources\Button-Up-New-Folder.png"/>
     <None Include="..\..\Resources\Button-Up-Program-Name-Edit.png"/>
     <None Include="..\..\Resources\Button-Up-Pull.png"/>
     <None Include="..\..\Resources\Button-Up-Push.png"/>
@@ -3137,7 +3145,11 @@
     <None Include="..\..\Resources\Button-Up-Stop.png"/>
     <None Include="..\..\Resources\Button-Up-Undo.png"/>
     <None Include="..\..\Resources\Button-Up-Write.png"/>
+    <None Include="..\..\Resources\File-Not-Valid-Alert-Background.png"/>
+    <None Include="..\..\Resources\Folder-Exists-Alert-Background.png"/>
+    <None Include="..\..\Resources\Folder-Name-Dialog-Background.png"/>
     <None Include="..\..\Resources\Global-Parameters-Background.png"/>
+    <None Include="..\..\Resources\Import-Export-Window-Background.png"/>
     <None Include="..\..\Resources\Label-Bank-1.png"/>
     <None Include="..\..\Resources\Label-Bank-2.png"/>
     <None Include="..\..\Resources\Label-Bank-3.png"/>
@@ -3146,6 +3158,7 @@
     <None Include="..\..\Resources\MophoGUI-Main-Window-Background.png"/>
     <None Include="..\..\Resources\No-NRPN-Warning-Background.png"/>
     <None Include="..\..\Resources\No-Sysex-Warning-Background.png"/>
+    <None Include="..\..\Resources\Overwrite-Confirmation-Background.png"/>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png"/>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\Resources\Title-Pushing-Entire-Bank.png"/>

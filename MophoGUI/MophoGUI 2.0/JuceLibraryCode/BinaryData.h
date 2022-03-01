@@ -14,11 +14,20 @@ namespace BinaryData
     extern const char*   ButtonDownBanks_png;
     const int            ButtonDownBanks_pngSize = 729;
 
+    extern const char*   ButtonDownCancel_png;
+    const int            ButtonDownCancel_pngSize = 741;
+
     extern const char*   ButtonDownClear_png;
     const int            ButtonDownClear_pngSize = 648;
 
     extern const char*   ButtonDownClose_png;
     const int            ButtonDownClose_pngSize = 669;
+
+    extern const char*   ButtonDownCreate_png;
+    const int            ButtonDownCreate_pngSize = 707;
+
+    extern const char*   ButtonDownFileOverwrite_png;
+    const int            ButtonDownFileOverwrite_pngSize = 664;
 
     extern const char*   ButtonDownExport_png;
     const int            ButtonDownExport_pngSize = 786;
@@ -31,6 +40,9 @@ namespace BinaryData
 
     extern const char*   ButtonDownLoad_png;
     const int            ButtonDownLoad_pngSize = 633;
+
+    extern const char*   ButtonDownNewFolder_png;
+    const int            ButtonDownNewFolder_pngSize = 930;
 
     extern const char*   ButtonDownProgramNameEdit_png;
     const int            ButtonDownProgramNameEdit_pngSize = 497;
@@ -68,14 +80,23 @@ namespace BinaryData
     extern const char*   ButtonUpBanks_png;
     const int            ButtonUpBanks_pngSize = 695;
 
+    extern const char*   ButtonUpCancel_png;
+    const int            ButtonUpCancel_pngSize = 722;
+
     extern const char*   ButtonUpClear_png;
     const int            ButtonUpClear_pngSize = 629;
 
     extern const char*   ButtonUpClose_png;
     const int            ButtonUpClose_pngSize = 661;
 
+    extern const char*   ButtonUpCreate_png;
+    const int            ButtonUpCreate_pngSize = 676;
+
     extern const char*   ButtonUpExport_png;
     const int            ButtonUpExport_pngSize = 773;
+
+    extern const char*   ButtonUpFileOverwrite_png;
+    const int            ButtonUpFileOverwrite_pngSize = 611;
 
     extern const char*   ButtonUpGlobal_png;
     const int            ButtonUpGlobal_pngSize = 702;
@@ -85,6 +106,9 @@ namespace BinaryData
 
     extern const char*   ButtonUpLoad_png;
     const int            ButtonUpLoad_pngSize = 598;
+
+    extern const char*   ButtonUpNewFolder_png;
+    const int            ButtonUpNewFolder_pngSize = 910;
 
     extern const char*   ButtonUpProgramNameEdit_png;
     const int            ButtonUpProgramNameEdit_pngSize = 487;
@@ -119,8 +143,20 @@ namespace BinaryData
     extern const char*   ButtonUpWrite_png;
     const int            ButtonUpWrite_pngSize = 612;
 
+    extern const char*   FileNotValidAlertBackground_png;
+    const int            FileNotValidAlertBackground_pngSize = 1196;
+
+    extern const char*   FolderExistsAlertBackground_png;
+    const int            FolderExistsAlertBackground_pngSize = 1626;
+
+    extern const char*   FolderNameDialogBackground_png;
+    const int            FolderNameDialogBackground_pngSize = 1587;
+
     extern const char*   GlobalParametersBackground_png;
     const int            GlobalParametersBackground_pngSize = 10458;
+
+    extern const char*   ImportExportWindowBackground_png;
+    const int            ImportExportWindowBackground_pngSize = 1853;
 
     extern const char*   LabelBank1_png;
     const int            LabelBank1_pngSize = 171;
@@ -146,6 +182,9 @@ namespace BinaryData
     extern const char*   NoSysexWarningBackground_png;
     const int            NoSysexWarningBackground_pngSize = 42563;
 
+    extern const char*   OverwriteConfirmationBackground_png;
+    const int            OverwriteConfirmationBackground_pngSize = 2827;
+
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4116;
 
@@ -156,7 +195,7 @@ namespace BinaryData
     const int            TitlePushingEntireBank_pngSize = 2086;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 49;
+    const int namedResourceListSize = 62;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
