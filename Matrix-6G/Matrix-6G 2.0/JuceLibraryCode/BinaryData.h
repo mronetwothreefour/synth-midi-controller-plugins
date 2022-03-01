@@ -57,19 +57,19 @@ namespace BinaryData
     const int            ButtonPushUp_pngSize = 455;
 
     extern const char*   ButtonQuickEditDown_png;
-    const int            ButtonQuickEditDown_pngSize = 512;
+    const int            ButtonQuickEditDown_pngSize = 585;
 
     extern const char*   ButtonQuickEditFlash_png;
-    const int            ButtonQuickEditFlash_pngSize = 477;
+    const int            ButtonQuickEditFlash_pngSize = 566;
 
     extern const char*   ButtonQuickEditUp_png;
-    const int            ButtonQuickEditUp_pngSize = 481;
+    const int            ButtonQuickEditUp_pngSize = 569;
 
     extern const char*   ButtonRandDown_png;
-    const int            ButtonRandDown_pngSize = 417;
+    const int            ButtonRandDown_pngSize = 502;
 
     extern const char*   ButtonRandUp_png;
-    const int            ButtonRandUp_pngSize = 444;
+    const int            ButtonRandUp_pngSize = 480;
 
     extern const char*   ButtonRedoDown_png;
     const int            ButtonRedoDown_pngSize = 401;
