@@ -98,7 +98,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return isDown ? BinaryData::ButtonDownClear_png : BinaryData::ButtonUpClear_png;
 
-	if (button.getComponentID() == ID::button_Close.toString())
+	if (button.getComponentID().startsWith("button_Close"))
 		return isDown ? BinaryData::ButtonDownClose_png : BinaryData::ButtonUpClose_png;
 
 	if (button.getComponentID() == ID::button_Global.toString())
@@ -150,7 +150,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return size_t(isDown ? BinaryData::ButtonDownClear_pngSize : BinaryData::ButtonUpClear_pngSize);
 
-	if (button.getComponentID() == ID::button_Close.toString())
+	if (button.getComponentID().startsWith("button_Close"))
 		return size_t(isDown ? BinaryData::ButtonDownClose_pngSize : BinaryData::ButtonUpClose_pngSize);
 
 	if (button.getComponentID() == ID::button_Global.toString())

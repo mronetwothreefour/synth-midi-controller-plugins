@@ -15,6 +15,8 @@ namespace constants
 		static const float envelopeRenderSustainSegment_w{ 28.0f };
 		static const float tooltipMaxWidth{ 400.0f };
 
+		static const int alertWindowCloseButton_x{ 612 };
+		static const int alertWindowCloseButton_y{ 310 };
 		static const int bankTransmitTitleLabel_x{ 454 };
 		static const int bankTransmitTitleLabel_y{ 260 };
 		static const int comboBox_h{ 16 };
@@ -43,6 +45,8 @@ namespace constants
 		static const int envelopeRenderer_LPF_y{ 154 };
 		static const int envelopeRenderer_VCA_y{ envelopeRenderer_LPF_y + envelopeRenderersVerticalSpacing };
 		static const int envelopeRenderer_Env3_y{ envelopeRenderer_VCA_y + envelopeRenderersVerticalSpacing };
+		static const int fileNotValidAlert_x{ 566 };
+		static const int fileNotValidAlert_y{ 274 };
 		static const int globalParametersComboBoxAndDisplayLabel_h{ 16 };
 		static const int globalParametersComboBoxes_w{ 117 };
 		static const int globalParametersComboBoxes_x{ 630 };
@@ -70,6 +74,10 @@ namespace constants
 		static const int globalParametersTogglesDiameter{ 16 };
 		static const int globalParametersWindow_x{ 514 };
 		static const int globalParametersWindow_y{ 115 };
+		static const int imptExptBrowserComponent_h{ 245 };
+		static const int imptExptBrowserComponent_w{ 471 };
+		static const int imptExptBrowserComponent_x{ 401 };
+		static const int imptExptBrowserComponent_y{ 187 };
 		static const int knobAssignComboBoxes_w{ 134 };
 		static const int knobAssignComboBoxes_x{ 1089 };
 		static const int lfoControlsRow1_y{ 515 };
@@ -179,6 +187,7 @@ namespace constants
 		static const std::vector<uint8> pathDataForPixel_Row7Col4{ 110,109,0,0,24,65,0,0,136,65,108,0,0,240,64,0,0,136,65,108,0,0,240,64,0,0,112,65,108,0,0,24,65,0,0,112,65,108,0,0,24,65,0,0,136,65,99,101,0,0 };
 		static const std::vector<uint8> pathDataForPixel_Row7Col5{ 110,109,0,0,64,65,0,0,136,65,108,0,0,32,65,0,0,136,65,108,0,0,32,65,0,0,112,65,108,0,0,64,65,0,0,112,65,108,0,0,64,65,0,0,136,65,99,101,0,0 };
 
+		static const Rectangle<int> bounds_AlertWindowCloseButton{ alertWindowCloseButton_x, alertWindowCloseButton_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_BanksWindow{ 89, 113, 1095, 400 };
 		static const Rectangle<int> bounds_BankTransmitButtons{ 611, 344, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_BankTransmitMessage{ 461, 290, 351, 28 };
@@ -203,6 +212,7 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersSysExDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow7_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersTooltipDelayLabel{ globalParametersTooltipControls_x, globalParametersControlRow12_y, 50, 16 };
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
+		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_LoadSelectedVoiceButton{ voicesBankLoadButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_MainWindowBanksButton{ 706, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
 		static const Rectangle<int> bounds_MainWindowEditNameButtonAndEditor{ 590, 11, 222, 50 };
