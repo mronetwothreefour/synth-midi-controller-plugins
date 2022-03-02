@@ -21,7 +21,7 @@ FileNotValidAlert::FileNotValidAlert()
 
 void FileNotValidAlert::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_ImptExptBrowserComponent);
+	g.fillRect(GUI::bounds_ImptExptWindow);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::FileNotValidAlertBackground_png, BinaryData::FileNotValidAlertBackground_pngSize, false };
 	PNGImageFormat imageFormat;

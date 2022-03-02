@@ -93,6 +93,8 @@ namespace constants
 		static const int imptExptGoUpButton_w{ 20 };
 		static const int imptExptGoUpButton_x{ 450 };
 		static const int imptExptGoUpButton_y{ imptExptCurrentPathBox_y };
+		static const int imptExptWindow_h{ 350 };
+		static const int imptExptWindow_w{ 500 };
 		static const int imptExptWindow_x{ 451 };
 		static const int imptExptWindow_y{ 21 };
 		static const int imptExptButtonsRow_y{ 316 };
@@ -179,6 +181,7 @@ namespace constants
 		static const Rectangle<int> bounds_ImptExptGoUpButton{ imptExptGoUpButton_x, imptExptGoUpButton_y, imptExptGoUpButton_w, imptExptGoUpButton_h };
 		static const Rectangle<int> bounds_ImptExptNewFldrButton{ buttonImptExptNewFldr_x, imptExptButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_ImptExptOKbutton{ buttonImptExptOK_x, imptExptButtonsRow_y, buttons_w, buttons_h };
+		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };
 		static const Rectangle<int> bounds_MainWindowPullButton{ buttonMainWindowPull_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowPushButton{ buttonMainWindowPush_x, mainWindowButtonsRow_y, buttons_w, buttons_h };
 		static const Rectangle<int> bounds_MainWindowVoicesBankButton{ buttonMainWindowVoicesBank_x, mainWindowButtonsRow_y, buttons_w, buttons_h };

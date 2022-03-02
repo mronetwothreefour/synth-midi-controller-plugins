@@ -21,7 +21,7 @@ FolderExistsAlert::FolderExistsAlert()
 
 void FolderExistsAlert::paint(Graphics& g) {
 	g.setColour(Color::black.withAlpha(0.4f));
-	g.fillRect(GUI::bounds_ImptExptBrowserComponent);
+	g.fillRect(GUI::bounds_FolderNameDialogBox);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::FolderExistsAlertBackground_png, BinaryData::FolderExistsAlertBackground_pngSize, false };
 	PNGImageFormat imageFormat;
