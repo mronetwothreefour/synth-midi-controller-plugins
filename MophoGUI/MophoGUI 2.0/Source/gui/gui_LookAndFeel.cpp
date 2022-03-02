@@ -95,11 +95,17 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return isDown ? BinaryData::ButtonDownBanks_png : BinaryData::ButtonUpBanks_png;
 
+	if (button.getComponentID().startsWith("button_Cancel"))
+		return isDown ? BinaryData::ButtonDownCancel_png : BinaryData::ButtonUpCancel_png;
+
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return isDown ? BinaryData::ButtonDownClear_png : BinaryData::ButtonUpClear_png;
 
 	if (button.getComponentID().startsWith("button_Close"))
 		return isDown ? BinaryData::ButtonDownClose_png : BinaryData::ButtonUpClose_png;
+
+	if (button.getComponentID() == ID::button_FileOverwrite.toString())
+		return isDown ? BinaryData::ButtonDownFileOverwrite_png : BinaryData::ButtonUpFileOverwrite_png;
 
 	if (button.getComponentID() == ID::button_Global.toString())
 		return isDown ? BinaryData::ButtonDownGlobal_png : BinaryData::ButtonUpGlobal_png;
@@ -147,11 +153,17 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return size_t(isDown ? BinaryData::ButtonDownBanks_pngSize : BinaryData::ButtonUpBanks_pngSize);
 
+	if (button.getComponentID().startsWith("button_Cancel"))
+		return size_t(isDown ? BinaryData::ButtonDownCancel_pngSize : BinaryData::ButtonUpCancel_pngSize);
+
 	if (button.getComponentID() == ID::button_Clear.toString())
 		return size_t(isDown ? BinaryData::ButtonDownClear_pngSize : BinaryData::ButtonUpClear_pngSize);
 
 	if (button.getComponentID().startsWith("button_Close"))
 		return size_t(isDown ? BinaryData::ButtonDownClose_pngSize : BinaryData::ButtonUpClose_pngSize);
+
+	if (button.getComponentID() == ID::button_FileOverwrite.toString())
+		return size_t(isDown ? BinaryData::ButtonDownFileOverwrite_pngSize : BinaryData::ButtonUpFileOverwrite_pngSize);
 
 	if (button.getComponentID() == ID::button_Global.toString())
 		return size_t(isDown ? BinaryData::ButtonDownGlobal_pngSize : BinaryData::ButtonUpGlobal_pngSize);

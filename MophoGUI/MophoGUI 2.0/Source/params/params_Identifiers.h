@@ -17,10 +17,13 @@ namespace ID
 	static const Identifier bank_custom3_VoiceNameStrings{ "bank_custom3_VoiceNameStrings" };
 
 	static const Identifier button_Banks{ "button_Banks" };
+	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
+	static const Identifier button_CancelNewFolder{ "button_CancelNewFolder" };
 	static const Identifier button_Clear{ "button_Clear" };
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_CloseFileNotValid{ "button_CloseFileNotValid" };
 	static const Identifier button_CloseFolderExists{ "button_CloseFolderExists" };
+	static const Identifier button_FileOverwrite{ "button_FileOverwrite" };
 	static const Identifier button_Global{ "button_Global" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_PullCustomBank1{ "button_PullCustomBank1" };

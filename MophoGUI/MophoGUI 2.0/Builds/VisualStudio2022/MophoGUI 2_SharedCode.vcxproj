@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.cpp" />
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp" />
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp" />
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp" />
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp" />
     <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDataMessage.cpp" />
@@ -2204,6 +2205,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobValueStrings.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForKnobWaveShapes.h" />
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h" />
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h" />
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h" />
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h" />
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h" />
