@@ -47,6 +47,12 @@ namespace constants
 		static const int envelopeRenderer_Env3_y{ envelopeRenderer_VCA_y + envelopeRenderersVerticalSpacing };
 		static const int fileNotValidAlert_x{ 566 };
 		static const int fileNotValidAlert_y{ 274 };
+		static const int folderExistAlert_x{ 541 };
+		static const int folderExistAlert_y{ 274 };
+		static const int folderNameDialogBox_h{ 101 };
+		static const int folderNameDialogBox_w{ 221 };
+		static const int folderNameDialogBox_x{ 526 };
+		static const int folderNameDialogBox_y{ 259 };
 		static const int globalParametersComboBoxAndDisplayLabel_h{ 16 };
 		static const int globalParametersComboBoxes_w{ 117 };
 		static const int globalParametersComboBoxes_x{ 630 };
@@ -78,6 +84,10 @@ namespace constants
 		static const int imptExptBrowserComponent_w{ 471 };
 		static const int imptExptBrowserComponent_x{ 401 };
 		static const int imptExptBrowserComponent_y{ 187 };
+		static const int imptExptWindow_h{ 332 };
+		static const int imptExptWindow_w{ 501 };
+		static const int imptExptWindow_x{ 386 };
+		static const int imptExptWindow_y{ 147 };
 		static const int knobAssignComboBoxes_w{ 134 };
 		static const int knobAssignComboBoxes_x{ 1089 };
 		static const int lfoControlsRow1_y{ 515 };
@@ -196,6 +206,7 @@ namespace constants
 		static const Rectangle<int> bounds_EnvelopeRenderer_LPF{ envelopeRenderers_x, envelopeRenderer_LPF_y, envelopeRenderers_w, envelopeRenderers_h };
 		static const Rectangle<int> bounds_EnvelopeRenderer_VCA{ envelopeRenderers_x, envelopeRenderer_VCA_y, envelopeRenderers_w, envelopeRenderers_h };
 		static const Rectangle<int> bounds_EnvelopeRenderer_Env3{ envelopeRenderers_x, envelopeRenderer_Env3_y, envelopeRenderers_w, envelopeRenderers_h };
+		static const Rectangle<int> bounds_FolderNameDialogBox{ folderNameDialogBox_x, folderNameDialogBox_y, folderNameDialogBox_w, folderNameDialogBox_h };
 		static const Rectangle<int> bounds_GlobalParametersAudioOutputDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow8_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersBalanceTweakDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow9_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersCloseButton{ 703, 121, secondaryWindowsControls_w, secondaryWindowsControls_h };
@@ -213,6 +224,7 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersTooltipDelayLabel{ globalParametersTooltipControls_x, globalParametersControlRow12_y, 50, 16 };
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
+		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };
 		static const Rectangle<int> bounds_LoadSelectedVoiceButton{ voicesBankLoadButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_MainWindowBanksButton{ 706, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
 		static const Rectangle<int> bounds_MainWindowEditNameButtonAndEditor{ 590, 11, 222, 50 };

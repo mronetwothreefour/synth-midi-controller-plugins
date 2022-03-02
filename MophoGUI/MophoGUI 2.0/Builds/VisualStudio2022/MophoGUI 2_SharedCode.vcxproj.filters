@@ -2742,6 +2742,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
@@ -5475,6 +5478,9 @@
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
   </ItemGroup>

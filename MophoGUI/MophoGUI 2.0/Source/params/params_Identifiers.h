@@ -20,6 +20,7 @@ namespace ID
 	static const Identifier button_Clear{ "button_Clear" };
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_CloseFileNotValid{ "button_CloseFileNotValid" };
+	static const Identifier button_CloseFolderExists{ "button_CloseFolderExists" };
 	static const Identifier button_Global{ "button_Global" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_PullCustomBank1{ "button_PullCustomBank1" };
