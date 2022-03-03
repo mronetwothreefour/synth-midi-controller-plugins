@@ -82,6 +82,34 @@
         <FILE id="a7nxqr" name="guiRenderer_ForSequencerStepValues.h" compile="0"
               resource="0" file="Source/guiRenderers/guiRenderer_ForSequencerStepValues.h"/>
       </GROUP>
+      <GROUP id="{8965ACBC-8278-6C25-7B9B-B1482A337E02}" name="imptExpt">
+        <FILE id="swhvc0" name="imptExpt_BaseImptExptComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.cpp"/>
+        <FILE id="ZnSif8" name="imptExpt_BaseImptExptComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_BaseImptExptComponent.h"/>
+        <FILE id="xMFeOR" name="imptExpt_ExportVoiceDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.cpp"/>
+        <FILE id="auwW91" name="imptExpt_ExportVoiceDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.h"/>
+        <FILE id="X1FdcC" name="imptExpt_FileFilters.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FileFilters.h"/>
+        <FILE id="bqNi8c" name="imptExpt_FileNotValidAlert.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FileNotValidAlert.cpp"/>
+        <FILE id="tS8sOr" name="imptExpt_FileNotValidAlert.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FileNotValidAlert.h"/>
+        <FILE id="yQUPQW" name="imptExpt_FileOverwriteConfirmDialogBox.cpp"
+              compile="1" resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
+        <FILE id="hXKfgJ" name="imptExpt_FileOverwriteConfirmDialogBox.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_FileOverwriteConfirmDialogBox.h"/>
+        <FILE id="DPena9" name="imptExpt_FolderExistsAlert.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FolderExistsAlert.cpp"/>
+        <FILE id="AqB0w7" name="imptExpt_FolderExistsAlert.h" compile="0" resource="0"
+              file="Source/imptExpt/imptExpt_FolderExistsAlert.h"/>
+        <FILE id="YICdOW" name="imptExpt_FolderNameDialogBox.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
+        <FILE id="tec4gx" name="imptExpt_FolderNameDialogBox.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
+      </GROUP>
       <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
         <FILE id="oEoDFj" name="midi_Constants.h" compile="0" resource="0"
               file="Source/midi/midi_Constants.h"/>
@@ -538,6 +566,14 @@
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pushing-Entire-Bank.png"/>
+      <FILE id="LvgvXL" name="Window-Title-Export-Program.png" compile="0"
+            resource="1" file="Resources/Window-Title-Export-Program.png"/>
+      <FILE id="C6831f" name="Window-Title-Export-Program-Bank.png" compile="0"
+            resource="1" file="Resources/Window-Title-Export-Program-Bank.png"/>
+      <FILE id="Skso2Z" name="Window-Title-Import-Program.png" compile="0"
+            resource="1" file="Resources/Window-Title-Import-Program.png"/>
+      <FILE id="JjzyY6" name="Window-Title-Import-Program-Bank.png" compile="0"
+            resource="1" file="Resources/Window-Title-Import-Program-Bank.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

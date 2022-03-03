@@ -194,8 +194,20 @@ namespace BinaryData
     extern const char*   TitlePushingEntireBank_png;
     const int            TitlePushingEntireBank_pngSize = 2086;
 
+    extern const char*   WindowTitleExportProgram_png;
+    const int            WindowTitleExportProgram_pngSize = 2308;
+
+    extern const char*   WindowTitleExportProgramBank_png;
+    const int            WindowTitleExportProgramBank_pngSize = 2648;
+
+    extern const char*   WindowTitleImportProgram_png;
+    const int            WindowTitleImportProgram_pngSize = 2434;
+
+    extern const char*   WindowTitleImportProgramBank_png;
+    const int            WindowTitleImportProgramBank_pngSize = 2735;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 62;
+    const int namedResourceListSize = 66;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
