@@ -83,14 +83,14 @@ bool TabForCustomVoiceBank::perform(const InvocationInfo& info) {
 	switch (info.commandID)
 	{
 	case copyVoice:
-		if (selectedSlot < voices::numberOfSlotsInBank) {
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 			auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 			voiceCopyBuffer = voiceDataHexString;
 			return true;
 		}
 		else return false;
 	case pasteVoice:
-		if (selectedSlot < voices::numberOfSlotsInBank && voiceCopyBuffer != "") {
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank && voiceCopyBuffer != "") {
 			voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceCopyBuffer, bank, selectedSlot);
 			return true;
 		}

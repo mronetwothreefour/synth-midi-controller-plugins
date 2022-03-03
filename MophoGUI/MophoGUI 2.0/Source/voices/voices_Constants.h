@@ -8,7 +8,7 @@ namespace constants
 {
 	namespace voices
 	{
-		static const int numberOfSlotsInBank{ 128 };
+		static const int numberOfSlotsInVoicesBank{ 128 };
 		static const int firstVoiceNameCharByte{ 211 };
 		static const int lastVoiceNameCharByte{ 228 };
 		static const int ignoredVoiceNamePackByte1{ 216 };

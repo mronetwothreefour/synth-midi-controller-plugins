@@ -19,7 +19,7 @@ BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, Transmiss
 	unexposedParams{ unexposedParams },
 	message{ "" },
 	transmitTime{ unexposedParams->voiceTransmissionOptions_get()->voiceTransmitTime() },
-	voiceCounter{ voices::numberOfSlotsInBank },
+	voiceCounter{ voices::numberOfSlotsInVoicesBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -70,10 +70,10 @@ BankTransmissionComponent::BankTransmissionComponent(VoicesBank& bank, Transmiss
 
 void BankTransmissionComponent::timerCallback() {
 	stopTimer();
-	if (voiceCounter < voices::numberOfSlotsInBank) {
+	if (voiceCounter < voices::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
 		++voiceCounter;
-		progress = voiceCounter / (double)voices::numberOfSlotsInBank;
+		progress = voiceCounter / (double)voices::numberOfSlotsInVoicesBank;
 		message = transmissionType == TransmissionType::push ? "Pushing " : "Pulling ";
 		message += bankName + " Program " + (String)voiceCounter;
 		message += transmissionType == TransmissionType::push ? " To Hardware" : " From Hardware";

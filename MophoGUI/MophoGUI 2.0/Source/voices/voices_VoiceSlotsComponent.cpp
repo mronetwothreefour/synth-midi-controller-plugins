@@ -16,10 +16,10 @@ VoiceSlotsComponent::VoiceSlotsComponent(VoicesBank bank, AudioProcessorValueTre
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	selectedSlot{ voices::numberOfSlotsInBank }
+	selectedSlot{ voices::numberOfSlotsInVoicesBank }
 {
 	auto voicesBanks{ unexposedParams->voicesBanks_get() };
-	for (uint8 slot = 0; slot != voices::numberOfSlotsInBank; ++slot) {
+	for (uint8 slot = 0; slot != voices::numberOfSlotsInVoicesBank; ++slot) {
 		setUpVoiceSlotToggleButton(slot);
 		addAndMakeVisible(voiceSlotButtons[slot]);
 	}
@@ -61,7 +61,7 @@ void VoiceSlotsComponent::setTextForVoiceSlotToggleButton(uint8 slot) {
 }
 
 void VoiceSlotsComponent::saveCurrentVoiceSettingsIntoSelectedSlot() {
-	if (selectedSlot < voices::numberOfSlotsInBank) {
+	if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 		auto voiceDataVector{ RawDataTools::extractFromExposedParameters(exposedParams) };
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		auto voicesBanks{ unexposedParams->voicesBanks_get() };
@@ -72,7 +72,7 @@ void VoiceSlotsComponent::saveCurrentVoiceSettingsIntoSelectedSlot() {
 }
 
 void VoiceSlotsComponent::loadVoiceFromSelectedSlot() {
-	if (selectedSlot < voices::numberOfSlotsInBank) {
+	if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 		auto voicesBanks{ unexposedParams->voicesBanks_get() };
 		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
@@ -82,7 +82,7 @@ void VoiceSlotsComponent::loadVoiceFromSelectedSlot() {
 }
 
 void VoiceSlotsComponent::pullSelectedVoiceFromHardware() {
-	if (selectedSlot < voices::numberOfSlotsInBank) {
+	if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
@@ -93,7 +93,7 @@ void VoiceSlotsComponent::pullSelectedVoiceFromHardware() {
 }
 
 void VoiceSlotsComponent::pushSelectedVoiceToHardware() {
-	if (selectedSlot < voices::numberOfSlotsInBank) {
+	if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 		auto dumpDataVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, selectedSlot, unexposedParams) };
 		auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
 		outgoingBuffers->addDataMessage(dumpDataVector);
@@ -101,7 +101,7 @@ void VoiceSlotsComponent::pushSelectedVoiceToHardware() {
 }
 
 void VoiceSlotsComponent::resized() {
-	for (auto i = 0; i != voices::numberOfSlotsInBank; ++i) {
+	for (auto i = 0; i != voices::numberOfSlotsInVoicesBank; ++i) {
 		auto col_x{ (i / 16) * (GUI::voiceSlotRadioButtton_w + GUI::voiceSlotRadioButtonsHorizontalGap) };
 		auto row_y{ (i % 16) * GUI::voiceSlotRadioButtton_h };
 		voiceSlotButtons[i].setBounds(col_x, row_y, GUI::voiceSlotRadioButtton_w, GUI::voiceSlotRadioButtton_h);

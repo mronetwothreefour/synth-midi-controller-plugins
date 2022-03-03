@@ -541,6 +541,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.cpp">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.cpp">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClCompile>
@@ -2950,6 +2953,9 @@
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.h">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.h">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h">

@@ -70,7 +70,7 @@ bool TabForFactoryVoicesBank::perform(const InvocationInfo& info) {
 	switch (info.commandID)
 	{
 	case copyVoice:
-		if (selectedSlot < voices::numberOfSlotsInBank) {
+		if (selectedSlot < voices::numberOfSlotsInVoicesBank) {
 			voiceCopyBuffer = voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot);
 			return true;
 		}

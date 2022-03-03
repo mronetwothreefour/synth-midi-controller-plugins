@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp"/>
@@ -2217,6 +2218,7 @@
     <ClInclude Include="..\..\Source\guiRenderers\guiRenderer_ForSequencerStepValues.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_BaseImptExptComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoiceDataComponent.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ExportVoicesBankComponent.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileFilters.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h"/>

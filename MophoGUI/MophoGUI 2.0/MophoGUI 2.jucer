@@ -91,6 +91,10 @@
               resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.cpp"/>
         <FILE id="auwW91" name="imptExpt_ExportVoiceDataComponent.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_ExportVoiceDataComponent.h"/>
+        <FILE id="jmJZos" name="imptExpt_ExportVoicesBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoicesBankComponent.cpp"/>
+        <FILE id="OvVDgf" name="imptExpt_ExportVoicesBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ExportVoicesBankComponent.h"/>
         <FILE id="X1FdcC" name="imptExpt_FileFilters.h" compile="0" resource="0"
               file="Source/imptExpt/imptExpt_FileFilters.h"/>
         <FILE id="bqNi8c" name="imptExpt_FileNotValidAlert.cpp" compile="1"
