@@ -113,6 +113,10 @@
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.cpp"/>
         <FILE id="tec4gx" name="imptExpt_FolderNameDialogBox.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_FolderNameDialogBox.h"/>
+        <FILE id="ZMYlkr" name="imptExpt_ImportVoiceDataComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.cpp"/>
+        <FILE id="HJHQYm" name="imptExpt_ImportVoiceDataComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.h"/>
       </GROUP>
       <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
         <FILE id="oEoDFj" name="midi_Constants.h" compile="0" resource="0"

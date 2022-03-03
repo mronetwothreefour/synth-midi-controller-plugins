@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.cpp"/>
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp"/>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_GlobalParametersDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_IncomingNRPNhandler.cpp"/>
@@ -2224,6 +2225,7 @@
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h"/>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.h"/>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h"/>
     <ClInclude Include="..\..\Source\midi\midi_EditBufferDataMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_GlobalParametersDataMessage.h"/>

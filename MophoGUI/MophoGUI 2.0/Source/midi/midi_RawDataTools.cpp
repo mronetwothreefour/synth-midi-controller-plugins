@@ -3,6 +3,9 @@
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_SpecialValueOffsets.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../voices/voices_Constants.h"
+
+using namespace constants;
 
 
 
@@ -18,6 +21,15 @@ const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String
 const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>& dataVector) {
     auto hexString{ String::toHexString(dataVector.data(), (int)dataVector.size(), 0) };
     return hexString;
+}
+
+bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
+    auto hexStringContainingOnlyHexadecimalCharacters{ hexString.initialSectionContainingOnly("1234567890ABCDEFabcdef") };
+    auto isNotCorrectLength{ hexStringContainingOnlyHexadecimalCharacters.length() != voices::lengthOfVoiceDataHexString };
+    if (isNotCorrectLength)
+        return false;
+    else
+        return true;
 }
 
 void RawDataTools::applyToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
