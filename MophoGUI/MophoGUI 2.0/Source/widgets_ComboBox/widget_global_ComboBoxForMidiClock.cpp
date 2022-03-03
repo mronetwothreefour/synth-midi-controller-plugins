@@ -30,7 +30,7 @@ ComboBoxForMidiClock::ComboBoxForMidiClock(UnexposedParameters* unexposedParams)
 String ComboBoxForMidiClock::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects the hardware" + GUI::apostrophe + "s MIDI clock status.\n";
 	}
 	if (tooltipOptions->shouldShowCurrentValue()) {

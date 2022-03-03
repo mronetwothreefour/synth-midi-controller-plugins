@@ -15,7 +15,7 @@ ButtonForShowingVoicesBanksComponent::ButtonForShowingVoicesBanksComponent(Unexp
 
 const String ButtonForShowingVoicesBanksComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens a window where you can manage the\n";
 		buttonTooltip += "six storage voices for program presets.";
 	}

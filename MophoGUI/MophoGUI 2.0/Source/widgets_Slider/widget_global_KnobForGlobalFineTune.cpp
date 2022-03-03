@@ -24,7 +24,7 @@ KnobForGlobalFineTune::KnobForGlobalFineTune(UnexposedParameters* unexposedParam
 String KnobForGlobalFineTune::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "All audio output from the hardware will\n";
 		tooltipText += "be tuned up or down by this amount.\n";
 		tooltipText += "Range: -50 to +50 cents.\n";

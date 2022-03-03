@@ -32,7 +32,7 @@ VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposed
 
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	String label_txTimeTooltip{ "" };
-	if (tooltips->shouldShowDescription()) {
+	if (tooltips->shouldShowDescriptions()) {
 		label_txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
 		label_txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
 		label_txTimeTooltip += "this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";

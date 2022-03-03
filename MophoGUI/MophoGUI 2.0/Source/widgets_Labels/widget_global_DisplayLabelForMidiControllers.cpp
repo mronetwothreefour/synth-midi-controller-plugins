@@ -37,7 +37,7 @@ void DisplayLabelForMidiControllers::setTextAccordingToParameterSetting() {
 String DisplayLabelForMidiControllers::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects whether or not the hardware will respond to MIDI controller messages.\n";
 		tooltipText += "WARNING: Controller messages are used to communicate with the hardware.\n";
 		tooltipText += "It is imperative that this be set to " + GUI::openQuote + "ON" + GUI::closeQuote + " for this plugin to function correctly.\n";

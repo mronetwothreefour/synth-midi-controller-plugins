@@ -20,7 +20,7 @@ ButtonForPullingEntireBankFromHardware::ButtonForPullingEntireBankFromHardware(V
 
 const String ButtonForPullingEntireBankFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Pull all the programs stored in the storage bank in\n";
 		buttonTooltip += "the Mopho hardware into this plugin storage bank.";
 	}

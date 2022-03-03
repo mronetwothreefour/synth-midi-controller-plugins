@@ -20,7 +20,7 @@ LabelForSettingTooltipDelay::LabelForSettingTooltipDelay(UnexposedParameters* un
 String LabelForSettingTooltipDelay::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Sets the amount of time (in milliseconds) the mouse cursor\n";
 		tooltipText += "must hover over a control before a tooltip box is shown.\n";
 		tooltipText += "Maximum delay: 5000 ms.";

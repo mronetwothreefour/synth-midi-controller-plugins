@@ -13,14 +13,14 @@ ToggleButtonForDescriptionTooltip::ToggleButtonForDescriptionTooltip(UnexposedPa
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	tooltipOptions->addListener(this);
 	setComponentID(ID::component_ToggleButton.toString());
-	setToggleState(tooltipOptions->shouldShowDescription(), dontSendNotification);
+	setToggleState(tooltipOptions->shouldShowDescriptions(), dontSendNotification);
 	setTooltip(generateTooltipString());
 }
 
 String ToggleButtonForDescriptionTooltip::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects whether hovering over a control with the mouse cursor will\n";
 		tooltipText += "open a tooltip box showing a description of what the control does.\n";
 	}

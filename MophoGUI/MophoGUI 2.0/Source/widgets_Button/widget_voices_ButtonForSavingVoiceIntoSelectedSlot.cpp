@@ -20,7 +20,7 @@ ButtonForSavingVoiceIntoSelectedSlot::ButtonForSavingVoiceIntoSelectedSlot(Voice
 
 const String ButtonForSavingVoiceIntoSelectedSlot::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Saves the plugin GUI" + GUI::apostrophe + "s current settings\n";
 		buttonTooltip += "into the selected program storage slot.";
 	}

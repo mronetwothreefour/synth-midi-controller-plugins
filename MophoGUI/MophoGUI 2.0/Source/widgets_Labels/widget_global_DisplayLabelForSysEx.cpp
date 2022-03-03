@@ -37,7 +37,7 @@ void DisplayLabelForSysEx::setTextAccordingToParameterSetting() {
 String DisplayLabelForSysEx::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects whether or not the hardware will transmit / receive\n";
 		tooltipText += "MIDI system exclusive messages. WARNING: Program data is\n";
 		tooltipText += "transferred between the plugin and the hardware via system\n";

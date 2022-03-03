@@ -15,7 +15,7 @@ ButtonForShowingGlobalParametersComponent::ButtonForShowingGlobalParametersCompo
 
 const String ButtonForShowingGlobalParametersComponent::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens a window where you can change global settings\n";
 		buttonTooltip += "for the hardware, as well as tooltip display options";
 	}

@@ -34,7 +34,7 @@ void DisplayLabelForAudioOutput::setTextAccordingToParameterSetting() {
 String DisplayLabelForAudioOutput::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects whether the hardware should output audio in mono\n";
 		tooltipText += "or in stereo. This option cannot be changed remotely and\n";
 		tooltipText += "must be set within the hardware" + GUI::apostrophe + "s Global Parameters menus.";

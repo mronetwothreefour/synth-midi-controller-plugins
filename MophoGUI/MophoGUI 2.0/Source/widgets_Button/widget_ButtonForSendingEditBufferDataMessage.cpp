@@ -20,7 +20,7 @@ ButtonForSendingEditBufferDataMessage::ButtonForSendingEditBufferDataMessage(Aud
 
 const String ButtonForSendingEditBufferDataMessage::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Writes the plugin" + GUI::apostrophe + "s current program settings\n";
 		buttonTooltip += "into the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
 	}

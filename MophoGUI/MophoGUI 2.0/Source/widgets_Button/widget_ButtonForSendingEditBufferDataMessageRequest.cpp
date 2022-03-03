@@ -16,7 +16,7 @@ ButtonForSendingEditBufferDataMessageRequest::ButtonForSendingEditBufferDataMess
 
 const String ButtonForSendingEditBufferDataMessageRequest::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Requests a program edit buffer dump from the Mopho\n";
 		buttonTooltip += "hardware and applies it to the plugin GUI.";
 	}

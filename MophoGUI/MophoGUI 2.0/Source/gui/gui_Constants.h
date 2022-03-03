@@ -59,6 +59,10 @@ namespace constants
 		static const int folderNameDialogBoxButtons_y{ 326 };
 		static const int folderNameDialogBoxCancelButton_x{ fileOverwriteConfirmBoxCancelButton_x };
 		static const int folderNameDialogBoxCreateButton_x{ fileOverwriteConfirmBoxWriteButton_x };
+		static const int folderNameDialogBoxEditor_h{ 26 };
+		static const int folderNameDialogBoxEditor_w{ 191 };
+		static const int folderNameDialogBoxEditor_x{ 541 };
+		static const int folderNameDialogBoxEditor_y{ 293 };
 		static const int folderNameDialogBox_h{ 101 };
 		static const int folderNameDialogBox_w{ 221 };
 		static const int folderNameDialogBox_x{ 526 };
@@ -220,7 +224,8 @@ namespace constants
 		static const Rectangle<int> bounds_FileOverwriteConfirmBoxWriteButton{ fileOverwriteConfirmBoxWriteButton_x, fileOverwriteConfirmBoxButtons_y, fileOverwriteConfirmBoxButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_FolderNameDialogBox{ folderNameDialogBox_x, folderNameDialogBox_y, folderNameDialogBox_w, folderNameDialogBox_h };
 		static const Rectangle<int> bounds_FolderNameDialogBoxCancelButton{ folderNameDialogBoxCancelButton_x, folderNameDialogBoxButtons_y, folderNameDialogBoxButtons_w, secondaryWindowsControls_h };
-		static const Rectangle<int> bounds_FolderNameDialogBoxCreatelButton{ folderNameDialogBoxCreateButton_x, folderNameDialogBoxButtons_y, folderNameDialogBoxButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_FolderNameDialogBoxCreateButton{ folderNameDialogBoxCreateButton_x, folderNameDialogBoxButtons_y, folderNameDialogBoxButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_FolderNameDialogBoxEditor{ folderNameDialogBoxEditor_x, folderNameDialogBoxEditor_y, folderNameDialogBoxEditor_w, folderNameDialogBoxEditor_h };
 		static const Rectangle<int> bounds_GlobalParametersAudioOutputDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow8_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersBalanceTweakDisplayLabel{ globalParametersDisplayLabels_x, globalParametersControlRow9_y, globalParametersDisplayLabels_w, globalParametersComboBoxAndDisplayLabel_h };
 		static const Rectangle<int> bounds_GlobalParametersCloseButton{ 703, 121, secondaryWindowsControls_w, secondaryWindowsControls_h };

@@ -24,7 +24,7 @@ KnobForGlobalMidiChannel::KnobForGlobalMidiChannel(UnexposedParameters* unexpose
 String KnobForGlobalMidiChannel::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects the channel on which the hardware\n";
 		tooltipText += "sends and receives MIDI data. When set to\n";
 		tooltipText += "All Channels, the hardware receives MIDI data\n";

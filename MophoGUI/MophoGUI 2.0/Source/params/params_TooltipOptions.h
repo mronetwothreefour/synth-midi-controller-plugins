@@ -18,7 +18,7 @@ public:
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 	const bool shouldShowCurrentValue();
-	const bool shouldShowDescription();
+	const bool shouldShowDescriptions();
 	void setShouldShowCurrentValue();
 	void setShouldNotShowCurrentValue();
 	void setShouldShowDescription();

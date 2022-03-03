@@ -17,7 +17,7 @@ ButtonForPullingSelectedVoiceFromHardware::ButtonForPullingSelectedVoiceFromHard
 
 const String ButtonForPullingSelectedVoiceFromHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Pull the data from the selected program storage slot in the Mopho hardware\n";
 		buttonTooltip += "and save it in the corresponding storage slot in the plugin.";
 	}

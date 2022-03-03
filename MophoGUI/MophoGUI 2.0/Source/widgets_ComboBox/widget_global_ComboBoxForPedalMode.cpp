@@ -27,7 +27,7 @@ ComboBoxForPedalMode::ComboBoxForPedalMode(UnexposedParameters* unexposedParams)
 String ComboBoxForPedalMode::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "When Arpeggiator Latch mode is selected and the arpeggiator is on,\n";
 		tooltipText += "MIDI sustain pedal on messages (CC# 64) will latch the arpeggiated notes.\n";
 		tooltipText += "When the arpeggiator is off, sustain pedal on messages will behave normally.\n";

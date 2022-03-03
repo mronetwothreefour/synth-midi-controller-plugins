@@ -17,7 +17,7 @@ ButtonForPushingSelectedVoiceToHardware::ButtonForPushingSelectedVoiceToHardware
 
 const String ButtonForPushingSelectedVoiceToHardware::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Push the data in the selected program storage slot\n";
 		buttonTooltip += "to the corresponding storage slot in the Mopho hardware.";
 	}

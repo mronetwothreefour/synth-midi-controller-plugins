@@ -20,7 +20,7 @@ ButtonForLoadingSelectedVoice::ButtonForLoadingSelectedVoice(VoiceSlotsComponent
 
 const String ButtonForLoadingSelectedVoice::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Applies the program settings stored in the selected slot to the\n";
 		buttonTooltip += "plugin GUI and to the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
 	}

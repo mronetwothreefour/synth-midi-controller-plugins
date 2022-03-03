@@ -37,7 +37,7 @@ void DisplayLabelForParameterReceive::setTextAccordingToParameterSetting() {
 String DisplayLabelForParameterReceive::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "The type of MIDI parameter change messages recognized by the hardware.\n";
 		tooltipText += "WARNING: This plugin transmits parameter changes using NRPN. It is\n";
 		tooltipText += "imperative that this be set to " + GUI::openQuote + "ALL" + GUI::closeQuote + " or " + GUI::openQuote + "NRPN ONLY" + GUI::closeQuote + " for the plugin to\n";

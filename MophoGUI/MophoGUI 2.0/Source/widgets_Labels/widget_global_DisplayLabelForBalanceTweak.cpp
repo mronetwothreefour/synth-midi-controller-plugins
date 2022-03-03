@@ -34,7 +34,7 @@ void DisplayLabelForBalanceTweak::setTextAccordingToParameterSetting() {
 String DisplayLabelForBalanceTweak::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Applies a small adjustment to the balance of the hardware" + GUI::apostrophe + "s\n";
 		tooltipText += "audio output jacks. This option cannot be changed remotely\n";
 		tooltipText += "and must be set within the hardware" + GUI::apostrophe + "s Global Parameters menus.\n";

@@ -23,7 +23,7 @@ ToggleButtonForCurrentSettingTooltip::ToggleButtonForCurrentSettingTooltip(Unexp
 String ToggleButtonForCurrentSettingTooltip::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects whether hovering over a control with the mouse cursor will open\n";
 		tooltipText += "a tooltip box showing a wordy version of the control" + GUI::apostrophe + "s current setting.\n";
 	}

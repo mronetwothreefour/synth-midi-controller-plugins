@@ -30,7 +30,7 @@ String TooltipSetterForExposedParamSliders::generateTooltipText() {
 	String tooltipText{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	auto& info{ InfoForExposedParameters::get() };
-	if (tooltips->shouldShowDescription())
+	if (tooltips->shouldShowDescriptions())
 		tooltipText += info.descriptionFor(param) + "\n";
 	if (tooltips->shouldShowCurrentValue()) {
 		auto sliderValue{ (uint8)roundToInt(slider.getValue()) };

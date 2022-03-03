@@ -2748,6 +2748,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.cpp">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.cpp">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
@@ -5487,6 +5490,9 @@
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_FileOverwriteConfirmDialogBox.h">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_FolderNameDialogBox.h">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
   </ItemGroup>

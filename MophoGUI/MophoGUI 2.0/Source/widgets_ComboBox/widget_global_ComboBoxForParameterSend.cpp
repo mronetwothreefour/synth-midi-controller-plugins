@@ -27,7 +27,7 @@ ComboBoxForParameterSend::ComboBoxForParameterSend(UnexposedParameters* unexpose
 String ComboBoxForParameterSend::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "Selects what type of MIDI messages the hardware\n";
 		tooltipText += "transmits when the front panel controls are changed.\n";
 		tooltipText += "Note: NRPNs are preferred, as many parameters have\n";

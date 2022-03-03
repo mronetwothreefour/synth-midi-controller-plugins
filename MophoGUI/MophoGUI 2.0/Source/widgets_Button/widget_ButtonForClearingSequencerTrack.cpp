@@ -20,7 +20,7 @@ ButtonForClearingSequencerTrack::ButtonForClearingSequencerTrack(int trackNum, A
 
 const String ButtonForClearingSequencerTrack::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Sets all steps in sequencer\n";
 		if (trackNum == 1)
 			buttonTooltip += "track 1 to 127 (" + GUI::openQuote + "rest" + GUI::closeQuote + ")";

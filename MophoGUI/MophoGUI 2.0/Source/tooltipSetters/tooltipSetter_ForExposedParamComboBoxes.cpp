@@ -29,7 +29,7 @@ String TooltipSetterForExposedParamComboBoxes::generateTooltipText() {
 	String tooltipText{ "" };
 	auto tooltips{ unexposedParams->tooltipOptions_get() };
 	auto& info{ InfoForExposedParameters::get() };
-	if (tooltips->shouldShowDescription())
+	if (tooltips->shouldShowDescriptions())
 		tooltipText += info.descriptionFor(param) + "\n";
 	if (tooltips->shouldShowCurrentValue()) {
 		auto selectedItem{ (uint8)comboBox.getSelectedItemIndex() };

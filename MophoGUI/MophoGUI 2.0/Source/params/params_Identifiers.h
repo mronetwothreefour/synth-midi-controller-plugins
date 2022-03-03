@@ -23,6 +23,7 @@ namespace ID
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_CloseFileNotValid{ "button_CloseFileNotValid" };
 	static const Identifier button_CloseFolderExists{ "button_CloseFolderExists" };
+	static const Identifier button_Create{ "button_Create" };
 	static const Identifier button_FileOverwrite{ "button_FileOverwrite" };
 	static const Identifier button_Global{ "button_Global" };
 	static const Identifier button_Load{ "button_Load" };
@@ -74,6 +75,8 @@ namespace ID
 	static const Identifier global_TransmitChannel{ "global_TransmitChannel" };
 	static const Identifier global_Transpose{ "global_Transpose" };
 	static const Identifier global_VoiceChangeOn{ "global_VoiceChangeOn" };
+
+	static const Identifier label_FolderName{ "label_FolderName" };
 
 	static const Identifier param_SeqTrack1Dest{ "seqTrack1Dest" };
 	static const Identifier param_SeqTrack2Dest{ "seqTrack2Dest" };

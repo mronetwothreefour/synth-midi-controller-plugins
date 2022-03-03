@@ -27,7 +27,7 @@ ComboBoxForVoiceChange::ComboBoxForVoiceChange(UnexposedParameters* unexposedPar
 String ComboBoxForVoiceChange::generateTooltipString() {
 	String tooltipText{ "" };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescription()) {
+	if (tooltipOptions->shouldShowDescriptions()) {
 		tooltipText += "When enabled, the hardware will respond to incoming\n";
 		tooltipText += "MIDI program change and bank change messages.\n";
 		tooltipText += "(This option was added in Mopho firmware version 1.4)\n";

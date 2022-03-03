@@ -28,7 +28,7 @@ const bool TooltipOptions::shouldShowCurrentValue() {
 	return (bool)tooltipOptionsTree.getProperty(ID::tooltips_ShouldShowCurrentValue);
 }
 
-const bool TooltipOptions::shouldShowDescription() {
+const bool TooltipOptions::shouldShowDescriptions() {
 	return (bool)tooltipOptionsTree.getProperty(ID::tooltips_ShouldShowDescription);
 }
 

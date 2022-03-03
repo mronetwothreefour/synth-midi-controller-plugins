@@ -20,7 +20,7 @@ ButtonForOpeningVoiceNameEditor::ButtonForOpeningVoiceNameEditor(AudioProcessorV
 
 const String ButtonForOpeningVoiceNameEditor::createButtonTooltipString() {
 	String buttonTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Opens an editor where you can\n";
 		buttonTooltip += "type in a new program name.";
 	}
@@ -33,7 +33,7 @@ void ButtonForOpeningVoiceNameEditor::onClickMethod() {
 	String basicASCIIcharacters{ " !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
 	voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(16, basicASCIIcharacters);
 	String nameEditorTooltip{ "" };
-	if (unexposedParams->tooltipOptions_get()->shouldShowDescription()) {
+	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		nameEditorTooltip += "Type in a new name for the program (max. 16 characters) and hit ENTER\n";
 		nameEditorTooltip += "to apply it. Hit ESC to cancel. The Mopho" + GUI::apostrophe + "s hardware LCD characters use\n";
 		nameEditorTooltip += "the basic ASCII character set, with a few exceptions: " + GUI::openQuote + "\\" + GUI::closeQuote + " becomes\n";
