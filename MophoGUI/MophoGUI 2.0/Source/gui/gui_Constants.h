@@ -97,7 +97,11 @@ namespace constants
 		static const int imptExptBrowserComponent_h{ 245 };
 		static const int imptExptBrowserComponent_w{ 471 };
 		static const int imptExptBrowserComponent_x{ 401 };
-		static const int imptExptBrowserComponent_y{ 187 };
+		static const int imptExptButtonsRow_y{ 442 };
+		static const int imptExptCancelAndOKbuttons_w{ 52 };
+		static const int imptExptCancelButton_x{ 763 };
+		static const int imptExptNewFolderButton_x{ 401 };
+		static const int imptExptOKbutton_x{ imptExptCancelButton_x + imptExptCancelAndOKbuttons_w + horizGapBtwnControls };
 		static const int imptExptWindow_h{ 332 };
 		static const int imptExptWindow_w{ 501 };
 		static const int imptExptWindow_x{ 386 };
@@ -243,6 +247,9 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersTooltipDelayLabel{ globalParametersTooltipControls_x, globalParametersControlRow12_y, 50, 16 };
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
+		static const Rectangle<int> bounds_ImptExptCancelButton{ imptExptCancelButton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImptExptNewFolderButton{ buttonImptExptNewFldr_x, imptExptButtonsRow_y, ImptExptNewFolderButton_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImptExptOKbutton{ imptExptOKbutton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };
 		static const Rectangle<int> bounds_LoadSelectedVoiceButton{ voicesBankLoadButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_MainWindowBanksButton{ 706, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };

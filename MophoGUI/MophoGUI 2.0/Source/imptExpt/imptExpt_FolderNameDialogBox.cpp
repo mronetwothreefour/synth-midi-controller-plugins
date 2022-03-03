@@ -23,22 +23,22 @@ FolderNameDialogBox::FolderNameDialogBox(FileBrowserComponent* browserComponent,
 	label_FolderName.onReturnKey = [this] { createNewFolder(); };
 	label_FolderName.onEscapeKey = [this] { hideThisComponent(); };
 
-	addAndMakeVisible(button_Esc);
-	button_Esc.setComponentID(ID::button_CancelNewFolder.toString());
-	button_Esc.addShortcut(KeyPress(KeyPress::escapeKey));
-	button_Esc.onClick = [this] { hideThisComponent(); };
+	addAndMakeVisible(button_Cancel);
+	button_Cancel.setComponentID(ID::button_CancelNewFolder.toString());
+	button_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
+	button_Cancel.onClick = [this] { hideThisComponent(); };
 
-	addAndMakeVisible(button_OK);
-	button_OK.setComponentID(ID::button_Create.toString());
-	button_OK.addShortcut(KeyPress(KeyPress::returnKey));
-	button_OK.onClick = [this] { createNewFolder(); };
+	addAndMakeVisible(button_Create);
+	button_Create.setComponentID(ID::button_Create.toString());
+	button_Create.addShortcut(KeyPress(KeyPress::returnKey));
+	button_Create.onClick = [this] { createNewFolder(); };
 
 
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		label_FolderName.setTooltip("Type in the name of the new folder.");
-		button_Esc.setTooltip("Cancel new folder creation.");
-		button_OK.setTooltip("Create new folder.");
+		button_Cancel.setTooltip("Cancel new folder creation.");
+		button_Create.setTooltip("Create new folder.");
 	}
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -56,8 +56,8 @@ void FolderNameDialogBox::paint(Graphics& g) {
 
 void FolderNameDialogBox::resized() {
 	label_FolderName.setBounds(GUI::bounds_FolderNameDialogBoxEditor);
-	button_Esc.setBounds(GUI::bounds_FolderNameDialogBoxCancelButton);
-	button_OK.setBounds(GUI::bounds_FolderNameDialogBoxCreateButton);
+	button_Cancel.setBounds(GUI::bounds_FolderNameDialogBoxCancelButton);
+	button_Create.setBounds(GUI::bounds_FolderNameDialogBoxCreateButton);
 }
 
 void FolderNameDialogBox::createNewFolder() {

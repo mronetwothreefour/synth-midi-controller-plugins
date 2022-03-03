@@ -18,15 +18,19 @@ namespace ID
 
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
+	static const Identifier button_CancelImptExpt{ "button_CancelImptExpt" };
 	static const Identifier button_CancelNewFolder{ "button_CancelNewFolder" };
 	static const Identifier button_Clear{ "button_Clear" };
 	static const Identifier button_Close{ "button_Close" };
 	static const Identifier button_CloseFileNotValid{ "button_CloseFileNotValid" };
 	static const Identifier button_CloseFolderExists{ "button_CloseFolderExists" };
 	static const Identifier button_Create{ "button_Create" };
+	static const Identifier button_Export{ "button_Export" };
 	static const Identifier button_FileOverwrite{ "button_FileOverwrite" };
 	static const Identifier button_Global{ "button_Global" };
+	static const Identifier button_Import{ "button_Import" };
 	static const Identifier button_Load{ "button_Load" };
+	static const Identifier button_NewFolder{ "button_NewFolder" };
 	static const Identifier button_PullCustomBank1{ "button_PullCustomBank1" };
 	static const Identifier button_PullCustomBank2{ "button_PullCustomBank2" };
 	static const Identifier button_PullCustomBank3{ "button_PullCustomBank3" };
@@ -51,6 +55,7 @@ namespace ID
 	static const Identifier component_DisplayLabel{ "component_DisplayLabel" };
 	static const Identifier component_EditLabel{ "component_EditLabel" };
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
+	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_VoiceNameChar{ "component_VoiceNameChar" };
 	static const Identifier component_VoiceNameEditLabel{ "component_VoiceNameEditLabel" };

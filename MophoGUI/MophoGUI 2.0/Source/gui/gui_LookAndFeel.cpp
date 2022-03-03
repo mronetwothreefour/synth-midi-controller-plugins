@@ -104,11 +104,20 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID().startsWith("button_Close"))
 		return isDown ? BinaryData::ButtonDownClose_png : BinaryData::ButtonUpClose_png;
 
+	if (button.getComponentID() == ID::button_Create.toString())
+		return isDown ? BinaryData::ButtonDownCreate_png : BinaryData::ButtonUpCreate_png;
+
+	if (button.getComponentID() == ID::button_Export.toString())
+		return isDown ? BinaryData::ButtonDownExport_png : BinaryData::ButtonUpExport_png;
+
 	if (button.getComponentID() == ID::button_FileOverwrite.toString())
 		return isDown ? BinaryData::ButtonDownFileOverwrite_png : BinaryData::ButtonUpFileOverwrite_png;
 
 	if (button.getComponentID() == ID::button_Global.toString())
 		return isDown ? BinaryData::ButtonDownGlobal_png : BinaryData::ButtonUpGlobal_png;
+
+	if (button.getComponentID() == ID::button_Import.toString())
+		return isDown ? BinaryData::ButtonDownImport_png : BinaryData::ButtonUpImport_png;
 
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
@@ -162,11 +171,20 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID().startsWith("button_Close"))
 		return size_t(isDown ? BinaryData::ButtonDownClose_pngSize : BinaryData::ButtonUpClose_pngSize);
 
+	if (button.getComponentID() == ID::button_Create.toString())
+		return size_t(isDown ? BinaryData::ButtonDownCreate_pngSize : BinaryData::ButtonUpCreate_pngSize);
+
+	if (button.getComponentID() == ID::button_Export.toString())
+		return size_t(isDown ? BinaryData::ButtonDownExport_pngSize : BinaryData::ButtonUpExport_pngSize);
+
 	if (button.getComponentID() == ID::button_FileOverwrite.toString())
 		return size_t(isDown ? BinaryData::ButtonDownFileOverwrite_pngSize : BinaryData::ButtonUpFileOverwrite_pngSize);
 
 	if (button.getComponentID() == ID::button_Global.toString())
 		return size_t(isDown ? BinaryData::ButtonDownGlobal_pngSize : BinaryData::ButtonUpGlobal_pngSize);
+
+	if (button.getComponentID() == ID::button_Import.toString())
+		return size_t(isDown ? BinaryData::ButtonDownImport_pngSize : BinaryData::ButtonUpImport_pngSize);
 
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);

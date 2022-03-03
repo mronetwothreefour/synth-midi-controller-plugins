@@ -12,8 +12,8 @@ class FolderNameDialogBox :
 {
 	FileBrowserComponent* browserComponent;
 	TextEditor label_FolderName;
-	TextButton button_Esc;
-	TextButton button_OK;
+	TextButton button_Cancel;
+	TextButton button_Create;
 	std::unique_ptr<FolderExistsAlert> folderExistsAlert;
 
 public:
