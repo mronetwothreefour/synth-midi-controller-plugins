@@ -205,6 +205,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"/>
@@ -2279,6 +2280,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingEntireBankFromHardware.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"/>
