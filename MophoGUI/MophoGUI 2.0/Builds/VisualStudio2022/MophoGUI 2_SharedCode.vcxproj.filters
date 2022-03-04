@@ -697,6 +697,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoicesBankFromFile.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
@@ -3142,6 +3145,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoicesBankFromFile.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForLoadingSelectedVoice.h">
