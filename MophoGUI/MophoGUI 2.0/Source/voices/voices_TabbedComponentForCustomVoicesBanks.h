@@ -20,10 +20,8 @@ public:
     TabbedComponentForCustomVoicesBanks() = delete;
 
     TabbedComponentForCustomVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
-    void addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener);
-    void addListenerToPushBankButtonInAllCustomTabs(Button::Listener* listener);
-    void removeListenerFromPullBankButtonInAllCustomTabs(Button::Listener* listener);
-    void removeListenerFromPushBankButtonInAllCustomTabs(Button::Listener* listener);
+    void addListenerToButtonsInAllCustomTabs(Button::Listener* listener);
+    void removeListenerFromButtonsInAllCustomTabs(Button::Listener* listener);
 
 private:
     //==============================================================================

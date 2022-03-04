@@ -17,18 +17,26 @@ TabForCustomVoiceBank::TabForCustomVoiceBank(VoicesBank bank, AudioProcessorValu
 	voiceCopyBuffer{ voiceCopyBuffer },
 	button_ForLoadingSelectedVoice{ voiceSlots, unexposedParams },
 	button_ForSavingVoiceIntoSelectedSlot{ voiceSlots, unexposedParams },
-	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
 	button_ForPullingSelectedVoiceFromHardware{ voiceSlots, unexposedParams },
+	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams },
+	button_ForExportingSelectedVoiceToFile{ unexposedParams },
+	button_ForImportingVoiceFromFile{ unexposedParams },
+	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
-	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams }
+	button_ForExportingVoicesBankToFile{ unexposedParams },
+	button_ForImportingVoicesBankFromFile{ unexposedParams }
 {
 	addAndMakeVisible(voiceSlots);
 	addAndMakeVisible(button_ForLoadingSelectedVoice);
 	addAndMakeVisible(button_ForSavingVoiceIntoSelectedSlot);
 	addAndMakeVisible(button_ForPushingSelectedVoiceToHardware);
 	addAndMakeVisible(button_ForPullingSelectedVoiceFromHardware);
+	addAndMakeVisible(button_ForExportingSelectedVoiceToFile);
+	addAndMakeVisible(button_ForImportingVoiceFromFile);
 	addAndMakeVisible(button_ForPushingEntireBankToHardware);
 	addAndMakeVisible(button_ForPullingEntireBankFromHardware);
+	addAndMakeVisible(button_ForExportingVoicesBankToFile);
+	addAndMakeVisible(button_ForImportingVoicesBankFromFile);
 
 	commandManager.registerAllCommandsForTarget(this);
 	addKeyListener(commandManager.getKeyMappings());
@@ -100,20 +108,22 @@ bool TabForCustomVoiceBank::perform(const InvocationInfo& info) {
 	}
 }
 
-void TabForCustomVoiceBank::addListenerToPullEntireBankButton(Button::Listener* listener) {
-	button_ForPullingEntireBankFromHardware.addListener(listener);
-}
-
-void TabForCustomVoiceBank::addListenerToPushEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoiceBank::addListenerToButtons(Button::Listener* listener) {
+	button_ForExportingSelectedVoiceToFile.addListener(listener);
+	button_ForImportingVoiceFromFile.addListener(listener);
 	button_ForPushingEntireBankToHardware.addListener(listener);
+	button_ForPullingEntireBankFromHardware.addListener(listener);
+	button_ForExportingVoicesBankToFile.addListener(listener);
+	button_ForImportingVoicesBankFromFile.addListener(listener);
 }
 
-void TabForCustomVoiceBank::removeListenerFromPullEntireBankButton(Button::Listener* listener) {
-	button_ForPullingEntireBankFromHardware.removeListener(listener);
-}
-
-void TabForCustomVoiceBank::removeListenerFromPushEntireBankButton(Button::Listener* listener) {
+void TabForCustomVoiceBank::removeListenerFromButtons(Button::Listener* listener) {
+	button_ForExportingSelectedVoiceToFile.removeListener(listener);
+	button_ForImportingVoiceFromFile.removeListener(listener);
 	button_ForPushingEntireBankToHardware.removeListener(listener);
+	button_ForPullingEntireBankFromHardware.removeListener(listener);
+	button_ForExportingVoicesBankToFile.removeListener(listener);
+	button_ForImportingVoicesBankFromFile.removeListener(listener);
 }
 
 void TabForCustomVoiceBank::timerCallback() {

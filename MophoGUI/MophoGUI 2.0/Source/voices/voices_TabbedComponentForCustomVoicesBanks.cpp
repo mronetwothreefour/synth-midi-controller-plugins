@@ -27,27 +27,15 @@ TabbedComponentForCustomVoicesBanks::TabbedComponentForCustomVoicesBanks(AudioPr
 	setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h);
 }
 
-void TabbedComponentForCustomVoicesBanks::addListenerToPullBankButtonInAllCustomTabs(Button::Listener* listener) {
-	bank1.addListenerToPullEntireBankButton(listener);
-	bank2.addListenerToPullEntireBankButton(listener);
-	bank3.addListenerToPullEntireBankButton(listener);
+void TabbedComponentForCustomVoicesBanks::addListenerToButtonsInAllCustomTabs(Button::Listener* listener) {
+	bank1.addListenerToButtons(listener);
+	bank2.addListenerToButtons(listener);
+	bank3.addListenerToButtons(listener);
 }
 
-void TabbedComponentForCustomVoicesBanks::addListenerToPushBankButtonInAllCustomTabs(Button::Listener* listener) {
-	bank1.addListenerToPushEntireBankButton(listener);
-	bank2.addListenerToPushEntireBankButton(listener);
-	bank3.addListenerToPushEntireBankButton(listener);
-}
-
-void TabbedComponentForCustomVoicesBanks::removeListenerFromPullBankButtonInAllCustomTabs(Button::Listener* listener) {
-	bank1.removeListenerFromPullEntireBankButton(listener);
-	bank2.removeListenerFromPullEntireBankButton(listener);
-	bank3.removeListenerFromPullEntireBankButton(listener);
-}
-
-void TabbedComponentForCustomVoicesBanks::removeListenerFromPushBankButtonInAllCustomTabs(Button::Listener* listener) {
-	bank1.removeListenerFromPushEntireBankButton(listener);
-	bank2.removeListenerFromPushEntireBankButton(listener);
-	bank3.removeListenerFromPushEntireBankButton(listener);
+void TabbedComponentForCustomVoicesBanks::removeListenerFromButtonsInAllCustomTabs(Button::Listener* listener) {
+	bank1.removeListenerFromButtons(listener);
+	bank2.removeListenerFromButtons(listener);
+	bank3.removeListenerFromButtons(listener);
 }
 
