@@ -559,6 +559,9 @@
     <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.cpp">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\imptExpt\imptExpt_ImportVoicesBankComponent.cpp">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_EditBufferDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
@@ -2977,6 +2980,9 @@
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportVoiceDataComponent.h">
+      <Filter>MophoGUI 2\Source\imptExpt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\imptExpt\imptExpt_ImportVoicesBankComponent.h">
       <Filter>MophoGUI 2\Source\imptExpt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_Constants.h">

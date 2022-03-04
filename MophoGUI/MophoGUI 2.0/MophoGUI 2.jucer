@@ -117,6 +117,10 @@
               resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.cpp"/>
         <FILE id="HJHQYm" name="imptExpt_ImportVoiceDataComponent.h" compile="0"
               resource="0" file="Source/imptExpt/imptExpt_ImportVoiceDataComponent.h"/>
+        <FILE id="CpJo4f" name="imptExpt_ImportVoicesBankComponent.cpp" compile="1"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoicesBankComponent.cpp"/>
+        <FILE id="Ndz8Su" name="imptExpt_ImportVoicesBankComponent.h" compile="0"
+              resource="0" file="Source/imptExpt/imptExpt_ImportVoicesBankComponent.h"/>
       </GROUP>
       <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
         <FILE id="oEoDFj" name="midi_Constants.h" compile="0" resource="0"
