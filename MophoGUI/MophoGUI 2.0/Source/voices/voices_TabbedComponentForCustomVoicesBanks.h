@@ -22,6 +22,7 @@ public:
     TabbedComponentForCustomVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void addListenerToButtonsInAllCustomTabs(Button::Listener* listener);
     void removeListenerFromButtonsInAllCustomTabs(Button::Listener* listener);
+    VoiceSlotsComponent* getVoiceSlotsComponentForCustomBank(VoicesBank bank);
 
 private:
     //==============================================================================

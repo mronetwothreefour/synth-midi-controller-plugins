@@ -97,9 +97,11 @@ namespace constants
 		static const int imptExptBrowserComponent_h{ 245 };
 		static const int imptExptBrowserComponent_w{ 471 };
 		static const int imptExptBrowserComponent_x{ 401 };
+		static const int imptExptBrowserComponent_y{ 187 };
 		static const int imptExptButtonsRow_y{ 442 };
 		static const int imptExptCancelAndOKbuttons_w{ 52 };
 		static const int imptExptCancelButton_x{ 763 };
+		static const int imptExptNewFolderButton_w{ 78 };
 		static const int imptExptNewFolderButton_x{ 401 };
 		static const int imptExptOKbutton_x{ imptExptCancelButton_x + imptExptCancelAndOKbuttons_w + horizGapBtwnControls };
 		static const int imptExptWindow_h{ 332 };
@@ -163,11 +165,15 @@ namespace constants
 		static const int voicesBankButtons_horizontalSpacing{ 55 };
 		static const int voicesBankLoadButton_x{ 183 };
 		static const int voicesBankFactoryPushButton_x{ voicesBankLoadButton_x + voicesBankButtons_horizontalSpacing };
-		static const int voicesBankPushEntireBankButton_x{ 613 };
 		static const int voicesBankSaveButton_x{ voicesBankLoadButton_x + voicesBankButtons_horizontalSpacing };
 		static const int voicesBankCustomPushButton_x{ voicesBankSaveButton_x + voicesBankButtons_horizontalSpacing };
 		static const int voicesBankPullButton_x{ voicesBankCustomPushButton_x + voicesBankButtons_horizontalSpacing };
+		static const int voicesBankExportButton_x{ voicesBankPullButton_x + voicesBankButtons_horizontalSpacing };
+		static const int voicesBankImportButton_x{ voicesBankExportButton_x + voicesBankButtons_horizontalSpacing };
+		static const int voicesBankPushEntireBankButton_x{ 638 };
 		static const int voicesBankPullEntireBankButton_x{ voicesBankPushEntireBankButton_x + voicesBankButtons_horizontalSpacing };
+		static const int voicesBankExportEntireBankButton_x{ voicesBankPullEntireBankButton_x + voicesBankButtons_horizontalSpacing };
+		static const int voicesBankImportEntireBankButton_x{ voicesBankExportEntireBankButton_x + voicesBankButtons_horizontalSpacing };
 		static const int voicesBanksControls_y{ 477 };
 		static const int voiceSlotRadioButtton_w{ 125 };
 		static const int voiceSlotRadioButtton_h{ 19 };
@@ -248,7 +254,7 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptCancelButton{ imptExptCancelButton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
-		static const Rectangle<int> bounds_ImptExptNewFolderButton{ buttonImptExptNewFldr_x, imptExptButtonsRow_y, ImptExptNewFolderButton_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImptExptNewFolderButton{ imptExptNewFolderButton_x, imptExptButtonsRow_y, imptExptNewFolderButton_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptOKbutton{ imptExptOKbutton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };
 		static const Rectangle<int> bounds_LoadSelectedVoiceButton{ voicesBankLoadButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
@@ -272,6 +278,10 @@ namespace constants
 		static const Rectangle<int> bounds_VoiceNameEditorButton{ 118, 0, 44, 18 };
 		static const Rectangle<int> bounds_VoiceNameEditorLabel{ 0, 32, 222, 18 };
 		static const Rectangle<int> bounds_VoiceSlotsWidget{ 15, 14, voiceSlotsWidget_w, voiceSlotsWidget_h };
+		static const Rectangle<int> bounds_ExportEntireBankButton{ voicesBankExportEntireBankButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ExportSelectedVoiceButton{ voicesBankExportButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImportEntireBankButton{ voicesBankImportEntireBankButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImportSelectedVoiceButton{ voicesBankImportButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_PullEntireBankButton{ voicesBankPullEntireBankButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_PullSelectedVoiceButton{ voicesBankPullButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_PushSelectedCustomVoiceButton{ voicesBankCustomPushButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };

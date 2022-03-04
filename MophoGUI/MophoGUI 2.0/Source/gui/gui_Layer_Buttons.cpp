@@ -53,6 +53,7 @@ void ButtonsLayer::showVoicesBanksComponent() {
     if (voicesBanksComponent != nullptr) {
         addAndMakeVisible(voicesBanksComponent.get());
         voicesBanksComponent->setBounds(getLocalBounds());
+        voicesBanksComponent->grabKeyboardFocus();
     }
 }
 

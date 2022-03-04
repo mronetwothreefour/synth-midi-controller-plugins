@@ -19,12 +19,12 @@ TabForCustomVoiceBank::TabForCustomVoiceBank(VoicesBank bank, AudioProcessorValu
 	button_ForSavingVoiceIntoSelectedSlot{ voiceSlots, unexposedParams },
 	button_ForPullingSelectedVoiceFromHardware{ voiceSlots, unexposedParams },
 	button_ForPushingSelectedVoiceToHardware{ voiceSlots, unexposedParams },
-	button_ForExportingSelectedVoiceToFile{ unexposedParams },
-	button_ForImportingVoiceFromFile{ unexposedParams },
+	button_ForExportingSelectedVoiceToFile{ bank, unexposedParams },
+	button_ForImportingVoiceFromFile{ bank, unexposedParams },
 	button_ForPullingEntireBankFromHardware{ bank, unexposedParams },
 	button_ForPushingEntireBankToHardware{ bank, unexposedParams },
-	button_ForExportingVoicesBankToFile{ unexposedParams },
-	button_ForImportingVoicesBankFromFile{ unexposedParams }
+	button_ForExportingVoicesBankToFile{ bank, unexposedParams },
+	button_ForImportingVoicesBankFromFile{ bank, unexposedParams }
 {
 	addAndMakeVisible(voiceSlots);
 	addAndMakeVisible(button_ForLoadingSelectedVoice);
@@ -56,8 +56,12 @@ void TabForCustomVoiceBank::resized() {
 	button_ForSavingVoiceIntoSelectedSlot.setBounds(GUI::bounds_SaveVoiceIntoSelectedSlotButton);
 	button_ForPushingSelectedVoiceToHardware.setBounds(GUI::bounds_PushSelectedCustomVoiceButton);
 	button_ForPullingSelectedVoiceFromHardware.setBounds(GUI::bounds_PullSelectedVoiceButton);
+	button_ForExportingSelectedVoiceToFile.setBounds(GUI::bounds_ExportSelectedVoiceButton);
+	button_ForImportingVoiceFromFile.setBounds(GUI::bounds_ImportSelectedVoiceButton);
 	button_ForPushingEntireBankToHardware.setBounds(GUI::bounds_PushEntireBankButton);
 	button_ForPullingEntireBankFromHardware.setBounds(GUI::bounds_PullEntireBankButton);
+	button_ForExportingVoicesBankToFile.setBounds(GUI::bounds_ExportEntireBankButton);
+	button_ForImportingVoicesBankFromFile.setBounds(GUI::bounds_ImportEntireBankButton);
 }
 
 ApplicationCommandTarget* TabForCustomVoiceBank::getNextCommandTarget() {
@@ -124,6 +128,10 @@ void TabForCustomVoiceBank::removeListenerFromButtons(Button::Listener* listener
 	button_ForPullingEntireBankFromHardware.removeListener(listener);
 	button_ForExportingVoicesBankToFile.removeListener(listener);
 	button_ForImportingVoicesBankFromFile.removeListener(listener);
+}
+
+VoiceSlotsComponent* TabForCustomVoiceBank::getVoiceSlotsComponent() {
+	return &voiceSlots;
 }
 
 void TabForCustomVoiceBank::timerCallback() {

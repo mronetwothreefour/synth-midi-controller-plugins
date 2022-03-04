@@ -107,7 +107,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Create.toString())
 		return isDown ? BinaryData::ButtonDownCreate_png : BinaryData::ButtonUpCreate_png;
 
-	if (button.getComponentID() == ID::button_Export.toString())
+	if (button.getComponentID().startsWith("button_Export"))
 		return isDown ? BinaryData::ButtonDownExport_png : BinaryData::ButtonUpExport_png;
 
 	if (button.getComponentID() == ID::button_FileOverwrite.toString())
@@ -116,11 +116,14 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Global.toString())
 		return isDown ? BinaryData::ButtonDownGlobal_png : BinaryData::ButtonUpGlobal_png;
 
-	if (button.getComponentID() == ID::button_Import.toString())
+	if (button.getComponentID().startsWith("button_Import"))
 		return isDown ? BinaryData::ButtonDownImport_png : BinaryData::ButtonUpImport_png;
 
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
+
+	if (button.getComponentID() == ID::button_NewFolder.toString())
+		return isDown ? BinaryData::ButtonDownNewFolder_png : BinaryData::ButtonUpNewFolder_png;
 
 	if (button.getComponentID() == ID::button_VoiceNameEdit.toString()) 
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
@@ -174,7 +177,7 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Create.toString())
 		return size_t(isDown ? BinaryData::ButtonDownCreate_pngSize : BinaryData::ButtonUpCreate_pngSize);
 
-	if (button.getComponentID() == ID::button_Export.toString())
+	if (button.getComponentID().startsWith("button_Export"))
 		return size_t(isDown ? BinaryData::ButtonDownExport_pngSize : BinaryData::ButtonUpExport_pngSize);
 
 	if (button.getComponentID() == ID::button_FileOverwrite.toString())
@@ -183,11 +186,14 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Global.toString())
 		return size_t(isDown ? BinaryData::ButtonDownGlobal_pngSize : BinaryData::ButtonUpGlobal_pngSize);
 
-	if (button.getComponentID() == ID::button_Import.toString())
+	if (button.getComponentID().startsWith("button_Import"))
 		return size_t(isDown ? BinaryData::ButtonDownImport_pngSize : BinaryData::ButtonUpImport_pngSize);
 
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);
+
+	if (button.getComponentID() == ID::button_NewFolder.toString())
+		return size_t(isDown ? BinaryData::ButtonDownNewFolder_pngSize : BinaryData::ButtonUpNewFolder_pngSize);
 
 	if (button.getComponentID() == ID::button_VoiceNameEdit.toString())
 		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);

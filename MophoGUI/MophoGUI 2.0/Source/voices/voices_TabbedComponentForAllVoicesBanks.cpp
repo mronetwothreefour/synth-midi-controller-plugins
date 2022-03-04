@@ -33,3 +33,8 @@ void TabbedComponentForAllVoicesBanks::removeListenerFromButtonsInAllTabs(Button
 	tabbedComponentForFactoryVoicesBanks.removeListenerFromPushBankButtonInAllFactoryTabs(listener);
 }
 
+VoiceSlotsComponent* TabbedComponentForAllVoicesBanks::getVoiceSlotsComponentForCustomBank(VoicesBank bank) {
+	jassert(bank == VoicesBank::custom1 || bank == VoicesBank::custom2 || bank == VoicesBank::custom3);
+	return tabbedComponentForCustomVoicesBanks.getVoiceSlotsComponentForCustomBank(bank);
+}
+

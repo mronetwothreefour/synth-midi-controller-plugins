@@ -5,11 +5,17 @@
 
 
 
-ButtonForImportingVoiceFromFile::ButtonForImportingVoiceFromFile(UnexposedParameters* unexposedParams) :
+ButtonForImportingVoiceFromFile::ButtonForImportingVoiceFromFile(VoicesBank bank, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Import.toString());
+	if (bank == VoicesBank::custom1)
+		setComponentID(ID::button_ImportVoiceIntoCustomBank1.toString());
+	if (bank == VoicesBank::custom2)
+		setComponentID(ID::button_ImportVoiceIntoCustomBank2.toString());
+	if (bank == VoicesBank::custom3)
+		setComponentID(ID::button_ImportVoiceIntoCustomBank3.toString());
+
 	setTooltip(createButtonTooltipString());
 }
 

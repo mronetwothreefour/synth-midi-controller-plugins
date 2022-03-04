@@ -5,11 +5,17 @@
 
 
 
-ButtonForExportingSelectedVoiceToFile::ButtonForExportingSelectedVoiceToFile(UnexposedParameters* unexposedParams) :
+ButtonForExportingSelectedVoiceToFile::ButtonForExportingSelectedVoiceToFile(VoicesBank bank, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_Export.toString());
+	if (bank == VoicesBank::custom1)
+		setComponentID(ID::button_ExportVoiceFromCustomBank1.toString());
+	if (bank == VoicesBank::custom2)
+		setComponentID(ID::button_ExportVoiceFromCustomBank2.toString());
+	if (bank == VoicesBank::custom3)
+		setComponentID(ID::button_ExportVoiceFromCustomBank3.toString());
+
 	setTooltip(createButtonTooltipString());
 }
 

@@ -23,6 +23,7 @@ public:
     TabbedComponentForAllVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void addListenerToButtonsInAllTabs(Button::Listener* listener);
     void removeListenerFromButtonsInAllTabs(Button::Listener* listener);
+    VoiceSlotsComponent* getVoiceSlotsComponentForCustomBank(VoicesBank bank);
 
 private:
     //==============================================================================

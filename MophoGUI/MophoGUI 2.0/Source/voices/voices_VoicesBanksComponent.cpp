@@ -1,9 +1,14 @@
 #include "voices_VoicesBanksComponent.h"
 
 #include "voices_BankTransmissionComponent.h"
+#include "voices_Constants.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
+#include "../imptExpt/imptExpt_ExportVoiceDataComponent.h"
+#include "../imptExpt/imptExpt_ExportVoicesBankComponent.h"
+#include "../imptExpt/imptExpt_ImportVoiceDataComponent.h"
+#include "../imptExpt/imptExpt_ImportVoicesBankComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -16,8 +21,7 @@ VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposed
 	unexposedParams{ unexposedParams },
 	button_ForClosingVoicesBanksComponent{ "" }
 {
-	tabbedComponent.addListenerToPushEntireBankButtonInAllTabs(this);
-	tabbedComponent.addListenerToPullEntireBankButtonInAllCustomTabs(this);
+	tabbedComponent.addListenerToButtonsInAllTabs(this);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 
@@ -25,6 +29,7 @@ VoicesBanksComponent::VoicesBanksComponent(AudioProcessorValueTreeState* exposed
 	tabbedComponent.setBounds(GUI::bounds_VoicesBanksTabbedComponent);
 
 	button_ForClosingVoicesBanksComponent.setComponentID(ID::button_Close.toString());
+	button_ForClosingVoicesBanksComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	addAndMakeVisible(button_ForClosingVoicesBanksComponent);
 	button_ForClosingVoicesBanksComponent.setBounds(GUI::bounds_VoicesBanksCloseButton);
 	button_ForClosingVoicesBanksComponent.onClick = [this] { hideThisComponent(); };
@@ -79,18 +84,48 @@ void VoicesBanksComponent::labelTextChanged(Label* label) {
 }
 
 void VoicesBanksComponent::buttonClicked(Button* button) {
+	if (button->getComponentID() == ID::button_ExportCustomBank1.toString())
+		showExportVoicesBankComponentForBank(VoicesBank::custom1);
+	if (button->getComponentID() == ID::button_ExportCustomBank2.toString())
+		showExportVoicesBankComponentForBank(VoicesBank::custom2);
+	if (button->getComponentID() == ID::button_ExportCustomBank3.toString())
+		showExportVoicesBankComponentForBank(VoicesBank::custom3);
+
+	if (button->getComponentID() == ID::button_ExportVoiceFromCustomBank1.toString())
+		showExportSelectedVoiceComponentForBank(VoicesBank::custom1);
+	if (button->getComponentID() == ID::button_ExportVoiceFromCustomBank2.toString())
+		showExportSelectedVoiceComponentForBank(VoicesBank::custom2);
+	if (button->getComponentID() == ID::button_ExportVoiceFromCustomBank3.toString())
+		showExportSelectedVoiceComponentForBank(VoicesBank::custom3);
+
+	if (button->getComponentID() == ID::button_ImportBankIntoCustomBank1.toString())
+		showImportVoicesBankComponentForBank(VoicesBank::custom1);
+	if (button->getComponentID() == ID::button_ImportBankIntoCustomBank2.toString())
+		showImportVoicesBankComponentForBank(VoicesBank::custom2);
+	if (button->getComponentID() == ID::button_ImportBankIntoCustomBank3.toString())
+		showImportVoicesBankComponentForBank(VoicesBank::custom3);
+
+	if (button->getComponentID() == ID::button_ImportVoiceIntoCustomBank1.toString())
+		showImportVoiceComponentForBank(VoicesBank::custom1);
+	if (button->getComponentID() == ID::button_ImportVoiceIntoCustomBank2.toString())
+		showImportVoiceComponentForBank(VoicesBank::custom2);
+	if (button->getComponentID() == ID::button_ImportVoiceIntoCustomBank3.toString())
+		showImportVoiceComponentForBank(VoicesBank::custom3);
+
 	if (button->getComponentID() == ID::button_PullCustomBank1.toString())
 		showPullEntireBankComponentForBank(VoicesBank::custom1);
 	if (button->getComponentID() == ID::button_PullCustomBank2.toString())
 		showPullEntireBankComponentForBank(VoicesBank::custom2);
 	if (button->getComponentID() == ID::button_PullCustomBank3.toString())
 		showPullEntireBankComponentForBank(VoicesBank::custom3);
+
 	if (button->getComponentID() == ID::button_PushCustomBank1.toString())
 		showPushEntireBankComponentForBank(VoicesBank::custom1);
 	if (button->getComponentID() == ID::button_PushCustomBank2.toString())
 		showPushEntireBankComponentForBank(VoicesBank::custom2);
 	if (button->getComponentID() == ID::button_PushCustomBank3.toString())
 		showPushEntireBankComponentForBank(VoicesBank::custom3);
+
 	if (button->getComponentID() == ID::button_PushFactoryBank1.toString())
 		showPushEntireBankComponentForBank(VoicesBank::factory1);
 	if (button->getComponentID() == ID::button_PushFactoryBank2.toString())
@@ -99,12 +134,41 @@ void VoicesBanksComponent::buttonClicked(Button* button) {
 		showPushEntireBankComponentForBank(VoicesBank::factory3);
 }
 
+void VoicesBanksComponent::showExportSelectedVoiceComponentForBank(VoicesBank bank) {
+	auto slotsComponent{ tabbedComponent.getVoiceSlotsComponentForCustomBank(bank) };
+	auto slot{ slotsComponent->selectedSlot };
+	if (slot < voices::numberOfSlotsInVoicesBank) {
+		exportSelectedVoiceComponent.reset(new ExportVoiceDataComponent(bank, slotsComponent, unexposedParams));
+		if (exportSelectedVoiceComponent != nullptr) {
+			addAndMakeVisible(exportSelectedVoiceComponent.get());
+			exportSelectedVoiceComponent->setBounds(getLocalBounds());
+			exportSelectedVoiceComponent->setAlwaysOnTop(true);
+			exportSelectedVoiceComponent->grabKeyboardFocus();
+		}
+	}
+}
+
+void VoicesBanksComponent::showImportVoiceComponentForBank(VoicesBank bank) {
+	auto slotsComponent{ tabbedComponent.getVoiceSlotsComponentForCustomBank(bank) };
+	auto slot{ slotsComponent->selectedSlot };
+	if (slot < voices::numberOfSlotsInVoicesBank) {
+		importVoiceComponent.reset(new ImportVoiceDataComponent(bank, slotsComponent, unexposedParams));
+		if (importVoiceComponent != nullptr) {
+			addAndMakeVisible(importVoiceComponent.get());
+			importVoiceComponent->setBounds(getLocalBounds());
+			importVoiceComponent->setAlwaysOnTop(true);
+			importVoiceComponent->grabKeyboardFocus();
+		}
+	}
+}
+
 void VoicesBanksComponent::showPushEntireBankComponentForBank(VoicesBank bank) {
 	pushEntireBankComponent.reset(new BankTransmissionComponent(bank, BankTransmissionComponent::TransmissionType::push, unexposedParams));
 	if (pushEntireBankComponent != nullptr) {
 		addAndMakeVisible(pushEntireBankComponent.get());
 		pushEntireBankComponent->setBounds(getLocalBounds());
 		pushEntireBankComponent->setAlwaysOnTop(true);
+		pushEntireBankComponent->grabKeyboardFocus();
 	}
 }
 
@@ -114,16 +178,43 @@ void VoicesBanksComponent::showPullEntireBankComponentForBank(VoicesBank bank) {
 		addAndMakeVisible(pullEntireBankComponent.get());
 		pullEntireBankComponent->setBounds(getLocalBounds());
 		pullEntireBankComponent->setAlwaysOnTop(true);
+		pullEntireBankComponent->grabKeyboardFocus();
+	}
+}
+
+void VoicesBanksComponent::showExportVoicesBankComponentForBank(VoicesBank bank) {
+	auto slotsComponent{ tabbedComponent.getVoiceSlotsComponentForCustomBank(bank) };
+	exportVoicesBankComponent.reset(new ExportVoicesBankComponent(bank,slotsComponent, unexposedParams));
+	if (exportVoicesBankComponent != nullptr) {
+		addAndMakeVisible(exportVoicesBankComponent.get());
+		exportVoicesBankComponent->setBounds(getLocalBounds());
+		exportVoicesBankComponent->setAlwaysOnTop(true);
+		exportVoicesBankComponent->grabKeyboardFocus();
+	}
+}
+
+void VoicesBanksComponent::showImportVoicesBankComponentForBank(VoicesBank bank) {
+	auto slotsComponent{ tabbedComponent.getVoiceSlotsComponentForCustomBank(bank) };
+	importVoicesBankComponent.reset(new ImportVoicesBankComponent(bank, slotsComponent, unexposedParams));
+	if (importVoicesBankComponent != nullptr) {
+		addAndMakeVisible(importVoicesBankComponent.get());
+		importVoicesBankComponent->setBounds(getLocalBounds());
+		importVoicesBankComponent->setAlwaysOnTop(true);
+		importVoicesBankComponent->grabKeyboardFocus();
 	}
 }
 
 void VoicesBanksComponent::hideThisComponent() {
+	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 VoicesBanksComponent::~VoicesBanksComponent() {
+	exportSelectedVoiceComponent = nullptr;
+	exportVoicesBankComponent = nullptr;
+	importVoiceComponent = nullptr;
+	importVoicesBankComponent = nullptr;
 	pullEntireBankComponent = nullptr;
 	pushEntireBankComponent = nullptr;
-	tabbedComponent.removeListenerFromPullEntireBankButtonInAllCustomTabs(this);
-	tabbedComponent.removeListenerFromPushEntireBankButtonInAllTabs(this);
+	tabbedComponent.removeListenerFromButtonsInAllTabs(this);
 }

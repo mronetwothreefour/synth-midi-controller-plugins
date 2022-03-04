@@ -39,3 +39,16 @@ void TabbedComponentForCustomVoicesBanks::removeListenerFromButtonsInAllCustomTa
 	bank3.removeListenerFromButtons(listener);
 }
 
+VoiceSlotsComponent* TabbedComponentForCustomVoicesBanks::getVoiceSlotsComponentForCustomBank(VoicesBank bank) {
+	switch (bank) {
+	case VoicesBank::custom1:
+		return bank1.getVoiceSlotsComponent();
+	case VoicesBank::custom2:
+		return bank2.getVoiceSlotsComponent();
+	case VoicesBank::custom3:
+		return bank3.getVoiceSlotsComponent();
+	default:
+		return bank1.getVoiceSlotsComponent();
+	}
+}
+

@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "widget_BaseButtonWithOnClickAndTooltipMethods.h"
+#include "../voices/voices_VoicesBanks.h"
 
 
 
@@ -17,7 +18,7 @@ public:
 
 	ButtonForExportingSelectedVoiceToFile() = delete;
 
-	explicit ButtonForExportingSelectedVoiceToFile(UnexposedParameters* unexposedParams);
+	ButtonForExportingSelectedVoiceToFile(VoicesBank bank, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
