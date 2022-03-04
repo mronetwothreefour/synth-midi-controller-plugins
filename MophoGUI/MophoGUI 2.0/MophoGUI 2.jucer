@@ -313,6 +313,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
         <FILE id="InECFF" name="widget_voices_ButtonForExportingSelectedVoiceToFile.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.h"/>
+        <FILE id="Cxdyle" name="widget_voices_ButtonForExportingVoicesBankToFile.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingVoicesBankToFile.cpp"/>
+        <FILE id="OFL6Ky" name="widget_voices_ButtonForExportingVoicesBankToFile.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingVoicesBankToFile.h"/>
         <FILE id="fgPxyu" name="widget_voices_ButtonForLoadingSelectedVoice.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
         <FILE id="w53TUf" name="widget_voices_ButtonForLoadingSelectedVoice.h"
