@@ -156,7 +156,7 @@ namespace BinaryData
     const int            GlobalParametersBackground_pngSize = 10458;
 
     extern const char*   ImportExportWindowBackground_png;
-    const int            ImportExportWindowBackground_pngSize = 1853;
+    const int            ImportExportWindowBackground_pngSize = 1951;
 
     extern const char*   LabelBank1_png;
     const int            LabelBank1_pngSize = 171;

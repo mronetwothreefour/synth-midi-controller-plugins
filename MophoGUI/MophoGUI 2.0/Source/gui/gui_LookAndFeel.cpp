@@ -23,29 +23,45 @@ void GUILookAndFeel::drawRotarySlider(Graphics& g, int /*x*/, int y,  int w, int
 }
 
 void GUILookAndFeel::drawLabel(Graphics& g, Label& label) {
-	g.setFont(FontsMenu::fontFor_Labels);
-	g.setColour(Color::controlText);
-	if (label.getComponentID() != "") {
-		if (label.getComponentID() == ID::component_EditLabel.toString()) {
-			g.fillAll(Color::black);
-			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		}
-		if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
-			g.setFont(FontsMenu::fontFor_DisplayLabels);
-			g.setColour(label.findColour(label.textColourId));
-			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		}
-		if (label.getComponentID() == ID::component_VoiceNameEditLabel.toString()) {
-			g.setFont(FontsMenu::fontFor_VoiceNameEditorText);
-			g.setColour(Colours::transparentBlack);
-			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		}
+	auto isInImptExptBrowser{ label.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() ||
+		label.getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString()
+	};
+	if (isInImptExptBrowser) {
+		auto textArea{ label.getLocalBounds() };
+		textArea.removeFromLeft(5);
+		g.setColour(Color::controlText);
+		g.setFont(FontsMenu::fontFor_BrowserText);
+		g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
 	}
-	else
-		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+	else {
+		g.setFont(FontsMenu::fontFor_Labels);
+		g.setColour(Color::controlText);
+		if (label.getComponentID() != "") {
+			if (label.getComponentID() == ID::component_EditLabel.toString()) {
+				g.fillAll(Color::black);
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
+			if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
+				g.setFont(FontsMenu::fontFor_DisplayLabels);
+				g.setColour(label.findColour(label.textColourId));
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
+			if (label.getComponentID() == ID::component_VoiceNameEditLabel.toString()) {
+				g.setFont(FontsMenu::fontFor_VoiceNameEditorText);
+				g.setColour(Colours::transparentBlack);
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
+		}
+		else
+			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+	}
 }
 
-void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& /*textEditor*/) {
+void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*height*/, TextEditor& textEditor) {
+	auto editorIsInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	auto editorIsInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (editorIsInImptExptComponent || editorIsInPathComboBoxInImptExptComponent)
+		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 	g.fillAll(Color::black);
 }
 
@@ -65,7 +81,7 @@ void GUILookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int
 	Rectangle<int> bounds(width, height);
 	g.setColour(Color::black.brighter(0.1f));
 	g.fillRect(bounds.toFloat());
-	g.setColour(Color::white);
+	g.setColour(Color::controlText);
 	g.drawRect(bounds.toFloat(), 2.0f);
 	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
 		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
@@ -273,14 +289,14 @@ void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*
 void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* /*icon*/, const String& fileSizeDescription,
 	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& /*dirContentsDisplay*/) {
 	if (itemIsSelected)
-		g.fillAll(Color::black.brighter(0.2f));
+		g.fillAll(Color::black.brighter(0.3f));
 	g.setColour(Color::black);
 	Path iconPath;
 	if (isDirectory)
 		iconPath.loadPathFromData(GUI::pathDataForFolderIcon.data(), GUI::pathDataForFolderIcon.size());
 	else
 		iconPath.loadPathFromData(GUI::pathDataForFileIcon.data(), GUI::pathDataForFileIcon.size());
-	g.setColour(Color::white);
+	g.setColour(Color::controlText);
 	g.fillPath(iconPath);
 	g.setFont(FontsMenu::fontFor_BrowserText);
 	if (w > 450 && !isDirectory) {
@@ -310,7 +326,11 @@ void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/
 }
 
 void GUILookAndFeel::positionComboBoxText(ComboBox& box, Label& label) {
-	label.setBounds(0, 0, box.getWidth() - 11, box.getHeight());
+	auto spaceForArrowIcon{ 11 };
+	auto isInImptExptFileBrowser{ box.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	if (isInImptExptFileBrowser)
+		spaceForArrowIcon = 20;
+	label.setBounds(0, 0, box.getWidth() - spaceForArrowIcon, box.getHeight());
 }
 
 PopupMenu::Options GUILookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) {
@@ -337,35 +357,43 @@ void GUILookAndFeel::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) 
 	g.fillAll(Color::black.brighter(0.2f));
 }
 
-void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*isSeparator*/, const bool isActive, const bool isHighlighted, 
+void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool isSeparator, const bool isActive, const bool isHighlighted, 
 	const bool isTicked, const bool hasSubMenu, const String& text, const String& /*shortcutText*/, const Drawable* /*icon*/, const Colour* const /*textColor*/)
 {
-	auto reducedArea = area.reduced(1);
-	if (isHighlighted && isActive) {
-		g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
-		g.fillRect(reducedArea);
+	if (isSeparator) {
+		auto separatorArea = area.reduced(5, 0);
+		separatorArea.removeFromTop(roundToInt(((float)separatorArea.getHeight() * 0.5f) - 0.5f));
+		g.setColour(Color::white);
+		g.fillRect(separatorArea.removeFromTop(1));
 	}
-	reducedArea.reduce(jmin(5, area.getWidth() / 20), 0);
-	g.setFont(FontsMenu::fontFor_PopupMenuItems);
-	auto iconArea = reducedArea.removeFromLeft(5).toFloat();
-	if (isTicked) {
-		g.setColour(Color::bullseye);
-		g.fillEllipse(4, 6, 4, 4);
+	else {
+		auto reducedArea = area.reduced(1);
+		if (isHighlighted && isActive) {
+			g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
+			g.fillRect(reducedArea);
+		}
+		reducedArea.reduce(jmin(5, area.getWidth() / 20), 0);
+		g.setFont(FontsMenu::fontFor_PopupMenuItems);
+		auto iconArea = reducedArea.removeFromLeft(5).toFloat();
+		if (isTicked) {
+			g.setColour(Color::bullseye);
+			g.fillEllipse(4, 6, 4, 4);
+		}
+		else
+			g.setColour(Color::controlText);
+		if (hasSubMenu) {
+			auto arrowH = 0.6f * getPopupMenuFont().getAscent();
+			auto x = static_cast<float> (reducedArea.removeFromRight((int)arrowH).getX());
+			auto halfH = static_cast<float> (reducedArea.getCentreY());
+			Path path;
+			path.startNewSubPath(x, halfH - arrowH * 0.5f);
+			path.lineTo(x + arrowH * 0.6f, halfH);
+			path.lineTo(x, halfH + arrowH * 0.5f);
+			g.strokePath(path, PathStrokeType(2.0f));
+		}
+		reducedArea.removeFromRight(3);
+		g.drawFittedText(text, reducedArea, Justification::centredLeft, 1);
 	}
-	else
-		g.setColour(Color::controlText);
-	if (hasSubMenu) {
-		auto arrowH = 0.6f * getPopupMenuFont().getAscent();
-		auto x = static_cast<float> (reducedArea.removeFromRight((int)arrowH).getX());
-		auto halfH = static_cast<float> (reducedArea.getCentreY());
-		Path path;
-		path.startNewSubPath(x, halfH - arrowH * 0.5f);
-		path.lineTo(x + arrowH * 0.6f, halfH);
-		path.lineTo(x, halfH + arrowH * 0.5f);
-		g.strokePath(path, PathStrokeType(2.0f));
-	}
-	reducedArea.removeFromRight(3);
-	g.drawFittedText(text, reducedArea, Justification::centredLeft, 1);
 }
 
 void GUILookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const bool /*isSeparator*/, int itemHeight, int& /*idealWidth*/, int& idealHeight) {
@@ -453,7 +481,7 @@ void GUILookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h
 		g.fillPath(p);
 	}
 	if (textToShow.isNotEmpty()) {
-		g.setColour(Color::white);
+		g.setColour(Color::controlText);
 		g.setFont(FontsMenu::fontFor_ProgressBar);
 		g.drawText(textToShow, 0, 0, w, h, Justification::centred, false);
 	}

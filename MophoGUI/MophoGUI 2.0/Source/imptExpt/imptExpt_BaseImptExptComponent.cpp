@@ -37,6 +37,7 @@ BaseImportExportComponent::BaseImportExportComponent(ImptExptType type, VoicesBa
 			auto slot{ slotsComponent->selectedSlot };
 			auto voicesBank{ unexposedParams->voicesBanks_get() };
 			auto selectedVoiceName{ voicesBank->nameOfVoiceInBankSlot(bank, slot) };
+			selectedVoiceName = selectedVoiceName.trimCharactersAtEnd(" ");
 			defaultFileName = File::createLegalFileName(selectedVoiceName) + voiceDataFileFilter.getDescription();
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voiceDataFileFilter, nullptr));
 		}
