@@ -66,6 +66,7 @@ void GUILookAndFeel::fillTextEditorBackground(Graphics& g, int /*width*/, int /*
 		fillArea.removeFromLeft(5);
 		fillArea.reduced(0, 8);
 		g.setColour(Color::black);
+		g.fillRect(fillArea);
 		textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
 	}
 	if (textEditor.getParentComponent()->getComponentID() == ID::label_VoiceNameEditor.toString() || 
