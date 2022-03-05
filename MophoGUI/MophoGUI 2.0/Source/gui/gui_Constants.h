@@ -45,6 +45,8 @@ namespace constants
 		static const int envelopeRenderer_LPF_y{ 154 };
 		static const int envelopeRenderer_VCA_y{ envelopeRenderer_LPF_y + envelopeRenderersVerticalSpacing };
 		static const int envelopeRenderer_Env3_y{ envelopeRenderer_VCA_y + envelopeRenderersVerticalSpacing };
+		static const int fileBrowserIcon_h{ 22 };
+		static const int fileBrowserIcon_w{ 32 };
 		static const int fileNotValidAlert_x{ 566 };
 		static const int fileNotValidAlert_y{ 274 };
 		static const int fileOverwriteConfirmBoxButtons_w{ 52 };
@@ -101,6 +103,22 @@ namespace constants
 		static const int imptExptButtonsRow_y{ 442 };
 		static const int imptExptCancelAndOKbuttons_w{ 52 };
 		static const int imptExptCancelButton_x{ 763 };
+		static const int imptExptCurrentPathBox_h{ 26 };
+		static const int imptExptCurrentPathBox_w{ 446 };
+		static const int imptExptCurrentPathBox_x{ 0 };
+		static const int imptExptCurrentPathBox_y{ 0 };
+		static const int imptExptDirContentsBox_h{ 173 };
+		static const int imptExptDirContentsBox_w{ imptExptBrowserComponent_w };
+		static const int imptExptDirContentsBox_x{ imptExptCurrentPathBox_x };
+		static const int imptExptDirContentsBox_y{ 36 };
+		static const int imptExptFileNameBox_h{ imptExptCurrentPathBox_h };
+		static const int imptExptFileNameBox_w{ 385 };
+		static const int imptExptFileNameBox_x{ 86 };
+		static const int imptExptFileNameBox_y{ 219 };
+		static const int imptExptGoUpButton_h{ imptExptCurrentPathBox_h };
+		static const int imptExptGoUpButton_w{ 20 };
+		static const int imptExptGoUpButton_x{ 450 };
+		static const int imptExptGoUpButton_y{ imptExptCurrentPathBox_y };
 		static const int imptExptNewFolderButton_w{ 78 };
 		static const int imptExptNewFolderButton_x{ 401 };
 		static const int imptExptOKbutton_x{ imptExptCancelButton_x + imptExptCancelAndOKbuttons_w + horizGapBtwnControls };
@@ -185,6 +203,8 @@ namespace constants
 		static const int writeReadBanksGlobalButtons_w{ 53 };
 		static const int writeReadBanksGlobalButtons_y{ 83 };
 
+		static const std::vector<uint8> pathDataForFileIcon{ 110,109,133,235,143,65,0,0,0,64,108,0,0,16,65,0,0,0,64,108,0,0,16,65,0,0,160,65,108,0,0,184,65,0,0,160,65,108,0,0,184,65,133,235,225,64,108,133,235,143,65,0,0,0,64,99,109,123,20,146,65,236,81,104,64,108,62,10,171,65,195,245,216,64,108,124,20,146,65,195,245,216,64,108,124,20,146,65,236,81,104,64,99,109,51,51,31,65,236,81,152,65,108,51,51,31,65,164,112,61,64,108,92,143,138,65,164,112,61,64,108,92,143,138,65,21,174,247,64,108,225,122,176,65,21,174,247,64,108,225,122,176,65,236,81,152,65,108,51,51,31,65,236,81,152,65,99,101,0,0 };
+		static const std::vector<uint8> pathDataForFolderIcon{ 110,109,0,0,196,65,0,0,192,64,108,0,0,104,65,0,0,192,64,98,51,51,91,65,0,0,192,64,51,51,75,65,102,102,198,64,154,153,73,65,0,0,176,64,108,205,204,68,65,205,204,140,64,98,154,153,65,65,103,102,102,64,205,204,52,65,154,153,57,64,103,102,38,65,154,153,57,64,108,206,204,236,64,154,153,57,64,98,102,102,214,64,0,0,64,64,0,0,192,64,205,204,108,64,0,0,192,64,0,0,144,64,108,0,0,192,64,0,0,140,65,98,0,0,192,64,102,102,146,65,102,102,214,64,0,0,152,65,0,0,240,64,0,0,152,65,108,0,0,196,65,0,0,152,65,98,102,102,202,65,0,0,152,65,0,0,208,65,102,102,146,65,0,0,208,65,0,0,140,65,108,0,0,208,65,0,0,240,64,98,0,0,208,65,102,102,214,64,102,102,202,65,0,0,192,64,0,0,196,65,0,0,192,64,99,109,0,0,240,64,0,0,128,64,108,0,0,40,65,0,0,128,64,98,102,102,46,65,0,0,128,64,205,204,52,65,154,153,137,64,102,102,54,65,102,102,150,64,108,51,51,59,65,153,153,185,64,98,205,204,60,65,51,51,195,64,102,102,62,65,153,153,201,64,153,153,65,65,255,255,207,64,108,153,153,57,65,101,102,230,64,108,0,0,224,64,101,102,230,64,108,0,0,224,64,0,0,144,64,98,0,0,224,64,102,102,134,64,102,102,230,64,0,0,128,64,0,0,240,64,0,0,128,64,99,109,0,0,200,65,0,0,140,65,98,0,0,200,65,102,102,142,65,102,102,198,65,0,0,144,65,0,0,196,65,0,0,144,65,108,0,0,240,64,0,0,144,65,98,102,102,230,64,0,0,144,65,0,0,224,64,102,102,142,65,0,0,224,64,0,0,140,65,108,0,0,224,64,51,51,3,65,108,154,153,65,65,51,51,3,65,108,0,0,80,65,205,204,220,64,98,102,102,86,65,0,0,224,64,0,0,96,65,0,0,224,64,0,0,104,65,0,0,224,64,108,0,0,196,65,0,0,224,64,98,102,102,198,65,0,0,224,64,0,0,200,65,102,102,230,64,0,0,200,65,0,0,240,64,108,0,0,200,65,0,0,140,65,99,101,0,0 };
 		static const std::vector<uint8> pathDataForPixel_Row1Col1{ 110,109,0,0,0,64,0,0,0,64,108,0,0,0,0,0,0,0,64,108,0,0,0,0,0,0,0,0,108,0,0,0,64,0,0,0,0,108,0,0,0,64,0,0,0,64,99,101,0,0 };
 		static const std::vector<uint8> pathDataForPixel_Row1Col2{ 110,109,0,0,144,64,0,0,0,64,108,0,0,32,64,0,0,0,64,108,0,0,32,64,0,0,0,0,108,0,0,144,64,0,0,0,0,108,0,0,144,64,0,0,0,64,99,101,0,0 };
 		static const std::vector<uint8> pathDataForPixel_Row1Col3{ 110,109,0,0,224,64,0,0,0,64,108,0,0,160,64,0,0,0,64,108,0,0,160,64,0,0,0,0,108,0,0,224,64,0,0,0,0,108,0,0,224,64,0,0,0,64,99,101,0,0 };
@@ -254,6 +274,10 @@ namespace constants
 		static const Rectangle<int> bounds_GlobalParametersTransposeKnob{ globalParametersKnobCol1_x, globalParametersKnobRow_y, knob_diameter, knob_diameter };
 		static const Rectangle<int> bounds_ImptExptBrowserComponent{ imptExptBrowserComponent_x, imptExptBrowserComponent_y, imptExptBrowserComponent_w, imptExptBrowserComponent_h };
 		static const Rectangle<int> bounds_ImptExptCancelButton{ imptExptCancelButton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_ImptExptCurrentPathBox{ imptExptCurrentPathBox_x, imptExptCurrentPathBox_y, imptExptCurrentPathBox_w, imptExptCurrentPathBox_h };
+		static const Rectangle<int> bounds_ImptExptDirContentsBox{ imptExptDirContentsBox_x, imptExptDirContentsBox_y, imptExptDirContentsBox_w, imptExptDirContentsBox_h };
+		static const Rectangle<int> bounds_ImptExptFileNameBox{ imptExptFileNameBox_x, imptExptFileNameBox_y, imptExptFileNameBox_w, imptExptFileNameBox_h };
+		static const Rectangle<int> bounds_ImptExptGoUpButton{ imptExptGoUpButton_x, imptExptGoUpButton_y, imptExptGoUpButton_w, imptExptGoUpButton_h };
 		static const Rectangle<int> bounds_ImptExptNewFolderButton{ imptExptNewFolderButton_x, imptExptButtonsRow_y, imptExptNewFolderButton_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptOKbutton{ imptExptOKbutton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };

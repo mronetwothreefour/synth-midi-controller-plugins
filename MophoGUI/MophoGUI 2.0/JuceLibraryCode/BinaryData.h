@@ -186,7 +186,7 @@ namespace BinaryData
     const int            OverwriteConfirmationBackground_pngSize = 2827;
 
     extern const char*   ProgramBanksTabBackground_png;
-    const int            ProgramBanksTabBackground_pngSize = 4116;
+    const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;

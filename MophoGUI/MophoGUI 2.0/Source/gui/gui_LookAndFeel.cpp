@@ -258,6 +258,54 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 	}
 }
 
+void GUILookAndFeel::layoutFileBrowserComponent(FileBrowserComponent& /*browser*/, DirectoryContentsDisplayComponent* dirContentsBox, FilePreviewComponent* /*previewComponent*/, ComboBox* currentPathBox, TextEditor* fileNameBox, Button* goUpButton) {
+	currentPathBox->setBounds(GUI::bounds_ImptExptCurrentPathBox);
+	currentPathBox->setJustificationType(Justification::centredLeft);
+	goUpButton->setBounds(GUI::bounds_ImptExptGoUpButton);
+	setColour(ListBox::backgroundColourId, Colours::transparentBlack);
+	setColour(ListBox::outlineColourId, Colours::transparentBlack);
+	if (auto* listAsComp = dynamic_cast<Component*> (dirContentsBox))
+		listAsComp->setBounds(GUI::bounds_ImptExptDirContentsBox);
+	fileNameBox->setBounds(GUI::bounds_ImptExptFileNameBox);
+	fileNameBox->applyFontToAllText(FontsMenu::fontFor_BrowserText, true);
+}
+
+void GUILookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& filename, Image* /*icon*/, const String& fileSizeDescription,
+	const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int /*itemIndex*/, DirectoryContentsDisplayComponent& /*dirContentsDisplay*/) {
+	if (itemIsSelected)
+		g.fillAll(Color::black.brighter(0.2f));
+	g.setColour(Color::black);
+	Path iconPath;
+	if (isDirectory)
+		iconPath.loadPathFromData(GUI::pathDataForFolderIcon.data(), GUI::pathDataForFolderIcon.size());
+	else
+		iconPath.loadPathFromData(GUI::pathDataForFileIcon.data(), GUI::pathDataForFileIcon.size());
+	g.setColour(Color::white);
+	g.fillPath(iconPath);
+	g.setFont(FontsMenu::fontFor_BrowserText);
+	if (w > 450 && !isDirectory) {
+		auto sizeX = roundToInt((float)w * 0.7f);
+		auto dateX = roundToInt((float)w * 0.8f);
+		g.drawFittedText(filename, GUI::fileBrowserIcon_w, 0, sizeX - GUI::fileBrowserIcon_w, h, Justification::centredLeft, 1);
+		g.drawFittedText(fileSizeDescription, sizeX, 0, dateX - sizeX - 8, h, Justification::centredRight, 1);
+		g.drawFittedText(fileTimeDescription, dateX, 0, w - 8 - dateX, h, Justification::centredRight, 1);
+	}
+	else {
+		g.drawFittedText(filename, GUI::fileBrowserIcon_w, 0, w - GUI::fileBrowserIcon_w, h, Justification::centredLeft, 1);
+	}
+}
+
+Button* GUILookAndFeel::createFileBrowserGoUpButton() {
+	auto* goUpButton = new DrawableButton("up", DrawableButton::ImageOnButtonBackgroundOriginalSize);
+	Path arrowPath;
+	arrowPath.addArrow({ 10, 22, 10, 4 }, 7, 15, 10);
+	DrawablePath arrowImage;
+	arrowImage.setFill(Color::black);
+	arrowImage.setPath(arrowPath);
+	goUpButton->setImages(&arrowImage);
+	return goUpButton;
+}
+
 void GUILookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) {
 }
 

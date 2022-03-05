@@ -22,6 +22,10 @@ public:
 	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
 	void drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) override;
 	void drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool isEnabled, const bool isHighlighted, const bool isDown) override;
+	void layoutFileBrowserComponent(FileBrowserComponent& browser, DirectoryContentsDisplayComponent* dirContentsBox, FilePreviewComponent* previewComponent, ComboBox* currentPathBox, TextEditor* fileNameBox, Button* goUpButton) override;
+	void drawFileBrowserRow(Graphics& g, int w, int h, const File& file, const String& filename, Image* icon, const String& fileSizeDescription,
+		const String& fileTimeDescription, bool isDirectory, bool itemIsSelected, int itemIndex, DirectoryContentsDisplayComponent& dirContentsDisplay) override;
+	Button* createFileBrowserGoUpButton() override;
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	void positionComboBoxText(ComboBox& box, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
