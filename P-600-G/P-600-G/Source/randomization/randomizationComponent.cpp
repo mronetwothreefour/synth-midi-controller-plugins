@@ -6,6 +6,7 @@
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
 using namespace constants;
 
@@ -43,8 +44,27 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param)
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	paramLockToggleButtons[param].setComponentID("lockButton_" + paramID);
-	paramLockToggleButtons[param].setSize(GUI::buttonRandomizationParamLock_w, GUI::buttonRandomizationParamLock_h);
+	switch (info.controlTypeFor(param))
+	{
+	case ControlType::knobForPitchWithValueStringDisplay:
+		paramLockToggleButtons[param].setComponentID("lockButtonForKnob_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::knobs_w, GUI::knobs_h);
+		break;
+	case ControlType::knobWithValueStringDisplay:
+		paramLockToggleButtons[param].setComponentID("lockButtonForKnob_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::knobs_w, GUI::knobs_h);
+		break;
+	case ControlType::threePoleSwitch:
+		paramLockToggleButtons[param].setComponentID("lockButtonForSwitch_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::switches_w, GUI::switchThreePole_h);
+		break;
+	case ControlType::twoPoleSwitch:
+		paramLockToggleButtons[param].setComponentID("lockButtonForSwitch_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::switches_w, GUI::switchTwoPole_h);
+		break;
+	default:
+		break;
+	}
 }
 
 void RandomizationComponent::paint(Graphics& g) {

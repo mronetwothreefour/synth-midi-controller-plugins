@@ -5522,16 +5522,10 @@
     <None Include="..\..\..\Resources\Button-Lock-All-Up.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
-    <None Include="..\..\..\Resources\Button-Lock-Closed.png">
-      <Filter>P-600-G\Resources</Filter>
-    </None>
     <None Include="..\..\..\Resources\Button-Lock-None-Down.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Lock-None-Up.png">
-      <Filter>P-600-G\Resources</Filter>
-    </None>
-    <None Include="..\..\..\Resources\Button-Lock-Open.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Button-Name-Down.png">
@@ -5610,6 +5604,9 @@
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png">
+      <Filter>P-600-G\Resources</Filter>
+    </None>
+    <None Include="..\..\..\Resources\Lock-Icon.png">
       <Filter>P-600-G\Resources</Filter>
     </None>
     <None Include="..\..\..\Resources\Overwrite-Confirmation-Background.png">

@@ -230,14 +230,35 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		Rectangle<float> textArea{ x + 2, y, w, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
-	if (component.getComponentID().startsWith("lockButton_")) {
-		auto imageData{ isTicked ? BinaryData::ButtonLockClosed_png : BinaryData::ButtonLockOpen_png };
-		auto imageSize{ isTicked ? BinaryData::ButtonLockClosed_pngSize : BinaryData::ButtonLockOpen_pngSize };
-		if (imageData != nullptr) {
+	if (component.getComponentID().startsWith("lockButtonForKnob_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillEllipse(x, y, w, h);
+			g.setOpacity(1.0f);
 			PNGImageFormat imageFormat;
-			MemoryInputStream memInputStream{ imageData, (size_t)imageSize, false };
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
 			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-			g.drawImageAt(buttonImage, 0, 0);
+			g.drawImageAt(buttonImage, GUI::lockIconForKnobs_x, GUI::lockIconForKnobs_y);
+		}
+		else {
+			g.setColour(Color::lcdRed.withAlpha(.2f));
+			g.fillEllipse(x, y, w, h);
+		}
+	}
+	if (component.getComponentID().startsWith("lockButtonForSwitch_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillRect(x, y, w, h);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			auto isThreePole{ h == (float)GUI::switchThreePole_h };
+			g.drawImageAt(buttonImage, GUI::lockIconForSwitches_x, isThreePole ? GUI::lockIconForSwitchesThreePole_y : GUI::lockIconForSwitchesTwoPole_y);
+		}
+		else {
+			g.setColour(Color::lcdRed.withAlpha(.2f));
+			g.fillRect(x, y, w, h);
 		}
 	}
 }

@@ -33,8 +33,6 @@ namespace constants
 		static const int buttonRandomizationLockNone_x{ buttonRandomizationLockAll_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonRandomizationOK_x{ buttonRandomizationLockNone_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonRandomizationExit_x{ buttonRandomizationOK_x + buttonsHorizSpacingForGroupedButtons };
-		static const int buttonRandomizationParamLock_h{ 20 };
-		static const int buttonRandomizationParamLock_w{ 12 };
 		static const int buttonUndo_x{ 795 };
 		static const int buttonRedo_x{ buttonUndo_x + buttonsHorizSpacingForGroupedButtons };
 		static const int buttonTooltipOptionsExit_x{ 782 };
@@ -119,6 +117,11 @@ namespace constants
 		static const int lcdDisplay_h{ 50 };
 		static const int lcdDisplay2digit_w{ 60 };
 		static const int lcdDisplay4digit_w{ 112 };
+		static const int lockIconForKnobs_x{ 10 };
+		static const int lockIconForKnobs_y{ 7 };
+		static const int lockIconForSwitches_x{ 4 };
+		static const int lockIconForSwitchesThreePole_y{ 14 };
+		static const int lockIconForSwitchesTwoPole_y{ 3 };
 		static const int maxNumberOfDigitsInLCDeditor{ 4 };
 		static const int mainWindowButtonsRow_y{ 47 };
 		static const int randomizationButtonsRow_y{ 40 };

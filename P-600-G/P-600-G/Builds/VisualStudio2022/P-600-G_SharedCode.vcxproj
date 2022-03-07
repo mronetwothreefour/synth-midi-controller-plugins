@@ -3077,10 +3077,8 @@
     <None Include="..\..\..\Resources\Button-Load-Up.png"/>
     <None Include="..\..\..\Resources\Button-Lock-All-Down.png"/>
     <None Include="..\..\..\Resources\Button-Lock-All-Up.png"/>
-    <None Include="..\..\..\Resources\Button-Lock-Closed.png"/>
     <None Include="..\..\..\Resources\Button-Lock-None-Down.png"/>
     <None Include="..\..\..\Resources\Button-Lock-None-Up.png"/>
-    <None Include="..\..\..\Resources\Button-Lock-Open.png"/>
     <None Include="..\..\..\Resources\Button-Name-Down.png"/>
     <None Include="..\..\..\Resources\Button-Name-Up.png"/>
     <None Include="..\..\..\Resources\Button-New-Fldr-Down.png"/>
@@ -3107,6 +3105,7 @@
     <None Include="..\..\..\Resources\Folder-Exists-Alert-Background.png"/>
     <None Include="..\..\..\Resources\Folder-Name-Dialog-Background.png"/>
     <None Include="..\..\..\Resources\Import-Export-Window-Background.png"/>
+    <None Include="..\..\..\Resources\Lock-Icon.png"/>
     <None Include="..\..\..\Resources\Overwrite-Confirmation-Background.png"/>
     <None Include="..\..\..\Resources\P-600-G-Main-Window-Background.png"/>
     <None Include="..\..\..\Resources\Pgm-Bank-Window-Background.png"/>

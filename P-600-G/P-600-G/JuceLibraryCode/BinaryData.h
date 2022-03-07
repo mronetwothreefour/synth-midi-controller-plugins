@@ -62,17 +62,11 @@ namespace BinaryData
     extern const char*   ButtonLockAllUp_png;
     const int            ButtonLockAllUp_pngSize = 881;
 
-    extern const char*   ButtonLockClosed_png;
-    const int            ButtonLockClosed_pngSize = 245;
-
     extern const char*   ButtonLockNoneDown_png;
     const int            ButtonLockNoneDown_pngSize = 998;
 
     extern const char*   ButtonLockNoneUp_png;
     const int            ButtonLockNoneUp_pngSize = 991;
-
-    extern const char*   ButtonLockOpen_png;
-    const int            ButtonLockOpen_pngSize = 255;
 
     extern const char*   ButtonNameDown_png;
     const int            ButtonNameDown_pngSize = 705;
@@ -152,6 +146,9 @@ namespace BinaryData
     extern const char*   ImportExportWindowBackground_png;
     const int            ImportExportWindowBackground_pngSize = 152409;
 
+    extern const char*   LockIcon_png;
+    const int            LockIcon_pngSize = 348;
+
     extern const char*   OverwriteConfirmationBackground_png;
     const int            OverwriteConfirmationBackground_pngSize = 53509;
 
@@ -168,7 +165,7 @@ namespace BinaryData
     const int            PushingBankTitle_pngSize = 2138;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 117819;
+    const int            RandomizationWindowBackground_pngSize = 116915;
 
     extern const char*   RestoreFactoryProgramsConfirmationBackground_png;
     const int            RestoreFactoryProgramsConfirmationBackground_pngSize = 78267;
@@ -192,7 +189,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2721;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 61;
+    const int namedResourceListSize = 60;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

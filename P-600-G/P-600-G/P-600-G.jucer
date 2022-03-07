@@ -362,14 +362,10 @@
             file="../Resources/Button-Lock-All-Down.png"/>
       <FILE id="woroDh" name="Button-Lock-All-Up.png" compile="0" resource="1"
             file="../Resources/Button-Lock-All-Up.png"/>
-      <FILE id="Mm3xoC" name="Button-Lock-Closed.png" compile="0" resource="1"
-            file="../Resources/Button-Lock-Closed.png"/>
       <FILE id="BMCllu" name="Button-Lock-None-Down.png" compile="0" resource="1"
             file="../Resources/Button-Lock-None-Down.png"/>
       <FILE id="FiUj0k" name="Button-Lock-None-Up.png" compile="0" resource="1"
             file="../Resources/Button-Lock-None-Up.png"/>
-      <FILE id="sjcTEo" name="Button-Lock-Open.png" compile="0" resource="1"
-            file="../Resources/Button-Lock-Open.png"/>
       <FILE id="xiV9py" name="Button-Name-Down.png" compile="0" resource="1"
             file="../Resources/Button-Name-Down.png"/>
       <FILE id="PoVJtE" name="Button-Name-Up.png" compile="0" resource="1"
@@ -422,6 +418,7 @@
             resource="1" file="../Resources/Folder-Name-Dialog-Background.png"/>
       <FILE id="IgFQEy" name="Import-Export-Window-Background.png" compile="0"
             resource="1" file="../Resources/Import-Export-Window-Background.png"/>
+      <FILE id="QEtWD9" name="Lock-Icon.png" compile="0" resource="1" file="../Resources/Lock-Icon.png"/>
       <FILE id="ryKnYs" name="Overwrite-Confirmation-Background.png" compile="0"
             resource="1" file="../Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="gNkCzD" name="P-600-G-Main-Window-Background.png" compile="0"
