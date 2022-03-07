@@ -153,7 +153,7 @@ namespace BinaryData
     const int            OverwriteConfirmationBackground_pngSize = 53509;
 
     extern const char*   P600GMainWindowBackground_png;
-    const int            P600GMainWindowBackground_pngSize = 1136047;
+    const int            P600GMainWindowBackground_pngSize = 1119899;
 
     extern const char*   PgmBankWindowBackground_png;
     const int            PgmBankWindowBackground_pngSize = 755365;

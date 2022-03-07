@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="dklsNJ" name="P-600-G" projectType="audioplug" jucerFormatVersion="1"
-              version="1.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+              version="1.0.1" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
               companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginManufacturerCode="TimD" pluginDesc="Voice editor and librarian for the Sequential Circuits Prophet-600 synthesizer"
