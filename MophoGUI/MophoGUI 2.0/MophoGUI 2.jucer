@@ -492,6 +492,10 @@
             file="Resources/Button-Down-Import.png"/>
       <FILE id="r3V1uE" name="Button-Down-Load.png" compile="0" resource="1"
             file="Resources/Button-Down-Load.png"/>
+      <FILE id="U3h9rg" name="Button-Down-Lock.png" compile="0" resource="1"
+            file="Resources/Button-Down-Lock.png"/>
+      <FILE id="e8frsR" name="Button-Down-Lock-All.png" compile="0" resource="1"
+            file="Resources/Button-Down-Lock-All.png"/>
       <FILE id="w6cMID" name="Button-Down-New-Folder.png" compile="0" resource="1"
             file="Resources/Button-Down-New-Folder.png"/>
       <FILE id="e4B3vm" name="Button-Down-Program-Name-Edit.png" compile="0"
@@ -502,6 +506,8 @@
             file="Resources/Button-Down-Push.png"/>
       <FILE id="id8qqe" name="Button-Down-Random.png" compile="0" resource="1"
             file="Resources/Button-Down-Random.png"/>
+      <FILE id="RRGNC8" name="Button-Down-Randomize.png" compile="0" resource="1"
+            file="Resources/Button-Down-Randomize.png"/>
       <FILE id="YnTI2h" name="Button-Down-Read.png" compile="0" resource="1"
             file="Resources/Button-Down-Read.png"/>
       <FILE id="WLapmT" name="Button-Down-Redo.png" compile="0" resource="1"
@@ -514,6 +520,10 @@
             file="Resources/Button-Down-Stop.png"/>
       <FILE id="kDPc3V" name="Button-Down-Undo.png" compile="0" resource="1"
             file="Resources/Button-Down-Undo.png"/>
+      <FILE id="rD1deJ" name="Button-Down-Unlock.png" compile="0" resource="1"
+            file="Resources/Button-Down-Unlock.png"/>
+      <FILE id="YSvb2I" name="Button-Down-Unlock-All.png" compile="0" resource="1"
+            file="Resources/Button-Down-Unlock-All.png"/>
       <FILE id="ECAOIW" name="Button-Down-Write.png" compile="0" resource="1"
             file="Resources/Button-Down-Write.png"/>
       <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
@@ -536,6 +546,10 @@
             file="Resources/Button-Up-Import.png"/>
       <FILE id="jx8txZ" name="Button-Up-Load.png" compile="0" resource="1"
             file="Resources/Button-Up-Load.png"/>
+      <FILE id="NDDQ35" name="Button-Up-Lock.png" compile="0" resource="1"
+            file="Resources/Button-Up-Lock.png"/>
+      <FILE id="Xabi8j" name="Button-Up-Lock-All.png" compile="0" resource="1"
+            file="Resources/Button-Up-Lock-All.png"/>
       <FILE id="jl2lH3" name="Button-Up-New-Folder.png" compile="0" resource="1"
             file="Resources/Button-Up-New-Folder.png"/>
       <FILE id="o5Z6oj" name="Button-Up-Program-Name-Edit.png" compile="0"
@@ -546,6 +560,8 @@
             file="Resources/Button-Up-Push.png"/>
       <FILE id="W9jXfS" name="Button-Up-Random.png" compile="0" resource="1"
             file="Resources/Button-Up-Random.png"/>
+      <FILE id="VKZN08" name="Button-Up-Randomize.png" compile="0" resource="1"
+            file="Resources/Button-Up-Randomize.png"/>
       <FILE id="fOhvB1" name="Button-Up-Read.png" compile="0" resource="1"
             file="Resources/Button-Up-Read.png"/>
       <FILE id="skcMua" name="Button-Up-Redo.png" compile="0" resource="1"
@@ -558,6 +574,10 @@
             file="Resources/Button-Up-Stop.png"/>
       <FILE id="nzlgfx" name="Button-Up-Undo.png" compile="0" resource="1"
             file="Resources/Button-Up-Undo.png"/>
+      <FILE id="LSIKAG" name="Button-Up-Unlock.png" compile="0" resource="1"
+            file="Resources/Button-Up-Unlock.png"/>
+      <FILE id="uHVjlk" name="Button-Up-Unlock-All.png" compile="0" resource="1"
+            file="Resources/Button-Up-Unlock-All.png"/>
       <FILE id="IPLtYu" name="Button-Up-Write.png" compile="0" resource="1"
             file="Resources/Button-Up-Write.png"/>
       <FILE id="Rc4Ho1" name="File-Not-Valid-Alert-Background.png" compile="0"
@@ -580,6 +600,7 @@
             file="Resources/Label-Custom-Banks.png"/>
       <FILE id="sp6MEE" name="Label-Factory-Banks.png" compile="0" resource="1"
             file="Resources/Label-Factory-Banks.png"/>
+      <FILE id="NzSM7j" name="Lock-Icon.png" compile="0" resource="1" file="Resources/Lock-Icon.png"/>
       <FILE id="yoDU1x" name="MophoGUI-Main-Window-Background.png" compile="0"
             resource="1" file="Resources/MophoGUI-Main-Window-Background.png"/>
       <FILE id="kcVJ6n" name="No-NRPN-Warning-Background.png" compile="0"
@@ -590,6 +611,8 @@
             resource="1" file="Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
+      <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
+            resource="1" file="Resources/Randomization-Window-Background.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"
