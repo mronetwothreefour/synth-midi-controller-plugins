@@ -206,6 +206,12 @@
         <FILE id="fKqWhk" name="params_VoiceTransmissionOptions.h" compile="0"
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
+      <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
+              file="Source/randomization/RandomizationComponent.cpp"/>
+        <FILE id="bCeZ6k" name="RandomizationComponent.h" compile="0" resource="0"
+              file="Source/randomization/RandomizationComponent.h"/>
+      </GROUP>
       <GROUP id="{28703D8D-42BD-75ED-262A-A113EC7DF561}" name="tooltipSetters">
         <FILE id="TuIiFj" name="tooltipSetter_Base.cpp" compile="1" resource="0"
               file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
@@ -309,6 +315,18 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
+        <FILE id="LjPGYU" name="widget_Randomization_ButtonForLockingAllParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
+        <FILE id="GjCH7K" name="widget_Randomization_ButtonForLockingAllParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"/>
+        <FILE id="ry0JXU" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
+        <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="zYnZCZ" name="widget_Randomization_ButtonForUnlockingAllParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
+        <FILE id="duaduR" name="widget_Randomization_ButtonForUnlockingAllParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"/>
         <FILE id="qcr1RG" name="widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
         <FILE id="InECFF" name="widget_voices_ButtonForExportingSelectedVoiceToFile.h"

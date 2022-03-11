@@ -128,6 +128,8 @@ namespace constants
 		static const int imptExptWindow_y{ 147 };
 		static const int knobAssignComboBoxes_w{ 134 };
 		static const int knobAssignComboBoxes_x{ 1089 };
+		static const int lockIcon_h{ 20 };
+		static const int lockIcon_w{ 14 };
 		static const int lfoControlsRow1_y{ 515 };
 		static const int lfoControlsRow2_y{ 560 };
 		static const int lfoControlsRow3_y{ 594 };
@@ -146,6 +148,12 @@ namespace constants
 		static const int nrpnIsOffWarningWindow_y{ 205 };
 		static const int oscControlsRow1_y{ 50 };
 		static const int oscControlsRow2_y{ 110 };
+		static const int randomizationButtonsRow_y{ 64 };
+		static const int randomizationButtons_w{ 76 };
+		static const int randomizationLockAllButton_x{ 909 };
+		static const int randomizationUnlockAllButton_x{ randomizationLockAllButton_x + randomizationButtons_w + horizGapBtwnControls };
+		static const int randomizeButton_x{ randomizationUnlockAllButton_x + randomizationButtons_w + horizGapBtwnControls };
+		static const int randomizationCloseButton_x{ 1152 };
 		static const int secondaryWindowsControls_w{ 50 };
 		static const int secondaryWindowsControls_h{ 22 };
 		static const int sequencerStep1_x{ 825 };
@@ -169,6 +177,7 @@ namespace constants
 		static const int tabbedComponentForAllVoicesBanks_w{ tabbedComponentForVoicesBanks_w };
 		static const int tabbedComponentForAllVoicesBanks_h{ tabbedComponentForVoicesBanks_h + tabBarDepth };
 		static const int toggle_diameter{ 14 };
+		static const int toggleLock_diameter{ 22 };
 		static const int undoRedoButtons_h{ 22 };
 		static const int undoRedoButtons_w{ 44 };
 		static const int undoRedoButtons_x{ 837 };
@@ -296,6 +305,10 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowWriteButton{ 580, writeReadBanksGlobalButtons_y, writeReadBanksGlobalButtons_w, writeReadBanksGlobalButtons_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentRetryButton{ 611, 387, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizationCloseButton{ randomizationCloseButton_x, randomizationButtonsRow_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizationLockAllButton{ randomizationLockAllButton_x, randomizationButtonsRow_y, randomizationButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizationUnlockAllButton{ randomizationUnlockAllButton_x, randomizationButtonsRow_y, randomizationButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizeButton{randomizeButton_x, randomizationButtonsRow_y, randomizationButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_VoicesBanksCloseButton{ 1130, 117, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_VoicesBanksTabbedComponent{ 89, 113, tabbedComponentForAllVoicesBanks_w, tabbedComponentForAllVoicesBanks_h };
 		static const Rectangle<int> bounds_VoicesBanksTransmitTimeLabel{ 1119, voicesBanksControls_y, secondaryWindowsControls_w, secondaryWindowsControls_h };

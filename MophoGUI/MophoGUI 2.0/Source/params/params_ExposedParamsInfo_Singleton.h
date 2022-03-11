@@ -9,6 +9,10 @@ struct IntToContextualStringConverter;
 
 class InfoForExposedParameters
 {
+public:
+	static const int numberOfExposedParameters{ 189 };
+
+private:
 	Array<Identifier> identifiers;
 	Array<String> exposedNames;
 	Array<ControlType> controlTypes;

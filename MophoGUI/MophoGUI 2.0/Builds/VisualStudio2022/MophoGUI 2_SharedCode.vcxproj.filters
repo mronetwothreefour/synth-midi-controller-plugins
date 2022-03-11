@@ -23,6 +23,9 @@
     <Filter Include="MophoGUI 2\Source\params">
       <UniqueIdentifier>{D80A7078-B3B7-856B-80EB-557DDA1FC1F5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\randomization">
+      <UniqueIdentifier>{87F8AAED-5510-D984-A670-B62A343D926E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\tooltipSetters">
       <UniqueIdentifier>{FA356A20-B704-CD2F-866B-C827CD5F70A7}</UniqueIdentifier>
     </Filter>
@@ -616,6 +619,9 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
     </ClCompile>
@@ -686,6 +692,15 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.cpp">
@@ -3063,6 +3078,9 @@
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h">
       <Filter>MophoGUI 2\Source\tooltipSetters</Filter>
     </ClInclude>
@@ -3136,6 +3154,15 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.h">

@@ -1,4 +1,4 @@
-#include "randomizationComponent.h"
+#include "RandomizationComponent.h"
 
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
@@ -23,7 +23,7 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllParameters);
 	addAndMakeVisible(button_ForRandomizingUnlockedParameters);
 
-	button_ForClosingRandomizationComponent.setComponentID(ID::button_Exit.toString());
+	button_ForClosingRandomizationComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingRandomizationComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingRandomizationComponent.onClick = [this] { hideThisComponent(); };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -43,26 +43,27 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	switch (info.controlTypeFor(param))
-	{
-	case ControlType::knobForPitchWithValueStringDisplay:
+	if (info.controlTypeFor(param) == ControlType::comboBox) {
+		paramLockToggleButtons[param].setComponentID("lockButtonForComboBox_" + paramID);
+		paramLockToggleButtons[param].setSize(info.controlWidthFor(param), GUI::lockIcon_h);
+	}
+	if (info.controlTypeFor(param) == ControlType::knobForPitchWithValueStringDisplay ||
+		info.controlTypeFor(param) == ControlType::knobWithValueStringDisplay ||
+		info.controlTypeFor(param) == ControlType::knobWithWaveShapeDisplay) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForKnob_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::knobs_w, GUI::knobs_h);
-		break;
-	case ControlType::knobWithValueStringDisplay:
-		paramLockToggleButtons[param].setComponentID("lockButtonForKnob_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::knobs_w, GUI::knobs_h);
-		break;
-	case ControlType::threePoleSwitch:
-		paramLockToggleButtons[param].setComponentID("lockButtonForSwitch_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::switches_w, GUI::switchThreePole_h);
-		break;
-	case ControlType::twoPoleSwitch:
-		paramLockToggleButtons[param].setComponentID("lockButtonForSwitch_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::switches_w, GUI::switchTwoPole_h);
-		break;
-	default:
-		break;
+		paramLockToggleButtons[param].setSize(GUI::knob_diameter, GUI::knob_diameter);
+	}
+	if (info.controlTypeFor(param) == ControlType::sequencerStep) {
+		paramLockToggleButtons[param].setComponentID("lockButtonForSeqStep_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::seqSteps_w, GUI::seqSteps_h);
+	}
+	if (info.controlTypeFor(param) == ControlType::toggleButton) {
+		paramLockToggleButtons[param].setComponentID("lockButtonForSeqStep_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::toggleLock_diameter, GUI::toggleLock_diameter);
+	}
+	if (info.controlTypeFor(param) == ControlType::voiceNameChar) {
+		paramLockToggleButtons[param].setComponentID("lockButtonForNameChar_" + paramID);
+		paramLockToggleButtons[param].setSize(GUI::voiceNameCharacters_w, GUI::voiceNameCharacters_h);
 	}
 }
 
@@ -75,9 +76,9 @@ void RandomizationComponent::paint(Graphics& g) {
 
 void RandomizationComponent::resized() {
 	button_ForLockingAllParameters.setBounds(GUI::bounds_RandomizationLockAllButton);
-	button_ForUnlockingAllParameters.setBounds(GUI::bounds_RandomizationLockNoneButton);
-	button_ForRandomizingUnlockedParameters.setBounds(GUI::bounds_RandomizationOKbutton);
-	button_ForClosingRandomizationComponent.setBounds(GUI::bounds_RandomizationExitButton);
+	button_ForUnlockingAllParameters.setBounds(GUI::bounds_RandomizationUnlockAllButton);
+	button_ForRandomizingUnlockedParameters.setBounds(GUI::bounds_RandomizeButton);
+	button_ForClosingRandomizationComponent.setBounds(GUI::bounds_RandomizationCloseButton);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		auto ctrlCenterPoint{ info.controlCenterPointFor(param) };
@@ -99,28 +100,8 @@ void RandomizationComponent::unlockAllParameters() {
 	}
 }
 
-void RandomizationComponent::randomizeUnlockedParameters() {
-	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		Random rndmNumGenerator{};
-		if (paramLockToggleButtons[param].getToggleState() == false) {
-			auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
-			auto paramID{ info.IDfor(param) };
-			exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
-		}
-	}
-	VoiceDataMessage::addVoiceDataMessageForCurrentExposedParamsSettingsToOutgoingMidiBuffers(exposedParams, unexposedParams);
-	callAfterDelay(10, [this]
-		{
-			auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-			auto voiceSlot{ voiceTransmissionOptions->currentVoiceNumber() };
-			auto outgoingBuffers{ unexposedParams->outgoingMidiBuffers_get() };
-			outgoingBuffers->addProgramChangeMessage(MIDI::channel, voiceSlot);
-		}
-	);
-	voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+void RandomizationComponent::randomizeUnlockedParameters()
+{
 }
 
 void RandomizationComponent::hideThisComponent() {
@@ -130,4 +111,3 @@ void RandomizationComponent::hideThisComponent() {
 
 void RandomizationComponent::timerCallback() {
 }
-

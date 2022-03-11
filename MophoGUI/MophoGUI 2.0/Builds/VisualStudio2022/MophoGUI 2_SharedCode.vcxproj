@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.cpp"/>
@@ -203,6 +204,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.cpp"/>
@@ -2254,6 +2258,7 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamSliders.h"/>
@@ -2279,6 +2284,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForImportingVoiceFromFile.h"/>

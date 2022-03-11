@@ -138,10 +138,19 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
 
+	if (button.getComponentID() == ID::button_LockAll.toString())
+		return isDown ? BinaryData::ButtonDownLockAll_png : BinaryData::ButtonUpLockAll_png;
+
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return isDown ? BinaryData::ButtonDownNewFolder_png : BinaryData::ButtonUpNewFolder_png;
 
-	if (button.getComponentID() == ID::button_VoiceNameEdit.toString()) 
+	if (button.getComponentID() == ID::button_Randomize.toString())
+		return isDown ? BinaryData::ButtonDownRandomize_png : BinaryData::ButtonUpRandomize_png;
+
+	if (button.getComponentID() == ID::button_UnlockAll.toString())
+		return isDown ? BinaryData::ButtonDownUnlockAll_png : BinaryData::ButtonUpUnlockAll_png;
+
+	if (button.getComponentID() == ID::button_VoiceNameEdit.toString())
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
 
 	if (button.getComponentID().startsWith(ID::button_PullCustomBank1.toString().dropLastCharacters(1)) ||
@@ -208,8 +217,17 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);
 
+	if (button.getComponentID() == ID::button_LockAll.toString())
+		return size_t(isDown ? BinaryData::ButtonDownLockAll_pngSize : BinaryData::ButtonUpLockAll_pngSize);
+
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return size_t(isDown ? BinaryData::ButtonDownNewFolder_pngSize : BinaryData::ButtonUpNewFolder_pngSize);
+
+	if (button.getComponentID() == ID::button_Randomize.toString())
+		return size_t(isDown ? BinaryData::ButtonDownRandomize_pngSize : BinaryData::ButtonUpRandomize_pngSize);
+
+	if (button.getComponentID() == ID::button_UnlockAll.toString())
+		return size_t(isDown ? BinaryData::ButtonDownUnlockAll_pngSize : BinaryData::ButtonUpUnlockAll_pngSize);
 
 	if (button.getComponentID() == ID::button_VoiceNameEdit.toString())
 		return size_t(isDown ? BinaryData::ButtonDownProgramNameEdit_pngSize : BinaryData::ButtonUpProgramNameEdit_pngSize);
