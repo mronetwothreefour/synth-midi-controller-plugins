@@ -17,11 +17,31 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	unexposedParams{ unexposedParams },
 	button_ForLockingAllParameters{ this, unexposedParams },
 	button_ForUnlockingAllParameters{ this, unexposedParams },
+	button_ForLockingAllVoiceNameChars{ this, unexposedParams },
+	button_ForUnlockingAllVoiceNameChars{ this, unexposedParams },
+	button_ForLockingAllStepsInSeqTrack1{ 1, this, unexposedParams },
+	button_ForLockingAllStepsInSeqTrack2{ 2, this, unexposedParams },
+	button_ForLockingAllStepsInSeqTrack3{ 3, this, unexposedParams },
+	button_ForLockingAllStepsInSeqTrack4{ 4, this, unexposedParams },
+	button_ForUnlockingAllStepsInSeqTrack1{ 1, this, unexposedParams },
+	button_ForUnlockingAllStepsInSeqTrack2{ 2, this, unexposedParams },
+	button_ForUnlockingAllStepsInSeqTrack3{ 3, this, unexposedParams },
+	button_ForUnlockingAllStepsInSeqTrack4{ 4, this, unexposedParams },
 	button_ForRandomizingUnlockedParameters{ this, unexposedParams }
 {
 	addAndMakeVisible(button_ForLockingAllParameters);
 	addAndMakeVisible(button_ForUnlockingAllParameters);
 	addAndMakeVisible(button_ForRandomizingUnlockedParameters);
+	addAndMakeVisible(button_ForLockingAllVoiceNameChars);
+	addAndMakeVisible(button_ForUnlockingAllVoiceNameChars);
+	addAndMakeVisible(button_ForLockingAllStepsInSeqTrack1);
+	addAndMakeVisible(button_ForLockingAllStepsInSeqTrack2);
+	addAndMakeVisible(button_ForLockingAllStepsInSeqTrack3);
+	addAndMakeVisible(button_ForLockingAllStepsInSeqTrack4);
+	addAndMakeVisible(button_ForUnlockingAllStepsInSeqTrack1);
+	addAndMakeVisible(button_ForUnlockingAllStepsInSeqTrack2);
+	addAndMakeVisible(button_ForUnlockingAllStepsInSeqTrack3);
+	addAndMakeVisible(button_ForUnlockingAllStepsInSeqTrack4);
 
 	button_ForClosingRandomizationComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingRandomizationComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -81,6 +101,16 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllParameters.setBounds(GUI::bounds_RandomizationUnlockAllButton);
 	button_ForRandomizingUnlockedParameters.setBounds(GUI::bounds_RandomizeButton);
 	button_ForClosingRandomizationComponent.setBounds(GUI::bounds_RandomizationCloseButton);
+	button_ForLockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameLockButton);
+	button_ForUnlockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameUnlockButton);
+	button_ForLockingAllStepsInSeqTrack1.setBounds(GUI::bounds_RandomizationSeqTrack1LockButton);
+	button_ForLockingAllStepsInSeqTrack2.setBounds(GUI::bounds_RandomizationSeqTrack2LockButton);
+	button_ForLockingAllStepsInSeqTrack3.setBounds(GUI::bounds_RandomizationSeqTrack3LockButton);
+	button_ForLockingAllStepsInSeqTrack4.setBounds(GUI::bounds_RandomizationSeqTrack4LockButton);
+	button_ForUnlockingAllStepsInSeqTrack1.setBounds(GUI::bounds_RandomizationSeqTrack1UnlockButton);
+	button_ForUnlockingAllStepsInSeqTrack2.setBounds(GUI::bounds_RandomizationSeqTrack2UnlockButton);
+	button_ForUnlockingAllStepsInSeqTrack3.setBounds(GUI::bounds_RandomizationSeqTrack3UnlockButton);
+	button_ForUnlockingAllStepsInSeqTrack4.setBounds(GUI::bounds_RandomizationSeqTrack4UnlockButton);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		auto ctrlCenterPoint{ info.controlCenterPointFor(param) };

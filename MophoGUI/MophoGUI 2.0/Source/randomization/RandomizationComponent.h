@@ -4,8 +4,12 @@
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"
 
 
 
@@ -20,6 +24,16 @@ class RandomizationComponent :
 	UnexposedParameters* unexposedParams;
 	ButtonForLockingAllParameters button_ForLockingAllParameters;
 	ButtonForUnlockingAllParameters button_ForUnlockingAllParameters;
+	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
+	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
+	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack1;
+	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack1;
+	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack2;
+	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack2;
+	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack3;
+	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack3;
+	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack4;
+	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack4;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
