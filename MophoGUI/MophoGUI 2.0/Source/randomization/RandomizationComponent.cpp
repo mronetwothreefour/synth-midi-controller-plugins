@@ -60,6 +60,8 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 	if (info.controlTypeFor(param) == ControlType::toggleButton) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForToggle_" + paramID);
 		paramLockToggleButtons[param].setSize(GUI::toggleLock_diameter, GUI::toggleLock_diameter);
+		if (info.IDfor(param).toString() == "arpegOnOff" || info.IDfor(param).toString() == "sequencerOnOff")
+			paramLockToggleButtons[param].addListener(this);
 	}
 	if (info.controlTypeFor(param) == ControlType::voiceNameChar) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForVoiceNameChar_" + paramID);
@@ -136,8 +138,21 @@ void RandomizationComponent::unlockAllStepsInSeqTrack(int trackNum) {
 	}
 }
 
-void RandomizationComponent::randomizeUnlockedParameters()
-{
+void RandomizationComponent::randomizeUnlockedParameters() {
+}
+
+void RandomizationComponent::buttonClicked(Button* button) {
+	auto& info{ InfoForExposedParameters::get() };
+	if (exposedParams->getParameter("arpegOnOff")->getValue() == 1 || exposedParams->getParameter("sequencerOnOff")->getValue() == 1) {
+		if (button->getComponentID() == "lockButtonForToggle_arpegOnOff") {
+			auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+			paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), dontSendNotification);
+		}
+		if (button->getComponentID() == "lockButtonForToggle_sequencerOnOff") {
+			auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
+			paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), dontSendNotification);
+		}
+	}
 }
 
 void RandomizationComponent::hideThisComponent() {
@@ -146,4 +161,12 @@ void RandomizationComponent::hideThisComponent() {
 }
 
 void RandomizationComponent::timerCallback() {
+}
+
+RandomizationComponent::~RandomizationComponent() {
+	auto& info{ InfoForExposedParameters::get() };
+	auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
+	paramLockToggleButtons[arpegOnOffIndex].removeListener(this);
+	auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+	paramLockToggleButtons[sequencerOnOffIndex].removeListener(this);
 }

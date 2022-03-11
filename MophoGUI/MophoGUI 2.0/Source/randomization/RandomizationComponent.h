@@ -13,6 +13,7 @@ class UnexposedParameters;
 
 class RandomizationComponent :
 	public Component,
+	public Button::Listener,
 	private Timer
 {
 	AudioProcessorValueTreeState* exposedParams;
@@ -37,11 +38,17 @@ public:
 	void lockAllStepsInSeqTrack(int trackNum);
 	void unlockAllStepsInSeqTrack(int trackNum);
 	void randomizeUnlockedParameters();
+	void buttonClicked(Button* button) override;
 	void hideThisComponent();
 
 private:
 	void timerCallback() override;
 
+
+public:
+	~RandomizationComponent();
+
+private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RandomizationComponent)
 };
