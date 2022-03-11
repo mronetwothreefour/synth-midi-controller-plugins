@@ -65,6 +65,7 @@ namespace ID
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
 	static const Identifier button_UnlockAll{ "button_UnlockAll" };
+	static const Identifier button_Unlock{ "button_Unlock" };
 	static const Identifier button_Write{ "button_Write" };
 	static const Identifier button_VoiceNameEdit{ "button_VoiceNameEdit" };
 
