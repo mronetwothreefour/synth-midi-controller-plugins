@@ -32,6 +32,10 @@ public:
 	void resized() override;
 	void lockAllParameters();
 	void unlockAllParameters();
+	void lockAllVoiceNameCharacters();
+	void unlockAlVoicelNameCharacters();
+	void lockAllStepsInSeqTrack(int trackNum);
+	void unlockAllStepsInSeqTrack(int trackNum);
 	void randomizeUnlockedParameters();
 	void hideThisComponent();
 

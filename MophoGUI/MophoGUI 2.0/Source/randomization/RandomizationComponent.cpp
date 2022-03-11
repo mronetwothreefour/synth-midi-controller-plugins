@@ -58,11 +58,11 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 		paramLockToggleButtons[param].setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	}
 	if (info.controlTypeFor(param) == ControlType::toggleButton) {
-		paramLockToggleButtons[param].setComponentID("lockButtonForSeqStep_" + paramID);
+		paramLockToggleButtons[param].setComponentID("lockButtonForToggle_" + paramID);
 		paramLockToggleButtons[param].setSize(GUI::toggleLock_diameter, GUI::toggleLock_diameter);
 	}
 	if (info.controlTypeFor(param) == ControlType::voiceNameChar) {
-		paramLockToggleButtons[param].setComponentID("lockButtonForNameChar_" + paramID);
+		paramLockToggleButtons[param].setComponentID("lockButtonForVoiceNameChar_" + paramID);
 		paramLockToggleButtons[param].setSize(GUI::voiceNameCharacters_w, GUI::voiceNameCharacters_h);
 	}
 }
@@ -97,6 +97,42 @@ void RandomizationComponent::unlockAllParameters() {
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		paramLockToggleButtons[param].setToggleState(false, dontSendNotification);
+	}
+}
+
+void RandomizationComponent::lockAllVoiceNameCharacters() {
+	auto& info{ InfoForExposedParameters::get() };
+	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto charNumString{ (String)(charNum + 1) };
+		auto paramIndex{ info.indexForParamID("nameChar" + charNumString) };
+		paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
+	}
+}
+
+void RandomizationComponent::unlockAlVoicelNameCharacters() {
+	auto& info{ InfoForExposedParameters::get() };
+	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto charNumString{ (String)(charNum + 1) };
+		auto paramIndex{ info.indexForParamID("nameChar" + charNumString) };
+		paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
+	}
+}
+
+void RandomizationComponent::lockAllStepsInSeqTrack(int trackNum) {
+	auto& info{ InfoForExposedParameters::get() };
+	for (auto step = 0; step != 16; ++step) {
+		auto paramID{ "track" + (String)trackNum + "Step" + (String)(step + 1) };
+		auto paramIndex{ info.indexForParamID(paramID) };
+		paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
+	}
+}
+
+void RandomizationComponent::unlockAllStepsInSeqTrack(int trackNum) {
+	auto& info{ InfoForExposedParameters::get() };
+	for (auto step = 0; step != 16; ++step) {
+		auto paramID{ "track" + (String)trackNum + "Step" + (String)(step + 1) };
+		auto paramIndex{ info.indexForParamID(paramID) };
+		paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
 	}
 }
 
