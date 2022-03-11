@@ -2802,6 +2802,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllStepsInSeqTrack.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
@@ -5592,6 +5595,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

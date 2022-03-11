@@ -202,6 +202,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp" />
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.cpp" />
     <ClCompile Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.cpp" />
@@ -2285,6 +2286,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h" />
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingSelectedVoiceToFile.h" />
     <ClInclude Include="..\..\Source\widgets_Button\widget_voices_ButtonForExportingVoicesBankToFile.h" />
