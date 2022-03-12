@@ -2,7 +2,7 @@
 
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
-#include "../midi/midi_VoiceDataMessage.h"
+#include "../midi/midi_EditBufferDataMessage.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -169,6 +169,47 @@ void RandomizationComponent::unlockAllStepsInSeqTrack(int trackNum) {
 }
 
 void RandomizationComponent::randomizeUnlockedParameters() {
+	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
+	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+	auto& info{ InfoForExposedParameters::get() };
+	auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
+	auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		Random rndmNumGenerator{};
+		if (param != arpegOnOffIndex && param != sequencerOnOffIndex) {
+			if (paramLockToggleButtons[param].getToggleState() == false) {
+				auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
+				auto paramID{ info.IDfor(param) };
+				exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+			}
+		}
+	}
+	Random rndmNumGenerator{};
+	if (paramLockToggleButtons[arpegOnOffIndex].getToggleState() == false && paramLockToggleButtons[sequencerOnOffIndex].getToggleState() == false) {
+		auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
+		auto arpSeqOnOffOption{ (int)std::floor(newNormalizedValue * 3) };
+		switch (arpSeqOnOffOption) {
+		case 0: {
+			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(0.0);
+			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(0.0);
+			break;
+		}
+		case 1: {
+			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(1.0);
+			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(0.0);
+			break;
+		}
+		case 2: {
+			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(0.0);
+			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(1.0);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+	EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get());
+	voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 
 void RandomizationComponent::buttonClicked(Button* button) {
