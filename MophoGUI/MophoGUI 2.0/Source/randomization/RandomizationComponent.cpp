@@ -71,7 +71,7 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 		info.controlTypeFor(param) == ControlType::knobWithValueStringDisplay ||
 		info.controlTypeFor(param) == ControlType::knobWithWaveShapeDisplay) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForKnob_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::knob_diameter, GUI::knob_diameter);
+		paramLockToggleButtons[param].setSize(GUI::knobLockButton_diameter, GUI::knobLockButton_diameter);
 	}
 	if (info.controlTypeFor(param) == ControlType::sequencerStep) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForSeqStep_" + paramID);
@@ -79,7 +79,7 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 	}
 	if (info.controlTypeFor(param) == ControlType::toggleButton) {
 		paramLockToggleButtons[param].setComponentID("lockButtonForToggle_" + paramID);
-		paramLockToggleButtons[param].setSize(GUI::toggleLock_diameter, GUI::toggleLock_diameter);
+		paramLockToggleButtons[param].setSize(GUI::toggleLockButton_diameter, GUI::toggleLockButton_diameter);
 		if (info.IDfor(param).toString() == "arpegOnOff" || info.IDfor(param).toString() == "sequencerOnOff")
 			paramLockToggleButtons[param].addListener(this);
 	}

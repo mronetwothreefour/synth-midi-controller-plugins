@@ -5,6 +5,7 @@
 #include "../global/global_NRPNisOffWarningComponent.h"
 #include "../global/global_SysExIsOffWarningComponent.h"
 #include "../midi/midi_GlobalParametersDataMessage.h"
+#include "../randomization/RandomizationComponent.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../voices/voices_VoicesBanksComponent.h"
@@ -21,6 +22,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForSendingEditBufferDataMessageRequest{ unexposedParams },
     button_ForShowingVoicesBanksComponent{ unexposedParams },
     button_ForShowingGlobalParametersComponent{ unexposedParams },
+    button_ForShowingRandomizationComponent{ unexposedParams },
     button_ForPerformingUndo{ unexposedParams },
     button_ForPerformingRedo{ unexposedParams },
     button_ForClearingSequencerTrack1{ 1, exposedParams, unexposedParams },
@@ -37,6 +39,8 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     button_ForShowingVoicesBanksComponent.onClick = [this] { showVoicesBanksComponent(); };
     addAndMakeVisible(button_ForShowingGlobalParametersComponent);
     button_ForShowingGlobalParametersComponent.onClick = [this] { prepareToShowGlobalParametersComponent(); };
+    addAndMakeVisible(button_ForShowingRandomizationComponent);
+    button_ForShowingRandomizationComponent.onClick = [this] { showRandomizationComponent(); };
     addAndMakeVisible(button_ForPerformingUndo);
     addAndMakeVisible(button_ForPerformingRedo);
     addAndMakeVisible(button_ForClearingSequencerTrack1);
@@ -97,6 +101,14 @@ void ButtonsLayer::showGlobalParametersComponent() {
     }
 }
 
+void ButtonsLayer::showRandomizationComponent() {
+    randomizationComponent.reset(new RandomizationComponent(exposedParams, unexposedParams));
+    if (randomizationComponent != nullptr) {
+        addAndMakeVisible(randomizationComponent.get());
+        randomizationComponent->setBounds(getLocalBounds());
+    }
+}
+
 void ButtonsLayer::timerCallback() {
 }
 
@@ -106,6 +118,7 @@ void ButtonsLayer::resized() {
     button_ForSendingEditBufferDataMessageRequest.setBounds(GUI::bounds_MainWindowReadButton);
     button_ForShowingVoicesBanksComponent.setBounds(GUI::bounds_MainWindowBanksButton);
     button_ForShowingGlobalParametersComponent.setBounds(GUI::bounds_MainWindowGlobalButton);
+    button_ForShowingRandomizationComponent.setBounds(GUI::bounds_MainWindowRandomButton);
     button_ForPerformingUndo.setBounds(GUI::bounds_MainWindowUndoButton);
     button_ForPerformingRedo.setBounds(GUI::bounds_MainWindowRedoButton);
     button_ForClearingSequencerTrack1.setBounds(GUI::bounds_MainWindowSeqTrack1ClearButton);
@@ -118,6 +131,7 @@ void ButtonsLayer::resized() {
 ButtonsLayer::~ButtonsLayer() {
     voicesBanksComponent = nullptr;
     globalParamsComponent = nullptr;
+    randomizationComponent = nullptr;
     nrpnIsOffWarningComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
 }

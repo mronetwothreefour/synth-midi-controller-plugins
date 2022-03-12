@@ -8,6 +8,7 @@
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
 #include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessage.h"
 #include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessageRequest.h"
+#include "../widgets_Button/widget_ButtonForShowingRandomizationComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
@@ -15,6 +16,7 @@
 class GlobalParametersComponent;
 class VoicesBanksComponent;
 class NRPNisOffWarningComponent;
+class RandomizationComponent;
 class SysExIsOffWarningComponent;
 class UnexposedParameters;
 
@@ -29,6 +31,7 @@ class ButtonsLayer :
 	ButtonForSendingEditBufferDataMessageRequest button_ForSendingEditBufferDataMessageRequest;
 	ButtonForShowingVoicesBanksComponent button_ForShowingVoicesBanksComponent;
 	ButtonForShowingGlobalParametersComponent button_ForShowingGlobalParametersComponent;
+	ButtonForShowingRandomizationComponent button_ForShowingRandomizationComponent;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack1;
@@ -38,6 +41,7 @@ class ButtonsLayer :
 	HyperlinkButton button_ForGoingToWebSite;
 	std::unique_ptr<VoicesBanksComponent> voicesBanksComponent;
 	std::unique_ptr<GlobalParametersComponent> globalParamsComponent;
+	std::unique_ptr<RandomizationComponent> randomizationComponent;
 	std::unique_ptr<SysExIsOffWarningComponent> sysExIsOffWarningComponent;
 	std::unique_ptr<NRPNisOffWarningComponent> nrpnIsOffWarningComponent;
 
@@ -52,6 +56,7 @@ private:
 	void showSysExIsOffWarningComponent();
 	void showNRPNisOffWarningComponent();
 	void showGlobalParametersComponent();
+	void showRandomizationComponent();
 	void timerCallback() override;
 
 public:

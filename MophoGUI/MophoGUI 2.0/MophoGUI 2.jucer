@@ -311,6 +311,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.cpp"/>
         <FILE id="YPePuD" name="widget_ButtonForShowingGlobalParametersComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"/>
+        <FILE id="m7C2Ag" name="widget_ButtonForShowingRandomizationComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingRandomizationComponent.cpp"/>
+        <FILE id="wFnBDu" name="widget_ButtonForShowingRandomizationComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingRandomizationComponent.h"/>
         <FILE id="MidhH7" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
@@ -319,6 +323,14 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
         <FILE id="GjCH7K" name="widget_Randomization_ButtonForLockingAllParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"/>
+        <FILE id="B8N0EF" name="widget_Randomization_ButtonForLockingAllStepsInSeqTrack.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllStepsInSeqTrack.cpp"/>
+        <FILE id="ekGPyJ" name="widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h"/>
+        <FILE id="as5NJI" name="widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"/>
+        <FILE id="pywp6g" name="widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"/>
         <FILE id="ry0JXU" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
@@ -327,6 +339,14 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
         <FILE id="duaduR" name="widget_Randomization_ButtonForUnlockingAllParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"/>
+        <FILE id="sXc6Rv" name="widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.cpp"/>
+        <FILE id="GmrPNw" name="widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h"/>
+        <FILE id="Tyf8s1" name="widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp"/>
+        <FILE id="gsmAqL" name="widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"/>
         <FILE id="qcr1RG" name="widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForExportingSelectedVoiceToFile.cpp"/>
         <FILE id="InECFF" name="widget_voices_ButtonForExportingSelectedVoiceToFile.h"

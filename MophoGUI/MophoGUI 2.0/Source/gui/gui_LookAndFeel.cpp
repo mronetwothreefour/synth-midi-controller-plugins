@@ -138,17 +138,26 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return isDown ? BinaryData::ButtonDownLoad_png : BinaryData::ButtonUpLoad_png;
 
+	if (button.getComponentID() == ID::button_Lock.toString())
+		return isDown ? BinaryData::ButtonDownLock_png : BinaryData::ButtonUpLock_png;
+
 	if (button.getComponentID() == ID::button_LockAll.toString())
 		return isDown ? BinaryData::ButtonDownLockAll_png : BinaryData::ButtonUpLockAll_png;
 
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return isDown ? BinaryData::ButtonDownNewFolder_png : BinaryData::ButtonUpNewFolder_png;
 
+	if (button.getComponentID() == ID::button_Random.toString())
+		return isDown ? BinaryData::ButtonDownRandom_png : BinaryData::ButtonUpRandom_png;
+
 	if (button.getComponentID() == ID::button_Randomize.toString())
 		return isDown ? BinaryData::ButtonDownRandomize_png : BinaryData::ButtonUpRandomize_png;
 
 	if (button.getComponentID() == ID::button_UnlockAll.toString())
 		return isDown ? BinaryData::ButtonDownUnlockAll_png : BinaryData::ButtonUpUnlockAll_png;
+
+	if (button.getComponentID() == ID::button_Unlock.toString())
+		return isDown ? BinaryData::ButtonDownUnlock_png : BinaryData::ButtonUpUnlock_png;
 
 	if (button.getComponentID() == ID::button_VoiceNameEdit.toString())
 		return isDown ? BinaryData::ButtonDownProgramNameEdit_png : BinaryData::ButtonUpProgramNameEdit_png;
@@ -217,14 +226,23 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_Load.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLoad_pngSize : BinaryData::ButtonUpLoad_pngSize);
 
+	if (button.getComponentID() == ID::button_Lock.toString())
+		return size_t(isDown ? BinaryData::ButtonDownLock_pngSize : BinaryData::ButtonUpLock_pngSize);
+
 	if (button.getComponentID() == ID::button_LockAll.toString())
 		return size_t(isDown ? BinaryData::ButtonDownLockAll_pngSize : BinaryData::ButtonUpLockAll_pngSize);
 
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return size_t(isDown ? BinaryData::ButtonDownNewFolder_pngSize : BinaryData::ButtonUpNewFolder_pngSize);
 
+	if (button.getComponentID() == ID::button_Random.toString())
+		return size_t(isDown ? BinaryData::ButtonDownRandom_pngSize : BinaryData::ButtonUpRandom_pngSize);
+
 	if (button.getComponentID() == ID::button_Randomize.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRandomize_pngSize : BinaryData::ButtonUpRandomize_pngSize);
+
+	if (button.getComponentID() == ID::button_Unlock.toString())
+		return size_t(isDown ? BinaryData::ButtonDownUnlock_pngSize : BinaryData::ButtonUpUnlock_pngSize);
 
 	if (button.getComponentID() == ID::button_UnlockAll.toString())
 		return size_t(isDown ? BinaryData::ButtonDownUnlockAll_pngSize : BinaryData::ButtonUpUnlockAll_pngSize);
@@ -289,6 +307,81 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		g.setFont(FontsMenu::fontFor_VoiceSlotButtons);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+	if (component.getComponentID().startsWith("lockButtonForComboBox_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillRect(x, y + 2, w, h - 4);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, w / 2 - 10, 0);
+		}
+		else {
+			g.setColour(Color::switchOn.withAlpha(.2f));
+			g.fillRect(x, y + 2, w, h - 4);
+		}
+	}
+	if (component.getComponentID().startsWith("lockButtonForKnob_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillEllipse(x, y, w, h);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, GUI::lockIconForKnobs_x, GUI::lockIconForKnobs_y);
+		}
+		else {
+			g.setColour(Color::switchOn.withAlpha(.2f));
+			g.fillEllipse(x, y, w, h);
+		}
+	}
+	if (component.getComponentID().startsWith("lockButtonForSeqStep_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillRect(x, y, w, h);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, GUI::lockIconForSeqSteps_x, GUI::lockIconForSeqSteps_y);
+		}
+		else {
+			g.setColour(Color::switchOn.withAlpha(.2f));
+			g.fillRect(x, y, w, h);
+		}
+	}
+	if (component.getComponentID().startsWith("lockButtonForToggle_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillEllipse(x, y, w, h);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, GUI::lockIconForToggle_x, GUI::lockIconForToggle_y);
+		}
+		else {
+			g.setColour(Color::switchOn.withAlpha(.2f));
+			g.fillEllipse(x, y, w, h);
+		}
+	}
+	if (component.getComponentID().startsWith("lockButtonForVoiceNameChar_")) {
+		if (isTicked) {
+			g.setColour(Color::black.withAlpha(0.3f));
+			g.fillRect(x, y, w, h);
+			g.setOpacity(1.0f);
+			PNGImageFormat imageFormat;
+			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
+			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+			g.drawImageAt(buttonImage, x - 1, y - 1);
+		}
+		else {
+			g.setColour(Color::switchOn.withAlpha(.2f));
+			g.fillRect(x, y, w, h);
+		}
 	}
 }
 
