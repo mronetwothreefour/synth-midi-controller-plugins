@@ -2883,9 +2883,6 @@
     <ClInclude Include="..\..\Source\midi\midi_VoiceDataMessage.h">
       <Filter>P-600-G\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h">
-      <Filter>P-600-G\Source\params</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h">
       <Filter>P-600-G\Source\params</Filter>
     </ClInclude>

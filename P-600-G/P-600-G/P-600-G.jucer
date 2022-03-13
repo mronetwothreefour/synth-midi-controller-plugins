@@ -112,8 +112,6 @@
               file="Source/midi/midi_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{F29DDD00-A4D3-0E47-CA9D-6888A7D5DB7A}" name="params">
-        <FILE id="HPzAy2" name="params_ExposedParameters_EnumClass.h" compile="0"
-              resource="0" file="Source/params/params_ExposedParameters_EnumClass.h"/>
         <FILE id="e0ZoEb" name="params_ExposedParametersListener.cpp" compile="1"
               resource="0" file="Source/params/params_ExposedParametersListener.cpp"/>
         <FILE id="uswnuK" name="params_ExposedParametersListener.h" compile="0"

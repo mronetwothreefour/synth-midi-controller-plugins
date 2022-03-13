@@ -2196,7 +2196,6 @@
     <ClInclude Include="..\..\Source\midi\midi_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\midi\midi_VoiceDataMessage.h"/>
-    <ClInclude Include="..\..\Source\params\params_ExposedParameters_EnumClass.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParametersListener.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsInfo_Singleton.h"/>
     <ClInclude Include="..\..\Source\params\params_ExposedParamsLayout_Factory.h"/>
