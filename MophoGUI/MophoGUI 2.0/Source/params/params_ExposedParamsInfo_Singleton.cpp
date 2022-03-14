@@ -1131,7 +1131,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
 
-	identifiers.add(ID::param_SeqTrack1Dest); // 101
+	identifiers.add(ID::param101_SeqTrack1Dest);
 	exposedNames.add("Sequencer Track 1 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)77);
@@ -1145,7 +1145,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 169));
 
-	identifiers.add(ID::param_SeqTrack2Dest); // 102
+	identifiers.add(ID::param102_SeqTrack2Dest);
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)78);
@@ -1159,7 +1159,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 252));
 
-	identifiers.add(ID::param_SeqTrack3Dest); // 103
+	identifiers.add(ID::param103_SeqTrack3Dest);
 	exposedNames.add("Sequencer Track 3 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)79);
@@ -1173,7 +1173,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 335));
 
-	identifiers.add(ID::param_SeqTrack4Dest); // 104
+	identifiers.add(ID::param104_SeqTrack4Dest);
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)80);
@@ -1251,15 +1251,15 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	// 120..183
 	for (auto track = 0; track != 4; ++track) {
 		for (auto step = 0; step != 16; ++step) {
+			auto paramNumString{ "param" + (String)(params::paramNumForSeqTrack1Step1 + (track * 16) + step) };
 			auto trackString{ (String)(track + 1) };
 			auto stepString{ (String)(step + 1) };
-			identifiers.add("track" + trackString + "Step" + stepString);
+			identifiers.add(paramNumString + "_track" + trackString + "Step" + stepString);
 			exposedNames.add("Sequencer Track " + trackString + " Step " + stepString);
 			controlTypes.add(ControlType::sequencerStep);
-			NRPNs.add((uint8)(120 + (16 * track) + step));
+			NRPNs.add((uint8)(params::paramNumForSeqTrack1Step1 + (16 * track) + step));
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
@@ -1288,7 +1288,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		identifiers.add(paramNumString + "_nameChar" + charNumString);
 		exposedNames.add("Program Name Character " + charNumString);
 		controlTypes.add(ControlType::voiceNameChar);
-		NRPNs.add((uint8)(184 + charNum));
+		NRPNs.add((uint8)(params::paramNumFor1stNameChar + charNum));
 		converters.add(IntToVoiceNameCharString::get());
 		maxValues.add((uint8)127);
 		descriptionString =  "To change character " + charNumString + " of the program" + GUI::apostrophe + "s name,\n";

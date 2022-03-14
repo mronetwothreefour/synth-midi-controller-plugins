@@ -703,7 +703,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllStepsInSeqTrack.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllSeqTrackParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp">
@@ -715,7 +715,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp">
@@ -3183,7 +3183,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllSeqTrackParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.h">
@@ -3195,7 +3195,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h">

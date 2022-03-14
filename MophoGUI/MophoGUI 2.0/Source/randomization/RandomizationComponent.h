@@ -4,11 +4,11 @@
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
-#include "../widgets_Button/widget_Randomization_ButtonForLockingAllStepsInSeqTrack.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
-#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllStepsInSeqTrack.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"
 
 
@@ -26,14 +26,14 @@ class RandomizationComponent :
 	ButtonForUnlockingAllParameters button_ForUnlockingAllParameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
-	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack1;
-	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack1;
-	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack2;
-	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack2;
-	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack3;
-	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack3;
-	ButtonForLockingAllStepsInSeqTrack button_ForLockingAllStepsInSeqTrack4;
-	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack4;
+	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack1Params;
+	ButtonForUnlockingAllSeqTrackParameters button_ForUnlockingAllSeqTrack1Params;
+	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack2Params;
+	ButtonForUnlockingAllSeqTrackParameters button_ForUnlockingAllSeqTrack2Params;
+	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack3Params;
+	ButtonForUnlockingAllSeqTrackParameters button_ForUnlockingAllSeqTrack3Params;
+	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack4Params;
+	ButtonForUnlockingAllSeqTrackParameters button_ForUnlockingAllSeqTrack4Params;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
 
@@ -47,8 +47,6 @@ public:
 	void resized() override;
 	void lockAllParameters();
 	void unlockAllParameters();
-	void lockAllStepsInSeqTrack(int trackNum);
-	void unlockAllStepsInSeqTrack(int trackNum);
 	void randomizeUnlockedParameters();
 	void buttonClicked(Button* button) override;
 	void hideThisComponent();

@@ -119,10 +119,10 @@ namespace ID
 	static const Identifier param015_bendRange{ "bendRange" };
 	static const Identifier param016_notePriority{ "notePriority" };
 	static const Identifier param017_oscMix{ "oscMix" };
-	static const Identifier param_SeqTrack1Dest{ "seqTrack1Dest" };
-	static const Identifier param_SeqTrack2Dest{ "seqTrack2Dest" };
-	static const Identifier param_SeqTrack3Dest{ "seqTrack3Dest" };
-	static const Identifier param_SeqTrack4Dest{ "seqTrack4Dest" };
+	static const Identifier param101_SeqTrack1Dest{ "seqTrack1Dest" };
+	static const Identifier param102_SeqTrack2Dest{ "seqTrack2Dest" };
+	static const Identifier param103_SeqTrack3Dest{ "seqTrack3Dest" };
+	static const Identifier param104_SeqTrack4Dest{ "seqTrack4Dest" };
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };

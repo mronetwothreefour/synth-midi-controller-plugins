@@ -1,6 +1,7 @@
 #include "widget_ButtonForClearingSequencerTrack.h"
 
 #include "../gui/gui_Constants.h"
+#include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -49,8 +50,10 @@ void ButtonForClearingSequencerTrack::timerCallback() {
 }
 
 void ButtonForClearingSequencerTrack::clearSequencerStep(int step) {
-	auto param{ exposedParams->getParameter("track" + (String)trackNum + "Step" + (String)step) };
 	auto clearedValue{ trackNum == 1 ? 1.0f : 0.0f };
-	param->setValueNotifyingHost(clearedValue);
+	auto paramNumString{ "param" + (String)(params::paramNumForSeqTrack1Step1 + ((trackNum - 1) * 16) + (step - 1)) };
+	auto param{ exposedParams->getParameter(paramNumString + "_track" + (String)trackNum + "Step" + (String)step) };
+	if (param != nullptr)
+		param->setValueNotifyingHost(clearedValue);
 }
 

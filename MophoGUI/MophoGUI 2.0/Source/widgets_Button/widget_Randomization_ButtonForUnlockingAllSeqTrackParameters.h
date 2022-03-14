@@ -9,7 +9,7 @@
 class RandomizationComponent;
 class UnexposedParameters;
 
-class ButtonForLockingAllStepsInSeqTrack :
+class ButtonForUnlockingAllSeqTrackParameters :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
 	int trackNum;
@@ -18,9 +18,9 @@ class ButtonForLockingAllStepsInSeqTrack :
 
 public:
 
-	ButtonForLockingAllStepsInSeqTrack() = delete;
+	ButtonForUnlockingAllSeqTrackParameters() = delete;
 
-	ButtonForLockingAllStepsInSeqTrack(int trackNum, RandomizationComponent* randomizationComponent, UnexposedParameters* unexposedParams);
+	ButtonForUnlockingAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;
@@ -28,5 +28,5 @@ protected:
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLockingAllStepsInSeqTrack)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForUnlockingAllSeqTrackParameters)
 };
