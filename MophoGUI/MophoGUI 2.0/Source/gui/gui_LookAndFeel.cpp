@@ -316,7 +316,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 			PNGImageFormat imageFormat;
 			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
 			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-			g.drawImageAt(buttonImage, w / 2 - 10, 0);
+			g.drawImageAt(buttonImage, int(w / 2) - (GUI::randomizationLockAndUnlockButtons_w / 2), 0);
 		}
 		else {
 			g.setColour(Color::switchOn.withAlpha(.2f));
@@ -376,7 +376,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 			PNGImageFormat imageFormat;
 			MemoryInputStream memInputStream{ BinaryData::LockIcon_png, BinaryData::LockIcon_pngSize, false };
 			auto buttonImage{ imageFormat.decodeImage(memInputStream) };
-			g.drawImageAt(buttonImage, x - 1, y - 1);
+			g.drawImageAt(buttonImage, (int)x - 1, (int)y - 1);
 		}
 		else {
 			g.setColour(Color::switchOn.withAlpha(.2f));

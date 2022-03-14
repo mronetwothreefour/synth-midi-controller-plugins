@@ -2,7 +2,7 @@
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
-#include "../randomization/randomizationComponent.h"
+#include "../randomization/RandomizationComponent.h"
 
 
 

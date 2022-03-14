@@ -18,7 +18,7 @@ class ButtonAndLabelForEditingVoiceName :
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	String voiceName;
-	int nameCharacter{ 0 };
+	int nameCharacterNum{ 0 };
 
 public:
 	ButtonAndLabelForEditingVoiceName() = delete;

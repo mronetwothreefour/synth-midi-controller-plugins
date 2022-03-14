@@ -3,6 +3,7 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../gui/gui_Fonts.h"
+#include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../voices/voices_Constants.h"
@@ -48,29 +49,31 @@ void ButtonAndLabelForEditingVoiceName::labelTextChanged(Label* labelThatHasChan
 
 void ButtonAndLabelForEditingVoiceName::startUpdatingVoiceName(String newName) {
 	voiceName = newName;
-	nameCharacter = 0;
+	nameCharacterNum = 0;
 	startTimer(10);
 }
 
 void ButtonAndLabelForEditingVoiceName::timerCallback() {
 	stopTimer();
-	if (nameCharacter > -1 && nameCharacter < voices::numberOfCharsInVoiceName) {
+	if (nameCharacterNum > -1 && nameCharacterNum < voices::numberOfCharsInVoiceName) {
 		updateNameCharacterInExposedParams();
 	}
 }
 
 void ButtonAndLabelForEditingVoiceName::updateNameCharacterInExposedParams() {
-	auto param{ exposedParams->getParameter("nameChar" + (String)(nameCharacter + 1)) };
+	auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + nameCharacterNum) };
+	auto charNumString{ (String)(nameCharacterNum + 1) };
+	auto param{ exposedParams->getParameter(paramNumString + "_nameChar" + charNumString) };
 	if (param != nullptr) {
-		auto normalizedValue{ (char)voiceName[nameCharacter] / 127.0f };
+		auto normalizedValue{ (char)voiceName[nameCharacterNum] / 127.0f };
 		param->setValueNotifyingHost(normalizedValue);
 	}
-	if (nameCharacter < voices::numberOfCharsInVoiceName - 1) {
-		++nameCharacter;
+	if (nameCharacterNum < voices::numberOfCharsInVoiceName - 1) {
+		++nameCharacterNum;
 		startTimer(10);
 	}
 	else
-		nameCharacter = -1;
+		nameCharacterNum = -1;
 }
 
 ButtonAndLabelForEditingVoiceName::~ButtonAndLabelForEditingVoiceName() {

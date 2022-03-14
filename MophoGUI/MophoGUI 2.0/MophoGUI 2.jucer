@@ -207,6 +207,10 @@
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="lYSEl2" name="randomization_ParamGroupLockingAndUnlockingMethods.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
+        <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
+              compile="0" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.h"/>
         <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
               file="Source/randomization/RandomizationComponent.cpp"/>
         <FILE id="bCeZ6k" name="RandomizationComponent.h" compile="0" resource="0"
@@ -530,7 +534,7 @@
             file="Resources/Button-Down-Import.png"/>
       <FILE id="r3V1uE" name="Button-Down-Load.png" compile="0" resource="1"
             file="Resources/Button-Down-Load.png"/>
-      <FILE id="U3h9rg" name="Button-Down-Lock.png" compile="0" resource="1"
+      <FILE id="xyvZER" name="Button-Down-Lock.png" compile="0" resource="1"
             file="Resources/Button-Down-Lock.png"/>
       <FILE id="e8frsR" name="Button-Down-Lock-All.png" compile="0" resource="1"
             file="Resources/Button-Down-Lock-All.png"/>
@@ -558,7 +562,7 @@
             file="Resources/Button-Down-Stop.png"/>
       <FILE id="kDPc3V" name="Button-Down-Undo.png" compile="0" resource="1"
             file="Resources/Button-Down-Undo.png"/>
-      <FILE id="rD1deJ" name="Button-Down-Unlock.png" compile="0" resource="1"
+      <FILE id="qkl1D5" name="Button-Down-Unlock.png" compile="0" resource="1"
             file="Resources/Button-Down-Unlock.png"/>
       <FILE id="YSvb2I" name="Button-Down-Unlock-All.png" compile="0" resource="1"
             file="Resources/Button-Down-Unlock-All.png"/>
@@ -584,7 +588,7 @@
             file="Resources/Button-Up-Import.png"/>
       <FILE id="jx8txZ" name="Button-Up-Load.png" compile="0" resource="1"
             file="Resources/Button-Up-Load.png"/>
-      <FILE id="NDDQ35" name="Button-Up-Lock.png" compile="0" resource="1"
+      <FILE id="TwChsy" name="Button-Up-Lock.png" compile="0" resource="1"
             file="Resources/Button-Up-Lock.png"/>
       <FILE id="Xabi8j" name="Button-Up-Lock-All.png" compile="0" resource="1"
             file="Resources/Button-Up-Lock-All.png"/>
@@ -612,7 +616,7 @@
             file="Resources/Button-Up-Stop.png"/>
       <FILE id="nzlgfx" name="Button-Up-Undo.png" compile="0" resource="1"
             file="Resources/Button-Up-Undo.png"/>
-      <FILE id="LSIKAG" name="Button-Up-Unlock.png" compile="0" resource="1"
+      <FILE id="AHhhe9" name="Button-Up-Unlock.png" compile="0" resource="1"
             file="Resources/Button-Up-Unlock.png"/>
       <FILE id="uHVjlk" name="Button-Up-Unlock-All.png" compile="0" resource="1"
             file="Resources/Button-Up-Unlock-All.png"/>

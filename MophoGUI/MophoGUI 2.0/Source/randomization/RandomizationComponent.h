@@ -36,9 +36,9 @@ class RandomizationComponent :
 	ButtonForUnlockingAllStepsInSeqTrack button_ForUnlockingAllStepsInSeqTrack4;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
-	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
 
 public:
+	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
 	RandomizationComponent() = delete;
 
 	RandomizationComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
@@ -47,8 +47,6 @@ public:
 	void resized() override;
 	void lockAllParameters();
 	void unlockAllParameters();
-	void lockAllVoiceNameCharacters();
-	void unlockAlVoicelNameCharacters();
 	void lockAllStepsInSeqTrack(int trackNum);
 	void unlockAllStepsInSeqTrack(int trackNum);
 	void randomizeUnlockedParameters();

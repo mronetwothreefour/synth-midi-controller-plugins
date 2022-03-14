@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
@@ -2263,6 +2264,7 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>

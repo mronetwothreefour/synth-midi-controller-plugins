@@ -132,24 +132,6 @@ void RandomizationComponent::unlockAllParameters() {
 	}
 }
 
-void RandomizationComponent::lockAllVoiceNameCharacters() {
-	auto& info{ InfoForExposedParameters::get() };
-	for (auto charNum = 0; charNum != 16; ++charNum) {
-		auto charNumString{ (String)(charNum + 1) };
-		auto paramIndex{ info.indexForParamID("nameChar" + charNumString) };
-		paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
-	}
-}
-
-void RandomizationComponent::unlockAlVoicelNameCharacters() {
-	auto& info{ InfoForExposedParameters::get() };
-	for (auto charNum = 0; charNum != 16; ++charNum) {
-		auto charNumString{ (String)(charNum + 1) };
-		auto paramIndex{ info.indexForParamID("nameChar" + charNumString) };
-		paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
-	}
-}
-
 void RandomizationComponent::lockAllStepsInSeqTrack(int trackNum) {
 	auto& info{ InfoForExposedParameters::get() };
 	for (auto step = 0; step != 16; ++step) {

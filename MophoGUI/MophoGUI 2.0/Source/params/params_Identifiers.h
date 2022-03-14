@@ -101,6 +101,24 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
+	static const Identifier param000_osc1_Pitch{ "osc1_Pitch" };
+	static const Identifier param001_osc1_Fine{ "osc1_Fine" };
+	static const Identifier param002_osc1_Shape{ "osc1_Shape" };
+	static const Identifier param003_osc1_Glide{ "osc1_Glide" };
+	static const Identifier param004_osc1_KeyTrack{ "osc1_KeyTrack" };
+	static const Identifier param005_osc1_SubLevel{ "osc1_SubLevel" };
+	static const Identifier param006_osc2_Pitch{ "osc2_Pitch" };
+	static const Identifier param007_osc2_Fine{ "osc2_Fine" };
+	static const Identifier param008_osc2_Shape{ "osc2_Shape" };
+	static const Identifier param009_osc2_Glide{ "osc2_Glide" };
+	static const Identifier param010_osc2_KeyTrack{ "osc2_KeyTrack" };
+	static const Identifier param011_osc2_SubLevel{ "osc2_SubLevel" };
+	static const Identifier param012_oscSync{ "oscSync" };
+	static const Identifier param013_glideMode{ "glideMode" };
+	static const Identifier param014_oscSlop{ "oscSlop" };
+	static const Identifier param015_bendRange{ "bendRange" };
+	static const Identifier param016_notePriority{ "notePriority" };
+	static const Identifier param017_oscMix{ "oscMix" };
 	static const Identifier param_SeqTrack1Dest{ "seqTrack1Dest" };
 	static const Identifier param_SeqTrack2Dest{ "seqTrack2Dest" };
 	static const Identifier param_SeqTrack3Dest{ "seqTrack3Dest" };

@@ -42,7 +42,7 @@ namespace BinaryData
     const int            ButtonDownLoad_pngSize = 633;
 
     extern const char*   ButtonDownLock_png;
-    const int            ButtonDownLock_pngSize = 612;
+    const int            ButtonDownLock_pngSize = 348;
 
     extern const char*   ButtonDownLockAll_png;
     const int            ButtonDownLockAll_pngSize = 750;
@@ -84,7 +84,7 @@ namespace BinaryData
     const int            ButtonDownUndo_pngSize = 569;
 
     extern const char*   ButtonDownUnlock_png;
-    const int            ButtonDownUnlock_pngSize = 686;
+    const int            ButtonDownUnlock_pngSize = 349;
 
     extern const char*   ButtonDownUnlockAll_png;
     const int            ButtonDownUnlockAll_pngSize = 833;
@@ -123,7 +123,7 @@ namespace BinaryData
     const int            ButtonUpLoad_pngSize = 598;
 
     extern const char*   ButtonUpLock_png;
-    const int            ButtonUpLock_pngSize = 602;
+    const int            ButtonUpLock_pngSize = 326;
 
     extern const char*   ButtonUpLockAll_png;
     const int            ButtonUpLockAll_pngSize = 816;
@@ -165,7 +165,7 @@ namespace BinaryData
     const int            ButtonUpUndo_pngSize = 575;
 
     extern const char*   ButtonUpUnlock_png;
-    const int            ButtonUpUnlock_pngSize = 712;
+    const int            ButtonUpUnlock_pngSize = 292;
 
     extern const char*   ButtonUpUnlockAll_png;
     const int            ButtonUpUnlockAll_pngSize = 857;
@@ -222,7 +222,7 @@ namespace BinaryData
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 11663;
+    const int            RandomizationWindowBackground_pngSize = 10147;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;

@@ -1,6 +1,7 @@
 #include "widget_ButtonForOpeningVoiceNameEditor.h"
 
 #include "../gui/gui_Constants.h"
+#include "../params/params_Constants.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
@@ -48,8 +49,10 @@ void ButtonForOpeningVoiceNameEditor::onClickMethod() {
 
 String ButtonForOpeningVoiceNameEditor::getVoiceNameFromExposedParemeters() {
 	std::string voiceName{ "" };
-	for (auto i = 1; i != 17; ++i) {
-		auto param{ exposedParams->getParameter("nameChar" + (String)i) };
+	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + charNum) };
+		auto charNumString{ (String)(charNum + 1) };
+		auto param{ exposedParams->getParameter(paramNumString + "_nameChar" + charNumString) };
 		voiceName += std::string(1, char(roundToInt(param->getValue() * 127)));
 	}
 	return voiceName;

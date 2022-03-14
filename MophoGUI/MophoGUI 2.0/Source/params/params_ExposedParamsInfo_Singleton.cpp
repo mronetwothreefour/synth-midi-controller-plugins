@@ -20,7 +20,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	//======================================================
 
 	for (uint8 i = 1; i != 3; ++i) {
-		identifiers.add("osc" + (String)i + "Pitch"); // 0 & 6
+		identifiers.add(i == 1 ? ID::param000_osc1_Pitch : ID::param006_osc2_Pitch);
 		exposedNames.add("Oscillator " + (String)i + " Pitch");
 		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)0 : (uint8)5);
@@ -36,7 +36,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add("osc" + (String)i + "Fine"); // 1 & 7
+		identifiers.add(i == 1 ? ID::param001_osc1_Fine : ID::param007_osc2_Fine);
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
 		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)1 : (uint8)6);
@@ -51,7 +51,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add("osc" + (String)i + "Shape"); // 2 & 8
+		identifiers.add(i == 1 ? ID::param002_osc1_Shape : ID::param008_osc2_Shape);
 		exposedNames.add("Oscillator " + (String)i + " Wave Shape");
 		controlTypes.add(ControlType::knobWithWaveShapeDisplay);
 		NRPNs.add(i == 1 ? (uint8)2 : (uint8)7);
@@ -69,7 +69,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add("osc" + (String)i + "Glide"); // 3 & 9
+		identifiers.add(i == 1 ? ID::param003_osc1_Glide : ID::param009_osc2_Glide);
 		exposedNames.add("Oscillator " + (String)i + " Glide Rate");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)3 : (uint8)8);
@@ -83,7 +83,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add("osc" + (String)i + "KeyTrack"); // 4 & 10
+		identifiers.add(i == 1 ? ID::param004_osc1_KeyTrack : ID::param010_osc2_KeyTrack);
 		exposedNames.add("Oscillator " + (String)i + " Keyboard Track On/Off");
 		controlTypes.add(ControlType::toggleButton);
 		NRPNs.add(i == 1 ? (uint8)4 : (uint8)9);
@@ -99,7 +99,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add("osc" + (String)i + "SubLevel"); // 5 & 11
+		identifiers.add(i == 1 ? ID::param005_osc1_SubLevel : ID::param011_osc2_SubLevel);
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)114 : (uint8)115);
@@ -116,7 +116,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 	}
 
-	identifiers.add("oscSync"); // 12
+	identifiers.add(ID::param012_oscSync);
 	exposedNames.add("Hard Oscillator Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)10);
@@ -133,7 +133,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("glideMode"); // 13
+	identifiers.add(ID::param013_glideMode);
 	exposedNames.add("Glide Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)11);
@@ -149,7 +149,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 78));
 
-	identifiers.add("oscSlop"); // 14
+	identifiers.add(ID::param014_oscSlop);
 	exposedNames.add("Oscillator Slop");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)12);
@@ -164,7 +164,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow1_y));
 
-	identifiers.add("bendRange"); // 15
+	identifiers.add(ID::param015_bendRange);
 	exposedNames.add("Pitch Bend Range");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)93);
@@ -179,7 +179,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow1_y));
 
-	identifiers.add("notePriority"); // 16
+	identifiers.add(ID::param016_notePriority);
 	exposedNames.add("Note Priority (Key Assign)");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)96);
@@ -1282,10 +1282,10 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	// 184..199
 	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + charNum) };
 		auto charNumString{ (String)(charNum + 1) };
-		identifiers.add("nameChar" + charNumString);
+		identifiers.add(paramNumString + "_nameChar" + charNumString);
 		exposedNames.add("Program Name Character " + charNumString);
 		controlTypes.add(ControlType::voiceNameChar);
 		NRPNs.add((uint8)(184 + charNum));
