@@ -24,5 +24,5 @@ const String ButtonForLockingAllParameters::createButtonTooltipString() {
 }
 
 void ButtonForLockingAllParameters::onClickMethod() {
-	ParamGroupLockingAndUnlockingMethods::lockAllParameters(randomizationComponent);
+	ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllParameters(randomizationComponent, true);
 }

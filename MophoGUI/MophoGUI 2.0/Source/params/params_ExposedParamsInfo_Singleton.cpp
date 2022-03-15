@@ -226,7 +226,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow2_y));
 
-	identifiers.add("extInLevel"); // 19
+	identifiers.add(ID::param019_extInLevel);
 	exposedNames.add("External Audio Input Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)116);
@@ -246,7 +246,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("lpfFreq"); // 20
+	identifiers.add(ID::param020_lpfFreq);
 	exposedNames.add("LPF Cutoff Frequency");
 	controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 	NRPNs.add((uint8)15);
@@ -262,7 +262,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add("lpfReso"); // 21
+	identifiers.add(ID::param021_lpfReso);
 	exposedNames.add("LPF Resonance");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)16);
@@ -278,7 +278,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add("lpfKeyAmount"); // 22
+	identifiers.add(ID::param022_lpfKeyAmount);
 	exposedNames.add("LPF Keyboard Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)17);
@@ -295,7 +295,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add("lpfFMamount"); // 23
+	identifiers.add(ID::param023_lpfFMamount);
 	exposedNames.add("LPF FM (By Oscillator 1)");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)18);
@@ -311,7 +311,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfType"); // 24
+	identifiers.add(ID::param024_lpfType);
 	exposedNames.add("LPF Type");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)19);
@@ -326,7 +326,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow1_y));
 
-	identifiers.add("lpfEnvAmount"); // 25
+	identifiers.add(ID::param025_lpfEnvAmount);
 	exposedNames.add("LPF Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)20);
@@ -342,7 +342,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfVelAmount"); // 26
+	identifiers.add(ID::param026_lpfVelAmount);
 	exposedNames.add("LPF Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)21);
@@ -357,7 +357,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfDelay"); // 27
+	identifiers.add(ID::param027_lpfDelay);
 	exposedNames.add("LPF Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)22);
@@ -373,7 +373,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfAttack"); // 28
+	identifiers.add(ID::param028_lpfAttack);
 	exposedNames.add("LPF Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)23);
@@ -389,7 +389,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfDecay"); // 29
+	identifiers.add(ID::param029_lpfDecay);
 	exposedNames.add("LPF Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)24);
@@ -405,7 +405,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfSustain"); // 30
+	identifiers.add(ID::param030_lpfSustain);
 	exposedNames.add("LPF Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)25);
@@ -421,7 +421,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add("lpfRelease"); // 31
+	identifiers.add(ID::param031_lpfRelease);
 	exposedNames.add("LPF Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)26);

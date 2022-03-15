@@ -25,5 +25,5 @@ const String ButtonForLockingAllSeqTrackParameters::createButtonTooltipString() 
 }
 
 void ButtonForLockingAllSeqTrackParameters::onClickMethod() {
-	ParamGroupLockingAndUnlockingMethods::lockAllSeqTrackParameters(trackNum, randomizationComponent);
+	ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllSeqTrackParameters(trackNum, randomizationComponent, true);
 }

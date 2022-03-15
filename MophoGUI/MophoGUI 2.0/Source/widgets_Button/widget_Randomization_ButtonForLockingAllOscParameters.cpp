@@ -24,5 +24,5 @@ const String ButtonForLockingAllOscParameters::createButtonTooltipString() {
 }
 
 void ButtonForLockingAllOscParameters::onClickMethod() {
-	ParamGroupLockingAndUnlockingMethods::lockAllOscillatorParameters(randomizationComponent);
+	ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllOscillatorParameters(randomizationComponent, true);
 }

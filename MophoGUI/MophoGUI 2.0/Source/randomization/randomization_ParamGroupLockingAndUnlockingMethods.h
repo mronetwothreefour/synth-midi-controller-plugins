@@ -7,12 +7,9 @@
 class RandomizationComponent;
 
 struct ParamGroupLockingAndUnlockingMethods {
-	static void lockAllParameters(RandomizationComponent* randomizationComponent);
-	static void unlockAllParameters(RandomizationComponent* randomizationComponent);
-	static void lockAllOscillatorParameters(RandomizationComponent* randomizationComponent);
-	static void unlockAllOscillatorParameters(RandomizationComponent* randomizationComponent);
-	static void lockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent);
-	static void unlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent);
-	static void lockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent);
-	static void unlockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent);
+	static void lockOrUnlockAllParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllOscillatorParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllLPFparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 };

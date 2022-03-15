@@ -24,5 +24,5 @@ const String ButtonForUnlockingAllVoiceNameChars::createButtonTooltipString() {
 }
 
 void ButtonForUnlockingAllVoiceNameChars::onClickMethod() {
-	ParamGroupLockingAndUnlockingMethods::unlockAllVoiceNameCharacters(randomizationComponent);
+	ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllVoiceNameCharacters(randomizationComponent, false);
 }
