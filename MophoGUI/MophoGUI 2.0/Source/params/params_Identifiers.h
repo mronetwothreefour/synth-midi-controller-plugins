@@ -133,6 +133,15 @@ namespace ID
 	static const Identifier param029_lpfDecay{ "param029_lpfDecay" };
 	static const Identifier param030_lpfSustain{ "param030_lpfSustain" };
 	static const Identifier param031_lpfRelease{ "param031_lpfRelease" };
+	static const Identifier param032_vcaLevel{ "param032_vcaLevel" };
+	static const Identifier param033_vcaEnvAmount{ "param033_vcaEnvAmount" };
+	static const Identifier param034_vcaVelAmount{ "param034_vcaVelAmount" };
+	static const Identifier param035_vcaDelay{ "param035_vcaDelay" };
+	static const Identifier param036_vcaAttack{ "param036_vcaAttack" };
+	static const Identifier param037_vcaDecay{ "param037_vcaDecay" };
+	static const Identifier param038_vcaSustain{ "param038_vcaSustain" };
+	static const Identifier param039_vcaRelease{ "param039_vcaRelease" };
+	static const Identifier param040_voiceVolume{ "param040_voiceVolume" };
 	static const Identifier param101_SeqTrack1Dest{ "param101_SeqTrack1Dest" };
 	static const Identifier param102_SeqTrack2Dest{ "param102_SeqTrack2Dest" };
 	static const Identifier param103_SeqTrack3Dest{ "param103_SeqTrack3Dest" };

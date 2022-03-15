@@ -81,6 +81,28 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLPFparameters(Randomiz
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
+void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllVCAparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(ID::param032_vcaLevel.toString()) };
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param033_vcaEnvAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param034_vcaVelAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param035_vcaDelay.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param036_vcaAttack.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param037_vcaDecay.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param038_vcaSustain.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param039_vcaRelease.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param040_voiceVolume.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+}
+
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	uint8 destParamIndex{ 0 };

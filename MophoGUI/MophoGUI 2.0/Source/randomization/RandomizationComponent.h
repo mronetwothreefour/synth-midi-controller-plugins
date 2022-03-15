@@ -7,12 +7,14 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllVCAparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"
 
 
@@ -32,6 +34,8 @@ class RandomizationComponent :
 	ButtonForUnlockingAllOscParameters button_ForUnlockingAllOscParameters;
 	ButtonForLockingAllLPFparameters button_ForLockingAllLPFparameters;
 	ButtonForUnlockingAllLPFparameters button_ForUnlockingAllLPFparameters;
+	ButtonForLockingAllVCAparameters button_ForLockingAllVCAparameters;
+	ButtonForUnlockingAllVCAparameters button_ForUnlockingAllVCAparameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
 	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack1Params;

@@ -699,6 +699,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLPFparameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllOscParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
@@ -712,6 +715,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLPFparameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllOscParameters.cpp">
@@ -2817,10 +2823,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLPFparameters.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVCAparameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLPFparameters.cpp">
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVCAparameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
   </ItemGroup>
@@ -3065,6 +3071,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLPFparameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllOscParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
@@ -3078,6 +3087,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLPFparameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllOscParameters.h">
@@ -5630,10 +5642,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLPFparameters.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVCAparameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLPFparameters.h">
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllVCAparameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
   </ItemGroup>

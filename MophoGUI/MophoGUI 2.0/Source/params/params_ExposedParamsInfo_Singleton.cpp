@@ -439,7 +439,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("vcaLevel"); // 32
+	identifiers.add(ID::param032_vcaLevel);
 	exposedNames.add("VCA Baseline Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)27);
@@ -455,7 +455,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add("vcaEnvAmount"); // 33
+	identifiers.add(ID::param033_vcaEnvAmount);
 	exposedNames.add("VCA Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)30);
@@ -470,7 +470,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add("vcaVelAmount"); // 34
+	identifiers.add(ID::param034_vcaVelAmount);
 	exposedNames.add("VCA Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)31);
@@ -485,7 +485,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add("vcaDelay"); // 35
+	identifiers.add(ID::param035_vcaDelay);
 	exposedNames.add("VCA Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)32);
@@ -501,7 +501,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("vcaAttack"); // 36
+	identifiers.add(ID::param036_vcaAttack);
 	exposedNames.add("VCA Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)33);
@@ -517,7 +517,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("vcaDecay"); // 37
+	identifiers.add(ID::param037_vcaDecay);
 	exposedNames.add("VCA Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)34);
@@ -533,7 +533,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("vcaSustain"); // 38
+	identifiers.add(ID::param038_vcaSustain);
 	exposedNames.add("VCA Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)35);
@@ -549,7 +549,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("vcaRelease"); // 39
+	identifiers.add(ID::param039_vcaRelease);
 	exposedNames.add("VCA Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)36);
@@ -565,7 +565,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add("voiceVolume"); // 40
+	identifiers.add(ID::param040_voiceVolume);
 	exposedNames.add("Program Volume");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)29);

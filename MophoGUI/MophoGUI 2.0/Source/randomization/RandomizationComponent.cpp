@@ -21,6 +21,8 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllOscParameters{ this, unexposedParams },
 	button_ForLockingAllLPFparameters{ this, unexposedParams },
 	button_ForUnlockingAllLPFparameters{ this, unexposedParams },
+	button_ForLockingAllVCAparameters{ this, unexposedParams },
+	button_ForUnlockingAllVCAparameters{ this, unexposedParams },
 	button_ForLockingAllVoiceNameChars{ this, unexposedParams },
 	button_ForUnlockingAllVoiceNameChars{ this, unexposedParams },
 	button_ForLockingAllSeqTrack1Params{ 1, this, unexposedParams },
@@ -40,6 +42,8 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllOscParameters);
 	addAndMakeVisible(button_ForLockingAllLPFparameters);
 	addAndMakeVisible(button_ForUnlockingAllLPFparameters);
+	addAndMakeVisible(button_ForLockingAllVCAparameters);
+	addAndMakeVisible(button_ForUnlockingAllVCAparameters);
 	addAndMakeVisible(button_ForLockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForUnlockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForLockingAllSeqTrack1Params);
@@ -113,6 +117,8 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllOscParameters.setBounds(GUI::bounds_RandomizationOscUnlockButton);
 	button_ForLockingAllLPFparameters.setBounds(GUI::bounds_RandomizationLPFlockButton);
 	button_ForUnlockingAllLPFparameters.setBounds(GUI::bounds_RandomizationLPFunlockButton);
+	button_ForLockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAlockButton);
+	button_ForUnlockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAunlockButton);
 	button_ForLockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameLockButton);
 	button_ForUnlockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameUnlockButton);
 	button_ForLockingAllSeqTrack1Params.setBounds(GUI::bounds_RandomizationSeqTrack1LockButton);
