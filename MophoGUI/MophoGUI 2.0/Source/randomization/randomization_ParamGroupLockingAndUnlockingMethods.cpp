@@ -10,6 +10,20 @@ using namespace constants;
 
 
 
+void ParamGroupLockingAndUnlockingMethods::lockAllParameters(RandomizationComponent* randomizationComponent) {
+	auto& info{ InfoForExposedParameters::get() };
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		randomizationComponent->paramLockToggleButtons[param].setToggleState(true, dontSendNotification);
+	}
+}
+
+void ParamGroupLockingAndUnlockingMethods::unlockAllParameters(RandomizationComponent* randomizationComponent) {
+	auto& info{ InfoForExposedParameters::get() };
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		randomizationComponent->paramLockToggleButtons[param].setToggleState(false, dontSendNotification);
+	}
+}
+
 void ParamGroupLockingAndUnlockingMethods::lockAllOscillatorParameters(RandomizationComponent* randomizationComponent) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID(ID::param000_osc1_Pitch.toString()) };

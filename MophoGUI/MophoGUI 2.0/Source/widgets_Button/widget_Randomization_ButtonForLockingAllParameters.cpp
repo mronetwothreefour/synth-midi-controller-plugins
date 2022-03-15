@@ -3,6 +3,7 @@
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../randomization/RandomizationComponent.h"
+#include "../randomization/randomization_ParamGroupLockingAndUnlockingMethods.h"
 
 
 
@@ -23,5 +24,5 @@ const String ButtonForLockingAllParameters::createButtonTooltipString() {
 }
 
 void ButtonForLockingAllParameters::onClickMethod() {
-	randomizationComponent->lockAllParameters();
+	ParamGroupLockingAndUnlockingMethods::lockAllParameters(randomizationComponent);
 }

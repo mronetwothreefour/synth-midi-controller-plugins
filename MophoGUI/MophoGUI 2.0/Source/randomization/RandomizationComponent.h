@@ -49,8 +49,6 @@ public:
 	void setUpParamLockToggleButton(uint8 param);
 	void paint(Graphics& g) override;
 	void resized() override;
-	void lockAllParameters();
-	void unlockAllParameters();
 	void randomizeUnlockedParameters();
 	void buttonClicked(Button* button) override;
 	void hideThisComponent();

@@ -124,20 +124,6 @@ void RandomizationComponent::resized() {
 	}
 }
 
-void RandomizationComponent::lockAllParameters() {
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		paramLockToggleButtons[param].setToggleState(true, dontSendNotification);
-	}
-}
-
-void RandomizationComponent::unlockAllParameters() {
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		paramLockToggleButtons[param].setToggleState(false, dontSendNotification);
-	}
-}
-
 void RandomizationComponent::randomizeUnlockedParameters() {
 	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
