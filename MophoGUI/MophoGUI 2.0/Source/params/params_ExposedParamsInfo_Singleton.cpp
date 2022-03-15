@@ -211,7 +211,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow1_y));
 
-	identifiers.add(ID::param018_noiseLevel); // 18
+	identifiers.add(ID::param018_noiseLevel);
 	exposedNames.add("Noise Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)14);

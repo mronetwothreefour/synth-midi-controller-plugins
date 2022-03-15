@@ -42,7 +42,7 @@ namespace BinaryData
     const int            ButtonDownLoad_pngSize = 633;
 
     extern const char*   ButtonDownLock_png;
-    const int            ButtonDownLock_pngSize = 348;
+    const int            ButtonDownLock_pngSize = 378;
 
     extern const char*   ButtonDownLockAll_png;
     const int            ButtonDownLockAll_pngSize = 750;
@@ -84,7 +84,7 @@ namespace BinaryData
     const int            ButtonDownUndo_pngSize = 569;
 
     extern const char*   ButtonDownUnlock_png;
-    const int            ButtonDownUnlock_pngSize = 349;
+    const int            ButtonDownUnlock_pngSize = 369;
 
     extern const char*   ButtonDownUnlockAll_png;
     const int            ButtonDownUnlockAll_pngSize = 833;
@@ -123,7 +123,7 @@ namespace BinaryData
     const int            ButtonUpLoad_pngSize = 598;
 
     extern const char*   ButtonUpLock_png;
-    const int            ButtonUpLock_pngSize = 326;
+    const int            ButtonUpLock_pngSize = 373;
 
     extern const char*   ButtonUpLockAll_png;
     const int            ButtonUpLockAll_pngSize = 816;
@@ -165,7 +165,7 @@ namespace BinaryData
     const int            ButtonUpUndo_pngSize = 575;
 
     extern const char*   ButtonUpUnlock_png;
-    const int            ButtonUpUnlock_pngSize = 292;
+    const int            ButtonUpUnlock_pngSize = 359;
 
     extern const char*   ButtonUpUnlockAll_png;
     const int            ButtonUpUnlockAll_pngSize = 857;
