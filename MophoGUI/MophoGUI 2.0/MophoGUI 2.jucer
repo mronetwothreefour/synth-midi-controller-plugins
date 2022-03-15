@@ -323,6 +323,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
+        <FILE id="ZjfM4w" name="widget_Randomization_ButtonForLockingAllOscParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.cpp"/>
+        <FILE id="FSPg8Q" name="widget_Randomization_ButtonForLockingAllOscParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.h"/>
         <FILE id="LjPGYU" name="widget_Randomization_ButtonForLockingAllParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
         <FILE id="GjCH7K" name="widget_Randomization_ButtonForLockingAllParameters.h"
@@ -339,6 +343,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="JUHadR" name="widget_Randomization_ButtonForUnlockingAllOscParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.cpp"/>
+        <FILE id="lvHECt" name="widget_Randomization_ButtonForUnlockingAllOscParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.h"/>
         <FILE id="zYnZCZ" name="widget_Randomization_ButtonForUnlockingAllParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
         <FILE id="duaduR" name="widget_Randomization_ButtonForUnlockingAllParameters.h"

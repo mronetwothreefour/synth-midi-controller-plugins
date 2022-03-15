@@ -195,7 +195,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 38));
 
-	identifiers.add("oscMix"); // 17
+	identifiers.add(ID::param017_oscMix);
 	exposedNames.add("Oscillator 1 & 2 Mix");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)13);
@@ -211,7 +211,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow1_y));
 
-	identifiers.add("noiseLevel"); // 18
+	identifiers.add(ID::param018_noiseLevel); // 18
 	exposedNames.add("Noise Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)14);

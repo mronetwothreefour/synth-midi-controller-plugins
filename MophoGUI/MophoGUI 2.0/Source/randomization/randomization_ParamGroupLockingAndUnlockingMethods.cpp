@@ -40,6 +40,10 @@ void ParamGroupLockingAndUnlockingMethods::lockAllOscillatorParameters(Randomiza
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
 	paramIndex = info.indexForParamID(ID::param014_oscSlop.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param017_oscMix.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param018_noiseLevel.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(true, dontSendNotification);
 }
 
 void ParamGroupLockingAndUnlockingMethods::unlockAllOscillatorParameters(RandomizationComponent* randomizationComponent) {
@@ -71,6 +75,10 @@ void ParamGroupLockingAndUnlockingMethods::unlockAllOscillatorParameters(Randomi
 	paramIndex = info.indexForParamID(ID::param012_oscSync.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
 	paramIndex = info.indexForParamID(ID::param014_oscSlop.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param017_oscMix.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::param018_noiseLevel.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
 }
 

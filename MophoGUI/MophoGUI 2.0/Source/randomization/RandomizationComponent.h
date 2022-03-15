@@ -3,10 +3,12 @@
 #include <JuceHeader.h>
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"
@@ -24,6 +26,8 @@ class RandomizationComponent :
 	UnexposedParameters* unexposedParams;
 	ButtonForLockingAllParameters button_ForLockingAllParameters;
 	ButtonForUnlockingAllParameters button_ForUnlockingAllParameters;
+	ButtonForLockingAllOscParameters button_ForLockingAllOscParameters;
+	ButtonForUnlockingAllOscParameters button_ForUnlockingAllOscParameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
 	ButtonForLockingAllSeqTrackParameters button_ForLockingAllSeqTrack1Params;
