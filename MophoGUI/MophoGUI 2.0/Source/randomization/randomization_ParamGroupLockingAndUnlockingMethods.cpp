@@ -151,6 +151,30 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLFOparameters(int lfoN
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
+void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllMIDIcontrollerParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(ID::modWheelAmount.toString()) };
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::modWheelDest.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::pressureAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::pressureDest.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::breathAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::breathDest.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::velocityAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::velocityDest.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::footPedalAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::footPedalDest.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+}
+
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	uint8 destParamIndex{ 0 };

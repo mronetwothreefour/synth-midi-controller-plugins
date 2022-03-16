@@ -842,7 +842,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("modWheelAmount"); // 82
+	identifiers.add(ID::modWheelAmount); // 82
 	exposedNames.add("Modulation Wheel Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)81);
@@ -858,7 +858,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 191));
 
-	identifiers.add("modWheelDest"); // 83
+	identifiers.add(ID::modWheelDest); // 83
 	exposedNames.add("Modulation Wheel Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)82);
@@ -870,7 +870,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 191));
 
-	identifiers.add("pressureAmount"); // 84
+	identifiers.add(ID::pressureAmount); // 84
 	exposedNames.add("Pressure (Aftertouch) Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)83);
@@ -886,7 +886,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 253));
 
-	identifiers.add("pressureDest"); // 85
+	identifiers.add(ID::pressureDest); // 85
 	exposedNames.add("Pressure (Aftertouch) Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)84);
@@ -898,7 +898,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 253));
 
-	identifiers.add("breathAmount"); // 86
+	identifiers.add(ID::breathAmount); // 86
 	exposedNames.add("Breath Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)85);
@@ -914,7 +914,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 315));
 
-	identifiers.add("breathDest"); // 87
+	identifiers.add(ID::breathDest); // 87
 	exposedNames.add("Breath Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)86);
@@ -926,7 +926,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 315));
 
-	identifiers.add("velocityAmount"); // 88
+	identifiers.add(ID::velocityAmount); // 88
 	exposedNames.add("Note Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)87);
@@ -942,7 +942,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 377));
 
-	identifiers.add("velocityDest"); // 89
+	identifiers.add(ID::velocityDest); // 89
 	exposedNames.add("Note Velocity Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)88);
@@ -954,7 +954,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 377));
 
-	identifiers.add("footPedalAmount"); // 90
+	identifiers.add(ID::footPedalAmount); // 90
 	exposedNames.add("Foot Pedal Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)89);
@@ -970,7 +970,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 439));
 
-	identifiers.add("footPedalDest"); // 91
+	identifiers.add(ID::footPedalDest); // 91
 	exposedNames.add("Foot Pedal Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)90);

@@ -335,6 +335,14 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLPFparameters.cpp"/>
         <FILE id="TOUfvN" name="widget_Randomization_ButtonForLockingAllLPFparameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLPFparameters.h"/>
+        <FILE id="g9gbTB" name="widget_Randomization_ButtonForLockingAllMIDIcontrollerParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllMIDIcontrollerParameters.cpp"/>
+        <FILE id="y7UMkW" name="widget_Randomization_ButtonForLockingAllMIDIcontrollerParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllMIDIcontrollerParameters.h"/>
+        <FILE id="e36LJx" name="widget_Randomization_ButtonForLockingAllModulatorParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllModulatorParameters.cpp"/>
+        <FILE id="zvKO1g" name="widget_Randomization_ButtonForLockingAllModulatorParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllModulatorParameters.h"/>
         <FILE id="ZjfM4w" name="widget_Randomization_ButtonForLockingAllOscParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.cpp"/>
         <FILE id="FSPg8Q" name="widget_Randomization_ButtonForLockingAllOscParameters.h"
@@ -371,6 +379,14 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.cpp"/>
         <FILE id="iYnT2W" name="widget_Randomization_ButtonForUnlockingAllLPFparameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.h"/>
+        <FILE id="JzjH9D" name="widget_Randomization_ButtonForUnlockingAllMIDIcontrollerParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllMIDIcontrollerParameters.cpp"/>
+        <FILE id="sVyn0q" name="widget_Randomization_ButtonForUnlockingAllMIDIcontrollerParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllMIDIcontrollerParameters.h"/>
+        <FILE id="qsSgQA" name="widget_Randomization_ButtonForUnlockingAllModulatorParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllModulatorParameters.cpp"/>
+        <FILE id="PCKHCU" name="widget_Randomization_ButtonForUnlockingAllModulatorParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllModulatorParameters.h"/>
         <FILE id="JUHadR" name="widget_Randomization_ButtonForUnlockingAllOscParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.cpp"/>
         <FILE id="lvHECt" name="widget_Randomization_ButtonForUnlockingAllOscParameters.h"

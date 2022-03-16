@@ -151,6 +151,16 @@ namespace ID
 	static const Identifier env3Sustain{ "env3Sustain" };
 	static const Identifier env3Release{ "env3Release" };
 	static const Identifier env3Repeat{ "env3Repeat" };
+	static const Identifier modWheelAmount{ "modWheelAmount" };
+	static const Identifier modWheelDest{ "modWheelDest" };
+	static const Identifier pressureAmount{ "pressureAmount" };
+	static const Identifier pressureDest{ "pressureDest" };
+	static const Identifier breathAmount{ "breathAmount" };
+	static const Identifier breathDest{ "breathDest" };
+	static const Identifier velocityAmount{ "velocityAmount" };
+	static const Identifier velocityDest{ "velocityDest" };
+	static const Identifier footPedalAmount{ "footPedalAmount" };
+	static const Identifier footPedalDest{ "footPedalDest" };
 	static const Identifier SeqTrack1Dest{ "SeqTrack1Dest" };
 	static const Identifier SeqTrack2Dest{ "SeqTrack2Dest" };
 	static const Identifier SeqTrack3Dest{ "SeqTrack3Dest" };
