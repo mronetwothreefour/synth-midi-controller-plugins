@@ -25,6 +25,8 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllVCAparameters{ this, unexposedParams },
 	button_ForLockingAllEnv3Parameters{ this, unexposedParams },
 	button_ForUnlockingAllEnv3Parameters{ this, unexposedParams },
+	button_ForLockingAllModulatorParameters{ this, unexposedParams },
+	button_ForUnlockingAllModulatorParameters{ this, unexposedParams },
 	button_ForLockingAllLFO1parameters{ 1, this, unexposedParams },
 	button_ForLockingAllLFO2parameters{ 2, this, unexposedParams },
 	button_ForLockingAllLFO3parameters{ 3, this, unexposedParams },
@@ -56,6 +58,8 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllVCAparameters);
 	addAndMakeVisible(button_ForLockingAllEnv3Parameters);
 	addAndMakeVisible(button_ForUnlockingAllEnv3Parameters);
+	addAndMakeVisible(button_ForLockingAllModulatorParameters);
+	addAndMakeVisible(button_ForUnlockingAllModulatorParameters);
 	addAndMakeVisible(button_ForLockingAllLFO1parameters);
 	addAndMakeVisible(button_ForLockingAllLFO2parameters);
 	addAndMakeVisible(button_ForLockingAllLFO3parameters);
@@ -141,6 +145,8 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAunlockButton);
 	button_ForLockingAllEnv3Parameters.setBounds(GUI::bounds_RandomizationEnv3LockButton);
 	button_ForUnlockingAllEnv3Parameters.setBounds(GUI::bounds_RandomizationEnv3UnlockButton);
+	button_ForLockingAllModulatorParameters.setBounds(GUI::bounds_RandomizationModulatorsLockButton);
+	button_ForUnlockingAllModulatorParameters.setBounds(GUI::bounds_RandomizationModulatorsUnlockButton);
 	button_ForLockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1lockButton);
 	button_ForUnlockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1unlockButton);
 	button_ForLockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2lockButton);

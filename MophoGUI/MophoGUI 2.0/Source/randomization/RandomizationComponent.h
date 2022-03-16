@@ -6,6 +6,7 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllEnv3Parameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllLFOparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllLPFparameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllModulatorParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
@@ -15,6 +16,7 @@
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllModulatorParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"
@@ -42,6 +44,8 @@ class RandomizationComponent :
 	ButtonForUnlockingAllVCAparameters button_ForUnlockingAllVCAparameters;
 	ButtonForLockingAllEnv3Parameters button_ForLockingAllEnv3Parameters;
 	ButtonForUnlockingAllEnv3Parameters button_ForUnlockingAllEnv3Parameters;
+	ButtonForLockingAllModulatorParameters button_ForLockingAllModulatorParameters;
+	ButtonForUnlockingAllModulatorParameters button_ForUnlockingAllModulatorParameters;
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO1parameters;
 	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO1parameters;
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO2parameters;

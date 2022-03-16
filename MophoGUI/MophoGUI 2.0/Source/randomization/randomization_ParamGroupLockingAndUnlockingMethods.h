@@ -12,6 +12,7 @@ struct ParamGroupLockingAndUnlockingMethods {
 	static void lockOrUnlockAllLPFparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllVCAparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllEnv3Parameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllModulatorParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllLFOparameters(int lfoNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);

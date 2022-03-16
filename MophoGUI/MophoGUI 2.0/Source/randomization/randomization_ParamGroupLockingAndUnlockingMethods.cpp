@@ -125,6 +125,18 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllEnv3Parameters(Randomi
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
+void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllModulatorParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
+	auto& info{ InfoForExposedParameters::get() };
+	for (auto i = 0; i != 4; ++i) {
+		auto paramIndex{ info.indexForParamID("mod" + (String)(i + 1) + "Source") };
+		randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+		paramIndex = info.indexForParamID("mod" + (String)(i + 1) + "Amount");
+		randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+		paramIndex = info.indexForParamID("mod" + (String)(i + 1) + "Destination");
+		randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	}
+}
+
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLFOparameters(int lfoNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID("lfo" + (String)lfoNum + "Freq") };

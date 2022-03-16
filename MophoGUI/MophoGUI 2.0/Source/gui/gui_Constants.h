@@ -183,6 +183,9 @@ namespace constants
 		static const int randomizationLPFlockAndUnlockButtons_y{ 149 };
 		static const int randomizationLPFlockButton_x{ 40 };
 		static const int randomizationLPFunlockButton_x{ randomizationLPFlockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
+		static const int randomizationModulatorsLockAndUnlockButtons_y{ randomizationLPFlockAndUnlockButtons_y };
+		static const int randomizationModulatorsLockButton_x{ 507 };
+		static const int randomizationModulatorsUnlockButton_x{ randomizationModulatorsLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
 		static const int randomizationOscLockAndUnlockButtons_y{ 10 };
 		static const int randomizationOscLockButton_x{ 113 };
 		static const int randomizationOscUnlockButton_x{ randomizationOscLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
@@ -367,6 +370,8 @@ namespace constants
 		static const Rectangle<int> bounds_RandomizationLFO4unlockButton{ randomizationLFO4unlockButton_x, randomizationLFOlockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
 		static const Rectangle<int> bounds_RandomizationLPFlockButton{ randomizationLPFlockButton_x, randomizationLPFlockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
 		static const Rectangle<int> bounds_RandomizationLPFunlockButton{ randomizationLPFunlockButton_x, randomizationLPFlockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
+		static const Rectangle<int> bounds_RandomizationModulatorsLockButton{ randomizationModulatorsLockButton_x, randomizationModulatorsLockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
+		static const Rectangle<int> bounds_RandomizationModulatorsUnlockButton{ randomizationModulatorsUnlockButton_x, randomizationModulatorsLockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
 		static const Rectangle<int> bounds_RandomizationOscLockButton{ randomizationOscLockButton_x, randomizationOscLockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
 		static const Rectangle<int> bounds_RandomizationOscUnlockButton{ randomizationOscUnlockButton_x, randomizationOscLockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
 		static const Rectangle<int> bounds_RandomizationSeqTrack1LockButton{ randomizationSeqTrackLockButtons_x, randomizationSeqTrack1LockAndUnlockButtons_y, randomizationLockAndUnlockButtons_w, randomizationLockAndUnlockButtons_h };
