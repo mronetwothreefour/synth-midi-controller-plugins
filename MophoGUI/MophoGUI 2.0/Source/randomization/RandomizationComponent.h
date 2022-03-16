@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
+#include "../widgets_Button/widget_Randomization_ButtonForLockingAllLFOparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllLPFparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"
@@ -10,6 +11,7 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllOscParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"
@@ -35,6 +37,14 @@ class RandomizationComponent :
 	ButtonForLockingAllLPFparameters button_ForLockingAllLPFparameters;
 	ButtonForUnlockingAllLPFparameters button_ForUnlockingAllLPFparameters;
 	ButtonForLockingAllVCAparameters button_ForLockingAllVCAparameters;
+	ButtonForLockingAllLFOparameters button_ForLockingAllLFO1parameters;
+	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO1parameters;
+	ButtonForLockingAllLFOparameters button_ForLockingAllLFO2parameters;
+	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO2parameters;
+	ButtonForLockingAllLFOparameters button_ForLockingAllLFO3parameters;
+	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO3parameters;
+	ButtonForLockingAllLFOparameters button_ForLockingAllLFO4parameters;
+	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO4parameters;
 	ButtonForUnlockingAllVCAparameters button_ForUnlockingAllVCAparameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;

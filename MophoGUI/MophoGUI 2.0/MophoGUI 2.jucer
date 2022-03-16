@@ -323,6 +323,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
+        <FILE id="qQ1Owk" name="widget_Randomization_ButtonForLockingAllLFOparameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLFOparameters.cpp"/>
+        <FILE id="GYKJOK" name="widget_Randomization_ButtonForLockingAllLFOparameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLFOparameters.h"/>
         <FILE id="BlHzCS" name="widget_Randomization_ButtonForLockingAllLPFparameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLPFparameters.cpp"/>
         <FILE id="TOUfvN" name="widget_Randomization_ButtonForLockingAllLPFparameters.h"
@@ -347,6 +351,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="gKvqB7" name="widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp"/>
+        <FILE id="mc8qz6" name="widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"/>
         <FILE id="BNK7mm" name="widget_Randomization_ButtonForUnlockingAllLPFparameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLPFparameters.cpp"/>
         <FILE id="iYnT2W" name="widget_Randomization_ButtonForUnlockingAllLPFparameters.h"

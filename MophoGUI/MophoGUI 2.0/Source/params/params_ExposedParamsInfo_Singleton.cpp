@@ -581,77 +581,82 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	for (uint8 i = 0; i != 4; ++i) {
-		identifiers.add("lfo" + String(i + 1) + "Freq"); // 41, 46, 51, 56
-		exposedNames.add("LFO " + String(i + 1) + " Frequency");
+	for (uint8 lfoNum = 0; lfoNum != 4; ++lfoNum) {
+		auto lfoFreqParamNumString{ "param0" + (String)(params::paramNumForLFO1Freq + lfoNum * params::numParamsForEachLFO) };
+		identifiers.add(lfoFreqParamNumString + "_lfo" + String(lfoNum + 1) + "Freq");
+		exposedNames.add("LFO " + String(lfoNum + 1) + " Frequency");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
-		NRPNs.add((uint8)(37 + i * 5));
+		NRPNs.add((uint8)(37 + lfoNum * 5));
 		converters.add(IntToLFOfreqString::get());
 		maxValues.add((uint8)166);
 		defaultValues.add((uint8)80);
-		descriptionString =  "Sets LFO " + String(i + 1) + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
+		descriptionString =  "Sets LFO " + String(lfoNum + 1) + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
 		descriptionString += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
-		descriptionString += "From 90 to 150, LFO " + String(i + 1) + " has a pitched frequency, increasing\n";
+		descriptionString += "From 90 to 150, LFO " + String(lfoNum + 1) + " has a pitched frequency, increasing\n";
 		descriptionString += "in semitones steps from C 0 (8.2 Hz) up to C 5 (261.6 Hz).\n";
-		descriptionString += "Above 150, LFO " + String(i + 1) + " is synced with the step sequencer,\n";
+		descriptionString += "Above 150, LFO " + String(lfoNum + 1) + " is synced with the step sequencer,\n";
 		descriptionString += "displayed as [number of cycles] : [length in steps].";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(416 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		controlCenterPoints.add(Point<int>(416 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
-		identifiers.add("lfo" + String(i + 1) + "Shape"); // 42, 47, 52, 57
-		exposedNames.add("LFO " + String(i + 1) + " Wave Shape");
+		auto lfoShapeParamNumString{ "param0" + (String)(params::paramNumForLFO1Shape + lfoNum * params::numParamsForEachLFO) };
+		identifiers.add(lfoShapeParamNumString + "_lfo" + String(lfoNum + 1) + "Shape");
+		exposedNames.add("LFO " + String(lfoNum + 1) + " Wave Shape");
 		controlTypes.add(ControlType::comboBox);
-		NRPNs.add((uint8)(38 + i * 5));
+		NRPNs.add((uint8)(38 + lfoNum * 5));
 		converters.add(IntToLFOshapeString::get());
 		maxValues.add((uint8)4);
 		defaultValues.add((uint8)1);
-		descriptions.add("Selects LFO " + String(i + 1) + GUI::apostrophe + "s wave shape.");
+		descriptions.add("Selects LFO " + String(lfoNum + 1) + GUI::apostrophe + "s wave shape.");
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
-		controlCenterPoints.add(Point<int>(463 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
+		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
 
-		identifiers.add("lfo" + String(i + 1) + "Amount"); // 43, 48, 53, 58
-		exposedNames.add("LFO " + String(i + 1) + " Amount");
+		auto lfoAmountParamNumString{ "param0" + (String)(params::paramNumForLFO1Amount + lfoNum * params::numParamsForEachLFO) };
+		identifiers.add(lfoAmountParamNumString + "_lfo" + String(lfoNum + 1) + "Amount");
+		exposedNames.add("LFO " + String(lfoNum + 1) + " Amount");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
-		NRPNs.add((uint8)(39 + i * 5));
+		NRPNs.add((uint8)(39 + lfoNum * 5));
 		converters.add(IntToPlainValueString::get());
 		maxValues.add((uint8)127);
 		defaultValues.add((uint8)0);
-		descriptionString =  "Sets the degree to which LFO " + String(i + 1) + "\n";
+		descriptionString =  "Sets the degree to which LFO " + String(lfoNum + 1) + "\n";
 		descriptionString += "modulates the destination parameter.\n";
 		descriptionString += "Range: 0 to 127.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(461 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		controlCenterPoints.add(Point<int>(461 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
-		identifiers.add("lfo" + String(i + 1) + "Destination"); // 44, 49, 54, 59
-		exposedNames.add("LFO " + String(i + 1) + " Modulation Destination");
+		auto lfoDestinationParamNumString{ "param0" + (String)(params::paramNumForLFO1Destination + lfoNum * params::numParamsForEachLFO) };
+		identifiers.add(lfoDestinationParamNumString + "_lfo" + String(lfoNum + 1) + "Destination");
+		exposedNames.add("LFO " + String(lfoNum + 1) + " Modulation Destination");
 		controlTypes.add(ControlType::comboBox);
-		NRPNs.add((uint8)(40 + i * 5));
+		NRPNs.add((uint8)(40 + lfoNum * 5));
 		converters.add(IntToModDestinationString::get());
 		maxValues.add((uint8)46);
 		defaultValues.add((uint8)0);
-		descriptions.add("Selects the target parameter for modulation by LFO " + String(i + 1) + ".");
+		descriptions.add("Selects the target parameter for modulation by LFO " + String(lfoNum + 1) + ".");
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
-		controlCenterPoints.add(Point<int>(463 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow3_y));
+		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow3_y));
 
-		identifiers.add("lfo" + String(i + 1) + "KeySync"); // 45, 50, 55, 60
-		exposedNames.add("LFO " + String(i + 1) + " Key Sync On/Off");
+		auto lfoKeySyncParamNumString{ "param0" + (String)(params::paramNumForLFO1KeySync + lfoNum * params::numParamsForEachLFO) };
+		identifiers.add(lfoKeySyncParamNumString + "_lfo" + String(lfoNum + 1) + "KeySync");
+		exposedNames.add("LFO " + String(lfoNum + 1) + " Key Sync On/Off");
 		controlTypes.add(ControlType::toggleButton);
-		NRPNs.add((uint8)(41 + i * 5));
+		NRPNs.add((uint8)(41 + lfoNum * 5));
 		converters.add(IntToOffOnString::get());
 		maxValues.add((uint8)1);
 		defaultValues.add((uint8)0);
-		descriptionString =  "When on, LFO " + String(i + 1) + GUI::apostrophe + "s cycle will reset\n";
+		descriptionString =  "When on, LFO " + String(lfoNum + 1) + GUI::apostrophe + "s cycle will reset\n";
 		descriptionString += "each time a new note is played.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
-		controlCenterPoints.add(Point<int>(507 + i * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		controlCenterPoints.add(Point<int>(507 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 	}
 
 	//======================================================

@@ -21,6 +21,14 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllOscParameters{ this, unexposedParams },
 	button_ForLockingAllLPFparameters{ this, unexposedParams },
 	button_ForUnlockingAllLPFparameters{ this, unexposedParams },
+	button_ForLockingAllLFO1parameters{ 1, this, unexposedParams },
+	button_ForLockingAllLFO2parameters{ 2, this, unexposedParams },
+	button_ForLockingAllLFO3parameters{ 3, this, unexposedParams },
+	button_ForLockingAllLFO4parameters{ 4, this, unexposedParams },
+	button_ForUnlockingAllLFO1parameters{ 1, this, unexposedParams },
+	button_ForUnlockingAllLFO2parameters{ 2, this, unexposedParams },
+	button_ForUnlockingAllLFO3parameters{ 3, this, unexposedParams },
+	button_ForUnlockingAllLFO4parameters{ 4, this, unexposedParams },
 	button_ForLockingAllVCAparameters{ this, unexposedParams },
 	button_ForUnlockingAllVCAparameters{ this, unexposedParams },
 	button_ForLockingAllVoiceNameChars{ this, unexposedParams },
@@ -44,6 +52,14 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllLPFparameters);
 	addAndMakeVisible(button_ForLockingAllVCAparameters);
 	addAndMakeVisible(button_ForUnlockingAllVCAparameters);
+	addAndMakeVisible(button_ForLockingAllLFO1parameters);
+	addAndMakeVisible(button_ForLockingAllLFO2parameters);
+	addAndMakeVisible(button_ForLockingAllLFO3parameters);
+	addAndMakeVisible(button_ForLockingAllLFO4parameters);
+	addAndMakeVisible(button_ForUnlockingAllLFO1parameters);
+	addAndMakeVisible(button_ForUnlockingAllLFO2parameters);
+	addAndMakeVisible(button_ForUnlockingAllLFO3parameters);
+	addAndMakeVisible(button_ForUnlockingAllLFO4parameters);
 	addAndMakeVisible(button_ForLockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForUnlockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForLockingAllSeqTrack1Params);
@@ -119,6 +135,14 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllLPFparameters.setBounds(GUI::bounds_RandomizationLPFunlockButton);
 	button_ForLockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAlockButton);
 	button_ForUnlockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAunlockButton);
+	button_ForLockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1lockButton);
+	button_ForUnlockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1unlockButton);
+	button_ForLockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2lockButton);
+	button_ForUnlockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2unlockButton);
+	button_ForLockingAllLFO3parameters.setBounds(GUI::bounds_RandomizationLFO3lockButton);
+	button_ForUnlockingAllLFO3parameters.setBounds(GUI::bounds_RandomizationLFO3unlockButton);
+	button_ForLockingAllLFO4parameters.setBounds(GUI::bounds_RandomizationLFO4lockButton);
+	button_ForUnlockingAllLFO4parameters.setBounds(GUI::bounds_RandomizationLFO4unlockButton);
 	button_ForLockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameLockButton);
 	button_ForUnlockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameUnlockButton);
 	button_ForLockingAllSeqTrack1Params.setBounds(GUI::bounds_RandomizationSeqTrack1LockButton);
