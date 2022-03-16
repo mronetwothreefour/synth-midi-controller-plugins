@@ -103,6 +103,28 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllVCAparameters(Randomiz
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
+void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllEnv3Parameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(ID::env3Destination.toString()) };
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Amount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3VelAmount.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Delay.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Attack.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Decay.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Sustain.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Release.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+	paramIndex = info.indexForParamID(ID::env3Repeat.toString());
+	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
+}
+
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLFOparameters(int lfoNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID("lfo" + (String)lfoNum + "Freq") };

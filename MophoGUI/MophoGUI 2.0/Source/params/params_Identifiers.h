@@ -142,6 +142,15 @@ namespace ID
 	static const Identifier vcaSustain{ "vcaSustain" };
 	static const Identifier vcaRelease{ "vcaRelease" };
 	static const Identifier voiceVolume{ "voiceVolume" };
+	static const Identifier env3Destination{ "env3Destination" };
+	static const Identifier env3Amount{ "env3Amount" };
+	static const Identifier env3VelAmount{ "env3VelAmount" };
+	static const Identifier env3Delay{ "env3Delay" };
+	static const Identifier env3Attack{ "env3Attack" };
+	static const Identifier env3Decay{ "env3Decay" };
+	static const Identifier env3Sustain{ "env3Sustain" };
+	static const Identifier env3Release{ "env3Release" };
+	static const Identifier env3Repeat{ "env3Repeat" };
 	static const Identifier SeqTrack1Dest{ "SeqTrack1Dest" };
 	static const Identifier SeqTrack2Dest{ "SeqTrack2Dest" };
 	static const Identifier SeqTrack3Dest{ "SeqTrack3Dest" };

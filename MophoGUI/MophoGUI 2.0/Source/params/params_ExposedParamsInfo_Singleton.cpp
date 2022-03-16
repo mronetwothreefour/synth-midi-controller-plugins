@@ -656,7 +656,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("env3Destination"); // 61
+	identifiers.add(ID::env3Destination); // 61
 	exposedNames.add("Envelope 3 Modulation Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)57);
@@ -668,7 +668,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Amount"); // 62
+	identifiers.add(ID::env3Amount); // 62
 	exposedNames.add("Envelope 3 Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)58);
@@ -684,7 +684,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow1_y));
 
-	identifiers.add("env3VelAmount"); // 63
+	identifiers.add(ID::env3VelAmount); // 63
 	exposedNames.add("Envelope 3 Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)59);
@@ -699,7 +699,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::env3ControlsRow1_y));
 
-	identifiers.add("env3Delay"); // 64
+	identifiers.add(ID::env3Delay); // 64
 	exposedNames.add("Envelope 3 Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)60);
@@ -715,7 +715,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Attack"); // 65
+	identifiers.add(ID::env3Attack); // 65
 	exposedNames.add("Envelope 3 Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)61);
@@ -731,7 +731,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Decay"); // 66
+	identifiers.add(ID::env3Decay); // 66
 	exposedNames.add("Envelope 3 Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)62);
@@ -747,7 +747,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Sustain"); // 67
+	identifiers.add(ID::env3Sustain); // 67
 	exposedNames.add("Envelope 3 Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)63);
@@ -763,7 +763,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Release"); // 68
+	identifiers.add(ID::env3Release); // 68
 	exposedNames.add("Envelope 3 Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)64);
@@ -779,7 +779,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::env3ControlsRow2_y));
 
-	identifiers.add("env3Repeat"); // 69
+	identifiers.add(ID::env3Repeat); // 69
 	exposedNames.add("Envelope 3 Repeat On/Off");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)98);
