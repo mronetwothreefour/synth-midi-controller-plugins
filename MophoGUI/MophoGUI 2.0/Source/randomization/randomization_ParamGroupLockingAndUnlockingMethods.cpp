@@ -19,106 +19,101 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllParameters(Randomizati
 
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllOscillatorParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramIndex{ info.indexForParamID(ID::param000_osc1_Pitch.toString()) };
+	auto paramIndex{ info.indexForParamID(ID::osc1_Pitch.toString()) };
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param001_osc1_Fine.toString());
+	paramIndex = info.indexForParamID(ID::osc1_Fine.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param002_osc1_Shape.toString());
+	paramIndex = info.indexForParamID(ID::osc1_Shape.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param003_osc1_Glide.toString());
+	paramIndex = info.indexForParamID(ID::osc1_Glide.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param004_osc1_KeyTrack.toString());
+	paramIndex = info.indexForParamID(ID::osc1_KeyTrack.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param005_osc1_SubLevel.toString());
+	paramIndex = info.indexForParamID(ID::osc1_SubLevel.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param006_osc2_Pitch.toString());
+	paramIndex = info.indexForParamID(ID::osc2_Pitch.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param007_osc2_Fine.toString());
+	paramIndex = info.indexForParamID(ID::osc2_Fine.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param008_osc2_Shape.toString());
+	paramIndex = info.indexForParamID(ID::osc2_Shape.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param009_osc2_Glide.toString());
+	paramIndex = info.indexForParamID(ID::osc2_Glide.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param010_osc2_KeyTrack.toString());
+	paramIndex = info.indexForParamID(ID::osc2_KeyTrack.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param011_osc2_SubLevel.toString());
+	paramIndex = info.indexForParamID(ID::osc2_SubLevel.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param012_oscSync.toString());
+	paramIndex = info.indexForParamID(ID::oscSync.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param014_oscSlop.toString());
+	paramIndex = info.indexForParamID(ID::oscSlop.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param017_oscMix.toString());
+	paramIndex = info.indexForParamID(ID::oscMix.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param018_noiseLevel.toString());
+	paramIndex = info.indexForParamID(ID::noiseLevel.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLPFparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramIndex{ info.indexForParamID(ID::param020_lpfFreq.toString()) };
+	auto paramIndex{ info.indexForParamID(ID::lpfFreq.toString()) };
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param021_lpfReso.toString());
+	paramIndex = info.indexForParamID(ID::lpfReso.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param022_lpfKeyAmount.toString());
+	paramIndex = info.indexForParamID(ID::lpfKeyAmount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param023_lpfFMamount.toString());
+	paramIndex = info.indexForParamID(ID::lpfFMamount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param024_lpfType.toString());
+	paramIndex = info.indexForParamID(ID::lpfType.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param025_lpfEnvAmount.toString());
+	paramIndex = info.indexForParamID(ID::lpfEnvAmount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param026_lpfVelAmount.toString());
+	paramIndex = info.indexForParamID(ID::lpfVelAmount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param027_lpfDelay.toString());
+	paramIndex = info.indexForParamID(ID::lpfDelay.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param028_lpfAttack.toString());
+	paramIndex = info.indexForParamID(ID::lpfAttack.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param029_lpfDecay.toString());
+	paramIndex = info.indexForParamID(ID::lpfDecay.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param030_lpfSustain.toString());
+	paramIndex = info.indexForParamID(ID::lpfSustain.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param031_lpfRelease.toString());
+	paramIndex = info.indexForParamID(ID::lpfRelease.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllVCAparameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramIndex{ info.indexForParamID(ID::param032_vcaLevel.toString()) };
+	auto paramIndex{ info.indexForParamID(ID::vcaLevel.toString()) };
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param033_vcaEnvAmount.toString());
+	paramIndex = info.indexForParamID(ID::vcaEnvAmount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param034_vcaVelAmount.toString());
+	paramIndex = info.indexForParamID(ID::vcaVelAmount.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param035_vcaDelay.toString());
+	paramIndex = info.indexForParamID(ID::vcaDelay.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param036_vcaAttack.toString());
+	paramIndex = info.indexForParamID(ID::vcaAttack.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param037_vcaDecay.toString());
+	paramIndex = info.indexForParamID(ID::vcaDecay.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param038_vcaSustain.toString());
+	paramIndex = info.indexForParamID(ID::vcaSustain.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param039_vcaRelease.toString());
+	paramIndex = info.indexForParamID(ID::vcaRelease.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramIndex = info.indexForParamID(ID::param040_voiceVolume.toString());
+	paramIndex = info.indexForParamID(ID::voiceVolume.toString());
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllLFOparameters(int lfoNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramNumString{ "param0" + (String)(params::paramNumForLFO1Freq + (lfoNum - 1) * params::numParamsForEachLFO) };
-	auto paramIndex{ info.indexForParamID(paramNumString + "_lfo" + (String)lfoNum + "Freq") };
+	auto paramIndex{ info.indexForParamID("lfo" + (String)lfoNum + "Freq") };
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramNumString = "param0" + (String)(params::paramNumForLFO1Shape + (lfoNum - 1) * params::numParamsForEachLFO);
-	paramIndex = info.indexForParamID(paramNumString + "_lfo" + (String)lfoNum + "Shape");
+	paramIndex = info.indexForParamID("lfo" + (String)lfoNum + "Shape");
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramNumString = "param0" + (String)(params::paramNumForLFO1Amount + (lfoNum - 1) * params::numParamsForEachLFO);
-	paramIndex = info.indexForParamID(paramNumString + "_lfo" + (String)lfoNum + "Amount");
+	paramIndex = info.indexForParamID("lfo" + (String)lfoNum + "Amount");
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramNumString = "param0" + (String)(params::paramNumForLFO1Destination + (lfoNum - 1) * params::numParamsForEachLFO);
-	paramIndex = info.indexForParamID(paramNumString + "_lfo" + (String)lfoNum + "Destination");
+	paramIndex = info.indexForParamID("lfo" + (String)lfoNum + "Destination");
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
-	paramNumString = "param0" + (String)(params::paramNumForLFO1KeySync + (lfoNum - 1) * params::numParamsForEachLFO);
-	paramIndex = info.indexForParamID(paramNumString + "_lfo" + (String)lfoNum + "KeySync");
+	paramIndex = info.indexForParamID("lfo" + (String)lfoNum + "KeySync");
 	randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 }
 
@@ -128,24 +123,23 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllSeqTrackParameters(int
 	switch (trackNum)
 	{
 	case 1:
-		destParamIndex = info.indexForParamID(ID::param101_SeqTrack1Dest.toString());
+		destParamIndex = info.indexForParamID(ID::SeqTrack1Dest.toString());
 		break;
 	case 2:
-		destParamIndex = info.indexForParamID(ID::param102_SeqTrack2Dest.toString());
+		destParamIndex = info.indexForParamID(ID::SeqTrack2Dest.toString());
 		break;
 	case 3:
-		destParamIndex = info.indexForParamID(ID::param103_SeqTrack3Dest.toString());
+		destParamIndex = info.indexForParamID(ID::SeqTrack3Dest.toString());
 		break;
 	case 4:
-		destParamIndex = info.indexForParamID(ID::param104_SeqTrack4Dest.toString());
+		destParamIndex = info.indexForParamID(ID::SeqTrack4Dest.toString());
 		break;
 	default:
 		break;
 	}
 	randomizationComponent->paramLockToggleButtons[destParamIndex].setToggleState(shouldBeLocked, dontSendNotification);
 	for (auto step = 1; step != 17; ++step) {
-		auto paramNumString{ "param" + (String)(params::paramNumForSeqTrack1Step1 + ((trackNum - 1) * 16) + (step - 1)) };
-		auto stepParamIndex{ info.indexForParamID(paramNumString + "_track" + (String)trackNum + "Step" + (String)step) };
+		auto stepParamIndex{ info.indexForParamID("seqTrack" + (String)trackNum + "Step" + (String)step) };
 		randomizationComponent->paramLockToggleButtons[stepParamIndex].setToggleState(shouldBeLocked, dontSendNotification);
 	}
 }
@@ -153,9 +147,8 @@ void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllSeqTrackParameters(int
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	for (auto charNum = 0; charNum != 16; ++charNum) {
-		auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + charNum) };
 		auto charNumString{ (String)(charNum + 1) };
-		auto paramIndex{ info.indexForParamID(paramNumString + "_nameChar" + charNumString) };
+		auto paramIndex{ info.indexForParamID("nameChar" + charNumString) };
 		randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, dontSendNotification);
 	}
 }

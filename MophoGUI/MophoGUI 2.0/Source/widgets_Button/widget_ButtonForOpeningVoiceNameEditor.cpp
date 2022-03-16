@@ -50,9 +50,8 @@ void ButtonForOpeningVoiceNameEditor::onClickMethod() {
 String ButtonForOpeningVoiceNameEditor::getVoiceNameFromExposedParemeters() {
 	std::string voiceName{ "" };
 	for (auto charNum = 0; charNum != 16; ++charNum) {
-		auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + charNum) };
 		auto charNumString{ (String)(charNum + 1) };
-		auto param{ exposedParams->getParameter(paramNumString + "_nameChar" + charNumString) };
+		auto param{ exposedParams->getParameter("nameChar" + charNumString) };
 		if (param != nullptr)
 			voiceName += std::string(1, char(roundToInt(param->getValue() * 127)));
 	}

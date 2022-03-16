@@ -343,6 +343,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.cpp"/>
         <FILE id="ekGPyJ" name="widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"/>
+        <FILE id="Oujt0r" name="widget_Randomization_ButtonForLockingAllVCAparameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.cpp"/>
+        <FILE id="zxVUtP" name="widget_Randomization_ButtonForLockingAllVCAparameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.h"/>
         <FILE id="as5NJI" name="widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"/>
         <FILE id="pywp6g" name="widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
@@ -371,6 +375,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.cpp"/>
         <FILE id="GmrPNw" name="widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"/>
+        <FILE id="rlbi1J" name="widget_Randomization_ButtonForUnlockingAllVCAparameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllVCAparameters.cpp"/>
+        <FILE id="eKf58T" name="widget_Randomization_ButtonForUnlockingAllVCAparameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllVCAparameters.h"/>
         <FILE id="Tyf8s1" name="widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllVoiceNameChars.cpp"/>
         <FILE id="gsmAqL" name="widget_Randomization_ButtonForUnlockingAllVoiceNameChars.h"

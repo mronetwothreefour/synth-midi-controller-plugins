@@ -14,12 +14,6 @@ namespace constants
 		static const uint8 knobAssignFirstIndex{ 105 };
 		static const uint8 knobAssignLastIndex{ 108 };
 		static const uint8 knobAssignOffset{ 15 };
-		static const uint8 numParamsForEachLFO{ 5 };
-		static const uint8 paramNumForLFO1Freq{ 41 };
-		static const uint8 paramNumForLFO1Shape{ paramNumForLFO1Freq + 1 };
-		static const uint8 paramNumForLFO1Amount{ paramNumForLFO1Shape + 1 };
-		static const uint8 paramNumForLFO1Destination{ paramNumForLFO1Amount + 1 };
-		static const uint8 paramNumForLFO1KeySync{ paramNumForLFO1Destination + 1 };
 		static const uint8 paramNumFor1stNameChar{ 184 };
 		static const uint8 paramNumForSeqTrack1Step1{ 120 };
 		static const uint8 sequencer{ 100 };

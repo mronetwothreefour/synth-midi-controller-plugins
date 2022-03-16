@@ -20,7 +20,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	//======================================================
 
 	for (uint8 i = 1; i != 3; ++i) {
-		identifiers.add(i == 1 ? ID::param000_osc1_Pitch : ID::param006_osc2_Pitch);
+		identifiers.add(i == 1 ? ID::osc1_Pitch : ID::osc2_Pitch); // 0 & 6
 		exposedNames.add("Oscillator " + (String)i + " Pitch");
 		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)0 : (uint8)5);
@@ -36,7 +36,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add(i == 1 ? ID::param001_osc1_Fine : ID::param007_osc2_Fine);
+		identifiers.add(i == 1 ? ID::osc1_Fine : ID::osc2_Fine); // 1 & 7
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
 		controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)1 : (uint8)6);
@@ -51,7 +51,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add(i == 1 ? ID::param002_osc1_Shape : ID::param008_osc2_Shape);
+		identifiers.add(i == 1 ? ID::osc1_Shape : ID::osc2_Shape); // 2 & 8
 		exposedNames.add("Oscillator " + (String)i + " Wave Shape");
 		controlTypes.add(ControlType::knobWithWaveShapeDisplay);
 		NRPNs.add(i == 1 ? (uint8)2 : (uint8)7);
@@ -69,7 +69,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add(i == 1 ? ID::param003_osc1_Glide : ID::param009_osc2_Glide);
+		identifiers.add(i == 1 ? ID::osc1_Glide : ID::osc2_Glide); // 3 & 9
 		exposedNames.add("Oscillator " + (String)i + " Glide Rate");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)3 : (uint8)8);
@@ -83,7 +83,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add(i == 1 ? ID::param004_osc1_KeyTrack : ID::param010_osc2_KeyTrack);
+		identifiers.add(i == 1 ? ID::osc1_KeyTrack : ID::osc2_KeyTrack); // 4 & 10
 		exposedNames.add("Oscillator " + (String)i + " Keyboard Track On/Off");
 		controlTypes.add(ControlType::toggleButton);
 		NRPNs.add(i == 1 ? (uint8)4 : (uint8)9);
@@ -99,7 +99,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 
-		identifiers.add(i == 1 ? ID::param005_osc1_SubLevel : ID::param011_osc2_SubLevel);
+		identifiers.add(i == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel); // 5 & 11
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add(i == 1 ? (uint8)114 : (uint8)115);
@@ -116,7 +116,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 	}
 
-	identifiers.add(ID::param012_oscSync);
+	identifiers.add(ID::oscSync); // 12
 	exposedNames.add("Hard Oscillator Sync On/Off");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)10);
@@ -133,7 +133,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add(ID::param013_glideMode);
+	identifiers.add(ID::glideMode); // 13
 	exposedNames.add("Glide Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)11);
@@ -149,7 +149,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 78));
 
-	identifiers.add(ID::param014_oscSlop);
+	identifiers.add(ID::oscSlop); // 14
 	exposedNames.add("Oscillator Slop");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)12);
@@ -164,7 +164,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow1_y));
 
-	identifiers.add(ID::param015_bendRange);
+	identifiers.add(ID::bendRange); // 15
 	exposedNames.add("Pitch Bend Range");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)93);
@@ -179,7 +179,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow1_y));
 
-	identifiers.add(ID::param016_notePriority);
+	identifiers.add(ID::notePriority); // 16
 	exposedNames.add("Note Priority (Key Assign)");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)96);
@@ -195,7 +195,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 38));
 
-	identifiers.add(ID::param017_oscMix);
+	identifiers.add(ID::oscMix); // 17
 	exposedNames.add("Oscillator 1 & 2 Mix");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)13);
@@ -211,7 +211,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow1_y));
 
-	identifiers.add(ID::param018_noiseLevel);
+	identifiers.add(ID::noiseLevel); // 18
 	exposedNames.add("Noise Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)14);
@@ -226,7 +226,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow2_y));
 
-	identifiers.add(ID::param019_extInLevel);
+	identifiers.add(ID::extInLevel); // 19
 	exposedNames.add("External Audio Input Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)116);
@@ -246,7 +246,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add(ID::param020_lpfFreq);
+	identifiers.add(ID::lpfFreq); // 20
 	exposedNames.add("LPF Cutoff Frequency");
 	controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 	NRPNs.add((uint8)15);
@@ -262,7 +262,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add(ID::param021_lpfReso);
+	identifiers.add(ID::lpfReso); // 21
 	exposedNames.add("LPF Resonance");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)16);
@@ -278,7 +278,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add(ID::param022_lpfKeyAmount);
+	identifiers.add(ID::lpfKeyAmount); // 22
 	exposedNames.add("LPF Keyboard Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)17);
@@ -295,7 +295,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow2_y));
 
-	identifiers.add(ID::param023_lpfFMamount);
+	identifiers.add(ID::lpfFMamount); // 23
 	exposedNames.add("LPF FM (By Oscillator 1)");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)18);
@@ -311,7 +311,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param024_lpfType);
+	identifiers.add(ID::lpfType); // 24
 	exposedNames.add("LPF Type");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)19);
@@ -326,7 +326,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow1_y));
 
-	identifiers.add(ID::param025_lpfEnvAmount);
+	identifiers.add(ID::lpfEnvAmount); // 25
 	exposedNames.add("LPF Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)20);
@@ -342,7 +342,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param026_lpfVelAmount);
+	identifiers.add(ID::lpfVelAmount); // 26
 	exposedNames.add("LPF Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)21);
@@ -357,7 +357,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param027_lpfDelay);
+	identifiers.add(ID::lpfDelay); // 27
 	exposedNames.add("LPF Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)22);
@@ -373,7 +373,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param028_lpfAttack);
+	identifiers.add(ID::lpfAttack); // 28
 	exposedNames.add("LPF Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)23);
@@ -389,7 +389,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param029_lpfDecay);
+	identifiers.add(ID::lpfDecay); // 29
 	exposedNames.add("LPF Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)24);
@@ -405,7 +405,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param030_lpfSustain);
+	identifiers.add(ID::lpfSustain); // 30
 	exposedNames.add("LPF Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)25);
@@ -421,7 +421,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::lpfControlsRow3_y));
 
-	identifiers.add(ID::param031_lpfRelease);
+	identifiers.add(ID::lpfRelease); // 31
 	exposedNames.add("LPF Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)26);
@@ -439,7 +439,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add(ID::param032_vcaLevel);
+	identifiers.add(ID::vcaLevel); // 32
 	exposedNames.add("VCA Baseline Level");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)27);
@@ -455,7 +455,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add(ID::param033_vcaEnvAmount);
+	identifiers.add(ID::vcaEnvAmount); // 33
 	exposedNames.add("VCA Envelope Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)30);
@@ -470,7 +470,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add(ID::param034_vcaVelAmount);
+	identifiers.add(ID::vcaVelAmount); // 34
 	exposedNames.add("VCA Envelope Velocity Amount");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)31);
@@ -485,7 +485,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::vcaControlsRow1_y));
 
-	identifiers.add(ID::param035_vcaDelay);
+	identifiers.add(ID::vcaDelay); // 35
 	exposedNames.add("VCA Envelope Delay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)32);
@@ -501,7 +501,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add(ID::param036_vcaAttack);
+	identifiers.add(ID::vcaAttack); // 36
 	exposedNames.add("VCA Envelope Attack");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)33);
@@ -517,7 +517,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add(ID::param037_vcaDecay);
+	identifiers.add(ID::vcaDecay); // 37
 	exposedNames.add("VCA Envelope Decay");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)34);
@@ -533,7 +533,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add(ID::param038_vcaSustain);
+	identifiers.add(ID::vcaSustain); // 38
 	exposedNames.add("VCA Envelope Sustain");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)35);
@@ -549,7 +549,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add(ID::param039_vcaRelease);
+	identifiers.add(ID::vcaRelease); // 39
 	exposedNames.add("VCA Envelope Release");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)36);
@@ -565,7 +565,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::vcaControlsRow2_y));
 
-	identifiers.add(ID::param040_voiceVolume);
+	identifiers.add(ID::voiceVolume); // 40
 	exposedNames.add("Program Volume");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)29);
@@ -582,8 +582,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	//======================================================
 
 	for (uint8 lfoNum = 0; lfoNum != 4; ++lfoNum) {
-		auto lfoFreqParamNumString{ "param0" + (String)(params::paramNumForLFO1Freq + lfoNum * params::numParamsForEachLFO) };
-		identifiers.add(lfoFreqParamNumString + "_lfo" + String(lfoNum + 1) + "Freq");
+		identifiers.add("lfo" + String(lfoNum + 1) + "Freq"); // 41, 46, 51, 56
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Frequency");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add((uint8)(37 + lfoNum * 5));
@@ -601,8 +600,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(416 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
-		auto lfoShapeParamNumString{ "param0" + (String)(params::paramNumForLFO1Shape + lfoNum * params::numParamsForEachLFO) };
-		identifiers.add(lfoShapeParamNumString + "_lfo" + String(lfoNum + 1) + "Shape");
+		identifiers.add("lfo" + String(lfoNum + 1) + "Shape"); // 42, 47, 52, 57
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Wave Shape");
 		controlTypes.add(ControlType::comboBox);
 		NRPNs.add((uint8)(38 + lfoNum * 5));
@@ -614,8 +612,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
 
-		auto lfoAmountParamNumString{ "param0" + (String)(params::paramNumForLFO1Amount + lfoNum * params::numParamsForEachLFO) };
-		identifiers.add(lfoAmountParamNumString + "_lfo" + String(lfoNum + 1) + "Amount");
+		identifiers.add("lfo" + String(lfoNum + 1) + "Amount"); // 43, 48, 53, 58
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Amount");
 		controlTypes.add(ControlType::knobWithValueStringDisplay);
 		NRPNs.add((uint8)(39 + lfoNum * 5));
@@ -630,8 +627,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(461 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
 
-		auto lfoDestinationParamNumString{ "param0" + (String)(params::paramNumForLFO1Destination + lfoNum * params::numParamsForEachLFO) };
-		identifiers.add(lfoDestinationParamNumString + "_lfo" + String(lfoNum + 1) + "Destination");
+		identifiers.add("lfo" + String(lfoNum + 1) + "Destination"); // 44, 49, 54, 59
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Modulation Destination");
 		controlTypes.add(ControlType::comboBox);
 		NRPNs.add((uint8)(40 + lfoNum * 5));
@@ -643,8 +639,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow3_y));
 
-		auto lfoKeySyncParamNumString{ "param0" + (String)(params::paramNumForLFO1KeySync + lfoNum * params::numParamsForEachLFO) };
-		identifiers.add(lfoKeySyncParamNumString + "_lfo" + String(lfoNum + 1) + "KeySync");
+		identifiers.add("lfo" + String(lfoNum + 1) + "KeySync"); // 45, 50, 55, 60
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Key Sync On/Off");
 		controlTypes.add(ControlType::toggleButton);
 		NRPNs.add((uint8)(41 + lfoNum * 5));
@@ -1136,7 +1131,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
 
-	identifiers.add(ID::param101_SeqTrack1Dest);
+	identifiers.add(ID::SeqTrack1Dest);
 	exposedNames.add("Sequencer Track 1 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)77);
@@ -1150,7 +1145,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 169));
 
-	identifiers.add(ID::param102_SeqTrack2Dest);
+	identifiers.add(ID::SeqTrack2Dest);
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)78);
@@ -1164,7 +1159,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 252));
 
-	identifiers.add(ID::param103_SeqTrack3Dest);
+	identifiers.add(ID::SeqTrack3Dest);
 	exposedNames.add("Sequencer Track 3 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)79);
@@ -1178,7 +1173,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 335));
 
-	identifiers.add(ID::param104_SeqTrack4Dest);
+	identifiers.add(ID::SeqTrack4Dest);
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)80);
@@ -1258,10 +1253,9 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	for (auto track = 0; track != 4; ++track) {
 		for (auto step = 0; step != 16; ++step) {
-			auto paramNumString{ "param" + (String)(params::paramNumForSeqTrack1Step1 + (track * 16) + step) };
 			auto trackString{ (String)(track + 1) };
 			auto stepString{ (String)(step + 1) };
-			identifiers.add(paramNumString + "_track" + trackString + "Step" + stepString);
+			identifiers.add("seqTrack" + trackString + "Step" + stepString);
 			exposedNames.add("Sequencer Track " + trackString + " Step " + stepString);
 			controlTypes.add(ControlType::sequencerStep);
 			NRPNs.add((uint8)(params::paramNumForSeqTrack1Step1 + (16 * track) + step));
@@ -1288,9 +1282,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	//======================================================
 
 	for (auto charNum = 0; charNum != 16; ++charNum) {
-		auto paramNumString{ "param" + (String)(params::paramNumFor1stNameChar + charNum) };
 		auto charNumString{ (String)(charNum + 1) };
-		identifiers.add(paramNumString + "_nameChar" + charNumString);
+		identifiers.add("nameChar" + charNumString);
 		exposedNames.add("Program Name Character " + charNumString);
 		controlTypes.add(ControlType::voiceNameChar);
 		NRPNs.add((uint8)(params::paramNumFor1stNameChar + charNum));

@@ -51,8 +51,7 @@ void ButtonForClearingSequencerTrack::timerCallback() {
 
 void ButtonForClearingSequencerTrack::clearSequencerStep(int step) {
 	auto clearedValue{ trackNum == 1 ? 1.0f : 0.0f };
-	auto paramNumString{ "param" + (String)(params::paramNumForSeqTrack1Step1 + ((trackNum - 1) * 16) + (step - 1)) };
-	auto param{ exposedParams->getParameter(paramNumString + "_track" + (String)trackNum + "Step" + (String)step) };
+	auto param{ exposedParams->getParameter("seqTrack" + (String)trackNum + "Step" + (String)step) };
 	if (param != nullptr)
 		param->setValueNotifyingHost(clearedValue);
 }
