@@ -703,6 +703,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllEnv3Parameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllKnobAssignParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLFOparameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
@@ -721,6 +724,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllPushItParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllSeqTrackParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
@@ -734,6 +740,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp">
@@ -752,6 +761,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllPushItParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.cpp">
@@ -3225,6 +3237,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllEnv3Parameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllKnobAssignParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllLFOparameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
@@ -3243,6 +3258,9 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllPushItParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllSeqTrackParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
@@ -3256,6 +3274,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLFOparameters.h">
@@ -3274,6 +3295,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllPushItParameters.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h">

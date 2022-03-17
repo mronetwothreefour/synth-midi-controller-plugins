@@ -16,5 +16,7 @@ struct ParamGroupLockingAndUnlockingMethods {
 	static void lockOrUnlockAllLFOparameters(int lfoNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllMIDIcontrollerParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllSeqTrackParameters(int trackNum, RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllKnobAssignParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
+	static void lockOrUnlockAllPushItParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 	static void lockOrUnlockAllVoiceNameCharacters(RandomizationComponent* randomizationComponent, bool shouldBeLocked);
 };

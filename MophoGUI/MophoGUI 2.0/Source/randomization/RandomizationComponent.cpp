@@ -25,10 +25,10 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllVCAparameters{ this, unexposedParams },
 	button_ForLockingAllEnv3Parameters{ this, unexposedParams },
 	button_ForUnlockingAllEnv3Parameters{ this, unexposedParams },
-	button_ForLockingAllModulatorParameters{ this, unexposedParams },
-	button_ForUnlockingAllModulatorParameters{ this, unexposedParams },
-	button_ForLockingAllMIDIcontrollerParameters{ this, unexposedParams },
-	button_ForUnlockingAllMIDIcontrollerParameters{ this, unexposedParams },
+	button_ForLockingAllModulatorParams{ this, unexposedParams },
+	button_ForUnlockingAllModulatorParams{ this, unexposedParams },
+	button_ForLockingAllMIDIcontrollerParams{ this, unexposedParams },
+	button_ForUnlockingAllMIDIcontrollerParams{ this, unexposedParams },
 	button_ForLockingAllLFO1parameters{ 1, this, unexposedParams },
 	button_ForLockingAllLFO2parameters{ 2, this, unexposedParams },
 	button_ForLockingAllLFO3parameters{ 3, this, unexposedParams },
@@ -47,6 +47,10 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllSeqTrack2Params{ 2, this, unexposedParams },
 	button_ForUnlockingAllSeqTrack3Params{ 3, this, unexposedParams },
 	button_ForUnlockingAllSeqTrack4Params{ 4, this, unexposedParams },
+	button_ForLockingAllKnobAssignParams{ this, unexposedParams },
+	button_ForUnlockingAllKnobAssignParams{ this, unexposedParams },
+	button_ForLockingAllPushItParams{ this, unexposedParams },
+	button_ForUnlockingAllPushItParams{ this, unexposedParams },
 	button_ForRandomizingUnlockedParameters{ this, unexposedParams }
 {
 	addAndMakeVisible(button_ForLockingAllParameters);
@@ -60,10 +64,10 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllVCAparameters);
 	addAndMakeVisible(button_ForLockingAllEnv3Parameters);
 	addAndMakeVisible(button_ForUnlockingAllEnv3Parameters);
-	addAndMakeVisible(button_ForLockingAllModulatorParameters);
-	addAndMakeVisible(button_ForUnlockingAllModulatorParameters);
-	addAndMakeVisible(button_ForLockingAllMIDIcontrollerParameters);
-	addAndMakeVisible(button_ForUnlockingAllMIDIcontrollerParameters);
+	addAndMakeVisible(button_ForLockingAllModulatorParams);
+	addAndMakeVisible(button_ForUnlockingAllModulatorParams);
+	addAndMakeVisible(button_ForLockingAllMIDIcontrollerParams);
+	addAndMakeVisible(button_ForUnlockingAllMIDIcontrollerParams);
 	addAndMakeVisible(button_ForLockingAllLFO1parameters);
 	addAndMakeVisible(button_ForLockingAllLFO2parameters);
 	addAndMakeVisible(button_ForLockingAllLFO3parameters);
@@ -82,6 +86,10 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllSeqTrack2Params);
 	addAndMakeVisible(button_ForUnlockingAllSeqTrack3Params);
 	addAndMakeVisible(button_ForUnlockingAllSeqTrack4Params);
+	addAndMakeVisible(button_ForLockingAllKnobAssignParams);
+	addAndMakeVisible(button_ForUnlockingAllKnobAssignParams);
+	addAndMakeVisible(button_ForLockingAllPushItParams);
+	addAndMakeVisible(button_ForUnlockingAllPushItParams);
 
 	button_ForClosingRandomizationComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingRandomizationComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -149,10 +157,10 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAunlockButton);
 	button_ForLockingAllEnv3Parameters.setBounds(GUI::bounds_RandomizationEnv3LockButton);
 	button_ForUnlockingAllEnv3Parameters.setBounds(GUI::bounds_RandomizationEnv3UnlockButton);
-	button_ForLockingAllModulatorParameters.setBounds(GUI::bounds_RandomizationModulatorsLockButton);
-	button_ForUnlockingAllModulatorParameters.setBounds(GUI::bounds_RandomizationModulatorsUnlockButton);
-	button_ForLockingAllMIDIcontrollerParameters.setBounds(GUI::bounds_RandomizationMIDIcontrollersLockButton);
-	button_ForUnlockingAllMIDIcontrollerParameters.setBounds(GUI::bounds_RandomizationMIDIcontrollersUnlockButton);
+	button_ForLockingAllModulatorParams.setBounds(GUI::bounds_RandomizationModulatorsLockButton);
+	button_ForUnlockingAllModulatorParams.setBounds(GUI::bounds_RandomizationModulatorsUnlockButton);
+	button_ForLockingAllMIDIcontrollerParams.setBounds(GUI::bounds_RandomizationMIDIcontrollersLockButton);
+	button_ForUnlockingAllMIDIcontrollerParams.setBounds(GUI::bounds_RandomizationMIDIcontrollersUnlockButton);
 	button_ForLockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1lockButton);
 	button_ForUnlockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1unlockButton);
 	button_ForLockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2lockButton);
@@ -171,6 +179,10 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllSeqTrack2Params.setBounds(GUI::bounds_RandomizationSeqTrack2UnlockButton);
 	button_ForUnlockingAllSeqTrack3Params.setBounds(GUI::bounds_RandomizationSeqTrack3UnlockButton);
 	button_ForUnlockingAllSeqTrack4Params.setBounds(GUI::bounds_RandomizationSeqTrack4UnlockButton);
+	button_ForLockingAllKnobAssignParams.setBounds(GUI::bounds_RandomizationKnobAssignLockButton);
+	button_ForUnlockingAllKnobAssignParams.setBounds(GUI::bounds_RandomizationKnobAssignUnlockButton);
+	button_ForLockingAllPushItParams.setBounds(GUI::bounds_RandomizationPushItLockButton);
+	button_ForUnlockingAllPushItParams.setBounds(GUI::bounds_RandomizationPushItUnlockButton);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		auto ctrlCenterPoint{ info.controlCenterPointFor(param) };

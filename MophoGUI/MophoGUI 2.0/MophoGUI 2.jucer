@@ -327,6 +327,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllEnv3Parameters.cpp"/>
         <FILE id="JRGPZU" name="widget_Randomization_ButtonForLockingAllEnv3Parameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllEnv3Parameters.h"/>
+        <FILE id="ZqRtAC" name="widget_Randomization_ButtonForLockingAllKnobAssignParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllKnobAssignParameters.cpp"/>
+        <FILE id="kWMLik" name="widget_Randomization_ButtonForLockingAllKnobAssignParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllKnobAssignParameters.h"/>
         <FILE id="qQ1Owk" name="widget_Randomization_ButtonForLockingAllLFOparameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllLFOparameters.cpp"/>
         <FILE id="GYKJOK" name="widget_Randomization_ButtonForLockingAllLFOparameters.h"
@@ -351,6 +355,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.cpp"/>
         <FILE id="GjCH7K" name="widget_Randomization_ButtonForLockingAllParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllParameters.h"/>
+        <FILE id="UxpmG6" name="widget_Randomization_ButtonForLockingAllPushItParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllPushItParameters.cpp"/>
+        <FILE id="DsoyHQ" name="widget_Randomization_ButtonForLockingAllPushItParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllPushItParameters.h"/>
         <FILE id="B8N0EF" name="widget_Randomization_ButtonForLockingAllSeqTrackParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForLockingAllSeqTrackParameters.cpp"/>
         <FILE id="ekGPyJ" name="widget_Randomization_ButtonForLockingAllSeqTrackParameters.h"
@@ -371,6 +379,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
         <FILE id="SL5nmJ" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"/>
+        <FILE id="CuJcRA" name="widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.cpp"/>
+        <FILE id="exW0Pw" name="widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"/>
         <FILE id="gKvqB7" name="widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp"/>
         <FILE id="mc8qz6" name="widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
@@ -395,6 +407,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.cpp"/>
         <FILE id="duaduR" name="widget_Randomization_ButtonForUnlockingAllParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllParameters.h"/>
+        <FILE id="wRAEIv" name="widget_Randomization_ButtonForUnlockingAllPushItParameters.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllPushItParameters.cpp"/>
+        <FILE id="LKazGt" name="widget_Randomization_ButtonForUnlockingAllPushItParameters.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllPushItParameters.h"/>
         <FILE id="sXc6Rv" name="widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.cpp"/>
         <FILE id="GmrPNw" name="widget_Randomization_ButtonForUnlockingAllSeqTrackParameters.h"

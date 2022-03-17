@@ -35,16 +35,16 @@ void SequencerStepWithExposedParamAttacher::attachToExposedParameter(AudioProces
 	switch (sequencerTrack)
 	{
 	case 1:
-		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::SeqTrack1Dest.toString(), trackDestination));
+		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::seqTrack1Dest.toString(), trackDestination));
 		break;
 	case 2:
-		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::SeqTrack2Dest.toString(), trackDestination));
+		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::seqTrack2Dest.toString(), trackDestination));
 		break;
 	case 3:
-		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::SeqTrack3Dest.toString(), trackDestination));
+		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::seqTrack3Dest.toString(), trackDestination));
 		break;
 	case 4:
-		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::SeqTrack4Dest.toString(), trackDestination));
+		destinationAttachment.reset(new SliderAttachment(*exposedParams, ID::seqTrack4Dest.toString(), trackDestination));
 		break;
 	default:
 		break;

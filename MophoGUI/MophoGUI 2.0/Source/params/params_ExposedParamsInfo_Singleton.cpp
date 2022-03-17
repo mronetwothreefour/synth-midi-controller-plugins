@@ -984,7 +984,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("pushItPitch"); // 92
+	identifiers.add(ID::pushItPitch); // 92
 	exposedNames.add("Push It! Switch Pitch");
 	controlTypes.add(ControlType::knobForPitchWithValueStringDisplay);
 	NRPNs.add((uint8)111);
@@ -1000,7 +1000,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1191, 528));
 
-	identifiers.add("pushItVelocity"); // 93
+	identifiers.add(ID::pushItVelocity); // 93
 	exposedNames.add("Push It! Switch Velocity");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)112);
@@ -1015,7 +1015,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1239, 528));
 
-	identifiers.add("pushItMode"); // 94
+	identifiers.add(ID::pushItMode); // 94
 	exposedNames.add("Push It! Switch Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)113);
@@ -1036,7 +1036,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("clockTempo"); // 95
+	identifiers.add(ID::clockTempo); // 95
 	exposedNames.add("Clock Tempo");
 	controlTypes.add(ControlType::knobWithValueStringDisplay);
 	NRPNs.add((uint8)91);
@@ -1050,7 +1050,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1236, 126));
 
-	identifiers.add("clockDivision"); // 96
+	identifiers.add(ID::clockDivision); // 96
 	exposedNames.add("Clock Division");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)92);
@@ -1066,7 +1066,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("arpegMode"); // 97
+	identifiers.add(ID::arpegMode); // 97
 	exposedNames.add("Arpeggiator Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)97);
@@ -1080,7 +1080,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 118));
 
-	identifiers.add("arpegOnOff"); // 98
+	identifiers.add(ID::arpegOnOff); // 98
 	exposedNames.add("Arpeggiator On/Off");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)100);
@@ -1094,7 +1094,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow2_y));
 
-	identifiers.add("sequencerTrigMode"); // 99
+	identifiers.add(ID::sequencerTrigMode); // 99
 	exposedNames.add("Sequencer Trigger Mode");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)94);
@@ -1117,7 +1117,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(998, 126));
 
-	identifiers.add("sequencerOnOff"); // 100
+	identifiers.add(ID::sequencerOnOff); // 100
 	exposedNames.add("Sequencer On/Off");
 	controlTypes.add(ControlType::toggleButton);
 	NRPNs.add((uint8)101);
@@ -1131,7 +1131,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
 
-	identifiers.add(ID::SeqTrack1Dest);
+	identifiers.add(ID::seqTrack1Dest);
 	exposedNames.add("Sequencer Track 1 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)77);
@@ -1145,7 +1145,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 169));
 
-	identifiers.add(ID::SeqTrack2Dest);
+	identifiers.add(ID::seqTrack2Dest);
 	exposedNames.add("Sequencer Track 2 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)78);
@@ -1159,7 +1159,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 252));
 
-	identifiers.add(ID::SeqTrack3Dest);
+	identifiers.add(ID::seqTrack3Dest);
 	exposedNames.add("Sequencer Track 3 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)79);
@@ -1173,7 +1173,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 335));
 
-	identifiers.add(ID::SeqTrack4Dest);
+	identifiers.add(ID::seqTrack4Dest);
 	exposedNames.add("Sequencer Track 4 Destination");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)80);
@@ -1189,7 +1189,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	identifiers.add("assignKnob1"); // 105
+	identifiers.add(ID::assignKnob1); // 105
 	exposedNames.add("Assign Parameter to Knob 1");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)105);
@@ -1203,7 +1203,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 521));
 
-	identifiers.add("assignKnob2"); // 106
+	identifiers.add(ID::assignKnob2); // 106
 	exposedNames.add("Assign Parameter to Knob 2");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)106);
@@ -1217,7 +1217,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 549));
 
-	identifiers.add("assignKnob3"); // 107
+	identifiers.add(ID::assignKnob3); // 107
 	exposedNames.add("Assign Parameter to Knob 3");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)107);
@@ -1231,7 +1231,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 577));
 
-	identifiers.add("assignKnob4"); // 108
+	identifiers.add(ID::assignKnob4); // 108
 	exposedNames.add("Assign Parameter to Knob 4");
 	controlTypes.add(ControlType::comboBox);
 	NRPNs.add((uint8)108);

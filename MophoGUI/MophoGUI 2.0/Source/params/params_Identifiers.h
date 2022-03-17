@@ -84,23 +84,7 @@ namespace ID
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 
-	static const Identifier global_Balance{ "global_Balance" };
-	static const Identifier global_Clock{ "global_Clock" };
-	static const Identifier global_ControllersOn{ "global_ControllersOn" };
-	static const Identifier global_FineTune{ "global_FineTune" };
-	static const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
-	static const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
-	static const Identifier global_Options{ "global_Options" };
-	static const Identifier global_ParameterReceiveType{ "global_ParameterReceiveType" };
-	static const Identifier global_ParameterSendType{ "global_ParameterSendType" };
-	static const Identifier global_PedalModeArpLatch{ "global_PedalModeArpLatch" };
-	static const Identifier global_SysExOn{ "global_SysExOn" };
-	static const Identifier global_TransmitChannel{ "global_TransmitChannel" };
-	static const Identifier global_Transpose{ "global_Transpose" };
-	static const Identifier global_VoiceChangeOn{ "global_VoiceChangeOn" };
-
-	static const Identifier label_FolderName{ "label_FolderName" };
-
+	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };
 	static const Identifier osc1_Fine{ "osc1_Fine" };
 	static const Identifier osc1_Shape{ "osc1_Shape" };
@@ -161,10 +145,40 @@ namespace ID
 	static const Identifier velocityDest{ "velocityDest" };
 	static const Identifier footPedalAmount{ "footPedalAmount" };
 	static const Identifier footPedalDest{ "footPedalDest" };
-	static const Identifier SeqTrack1Dest{ "SeqTrack1Dest" };
-	static const Identifier SeqTrack2Dest{ "SeqTrack2Dest" };
-	static const Identifier SeqTrack3Dest{ "SeqTrack3Dest" };
-	static const Identifier SeqTrack4Dest{ "SeqTrack4Dest" };
+	static const Identifier pushItPitch{ "pushItPitch" };
+	static const Identifier pushItVelocity{ "pushItVelocity" };
+	static const Identifier pushItMode{ "pushItMode" };
+	static const Identifier clockTempo{ "clockTempo" };
+	static const Identifier clockDivision{ "clockDivision" };
+	static const Identifier arpegMode{ "arpegMode" };
+	static const Identifier arpegOnOff{ "arpegOnOff" };
+	static const Identifier sequencerTrigMode{ "sequencerTrigMode" };
+	static const Identifier sequencerOnOff{ "sequencerOnOff" };
+	static const Identifier seqTrack1Dest{ "seqTrack1Dest" };
+	static const Identifier seqTrack2Dest{ "seqTrack2Dest" };
+	static const Identifier seqTrack3Dest{ "seqTrack3Dest" };
+	static const Identifier seqTrack4Dest{ "seqTrack4Dest" };
+	static const Identifier assignKnob1{ "assignKnob1" };
+	static const Identifier assignKnob2{ "assignKnob2" };
+	static const Identifier assignKnob3{ "assignKnob3" };
+	static const Identifier assignKnob4{ "assignKnob4" };
+
+	static const Identifier global_Balance{ "global_Balance" };
+	static const Identifier global_Clock{ "global_Clock" };
+	static const Identifier global_ControllersOn{ "global_ControllersOn" };
+	static const Identifier global_FineTune{ "global_FineTune" };
+	static const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
+	static const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
+	static const Identifier global_Options{ "global_Options" };
+	static const Identifier global_ParameterReceiveType{ "global_ParameterReceiveType" };
+	static const Identifier global_ParameterSendType{ "global_ParameterSendType" };
+	static const Identifier global_PedalModeArpLatch{ "global_PedalModeArpLatch" };
+	static const Identifier global_SysExOn{ "global_SysExOn" };
+	static const Identifier global_TransmitChannel{ "global_TransmitChannel" };
+	static const Identifier global_Transpose{ "global_Transpose" };
+	static const Identifier global_VoiceChangeOn{ "global_VoiceChangeOn" };
+
+	static const Identifier label_FolderName{ "label_FolderName" };
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };
