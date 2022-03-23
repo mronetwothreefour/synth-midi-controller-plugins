@@ -180,11 +180,18 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
+	static const Identifier randomization_Osc1AllowedNotes{ "randomization_Osc1AllowedNotes" };
+	static const Identifier randomization_Osc1AllowedOctaves{ "randomization_Osc1AllowedOctaves" };
+	static const Identifier randomization_Osc2AllowedNotes{ "randomization_Osc1AllowedNotes" };
+	static const Identifier randomization_Osc2AllowedOctaves{ "randomization_Osc1AllowedOctaves" };
+	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
+
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };
 	static const Identifier state_CustomBank3VoiceNames{ "state_CustomBank3VoiceNames" };
 	static const Identifier state_ExposedParams{ "state_ExposedParams" };
 	static const Identifier state_PluginState{ "state_PluginState" };
+	static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 	static const Identifier state_VoicesBanks{ "state_VoicesBanks" };
 	static const Identifier state_CustomVoicesBank1{ "state_CustomVoicesBank1" };
 	static const Identifier state_CustomVoicesBank2{ "state_CustomVoicesBank2" };

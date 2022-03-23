@@ -7,6 +7,7 @@
 UnexposedParameters::UnexposedParameters() :
 	globalOptions{ new GlobalOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
+	randomizationOptions{ new RandomizationOptions() },
 	voicesBanks{ new VoicesBanks() },
 	tooltipOptions{ new TooltipOptions() },
 	undoManager{ new UndoManager() },
@@ -24,6 +25,10 @@ GlobalOptions* UnexposedParameters::globalOptions_get() {
 
 OutgoingMidiBuffers* UnexposedParameters::outgoingMidiBuffers_get() {
 	return outgoingMidiBuffers.get();
+}
+
+RandomizationOptions* UnexposedParameters::randomizationOptions_get() {
+	return randomizationOptions.get();
 }
 
 TooltipOptions* UnexposedParameters::tooltipOptions_get() {
@@ -53,6 +58,9 @@ XmlElement UnexposedParameters::getStateXml() {
 	auto voiceTransmissionOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTransmissionOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(voiceTransmissionOptionsStateXml);
+	//auto randomizationOptionsStateXml{ randomizationOptions->getStateXml() };
+	//if (randomizationOptionsStateXml != nullptr)
+	//	unexposedParamsStateXml.addChildElement(randomizationOptionsStateXml);
 	return unexposedParamsStateXml;
 }
 
@@ -63,6 +71,8 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 	tooltipOptions->replaceState(tooltipOptionsState);
 	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
 	voiceTransmissionOptions->replaceState(voiceTransmissionOptionsState);
+	//auto randomizationOptionsState{ newState.getChildWithName(ID::state_RandomizationOptions) };
+	//randomizationOptions->replaceState(randomizationOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {
@@ -70,6 +80,7 @@ UnexposedParameters::~UnexposedParameters() {
 	voicesBanks = nullptr;
 	undoManager = nullptr;
 	tooltipOptions = nullptr;
+	randomizationOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	globalOptions = nullptr;
 }
