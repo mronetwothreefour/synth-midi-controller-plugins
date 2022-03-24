@@ -51,7 +51,7 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllKnobAssignParams{ this, unexposedParams },
 	button_ForLockingAllPushItParams{ this, unexposedParams },
 	button_ForUnlockingAllPushItParams{ this, unexposedParams },
-	button_ForRandomizingUnlockedParameters{ this, unexposedParams }
+	button_ForRandomizingUnlockedParameters{ exposedParams, unexposedParams }
 {
 	addAndMakeVisible(button_ForLockingAllParameters);
 	addAndMakeVisible(button_ForUnlockingAllParameters);
@@ -191,79 +191,21 @@ void RandomizationComponent::resized() {
 	}
 }
 
-void RandomizationComponent::randomizeUnlockedParameters() {
-	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
-	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
-	auto& info{ InfoForExposedParameters::get() };
-	auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
-	auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		if (param != arpegOnOffIndex && param != sequencerOnOffIndex) {
-			if (paramLockToggleButtons[param].getToggleState() == false) {
-				auto paramID{ info.IDfor(param) };
-				Random rndmNumGenerator{};
-				if (paramID == ID::osc1_Shape || paramID == ID::osc2_Shape) {
-					auto newFloat{ rndmNumGenerator.nextFloat() };
-					auto numberOfShapeOptions{ 5 };
-					auto newShape{ (int)floor(newFloat * numberOfShapeOptions) };
-					if (newShape != 4) {
-						auto newNormalizedValue{ newShape / 103.0f };
-						exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
-					}
-					else {
-						auto newPulseWidth{ floor(rndmNumGenerator.nextFloat() * 100.0f) };
-						auto newNormalizedValue{ (newShape + newPulseWidth) / 103.0f };
-						exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
-					}
-				}
-				else {
-					auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
-					exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
-				}
-			}
-		}
-	}
-	Random rndmNumGenerator{};
-	if (paramLockToggleButtons[arpegOnOffIndex].getToggleState() == false && paramLockToggleButtons[sequencerOnOffIndex].getToggleState() == false) {
-		auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
-		auto arpSeqOnOffOption{ (int)std::floor(newNormalizedValue * 3) };
-		switch (arpSeqOnOffOption) {
-		case 0: {
-			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(0.0);
-			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(0.0);
-			break;
-		}
-		case 1: {
-			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(1.0);
-			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(0.0);
-			break;
-		}
-		case 2: {
-			exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(0.0);
-			exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(1.0);
-			break;
-		}
-		default:
-			break;
-		}
-	}
-	EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams->outgoingMidiBuffers_get());
-	voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
-}
-
 void RandomizationComponent::buttonClicked(Button* button) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto buttonID{ button->getComponentID() };
 	if (buttonID.startsWith("lockButton")) {
 		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
-		if (exposedParams->getParameter("arpegOnOff")->getValue() == 1 || exposedParams->getParameter("sequencerOnOff")->getValue() == 1) {
-			if (paramID == "arpegOnOff") {
-				auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
-				paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
-			}
-			if (paramID == "sequencerOnOff") {
-				auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
-				paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+		if (paramID == "arpegOnOff" || paramID == "sequencerOnOff") {
+			if (exposedParams->getParameter(paramID)->getValue() == 1.0f) {
+				if (paramID == "arpegOnOff") {
+					auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+					paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+				}
+				if (paramID == "sequencerOnOff") {
+					auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
+					paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+				}
 			}
 		}
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };

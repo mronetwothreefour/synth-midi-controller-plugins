@@ -81,13 +81,13 @@ class RandomizationComponent :
 
 public:
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
+
 	RandomizationComponent() = delete;
 
 	RandomizationComponent(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void setUpParamLockToggleButton(uint8 param);
 	void paint(Graphics& g) override;
 	void resized() override;
-	void randomizeUnlockedParameters();
 	void buttonClicked(Button* button) override;
 	void hideThisComponent();
 

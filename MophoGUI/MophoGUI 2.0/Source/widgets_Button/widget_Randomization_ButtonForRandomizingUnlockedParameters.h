@@ -6,20 +6,19 @@
 
 
 
-class RandomizationComponent;
 class UnexposedParameters;
 
 class ButtonForRandomizingUnlockedParameters :
 	public BaseButtonWithOnClickAndTooltipMethods
 {
-	RandomizationComponent* randomizationComponent;
+	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 
 public:
 
 	ButtonForRandomizingUnlockedParameters() = delete;
 
-	ButtonForRandomizingUnlockedParameters(RandomizationComponent* randomizationComponent, UnexposedParameters* unexposedParams);
+	ButtonForRandomizingUnlockedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 protected:
 	const String createButtonTooltipString() override;

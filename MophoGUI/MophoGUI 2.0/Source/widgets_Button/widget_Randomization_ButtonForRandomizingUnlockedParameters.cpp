@@ -2,13 +2,14 @@
 
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../randomization/randomization_ParamRandomizationMethods.h"
 #include "../randomization/RandomizationComponent.h"
 
 
 
-ButtonForRandomizingUnlockedParameters::ButtonForRandomizingUnlockedParameters(RandomizationComponent* randomizationComponent, UnexposedParameters* unexposedParams) :
+ButtonForRandomizingUnlockedParameters::ButtonForRandomizingUnlockedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	BaseButtonWithOnClickAndTooltipMethods{ unexposedParams },
-	randomizationComponent{ randomizationComponent },
+	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {
 	setComponentID(ID::button_Randomize.toString());
@@ -25,5 +26,5 @@ const String ButtonForRandomizingUnlockedParameters::createButtonTooltipString()
 }
 
 void ButtonForRandomizingUnlockedParameters::onClickMethod() {
-	randomizationComponent->randomizeUnlockedParameters();
+	ParamRandomizationMethods::randomizeUnlockedParameters(exposedParams, unexposedParams);
 }
