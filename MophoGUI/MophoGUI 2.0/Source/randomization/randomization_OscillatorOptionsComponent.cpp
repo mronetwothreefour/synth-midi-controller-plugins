@@ -10,24 +10,24 @@
 OscillatorRandomizationOptionsComponent::OscillatorRandomizationOptionsComponent(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams }
 {
-	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
-		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
-			allowNoteToggleButtons[noteNum].setComponentID(ID::component_ToggleButton.toString() + "ForOsc" + String(oscNum) + "Note" + String(noteNum));
-			auto noteIsAllowed{ randomizationOptions->noteIsAllowedForOscillator(noteNum, oscNum) };
-			allowNoteToggleButtons[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
-			allowNoteToggleButtons[noteNum].addListener(this);
-			addAndMakeVisible(allowNoteToggleButtons[noteNum]);
-			allowNoteToggleButtons[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
-		}
-		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForOscillators; ++octaveNum) {
-			allowOctaveToggleButtons[octaveNum].setComponentID(ID::component_ToggleButton.toString() + "ForOsc" + String(oscNum) + "Octave" + String(octaveNum));
-			auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForOscillator(octaveNum, oscNum) };
-			allowOctaveToggleButtons[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
-			allowOctaveToggleButtons[octaveNum].addListener(this);
-			addAndMakeVisible(allowOctaveToggleButtons[octaveNum]);
-			allowOctaveToggleButtons[octaveNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
-		}
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		allowNoteToggleButtons[noteNum].setComponentID(ID::component_ToggleButton.toString() + "ForOsc1Note" + String(noteNum));
+		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForOscillator(noteNum, 1) };
+		allowNoteToggleButtons[noteNum].setRadioGroupId(0, dontSendNotification);
+		allowNoteToggleButtons[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
+		allowNoteToggleButtons[noteNum].addListener(this);
+		addAndMakeVisible(allowNoteToggleButtons[noteNum]);
+		allowNoteToggleButtons[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
+	}
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForOscillators; ++octaveNum) {
+		allowOctaveToggleButtons[octaveNum].setComponentID(ID::component_ToggleButton.toString() + "ForOsc1Octave" + String(octaveNum));
+		auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForOscillator(octaveNum, 1) };
+		allowOctaveToggleButtons[octaveNum].setRadioGroupId(0, dontSendNotification);
+		allowOctaveToggleButtons[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
+		allowOctaveToggleButtons[octaveNum].addListener(this);
+		addAndMakeVisible(allowOctaveToggleButtons[octaveNum]);
+		allowOctaveToggleButtons[octaveNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	}
 
 	button_ForClosingOscOptionsComponent.setComponentID(ID::button_Close.toString());
@@ -60,7 +60,7 @@ void OscillatorRandomizationOptionsComponent::resized() {
 	allowNoteToggleButtons[7].setBounds(GUI::randomizationOscOptionsToggleRow2_x + 4 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowNoteToggleButtons[8].setBounds(GUI::randomizationOscOptionsToggleRow1_x + 4 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowNoteToggleButtons[9].setBounds(GUI::randomizationOscOptionsToggleRow2_x + 5 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
-	allowNoteToggleButtons[10].setBounds(GUI::randomizationOscOptionsToggleRow1_x + 6 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
+	allowNoteToggleButtons[10].setBounds(GUI::randomizationOscOptionsToggleRow1_x + 5 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowNoteToggleButtons[11].setBounds(GUI::randomizationOscOptionsToggleRow2_x + 6 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 
 	allowOctaveToggleButtons[0].setBounds(GUI::randomizationOscOptionsToggleRow3_x, GUI::randomizationOscOptionsToggleRow3_y, GUI::toggle_diameter, GUI::toggle_diameter);
@@ -74,40 +74,58 @@ void OscillatorRandomizationOptionsComponent::resized() {
 	allowOctaveToggleButtons[8].setBounds(GUI::randomizationOscOptionsToggleRow4_x + 2 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow4_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowOctaveToggleButtons[9].setBounds(GUI::randomizationOscOptionsToggleRow4_x + 3 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow4_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowOctaveToggleButtons[10].setBounds(GUI::randomizationOscOptionsToggleRow4_x + 4 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationOscOptionsToggleRow4_y, GUI::toggle_diameter, GUI::toggle_diameter);
+	
+	button_ForClosingOscOptionsComponent.setBounds(GUI::bounds_RandomizationOscOptionsCloseButton);
 }
 
 void OscillatorRandomizationOptionsComponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc")) {
-		auto isAllowed{ button->getToggleState() };
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc1Note")) {
-			auto noteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
-			if (isAllowed)
-				randomizationOptions->setNoteIsAllowedForOscillator(noteNum, 1);
-			else
-				randomizationOptions->setNoteIsNotAllowedForOscillator(noteNum, 1);
+		auto oscNum{ buttonID.contains("Osc1") ? 1 : 2 };
+		if (buttonID.contains("Note")) {
+			auto clickedNoteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
+			if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+				for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+					if (noteNum == clickedNoteNum) {
+						allowNoteToggleButtons[noteNum].setToggleState(true, dontSendNotification);
+						randomizationOptions->setNoteIsAllowedForOscillator(noteNum, oscNum);
+					}
+					else {
+						allowNoteToggleButtons[noteNum].setToggleState(false, dontSendNotification);
+						randomizationOptions->setNoteIsNotAllowedForOscillator(noteNum, oscNum);
+					}
+				}
+			}
+			else {
+				auto isAllowed{ button->getToggleState() };
+				if (isAllowed)
+					randomizationOptions->setNoteIsAllowedForOscillator(clickedNoteNum, oscNum);
+				else
+					randomizationOptions->setNoteIsNotAllowedForOscillator(clickedNoteNum, oscNum);
+			}
 		}
-		if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc2Note")) {
-			auto noteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
-			if (isAllowed)
-				randomizationOptions->setNoteIsAllowedForOscillator(noteNum, 2);
-			else
-				randomizationOptions->setNoteIsNotAllowedForOscillator(noteNum, 2);
-		}
-		if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc1Octave")) {
-			auto octaveNum{ buttonID.fromFirstOccurrenceOf("Octave", false, false).getIntValue() };
-			if (isAllowed)
-				randomizationOptions->setOctaveIsAllowedForOscillator(octaveNum, 1);
-			else
-				randomizationOptions->setOctaveIsNotAllowedForOscillator(octaveNum, 1);
-		}
-		if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc2Octave")) {
-			auto octaveNum{ buttonID.fromFirstOccurrenceOf("Octave", false, false).getIntValue() };
-			if (isAllowed)
-				randomizationOptions->setOctaveIsAllowedForOscillator(octaveNum, 2);
-			else
-				randomizationOptions->setOctaveIsNotAllowedForOscillator(octaveNum, 2);
+		if (buttonID.contains("Octave")) {
+			auto clickedOctaveNum{ buttonID.fromFirstOccurrenceOf("Octave", false, false).getIntValue() };
+			if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+				for (auto octaveNum = 0; octaveNum != randomization::numberOfNotes; ++octaveNum) {
+					if (octaveNum == clickedOctaveNum) {
+						allowNoteToggleButtons[octaveNum].setToggleState(true, dontSendNotification);
+						randomizationOptions->setOctaveIsAllowedForOscillator(octaveNum, oscNum);
+					}
+					else {
+						allowNoteToggleButtons[octaveNum].setToggleState(false, dontSendNotification);
+						randomizationOptions->setOctaveIsNotAllowedForOscillator(octaveNum, oscNum);
+					}
+				}
+			}
+			else {
+				auto isAllowed{ button->getToggleState() };
+				if (isAllowed)
+					randomizationOptions->setOctaveIsAllowedForOscillator(clickedOctaveNum, oscNum);
+				else
+					randomizationOptions->setOctaveIsNotAllowedForOscillator(clickedOctaveNum, oscNum);
+			}
 		}
 	}
 }

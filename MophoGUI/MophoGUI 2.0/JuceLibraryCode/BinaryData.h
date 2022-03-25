@@ -228,7 +228,7 @@ namespace BinaryData
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char*   RandomizationOscOptionsBackground_png;
-    const int            RandomizationOscOptionsBackground_pngSize = 6488;
+    const int            RandomizationOscOptionsBackground_pngSize = 7487;
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;

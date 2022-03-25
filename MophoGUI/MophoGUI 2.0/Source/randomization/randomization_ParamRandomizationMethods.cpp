@@ -19,7 +19,9 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 			if (randomizationOptions->paramIsLocked(param) == false) {
 				auto paramID{ info.IDfor(param) };
 				Random rndmNumGenerator{};
-				if (paramID == ID::osc1_Shape || paramID == ID::osc2_Shape)
+				if (paramID == ID::osc1_Pitch || paramID == ID::osc2_Pitch)
+					randomizeOscPitchParameter(paramID, exposedParams, unexposedParams);
+				else if (paramID == ID::osc1_Shape || paramID == ID::osc2_Shape)
 					randomizeOscShapeParameter(paramID, exposedParams);
 				else
 					randomizeParameter(paramID, exposedParams);
@@ -37,8 +39,26 @@ void ParamRandomizationMethods::randomizeParameter(Identifier paramID, AudioProc
 	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
-void ParamRandomizationMethods::randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams)
-{
+void ParamRandomizationMethods::randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto oscNum{ paramID.toString().contains("1") ? 1 : 2 };
+	auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	auto pitchOutOfRange{ uint8(info.maxValueFor(paramIndex) + 1) };
+	Array<float> allowedPitchesStoredAsNormalizedValues;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
+		auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForOscillator(pitch, oscNum) };
+		if (pitchIsAllowed) {
+			auto normalizedValue{ pitch / (float)info.maxValueFor(paramIndex) };
+			allowedPitchesStoredAsNormalizedValues.add(normalizedValue);
+		}
+	}
+	auto numberOfAllowedPitches{ allowedPitchesStoredAsNormalizedValues.size() };
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	auto newPitchIndex{ (int)floor(newFloat * numberOfAllowedPitches) };
+	auto newNormalizedValue{ allowedPitchesStoredAsNormalizedValues[newPitchIndex] };
+	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
 void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams) {

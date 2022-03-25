@@ -16,6 +16,7 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
+#include "../widgets_Button/widget_Randomization_ButtonForShowingOscOptions.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
@@ -31,6 +32,7 @@
 
 
 
+class OscillatorRandomizationOptionsComponent;
 class UnexposedParameters;
 
 class RandomizationComponent :
@@ -43,6 +45,7 @@ class RandomizationComponent :
 	ButtonForUnlockingAllParameters button_ForUnlockingAllParameters;
 	ButtonForLockingAllOscParameters button_ForLockingAllOscParameters;
 	ButtonForUnlockingAllOscParameters button_ForUnlockingAllOscParameters;
+	ButtonForShowingOscRandomizationOptions button_ForShowingOscRandomizationOptions;
 	ButtonForLockingAllLPFparameters button_ForLockingAllLPFparameters;
 	ButtonForUnlockingAllLPFparameters button_ForUnlockingAllLPFparameters;
 	ButtonForLockingAllVCAparameters button_ForLockingAllVCAparameters;
@@ -77,6 +80,7 @@ class RandomizationComponent :
 	ButtonForUnlockingAllPushItParameters button_ForUnlockingAllPushItParams;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
+	std::unique_ptr<OscillatorRandomizationOptionsComponent> oscillatorOptionsComponent;
 
 public:
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
@@ -88,6 +92,7 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
+	void showOscillatorOptionsComponent();
 	void hideThisComponent();
 	~RandomizationComponent();
 

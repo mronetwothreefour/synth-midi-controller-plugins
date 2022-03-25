@@ -22,7 +22,7 @@ public:
 	const bool paramIsLocked(uint8 param);
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
-	const bool pitchIsAllowedForOscillator(int noteNum, int octaveNum, int oscNum);
+	const bool pitchIsAllowedForOscillator(int pitchNum, int oscNum);
 	const bool noteIsAllowedForOscillator(int noteNum, int oscNum);
 	void setNoteIsAllowedForOscillator(int noteNum, int oscNum);
 	void setNoteIsNotAllowedForOscillator(int noteNum, int oscNum);

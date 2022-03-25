@@ -11,7 +11,7 @@ struct ParamRandomizationMethods {
 
 private:
 	static void randomizeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);
-	static void randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);
+	static void randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	static void randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);
 	static void randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);
 	static void randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);

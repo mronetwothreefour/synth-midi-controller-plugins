@@ -211,6 +211,12 @@
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
+              file="Source/randomization/randomization_Constants.h"/>
+        <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OscillatorOptionsComponent.cpp"/>
+        <FILE id="SRZh1X" name="randomization_OscillatorOptionsComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_OscillatorOptionsComponent.h"/>
         <FILE id="lYSEl2" name="randomization_ParamGroupLockingAndUnlockingMethods.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
         <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
@@ -383,6 +389,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="Bg2Ngc" name="widget_Randomization_ButtonForShowingOscOptions.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingOscOptions.cpp"/>
+        <FILE id="uXgzgZ" name="widget_Randomization_ButtonForShowingOscOptions.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingOscOptions.h"/>
         <FILE id="JQdzgI" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
         <FILE id="SL5nmJ" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
