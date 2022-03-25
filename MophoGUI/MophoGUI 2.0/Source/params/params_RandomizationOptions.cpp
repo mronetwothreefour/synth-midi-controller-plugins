@@ -2,6 +2,7 @@
 
 #include "params_Constants.h"
 #include "params_Identifiers.h"
+#include "../randomization/randomization_Constants.h"
 
 using namespace constants;
 
@@ -20,11 +21,11 @@ RandomizationOptions::RandomizationOptions() :
 void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 	for (uint8 param = 0; param != params::numberOfExposedParams; ++param)
 		paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)false, nullptr);
-	for (auto noteNum = 0; noteNum != 12; ++noteNum) {
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		osc1AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)true, nullptr);
 		osc2AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)true, nullptr);
 	}
-	for (auto octaveNum = 0; octaveNum != 11; ++octaveNum) {
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForOscillators; ++octaveNum) {
 		osc1AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)true, nullptr);
 		osc2AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)true, nullptr);
 	}
@@ -40,4 +41,46 @@ void RandomizationOptions::setParamIsLocked(uint8 param) {
 
 void RandomizationOptions::setParamIsUnlocked(uint8 param) {
 	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::noteIsAllowedForOscillator(int noteNum, int oscNum) {
+	if (oscNum == 1)
+		return (bool)osc1AllowedNotesTree.getProperty("note" + String(noteNum) + "_IsAllowed");
+	else
+		return (bool)osc2AllowedNotesTree.getProperty("note" + String(noteNum) + "_IsAllowed");
+}
+
+void RandomizationOptions::setNoteIsAllowedForOscillator(int noteNum, int oscNum) {
+	if (oscNum == 1)
+		osc1AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)true, nullptr);
+	else
+		osc2AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)true, nullptr);
+}
+
+void RandomizationOptions::setNoteIsNotAllowedForOscillator(int noteNum, int oscNum) {
+	if (oscNum == 1)
+		osc1AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)false, nullptr);
+	else
+		osc2AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::octaveIsAllowedForOscillator(int octaveNum, int oscNum) {
+	if (oscNum == 1)
+		return (bool)osc1AllowedOctavesTree.getProperty("octave" + String(octaveNum) + "_IsAllowed");
+	else
+		return (bool)osc2AllowedOctavesTree.getProperty("octave" + String(octaveNum) + "_IsAllowed");
+}
+
+void RandomizationOptions::setOctaveIsAllowedForOscillator(int octaveNum, int oscNum) {
+	if (oscNum == 1)
+		osc1AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)true, nullptr);
+	else
+		osc2AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)true, nullptr);
+}
+
+void RandomizationOptions::setOctaveIsNotAllowedForOscillator(int octaveNum, int oscNum) {
+	if (oscNum == 1)
+		osc1AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)false, nullptr);
+	else
+		osc2AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)false, nullptr);
 }

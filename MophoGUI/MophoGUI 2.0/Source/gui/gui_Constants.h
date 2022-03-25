@@ -195,6 +195,17 @@ namespace constants
 		static const int randomizationOscLockAndUnlockButtons_y{ 10 };
 		static const int randomizationOscLockButton_x{ 113 };
 		static const int randomizationOscUnlockButton_x{ randomizationOscLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
+		static const int randomizationOptionsToggles_horizSpacing{ 22 };
+		static const int randomizationOscOptionsToggleRow1_x{ 484 };
+		static const int randomizationOscOptionsToggleRow1_y{ 253 };
+		static const int randomizationOscOptionsToggleRow2_x{ 473 };
+		static const int randomizationOscOptionsToggleRow2_y{ 271 };
+		static const int randomizationOscOptionsToggleRow3_x{ randomizationOscOptionsToggleRow1_x };
+		static const int randomizationOscOptionsToggleRow3_y{ 335 };
+		static const int randomizationOscOptionsToggleRow4_x{ randomizationOscOptionsToggleRow1_x };
+		static const int randomizationOscOptionsToggleRow4_y{ 368 };
+		static const int randomizationOscOptionsBackground_x{ 456 };
+		static const int randomizationOscOptionsBackground_y{ 181 };
 		static const int randomizationPushItLockAndUnlockButtons_y{ randomizationKnobAssignLockAndUnlockButtons_y };
 		static const int randomizationPushItLockButton_x{ 1232 };
 		static const int randomizationPushItUnlockButton_x{ randomizationPushItLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };

@@ -624,6 +624,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -2868,7 +2871,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5732,6 +5735,12 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_Constants.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF">
@@ -5801,6 +5810,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Save.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Down-Settings-Gear.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Stop.png">
@@ -5884,6 +5896,9 @@
     <None Include="..\..\Resources\Button-Up-Save.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Button-Up-Settings-Gear.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Up-Stop.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -5945,6 +5960,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Randomization-Osc-Options-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">

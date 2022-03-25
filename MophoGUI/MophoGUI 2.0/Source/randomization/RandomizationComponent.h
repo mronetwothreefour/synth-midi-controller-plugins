@@ -35,8 +35,7 @@ class UnexposedParameters;
 
 class RandomizationComponent :
 	public Component,
-	public Button::Listener,
-	private Timer
+	public Button::Listener
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -90,12 +89,6 @@ public:
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void hideThisComponent();
-
-private:
-	void timerCallback() override;
-
-
-public:
 	~RandomizationComponent();
 
 private:

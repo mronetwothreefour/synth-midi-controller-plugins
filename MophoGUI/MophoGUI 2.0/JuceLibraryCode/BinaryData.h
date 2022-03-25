@@ -77,6 +77,9 @@ namespace BinaryData
     extern const char*   ButtonDownSave_png;
     const int            ButtonDownSave_pngSize = 629;
 
+    extern const char*   ButtonDownSettingsGear_png;
+    const int            ButtonDownSettingsGear_pngSize = 521;
+
     extern const char*   ButtonDownStop_png;
     const int            ButtonDownStop_pngSize = 599;
 
@@ -158,6 +161,9 @@ namespace BinaryData
     extern const char*   ButtonUpSave_png;
     const int            ButtonUpSave_pngSize = 635;
 
+    extern const char*   ButtonUpSettingsGear_png;
+    const int            ButtonUpSettingsGear_pngSize = 463;
+
     extern const char*   ButtonUpStop_png;
     const int            ButtonUpStop_pngSize = 589;
 
@@ -221,6 +227,9 @@ namespace BinaryData
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
+    extern const char*   RandomizationOscOptionsBackground_png;
+    const int            RandomizationOscOptionsBackground_pngSize = 6488;
+
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;
 
@@ -243,7 +252,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 78;
+    const int namedResourceListSize = 81;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

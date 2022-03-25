@@ -223,9 +223,6 @@ void RandomizationComponent::hideThisComponent() {
 	setVisible(false);
 }
 
-void RandomizationComponent::timerCallback() {
-}
-
 RandomizationComponent::~RandomizationComponent() {
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)

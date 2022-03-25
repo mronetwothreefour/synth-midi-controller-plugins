@@ -291,7 +291,7 @@ void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool is
 }
 
 void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
-	if (component.getComponentID() == ID::component_ToggleButton.toString()) {
+	if (component.getComponentID().startsWith(ID::component_ToggleButton.toString())) {
 		g.setColour(isTicked ? Color::switchOn : Color::switchOff);
 		g.fillEllipse(x, y, w, h);
 	}

@@ -215,6 +215,8 @@
               compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
         <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
               compile="0" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.h"/>
+        <FILE id="roLIxI" name="randomization_ParamRandomizationMethods.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.cpp"/>
         <FILE id="BA9u8k" name="randomization_ParamRandomizationMethods.h"
               compile="0" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.h"/>
         <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
@@ -636,6 +638,8 @@
             file="Resources/Button-Down-Retry.png"/>
       <FILE id="ItfJs1" name="Button-Down-Save.png" compile="0" resource="1"
             file="Resources/Button-Down-Save.png"/>
+      <FILE id="h8LRFR" name="Button-Down-Settings-Gear.png" compile="0"
+            resource="1" file="Resources/Button-Down-Settings-Gear.png"/>
       <FILE id="yQj26a" name="Button-Down-Stop.png" compile="0" resource="1"
             file="Resources/Button-Down-Stop.png"/>
       <FILE id="kDPc3V" name="Button-Down-Undo.png" compile="0" resource="1"
@@ -690,6 +694,8 @@
             file="Resources/Button-Up-Retry.png"/>
       <FILE id="GOTqQq" name="Button-Up-Save.png" compile="0" resource="1"
             file="Resources/Button-Up-Save.png"/>
+      <FILE id="FnN9z1" name="Button-Up-Settings-Gear.png" compile="0" resource="1"
+            file="Resources/Button-Up-Settings-Gear.png"/>
       <FILE id="UByWpI" name="Button-Up-Stop.png" compile="0" resource="1"
             file="Resources/Button-Up-Stop.png"/>
       <FILE id="nzlgfx" name="Button-Up-Undo.png" compile="0" resource="1"
@@ -731,6 +737,8 @@
             resource="1" file="Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
+      <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
+            resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
