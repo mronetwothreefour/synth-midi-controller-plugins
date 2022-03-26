@@ -81,6 +81,17 @@ void RandomizationOptions::setNoteIsNotAllowedForOscillator(int noteNum, int osc
 		osc2AllowedNotesTree.setProperty("note" + String(noteNum) + "_IsAllowed", (bool)false, nullptr);
 }
 
+const bool RandomizationOptions::noNoteIsAllowedForOscillator(int oscNum) {
+	jassert(oscNum == 1 || oscNum == 2);
+	auto atLeastOneNoteIsAllowed{ (bool)false };
+	auto noNoteIsAllowed{ (bool)true };
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		if (noteIsAllowedForOscillator(noteNum, oscNum))
+			return atLeastOneNoteIsAllowed;
+	}
+	return noNoteIsAllowed;
+}
+
 const bool RandomizationOptions::octaveIsAllowedForOscillator(int octaveNum, int oscNum) {
 	jassert(octaveNum > -1 && octaveNum < 11);
 	jassert(oscNum == 1 || oscNum == 2);
@@ -106,4 +117,15 @@ void RandomizationOptions::setOctaveIsNotAllowedForOscillator(int octaveNum, int
 		osc1AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)false, nullptr);
 	else
 		osc2AllowedOctavesTree.setProperty("octave" + String(octaveNum) + "_IsAllowed", (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::noOctaveIsAllowedForOscillator(int oscNum) {
+	jassert(oscNum == 1 || oscNum == 2);
+	auto atLeastOneOctaveIsAllowed{ (bool)false };
+	auto noOctaveIsAllowed{ (bool)true };
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForOscillators; ++octaveNum) {
+		if (octaveIsAllowedForOscillator(octaveNum, oscNum))
+			return atLeastOneOctaveIsAllowed;
+	}
+	return noOctaveIsAllowed;
 }

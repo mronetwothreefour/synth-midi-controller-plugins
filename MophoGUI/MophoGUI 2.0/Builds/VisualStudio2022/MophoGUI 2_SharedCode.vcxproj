@@ -180,6 +180,8 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp"/>
@@ -2287,6 +2289,8 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.h"/>

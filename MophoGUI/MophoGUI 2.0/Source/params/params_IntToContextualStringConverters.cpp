@@ -7,10 +7,10 @@ using namespace constants;
 
 
 String IntToPitchName::convert(const uint8& i) noexcept {
-	auto pitchNum{ i % 12 };
+	auto noteNum{ i % 12 };
 	auto octaveNum{ i / 12 };
 	String pitchName;
-	switch (pitchNum) {
+	switch (noteNum) {
 	case 0:
 		pitchName = "C " + (String)octaveNum;
 		break;

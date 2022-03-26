@@ -622,6 +622,12 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3164,6 +3170,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>

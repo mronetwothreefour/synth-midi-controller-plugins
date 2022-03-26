@@ -211,6 +211,14 @@
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="Mb7eSz" name="randomization_AllowedNotesForOscComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.cpp"/>
+        <FILE id="QW7lXt" name="randomization_AllowedNotesForOscComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.h"/>
+        <FILE id="hwR7N6" name="randomization_AllowedOctavesForOscComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
+        <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
         <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"

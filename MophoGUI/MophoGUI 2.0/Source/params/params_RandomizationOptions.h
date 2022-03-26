@@ -26,9 +26,11 @@ public:
 	const bool noteIsAllowedForOscillator(int noteNum, int oscNum);
 	void setNoteIsAllowedForOscillator(int noteNum, int oscNum);
 	void setNoteIsNotAllowedForOscillator(int noteNum, int oscNum);
+	const bool noNoteIsAllowedForOscillator(int oscNum);
 	const bool octaveIsAllowedForOscillator(int octaveNum, int oscNum);
 	void setOctaveIsAllowedForOscillator(int octaveNum, int oscNum);
 	void setOctaveIsNotAllowedForOscillator(int octaveNum, int oscNum);
+	const bool noOctaveIsAllowedForOscillator(int oscNum);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 
