@@ -16,7 +16,8 @@ class AllowedNotesForOscComponent :
 {
 	int oscNum;
 	UnexposedParameters* unexposedParams;
-	ToggleButton allowedNoteToggleButtons[randomization::numberOfNotes];
+	ToggleButton allowedNoteToggles[randomization::numberOfNotes];
+	TextButton button_ForAllowingAllNotes;
 
 public:
 	AllowedNotesForOscComponent() = delete;

@@ -31,6 +31,7 @@ public:
 	void setOctaveIsAllowedForOscillator(int octaveNum, int oscNum);
 	void setOctaveIsNotAllowedForOscillator(int octaveNum, int oscNum);
 	const bool noOctaveIsAllowedForOscillator(int oscNum);
+	const bool onlyOctave10IsAllowedForOscillator(int oscNum);
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
 

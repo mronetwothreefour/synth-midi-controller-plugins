@@ -16,6 +16,8 @@ namespace ID
 	static const Identifier bank_custom2_VoiceNameStrings{ "bank_custom2_VoiceNameStrings" };
 	static const Identifier bank_custom3_VoiceNameStrings{ "bank_custom3_VoiceNameStrings" };
 
+	static const Identifier button_AllNotesForOsc{ "button_AllNotesForOsc" };
+	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
 	static const Identifier button_CancelImptExpt{ "button_CancelImptExpt" };

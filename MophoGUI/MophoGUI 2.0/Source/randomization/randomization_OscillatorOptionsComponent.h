@@ -2,6 +2,9 @@
 
 #include <JuceHeader.h>
 
+#include "randomization_AllowedNotesForOscComponent.h"
+#include "randomization_AllowedOctavesForOscComponent.h"
+
 
 
 class UnexposedParameters;
@@ -9,6 +12,10 @@ class UnexposedParameters;
 class OscillatorRandomizationOptionsComponent :
 	public Component
 {
+	AllowedNotesForOscComponent allowedNotesForOsc1;
+	AllowedOctavesForOscComponent allowedOctavesForOsc1;
+	AllowedNotesForOscComponent allowedNotesForOsc2;
+	AllowedOctavesForOscComponent allowedOctavesForOsc2;
 	TextButton button_ForClosingOscOptionsComponent;
 
 public:

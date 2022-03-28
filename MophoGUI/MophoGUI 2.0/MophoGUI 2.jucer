@@ -612,6 +612,10 @@
     <GROUP id="{81451CC4-A49B-65F3-AE97-D7F42BE36753}" name="Resources">
       <FILE id="gVNEld" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
             file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      <FILE id="JZ47df" name="Button-Down-All-Notes.png" compile="0" resource="1"
+            file="Resources/Button-Down-All-Notes.png"/>
+      <FILE id="ErORlD" name="Button-Down-All-Octaves.png" compile="0" resource="1"
+            file="Resources/Button-Down-All-Octaves.png"/>
       <FILE id="TShkGd" name="Button-Down-Banks.png" compile="0" resource="1"
             file="Resources/Button-Down-Banks.png"/>
       <FILE id="B3pyG0" name="Button-Down-Cancel.png" compile="0" resource="1"
@@ -668,6 +672,10 @@
             file="Resources/Button-Down-Unlock-All.png"/>
       <FILE id="ECAOIW" name="Button-Down-Write.png" compile="0" resource="1"
             file="Resources/Button-Down-Write.png"/>
+      <FILE id="kSwo8I" name="Button-Up-All-Notes.png" compile="0" resource="1"
+            file="Resources/Button-Up-All-Notes.png"/>
+      <FILE id="XWeRj2" name="Button-Up-All-Octaves.png" compile="0" resource="1"
+            file="Resources/Button-Up-All-Octaves.png"/>
       <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
             file="Resources/Button-Up-Banks.png"/>
       <FILE id="jfl2o6" name="Button-Up-Cancel.png" compile="0" resource="1"

@@ -3197,6 +3197,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF"/>
+    <None Include="..\..\Resources\Button-Down-All-Notes.png"/>
+    <None Include="..\..\Resources\Button-Down-All-Octaves.png"/>
     <None Include="..\..\Resources\Button-Down-Banks.png"/>
     <None Include="..\..\Resources\Button-Down-Cancel.png"/>
     <None Include="..\..\Resources\Button-Down-Clear.png"/>
@@ -3225,6 +3227,8 @@
     <None Include="..\..\Resources\Button-Down-Unlock.png"/>
     <None Include="..\..\Resources\Button-Down-Unlock-All.png"/>
     <None Include="..\..\Resources\Button-Down-Write.png"/>
+    <None Include="..\..\Resources\Button-Up-All-Notes.png"/>
+    <None Include="..\..\Resources\Button-Up-All-Octaves.png"/>
     <None Include="..\..\Resources\Button-Up-Banks.png"/>
     <None Include="..\..\Resources\Button-Up-Cancel.png"/>
     <None Include="..\..\Resources\Button-Up-Clear.png"/>

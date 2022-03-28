@@ -9,8 +9,16 @@ using namespace constants;
 
 
 
-OscillatorRandomizationOptionsComponent::OscillatorRandomizationOptionsComponent(UnexposedParameters* unexposedParams)
+OscillatorRandomizationOptionsComponent::OscillatorRandomizationOptionsComponent(UnexposedParameters* unexposedParams) :
+	allowedNotesForOsc1{ 1, unexposedParams },
+	allowedOctavesForOsc1{ 1, unexposedParams },
+	allowedNotesForOsc2{ 2, unexposedParams },
+	allowedOctavesForOsc2{ 2, unexposedParams }
 {
+	addAndMakeVisible(allowedNotesForOsc1);
+	addAndMakeVisible(allowedOctavesForOsc1);
+	addAndMakeVisible(allowedNotesForOsc2);
+	addAndMakeVisible(allowedOctavesForOsc2);
 
 	button_ForClosingOscOptionsComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingOscOptionsComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -32,6 +40,10 @@ void OscillatorRandomizationOptionsComponent::paint(Graphics& g) {
 }
 
 void OscillatorRandomizationOptionsComponent::resized() {
+	allowedNotesForOsc1.setBounds(GUI::bounds_RandomizationAllowedNotesForOsc1);
+	allowedOctavesForOsc1.setBounds(GUI::bounds_RandomizationAllowedOctavesForOsc1);
+	allowedNotesForOsc2.setBounds(GUI::bounds_RandomizationAllowedNotesForOsc2);
+	allowedOctavesForOsc2.setBounds(GUI::bounds_RandomizationAllowedOctavesForOsc2);
 	button_ForClosingOscOptionsComponent.setBounds(GUI::bounds_RandomizationOscOptionsCloseButton);
 }
 

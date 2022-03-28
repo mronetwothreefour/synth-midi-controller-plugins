@@ -16,7 +16,8 @@ class AllowedOctavesForOscComponent :
 {
 	int oscNum;
 	UnexposedParameters* unexposedParams;
-	ToggleButton allowedOctaveToggleButtons[randomization::numberOfOctavesForOscillators];
+	ToggleButton allowedOctaveToggles[randomization::numberOfOctavesForOscillators];
+	TextButton button_ForAllowingAllOctaves;
 
 public:
 	AllowedOctavesForOscComponent() = delete;

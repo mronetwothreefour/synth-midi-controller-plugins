@@ -129,3 +129,14 @@ const bool RandomizationOptions::noOctaveIsAllowedForOscillator(int oscNum) {
 	}
 	return noOctaveIsAllowed;
 }
+
+const bool RandomizationOptions::onlyOctave10IsAllowedForOscillator(int oscNum) {
+	jassert(oscNum == 1 || oscNum == 2);
+	auto octave10IsNotTheOnlyOneAllowed{ (bool)false };
+	auto octave10IsTheOnlyOneAllowed{ (bool)true };
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForOscillators - 1; ++octaveNum) {
+		if (octaveIsAllowedForOscillator(octaveNum, oscNum))
+			return octave10IsNotTheOnlyOneAllowed;
+	}
+	return octave10IsTheOnlyOneAllowed;
+}

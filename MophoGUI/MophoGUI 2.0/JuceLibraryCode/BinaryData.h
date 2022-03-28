@@ -11,6 +11,12 @@ namespace BinaryData
     extern const char*   OVERPASSBOLD_TTF;
     const int            OVERPASSBOLD_TTFSize = 123228;
 
+    extern const char*   ButtonDownAllNotes_png;
+    const int            ButtonDownAllNotes_pngSize = 839;
+
+    extern const char*   ButtonDownAllOctaves_png;
+    const int            ButtonDownAllOctaves_pngSize = 956;
+
     extern const char*   ButtonDownBanks_png;
     const int            ButtonDownBanks_pngSize = 729;
 
@@ -94,6 +100,12 @@ namespace BinaryData
 
     extern const char*   ButtonDownWrite_png;
     const int            ButtonDownWrite_pngSize = 642;
+
+    extern const char*   ButtonUpAllNotes_png;
+    const int            ButtonUpAllNotes_pngSize = 803;
+
+    extern const char*   ButtonUpAllOctaves_png;
+    const int            ButtonUpAllOctaves_pngSize = 944;
 
     extern const char*   ButtonUpBanks_png;
     const int            ButtonUpBanks_pngSize = 695;
@@ -228,7 +240,7 @@ namespace BinaryData
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char*   RandomizationOscOptionsBackground_png;
-    const int            RandomizationOscOptionsBackground_pngSize = 7487;
+    const int            RandomizationOscOptionsBackground_pngSize = 7703;
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;
@@ -252,7 +264,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 81;
+    const int namedResourceListSize = 85;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

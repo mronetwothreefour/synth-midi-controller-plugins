@@ -108,6 +108,12 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_AllNotes"))
+		return isDown ? BinaryData::ButtonDownAllNotes_png : BinaryData::ButtonUpAllNotes_png;
+
+	if (button.getComponentID().startsWith("button_AllOctaves"))
+		return isDown ? BinaryData::ButtonDownAllOctaves_png : BinaryData::ButtonUpAllOctaves_png;
+
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return isDown ? BinaryData::ButtonDownBanks_png : BinaryData::ButtonUpBanks_png;
 
@@ -199,6 +205,12 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_AllNotes"))
+		return size_t(isDown ? BinaryData::ButtonDownAllNotes_pngSize : BinaryData::ButtonUpAllNotes_pngSize);
+
+	if (button.getComponentID().startsWith("button_AllOctaves"))
+		return size_t(isDown ? BinaryData::ButtonDownAllOctaves_pngSize : BinaryData::ButtonUpAllOctaves_pngSize);
+
 	if (button.getComponentID() == ID::button_Banks.toString())
 		return size_t(isDown ? BinaryData::ButtonDownBanks_pngSize : BinaryData::ButtonUpBanks_pngSize);
 
