@@ -180,7 +180,9 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
@@ -2289,7 +2291,9 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.h"/>
@@ -3273,8 +3277,13 @@
     <None Include="..\..\Resources\No-Sysex-Warning-Background.png"/>
     <None Include="..\..\Resources\Overwrite-Confirmation-Background.png"/>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png"/>
+    <None Include="..\..\Resources\Randomization-LFO-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Window-Background.png"/>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO1.png"/>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO2.png"/>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO3.png"/>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO4.png"/>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png"/>
     <None Include="..\..\Resources\Title-Pushing-Entire-Bank.png"/>
     <None Include="..\..\Resources\Window-Title-Export-Program.png"/>

@@ -1,4 +1,4 @@
-#include "randomization_AllowedNotesForOscComponent.h"
+#include "randomization_AllowedNotesForLFOcomponent.h"
 
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
@@ -7,27 +7,27 @@
 
 
 
-AllowedNotesForOscComponent::AllowedNotesForOscComponent(int oscNum, UnexposedParameters* unexposedParams) :
-	oscNum{ oscNum },
+AllowedNotesForLFOcomponent::AllowedNotesForLFOcomponent(int lfoNum, UnexposedParameters* unexposedParams) :
+	lfoNum{ lfoNum },
 	unexposedParams{ unexposedParams }
 {
-	jassert(oscNum == 1 || oscNum == 2);
+	jassert(lfoNum > 0 && lfoNum < 5);
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
-		auto toggleID{ ID::component_ToggleButton.toString() + "ForOsc" + (String)oscNum + "_Note" + String(noteNum) };
+		auto toggleID{ ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);
-		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForOscillator(noteNum, oscNum) };
+		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForLFO(noteNum, lfoNum) };
 		allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 		allowedNoteToggles[noteNum].addListener(this);
 		addAndMakeVisible(allowedNoteToggles[noteNum]);
 		allowedNoteToggles[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 		if (shouldShowDescriptions) {
-			auto noteName{ IntToPitchName::convert((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false)};
-			String toggleTooltip {""};
+			auto noteName{ IntToPitchName::convert((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false) };
+			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not " + noteName + " notes are allowed\n";
-			toggleTooltip += "when a random pitch is generated for oscillator " + (String)oscNum + ".\n";
+			toggleTooltip += "when a random pitched frequency is generated for LFO " + (String)lfoNum + ".\n";
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make " + noteName + " notes the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed note.";
@@ -35,12 +35,12 @@ AllowedNotesForOscComponent::AllowedNotesForOscComponent(int oscNum, UnexposedPa
 		}
 	}
 
-	button_ForAllowingAllNotes.setComponentID(ID::button_AllNotesForOsc.toString() + (String)oscNum);
+	button_ForAllowingAllNotes.setComponentID(ID::button_AllNotesForLFO.toString() + (String)lfoNum);
 	button_ForAllowingAllNotes.addListener(this);
 	if (tooltipOptions->shouldShowDescriptions()) {
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all notes when generating\n";
-		buttonTooltip += "a random pitch for oscillator" + (String)oscNum + ".";
+		buttonTooltip += "a random pitched frequency for LFO " + (String)lfoNum + ".";
 		button_ForAllowingAllNotes.setTooltip(buttonTooltip);
 	}
 	addAndMakeVisible(button_ForAllowingAllNotes);
@@ -48,7 +48,7 @@ AllowedNotesForOscComponent::AllowedNotesForOscComponent(int oscNum, UnexposedPa
 	setSize(GUI::randomizationAllowedNotesComponent_w, GUI::randomizationAllowedNotesComponent_h);
 }
 
-void AllowedNotesForOscComponent::resized() {
+void AllowedNotesForLFOcomponent::resized() {
 	allowedNoteToggles[0].setBounds(GUI::randomizationAllowedNoteToggleRow2_x, GUI::randomizationAllowedNoteToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedNoteToggles[1].setBounds(GUI::randomizationAllowedNoteToggleRow1_x, GUI::randomizationAllowedNoteToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedNoteToggles[2].setBounds(GUI::randomizationAllowedNoteToggleRow2_x + GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationAllowedNoteToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
@@ -65,44 +65,44 @@ void AllowedNotesForOscComponent::resized() {
 	button_ForAllowingAllNotes.setBounds(GUI::bounds_RandomizationAllowAllNotesButton);
 }
 
-void AllowedNotesForOscComponent::buttonClicked(Button* button) {
+void AllowedNotesForLFOcomponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForOsc" + (String)oscNum + "_Note")) {
+	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Note")) {
 		auto clickedNoteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 			for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 				if (noteNum == clickedNoteNum) {
 					allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-					randomizationOptions->setNoteIsAllowedForOscillator(noteNum, oscNum);
+					randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
 				}
 				else {
 					allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
-					randomizationOptions->setNoteIsNotAllowedForOscillator(noteNum, oscNum);
+					randomizationOptions->setNoteIsNotAllowedForLFO(noteNum, lfoNum);
 				}
 			}
 		}
 		else {
 			auto isAllowed{ button->getToggleState() };
 			if (isAllowed)
-				randomizationOptions->setNoteIsAllowedForOscillator(clickedNoteNum, oscNum);
+				randomizationOptions->setNoteIsAllowedForLFO(clickedNoteNum, lfoNum);
 			else
-				randomizationOptions->setNoteIsNotAllowedForOscillator(clickedNoteNum, oscNum);
+				randomizationOptions->setNoteIsNotAllowedForLFO(clickedNoteNum, lfoNum);
 		}
-		if (randomizationOptions->noNoteIsAllowedForOscillator(oscNum)) {
+		if (randomizationOptions->noNoteIsAllowedForLFO(lfoNum)) {
 			button->setToggleState(true, dontSendNotification);
-			randomizationOptions->setNoteIsAllowedForOscillator(clickedNoteNum, oscNum);
+			randomizationOptions->setNoteIsAllowedForLFO(clickedNoteNum, lfoNum);
 		}
 	}
-	if (buttonID == ID::button_AllNotesForOsc.toString() + (String)oscNum) {
+	if (buttonID == ID::button_AllNotesForLFO.toString() + (String)lfoNum) {
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-			randomizationOptions->setNoteIsAllowedForOscillator(noteNum, oscNum);
+			randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
 		}
 	}
 }
 
-AllowedNotesForOscComponent::~AllowedNotesForOscComponent() {
+AllowedNotesForLFOcomponent::~AllowedNotesForLFOcomponent() {
 	button_ForAllowingAllNotes.removeListener(this);
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		allowedNoteToggles[noteNum].removeListener(this);

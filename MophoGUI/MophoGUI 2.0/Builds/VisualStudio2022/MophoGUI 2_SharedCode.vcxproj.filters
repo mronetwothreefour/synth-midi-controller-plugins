@@ -622,7 +622,13 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp">
@@ -3171,7 +3177,13 @@
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h">
@@ -6119,10 +6131,25 @@
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Randomization-LFO-Options-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO1.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO2.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO3.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO4.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png">

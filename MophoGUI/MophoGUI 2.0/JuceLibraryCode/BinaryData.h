@@ -225,7 +225,7 @@ namespace BinaryData
     const int            LockIcon_pngSize = 326;
 
     extern const char*   MophoGUIMainWindowBackground_png;
-    const int            MophoGUIMainWindowBackground_pngSize = 94017;
+    const int            MophoGUIMainWindowBackground_pngSize = 93983;
 
     extern const char*   NoNRPNWarningBackground_png;
     const int            NoNRPNWarningBackground_pngSize = 21636;
@@ -239,11 +239,26 @@ namespace BinaryData
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
+    extern const char*   RandomizationLFOOptionsBackground_png;
+    const int            RandomizationLFOOptionsBackground_pngSize = 10613;
+
     extern const char*   RandomizationOscOptionsBackground_png;
-    const int            RandomizationOscOptionsBackground_pngSize = 7703;
+    const int            RandomizationOscOptionsBackground_pngSize = 7694;
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;
+
+    extern const char*   TitleAllowedFreqForLFO1_png;
+    const int            TitleAllowedFreqForLFO1_pngSize = 1702;
+
+    extern const char*   TitleAllowedFreqForLFO2_png;
+    const int            TitleAllowedFreqForLFO2_pngSize = 1721;
+
+    extern const char*   TitleAllowedFreqForLFO3_png;
+    const int            TitleAllowedFreqForLFO3_pngSize = 1707;
+
+    extern const char*   TitleAllowedFreqForLFO4_png;
+    const int            TitleAllowedFreqForLFO4_pngSize = 1740;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;
@@ -264,7 +279,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 85;
+    const int namedResourceListSize = 90;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

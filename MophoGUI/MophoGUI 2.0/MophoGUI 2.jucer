@@ -211,10 +211,18 @@
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="aAywRz" name="randomization_AllowedNotesForLFOcomponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.cpp"/>
+        <FILE id="LiGDyA" name="randomization_AllowedNotesForLFOcomponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.h"/>
         <FILE id="Mb7eSz" name="randomization_AllowedNotesForOscComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.cpp"/>
         <FILE id="QW7lXt" name="randomization_AllowedNotesForOscComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.h"/>
+        <FILE id="Yf2w21" name="randomization_AllowedOctavesForLFOcomponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.cpp"/>
+        <FILE id="pwRkRj" name="randomization_AllowedOctavesForLFOcomponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.h"/>
         <FILE id="hwR7N6" name="randomization_AllowedOctavesForOscComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
         <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
@@ -763,10 +771,20 @@
             resource="1" file="Resources/Overwrite-Confirmation-Background.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
+      <FILE id="vkmfZr" name="Randomization-LFO-Options-Background.png" compile="0"
+            resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
       <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
+      <FILE id="aXDarv" name="Title-Allowed-Freq-For-LFO1.png" compile="0"
+            resource="1" file="Resources/Title-Allowed-Freq-For-LFO1.png"/>
+      <FILE id="ACbcI8" name="Title-Allowed-Freq-For-LFO2.png" compile="0"
+            resource="1" file="Resources/Title-Allowed-Freq-For-LFO2.png"/>
+      <FILE id="I3ZnQi" name="Title-Allowed-Freq-For-LFO3.png" compile="0"
+            resource="1" file="Resources/Title-Allowed-Freq-For-LFO3.png"/>
+      <FILE id="bmTnc1" name="Title-Allowed-Freq-For-LFO4.png" compile="0"
+            resource="1" file="Resources/Title-Allowed-Freq-For-LFO4.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"
