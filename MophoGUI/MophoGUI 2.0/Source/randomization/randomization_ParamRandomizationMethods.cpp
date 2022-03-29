@@ -47,7 +47,7 @@ void ParamRandomizationMethods::randomizeOscPitchParameter(Identifier paramID, A
 	Array<float> allowedPitchesStoredAsNormalizedValues;
 	float newNormalizedValue{ 0.0f };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (randomizationOptions->onlyOctave10IsAllowedForOscillator(oscNum))
+	if (randomizationOptions->onlyOctave10_IsAllowedForOscillator(oscNum))
 		newNormalizedValue = 1.0f;
 	else {
 		for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {

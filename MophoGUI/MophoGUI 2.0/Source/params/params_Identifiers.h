@@ -183,10 +183,8 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
-	static const Identifier randomization_Osc1AllowedNotes{ "randomization_Osc1AllowedNotes" };
-	static const Identifier randomization_Osc1AllowedOctaves{ "randomization_Osc1AllowedOctaves" };
-	static const Identifier randomization_Osc2AllowedNotes{ "randomization_Osc1AllowedNotes" };
-	static const Identifier randomization_Osc2AllowedOctaves{ "randomization_Osc1AllowedOctaves" };
+	static const Identifier randomization_LFOallowedFrequencies{ "randomization_LFOallowedFrequencies" };
+	static const Identifier randomization_OscAllowedPitches{ "randomization_OscAllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };

@@ -24,7 +24,7 @@ AllowedNotesForOscComponent::AllowedNotesForOscComponent(int oscNum, UnexposedPa
 		addAndMakeVisible(allowedNoteToggles[noteNum]);
 		allowedNoteToggles[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 		if (shouldShowDescriptions) {
-			auto noteName{ IntToPitchName::convert(noteNum).upToFirstOccurrenceOf(" ", false, false)};
+			auto noteName{ IntToPitchName::convert((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false)};
 			String toggleTooltip {""};
 			toggleTooltip += "Toggles whether or not " + noteName + " notes are allowed\n";
 			toggleTooltip += "when a random pitch is generated for oscillator " + (String)oscNum + ".\n";
