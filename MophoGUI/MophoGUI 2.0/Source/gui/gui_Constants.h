@@ -194,6 +194,8 @@ namespace constants
 		static const int randomizationAllowedOctaveToggleRow1_y{ 0 };
 		static const int randomizationAllowedOctaveToggleRow2_x{ 11 };
 		static const int randomizationAllowedOctaveToggleRow2_y{ 33 };
+		static const int randomizationAllowedUnsyncedFreqForLFOComponent_h{ 91 };
+		static const int randomizationAllowedUnsyncedFreqForLFOComponent_w{ knob_diameter };
 		static const int randomizationCloseButton_x{ 1152 };
 		static const int randomizationLockAndUnlockButtons_h{ 20 };
 		static const int randomizationLockAndUnlockButtons_w{ 14 };
@@ -203,6 +205,7 @@ namespace constants
 		static const int randomizationKnobAssignLockAndUnlockButtons_y{ 484 };
 		static const int randomizationKnobAssignLockButton_x{ 1107 };
 		static const int randomizationKnobAssignUnlockButton_x{ randomizationKnobAssignLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
+		static const int randomizationMaxUnsyncedFreqForLFO_y{ 56 };
 		static const int randomizationLFOlockAndUnlockButtons_y{ 475 };
 		static const int randomizationLFO1lockButton_x{ 437 };
 		static const int randomizationLFO1unlockButton_x{ randomizationLFO1lockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
