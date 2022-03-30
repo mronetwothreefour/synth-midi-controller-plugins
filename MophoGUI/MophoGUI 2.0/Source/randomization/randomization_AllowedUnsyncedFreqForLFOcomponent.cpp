@@ -14,7 +14,9 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	lfoNum{ lfoNum },
 	unexposedParams{ unexposedParams },
 	knob_ForMinUnsyncedFreq{ unexposedParams },
-	knob_ForMaxUnsyncedFreq{ unexposedParams }
+	valueDisplay_ForMinUnsyncedFreq{ &knob_ForMinUnsyncedFreq, IntToLFOfreqString::get() },
+	knob_ForMaxUnsyncedFreq{ unexposedParams },
+	valueDisplay_ForMaxUnsyncedFreq{ &knob_ForMaxUnsyncedFreq, IntToLFOfreqString::get() }
 {
 	jassert(lfoNum > 0 && lfoNum < 5);
 
@@ -35,6 +37,9 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	}
 	addAndMakeVisible(knob_ForMinUnsyncedFreq);
 
+	addAndMakeVisible(valueDisplay_ForMinUnsyncedFreq);
+	valueDisplay_ForMinUnsyncedFreq.setInterceptsMouseClicks(false, false);
+
 	knob_ForMaxUnsyncedFreq.setComponentID(ID::component_Knob.toString() + "ForMaxUnsyncedFreqForLFO" + (String)lfoNum);
 	knob_ForMaxUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMaxUnsyncedFreq.setValue((double)randomizationOptions->maxUnsyncedFreqForLFO(lfoNum));
@@ -48,12 +53,17 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	}
 	addAndMakeVisible(knob_ForMaxUnsyncedFreq);
 
+	addAndMakeVisible(valueDisplay_ForMaxUnsyncedFreq);
+	valueDisplay_ForMaxUnsyncedFreq.setInterceptsMouseClicks(false, false);
+
 	setSize(GUI::randomizationAllowedUnsyncedFreqForLFOComponent_w, GUI::randomizationAllowedUnsyncedFreqForLFOComponent_h);
 }
 
 void AllowedUnsyncedFreqForLFOcomponent::resized() {
 	knob_ForMinUnsyncedFreq.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
+	valueDisplay_ForMinUnsyncedFreq.setBounds(knob_ForMinUnsyncedFreq.getBounds());
 	knob_ForMaxUnsyncedFreq.setBounds(0, GUI::randomizationMaxUnsyncedFreqForLFO_y, GUI::knob_diameter, GUI::knob_diameter);
+	valueDisplay_ForMaxUnsyncedFreq.setBounds(knob_ForMaxUnsyncedFreq.getBounds());
 }
 
 void AllowedUnsyncedFreqForLFOcomponent::sliderValueChanged(Slider* slider) {
