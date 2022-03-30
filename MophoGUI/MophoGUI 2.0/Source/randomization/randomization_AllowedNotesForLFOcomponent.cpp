@@ -13,13 +13,18 @@ AllowedNotesForLFOcomponent::AllowedNotesForLFOcomponent(int lfoNum, UnexposedPa
 {
 	jassert(lfoNum > 0 && lfoNum < 5);
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto pitchedFreqAreAllowed{ randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum) };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		auto toggleID{ ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);
-		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForLFO(noteNum, lfoNum) };
-		allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
+		if (pitchedFreqAreAllowed) {
+			auto noteIsAllowed{ randomizationOptions->noteIsAllowedForLFO(noteNum, lfoNum) };
+			allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
+		}
+		else
+			allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
 		allowedNoteToggles[noteNum].addListener(this);
 		addAndMakeVisible(allowedNoteToggles[noteNum]);
 		allowedNoteToggles[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
@@ -65,39 +70,60 @@ void AllowedNotesForLFOcomponent::resized() {
 	button_ForAllowingAllNotes.setBounds(GUI::bounds_RandomizationAllowAllNotesButton);
 }
 
+void AllowedNotesForLFOcomponent::turnOffAllToggles() {
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+	}
+}
+
+void AllowedNotesForLFOcomponent::restoreAllToggles() {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForLFO(noteNum, lfoNum) };
+		allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
+	}
+}
+
 void AllowedNotesForLFOcomponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto pitchedFreqAreAllowed{ randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum) };
 	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Note")) {
-		auto clickedNoteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
-		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
-			for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
-				if (noteNum == clickedNoteNum) {
-					allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-					randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
-				}
-				else {
-					allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
-					randomizationOptions->setNoteIsNotAllowedForLFO(noteNum, lfoNum);
+		if (pitchedFreqAreAllowed) {
+			auto clickedNoteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
+			if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+				for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+					if (noteNum == clickedNoteNum) {
+						allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+						randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
+					}
+					else {
+						allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+						randomizationOptions->setNoteIsNotAllowedForLFO(noteNum, lfoNum);
+					}
 				}
 			}
-		}
-		else {
-			auto isAllowed{ button->getToggleState() };
-			if (isAllowed)
+			else {
+				auto isAllowed{ button->getToggleState() };
+				if (isAllowed)
+					randomizationOptions->setNoteIsAllowedForLFO(clickedNoteNum, lfoNum);
+				else
+					randomizationOptions->setNoteIsNotAllowedForLFO(clickedNoteNum, lfoNum);
+			}
+			if (randomizationOptions->noNoteIsAllowedForLFO(lfoNum)) {
+				button->setToggleState(true, dontSendNotification);
 				randomizationOptions->setNoteIsAllowedForLFO(clickedNoteNum, lfoNum);
-			else
-				randomizationOptions->setNoteIsNotAllowedForLFO(clickedNoteNum, lfoNum);
+			}
 		}
-		if (randomizationOptions->noNoteIsAllowedForLFO(lfoNum)) {
-			button->setToggleState(true, dontSendNotification);
-			randomizationOptions->setNoteIsAllowedForLFO(clickedNoteNum, lfoNum);
-		}
+		else
+			button->setToggleState(false, dontSendNotification);
 	}
 	if (buttonID == ID::button_AllNotesForLFO.toString() + (String)lfoNum) {
-		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
-			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-			randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
+		if (pitchedFreqAreAllowed) {
+			for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+				allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+				randomizationOptions->setNoteIsAllowedForLFO(noteNum, lfoNum);
+			}
 		}
 	}
 }

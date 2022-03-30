@@ -24,6 +24,8 @@ public:
 
 	AllowedOctavesForLFOcomponent(int lfoNum, UnexposedParameters* unexposedParams);
 	void resized() override;
+	void turnOffAllToggles();
+	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
 	~AllowedOctavesForLFOcomponent();
 
