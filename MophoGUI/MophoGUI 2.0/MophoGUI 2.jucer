@@ -235,6 +235,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
         <FILE id="Urk3vg" name="randomization_AllowedUnsyncedFreqForLFOcomponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.h"/>
+        <FILE id="dM0nEF" name="randomization_LFOfreqOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.cpp"/>
+        <FILE id="UqU3Vq" name="randomization_LFOfreqOptionsComponent.h" compile="0"
+              resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
         <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"

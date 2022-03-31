@@ -82,8 +82,7 @@ void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, A
 	}
 }
 
-void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams)
-{
+void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams) {
 }
 
 void ParamRandomizationMethods::randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams)

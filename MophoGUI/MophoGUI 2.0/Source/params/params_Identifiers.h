@@ -21,6 +21,9 @@ namespace ID
 	static const Identifier button_AllOctavesForLFO{ "button_AllOctavesForLFO" };
 	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
 	static const Identifier button_AllSyncedFreqForLFO{ "button_AllSyncedFreqForLFO" };
+	static const Identifier button_AllowPitchedFreqForLFO{ "button_AllowPitchedFreqForLFO" };
+	static const Identifier button_AllowSyncedFreqForLFO{ "button_AllowSyncedFreqForLFO" };
+	static const Identifier button_AllowUnsyncedFreqForLFO{ "button_AllowUnsyncedFreqForLFO" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
 	static const Identifier button_CancelImptExpt{ "button_CancelImptExpt" };
