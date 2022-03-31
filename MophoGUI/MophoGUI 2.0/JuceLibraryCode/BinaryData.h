@@ -17,6 +17,9 @@ namespace BinaryData
     extern const char*   ButtonDownAllOctaves_png;
     const int            ButtonDownAllOctaves_pngSize = 956;
 
+    extern const char*   ButtonDownAllSynced_png;
+    const int            ButtonDownAllSynced_pngSize = 889;
+
     extern const char*   ButtonDownBanks_png;
     const int            ButtonDownBanks_pngSize = 729;
 
@@ -106,6 +109,9 @@ namespace BinaryData
 
     extern const char*   ButtonUpAllOctaves_png;
     const int            ButtonUpAllOctaves_pngSize = 944;
+
+    extern const char*   ButtonUpAllSynced_png;
+    const int            ButtonUpAllSynced_pngSize = 897;
 
     extern const char*   ButtonUpBanks_png;
     const int            ButtonUpBanks_pngSize = 695;
@@ -279,7 +285,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 90;
+    const int namedResourceListSize = 92;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

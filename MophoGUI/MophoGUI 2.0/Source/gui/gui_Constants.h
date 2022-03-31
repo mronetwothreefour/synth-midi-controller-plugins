@@ -194,6 +194,13 @@ namespace constants
 		static const int randomizationAllowedOctaveToggleRow1_y{ 0 };
 		static const int randomizationAllowedOctaveToggleRow2_x{ 11 };
 		static const int randomizationAllowedOctaveToggleRow2_y{ 33 };
+		static const int randomizationAllowAllSyncedFreqButton_w{ 74 };
+		static const int randomizationAllowAllSyncedFreqButton_x{ 77 };
+		static const int randomizationAllowAllSyncedFreqButton_y{ 82 };
+		static const int randomizationAllowedSyncedFreqToggle_ColSpacing{ 58 };
+		static const int randomizationAllowedSyncedFreqToggle_RowSpacing{ 20 };
+		static const int randomizationAllowedSyncedFreqForLFOComponent_h{ 104 };
+		static const int randomizationAllowedSyncedFreqForLFOComponent_w{ 188 };
 		static const int randomizationAllowedUnsyncedFreqForLFOComponent_h{ 91 };
 		static const int randomizationAllowedUnsyncedFreqForLFOComponent_w{ knob_diameter };
 		static const int randomizationCloseButton_x{ 1152 };
@@ -408,6 +415,7 @@ namespace constants
 		static const Rectangle<int> bounds_RandomizationAllowAllNotesButton{ randomizationAllowAllNotesForOscButtons_x, randomizationAllowAllNotesForOscButtons_y, randomizationAllowAllNotesForOscButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllOctavesForLFOandSeqStepButton{ randomizationAllowAllOctavesButtons_x, randomizationAllowAllOctavesForLFOandSeqStepButtons_y, randomizationAllowAllOctavesForOscButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllOctavesForOscButton{ randomizationAllowAllOctavesButtons_x, randomizationAllowAllOctavesForOscButtons_y, randomizationAllowAllOctavesForOscButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizationAllowAllSyncedButton{ randomizationAllowAllSyncedFreqButton_x, randomizationAllowAllSyncedFreqButton_y, randomizationAllowAllSyncedFreqButton_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowedNotesForOsc1{ randomizationAllowedNotesForOsc1Component_x, randomizationAllowedNotesForOscComponents_y, randomizationAllowedNotesComponent_w, randomizationAllowedNotesComponent_h };
 		static const Rectangle<int> bounds_RandomizationAllowedNotesForOsc2{ randomizationAllowedNotesForOsc2Component_x, randomizationAllowedNotesForOscComponents_y, randomizationAllowedNotesComponent_w, randomizationAllowedNotesComponent_h };
 		static const Rectangle<int> bounds_RandomizationAllowedOctavesForOsc1{ randomizationAllowedOctavesForOsc1Component_x, randomizationAllowedOctavesForOscComponents_y, randomizationAllowedOctavesForOscComponent_w, randomizationAllowedOctavesForOscComponent_h };

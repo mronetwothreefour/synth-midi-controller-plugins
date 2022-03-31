@@ -58,6 +58,7 @@ public:
 	const bool syncedFreqIsAllowedForLFO(int syncedFreqNum, int lfoNum);
 	void setSyncedFreqIsAllowedForLFO(int syncedFreqNum, int lfoNum);
 	void setSyncedFreqIsNotAllowedForLFO(int syncedFreqNum, int lfoNum);
+	const bool noSyncedFreqAreAllowedForLFO(int lfoNum);
 	const bool noFreqAreAllowedForLFO(int lfoNum);
 
 	XmlElement* getStateXml();

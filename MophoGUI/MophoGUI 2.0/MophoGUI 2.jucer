@@ -227,6 +227,14 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
         <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.h"/>
+        <FILE id="J1shBZ" name="randomization_AllowedSyncedFreqForLFOcomponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
+        <FILE id="L0SeaU" name="randomization_AllowedSyncedFreqForLFOcomponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.h"/>
+        <FILE id="XoqW6l" name="randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
+        <FILE id="Urk3vg" name="randomization_AllowedUnsyncedFreqForLFOcomponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
         <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"
@@ -624,6 +632,8 @@
             file="Resources/Button-Down-All-Notes.png"/>
       <FILE id="ErORlD" name="Button-Down-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Down-All-Octaves.png"/>
+      <FILE id="tCKs2S" name="Button-Down-All-Synced.png" compile="0" resource="1"
+            file="Resources/Button-Down-All-Synced.png"/>
       <FILE id="TShkGd" name="Button-Down-Banks.png" compile="0" resource="1"
             file="Resources/Button-Down-Banks.png"/>
       <FILE id="B3pyG0" name="Button-Down-Cancel.png" compile="0" resource="1"
@@ -684,6 +694,8 @@
             file="Resources/Button-Up-All-Notes.png"/>
       <FILE id="XWeRj2" name="Button-Up-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Up-All-Octaves.png"/>
+      <FILE id="Gmah50" name="Button-Up-All-Synced.png" compile="0" resource="1"
+            file="Resources/Button-Up-All-Synced.png"/>
       <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
             file="Resources/Button-Up-Banks.png"/>
       <FILE id="jfl2o6" name="Button-Up-Cancel.png" compile="0" resource="1"

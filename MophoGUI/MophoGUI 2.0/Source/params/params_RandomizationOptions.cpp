@@ -294,6 +294,17 @@ void RandomizationOptions::setSyncedFreqIsNotAllowedForLFO(int syncedFreqNum, in
 	lfoAllowedFrequenciesTree.setProperty("syncedFreq" + (String)syncedFreqNum + "_IsAllowedForLFO" + (String)lfoNum, (bool)false, nullptr);
 }
 
+const bool RandomizationOptions::noSyncedFreqAreAllowedForLFO(int lfoNum) {
+	jassert(lfoNum > 0 && lfoNum < 5);
+	auto atLeastOneSyncedFreqIsAllowed{ (bool)false };
+	auto noSyncedFreqIsAllowed{ (bool)true };
+	for (auto freqNum = 0; freqNum != randomization::numberOfSyncedFreqForLFOs; ++freqNum) {
+		if (syncedFreqIsAllowedForLFO(freqNum, lfoNum))
+			return atLeastOneSyncedFreqIsAllowed;
+	}
+	return noSyncedFreqIsAllowed;
+}
+
 const bool RandomizationOptions::noFreqAreAllowedForLFO(int lfoNum) {
 	jassert(lfoNum > 0 && lfoNum < 5);
 	if (pitchedFreqAreAllowedForLFO(lfoNum) || syncedFreqAreAllowedForLFO(lfoNum) || unsyncedFreqAreAllowedForLFO(lfoNum))
