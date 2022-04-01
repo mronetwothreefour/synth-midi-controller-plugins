@@ -27,6 +27,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	knob_ForMinUnsyncedFreq.setComponentID(ID::component_Knob.toString() + "ForMinUnsyncedFreqForLFO" + (String)lfoNum);
 	knob_ForMinUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMinUnsyncedFreq.setValue((double)randomizationOptions->minUnsyncedFreqForLFO(lfoNum));
+	knob_ForMinUnsyncedFreq.setMouseDragSensitivity(128);
 	knob_ForMinUnsyncedFreq.addListener(this);
 	if (shouldShowDescriptions) {
 		String knobTooltip{ "" };
@@ -43,6 +44,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	knob_ForMaxUnsyncedFreq.setComponentID(ID::component_Knob.toString() + "ForMaxUnsyncedFreqForLFO" + (String)lfoNum);
 	knob_ForMaxUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMaxUnsyncedFreq.setValue((double)randomizationOptions->maxUnsyncedFreqForLFO(lfoNum));
+	knob_ForMaxUnsyncedFreq.setMouseDragSensitivity(128);
 	knob_ForMaxUnsyncedFreq.addListener(this);
 	if (shouldShowDescriptions) {
 		String knobTooltip{ "" };
@@ -74,7 +76,7 @@ void AllowedUnsyncedFreqForLFOcomponent::sliderValueChanged(Slider* slider) {
 		randomizationOptions->setMinUnsyncedFreqForLFO(newMinFreq, lfoNum);
 		auto maxFreq{ randomizationOptions->maxUnsyncedFreqForLFO(lfoNum) };
 		if (newMinFreq > maxFreq) {
-			knob_ForMaxUnsyncedFreq.setValue((double)newMinFreq, dontSendNotification);
+			knob_ForMaxUnsyncedFreq.setValue((double)newMinFreq, sendNotification);
 			randomizationOptions->setMaxUnsyncedFreqForLFO(newMinFreq, lfoNum);
 		}
 	}
@@ -83,7 +85,7 @@ void AllowedUnsyncedFreqForLFOcomponent::sliderValueChanged(Slider* slider) {
 		randomizationOptions->setMaxUnsyncedFreqForLFO(newMaxFreq, lfoNum);
 		auto minFreq{ randomizationOptions->minUnsyncedFreqForLFO(lfoNum) };
 		if (newMaxFreq < minFreq) {
-			knob_ForMinUnsyncedFreq.setValue((double)newMaxFreq, dontSendNotification);
+			knob_ForMinUnsyncedFreq.setValue((double)newMaxFreq, sendNotification);
 			randomizationOptions->setMinUnsyncedFreqForLFO(newMaxFreq, lfoNum);
 		}
 	}

@@ -417,6 +417,10 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+        <FILE id="yOgVUQ" name="widget_Randomization_ButtonForShowingLFOoptions.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.cpp"/>
+        <FILE id="eu2Atk" name="widget_Randomization_ButtonForShowingLFOoptions.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.h"/>
         <FILE id="Bg2Ngc" name="widget_Randomization_ButtonForShowingOscOptions.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingOscOptions.cpp"/>
         <FILE id="uXgzgZ" name="widget_Randomization_ButtonForShowingOscOptions.h"

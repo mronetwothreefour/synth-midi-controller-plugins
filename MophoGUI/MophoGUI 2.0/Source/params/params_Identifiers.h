@@ -21,9 +21,6 @@ namespace ID
 	static const Identifier button_AllOctavesForLFO{ "button_AllOctavesForLFO" };
 	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
 	static const Identifier button_AllSyncedFreqForLFO{ "button_AllSyncedFreqForLFO" };
-	static const Identifier button_AllowPitchedFreqForLFO{ "button_AllowPitchedFreqForLFO" };
-	static const Identifier button_AllowSyncedFreqForLFO{ "button_AllowSyncedFreqForLFO" };
-	static const Identifier button_AllowUnsyncedFreqForLFO{ "button_AllowUnsyncedFreqForLFO" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
 	static const Identifier button_CancelImptExpt{ "button_CancelImptExpt" };
@@ -92,6 +89,9 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
+	static const Identifier component_ToggleButton_AllowPitchedFreqForLFO{ "component_ToggleButton_AllowPitchedFreqForLFO" };
+	static const Identifier component_ToggleButton_AllowSyncedFreqForLFO{ "component_ToggleButton_AllowSyncedFreqForLFO" };
+	static const Identifier component_ToggleButton_AllowUnsyncedFreqForLFO{ "component_ToggleButton_AllowUnsyncedFreqForLFO" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };

@@ -34,7 +34,7 @@ AllowedOctavesForLFOcomponent::AllowedOctavesForLFOcomponent(int lfoNum, Unexpos
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make notes in octave " + (String)octaveNum + " the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed octave.\n";
-			if (octaveNum == 10) {
+			if (octaveNum == 5) {
 				toggleTooltip += "Note: C is the only note in octave 5. If only\n";
 				toggleTooltip += "octave 5 is allowed, a pitch of C 5 will always\n";
 				toggleTooltip += "be produced, regardless of the allowed note settings.";

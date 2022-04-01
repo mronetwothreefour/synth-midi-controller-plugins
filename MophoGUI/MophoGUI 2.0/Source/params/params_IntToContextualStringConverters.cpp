@@ -386,22 +386,22 @@ String IntToLFOfreqString::verboseConversionAlgorithm(const uint8& i) noexcept {
 	else {
 		switch (i)
 		{
-		case 151: return "Synced " + String(i) + ": 1 cycle lasts 32 steps";
-		case 152: return "Synced " + String(i) + ": 1 cycle lasts 16 steps";
-		case 153: return "Synced " + String(i) + ": 1 cycle lasts 8 steps";
-		case 154: return "Synced " + String(i) + ": 1 cycle lasts 6 steps";
-		case 155: return "Synced " + String(i) + ": 1 cycle lasts 4 steps";
-		case 156: return "Synced " + String(i) + ": 1 cycle lasts 3 steps";
-		case 157: return "Synced " + String(i) + ": 1 cycle lasts 2 steps";
-		case 158: return "Synced " + String(i) + ": 1 cycle lasts 1-1/2 steps";
-		case 159: return "Synced " + String(i) + ": 1 cycle lasts 1 step";
-		case 160: return "Synced " + String(i) + ": 1 cycle lasts 2/3 step";
-		case 161: return "Synced " + String(i) + ": 1 cycle lasts 1/2 step";
-		case 162: return "Synced " + String(i) + ": 1 cycle lasts 1/3 step";
-		case 163: return "Synced " + String(i) + ": 1 cycle lasts 1/4 step";
-		case 164: return "Synced " + String(i) + ": 1 cycle lasts 1/6 step";
-		case 165: return "Synced " + String(i) + ": 1 cycle lasts 1/8 step";
-		case 166: return "Synced " + String(i) + ": 1 cycle lasts 1/16 step";
+		case 151: return "Synced " + String(i) + ": 1 LFO cycle lasts 32 steps";
+		case 152: return "Synced " + String(i) + ": 1 LFO cycle lasts 16 steps";
+		case 153: return "Synced " + String(i) + ": 1 LFO cycle lasts 8 steps";
+		case 154: return "Synced " + String(i) + ": 1 LFO cycle lasts 6 steps";
+		case 155: return "Synced " + String(i) + ": 1 LFO cycle lasts 4 steps";
+		case 156: return "Synced " + String(i) + ": 1 LFO cycle lasts 3 steps";
+		case 157: return "Synced " + String(i) + ": 1 LFO cycle lasts 2 steps";
+		case 158: return "Synced " + String(i) + ": 1 LFO cycle lasts 1-1/2 steps";
+		case 159: return "Synced " + String(i) + ": 1 LFO cycle lasts 1 step";
+		case 160: return "Synced " + String(i) + ": 1 LFO cycle lasts 2/3 step";
+		case 161: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/2 step";
+		case 162: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/3 step";
+		case 163: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/4 step";
+		case 164: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/6 step";
+		case 165: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/8 step";
+		case 166: return "Synced " + String(i) + ": 1 LFO cycle lasts 1/16 step";
 		default: return "range error";
 		}
 	}

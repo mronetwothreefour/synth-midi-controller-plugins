@@ -769,6 +769,9 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.cpp">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
@@ -3337,6 +3340,9 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h">
+      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.h">

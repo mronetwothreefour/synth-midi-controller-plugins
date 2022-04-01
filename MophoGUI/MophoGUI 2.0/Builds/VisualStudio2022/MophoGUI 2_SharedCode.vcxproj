@@ -229,6 +229,7 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVCAparameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.cpp"/>
@@ -2345,6 +2346,7 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVCAparameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"/>

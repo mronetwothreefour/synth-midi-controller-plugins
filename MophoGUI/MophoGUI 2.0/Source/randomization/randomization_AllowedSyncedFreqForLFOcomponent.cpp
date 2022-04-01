@@ -60,7 +60,7 @@ AllowedSyncedFreqForLFOcomponent::AllowedSyncedFreqForLFOcomponent(int lfoNum, U
 
 void AllowedSyncedFreqForLFOcomponent::resized() {
 	for (auto freqNum = 0; freqNum != randomization::numberOfSyncedFreqForLFOs; ++freqNum) {
-		auto toggle_x{ freqNum % 4 * GUI::randomizationAllowedSyncedFreqToggle_ColSpacing };
+		auto toggle_x{ freqNum / 4 * GUI::randomizationAllowedSyncedFreqToggle_ColSpacing };
 		auto toggle_y{ freqNum % 4 * GUI::randomizationAllowedSyncedFreqToggle_RowSpacing };
 		allowedSyncedFreqToggles[freqNum].setBounds(toggle_x, toggle_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	}

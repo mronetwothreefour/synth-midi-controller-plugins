@@ -31,6 +31,8 @@ public:
 
 	LFOfreqRandomizationOptionsComponent(int lfoNum, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
+	const char* getTitleImageData();
+	size_t getTitleImageDataSize();
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void hideThisComponent();

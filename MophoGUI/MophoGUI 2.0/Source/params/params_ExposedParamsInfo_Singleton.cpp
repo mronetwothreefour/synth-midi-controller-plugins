@@ -594,7 +594,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptionString += "From 90 to 150, LFO " + String(lfoNum + 1) + " has a pitched frequency, increasing\n";
 		descriptionString += "in semitones steps from C 0 (8.2 Hz) up to C 5 (261.6 Hz).\n";
 		descriptionString += "Above 150, LFO " + String(lfoNum + 1) + " is synced with the step sequencer,\n";
-		descriptionString += "displayed as [number of cycles] : [length in steps].";
+		descriptionString += "displayed as [number of LFO cycles] : [length in steps].";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);

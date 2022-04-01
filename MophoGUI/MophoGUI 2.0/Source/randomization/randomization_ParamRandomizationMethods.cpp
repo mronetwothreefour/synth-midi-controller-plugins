@@ -89,7 +89,7 @@ void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, A
 }
 
 void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	auto lfoNum{ paramID.toString().fromFirstOccurrenceOf("LFO", false, false).getIntValue() };
+	auto lfoNum{ paramID.toString().fromFirstOccurrenceOf("lfo", false, false).getIntValue() };
 	auto categoryForNewFreq{ randomlyPickFreqCategoryForLFO(lfoNum, unexposedParams) };
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID(paramID.toString()) };

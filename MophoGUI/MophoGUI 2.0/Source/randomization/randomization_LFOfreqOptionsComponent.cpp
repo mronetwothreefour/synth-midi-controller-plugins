@@ -22,7 +22,7 @@ LFOfreqRandomizationOptionsComponent::LFOfreqRandomizationOptionsComponent(int l
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 
-	toggle_ForAllowingPitchedFreq.setComponentID(ID::button_AllowPitchedFreqForLFO.toString());
+	toggle_ForAllowingPitchedFreq.setComponentID(ID::component_ToggleButton_AllowPitchedFreqForLFO.toString());
 	toggle_ForAllowingPitchedFreq.addListener(this);
 	toggle_ForAllowingPitchedFreq.setToggleState(randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingPitchedFreq);
@@ -35,7 +35,7 @@ LFOfreqRandomizationOptionsComponent::LFOfreqRandomizationOptionsComponent(int l
 		toggle_ForAllowingPitchedFreq.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingUnsyncedFreq.setComponentID(ID::button_AllowUnsyncedFreqForLFO.toString());
+	toggle_ForAllowingUnsyncedFreq.setComponentID(ID::component_ToggleButton_AllowUnsyncedFreqForLFO.toString());
 	toggle_ForAllowingUnsyncedFreq.addListener(this);
 	toggle_ForAllowingUnsyncedFreq.setToggleState(randomizationOptions->unsyncedFreqAreAllowedForLFO(lfoNum), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingUnsyncedFreq);
@@ -48,7 +48,7 @@ LFOfreqRandomizationOptionsComponent::LFOfreqRandomizationOptionsComponent(int l
 		toggle_ForAllowingUnsyncedFreq.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingSyncedFreq.setComponentID(ID::button_AllowSyncedFreqForLFO.toString());
+	toggle_ForAllowingSyncedFreq.setComponentID(ID::component_ToggleButton_AllowSyncedFreqForLFO.toString());
 	toggle_ForAllowingSyncedFreq.addListener(this);
 	toggle_ForAllowingSyncedFreq.setToggleState(randomizationOptions->syncedFreqAreAllowedForLFO(lfoNum), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingSyncedFreq);
@@ -78,10 +78,49 @@ LFOfreqRandomizationOptionsComponent::LFOfreqRandomizationOptionsComponent(int l
 
 void LFOfreqRandomizationOptionsComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
-	MemoryInputStream memInputStream{ BinaryData::RandomizationLFOOptionsBackground_png, BinaryData::RandomizationLFOOptionsBackground_pngSize, false };
+	MemoryInputStream memInputStreamForBackground{ BinaryData::RandomizationLFOOptionsBackground_png, BinaryData::RandomizationLFOOptionsBackground_pngSize, false };
 	PNGImageFormat imageFormat;
-	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	auto backgroundImage{ imageFormat.decodeImage(memInputStreamForBackground) };
 	g.drawImageAt(backgroundImage, GUI::randomizationLFOoptionsBackground_x, GUI::randomizationLFOoptionsBackground_y);
+	auto titleImageData{ getTitleImageData() };
+	auto titleImageDataSize{ getTitleImageDataSize() };
+	if (titleImageData != nullptr) {
+		MemoryInputStream memInputStreamForTitle{ titleImageData, titleImageDataSize, false };
+		auto titleImage{ imageFormat.decodeImage(memInputStreamForTitle) };
+		g.drawImageAt(titleImage, GUI::randomizationLFOoptionsBackground_x, GUI::randomizationLFOoptionsBackground_y);
+	}
+}
+
+const char* LFOfreqRandomizationOptionsComponent::getTitleImageData() {
+	switch (lfoNum)
+	{
+	case 1:
+		return BinaryData::TitleAllowedFreqForLFO1_png;
+	case 2:
+		return BinaryData::TitleAllowedFreqForLFO2_png;
+	case 3:
+		return BinaryData::TitleAllowedFreqForLFO3_png;
+	case 4:
+		return BinaryData::TitleAllowedFreqForLFO4_png;
+	default:
+		return nullptr;
+	}
+}
+
+size_t LFOfreqRandomizationOptionsComponent::getTitleImageDataSize() {
+	switch (lfoNum)
+	{
+	case 1:
+		return BinaryData::TitleAllowedFreqForLFO1_pngSize;
+	case 2:
+		return BinaryData::TitleAllowedFreqForLFO2_pngSize;
+	case 3:
+		return BinaryData::TitleAllowedFreqForLFO3_pngSize;
+	case 4:
+		return BinaryData::TitleAllowedFreqForLFO4_pngSize;
+	default:
+		return size_t();
+	}
 }
 
 void LFOfreqRandomizationOptionsComponent::resized() {
@@ -99,7 +138,7 @@ void LFOfreqRandomizationOptionsComponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto toggledOn{ button->getToggleState() };
-	if (buttonID == ID::button_AllowPitchedFreqForLFO.toString()) {
+	if (buttonID == ID::component_ToggleButton_AllowPitchedFreqForLFO.toString()) {
 		if (toggledOn) {
 			randomizationOptions->setPitchedFreqAreAllowedForLFO(lfoNum);
 			allowedNotes.restoreAllToggles();
@@ -122,7 +161,7 @@ void LFOfreqRandomizationOptionsComponent::buttonClicked(Button* button) {
 			}
 		}
 	}
-	if (buttonID == ID::button_AllowSyncedFreqForLFO.toString()) {
+	if (buttonID == ID::component_ToggleButton_AllowSyncedFreqForLFO.toString()) {
 		if (toggledOn) {
 			randomizationOptions->setSyncedFreqAreAllowedForLFO(lfoNum);
 			allowedSyncedFreq.restoreAllToggles();
@@ -141,7 +180,7 @@ void LFOfreqRandomizationOptionsComponent::buttonClicked(Button* button) {
 			}
 		}
 	}
-	if (buttonID == ID::button_AllowUnsyncedFreqForLFO.toString()) {
+	if (buttonID == ID::component_ToggleButton_AllowUnsyncedFreqForLFO.toString()) {
 		if (toggledOn) {
 			randomizationOptions->setUnsyncedFreqAreAllowedForLFO(lfoNum);
 			allowedUnsyncedFreq.setEnabled(true);

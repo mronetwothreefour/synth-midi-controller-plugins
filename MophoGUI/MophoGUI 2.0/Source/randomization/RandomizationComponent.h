@@ -17,6 +17,7 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForShowingOscOptions.h"
+#include "../widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
@@ -32,6 +33,7 @@
 
 
 
+class LFOfreqRandomizationOptionsComponent;
 class OscillatorRandomizationOptionsComponent;
 class UnexposedParameters;
 
@@ -63,6 +65,10 @@ class RandomizationComponent :
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO3parameters;
 	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO3parameters;
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO4parameters;
+	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO1;
+	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO2;
+	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO3;
+	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO4;
 	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO4parameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
@@ -81,6 +87,7 @@ class RandomizationComponent :
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
 	std::unique_ptr<OscillatorRandomizationOptionsComponent> oscillatorOptionsComponent;
+	std::unique_ptr<LFOfreqRandomizationOptionsComponent> lfoOptionsComponent;
 
 public:
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
@@ -93,6 +100,7 @@ public:
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void showOscillatorOptionsComponent();
+	void showOptionsComponentForLFO(int lfoNum);
 	void hideThisComponent();
 	~RandomizationComponent();
 
