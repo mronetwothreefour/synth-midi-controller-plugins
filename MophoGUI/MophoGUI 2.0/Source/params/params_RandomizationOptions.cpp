@@ -185,7 +185,7 @@ void RandomizationOptions::setPitchedFreqAreNotAllowedForLFO(int lfoNum) {
 }
 
 const bool RandomizationOptions::pitchIsAllowedForLFO(int pitchNum, int lfoNum) {
-	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchesForLFOs);
+	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchedFreqForLFOs);
 	jassert(lfoNum > 0 && lfoNum < 5);
 	auto noteIsAllowed{ noteIsAllowedForLFO(pitchNum % 12, lfoNum) };
 	auto octaveIsAllowed{ octaveIsAllowedForLFO(pitchNum / 12, lfoNum) };

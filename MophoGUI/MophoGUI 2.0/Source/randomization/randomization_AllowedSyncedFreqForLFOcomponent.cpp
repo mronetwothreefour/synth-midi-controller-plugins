@@ -31,9 +31,9 @@ AllowedSyncedFreqForLFOcomponent::AllowedSyncedFreqForLFOcomponent(int lfoNum, U
 		allowedSyncedFreqToggles[freqNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 		if (shouldShowDescriptions) {
 			auto intToLFOfreqString{ IntToLFOfreqString::get() };
-			uint8 offsetFreqNum{ (uint8)freqNum + params::firstSyncedLFOfreq };
-			auto syncedFreqRatio{ intToLFOfreqString->convert(offsetFreqNum) };
-			auto syncedFreqDescription{ intToLFOfreqString->verboseConvert(offsetFreqNum).fromFirstOccurrenceOf(": ", false, false) };
+			auto offsetFreqNum{ freqNum + params::firstSyncedLFOfreq };
+			auto syncedFreqRatio{ intToLFOfreqString->convert((uint8)offsetFreqNum) };
+			auto syncedFreqDescription{ intToLFOfreqString->verboseConvert((uint8)offsetFreqNum).fromFirstOccurrenceOf(": ", false, false) };
 			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not synced frequency " + syncedFreqRatio + "\n";
 			toggleTooltip += "(" + syncedFreqDescription + ") is allowed when\n";
