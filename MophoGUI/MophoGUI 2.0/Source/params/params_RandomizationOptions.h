@@ -9,6 +9,7 @@ class RandomizationOptions
 	ValueTree paramLocksTree;
 	ValueTree oscAllowedPitchesTree;
 	ValueTree lfoAllowedFrequenciesTree;
+	ValueTree seqTrackAllowedStepValuesTree;
 
 public:
 	RandomizationOptions();
@@ -60,6 +61,32 @@ public:
 	void setSyncedFreqIsNotAllowedForLFO(int syncedFreqNum, int lfoNum);
 	const bool noSyncedFreqAreAllowedForLFO(int lfoNum);
 	const bool noFreqAreAllowedForLFO(int lfoNum);
+
+	const bool editModeForSeqTrackIsIndividualStep(int trackNum);
+	void setEditModeForSeqTrackToAllSteps(int trackNum);
+	void setEditModeForSeqTrackToIndividualStep(int trackNum);
+	const int stepTargetedForEditingInSeqTrack(int trackNum);
+	void setStepTargetedForEditingInSeqTrack(int stepNum, int trackNum);
+	const uint8 minValueForStepInSeqTrack(int stepNum, int trackNum);
+	void setMinValueForStepInSeqTrack(uint8 newMin, int stepNum, int trackNum);
+	const uint8 maxValueForStepInSeqTrack(int stepNum, int trackNum);
+	void setMaxValueForStepInSeqTrack(uint8 newMax, int stepNum, int trackNum);
+	const float probabilityOfRestForStepInSeqTrack1(int stepNum);
+	void setProbabilityOfRestForStepInSeqTrack1(float newProb, int stepNum);
+	const float probabilityOfRepeatValueForStepInSeqTrack(int stepNum, int trackNum);
+	void setProbabilityOfRepeatValueForStepInSeqTrack(float newProb, int stepNum, int trackNum);
+	const float probabilityOfResetForStepInSeqTrack(int stepNum, int trackNum);
+	void setProbabilityOfResetForStepInSeqTrack(float newProb, int stepNum, int trackNum);
+	const bool pitchIsAllowedForStepInSeqTrack(int pitchNum, int stepNum, int trackNum);
+	const bool noteIsAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum);
+	void setNoteIsAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum);
+	void setNoteIsNotAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum);
+	const bool noNoteIsAllowedForStepInSeqTrack(int stepNum, int trackNum);
+	const bool octaveIsAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
+	void setOctaveIsAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
+	void setOctaveIsNotAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
+	const bool noOctaveIsAllowedForStepInSeqTrack(int stepNum, int trackNum);
+	const bool onlyOctave5_IsAllowedForStepInSeqTrack(int stepNum, int trackNum);
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);

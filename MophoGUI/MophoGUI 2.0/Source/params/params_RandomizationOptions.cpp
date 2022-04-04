@@ -38,6 +38,26 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 		for (auto syncedFreqNum = 0; syncedFreqNum != randomization::numberOfSyncedFreqForLFOs; ++syncedFreqNum)
 			setSyncedFreqIsAllowedForLFO(syncedFreqNum, lfoNum);
 	}
+	for (auto trackNum = 1; trackNum != 5; ++trackNum) {
+		setEditModeForSeqTrackToAllSteps(trackNum);
+		setStepTargetedForEditingInSeqTrack(1, trackNum);
+		seqTrackAllowedStepValuesTree.setProperty("probabilityOfRepeatValueForStep1InSeqTrack" + (String)trackNum, 0.0f, nullptr);
+		seqTrackAllowedStepValuesTree.setProperty("probabilityOfResetForStep1InSeqTrack" + (String)trackNum, 0.0f, nullptr);
+		for (auto stepNum = 1; stepNum != 17; ++stepNum) {
+			setMinValueForStepInSeqTrack((uint8)0, stepNum, trackNum);
+			setMaxValueForStepInSeqTrack(params::maxValueForSeqTrackStep, stepNum, trackNum);
+			if (trackNum == 1)
+				setProbabilityOfRestForStepInSeqTrack1(0.125f, stepNum);
+			if (stepNum != 1) {
+				setProbabilityOfRepeatValueForStepInSeqTrack(0.25f, stepNum, trackNum);
+				setProbabilityOfResetForStepInSeqTrack(0.0f, stepNum, trackNum);
+			}
+			for (auto noteNum = 0; noteNum != (randomization::numberOfNotesAndBentNotes); ++noteNum)
+				setNoteIsAllowedForStepInSeqTrack(noteNum, stepNum, trackNum);
+			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum)
+				setOctaveIsAllowedForStepInSeqTrack(octaveNum, stepNum, trackNum);
+		}
+	}
 }
 
 const bool RandomizationOptions::paramIsLocked(uint8 param) {
@@ -58,8 +78,8 @@ void RandomizationOptions::setParamIsUnlocked(uint8 param) {
 const bool RandomizationOptions::pitchIsAllowedForOscillator(int pitchNum, int oscNum) {
 	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchesForOscillators);
 	jassert(oscNum == 1 || oscNum == 2);
-	auto noteIsAllowed{ noteIsAllowedForOscillator(pitchNum % 12, oscNum) };
-	auto octaveIsAllowed{ octaveIsAllowedForOscillator(pitchNum / 12, oscNum) };
+	auto noteIsAllowed{ noteIsAllowedForOscillator(pitchNum % randomization::numberOfNotes, oscNum) };
+	auto octaveIsAllowed{ octaveIsAllowedForOscillator(pitchNum / randomization::numberOfNotes, oscNum) };
 	return noteIsAllowed && octaveIsAllowed;
 }
 
@@ -155,6 +175,7 @@ const uint8 RandomizationOptions::minUnsyncedFreqForLFO(int lfoNum) {
 
 void RandomizationOptions::setMinUnsyncedFreqForLFO(uint8 newMin, int lfoNum) {
 	jassert(newMin <= params::maxUnsyncedLFOfreq);
+	jassert(lfoNum > 0 && lfoNum < 5);
 	lfoAllowedFrequenciesTree.setProperty("minUnsyncedFreqForLFO" + (String)lfoNum, newMin, nullptr);
 }
 
@@ -166,6 +187,7 @@ const uint8 RandomizationOptions::maxUnsyncedFreqForLFO(int lfoNum) {
 
 void RandomizationOptions::setMaxUnsyncedFreqForLFO(uint8 newMax, int lfoNum) {
 	jassert(newMax <= params::maxUnsyncedLFOfreq);
+	jassert(lfoNum > 0 && lfoNum < 5);
 	lfoAllowedFrequenciesTree.setProperty("maxUnsyncedFreqForLFO" + (String)lfoNum, newMax, nullptr);
 }
 
@@ -187,8 +209,8 @@ void RandomizationOptions::setPitchedFreqAreNotAllowedForLFO(int lfoNum) {
 const bool RandomizationOptions::pitchIsAllowedForLFO(int pitchNum, int lfoNum) {
 	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchedFreqForLFOs);
 	jassert(lfoNum > 0 && lfoNum < 5);
-	auto noteIsAllowed{ noteIsAllowedForLFO(pitchNum % 12, lfoNum) };
-	auto octaveIsAllowed{ octaveIsAllowedForLFO(pitchNum / 12, lfoNum) };
+	auto noteIsAllowed{ noteIsAllowedForLFO(pitchNum % randomization::numberOfNotes, lfoNum) };
+	auto octaveIsAllowed{ octaveIsAllowedForLFO(pitchNum / randomization::numberOfNotes, lfoNum) };
 	return noteIsAllowed && octaveIsAllowed;
 }
 
@@ -311,4 +333,183 @@ const bool RandomizationOptions::noFreqAreAllowedForLFO(int lfoNum) {
 		return false;
 	else
 		return true;
+}
+
+const bool RandomizationOptions::editModeForSeqTrackIsIndividualStep(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	return (bool)seqTrackAllowedStepValuesTree.getProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum);
+}
+
+void RandomizationOptions::setEditModeForSeqTrackToAllSteps(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum, (bool)false, nullptr);
+}
+
+void RandomizationOptions::setEditModeForSeqTrackToIndividualStep(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum, (bool)true, nullptr);
+}
+
+const int RandomizationOptions::stepTargetedForEditingInSeqTrack(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	return (int)seqTrackAllowedStepValuesTree.getProperty("stepTargetedForEditingInSeqTrack" + (String)trackNum);
+}
+
+void RandomizationOptions::setStepTargetedForEditingInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("stepTargetedForEditingInSeqTrack" + (String)trackNum, stepNum, nullptr);
+}
+
+const uint8 RandomizationOptions::minValueForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	int minValue{ seqTrackAllowedStepValuesTree.getProperty("minValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
+	return (uint8)minValue;
+}
+
+void RandomizationOptions::setMinValueForStepInSeqTrack(uint8 newMin, int stepNum, int trackNum) {
+	jassert(newMin <= params::maxValueForSeqTrackStep);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("minValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newMin, nullptr);
+}
+
+const uint8 RandomizationOptions::maxValueForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	int maxValue{ seqTrackAllowedStepValuesTree.getProperty("maxValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
+	return (uint8)maxValue;
+}
+
+void RandomizationOptions::setMaxValueForStepInSeqTrack(uint8 newMax, int stepNum, int trackNum) {
+	jassert(newMax <= params::maxValueForSeqTrackStep);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("maxValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newMax, nullptr);
+}
+
+const float RandomizationOptions::probabilityOfRestForStepInSeqTrack1(int stepNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	float probability{ seqTrackAllowedStepValuesTree.getProperty("probabilityOfRestForStep" + (String)stepNum + "InSeqTrack1") };
+	return probability;
+}
+
+void RandomizationOptions::setProbabilityOfRestForStepInSeqTrack1(float newProb, int stepNum) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	jassert(stepNum > 0 && stepNum < 17);
+	seqTrackAllowedStepValuesTree.setProperty("probabilityOfRestForStep" + (String)stepNum + "InSeqTrack1", newProb, nullptr);
+}
+
+const float RandomizationOptions::probabilityOfRepeatValueForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 1 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	float probability{ seqTrackAllowedStepValuesTree.getProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
+	return probability;
+}
+
+void RandomizationOptions::setProbabilityOfRepeatValueForStepInSeqTrack(float newProb, int stepNum, int trackNum) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	jassert(stepNum > 1 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newProb, nullptr);
+}
+
+const float RandomizationOptions::probabilityOfResetForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 1 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	float probability{ seqTrackAllowedStepValuesTree.getProperty("probabilityOfResetForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
+	return probability;
+}
+
+void RandomizationOptions::setProbabilityOfResetForStepInSeqTrack(float newProb, int stepNum, int trackNum) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	jassert(stepNum > 1 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("probabilityOfResetForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newProb, nullptr);
+}
+
+const bool RandomizationOptions::pitchIsAllowedForStepInSeqTrack(int pitchNum, int stepNum, int trackNum) {
+	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchesForSeqSteps);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	auto noteIsAllowed{ noteIsAllowedForStepInSeqTrack(pitchNum % (randomization::numberOfNotesAndBentNotes), stepNum, trackNum) };
+	auto octaveIsAllowed{ octaveIsAllowedForStepInSeqTrack(pitchNum / (randomization::numberOfNotesAndBentNotes), stepNum, trackNum) };
+	return noteIsAllowed && octaveIsAllowed;
+}
+
+const bool RandomizationOptions::noteIsAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum) {
+	jassert(noteNum > -1 && noteNum < (randomization::numberOfNotesAndBentNotes));
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	return (bool)seqTrackAllowedStepValuesTree.getProperty("note" + String(noteNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum);
+}
+
+void RandomizationOptions::setNoteIsAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("note" + String(noteNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, (bool)true, nullptr);
+}
+
+void RandomizationOptions::setNoteIsNotAllowedForStepInSeqTrack(int noteNum, int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("note" + String(noteNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::noNoteIsAllowedForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	auto atLeastOneNoteIsAllowed{ (bool)false };
+	auto noNoteIsAllowed{ (bool)true };
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+		if (noteIsAllowedForStepInSeqTrack(noteNum, stepNum, trackNum))
+			return atLeastOneNoteIsAllowed;
+	}
+	return noNoteIsAllowed;
+}
+
+const bool RandomizationOptions::octaveIsAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum) {
+	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOsAndSeqSteps);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	return (bool)seqTrackAllowedStepValuesTree.getProperty("octave" + String(octaveNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum);
+}
+
+void RandomizationOptions::setOctaveIsAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum) {
+	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOsAndSeqSteps);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, (bool)true, nullptr);
+}
+
+void RandomizationOptions::setOctaveIsNotAllowedForStepInSeqTrack(int octaveNum, int stepNum, int trackNum) {
+	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOsAndSeqSteps);
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackAllowedStepValuesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::noOctaveIsAllowedForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	auto atLeastOneOctaveIsAllowed{ (bool)false };
+	auto noOctaveIsAllowed{ (bool)true };
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+		if (octaveIsAllowedForStepInSeqTrack(octaveNum, stepNum, trackNum))
+			return atLeastOneOctaveIsAllowed;
+	}
+	return noOctaveIsAllowed;
+}
+
+const bool RandomizationOptions::onlyOctave5_IsAllowedForStepInSeqTrack(int stepNum, int trackNum) {
+	jassert(stepNum > 0 && stepNum < 17);
+	jassert(trackNum > 0 && trackNum < 5);
+	auto octave5_IsNotTheOnlyOneAllowed{ (bool)false };
+	auto octave5_IsTheOnlyOneAllowed{ (bool)true };
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps - 1; ++octaveNum) {
+		if (octaveIsAllowedForStepInSeqTrack(octaveNum, stepNum, trackNum))
+			return octave5_IsNotTheOnlyOneAllowed;
+	}
+	return octave5_IsTheOnlyOneAllowed;
 }
