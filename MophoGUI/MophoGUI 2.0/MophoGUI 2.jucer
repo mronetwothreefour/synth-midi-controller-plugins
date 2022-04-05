@@ -789,12 +789,18 @@
             resource="1" file="Resources/No-Sysex-Warning-Background.png"/>
       <FILE id="fGFh5U" name="Overwrite-Confirmation-Background.png" compile="0"
             resource="1" file="Resources/Overwrite-Confirmation-Background.png"/>
+      <FILE id="gz2roW" name="Probability-Controls-For-Track-1.png" compile="0"
+            resource="1" file="Resources/Probability-Controls-For-Track-1.png"/>
+      <FILE id="uz6YQJ" name="Probability-Controls-For-Tracks-2_3_4.png"
+            compile="0" resource="1" file="Resources/Probability-Controls-For-Tracks-2_3_4.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
       <FILE id="vkmfZr" name="Randomization-LFO-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
       <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
+      <FILE id="dIcWOR" name="Randomization-Seq-Step-Options-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Seq-Step-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
       <FILE id="aXDarv" name="Title-Allowed-Freq-For-LFO1.png" compile="0"
@@ -805,6 +811,14 @@
             resource="1" file="Resources/Title-Allowed-Freq-For-LFO3.png"/>
       <FILE id="bmTnc1" name="Title-Allowed-Freq-For-LFO4.png" compile="0"
             resource="1" file="Resources/Title-Allowed-Freq-For-LFO4.png"/>
+      <FILE id="kcKzhv" name="Title-Allowed-Step-Values-For-Track-1.png"
+            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-1.png"/>
+      <FILE id="xd9ZJO" name="Title-Allowed-Step-Values-For-Track-2.png"
+            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-2.png"/>
+      <FILE id="KRElt5" name="Title-Allowed-Step-Values-For-Track-3.png"
+            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-3.png"/>
+      <FILE id="zLSfTg" name="Title-Allowed-Step-Values-For-Track-4.png"
+            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-4.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"

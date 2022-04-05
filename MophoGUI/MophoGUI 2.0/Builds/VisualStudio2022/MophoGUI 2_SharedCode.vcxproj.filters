@@ -6158,6 +6158,12 @@
     <None Include="..\..\Resources\Overwrite-Confirmation-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Probability-Controls-For-Track-1.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Probability-Controls-For-Tracks-2_3_4.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6165,6 +6171,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Randomization-Seq-Step-Options-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">
@@ -6180,6 +6189,18 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO4.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-1.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-2.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-3.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-4.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png">

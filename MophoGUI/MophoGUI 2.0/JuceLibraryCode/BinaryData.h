@@ -242,6 +242,12 @@ namespace BinaryData
     extern const char*   OverwriteConfirmationBackground_png;
     const int            OverwriteConfirmationBackground_pngSize = 2827;
 
+    extern const char*   ProbabilityControlsForTrack1_png;
+    const int            ProbabilityControlsForTrack1_pngSize = 1034;
+
+    extern const char*   ProbabilityControlsForTracks2_3_4_png;
+    const int            ProbabilityControlsForTracks2_3_4_pngSize = 807;
+
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
@@ -250,6 +256,9 @@ namespace BinaryData
 
     extern const char*   RandomizationOscOptionsBackground_png;
     const int            RandomizationOscOptionsBackground_pngSize = 7694;
+
+    extern const char*   RandomizationSeqStepOptionsBackground_png;
+    const int            RandomizationSeqStepOptionsBackground_pngSize = 10167;
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;
@@ -265,6 +274,18 @@ namespace BinaryData
 
     extern const char*   TitleAllowedFreqForLFO4_png;
     const int            TitleAllowedFreqForLFO4_pngSize = 1740;
+
+    extern const char*   TitleAllowedStepValuesForTrack1_png;
+    const int            TitleAllowedStepValuesForTrack1_pngSize = 2264;
+
+    extern const char*   TitleAllowedStepValuesForTrack2_png;
+    const int            TitleAllowedStepValuesForTrack2_pngSize = 2272;
+
+    extern const char*   TitleAllowedStepValuesForTrack3_png;
+    const int            TitleAllowedStepValuesForTrack3_pngSize = 2256;
+
+    extern const char*   TitleAllowedStepValuesForTrack4_png;
+    const int            TitleAllowedStepValuesForTrack4_pngSize = 2246;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;
@@ -285,7 +306,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 92;
+    const int namedResourceListSize = 99;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
