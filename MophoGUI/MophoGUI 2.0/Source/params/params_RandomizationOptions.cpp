@@ -335,19 +335,26 @@ const bool RandomizationOptions::noFreqAreAllowedForLFO(int lfoNum) {
 		return true;
 }
 
-const bool RandomizationOptions::editModeForSeqTrackIsIndividualStep(int trackNum) {
+const bool RandomizationOptions::editModeForSeqTrackIsAllSteps(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	return (bool)seqTrackAllowedStepValuesTree.getProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum);
+	return (bool)seqTrackAllowedStepValuesTree.getProperty("editModeIsAllStepForSeqTrack" + (String)trackNum);
+}
+
+const bool RandomizationOptions::editModeForSeqTrackIsSelectedStep(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	return (bool)seqTrackAllowedStepValuesTree.getProperty("editModeIsSelectedStepForSeqTrack" + (String)trackNum);
 }
 
 void RandomizationOptions::setEditModeForSeqTrackToAllSteps(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackAllowedStepValuesTree.setProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum, (bool)false, nullptr);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsAllStepForSeqTrack" + (String)trackNum, (bool)true, nullptr);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsSelectedStepForSeqTrack" + (String)trackNum, (bool)false, nullptr);
 }
 
-void RandomizationOptions::setEditModeForSeqTrackToIndividualStep(int trackNum) {
+void RandomizationOptions::setEditModeForSeqTrackToSelectedStep(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackAllowedStepValuesTree.setProperty("editModeIsIndividualStepForSeqTrack" + (String)trackNum, (bool)true, nullptr);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsAllStepForSeqTrack" + (String)trackNum, (bool)false, nullptr);
+	seqTrackAllowedStepValuesTree.setProperty("editModeIsSelectedStepForSeqTrack" + (String)trackNum, (bool)true, nullptr);
 }
 
 const int RandomizationOptions::stepTargetedForEditingInSeqTrack(int trackNum) {

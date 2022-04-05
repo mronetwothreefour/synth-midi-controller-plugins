@@ -85,6 +85,7 @@ namespace ID
 	static const Identifier component_VoiceNameEditLabel{ "component_VoiceNameEditLabel" };
 	static const Identifier component_VoiceSlotRadioButton{ "component_VoiceSlotRadioButton" };
 	static const Identifier component_SeqStep{ "component_SeqStep" };
+	static const Identifier component_StepSelectorForTrack{ "component_StepSelectorForTrack" };
 	static const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
@@ -92,6 +93,8 @@ namespace ID
 	static const Identifier component_ToggleButton_AllowPitchedFreqForLFO{ "component_ToggleButton_AllowPitchedFreqForLFO" };
 	static const Identifier component_ToggleButton_AllowSyncedFreqForLFO{ "component_ToggleButton_AllowSyncedFreqForLFO" };
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqForLFO{ "component_ToggleButton_AllowUnsyncedFreqForLFO" };
+	static const Identifier component_ToggleButton_EditAllStepsModeForTrack{ "component_ToggleButton_EditAllStepsModeForTrack" };
+	static const Identifier component_ToggleButton_EditSelectedStepsModeForTrack{ "component_ToggleButton_EditSelectedStepsModeForTrack" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };

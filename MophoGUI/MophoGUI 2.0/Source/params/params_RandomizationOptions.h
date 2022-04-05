@@ -62,9 +62,10 @@ public:
 	const bool noSyncedFreqAreAllowedForLFO(int lfoNum);
 	const bool noFreqAreAllowedForLFO(int lfoNum);
 
-	const bool editModeForSeqTrackIsIndividualStep(int trackNum);
+	const bool editModeForSeqTrackIsAllSteps(int trackNum);
+	const bool editModeForSeqTrackIsSelectedStep(int trackNum);
 	void setEditModeForSeqTrackToAllSteps(int trackNum);
-	void setEditModeForSeqTrackToIndividualStep(int trackNum);
+	void setEditModeForSeqTrackToSelectedStep(int trackNum);
 	const int stepTargetedForEditingInSeqTrack(int trackNum);
 	void setStepTargetedForEditingInSeqTrack(int stepNum, int trackNum);
 	const uint8 minValueForStepInSeqTrack(int stepNum, int trackNum);
