@@ -642,6 +642,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -2901,7 +2904,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h">
@@ -3085,6 +3087,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.h">
@@ -5796,7 +5801,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
   </ItemGroup>

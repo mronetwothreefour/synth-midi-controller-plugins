@@ -335,6 +335,14 @@ const bool RandomizationOptions::noFreqAreAllowedForLFO(int lfoNum) {
 		return true;
 }
 
+void RandomizationOptions::addListenerToSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener) {
+	seqTrackAllowedStepValuesTree.addListener(listener);
+}
+
+void RandomizationOptions::removeListenerFromSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener) {
+	seqTrackAllowedStepValuesTree.removeListener(listener);
+}
+
 const bool RandomizationOptions::editModeForSeqTrackIsAllSteps(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
 	return (bool)seqTrackAllowedStepValuesTree.getProperty("editModeIsAllStepForSeqTrack" + (String)trackNum);

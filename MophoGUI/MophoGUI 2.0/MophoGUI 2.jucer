@@ -241,6 +241,10 @@
               resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
+        <FILE id="TzD18V" name="randomization_EditModeForSeqTrackComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.cpp"/>
+        <FILE id="PPDcsM" name="randomization_EditModeForSeqTrackComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.h"/>
         <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OscillatorOptionsComponent.cpp"/>
         <FILE id="SRZh1X" name="randomization_OscillatorOptionsComponent.h"

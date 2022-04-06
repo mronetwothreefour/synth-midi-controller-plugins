@@ -62,6 +62,8 @@ public:
 	const bool noSyncedFreqAreAllowedForLFO(int lfoNum);
 	const bool noFreqAreAllowedForLFO(int lfoNum);
 
+	void addListenerToSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener);
+	void removeListenerFromSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener);
 	const bool editModeForSeqTrackIsAllSteps(int trackNum);
 	const bool editModeForSeqTrackIsSelectedStep(int trackNum);
 	void setEditModeForSeqTrackToAllSteps(int trackNum);
