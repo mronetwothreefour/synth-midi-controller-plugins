@@ -2,6 +2,9 @@
 
 #include <JuceHeader.h>
 
+#include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
+#include "../widgets_Slider/widget_ModifiedJuceSliders.h"
+
 
 
 class UnexposedParameters;
@@ -13,15 +16,21 @@ class ProbabilitiesForSeqTrackComponent :
 {
 	int trackNum;
 	UnexposedParameters* unexposedParams;
-	Slider knob_ForRepeatValueProbability;
-	Slider knob_ForRestProbability;
-	Slider knob_ForResetProbability;
+	RotarySliderWithMouseWheelMod knob_ForRepeatValueProbability;
+	RendererForKnobValueStrings valueDisplay_ForRepeatValueProbability;
+	RotarySliderWithMouseWheelMod knob_ForRestProbability;
+	RendererForKnobValueStrings valueDisplay_ForRestProbability;
+	RotarySliderWithMouseWheelMod knob_ForResetProbability;
+	RendererForKnobValueStrings valueDisplay_ForResetProbability;
 
 public:
 	ProbabilitiesForSeqTrackComponent() = delete;
 
 	ProbabilitiesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	void generateTooltips();
 	void paint(Graphics& g) override;
+	const char* getBackgroundImageData();
+	size_t getBackgroundImageDataSize();
 	void resized() override;
 	void sliderValueChanged(Slider* slider) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;

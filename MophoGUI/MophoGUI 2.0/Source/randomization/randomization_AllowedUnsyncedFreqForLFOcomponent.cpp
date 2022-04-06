@@ -24,7 +24,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 
-	knob_ForMinUnsyncedFreq.setComponentID(ID::component_Knob.toString() + "ForMinUnsyncedFreqForLFO" + (String)lfoNum);
+	knob_ForMinUnsyncedFreq.setComponentID(ID::component_KnobForMinUnsyncedFreqForLFO.toString() + (String)lfoNum);
 	knob_ForMinUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMinUnsyncedFreq.setValue((double)randomizationOptions->minUnsyncedFreqForLFO(lfoNum));
 	knob_ForMinUnsyncedFreq.setMouseDragSensitivity(128);
@@ -41,7 +41,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 	addAndMakeVisible(valueDisplay_ForMinUnsyncedFreq);
 	valueDisplay_ForMinUnsyncedFreq.setInterceptsMouseClicks(false, false);
 
-	knob_ForMaxUnsyncedFreq.setComponentID(ID::component_Knob.toString() + "ForMaxUnsyncedFreqForLFO" + (String)lfoNum);
+	knob_ForMaxUnsyncedFreq.setComponentID(ID::component_KnobForMaxUnsyncedFreqForLFO.toString() + (String)lfoNum);
 	knob_ForMaxUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMaxUnsyncedFreq.setValue((double)randomizationOptions->maxUnsyncedFreqForLFO(lfoNum));
 	knob_ForMaxUnsyncedFreq.setMouseDragSensitivity(128);
@@ -71,7 +71,7 @@ void AllowedUnsyncedFreqForLFOcomponent::resized() {
 void AllowedUnsyncedFreqForLFOcomponent::sliderValueChanged(Slider* slider) {
 	auto sliderID{ slider->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (sliderID == ID::component_Knob.toString() + "ForMinUnsyncedFreqForLFO" + (String)lfoNum) {
+	if (sliderID == ID::component_KnobForMinUnsyncedFreqForLFO.toString() + (String)lfoNum) {
 		auto newMinFreq{ (uint8)slider->getValue() };
 		randomizationOptions->setMinUnsyncedFreqForLFO(newMinFreq, lfoNum);
 		auto maxFreq{ randomizationOptions->maxUnsyncedFreqForLFO(lfoNum) };
@@ -80,7 +80,7 @@ void AllowedUnsyncedFreqForLFOcomponent::sliderValueChanged(Slider* slider) {
 			randomizationOptions->setMaxUnsyncedFreqForLFO(newMinFreq, lfoNum);
 		}
 	}
-	if (sliderID == ID::component_Knob.toString() + "ForMaxUnsyncedFreqForLFO" + (String)lfoNum) {
+	if (sliderID == ID::component_KnobForMaxUnsyncedFreqForLFO.toString() + (String)lfoNum) {
 		auto newMaxFreq{ (uint8)slider->getValue() };
 		randomizationOptions->setMaxUnsyncedFreqForLFO(newMaxFreq, lfoNum);
 		auto minFreq{ randomizationOptions->minUnsyncedFreqForLFO(lfoNum) };

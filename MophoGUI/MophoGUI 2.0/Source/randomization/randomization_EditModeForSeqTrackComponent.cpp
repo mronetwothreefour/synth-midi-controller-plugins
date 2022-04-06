@@ -46,7 +46,7 @@ EditModeForSeqTrackComponent::EditModeForSeqTrackComponent(int trackNum, Unexpos
 	stepSelector.addListener(this);
 	for (auto step = 0; step != 16; ++step)
 		stepSelector.addItem((String)step, step);
-	stepSelector.setSelectedItemIndex(randomizationOptions->stepTargetedForEditingInSeqTrack(trackNum), dontSendNotification);
+	stepSelector.setSelectedItemIndex(randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum), dontSendNotification);
 	if (shouldShowDescriptions) {
 		String menuTooltip{ "" };
 		menuTooltip += "Selects which step in sequencer track" + (String)trackNum + "\n";
@@ -54,6 +54,8 @@ EditModeForSeqTrackComponent::EditModeForSeqTrackComponent(int trackNum, Unexpos
 		stepSelector.setTooltip(menuTooltip);
 	}
 	addAndMakeVisible(stepSelector);
+
+	setSize(GUI::randomizationEditModeForSeqTrackComponent_w, GUI::randomizationEditModeForSeqTrackComponent_h);
 }
 
 void EditModeForSeqTrackComponent::resized() {
@@ -78,7 +80,7 @@ void EditModeForSeqTrackComponent::comboBoxChanged(ComboBox* comboBox) {
 	if (comboBox->getComponentID() == ID::component_StepSelectorForTrack.toString() + (String)trackNum) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto selectedStep{ comboBox->getSelectedItemIndex() };
-		randomizationOptions->setStepTargetedForEditingInSeqTrack(selectedStep, trackNum);
+		randomizationOptions->setStepSelectedForEditingInSeqTrack(selectedStep, trackNum);
 	}
 }
 

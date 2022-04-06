@@ -216,6 +216,8 @@ namespace constants
 		static const int randomizationAllowSyncedFreqToggle_x{ 817 };
 		static const int randomizationAllowUnsyncedFreqToggle_x{ 621 };
 		static const int randomizationCloseButton_x{ 1152 };
+		static const int randomizationEditModeForSeqTrackComponent_h{ 40 };
+		static const int randomizationEditModeForSeqTrackComponent_w{ 90 };
 		static const int randomizationLockAndUnlockButtons_h{ 20 };
 		static const int randomizationLockAndUnlockButtons_w{ 14 };
 		static const int randomizationEnv3LockAndUnlockButtons_y{ 465 };
@@ -262,6 +264,9 @@ namespace constants
 		static const int randomizationOptionsToggles_horizSpacing{ 22 };
 		static const int randomizationOscOptionsBackground_x{ 458 };
 		static const int randomizationOscOptionsBackground_y{ 156 };
+		static const int randomizationProbabilitiesForSeqTrackComponent_h{ 50 };
+		static const int randomizationProbabilitiesForSeqTrack1Component_w{ 160 };
+		static const int randomizationProbabilitiesForSeqTracks2_3_4Component_w{ 100 };
 		static const int randomizationPushItLockAndUnlockButtons_y{ randomizationKnobAssignLockAndUnlockButtons_y };
 		static const int randomizationPushItLockButton_x{ 1232 };
 		static const int randomizationPushItUnlockButton_x{ randomizationPushItLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };

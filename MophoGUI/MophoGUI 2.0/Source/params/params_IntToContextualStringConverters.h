@@ -446,6 +446,19 @@ public:
 
 
 
+struct IntToPercentageString : public IntToContextualStringConverter
+{
+protected:
+	String conversionAlgorithm(const uint8& i) noexcept override;
+	String verboseConversionAlgorithm(const uint8& i) noexcept override;
+
+public:
+	static IntToPercentageString* get() noexcept;
+};
+
+
+
+
 struct IntToMonoStereoString : public IntToContextualStringConverter
 {
 protected:

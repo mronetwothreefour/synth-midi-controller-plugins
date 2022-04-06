@@ -1383,6 +1383,22 @@ IntToPedalModeString* IntToPedalModeString::get() noexcept {
 
 
 
+String IntToPercentageString::conversionAlgorithm(const uint8& i) noexcept {
+	return verboseConversionAlgorithm(i);
+}
+
+String IntToPercentageString::verboseConversionAlgorithm(const uint8& i) noexcept {
+	return (String)i + "%";
+}
+
+IntToPercentageString* IntToPercentageString::get() noexcept {
+	static IntToPercentageString converter;
+	return &converter;
+}
+
+
+
+
 String IntToBalanceTweakString::conversionAlgorithm(const uint8& i) noexcept {
 	return verboseConversionAlgorithm(i);
 }

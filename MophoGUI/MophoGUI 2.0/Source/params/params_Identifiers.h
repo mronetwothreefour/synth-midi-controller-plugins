@@ -81,6 +81,11 @@ namespace ID
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
+	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };
+	static const Identifier component_KnobForMaxUnsyncedFreqForLFO{ "component_KnobForMaxUnsyncedFreqForLFO" };
+	static const Identifier component_KnobForRepeatValueProbabilityForSeqTrack{ "component_KnobForRepeatValueProbabilityForSeqTrack" };
+	static const Identifier component_KnobForResetProbabilityForSeqTrack{ "component_KnobForResetProbabilityForSeqTrack" };
+	static const Identifier component_KnobForRestProbabilityForSeqTrack1{ "component_KnobForRestProbabilityForSeqTrack1" };
 	static const Identifier component_VoiceNameChar{ "component_VoiceNameChar" };
 	static const Identifier component_VoiceNameEditLabel{ "component_VoiceNameEditLabel" };
 	static const Identifier component_VoiceSlotRadioButton{ "component_VoiceSlotRadioButton" };

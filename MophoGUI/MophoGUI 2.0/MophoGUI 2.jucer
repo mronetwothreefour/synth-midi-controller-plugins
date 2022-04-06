@@ -257,6 +257,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.cpp"/>
         <FILE id="BA9u8k" name="randomization_ParamRandomizationMethods.h"
               compile="0" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.h"/>
+        <FILE id="icw387" name="randomization_ProbablitiesForSeqTrackComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.cpp"/>
+        <FILE id="L0B6IM" name="randomization_ProbablitiesForSeqTrackComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.h"/>
         <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
               file="Source/randomization/RandomizationComponent.cpp"/>
         <FILE id="bCeZ6k" name="RandomizationComponent.h" compile="0" resource="0"
