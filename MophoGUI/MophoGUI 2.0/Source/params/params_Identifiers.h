@@ -99,7 +99,7 @@ namespace ID
 	static const Identifier component_ToggleButton_AllowSyncedFreqForLFO{ "component_ToggleButton_AllowSyncedFreqForLFO" };
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqForLFO{ "component_ToggleButton_AllowUnsyncedFreqForLFO" };
 	static const Identifier component_ToggleButton_EditAllStepsModeForTrack{ "component_ToggleButton_EditAllStepsModeForTrack" };
-	static const Identifier component_ToggleButton_EditSelectedStepsModeForTrack{ "component_ToggleButton_EditSelectedStepsModeForTrack" };
+	static const Identifier component_ToggleButton_EditSelectedStepModeForTrack{ "component_ToggleButton_EditSelectedStepModeForTrack" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };
@@ -200,6 +200,7 @@ namespace ID
 	static const Identifier randomization_LFOallowedFrequencies{ "randomization_LFOallowedFrequencies" };
 	static const Identifier randomization_OscAllowedPitches{ "randomization_OscAllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
+	static const Identifier randomization_SeqTrackAllowedStepValues{ "randomization_SeqTrackAllowedStepValues" };
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };
@@ -211,6 +212,7 @@ namespace ID
 	static const Identifier state_CustomVoicesBank1{ "state_CustomVoicesBank1" };
 	static const Identifier state_CustomVoicesBank2{ "state_CustomVoicesBank2" };
 	static const Identifier state_CustomVoicesBank3{ "state_CustomVoicesBank3" };
+	static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };

@@ -30,7 +30,7 @@ EditModeForSeqTrackComponent::EditModeForSeqTrackComponent(int trackNum, Unexpos
 	}
 	addAndMakeVisible(editAllStepsModeToggle);
 
-	editSelectedStepModeToggle.setComponentID(ID::component_ToggleButton_EditSelectedStepsModeForTrack.toString() + (String)trackNum);
+	editSelectedStepModeToggle.setComponentID(ID::component_ToggleButton_EditSelectedStepModeForTrack.toString() + (String)trackNum);
 	editSelectedStepModeToggle.addListener(this);
 	editSelectedStepModeToggle.setToggleState(randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum), dontSendNotification);
 	editSelectedStepModeToggle.setRadioGroupId(1, dontSendNotification);
@@ -70,7 +70,7 @@ void EditModeForSeqTrackComponent::buttonClicked(Button* button) {
 		if(button->getToggleState())
 			randomizationOptions->setEditModeForSeqTrackToAllSteps(trackNum);
 	}
-	if (button->getComponentID() == ID::component_ToggleButton_EditSelectedStepsModeForTrack.toString() + (String)trackNum) {
+	if (button->getComponentID() == ID::component_ToggleButton_EditSelectedStepModeForTrack.toString() + (String)trackNum) {
 		if(button->getToggleState())
 			randomizationOptions->setEditModeForSeqTrackToSelectedStep(trackNum);
 	}

@@ -44,5 +44,6 @@ XmlElement* VoiceTransmissionOptions::getStateXml() {
 
 void VoiceTransmissionOptions::replaceState(const ValueTree& newState) {
 	auto voiceTransmitTime{ newState.getProperty(ID::voiceTx_Time) };
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, voiceTransmitTime, nullptr);
+	if (!voiceTransmitTime.isVoid())
+		voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, voiceTransmitTime, nullptr);
 }

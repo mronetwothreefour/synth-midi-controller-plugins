@@ -16,10 +16,10 @@ class ProbabilitiesForSeqTrackComponent :
 {
 	int trackNum;
 	UnexposedParameters* unexposedParams;
-	RotarySliderWithMouseWheelMod knob_ForRepeatValueProbability;
-	RendererForKnobValueStrings valueDisplay_ForRepeatValueProbability;
 	RotarySliderWithMouseWheelMod knob_ForRestProbability;
 	RendererForKnobValueStrings valueDisplay_ForRestProbability;
+	RotarySliderWithMouseWheelMod knob_ForRepeatValueProbability;
+	RendererForKnobValueStrings valueDisplay_ForRepeatValueProbability;
 	RotarySliderWithMouseWheelMod knob_ForResetProbability;
 	RendererForKnobValueStrings valueDisplay_ForResetProbability;
 
@@ -33,7 +33,7 @@ public:
 	size_t getBackgroundImageDataSize();
 	void resized() override;
 	void sliderValueChanged(Slider* slider) override;
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~ProbabilitiesForSeqTrackComponent();
 
 private:

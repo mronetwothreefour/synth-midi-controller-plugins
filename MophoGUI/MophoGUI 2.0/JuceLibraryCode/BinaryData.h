@@ -243,7 +243,7 @@ namespace BinaryData
     const int            OverwriteConfirmationBackground_pngSize = 2827;
 
     extern const char*   ProbabilityControlsForTrack1_png;
-    const int            ProbabilityControlsForTrack1_pngSize = 1034;
+    const int            ProbabilityControlsForTrack1_pngSize = 1032;
 
     extern const char*   ProbabilityControlsForTracks2_3_4_png;
     const int            ProbabilityControlsForTracks2_3_4_pngSize = 807;

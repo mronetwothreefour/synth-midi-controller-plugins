@@ -277,6 +277,7 @@ namespace constants
 		static const int randomizationSeqTrack4LockAndUnlockButtons_y{ randomizationSeqTrack3LockAndUnlockButtons_y + sequencerTracksVerticalSpacer };
 		static const int randomizationSeqTrackLockButtons_x{ 872 };
 		static const int randomizationSeqTrackUnlockButtons_x{ randomizationSeqTrackLockButtons_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
+		static const int randomizationSeqTrackOptions_HorizKnobSpacing{ 60 };
 		static const int randomizationVCAlockAndUnlockButtons_y{ randomizationLPFlockAndUnlockButtons_y + envelopeRenderersVerticalSpacing };
 		static const int randomizationVCAlockButton_x{ 47 };
 		static const int randomizationVCAunlockButton_x{ randomizationVCAlockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
