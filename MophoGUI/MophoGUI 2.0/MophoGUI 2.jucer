@@ -227,6 +227,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
         <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.h"/>
+        <FILE id="xgDdVU" name="randomization_AllowedStepValuesForSeqTrackComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
+        <FILE id="uUbgul" name="randomization_AllowedStepValuesForSeqTrackComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.h"/>
         <FILE id="J1shBZ" name="randomization_AllowedSyncedFreqForLFOcomponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
         <FILE id="L0SeaU" name="randomization_AllowedSyncedFreqForLFOcomponent.h"

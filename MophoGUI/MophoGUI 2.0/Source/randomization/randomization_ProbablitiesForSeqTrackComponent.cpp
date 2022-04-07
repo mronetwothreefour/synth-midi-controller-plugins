@@ -81,7 +81,6 @@ void ProbabilitiesForSeqTrackComponent::generateTooltips() {
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
-		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 
 		if (trackNum == 1) {
 			String restValueKnobTooltip{ "" };
@@ -188,11 +187,13 @@ void ProbabilitiesForSeqTrackComponent::sliderValueChanged(Slider* slider) {
 	}
 }
 
-void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
-	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
-	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum) {
+void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
+		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
+	{
+		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
+		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 		if (editModeIsSelectedStep) {
 			if (trackNum == 1)
 				knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForSelectedStepInSeqTrack1(selectedStep) * 10.0, sendNotification);
@@ -213,6 +214,7 @@ void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& tree
 				knob_ForResetProbability.setEnabled(true);
 			}
 		}
+		generateTooltips();
 	}
 }
 

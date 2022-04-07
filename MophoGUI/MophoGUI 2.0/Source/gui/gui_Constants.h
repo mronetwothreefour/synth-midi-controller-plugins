@@ -201,6 +201,8 @@ namespace constants
 		static const int randomizationAllowedOctaveToggleRow1_y{ 0 };
 		static const int randomizationAllowedOctaveToggleRow2_x{ 11 };
 		static const int randomizationAllowedOctaveToggleRow2_y{ 33 };
+		static const int randomizationAllowedStepValuesForSeqTrackComponent_h{ 35 };
+		static const int randomizationAllowedStepValuesForSeqTrackComponent_w{ 100 };
 		static const int randomizationAllowedSyncedFreqForLFOComponent_h{ 104 };
 		static const int randomizationAllowedSyncedFreqForLFOComponent_w{ 188 };
 		static const int randomizationAllowedSyncedFreqForLFOComponent_x{ 745 };

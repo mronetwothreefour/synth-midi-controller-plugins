@@ -409,7 +409,7 @@ void RandomizationOptions::setProbabilityOfRepeatForAllStepsInSeqTrack(float new
 }
 
 const float RandomizationOptions::probabilityOfRepeatValueForSelectedStepInSeqTrack(int stepNum, int trackNum) {
-	jassert(stepNum > 1 && stepNum < 17);
+	jassert(stepNum > 0 && stepNum < 17);
 	jassert(trackNum > 0 && trackNum < 5);
 	float probability{ seqTrackAllowedStepValuesTree.getProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
 	return probability;
@@ -417,7 +417,7 @@ const float RandomizationOptions::probabilityOfRepeatValueForSelectedStepInSeqTr
 
 void RandomizationOptions::setProbabilityOfRepeatValueForSelectedStepInSeqTrack(float newProb, int stepNum, int trackNum) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 1 && stepNum < 17);
+	jassert(stepNum > 0 && stepNum < 17);
 	jassert(trackNum > 0 && trackNum < 5);
 	seqTrackAllowedStepValuesTree.setProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newProb, nullptr);
 }
@@ -432,7 +432,7 @@ void RandomizationOptions::setProbabilityOfResetForAllStepsInSeqTrack(float newP
 }
 
 const float RandomizationOptions::probabilityOfResetForSelectedStepInSeqTrack(int stepNum, int trackNum) {
-	jassert(stepNum > 1 && stepNum < 17);
+	jassert(stepNum > 0 && stepNum < 17);
 	jassert(trackNum > 0 && trackNum < 5);
 	float probability{ seqTrackAllowedStepValuesTree.getProperty("probabilityOfResetForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum) };
 	return probability;
@@ -440,7 +440,7 @@ const float RandomizationOptions::probabilityOfResetForSelectedStepInSeqTrack(in
 
 void RandomizationOptions::setProbabilityOfResetForSelectedStepInSeqTrack(float newProb, int stepNum, int trackNum) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 1 && stepNum < 17);
+	jassert(stepNum > 0 && stepNum < 17);
 	jassert(trackNum > 0 && trackNum < 5);
 	seqTrackAllowedStepValuesTree.setProperty("probabilityOfResetForStep" + (String)stepNum + "InSeqTrack" + (String)trackNum, newProb, nullptr);
 }

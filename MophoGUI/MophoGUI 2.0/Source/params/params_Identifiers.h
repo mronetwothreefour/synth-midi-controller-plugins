@@ -81,6 +81,8 @@ namespace ID
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
+	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
+	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
 	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };
 	static const Identifier component_KnobForMaxUnsyncedFreqForLFO{ "component_KnobForMaxUnsyncedFreqForLFO" };
 	static const Identifier component_KnobForRepeatValueProbabilityForSeqTrack{ "component_KnobForRepeatValueProbabilityForSeqTrack" };
@@ -212,7 +214,6 @@ namespace ID
 	static const Identifier state_CustomVoicesBank1{ "state_CustomVoicesBank1" };
 	static const Identifier state_CustomVoicesBank2{ "state_CustomVoicesBank2" };
 	static const Identifier state_CustomVoicesBank3{ "state_CustomVoicesBank3" };
-	static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 	static const Identifier state_TooltipOptions{ "state_TooltipOptions" };
 	static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 	static const Identifier state_VoiceTransmissionOptions{ "state_VoiceTransmissionOptions" };

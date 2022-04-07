@@ -106,7 +106,6 @@ public:
 	const bool noOctaveIsAllowedForAllStepsInSeqTrack(int trackNum);
 	const bool onlyOctave5_IsAllowedForAllStepsInSeqTrack(int trackNum);
 	const bool octaveIsAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
-	const bool octaveIsAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
 	void setOctaveIsAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
 	void setOctaveIsNotAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
 	const bool noOctaveIsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);

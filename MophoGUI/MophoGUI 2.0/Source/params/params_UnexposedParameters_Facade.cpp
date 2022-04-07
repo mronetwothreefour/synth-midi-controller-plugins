@@ -58,9 +58,9 @@ XmlElement UnexposedParameters::getStateXml() {
 	auto voiceTransmissionOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTransmissionOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(voiceTransmissionOptionsStateXml);
-	auto randomizationOptionsStateXml{ randomizationOptions->getStateXml() };
-	if (randomizationOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(randomizationOptionsStateXml);
+	//auto randomizationOptionsStateXml{ randomizationOptions->getStateXml() };
+	//if (randomizationOptionsStateXml != nullptr)
+	//	unexposedParamsStateXml.addChildElement(randomizationOptionsStateXml);
 	return unexposedParamsStateXml;
 }
 
@@ -74,9 +74,9 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 	auto voiceTransmissionOptionsState{ newState.getChildWithName(ID::state_VoiceTransmissionOptions) };
 	if (voiceTransmissionOptionsState.isValid())
 		voiceTransmissionOptions->replaceState(voiceTransmissionOptionsState);
-	auto randomizationOptionsState{ newState.getChildWithName(ID::state_RandomizationOptions) };
-	if (randomizationOptionsState.isValid())
-		randomizationOptions->replaceState(randomizationOptionsState);
+	//auto randomizationOptionsState{ newState.getChildWithName(ID::state_RandomizationOptions) };
+	//if (randomizationOptionsState.isValid())
+	//	randomizationOptions->replaceState(randomizationOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {

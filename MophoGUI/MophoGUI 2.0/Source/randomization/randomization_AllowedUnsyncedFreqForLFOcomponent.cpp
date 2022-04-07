@@ -33,7 +33,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 		String knobTooltip{ "" };
 		knobTooltip += "Sets the minimum un-synced\n";
 		knobTooltip += "frequency allowed for LFO " + (String)lfoNum + ".\n";
-		knobTooltip += "Range: 0 (1 cycle lasts 30 sec.) to 89 (8 Hz)";
+		knobTooltip += "Range: 0 (1 cycle lasts 30 sec.) to 89 (8 Hz).";
 		knob_ForMinUnsyncedFreq.setTooltip(knobTooltip);
 	}
 	addAndMakeVisible(knob_ForMinUnsyncedFreq);
@@ -50,7 +50,7 @@ AllowedUnsyncedFreqForLFOcomponent::AllowedUnsyncedFreqForLFOcomponent(int lfoNu
 		String knobTooltip{ "" };
 		knobTooltip += "Sets the maximum un-synced\n";
 		knobTooltip += "frequency allowed for LFO " + (String)lfoNum + ".\n";
-		knobTooltip += "Range: 0 (1 cycle lasts 30 sec.) to 89 (8 Hz)";
+		knobTooltip += "Range: 0 (1 cycle lasts 30 sec.) to 89 (8 Hz).";
 		knob_ForMinUnsyncedFreq.setTooltip(knobTooltip);
 	}
 	addAndMakeVisible(knob_ForMaxUnsyncedFreq);

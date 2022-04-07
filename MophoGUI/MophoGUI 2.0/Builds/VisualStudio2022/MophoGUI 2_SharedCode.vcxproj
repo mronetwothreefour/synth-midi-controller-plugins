@@ -184,6 +184,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.cpp"/>
@@ -2301,6 +2302,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.h"/>
