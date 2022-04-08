@@ -167,6 +167,7 @@ namespace constants
 		static const int randomizeButton_x{ randomizationUnlockAllButton_x + randomizationButtons_w + randomizationHorizGapBtwnLockIcons };
 		static const int randomizationAllowAllNotesForOscButtons_w{ 70 };
 		static const int randomizationAllowAllNotesForOscButtons_x{ 38 };
+		static const int randomizationAllowAllBentNotesForOscButtons_x{ 211 };
 		static const int randomizationAllowAllNotesForOscButtons_y{ 52 };
 		static const int randomizationAllowAllOctavesForOscButtons_w{ 82 };
 		static const int randomizationAllowAllOctavesButtons_x{ 21 };
@@ -175,16 +176,20 @@ namespace constants
 		static const int randomizationAllowAllSyncedFreqButton_w{ 74 };
 		static const int randomizationAllowAllSyncedFreqButton_x{ 77 };
 		static const int randomizationAllowAllSyncedFreqButton_y{ 82 };
+		static const int randomizationAllowedNotesComponent_h{ 74 };
+		static const int randomizationAllowedNotesComponent_w{ 146 };
 		static const int randomizationAllowedNotesForLFOComponent_x{ 309 };
 		static const int randomizationAllowedNotesForLFOComponent_y{ 314 };
 		static const int randomizationAllowedNotesForOsc1Component_x{ 475 };
 		static const int randomizationAllowedNotesForOsc2Component_x{ 651 };
 		static const int randomizationAllowedNotesForOscComponents_y{ 229 };
-		static const int randomizationAllowedNotesComponent_h{ 74 };
-		static const int randomizationAllowedNotesComponent_w{ 146 };
+		static const int randomizationAllowedNotesForSeqTrackComponent_h{ randomizationAllowedNotesComponent_h };
+		static const int randomizationAllowedNotesForSeqTrackComponent_w{ 319 };
 		static const int randomizationAllowedNoteToggleRow1_x{ 11 };
+		static const int randomizationAllowedBentNoteToggleRow1_x{ 184 };
 		static const int randomizationAllowedNoteToggleRow1_y{ 0 };
 		static const int randomizationAllowedNoteToggleRow2_x{ 0 };
+		static const int randomizationAllowedBentNoteToggleRow2_x{ 173 };
 		static const int randomizationAllowedNoteToggleRow2_y{ 18 };
 		static const int randomizationAllowedOctavesForLFOComponent_x{ 475 };
 		static const int randomizationAllowedOctavesForLFOComponent_y{ 314 };
@@ -442,6 +447,7 @@ namespace constants
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentRetryButton{ 611, 387, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllNotesButton{ randomizationAllowAllNotesForOscButtons_x, randomizationAllowAllNotesForOscButtons_y, randomizationAllowAllNotesForOscButtons_w, secondaryWindowsControls_h };
+		static const Rectangle<int> bounds_RandomizationAllowAllBentNotesButton{ randomizationAllowAllBentNotesForOscButtons_x, randomizationAllowAllNotesForOscButtons_y, randomizationAllowAllNotesForOscButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllOctavesForLFOandSeqStepButton{ randomizationAllowAllOctavesButtons_x, randomizationAllowAllOctavesForLFOandSeqStepButtons_y, randomizationAllowAllOctavesForOscButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllOctavesForOscButton{ randomizationAllowAllOctavesButtons_x, randomizationAllowAllOctavesForOscButtons_y, randomizationAllowAllOctavesForOscButtons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllSyncedButton{ randomizationAllowAllSyncedFreqButton_x, randomizationAllowAllSyncedFreqButton_y, randomizationAllowAllSyncedFreqButton_w, secondaryWindowsControls_h };
