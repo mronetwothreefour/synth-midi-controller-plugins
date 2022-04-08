@@ -185,14 +185,20 @@ void VoicesBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& pr
 XmlElement* VoicesBanks::getStateXml() {
 	auto customVoicesBanksStateXml{ std::make_unique<XmlElement>(ID::state_VoicesBanks) };
 	auto customBank1StateXml{ customBank1VoiceDataHexStrings.createXml() };
+	if (customBank1StateXml != nullptr) {
+		customBank1StateXml->setTagName(ID::state_CustomVoicesBank1);
+		customVoicesBanksStateXml->addChildElement(customBank1StateXml.release());
+	}
 	auto customBank2StateXml{ customBank2VoiceDataHexStrings.createXml() };
+	if (customBank2StateXml != nullptr) {
+		customBank2StateXml->setTagName(ID::state_CustomVoicesBank2);
+		customVoicesBanksStateXml->addChildElement(customBank2StateXml.release());
+	}
 	auto customBank3StateXml{ customBank3VoiceDataHexStrings.createXml() };
-	customBank1StateXml->setTagName(ID::state_CustomVoicesBank1);
-	customBank2StateXml->setTagName(ID::state_CustomVoicesBank2);
-	customBank3StateXml->setTagName(ID::state_CustomVoicesBank3);
-	customVoicesBanksStateXml->addChildElement(customBank1StateXml.release());
-	customVoicesBanksStateXml->addChildElement(customBank2StateXml.release());
-	customVoicesBanksStateXml->addChildElement(customBank3StateXml.release());
+	if (customBank3StateXml != nullptr) {
+		customBank3StateXml->setTagName(ID::state_CustomVoicesBank3);
+		customVoicesBanksStateXml->addChildElement(customBank3StateXml.release());
+	}
 	return customVoicesBanksStateXml.release();
 }
 

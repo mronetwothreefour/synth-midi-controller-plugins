@@ -661,38 +661,48 @@ XmlElement* RandomizationOptions::getStateXml() {
 	std::unique_ptr<XmlElement> randomizationOptionsStateXml{ new XmlElement(ID::state_RandomizationOptions) };
 
 	auto paramLocksTreeStateXml{ paramLocksTree.createXml() };
-	paramLocksTreeStateXml->setTagName(ID::randomization_ParamLocks);
-	randomizationOptionsStateXml->addChildElement(paramLocksTreeStateXml.get());
+	if (paramLocksTreeStateXml != nullptr) {
+		paramLocksTreeStateXml->setTagName(ID::randomization_ParamLocks);
+		randomizationOptionsStateXml->addChildElement(paramLocksTreeStateXml.release());
+	}
 
 	auto oscAllowedPitchesTreeStateXml{ oscAllowedPitchesTree.createXml() };
-	oscAllowedPitchesTreeStateXml->setTagName(ID::randomization_OscAllowedPitches);
-	randomizationOptionsStateXml->addChildElement(oscAllowedPitchesTreeStateXml.get());
+	if (oscAllowedPitchesTreeStateXml != nullptr) {
+		oscAllowedPitchesTreeStateXml->setTagName(ID::randomization_OscAllowedPitches);
+		randomizationOptionsStateXml->addChildElement(oscAllowedPitchesTreeStateXml.release());
+	}
 
 	auto lfoAllowedFrequenciesTreeStateXml{ lfoAllowedFrequenciesTree.createXml() };
-	lfoAllowedFrequenciesTreeStateXml->setTagName(ID::randomization_LFOallowedFrequencies);
-	randomizationOptionsStateXml->addChildElement(lfoAllowedFrequenciesTreeStateXml.get());
+	if (lfoAllowedFrequenciesTreeStateXml != nullptr) {
+		lfoAllowedFrequenciesTreeStateXml->setTagName(ID::randomization_LFOallowedFrequencies);
+		randomizationOptionsStateXml->addChildElement(lfoAllowedFrequenciesTreeStateXml.release());
+	}
 
 	auto seqTrackAllowedStepValuesTreeStateXml{ seqTrackAllowedStepValuesTree.createXml() };
-	seqTrackAllowedStepValuesTreeStateXml->setTagName(ID::randomization_SeqTrackAllowedStepValues);
-	randomizationOptionsStateXml->addChildElement(seqTrackAllowedStepValuesTreeStateXml.get());
+	if (seqTrackAllowedStepValuesTreeStateXml != nullptr) {
+		seqTrackAllowedStepValuesTreeStateXml->setTagName(ID::randomization_SeqTrackAllowedStepValues);
+		randomizationOptionsStateXml->addChildElement(seqTrackAllowedStepValuesTreeStateXml.release());
+	}
 
 	return randomizationOptionsStateXml.release();
 }
 
 void RandomizationOptions::replaceState(const ValueTree& newState) {
-	auto paramLocksTreeState{ newState.getChildWithName(ID::randomization_ParamLocks) };
-	if (paramLocksTreeState.isValid())
-		paramLocksTree.copyPropertiesAndChildrenFrom(paramLocksTreeState, nullptr);
+	if (newState.isValid()) {
+		auto paramLocksTreeState{ newState.getChildWithName(ID::randomization_ParamLocks) };
+		if (paramLocksTreeState.isValid())
+			paramLocksTree.copyPropertiesAndChildrenFrom(paramLocksTreeState, nullptr);
 
-	auto oscAllowedPitchesTreeState{ newState.getChildWithName(ID::randomization_OscAllowedPitches) };
-	if (oscAllowedPitchesTreeState.isValid())
-		oscAllowedPitchesTree.copyPropertiesAndChildrenFrom(oscAllowedPitchesTreeState, nullptr);
+		auto oscAllowedPitchesTreeState{ newState.getChildWithName(ID::randomization_OscAllowedPitches) };
+		if (oscAllowedPitchesTreeState.isValid())
+			oscAllowedPitchesTree.copyPropertiesAndChildrenFrom(oscAllowedPitchesTreeState, nullptr);
 
-	auto lfoAllowedFrequenciesTreeState{ newState.getChildWithName(ID::randomization_LFOallowedFrequencies) };
-	if (lfoAllowedFrequenciesTreeState.isValid())
-		lfoAllowedFrequenciesTree.copyPropertiesAndChildrenFrom(lfoAllowedFrequenciesTreeState, nullptr);
+		auto lfoAllowedFrequenciesTreeState{ newState.getChildWithName(ID::randomization_LFOallowedFrequencies) };
+		if (lfoAllowedFrequenciesTreeState.isValid())
+			lfoAllowedFrequenciesTree.copyPropertiesAndChildrenFrom(lfoAllowedFrequenciesTreeState, nullptr);
 
-	auto seqTrackAllowedStepValuesTreeState{ newState.getChildWithName(ID::randomization_SeqTrackAllowedStepValues) };
-	if (seqTrackAllowedStepValuesTreeState.isValid())
-		seqTrackAllowedStepValuesTree.copyPropertiesAndChildrenFrom(seqTrackAllowedStepValuesTreeState, nullptr);
+		auto seqTrackAllowedStepValuesTreeState{ newState.getChildWithName(ID::randomization_SeqTrackAllowedStepValues) };
+		if (seqTrackAllowedStepValuesTreeState.isValid())
+			seqTrackAllowedStepValuesTree.copyPropertiesAndChildrenFrom(seqTrackAllowedStepValuesTreeState, nullptr);
+	}
 }

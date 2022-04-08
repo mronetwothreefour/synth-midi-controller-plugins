@@ -58,7 +58,8 @@ void TooltipOptions::setDelayInMilliseconds(int newDelay) {
 
 XmlElement* TooltipOptions::getStateXml() {
 	auto tooltipOptionsTreeStateXml{ tooltipOptionsTree.createXml() };
-	tooltipOptionsTreeStateXml->setTagName(ID::state_TooltipOptions);
+	if (tooltipOptionsTreeStateXml != nullptr)
+		tooltipOptionsTreeStateXml->setTagName(ID::state_TooltipOptions);
 	return tooltipOptionsTreeStateXml.release();
 }
 
