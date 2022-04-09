@@ -667,6 +667,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3250,6 +3253,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h">
@@ -6203,7 +6209,7 @@
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Randomization-Seq-Step-Options-Background.png">
+    <None Include="..\..\Resources\Randomization-Seq-Track-Options-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">

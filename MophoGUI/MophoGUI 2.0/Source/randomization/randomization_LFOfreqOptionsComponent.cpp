@@ -18,6 +18,7 @@ LFOfreqRandomizationOptionsComponent::LFOfreqRandomizationOptionsComponent(int l
 	allowedUnsyncedFreq{ lfoNum, unexposedParams }
 {
 	jassert(lfoNum > 0 && lfoNum < 5);
+
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };

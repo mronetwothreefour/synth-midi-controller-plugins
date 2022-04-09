@@ -53,7 +53,7 @@ AllowedOctavesForLFOcomponent::AllowedOctavesForLFOcomponent(int lfoNum, Unexpos
 	}
 	addAndMakeVisible(button_ForAllowingAllOctaves);
 
-	setSize(GUI::randomizationAllowedOctavesForLFOandSeqStepComponents_w, GUI::randomizationAllowedOctavesForLFOandSeqStepComponents_h);
+	setSize(GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_w, GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_h);
 }
 
 void AllowedOctavesForLFOcomponent::resized() {

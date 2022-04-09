@@ -257,8 +257,8 @@ namespace BinaryData
     extern const char*   RandomizationOscOptionsBackground_png;
     const int            RandomizationOscOptionsBackground_pngSize = 7694;
 
-    extern const char*   RandomizationSeqStepOptionsBackground_png;
-    const int            RandomizationSeqStepOptionsBackground_pngSize = 10167;
+    extern const char*   RandomizationSeqTrackOptionsBackground_png;
+    const int            RandomizationSeqTrackOptionsBackground_pngSize = 11963;
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;

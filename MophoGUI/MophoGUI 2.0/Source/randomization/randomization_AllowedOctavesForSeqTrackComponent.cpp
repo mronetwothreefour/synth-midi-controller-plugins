@@ -40,7 +40,7 @@ AllowedOctavesForSeqTrackComponent::AllowedOctavesForSeqTrackComponent(int track
 
 	generateTooltips();	
 
-	setSize(GUI::randomizationAllowedOctavesForLFOandSeqStepComponents_w, GUI::randomizationAllowedOctavesForLFOandSeqStepComponents_h);
+	setSize(GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_w, GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_h);
 }
 
 void AllowedOctavesForSeqTrackComponent::generateTooltips() {

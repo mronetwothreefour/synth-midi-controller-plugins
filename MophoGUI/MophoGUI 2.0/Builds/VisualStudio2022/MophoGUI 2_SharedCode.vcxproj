@@ -195,6 +195,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_Base.cpp"/>
     <ClCompile Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.cpp"/>
@@ -2316,6 +2317,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_Base.h"/>
     <ClInclude Include="..\..\Source\tooltipSetters\tooltipSetter_ForExposedParamComboBoxes.h"/>
@@ -3301,7 +3303,7 @@
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png"/>
     <None Include="..\..\Resources\Randomization-LFO-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png"/>
-    <None Include="..\..\Resources\Randomization-Seq-Step-Options-Background.png"/>
+    <None Include="..\..\Resources\Randomization-Seq-Track-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Window-Background.png"/>
     <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO1.png"/>
     <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO2.png"/>

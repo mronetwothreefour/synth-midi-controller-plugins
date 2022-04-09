@@ -273,6 +273,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.cpp"/>
         <FILE id="L0B6IM" name="randomization_ProbablitiesForSeqTrackComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.h"/>
+        <FILE id="Iv7aPr" name="randomization_SeqTrackOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.cpp"/>
+        <FILE id="PwCsTd" name="randomization_SeqTrackOptionsComponent.h" compile="0"
+              resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.h"/>
         <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
               file="Source/randomization/RandomizationComponent.cpp"/>
         <FILE id="bCeZ6k" name="RandomizationComponent.h" compile="0" resource="0"
@@ -819,8 +823,8 @@
             resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
       <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
-      <FILE id="dIcWOR" name="Randomization-Seq-Step-Options-Background.png"
-            compile="0" resource="1" file="Resources/Randomization-Seq-Step-Options-Background.png"/>
+      <FILE id="dIcWOR" name="Randomization-Seq-Track-Options-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Seq-Track-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
       <FILE id="aXDarv" name="Title-Allowed-Freq-For-LFO1.png" compile="0"
