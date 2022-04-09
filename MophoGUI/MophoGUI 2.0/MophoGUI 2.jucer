@@ -219,6 +219,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.cpp"/>
         <FILE id="QW7lXt" name="randomization_AllowedNotesForOscComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.h"/>
+        <FILE id="T2gubM" name="randomization_AllowedNotesForSeqTrackComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.cpp"/>
+        <FILE id="i5ao71" name="randomization_AllowedNotesForSeqTrackComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.h"/>
         <FILE id="Yf2w21" name="randomization_AllowedOctavesForLFOcomponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.cpp"/>
         <FILE id="pwRkRj" name="randomization_AllowedOctavesForLFOcomponent.h"
@@ -227,6 +231,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
         <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.h"/>
+        <FILE id="MjW7DG" name="randomization_AllowedOctavesForSeqTrackComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
+        <FILE id="KTDCob" name="randomization_AllowedOctavesForSeqTrackComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.h"/>
         <FILE id="xgDdVU" name="randomization_AllowedStepValuesForSeqTrackComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
         <FILE id="uUbgul" name="randomization_AllowedStepValuesForSeqTrackComponent.h"

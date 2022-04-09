@@ -194,14 +194,12 @@ void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& tree,
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
-		if (editModeIsSelectedStep) {
-			for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+			if (editModeIsSelectedStep) {
 				auto noteIsAllowed{ randomizationOptions->noteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum) };
 				allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 			}
-		}
-		else {
-			for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+			else {
 				auto noteIsAllowed{ randomizationOptions->noteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum) };
 				allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 			}
@@ -216,4 +214,6 @@ AllowedNotesForSeqTrackComponent::~AllowedNotesForSeqTrackComponent() {
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
 		allowedNoteToggles[noteNum].removeListener(this);
 	}
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->removeListenerFromSeqTrackAllowedStepValuesTree(this);
 }

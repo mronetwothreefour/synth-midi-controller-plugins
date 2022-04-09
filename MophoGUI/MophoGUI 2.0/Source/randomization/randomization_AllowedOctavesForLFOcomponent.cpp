@@ -127,7 +127,6 @@ void AllowedOctavesForLFOcomponent::buttonClicked(Button* button) {
 
 AllowedOctavesForLFOcomponent::~AllowedOctavesForLFOcomponent() {
 	button_ForAllowingAllOctaves.removeListener(this);
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum)
 		allowedOctaveToggles[octaveNum].removeListener(this);
-	}
 }

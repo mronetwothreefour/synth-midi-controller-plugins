@@ -32,7 +32,8 @@ AllowedNotesForLFOcomponent::AllowedNotesForLFOcomponent(int lfoNum, UnexposedPa
 			auto noteName{ IntToPitchName::convert((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false) };
 			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not " + noteName + " notes are allowed\n";
-			toggleTooltip += "when a random pitched frequency is generated for LFO " + (String)lfoNum + ".\n";
+			toggleTooltip += "when a random pitched frequency is generated for LFO " + (String)lfoNum + "\n";
+			toggleTooltip += "(when the track destination is an oscillator pitch).\n";
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make " + noteName + " notes the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed note.";
