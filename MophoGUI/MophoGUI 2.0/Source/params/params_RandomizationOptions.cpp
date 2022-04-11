@@ -2,6 +2,7 @@
 
 #include "params_Constants.h"
 #include "params_Identifiers.h"
+#include "params_ExposedParamsInfo_Singleton.h"
 #include "../randomization/randomization_Constants.h"
 
 using namespace constants;
@@ -18,8 +19,15 @@ RandomizationOptions::RandomizationOptions() :
 }
 
 void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
-	for (uint8 param = 0; param != params::numberOfExposedParams; ++param)
+	for (uint8 param = 0; param != params::numberOfExposedParams; ++param) {
 		setParamIsUnlocked(param);
+		auto& info{ InfoForExposedParameters::get() };
+		if (info.randomizationOptionTypeFor(param) == RandomizationOptionsType::valueRange) {
+			auto paramID(info.IDfor(param));
+			setMinValueAllowedForParam((uint8)0, paramID);
+			setMaxValueAllowedForParam(info.maxValueFor(param), paramID);
+		}
+	}
 	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum)
 			setNoteIsAllowedForOscillator(noteNum, oscNum);
@@ -77,6 +85,24 @@ void RandomizationOptions::setParamIsLocked(uint8 param) {
 void RandomizationOptions::setParamIsUnlocked(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)false, nullptr);
+}
+
+const uint8 RandomizationOptions::minValueAllowedForParam(Identifier paramID) {
+	int minAllowedValue{ allowedValueRangesTree.getProperty("minAllowedValueFor" + paramID.toString()) };
+	return (uint8)minAllowedValue;
+}
+
+void RandomizationOptions::setMinValueAllowedForParam(uint8 newMin, Identifier paramID) {
+	allowedValueRangesTree.setProperty("minAllowedValueFor" + paramID.toString(), newMin, nullptr);
+}
+
+const uint8 RandomizationOptions::maxValueAllowedForParam(Identifier paramID) {
+	int maxAllowedValue{ allowedValueRangesTree.getProperty("maxAllowedValueFor" + paramID.toString()) };
+	return (uint8)maxAllowedValue;
+}
+
+void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, Identifier paramID) {
+	allowedValueRangesTree.setProperty("maxAllowedValueFor" + paramID.toString(), newMax, nullptr);
 }
 
 const bool RandomizationOptions::pitchIsAllowedForOscillator(int pitchNum, int oscNum) {

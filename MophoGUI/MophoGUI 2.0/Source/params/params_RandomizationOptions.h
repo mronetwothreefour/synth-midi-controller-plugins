@@ -22,6 +22,7 @@ enum class RandomizationOptionsType {
 class RandomizationOptions
 {
 	ValueTree paramLocksTree;
+	ValueTree allowedValueRangesTree;
 	ValueTree oscAllowedPitchesTree;
 	ValueTree lfoAllowedFrequenciesTree;
 	ValueTree seqTrackAllowedStepValuesTree;
@@ -36,6 +37,11 @@ public:
 	const bool paramIsLocked(uint8 param);
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
+
+	const uint8 minValueAllowedForParam(Identifier paramID);
+	void setMinValueAllowedForParam(uint8 newMin, Identifier paramID);
+	const uint8 maxValueAllowedForParam(Identifier paramID);
+	void setMaxValueAllowedForParam(uint8 newMax, Identifier paramID);
 
 	const bool pitchIsAllowedForOscillator(int pitchNum, int oscNum);
 	const bool noteIsAllowedForOscillator(int noteNum, int oscNum);

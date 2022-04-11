@@ -84,6 +84,8 @@ namespace ID
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
+	static const Identifier component_KnobForMinRandomValueFor{ "component_KnobForMinRandomValueFor" };
+	static const Identifier component_KnobForMaxRandomValueFor{ "component_KnobForMinRandomValueFor" };
 	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
 	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
 	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };

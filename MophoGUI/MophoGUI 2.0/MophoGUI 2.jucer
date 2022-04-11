@@ -251,6 +251,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.cpp"/>
         <FILE id="UqU3Vq" name="randomization_LFOfreqOptionsComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.h"/>
+        <FILE id="e5Q6dE" name="randomization_OptionsComponent_ValueRange.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.cpp"/>
+        <FILE id="GTauAU" name="randomization_OptionsComponent_ValueRange.h"
+              compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
         <FILE id="TzD18V" name="randomization_EditModeForSeqTrackComponent.cpp"
@@ -821,6 +825,8 @@
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
       <FILE id="vkmfZr" name="Randomization-LFO-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
+      <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
       <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
       <FILE id="dIcWOR" name="Randomization-Seq-Track-Options-Background.png"

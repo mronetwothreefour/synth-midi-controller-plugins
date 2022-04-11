@@ -1,0 +1,122 @@
+#include "randomization_OptionsComponent_ValueRange.h"
+
+#include "../gui/gui_Colors.h"
+#include "../gui/gui_Constants.h"
+#include "../params/params_Identifiers.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
+#include "../params/params_IntToContextualStringConverters.h"
+#include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
+
+
+
+RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRange(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+	paramIndex{ paramIndex },
+	unexposedParams{ unexposedParams },
+	knob_ForMinValue{ unexposedParams },
+	valueDisplay_ForMinValue{ &knob_ForMinValue, InfoForExposedParameters::get().converterFor(paramIndex) },
+	knob_ForMaxValue{ unexposedParams },
+	valueDisplay_ForMaxValue{ &knob_ForMaxValue, InfoForExposedParameters::get().converterFor(paramIndex) }
+{
+	auto& info{ InfoForExposedParameters::get() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto paramID{ info.IDfor(paramIndex) };
+
+	knob_ForMinValue.setComponentID(ID::component_KnobForMinRandomValueFor.toString() + paramID.toString());
+	knob_ForMinValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
+	knob_ForMinValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramID));
+	knob_ForMinValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
+	knob_ForMinValue.addListener(this);
+	if (shouldShowDescriptions) {
+		String knobTooltip{ "" };
+		knobTooltip += "Sets the minimum value that can be randomly generated for\n";
+		knobTooltip += info.exposedNameFor(paramIndex);
+		knob_ForMinValue.setTooltip(knobTooltip);
+	}
+	addAndMakeVisible(knob_ForMinValue);
+
+	addAndMakeVisible(valueDisplay_ForMinValue);
+	valueDisplay_ForMinValue.setInterceptsMouseClicks(false, false);
+
+	knob_ForMaxValue.setComponentID(ID::component_KnobForMaxRandomValueFor.toString() + paramID.toString());
+	knob_ForMaxValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
+	knob_ForMaxValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramID));
+	knob_ForMaxValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
+	knob_ForMaxValue.addListener(this);
+	if (shouldShowDescriptions) {
+		String knobTooltip{ "" };
+		knobTooltip += "Sets the maximum value that can be randomly generated for\n";
+		knobTooltip += info.exposedNameFor(paramIndex);
+		knob_ForMaxValue.setTooltip(knobTooltip);
+	}
+	addAndMakeVisible(knob_ForMaxValue);
+
+	addAndMakeVisible(valueDisplay_ForMaxValue);
+	valueDisplay_ForMaxValue.setInterceptsMouseClicks(false, false);
+
+	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
+	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
+	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
+	if (shouldShowDescriptions)
+		button_ForClosingComponent.setTooltip("Click to close this window.");
+	addAndMakeVisible(button_ForClosingComponent);
+
+	setSize(GUI::editor_w, GUI::editor_h);
+}
+
+void RandomizationOptionsComponent_ValueRange::paint(Graphics& g) {
+	g.fillAll(Color::black.withAlpha(0.4f));
+	auto& info{ InfoForExposedParameters::get() };
+	auto controlCenter{ info.controlCenterPointFor(paramIndex) };
+	g.setColour(Color::switchOn);
+	g.drawEllipse(controlCenter.x, controlCenter.y, GUI::knob_diameter, GUI::knob_diameter, 2);
+	MemoryInputStream memInputStream{ BinaryData::RandomizationOptionsValueRangeBackground_png, BinaryData::RandomizationOptionsValueRangeBackground_pngSize, false };
+	PNGImageFormat imageFormat;
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, GUI::randomizationOptionsComponent_ValueRange_x, GUI::randomizationOptionsComponent_ValueRange_y);
+}
+
+void RandomizationOptionsComponent_ValueRange::resized() {
+	knob_ForMinValue.setBounds(GUI::bounds_RandomizationOptions_ValueRange_MinKnob);
+	knob_ForMaxValue.setBounds(GUI::bounds_RandomizationOptions_ValueRange_MaxKnob);
+	button_ForClosingComponent.setBounds(GUI::bounds_RandomizationOptions_ValueRange_CloseButton);
+}
+
+void RandomizationOptionsComponent_ValueRange::sliderValueChanged(Slider* slider) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto sliderID{ slider->getComponentID() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto paramID{ info.IDfor(paramIndex) };
+
+	if (sliderID == ID::component_KnobForMinRandomValueFor.toString() + paramID.toString()) {
+		auto newMinValue{ (uint8)slider->getValue() };
+		randomizationOptions->setMinValueAllowedForParam(newMinValue, paramID);
+		auto maxValue{ randomizationOptions->maxValueAllowedForParam(paramID) };
+		if (newMinValue > maxValue) {
+			knob_ForMaxValue.setValue((double)newMinValue, sendNotification);
+			randomizationOptions->setMaxValueAllowedForParam(newMinValue, paramID);
+		}
+	}
+	if (sliderID == ID::component_KnobForMaxRandomValueFor.toString() + paramID.toString()) {
+		auto newMaxValue{ (uint8)slider->getValue() };
+		randomizationOptions->setMaxValueAllowedForParam(newMaxValue, paramID);
+		auto minValue{ randomizationOptions->minValueAllowedForParam(paramID) };
+		if (newMaxValue < minValue) {
+			knob_ForMinValue.setValue((double)newMaxValue, sendNotification);
+			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramID);
+		}
+	}
+}
+
+void RandomizationOptionsComponent_ValueRange::hideThisComponent() {
+	getParentComponent()->grabKeyboardFocus();
+	setVisible(false);
+}
+
+RandomizationOptionsComponent_ValueRange::~RandomizationOptionsComponent_ValueRange() {
+	knob_ForMinValue.removeListener(this);
+	knob_ForMaxValue.removeListener(this);
+}
