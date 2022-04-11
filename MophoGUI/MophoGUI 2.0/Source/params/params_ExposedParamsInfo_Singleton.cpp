@@ -3,6 +3,7 @@
 #include "params_Constants.h"
 #include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
+#include "params_RandomizationOptions.h"
 #include "../gui/gui_Constants.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
@@ -35,6 +36,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::notesAndOctaves);
 
 		identifiers.add(i == 1 ? ID::osc1_Fine : ID::osc2_Fine); // 1 & 7
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
@@ -50,6 +52,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 		identifiers.add(i == 1 ? ID::osc1_Shape : ID::osc2_Shape); // 2 & 8
 		exposedNames.add("Oscillator " + (String)i + " Wave Shape");
@@ -68,6 +71,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::oscShape);
 
 		identifiers.add(i == 1 ? ID::osc1_Glide : ID::osc2_Glide); // 3 & 9
 		exposedNames.add("Oscillator " + (String)i + " Glide Rate");
@@ -82,6 +86,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 		identifiers.add(i == 1 ? ID::osc1_KeyTrack : ID::osc2_KeyTrack); // 4 & 10
 		exposedNames.add("Oscillator " + (String)i + " Keyboard Track On/Off");
@@ -98,6 +103,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 		identifiers.add(i == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel); // 5 & 11
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
@@ -114,6 +120,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 	}
 
 	identifiers.add(ID::oscSync); // 12
@@ -130,6 +137,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, 22));
+	randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 	//======================================================
 
@@ -148,6 +156,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(124);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 78));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::oscSlop); // 14
 	exposedNames.add("Oscillator Slop");
@@ -163,6 +172,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::bendRange); // 15
 	exposedNames.add("Pitch Bend Range");
@@ -178,6 +188,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::notePriority); // 16
 	exposedNames.add("Note Priority (Key Assign)");
@@ -194,6 +205,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(124);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 38));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::oscMix); // 17
 	exposedNames.add("Oscillator 1 & 2 Mix");
@@ -210,6 +222,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::noiseLevel); // 18
 	exposedNames.add("Noise Level");
@@ -225,6 +238,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::oscControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::extInLevel); // 19
 	exposedNames.add("External Audio Input Level");
@@ -243,6 +257,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::oscControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	//======================================================
 
@@ -261,6 +276,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::lpfFreq);
 
 	identifiers.add(ID::lpfReso); // 21
 	exposedNames.add("LPF Resonance");
@@ -277,6 +293,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfKeyAmount); // 22
 	exposedNames.add("LPF Keyboard Amount");
@@ -294,6 +311,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfFMamount); // 23
 	exposedNames.add("LPF FM (By Oscillator 1)");
@@ -310,6 +328,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfType); // 24
 	exposedNames.add("LPF Type");
@@ -325,6 +344,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 	identifiers.add(ID::lpfEnvAmount); // 25
 	exposedNames.add("LPF Envelope Amount");
@@ -341,6 +361,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfVelAmount); // 26
 	exposedNames.add("LPF Envelope Velocity Amount");
@@ -356,6 +377,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfDelay); // 27
 	exposedNames.add("LPF Envelope Delay");
@@ -372,6 +394,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfAttack); // 28
 	exposedNames.add("LPF Envelope Attack");
@@ -388,6 +411,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfDecay); // 29
 	exposedNames.add("LPF Envelope Decay");
@@ -404,6 +428,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfSustain); // 30
 	exposedNames.add("LPF Envelope Sustain");
@@ -420,6 +445,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::lpfRelease); // 31
 	exposedNames.add("LPF Envelope Release");
@@ -436,6 +462,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::lpfControlsRow3_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	//======================================================
 
@@ -454,6 +481,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::vcaControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaEnvAmount); // 33
 	exposedNames.add("VCA Envelope Amount");
@@ -469,6 +497,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaVelAmount); // 34
 	exposedNames.add("VCA Envelope Velocity Amount");
@@ -484,6 +513,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::vcaControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaDelay); // 35
 	exposedNames.add("VCA Envelope Delay");
@@ -500,6 +530,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaAttack); // 36
 	exposedNames.add("VCA Envelope Attack");
@@ -516,6 +547,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaDecay); // 37
 	exposedNames.add("VCA Envelope Decay");
@@ -532,6 +564,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaSustain); // 38
 	exposedNames.add("VCA Envelope Sustain");
@@ -548,6 +581,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::vcaRelease); // 39
 	exposedNames.add("VCA Envelope Release");
@@ -564,6 +598,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::voiceVolume); // 40
 	exposedNames.add("Program Volume");
@@ -578,6 +613,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::vcaControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	//======================================================
 
@@ -599,6 +635,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(416 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::lfoFreq);
 
 		identifiers.add("lfo" + String(lfoNum + 1) + "Shape"); // 42, 47, 52, 57
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Wave Shape");
@@ -611,6 +648,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow2_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 		identifiers.add("lfo" + String(lfoNum + 1) + "Amount"); // 43, 48, 53, 58
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Amount");
@@ -626,6 +664,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(461 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 		identifiers.add("lfo" + String(lfoNum + 1) + "Destination"); // 44, 49, 54, 59
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Modulation Destination");
@@ -638,6 +677,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(463 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow3_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 		identifiers.add("lfo" + String(lfoNum + 1) + "KeySync"); // 45, 50, 55, 60
 		exposedNames.add("LFO " + String(lfoNum + 1) + " Key Sync On/Off");
@@ -652,6 +692,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(507 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::none);
 	}
 
 	//======================================================
@@ -667,6 +708,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(126);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::env3Amount); // 62
 	exposedNames.add("Envelope 3 Amount");
@@ -683,6 +725,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::env3ControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3VelAmount); // 63
 	exposedNames.add("Envelope 3 Velocity Amount");
@@ -698,6 +741,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, GUI::env3ControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Delay); // 64
 	exposedNames.add("Envelope 3 Delay");
@@ -714,6 +758,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Attack); // 65
 	exposedNames.add("Envelope 3 Attack");
@@ -730,6 +775,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Decay); // 66
 	exposedNames.add("Envelope 3 Decay");
@@ -746,6 +792,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Sustain); // 67
 	exposedNames.add("Envelope 3 Sustain");
@@ -762,6 +809,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol7_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Release); // 68
 	exposedNames.add("Envelope 3 Release");
@@ -778,6 +826,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol8_x, GUI::env3ControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::env3Repeat); // 69
 	exposedNames.add("Envelope 3 Repeat On/Off");
@@ -793,6 +842,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::env3ControlsRow1_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 	//======================================================
 
@@ -814,6 +864,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol1_x, 184 + i * GUI::modulatorControlsVerticalSpacing));
+		randomizationOptionsTypes.add(RandomizationOptionsType::modulationSource);
 
 		identifiers.add("mod" + (String)(i + 1) + "Amount"); // 71, 74, 77, 80
 		exposedNames.add("Modulator " + (String)(i + 1) + " Amount");
@@ -826,6 +877,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol2_x, 201 + i * GUI::modulatorControlsVerticalSpacing));
+		randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 		identifiers.add("mod" + (String)(i + 1) + "Destination"); // 72, 75, 78, 81
 		exposedNames.add("Modulator " + (String)(i + 1) + " Destination");
@@ -838,6 +890,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
 		controlCenterPoints.add(Point<int>(GUI::modulatorControlsCol1_x, 218 + i * GUI::modulatorControlsVerticalSpacing));
+		randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 	}
 
 	//======================================================
@@ -857,6 +910,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 191));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::modWheelDest); // 83
 	exposedNames.add("Modulation Wheel Destination");
@@ -869,6 +923,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 191));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::pressureAmount); // 84
 	exposedNames.add("Pressure (Aftertouch) Amount");
@@ -885,6 +940,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 253));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::pressureDest); // 85
 	exposedNames.add("Pressure (Aftertouch) Destination");
@@ -897,6 +953,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 253));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::breathAmount); // 86
 	exposedNames.add("Breath Amount");
@@ -913,6 +970,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 315));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::breathDest); // 87
 	exposedNames.add("Breath Destination");
@@ -925,6 +983,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 315));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::velocityAmount); // 88
 	exposedNames.add("Note Velocity Amount");
@@ -941,6 +1000,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 377));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::velocityDest); // 89
 	exposedNames.add("Note Velocity Destination");
@@ -953,6 +1013,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 377));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::footPedalAmount); // 90
 	exposedNames.add("Foot Pedal Amount");
@@ -969,6 +1030,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol2_x, 439));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::footPedalDest); // 91
 	exposedNames.add("Foot Pedal Destination");
@@ -981,6 +1043,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::midiControllersCol1_x, 439));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	//======================================================
 
@@ -999,6 +1062,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1191, 528));
+	randomizationOptionsTypes.add(RandomizationOptionsType::notesAndOctaves);
 
 	identifiers.add(ID::pushItVelocity); // 93
 	exposedNames.add("Push It! Switch Velocity");
@@ -1014,6 +1078,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1239, 528));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::pushItMode); // 94
 	exposedNames.add("Push It! Switch Mode");
@@ -1033,6 +1098,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(88);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(1215, 577));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	//======================================================
 
@@ -1049,6 +1115,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1236, 126));
+	randomizationOptionsTypes.add(RandomizationOptionsType::valueRange);
 
 	identifiers.add(ID::clockDivision); // 96
 	exposedNames.add("Clock Division");
@@ -1063,6 +1130,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(124);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(1139, 126));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	//======================================================
 
@@ -1079,6 +1147,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(124);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol10_x, 118));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::arpegOnOff); // 98
 	exposedNames.add("Arpeggiator On/Off");
@@ -1093,6 +1162,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow2_y));
+	randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 	identifiers.add(ID::sequencerTrigMode); // 99
 	exposedNames.add("Sequencer Trigger Mode");
@@ -1116,6 +1186,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(114);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(998, 126));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::sequencerOnOff); // 100
 	exposedNames.add("Sequencer On/Off");
@@ -1130,6 +1201,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
+	randomizationOptionsTypes.add(RandomizationOptionsType::none);
 
 	identifiers.add(ID::seqTrack1Dest);
 	exposedNames.add("Sequencer Track 1 Destination");
@@ -1144,6 +1216,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 169));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::seqTrack2Dest);
 	exposedNames.add("Sequencer Track 2 Destination");
@@ -1158,6 +1231,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 252));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::seqTrack3Dest);
 	exposedNames.add("Sequencer Track 3 Destination");
@@ -1172,6 +1246,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 335));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	identifiers.add(ID::seqTrack4Dest);
 	exposedNames.add("Sequencer Track 4 Destination");
@@ -1186,6 +1261,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::seqTrackDestComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::seqTrackDestComboBoxes_x, 418));
+	randomizationOptionsTypes.add(RandomizationOptionsType::modulationDestination);
 
 	//======================================================
 
@@ -1202,6 +1278,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knobAssignComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 521));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::assignKnob2); // 106
 	exposedNames.add("Assign Parameter to Knob 2");
@@ -1216,6 +1293,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knobAssignComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 549));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::assignKnob3); // 107
 	exposedNames.add("Assign Parameter to Knob 3");
@@ -1230,6 +1308,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knobAssignComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 577));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	identifiers.add(ID::assignKnob4); // 108
 	exposedNames.add("Assign Parameter to Knob 4");
@@ -1244,6 +1323,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knobAssignComboBoxes_w);
 	controlHeights.add(GUI::comboBox_h);
 	controlCenterPoints.add(Point<int>(GUI::knobAssignComboBoxes_x, 605));
+	randomizationOptionsTypes.add(RandomizationOptionsType::togglesForEachMenuItem);
 
 	//======================================================
 
@@ -1276,6 +1356,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			controlWidths.add(GUI::seqSteps_w);
 			controlHeights.add(GUI::seqSteps_h);
 			controlCenterPoints.add(Point<int>(GUI::sequencerStep1_x + step * GUI::sequencerStepsHorizontalSpacer, GUI::sequencerTrack1Steps_y + track * GUI::sequencerTracksVerticalSpacer));
+			randomizationOptionsTypes.add(RandomizationOptionsType::sequencerTrackStep);
 		}
 	}
 
@@ -1297,6 +1378,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::voiceNameCharacters_w);
 		controlHeights.add(GUI::voiceNameCharacters_h);
 		controlCenterPoints.add(Point<int>(GUI::voiceNameCharacter1_x + (charNum * GUI::voiceNameCharactersHorizontalSpacer), GUI::voiceNameCharacters_y));
+		randomizationOptionsTypes.add(RandomizationOptionsType::none);
 	}
 	defaultValues.add((uint8)'B');
 	defaultValues.add((uint8)'a');
@@ -1405,6 +1487,10 @@ uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
 
 uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
 	return msBitMasks[paramIndex];
+}
+
+RandomizationOptionsType InfoForExposedParameters::randomizationOptionTypeFor(uint8 paramIndex) const {
+	return randomizationOptionsTypes[paramIndex];
 }
 
 uint8 InfoForExposedParameters::indexForNRPN(const uint8 nrpn) const {

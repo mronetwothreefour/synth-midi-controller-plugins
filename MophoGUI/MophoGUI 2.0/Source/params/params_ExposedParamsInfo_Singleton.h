@@ -5,6 +5,7 @@
 
 
 enum class ControlType;
+enum class RandomizationOptionsType;
 struct IntToContextualStringConverter;
 
 class InfoForExposedParameters
@@ -24,6 +25,7 @@ private:
 	Array<int> controlWidths;
 	Array<int> controlHeights;
 	Array<Point<int>> controlCenterPoints;
+	Array<RandomizationOptionsType> randomizationOptionsTypes;
 	Array<uint16> msBitPackedByteLocations;
 	Array<uint16> lsByteLocations;
 	Array<uint8> msBitMasks;
@@ -55,6 +57,7 @@ public:
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
 	uint8 msBitMaskFor(uint8 paramIndex) const;
+	RandomizationOptionsType randomizationOptionTypeFor(uint8 paramIndex) const;
 
 	// Returns 255 if NRPN is not found
 	uint8 indexForNRPN(const uint8 nrpn) const;

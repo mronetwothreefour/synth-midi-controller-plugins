@@ -4,6 +4,21 @@
 
 
 
+enum class RandomizationOptionsType {
+	none = 0,
+	valueRange,
+	notesAndOctaves,
+	modulationSource,
+	modulationDestination,
+	oscShape,
+	lpfFreq,
+	lfoFreq,
+	sequencerTrackStep,
+	togglesForEachMenuItem
+};
+
+
+
 class RandomizationOptions
 {
 	ValueTree paramLocksTree;
