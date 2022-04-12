@@ -85,7 +85,7 @@ namespace ID
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_KnobForMinRandomValueFor{ "component_KnobForMinRandomValueFor" };
-	static const Identifier component_KnobForMaxRandomValueFor{ "component_KnobForMinRandomValueFor" };
+	static const Identifier component_KnobForMaxRandomValueFor{ "component_KnobForMaxRandomValueFor" };
 	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
 	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
 	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };
@@ -204,6 +204,7 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
+	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_LFOallowedFrequencies{ "randomization_LFOallowedFrequencies" };
 	static const Identifier randomization_OscAllowedPitches{ "randomization_OscAllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };

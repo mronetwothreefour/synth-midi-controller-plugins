@@ -11,6 +11,7 @@ using namespace constants;
 
 RandomizationOptions::RandomizationOptions() :
 	paramLocksTree{ ID::randomization_ParamLocks },
+	allowedValueRangesTree{ ID::randomization_AllowedValueRanges },
 	oscAllowedPitchesTree{ ID::randomization_OscAllowedPitches },
 	lfoAllowedFrequenciesTree{ ID::randomization_LFOallowedFrequencies },
 	seqTrackAllowedStepValuesTree{ ID::randomization_SeqTrackAllowedStepValues }
@@ -88,21 +89,21 @@ void RandomizationOptions::setParamIsUnlocked(uint8 param) {
 }
 
 const uint8 RandomizationOptions::minValueAllowedForParam(Identifier paramID) {
-	int minAllowedValue{ allowedValueRangesTree.getProperty("minAllowedValueFor" + paramID.toString()) };
-	return (uint8)minAllowedValue;
+	int minValueAllowed{ allowedValueRangesTree.getProperty("minValueAllowedFor" + paramID.toString()) };
+	return (uint8)minValueAllowed;
 }
 
 void RandomizationOptions::setMinValueAllowedForParam(uint8 newMin, Identifier paramID) {
-	allowedValueRangesTree.setProperty("minAllowedValueFor" + paramID.toString(), newMin, nullptr);
+	allowedValueRangesTree.setProperty("minValueAllowedFor" + paramID.toString(), newMin, nullptr);
 }
 
 const uint8 RandomizationOptions::maxValueAllowedForParam(Identifier paramID) {
-	int maxAllowedValue{ allowedValueRangesTree.getProperty("maxAllowedValueFor" + paramID.toString()) };
-	return (uint8)maxAllowedValue;
+	int maxValueAllowed{ allowedValueRangesTree.getProperty("maxValueAllowedFor" + paramID.toString()) };
+	return (uint8)maxValueAllowed;
 }
 
 void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, Identifier paramID) {
-	allowedValueRangesTree.setProperty("maxAllowedValueFor" + paramID.toString(), newMax, nullptr);
+	allowedValueRangesTree.setProperty("maxValueAllowedFor" + paramID.toString(), newMax, nullptr);
 }
 
 const bool RandomizationOptions::pitchIsAllowedForOscillator(int pitchNum, int oscNum) {
@@ -692,6 +693,12 @@ XmlElement* RandomizationOptions::getStateXml() {
 		randomizationOptionsStateXml->addChildElement(paramLocksTreeStateXml.release());
 	}
 
+	auto allowedValueRangesTreeStateXml{ allowedValueRangesTree.createXml() };
+	if (allowedValueRangesTreeStateXml != nullptr) {
+		allowedValueRangesTreeStateXml->setTagName(ID::randomization_AllowedValueRanges);
+		randomizationOptionsStateXml->addChildElement(allowedValueRangesTreeStateXml.release());
+	}
+
 	auto oscAllowedPitchesTreeStateXml{ oscAllowedPitchesTree.createXml() };
 	if (oscAllowedPitchesTreeStateXml != nullptr) {
 		oscAllowedPitchesTreeStateXml->setTagName(ID::randomization_OscAllowedPitches);
@@ -718,6 +725,10 @@ void RandomizationOptions::replaceState(const ValueTree& newState) {
 		auto paramLocksTreeState{ newState.getChildWithName(ID::randomization_ParamLocks) };
 		if (paramLocksTreeState.isValid())
 			paramLocksTree.copyPropertiesAndChildrenFrom(paramLocksTreeState, nullptr);
+
+		auto allowedValueRangesTreeState{ newState.getChildWithName(ID::randomization_AllowedValueRanges) };
+		if (allowedValueRangesTreeState.isValid())
+			allowedValueRangesTree.copyPropertiesAndChildrenFrom(allowedValueRangesTreeState, nullptr);
 
 		auto oscAllowedPitchesTreeState{ newState.getChildWithName(ID::randomization_OscAllowedPitches) };
 		if (oscAllowedPitchesTreeState.isValid())

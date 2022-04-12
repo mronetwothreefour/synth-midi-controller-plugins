@@ -2,11 +2,13 @@
 
 #include "randomization_OscillatorOptionsComponent.h"
 #include "randomization_LFOfreqOptionsComponent.h"
+#include "randomization_OptionsComponent_ValueRange.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_EditBufferDataMessage.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
+#include "../params/params_RandomizationOptions.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 #include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
@@ -218,27 +220,36 @@ void RandomizationComponent::resized() {
 void RandomizationComponent::buttonClicked(Button* button) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto buttonID{ button->getComponentID() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	if (buttonID.startsWith("lockButton")) {
 		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
-		if (paramID == "arpegOnOff" || paramID == "sequencerOnOff") {
-			if (exposedParams->getParameter(paramID)->getValue() == 1.0f) {
-				if (paramID == "arpegOnOff") {
-					auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
-					paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
-				}
-				if (paramID == "sequencerOnOff") {
-					auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
-					paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+			auto paramIndex{ info.indexForParamID(paramID) };
+			if (info.randomizationOptionTypeFor(paramIndex) == RandomizationOptionsType::valueRange)
+				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
+			button->setToggleState(false, dontSendNotification);
+			randomizationOptions->setParamIsUnlocked(paramIndex);
+		}
+		else {
+			if (paramID == "arpegOnOff" || paramID == "sequencerOnOff") {
+				if (exposedParams->getParameter(paramID)->getValue() == 1.0f) {
+					if (paramID == "arpegOnOff") {
+						auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+						paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+					}
+					if (paramID == "sequencerOnOff") {
+						auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
+						paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+					}
 				}
 			}
+			auto paramIndex{ info.indexForParamID(paramID) };
+			auto buttonIsToggledOn{ button->getToggleState() };
+			if (buttonIsToggledOn)
+				randomizationOptions->setParamIsLocked(paramIndex);
+			else
+				randomizationOptions->setParamIsUnlocked(paramIndex);
 		}
-		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		auto paramIndex{ info.indexForParamID(paramID) };
-		auto buttonIsToggledOn{ button->getToggleState() };
-		if (buttonIsToggledOn)
-			randomizationOptions->setParamIsLocked(paramIndex);
-		else
-			randomizationOptions->setParamIsUnlocked(paramIndex);
 	}
 }
 
@@ -260,12 +271,22 @@ void RandomizationComponent::showOptionsComponentForLFO(int lfoNum) {
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex) {
+	randomizationOptionsComponent_ValueRange.reset(new RandomizationOptionsComponent_ValueRange(paramIndex, unexposedParams));
+	if (randomizationOptionsComponent_ValueRange != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_ValueRange.get());
+		randomizationOptionsComponent_ValueRange->setBounds(getLocalBounds());
+		randomizationOptionsComponent_ValueRange->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 RandomizationComponent::~RandomizationComponent() {
+	randomizationOptionsComponent_ValueRange = nullptr;
 	lfoOptionsComponent = nullptr;
 	oscillatorOptionsComponent = nullptr;
 	auto& info{ InfoForExposedParameters::get() };

@@ -20,6 +20,8 @@ class RandomizationOptionsComponent_ValueRange :
 	RotarySliderWithMouseWheelMod knob_ForMaxValue;
 	RendererForKnobValueStrings valueDisplay_ForMaxValue;
 	TextButton button_ForClosingComponent;
+	int background_x;
+	int background_y;
 
 public:
 	RandomizationOptionsComponent_ValueRange() = delete;

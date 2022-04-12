@@ -35,6 +35,7 @@
 
 class LFOfreqRandomizationOptionsComponent;
 class OscillatorRandomizationOptionsComponent;
+class RandomizationOptionsComponent_ValueRange;
 class UnexposedParameters;
 
 class RandomizationComponent :
@@ -88,6 +89,7 @@ class RandomizationComponent :
 	TextButton button_ForClosingRandomizationComponent;
 	std::unique_ptr<OscillatorRandomizationOptionsComponent> oscillatorOptionsComponent;
 	std::unique_ptr<LFOfreqRandomizationOptionsComponent> lfoOptionsComponent;
+	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
 
 public:
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
@@ -101,6 +103,7 @@ public:
 	void buttonClicked(Button* button) override;
 	void showOscillatorOptionsComponent();
 	void showOptionsComponentForLFO(int lfoNum);
+	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void hideThisComponent();
 	~RandomizationComponent();
 

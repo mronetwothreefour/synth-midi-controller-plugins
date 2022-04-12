@@ -27,12 +27,14 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 
 	knob_ForMinValue.setComponentID(ID::component_KnobForMinRandomValueFor.toString() + paramID.toString());
 	knob_ForMinValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
+	knob_ForMinValue.setDoubleClickReturnValue(true, 0.0);
 	knob_ForMinValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramID));
 	knob_ForMinValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
 	knob_ForMinValue.addListener(this);
 	if (shouldShowDescriptions) {
 		String knobTooltip{ "" };
-		knobTooltip += "Sets the minimum value that can be randomly generated for\n";
+		knobTooltip += "Sets the minimum value that\n";
+		knobTooltip += "can be randomly generated for\n";
 		knobTooltip += info.exposedNameFor(paramIndex);
 		knob_ForMinValue.setTooltip(knobTooltip);
 	}
@@ -43,12 +45,14 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 
 	knob_ForMaxValue.setComponentID(ID::component_KnobForMaxRandomValueFor.toString() + paramID.toString());
 	knob_ForMaxValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
+	knob_ForMaxValue.setDoubleClickReturnValue(true, (double)info.maxValueFor(paramIndex));
 	knob_ForMaxValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramID));
 	knob_ForMaxValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
 	knob_ForMaxValue.addListener(this);
 	if (shouldShowDescriptions) {
 		String knobTooltip{ "" };
-		knobTooltip += "Sets the maximum value that can be randomly generated for\n";
+		knobTooltip += "Sets the maximum value that\n";
+		knobTooltip += "can be randomly generated for\n";
 		knobTooltip += info.exposedNameFor(paramIndex);
 		knob_ForMaxValue.setTooltip(knobTooltip);
 	}
@@ -64,6 +68,16 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 		button_ForClosingComponent.setTooltip("Click to close this window.");
 	addAndMakeVisible(button_ForClosingComponent);
 
+	auto controlCenter{ info.controlCenterPointFor(paramIndex) };
+	if (controlCenter.x < 1200)
+		background_x = controlCenter.x + GUI::knob_diameter;
+	else
+		background_x = controlCenter.x - GUI::knob_diameter - GUI::randomizationOptionsComponent_ValueRange_w;
+	if (controlCenter.y < 450)
+		background_y = controlCenter.y - GUI::knob_diameter / 2;
+	else
+		background_y = controlCenter.y - GUI::randomizationOptionsComponent_ValueRange_h +GUI::knob_diameter / 2;
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -72,17 +86,19 @@ void RandomizationOptionsComponent_ValueRange::paint(Graphics& g) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto controlCenter{ info.controlCenterPointFor(paramIndex) };
 	g.setColour(Color::switchOn);
-	g.drawEllipse(controlCenter.x, controlCenter.y, GUI::knob_diameter, GUI::knob_diameter, 2);
+	g.drawEllipse((float)controlCenter.x - 20.0f, (float)controlCenter.y - 20.0f, GUI::knob_diameter, GUI::knob_diameter, 2);
 	MemoryInputStream memInputStream{ BinaryData::RandomizationOptionsValueRangeBackground_png, BinaryData::RandomizationOptionsValueRangeBackground_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, GUI::randomizationOptionsComponent_ValueRange_x, GUI::randomizationOptionsComponent_ValueRange_y);
+	g.drawImageAt(backgroundImage, background_x, background_y);
 }
 
 void RandomizationOptionsComponent_ValueRange::resized() {
-	knob_ForMinValue.setBounds(GUI::bounds_RandomizationOptions_ValueRange_MinKnob);
-	knob_ForMaxValue.setBounds(GUI::bounds_RandomizationOptions_ValueRange_MaxKnob);
-	button_ForClosingComponent.setBounds(GUI::bounds_RandomizationOptions_ValueRange_CloseButton);
+	knob_ForMinValue.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_MinKnob_x, background_y + GUI::randomizationOptionsComponent_ValueRange_Knobs_y, GUI::knob_diameter, GUI::knob_diameter);
+	valueDisplay_ForMinValue.setBounds(knob_ForMinValue.getBounds());
+	knob_ForMaxValue.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_MaxKnob_x, background_y + GUI::randomizationOptionsComponent_ValueRange_Knobs_y, GUI::knob_diameter, GUI::knob_diameter);
+	valueDisplay_ForMaxValue.setBounds(knob_ForMaxValue.getBounds());
+	button_ForClosingComponent.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_CloseButton_x, background_y + GUI::randomizationOptionsComponent_ValueRange_CloseButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 
 void RandomizationOptionsComponent_ValueRange::sliderValueChanged(Slider* slider) {

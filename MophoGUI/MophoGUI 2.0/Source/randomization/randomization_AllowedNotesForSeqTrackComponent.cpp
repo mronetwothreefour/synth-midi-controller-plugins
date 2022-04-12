@@ -54,7 +54,6 @@ void AllowedNotesForSeqTrackComponent::generateTooltips() {
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
-			String toggleTooltip{ "" };
 			auto noteName{ IntToPitchName::convertToSeqStepPitchName((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false) };
 			if (noteName.contains("+"))
 				noteName = GUI::openQuote + "bent" + GUI::closeQuote + " " + noteName.upToFirstOccurrenceOf("+", false, false) + " (+)";
@@ -168,7 +167,7 @@ void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
 		}
 	}
 	if (buttonID == ID::button_AllNotesForSeqTrack.toString() + (String)trackNum) {
-		for (auto noteNum = 0; noteNum < randomization::numberOfNotesAndBentNotes; noteNum + 2) {
+		for (auto noteNum = 0; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			if (editModeIsSelectedStep)
 				randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
@@ -177,7 +176,7 @@ void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
 		}
 	}
 	if (buttonID == ID::button_AllBentNotesForSeqTrack.toString() + (String)trackNum) {
-		for (auto noteNum = 1; noteNum < randomization::numberOfNotesAndBentNotes; noteNum + 2) {
+		for (auto noteNum = 1; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			if (editModeIsSelectedStep)
 				randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
@@ -187,7 +186,7 @@ void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
 	}
 }
 
-void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
+void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
 		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
 	{

@@ -143,7 +143,7 @@ void AllowedOctavesForSeqTrackComponent::buttonClicked(Button* button) {
 	}
 }
 
-void AllowedOctavesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
+void AllowedOctavesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
 		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
 	{
