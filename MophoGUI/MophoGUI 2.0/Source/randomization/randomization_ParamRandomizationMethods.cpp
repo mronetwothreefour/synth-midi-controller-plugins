@@ -46,30 +46,30 @@ void ParamRandomizationMethods::randomizeParameter(Identifier paramID, AudioProc
 }
 
 void ParamRandomizationMethods::randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto oscNum{ paramID.toString().contains("1") ? 1 : 2 };
-	auto paramIndex{ info.indexForParamID(paramID.toString()) };
-	auto pitchOutOfRange{ uint8(info.maxValueFor(paramIndex) + 1) };
-	Array<float> allowedPitchesStoredAsNormalizedValues;
-	float newNormalizedValue{ 0.0f };
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (randomizationOptions->onlyOctave10_IsAllowedForOscillator(oscNum))
-		newNormalizedValue = 1.0f;
-	else {
-		for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
-			auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForOscillator(pitch, oscNum) };
-			if (pitchIsAllowed) {
-				auto normalizedValue{ pitch / (float)info.maxValueFor(paramIndex) };
-				allowedPitchesStoredAsNormalizedValues.add(normalizedValue);
-			}
-		}
-		auto numberOfAllowedPitches{ allowedPitchesStoredAsNormalizedValues.size() };
-		Random rndmNumGenerator{};
-		auto newFloat{ rndmNumGenerator.nextFloat() };
-		auto newPitchIndex{ (int)floor(newFloat * numberOfAllowedPitches) };
-		newNormalizedValue = allowedPitchesStoredAsNormalizedValues[newPitchIndex];
-	}
-	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+	//auto& info{ InfoForExposedParameters::get() };
+	//auto oscNum{ paramID.toString().contains("1") ? 1 : 2 };
+	//auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	//auto pitchOutOfRange{ uint8(info.maxValueFor(paramIndex) + 1) };
+	//Array<float> allowedPitchesStoredAsNormalizedValues;
+	//float newNormalizedValue{ 0.0f };
+	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	//if (randomizationOptions->onlyOctave10_IsAllowedForOscillator(oscNum))
+	//	newNormalizedValue = 1.0f;
+	//else {
+	//	for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
+	//		auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForOscillator(pitch, oscNum) };
+	//		if (pitchIsAllowed) {
+	//			auto normalizedValue{ pitch / (float)info.maxValueFor(paramIndex) };
+	//			allowedPitchesStoredAsNormalizedValues.add(normalizedValue);
+	//		}
+	//	}
+	//	auto numberOfAllowedPitches{ allowedPitchesStoredAsNormalizedValues.size() };
+	//	Random rndmNumGenerator{};
+	//	auto newFloat{ rndmNumGenerator.nextFloat() };
+	//	auto newPitchIndex{ (int)floor(newFloat * numberOfAllowedPitches) };
+	//	newNormalizedValue = allowedPitchesStoredAsNormalizedValues[newPitchIndex];
+	//}
+	//exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
 void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams) {

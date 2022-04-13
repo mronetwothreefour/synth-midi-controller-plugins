@@ -35,12 +35,6 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			setMaxValueAllowedForParam(info.maxValueFor(param), param);
 		}
 	}
-	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
-		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum)
-			setNoteIsAllowedForOscillator(noteNum, oscNum);
-		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum)
-			setOctaveIsAllowedForOscillator(octaveNum, oscNum);
-	}
 	for (auto lfoNum = 1; lfoNum != 5; ++lfoNum) {
 		setUnsyncedFreqAreAllowedForLFO(lfoNum);
 		setMinUnsyncedFreqForLFO((uint8)0, lfoNum);
@@ -277,83 +271,6 @@ void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, uint8 paramI
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID(info.IDfor(paramIndex));
 	allowedValueRangesTree.setProperty("maxValueAllowedFor_" + paramID.toString(), newMax, nullptr);
-}
-
-const bool RandomizationOptions::pitchIsAllowedForOscillator(int pitchNum, int oscNum) {
-	jassert(pitchNum > -1 && pitchNum < randomization::numberOfPitchesForOscillators);
-	jassert(oscNum == 1 || oscNum == 2);
-	auto noteIsAllowed{ noteIsAllowedForOscillator(pitchNum % randomization::numberOfNotes, oscNum) };
-	auto octaveIsAllowed{ octaveIsAllowedForOscillator(pitchNum / randomization::numberOfNotes, oscNum) };
-	return noteIsAllowed && octaveIsAllowed;
-}
-
-const bool RandomizationOptions::noteIsAllowedForOscillator(int noteNum, int oscNum) {
-	jassert(noteNum > -1 && noteNum < randomization::numberOfNotes);
-	jassert(oscNum == 1 || oscNum == 2);
-	return (bool)allowedPitchesTree.getProperty("note" + String(noteNum) + "_IsAllowedForOsc" + String(oscNum));
-}
-
-void RandomizationOptions::setNoteIsAllowedForOscillator(int noteNum, int oscNum) {
-	jassert(noteNum > -1 && noteNum < randomization::numberOfNotes);
-	jassert(oscNum == 1 || oscNum == 2);
-	allowedPitchesTree.setProperty("note" + String(noteNum) + "_IsAllowedForOsc" + String(oscNum), (bool)true, nullptr);
-}
-
-void RandomizationOptions::setNoteIsNotAllowedForOscillator(int noteNum, int oscNum) {
-	jassert(noteNum > -1 && noteNum < randomization::numberOfNotes);
-	jassert(oscNum == 1 || oscNum == 2);
-	allowedPitchesTree.setProperty("note" + String(noteNum) + "_IsAllowedForOsc" + String(oscNum), (bool)false, nullptr);
-}
-
-const bool RandomizationOptions::noNoteIsAllowedForOscillator(int oscNum) {
-	jassert(oscNum == 1 || oscNum == 2);
-	auto atLeastOneNoteIsAllowed{ (bool)false };
-	auto noNoteIsAllowed{ (bool)true };
-	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
-		if (noteIsAllowedForOscillator(noteNum, oscNum))
-			return atLeastOneNoteIsAllowed;
-	}
-	return noNoteIsAllowed;
-}
-
-const bool RandomizationOptions::octaveIsAllowedForOscillator(int octaveNum, int oscNum) {
-	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctaves);
-	jassert(oscNum == 1 || oscNum == 2);
-	return (bool)allowedPitchesTree.getProperty("octave" + String(octaveNum) + "_IsAllowedForOsc" + String(oscNum));
-}
-
-void RandomizationOptions::setOctaveIsAllowedForOscillator(int octaveNum, int oscNum) {
-	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctaves);
-	jassert(oscNum == 1 || oscNum == 2);
-	allowedPitchesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForOsc" + String(oscNum), (bool)true, nullptr);
-}
-
-void RandomizationOptions::setOctaveIsNotAllowedForOscillator(int octaveNum, int oscNum) {
-	jassert(octaveNum > -1 && octaveNum < 11);
-	jassert(oscNum == 1 || oscNum == 2);
-	allowedPitchesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForOsc" + String(oscNum), (bool)false, nullptr);
-}
-
-const bool RandomizationOptions::noOctaveIsAllowedForOscillator(int oscNum) {
-	jassert(oscNum == 1 || oscNum == 2);
-	auto atLeastOneOctaveIsAllowed{ (bool)false };
-	auto noOctaveIsAllowed{ (bool)true };
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum) {
-		if (octaveIsAllowedForOscillator(octaveNum, oscNum))
-			return atLeastOneOctaveIsAllowed;
-	}
-	return noOctaveIsAllowed;
-}
-
-const bool RandomizationOptions::onlyOctave10_IsAllowedForOscillator(int oscNum) {
-	jassert(oscNum == 1 || oscNum == 2);
-	auto octave10_IsNotTheOnlyOneAllowed{ (bool)false };
-	auto octave10_IsTheOnlyOneAllowed{ (bool)true };
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves - 1; ++octaveNum) {
-		if (octaveIsAllowedForOscillator(octaveNum, oscNum))
-			return octave10_IsNotTheOnlyOneAllowed;
-	}
-	return octave10_IsTheOnlyOneAllowed;
 }
 
 const bool RandomizationOptions::unsyncedFreqAreAllowedForLFO(int lfoNum) {

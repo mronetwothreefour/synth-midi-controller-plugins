@@ -55,17 +55,6 @@ public:
 	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex);
 
 	//-----to do: remove these functions
-	const bool pitchIsAllowedForOscillator(int pitchNum, int oscNum);
-	const bool noteIsAllowedForOscillator(int noteNum, int oscNum);
-	void setNoteIsAllowedForOscillator(int noteNum, int oscNum);
-	void setNoteIsNotAllowedForOscillator(int noteNum, int oscNum);
-	const bool noNoteIsAllowedForOscillator(int oscNum);
-	const bool octaveIsAllowedForOscillator(int octaveNum, int oscNum);
-	void setOctaveIsAllowedForOscillator(int octaveNum, int oscNum);
-	void setOctaveIsNotAllowedForOscillator(int octaveNum, int oscNum);
-	const bool noOctaveIsAllowedForOscillator(int oscNum);
-	const bool onlyOctave10_IsAllowedForOscillator(int oscNum);
-
 	const bool unsyncedFreqAreAllowedForLFO(int lfoNum);
 	void setUnsyncedFreqAreAllowedForLFO(int lfoNum);
 	void setUnsyncedFreqAreNotAllowedForLFO(int lfoNum);

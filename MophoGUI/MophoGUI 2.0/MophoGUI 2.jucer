@@ -219,10 +219,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.cpp"/>
         <FILE id="LiGDyA" name="randomization_AllowedNotesForLFOcomponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.h"/>
-        <FILE id="Mb7eSz" name="randomization_AllowedNotesForOscComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.cpp"/>
-        <FILE id="QW7lXt" name="randomization_AllowedNotesForOscComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForOscComponent.h"/>
         <FILE id="T2gubM" name="randomization_AllowedNotesForSeqTrackComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.cpp"/>
         <FILE id="i5ao71" name="randomization_AllowedNotesForSeqTrackComponent.h"
@@ -235,10 +231,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.cpp"/>
         <FILE id="pwRkRj" name="randomization_AllowedOctavesForLFOcomponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.h"/>
-        <FILE id="hwR7N6" name="randomization_AllowedOctavesForOscComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.cpp"/>
-        <FILE id="xTs32Y" name="randomization_AllowedOctavesForOscComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForOscComponent.h"/>
         <FILE id="MjW7DG" name="randomization_AllowedOctavesForSeqTrackComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
         <FILE id="KTDCob" name="randomization_AllowedOctavesForSeqTrackComponent.h"
@@ -273,10 +265,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.cpp"/>
         <FILE id="PPDcsM" name="randomization_EditModeForSeqTrackComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.h"/>
-        <FILE id="pErrPO" name="randomization_OscillatorOptionsComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_OscillatorOptionsComponent.cpp"/>
-        <FILE id="SRZh1X" name="randomization_OscillatorOptionsComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_OscillatorOptionsComponent.h"/>
         <FILE id="lYSEl2" name="randomization_ParamGroupLockingAndUnlockingMethods.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
         <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
@@ -461,10 +449,6 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.cpp"/>
         <FILE id="eu2Atk" name="widget_Randomization_ButtonForShowingLFOoptions.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.h"/>
-        <FILE id="Bg2Ngc" name="widget_Randomization_ButtonForShowingOscOptions.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingOscOptions.cpp"/>
-        <FILE id="uXgzgZ" name="widget_Randomization_ButtonForShowingOscOptions.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingOscOptions.h"/>
         <FILE id="JQdzgI" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
         <FILE id="SL5nmJ" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
@@ -841,8 +825,6 @@
             compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
       <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
-      <FILE id="fONuZX" name="Randomization-Osc-Options-Background.png" compile="0"
-            resource="1" file="Resources/Randomization-Osc-Options-Background.png"/>
       <FILE id="dIcWOR" name="Randomization-Seq-Track-Options-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Seq-Track-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"

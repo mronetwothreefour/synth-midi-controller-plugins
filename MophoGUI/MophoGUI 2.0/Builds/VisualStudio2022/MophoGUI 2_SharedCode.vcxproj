@@ -182,11 +182,9 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
@@ -195,7 +193,6 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.cpp"/>
@@ -240,7 +237,6 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.cpp"/>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLFOparameters.cpp"/>
@@ -2307,11 +2303,9 @@
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.h"/>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h"/>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.h"/>
@@ -2321,7 +2315,6 @@
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.h"/>
-    <ClInclude Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h"/>
@@ -2367,7 +2360,6 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllVoiceNameChars.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.h"/>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingOscOptions.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllLFOparameters.h"/>
@@ -3312,7 +3304,6 @@
     <None Include="..\..\Resources\Randomization-LFO-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Pitch-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Value-Range-Background.png"/>
-    <None Include="..\..\Resources\Randomization-Osc-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Seq-Track-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Window-Background.png"/>
     <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO1.png"/>

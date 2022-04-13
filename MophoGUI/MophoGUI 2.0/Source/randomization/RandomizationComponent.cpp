@@ -1,6 +1,5 @@
 #include "RandomizationComponent.h"
 
-#include "randomization_OscillatorOptionsComponent.h"
 #include "randomization_LFOfreqOptionsComponent.h"
 #include "randomization_OptionsComponent_ValueRange.h"
 #include "randomization_OptionsComponent_Pitch.h"
@@ -24,7 +23,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllParameters{ this, unexposedParams },
 	button_ForLockingAllOscParameters{ this, unexposedParams },
 	button_ForUnlockingAllOscParameters{ this, unexposedParams },
-	button_ForShowingOscRandomizationOptions{ unexposedParams },
 	button_ForLockingAllLPFparameters{ this, unexposedParams },
 	button_ForUnlockingAllLPFparameters{ this, unexposedParams },
 	button_ForLockingAllVCAparameters{ this, unexposedParams },
@@ -68,7 +66,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForRandomizingUnlockedParameters);
 	addAndMakeVisible(button_ForLockingAllOscParameters);
 	addAndMakeVisible(button_ForUnlockingAllOscParameters);
-	addAndMakeVisible(button_ForShowingOscRandomizationOptions);
 	addAndMakeVisible(button_ForLockingAllLPFparameters);
 	addAndMakeVisible(button_ForUnlockingAllLPFparameters);
 	addAndMakeVisible(button_ForLockingAllVCAparameters);
@@ -105,8 +102,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllKnobAssignParams);
 	addAndMakeVisible(button_ForLockingAllPushItParams);
 	addAndMakeVisible(button_ForUnlockingAllPushItParams);
-
-	button_ForShowingOscRandomizationOptions.onClick = [this] { showOscillatorOptionsComponent(); };
 
 	button_ForForShowingRandomizationOptionsForLFO1.onClick = [this] { showOptionsComponentForLFO(1); };
 	button_ForForShowingRandomizationOptionsForLFO2.onClick = [this] { showOptionsComponentForLFO(2); };
@@ -174,7 +169,6 @@ void RandomizationComponent::resized() {
 	button_ForClosingRandomizationComponent.setBounds(GUI::bounds_RandomizationCloseButton);
 	button_ForLockingAllOscParameters.setBounds(GUI::bounds_RandomizationOscLockButton);
 	button_ForUnlockingAllOscParameters.setBounds(GUI::bounds_RandomizationOscUnlockButton);
-	button_ForShowingOscRandomizationOptions.setBounds(GUI::bounds_RandomizationOscOptionsShowButton);
 	button_ForLockingAllLPFparameters.setBounds(GUI::bounds_RandomizationLPFlockButton);
 	button_ForUnlockingAllLPFparameters.setBounds(GUI::bounds_RandomizationLPFunlockButton);
 	button_ForLockingAllVCAparameters.setBounds(GUI::bounds_RandomizationVCAlockButton);
@@ -256,15 +250,6 @@ void RandomizationComponent::buttonClicked(Button* button) {
 	}
 }
 
-void RandomizationComponent::showOscillatorOptionsComponent() {
-	oscillatorOptionsComponent.reset(new OscillatorRandomizationOptionsComponent(unexposedParams));
-	if (oscillatorOptionsComponent != nullptr) {
-		addAndMakeVisible(oscillatorOptionsComponent.get());
-		oscillatorOptionsComponent->setBounds(getLocalBounds());
-		oscillatorOptionsComponent->grabKeyboardFocus();
-	}
-}
-
 void RandomizationComponent::showOptionsComponentForLFO(int lfoNum) {
 	lfoOptionsComponent.reset(new LFOfreqRandomizationOptionsComponent(lfoNum, unexposedParams));
 	if (lfoOptionsComponent != nullptr) {
@@ -301,7 +286,6 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;
 	lfoOptionsComponent = nullptr;
-	oscillatorOptionsComponent = nullptr;
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 		paramLockToggleButtons[param].removeListener(this);
