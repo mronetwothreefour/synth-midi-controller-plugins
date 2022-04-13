@@ -57,7 +57,7 @@ public:
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
 	uint8 msBitMaskFor(uint8 paramIndex) const;
-	RandomizationOptionsType randomizationOptionTypeFor(uint8 paramIndex) const;
+	RandomizationOptionsType randomizationOptionsTypeFor(uint8 paramIndex) const;
 
 	// Returns 255 if NRPN is not found
 	uint8 indexForNRPN(const uint8 nrpn) const;

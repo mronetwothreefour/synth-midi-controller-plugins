@@ -7,7 +7,7 @@
 enum class RandomizationOptionsType {
 	none = 0,
 	valueRange,
-	notesAndOctaves,
+	pitch,
 	modulationSource,
 	modulationDestination,
 	oscShape,
@@ -22,8 +22,8 @@ enum class RandomizationOptionsType {
 class RandomizationOptions
 {
 	ValueTree paramLocksTree;
+	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
-	ValueTree oscAllowedPitchesTree;
 	ValueTree lfoAllowedFrequenciesTree;
 	ValueTree seqTrackAllowedStepValuesTree;
 
@@ -38,11 +38,23 @@ public:
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
 
-	const uint8 minValueAllowedForParam(Identifier paramID);
-	void setMinValueAllowedForParam(uint8 newMin, Identifier paramID);
-	const uint8 maxValueAllowedForParam(Identifier paramID);
-	void setMaxValueAllowedForParam(uint8 newMax, Identifier paramID);
+	const bool noteIsAllowedForParam(int noteNum, uint8 paramIndex);
+	void setNoteIsAllowedForParam(int noteNum, uint8 paramIndex);
+	void setNoteIsNotAllowedForParam(int noteNum, uint8 paramIndex);
+	const bool noNoteIsAllowedForParam(uint8 paramIndex);
+	const bool octaveIsAllowedForParam(int octaveNum, uint8 paramIndex);
+	void setOctaveIsAllowedForParam(int octaveNum, uint8 paramIndex);
+	void setOctaveIsNotAllowedForParam(int octaveNum, uint8 paramIndex);
+	const bool noOctaveIsAllowedForParam(uint8 paramIndex);
+	const bool onlyHighestOctaveIsAllowedForParam(uint8 paramIndex);
+	const bool pitchIsAllowedForParam(int pitchNum, uint8 paramIndex);
 
+	const uint8 minValueAllowedForParam(uint8 paramIndex);
+	void setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex);
+	const uint8 maxValueAllowedForParam(uint8 paramIndex);
+	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex);
+
+	//-----to do: remove these functions
 	const bool pitchIsAllowedForOscillator(int pitchNum, int oscNum);
 	const bool noteIsAllowedForOscillator(int noteNum, int oscNum);
 	void setNoteIsAllowedForOscillator(int noteNum, int oscNum);
@@ -131,6 +143,7 @@ public:
 	void setOctaveIsNotAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
 	const bool noOctaveIsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);
 	const bool onlyOctave5_IsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);
+	//-----end to do: remove these functions
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);

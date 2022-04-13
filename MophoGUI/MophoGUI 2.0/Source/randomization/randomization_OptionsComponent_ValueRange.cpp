@@ -25,10 +25,10 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	auto paramID{ info.IDfor(paramIndex) };
 
-	knob_ForMinValue.setComponentID(ID::component_KnobForMinRandomValueFor.toString() + paramID.toString());
+	knob_ForMinValue.setComponentID(ID::component_KnobForMinRandomValueFor_.toString() + paramID.toString());
 	knob_ForMinValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
 	knob_ForMinValue.setDoubleClickReturnValue(true, 0.0);
-	knob_ForMinValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramID));
+	knob_ForMinValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramIndex));
 	knob_ForMinValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
 	knob_ForMinValue.addListener(this);
 	if (shouldShowDescriptions) {
@@ -43,10 +43,10 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 	addAndMakeVisible(valueDisplay_ForMinValue);
 	valueDisplay_ForMinValue.setInterceptsMouseClicks(false, false);
 
-	knob_ForMaxValue.setComponentID(ID::component_KnobForMaxRandomValueFor.toString() + paramID.toString());
+	knob_ForMaxValue.setComponentID(ID::component_KnobForMaxRandomValueFor_.toString() + paramID.toString());
 	knob_ForMaxValue.setRange(0.0, (double)info.maxValueFor(paramIndex), 1.0);
 	knob_ForMaxValue.setDoubleClickReturnValue(true, (double)info.maxValueFor(paramIndex));
-	knob_ForMaxValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramID));
+	knob_ForMaxValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramIndex));
 	knob_ForMaxValue.setMouseDragSensitivity(80 + info.numberOfStepsFor(paramIndex) / 2);
 	knob_ForMaxValue.addListener(this);
 	if (shouldShowDescriptions) {
@@ -107,22 +107,22 @@ void RandomizationOptionsComponent_ValueRange::sliderValueChanged(Slider* slider
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto paramID{ info.IDfor(paramIndex) };
 
-	if (sliderID == ID::component_KnobForMinRandomValueFor.toString() + paramID.toString()) {
+	if (sliderID == ID::component_KnobForMinRandomValueFor_.toString() + paramID.toString()) {
 		auto newMinValue{ (uint8)slider->getValue() };
-		randomizationOptions->setMinValueAllowedForParam(newMinValue, paramID);
-		auto maxValue{ randomizationOptions->maxValueAllowedForParam(paramID) };
+		randomizationOptions->setMinValueAllowedForParam(newMinValue, paramIndex);
+		auto maxValue{ randomizationOptions->maxValueAllowedForParam(paramIndex) };
 		if (newMinValue > maxValue) {
 			knob_ForMaxValue.setValue((double)newMinValue, sendNotification);
-			randomizationOptions->setMaxValueAllowedForParam(newMinValue, paramID);
+			randomizationOptions->setMaxValueAllowedForParam(newMinValue, paramIndex);
 		}
 	}
-	if (sliderID == ID::component_KnobForMaxRandomValueFor.toString() + paramID.toString()) {
+	if (sliderID == ID::component_KnobForMaxRandomValueFor_.toString() + paramID.toString()) {
 		auto newMaxValue{ (uint8)slider->getValue() };
-		randomizationOptions->setMaxValueAllowedForParam(newMaxValue, paramID);
-		auto minValue{ randomizationOptions->minValueAllowedForParam(paramID) };
+		randomizationOptions->setMaxValueAllowedForParam(newMaxValue, paramIndex);
+		auto minValue{ randomizationOptions->minValueAllowedForParam(paramIndex) };
 		if (newMaxValue < minValue) {
 			knob_ForMinValue.setValue((double)newMaxValue, sendNotification);
-			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramID);
+			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 		}
 	}
 }

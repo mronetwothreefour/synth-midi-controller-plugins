@@ -1,3 +1,4 @@
+//to do: eliminate this class
 #pragma once
 
 #include <JuceHeader.h>

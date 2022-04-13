@@ -1,4 +1,3 @@
-//to do: eliminate this class
 #pragma once
 
 #include <JuceHeader.h>
@@ -11,26 +10,24 @@ using namespace constants;
 
 class UnexposedParameters;
 
-class AllowedNotesForLFOcomponent :
+class AllowedNotesComponent :
 	public Component,
 	public Button::Listener
 {
-	int lfoNum;
+	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
 	ToggleButton allowedNoteToggles[randomization::numberOfNotes];
 	TextButton button_ForAllowingAllNotes;
 
 public:
-	AllowedNotesForLFOcomponent() = delete;
+	AllowedNotesComponent() = delete;
 
-	AllowedNotesForLFOcomponent(int lfoNum, UnexposedParameters* unexposedParams);
+	AllowedNotesComponent(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void resized() override;
-	void turnOffAllToggles();
-	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
-	~AllowedNotesForLFOcomponent();
+	~AllowedNotesComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedNotesForLFOcomponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedNotesComponent)
 };

@@ -180,9 +180,11 @@
     <ClCompile Include="..\..\Source\params\params_TooltipOptions.cpp"/>
     <ClCompile Include="..\..\Source\params\params_UnexposedParameters_Facade.cpp"/>
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
@@ -190,6 +192,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OscillatorOptionsComponent.cpp"/>
@@ -2302,9 +2305,11 @@
     <ClInclude Include="..\..\Source\params\params_TooltipOptions.h"/>
     <ClInclude Include="..\..\Source\params\params_UnexposedParameters_Facade.h"/>
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForOscComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.h"/>
@@ -2312,6 +2317,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.h"/>
@@ -3304,6 +3310,7 @@
     <None Include="..\..\Resources\Probability-Controls-For-Tracks-2_3_4.png"/>
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png"/>
     <None Include="..\..\Resources\Randomization-LFO-Options-Background.png"/>
+    <None Include="..\..\Resources\Randomization-Options-Pitch-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Value-Range-Background.png"/>
     <None Include="..\..\Resources\Randomization-Osc-Options-Background.png"/>
     <None Include="..\..\Resources\Randomization-Seq-Track-Options-Background.png"/>

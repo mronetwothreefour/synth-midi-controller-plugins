@@ -3,6 +3,7 @@
 #include "randomization_OscillatorOptionsComponent.h"
 #include "randomization_LFOfreqOptionsComponent.h"
 #include "randomization_OptionsComponent_ValueRange.h"
+#include "randomization_OptionsComponent_Pitch.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_EditBufferDataMessage.h"
@@ -225,8 +226,10 @@ void RandomizationComponent::buttonClicked(Button* button) {
 		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 			auto paramIndex{ info.indexForParamID(paramID) };
-			if (info.randomizationOptionTypeFor(paramIndex) == RandomizationOptionsType::valueRange)
+			if (info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::valueRange)
 				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
+			if (info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::pitch)
+				showRandomizationOptionsComponent_PitchForParam(paramIndex);
 			button->setToggleState(false, dontSendNotification);
 			randomizationOptions->setParamIsUnlocked(paramIndex);
 		}
@@ -271,6 +274,15 @@ void RandomizationComponent::showOptionsComponentForLFO(int lfoNum) {
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex) {
+	randomizationOptionsComponent_Pitch.reset(new RandomizationOptionsComponent_Pitch(paramIndex, unexposedParams));
+	if (randomizationOptionsComponent_Pitch != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_Pitch.get());
+		randomizationOptionsComponent_Pitch->setBounds(getLocalBounds());
+		randomizationOptionsComponent_Pitch->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex) {
 	randomizationOptionsComponent_ValueRange.reset(new RandomizationOptionsComponent_ValueRange(paramIndex, unexposedParams));
 	if (randomizationOptionsComponent_ValueRange != nullptr) {
@@ -287,6 +299,7 @@ void RandomizationComponent::hideThisComponent() {
 
 RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_ValueRange = nullptr;
+	randomizationOptionsComponent_Pitch = nullptr;
 	lfoOptionsComponent = nullptr;
 	oscillatorOptionsComponent = nullptr;
 	auto& info{ InfoForExposedParameters::get() };

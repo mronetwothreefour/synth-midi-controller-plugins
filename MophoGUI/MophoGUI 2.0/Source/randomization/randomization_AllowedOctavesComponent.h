@@ -1,4 +1,3 @@
-//to do: eliminate this class
 #pragma once
 
 #include <JuceHeader.h>
@@ -11,24 +10,24 @@ using namespace constants;
 
 class UnexposedParameters;
 
-class AllowedOctavesForOscComponent :
+class AllowedOctavesComponent :
 	public Component,
 	public Button::Listener
 {
-	int oscNum;
+	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
 	ToggleButton allowedOctaveToggles[randomization::numberOfOctaves];
 	TextButton button_ForAllowingAllOctaves;
 
 public:
-	AllowedOctavesForOscComponent() = delete;
+	AllowedOctavesComponent() = delete;
 
-	AllowedOctavesForOscComponent(int oscNum, UnexposedParameters* unexposedParams);
+	AllowedOctavesComponent(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void resized() override;
 	void buttonClicked(Button* button) override;
-	~AllowedOctavesForOscComponent();
+	~AllowedOctavesComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedOctavesForOscComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedOctavesComponent)
 };

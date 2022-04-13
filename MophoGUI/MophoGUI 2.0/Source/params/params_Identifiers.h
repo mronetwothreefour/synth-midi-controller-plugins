@@ -16,10 +16,13 @@ namespace ID
 	static const Identifier bank_custom2_VoiceNameStrings{ "bank_custom2_VoiceNameStrings" };
 	static const Identifier bank_custom3_VoiceNameStrings{ "bank_custom3_VoiceNameStrings" };
 
-	static const Identifier button_AllNotesForLFO{ "button_AllNotesForLFO" };
-	static const Identifier button_AllNotesForOsc{ "button_AllNotesForOsc" };
-	static const Identifier button_AllNotesForSeqTrack{ "button_AllNotesForSeqTrack" };
-	static const Identifier button_AllBentNotesForSeqTrack{ "button_AllBentNotesForSeqTrack" };
+	static const Identifier button_AllBentNotesFor_{ "button_AllBentNotesFor_" };
+	static const Identifier button_AllNotesFor_{ "button_AllNotesFor_" };
+	static const Identifier button_AllOctavesFor_{ "button_AllOctavesFor_" };
+	static const Identifier button_AllNotesForLFO{ "button_AllNotesForLFO" }; //to do: delete
+	static const Identifier button_AllNotesForOsc{ "button_AllNotesForOsc" }; //to do: delete
+	static const Identifier button_AllNotesForSeqTrack{ "button_AllNotesForSeqTrack" }; //to do: delete
+	static const Identifier button_AllBentNotesForSeqTrack{ "button_AllBentNotesForSeqTrack" }; //to do: delete
 	static const Identifier button_AllOctavesForLFO{ "button_AllOctavesForLFO" };
 	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
 	static const Identifier button_AllOctavesForSeqTrack{ "button_AllOctavesForSeqTrack" };
@@ -84,8 +87,8 @@ namespace ID
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
-	static const Identifier component_KnobForMinRandomValueFor{ "component_KnobForMinRandomValueFor" };
-	static const Identifier component_KnobForMaxRandomValueFor{ "component_KnobForMaxRandomValueFor" };
+	static const Identifier component_KnobForMinRandomValueFor_{ "component_KnobForMinRandomValueFor_" };
+	static const Identifier component_KnobForMaxRandomValueFor_{ "component_KnobForMaxRandomValueFor_" };
 	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
 	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
 	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };
@@ -206,7 +209,7 @@ namespace ID
 
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_LFOallowedFrequencies{ "randomization_LFOallowedFrequencies" };
-	static const Identifier randomization_OscAllowedPitches{ "randomization_OscAllowedPitches" };
+	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_SeqTrackAllowedStepValues{ "randomization_SeqTrackAllowedStepValues" };
 

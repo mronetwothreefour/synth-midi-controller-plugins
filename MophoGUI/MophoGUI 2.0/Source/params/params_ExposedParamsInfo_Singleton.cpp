@@ -36,7 +36,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
-		randomizationOptionsTypes.add(RandomizationOptionsType::notesAndOctaves);
+		randomizationOptionsTypes.add(RandomizationOptionsType::pitch);
 
 		identifiers.add(i == 1 ? ID::osc1_Fine : ID::osc2_Fine); // 1 & 7
 		exposedNames.add("Oscillator " + (String)i + " Fine Tune");
@@ -1062,7 +1062,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::knob_diameter);
 	controlHeights.add(GUI::knob_diameter);
 	controlCenterPoints.add(Point<int>(1191, 528));
-	randomizationOptionsTypes.add(RandomizationOptionsType::notesAndOctaves);
+	randomizationOptionsTypes.add(RandomizationOptionsType::pitch);
 
 	identifiers.add(ID::pushItVelocity); // 93
 	exposedNames.add("Push It! Switch Velocity");
@@ -1489,7 +1489,7 @@ uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
 	return msBitMasks[paramIndex];
 }
 
-RandomizationOptionsType InfoForExposedParameters::randomizationOptionTypeFor(uint8 paramIndex) const {
+RandomizationOptionsType InfoForExposedParameters::randomizationOptionsTypeFor(uint8 paramIndex) const {
 	return randomizationOptionsTypes[paramIndex];
 }
 
