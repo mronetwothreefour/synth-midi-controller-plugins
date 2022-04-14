@@ -68,7 +68,6 @@ namespace ID
 	static const Identifier button_PushFactoryBank3{ "button_PushFactoryBank3" };
 	static const Identifier button_PushSelectedVoice{ "button_PushSelectedVoice" };
 	static const Identifier button_Random{ "button_Random" };
-	static const Identifier button_RandomizationRestrictions{ "button_RandomizationRestrictions" };
 	static const Identifier button_Randomize{ "button_Randomize" };
 	static const Identifier button_Read{ "button_Read" };
 	static const Identifier button_Redo{ "button_Redo" };

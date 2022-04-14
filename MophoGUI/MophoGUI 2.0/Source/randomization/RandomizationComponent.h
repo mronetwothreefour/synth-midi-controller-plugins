@@ -16,7 +16,6 @@
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVCAparameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForLockingAllVoiceNameChars.h"
 #include "../widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
-#include "../widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllKnobAssignParameters.h"
 #include "../widgets_Button/widget_Randomization_ButtonForUnlockingAllLFOparameters.h"
@@ -32,7 +31,6 @@
 
 
 
-class LFOfreqRandomizationOptionsComponent;
 class RandomizationOptionsComponent_LFOfreq;
 class RandomizationOptionsComponent_Pitch;
 class RandomizationOptionsComponent_ValueRange;
@@ -65,10 +63,6 @@ class RandomizationComponent :
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO3parameters;
 	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO3parameters;
 	ButtonForLockingAllLFOparameters button_ForLockingAllLFO4parameters;
-	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO1;
-	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO2;
-	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO3;
-	ButtonForShowingLFOrandomizationOptions button_ForForShowingRandomizationOptionsForLFO4;
 	ButtonForUnlockingAllLFOparameters button_ForUnlockingAllLFO4parameters;
 	ButtonForLockingAllVoiceNameChars button_ForLockingAllVoiceNameChars;
 	ButtonForUnlockingAllVoiceNameChars button_ForUnlockingAllVoiceNameChars;
@@ -86,7 +80,6 @@ class RandomizationComponent :
 	ButtonForUnlockingAllPushItParameters button_ForUnlockingAllPushItParams;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
 	TextButton button_ForClosingRandomizationComponent;
-	std::unique_ptr<LFOfreqRandomizationOptionsComponent> lfoOptionsComponent;
 	std::unique_ptr<RandomizationOptionsComponent_Pitch> randomizationOptionsComponent_Pitch;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
 	std::unique_ptr<RandomizationOptionsComponent_LFOfreq> randomizationOptionsComponent_LFOfreq;
@@ -101,7 +94,6 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
-	void showOptionsComponentForLFO(int lfoNum);
 	void showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex);

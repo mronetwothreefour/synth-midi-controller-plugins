@@ -1,6 +1,5 @@
 #include "RandomizationComponent.h"
 
-#include "randomization_LFOfreqOptionsComponent.h"
 #include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_ValueRange.h"
 #include "randomization_OptionsComponent_Pitch.h"
@@ -42,10 +41,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	button_ForUnlockingAllLFO2parameters{ 2, this, unexposedParams },
 	button_ForUnlockingAllLFO3parameters{ 3, this, unexposedParams },
 	button_ForUnlockingAllLFO4parameters{ 4, this, unexposedParams },
-	button_ForForShowingRandomizationOptionsForLFO1{ 1, unexposedParams },
-	button_ForForShowingRandomizationOptionsForLFO2{ 2, unexposedParams },
-	button_ForForShowingRandomizationOptionsForLFO3{ 3, unexposedParams },
-	button_ForForShowingRandomizationOptionsForLFO4{ 4, unexposedParams },
 	button_ForLockingAllVoiceNameChars{ this, unexposedParams },
 	button_ForUnlockingAllVoiceNameChars{ this, unexposedParams },
 	button_ForLockingAllSeqTrack1Params{ 1, this, unexposedParams },
@@ -85,10 +80,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllLFO2parameters);
 	addAndMakeVisible(button_ForUnlockingAllLFO3parameters);
 	addAndMakeVisible(button_ForUnlockingAllLFO4parameters);
-	addAndMakeVisible(button_ForForShowingRandomizationOptionsForLFO1);
-	addAndMakeVisible(button_ForForShowingRandomizationOptionsForLFO2);
-	addAndMakeVisible(button_ForForShowingRandomizationOptionsForLFO3);
-	addAndMakeVisible(button_ForForShowingRandomizationOptionsForLFO4);
 	addAndMakeVisible(button_ForLockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForUnlockingAllVoiceNameChars);
 	addAndMakeVisible(button_ForLockingAllSeqTrack1Params);
@@ -103,11 +94,6 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForUnlockingAllKnobAssignParams);
 	addAndMakeVisible(button_ForLockingAllPushItParams);
 	addAndMakeVisible(button_ForUnlockingAllPushItParams);
-
-	button_ForForShowingRandomizationOptionsForLFO1.onClick = [this] { showOptionsComponentForLFO(1); };
-	button_ForForShowingRandomizationOptionsForLFO2.onClick = [this] { showOptionsComponentForLFO(2); };
-	button_ForForShowingRandomizationOptionsForLFO3.onClick = [this] { showOptionsComponentForLFO(3); };
-	button_ForForShowingRandomizationOptionsForLFO4.onClick = [this] { showOptionsComponentForLFO(4); };
 
 	button_ForClosingRandomizationComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingRandomizationComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -182,16 +168,12 @@ void RandomizationComponent::resized() {
 	button_ForUnlockingAllMIDIcontrollerParams.setBounds(GUI::bounds_RandomizationMIDIcontrollersUnlockButton);
 	button_ForLockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1lockButton);
 	button_ForUnlockingAllLFO1parameters.setBounds(GUI::bounds_RandomizationLFO1unlockButton);
-	button_ForForShowingRandomizationOptionsForLFO1.setBounds(GUI::bounds_RandomizationLFO1optionsShowButton);
 	button_ForLockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2lockButton);
 	button_ForUnlockingAllLFO2parameters.setBounds(GUI::bounds_RandomizationLFO2unlockButton);
-	button_ForForShowingRandomizationOptionsForLFO2.setBounds(GUI::bounds_RandomizationLFO2optionsShowButton);
 	button_ForLockingAllLFO3parameters.setBounds(GUI::bounds_RandomizationLFO3lockButton);
 	button_ForUnlockingAllLFO3parameters.setBounds(GUI::bounds_RandomizationLFO3unlockButton);
-	button_ForForShowingRandomizationOptionsForLFO3.setBounds(GUI::bounds_RandomizationLFO3optionsShowButton);
 	button_ForLockingAllLFO4parameters.setBounds(GUI::bounds_RandomizationLFO4lockButton);
 	button_ForUnlockingAllLFO4parameters.setBounds(GUI::bounds_RandomizationLFO4unlockButton);
-	button_ForForShowingRandomizationOptionsForLFO4.setBounds(GUI::bounds_RandomizationLFO4optionsShowButton);
 	button_ForLockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameLockButton);
 	button_ForUnlockingAllVoiceNameChars.setBounds(GUI::bounds_RandomizationVoiceNameUnlockButton);
 	button_ForLockingAllSeqTrack1Params.setBounds(GUI::bounds_RandomizationSeqTrack1LockButton);
@@ -254,15 +236,6 @@ void RandomizationComponent::buttonClicked(Button* button) {
 	}
 }
 
-void RandomizationComponent::showOptionsComponentForLFO(int lfoNum) {
-	lfoOptionsComponent.reset(new LFOfreqRandomizationOptionsComponent(lfoNum, unexposedParams));
-	if (lfoOptionsComponent != nullptr) {
-		addAndMakeVisible(lfoOptionsComponent.get());
-		lfoOptionsComponent->setBounds(getLocalBounds());
-		lfoOptionsComponent->grabKeyboardFocus();
-	}
-}
-
 void RandomizationComponent::showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex) {
 	randomizationOptionsComponent_Pitch.reset(new RandomizationOptionsComponent_Pitch(paramIndex, unexposedParams));
 	if (randomizationOptionsComponent_Pitch != nullptr) {
@@ -299,7 +272,6 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;
-	lfoOptionsComponent = nullptr;
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 		paramLockToggleButtons[param].removeListener(this);

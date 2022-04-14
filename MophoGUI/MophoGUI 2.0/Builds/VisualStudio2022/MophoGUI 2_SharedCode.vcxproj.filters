@@ -625,9 +625,6 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -635,9 +632,6 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.cpp">
@@ -649,16 +643,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.cpp">
@@ -800,9 +785,6 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.cpp">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp">
@@ -3222,9 +3204,6 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForLFOcomponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
@@ -3232,9 +3211,6 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.h">
@@ -3246,16 +3222,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.h">
@@ -3403,9 +3370,6 @@
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForRandomizingUnlockedParameters.h">
-      <Filter>MophoGUI 2\Source\widgets_Button</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForShowingLFOoptions.h">
       <Filter>MophoGUI 2\Source\widgets_Button</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h">
@@ -6062,9 +6026,6 @@
     <None Include="..\..\Resources\Button-Down-Save.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Button-Down-Settings-Gear.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
     <None Include="..\..\Resources\Button-Down-Stop.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6155,9 +6116,6 @@
     <None Include="..\..\Resources\Button-Up-Save.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Button-Up-Settings-Gear.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
     <None Include="..\..\Resources\Button-Up-Stop.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6227,9 +6185,6 @@
     <None Include="..\..\Resources\Program-Banks-Tab-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Randomization-LFO-Options-Background.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
     <None Include="..\..\Resources\Randomization-Options-LFOfreq-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6243,18 +6198,6 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO1.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO2.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO3.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Freq-For-LFO4.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-1.png">

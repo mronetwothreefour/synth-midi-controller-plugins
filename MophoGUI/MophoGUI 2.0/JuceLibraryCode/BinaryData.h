@@ -86,9 +86,6 @@ namespace BinaryData
     extern const char*   ButtonDownSave_png;
     const int            ButtonDownSave_pngSize = 629;
 
-    extern const char*   ButtonDownSettingsGear_png;
-    const int            ButtonDownSettingsGear_pngSize = 521;
-
     extern const char*   ButtonDownStop_png;
     const int            ButtonDownStop_pngSize = 599;
 
@@ -179,9 +176,6 @@ namespace BinaryData
     extern const char*   ButtonUpSave_png;
     const int            ButtonUpSave_pngSize = 635;
 
-    extern const char*   ButtonUpSettingsGear_png;
-    const int            ButtonUpSettingsGear_pngSize = 463;
-
     extern const char*   ButtonUpStop_png;
     const int            ButtonUpStop_pngSize = 589;
 
@@ -251,9 +245,6 @@ namespace BinaryData
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
-    extern const char*   RandomizationLFOOptionsBackground_png;
-    const int            RandomizationLFOOptionsBackground_pngSize = 10613;
-
     extern const char*   RandomizationOptionsLFOfreqBackground_png;
     const int            RandomizationOptionsLFOfreqBackground_pngSize = 10497;
 
@@ -268,18 +259,6 @@ namespace BinaryData
 
     extern const char*   RandomizationWindowBackground_png;
     const int            RandomizationWindowBackground_pngSize = 10147;
-
-    extern const char*   TitleAllowedFreqForLFO1_png;
-    const int            TitleAllowedFreqForLFO1_pngSize = 1702;
-
-    extern const char*   TitleAllowedFreqForLFO2_png;
-    const int            TitleAllowedFreqForLFO2_pngSize = 1721;
-
-    extern const char*   TitleAllowedFreqForLFO3_png;
-    const int            TitleAllowedFreqForLFO3_pngSize = 1707;
-
-    extern const char*   TitleAllowedFreqForLFO4_png;
-    const int            TitleAllowedFreqForLFO4_pngSize = 1740;
 
     extern const char*   TitleAllowedStepValuesForTrack1_png;
     const int            TitleAllowedStepValuesForTrack1_pngSize = 2264;
@@ -312,7 +291,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 101;
+    const int namedResourceListSize = 94;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

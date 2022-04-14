@@ -215,10 +215,6 @@
               resource="0" file="Source/randomization/randomization_AllowedNotesComponent.cpp"/>
         <FILE id="QgKjG3" name="randomization_AllowedNotesComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_AllowedNotesComponent.h"/>
-        <FILE id="aAywRz" name="randomization_AllowedNotesForLFOcomponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.cpp"/>
-        <FILE id="LiGDyA" name="randomization_AllowedNotesForLFOcomponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForLFOcomponent.h"/>
         <FILE id="T2gubM" name="randomization_AllowedNotesForSeqTrackComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.cpp"/>
         <FILE id="i5ao71" name="randomization_AllowedNotesForSeqTrackComponent.h"
@@ -231,10 +227,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.cpp"/>
         <FILE id="oZpXq3" name="randomization_AllowedOctavesComponentForLFOfreq.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.h"/>
-        <FILE id="Yf2w21" name="randomization_AllowedOctavesForLFOcomponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.cpp"/>
-        <FILE id="pwRkRj" name="randomization_AllowedOctavesForLFOcomponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.h"/>
         <FILE id="MjW7DG" name="randomization_AllowedOctavesForSeqTrackComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
         <FILE id="KTDCob" name="randomization_AllowedOctavesForSeqTrackComponent.h"
@@ -247,22 +239,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqComponent.cpp"/>
         <FILE id="wBm6n5" name="randomization_AllowedSyncedFreqComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqComponent.h"/>
-        <FILE id="J1shBZ" name="randomization_AllowedSyncedFreqForLFOcomponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
-        <FILE id="L0SeaU" name="randomization_AllowedSyncedFreqForLFOcomponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.h"/>
         <FILE id="Ie77kn" name="randomization_AllowedUnsyncedFreqComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.cpp"/>
         <FILE id="fkB6Aw" name="randomization_AllowedUnsyncedFreqComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.h"/>
-        <FILE id="XoqW6l" name="randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
-        <FILE id="Urk3vg" name="randomization_AllowedUnsyncedFreqForLFOcomponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.h"/>
-        <FILE id="dM0nEF" name="randomization_LFOfreqOptionsComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.cpp"/>
-        <FILE id="UqU3Vq" name="randomization_LFOfreqOptionsComponent.h" compile="0"
-              resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.h"/>
         <FILE id="Zz7JY0" name="randomization_OptionsComponent_LFOfreq.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_LFOfreq.cpp"/>
         <FILE id="m2oujc" name="randomization_OptionsComponent_LFOfreq.h" compile="0"
@@ -461,10 +441,6 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.cpp"/>
         <FILE id="Cotr3j" name="widget_Randomization_ButtonForRandomizingUnlockedParameters.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForRandomizingUnlockedParameters.h"/>
-        <FILE id="yOgVUQ" name="widget_Randomization_ButtonForShowingLFOoptions.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.cpp"/>
-        <FILE id="eu2Atk" name="widget_Randomization_ButtonForShowingLFOoptions.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForShowingLFOoptions.h"/>
         <FILE id="JQdzgI" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_Randomization_ButtonForUnlockingAllEnv3Parameters.cpp"/>
         <FILE id="SL5nmJ" name="widget_Randomization_ButtonForUnlockingAllEnv3Parameters.h"
@@ -726,8 +702,6 @@
             file="Resources/Button-Down-Retry.png"/>
       <FILE id="ItfJs1" name="Button-Down-Save.png" compile="0" resource="1"
             file="Resources/Button-Down-Save.png"/>
-      <FILE id="h8LRFR" name="Button-Down-Settings-Gear.png" compile="0"
-            resource="1" file="Resources/Button-Down-Settings-Gear.png"/>
       <FILE id="yQj26a" name="Button-Down-Stop.png" compile="0" resource="1"
             file="Resources/Button-Down-Stop.png"/>
       <FILE id="kDPc3V" name="Button-Down-Undo.png" compile="0" resource="1"
@@ -788,8 +762,6 @@
             file="Resources/Button-Up-Retry.png"/>
       <FILE id="GOTqQq" name="Button-Up-Save.png" compile="0" resource="1"
             file="Resources/Button-Up-Save.png"/>
-      <FILE id="FnN9z1" name="Button-Up-Settings-Gear.png" compile="0" resource="1"
-            file="Resources/Button-Up-Settings-Gear.png"/>
       <FILE id="UByWpI" name="Button-Up-Stop.png" compile="0" resource="1"
             file="Resources/Button-Up-Stop.png"/>
       <FILE id="nzlgfx" name="Button-Up-Undo.png" compile="0" resource="1"
@@ -835,8 +807,6 @@
             compile="0" resource="1" file="Resources/Probability-Controls-For-Tracks-2_3_4.png"/>
       <FILE id="GSemfS" name="Program-Banks-Tab-Background.png" compile="0"
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
-      <FILE id="vkmfZr" name="Randomization-LFO-Options-Background.png" compile="0"
-            resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
       <FILE id="uMeS7f" name="Randomization-Options-LFOfreq-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-LFOfreq-Background.png"/>
       <FILE id="e5p8yH" name="Randomization-Options-Pitch-Background.png"
@@ -847,14 +817,6 @@
             compile="0" resource="1" file="Resources/Randomization-Seq-Track-Options-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
-      <FILE id="aXDarv" name="Title-Allowed-Freq-For-LFO1.png" compile="0"
-            resource="1" file="Resources/Title-Allowed-Freq-For-LFO1.png"/>
-      <FILE id="ACbcI8" name="Title-Allowed-Freq-For-LFO2.png" compile="0"
-            resource="1" file="Resources/Title-Allowed-Freq-For-LFO2.png"/>
-      <FILE id="I3ZnQi" name="Title-Allowed-Freq-For-LFO3.png" compile="0"
-            resource="1" file="Resources/Title-Allowed-Freq-For-LFO3.png"/>
-      <FILE id="bmTnc1" name="Title-Allowed-Freq-For-LFO4.png" compile="0"
-            resource="1" file="Resources/Title-Allowed-Freq-For-LFO4.png"/>
       <FILE id="kcKzhv" name="Title-Allowed-Step-Values-For-Track-1.png"
             compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-1.png"/>
       <FILE id="xd9ZJO" name="Title-Allowed-Step-Values-For-Track-2.png"

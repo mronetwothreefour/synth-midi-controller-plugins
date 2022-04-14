@@ -97,7 +97,7 @@ void AllowedSyncedFreqComponent::buttonClicked(Button* button) {
 	auto syncedFreqAreAllowed{ randomizationOptions->syncedFreqAreAllowedForParam(paramIndex) };
 	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "For_" + paramID + "_SyncedFreq")) {
 		if (syncedFreqAreAllowed) {
-			auto clickedFreqNum{ buttonID.fromFirstOccurrenceOf("Freq", false, false).getIntValue() };
+			auto clickedFreqNum{ buttonID.fromFirstOccurrenceOf("SyncedFreq", false, false).getIntValue() };
 			if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 				for (auto freqNum = 0; freqNum != randomization::numberOfSyncedFreqForLFOs; ++freqNum) {
 					if (freqNum == clickedFreqNum) {

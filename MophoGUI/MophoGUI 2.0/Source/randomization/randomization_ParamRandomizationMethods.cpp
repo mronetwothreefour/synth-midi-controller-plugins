@@ -27,8 +27,8 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 					randomizeOscPitchParameter(paramID, exposedParams, unexposedParams);
 				else if (paramID == ID::osc1_Shape || paramID == ID::osc2_Shape)
 					randomizeOscShapeParameter(paramID, exposedParams);
-				else if (paramID.toString().startsWith("lfo") && paramID.toString().endsWith("Freq"))
-					randomizeLFOfreqParameter(paramID, exposedParams, unexposedParams);
+				//else if (paramID.toString().startsWith("lfo") && paramID.toString().endsWith("Freq"))
+				//	randomizeLFOfreqParameter(paramID, exposedParams, unexposedParams);
 				else
 					randomizeParameter(paramID, exposedParams);
 			}
@@ -88,7 +88,7 @@ void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, A
 	}
 }
 
-void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+//void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
 	//auto lfoNum{ paramID.toString().fromFirstOccurrenceOf("lfo", false, false).getIntValue() };
 	//auto categoryForNewFreq{ randomlyPickFreqCategoryForLFO(lfoNum, unexposedParams) };
 	//auto& info{ InfoForExposedParameters::get() };
@@ -108,71 +108,71 @@ void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, Au
 	//	newNormalizedValue = (float)newFreq / maxParamValue;
 	//}
 	//exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
-}
+//}
 
-lfoFreqCategory ParamRandomizationMethods::randomlyPickFreqCategoryForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
-	Array<lfoFreqCategory> allowedFreqCategories;
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (randomizationOptions->unsyncedFreqAreAllowedForLFO(lfoNum))
-		allowedFreqCategories.add(lfoFreqCategory::unsynced);
-	if (randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum))
-		allowedFreqCategories.add(lfoFreqCategory::pitched);
-	if (randomizationOptions->syncedFreqAreAllowedForLFO(lfoNum))
-		allowedFreqCategories.add(lfoFreqCategory::synced);
-	auto numberOfAllowedCategories{ allowedFreqCategories.size() };
-	Random rndmNumGeneratorForCategory{};
-	auto newCategoryFloat{ rndmNumGeneratorForCategory.nextFloat() };
-	auto categoryIndex{ (int)floor(newCategoryFloat * numberOfAllowedCategories) };
-	return allowedFreqCategories[categoryIndex];
-}
+//lfoFreqCategory ParamRandomizationMethods::randomlyPickFreqCategoryForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
+	//Array<lfoFreqCategory> allowedFreqCategories;
+	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	//if (randomizationOptions->unsyncedFreqAreAllowedForLFO(lfoNum))
+	//	allowedFreqCategories.add(lfoFreqCategory::unsynced);
+	//if (randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum))
+	//	allowedFreqCategories.add(lfoFreqCategory::pitched);
+	//if (randomizationOptions->syncedFreqAreAllowedForLFO(lfoNum))
+	//	allowedFreqCategories.add(lfoFreqCategory::synced);
+	//auto numberOfAllowedCategories{ allowedFreqCategories.size() };
+	//Random rndmNumGeneratorForCategory{};
+	//auto newCategoryFloat{ rndmNumGeneratorForCategory.nextFloat() };
+	//auto categoryIndex{ (int)floor(newCategoryFloat * numberOfAllowedCategories) };
+	//return allowedFreqCategories[categoryIndex];
+//}
 
-uint8 ParamRandomizationMethods::randomlyPickUnsyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto minUnsyncedFreq{ randomizationOptions->minUnsyncedFreqForLFO(lfoNum) };
-	auto maxUnsyncedFreq{ randomizationOptions->maxUnsyncedFreqForLFO(lfoNum) };
-	Array<uint8> allowedUnsyncedFreq;
-	for (uint8 freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq)
-		allowedUnsyncedFreq.add(freq);
-	auto numberOfAllowedFreq{ allowedUnsyncedFreq.size() };
-	Random rndmNumGenerator{};
-	auto newFloat{ rndmNumGenerator.nextFloat() };
-	auto newFreqIndex{ (int)floor(newFloat * numberOfAllowedFreq) };
-	return allowedUnsyncedFreq[newFreqIndex];
-}
+//uint8 ParamRandomizationMethods::randomlyPickUnsyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
+	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	//auto minUnsyncedFreq{ randomizationOptions->minUnsyncedFreqForLFO(lfoNum) };
+	//auto maxUnsyncedFreq{ randomizationOptions->maxUnsyncedFreqForLFO(lfoNum) };
+	//Array<uint8> allowedUnsyncedFreq;
+	//for (uint8 freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq)
+	//	allowedUnsyncedFreq.add(freq);
+	//auto numberOfAllowedFreq{ allowedUnsyncedFreq.size() };
+	//Random rndmNumGenerator{};
+	//auto newFloat{ rndmNumGenerator.nextFloat() };
+	//auto newFreqIndex{ (int)floor(newFloat * numberOfAllowedFreq) };
+	//return allowedUnsyncedFreq[newFreqIndex];
+//}
 
-uint8 ParamRandomizationMethods::randomlyPickPitchedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	if (randomizationOptions->onlyOctave5_IsAllowedForLFO(lfoNum))
-		return randomization::numberOfPitchedFreqForLFOs - 1;
-	else {
-		Array<uint8> allowedPitchedFreq;
-		for (uint8 freq = 0; freq != randomization::numberOfPitchedFreqForLFOs; ++freq) {
-			auto pitchedFreqIsAllowed{ randomizationOptions->pitchIsAllowedForLFO(freq, lfoNum) };
-			if (pitchedFreqIsAllowed)
-				allowedPitchedFreq.add(freq);
-		}
-		auto numberOfAllowedPitchedFreq{ allowedPitchedFreq.size() };
-		Random rndmNumGenerator{};
-		auto newFloat{ rndmNumGenerator.nextFloat() };
-		auto newPitchedFreqIndex{ (int)floor(newFloat * numberOfAllowedPitchedFreq) };
-		return allowedPitchedFreq[newPitchedFreqIndex];
-	}
-}
+//uint8 ParamRandomizationMethods::randomlyPickPitchedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
+	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	//if (randomizationOptions->onlyOctave5_IsAllowedForLFO(lfoNum))
+	//	return randomization::numberOfPitchedFreqForLFOs - 1;
+	//else {
+	//	Array<uint8> allowedPitchedFreq;
+	//	for (uint8 freq = 0; freq != randomization::numberOfPitchedFreqForLFOs; ++freq) {
+	//		auto pitchedFreqIsAllowed{ randomizationOptions->pitchIsAllowedForLFO(freq, lfoNum) };
+	//		if (pitchedFreqIsAllowed)
+	//			allowedPitchedFreq.add(freq);
+	//	}
+	//	auto numberOfAllowedPitchedFreq{ allowedPitchedFreq.size() };
+	//	Random rndmNumGenerator{};
+	//	auto newFloat{ rndmNumGenerator.nextFloat() };
+	//	auto newPitchedFreqIndex{ (int)floor(newFloat * numberOfAllowedPitchedFreq) };
+	//	return allowedPitchedFreq[newPitchedFreqIndex];
+	//}
+//}
 
-uint8 ParamRandomizationMethods::randomlyPickSyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	Array<uint8> allowedSyncedFreq;
-	for (uint8 freq = 0; freq != randomization::numberOfSyncedFreqForLFOs; ++freq) {
-		auto syncedFreqIsAllowed{ randomizationOptions->syncedFreqIsAllowedForLFO(freq, lfoNum) };
-		if (syncedFreqIsAllowed)
-			allowedSyncedFreq.add(freq);
-	}
-	auto numberOfAllowedSyncedFreq{ allowedSyncedFreq.size() };
-	Random rndmNumGenerator{};
-	auto newFloat{ rndmNumGenerator.nextFloat() };
-	auto newSyncedFreqIndex{ (int)floor(newFloat * numberOfAllowedSyncedFreq) };
-	return allowedSyncedFreq[newSyncedFreqIndex];
-}
+//uint8 ParamRandomizationMethods::randomlyPickSyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams) {
+	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	//Array<uint8> allowedSyncedFreq;
+	//for (uint8 freq = 0; freq != randomization::numberOfSyncedFreqForLFOs; ++freq) {
+	//	auto syncedFreqIsAllowed{ randomizationOptions->syncedFreqIsAllowedForLFO(freq, lfoNum) };
+	//	if (syncedFreqIsAllowed)
+	//		allowedSyncedFreq.add(freq);
+	//}
+	//auto numberOfAllowedSyncedFreq{ allowedSyncedFreq.size() };
+	//Random rndmNumGenerator{};
+	//auto newFloat{ rndmNumGenerator.nextFloat() };
+	//auto newSyncedFreqIndex{ (int)floor(newFloat * numberOfAllowedSyncedFreq) };
+	//return allowedSyncedFreq[newSyncedFreqIndex];
+//}
 
 void ParamRandomizationMethods::randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams)
 {

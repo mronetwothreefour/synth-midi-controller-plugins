@@ -32,6 +32,7 @@ AllowedUnsyncedFreqComponent::AllowedUnsyncedFreqComponent(uint8 paramIndex, Une
 	knob_ForMinUnsyncedFreq.setComponentID(ID::component_KnobForMinUnsyncedFreqFor_.toString() + paramID);
 	knob_ForMinUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMinUnsyncedFreq.setValue((double)randomizationOptions->minUnsyncedFreqForParam(paramIndex));
+	knob_ForMinUnsyncedFreq.setDoubleClickReturnValue(true, 0.0);
 	knob_ForMinUnsyncedFreq.setMouseDragSensitivity(128);
 	knob_ForMinUnsyncedFreq.addListener(this);
 	if (shouldShowDescriptions) {
@@ -49,6 +50,7 @@ AllowedUnsyncedFreqComponent::AllowedUnsyncedFreqComponent(uint8 paramIndex, Une
 	knob_ForMaxUnsyncedFreq.setComponentID(ID::component_KnobForMaxUnsyncedFreqFor_.toString() + paramID);
 	knob_ForMaxUnsyncedFreq.setRange(0.0, (double)params::maxUnsyncedLFOfreq, 1.0);
 	knob_ForMaxUnsyncedFreq.setValue((double)randomizationOptions->maxUnsyncedFreqForParam(paramIndex));
+	knob_ForMaxUnsyncedFreq.setDoubleClickReturnValue(true, (double)params::maxUnsyncedLFOfreq);
 	knob_ForMaxUnsyncedFreq.setMouseDragSensitivity(128);
 	knob_ForMaxUnsyncedFreq.addListener(this);
 	if (shouldShowDescriptions) {
