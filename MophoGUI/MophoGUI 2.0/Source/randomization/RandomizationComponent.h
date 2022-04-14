@@ -33,6 +33,7 @@
 
 
 class LFOfreqRandomizationOptionsComponent;
+class RandomizationOptionsComponent_LFOfreq;
 class RandomizationOptionsComponent_Pitch;
 class RandomizationOptionsComponent_ValueRange;
 class UnexposedParameters;
@@ -88,6 +89,7 @@ class RandomizationComponent :
 	std::unique_ptr<LFOfreqRandomizationOptionsComponent> lfoOptionsComponent;
 	std::unique_ptr<RandomizationOptionsComponent_Pitch> randomizationOptionsComponent_Pitch;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
+	std::unique_ptr<RandomizationOptionsComponent_LFOfreq> randomizationOptionsComponent_LFOfreq;
 
 public:
 	ToggleButton paramLockToggleButtons[InfoForExposedParameters::numberOfExposedParameters];
@@ -102,6 +104,7 @@ public:
 	void showOptionsComponentForLFO(int lfoNum);
 	void showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
+	void showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex);
 	void hideThisComponent();
 	~RandomizationComponent();
 

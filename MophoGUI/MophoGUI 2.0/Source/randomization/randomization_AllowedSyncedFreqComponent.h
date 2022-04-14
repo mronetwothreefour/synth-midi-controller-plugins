@@ -1,4 +1,3 @@
-//to do: eliminate this class
 #pragma once
 
 #include <JuceHeader.h>
@@ -11,26 +10,26 @@ using namespace constants;
 
 class UnexposedParameters;
 
-class AllowedOctavesForLFOcomponent :
+class AllowedSyncedFreqComponent :
 	public Component,
 	public Button::Listener
 {
-	int lfoNum;
+	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
-	ToggleButton allowedOctaveToggles[randomization::numberOfOctavesForLFOfreqAndSeqSteps];
-	TextButton button_ForAllowingAllOctaves;
+	ToggleButton allowedSyncedFreqToggles[randomization::numberOfSyncedFreqForLFOs];
+	TextButton button_ForAllowingAllSyncedFreq;
 
 public:
-	AllowedOctavesForLFOcomponent() = delete;
+	AllowedSyncedFreqComponent() = delete;
 
-	AllowedOctavesForLFOcomponent(int lfoNum, UnexposedParameters* unexposedParams);
+	AllowedSyncedFreqComponent(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void resized() override;
 	void turnOffAllToggles();
 	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
-	~AllowedOctavesForLFOcomponent();
+	~AllowedSyncedFreqComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedOctavesForLFOcomponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedSyncedFreqComponent)
 };

@@ -18,7 +18,7 @@ AllowedOctavesForSeqTrackComponent::AllowedOctavesForSeqTrackComponent(int track
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 		auto toggleID{ ID::component_ToggleButton.toString() + "ForSeqTrack" + (String)trackNum + "_Octave" + String(octaveNum) };
 		allowedOctaveToggles[octaveNum].setComponentID(toggleID);
 		if (editModeIsSelectedStep) {
@@ -49,7 +49,7 @@ void AllowedOctavesForSeqTrackComponent::generateTooltips() {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 		String toggleTooltip{ "" };
-		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 			toggleTooltip += "Toggles whether or not notes in octave " + (String)octaveNum + " are allowed when\n";
 			if (editModeIsSelectedStep)
 				toggleTooltip += "a random pitch is generated for the selected step in track " + (String)trackNum + "\n";
@@ -93,7 +93,7 @@ void AllowedOctavesForSeqTrackComponent::buttonClicked(Button* button) {
 	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForSeqTrack" + (String)trackNum + "_Octave")) {
 		auto clickedOctaveNum{ buttonID.fromFirstOccurrenceOf("Octave", false, false).getIntValue() };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
-			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 				if (octaveNum == clickedOctaveNum) {
 					allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
 					if (editModeIsSelectedStep)
@@ -133,7 +133,7 @@ void AllowedOctavesForSeqTrackComponent::buttonClicked(Button* button) {
 		}
 	}
 	if (buttonID == ID::button_AllOctavesForSeqTrack.toString() + (String)trackNum) {
-		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 			allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
 			if (editModeIsSelectedStep)
 				randomizationOptions->setOctaveIsAllowedForSelectedStepInSeqTrack(octaveNum, selectedStep, trackNum);
@@ -150,7 +150,7 @@ void AllowedOctavesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*t
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
-		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum) {
+		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 			if (editModeIsSelectedStep) {
 				auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForSelectedStepInSeqTrack(octaveNum, selectedStep, trackNum) };
 				allowedOctaveToggles[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
@@ -166,7 +166,7 @@ void AllowedOctavesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*t
 
 AllowedOctavesForSeqTrackComponent::~AllowedOctavesForSeqTrackComponent() {
 	button_ForAllowingAllOctaves.removeListener(this);
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOsAndSeqSteps; ++octaveNum)
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 		allowedOctaveToggles[octaveNum].removeListener(this);
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	randomizationOptions->removeListenerFromSeqTrackAllowedStepValuesTree(this);

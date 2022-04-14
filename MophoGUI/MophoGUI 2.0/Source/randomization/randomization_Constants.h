@@ -9,7 +9,7 @@ namespace constants
 		static const int numberOfNotes{ 12 };
 		static const int numberOfNotesAndBentNotes{ 24 };
 		static const int numberOfOctaves{ 11 };
-		static const int numberOfOctavesForLFOsAndSeqSteps{ 6 };
+		static const int numberOfOctavesForLFOfreqAndSeqSteps{ 6 };
 		static const int numberOfOctavesForLPFfreq{ 14 };
 		static const int numberOfPitchedFreqForLFOs{ 61 };
 		static const int numberOfPitchedFreqForLPF{ 165 };

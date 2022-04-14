@@ -1,6 +1,7 @@
 #include "RandomizationComponent.h"
 
 #include "randomization_LFOfreqOptionsComponent.h"
+#include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_ValueRange.h"
 #include "randomization_OptionsComponent_Pitch.h"
 #include "../gui/gui_Constants.h"
@@ -220,10 +221,13 @@ void RandomizationComponent::buttonClicked(Button* button) {
 		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 			auto paramIndex{ info.indexForParamID(paramID) };
-			if (info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::valueRange)
-				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
-			if (info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::pitch)
+			auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+			if (optionsType == RandomizationOptionsType::pitch)
 				showRandomizationOptionsComponent_PitchForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::valueRange)
+				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::lfoFreq)
+				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
 			button->setToggleState(false, dontSendNotification);
 			randomizationOptions->setParamIsUnlocked(paramIndex);
 		}
@@ -277,12 +281,22 @@ void RandomizationComponent::showRandomizationOptionsComponent_ValueRangeForPara
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex) {
+	randomizationOptionsComponent_LFOfreq.reset(new RandomizationOptionsComponent_LFOfreq(paramIndex, unexposedParams));
+	if (randomizationOptionsComponent_LFOfreq != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_LFOfreq.get());
+		randomizationOptionsComponent_LFOfreq->setBounds(getLocalBounds());
+		randomizationOptionsComponent_LFOfreq->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 RandomizationComponent::~RandomizationComponent() {
+	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;
 	lfoOptionsComponent = nullptr;

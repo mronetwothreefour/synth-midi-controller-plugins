@@ -1,36 +1,37 @@
-#include "randomization_AllowedOctavesForLFOcomponent.h"
+#include "randomization_AllowedOctavesComponentForLFOfreq.h"
 
 #include "../gui/gui_Constants.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-AllowedOctavesForLFOcomponent::AllowedOctavesForLFOcomponent(int lfoNum, UnexposedParameters* unexposedParams) :
-	lfoNum{ lfoNum },
+AllowedOctavesComponentForLFOfreq::AllowedOctavesComponentForLFOfreq(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+	paramIndex{ paramIndex },
 	unexposedParams{ unexposedParams }
 {
-	jassert(lfoNum > 0 && lfoNum < 5);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto pitchedFreqAreAllowed{ randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum) };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	String paramName{ info.exposedNameFor(paramIndex) };
+	String lfoName{ paramName.upToFirstOccurrenceOf(" Frequency", false, false) };
 	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
-		auto toggleID{ ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Octave" + String(octaveNum) };
+		auto toggleID{ ID::component_ToggleButton.toString() + "For_" + paramID + "_Octave" + String(octaveNum) };
 		allowedOctaveToggles[octaveNum].setComponentID(toggleID);
-		if (pitchedFreqAreAllowed) {
-			auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForLFO(octaveNum, lfoNum) };
-			allowedOctaveToggles[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
-		}
-		else
-			allowedOctaveToggles[octaveNum].setToggleState(false, dontSendNotification);
+		auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForParam(octaveNum, paramIndex) };
+		allowedOctaveToggles[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
 		allowedOctaveToggles[octaveNum].addListener(this);
 		addAndMakeVisible(allowedOctaveToggles[octaveNum]);
 		allowedOctaveToggles[octaveNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 		if (shouldShowDescriptions) {
 			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not notes in octave " + (String)octaveNum + " are allowed\n";
-			toggleTooltip += "when a random pitched frequency is generated for LFO " + (String)lfoNum + ".\n";
+			toggleTooltip += "when a random pitched frequency is generated for " + lfoName + ".\n";
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make notes in octave " + (String)octaveNum + " the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed octave.\n";
@@ -43,20 +44,20 @@ AllowedOctavesForLFOcomponent::AllowedOctavesForLFOcomponent(int lfoNum, Unexpos
 		}
 	}
 
-	button_ForAllowingAllOctaves.setComponentID(ID::button_AllOctavesForLFO.toString() + (String)lfoNum);
+	button_ForAllowingAllOctaves.setComponentID(ID::button_AllOctavesFor_.toString() + paramID);
 	button_ForAllowingAllOctaves.addListener(this);
 	if (tooltipOptions->shouldShowDescriptions()) {
 		String buttonTooltip{ "" };
-		buttonTooltip += "Click to allow all octaves when generating\n";
-		buttonTooltip += "a random pitched frequency for LFO " + (String)lfoNum + ".";
+		buttonTooltip += "Click to allow all octaves when generating a\n";
+		buttonTooltip += "random pitched frequency for " + lfoName + ".";
 		button_ForAllowingAllOctaves.setTooltip(buttonTooltip);
 	}
 	addAndMakeVisible(button_ForAllowingAllOctaves);
 
-	setSize(GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_w, GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_h);
+	setSize(GUI::randomizationAllowedOctavesComponent_w, GUI::randomizationAllowedOctavesForLFOandSeqTrackComponents_h);
 }
 
-void AllowedOctavesForLFOcomponent::resized() {
+void AllowedOctavesComponentForLFOfreq::resized() {
 	allowedOctaveToggles[0].setBounds(GUI::randomizationAllowedOctaveToggleRow1_x, GUI::randomizationAllowedOctaveToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedOctaveToggles[1].setBounds(GUI::randomizationAllowedOctaveToggleRow1_x + GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationAllowedOctaveToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedOctaveToggles[2].setBounds(GUI::randomizationAllowedOctaveToggleRow1_x + 2 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationAllowedOctaveToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
@@ -67,65 +68,66 @@ void AllowedOctavesForLFOcomponent::resized() {
 	button_ForAllowingAllOctaves.setBounds(GUI::bounds_RandomizationAllowAllOctavesForLFOandSeqStepButton);
 }
 
-void AllowedOctavesForLFOcomponent::turnOffAllToggles() {
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
+void AllowedOctavesComponentForLFOfreq::turnOffAllToggles() {
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 		allowedOctaveToggles[octaveNum].setToggleState(false, dontSendNotification);
-	}
 }
 
-void AllowedOctavesForLFOcomponent::restoreAllToggles() {
+void AllowedOctavesComponentForLFOfreq::restoreAllToggles() {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
-		auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForLFO(octaveNum, lfoNum) };
+		auto octaveIsAllowed{ randomizationOptions->octaveIsAllowedForParam(octaveNum, paramIndex) };
 		allowedOctaveToggles[octaveNum].setToggleState(octaveIsAllowed, dontSendNotification);
 	}
 }
 
-void AllowedOctavesForLFOcomponent::buttonClicked(Button* button) {
+void AllowedOctavesComponentForLFOfreq::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto pitchedFreqAreAllowed{ randomizationOptions->pitchedFreqAreAllowedForLFO(lfoNum) };
-	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForLFO" + (String)lfoNum + "_Octave")) {
+	auto pitchedFreqAreAllowed{ randomizationOptions->pitchedFreqAreAllowedForParam(paramIndex) };
+	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "For_" + paramID + "_Octave")) {
 		if (pitchedFreqAreAllowed) {
-			auto clickedOctaveNum{ buttonID.fromFirstOccurrenceOf("Octave", false, false).getIntValue() };
+			auto clickedOctaveNum{ buttonID.fromFirstOccurrenceOf("_Octave", false, false).getIntValue() };
 			if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 				for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 					if (octaveNum == clickedOctaveNum) {
 						allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
-						randomizationOptions->setOctaveIsAllowedForLFO(octaveNum, lfoNum);
+						randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 					}
 					else {
 						allowedOctaveToggles[octaveNum].setToggleState(false, dontSendNotification);
-						randomizationOptions->setOctaveIsNotAllowedForLFO(octaveNum, lfoNum);
+						randomizationOptions->setOctaveIsNotAllowedForParam(octaveNum, paramIndex);
 					}
 				}
 			}
 			else {
 				auto isAllowed{ button->getToggleState() };
 				if (isAllowed)
-					randomizationOptions->setOctaveIsAllowedForLFO(clickedOctaveNum, lfoNum);
+					randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 				else
-					randomizationOptions->setOctaveIsNotAllowedForLFO(clickedOctaveNum, lfoNum);
+					randomizationOptions->setOctaveIsNotAllowedForParam(clickedOctaveNum, paramIndex);
 			}
-			if (randomizationOptions->noOctaveIsAllowedForLFO(lfoNum)) {
+			if (randomizationOptions->noOctaveIsAllowedForParam(paramIndex)) {
 				button->setToggleState(true, dontSendNotification);
-				randomizationOptions->setOctaveIsAllowedForLFO(clickedOctaveNum, lfoNum);
+				randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 			}
 		}
 		else
 			button->setToggleState(false, dontSendNotification);
 	}
-	if (buttonID == ID::button_AllOctavesForLFO.toString() + (String)lfoNum) {
+	if (buttonID == ID::button_AllOctavesFor_.toString() + paramID) {
 		if (pitchedFreqAreAllowed) {
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
 				allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
-				randomizationOptions->setOctaveIsAllowedForLFO(octaveNum, lfoNum);
+				randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 			}
 		}
 	}
 }
 
-AllowedOctavesForLFOcomponent::~AllowedOctavesForLFOcomponent() {
+AllowedOctavesComponentForLFOfreq::~AllowedOctavesComponentForLFOfreq() {
 	button_ForAllowingAllOctaves.removeListener(this);
 	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 		allowedOctaveToggles[octaveNum].removeListener(this);

@@ -24,6 +24,8 @@ public:
 
 	AllowedNotesComponent(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void resized() override;
+	void turnOffAllToggles();
+	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
 	~AllowedNotesComponent();
 

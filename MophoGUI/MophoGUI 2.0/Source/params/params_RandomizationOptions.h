@@ -24,7 +24,7 @@ class RandomizationOptions
 	ValueTree paramLocksTree;
 	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
-	ValueTree lfoAllowedFrequenciesTree;
+	ValueTree allowedFrequencyTypesTree;
 	ValueTree seqTrackAllowedStepValuesTree;
 
 public:
@@ -53,6 +53,25 @@ public:
 	void setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex);
 	const uint8 maxValueAllowedForParam(uint8 paramIndex);
 	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex);
+
+	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
+	void setPitchedFreqAreAllowedForParam(uint8 paramIndex);
+	void setPitchedFreqAreNotAllowedForParam(uint8 paramIndex);
+	const bool unsyncedFreqAreAllowedForParam(uint8 paramIndex);
+	void setUnsyncedFreqAreAllowedForParam(uint8 paramIndex);
+	void setUnsyncedFreqAreNotAllowedForParam(uint8 paramIndex);
+	const uint8 minUnsyncedFreqForParam(uint8 paramIndex);
+	void setMinUnsyncedFreqForParam(uint8 newMin, uint8 paramIndex);
+	const uint8 maxUnsyncedFreqForParam(uint8 paramIndex);
+	void setMaxUnsyncedFreqForParam(uint8 newMax, uint8 paramIndex);
+	const bool syncedFreqAreAllowedForParam(uint8 paramIndex);
+	void setSyncedFreqAreAllowedForParam(uint8 paramIndex);
+	void setSyncedFreqAreNotAllowedForParam(uint8 paramIndex);
+	const bool syncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex);
+	void setSyncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex);
+	void setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex);
+	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
+	const bool noFreqAreAllowedForParam(uint8 paramIndex);
 
 	//-----to do: remove these functions
 	const bool unsyncedFreqAreAllowedForLFO(int lfoNum);

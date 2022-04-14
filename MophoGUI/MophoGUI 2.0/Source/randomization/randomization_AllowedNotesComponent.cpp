@@ -14,7 +14,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch);
+	jassert(optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lpfFreq || optionsType == RandomizationOptionsType::lfoFreq);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
@@ -76,6 +76,20 @@ void AllowedNotesComponent::resized() {
 	allowedNoteToggles[11].setBounds(GUI::randomizationAllowedNoteToggleRow2_x + 6 * GUI::randomizationOptionsToggles_horizSpacing, GUI::randomizationAllowedNoteToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 
 	button_ForAllowingAllNotes.setBounds(GUI::bounds_RandomizationAllowAllNotesButton);
+}
+
+void AllowedNotesComponent::turnOffAllToggles() {
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+	}
+}
+
+void AllowedNotesComponent::restoreAllToggles() {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+		auto noteIsAllowed{ randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex) };
+		allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
+	}
 }
 
 void AllowedNotesComponent::buttonClicked(Button* button) {

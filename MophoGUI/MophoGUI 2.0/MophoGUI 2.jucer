@@ -227,6 +227,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponent.cpp"/>
         <FILE id="WTMyX2" name="randomization_AllowedOctavesComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_AllowedOctavesComponent.h"/>
+        <FILE id="VtfAqR" name="randomization_AllowedOctavesComponentForLFOfreq.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.cpp"/>
+        <FILE id="oZpXq3" name="randomization_AllowedOctavesComponentForLFOfreq.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.h"/>
         <FILE id="Yf2w21" name="randomization_AllowedOctavesForLFOcomponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForLFOcomponent.cpp"/>
         <FILE id="pwRkRj" name="randomization_AllowedOctavesForLFOcomponent.h"
@@ -239,10 +243,18 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
         <FILE id="uUbgul" name="randomization_AllowedStepValuesForSeqTrackComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.h"/>
+        <FILE id="LbEv8S" name="randomization_AllowedSyncedFreqComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqComponent.cpp"/>
+        <FILE id="wBm6n5" name="randomization_AllowedSyncedFreqComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqComponent.h"/>
         <FILE id="J1shBZ" name="randomization_AllowedSyncedFreqForLFOcomponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.cpp"/>
         <FILE id="L0SeaU" name="randomization_AllowedSyncedFreqForLFOcomponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqForLFOcomponent.h"/>
+        <FILE id="Ie77kn" name="randomization_AllowedUnsyncedFreqComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.cpp"/>
+        <FILE id="fkB6Aw" name="randomization_AllowedUnsyncedFreqComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.h"/>
         <FILE id="XoqW6l" name="randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqForLFOcomponent.cpp"/>
         <FILE id="Urk3vg" name="randomization_AllowedUnsyncedFreqForLFOcomponent.h"
@@ -251,6 +263,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.cpp"/>
         <FILE id="UqU3Vq" name="randomization_LFOfreqOptionsComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_LFOfreqOptionsComponent.h"/>
+        <FILE id="Zz7JY0" name="randomization_OptionsComponent_LFOfreq.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_LFOfreq.cpp"/>
+        <FILE id="m2oujc" name="randomization_OptionsComponent_LFOfreq.h" compile="0"
+              resource="0" file="Source/randomization/randomization_OptionsComponent_LFOfreq.h"/>
         <FILE id="xQ0ONq" name="randomization_OptionsComponent_Pitch.cpp" compile="1"
               resource="0" file="Source/randomization/randomization_OptionsComponent_Pitch.cpp"/>
         <FILE id="ZBgI2c" name="randomization_OptionsComponent_Pitch.h" compile="0"
@@ -821,6 +837,8 @@
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
       <FILE id="vkmfZr" name="Randomization-LFO-Options-Background.png" compile="0"
             resource="1" file="Resources/Randomization-LFO-Options-Background.png"/>
+      <FILE id="uMeS7f" name="Randomization-Options-LFOfreq-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-LFOfreq-Background.png"/>
       <FILE id="e5p8yH" name="Randomization-Options-Pitch-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
       <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"

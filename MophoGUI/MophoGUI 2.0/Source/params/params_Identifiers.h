@@ -26,7 +26,7 @@ namespace ID
 	static const Identifier button_AllOctavesForLFO{ "button_AllOctavesForLFO" };
 	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
 	static const Identifier button_AllOctavesForSeqTrack{ "button_AllOctavesForSeqTrack" };
-	static const Identifier button_AllSyncedFreqForLFO{ "button_AllSyncedFreqForLFO" };
+	static const Identifier button_AllSyncedFreqFor_{ "button_AllSyncedFreqFor_" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
 	static const Identifier button_CancelImptExpt{ "button_CancelImptExpt" };
@@ -91,8 +91,8 @@ namespace ID
 	static const Identifier component_KnobForMaxRandomValueFor_{ "component_KnobForMaxRandomValueFor_" };
 	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
 	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
-	static const Identifier component_KnobForMinUnsyncedFreqForLFO{ "component_KnobForMinUnsyncedFreqForLFO" };
-	static const Identifier component_KnobForMaxUnsyncedFreqForLFO{ "component_KnobForMaxUnsyncedFreqForLFO" };
+	static const Identifier component_KnobForMinUnsyncedFreqFor_{ "component_KnobForMinUnsyncedFreqFor_" };
+	static const Identifier component_KnobForMaxUnsyncedFreqFor_{ "component_KnobForMaxUnsyncedFreqFor_" };
 	static const Identifier component_KnobForRepeatValueProbabilityForSeqTrack{ "component_KnobForRepeatValueProbabilityForSeqTrack" };
 	static const Identifier component_KnobForResetProbabilityForSeqTrack{ "component_KnobForResetProbabilityForSeqTrack" };
 	static const Identifier component_KnobForRestProbabilityForSeqTrack1{ "component_KnobForRestProbabilityForSeqTrack1" };
@@ -105,9 +105,9 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
-	static const Identifier component_ToggleButton_AllowPitchedFreqForLFO{ "component_ToggleButton_AllowPitchedFreqForLFO" };
-	static const Identifier component_ToggleButton_AllowSyncedFreqForLFO{ "component_ToggleButton_AllowSyncedFreqForLFO" };
-	static const Identifier component_ToggleButton_AllowUnsyncedFreqForLFO{ "component_ToggleButton_AllowUnsyncedFreqForLFO" };
+	static const Identifier component_ToggleButton_AllowPitchedFreqFor_{ "component_ToggleButton_AllowPitchedFreqFor_" };
+	static const Identifier component_ToggleButton_AllowSyncedFreqFor_{ "component_ToggleButton_AllowSyncedFreqFor_" };
+	static const Identifier component_ToggleButton_AllowUnsyncedFreqFor_{ "component_ToggleButton_AllowUnsyncedFreqFor_" };
 	static const Identifier component_ToggleButton_EditAllStepsModeForTrack{ "component_ToggleButton_EditAllStepsModeForTrack" };
 	static const Identifier component_ToggleButton_EditSelectedStepModeForTrack{ "component_ToggleButton_EditSelectedStepModeForTrack" };
 
@@ -208,7 +208,7 @@ namespace ID
 	static const Identifier label_FolderName{ "label_FolderName" };
 
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
-	static const Identifier randomization_LFOallowedFrequencies{ "randomization_LFOallowedFrequencies" };
+	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_SeqTrackAllowedStepValues{ "randomization_SeqTrackAllowedStepValues" };

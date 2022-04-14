@@ -89,25 +89,25 @@ void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, A
 }
 
 void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	auto lfoNum{ paramID.toString().fromFirstOccurrenceOf("lfo", false, false).getIntValue() };
-	auto categoryForNewFreq{ randomlyPickFreqCategoryForLFO(lfoNum, unexposedParams) };
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramIndex{ info.indexForParamID(paramID.toString()) };
-	auto maxParamValue{ info.maxValueFor(paramIndex) };
-	auto newNormalizedValue{ 0.0f };
-	if (categoryForNewFreq == lfoFreqCategory::unsynced) {
-		auto newFreq{ randomlyPickUnsyncedFreqForLFO(lfoNum, unexposedParams) };
-		newNormalizedValue = (float)newFreq / maxParamValue;
-	}
-	if (categoryForNewFreq == lfoFreqCategory::pitched) {
-		auto newFreq{ randomlyPickPitchedFreqForLFO(lfoNum, unexposedParams) + params::firstPitchedLFOfreq };
-		newNormalizedValue = (float)newFreq / maxParamValue;
-	}
-	if (categoryForNewFreq == lfoFreqCategory::synced) {
-		auto newFreq{ randomlyPickSyncedFreqForLFO(lfoNum, unexposedParams) + params::firstSyncedLFOfreq };
-		newNormalizedValue = (float)newFreq / maxParamValue;
-	}
-	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+	//auto lfoNum{ paramID.toString().fromFirstOccurrenceOf("lfo", false, false).getIntValue() };
+	//auto categoryForNewFreq{ randomlyPickFreqCategoryForLFO(lfoNum, unexposedParams) };
+	//auto& info{ InfoForExposedParameters::get() };
+	//auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	//auto maxParamValue{ info.maxValueFor(paramIndex) };
+	//auto newNormalizedValue{ 0.0f };
+	//if (categoryForNewFreq == lfoFreqCategory::unsynced) {
+	//	auto newFreq{ randomlyPickUnsyncedFreqForLFO(lfoNum, unexposedParams) };
+	//	newNormalizedValue = (float)newFreq / maxParamValue;
+	//}
+	//if (categoryForNewFreq == lfoFreqCategory::pitched) {
+	//	auto newFreq{ randomlyPickPitchedFreqForLFO(lfoNum, unexposedParams) + params::firstPitchedLFOfreq };
+	//	newNormalizedValue = (float)newFreq / maxParamValue;
+	//}
+	//if (categoryForNewFreq == lfoFreqCategory::synced) {
+	//	auto newFreq{ randomlyPickSyncedFreqForLFO(lfoNum, unexposedParams) + params::firstSyncedLFOfreq };
+	//	newNormalizedValue = (float)newFreq / maxParamValue;
+	//}
+	//exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
 lfoFreqCategory ParamRandomizationMethods::randomlyPickFreqCategoryForLFO(int lfoNum, UnexposedParameters* unexposedParams) {

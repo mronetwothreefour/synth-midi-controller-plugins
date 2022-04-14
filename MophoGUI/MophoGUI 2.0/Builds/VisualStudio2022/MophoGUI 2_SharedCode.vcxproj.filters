@@ -634,6 +634,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -643,13 +646,22 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp">
@@ -3219,6 +3231,9 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForLFOcomponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
@@ -3228,13 +3243,22 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqForLFOcomponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqForLFOcomponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_LFOfreqOptionsComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h">
@@ -6204,6 +6228,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-LFO-Options-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Randomization-Options-LFOfreq-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Options-Pitch-Background.png">

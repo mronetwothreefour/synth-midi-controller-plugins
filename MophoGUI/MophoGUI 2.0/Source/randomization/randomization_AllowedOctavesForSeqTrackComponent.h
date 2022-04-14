@@ -18,7 +18,7 @@ class AllowedOctavesForSeqTrackComponent :
 {
 	int trackNum;
 	UnexposedParameters* unexposedParams;
-	ToggleButton allowedOctaveToggles[randomization::numberOfOctavesForLFOsAndSeqSteps];
+	ToggleButton allowedOctaveToggles[randomization::numberOfOctavesForLFOfreqAndSeqSteps];
 	TextButton button_ForAllowingAllOctaves;
 
 public:
