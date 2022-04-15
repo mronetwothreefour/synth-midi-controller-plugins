@@ -1,4 +1,3 @@
-//to do: eliminate this class
 #pragma once
 
 #include <JuceHeader.h>
@@ -11,7 +10,7 @@ using namespace constants;
 
 class UnexposedParameters;
 
-class AllowedNotesForSeqTrackComponent :
+class AllowedNotesAndBentNotesComponent :
 	public Component,
 	public Button::Listener,
 	public ValueTree::Listener
@@ -23,16 +22,16 @@ class AllowedNotesForSeqTrackComponent :
 	TextButton button_ForAllowingAllBentNotes;
 
 public:
-	AllowedNotesForSeqTrackComponent() = delete;
+	AllowedNotesAndBentNotesComponent() = delete;
 
-	AllowedNotesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	AllowedNotesAndBentNotesComponent(int trackNum, UnexposedParameters* unexposedParams);
 	void generateTooltips();
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	~AllowedNotesForSeqTrackComponent();
+	~AllowedNotesAndBentNotesComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedNotesForSeqTrackComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedNotesAndBentNotesComponent)
 };

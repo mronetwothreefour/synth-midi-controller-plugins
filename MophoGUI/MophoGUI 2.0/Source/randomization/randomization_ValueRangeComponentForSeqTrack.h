@@ -9,7 +9,7 @@
 
 class UnexposedParameters;
 
-class AllowedStepValuesForSeqTrackComponent :
+class ValueRangeComponentForSeqTrack :
 	public Component,
 	public Slider::Listener,
 	public ValueTree::Listener
@@ -22,16 +22,16 @@ class AllowedStepValuesForSeqTrackComponent :
 	RendererForKnobValueStrings valueDisplay_ForMaxStepValue;
 
 public:
-	AllowedStepValuesForSeqTrackComponent() = delete;
+	ValueRangeComponentForSeqTrack() = delete;
 
-	AllowedStepValuesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	ValueRangeComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams);
 	void generateTooltips();
 	void resized() override;
 	void sliderValueChanged(Slider* slider) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	~AllowedStepValuesForSeqTrackComponent();
+	~ValueRangeComponentForSeqTrack();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedStepValuesForSeqTrackComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ValueRangeComponentForSeqTrack)
 };

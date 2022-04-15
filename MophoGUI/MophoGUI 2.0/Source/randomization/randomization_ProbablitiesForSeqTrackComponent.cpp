@@ -22,7 +22,7 @@ ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNu
 	jassert(trackNum > 0 && trackNum < 5);
 
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->addListenerToSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 
@@ -220,7 +220,7 @@ void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tr
 
 ProbabilitiesForSeqTrackComponent::~ProbabilitiesForSeqTrackComponent() {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->removeListenerFromSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 	if (trackNum == 1)
 		knob_ForRestProbability.removeListener(this);
 	knob_ForRepeatValueProbability.removeListener(this);

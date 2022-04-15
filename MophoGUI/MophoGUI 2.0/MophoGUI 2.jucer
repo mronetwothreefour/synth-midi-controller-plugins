@@ -211,14 +211,14 @@
               resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{A8307091-EC48-FCE2-AD6A-11E108EE5848}" name="randomization">
+        <FILE id="T2gubM" name="randomization_AllowedNotesAndBentNotesComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesAndBentNotesComponent.cpp"/>
+        <FILE id="i5ao71" name="randomization_AllowedNotesAndBentNotesComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesAndBentNotesComponent.h"/>
         <FILE id="GSxrA0" name="randomization_AllowedNotesComponent.cpp" compile="1"
               resource="0" file="Source/randomization/randomization_AllowedNotesComponent.cpp"/>
         <FILE id="QgKjG3" name="randomization_AllowedNotesComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_AllowedNotesComponent.h"/>
-        <FILE id="T2gubM" name="randomization_AllowedNotesForSeqTrackComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.cpp"/>
-        <FILE id="i5ao71" name="randomization_AllowedNotesForSeqTrackComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedNotesForSeqTrackComponent.h"/>
         <FILE id="KzhwHM" name="randomization_AllowedOctavesComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponent.cpp"/>
         <FILE id="WTMyX2" name="randomization_AllowedOctavesComponent.h" compile="0"
@@ -227,14 +227,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.cpp"/>
         <FILE id="oZpXq3" name="randomization_AllowedOctavesComponentForLFOfreq.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForLFOfreq.h"/>
-        <FILE id="MjW7DG" name="randomization_AllowedOctavesForSeqTrackComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.cpp"/>
-        <FILE id="KTDCob" name="randomization_AllowedOctavesForSeqTrackComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesForSeqTrackComponent.h"/>
-        <FILE id="xgDdVU" name="randomization_AllowedStepValuesForSeqTrackComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.cpp"/>
-        <FILE id="uUbgul" name="randomization_AllowedStepValuesForSeqTrackComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_AllowedStepValuesForSeqTrackComponent.h"/>
+        <FILE id="MjW7DG" name="randomization_AllowedOctavesComponentForSeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForSeqTrack.cpp"/>
+        <FILE id="KTDCob" name="randomization_AllowedOctavesComponentForSeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedOctavesComponentForSeqTrack.h"/>
         <FILE id="LbEv8S" name="randomization_AllowedSyncedFreqComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_AllowedSyncedFreqComponent.cpp"/>
         <FILE id="wBm6n5" name="randomization_AllowedSyncedFreqComponent.h"
@@ -257,10 +253,6 @@
               compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.h"/>
         <FILE id="UmvWZq" name="randomization_Constants.h" compile="0" resource="0"
               file="Source/randomization/randomization_Constants.h"/>
-        <FILE id="TzD18V" name="randomization_EditModeForSeqTrackComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.cpp"/>
-        <FILE id="PPDcsM" name="randomization_EditModeForSeqTrackComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_EditModeForSeqTrackComponent.h"/>
         <FILE id="lYSEl2" name="randomization_ParamGroupLockingAndUnlockingMethods.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
         <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
@@ -273,10 +265,18 @@
               compile="1" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.cpp"/>
         <FILE id="L0B6IM" name="randomization_ProbablitiesForSeqTrackComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.h"/>
+        <FILE id="TzD18V" name="randomization_SeqTrackEditModeComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.cpp"/>
+        <FILE id="PPDcsM" name="randomization_SeqTrackEditModeComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.h"/>
         <FILE id="Iv7aPr" name="randomization_SeqTrackOptionsComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.cpp"/>
         <FILE id="PwCsTd" name="randomization_SeqTrackOptionsComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.h"/>
+        <FILE id="xgDdVU" name="randomization_ValueRangeComponentForSeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ValueRangeComponentForSeqTrack.cpp"/>
+        <FILE id="uUbgul" name="randomization_ValueRangeComponentForSeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/randomization_ValueRangeComponentForSeqTrack.h"/>
         <FILE id="Iq6xLA" name="RandomizationComponent.cpp" compile="1" resource="0"
               file="Source/randomization/RandomizationComponent.cpp"/>
         <FILE id="bCeZ6k" name="RandomizationComponent.h" compile="0" resource="0"
@@ -813,18 +813,10 @@
             compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
       <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
-      <FILE id="dIcWOR" name="Randomization-Seq-Track-Options-Background.png"
-            compile="0" resource="1" file="Resources/Randomization-Seq-Track-Options-Background.png"/>
+      <FILE id="zORxyS" name="Randomization-Options-Seq-Steps-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
-      <FILE id="kcKzhv" name="Title-Allowed-Step-Values-For-Track-1.png"
-            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-1.png"/>
-      <FILE id="xd9ZJO" name="Title-Allowed-Step-Values-For-Track-2.png"
-            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-2.png"/>
-      <FILE id="KRElt5" name="Title-Allowed-Step-Values-For-Track-3.png"
-            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-3.png"/>
-      <FILE id="zLSfTg" name="Title-Allowed-Step-Values-For-Track-4.png"
-            compile="0" resource="1" file="Resources/Title-Allowed-Step-Values-For-Track-4.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"
             resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
       <FILE id="tDLIwb" name="Title-Pushing-Entire-Bank.png" compile="0"

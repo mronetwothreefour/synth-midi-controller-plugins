@@ -174,9 +174,9 @@ void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, A
 	//return allowedSyncedFreq[newSyncedFreqIndex];
 //}
 
-void ParamRandomizationMethods::randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams)
-{
-}
+//void ParamRandomizationMethods::randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams)
+//{
+//}
 
 void ParamRandomizationMethods::randomizeArpAndSeqOnOffParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };

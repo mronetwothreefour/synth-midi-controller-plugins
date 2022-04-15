@@ -25,7 +25,7 @@ class RandomizationOptions
 	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
 	ValueTree allowedFrequencyTypesTree;
-	ValueTree seqTrackAllowedStepValuesTree;
+	ValueTree seqTrackOptionsTree;
 
 public:
 	RandomizationOptions();
@@ -73,9 +73,8 @@ public:
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
 
-	//-----to do: remove these functions
-	void addListenerToSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener);
-	void removeListenerFromSeqTrackAllowedStepValuesTree(ValueTree::Listener* listener);
+	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
+	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);
 	const bool editModeForSeqTrackIsAllSteps(int trackNum);
 	const bool editModeForSeqTrackIsSelectedStep(int trackNum);
 	void setEditModeForSeqTrackToAllSteps(int trackNum);
@@ -96,33 +95,18 @@ public:
 	void setProbabilityOfResetForSelectedStepInSeqTrack(float newProb, int stepNum, int trackNum);
 	const uint8 minValueForAllStepsInSeqTrack(int trackNum);
 	void setMinValueForAllStepsInSeqTrack(uint8 newMin, int trackNum);
-	const uint8 minValueForSelectedStepInSeqTrack(int stepNum, int trackNum);
-	void setMinValueForSelectedStepInSeqTrack(uint8 newMin, int stepNum, int trackNum);
 	const uint8 maxValueForAllStepsInSeqTrack(int trackNum);
 	void setMaxValueForAllStepsInSeqTrack(uint8 newMax, int trackNum);
-	const uint8 maxValueForSelectedStepInSeqTrack(int stepNum, int trackNum);
-	void setMaxValueForSelectedStepInSeqTrack(uint8 newMax, int stepNum, int trackNum);
 	const bool pitchIsAllowedForAllStepsInSeqTrack(int pitchNum, int trackNum);
-	const bool pitchIsAllowedForSelectedStepInSeqTrack(int pitchNum, int stepNum, int trackNum);
 	const bool noteIsAllowedForAllStepsInSeqTrack(int noteNum, int trackNum);
 	void setNoteIsAllowedForAllStepsInSeqTrack(int noteNum, int trackNum);
 	void setNoteIsNotAllowedForAllStepsInSeqTrack(int noteNum, int trackNum);
 	const bool noNoteIsAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool noteIsAllowedForSelectedStepInSeqTrack(int noteNum, int stepNum, int trackNum);
-	void setNoteIsAllowedForSelectedStepInSeqTrack(int noteNum, int stepNum, int trackNum);
-	void setNoteIsNotAllowedForSelectedStepInSeqTrack(int noteNum, int stepNum, int trackNum);
-	const bool noNoteIsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);
 	const bool octaveIsAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum);
 	void setOctaveIsAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum);
 	void setOctaveIsNotAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum);
 	const bool noOctaveIsAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool onlyOctave5_IsAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool octaveIsAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
-	void setOctaveIsAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
-	void setOctaveIsNotAllowedForSelectedStepInSeqTrack(int octaveNum, int stepNum, int trackNum);
-	const bool noOctaveIsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);
-	const bool onlyOctave5_IsAllowedForSelectedStepInSeqTrack(int stepNum, int trackNum);
-	//-----end to do: remove these functions
+	const bool onlyHighestOctaveIsAllowedForAllStepsInSeqTrack(int trackNum);
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);

@@ -622,10 +622,10 @@
     <ClCompile Include="..\..\Source\params\params_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesComponent.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesAndBentNotesComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedNotesComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.cpp">
@@ -634,10 +634,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForSeqTrack.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.cpp">
@@ -655,9 +652,6 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -667,7 +661,13 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\RandomizationComponent.cpp">
@@ -3201,10 +3201,10 @@
     <ClInclude Include="..\..\Source\params\params_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\params</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesComponent.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesAndBentNotesComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesForSeqTrackComponent.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedNotesComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponent.h">
@@ -3213,10 +3213,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForLFOfreq.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesForSeqTrackComponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_AllowedStepValuesForSeqTrackComponent.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForSeqTrack.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.h">
@@ -3237,9 +3234,6 @@
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_EditModeForSeqTrackComponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
@@ -3249,7 +3243,13 @@
     <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\RandomizationComponent.h">
@@ -6194,22 +6194,10 @@
     <None Include="..\..\Resources\Randomization-Options-Value-Range-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Randomization-Seq-Track-Options-Background.png">
+    <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Window-Background.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-1.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-2.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-3.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Title-Allowed-Step-Values-For-Track-4.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Title-Pulling-Entire-Bank.png">

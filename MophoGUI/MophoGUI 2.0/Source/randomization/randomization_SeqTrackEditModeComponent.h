@@ -6,7 +6,7 @@
 
 class UnexposedParameters;
 
-class EditModeForSeqTrackComponent :
+class SeqTrackEditModeComponent :
 	public Component,
 	public Button::Listener,
 	public ComboBox::Listener
@@ -18,15 +18,15 @@ class EditModeForSeqTrackComponent :
 	ComboBox stepSelector;
 
 public:
-	EditModeForSeqTrackComponent() = delete;
+	SeqTrackEditModeComponent() = delete;
 
-	EditModeForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	SeqTrackEditModeComponent(int trackNum, UnexposedParameters* unexposedParams);
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void comboBoxChanged(ComboBox* comboBox) override;
-	~EditModeForSeqTrackComponent();
+	~SeqTrackEditModeComponent();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(EditModeForSeqTrackComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SeqTrackEditModeComponent)
 };

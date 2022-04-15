@@ -1,10 +1,10 @@
 #pragma once
 
-#include "randomization_AllowedNotesForSeqTrackComponent.h"
-#include "randomization_AllowedOctavesForSeqTrackComponent.h"
-#include "randomization_AllowedStepValuesForSeqTrackComponent.h"
-#include "randomization_EditModeForSeqTrackComponent.h"
+#include "randomization_AllowedNotesAndBentNotesComponent.h"
+#include "randomization_AllowedOctavesComponentForSeqTrack.h"
+#include "randomization_SeqTrackEditModeComponent.h"
 #include "randomization_ProbablitiesForSeqTrackComponent.h"
+#include "randomization_ValueRangeComponentForSeqTrack.h"
 
 
 
@@ -15,11 +15,11 @@ class SeqTrackRandomizationOptionsComponent :
 {
 	int trackNum;
 	UnexposedParameters* unexposedParams;
-	EditModeForSeqTrackComponent editMode;
+	SeqTrackEditModeComponent editMode;
 	ProbabilitiesForSeqTrackComponent probabilites;
-	AllowedStepValuesForSeqTrackComponent allowedValues;
-	AllowedNotesForSeqTrackComponent allowedNotes;
-	AllowedOctavesForSeqTrackComponent allowedOctaves;
+	ValueRangeComponentForSeqTrack allowedValues;
+	AllowedNotesAndBentNotesComponent allowedNotes;
+	AllowedOctavesComponentForSeqTrack allowedOctaves;
 	TextButton button_ForClosingSeqTrackOptionsComponent;
 
 public:
@@ -27,8 +27,6 @@ public:
 
 	SeqTrackRandomizationOptionsComponent(int trackNum, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	const char* getTitleImageData();
-	size_t getTitleImageDataSize();
 	void resized() override;
 	void hideThisComponent();
 

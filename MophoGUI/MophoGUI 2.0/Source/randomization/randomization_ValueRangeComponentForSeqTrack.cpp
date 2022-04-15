@@ -1,7 +1,8 @@
-#include "randomization_AllowedStepValuesForSeqTrackComponent.h"
+#include "randomization_ValueRangeComponentForSeqTrack.h"
 
 #include "../gui/gui_Constants.h"
 #include "../params/params_Constants.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -10,7 +11,7 @@ using namespace constants;
 
 
 
-AllowedStepValuesForSeqTrackComponent::AllowedStepValuesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams) :
+ValueRangeComponentForSeqTrack::ValueRangeComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams) :
 	trackNum{ trackNum },
 	unexposedParams{ unexposedParams },
 	knob_ForMinStepValue{ unexposedParams },
@@ -21,14 +22,17 @@ AllowedStepValuesForSeqTrackComponent::AllowedStepValuesForSeqTrackComponent(int
 	jassert(trackNum > 0 && trackNum < 5);
 
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->addListenerToSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
 
 	knob_ForMinStepValue.setComponentID(ID::component_KnobForMinStepValueForSeqTrack.toString() + (String)trackNum);
 	knob_ForMinStepValue.setRange(0.0, (double)params::maxValueForSeqTrackStep, 1.0);
 	if (editModeIsSelectedStep)
-		knob_ForMinStepValue.setValue((double)randomizationOptions->minValueForSelectedStepInSeqTrack(selectedStep, trackNum));
+		knob_ForMinStepValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramIndex));
 	else
 		knob_ForMinStepValue.setValue((double)randomizationOptions->minValueForAllStepsInSeqTrack(trackNum));
 	knob_ForMinStepValue.setMouseDragSensitivity(142);
@@ -41,7 +45,7 @@ AllowedStepValuesForSeqTrackComponent::AllowedStepValuesForSeqTrackComponent(int
 	knob_ForMaxStepValue.setComponentID(ID::component_KnobForMaxStepValueForSeqTrack.toString() + (String)trackNum);
 	knob_ForMaxStepValue.setRange(0.0, (double)params::maxValueForSeqTrackStep, 1.0);
 	if (editModeIsSelectedStep)
-		knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueForSelectedStepInSeqTrack(selectedStep, trackNum));
+		knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramIndex));
 	else
 		knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum));
 	knob_ForMaxStepValue.setMouseDragSensitivity(142);
@@ -56,7 +60,7 @@ AllowedStepValuesForSeqTrackComponent::AllowedStepValuesForSeqTrackComponent(int
 	setSize(GUI::randomizationAllowedStepValuesForSeqTrackComponent_w, GUI::randomizationAllowedStepValuesForSeqTrackComponent_h);
 }
 
-void AllowedStepValuesForSeqTrackComponent::generateTooltips() {
+void ValueRangeComponentForSeqTrack::generateTooltips() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -98,29 +102,32 @@ void AllowedStepValuesForSeqTrackComponent::generateTooltips() {
 	}
 }
 
-void AllowedStepValuesForSeqTrackComponent::resized() {
+void ValueRangeComponentForSeqTrack::resized() {
 	knob_ForMinStepValue.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMinStepValue.setBounds(knob_ForMinStepValue.getBounds());
 	knob_ForMaxStepValue.setBounds(GUI::randomizationSeqTrackOptions_HorizKnobSpacing, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMaxStepValue.setBounds(knob_ForMaxStepValue.getBounds());
 }
 
-void AllowedStepValuesForSeqTrackComponent::sliderValueChanged(Slider* slider) {
+void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
 	if (slider->getComponentID() == ID::component_KnobForMinStepValueForSeqTrack.toString() + (String)trackNum) {
 		auto newMinValue{ (uint8)slider->getValue() };
 		if (editModeIsSelectedStep)
-			randomizationOptions->setMinValueForSelectedStepInSeqTrack(newMinValue, selectedStep, trackNum);
+			randomizationOptions->setMinValueAllowedForParam(newMinValue, paramIndex);
 		else
 			randomizationOptions->setMinValueForAllStepsInSeqTrack(newMinValue, trackNum);
-		auto maxValue{ editModeIsSelectedStep ? randomizationOptions->maxValueForSelectedStepInSeqTrack(selectedStep, trackNum) :
+		auto maxValue{ editModeIsSelectedStep ? randomizationOptions->maxValueAllowedForParam(paramIndex) :
 												randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum) };
 		if (newMinValue > maxValue) {
 			knob_ForMaxStepValue.setValue((double)newMinValue, sendNotification);
 			if (editModeIsSelectedStep)
-				randomizationOptions->setMaxValueForSelectedStepInSeqTrack(newMinValue, selectedStep, trackNum);
+				randomizationOptions->setMaxValueAllowedForParam(newMinValue, paramIndex);
 			else
 				randomizationOptions->setMaxValueForAllStepsInSeqTrack(newMinValue, trackNum);
 		}
@@ -128,22 +135,22 @@ void AllowedStepValuesForSeqTrackComponent::sliderValueChanged(Slider* slider) {
 	if (slider->getComponentID() == ID::component_KnobForMaxStepValueForSeqTrack.toString() + (String)trackNum) {
 		auto newMaxValue{ (uint8)slider->getValue() };
 		if (editModeIsSelectedStep)
-			randomizationOptions->setMaxValueForSelectedStepInSeqTrack(newMaxValue, selectedStep, trackNum);
+			randomizationOptions->setMaxValueAllowedForParam(newMaxValue, paramIndex);
 		else
 			randomizationOptions->setMaxValueForAllStepsInSeqTrack(newMaxValue, trackNum);
-		auto minValue{ editModeIsSelectedStep ? randomizationOptions->minValueForSelectedStepInSeqTrack(selectedStep, trackNum) :
+		auto minValue{ editModeIsSelectedStep ? randomizationOptions->minValueAllowedForParam(paramIndex) :
 												randomizationOptions->minValueForAllStepsInSeqTrack(trackNum) };
 		if (newMaxValue > minValue) {
 			knob_ForMinStepValue.setValue((double)newMaxValue, sendNotification);
 			if (editModeIsSelectedStep)
-				randomizationOptions->setMinValueForSelectedStepInSeqTrack(newMaxValue, selectedStep, trackNum);
+				randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 			else
 				randomizationOptions->setMinValueForAllStepsInSeqTrack(newMaxValue, trackNum);
 		}
 	}
 }
 
-void AllowedStepValuesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+void ValueRangeComponentForSeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum || 
 		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum) 
 	{
@@ -151,8 +158,11 @@ void AllowedStepValuesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& 
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 		if (editModeIsSelectedStep) {
-			knob_ForMinStepValue.setValue((double)randomizationOptions->minValueForSelectedStepInSeqTrack(selectedStep, trackNum), sendNotification);
-			knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueForSelectedStepInSeqTrack(selectedStep, trackNum), sendNotification);
+			auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+			auto& info{ InfoForExposedParameters::get() };
+			auto paramIndex{ info.indexForParamID(paramID) };
+			knob_ForMinStepValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramIndex), sendNotification);
+			knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramIndex), sendNotification);
 		}
 		else {
 			knob_ForMinStepValue.setValue((double)randomizationOptions->minValueForAllStepsInSeqTrack(trackNum), sendNotification);
@@ -162,9 +172,9 @@ void AllowedStepValuesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& 
 	}
 }
 
-AllowedStepValuesForSeqTrackComponent::~AllowedStepValuesForSeqTrackComponent() {
+ValueRangeComponentForSeqTrack::~ValueRangeComponentForSeqTrack() {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->removeListenerFromSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 	knob_ForMinStepValue.removeListener(this);
 	knob_ForMaxStepValue.removeListener(this);
 }

@@ -1,6 +1,7 @@
-#include "randomization_AllowedNotesForSeqTrackComponent.h"
+#include "randomization_AllowedNotesAndBentNotesComponent.h"
 
 #include "../gui/gui_Constants.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -9,14 +10,14 @@ using namespace constants;
 
 
 
-AllowedNotesForSeqTrackComponent::AllowedNotesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams) :
+AllowedNotesAndBentNotesComponent::AllowedNotesAndBentNotesComponent(int trackNum, UnexposedParameters* unexposedParams) :
 	trackNum{ trackNum },
 	unexposedParams{ unexposedParams }
 {
 	jassert(trackNum > 0 && trackNum < 5);
 
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->addListenerToSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 
@@ -24,8 +25,12 @@ AllowedNotesForSeqTrackComponent::AllowedNotesForSeqTrackComponent(int trackNum,
 		auto toggleID{ ID::component_ToggleButton.toString() + "ForSeqTrack" + (String)trackNum + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);
 		bool noteIsAllowed;
-		if (editModeIsSelectedStep)
-			noteIsAllowed = randomizationOptions->noteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
+		if (editModeIsSelectedStep) {
+			auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+			auto& info{ InfoForExposedParameters::get() };
+			auto paramIndex{ info.indexForParamID(paramID) };
+			noteIsAllowed = randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex);
+		}
 		else
 			noteIsAllowed = randomizationOptions->noteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 		allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
@@ -34,11 +39,11 @@ AllowedNotesForSeqTrackComponent::AllowedNotesForSeqTrackComponent(int trackNum,
 		allowedNoteToggles[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	}
 
-	button_ForAllowingAllNotes.setComponentID(ID::button_AllNotesForSeqTrack.toString() + (String)trackNum);
+	button_ForAllowingAllNotes.setComponentID(ID::button_AllNotesFor_.toString() + "SeqTrack" + (String)trackNum);
 	button_ForAllowingAllNotes.addListener(this);
 	addAndMakeVisible(button_ForAllowingAllNotes);
 
-	button_ForAllowingAllBentNotes.setComponentID(ID::button_AllNotesForSeqTrack.toString() + (String)trackNum);
+	button_ForAllowingAllBentNotes.setComponentID(ID::button_AllNotesFor_.toString() + "BentNotesInSeqTrack" + (String)trackNum);
 	button_ForAllowingAllBentNotes.addListener(this);
 	addAndMakeVisible(button_ForAllowingAllBentNotes);
 
@@ -47,7 +52,7 @@ AllowedNotesForSeqTrackComponent::AllowedNotesForSeqTrackComponent(int trackNum,
 	setSize(GUI::randomizationAllowedNotesForSeqTrackComponent_w, GUI::randomizationAllowedNotesForSeqTrackComponent_h);
 }
 
-void AllowedNotesForSeqTrackComponent::generateTooltips() {
+void AllowedNotesAndBentNotesComponent::generateTooltips() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -87,7 +92,7 @@ void AllowedNotesForSeqTrackComponent::generateTooltips() {
 	}
 }
 
-void AllowedNotesForSeqTrackComponent::resized() {
+void AllowedNotesAndBentNotesComponent::resized() {
 	allowedNoteToggles[0].setBounds(GUI::randomizationAllowedNoteToggleRow2_x, GUI::randomizationAllowedNoteToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedNoteToggles[1].setBounds(GUI::randomizationAllowedBentNoteToggleRow2_x, GUI::randomizationAllowedNoteToggleRow2_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	allowedNoteToggles[2].setBounds(GUI::randomizationAllowedNoteToggleRow1_x, GUI::randomizationAllowedNoteToggleRow1_y, GUI::toggle_diameter, GUI::toggle_diameter);
@@ -117,12 +122,15 @@ void AllowedNotesForSeqTrackComponent::resized() {
 	button_ForAllowingAllBentNotes.setBounds(GUI::bounds_RandomizationAllowAllBentNotesButton);
 }
 
-void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
+void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto editModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
 
 	if (buttonID.startsWith(ID::component_ToggleButton.toString() + "ForSeqTrack" + (String)trackNum + "_Note")) {
 		auto clickedNoteNum{ buttonID.fromFirstOccurrenceOf("Note", false, false).getIntValue() };
@@ -131,14 +139,14 @@ void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
 				if (noteNum == clickedNoteNum) {
 					allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 					if (editModeIsSelectedStep)
-						randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
+						randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
 					else
 						randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 				}
 				else {
 					allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
 					if (editModeIsSelectedStep)
-						randomizationOptions->setNoteIsNotAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
+						randomizationOptions->setNoteIsNotAllowedForParam(noteNum, paramIndex);
 					else
 						randomizationOptions->setNoteIsNotAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 				}
@@ -148,45 +156,45 @@ void AllowedNotesForSeqTrackComponent::buttonClicked(Button* button) {
 			auto isAllowed{ button->getToggleState() };
 			if (isAllowed)
 				if (editModeIsSelectedStep)
-					randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(clickedNoteNum, selectedStep, trackNum);
+					randomizationOptions->setNoteIsAllowedForParam(clickedNoteNum, paramIndex);
 				else
 					randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(clickedNoteNum, trackNum);
 			else
 				if (editModeIsSelectedStep)
-					randomizationOptions->setNoteIsNotAllowedForSelectedStepInSeqTrack(clickedNoteNum, selectedStep, trackNum);
+					randomizationOptions->setNoteIsNotAllowedForParam(clickedNoteNum, paramIndex);
 				else
 					randomizationOptions->setNoteIsNotAllowedForAllStepsInSeqTrack(clickedNoteNum, trackNum);
 		}
-		if (editModeIsSelectedStep && randomizationOptions->noNoteIsAllowedForSelectedStepInSeqTrack(selectedStep, trackNum)) {
+		if (editModeIsSelectedStep && randomizationOptions->noNoteIsAllowedForParam(paramIndex)) {
 			button->setToggleState(true, dontSendNotification);
-			randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(clickedNoteNum, selectedStep, trackNum);
+			randomizationOptions->setNoteIsAllowedForParam(clickedNoteNum, paramIndex);
 		}
 		if (editModeIsAllSteps && randomizationOptions->noNoteIsAllowedForAllStepsInSeqTrack(trackNum)) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(clickedNoteNum, trackNum);
 		}
 	}
-	if (buttonID == ID::button_AllNotesForSeqTrack.toString() + (String)trackNum) {
+	if (buttonID == ID::button_AllNotesFor_.toString() + "SeqTrack" + (String)trackNum) {
 		for (auto noteNum = 0; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			if (editModeIsSelectedStep)
-				randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
+				randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
 			else
 				randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 		}
 	}
-	if (buttonID == ID::button_AllBentNotesForSeqTrack.toString() + (String)trackNum) {
+	if (buttonID == ID::button_AllNotesFor_.toString() + "BentNotesInSeqTrack" + (String)trackNum) {
 		for (auto noteNum = 1; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			if (editModeIsSelectedStep)
-				randomizationOptions->setNoteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum);
+				randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
 			else
 				randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 		}
 	}
 }
 
-void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
 		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
 	{
@@ -195,7 +203,10 @@ void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tre
 		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
 			if (editModeIsSelectedStep) {
-				auto noteIsAllowed{ randomizationOptions->noteIsAllowedForSelectedStepInSeqTrack(noteNum, selectedStep, trackNum) };
+				auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+				auto& info{ InfoForExposedParameters::get() };
+				auto paramIndex{ info.indexForParamID(paramID) };
+				auto noteIsAllowed{ randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex) };
 				allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 			}
 			else {
@@ -207,12 +218,12 @@ void AllowedNotesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tre
 	}
 }
 
-AllowedNotesForSeqTrackComponent::~AllowedNotesForSeqTrackComponent() {
+AllowedNotesAndBentNotesComponent::~AllowedNotesAndBentNotesComponent() {
 	button_ForAllowingAllBentNotes.removeListener(this);
 	button_ForAllowingAllNotes.removeListener(this);
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
 		allowedNoteToggles[noteNum].removeListener(this);
 	}
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	randomizationOptions->removeListenerFromSeqTrackAllowedStepValuesTree(this);
+	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 }

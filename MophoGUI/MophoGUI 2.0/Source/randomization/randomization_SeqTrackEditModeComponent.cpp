@@ -1,4 +1,4 @@
-#include "randomization_EditModeForSeqTrackComponent.h"
+#include "randomization_SeqTrackEditModeComponent.h"
 
 #include "../gui/gui_Constants.h"
 #include "../params/params_Identifiers.h"
@@ -8,7 +8,7 @@ using namespace constants;
 
 
 
-EditModeForSeqTrackComponent::EditModeForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams) :
+SeqTrackEditModeComponent::SeqTrackEditModeComponent(int trackNum, UnexposedParameters* unexposedParams) :
 	trackNum{ trackNum },
 	unexposedParams{ unexposedParams }
 {
@@ -58,13 +58,13 @@ EditModeForSeqTrackComponent::EditModeForSeqTrackComponent(int trackNum, Unexpos
 	setSize(GUI::randomizationEditModeForSeqTrackComponent_w, GUI::randomizationEditModeForSeqTrackComponent_h);
 }
 
-void EditModeForSeqTrackComponent::resized() {
+void SeqTrackEditModeComponent::resized() {
 	editAllStepsModeToggle.setBounds(0, 0, GUI::toggle_diameter, GUI::toggle_diameter);
 	editSelectedStepModeToggle.setBounds(0, 25, GUI::toggle_diameter, GUI::toggle_diameter);
 	stepSelector.setBounds(52, 24, 38, GUI::comboBox_h);
 }
 
-void EditModeForSeqTrackComponent::buttonClicked(Button* button) {
+void SeqTrackEditModeComponent::buttonClicked(Button* button) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	if (button->getComponentID() == ID::component_ToggleButton_EditAllStepsModeForTrack.toString() + (String)trackNum) {
 		if(button->getToggleState())
@@ -76,7 +76,7 @@ void EditModeForSeqTrackComponent::buttonClicked(Button* button) {
 	}
 }
 
-void EditModeForSeqTrackComponent::comboBoxChanged(ComboBox* comboBox) {
+void SeqTrackEditModeComponent::comboBoxChanged(ComboBox* comboBox) {
 	if (comboBox->getComponentID() == ID::component_StepSelectorForTrack.toString() + (String)trackNum) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto selectedStep{ comboBox->getSelectedItemIndex() };
@@ -84,7 +84,7 @@ void EditModeForSeqTrackComponent::comboBoxChanged(ComboBox* comboBox) {
 	}
 }
 
-EditModeForSeqTrackComponent::~EditModeForSeqTrackComponent() {
+SeqTrackEditModeComponent::~SeqTrackEditModeComponent() {
 	stepSelector.removeListener(this);
 	editSelectedStepModeToggle.removeListener(this);
 	editAllStepsModeToggle.removeListener(this);

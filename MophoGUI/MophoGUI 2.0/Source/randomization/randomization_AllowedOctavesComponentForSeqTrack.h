@@ -11,7 +11,7 @@ using namespace constants;
 
 class UnexposedParameters;
 
-class AllowedOctavesForSeqTrackComponent :
+class AllowedOctavesComponentForSeqTrack :
 	public Component,
 	public Button::Listener,
 	public ValueTree::Listener
@@ -22,16 +22,16 @@ class AllowedOctavesForSeqTrackComponent :
 	TextButton button_ForAllowingAllOctaves;
 
 public:
-	AllowedOctavesForSeqTrackComponent() = delete;
+	AllowedOctavesComponentForSeqTrack() = delete;
 
-	AllowedOctavesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	AllowedOctavesComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams);
 	void generateTooltips();
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	~AllowedOctavesForSeqTrackComponent();
+	~AllowedOctavesComponentForSeqTrack();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedOctavesForSeqTrackComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowedOctavesComponentForSeqTrack)
 };

@@ -22,6 +22,6 @@ private:
 	//static uint8 randomlyPickUnsyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
 	//static uint8 randomlyPickPitchedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
 	//static uint8 randomlyPickSyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
-	static void randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	//static void randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	static void randomizeArpAndSeqOnOffParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 };

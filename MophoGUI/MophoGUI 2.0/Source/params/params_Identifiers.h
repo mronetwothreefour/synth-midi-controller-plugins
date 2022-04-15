@@ -19,13 +19,6 @@ namespace ID
 	static const Identifier button_AllBentNotesFor_{ "button_AllBentNotesFor_" };
 	static const Identifier button_AllNotesFor_{ "button_AllNotesFor_" };
 	static const Identifier button_AllOctavesFor_{ "button_AllOctavesFor_" };
-	static const Identifier button_AllNotesForLFO{ "button_AllNotesForLFO" }; //to do: delete
-	static const Identifier button_AllNotesForOsc{ "button_AllNotesForOsc" }; //to do: delete
-	static const Identifier button_AllNotesForSeqTrack{ "button_AllNotesForSeqTrack" }; //to do: delete
-	static const Identifier button_AllBentNotesForSeqTrack{ "button_AllBentNotesForSeqTrack" }; //to do: delete
-	static const Identifier button_AllOctavesForLFO{ "button_AllOctavesForLFO" };
-	static const Identifier button_AllOctavesForOsc{ "button_AllOctavesForOsc" };
-	static const Identifier button_AllOctavesForSeqTrack{ "button_AllOctavesForSeqTrack" };
 	static const Identifier button_AllSyncedFreqFor_{ "button_AllSyncedFreqFor_" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
@@ -88,8 +81,8 @@ namespace ID
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_KnobForMinRandomValueFor_{ "component_KnobForMinRandomValueFor_" };
 	static const Identifier component_KnobForMaxRandomValueFor_{ "component_KnobForMaxRandomValueFor_" };
-	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" };
-	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" };
+	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" }; //to do: delete
+	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" }; //to do: delete
 	static const Identifier component_KnobForMinUnsyncedFreqFor_{ "component_KnobForMinUnsyncedFreqFor_" };
 	static const Identifier component_KnobForMaxUnsyncedFreqFor_{ "component_KnobForMaxUnsyncedFreqFor_" };
 	static const Identifier component_KnobForRepeatValueProbabilityForSeqTrack{ "component_KnobForRepeatValueProbabilityForSeqTrack" };
@@ -210,7 +203,7 @@ namespace ID
 	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
-	static const Identifier randomization_SeqTrackAllowedStepValues{ "randomization_SeqTrackAllowedStepValues" };
+	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" }; //to do: delete
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };

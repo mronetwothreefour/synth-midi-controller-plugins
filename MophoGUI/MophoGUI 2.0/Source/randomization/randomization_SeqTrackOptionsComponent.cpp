@@ -41,49 +41,10 @@ SeqTrackRandomizationOptionsComponent::SeqTrackRandomizationOptionsComponent(int
 
 void SeqTrackRandomizationOptionsComponent::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
-	MemoryInputStream memInputStreamForBackground{ BinaryData::RandomizationSeqTrackOptionsBackground_png, BinaryData::RandomizationSeqTrackOptionsBackground_pngSize, false };
+	MemoryInputStream memInputStreamForBackground{ BinaryData::RandomizationOptionsSeqStepsBackground_png, BinaryData::RandomizationOptionsSeqStepsBackground_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStreamForBackground) };
 	g.drawImageAt(backgroundImage, GUI::randomizationLFOoptionsBackground_x, GUI::randomizationLFOoptionsBackground_y);
-	auto titleImageData{ getTitleImageData() };
-	auto titleImageDataSize{ getTitleImageDataSize() };
-	if (titleImageData != nullptr) {
-		MemoryInputStream memInputStreamForTitle{ titleImageData, titleImageDataSize, false };
-		auto titleImage{ imageFormat.decodeImage(memInputStreamForTitle) };
-		g.drawImageAt(titleImage, GUI::randomizationSeqTrackOptionsBackground_x, GUI::randomizationSeqTrackOptionsBackground_y);
-	}
-}
-
-const char* SeqTrackRandomizationOptionsComponent::getTitleImageData() {
-	switch (trackNum)
-	{
-	case 1:
-		return BinaryData::TitleAllowedStepValuesForTrack1_png;
-	case 2:
-		return BinaryData::TitleAllowedStepValuesForTrack2_png;
-	case 3:
-		return BinaryData::TitleAllowedStepValuesForTrack3_png;
-	case 4:
-		return BinaryData::TitleAllowedStepValuesForTrack4_png;
-	default:
-		return nullptr;
-	}
-}
-
-size_t SeqTrackRandomizationOptionsComponent::getTitleImageDataSize() {
-	switch (trackNum)
-	{
-	case 1:
-		return BinaryData::TitleAllowedStepValuesForTrack1_pngSize;
-	case 2:
-		return BinaryData::TitleAllowedStepValuesForTrack2_pngSize;
-	case 3:
-		return BinaryData::TitleAllowedStepValuesForTrack3_pngSize;
-	case 4:
-		return BinaryData::TitleAllowedStepValuesForTrack4_pngSize;
-	default:
-		return size_t();
-	}
 }
 
 void SeqTrackRandomizationOptionsComponent::resized() {
