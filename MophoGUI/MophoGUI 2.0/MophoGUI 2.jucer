@@ -247,6 +247,10 @@
               resource="0" file="Source/randomization/randomization_OptionsComponent_Pitch.cpp"/>
         <FILE id="ZBgI2c" name="randomization_OptionsComponent_Pitch.h" compile="0"
               resource="0" file="Source/randomization/randomization_OptionsComponent_Pitch.h"/>
+        <FILE id="Iv7aPr" name="randomization_OptionsComponent_SeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack.cpp"/>
+        <FILE id="PwCsTd" name="randomization_OptionsComponent_SeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack.h"/>
         <FILE id="e5Q6dE" name="randomization_OptionsComponent_ValueRange.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.cpp"/>
         <FILE id="GTauAU" name="randomization_OptionsComponent_ValueRange.h"
@@ -261,18 +265,14 @@
               compile="1" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.cpp"/>
         <FILE id="BA9u8k" name="randomization_ParamRandomizationMethods.h"
               compile="0" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.h"/>
-        <FILE id="icw387" name="randomization_ProbablitiesForSeqTrackComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.cpp"/>
-        <FILE id="L0B6IM" name="randomization_ProbablitiesForSeqTrackComponent.h"
-              compile="0" resource="0" file="Source/randomization/randomization_ProbablitiesForSeqTrackComponent.h"/>
+        <FILE id="icw387" name="randomization_ProbabilitiesComponentForSeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ProbabilitiesComponentForSeqTrack.cpp"/>
+        <FILE id="L0B6IM" name="randomization_ProbabilitiesComponentForSeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/randomization_ProbabilitiesComponentForSeqTrack.h"/>
         <FILE id="TzD18V" name="randomization_SeqTrackEditModeComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.cpp"/>
         <FILE id="PPDcsM" name="randomization_SeqTrackEditModeComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.h"/>
-        <FILE id="Iv7aPr" name="randomization_SeqTrackOptionsComponent.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.cpp"/>
-        <FILE id="PwCsTd" name="randomization_SeqTrackOptionsComponent.h" compile="0"
-              resource="0" file="Source/randomization/randomization_SeqTrackOptionsComponent.h"/>
         <FILE id="xgDdVU" name="randomization_ValueRangeComponentForSeqTrack.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ValueRangeComponentForSeqTrack.cpp"/>
         <FILE id="uUbgul" name="randomization_ValueRangeComponentForSeqTrack.h"

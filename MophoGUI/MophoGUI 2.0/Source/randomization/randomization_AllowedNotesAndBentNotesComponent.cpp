@@ -49,7 +49,7 @@ AllowedNotesAndBentNotesComponent::AllowedNotesAndBentNotesComponent(int trackNu
 
 	generateTooltips();
 
-	setSize(GUI::randomizationAllowedNotesForSeqTrackComponent_w, GUI::randomizationAllowedNotesForSeqTrackComponent_h);
+	setSize(GUI::randomizationAllowedNotesComponentForSeqTrack_w, GUI::randomizationAllowedNotesComponentForSeqTrack_h);
 }
 
 void AllowedNotesAndBentNotesComponent::generateTooltips() {
@@ -59,15 +59,19 @@ void AllowedNotesAndBentNotesComponent::generateTooltips() {
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
-			auto noteName{ IntToPitchName::convertToSeqStepPitchName((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false) };
-			if (noteName.contains("+"))
+			auto noteName{ IntToPitchName::convertToSeqStepPitchName((uint8)noteNum) };
+			if (noteName.contains("+")) {
+				noteName = noteName.removeCharacters("0+");
 				noteName = GUI::openQuote + "bent" + GUI::closeQuote + " " + noteName.upToFirstOccurrenceOf("+", false, false) + " (+)";
-			String toggleTooltip{ "" };
-			toggleTooltip += "Toggles whether or not " + noteName + " notes are allowed\n";
-			if (editModeIsSelectedStep) 
-				toggleTooltip += "when a random pitch is generated for the selected step in track " + (String)trackNum + ".\n";
+			}
 			else
-				toggleTooltip += "when a random pitch is generated for all the steps in track " + (String)trackNum + ".\n";
+				noteName = noteName.removeCharacters("0");
+			String toggleTooltip{ "" };
+			toggleTooltip += "Toggles whether or not " + noteName + " notes are allowed when\n";
+			if (editModeIsSelectedStep) 
+				toggleTooltip += "a random pitch is generated for the selected step in track " + (String)trackNum + ".\n";
+			else
+				toggleTooltip += "a random pitch is generated for all the steps in track " + (String)trackNum + ".\n";
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make " + noteName + " notes the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed note.";

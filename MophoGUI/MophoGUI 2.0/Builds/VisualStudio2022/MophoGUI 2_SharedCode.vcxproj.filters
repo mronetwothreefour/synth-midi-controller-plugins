@@ -649,6 +649,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -658,13 +661,10 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_ProbabilitiesComponentForSeqTrack.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.cpp">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.cpp">
@@ -3228,6 +3228,9 @@
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
@@ -3240,13 +3243,10 @@
     <ClInclude Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_ProbablitiesForSeqTrackComponent.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_ProbabilitiesComponentForSeqTrack.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.h">
-      <Filter>MophoGUI 2\Source\randomization</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackOptionsComponent.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.h">

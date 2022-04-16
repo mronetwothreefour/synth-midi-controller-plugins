@@ -501,12 +501,12 @@ void GUILookAndFeel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, 
 			g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
 			g.fillRect(reducedArea);
 		}
-		reducedArea.reduce(jmin(5, area.getWidth() / 20), 0);
+		reducedArea.reduce(5, 0);
 		g.setFont(FontsMenu::fontFor_PopupMenuItems);
 		auto iconArea = reducedArea.removeFromLeft(5).toFloat();
 		if (isTicked) {
 			g.setColour(Color::bullseye);
-			g.fillEllipse(4, 6, 4, 4);
+			g.fillEllipse(4.0f, 6.0f, 4.0f, 4.0f);
 		}
 		else
 			g.setColour(Color::controlText);

@@ -1,6 +1,7 @@
-#include "randomization_ProbablitiesForSeqTrackComponent.h"
+#include "randomization_ProbabilitiesComponentForSeqTrack.h"
 
 #include "../gui/gui_Constants.h"
+#include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -9,7 +10,7 @@ using namespace constants;
 
 
 
-ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams) :
+ProbabilitiesComponentForSeqTrack::ProbabilitiesComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams) :
 	trackNum{ trackNum },
 	unexposedParams{ unexposedParams },
 	knob_ForRestProbability{ unexposedParams },
@@ -25,14 +26,18 @@ ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNu
 	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
 
 	if (trackNum == 1) {
 		knob_ForRestProbability.setComponentID(ID::component_KnobForRestProbabilityForSeqTrack1.toString());
 		knob_ForRestProbability.setRange(0.0, 100.0, 1.0);
+		knob_ForRestProbability.setDoubleClickReturnValue(true, 10.0);
 		if (editModeIsSelectedStep)
-			knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForSelectedStepInSeqTrack1(selectedStep) * 10.0);
+			knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForParam(paramIndex) * 100.0);
 		else
-			knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() * 10.0);
+			knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() * 100.0);
 		knob_ForRestProbability.setMouseDragSensitivity(130);
 		knob_ForRestProbability.addListener(this);
 		addAndMakeVisible(knob_ForRestProbability);
@@ -43,10 +48,11 @@ ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNu
 
 	knob_ForRepeatValueProbability.setComponentID(ID::component_KnobForRepeatValueProbabilityForSeqTrack.toString() + (String)trackNum);
 	knob_ForRepeatValueProbability.setRange(0.0, 100.0, 1.0);
+	knob_ForRepeatValueProbability.setDoubleClickReturnValue(true, 0.0);
 	if (editModeIsSelectedStep)
-		knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForSelectedStepInSeqTrack(selectedStep, trackNum) * 10.0);
+		knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForParam(paramIndex) * 100.0);
 	else
-		knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForAllStepsInSeqTrack(trackNum) * 10.0);
+		knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForAllStepsInSeqTrack(trackNum) * 100.0);
 	knob_ForRepeatValueProbability.setMouseDragSensitivity(130);
 	if (editModeIsSelectedStep && selectedStep == 1)
 		knob_ForRepeatValueProbability.setEnabled(false);
@@ -58,10 +64,11 @@ ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNu
 
 	knob_ForResetProbability.setComponentID(ID::component_KnobForResetProbabilityForSeqTrack.toString() + (String)trackNum);
 	knob_ForResetProbability.setRange(0.0, 100.0, 1.0);
+	knob_ForResetProbability.setDoubleClickReturnValue(true, 0.0);
 	if (editModeIsSelectedStep)
-		knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForSelectedStepInSeqTrack(selectedStep, trackNum) * 10.0);
+		knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForParam(paramIndex) * 100.0);
 	else
-		knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) * 10.0);
+		knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) * 100.0);
 	knob_ForResetProbability.setMouseDragSensitivity(130);
 	knob_ForResetProbability.addListener(this);
 	addAndMakeVisible(knob_ForResetProbability);
@@ -76,7 +83,7 @@ ProbabilitiesForSeqTrackComponent::ProbabilitiesForSeqTrackComponent(int trackNu
 	setSize(componentWidth, GUI::randomizationProbabilitiesForSeqTrackComponent_h);
 }
 
-void ProbabilitiesForSeqTrackComponent::generateTooltips() {
+void ProbabilitiesComponentForSeqTrack::generateTooltips() {
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -125,7 +132,7 @@ void ProbabilitiesForSeqTrackComponent::generateTooltips() {
 	}
 }
 
-void ProbabilitiesForSeqTrackComponent::paint(Graphics& g) {
+void ProbabilitiesComponentForSeqTrack::paint(Graphics& g) {
 	auto backgroundImageData{ getBackgroundImageData() };
 	auto backgroundImageDataSize{ getBackgroundImageDataSize() };
 	if (backgroundImageData != nullptr) {
@@ -136,21 +143,21 @@ void ProbabilitiesForSeqTrackComponent::paint(Graphics& g) {
 	}
 }
 
-const char* ProbabilitiesForSeqTrackComponent::getBackgroundImageData() {
+const char* ProbabilitiesComponentForSeqTrack::getBackgroundImageData() {
 	if (trackNum == 1)
 		return BinaryData::ProbabilityControlsForTrack1_png;
 	else
 		return BinaryData::ProbabilityControlsForTracks2_3_4_png;
 }
 
-size_t ProbabilitiesForSeqTrackComponent::getBackgroundImageDataSize() {
+size_t ProbabilitiesComponentForSeqTrack::getBackgroundImageDataSize() {
 	if (trackNum == 1)
 		return BinaryData::ProbabilityControlsForTrack1_pngSize;
 	else
 		return BinaryData::ProbabilityControlsForTracks2_3_4_pngSize;
 }
 
-void ProbabilitiesForSeqTrackComponent::resized() {
+void ProbabilitiesComponentForSeqTrack::resized() {
 	if (trackNum == 1) {
 		knob_ForRestProbability.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
 		valueDisplay_ForRestProbability.setBounds(knob_ForRestProbability.getBounds());
@@ -161,33 +168,36 @@ void ProbabilitiesForSeqTrackComponent::resized() {
 	valueDisplay_ForResetProbability.setBounds(knob_ForResetProbability.getBounds());
 }
 
-void ProbabilitiesForSeqTrackComponent::sliderValueChanged(Slider* slider) {
+void ProbabilitiesComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
-	auto newValue{ (float)slider->getValue() / 10.0f };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
+	auto newValue{ (float)slider->getValue() / 100.0f };
 
 	if (slider->getComponentID() == ID::component_KnobForRestProbabilityForSeqTrack1.toString()) {
 		if (editModeIsSelectedStep)
-			randomizationOptions->setProbabilityOfRestForSelectedStepInSeqTrack1(newValue, selectedStep);
+			randomizationOptions->setProbabilityOfRestForParam(newValue, paramIndex);
 		else
 			randomizationOptions->setProbabilityOfRestForAllStepsInSeqTrack1(newValue);
 	}
 	if (slider->getComponentID() == ID::component_KnobForRepeatValueProbabilityForSeqTrack.toString() + (String)trackNum) {
 		if (editModeIsSelectedStep)
-			randomizationOptions->setProbabilityOfRepeatValueForSelectedStepInSeqTrack(newValue, selectedStep, trackNum);
+			randomizationOptions->setProbabilityOfRepeatValueForParam(newValue, paramIndex);
 		else
 			randomizationOptions->setProbabilityOfRepeatForAllStepsInSeqTrack(newValue, trackNum);
 	}
 	if (slider->getComponentID() == ID::component_KnobForResetProbabilityForSeqTrack.toString() + (String)trackNum) {
 		if (editModeIsSelectedStep)
-			randomizationOptions->setProbabilityOfResetForSelectedStepInSeqTrack(newValue, selectedStep, trackNum);
+			randomizationOptions->setProbabilityOfResetForParam(newValue, paramIndex);
 		else
 			randomizationOptions->setProbabilityOfResetForAllStepsInSeqTrack(newValue, trackNum);
 	}
 }
 
-void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+void ProbabilitiesComponentForSeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
 		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
 	{
@@ -195,30 +205,35 @@ void ProbabilitiesForSeqTrackComponent::valueTreePropertyChanged(ValueTree& /*tr
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 		if (editModeIsSelectedStep) {
+			auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+			auto& info{ InfoForExposedParameters::get() };
+			auto paramIndex{ info.indexForParamID(paramID) };
 			if (trackNum == 1)
-				knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForSelectedStepInSeqTrack1(selectedStep) * 10.0, sendNotification);
-			knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForSelectedStepInSeqTrack(selectedStep, trackNum) * 10.0, sendNotification);
-			knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForSelectedStepInSeqTrack(selectedStep, trackNum) * 10.0, sendNotification);
+				knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForParam(paramIndex) * 100.0, sendNotification);
+			knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForParam(paramIndex) * 100.0, sendNotification);
+			knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForParam(paramIndex) * 100.0, sendNotification);
 			if (selectedStep == 1) {
 				knob_ForRepeatValueProbability.setEnabled(false);
 				knob_ForResetProbability.setEnabled(false);
 			}
-		}
-		else {
-			if (trackNum == 1)
-				knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() * 10.0, sendNotification);
-			knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForAllStepsInSeqTrack(trackNum) * 10.0, sendNotification);
-			knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) * 10.0, sendNotification);
-			if (selectedStep == 1) {
+			else {
 				knob_ForRepeatValueProbability.setEnabled(true);
 				knob_ForResetProbability.setEnabled(true);
 			}
+		}
+		else {
+			if (trackNum == 1)
+				knob_ForRestProbability.setValue((double)randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() * 100.0, sendNotification);
+			knob_ForRepeatValueProbability.setValue((double)randomizationOptions->probabilityOfRepeatValueForAllStepsInSeqTrack(trackNum) * 100.0, sendNotification);
+			knob_ForResetProbability.setValue((double)randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) * 100.0, sendNotification);
+			knob_ForRepeatValueProbability.setEnabled(true);
+			knob_ForResetProbability.setEnabled(true);
 		}
 		generateTooltips();
 	}
 }
 
-ProbabilitiesForSeqTrackComponent::~ProbabilitiesForSeqTrackComponent() {
+ProbabilitiesComponentForSeqTrack::~ProbabilitiesComponentForSeqTrack() {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 	if (trackNum == 1)

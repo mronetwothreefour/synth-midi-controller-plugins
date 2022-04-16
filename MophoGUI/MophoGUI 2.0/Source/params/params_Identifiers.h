@@ -81,8 +81,6 @@ namespace ID
 	static const Identifier component_Knob{ "component_Knob" };
 	static const Identifier component_KnobForMinRandomValueFor_{ "component_KnobForMinRandomValueFor_" };
 	static const Identifier component_KnobForMaxRandomValueFor_{ "component_KnobForMaxRandomValueFor_" };
-	static const Identifier component_KnobForMinStepValueForSeqTrack{ "component_KnobForMinStepValueForSeqTrack" }; //to do: delete
-	static const Identifier component_KnobForMaxStepValueForSeqTrack{ "component_KnobForMaxStepValueForSeqTrack" }; //to do: delete
 	static const Identifier component_KnobForMinUnsyncedFreqFor_{ "component_KnobForMinUnsyncedFreqFor_" };
 	static const Identifier component_KnobForMaxUnsyncedFreqFor_{ "component_KnobForMaxUnsyncedFreqFor_" };
 	static const Identifier component_KnobForRepeatValueProbabilityForSeqTrack{ "component_KnobForRepeatValueProbabilityForSeqTrack" };

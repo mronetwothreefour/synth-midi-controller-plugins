@@ -48,30 +48,32 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setSyncedFreqIsAllowedForParam(syncedFreqNum, param);
 		}
 		if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
+			auto paramName{ info.IDfor(param).toString() };
+			if (paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1")
+				setProbabilityOfRestForParam(0.10f, param);
+			setProbabilityOfRepeatValueForParam(0.0f, param);
+			setProbabilityOfResetForParam(0.0f, param);
+			setMinValueAllowedForParam((uint8)0, param);
+			setMaxValueAllowedForParam(params::maxValueForSeqTrackStep, param);
 			for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum)
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
-			setMinValueAllowedForParam((uint8)0, param);
-			setMaxValueAllowedForParam(params::maxValueForSeqTrackStep, param);
 		}
 	}
 	for (auto trackNum = 1; trackNum != 5; ++trackNum) {
 		setEditModeForSeqTrackToAllSteps(trackNum);
 		setStepSelectedForEditingInSeqTrack(1, trackNum);
 		if (trackNum == 1)
-			setProbabilityOfRestForAllStepsInSeqTrack1(0.125f);
+			setProbabilityOfRestForAllStepsInSeqTrack1(0.10f);
 		setProbabilityOfRepeatForAllStepsInSeqTrack(0.0f, trackNum);
 		setProbabilityOfResetForAllStepsInSeqTrack(0.0f, trackNum);
-		for (auto stepNum = 1; stepNum != 17; ++stepNum) {
-			if (trackNum == 1)
-				setProbabilityOfRestForSelectedStepInSeqTrack1(0.125f, stepNum);
-			if (stepNum == 1) 
-				setProbabilityOfRepeatValueForSelectedStepInSeqTrack(0.0f, stepNum, trackNum);
-			else
-				setProbabilityOfRepeatValueForSelectedStepInSeqTrack(0.25f, stepNum, trackNum);
-			setProbabilityOfResetForSelectedStepInSeqTrack(0.0f, stepNum, trackNum);
-		}
+		setMinValueForAllStepsInSeqTrack((uint8)0, trackNum);
+		setMaxValueForAllStepsInSeqTrack(params::maxValueForSeqTrackStep, trackNum);
+		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum)
+			setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
+			setOctaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum);
 	}
 }
 
@@ -474,94 +476,116 @@ void RandomizationOptions::setStepSelectedForEditingInSeqTrack(int stepNum, int 
 }
 
 const float RandomizationOptions::probabilityOfRestForAllStepsInSeqTrack1() {
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestForAllStepsInSeqTrack1") };
+	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestFor_AllStepsInSeqTrack1") };
 	return probability;
 }
 
 void RandomizationOptions::setProbabilityOfRestForAllStepsInSeqTrack1(float newProb) {
-	seqTrackOptionsTree.setProperty("probabilityOfRestForAllStepsInSeqTrack1", newProb, nullptr);
-}
-
-const float RandomizationOptions::probabilityOfRestForSelectedStepInSeqTrack1(int stepNum) {
-	jassert(stepNum > 0 && stepNum < 17);
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestForStep" + (String)stepNum + "_InSeqTrack1") };
-	return probability;
-}
-
-void RandomizationOptions::setProbabilityOfRestForSelectedStepInSeqTrack1(float newProb, int stepNum) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 0 && stepNum < 17);
-	seqTrackOptionsTree.setProperty("probabilityOfRestForStep" + (String)stepNum + "_InSeqTrack1", newProb, nullptr);
+	seqTrackOptionsTree.setProperty("probabilityOfRestFor_AllStepsInSeqTrack1", newProb, nullptr);
+}
+
+const float RandomizationOptions::probabilityOfRestForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	if (paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1") {
+		float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestFor_" + paramName) };
+		return probability;
+	}
+	else
+		return 0.0f;
+}
+
+void RandomizationOptions::setProbabilityOfRestForParam(float newProb, uint8 paramIndex) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	jassert(paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1");
+	seqTrackOptionsTree.setProperty("probabilityOfRestFor_" + paramName, newProb, nullptr);
 }
 
 const float RandomizationOptions::probabilityOfRepeatValueForAllStepsInSeqTrack(int trackNum) {
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRepeatValueForAllStepsInSeqTrack" + (String)trackNum) };
+	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRepeatValueFor_AllStepsInSeqTrack" + (String)trackNum) };
 	return probability;
 }
 
 void RandomizationOptions::setProbabilityOfRepeatForAllStepsInSeqTrack(float newProb, int trackNum) {
-	seqTrackOptionsTree.setProperty("probabilityOfRepeatValueForAllStepsInSeqTrack" + (String)trackNum, newProb, nullptr);
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	seqTrackOptionsTree.setProperty("probabilityOfRepeatValueFor_AllStepsInSeqTrack" + (String)trackNum, newProb, nullptr);
 }
 
-const float RandomizationOptions::probabilityOfRepeatValueForSelectedStepInSeqTrack(int stepNum, int trackNum) {
-	jassert(stepNum > 0 && stepNum < 17);
-	jassert(trackNum > 0 && trackNum < 5);
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "_InSeqTrack" + (String)trackNum) };
+const float RandomizationOptions::probabilityOfRepeatValueForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRepeatValueFor_" + paramName) };
 	return probability;
 }
 
-void RandomizationOptions::setProbabilityOfRepeatValueForSelectedStepInSeqTrack(float newProb, int stepNum, int trackNum) {
+void RandomizationOptions::setProbabilityOfRepeatValueForParam(float newProb, uint8 paramIndex) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 0 && stepNum < 17);
-	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("probabilityOfRepeatValueForStep" + (String)stepNum + "_InSeqTrack" + (String)trackNum, newProb, nullptr);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	seqTrackOptionsTree.setProperty("probabilityOfRepeatValueFor_" + paramName, newProb, nullptr);
 }
 
 const float RandomizationOptions::probabilityOfResetForAllStepsInSeqTrack(int trackNum) {
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestForAllStepsInSeqTrack" + (String)trackNum) };
+	float probability{ seqTrackOptionsTree.getProperty("probabilityOfResetFor_AllStepsInSeqTrack" + (String)trackNum) };
 	return probability;
 }
 
 void RandomizationOptions::setProbabilityOfResetForAllStepsInSeqTrack(float newProb, int trackNum) {
-	seqTrackOptionsTree.setProperty("probabilityOfRestForAllStepsInSeqTrack" + (String)trackNum, newProb, nullptr);
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	seqTrackOptionsTree.setProperty("probabilityOfResetFor_AllStepsInSeqTrack" + (String)trackNum, newProb, nullptr);
 }
 
-const float RandomizationOptions::probabilityOfResetForSelectedStepInSeqTrack(int stepNum, int trackNum) {
-	jassert(stepNum > 0 && stepNum < 17);
-	jassert(trackNum > 0 && trackNum < 5);
-	float probability{ seqTrackOptionsTree.getProperty("probabilityOfResetForStep" + (String)stepNum + "_InSeqTrack" + (String)trackNum) };
+const float RandomizationOptions::probabilityOfResetForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	float probability{ seqTrackOptionsTree.getProperty("probabilityOfResetFor_" + paramName) };
 	return probability;
 }
 
-void RandomizationOptions::setProbabilityOfResetForSelectedStepInSeqTrack(float newProb, int stepNum, int trackNum) {
+void RandomizationOptions::setProbabilityOfResetForParam(float newProb, uint8 paramIndex) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 0 && stepNum < 17);
-	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("probabilityOfResetForStep" + (String)stepNum + "_InSeqTrack" + (String)trackNum, newProb, nullptr);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramName{ info.IDfor(paramIndex).toString() };
+	seqTrackOptionsTree.setProperty("probabilityOfResetFor_" + paramName, newProb, nullptr);
 }
 
 const uint8 RandomizationOptions::minValueForAllStepsInSeqTrack(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	int minValue{ seqTrackOptionsTree.getProperty("minValueForAllStepsInSeqTrack" + (String)trackNum) };
+	int minValue{ seqTrackOptionsTree.getProperty("minValueFor_AllStepsInSeqTrack" + (String)trackNum) };
 	return (uint8)minValue;
 }
 
 void RandomizationOptions::setMinValueForAllStepsInSeqTrack(uint8 newMin, int trackNum) {
 	jassert(newMin <= params::maxValueForSeqTrackStep);
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("minValueForAllStepsInSeqTrack" + (String)trackNum, newMin, nullptr);
+	seqTrackOptionsTree.setProperty("minValueFor_AllStepsInSeqTrack" + (String)trackNum, newMin, nullptr);
 }
 
 const uint8 RandomizationOptions::maxValueForAllStepsInSeqTrack(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	int maxValue{ seqTrackOptionsTree.getProperty("maxValueForAllStepsInSeqTrack" + (String)trackNum) };
+	int maxValue{ seqTrackOptionsTree.getProperty("maxValueFor_AllStepsInSeqTrack" + (String)trackNum) };
 	return (uint8)maxValue;
 }
 
 void RandomizationOptions::setMaxValueForAllStepsInSeqTrack(uint8 newMax, int trackNum) {
 	jassert(newMax <= params::maxValueForSeqTrackStep);
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("maxValueForAllStepsInSeqTrack" + (String)trackNum, newMax, nullptr);
+	seqTrackOptionsTree.setProperty("maxValueFor_AllStepsInSeqTrack" + (String)trackNum, newMax, nullptr);
 }
 
 const bool RandomizationOptions::pitchIsAllowedForAllStepsInSeqTrack(int pitchNum, int trackNum) {
@@ -575,17 +599,17 @@ const bool RandomizationOptions::pitchIsAllowedForAllStepsInSeqTrack(int pitchNu
 const bool RandomizationOptions::noteIsAllowedForAllStepsInSeqTrack(int noteNum, int trackNum) {
 	jassert(noteNum > -1 && noteNum < (randomization::numberOfNotesAndBentNotes));
 	jassert(trackNum > 0 && trackNum < 5);
-	return (bool)seqTrackOptionsTree.getProperty("note" + String(noteNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum);
+	return (bool)seqTrackOptionsTree.getProperty("note" + String(noteNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum);
 }
 
 void RandomizationOptions::setNoteIsAllowedForAllStepsInSeqTrack(int noteNum, int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("note" + String(noteNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum, (bool)true, nullptr);
+	seqTrackOptionsTree.setProperty("note" + String(noteNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum, (bool)true, nullptr);
 }
 
 void RandomizationOptions::setNoteIsNotAllowedForAllStepsInSeqTrack(int noteNum, int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("note" + String(noteNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum, (bool)false, nullptr);
+	seqTrackOptionsTree.setProperty("note" + String(noteNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum, (bool)false, nullptr);
 }
 
 const bool RandomizationOptions::noNoteIsAllowedForAllStepsInSeqTrack(int trackNum) {
@@ -602,19 +626,19 @@ const bool RandomizationOptions::noNoteIsAllowedForAllStepsInSeqTrack(int trackN
 const bool RandomizationOptions::octaveIsAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum) {
 	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps);
 	jassert(trackNum > 0 && trackNum < 5);
-	return (bool)seqTrackOptionsTree.getProperty("octave" + String(octaveNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum);
+	return (bool)seqTrackOptionsTree.getProperty("octave" + String(octaveNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum);
 }
 
 void RandomizationOptions::setOctaveIsAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum) {
 	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps);
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum, (bool)true, nullptr);
+	seqTrackOptionsTree.setProperty("octave" + String(octaveNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum, (bool)true, nullptr);
 }
 
 void RandomizationOptions::setOctaveIsNotAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum) {
 	jassert(octaveNum > -1 && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps);
 	jassert(trackNum > 0 && trackNum < 5);
-	seqTrackOptionsTree.setProperty("octave" + String(octaveNum) + "_IsAllowedForAllStepsInSeqTrack" + (String)trackNum, (bool)false, nullptr);
+	seqTrackOptionsTree.setProperty("octave" + String(octaveNum) + "_IsAllowedFor_AllStepsInSeqTrack" + (String)trackNum, (bool)false, nullptr);
 }
 
 const bool RandomizationOptions::noOctaveIsAllowedForAllStepsInSeqTrack(int trackNum) {

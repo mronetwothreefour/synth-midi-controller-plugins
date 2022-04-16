@@ -1355,7 +1355,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			descriptions.add(descriptionString);
 			controlWidths.add(GUI::seqSteps_w);
 			controlHeights.add(GUI::seqSteps_h);
-			controlCenterPoints.add(Point<int>(GUI::sequencerStep1_x + step * GUI::sequencerStepsHorizontalSpacer, GUI::sequencerTrack1Steps_y + track * GUI::sequencerTracksVerticalSpacer));
+			controlCenterPoints.add(Point<int>(GUI::sequencerStep1_center_x + step * GUI::sequencerStepsHorizontalSpacer, GUI::sequencerTrack1Steps_center_y + track * GUI::sequencerTracksVerticalSpacer));
 			randomizationOptionsTypes.add(RandomizationOptionsType::sequencerTrackStep);
 		}
 	}

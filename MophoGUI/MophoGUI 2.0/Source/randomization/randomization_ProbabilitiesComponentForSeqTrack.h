@@ -9,7 +9,7 @@
 
 class UnexposedParameters;
 
-class ProbabilitiesForSeqTrackComponent :
+class ProbabilitiesComponentForSeqTrack :
 	public Component,
 	public Slider::Listener,
 	public ValueTree::Listener
@@ -24,9 +24,9 @@ class ProbabilitiesForSeqTrackComponent :
 	RendererForKnobValueStrings valueDisplay_ForResetProbability;
 
 public:
-	ProbabilitiesForSeqTrackComponent() = delete;
+	ProbabilitiesComponentForSeqTrack() = delete;
 
-	ProbabilitiesForSeqTrackComponent(int trackNum, UnexposedParameters* unexposedParams);
+	ProbabilitiesComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams);
 	void generateTooltips();
 	void paint(Graphics& g) override;
 	const char* getBackgroundImageData();
@@ -34,9 +34,9 @@ public:
 	void resized() override;
 	void sliderValueChanged(Slider* slider) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	~ProbabilitiesForSeqTrackComponent();
+	~ProbabilitiesComponentForSeqTrack();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProbabilitiesForSeqTrackComponent)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ProbabilitiesComponentForSeqTrack)
 };

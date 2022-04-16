@@ -25,7 +25,7 @@ SeqTrackEditModeComponent::SeqTrackEditModeComponent(int trackNum, UnexposedPara
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
 		toggleTooltip += "In this mode, changes to the allowed value settings\n";
-		toggleTooltip += "are applied to all steps in sequencer track" + (String)trackNum + ".";
+		toggleTooltip += "are applied to all steps in sequencer track " + (String)trackNum + ".";
 		editAllStepsModeToggle.setTooltip(toggleTooltip);
 	}
 	addAndMakeVisible(editAllStepsModeToggle);
@@ -37,20 +37,22 @@ SeqTrackEditModeComponent::SeqTrackEditModeComponent(int trackNum, UnexposedPara
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
 		toggleTooltip += "In this mode, changes to the allowed value settings are\n";
-		toggleTooltip += "applied only to the selected step in sequencer track" + (String)trackNum + ".";
+		toggleTooltip += "applied only to the selected step in sequencer track " + (String)trackNum + ".";
 		editSelectedStepModeToggle.setTooltip(toggleTooltip);
 	}
 	addAndMakeVisible(editSelectedStepModeToggle);
 
 	stepSelector.setComponentID(ID::component_StepSelectorForTrack.toString() + (String)trackNum);
 	stepSelector.addListener(this);
-	for (auto step = 0; step != 16; ++step)
-		stepSelector.addItem((String)step, step);
-	stepSelector.setSelectedItemIndex(randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum), dontSendNotification);
+	StringArray stepList;
+	for (auto step = 1; step != 17; ++step)
+		stepList.add((String)step);
+	stepSelector.addItemList(stepList, 1);
+	stepSelector.setSelectedId(randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum), dontSendNotification);
 	if (shouldShowDescriptions) {
 		String menuTooltip{ "" };
-		menuTooltip += "Selects which step in sequencer track" + (String)trackNum + "\n";
-		menuTooltip += "is targeted for editing.";
+		menuTooltip += "Selects which step in sequencer\n";
+		menuTooltip += "track " + (String)trackNum + " is targeted for editing.";
 		stepSelector.setTooltip(menuTooltip);
 	}
 	addAndMakeVisible(stepSelector);
@@ -74,13 +76,15 @@ void SeqTrackEditModeComponent::buttonClicked(Button* button) {
 		if(button->getToggleState())
 			randomizationOptions->setEditModeForSeqTrackToSelectedStep(trackNum);
 	}
+	getParentComponent()->repaint();
 }
 
 void SeqTrackEditModeComponent::comboBoxChanged(ComboBox* comboBox) {
 	if (comboBox->getComponentID() == ID::component_StepSelectorForTrack.toString() + (String)trackNum) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		auto selectedStep{ comboBox->getSelectedItemIndex() };
+		auto selectedStep{ comboBox->getSelectedId() };
 		randomizationOptions->setStepSelectedForEditingInSeqTrack(selectedStep, trackNum);
+		getParentComponent()->repaint();
 	}
 }
 

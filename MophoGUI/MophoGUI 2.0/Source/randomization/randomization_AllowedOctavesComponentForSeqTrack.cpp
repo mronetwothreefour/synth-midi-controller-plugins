@@ -52,8 +52,8 @@ void AllowedOctavesComponentForSeqTrack::generateTooltips() {
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
-		String toggleTooltip{ "" };
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
+			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not notes in octave " + (String)octaveNum + " are allowed when\n";
 			if (editModeIsSelectedStep)
 				toggleTooltip += "a random pitch is generated for the selected step in track " + (String)trackNum + "\n";
@@ -71,7 +71,7 @@ void AllowedOctavesComponentForSeqTrack::generateTooltips() {
 			buttonTooltip += "a random pitch for the selected step in track " + (String)trackNum + "\n";
 		else
 			buttonTooltip += "a random pitch for all the steps in track " + (String)trackNum + "\n";
-		toggleTooltip += "(when the track destination is an oscillator pitch).";
+		buttonTooltip += "(when the track destination is an oscillator pitch).";
 		button_ForAllowingAllOctaves.setTooltip(buttonTooltip);
 	}
 }

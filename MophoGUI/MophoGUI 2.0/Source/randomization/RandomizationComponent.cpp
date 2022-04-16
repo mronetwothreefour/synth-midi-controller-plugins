@@ -1,8 +1,9 @@
 #include "RandomizationComponent.h"
 
 #include "randomization_OptionsComponent_LFOfreq.h"
-#include "randomization_OptionsComponent_ValueRange.h"
 #include "randomization_OptionsComponent_Pitch.h"
+#include "randomization_OptionsComponent_SeqTrack.h"
+#include "randomization_OptionsComponent_ValueRange.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_EditBufferDataMessage.h"
@@ -210,6 +211,12 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::lfoFreq)
 				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
+				auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
+				auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
+				randomizationOptions->setStepSelectedForEditingInSeqTrack(stepNum, trackNum);
+				showRandomizationOptionsComponent_SeqTrackForTrack(trackNum);
+			}
 			button->setToggleState(false, dontSendNotification);
 			randomizationOptions->setParamIsUnlocked(paramIndex);
 		}
@@ -263,12 +270,22 @@ void RandomizationComponent::showRandomizationOptionsComponent_LFOfreqForParam(u
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_SeqTrackForTrack(int trackNum) {
+	randomizationOptionsComponent_SeqTrack.reset(new RandomizationOptionsComponent_SeqTrack(trackNum, unexposedParams));
+	if (randomizationOptionsComponent_SeqTrack != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_SeqTrack.get());
+		randomizationOptionsComponent_SeqTrack->setBounds(getLocalBounds());
+		randomizationOptionsComponent_SeqTrack->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
 }
 
 RandomizationComponent::~RandomizationComponent() {
+	randomizationOptionsComponent_SeqTrack = nullptr;
 	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;

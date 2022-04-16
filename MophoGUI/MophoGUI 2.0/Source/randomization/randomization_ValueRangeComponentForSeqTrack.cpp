@@ -29,8 +29,9 @@ ValueRangeComponentForSeqTrack::ValueRangeComponentForSeqTrack(int trackNum, Une
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID(paramID) };
 
-	knob_ForMinStepValue.setComponentID(ID::component_KnobForMinStepValueForSeqTrack.toString() + (String)trackNum);
+	knob_ForMinStepValue.setComponentID(ID::component_KnobForMinRandomValueFor_.toString() + "SeqTrack" + (String)trackNum);
 	knob_ForMinStepValue.setRange(0.0, (double)params::maxValueForSeqTrackStep, 1.0);
+	knob_ForMinStepValue.setDoubleClickReturnValue(true, 0.0);
 	if (editModeIsSelectedStep)
 		knob_ForMinStepValue.setValue((double)randomizationOptions->minValueAllowedForParam(paramIndex));
 	else
@@ -42,8 +43,9 @@ ValueRangeComponentForSeqTrack::ValueRangeComponentForSeqTrack(int trackNum, Une
 	addAndMakeVisible(valueDisplay_ForMinStepValue);
 	valueDisplay_ForMinStepValue.setInterceptsMouseClicks(false, false);
 
-	knob_ForMaxStepValue.setComponentID(ID::component_KnobForMaxStepValueForSeqTrack.toString() + (String)trackNum);
+	knob_ForMaxStepValue.setComponentID(ID::component_KnobForMaxRandomValueFor_.toString() + "SeqTrack" + (String)trackNum);
 	knob_ForMaxStepValue.setRange(0.0, (double)params::maxValueForSeqTrackStep, 1.0);
+	knob_ForMaxStepValue.setDoubleClickReturnValue(true, (double)params::maxValueForSeqTrackStep);
 	if (editModeIsSelectedStep)
 		knob_ForMaxStepValue.setValue((double)randomizationOptions->maxValueAllowedForParam(paramIndex));
 	else
@@ -57,7 +59,7 @@ ValueRangeComponentForSeqTrack::ValueRangeComponentForSeqTrack(int trackNum, Une
 
 	generateTooltips();
 
-	setSize(GUI::randomizationAllowedStepValuesForSeqTrackComponent_w, GUI::randomizationAllowedStepValuesForSeqTrackComponent_h);
+	setSize(GUI::randomizationValueRangeComponentForSeqTrack_w, GUI::randomizationValueRangeComponentForSeqTrack_h);
 }
 
 void ValueRangeComponentForSeqTrack::generateTooltips() {
@@ -116,7 +118,7 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramIndex{ info.indexForParamID(paramID) };
-	if (slider->getComponentID() == ID::component_KnobForMinStepValueForSeqTrack.toString() + (String)trackNum) {
+	if (slider->getComponentID() == ID::component_KnobForMinRandomValueFor_.toString() + "SeqTrack" + (String)trackNum) {
 		auto newMinValue{ (uint8)slider->getValue() };
 		if (editModeIsSelectedStep)
 			randomizationOptions->setMinValueAllowedForParam(newMinValue, paramIndex);
@@ -132,7 +134,7 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 				randomizationOptions->setMaxValueForAllStepsInSeqTrack(newMinValue, trackNum);
 		}
 	}
-	if (slider->getComponentID() == ID::component_KnobForMaxStepValueForSeqTrack.toString() + (String)trackNum) {
+	if (slider->getComponentID() == ID::component_KnobForMaxRandomValueFor_.toString() + "SeqTrack" + (String)trackNum) {
 		auto newMaxValue{ (uint8)slider->getValue() };
 		if (editModeIsSelectedStep)
 			randomizationOptions->setMaxValueAllowedForParam(newMaxValue, paramIndex);
@@ -140,7 +142,7 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 			randomizationOptions->setMaxValueForAllStepsInSeqTrack(newMaxValue, trackNum);
 		auto minValue{ editModeIsSelectedStep ? randomizationOptions->minValueAllowedForParam(paramIndex) :
 												randomizationOptions->minValueForAllStepsInSeqTrack(trackNum) };
-		if (newMaxValue > minValue) {
+		if (newMaxValue < minValue) {
 			knob_ForMinStepValue.setValue((double)newMaxValue, sendNotification);
 			if (editModeIsSelectedStep)
 				randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
