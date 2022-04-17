@@ -13,6 +13,7 @@ RandomizationOptions::RandomizationOptions() :
 	paramLocksTree{ ID::randomization_ParamLocks },
 	allowedPitchesTree{ ID::randomization_AllowedPitches },
 	allowedValueRangesTree{ ID::randomization_AllowedValueRanges },
+	allowedOscShapesTree{ ID::randomization_AllowedOscShapes },
 	allowedFrequencyTypesTree{ ID::randomization_AllowedFrequencyTypes },
 	seqTrackOptionsTree{ ID::randomization_SeqTrackOptions }
 {
@@ -33,6 +34,15 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 		if (optionsType == RandomizationOptionsType::valueRange) {
 			setMinValueAllowedForParam((uint8)0, param);
 			setMaxValueAllowedForParam(info.maxValueFor(param), param);
+		}
+		if (optionsType == RandomizationOptionsType::oscShape) {
+			setOscShapeIsAllowedForParam(OscWaveShape::off, param);
+			setOscShapeIsAllowedForParam(OscWaveShape::sawtooth, param);
+			setOscShapeIsAllowedForParam(OscWaveShape::triangle, param);
+			setOscShapeIsAllowedForParam(OscWaveShape::sawTriMix, param);
+			setOscShapeIsAllowedForParam(OscWaveShape::pulse, param);
+			setMinPulseWidthAllowedForParam((uint8)0, param);
+			setMaxPulseWidthAllowedForParam(params::maxPulseWidth, param);
 		}
 		if (optionsType == RandomizationOptionsType::lfoFreq) {
 			setUnsyncedFreqAreAllowedForParam(param);
@@ -257,6 +267,8 @@ const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 para
 
 const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::valueRange || optionsType == RandomizationOptionsType::sequencerTrackStep);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int minValueAllowed{ allowedValueRangesTree.getProperty("minValueAllowedFor_" + paramID) };
 	return (uint8)minValueAllowed;
@@ -264,12 +276,18 @@ const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {
 
 void RandomizationOptions::setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::valueRange || optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	jassert(newMin <= maxValue);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedValueRangesTree.setProperty("minValueAllowedFor_" + paramID, newMin, nullptr);
 }
 
 const uint8 RandomizationOptions::maxValueAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::valueRange || optionsType == RandomizationOptionsType::sequencerTrackStep);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int maxValueAllowed{ allowedValueRangesTree.getProperty("maxValueAllowedFor_" + paramID) };
 	return (uint8)maxValueAllowed;
@@ -277,8 +295,139 @@ const uint8 RandomizationOptions::maxValueAllowedForParam(uint8 paramIndex) {
 
 void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::valueRange || optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	jassert(newMax <= maxValue);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedValueRangesTree.setProperty("maxValueAllowedFor_" + paramID, newMax, nullptr);
+}
+
+const bool RandomizationOptions::oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	switch (shape)
+	{
+	case OscWaveShape::off:
+		return (bool)allowedOscShapesTree.getProperty("off_IsAllowedFor_" + paramID);
+	case OscWaveShape::sawtooth:
+		return (bool)allowedOscShapesTree.getProperty("sawtooth_IsAllowedFor_" + paramID);
+	case OscWaveShape::triangle:
+		return (bool)allowedOscShapesTree.getProperty("triangle_IsAllowedFor_" + paramID);
+	case OscWaveShape::sawTriMix:
+		return (bool)allowedOscShapesTree.getProperty("sawTriMix_IsAllowedFor_" + paramID);
+	case OscWaveShape::pulse:
+		return (bool)allowedOscShapesTree.getProperty("pulse_IsAllowedFor_" + paramID);
+	default:
+		return false;
+	}
+}
+
+void RandomizationOptions::setOscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	switch (shape)
+	{
+	case OscWaveShape::off:
+		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)true, nullptr);
+		break;
+	case OscWaveShape::sawtooth:
+		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)true, nullptr);
+		break;
+	case OscWaveShape::triangle:
+		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)true, nullptr);
+		break;
+	case OscWaveShape::sawTriMix:
+		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)true, nullptr);
+		break;
+	case OscWaveShape::pulse:
+		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)true, nullptr);
+		break;
+	default:
+		break;
+	}
+}
+
+void RandomizationOptions::setOscShapeIsNotAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	switch (shape)
+	{
+	case OscWaveShape::off:
+		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)false, nullptr);
+		break;
+	case OscWaveShape::sawtooth:
+		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)false, nullptr);
+		break;
+	case OscWaveShape::triangle:
+		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)false, nullptr);
+		break;
+	case OscWaveShape::sawTriMix:
+		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)false, nullptr);
+		break;
+	case OscWaveShape::pulse:
+		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)false, nullptr);
+		break;
+	default:
+		break;
+	}
+}
+
+const bool RandomizationOptions::noOscShapeIsAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto atLeastOneOscShapeIsAllowed{ (bool)false };
+	auto noOscShapeIsAllowed{ (bool)true };
+	if (oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex) ||
+		oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex) ||
+		oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex) ||
+		oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex) ||
+		oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex))
+		return atLeastOneOscShapeIsAllowed;
+	return noOscShapeIsAllowed;
+}
+
+const uint8 RandomizationOptions::minPulseWidthAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	int minPulseWidthAllowed{ allowedOscShapesTree.getProperty("minPulseWidthAllowedFor_" + paramID) };
+	return (uint8)minPulseWidthAllowed;
+}
+
+void RandomizationOptions::setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex) {
+	jassert(newMin <= params::maxPulseWidth);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	allowedOscShapesTree.setProperty("minPulseWidthAllowedFor_" + paramID, newMin, nullptr);
+}
+
+const uint8 RandomizationOptions::maxPulseWidthAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	int maxPulseWidthAllowed{ allowedOscShapesTree.getProperty("maxPulseWidthAllowedFor_" + paramID) };
+	return (uint8)maxPulseWidthAllowed;
+}
+
+void RandomizationOptions::setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex) {
+	jassert(newMax <= params::maxPulseWidth);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	allowedOscShapesTree.setProperty("maxPulseWidthAllowedFor_" + paramID, newMax, nullptr);
 }
 
 const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex) {
@@ -684,6 +833,12 @@ XmlElement* RandomizationOptions::getStateXml() {
 		randomizationOptionsStateXml->addChildElement(allowedValueRangesTreeStateXml.release());
 	}
 
+	auto allowedOscShapesTreeStateXml{ allowedOscShapesTree.createXml() };
+	if (allowedOscShapesTreeStateXml != nullptr) {
+		allowedOscShapesTreeStateXml->setTagName(ID::randomization_AllowedOscShapes);
+		randomizationOptionsStateXml->addChildElement(allowedOscShapesTreeStateXml.release());
+	}
+
 	auto allowedFrequencyTypesTreeStateXml{ allowedFrequencyTypesTree.createXml() };
 	if (allowedFrequencyTypesTreeStateXml != nullptr) {
 		allowedFrequencyTypesTreeStateXml->setTagName(ID::randomization_AllowedFrequencyTypes);
@@ -708,6 +863,10 @@ void RandomizationOptions::replaceState(const ValueTree& newState) {
 		auto allowedPitchesTreeState{ newState.getChildWithName(ID::randomization_AllowedPitches) };
 		if (allowedPitchesTreeState.isValid())
 			allowedPitchesTree.copyPropertiesAndChildrenFrom(allowedPitchesTreeState, nullptr);
+
+		auto allowedOscShapesTreeState{ newState.getChildWithName(ID::randomization_AllowedOscShapes) };
+		if (allowedOscShapesTreeState.isValid())
+			allowedOscShapesTree.copyPropertiesAndChildrenFrom(allowedOscShapesTreeState, nullptr);
 
 		auto allowedValueRangesTreeState{ newState.getChildWithName(ID::randomization_AllowedValueRanges) };
 		if (allowedValueRangesTreeState.isValid())

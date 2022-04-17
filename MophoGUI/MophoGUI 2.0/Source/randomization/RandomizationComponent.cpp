@@ -1,6 +1,7 @@
 #include "RandomizationComponent.h"
 
 #include "randomization_OptionsComponent_LFOfreq.h"
+#include "randomization_OptionsComponent_OscShape.h"
 #include "randomization_OptionsComponent_Pitch.h"
 #include "randomization_OptionsComponent_SeqTrack.h"
 #include "randomization_OptionsComponent_ValueRange.h"
@@ -209,6 +210,8 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				showRandomizationOptionsComponent_PitchForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::valueRange)
 				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::oscShape)
+				showRandomizationOptionsComponent_OscShapeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::lfoFreq)
 				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
@@ -261,6 +264,15 @@ void RandomizationComponent::showRandomizationOptionsComponent_ValueRangeForPara
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_OscShapeForParam(uint8 paramIndex) {
+	randomizationOptionsComponent_OscShape.reset(new RandomizationOptionsComponent_OscShape(paramIndex, unexposedParams));
+	if (randomizationOptionsComponent_OscShape != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_OscShape.get());
+		randomizationOptionsComponent_OscShape->setBounds(getLocalBounds());
+		randomizationOptionsComponent_OscShape->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex) {
 	randomizationOptionsComponent_LFOfreq.reset(new RandomizationOptionsComponent_LFOfreq(paramIndex, unexposedParams));
 	if (randomizationOptionsComponent_LFOfreq != nullptr) {
@@ -287,6 +299,7 @@ void RandomizationComponent::hideThisComponent() {
 RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_SeqTrack = nullptr;
 	randomizationOptionsComponent_LFOfreq = nullptr;
+	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;
 	auto& info{ InfoForExposedParameters::get() };

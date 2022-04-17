@@ -656,6 +656,8 @@
             file="Resources/Button-Down-All-Notes.png"/>
       <FILE id="ErORlD" name="Button-Down-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Down-All-Octaves.png"/>
+      <FILE id="tyuORS" name="Button-Down-All-Shapes.png" compile="0" resource="1"
+            file="Resources/Button-Down-All-Shapes.png"/>
       <FILE id="tCKs2S" name="Button-Down-All-Synced.png" compile="0" resource="1"
             file="Resources/Button-Down-All-Synced.png"/>
       <FILE id="TShkGd" name="Button-Down-Banks.png" compile="0" resource="1"
@@ -716,6 +718,8 @@
             file="Resources/Button-Up-All-Notes.png"/>
       <FILE id="XWeRj2" name="Button-Up-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Up-All-Octaves.png"/>
+      <FILE id="UkpqVv" name="Button-Up-All-Shapes.png" compile="0" resource="1"
+            file="Resources/Button-Up-All-Shapes.png"/>
       <FILE id="Gmah50" name="Button-Up-All-Synced.png" compile="0" resource="1"
             file="Resources/Button-Up-All-Synced.png"/>
       <FILE id="n6Ug0W" name="Button-Up-Banks.png" compile="0" resource="1"
@@ -809,6 +813,8 @@
             resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
       <FILE id="uMeS7f" name="Randomization-Options-LFOfreq-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-LFOfreq-Background.png"/>
+      <FILE id="DibBxi" name="Randomization-Options-Osc-Shape-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-Osc-Shape-Background.png"/>
       <FILE id="e5p8yH" name="Randomization-Options-Pitch-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
       <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"

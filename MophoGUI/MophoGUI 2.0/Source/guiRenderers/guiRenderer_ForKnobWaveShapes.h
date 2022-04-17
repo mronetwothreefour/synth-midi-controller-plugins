@@ -4,12 +4,22 @@
 
 
 
+enum class OscWaveShape { 
+	off = 0, 
+	sawtooth, 
+	triangle, 
+	sawTriMix, 
+	pulse 
+};
+
+
+
+
 class RendererForKnobWaveShapes :
 	public Component,
 	public Slider::Listener
 {
 	Slider* knob;
-	enum class OscWaveShape { off, sawtooth, triangle, sawTriMix, pulse };
 
 public:
 	RendererForKnobWaveShapes() = delete;

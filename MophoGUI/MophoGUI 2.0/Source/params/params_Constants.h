@@ -16,6 +16,7 @@ namespace constants
 		static const uint8 knobAssignFirstIndex{ 105 };
 		static const uint8 knobAssignLastIndex{ 108 };
 		static const uint8 knobAssignOffset{ 15 };
+		static const uint8 maxPulseWidth{ 99 };
 		static const uint8 maxUnsyncedLFOfreq{ 89 };
 		static const uint8 maxValueForSeqTrackStep{ 125 };
 		static const uint8 paramNumFor1stNameChar{ 184 };

@@ -114,6 +114,9 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID().startsWith("button_AllOctaves"))
 		return isDown ? BinaryData::ButtonDownAllOctaves_png : BinaryData::ButtonUpAllOctaves_png;
 
+	if (button.getComponentID().startsWith("button_AllShapes"))
+		return isDown ? BinaryData::ButtonDownAllShapes_png : BinaryData::ButtonUpAllShapes_png;
+
 	if (button.getComponentID().startsWith("button_AllSynced"))
 		return isDown ? BinaryData::ButtonDownAllSynced_png : BinaryData::ButtonUpAllSynced_png;
 
@@ -210,6 +213,9 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 
 	if (button.getComponentID().startsWith("button_AllOctaves"))
 		return size_t(isDown ? BinaryData::ButtonDownAllOctaves_pngSize : BinaryData::ButtonUpAllOctaves_pngSize);
+
+	if (button.getComponentID().startsWith("button_AllShapes"))
+		return size_t(isDown ? BinaryData::ButtonDownAllShapes_pngSize : BinaryData::ButtonUpAllShapes_pngSize);
 
 	if (button.getComponentID().startsWith("button_AllSynced"))
 		return size_t(isDown ? BinaryData::ButtonDownAllSynced_pngSize : BinaryData::ButtonUpAllSynced_pngSize);

@@ -173,6 +173,9 @@ namespace constants
 		static const int randomizationAllowAllOctavesButtons_x{ 21 };
 		static const int randomizationAllowAllOctavesForLFOandSeqStepButtons_y{ 34 };
 		static const int randomizationAllowAllOctavesForOscButtons_y{ 69 };
+		static const int randomizationAllowAllShapesButton_w{ 76 };
+		static const int randomizationAllowAllShapesButton_x{ 52 };
+		static const int randomizationAllowAllShapesButton_y{ 153 };
 		static const int randomizationAllowAllSyncedFreqButton_w{ 74 };
 		static const int randomizationAllowAllSyncedFreqButton_x{ 77 };
 		static const int randomizationAllowAllSyncedFreqButton_y{ 82 };
@@ -246,6 +249,11 @@ namespace constants
 		static const int randomizationOptionsComponent_LFOfreq_AllowUnsyncedToggle_y{ randomizationOptionsComponent_LFOfreq_AllowSyncedToggle_y };
 		static const int randomizationOptionsComponent_LFOfreq_CloseButton_x{ 326 };
 		static const int randomizationOptionsComponent_LFOfreq_CloseButton_y{ 17 };
+		static const int randomizationOptionsComponent_OscShape_CloseButton_x{ 65 };
+		static const int randomizationOptionsComponent_OscShape_CloseButton_y{ 264 };
+		static const int randomizationOptionsComponent_OscShape_Knobs_y{ 204 };
+		static const int randomizationOptionsComponent_OscShape_MinKnob_x{ 40 };
+		static const int randomizationOptionsComponent_OscShape_MaxKnob_x{ 100 };
 		static const int randomizationOptionsComponent_Pitch_AllowedNotes_x{ 17 };
 		static const int randomizationOptionsComponent_Pitch_AllowedNotes_y{ 50 };
 		static const int randomizationOptionsComponent_Pitch_AllowedOctaves_x{ 28 };
@@ -275,6 +283,13 @@ namespace constants
 		static const int randomizationOscLockButton_x{ 113 };
 		static const int randomizationOscUnlockButton_x{ randomizationOscLockButton_x + randomizationLockAndUnlockButtons_w + randomizationHorizGapBtwnLockIcons };
 		static const int randomizationOptionsToggles_horizSpacing{ 22 };
+		static const int randomizationOptionsToggles_verticalSpacing{ randomizationOptionsToggles_horizSpacing };
+		static const int randomizationOscShapeOptionsToggleForOff_y{ 41 };
+		static const int randomizationOscShapeOptionsToggleForSaw_y{ randomizationOscShapeOptionsToggleForOff_y + randomizationOptionsToggles_verticalSpacing };
+		static const int randomizationOscShapeOptionsToggleForTri_y{ randomizationOscShapeOptionsToggleForSaw_y + randomizationOptionsToggles_verticalSpacing };
+		static const int randomizationOscShapeOptionsToggleForSawTri_y{ randomizationOscShapeOptionsToggleForTri_y + randomizationOptionsToggles_verticalSpacing };
+		static const int randomizationOscShapeOptionsToggleForPulse_y{ randomizationOscShapeOptionsToggleForSawTri_y + randomizationOptionsToggles_verticalSpacing };
+		static const int randomizationOscShapeOptionsToggles_x{ 38 };
 		static const int randomizationProbabilitiesForSeqTrackComponent_h{ 50 };
 		static const int randomizationProbabilitiesForSeqTrack1Component_w{ 160 };
 		static const int randomizationProbabilitiesForSeqTrack1Component_x{ 458 };

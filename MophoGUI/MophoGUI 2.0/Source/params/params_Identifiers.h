@@ -19,6 +19,7 @@ namespace ID
 	static const Identifier button_AllBentNotesFor_{ "button_AllBentNotesFor_" };
 	static const Identifier button_AllNotesFor_{ "button_AllNotesFor_" };
 	static const Identifier button_AllOctavesFor_{ "button_AllOctavesFor_" };
+	static const Identifier button_AllShapesFor_{ "button_AllShapesFor_" };
 	static const Identifier button_AllSyncedFreqFor_{ "button_AllSyncedFreqFor_" };
 	static const Identifier button_Banks{ "button_Banks" };
 	static const Identifier button_CancelFileOverwrite{ "button_CancelFileOverwrite" };
@@ -79,6 +80,8 @@ namespace ID
 	static const Identifier component_HyperlinkButton{ "component_HyperlinkButton" };
 	static const Identifier component_ImptExptBrowser{ "component_ImptExptBrowser" };
 	static const Identifier component_Knob{ "component_Knob" };
+	static const Identifier component_KnobForMinPulseWidthFor_{ "component_KnobForMinPulseWidthFor_" };
+	static const Identifier component_KnobForMaxPulseWidthFor_{ "component_KnobForMaxPulseWidthFor_" };
 	static const Identifier component_KnobForMinRandomValueFor_{ "component_KnobForMinRandomValueFor_" };
 	static const Identifier component_KnobForMaxRandomValueFor_{ "component_KnobForMaxRandomValueFor_" };
 	static const Identifier component_KnobForMinUnsyncedFreqFor_{ "component_KnobForMinUnsyncedFreqFor_" };
@@ -95,6 +98,11 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
+	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Pulse_For_{ "component_ToggleButton_AllowOscShape_Pulse_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Saw_For_{ "component_ToggleButton_AllowOscShape_Saw_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_SawTri_For_{ "component_ToggleButton_AllowOscShape_SawTri_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Tri_For_{ "component_ToggleButton_AllowOscShape_Tri_For_" };
 	static const Identifier component_ToggleButton_AllowPitchedFreqFor_{ "component_ToggleButton_AllowPitchedFreqFor_" };
 	static const Identifier component_ToggleButton_AllowSyncedFreqFor_{ "component_ToggleButton_AllowSyncedFreqFor_" };
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqFor_{ "component_ToggleButton_AllowUnsyncedFreqFor_" };
@@ -199,6 +207,7 @@ namespace ID
 
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
+	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" }; //to do: delete

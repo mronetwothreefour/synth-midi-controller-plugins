@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../guiRenderers/guiRenderer_ForKnobWaveShapes.h"
+
 
 
 enum class RandomizationOptionsType {
@@ -24,6 +26,7 @@ class RandomizationOptions
 	ValueTree paramLocksTree;
 	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
+	ValueTree allowedOscShapesTree;
 	ValueTree allowedFrequencyTypesTree;
 	ValueTree seqTrackOptionsTree;
 
@@ -53,6 +56,15 @@ public:
 	void setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex);
 	const uint8 maxValueAllowedForParam(uint8 paramIndex);
 	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex);
+
+	const bool oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
+	void setOscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
+	void setOscShapeIsNotAllowedForParam(OscWaveShape shape, uint8 paramIndex);
+	const bool noOscShapeIsAllowedForParam(uint8 paramIndex);
+	const uint8 minPulseWidthAllowedForParam(uint8 paramIndex);
+	void setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex);
+	const uint8 maxPulseWidthAllowedForParam(uint8 paramIndex);
+	void setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex);
 
 	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
 	void setPitchedFreqAreAllowedForParam(uint8 paramIndex);
