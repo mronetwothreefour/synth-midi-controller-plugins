@@ -108,6 +108,8 @@ namespace ID
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqFor_{ "component_ToggleButton_AllowUnsyncedFreqFor_" };
 	static const Identifier component_ToggleButton_EditAllStepsModeForTrack{ "component_ToggleButton_EditAllStepsModeForTrack" };
 	static const Identifier component_ToggleButton_EditSelectedStepModeForTrack{ "component_ToggleButton_EditSelectedStepModeForTrack" };
+	static const Identifier component_ToggleButton_PitchesModeFor_{ "component_ToggleButton_PitchesModeFor_" };
+	static const Identifier component_ToggleButton_ValueRangeModeFor_{ "component_ToggleButton_ValueRangeModeFor_" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };
@@ -209,6 +211,7 @@ namespace ID
 	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
 	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
+	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" }; //to do: delete
 

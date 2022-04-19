@@ -28,6 +28,7 @@ class RandomizationOptions
 	ValueTree allowedValueRangesTree;
 	ValueTree allowedOscShapesTree;
 	ValueTree allowedFrequencyTypesTree;
+	ValueTree lpfFreqOptionsTree;
 	ValueTree seqTrackOptionsTree;
 
 public:
@@ -67,9 +68,11 @@ public:
 	void setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex);
 
 	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
+	const bool pitchedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setPitchedFreqAreAllowedForParam(uint8 paramIndex);
 	void setPitchedFreqAreNotAllowedForParam(uint8 paramIndex);
 	const bool unsyncedFreqAreAllowedForParam(uint8 paramIndex);
+	const bool unsyncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setUnsyncedFreqAreAllowedForParam(uint8 paramIndex);
 	void setUnsyncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	const uint8 minUnsyncedFreqForParam(uint8 paramIndex);
@@ -77,6 +80,7 @@ public:
 	const uint8 maxUnsyncedFreqForParam(uint8 paramIndex);
 	void setMaxUnsyncedFreqForParam(uint8 newMax, uint8 paramIndex);
 	const bool syncedFreqAreAllowedForParam(uint8 paramIndex);
+	const bool syncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	void setSyncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	const bool syncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex);
@@ -84,6 +88,13 @@ public:
 	void setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex);
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
+
+	void addListenerToLPFfreqOptionsTree(ValueTree::Listener* listener);
+	void removeListenerFromLPFfreqOptionsTree(ValueTree::Listener* listener);
+	const bool randomizationModeForLPFfreqIsPitches();
+	const bool randomizationModeForLPFfreqIsValueRange();
+	void setRandomizationModeForLPFfreqToPitches();
+	void setRandomizationModeForLPFfreqToValueRange();
 
 	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);

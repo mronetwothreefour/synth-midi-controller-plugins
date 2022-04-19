@@ -1,6 +1,7 @@
 #include "RandomizationComponent.h"
 
 #include "randomization_OptionsComponent_LFOfreq.h"
+#include "randomization_OptionsComponent_LPFfreq.h"
 #include "randomization_OptionsComponent_OscShape.h"
 #include "randomization_OptionsComponent_Pitch.h"
 #include "randomization_OptionsComponent_SeqTrack.h"
@@ -214,6 +215,8 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				showRandomizationOptionsComponent_OscShapeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::lfoFreq)
 				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::lpfFreq)
+				showRandomizationOptionsComponent_LPFfreq();
 			if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
 				auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 				auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
@@ -273,6 +276,15 @@ void RandomizationComponent::showRandomizationOptionsComponent_OscShapeForParam(
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_LPFfreq() {
+	randomizationOptionsComponent_LPFfreq.reset(new RandomizationOptionsComponent_LPFfreq(unexposedParams));
+	if (randomizationOptionsComponent_LPFfreq != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_LPFfreq.get());
+		randomizationOptionsComponent_LPFfreq->setBounds(getLocalBounds());
+		randomizationOptionsComponent_LPFfreq->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex) {
 	randomizationOptionsComponent_LFOfreq.reset(new RandomizationOptionsComponent_LFOfreq(paramIndex, unexposedParams));
 	if (randomizationOptionsComponent_LFOfreq != nullptr) {
@@ -299,6 +311,7 @@ void RandomizationComponent::hideThisComponent() {
 RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_SeqTrack = nullptr;
 	randomizationOptionsComponent_LFOfreq = nullptr;
+	randomizationOptionsComponent_LPFfreq = nullptr;
 	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;

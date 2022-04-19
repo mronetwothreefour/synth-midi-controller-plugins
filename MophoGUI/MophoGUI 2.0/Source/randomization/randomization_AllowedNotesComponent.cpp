@@ -19,13 +19,6 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	String paramName{ "" };
-	if (paramID.contains("push"))
-		paramName = "the Push It! switch";
-	else {
-		paramName = "oscillator ";
-		paramName += paramID.contains("1") ? "1" : "2";
-	}
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		auto toggleID{ ID::component_ToggleButton.toString() + "For_" + paramID + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);
@@ -38,8 +31,26 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 		if (shouldShowDescriptions) {
 			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not " + noteName + " notes\n";
-			toggleTooltip += "are allowed when a random pitch is\n";
-			toggleTooltip += "generated for " + paramName + ".\n";
+			if (optionsType == RandomizationOptionsType::pitch) {
+				String paramName{ "" };
+				if (paramID.contains("push"))
+					paramName = "the Push It! switch";
+				else {
+					paramName = "oscillator ";
+					paramName += paramID.contains("1") ? "1" : "2";
+				}
+				toggleTooltip += "are allowed when a random pitch is\n";
+				toggleTooltip += "generated for " + paramName + ".\n";
+			}
+			if (optionsType == RandomizationOptionsType::lpfFreq) {
+				toggleTooltip += "are allowed when a random LPF\n";
+				toggleTooltip += "cutoff frequency is generated.\n";
+			}
+			if (optionsType == RandomizationOptionsType::lfoFreq) {
+				auto lfoNum{ paramID.fromFirstOccurrenceOf("lfo", false, false).upToFirstOccurrenceOf("Freq", false, false) };
+				toggleTooltip += "are allowed when a random pitched\n";
+				toggleTooltip += "frequency is generated for LFO " + lfoNum + ".\n";
+			}
 			toggleTooltip += "Holding down the CTRL key when\n";
 			toggleTooltip += "clicking the toggle will make " + noteName + "\n";
 			toggleTooltip += "notes the only ones allowed. There\n";
@@ -53,7 +64,23 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 	if (tooltipOptions->shouldShowDescriptions()) {
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all notes when generating\n";
-		buttonTooltip += "a random pitch for " + paramName + ".";
+		if (optionsType == RandomizationOptionsType::pitch) {
+			String paramName{ "" };
+			if (paramID.contains("push"))
+				paramName = "the Push It! switch";
+			else {
+				paramName = "oscillator ";
+				paramName += paramID.contains("1") ? "1" : "2";
+			}
+			buttonTooltip += "a random pitch for " + paramName + ".";
+		}
+		if (optionsType == RandomizationOptionsType::lpfFreq) {
+			buttonTooltip += "a random LPF cutoff frequency.";
+		}
+		if (optionsType == RandomizationOptionsType::lfoFreq) {
+			auto lfoNum{ paramID.fromFirstOccurrenceOf("lfo", false, false).upToFirstOccurrenceOf("Freq", false, false) };
+			buttonTooltip += "a random pitched frequency for LFO " + lfoNum + ".\n";
+		}
 		button_ForAllowingAllNotes.setTooltip(buttonTooltip);
 	}
 	addAndMakeVisible(button_ForAllowingAllNotes);

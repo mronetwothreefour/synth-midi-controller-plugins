@@ -68,8 +68,22 @@ RandomizationOptionsComponent_LFOfreq::RandomizationOptionsComponent_LFOfreq(uin
 
 	addAndMakeVisible(allowedNotes);
 	addAndMakeVisible(allowedOctaves);
+	if (randomizationOptions->pitchedFreqAreNotAllowedForParam(paramIndex)) {
+		allowedNotes.turnOffAllToggles();
+		allowedNotes.setEnabled(false);
+		allowedOctaves.turnOffAllToggles();
+		allowedOctaves.setEnabled(false);
+	}
+
 	addAndMakeVisible(allowedUnsyncedFreq);
+	if (randomizationOptions->unsyncedFreqAreNotAllowedForParam(paramIndex)) {
+		allowedUnsyncedFreq.setEnabled(false);
+	}
+
 	addAndMakeVisible(allowedSyncedFreq);
+	if (randomizationOptions->syncedFreqAreNotAllowedForParam(paramIndex)) {
+		allowedSyncedFreq.setEnabled(false);
+	}
 
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
