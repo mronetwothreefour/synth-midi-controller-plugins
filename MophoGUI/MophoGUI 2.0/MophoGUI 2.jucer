@@ -704,8 +704,6 @@
             file="Resources/Button-Down-Load.png"/>
       <FILE id="xyvZER" name="Button-Down-Lock.png" compile="0" resource="1"
             file="Resources/Button-Down-Lock.png"/>
-      <FILE id="e8frsR" name="Button-Down-Lock-All.png" compile="0" resource="1"
-            file="Resources/Button-Down-Lock-All.png"/>
       <FILE id="w6cMID" name="Button-Down-New-Folder.png" compile="0" resource="1"
             file="Resources/Button-Down-New-Folder.png"/>
       <FILE id="e4B3vm" name="Button-Down-Program-Name-Edit.png" compile="0"
@@ -732,8 +730,6 @@
             file="Resources/Button-Down-Undo.png"/>
       <FILE id="qkl1D5" name="Button-Down-Unlock.png" compile="0" resource="1"
             file="Resources/Button-Down-Unlock.png"/>
-      <FILE id="YSvb2I" name="Button-Down-Unlock-All.png" compile="0" resource="1"
-            file="Resources/Button-Down-Unlock-All.png"/>
       <FILE id="ECAOIW" name="Button-Down-Write.png" compile="0" resource="1"
             file="Resources/Button-Down-Write.png"/>
       <FILE id="kSwo8I" name="Button-Up-All-Notes.png" compile="0" resource="1"
@@ -768,8 +764,6 @@
             file="Resources/Button-Up-Load.png"/>
       <FILE id="TwChsy" name="Button-Up-Lock.png" compile="0" resource="1"
             file="Resources/Button-Up-Lock.png"/>
-      <FILE id="Xabi8j" name="Button-Up-Lock-All.png" compile="0" resource="1"
-            file="Resources/Button-Up-Lock-All.png"/>
       <FILE id="jl2lH3" name="Button-Up-New-Folder.png" compile="0" resource="1"
             file="Resources/Button-Up-New-Folder.png"/>
       <FILE id="o5Z6oj" name="Button-Up-Program-Name-Edit.png" compile="0"
@@ -796,8 +790,6 @@
             file="Resources/Button-Up-Undo.png"/>
       <FILE id="AHhhe9" name="Button-Up-Unlock.png" compile="0" resource="1"
             file="Resources/Button-Up-Unlock.png"/>
-      <FILE id="uHVjlk" name="Button-Up-Unlock-All.png" compile="0" resource="1"
-            file="Resources/Button-Up-Unlock-All.png"/>
       <FILE id="IPLtYu" name="Button-Up-Write.png" compile="0" resource="1"
             file="Resources/Button-Up-Write.png"/>
       <FILE id="Rc4Ho1" name="File-Not-Valid-Alert-Background.png" compile="0"

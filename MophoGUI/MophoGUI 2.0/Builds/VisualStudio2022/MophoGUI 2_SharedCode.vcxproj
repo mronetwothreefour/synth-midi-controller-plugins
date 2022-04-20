@@ -3243,7 +3243,6 @@
     <None Include="..\..\Resources\Button-Down-Import.png"/>
     <None Include="..\..\Resources\Button-Down-Load.png"/>
     <None Include="..\..\Resources\Button-Down-Lock.png"/>
-    <None Include="..\..\Resources\Button-Down-Lock-All.png"/>
     <None Include="..\..\Resources\Button-Down-New-Folder.png"/>
     <None Include="..\..\Resources\Button-Down-Program-Name-Edit.png"/>
     <None Include="..\..\Resources\Button-Down-Pull.png"/>
@@ -3257,7 +3256,6 @@
     <None Include="..\..\Resources\Button-Down-Stop.png"/>
     <None Include="..\..\Resources\Button-Down-Undo.png"/>
     <None Include="..\..\Resources\Button-Down-Unlock.png"/>
-    <None Include="..\..\Resources\Button-Down-Unlock-All.png"/>
     <None Include="..\..\Resources\Button-Down-Write.png"/>
     <None Include="..\..\Resources\Button-Up-All-Notes.png"/>
     <None Include="..\..\Resources\Button-Up-All-Octaves.png"/>
@@ -3275,7 +3273,6 @@
     <None Include="..\..\Resources\Button-Up-Import.png"/>
     <None Include="..\..\Resources\Button-Up-Load.png"/>
     <None Include="..\..\Resources\Button-Up-Lock.png"/>
-    <None Include="..\..\Resources\Button-Up-Lock-All.png"/>
     <None Include="..\..\Resources\Button-Up-New-Folder.png"/>
     <None Include="..\..\Resources\Button-Up-Program-Name-Edit.png"/>
     <None Include="..\..\Resources\Button-Up-Pull.png"/>
@@ -3289,7 +3286,6 @@
     <None Include="..\..\Resources\Button-Up-Stop.png"/>
     <None Include="..\..\Resources\Button-Up-Undo.png"/>
     <None Include="..\..\Resources\Button-Up-Unlock.png"/>
-    <None Include="..\..\Resources\Button-Up-Unlock-All.png"/>
     <None Include="..\..\Resources\Button-Up-Write.png"/>
     <None Include="..\..\Resources\File-Not-Valid-Alert-Background.png"/>
     <None Include="..\..\Resources\Folder-Exists-Alert-Background.png"/>

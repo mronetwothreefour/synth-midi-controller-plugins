@@ -59,9 +59,6 @@ namespace BinaryData
     extern const char*   ButtonDownLock_png;
     const int            ButtonDownLock_pngSize = 378;
 
-    extern const char*   ButtonDownLockAll_png;
-    const int            ButtonDownLockAll_pngSize = 750;
-
     extern const char*   ButtonDownNewFolder_png;
     const int            ButtonDownNewFolder_pngSize = 930;
 
@@ -100,9 +97,6 @@ namespace BinaryData
 
     extern const char*   ButtonDownUnlock_png;
     const int            ButtonDownUnlock_pngSize = 369;
-
-    extern const char*   ButtonDownUnlockAll_png;
-    const int            ButtonDownUnlockAll_pngSize = 833;
 
     extern const char*   ButtonDownWrite_png;
     const int            ButtonDownWrite_pngSize = 642;
@@ -155,9 +149,6 @@ namespace BinaryData
     extern const char*   ButtonUpLock_png;
     const int            ButtonUpLock_pngSize = 373;
 
-    extern const char*   ButtonUpLockAll_png;
-    const int            ButtonUpLockAll_pngSize = 816;
-
     extern const char*   ButtonUpNewFolder_png;
     const int            ButtonUpNewFolder_pngSize = 910;
 
@@ -196,9 +187,6 @@ namespace BinaryData
 
     extern const char*   ButtonUpUnlock_png;
     const int            ButtonUpUnlock_pngSize = 359;
-
-    extern const char*   ButtonUpUnlockAll_png;
-    const int            ButtonUpUnlockAll_pngSize = 857;
 
     extern const char*   ButtonUpWrite_png;
     const int            ButtonUpWrite_pngSize = 612;
@@ -276,7 +264,7 @@ namespace BinaryData
     const int            RandomizationOptionsSeqStepsBackground_pngSize = 10672;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 10147;
+    const int            RandomizationWindowBackground_pngSize = 14087;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;
@@ -297,7 +285,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 96;
+    const int namedResourceListSize = 92;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

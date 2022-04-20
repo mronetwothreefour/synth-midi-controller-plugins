@@ -12,7 +12,7 @@ ButtonForUnlockingAllParameters::ButtonForUnlockingAllParameters(RandomizationCo
 	randomizationComponent{ randomizationComponent },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::button_UnlockAll.toString());
+	setComponentID(ID::button_Unlock.toString());
 	setTooltip(createButtonTooltipString());
 }
 

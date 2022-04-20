@@ -49,7 +49,6 @@ namespace ID
 	static const Identifier button_ImportVoiceIntoCustomBank3{ "button_ImportVoiceIntoCustomBank3" };
 	static const Identifier button_Load{ "button_Load" };
 	static const Identifier button_Lock{ "button_Lock" };
-	static const Identifier button_LockAll{ "button_LockAll" };
 	static const Identifier button_NewFolder{ "button_NewFolder" };
 	static const Identifier button_PullCustomBank1{ "button_PullCustomBank1" };
 	static const Identifier button_PullCustomBank2{ "button_PullCustomBank2" };
@@ -71,7 +70,6 @@ namespace ID
 	static const Identifier button_Save{ "button_Save" };
 	static const Identifier button_Stop{ "button_Stop" };
 	static const Identifier button_Undo{ "button_Undo" };
-	static const Identifier button_UnlockAll{ "button_UnlockAll" };
 	static const Identifier button_Unlock{ "button_Unlock" };
 	static const Identifier button_Write{ "button_Write" };
 	static const Identifier button_VoiceNameEdit{ "button_VoiceNameEdit" };

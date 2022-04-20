@@ -6029,9 +6029,6 @@
     <None Include="..\..\Resources\Button-Down-Lock.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Button-Down-Lock-All.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
     <None Include="..\..\Resources\Button-Down-New-Folder.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6069,9 +6066,6 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Unlock.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Button-Down-Unlock-All.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Down-Write.png">
@@ -6125,9 +6119,6 @@
     <None Include="..\..\Resources\Button-Up-Lock.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Button-Up-Lock-All.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
     <None Include="..\..\Resources\Button-Up-New-Folder.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6165,9 +6156,6 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Unlock.png">
-      <Filter>MophoGUI 2\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\Button-Up-Unlock-All.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-Write.png">
