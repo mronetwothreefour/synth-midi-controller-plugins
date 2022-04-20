@@ -41,6 +41,16 @@ RandomizationOptionsComponent_ComboBoxes::RandomizationOptionsComponent_ComboBox
 		allowedItemToggles[itemNum].setHelpText(converter->convert((uint8)itemNum));
 		addAndMakeVisible(allowedItemToggles[itemNum]);
 		allowedItemToggles[itemNum].setSize(item_w, GUI::comboBox_h);
+		if (shouldShowDescriptions) {
+			String buttonTooltip{ "" };
+			buttonTooltip += "Click an option name to toggle whether or not it\n";
+			buttonTooltip += "is allowed when generating a random setting for\n";
+			buttonTooltip += paramName + ".\n";
+			buttonTooltip += "Holding down the CTRL key when clicking will\n";
+			buttonTooltip += "make it the only option allowed (there must\n";
+			buttonTooltip += "always be at least one allowed option).\n";
+			allowedItemToggles[itemNum].setTooltip(buttonTooltip);
+		}
 	}
 
 	button_ForAllowingAllItems.setComponentID(ID::button_AllItemsFor_.toString() + paramID);
@@ -49,7 +59,7 @@ RandomizationOptionsComponent_ComboBoxes::RandomizationOptionsComponent_ComboBox
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all the options when\n";
 		buttonTooltip += "generating a random setting for\n";
-		buttonTooltip += paramName;
+		buttonTooltip += paramName + ".";
 		button_ForAllowingAllItems.setTooltip(buttonTooltip);
 	}
 	addAndMakeVisible(button_ForAllowingAllItems);
@@ -140,8 +150,43 @@ void RandomizationOptionsComponent_ComboBoxes::resized() {
 	button_ForClosingComponent.setBounds(closeButton_x, closeButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 
-void RandomizationOptionsComponent_ComboBoxes::buttonClicked(Button* button)
-{
+void RandomizationOptionsComponent_ComboBoxes::buttonClicked(Button* button) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto buttonID{ button->getComponentID() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	if (buttonID.startsWith(ID::component_AllowComboBoxItem_ToggleButton_.toString()) && buttonID.endsWith(paramID)) {
+		auto clickedItemNum{ buttonID.fromFirstOccurrenceOf("Button_", false, false).upToFirstOccurrenceOf("_For", false, false).getIntValue()};
+		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+			for (auto itemNum = 0; itemNum != info.numberOfStepsFor(paramIndex); ++itemNum) {
+				if (itemNum == clickedItemNum) {
+					allowedItemToggles[itemNum].setToggleState(true, dontSendNotification);
+					randomizationOptions->setComboBoxItemIsAllowedForParam(itemNum, paramIndex);
+				}
+				else {
+					allowedItemToggles[itemNum].setToggleState(false, dontSendNotification);
+					randomizationOptions->setComboBoxItemIsNotAllowedForParam(itemNum, paramIndex);
+				}
+			}
+		}
+		else {
+			auto isAllowed{ button->getToggleState() };
+			if (isAllowed)
+				randomizationOptions->setComboBoxItemIsAllowedForParam(clickedItemNum, paramIndex);
+			else
+				randomizationOptions->setComboBoxItemIsNotAllowedForParam(clickedItemNum, paramIndex);
+		}
+		if (randomizationOptions->noComboBoxItemIsAllowedForParam(paramIndex)) {
+			button->setToggleState(true, dontSendNotification);
+			randomizationOptions->setComboBoxItemIsAllowedForParam(clickedItemNum, paramIndex);
+		}
+	}
+	if (buttonID == ID::button_AllItemsFor_.toString() + paramID) {
+		for (auto itemNum = 0; itemNum != info.numberOfStepsFor(paramIndex); ++itemNum) {
+			allowedItemToggles[itemNum].setToggleState(true, dontSendNotification);
+			randomizationOptions->setComboBoxItemIsAllowedForParam(itemNum, paramIndex);
+		}
+	}
 }
 
 void RandomizationOptionsComponent_ComboBoxes::hideThisComponent() {
