@@ -17,6 +17,7 @@ namespace ID
 	static const Identifier bank_custom3_VoiceNameStrings{ "bank_custom3_VoiceNameStrings" };
 
 	static const Identifier button_AllBentNotesFor_{ "button_AllBentNotesFor_" };
+	static const Identifier button_AllItemsFor_{ "button_AllItemsFor_" };
 	static const Identifier button_AllNotesFor_{ "button_AllNotesFor_" };
 	static const Identifier button_AllOctavesFor_{ "button_AllOctavesFor_" };
 	static const Identifier button_AllShapesFor_{ "button_AllShapesFor_" };
@@ -98,6 +99,7 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
+	static const Identifier component_AllowComboBoxItem_ToggleButton_{ "component_AllowComboBoxItem_ToggleButton_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off_For_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Pulse_For_{ "component_ToggleButton_AllowOscShape_Pulse_For_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Saw_For_{ "component_ToggleButton_AllowOscShape_Saw_For_" };
@@ -207,10 +209,11 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
-	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
+	static const Identifier randomization_AllowedComboBoxItems{ "randomization_AllowedComboBoxItems" };
 	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
 	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
+	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" }; //to do: delete

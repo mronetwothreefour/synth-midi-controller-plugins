@@ -1,5 +1,6 @@
 #include "RandomizationComponent.h"
 
+#include "randomization_OptionsComponent_ComboBoxes.h"
 #include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_LPFfreq.h"
 #include "randomization_OptionsComponent_OscShape.h"
@@ -213,6 +214,8 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::oscShape)
 				showRandomizationOptionsComponent_OscShapeForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::comboBoxes)
+				showRandomizationOptionsComponent_ComboBoxes(paramIndex);
 			if (optionsType == RandomizationOptionsType::lfoFreq)
 				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::lpfFreq)
@@ -276,6 +279,15 @@ void RandomizationComponent::showRandomizationOptionsComponent_OscShapeForParam(
 	}
 }
 
+void RandomizationComponent::showRandomizationOptionsComponent_ComboBoxes(uint8 paramIndex) {
+	randomizationOptionsComponent_ComboBoxes.reset(new RandomizationOptionsComponent_ComboBoxes(paramIndex, unexposedParams));
+	if (randomizationOptionsComponent_ComboBoxes != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_ComboBoxes.get());
+		randomizationOptionsComponent_ComboBoxes->setBounds(getLocalBounds());
+		randomizationOptionsComponent_ComboBoxes->grabKeyboardFocus();
+	}
+}
+
 void RandomizationComponent::showRandomizationOptionsComponent_LPFfreq() {
 	randomizationOptionsComponent_LPFfreq.reset(new RandomizationOptionsComponent_LPFfreq(unexposedParams));
 	if (randomizationOptionsComponent_LPFfreq != nullptr) {
@@ -312,6 +324,7 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_SeqTrack = nullptr;
 	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_LPFfreq = nullptr;
+	randomizationOptionsComponent_ComboBoxes = nullptr;
 	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;

@@ -31,6 +31,7 @@
 
 
 
+class RandomizationOptionsComponent_ComboBoxes;
 class RandomizationOptionsComponent_LFOfreq;
 class RandomizationOptionsComponent_LPFfreq;
 class RandomizationOptionsComponent_OscShape;
@@ -86,6 +87,7 @@ class RandomizationComponent :
 	std::unique_ptr<RandomizationOptionsComponent_Pitch> randomizationOptionsComponent_Pitch;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
 	std::unique_ptr<RandomizationOptionsComponent_OscShape> randomizationOptionsComponent_OscShape;
+	std::unique_ptr<RandomizationOptionsComponent_ComboBoxes> randomizationOptionsComponent_ComboBoxes;
 	std::unique_ptr<RandomizationOptionsComponent_LPFfreq> randomizationOptionsComponent_LPFfreq;
 	std::unique_ptr<RandomizationOptionsComponent_LFOfreq> randomizationOptionsComponent_LFOfreq;
 	std::unique_ptr<RandomizationOptionsComponent_SeqTrack> randomizationOptionsComponent_SeqTrack;
@@ -103,6 +105,7 @@ public:
 	void showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_OscShapeForParam(uint8 paramIndex);
+	void showRandomizationOptionsComponent_ComboBoxes(uint8 paramIndex);
 	void showRandomizationOptionsComponent_LPFfreq();
 	void showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_SeqTrackForTrack(int trackNum);

@@ -108,6 +108,9 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_AllItems"))
+		return isDown ? BinaryData::ButtonDownAllowAll_png : BinaryData::ButtonUpAllowAll_png;
+
 	if (button.getComponentID().startsWith("button_AllNotes"))
 		return isDown ? BinaryData::ButtonDownAllNotes_png : BinaryData::ButtonUpAllNotes_png;
 
@@ -208,6 +211,9 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
+	if (button.getComponentID().startsWith("button_AllItems"))
+		return size_t(isDown ? BinaryData::ButtonDownAllowAll_pngSize : BinaryData::ButtonUpAllowAll_pngSize);
+
 	if (button.getComponentID().startsWith("button_AllNotes"))
 		return size_t(isDown ? BinaryData::ButtonDownAllNotes_pngSize : BinaryData::ButtonUpAllNotes_pngSize);
 
@@ -315,11 +321,12 @@ void GUILookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool is
 }
 
 void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/) {
-	if (component.getComponentID().startsWith(ID::component_ToggleButton.toString())) {
+	auto componentID{ component.getComponentID() };
+	if (componentID.startsWith(ID::component_ToggleButton.toString())) {
 		g.setColour(isTicked ? Color::switchOn : Color::switchOff);
 		g.fillEllipse(x, y, w, h);
 	}
-	if (component.getComponentID() == ID::component_VoiceSlotRadioButton.toString()) {
+	if (componentID == ID::component_VoiceSlotRadioButton.toString()) {
 		auto buttonColor{ Color::device };
 		if (isHighlighted)
 			buttonColor = buttonColor.brighter(0.4f);
@@ -332,7 +339,17 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
-	if (component.getComponentID().startsWith("lockButtonForComboBox_")) {
+	if (componentID.startsWith(ID::component_AllowComboBoxItem_ToggleButton_.toString())) {
+		if (isTicked) {
+			g.setColour(Color::white.withAlpha(0.2f));
+			g.fillRect(x, y, w, h);
+		}
+		g.setColour(Color::black);
+		g.setFont(FontsMenu::fontFor_Labels);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getHelpText(), textArea, Justification::centredLeft);
+	}
+	if (componentID.startsWith("lockButtonForComboBox_")) {
 		if (isTicked) {
 			g.setColour(Color::black.withAlpha(0.3f));
 			g.fillRect(x, y + 2, w, h - 4);
@@ -347,7 +364,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 			g.fillRect(x, y + 2, w, h - 4);
 		}
 	}
-	if (component.getComponentID().startsWith("lockButtonForKnob_")) {
+	if (componentID.startsWith("lockButtonForKnob_")) {
 		if (isTicked) {
 			g.setColour(Color::black.withAlpha(0.3f));
 			g.fillEllipse(x, y, w, h);
@@ -362,7 +379,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 			g.fillEllipse(x, y, w, h);
 		}
 	}
-	if (component.getComponentID().startsWith("lockButtonForSeqStep_")) {
+	if (componentID.startsWith("lockButtonForSeqStep_")) {
 		if (isTicked) {
 			g.setColour(Color::black.withAlpha(0.3f));
 			g.fillRect(x, y, w, h);

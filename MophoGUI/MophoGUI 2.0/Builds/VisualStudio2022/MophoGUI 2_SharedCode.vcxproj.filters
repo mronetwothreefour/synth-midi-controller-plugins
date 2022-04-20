@@ -646,6 +646,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3235,6 +3238,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.h">
@@ -5981,6 +5987,9 @@
     <None Include="..\..\Resources\Button-Down-All-Octaves.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\Button-Down-Allow-All.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\Button-Down-All-Shapes.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
@@ -6072,6 +6081,9 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-All-Octaves.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Button-Up-Allow-All.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Button-Up-All-Shapes.png">

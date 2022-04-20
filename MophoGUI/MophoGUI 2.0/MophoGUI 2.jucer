@@ -243,6 +243,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.cpp"/>
         <FILE id="fkB6Aw" name="randomization_AllowedUnsyncedFreqComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.h"/>
+        <FILE id="p6ZLtB" name="randomization_OptionsComponent_ComboBoxes.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ComboBoxes.cpp"/>
+        <FILE id="s2Xk7U" name="randomization_OptionsComponent_ComboBoxes.h"
+              compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_ComboBoxes.h"/>
         <FILE id="Zz7JY0" name="randomization_OptionsComponent_LFOfreq.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_LFOfreq.cpp"/>
         <FILE id="m2oujc" name="randomization_OptionsComponent_LFOfreq.h" compile="0"
@@ -672,6 +676,8 @@
             file="Resources/Button-Down-All-Notes.png"/>
       <FILE id="ErORlD" name="Button-Down-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Down-All-Octaves.png"/>
+      <FILE id="dEqCmv" name="Button-Down-Allow-All.png" compile="0" resource="1"
+            file="Resources/Button-Down-Allow-All.png"/>
       <FILE id="tyuORS" name="Button-Down-All-Shapes.png" compile="0" resource="1"
             file="Resources/Button-Down-All-Shapes.png"/>
       <FILE id="tCKs2S" name="Button-Down-All-Synced.png" compile="0" resource="1"
@@ -734,6 +740,8 @@
             file="Resources/Button-Up-All-Notes.png"/>
       <FILE id="XWeRj2" name="Button-Up-All-Octaves.png" compile="0" resource="1"
             file="Resources/Button-Up-All-Octaves.png"/>
+      <FILE id="HvwJLN" name="Button-Up-Allow-All.png" compile="0" resource="1"
+            file="Resources/Button-Up-Allow-All.png"/>
       <FILE id="UkpqVv" name="Button-Up-All-Shapes.png" compile="0" resource="1"
             file="Resources/Button-Up-All-Shapes.png"/>
       <FILE id="Gmah50" name="Button-Up-All-Synced.png" compile="0" resource="1"

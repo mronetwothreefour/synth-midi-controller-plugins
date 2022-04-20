@@ -168,6 +168,7 @@ namespace constants
 		static const int randomizationAllowAllNotesForOscButtons_w{ 70 };
 		static const int randomizationAllowAllNotesButton_x{ 38 };
 		static const int randomizationAllowAllBentNotesForOscButtons_x{ 211 };
+		static const int randomizationAllowAllItemsButton_w{ 72 };
 		static const int randomizationAllowAllNotesButton_y{ 52 };
 		static const int randomizationAllowAllOctavesButton_w{ 82 };
 		static const int randomizationAllowAllOctavesButtons_x{ 21 };

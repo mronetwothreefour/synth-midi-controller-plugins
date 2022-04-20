@@ -188,6 +188,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForSeqTrack.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp"/>
@@ -2311,6 +2312,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedOctavesComponentForSeqTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedSyncedFreqComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_AllowedUnsyncedFreqComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h"/>
@@ -3227,6 +3229,7 @@
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF"/>
     <None Include="..\..\Resources\Button-Down-All-Notes.png"/>
     <None Include="..\..\Resources\Button-Down-All-Octaves.png"/>
+    <None Include="..\..\Resources\Button-Down-Allow-All.png"/>
     <None Include="..\..\Resources\Button-Down-All-Shapes.png"/>
     <None Include="..\..\Resources\Button-Down-All-Synced.png"/>
     <None Include="..\..\Resources\Button-Down-Banks.png"/>
@@ -3258,6 +3261,7 @@
     <None Include="..\..\Resources\Button-Down-Write.png"/>
     <None Include="..\..\Resources\Button-Up-All-Notes.png"/>
     <None Include="..\..\Resources\Button-Up-All-Octaves.png"/>
+    <None Include="..\..\Resources\Button-Up-Allow-All.png"/>
     <None Include="..\..\Resources\Button-Up-All-Shapes.png"/>
     <None Include="..\..\Resources\Button-Up-All-Synced.png"/>
     <None Include="..\..\Resources\Button-Up-Banks.png"/>

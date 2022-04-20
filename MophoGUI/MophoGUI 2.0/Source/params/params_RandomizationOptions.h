@@ -10,13 +10,11 @@ enum class RandomizationOptionsType {
 	none = 0,
 	valueRange,
 	pitch,
-	modulationSource,
-	modulationDestination,
 	oscShape,
+	comboBoxes,
 	lpfFreq,
 	lfoFreq,
-	sequencerTrackStep,
-	togglesForEachMenuItem
+	sequencerTrackStep
 };
 
 
@@ -27,6 +25,7 @@ class RandomizationOptions
 	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
 	ValueTree allowedOscShapesTree;
+	ValueTree allowedComboBoxItemsTree;
 	ValueTree allowedFrequencyTypesTree;
 	ValueTree lpfFreqOptionsTree;
 	ValueTree seqTrackOptionsTree;
@@ -66,6 +65,11 @@ public:
 	void setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex);
 	const uint8 maxPulseWidthAllowedForParam(uint8 paramIndex);
 	void setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex);
+
+	const bool comboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex);
+	void setComboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex);
+	void setComboBoxItemIsNotAllowedForParam(int itemNum, uint8 paramIndex);
+	const bool noComboBoxItemIsAllowedForParam(uint8 paramIndex);
 
 	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool pitchedFreqAreNotAllowedForParam(uint8 paramIndex);

@@ -14,6 +14,7 @@ RandomizationOptions::RandomizationOptions() :
 	allowedPitchesTree{ ID::randomization_AllowedPitches },
 	allowedValueRangesTree{ ID::randomization_AllowedValueRanges },
 	allowedOscShapesTree{ ID::randomization_AllowedOscShapes },
+	allowedComboBoxItemsTree{ ID::randomization_AllowedComboBoxItems },
 	allowedFrequencyTypesTree{ ID::randomization_AllowedFrequencyTypes },
 	lpfFreqOptionsTree{ ID::randomization_SeqTrackOptions },
 	seqTrackOptionsTree{ ID::randomization_SeqTrackOptions }
@@ -44,6 +45,11 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			setOscShapeIsAllowedForParam(OscWaveShape::pulse, param);
 			setMinPulseWidthAllowedForParam((uint8)0, param);
 			setMaxPulseWidthAllowedForParam(params::maxPulseWidth, param);
+		}
+		if (optionsType == RandomizationOptionsType::comboBoxes) {
+			auto numberOfItems{ info.numberOfStepsFor(param) };
+			for (auto itemNum = 0; itemNum != numberOfItems; ++itemNum)
+				setComboBoxItemIsAllowedForParam(itemNum, param);
 		}
 		if (optionsType == RandomizationOptionsType::lpfFreq) {
 			setRandomizationModeForLPFfreqToValueRange();
@@ -446,6 +452,46 @@ void RandomizationOptions::setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 p
 	jassert(optionsType == RandomizationOptionsType::oscShape);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedOscShapesTree.setProperty("maxPulseWidthAllowedFor_" + paramID, newMax, nullptr);
+}
+
+const bool RandomizationOptions::comboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::comboBoxes);
+	jassert(itemNum < info.numberOfStepsFor(paramIndex));
+	auto paramID(info.IDfor(paramIndex).toString());
+	return (bool)allowedComboBoxItemsTree.getProperty("comboBoxItem" + (String)itemNum + "_IsAllowedFor_" + paramID);
+}
+
+void RandomizationOptions::setComboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::comboBoxes);
+	jassert(itemNum < info.numberOfStepsFor(paramIndex));
+	auto paramID(info.IDfor(paramIndex).toString());
+	allowedComboBoxItemsTree.setProperty("comboBoxItem" + (String)itemNum + "_IsAllowedFor_" + paramID, (bool)true, nullptr);
+}
+
+void RandomizationOptions::setComboBoxItemIsNotAllowedForParam(int itemNum, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::comboBoxes);
+	jassert(itemNum < info.numberOfStepsFor(paramIndex));
+	auto paramID(info.IDfor(paramIndex).toString());
+	allowedComboBoxItemsTree.setProperty("comboBoxItem" + (String)itemNum + "_IsAllowedFor_" + paramID, (bool)false, nullptr);
+}
+
+const bool RandomizationOptions::noComboBoxItemIsAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::comboBoxes);
+	auto atLeastOneItemIsAllowed{ (bool)false };
+	auto noItemIsAllowed{ (bool)true };
+	for (auto item = 0; item != info.numberOfStepsFor(paramIndex); ++item) {
+		if (comboBoxItemIsAllowedForParam(item, paramIndex))
+			return atLeastOneItemIsAllowed;
+	}
+	return noItemIsAllowed;
 }
 
 const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex) {
@@ -913,6 +959,12 @@ XmlElement* RandomizationOptions::getStateXml() {
 		randomizationOptionsStateXml->addChildElement(allowedOscShapesTreeStateXml.release());
 	}
 
+	auto allowedComboBoxItemsTreeStateXml{ allowedComboBoxItemsTree.createXml() };
+	if (allowedComboBoxItemsTreeStateXml != nullptr) {
+		allowedComboBoxItemsTreeStateXml->setTagName(ID::randomization_AllowedComboBoxItems);
+		randomizationOptionsStateXml->addChildElement(allowedComboBoxItemsTreeStateXml.release());
+	}
+
 	auto allowedFrequencyTypesTreeStateXml{ allowedFrequencyTypesTree.createXml() };
 	if (allowedFrequencyTypesTreeStateXml != nullptr) {
 		allowedFrequencyTypesTreeStateXml->setTagName(ID::randomization_AllowedFrequencyTypes);
@@ -924,8 +976,6 @@ XmlElement* RandomizationOptions::getStateXml() {
 		lpfFreqOptionsTreeStateXml->setTagName(ID::randomization_LPFfreqOptions);
 		randomizationOptionsStateXml->addChildElement(lpfFreqOptionsTreeStateXml.release());
 	}
-
-	return randomizationOptionsStateXml.release();
 
 	auto seqTrackOptionsTreeStateXml{ seqTrackOptionsTree.createXml() };
 	if (seqTrackOptionsTreeStateXml != nullptr) {
@@ -949,6 +999,10 @@ void RandomizationOptions::replaceState(const ValueTree& newState) {
 		auto allowedOscShapesTreeState{ newState.getChildWithName(ID::randomization_AllowedOscShapes) };
 		if (allowedOscShapesTreeState.isValid())
 			allowedOscShapesTree.copyPropertiesAndChildrenFrom(allowedOscShapesTreeState, nullptr);
+
+		auto allowedComboBoxItemsTreeState{ newState.getChildWithName(ID::randomization_AllowedComboBoxItems) };
+		if (allowedComboBoxItemsTreeState.isValid())
+			allowedComboBoxItemsTree.copyPropertiesAndChildrenFrom(allowedComboBoxItemsTreeState, nullptr);
 
 		auto allowedValueRangesTreeState{ newState.getChildWithName(ID::randomization_AllowedValueRanges) };
 		if (allowedValueRangesTreeState.isValid())
