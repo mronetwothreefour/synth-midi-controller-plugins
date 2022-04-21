@@ -108,6 +108,11 @@ const bool RandomizationOptions::paramIsLocked(uint8 param) {
 	return (bool)paramLocksTree.getProperty("param" + String(param) + "_IsLocked");
 }
 
+const bool RandomizationOptions::paramIsUnlocked(uint8 param) {
+	jassert(param < params::numberOfExposedParams);
+	return !(bool)paramLocksTree.getProperty("param" + String(param) + "_IsLocked");
+}
+
 void RandomizationOptions::setParamIsLocked(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)true, nullptr);
@@ -263,13 +268,9 @@ const bool RandomizationOptions::onlyHighestOctaveIsAllowedForParam(uint8 paramI
 }
 
 const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 paramIndex) {
+	jassert(pitchNum > -1);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
-		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	jassert(pitchNum > -1);
 	jassert((optionsType == RandomizationOptionsType::pitch && pitchNum < randomization::numberOfPitchesForOscillators) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||
 		(optionsType == RandomizationOptionsType::lfoFreq && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||

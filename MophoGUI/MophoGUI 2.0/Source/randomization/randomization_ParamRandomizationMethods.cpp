@@ -15,22 +15,22 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 	auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
 	voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
 	auto& info{ InfoForExposedParameters::get() };
-	auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
-	auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		if (param != arpegOnOffIndex && param != sequencerOnOffIndex) {
-			if (randomizationOptions->paramIsLocked(param) == false) {
-				auto paramID{ info.IDfor(param) };
-				Random rndmNumGenerator{};
-				if (paramID == ID::osc1_Pitch || paramID == ID::osc2_Pitch)
-					randomizeOscPitchParameter(paramID, exposedParams, unexposedParams);
-				else if (paramID == ID::osc1_Shape || paramID == ID::osc2_Shape)
-					randomizeOscShapeParameter(paramID, exposedParams);
+		auto paramID{ info.IDfor(param) };
+		if (paramID != ID::arpegOnOff && paramID != ID::sequencerOnOff) {
+			if (randomizationOptions->paramIsUnlocked(param)) {
+				auto randomizationOptionsType{ info.randomizationOptionsTypeFor(param) };
+				if (randomizationOptionsType == RandomizationOptionsType::none)
+					randomizeParameter(paramID, exposedParams);
+				if (randomizationOptionsType == RandomizationOptionsType::pitch)
+					randomizePitchParameter(paramID, exposedParams, unexposedParams);
+				if (randomizationOptionsType == RandomizationOptionsType::valueRange)
+					randomizeValueRangeParameter(paramID, exposedParams, unexposedParams);
+				if (randomizationOptionsType == RandomizationOptionsType::oscShape)
+					randomizeOscShapeParameter(paramID, exposedParams, unexposedParams);
 				//else if (paramID.toString().startsWith("lfo") && paramID.toString().endsWith("Freq"))
 				//	randomizeLFOfreqParameter(paramID, exposedParams, unexposedParams);
-				else
-					randomizeParameter(paramID, exposedParams);
 			}
 		}
 	}
@@ -40,52 +40,111 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 }
 
 void ParamRandomizationMethods::randomizeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	auto numberOfStepsFor{ info.numberOfStepsFor(paramIndex) };
 	Random rndmNumGenerator{};
-	auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
+	auto newValue{ floor(rndmNumGenerator.nextFloat() * numberOfStepsFor) };
+	auto newNormalizedValue{ newValue / info.maxValueFor(paramIndex) };
 	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
-void ParamRandomizationMethods::randomizeOscPitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	//auto& info{ InfoForExposedParameters::get() };
-	//auto oscNum{ paramID.toString().contains("1") ? 1 : 2 };
-	//auto paramIndex{ info.indexForParamID(paramID.toString()) };
-	//auto pitchOutOfRange{ uint8(info.maxValueFor(paramIndex) + 1) };
-	//Array<float> allowedPitchesStoredAsNormalizedValues;
-	//float newNormalizedValue{ 0.0f };
-	//auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	//if (randomizationOptions->onlyOctave10_IsAllowedForOscillator(oscNum))
-	//	newNormalizedValue = 1.0f;
-	//else {
-	//	for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
-	//		auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForOscillator(pitch, oscNum) };
-	//		if (pitchIsAllowed) {
-	//			auto normalizedValue{ pitch / (float)info.maxValueFor(paramIndex) };
-	//			allowedPitchesStoredAsNormalizedValues.add(normalizedValue);
-	//		}
-	//	}
-	//	auto numberOfAllowedPitches{ allowedPitchesStoredAsNormalizedValues.size() };
-	//	Random rndmNumGenerator{};
-	//	auto newFloat{ rndmNumGenerator.nextFloat() };
-	//	auto newPitchIndex{ (int)floor(newFloat * numberOfAllowedPitches) };
-	//	newNormalizedValue = allowedPitchesStoredAsNormalizedValues[newPitchIndex];
-	//}
-	//exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+void ParamRandomizationMethods::randomizePitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	auto pitchOutOfRange{ uint8(info.numberOfStepsFor(paramIndex)) };
+	Array<float> allowedPitchesStoredAsNormalizedValues;
+	float newNormalizedValue{ 0.0f };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	if (randomizationOptions->onlyHighestOctaveIsAllowedForParam(paramIndex))
+		newNormalizedValue = 1.0f;
+	else {
+		for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
+			auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex) };
+			if (pitchIsAllowed) {
+				auto normalizedValue{ pitch / (float)info.maxValueFor(paramIndex) };
+				allowedPitchesStoredAsNormalizedValues.add(normalizedValue);
+			}
+		}
+		auto numberOfAllowedPitches{ allowedPitchesStoredAsNormalizedValues.size() };
+		Random rndmNumGenerator{};
+		auto newPitchIndex{ (int)floor(rndmNumGenerator.nextFloat() * numberOfAllowedPitches) };
+		newNormalizedValue = allowedPitchesStoredAsNormalizedValues[newPitchIndex];
+	}
+	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 }
 
-void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams) {
+void ParamRandomizationMethods::randomizeValueRangeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	auto newValue{ pickRandomValueFromRangeForParam(paramIndex, unexposedParams) };
+	auto maxValue{ (float)info.maxValueFor(paramIndex) };
+	auto newNormalizedValue{ newValue / maxValue };
+	exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+}
+
+uint8 ParamRandomizationMethods::pickRandomValueFromRangeForParam(uint8 paramIndex, UnexposedParameters* unexposedParams) {
+	Array<uint8> allowedValues;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto minValueAllowed{ randomizationOptions->minValueAllowedForParam(paramIndex) };
+	auto maxValueAllowed{ randomizationOptions->maxValueAllowedForParam(paramIndex) };
+	for (auto val = minValueAllowed; val <= maxValueAllowed; ++val)
+		allowedValues.add(val);
 	Random rndmNumGenerator{};
 	auto newFloat{ rndmNumGenerator.nextFloat() };
-	auto numberOfShapeOptions{ 5 };
-	auto newShape{ (int)floor(newFloat * numberOfShapeOptions) };
-	if (newShape != 4) {
-		auto newNormalizedValue{ newShape / 103.0f };
+	auto numberOfValueOptions{ allowedValues.size() };
+	auto newValueIndex{ (int)floor(newFloat * numberOfValueOptions) };
+	return allowedValues[newValueIndex];
+}
+
+void ParamRandomizationMethods::randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters * unexposedParams) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID.toString()) };
+	auto maxValue{ (float)info.maxValueFor(paramIndex) };
+	auto newShape{ pickRandomOscShapeForParameter(paramIndex, unexposedParams) };
+	if (newShape != OscWaveShape::pulse) {
+		auto newNormalizedValue{ (float)newShape / maxValue };
 		exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 	}
 	else {
-		auto newPulseWidth{ floor(rndmNumGenerator.nextFloat() * 100.0f) };
-		auto newNormalizedValue{ (newShape + newPulseWidth) / 103.0f };
+		auto newPulseWidth{ pickRandomPulseWidthForParam(paramIndex, unexposedParams) };
+		auto newNormalizedValue{ ((float)newShape + newPulseWidth) / maxValue };
 		exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
 	}
+}
+
+OscWaveShape ParamRandomizationMethods::pickRandomOscShapeForParameter(uint8 paramIndex, UnexposedParameters* unexposedParams) {
+	Array<OscWaveShape> allowedShapes;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	if (randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex))
+		allowedShapes.add(OscWaveShape::off);
+	if (randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex))
+		allowedShapes.add(OscWaveShape::sawtooth);
+	if (randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex))
+		allowedShapes.add(OscWaveShape::triangle);
+	if (randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex))
+		allowedShapes.add(OscWaveShape::sawTriMix);
+	if (randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex))
+		allowedShapes.add(OscWaveShape::pulse);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	auto numberOfShapeOptions{ allowedShapes.size() };
+	auto newShapeIndex{ (int)floor(newFloat * numberOfShapeOptions) };
+	return allowedShapes[newShapeIndex];
+}
+
+float ParamRandomizationMethods::pickRandomPulseWidthForParam(uint8 paramIndex, UnexposedParameters* unexposedParams) {
+	Array<float> allowedWidths;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto minWidthAllowed{ randomizationOptions->minPulseWidthAllowedForParam(paramIndex) };
+	auto maxWidthAllowed{ randomizationOptions->maxPulseWidthAllowedForParam(paramIndex) };
+	for (auto width = minWidthAllowed; width <= maxWidthAllowed; ++width)
+		allowedWidths.add((float)width);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	auto numberOfWidthOptions{ allowedWidths.size() };
+	auto newWidthIndex{ (int)floor(newFloat * numberOfWidthOptions) };
+	return allowedWidths[newWidthIndex];
 }
 
 //void ParamRandomizationMethods::randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
@@ -185,7 +244,7 @@ void ParamRandomizationMethods::randomizeArpAndSeqOnOffParameters(AudioProcessor
 	auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
 	Random rndmNumGenerator{};
 	auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
-	if (randomizationOptions->paramIsLocked(arpegOnOffIndex) == false && randomizationOptions->paramIsLocked(sequencerOnOffIndex) == false) {
+	if (randomizationOptions->paramIsUnlocked(arpegOnOffIndex) && randomizationOptions->paramIsUnlocked(sequencerOnOffIndex)) {
 		auto arpSeqOnOffOption{ (int)std::floor(newNormalizedValue * 3) };
 		switch (arpSeqOnOffOption) {
 		case 0: {
@@ -207,11 +266,11 @@ void ParamRandomizationMethods::randomizeArpAndSeqOnOffParameters(AudioProcessor
 			break;
 		}
 	}
-	if (randomizationOptions->paramIsLocked(arpegOnOffIndex) == false && randomizationOptions->paramIsLocked(sequencerOnOffIndex) == true) {
+	if (randomizationOptions->paramIsUnlocked(arpegOnOffIndex) && randomizationOptions->paramIsLocked(sequencerOnOffIndex)) {
 		auto arpOnOffOption{ std::round(newNormalizedValue) };
 		exposedParams->getParameter("arpegOnOff")->setValueNotifyingHost(arpOnOffOption);
 	}
-	if (randomizationOptions->paramIsLocked(arpegOnOffIndex) == true && randomizationOptions->paramIsLocked(sequencerOnOffIndex) == false) {
+	if (randomizationOptions->paramIsLocked(arpegOnOffIndex) && randomizationOptions->paramIsUnlocked(sequencerOnOffIndex)) {
 		auto seqOnOffOption{ std::round(newNormalizedValue) };
 		exposedParams->getParameter("sequencerOnOff")->setValueNotifyingHost(seqOnOffOption);
 	}

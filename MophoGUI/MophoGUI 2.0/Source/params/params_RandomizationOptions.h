@@ -38,6 +38,7 @@ private:
 
 public:
 	const bool paramIsLocked(uint8 param);
+	const bool paramIsUnlocked(uint8 param);
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
 

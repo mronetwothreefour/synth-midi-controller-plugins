@@ -77,7 +77,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingPulse.setComponentID(ID::component_ToggleButton_AllowOscShape_Pulse_For_.toString() + paramID);
 	toggle_ForAllowingPulse.addListener(this);
-	toggle_ForAllowingPulse.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex), dontSendNotification);
+	toggle_ForAllowingPulse.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingPulse);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
