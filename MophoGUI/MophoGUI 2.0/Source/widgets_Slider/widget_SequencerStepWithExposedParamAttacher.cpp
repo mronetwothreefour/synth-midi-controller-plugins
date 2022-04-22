@@ -2,14 +2,16 @@
 
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
+#include "../params/params_UnexposedParameters_Facade.h"
 
 
 
 SequencerStepWithExposedParamAttacher::SequencerStepWithExposedParamAttacher(uint8 param, int sequencerTrack, UnexposedParameters* unexposedParams) :
 	param{ param },
 	sequencerTrack{ sequencerTrack },
+	unexposedParams{ unexposedParams },
 	stepSlider{ sequencerTrack, unexposedParams },
-	valueDisplay{ &stepSlider, &trackDestination },
+	valueDisplay{ &stepSlider, sequencerTrack, unexposedParams },
 	tooltipSetter{ stepSlider, param, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
@@ -19,6 +21,7 @@ SequencerStepWithExposedParamAttacher::SequencerStepWithExposedParamAttacher(uin
 	addChildComponent(trackDestination);
 	trackDestination.setInterceptsMouseClicks(false, false);
 	trackDestination.setBounds(getLocalBounds());
+	trackDestination.addListener(this);
 	addAndMakeVisible(stepSlider);
 	stepSlider.setMouseDragSensitivity(80 + info.numberOfStepsFor(param) / 2);
 	stepSlider.setComponentID(ID::component_SeqStep.toString());
@@ -51,8 +54,26 @@ void SequencerStepWithExposedParamAttacher::attachToExposedParameter(AudioProces
 	};
 }
 
+void SequencerStepWithExposedParamAttacher::sliderValueChanged(Slider* slider) {
+	if (slider == &trackDestination) {
+		auto destination{ roundToInt(trackDestination.getValue()) };
+		auto osc1Pitch{ 1 };
+		auto osc2Pitch{ 2 };
+		auto osc1and2Pitch{ 3 };
+		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+		if (destination == osc1Pitch || destination == osc2Pitch || destination == osc1and2Pitch)
+			randomizationOptions->setTrackDestinationIsAnOscPitchParameter(sequencerTrack);
+		else
+			randomizationOptions->setTrackDestinationIsNotAnOscPitchParameter(sequencerTrack);
+	}
+}
+
 void SequencerStepWithExposedParamAttacher::deleteAttachment() {
 	stepAttachment = nullptr;
 	destinationAttachment = nullptr;
+}
+
+SequencerStepWithExposedParamAttacher::~SequencerStepWithExposedParamAttacher() {
+	trackDestination.removeListener(this);
 }
 

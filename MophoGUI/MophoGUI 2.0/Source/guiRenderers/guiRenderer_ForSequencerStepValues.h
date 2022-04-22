@@ -4,20 +4,25 @@
 
 
 
+class UnexposedParameters;
+
 class RendererForSequencerStepValues :
 	public Component,
-	public Slider::Listener
+	public Slider::Listener,
+	public ValueTree::Listener
 {
 	Slider* stepSlider;
-	Slider* trackDestination;
+	const int trackNum;
+	UnexposedParameters* unexposedParams;
 	const int resetSequence;
 	const int track1Rest;
 
 public:
 	RendererForSequencerStepValues() = delete;
 
-	RendererForSequencerStepValues(Slider* stepSlider, Slider* trackDestination);
+	RendererForSequencerStepValues(Slider* stepSlider, int trackNum, UnexposedParameters* unexposedParams);
 	void sliderValueChanged(Slider* slider) override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);

@@ -3,22 +3,30 @@
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
 #include "../params/params_IntToContextualStringConverters.h"
+#include "../params/params_UnexposedParameters_Facade.h"
 
 
 
-RendererForSequencerStepValues::RendererForSequencerStepValues(Slider* stepSlider, Slider* trackDestination) :
+RendererForSequencerStepValues::RendererForSequencerStepValues(Slider* stepSlider, int trackNum, UnexposedParameters* unexposedParams) :
 	stepSlider{ stepSlider },
-	trackDestination{ trackDestination },
+	trackNum{ trackNum },
+	unexposedParams{ unexposedParams },
 	resetSequence{ 126 },
 	track1Rest{ 127 }
 {
 	stepSlider->addListener(this);
-	trackDestination->addListener(this);
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	sliderValueChanged(stepSlider);
 }
 
 void RendererForSequencerStepValues::sliderValueChanged(Slider* slider) {
-	if (slider == stepSlider || slider == trackDestination)
+	if (slider == stepSlider)
+		repaint();
+}
+
+void RendererForSequencerStepValues::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	if (propertyID.toString() == "DestinationForTrack" + String(trackNum) + "_IsAnOscPitchParameter")
 		repaint();
 }
 
@@ -50,17 +58,17 @@ void RendererForSequencerStepValues::paintStepValueString(Graphics& g, uint8 ste
 
 String RendererForSequencerStepValues::generateStringForValue(uint8 stepValue) {
 	String valueString;
-	auto destination{ roundToInt(trackDestination->getValue()) };
-	auto osc1Pitch{ 1 };
-	auto osc2Pitch{ 2 };
-	auto osc1and2Pitch{ 3 };
-	if (destination == osc1Pitch || destination == osc2Pitch || destination == osc1and2Pitch)
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto destinationIsAnOscPitchParam{ randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
+	if (destinationIsAnOscPitchParam)
 		valueString = IntToPitchName::convertToSeqStepPitchName(stepValue);
-	else valueString = (String)stepValue;
+	else 
+		valueString = (String)stepValue;
 	return valueString;
 }
 
 RendererForSequencerStepValues::~RendererForSequencerStepValues() {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 	stepSlider->removeListener(this);
-	trackDestination->removeListener(this);
 }

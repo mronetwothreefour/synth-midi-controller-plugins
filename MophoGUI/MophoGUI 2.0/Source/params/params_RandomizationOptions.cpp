@@ -900,15 +900,19 @@ const bool RandomizationOptions::noOctaveIsAllowedForAllStepsInSeqTrack(int trac
 	return noOctaveIsAllowed;
 }
 
-const bool RandomizationOptions::onlyHighestOctaveIsAllowedForAllStepsInSeqTrack(int trackNum) {
+const bool RandomizationOptions::trackDestinationIsAnOscPitchParameter(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
-	auto octave5_IsNotTheOnlyOneAllowed{ (bool)false };
-	auto octave5_IsTheOnlyOneAllowed{ (bool)true };
-	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps - 1; ++octaveNum) {
-		if (octaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum))
-			return octave5_IsNotTheOnlyOneAllowed;
-	}
-	return octave5_IsTheOnlyOneAllowed;
+	return (bool)seqTrackOptionsTree.getProperty("DestinationForTrack" + String(trackNum) + "_IsAnOscPitchParameter");
+}
+
+void RandomizationOptions::setTrackDestinationIsAnOscPitchParameter(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackOptionsTree.setProperty("DestinationForTrack" + String(trackNum) + "_IsAnOscPitchParameter", (bool)true, nullptr);
+}
+
+void RandomizationOptions::setTrackDestinationIsNotAnOscPitchParameter(int trackNum) {
+	jassert(trackNum > 0 && trackNum < 5);
+	seqTrackOptionsTree.setProperty("DestinationForTrack" + String(trackNum) + "_IsAnOscPitchParameter", (bool)false, nullptr);
 }
 
 XmlElement* RandomizationOptions::getStateXml() {

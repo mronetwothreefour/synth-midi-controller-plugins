@@ -10,10 +10,15 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class SequencerStepWithExposedParamAttacher : public Component
+class UnexposedParameters;
+
+class SequencerStepWithExposedParamAttacher :
+	public Component,
+	public Slider::Listener
 {
 	uint8 param;
 	const int sequencerTrack;
+	UnexposedParameters* unexposedParams;
 	SliderForSequencerSteps stepSlider;
 	Slider trackDestination;
 	std::unique_ptr<SliderAttachment> stepAttachment;
@@ -26,7 +31,9 @@ public:
 
 	SequencerStepWithExposedParamAttacher(uint8 param, int sequencerTrack, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
+	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachment();
+	~SequencerStepWithExposedParamAttacher();
 
 private:
 	//==============================================================================

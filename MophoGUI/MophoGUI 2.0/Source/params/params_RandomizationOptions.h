@@ -134,7 +134,9 @@ public:
 	void setOctaveIsAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum);
 	void setOctaveIsNotAllowedForAllStepsInSeqTrack(int octaveNum, int trackNum);
 	const bool noOctaveIsAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool onlyHighestOctaveIsAllowedForAllStepsInSeqTrack(int trackNum);
+	const bool trackDestinationIsAnOscPitchParameter(int trackNum);
+	void setTrackDestinationIsAnOscPitchParameter(int trackNum);
+	void setTrackDestinationIsNotAnOscPitchParameter(int trackNum);
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);
