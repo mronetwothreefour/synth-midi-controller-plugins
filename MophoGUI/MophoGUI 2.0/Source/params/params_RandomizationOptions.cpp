@@ -38,11 +38,11 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			setMaxValueAllowedForParam(info.maxValueFor(param), param);
 		}
 		if (optionsType == RandomizationOptionsType::oscShape) {
-			setOscShapeIsAllowedForParam(OscWaveShape::off, param);
-			setOscShapeIsAllowedForParam(OscWaveShape::sawtooth, param);
-			setOscShapeIsAllowedForParam(OscWaveShape::triangle, param);
-			setOscShapeIsAllowedForParam(OscWaveShape::sawTriMix, param);
-			setOscShapeIsAllowedForParam(OscWaveShape::pulse, param);
+			setOscShapeIsAllowedForParam((uint8)OscWaveShape::off, param);
+			setOscShapeIsAllowedForParam((uint8)OscWaveShape::sawtooth, param);
+			setOscShapeIsAllowedForParam((uint8)OscWaveShape::triangle, param);
+			setOscShapeIsAllowedForParam((uint8)OscWaveShape::sawTriMix, param);
+			setOscShapeIsAllowedForParam((uint8)OscWaveShape::pulse, param);
 			setMinPulseWidthAllowedForParam((uint8)0, param);
 			setMaxPulseWidthAllowedForParam(params::maxPulseWidth, param);
 		}
@@ -183,10 +183,6 @@ const bool RandomizationOptions::noNoteIsAllowedForParam(uint8 paramIndex) {
 const bool RandomizationOptions::octaveIsAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
-		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
 	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
 		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
@@ -198,10 +194,6 @@ const bool RandomizationOptions::octaveIsAllowedForParam(int octaveNum, uint8 pa
 void RandomizationOptions::setOctaveIsAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
-		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
 	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
 		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
@@ -213,10 +205,6 @@ void RandomizationOptions::setOctaveIsAllowedForParam(int octaveNum, uint8 param
 void RandomizationOptions::setOctaveIsNotAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
-		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
 	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
 		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
@@ -246,33 +234,12 @@ const bool RandomizationOptions::noOctaveIsAllowedForParam(uint8 paramIndex) {
 	return noOctaveIsAllowed;
 }
 
-const bool RandomizationOptions::onlyHighestOctaveIsAllowedForParam(uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
-		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	int numberOfOctaves{ randomization::numberOfOctaves };
-	if (optionsType == RandomizationOptionsType::lpfFreq)
-		numberOfOctaves = randomization::numberOfOctavesForLPFfreq;
-	if (optionsType == RandomizationOptionsType::lfoFreq || optionsType == RandomizationOptionsType::sequencerTrackStep)
-		numberOfOctaves = randomization::numberOfOctavesForLFOfreqAndSeqSteps;
-	auto highestOctaveIsNotTheOnlyOneAllowed{ (bool)false };
-	auto highestOctaveIsTheOnlyOneAllowed{ (bool)true };
-	for (auto octaveNum = 0; octaveNum != numberOfOctaves - 1; ++octaveNum) {
-		if (octaveIsAllowedForParam(octaveNum, paramIndex))
-			return highestOctaveIsNotTheOnlyOneAllowed;
-	}
-	return highestOctaveIsTheOnlyOneAllowed;
-}
-
 const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 paramIndex) {
 	jassert(pitchNum > -1);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert((optionsType == RandomizationOptionsType::pitch && pitchNum < randomization::numberOfPitchesForOscillators) ||
-		(optionsType == RandomizationOptionsType::lpfFreq && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||
+		(optionsType == RandomizationOptionsType::lpfFreq && pitchNum < randomization::numberOfPitchedFreqForLPF) ||
 		(optionsType == RandomizationOptionsType::lfoFreq && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||
 		(optionsType == RandomizationOptionsType::sequencerTrackStep && pitchNum < randomization::numberOfPitchesForSeqSteps));
 	auto numberOfNotes{ optionsType == RandomizationOptionsType::sequencerTrackStep ?
@@ -328,48 +295,50 @@ void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, uint8 paramI
 	allowedValueRangesTree.setProperty("maxValueAllowedFor_" + paramID, newMax, nullptr);
 }
 
-const bool RandomizationOptions::oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+const bool RandomizationOptions::oscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex) {
+	jassert(shapeIndex >= (int)OscWaveShape::off && shapeIndex <= (int)OscWaveShape::pulse);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
 	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shape)
+	switch (shapeIndex)
 	{
-	case OscWaveShape::off:
+	case (int)OscWaveShape::off:
 		return (bool)allowedOscShapesTree.getProperty("off_IsAllowedFor_" + paramID);
-	case OscWaveShape::sawtooth:
+	case (int)OscWaveShape::sawtooth:
 		return (bool)allowedOscShapesTree.getProperty("sawtooth_IsAllowedFor_" + paramID);
-	case OscWaveShape::triangle:
+	case (int)OscWaveShape::triangle:
 		return (bool)allowedOscShapesTree.getProperty("triangle_IsAllowedFor_" + paramID);
-	case OscWaveShape::sawTriMix:
+	case (int)OscWaveShape::sawTriMix:
 		return (bool)allowedOscShapesTree.getProperty("sawTriMix_IsAllowedFor_" + paramID);
-	case OscWaveShape::pulse:
+	case (int)OscWaveShape::pulse:
 		return (bool)allowedOscShapesTree.getProperty("pulse_IsAllowedFor_" + paramID);
 	default:
 		return false;
 	}
 }
 
-void RandomizationOptions::setOscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+void RandomizationOptions::setOscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex) {
+	jassert(shapeIndex >= (int)OscWaveShape::off && shapeIndex <= (int)OscWaveShape::pulse);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
 	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shape)
+	switch (shapeIndex)
 	{
-	case OscWaveShape::off:
+	case (int)OscWaveShape::off:
 		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)true, nullptr);
 		break;
-	case OscWaveShape::sawtooth:
+	case (int)OscWaveShape::sawtooth:
 		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)true, nullptr);
 		break;
-	case OscWaveShape::triangle:
+	case (int)OscWaveShape::triangle:
 		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)true, nullptr);
 		break;
-	case OscWaveShape::sawTriMix:
+	case (int)OscWaveShape::sawTriMix:
 		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)true, nullptr);
 		break;
-	case OscWaveShape::pulse:
+	case (int)OscWaveShape::pulse:
 		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)true, nullptr);
 		break;
 	default:
@@ -377,30 +346,41 @@ void RandomizationOptions::setOscShapeIsAllowedForParam(OscWaveShape shape, uint
 	}
 }
 
-void RandomizationOptions::setOscShapeIsNotAllowedForParam(OscWaveShape shape, uint8 paramIndex) {
+void RandomizationOptions::setOscShapeIsNotAllowedForParam(int shapeIndex, uint8 paramIndex) {
+	jassert(shapeIndex >= (int)OscWaveShape::off && shapeIndex <= (int)OscWaveShape::pulse);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
 	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shape)
+	switch (shapeIndex)
 	{
-	case OscWaveShape::off:
+	case (int)OscWaveShape::off:
 		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)false, nullptr);
 		break;
-	case OscWaveShape::sawtooth:
+	case (int)OscWaveShape::sawtooth:
 		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)false, nullptr);
 		break;
-	case OscWaveShape::triangle:
+	case (int)OscWaveShape::triangle:
 		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)false, nullptr);
 		break;
-	case OscWaveShape::sawTriMix:
+	case (int)OscWaveShape::sawTriMix:
 		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)false, nullptr);
 		break;
-	case OscWaveShape::pulse:
+	case (int)OscWaveShape::pulse:
 		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)false, nullptr);
 		break;
 	default:
 		break;
+	}
+}
+
+void RandomizationOptions::setOscShapeIsTheOnlyAllowedForParam(int shapeIndex, uint8 paramIndex) {
+	jassert(shapeIndex >= (int)OscWaveShape::off && shapeIndex <= (int)OscWaveShape::pulse);
+	for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape) {
+		if (shape == shapeIndex)
+			setOscShapeIsAllowedForParam(shape, paramIndex);
+		else
+			setOscShapeIsNotAllowedForParam(shape, paramIndex);
 	}
 }
 
@@ -410,12 +390,10 @@ const bool RandomizationOptions::noOscShapeIsAllowedForParam(uint8 paramIndex) {
 	jassert(optionsType == RandomizationOptionsType::oscShape);
 	auto atLeastOneOscShapeIsAllowed{ (bool)false };
 	auto noOscShapeIsAllowed{ (bool)true };
-	if (oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex) ||
-		oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex) ||
-		oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex) ||
-		oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex) ||
-		oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex))
-		return atLeastOneOscShapeIsAllowed;
+	for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape) {
+		if (oscShapeIsAllowedForParam(shape, paramIndex))
+			return atLeastOneOscShapeIsAllowed;
+	}
 	return noOscShapeIsAllowed;
 }
 
@@ -493,6 +471,32 @@ const bool RandomizationOptions::noComboBoxItemIsAllowedForParam(uint8 paramInde
 			return atLeastOneItemIsAllowed;
 	}
 	return noItemIsAllowed;
+}
+
+void RandomizationOptions::addListenerToLPFfreqOptionsTree(ValueTree::Listener* listener) {
+	lpfFreqOptionsTree.addListener(listener);
+}
+
+void RandomizationOptions::removeListenerFromLPFfreqOptionsTree(ValueTree::Listener* listener) {
+	lpfFreqOptionsTree.removeListener(listener);
+}
+
+const bool RandomizationOptions::randomizationModeForLPFfreqIsPitches() {
+	return lpfFreqOptionsTree.getProperty("randomizationModeIsPitches");
+}
+
+const bool RandomizationOptions::randomizationModeForLPFfreqIsValueRange() {
+	return lpfFreqOptionsTree.getProperty("randomizationModeIsValueRange");
+}
+
+void RandomizationOptions::setRandomizationModeForLPFfreqToPitches() {
+	lpfFreqOptionsTree.setProperty("randomizationModeIsPitches", (bool)true, nullptr);
+	lpfFreqOptionsTree.setProperty("randomizationModeIsValueRange", (bool)false, nullptr);
+}
+
+void RandomizationOptions::setRandomizationModeForLPFfreqToValueRange() {
+	lpfFreqOptionsTree.setProperty("randomizationModeIsPitches", (bool)false, nullptr);
+	lpfFreqOptionsTree.setProperty("randomizationModeIsValueRange", (bool)true, nullptr);
 }
 
 const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex) {
@@ -678,32 +682,6 @@ const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 		return false;
 	else
 		return true;
-}
-
-void RandomizationOptions::addListenerToLPFfreqOptionsTree(ValueTree::Listener* listener) {
-	lpfFreqOptionsTree.addListener(listener);
-}
-
-void RandomizationOptions::removeListenerFromLPFfreqOptionsTree(ValueTree::Listener* listener) {
-	lpfFreqOptionsTree.removeListener(listener);
-}
-
-const bool RandomizationOptions::randomizationModeForLPFfreqIsPitches() {
-	return lpfFreqOptionsTree.getProperty("randomizationModeIsPitches");
-}
-
-const bool RandomizationOptions::randomizationModeForLPFfreqIsValueRange() {
-	return lpfFreqOptionsTree.getProperty("randomizationModeIsValueRange");
-}
-
-void RandomizationOptions::setRandomizationModeForLPFfreqToPitches() {
-	lpfFreqOptionsTree.setProperty("randomizationModeIsPitches", (bool)true, nullptr);
-	lpfFreqOptionsTree.setProperty("randomizationModeIsValueRange", (bool)false, nullptr);
-}
-
-void RandomizationOptions::setRandomizationModeForLPFfreqToValueRange() {
-	lpfFreqOptionsTree.setProperty("randomizationModeIsPitches", (bool)false, nullptr);
-	lpfFreqOptionsTree.setProperty("randomizationModeIsValueRange", (bool)true, nullptr);
 }
 
 void RandomizationOptions::addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener) {

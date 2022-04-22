@@ -29,7 +29,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingOff.setComponentID(ID::component_ToggleButton_AllowOscShape_Off_For_.toString() + paramID);
 	toggle_ForAllowingOff.addListener(this);
-	toggle_ForAllowingOff.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex), dontSendNotification);
+	toggle_ForAllowingOff.setToggleState(randomizationOptions->oscShapeIsAllowedForParam((int)OscWaveShape::off, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingOff);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -41,7 +41,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingSawtooth.setComponentID(ID::component_ToggleButton_AllowOscShape_Saw_For_.toString() + paramID);
 	toggle_ForAllowingSawtooth.addListener(this);
-	toggle_ForAllowingSawtooth.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex), dontSendNotification);
+	toggle_ForAllowingSawtooth.setToggleState(randomizationOptions->oscShapeIsAllowedForParam((int)OscWaveShape::sawtooth, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingSawtooth);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -53,7 +53,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingTriangle.setComponentID(ID::component_ToggleButton_AllowOscShape_Tri_For_.toString() + paramID);
 	toggle_ForAllowingTriangle.addListener(this);
-	toggle_ForAllowingTriangle.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex), dontSendNotification);
+	toggle_ForAllowingTriangle.setToggleState(randomizationOptions->oscShapeIsAllowedForParam((int)OscWaveShape::triangle, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingTriangle);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -65,7 +65,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingSawTriMix.setComponentID(ID::component_ToggleButton_AllowOscShape_SawTri_For_.toString() + paramID);
 	toggle_ForAllowingSawTriMix.addListener(this);
-	toggle_ForAllowingSawTriMix.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex), dontSendNotification);
+	toggle_ForAllowingSawTriMix.setToggleState(randomizationOptions->oscShapeIsAllowedForParam((int)OscWaveShape::sawTriMix, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingSawTriMix);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -77,7 +77,7 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 
 	toggle_ForAllowingPulse.setComponentID(ID::component_ToggleButton_AllowOscShape_Pulse_For_.toString() + paramID);
 	toggle_ForAllowingPulse.addListener(this);
-	toggle_ForAllowingPulse.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex), dontSendNotification);
+	toggle_ForAllowingPulse.setToggleState(randomizationOptions->oscShapeIsAllowedForParam((int)OscWaveShape::pulse, paramIndex), dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingPulse);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -183,73 +183,39 @@ void RandomizationOptionsComponent_OscShape::buttonClicked(Button* button) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	if (buttonID.startsWith("component_ToggleButton_AllowOscShape")) {
-		if (buttonID == ID::component_ToggleButton_AllowOscShape_Off_For_.toString() + paramID) {
-			if (toggledOn)
-				randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::off, paramIndex);
-			else {
-				randomizationOptions->setOscShapeIsNotAllowedForParam(OscWaveShape::off, paramIndex);
-				if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
-					button->setToggleState(true, dontSendNotification);
-					randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::off, paramIndex);
-				}
-			}
+		auto clickedShapeIndex{ buttonID.fromFirstOccurrenceOf("(", false, false).upToFirstOccurrenceOf(")", false, false).getIntValue() };
+		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
+			toggle_ForAllowingOff.setToggleState(false, dontSendNotification);
+			toggle_ForAllowingSawtooth.setToggleState(false, dontSendNotification);
+			toggle_ForAllowingTriangle.setToggleState(false, dontSendNotification);
+			toggle_ForAllowingSawTriMix.setToggleState(false, dontSendNotification);
+			toggle_ForAllowingPulse.setToggleState(false, dontSendNotification);
+			randomizationOptions->setOscShapeIsTheOnlyAllowedForParam(clickedShapeIndex, paramIndex);
+			button->setToggleState(true, dontSendNotification);
 		}
-		if (buttonID == ID::component_ToggleButton_AllowOscShape_Saw_For_.toString() + paramID) {
+		else {
 			if (toggledOn)
-				randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex);
+				randomizationOptions->setOscShapeIsAllowedForParam(clickedShapeIndex, paramIndex);
 			else {
-				randomizationOptions->setOscShapeIsNotAllowedForParam(OscWaveShape::sawtooth, paramIndex);
+				randomizationOptions->setOscShapeIsNotAllowedForParam(clickedShapeIndex, paramIndex);
 				if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
 					button->setToggleState(true, dontSendNotification);
-					randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex);
-				}
-			}
-		}
-		if (buttonID == ID::component_ToggleButton_AllowOscShape_Tri_For_.toString() + paramID) {
-			if (toggledOn)
-				randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex);
-			else {
-				randomizationOptions->setOscShapeIsNotAllowedForParam(OscWaveShape::triangle, paramIndex);
-				if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
-					button->setToggleState(true, dontSendNotification);
-					randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex);
-				}
-			}
-		}
-		if (buttonID == ID::component_ToggleButton_AllowOscShape_SawTri_For_.toString() + paramID) {
-			if (toggledOn)
-				randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex);
-			else {
-				randomizationOptions->setOscShapeIsNotAllowedForParam(OscWaveShape::sawTriMix, paramIndex);
-				if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
-					button->setToggleState(true, dontSendNotification);
-					randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex);
-				}
-			}
-		}
-		if (buttonID == ID::component_ToggleButton_AllowOscShape_Pulse_For_.toString() + paramID) {
-			if (toggledOn)
-				randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex);
-			else {
-				randomizationOptions->setOscShapeIsNotAllowedForParam(OscWaveShape::pulse, paramIndex);
-				if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
-					button->setToggleState(true, dontSendNotification);
-					randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex);
+					randomizationOptions->setOscShapeIsAllowedForParam(clickedShapeIndex, paramIndex);
 				}
 			}
 		}
 	}
 	if (buttonID == ID::button_AllShapesFor_.toString() + paramID) {
 		toggle_ForAllowingOff.setToggleState(true, dontSendNotification);
-		randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::off, paramIndex);
+		randomizationOptions->setOscShapeIsAllowedForParam((int)OscWaveShape::off, paramIndex);
 		toggle_ForAllowingSawtooth.setToggleState(true, dontSendNotification);
-		randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex);
+		randomizationOptions->setOscShapeIsAllowedForParam((int)OscWaveShape::sawtooth, paramIndex);
 		toggle_ForAllowingTriangle.setToggleState(true, dontSendNotification);
-		randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex);
+		randomizationOptions->setOscShapeIsAllowedForParam((int)OscWaveShape::triangle, paramIndex);
 		toggle_ForAllowingSawTriMix.setToggleState(true, dontSendNotification);
-		randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex);
+		randomizationOptions->setOscShapeIsAllowedForParam((int)OscWaveShape::sawTriMix, paramIndex);
 		toggle_ForAllowingPulse.setToggleState(true, dontSendNotification);
-		randomizationOptions->setOscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex);
+		randomizationOptions->setOscShapeIsAllowedForParam((int)OscWaveShape::pulse, paramIndex);
 		knob_ForMinWidth.setValue(0.0, sendNotification);
 		randomizationOptions->setMinPulseWidthAllowedForParam((uint8)0, paramIndex);
 		knob_ForMaxWidth.setValue(params::maxPulseWidth, sendNotification);

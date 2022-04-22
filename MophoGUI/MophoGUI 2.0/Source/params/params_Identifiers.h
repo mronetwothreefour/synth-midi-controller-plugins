@@ -98,11 +98,11 @@ namespace ID
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
 	static const Identifier component_AllowComboBoxItem_ToggleButton_{ "component_AllowComboBoxItem_ToggleButton_" };
-	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off_For_" };
-	static const Identifier component_ToggleButton_AllowOscShape_Pulse_For_{ "component_ToggleButton_AllowOscShape_Pulse_For_" };
-	static const Identifier component_ToggleButton_AllowOscShape_Saw_For_{ "component_ToggleButton_AllowOscShape_Saw_For_" };
-	static const Identifier component_ToggleButton_AllowOscShape_SawTri_For_{ "component_ToggleButton_AllowOscShape_SawTri_For_" };
-	static const Identifier component_ToggleButton_AllowOscShape_Tri_For_{ "component_ToggleButton_AllowOscShape_Tri_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off(0)_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Pulse_For_{ "component_ToggleButton_AllowOscShape_Pulse(4)_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Saw_For_{ "component_ToggleButton_AllowOscShape_Saw(1)_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_SawTri_For_{ "component_ToggleButton_AllowOscShape_SawTri(3)_For_" };
+	static const Identifier component_ToggleButton_AllowOscShape_Tri_For_{ "component_ToggleButton_AllowOscShape_Tri(2)_For_" };
 	static const Identifier component_ToggleButton_AllowPitchedFreqFor_{ "component_ToggleButton_AllowPitchedFreqFor_" };
 	static const Identifier component_ToggleButton_AllowSyncedFreqFor_{ "component_ToggleButton_AllowSyncedFreqFor_" };
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqFor_{ "component_ToggleButton_AllowUnsyncedFreqFor_" };

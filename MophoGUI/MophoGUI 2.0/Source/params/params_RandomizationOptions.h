@@ -8,8 +8,8 @@
 
 enum class RandomizationOptionsType {
 	none = 0,
-	valueRange,
 	pitch,
+	valueRange,
 	oscShape,
 	comboBoxes,
 	lpfFreq,
@@ -50,7 +50,6 @@ public:
 	void setOctaveIsAllowedForParam(int octaveNum, uint8 paramIndex);
 	void setOctaveIsNotAllowedForParam(int octaveNum, uint8 paramIndex);
 	const bool noOctaveIsAllowedForParam(uint8 paramIndex);
-	const bool onlyHighestOctaveIsAllowedForParam(uint8 paramIndex);
 	const bool pitchIsAllowedForParam(int pitchNum, uint8 paramIndex);
 
 	const uint8 minValueAllowedForParam(uint8 paramIndex);
@@ -58,9 +57,10 @@ public:
 	const uint8 maxValueAllowedForParam(uint8 paramIndex);
 	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex);
 
-	const bool oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
-	void setOscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
-	void setOscShapeIsNotAllowedForParam(OscWaveShape shape, uint8 paramIndex);
+	const bool oscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsNotAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsTheOnlyAllowedForParam(int shapeIndex, uint8 paramIndex);
 	const bool noOscShapeIsAllowedForParam(uint8 paramIndex);
 	const uint8 minPulseWidthAllowedForParam(uint8 paramIndex);
 	void setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex);
@@ -71,6 +71,13 @@ public:
 	void setComboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex);
 	void setComboBoxItemIsNotAllowedForParam(int itemNum, uint8 paramIndex);
 	const bool noComboBoxItemIsAllowedForParam(uint8 paramIndex);
+
+	void addListenerToLPFfreqOptionsTree(ValueTree::Listener* listener);
+	void removeListenerFromLPFfreqOptionsTree(ValueTree::Listener* listener);
+	const bool randomizationModeForLPFfreqIsPitches();
+	const bool randomizationModeForLPFfreqIsValueRange();
+	void setRandomizationModeForLPFfreqToPitches();
+	void setRandomizationModeForLPFfreqToValueRange();
 
 	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool pitchedFreqAreNotAllowedForParam(uint8 paramIndex);
@@ -93,13 +100,6 @@ public:
 	void setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex);
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
-
-	void addListenerToLPFfreqOptionsTree(ValueTree::Listener* listener);
-	void removeListenerFromLPFfreqOptionsTree(ValueTree::Listener* listener);
-	const bool randomizationModeForLPFfreqIsPitches();
-	const bool randomizationModeForLPFfreqIsValueRange();
-	void setRandomizationModeForLPFfreqToPitches();
-	void setRandomizationModeForLPFfreqToValueRange();
 
 	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);

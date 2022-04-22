@@ -6,7 +6,7 @@
 
 
 
-enum class lfoFreqCategory {
+enum class LFOfreqCategory {
 	unsynced = 0,
 	pitched,
 	synced
@@ -18,18 +18,19 @@ struct ParamRandomizationMethods {
 	static void randomizeUnlockedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	static void randomizeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams);
-	static void randomizePitchParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-	static void randomizeValueRangeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomValueForParam(uint8 paramIndex);
+	static uint8 pickRandomPitchForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	static uint8 pickRandomValueFromRangeForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
-	static void randomizeOscShapeParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters * unexposedParams);
-	static OscWaveShape pickRandomOscShapeForParameter(uint8 paramIndex, UnexposedParameters* unexposedParams);
-	static float pickRandomPulseWidthForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
-	//static void randomizeLFOfreqParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-	//static lfoFreqCategory randomlyPickFreqCategoryForLFO(int lfoNum, UnexposedParameters* unexposedParams);
-	//static uint8 randomlyPickUnsyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
-	//static uint8 randomlyPickPitchedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
-	//static uint8 randomlyPickSyncedFreqForLFO(int lfoNum, UnexposedParameters* unexposedParams);
-	//static void randomizeSeqStepParameter(Identifier paramID, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomOscShapeAndPulseWidthForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomOscShapeIndexForParameter(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomPulseWidthForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomComboBoxItemForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomLPFfreq(UnexposedParameters* unexposedParams);
+	static uint8 pickRandomLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static LFOfreqCategory pickRandomFreqCategoryForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomUnsyncedLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomPitchedLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomSyncedLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomSeqStepValueForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	static void randomizeArpAndSeqOnOffParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 };
