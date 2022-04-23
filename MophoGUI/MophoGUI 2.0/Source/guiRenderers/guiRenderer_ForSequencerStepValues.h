@@ -14,8 +14,6 @@ class RendererForSequencerStepValues :
 	Slider* stepSlider;
 	const int trackNum;
 	UnexposedParameters* unexposedParams;
-	const int resetSequence;
-	const int track1Rest;
 
 public:
 	RendererForSequencerStepValues() = delete;

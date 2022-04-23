@@ -2,17 +2,18 @@
 
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Fonts.h"
+#include "../params/params_Constants.h"
 #include "../params/params_IntToContextualStringConverters.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+
+using namespace constants;
 
 
 
 RendererForSequencerStepValues::RendererForSequencerStepValues(Slider* stepSlider, int trackNum, UnexposedParameters* unexposedParams) :
 	stepSlider{ stepSlider },
 	trackNum{ trackNum },
-	unexposedParams{ unexposedParams },
-	resetSequence{ 126 },
-	track1Rest{ 127 }
+	unexposedParams{ unexposedParams }
 {
 	stepSlider->addListener(this);
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -33,11 +34,11 @@ void RendererForSequencerStepValues::valueTreePropertyChanged(ValueTree& /*tree*
 void RendererForSequencerStepValues::paint(Graphics& g) {
 	auto stepValue{ (uint8)roundToInt(stepSlider->getValue()) };
 	g.setColour(Color::controlText);
-	if (stepValue == resetSequence)
+	if (stepValue == params::seqStepValueForReset)
 		paintResetSequenceArrow(g);
-	if (stepValue == track1Rest)
+	if (stepValue == params::seqStepValueForRest)
 		paintTrack1RestDot(g);
-	if (stepValue < resetSequence)
+	if (stepValue < params::seqStepValueForReset)
 		paintStepValueString(g, stepValue);
 }
 

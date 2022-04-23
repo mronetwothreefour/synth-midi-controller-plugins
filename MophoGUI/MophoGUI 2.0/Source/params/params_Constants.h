@@ -25,6 +25,9 @@ namespace constants
 		static const uint8 paramNumFor1stNameChar{ 184 };
 		static const uint8 paramNumForSeqTrack1Step1{ 120 };
 		static const uint8 sequencer{ 100 };
+		static const uint8 seqStepValueForReset{ 126 };
+		static const uint8 seqStepValueForRest{ 127 };
+		static const uint8 seqStepValueForRepeat{ 128 };
 
 		static const uint16 numberOfExposedParams{ 189 };
 	}

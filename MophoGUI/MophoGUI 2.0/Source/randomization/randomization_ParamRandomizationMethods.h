@@ -32,5 +32,10 @@ private:
 	static uint8 pickRandomPitchedLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	static uint8 pickRandomSyncedLFOfreqForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	static uint8 pickRandomSeqStepValueForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static bool randomlyDecideIfStepInSeqTrack1IsRest(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	static bool randomlyDecideIfStepInSeqTrackIsRepeatValue(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams);
+	static bool randomlyDecideIfStepInSeqTrackIsReset(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomPitchForStepParamInTrack(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams);
+	static uint8 pickRandomValueFromRangeForStepParamInTrack(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams);
 	static void randomizeArpAndSeqOnOffParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 };

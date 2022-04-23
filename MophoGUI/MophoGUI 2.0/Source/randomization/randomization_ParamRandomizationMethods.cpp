@@ -6,6 +6,7 @@
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_UnexposedParameters_Facade.h"
+#include "../widgets_ControlsForParameters/widget_ControlTypes.h"
 
 using namespace constants;
 
@@ -39,9 +40,16 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 					newValue = pickRandomLFOfreqForParam(paramIndex, unexposedParams);
 				if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep)
 					newValue = pickRandomSeqStepValueForParam(paramIndex, unexposedParams);
-				auto maxValue{ (float)info.maxValueFor(paramIndex) };
-				auto newNormalizedValue{ newValue / maxValue };
-				exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+				if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
+					auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
+					auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
+					exposedParams->getParameter(paramID)->setValueNotifyingHost(previousStepValue);
+				}
+				else {
+					auto maxValue{ (float)info.maxValueFor(paramIndex) };
+					auto newNormalizedValue{ newValue / maxValue };
+					exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+				}
 			}
 		}
 	}
@@ -59,18 +67,17 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 }
 
 uint8 ParamRandomizationMethods::pickRandomPitchForParam(uint8 paramIndex, UnexposedParameters* unexposedParams) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto pitchOutOfRange{ uint8(info.numberOfStepsFor(paramIndex)) };
-	Array<uint8> allowedPitches;
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	for (uint8 pitch = 0; pitch != pitchOutOfRange; ++pitch) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto maxPitch{ uint8(info.maxValueFor(paramIndex)) };
+	Array<uint8> allowedPitches;
+	for (uint8 pitch = 0; pitch <= maxPitch; ++pitch) {
 		auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex) };
 		if (pitchIsAllowed)
 			allowedPitches.add(pitch);
 	}
 	auto numberOfAllowedPitches{ allowedPitches.size() };
 	if (numberOfAllowedPitches == 0) {
-		auto maxPitch{ info.maxValueFor(paramIndex) };
 		return maxPitch;
 	}
 	else {
@@ -248,10 +255,128 @@ uint8 ParamRandomizationMethods::pickRandomSeqStepValueForParam(uint8 paramIndex
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("seqTrack", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
+	auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto  trackDestinationIsPitch{ (bool)false };
-	auto editModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
-	return uint8();
+	if (trackNum == 1) {
+		auto stepIsRest{ randomlyDecideIfStepInSeqTrack1IsRest(paramIndex, unexposedParams) };
+		if (stepIsRest)
+			return params::seqStepValueForRest;
+	}
+	auto  trackDestinationIsPitch{ randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
+	if (stepNum != 1) {
+		auto stepIsRepeat{ randomlyDecideIfStepInSeqTrackIsRepeatValue(paramIndex, trackNum, unexposedParams) };
+		if (stepIsRepeat)
+			return params::seqStepValueForRepeat;
+		auto stepIsReset{ randomlyDecideIfStepInSeqTrackIsReset(paramIndex, trackNum, unexposedParams) };
+		if (stepIsReset)
+			return params::seqStepValueForReset;
+	}
+	auto trackDestinationIsOscPitch{ randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
+	if (trackDestinationIsOscPitch) {
+		auto newPitch{ pickRandomPitchForStepParamInTrack(paramIndex, trackNum, unexposedParams) };
+		return newPitch;
+	}
+	else {
+		auto newValue{ pickRandomValueFromRangeForStepParamInTrack(paramIndex, trackNum, unexposedParams) };
+		return newValue;
+	}
+}
+
+bool ParamRandomizationMethods::randomlyDecideIfStepInSeqTrack1IsRest(uint8 paramIndex, UnexposedParameters* unexposedParams) {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	float probabilityOfRest{ 0.0f };
+	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(1) };
+	if (trackEditModeIsAllSteps)
+		probabilityOfRest = randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1();
+	else
+		probabilityOfRest = randomizationOptions->probabilityOfRestForParam(paramIndex);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	if (newFloat < probabilityOfRest)
+		return true;
+	else
+		return false;
+}
+
+bool ParamRandomizationMethods::randomlyDecideIfStepInSeqTrackIsRepeatValue(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams) {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	float probabilityOfRepeat{ 0.0f };
+	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	if (trackEditModeIsAllSteps)
+		probabilityOfRepeat = randomizationOptions->probabilityOfRepeatValueForAllStepsInSeqTrack(trackNum);
+	else
+		probabilityOfRepeat = randomizationOptions->probabilityOfRepeatValueForParam(paramIndex);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	if (newFloat < probabilityOfRepeat)
+		return true;
+	else
+		return false;
+}
+
+bool ParamRandomizationMethods::randomlyDecideIfStepInSeqTrackIsReset(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams) {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	float probabilityOfReset{ 0.0f };
+	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	if (trackEditModeIsAllSteps)
+		probabilityOfReset = randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum);
+	else
+		probabilityOfReset = randomizationOptions->probabilityOfResetForParam(paramIndex);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	if (newFloat < probabilityOfReset)
+		return true;
+	else
+		return false;
+}
+
+uint8 ParamRandomizationMethods::pickRandomPitchForStepParamInTrack(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams) {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto& info{ InfoForExposedParameters::get() };
+	auto maxPitch{ params::maxValueForSeqTrackStep };
+	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	Array<uint8> allowedPitches;
+	for (uint8 pitch = 0; pitch <= maxPitch; ++pitch) {
+		auto pitchIsAllowed{ (bool)false };
+		if (trackEditModeIsAllSteps)
+			pitchIsAllowed = randomizationOptions->pitchIsAllowedForAllStepsInSeqTrack(pitch, trackNum);
+		else
+			pitchIsAllowed = randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex);
+		if (pitchIsAllowed)
+			allowedPitches.add(pitch);
+	}
+	auto numberOfAllowedPitches{ allowedPitches.size() };
+	if (numberOfAllowedPitches == 0) {
+		return maxPitch;
+	}
+	else {
+		Random rndmNumGenerator{};
+		auto newPitchIndex{ (int)floor(rndmNumGenerator.nextFloat() * numberOfAllowedPitches) };
+		return allowedPitches[newPitchIndex];
+	}
+}
+
+uint8 ParamRandomizationMethods::pickRandomValueFromRangeForStepParamInTrack(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams) {
+	Array<uint8> allowedValues;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	auto minValueAllowed{ (uint8)0 };
+	auto maxValueAllowed{ params::maxValueForSeqTrackStep };
+	if (trackEditModeIsAllSteps) {
+		minValueAllowed = randomizationOptions->minValueForAllStepsInSeqTrack(trackNum);
+		maxValueAllowed = randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum);
+	}
+	else {
+		minValueAllowed = randomizationOptions->minValueAllowedForParam(paramIndex);
+		maxValueAllowed = randomizationOptions->maxValueAllowedForParam(paramIndex);
+	}
+	for (auto val = minValueAllowed; val <= maxValueAllowed; ++val)
+		allowedValues.add(val);
+	Random rndmNumGenerator{};
+	auto newFloat{ rndmNumGenerator.nextFloat() };
+	auto numberOfValueOptions{ allowedValues.size() };
+	auto newValueIndex{ (int)floor(newFloat * numberOfValueOptions) };
+	return allowedValues[newValueIndex];
 }
 
 void ParamRandomizationMethods::randomizeArpAndSeqOnOffParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
