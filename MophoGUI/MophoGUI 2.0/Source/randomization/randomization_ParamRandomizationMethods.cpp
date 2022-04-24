@@ -29,7 +29,7 @@ void ParamRandomizationMethods::randomizeUnlockedParameters(AudioProcessorValueT
 				if (randomizationOptionsType == RandomizationOptionsType::pitch)
 					newValue = pickRandomPitchForParam(paramIndex, unexposedParams);
 				if (randomizationOptionsType == RandomizationOptionsType::valueRange)
-					pickRandomValueFromRangeForParam(paramIndex, unexposedParams);
+					newValue = pickRandomValueFromRangeForParam(paramIndex, unexposedParams);
 				if (randomizationOptionsType == RandomizationOptionsType::oscShape)
 					newValue = pickRandomOscShapeAndPulseWidthForParam(paramIndex, unexposedParams);
 				if (randomizationOptionsType == RandomizationOptionsType::comboBoxes)
