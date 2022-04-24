@@ -1,6 +1,7 @@
 #include "params_ExposedParamsLayout_Factory.h"
 
 #include "params_ExposedParamsInfo_Singleton.h"
+#include "params_Identifiers.h"
 #include "params_IntToContextualStringConverters.h"
 
 
@@ -13,6 +14,8 @@ ParamLayout ExposedParametersLayoutFactory::build() {
 		auto choices{ buildChoicesStringArrayFor(param) };
 		layout.add(std::make_unique<AudioParameterChoice>(info.IDfor(param).toString(), info.exposedNameFor(param), choices, info.defaultValueFor(param)));
 	}
+	StringArray randomizationTriggerChoices{ "0", "1" };
+	layout.add(std::make_unique<AudioParameterChoice>(ID::randomizationTrig.toString(), "Randomization Trigger", randomizationTriggerChoices, 0));
 	return layout;
 }
 

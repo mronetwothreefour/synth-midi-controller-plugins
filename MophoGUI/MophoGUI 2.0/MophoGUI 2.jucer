@@ -389,6 +389,10 @@
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
         <FILE id="nXO4Si" name="widget_ButtonForPerformingUndo.h" compile="0"
               resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
+        <FILE id="m7C2Ag" name="widget_ButtonForRandomizingAndShowingRandomizationComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForRandomizingAndShowingRandomizationComponent.cpp"/>
+        <FILE id="wFnBDu" name="widget_ButtonForRandomizingAndShowingRandomizationComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForRandomizingAndShowingRandomizationComponent.h"/>
         <FILE id="CkYWX7" name="widget_ButtonForSendingEditBufferDataMessage.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingEditBufferDataMessage.cpp"/>
         <FILE id="OeAQv7" name="widget_ButtonForSendingEditBufferDataMessage.h"
@@ -401,10 +405,6 @@
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.cpp"/>
         <FILE id="YPePuD" name="widget_ButtonForShowingGlobalParametersComponent.h"
               compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"/>
-        <FILE id="m7C2Ag" name="widget_ButtonForShowingRandomizationComponent.cpp"
-              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingRandomizationComponent.cpp"/>
-        <FILE id="wFnBDu" name="widget_ButtonForShowingRandomizationComponent.h"
-              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingRandomizationComponent.h"/>
         <FILE id="MidhH7" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
               compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
         <FILE id="AsEpJa" name="widget_ButtonForShowingVoicesBanksComponent.h"
@@ -772,8 +772,6 @@
             file="Resources/Button-Up-Pull.png"/>
       <FILE id="fyqcci" name="Button-Up-Push.png" compile="0" resource="1"
             file="Resources/Button-Up-Push.png"/>
-      <FILE id="W9jXfS" name="Button-Up-Random.png" compile="0" resource="1"
-            file="Resources/Button-Up-Random.png"/>
       <FILE id="VKZN08" name="Button-Up-Randomize.png" compile="0" resource="1"
             file="Resources/Button-Up-Randomize.png"/>
       <FILE id="fOhvB1" name="Button-Up-Read.png" compile="0" resource="1"

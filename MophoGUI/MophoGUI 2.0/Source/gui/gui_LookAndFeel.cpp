@@ -159,9 +159,6 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return isDown ? BinaryData::ButtonDownNewFolder_png : BinaryData::ButtonUpNewFolder_png;
 
-	if (button.getComponentID() == ID::button_Random.toString())
-		return isDown ? BinaryData::ButtonDownRandom_png : BinaryData::ButtonUpRandom_png;
-
 	if (button.getComponentID() == ID::button_Randomize.toString())
 		return isDown ? BinaryData::ButtonDownRandomize_png : BinaryData::ButtonUpRandomize_png;
 
@@ -255,9 +252,6 @@ size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
 
 	if (button.getComponentID() == ID::button_NewFolder.toString())
 		return size_t(isDown ? BinaryData::ButtonDownNewFolder_pngSize : BinaryData::ButtonUpNewFolder_pngSize);
-
-	if (button.getComponentID() == ID::button_Random.toString())
-		return size_t(isDown ? BinaryData::ButtonDownRandom_pngSize : BinaryData::ButtonUpRandom_pngSize);
 
 	if (button.getComponentID() == ID::button_Randomize.toString())
 		return size_t(isDown ? BinaryData::ButtonDownRandomize_pngSize : BinaryData::ButtonUpRandomize_pngSize);

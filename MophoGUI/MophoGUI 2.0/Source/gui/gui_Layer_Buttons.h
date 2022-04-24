@@ -6,9 +6,9 @@
 #include "../widgets_Button/widget_ButtonAndLabelForEditingVoiceName.h"
 #include "../widgets_Button/widget_ButtonForPerformingRedo.h"
 #include "../widgets_Button/widget_ButtonForPerformingUndo.h"
+#include "../widgets_Button/widget_ButtonForRandomizingAndShowingRandomizationComponent.h"
 #include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessage.h"
 #include "../widgets_Button/widget_ButtonForSendingEditBufferDataMessageRequest.h"
-#include "../widgets_Button/widget_ButtonForShowingRandomizationComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"
 #include "../widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"
 
@@ -22,7 +22,8 @@ class UnexposedParameters;
 
 class ButtonsLayer :
 	public Component,
-	private Timer
+	private Timer,
+	public Button::Listener
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -31,7 +32,7 @@ class ButtonsLayer :
 	ButtonForSendingEditBufferDataMessageRequest button_ForSendingEditBufferDataMessageRequest;
 	ButtonForShowingVoicesBanksComponent button_ForShowingVoicesBanksComponent;
 	ButtonForShowingGlobalParametersComponent button_ForShowingGlobalParametersComponent;
-	ButtonForShowingRandomizationComponent button_ForShowingRandomizationComponent;
+	ButtonForRandomizingAndShowingRandomizationComponent button_Randomize;
 	ButtonForPerformingRedo button_ForPerformingRedo;
 	ButtonForPerformingUndo button_ForPerformingUndo;
 	ButtonForClearingSequencerTrack button_ForClearingSequencerTrack1;
@@ -60,6 +61,7 @@ private:
 	void timerCallback() override;
 
 public:
+	void buttonClicked(Button* button) override;
 	void resized() override;
 	~ButtonsLayer();
 

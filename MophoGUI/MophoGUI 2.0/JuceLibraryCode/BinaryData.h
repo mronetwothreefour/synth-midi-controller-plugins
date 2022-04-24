@@ -27,7 +27,7 @@ namespace BinaryData
     const int            ButtonDownAllSynced_pngSize = 889;
 
     extern const char*   ButtonDownBanks_png;
-    const int            ButtonDownBanks_pngSize = 729;
+    const int            ButtonDownBanks_pngSize = 718;
 
     extern const char*   ButtonDownCancel_png;
     const int            ButtonDownCancel_pngSize = 741;
@@ -78,7 +78,7 @@ namespace BinaryData
     const int            ButtonDownRandomize_pngSize = 958;
 
     extern const char*   ButtonDownRead_png;
-    const int            ButtonDownRead_pngSize = 608;
+    const int            ButtonDownRead_pngSize = 621;
 
     extern const char*   ButtonDownRedo_png;
     const int            ButtonDownRedo_pngSize = 625;
@@ -99,7 +99,7 @@ namespace BinaryData
     const int            ButtonDownUnlock_pngSize = 369;
 
     extern const char*   ButtonDownWrite_png;
-    const int            ButtonDownWrite_pngSize = 642;
+    const int            ButtonDownWrite_pngSize = 652;
 
     extern const char*   ButtonUpAllNotes_png;
     const int            ButtonUpAllNotes_pngSize = 803;
@@ -117,7 +117,7 @@ namespace BinaryData
     const int            ButtonUpAllSynced_pngSize = 897;
 
     extern const char*   ButtonUpBanks_png;
-    const int            ButtonUpBanks_pngSize = 695;
+    const int            ButtonUpBanks_pngSize = 710;
 
     extern const char*   ButtonUpCancel_png;
     const int            ButtonUpCancel_pngSize = 722;
@@ -161,14 +161,11 @@ namespace BinaryData
     extern const char*   ButtonUpPush_png;
     const int            ButtonUpPush_pngSize = 581;
 
-    extern const char*   ButtonUpRandom_png;
-    const int            ButtonUpRandom_pngSize = 770;
-
     extern const char*   ButtonUpRandomize_png;
     const int            ButtonUpRandomize_pngSize = 938;
 
     extern const char*   ButtonUpRead_png;
-    const int            ButtonUpRead_pngSize = 584;
+    const int            ButtonUpRead_pngSize = 599;
 
     extern const char*   ButtonUpRedo_png;
     const int            ButtonUpRedo_pngSize = 576;
@@ -189,7 +186,7 @@ namespace BinaryData
     const int            ButtonUpUnlock_pngSize = 359;
 
     extern const char*   ButtonUpWrite_png;
-    const int            ButtonUpWrite_pngSize = 612;
+    const int            ButtonUpWrite_pngSize = 597;
 
     extern const char*   FileNotValidAlertBackground_png;
     const int            FileNotValidAlertBackground_pngSize = 1196;
@@ -285,7 +282,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 92;
+    const int namedResourceListSize = 91;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

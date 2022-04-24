@@ -262,7 +262,6 @@ uint8 ParamRandomizationMethods::pickRandomSeqStepValueForParam(uint8 paramIndex
 		if (stepIsRest)
 			return params::seqStepValueForRest;
 	}
-	auto  trackDestinationIsPitch{ randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
 	if (stepNum != 1) {
 		auto stepIsRepeat{ randomlyDecideIfStepInSeqTrackIsRepeatValue(paramIndex, trackNum, unexposedParams) };
 		if (stepIsRepeat)
@@ -332,7 +331,6 @@ bool ParamRandomizationMethods::randomlyDecideIfStepInSeqTrackIsReset(uint8 para
 
 uint8 ParamRandomizationMethods::pickRandomPitchForStepParamInTrack(uint8 paramIndex, int trackNum, UnexposedParameters* unexposedParams) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto& info{ InfoForExposedParameters::get() };
 	auto maxPitch{ params::maxValueForSeqTrackStep };
 	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
 	Array<uint8> allowedPitches;

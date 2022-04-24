@@ -222,10 +222,10 @@
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForOpeningVoiceNameEditor.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.cpp"/>
+    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForRandomizingAndShowingRandomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.cpp"/>
-    <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizationComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllEnv3Parameters.cpp"/>
     <ClCompile Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllKnobAssignParameters.cpp"/>
@@ -2348,10 +2348,10 @@
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForOpeningVoiceNameEditor.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingRedo.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForPerformingUndo.h"/>
+    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForRandomizingAndShowingRandomizationComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessage.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForSendingEditBufferDataMessageRequest.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingGlobalParametersComponent.h"/>
-    <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingRandomizationComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_ButtonForShowingVoicesBanksComponent.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllEnv3Parameters.h"/>
     <ClInclude Include="..\..\Source\widgets_Button\widget_Randomization_ButtonForLockingAllKnobAssignParameters.h"/>
@@ -3277,7 +3277,6 @@
     <None Include="..\..\Resources\Button-Up-Program-Name-Edit.png"/>
     <None Include="..\..\Resources\Button-Up-Pull.png"/>
     <None Include="..\..\Resources\Button-Up-Push.png"/>
-    <None Include="..\..\Resources\Button-Up-Random.png"/>
     <None Include="..\..\Resources\Button-Up-Randomize.png"/>
     <None Include="..\..\Resources\Button-Up-Read.png"/>
     <None Include="..\..\Resources\Button-Up-Redo.png"/>

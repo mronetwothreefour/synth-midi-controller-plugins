@@ -2,9 +2,11 @@
 
 #include "params_Constants.h"
 #include "params_ExposedParamsInfo_Singleton.h"
+#include "params_Identifiers.h"
 #include "params_SpecialValueOffsets.h"
 #include "params_UnexposedParameters_Facade.h"
 #include "../midi/midi_ParameterChangeMessage.h"
+#include "../randomization/randomization_ParamRandomizationMethods.h"
 
 using namespace constants;
 
@@ -18,10 +20,13 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 		exposedParams->addParameterListener(info.IDfor(param), this);
+	exposedParams->addParameterListener(ID::randomizationTrig.toString(), this);
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
+	if (parameterID == ID::randomizationTrig.toString())
+		ParamRandomizationMethods::randomizeUnlockedParameters(exposedParams, unexposedParams);
+	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked() && parameterID != ID::randomizationTrig.toString()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };
 		auto nrpn{ info.NRPNfor(param) };
@@ -47,6 +52,7 @@ void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 para
 }
 
 ExposedParametersListener::~ExposedParametersListener() {
+	exposedParams->removeParameterListener(ID::randomizationTrig.toString(), this);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 		exposedParams->removeParameterListener(info.IDfor(param), this);

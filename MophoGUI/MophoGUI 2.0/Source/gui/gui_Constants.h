@@ -365,7 +365,7 @@ namespace constants
 		static const int toggleLockButton_diameter{ 22 };
 		static const int undoRedoButtons_h{ secondaryWindowsControls_h };
 		static const int undoRedoButtons_w{ 44 };
-		static const int undoRedoButtons_x{ 836 };
+		static const int undoRedoButtons_x{ 832 };
 		static const int vcaControlsRow1_y{ 373 };
 		static const int vcaControlsRow2_y{ 425 };
 		static const int voiceNameCharacter1_x{ 596 };
@@ -394,10 +394,10 @@ namespace constants
 		static const int voiceSlotsWidget_w{ (8 * voiceSlotRadioButtton_w) + (7 * voiceSlotRadioButtonsHorizontalGap) };
 		static const int voiceSlotsWidget_h{ 16 * voiceSlotRadioButtton_h };
 		static const int windowOutlineThickness{ 2 };
-		static const int writeReadBanksGlobalRandomButtons_h{ secondaryWindowsControls_h };
-		static const int writeReadButtons_w{ 48 };
-		static const int banksGlobalButtons_w{ 53 };
-		static const int randomButton_w{ 58 };
+		static const int writeReadBanksGlobalRandomizeButtons_h{ secondaryWindowsControls_h };
+		static const int writeReadButtons_w{ 44 };
+		static const int banksButton_w{ 47 };
+		static const int globalButton_w{ 53 };
 		static const int writeReadBanksGlobalRandomButtons_y{ 83 };
 
 		static const std::vector<uint8> pathDataForFileIcon{ 110,109,133,235,143,65,0,0,0,64,108,0,0,16,65,0,0,0,64,108,0,0,16,65,0,0,160,65,108,0,0,184,65,0,0,160,65,108,0,0,184,65,133,235,225,64,108,133,235,143,65,0,0,0,64,99,109,123,20,146,65,236,81,104,64,108,62,10,171,65,195,245,216,64,108,124,20,146,65,195,245,216,64,108,124,20,146,65,236,81,104,64,99,109,51,51,31,65,236,81,152,65,108,51,51,31,65,164,112,61,64,108,92,143,138,65,164,112,61,64,108,92,143,138,65,21,174,247,64,108,225,122,176,65,21,174,247,64,108,225,122,176,65,236,81,152,65,108,51,51,31,65,236,81,152,65,99,101,0,0 };
@@ -479,11 +479,11 @@ namespace constants
 		static const Rectangle<int> bounds_ImptExptOKbutton{ imptExptOKbutton_x, imptExptButtonsRow_y, imptExptCancelAndOKbuttons_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_ImptExptWindow{ imptExptWindow_x, imptExptWindow_y, imptExptWindow_w, imptExptWindow_h };
 		static const Rectangle<int> bounds_LoadSelectedVoiceButton{ voicesBankLoadButton_x, voicesBankButtons_y, secondaryWindowsControls_w, secondaryWindowsControls_h };
-		static const Rectangle<int> bounds_MainWindowBanksButton{ 696, writeReadBanksGlobalRandomButtons_y, banksGlobalButtons_w, writeReadBanksGlobalRandomButtons_h };
+		static const Rectangle<int> bounds_MainWindowBanksButton{ 684, writeReadBanksGlobalRandomButtons_y, banksButton_w, writeReadBanksGlobalRandomizeButtons_h };
 		static const Rectangle<int> bounds_MainWindowEditNameButtonAndEditor{ 590, voiceNameEditButton_y, 222, 50 };
-		static const Rectangle<int> bounds_MainWindowGlobalButton{ 759, writeReadBanksGlobalRandomButtons_y, banksGlobalButtons_w, writeReadBanksGlobalRandomButtons_h };
-		static const Rectangle<int> bounds_MainWindowRandomButton{ 822, writeReadBanksGlobalRandomButtons_y, randomButton_w, writeReadBanksGlobalRandomButtons_h };
-		static const Rectangle<int> bounds_MainWindowReadButton{ 638, writeReadBanksGlobalRandomButtons_y, writeReadButtons_w, writeReadBanksGlobalRandomButtons_h };
+		static const Rectangle<int> bounds_MainWindowGlobalButton{ 739, writeReadBanksGlobalRandomButtons_y, globalButton_w, writeReadBanksGlobalRandomizeButtons_h };
+		static const Rectangle<int> bounds_MainWindowRandomizeButton{ 800, writeReadBanksGlobalRandomButtons_y, randomizeButton_w, writeReadBanksGlobalRandomizeButtons_h };
+		static const Rectangle<int> bounds_MainWindowReadButton{ 632, writeReadBanksGlobalRandomButtons_y, writeReadButtons_w, writeReadBanksGlobalRandomizeButtons_h };
 		static const Rectangle<int> bounds_MainWindowRedoButton{ undoRedoButtons_x, 48, undoRedoButtons_w, undoRedoButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack1ClearButton{ clearButtons_x, SeqTrack1ClearButton_y, clearButtons_w, clearButtons_h };
 		static const Rectangle<int> bounds_MainWindowSeqTrack2ClearButton{ clearButtons_x, SeqTrack2ClearButton_y, clearButtons_w, clearButtons_h };
@@ -491,7 +491,7 @@ namespace constants
 		static const Rectangle<int> bounds_MainWindowSeqTrack4ClearButton{ clearButtons_x, SeqTrack4ClearButton_y, clearButtons_w, clearButtons_h };
 		static const Rectangle<int> bounds_MainWindowUndoButton{ undoRedoButtons_x, 19, undoRedoButtons_w, undoRedoButtons_h };
 		static const Rectangle<int> bounds_MainWindowWebLinkButton{ 644, 122, 157, 9 };
-		static const Rectangle<int> bounds_MainWindowWriteButton{ 580, writeReadBanksGlobalRandomButtons_y, writeReadButtons_w, writeReadBanksGlobalRandomButtons_h };
+		static const Rectangle<int> bounds_MainWindowWriteButton{ 580, writeReadBanksGlobalRandomButtons_y, writeReadButtons_w, writeReadBanksGlobalRandomizeButtons_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentCloseButton{ 820, 212, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_NRPNisOffWarningComponentRetryButton{ 611, 387, secondaryWindowsControls_w, secondaryWindowsControls_h };
 		static const Rectangle<int> bounds_RandomizationAllowAllNotesButton{ randomizationAllowAllNotesButton_x, randomizationAllowAllNotesButton_y, randomizationAllowAllNotesForOscButtons_w, secondaryWindowsControls_h };
