@@ -10,19 +10,21 @@ using namespace constants;
 
 
 RandomizationOptions::RandomizationOptions() :
+	transmissionOptionsTree{ ID::randomization_TransmissionOptions },
 	paramLocksTree{ ID::randomization_ParamLocks },
 	allowedPitchesTree{ ID::randomization_AllowedPitches },
 	allowedValueRangesTree{ ID::randomization_AllowedValueRanges },
 	allowedOscShapesTree{ ID::randomization_AllowedOscShapes },
 	allowedComboBoxItemsTree{ ID::randomization_AllowedComboBoxItems },
 	allowedFrequencyTypesTree{ ID::randomization_AllowedFrequencyTypes },
-	lpfFreqOptionsTree{ ID::randomization_SeqTrackOptions },
+	lpfFreqOptionsTree{ ID::randomization_LPFfreqOptions },
 	seqTrackOptionsTree{ ID::randomization_SeqTrackOptions }
 {
 	fillAllRandomizationOptionsTreesWithProperties();
 }
 
 void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
+	setTransmissionMethodIsSysEx();
 	for (uint8 param = 0; param != params::numberOfExposedParams; ++param) {
 		setParamIsUnlocked(param);
 		auto& info{ InfoForExposedParameters::get() };
@@ -101,6 +103,24 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 			setOctaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum);
 	}
+}
+
+const bool RandomizationOptions::transmissionMethodIsNRPN() {
+	return (bool)transmissionOptionsTree.getProperty("transmissionMethodIsNRPN");
+}
+
+const bool RandomizationOptions::transmissionMethodIsSysEx() {
+	return (bool)transmissionOptionsTree.getProperty("transmissionMethodIsSysEx");
+}
+
+void RandomizationOptions::setTransmissionMethodIsNRPN() {
+	transmissionOptionsTree.setProperty("transmissionMethodIsNRPN", (bool)true, nullptr);
+	transmissionOptionsTree.setProperty("transmissionMethodIsSysEx", (bool)false, nullptr);
+}
+
+void RandomizationOptions::setTransmissionMethodIsSysEx() {
+	transmissionOptionsTree.setProperty("transmissionMethodIsNRPN", (bool)false, nullptr);
+	transmissionOptionsTree.setProperty("transmissionMethodIsSysEx", (bool)true, nullptr);
 }
 
 const bool RandomizationOptions::paramIsLocked(uint8 param) {
@@ -918,6 +938,12 @@ void RandomizationOptions::setTrackDestinationIsNotAnOscPitchParameter(int track
 XmlElement* RandomizationOptions::getStateXml() {
 	std::unique_ptr<XmlElement> randomizationOptionsStateXml{ new XmlElement(ID::state_RandomizationOptions) };
 
+	auto transmissionOptionsTreeStateXml{ transmissionOptionsTree.createXml() };
+	if (transmissionOptionsTreeStateXml != nullptr) {
+		transmissionOptionsTreeStateXml->setTagName(ID::randomization_TransmissionOptions);
+		randomizationOptionsStateXml->addChildElement(transmissionOptionsTreeStateXml.release());
+	}
+
 	auto paramLocksTreeStateXml{ paramLocksTree.createXml() };
 	if (paramLocksTreeStateXml != nullptr) {
 		paramLocksTreeStateXml->setTagName(ID::randomization_ParamLocks);
@@ -971,6 +997,10 @@ XmlElement* RandomizationOptions::getStateXml() {
 
 void RandomizationOptions::replaceState(const ValueTree& newState) {
 	if (newState.isValid()) {
+		auto transmissionOptionsTreeState{ newState.getChildWithName(ID::randomization_TransmissionOptions) };
+		if (transmissionOptionsTreeState.isValid())
+			transmissionOptionsTree.copyPropertiesAndChildrenFrom(transmissionOptionsTreeState, nullptr);
+
 		auto paramLocksTreeState{ newState.getChildWithName(ID::randomization_ParamLocks) };
 		if (paramLocksTreeState.isValid())
 			paramLocksTree.copyPropertiesAndChildrenFrom(paramLocksTreeState, nullptr);

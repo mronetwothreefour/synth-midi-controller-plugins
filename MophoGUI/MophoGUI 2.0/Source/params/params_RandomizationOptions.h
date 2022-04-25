@@ -21,6 +21,7 @@ enum class RandomizationOptionsType {
 
 class RandomizationOptions
 {
+	ValueTree transmissionOptionsTree;
 	ValueTree paramLocksTree;
 	ValueTree allowedPitchesTree;
 	ValueTree allowedValueRangesTree;
@@ -37,6 +38,11 @@ private:
 	void fillAllRandomizationOptionsTreesWithProperties();
 
 public:
+	const bool transmissionMethodIsNRPN();
+	const bool transmissionMethodIsSysEx();
+	void setTransmissionMethodIsNRPN();
+	void setTransmissionMethodIsSysEx();
+
 	const bool paramIsLocked(uint8 param);
 	const bool paramIsUnlocked(uint8 param);
 	void setParamIsLocked(uint8 param);

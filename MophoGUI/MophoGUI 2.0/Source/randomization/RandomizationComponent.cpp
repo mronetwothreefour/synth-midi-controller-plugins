@@ -99,11 +99,42 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 	addAndMakeVisible(button_ForLockingAllPushItParams);
 	addAndMakeVisible(button_ForUnlockingAllPushItParams);
 
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
+	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+
+	toggle_ForTransmittingViaNRPN.setComponentID(ID::component_ToggleButton_TransmitRandomValuesViaNRPN.toString());
+	toggle_ForTransmittingViaNRPN.addListener(this);
+	toggle_ForTransmittingViaNRPN.setToggleState(randomizationOptions->transmissionMethodIsNRPN(), dontSendNotification);
+	toggle_ForTransmittingViaNRPN.setRadioGroupId(1, dontSendNotification);
+	if (shouldShowDescriptions) {
+		String toggleTooltip{ "" };
+		toggleTooltip += "When NRPN is selected, the randomly generated parameter values\n";
+		toggleTooltip += "will be transmitted to the Mopho hardware via individual NRPN\n";
+		toggleTooltip += "messages. Updating more than a few parameters will be slow, but\n";
+		toggleTooltip += "the hardware will not be interrupted if it is generating audio.\n";
+		toggle_ForTransmittingViaNRPN.setTooltip(toggleTooltip);
+	}
+	addAndMakeVisible(toggle_ForTransmittingViaNRPN);
+
+	toggle_ForTransmittingViaSysEx.setComponentID(ID::component_ToggleButton_TransmitRandomValuesViaSysEx.toString());
+	toggle_ForTransmittingViaSysEx.addListener(this);
+	toggle_ForTransmittingViaSysEx.setToggleState(randomizationOptions->transmissionMethodIsSysEx(), dontSendNotification);
+	toggle_ForTransmittingViaSysEx.setRadioGroupId(1, dontSendNotification);
+	if (shouldShowDescriptions) {
+		String toggleTooltip{ "" };
+		toggleTooltip += "When SysEx is selected, all the randomly generated parameter values will be\n";
+		toggleTooltip += "transmitted to the Mopho hardware via a single system exclusive program\n";
+		toggleTooltip += "edit buffer dump message. This is faster for sending a large number of\n";
+		toggleTooltip += "parameter changes, but it will interrupt the hardware if it is generating audio.\n";
+		toggle_ForTransmittingViaSysEx.setTooltip(toggleTooltip);
+	}
+	addAndMakeVisible(toggle_ForTransmittingViaSysEx);
+
 	button_ForClosingRandomizationComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingRandomizationComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingRandomizationComponent.onClick = [this] { hideThisComponent(); };
-	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
-	if (tooltipOptions->shouldShowDescriptions())
+	if (shouldShowDescriptions)
 		button_ForClosingRandomizationComponent.setTooltip("Click to close the Randomize\nProgram Settings window.");
 	addAndMakeVisible(button_ForClosingRandomizationComponent);
 
@@ -157,6 +188,8 @@ void RandomizationComponent::resized() {
 	button_ForLockingAllParameters.setBounds(GUI::bounds_RandomizationLockAllButton);
 	button_ForUnlockingAllParameters.setBounds(GUI::bounds_RandomizationUnlockAllButton);
 	button_ForRandomizingUnlockedParameters.setBounds(GUI::bounds_RandomizeButton);
+	toggle_ForTransmittingViaNRPN.setBounds(GUI::bounds_RandomizationTransmitToggleNRPN);
+	toggle_ForTransmittingViaSysEx.setBounds(GUI::bounds_RandomizationTransmitToggleSysEx);
 	button_ForClosingRandomizationComponent.setBounds(GUI::bounds_RandomizationCloseButton);
 	button_ForLockingAllOscParameters.setBounds(GUI::bounds_RandomizationOscLockButton);
 	button_ForUnlockingAllOscParameters.setBounds(GUI::bounds_RandomizationOscUnlockButton);
@@ -203,6 +236,10 @@ void RandomizationComponent::buttonClicked(Button* button) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	if (buttonID == ID::component_ToggleButton_TransmitRandomValuesViaNRPN.toString())
+		randomizationOptions->setTransmissionMethodIsNRPN();
+	if (buttonID == ID::component_ToggleButton_TransmitRandomValuesViaSysEx.toString())
+		randomizationOptions->setTransmissionMethodIsSysEx();
 	if (buttonID.startsWith("lockButton")) {
 		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
@@ -328,6 +365,8 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent_Pitch = nullptr;
+	toggle_ForTransmittingViaSysEx.removeListener(this);
+	toggle_ForTransmittingViaNRPN.removeListener(this);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
 		paramLockToggleButtons[param].removeListener(this);

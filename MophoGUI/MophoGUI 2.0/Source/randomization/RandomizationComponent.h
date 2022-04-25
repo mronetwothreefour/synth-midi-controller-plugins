@@ -83,6 +83,8 @@ class RandomizationComponent :
 	ButtonForLockingAllPushItParameters button_ForLockingAllPushItParams;
 	ButtonForUnlockingAllPushItParameters button_ForUnlockingAllPushItParams;
 	ButtonForRandomizingUnlockedParameters button_ForRandomizingUnlockedParameters;
+	ToggleButton toggle_ForTransmittingViaNRPN;
+	ToggleButton toggle_ForTransmittingViaSysEx;
 	TextButton button_ForClosingRandomizationComponent;
 	std::unique_ptr<RandomizationOptionsComponent_Pitch> randomizationOptionsComponent_Pitch;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;

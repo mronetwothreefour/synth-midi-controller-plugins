@@ -109,6 +109,8 @@ namespace ID
 	static const Identifier component_ToggleButton_EditSelectedStepModeForTrack{ "component_ToggleButton_EditSelectedStepModeForTrack" };
 	static const Identifier component_ToggleButton_PitchesModeFor_{ "component_ToggleButton_PitchesModeFor_" };
 	static const Identifier component_ToggleButton_ValueRangeModeFor_{ "component_ToggleButton_ValueRangeModeFor_" };
+	static const Identifier component_ToggleButton_TransmitRandomValuesViaNRPN{ "component_ToggleButton_TransmitRandomValuesViaNRPN" };
+	static const Identifier component_ToggleButton_TransmitRandomValuesViaSysEx{ "component_ToggleButton_TransmitRandomValuesViaSysEx" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };
@@ -214,7 +216,8 @@ namespace ID
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
-	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" }; //to do: delete
+	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" };
+	static const Identifier randomization_TransmissionOptions{ "randomization_TransmissionOptions" };
 
 	static const Identifier state_CustomBank1VoiceNames{ "state_CustomBank1VoiceNames" };
 	static const Identifier state_CustomBank2VoiceNames{ "state_CustomBank2VoiceNames" };

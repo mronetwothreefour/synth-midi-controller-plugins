@@ -261,7 +261,7 @@ namespace BinaryData
     const int            RandomizationOptionsSeqStepsBackground_pngSize = 10672;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 14407;
+    const int            RandomizationWindowBackground_pngSize = 15562;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;
