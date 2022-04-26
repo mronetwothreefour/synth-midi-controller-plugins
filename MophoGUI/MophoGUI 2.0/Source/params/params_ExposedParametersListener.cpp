@@ -24,8 +24,10 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (parameterID == ID::randomizationTrig.toString())
-		ParamRandomizationMethods::randomizeUnlockedParameters(exposedParams, unexposedParams);
+	if (parameterID == ID::randomizationTrig.toString()) {
+		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
+		paramRandomizationMethods.randomizeAllUnlockedParameters();
+	}
 	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked() && parameterID != ID::randomizationTrig.toString()) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto param{ info.indexForParamID(parameterID) };

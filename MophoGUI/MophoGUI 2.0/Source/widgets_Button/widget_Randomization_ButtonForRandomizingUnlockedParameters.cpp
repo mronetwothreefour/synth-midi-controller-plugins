@@ -26,5 +26,6 @@ const String ButtonForRandomizingUnlockedParameters::createButtonTooltipString()
 }
 
 void ButtonForRandomizingUnlockedParameters::onClickMethod() {
-	ParamRandomizationMethods::randomizeUnlockedParameters(exposedParams, unexposedParams);
+	ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
+	paramRandomizationMethods.randomizeAllUnlockedParameters();
 }

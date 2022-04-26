@@ -104,6 +104,8 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
+
+private:
 	void showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_OscShapeForParam(uint8 paramIndex);
@@ -112,6 +114,8 @@ public:
 	void showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_SeqTrackForTrack(int trackNum);
 	void hideThisComponent();
+
+public:
 	~RandomizationComponent();
 
 private:

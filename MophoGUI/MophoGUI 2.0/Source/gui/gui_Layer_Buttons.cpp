@@ -117,8 +117,10 @@ void ButtonsLayer::buttonClicked(Button* button) {
     if (button == &button_Randomize) {
         if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier)
             showRandomizationComponent();
-        else
-            ParamRandomizationMethods::randomizeUnlockedParameters(exposedParams, unexposedParams);
+        else {
+            ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
+            paramRandomizationMethods.randomizeAllUnlockedParameters();
+        }
     }
 }
 

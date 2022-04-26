@@ -10,6 +10,7 @@
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
 #include "../midi/midi_EditBufferDataMessage.h"
+#include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_Identifiers.h"
 #include "../params/params_RandomizationOptions.h"

@@ -12,9 +12,9 @@
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
-    unexposedParams{ new UnexposedParameters() },
     exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->undoManager_get(), "exposedParams", ExposedParametersLayoutFactory::build()) },
     exposedParamsListener{ new ExposedParametersListener(exposedParams.get(), unexposedParams.get()) },
+    unexposedParams{ new UnexposedParameters() },
     aggregatedOutgoingBuffers{ unexposedParams->aggregatedOutgoingBuffers_get() },
     incomingNRPNhandler{ new IncomingNRPNhandler(exposedParams.get(), unexposedParams.get()) },
     incomingSysExHandler{ new IncomingSysExHandler(exposedParams.get(), unexposedParams.get()) }
