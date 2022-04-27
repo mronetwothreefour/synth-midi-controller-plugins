@@ -26,9 +26,10 @@ public:
 
 	ParamRandomizationMethods(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void randomizeAllUnlockedParameters();
-	uint8 pickRandomValueForParam(uint8 paramIndex);
+	void randomizeParameter(String paramID);
 
 private:
+	uint8 pickRandomValueForParam(uint8 paramIndex);
 	uint8 pickRandomPitchForParam(uint8 paramIndex);
 	uint8 pickRandomValueFromRangeForParam(uint8 paramIndex);
 	uint8 pickRandomOscShapeAndPulseWidthForParam(uint8 paramIndex);

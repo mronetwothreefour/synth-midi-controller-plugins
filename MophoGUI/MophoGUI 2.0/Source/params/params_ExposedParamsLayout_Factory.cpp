@@ -15,7 +15,12 @@ ParamLayout ExposedParametersLayoutFactory::build() {
 		layout.add(std::make_unique<AudioParameterChoice>(info.IDfor(param).toString(), info.exposedNameFor(param), choices, info.defaultValueFor(param)));
 	}
 	StringArray randomizationTriggerChoices{ "0", "1" };
-	layout.add(std::make_unique<AudioParameterChoice>(ID::randomizationTrig.toString(), "Randomization Trigger", randomizationTriggerChoices, 0));
+	layout.add(std::make_unique<AudioParameterChoice>(ID::randomizeTrigFor_AllUnlocked.toString(), "Trigger For Randomizing All Unlocked Parameters", randomizationTriggerChoices, 0));
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		auto paramID{ info.IDfor(param) };
+		auto paramName{ info.exposedNameFor(param) };
+		layout.add(std::make_unique<AudioParameterChoice>(ID::randomizeTrigFor_.toString() + paramID, "Trigger For Randomizing " + paramName, randomizationTriggerChoices, 0));
+	}
 	return layout;
 }
 

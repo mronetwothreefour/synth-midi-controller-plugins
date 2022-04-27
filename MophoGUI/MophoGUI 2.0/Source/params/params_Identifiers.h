@@ -190,7 +190,8 @@ namespace ID
 	static const Identifier assignKnob2{ "assignKnob2" };
 	static const Identifier assignKnob3{ "assignKnob3" };
 	static const Identifier assignKnob4{ "assignKnob4" };
-	static const Identifier randomizationTrig{ "randomizationTrig" };
+	static const Identifier randomizeTrigFor_{ "randomizeTrigFor_" };
+	static const Identifier randomizeTrigFor_AllUnlocked{ "randomizeTrigFor_AllUnlocked" };
 
 	static const Identifier global_Balance{ "global_Balance" };
 	static const Identifier global_Clock{ "global_Clock" };

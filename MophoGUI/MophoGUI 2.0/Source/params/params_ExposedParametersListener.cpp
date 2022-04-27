@@ -18,27 +18,36 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 	voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() }
 {
 	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		exposedParams->addParameterListener(info.IDfor(param), this);
-	exposedParams->addParameterListener(ID::randomizationTrig.toString(), this);
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		auto paramID{ info.IDfor(param).toString() };
+		exposedParams->addParameterListener(paramID, this);
+		exposedParams->addParameterListener(ID::randomizeTrigFor_.toString() + paramID, this);
+	}
+	exposedParams->addParameterListener(ID::randomizeTrigFor_AllUnlocked.toString(), this);
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
-	if (parameterID == ID::randomizationTrig.toString()) {
+	auto& info{ InfoForExposedParameters::get() };
+	if (parameterID.startsWith(ID::randomizeTrigFor_.toString())) {
 		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-		paramRandomizationMethods.randomizeAllUnlockedParameters();
+		if (parameterID == ID::randomizeTrigFor_AllUnlocked.toString())
+			paramRandomizationMethods.randomizeAllUnlockedParameters();
+		else {
+			auto targetParamID{ parameterID.fromFirstOccurrenceOf("For_", false, false) };
+			paramRandomizationMethods.randomizeParameter(targetParamID);
+		}
 	}
-	if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked() && parameterID != ID::randomizationTrig.toString()) {
-		auto& info{ InfoForExposedParameters::get() };
-		auto param{ info.indexForParamID(parameterID) };
-		auto nrpn{ info.NRPNfor(param) };
-		auto outputValue{ (uint8)roundToInt(newValue) };
-		outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
-		ParameterChangeMessage::sendNewValueForNRPNtypeToUnexposedParamsForHandling(outputValue, nrpn, unexposedParams);
-		if ((param == params::arpeggiator || param == params::sequencer) && outputValue == 1)
-			arpeggiatorAndSequencerCannotBothBeOn(param);
+	else {
+		if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
+			auto param{ info.indexForParamID(parameterID) };
+			auto nrpn{ info.NRPNfor(param) };
+			auto outputValue{ (uint8)roundToInt(newValue) };
+			outputValue = SpecialValueOffsets::addWhenWritingToData(param, outputValue);
+			ParameterChangeMessage::sendNewValueForNRPNtypeToUnexposedParamsForHandling(outputValue, nrpn, unexposedParams);
+			if ((param == params::arpeggiator || param == params::sequencer) && outputValue == 1)
+				arpeggiatorAndSequencerCannotBothBeOn(param);
+		}
 	}
-	else return;
 }
 
 void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 paramTurnedOn) {
@@ -54,8 +63,11 @@ void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 para
 }
 
 ExposedParametersListener::~ExposedParametersListener() {
-	exposedParams->removeParameterListener(ID::randomizationTrig.toString(), this);
+	exposedParams->removeParameterListener(ID::randomizeTrigFor_AllUnlocked.toString(), this);
 	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		exposedParams->removeParameterListener(info.IDfor(param), this);
+	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		auto paramID{ info.IDfor(param).toString() };
+		exposedParams->removeParameterListener(paramID, this);
+		exposedParams->removeParameterListener(ID::randomizeTrigFor_.toString() + paramID, this);
+	}
 }

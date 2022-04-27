@@ -39,7 +39,9 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 					}
 					else {
 						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
-						exposedParams->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue);
+						auto paramPtr{ exposedParams->getParameter(paramID) };
+						if (paramPtr != nullptr)
+							paramPtr->setValueNotifyingHost(newNormalizedValue);
 					}
 				}
 			}
@@ -60,7 +62,9 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 					if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
 						auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
 						auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
-						exposedParams->getParameter(paramID)->setValueNotifyingHost(previousStepValue);
+						auto paramPtr{ exposedParams->getParameter(paramID) };
+						if (paramPtr != nullptr)
+							paramPtr->setValueNotifyingHost(previousStepValue);
 					}
 					else {
 						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
@@ -71,6 +75,27 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 			}
 		}
 		randomizeArpAndSeqOnOffParametersAfterDelay(delayInMS);
+	}
+}
+
+void ParamRandomizationMethods::randomizeParameter(String paramID) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(paramID) };
+	auto newValue{ pickRandomValueForParam(paramIndex) };
+	auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
+		auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
+		auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
+		auto paramPtr{ exposedParams->getParameter(paramID) };
+		if (paramPtr != nullptr)
+			paramPtr->setValueNotifyingHost(previousStepValue);
+	}
+	else {
+		auto maxValue{ info.maxValueFor(paramIndex) };
+		auto newNormalizedValue{ (float)newValue / (float)maxValue };
+		auto paramPtr{ exposedParams->getParameter(paramID) };
+		if (paramPtr != nullptr)
+			paramPtr->setValueNotifyingHost(newNormalizedValue);
 	}
 }
 
@@ -459,7 +484,10 @@ void ParamRandomizationMethods::randomizeArpAndSeqOnOffParametersAfterDelay(int 
 void ParamRandomizationMethods::updateParamWithNewNormalizedValueAfterDelay(String paramID, float newNormalizedValue, int delayInMs) {
 	auto exposedParamsPtr{ exposedParams };
 	callAfterDelay(delayInMs, [exposedParamsPtr, paramID, newNormalizedValue] {
-		exposedParamsPtr->getParameter(paramID)->setValueNotifyingHost(newNormalizedValue); }
+		auto paramPtr{ exposedParamsPtr->getParameter(paramID) };
+		if (paramPtr != nullptr)
+			paramPtr->setValueNotifyingHost(newNormalizedValue);
+		}
 	);
 }
 
