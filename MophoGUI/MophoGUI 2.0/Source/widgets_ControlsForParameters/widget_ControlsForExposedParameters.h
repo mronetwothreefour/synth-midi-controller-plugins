@@ -13,16 +13,16 @@ class ControlsForExposedParameters
 public:
 	ControlsForExposedParameters() = delete;
 
-	explicit ControlsForExposedParameters(UnexposedParameters* unexposedParams);
+	explicit ControlsForExposedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void fillControlsVector(UnexposedParameters* unexposedParams);
+	void fillControlsVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 public:
 	ControlForExposedParameter* controlFor(uint8 paramIndex) const;
 	int paramOutOfRange() const;
 	void clearControls();
-	void rebuildControls(UnexposedParameters* unexposedParams);
+	void rebuildControls(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	//==============================================================================

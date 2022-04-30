@@ -2,14 +2,14 @@
 
 
 
-ControlsForExposedParameters::ControlsForExposedParameters(UnexposedParameters* unexposedParams) {
-	fillControlsVector(unexposedParams);
+ControlsForExposedParameters::ControlsForExposedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
+	fillControlsVector(exposedParams, unexposedParams);
 }
 
-void ControlsForExposedParameters::fillControlsVector(UnexposedParameters* unexposedParams) {
+void ControlsForExposedParameters::fillControlsVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param, unexposedParams));
+		controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param, exposedParams, unexposedParams));
 }
 
 ControlForExposedParameter* ControlsForExposedParameters::controlFor(uint8 paramIndex) const {
@@ -24,8 +24,8 @@ void ControlsForExposedParameters::clearControls() {
 	controlsVector.clear();
 }
 
-void ControlsForExposedParameters::rebuildControls(UnexposedParameters* unexposedParams) {
+void ControlsForExposedParameters::rebuildControls(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
 	controlsVector.clear();
-	fillControlsVector(unexposedParams);
+	fillControlsVector(exposedParams, unexposedParams);
 }
 

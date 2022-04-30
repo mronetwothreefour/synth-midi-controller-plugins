@@ -6,13 +6,13 @@
 
 
 ExposedParamsControlsLayer::ExposedParamsControlsLayer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-	ControlsForExposedParameters(unexposedParams)
+	ControlsForExposedParameters(exposedParams, unexposedParams)
 {
-    rebuildControls(unexposedParams);
+    rebuildControls(exposedParams, unexposedParams);
     for (uint8 param = 0; param != paramOutOfRange(); ++param) {
         auto control{ controlFor(param) };
         addAndMakeVisible(control);
-        control->attachToExposedParameter(exposedParams);
+        control->attachToExposedParameter();
         auto& info{ InfoForExposedParameters::get() };
         control->setCentrePosition(info.controlCenterPointFor(param));
     }

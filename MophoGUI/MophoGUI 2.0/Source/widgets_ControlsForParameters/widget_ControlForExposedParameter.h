@@ -12,8 +12,13 @@
 
 
 
+class UnexposedParameters;
+
 class ControlForExposedParameter : public Component
 {
+	uint8 param;
+	AudioProcessorValueTreeState* exposedParams;
+	UnexposedParameters* unexposedParams;
 	ControlType controlType;
 	std::unique_ptr<KnobWithValueStringDisplay> knobWithValueStringDisplay;
 	std::unique_ptr<KnobForPitchWithValueStringDisplay> knobForPitchWithValueStringDisplay;
@@ -26,20 +31,21 @@ class ControlForExposedParameter : public Component
 	ControlForExposedParameter();
 
 public:
-	ControlForExposedParameter(uint8 param, UnexposedParameters* unexposedParams);
+	ControlForExposedParameter(uint8 param, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void buildKnobWithValueStringDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildKnobForPitchWithValueStringDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildKnobWithWaveShapeDisplayControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildToggleButtonControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildComboBoxControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildVoiceNameCharacterControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	void buildSequencerStepControlForExposedParam(uint8 param, UnexposedParameters* unexposedParams);
-	int sequencerTrackThisStepIsOn(uint8 param);
+	void buildKnobWithValueStringDisplayControlForExposedParam();
+	void buildKnobForPitchWithValueStringDisplayControlForExposedParam();
+	void buildKnobWithWaveShapeDisplayControlForExposedParam();
+	void buildToggleButtonControlForExposedParam();
+	void buildComboBoxControlForExposedParam();
+	void buildVoiceNameCharacterControlForExposedParam();
+	void buildSequencerStepControlForExposedParam();
+	int sequencerTrackThisStepIsOn();
 
 public:
-	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) const;
+	void attachToExposedParameter() const;
+	void mouseDown(const MouseEvent& event) override;
 	void deleteAttachment() const;
 	~ControlForExposedParameter();
 

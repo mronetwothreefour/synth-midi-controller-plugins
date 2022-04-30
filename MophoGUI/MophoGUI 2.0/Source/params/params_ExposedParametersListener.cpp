@@ -21,16 +21,16 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		auto paramID{ info.IDfor(param).toString() };
 		exposedParams->addParameterListener(paramID, this);
-		exposedParams->addParameterListener(ID::randomizeTrigFor_.toString() + paramID, this);
+		exposedParams->addParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
-	exposedParams->addParameterListener(ID::randomizeTrigFor_AllUnlocked.toString(), this);
+	exposedParams->addParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 }
 
 void ExposedParametersListener::parameterChanged(const String& parameterID, float newValue) {
 	auto& info{ InfoForExposedParameters::get() };
-	if (parameterID.startsWith(ID::randomizeTrigFor_.toString())) {
+	if (parameterID.startsWith(ID::rndmTrigFor_.toString())) {
 		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-		if (parameterID == ID::randomizeTrigFor_AllUnlocked.toString())
+		if (parameterID == ID::rndmTrigFor_AllUnlocked.toString())
 			paramRandomizationMethods.randomizeAllUnlockedParameters();
 		else {
 			auto targetParamID{ parameterID.fromFirstOccurrenceOf("For_", false, false) };
@@ -63,11 +63,11 @@ void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 para
 }
 
 ExposedParametersListener::~ExposedParametersListener() {
-	exposedParams->removeParameterListener(ID::randomizeTrigFor_AllUnlocked.toString(), this);
+	exposedParams->removeParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
 		auto paramID{ info.IDfor(param).toString() };
 		exposedParams->removeParameterListener(paramID, this);
-		exposedParams->removeParameterListener(ID::randomizeTrigFor_.toString() + paramID, this);
+		exposedParams->removeParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
 }
