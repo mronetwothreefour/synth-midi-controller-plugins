@@ -22,6 +22,7 @@ namespace constants
 		static const uint8 numberOfKnobAssignTargets{ 169 };
 		static const uint8 numberOfModDestinations{ 47 };
 		static const uint8 numberOfModSources{ 23 };
+		static const uint8 offsetForSpecialASCIIchars{ 32 };
 		static const uint8 paramNumFor1stNameChar{ 184 };
 		static const uint8 paramNumForSeqTrack1Step1{ 120 };
 		static const uint8 sequencer{ 100 };

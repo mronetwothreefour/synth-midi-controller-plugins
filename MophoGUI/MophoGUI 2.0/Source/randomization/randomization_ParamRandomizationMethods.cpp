@@ -105,9 +105,14 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 	switch (randomizationOptionsType)
 	{
 	case RandomizationOptionsType::none: {
+		auto paramID{ info.IDfor(paramIndex).toString() };
 		auto numberOfSteps{ info.numberOfStepsFor(paramIndex) };
+		if (paramID.startsWith("nameChar"))
+			numberOfSteps -= params::offsetForSpecialASCIIchars;
 		Random rndmNumGenerator{};
 		auto newValue{ (int)floor(rndmNumGenerator.nextFloat() * numberOfSteps) };
+		if (paramID.startsWith("nameChar"))
+			newValue += params::offsetForSpecialASCIIchars;
 		return (uint8)newValue;
 	}
 	case RandomizationOptionsType::pitch:
