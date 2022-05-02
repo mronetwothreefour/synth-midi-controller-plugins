@@ -17,10 +17,10 @@ const String ButtonForRandomizingAndShowingRandomizationComponent::createButtonT
 	String buttonTooltip{ "" };
 	if (unexposedParams->tooltipOptions_get()->shouldShowDescriptions()) {
 		buttonTooltip += "Click to randomize the program settings. CTRL-click\n";
-		buttonTooltip += "this button to open a dialog where you can restrict which\n";
-		buttonTooltip += "parameters get randomized and what settings are allowed\n";
-		buttonTooltip += "for each of them. CTRL-ALT click any program parameter\n";
-		buttonTooltip += "control to set it to a random value.";
+		buttonTooltip += "this button to open a dialog where you can restrict\n";
+		buttonTooltip += "which parameters get randomized and what settings are\n";
+		buttonTooltip += "allowed for each of them. Right-click any program par-\n";
+		buttonTooltip += "ameter control to set it to a random value.";
 	}
 	return buttonTooltip;
 }

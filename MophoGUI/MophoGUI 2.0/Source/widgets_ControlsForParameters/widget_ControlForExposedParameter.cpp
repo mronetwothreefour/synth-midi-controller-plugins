@@ -142,9 +142,7 @@ void ControlForExposedParameter::attachToExposedParameter() const {
 }
 
 void ControlForExposedParameter::mouseDown(const MouseEvent& event) {
-	auto mods{ event.mods.getRawFlags() };
-	auto ctrlAltModCombo{ 22 };
-	if (mods == ctrlAltModCombo) {
+	if (event.mods == ModifierKeys::rightButtonModifier) {
 		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
 		auto& info{ InfoForExposedParameters::get() };
 		auto paramID{ info.IDfor(param).toString() };
