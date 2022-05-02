@@ -18,6 +18,7 @@ RandomizationOptions::RandomizationOptions() :
 	allowedComboBoxItemsTree{ ID::randomization_AllowedComboBoxItems },
 	allowedFrequencyTypesTree{ ID::randomization_AllowedFrequencyTypes },
 	lpfFreqOptionsTree{ ID::randomization_LPFfreqOptions },
+	repeatValuesOptionsTree{ ID::randomization_RepeatValuesOptions },
 	seqTrackOptionsTree{ ID::randomization_SeqTrackOptions }
 {
 	fillAllRandomizationOptionsTreesWithProperties();
@@ -87,6 +88,12 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
+		}
+		if (optionsType != RandomizationOptionsType::none) {
+			if (optionsType == RandomizationOptionsType::toggles)
+				setRepeatValuesAreAllowedForParam(param);
+			else
+				setRepeatValuesAreNotAllowedForParam(param);
 		}
 	}
 	for (auto trackNum = 1; trackNum != 5; ++trackNum) {
@@ -704,6 +711,40 @@ const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 		return true;
 }
 
+const bool RandomizationOptions::repeatValuesAreAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType != RandomizationOptionsType::none);
+	auto paramID(info.IDfor(paramIndex).toString());
+	return (bool)repeatValuesOptionsTree.getProperty("repeatValuesAreAllowedFor_" + paramID);
+}
+
+const bool RandomizationOptions::repeatValuesAreNotAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType != RandomizationOptionsType::none);
+	auto paramID(info.IDfor(paramIndex).toString());
+	return (bool)repeatValuesOptionsTree.getProperty("repeatValuesAreNotAllowedFor_" + paramID);
+}
+
+void RandomizationOptions::setRepeatValuesAreAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType != RandomizationOptionsType::none);
+	auto paramID(info.IDfor(paramIndex).toString());
+	repeatValuesOptionsTree.setProperty("repeatValuesAreAllowedFor_" + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty("repeatValuesAreNotAllowedFor_" + paramID, (bool)false, nullptr);
+}
+
+void RandomizationOptions::setRepeatValuesAreNotAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType != RandomizationOptionsType::none);
+	auto paramID(info.IDfor(paramIndex).toString());
+	repeatValuesOptionsTree.setProperty("repeatValuesAreAllowedFor_" + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty("repeatValuesAreNotAllowedFor_" + paramID, (bool)true, nullptr);
+}
+
 void RandomizationOptions::addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener) {
 	seqTrackOptionsTree.addListener(listener);
 }
@@ -986,6 +1027,12 @@ XmlElement* RandomizationOptions::getStateXml() {
 		randomizationOptionsStateXml->addChildElement(lpfFreqOptionsTreeStateXml.release());
 	}
 
+	auto repeatValuesOptionsTreeStateXml{ repeatValuesOptionsTree.createXml() };
+	if (repeatValuesOptionsTreeStateXml != nullptr) {
+		repeatValuesOptionsTreeStateXml->setTagName(ID::randomization_RepeatValuesOptions);
+		randomizationOptionsStateXml->addChildElement(repeatValuesOptionsTreeStateXml.release());
+	}
+
 	auto seqTrackOptionsTreeStateXml{ seqTrackOptionsTree.createXml() };
 	if (seqTrackOptionsTreeStateXml != nullptr) {
 		seqTrackOptionsTreeStateXml->setTagName(ID::randomization_SeqTrackOptions);
@@ -1028,6 +1075,10 @@ void RandomizationOptions::replaceState(const ValueTree& newState) {
 		auto lpfFreqOptionsTreeState{ newState.getChildWithName(ID::randomization_LPFfreqOptions) };
 		if (lpfFreqOptionsTreeState.isValid())
 			lpfFreqOptionsTree.copyPropertiesAndChildrenFrom(lpfFreqOptionsTreeState, nullptr);
+
+		auto repeatValuesOptionsTreeState{ newState.getChildWithName(ID::randomization_RepeatValuesOptions) };
+		if (repeatValuesOptionsTreeState.isValid())
+			repeatValuesOptionsTree.copyPropertiesAndChildrenFrom(repeatValuesOptionsTreeState, nullptr);
 
 		auto seqTrackOptionsTreeState{ newState.getChildWithName(ID::randomization_SeqTrackOptions) };
 		if (seqTrackOptionsTreeState.isValid())

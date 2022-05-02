@@ -833,10 +833,14 @@
             compile="0" resource="1" file="Resources/Randomization-Options-Osc-Shape-Background.png"/>
       <FILE id="e5p8yH" name="Randomization-Options-Pitch-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
-      <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
-            compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
       <FILE id="zORxyS" name="Randomization-Options-Seq-Steps-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Background.png"/>
+      <FILE id="mo7CNF" name="Randomization-Options-Toggles-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-Toggles-Background.png"/>
+      <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
+      <FILE id="LtY5AY" name="Randomization-Repeat-Values-Toggles-Background.png"
+            compile="0" resource="1" file="Resources/Randomization-Repeat-Values-Toggles-Background.png"/>
       <FILE id="CTHgcT" name="Randomization-Window-Background.png" compile="0"
             resource="1" file="Resources/Randomization-Window-Background.png"/>
       <FILE id="QLrFUi" name="Title-Pulling-Entire-Bank.png" compile="0"

@@ -103,6 +103,7 @@ namespace ID
 	static const Identifier component_ToggleButton_AllowOscShape_SawTri_For_{ "component_ToggleButton_AllowOscShape_SawTri(3)_For_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Tri_For_{ "component_ToggleButton_AllowOscShape_Tri(2)_For_" };
 	static const Identifier component_ToggleButton_AllowPitchedFreqFor_{ "component_ToggleButton_AllowPitchedFreqFor_" };
+	static const Identifier component_ToggleButton_AllowRepeatValuesFor_{ "component_ToggleButton_AllowRepeatValuesFor_" };
 	static const Identifier component_ToggleButton_AllowSyncedFreqFor_{ "component_ToggleButton_AllowSyncedFreqFor_" };
 	static const Identifier component_ToggleButton_AllowUnsyncedFreqFor_{ "component_ToggleButton_AllowUnsyncedFreqFor_" };
 	static const Identifier component_ToggleButton_EditAllStepsModeForTrack{ "component_ToggleButton_EditAllStepsModeForTrack" };
@@ -217,6 +218,7 @@ namespace ID
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
 	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
+	static const Identifier randomization_RepeatValuesOptions{ "randomization_RepeatValuesOptions" };
 	static const Identifier randomization_SeqTrackOptions{ "randomization_SeqTrackOptions" };
 	static const Identifier randomization_TransmissionOptions{ "randomization_TransmissionOptions" };
 

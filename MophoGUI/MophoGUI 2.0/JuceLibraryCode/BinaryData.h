@@ -234,34 +234,40 @@ namespace BinaryData
     const int            OverwriteConfirmationBackground_pngSize = 2827;
 
     extern const char*   ProbabilityControlsForTrack1_png;
-    const int            ProbabilityControlsForTrack1_pngSize = 1032;
+    const int            ProbabilityControlsForTrack1_pngSize = 1487;
 
     extern const char*   ProbabilityControlsForTracks2_3_4_png;
-    const int            ProbabilityControlsForTracks2_3_4_pngSize = 807;
+    const int            ProbabilityControlsForTracks2_3_4_pngSize = 1268;
 
     extern const char*   ProgramBanksTabBackground_png;
     const int            ProgramBanksTabBackground_pngSize = 4287;
 
     extern const char*   RandomizationOptionsLFOfreqBackground_png;
-    const int            RandomizationOptionsLFOfreqBackground_pngSize = 10734;
+    const int            RandomizationOptionsLFOfreqBackground_pngSize = 10833;
 
     extern const char*   RandomizationOptionsLPFfreqBackground_png;
-    const int            RandomizationOptionsLPFfreqBackground_pngSize = 8094;
+    const int            RandomizationOptionsLPFfreqBackground_pngSize = 8045;
 
     extern const char*   RandomizationOptionsOscShapeBackground_png;
-    const int            RandomizationOptionsOscShapeBackground_pngSize = 5955;
+    const int            RandomizationOptionsOscShapeBackground_pngSize = 5952;
 
     extern const char*   RandomizationOptionsPitchBackground_png;
-    const int            RandomizationOptionsPitchBackground_pngSize = 5490;
-
-    extern const char*   RandomizationOptionsValueRangeBackground_png;
-    const int            RandomizationOptionsValueRangeBackground_pngSize = 2027;
+    const int            RandomizationOptionsPitchBackground_pngSize = 5485;
 
     extern const char*   RandomizationOptionsSeqStepsBackground_png;
-    const int            RandomizationOptionsSeqStepsBackground_pngSize = 10672;
+    const int            RandomizationOptionsSeqStepsBackground_pngSize = 10677;
+
+    extern const char*   RandomizationOptionsTogglesBackground_png;
+    const int            RandomizationOptionsTogglesBackground_pngSize = 233;
+
+    extern const char*   RandomizationOptionsValueRangeBackground_png;
+    const int            RandomizationOptionsValueRangeBackground_pngSize = 2073;
+
+    extern const char*   RandomizationRepeatValuesTogglesBackground_png;
+    const int            RandomizationRepeatValuesTogglesBackground_pngSize = 530;
 
     extern const char*   RandomizationWindowBackground_png;
-    const int            RandomizationWindowBackground_pngSize = 15562;
+    const int            RandomizationWindowBackground_pngSize = 15332;
 
     extern const char*   TitlePullingEntireBank_png;
     const int            TitlePullingEntireBank_pngSize = 2094;
@@ -282,7 +288,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 91;
+    const int namedResourceListSize = 93;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

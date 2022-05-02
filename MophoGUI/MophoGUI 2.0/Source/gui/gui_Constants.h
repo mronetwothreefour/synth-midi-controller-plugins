@@ -282,6 +282,10 @@ namespace constants
 		static const int randomizationOptionsComponent_Pitch_w{ 181 };
 		static const int randomizationOptionsComponent_Pitch_CloseButton_x{ 65 };
 		static const int randomizationOptionsComponent_Pitch_CloseButton_y{ 267 };
+		static const int randomizationOptionsComponent_Toggle_CloseButton_x{ 27 };
+		static const int randomizationOptionsComponent_Toggle_CloseButton_y{ 39 };
+		static const int randomizationOptionsComponent_Toggle_RepeatValues_x{ 16 };
+		static const int randomizationOptionsComponent_Toggle_RepeatValues_y{ 17 };
 		static const int randomizationOptionsComponent_ValueRange_h{ 138 };
 		static const int randomizationOptionsComponent_ValueRange_w{ 135 };
 		static const int randomizationOptionsComponent_ValueRange_CloseButton_x{ 43 };
@@ -289,6 +293,8 @@ namespace constants
 		static const int randomizationOptionsComponent_ValueRange_Knobs_y{ 40 };
 		static const int randomizationOptionsComponent_ValueRange_MinKnob_x{ 17 };
 		static const int randomizationOptionsComponent_ValueRange_MaxKnob_x{ 78 };
+		static const int randomizationRepeatValuesComponents_h{ 14 };
+		static const int randomizationRepeatValuesComponents_w{ 70 };
 		static const int randomizationSeqTrackOptionsComponentsRow1_y{ 260 };
 		static const int randomizationSeqTrackOptionsComponentsRow2_y{ 362 };
 		static const int randomizationSeqTrackOptionsBackground_x{ 288 };

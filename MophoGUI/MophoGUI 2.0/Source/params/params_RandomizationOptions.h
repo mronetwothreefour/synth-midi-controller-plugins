@@ -14,7 +14,8 @@ enum class RandomizationOptionsType {
 	comboBoxes,
 	lpfFreq,
 	lfoFreq,
-	sequencerTrackStep
+	sequencerTrackStep,
+	toggles
 };
 
 
@@ -29,6 +30,7 @@ class RandomizationOptions
 	ValueTree allowedComboBoxItemsTree;
 	ValueTree allowedFrequencyTypesTree;
 	ValueTree lpfFreqOptionsTree;
+	ValueTree repeatValuesOptionsTree;
 	ValueTree seqTrackOptionsTree;
 
 public:
@@ -106,6 +108,11 @@ public:
 	void setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex);
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
+
+	const bool repeatValuesAreAllowedForParam(uint8 paramIndex);
+	const bool repeatValuesAreNotAllowedForParam(uint8 paramIndex);
+	void setRepeatValuesAreAllowedForParam(uint8 paramIndex);
+	void setRepeatValuesAreNotAllowedForParam(uint8 paramIndex);
 
 	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);

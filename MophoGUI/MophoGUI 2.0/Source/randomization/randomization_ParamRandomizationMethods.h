@@ -12,7 +12,9 @@ enum class LFOfreqCategory {
 	synced
 };
 
-class RandomizationOptions;
+
+
+
 class UnexposedParameters;
 
 class ParamRandomizationMethods :

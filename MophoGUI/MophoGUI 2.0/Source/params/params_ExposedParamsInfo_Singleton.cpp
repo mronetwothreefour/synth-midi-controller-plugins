@@ -103,7 +103,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
-		randomizationOptionsTypes.add(RandomizationOptionsType::none);
+		randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 		identifiers.add(i == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel); // 5 & 11
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
@@ -137,7 +137,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, 22));
-	randomizationOptionsTypes.add(RandomizationOptionsType::none);
+	randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 	//======================================================
 
@@ -344,7 +344,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, GUI::lpfControlsRow1_y));
-	randomizationOptionsTypes.add(RandomizationOptionsType::none);
+	randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 	identifiers.add(ID::lpfEnvAmount); // 25
 	exposedNames.add("LPF Envelope Amount");
@@ -692,7 +692,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
 		controlCenterPoints.add(Point<int>(507 + lfoNum * GUI::lfoControlsHorizontalSpacing, GUI::lfoControlsRow1_y));
-		randomizationOptionsTypes.add(RandomizationOptionsType::none);
+		randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 	}
 
 	//======================================================
@@ -842,7 +842,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, GUI::env3ControlsRow1_y));
-	randomizationOptionsTypes.add(RandomizationOptionsType::none);
+	randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 	//======================================================
 
@@ -1162,7 +1162,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(GUI::controlsCol9_x, GUI::oscControlsRow2_y));
-	randomizationOptionsTypes.add(RandomizationOptionsType::none);
+	randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 	identifiers.add(ID::sequencerTrigMode); // 99
 	exposedNames.add("Sequencer Trigger Mode");
@@ -1201,7 +1201,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	controlWidths.add(GUI::toggle_diameter);
 	controlHeights.add(GUI::toggle_diameter);
 	controlCenterPoints.add(Point<int>(819, 126));
-	randomizationOptionsTypes.add(RandomizationOptionsType::none);
+	randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 
 	identifiers.add(ID::seqTrack1Dest);
 	exposedNames.add("Sequencer Track 1 Destination");
