@@ -17,7 +17,8 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 	knob_ForMinValue{ unexposedParams },
 	valueDisplay_ForMinValue{ &knob_ForMinValue, InfoForExposedParameters::get().converterFor(paramIndex) },
 	knob_ForMaxValue{ unexposedParams },
-	valueDisplay_ForMaxValue{ &knob_ForMaxValue, InfoForExposedParameters::get().converterFor(paramIndex) }
+	valueDisplay_ForMaxValue{ &knob_ForMaxValue, InfoForExposedParameters::get().converterFor(paramIndex) },
+	repeatValues{ paramIndex, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -61,6 +62,8 @@ RandomizationOptionsComponent_ValueRange::RandomizationOptionsComponent_ValueRan
 	addAndMakeVisible(valueDisplay_ForMaxValue);
 	valueDisplay_ForMaxValue.setInterceptsMouseClicks(false, false);
 
+	addAndMakeVisible(repeatValues);
+
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
@@ -98,6 +101,7 @@ void RandomizationOptionsComponent_ValueRange::resized() {
 	valueDisplay_ForMinValue.setBounds(knob_ForMinValue.getBounds());
 	knob_ForMaxValue.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_MaxKnob_x, background_y + GUI::randomizationOptionsComponent_ValueRange_Knobs_y, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMaxValue.setBounds(knob_ForMaxValue.getBounds());
+	repeatValues.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_RepeatValues_x, background_y + GUI::randomizationOptionsComponent_ValueRange_RepeatValues_y, GUI::randomizationRepeatValuesComponents_w, GUI::randomizationRepeatValuesComponents_h);
 	button_ForClosingComponent.setBounds(background_x + GUI::randomizationOptionsComponent_ValueRange_CloseButton_x, background_y + GUI::randomizationOptionsComponent_ValueRange_CloseButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 
@@ -125,6 +129,10 @@ void RandomizationOptionsComponent_ValueRange::sliderValueChanged(Slider* slider
 			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 		}
 	}
+	if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex))
+		repeatValues.disableToggle();
+	else
+		repeatValues.restoreToggle();
 }
 
 void RandomizationOptionsComponent_ValueRange::hideThisComponent() {

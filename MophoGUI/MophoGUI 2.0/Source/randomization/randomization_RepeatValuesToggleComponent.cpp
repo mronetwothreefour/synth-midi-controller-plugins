@@ -79,7 +79,7 @@ void RepeatValuesToggleComponent::disableToggle() {
 
 void RepeatValuesToggleComponent::restoreToggle() {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto repeatValuesAreAllowed{ toggle_AllowRepeatValues.getToggleState() };
+	auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
 	toggle_AllowRepeatValues.setToggleState(repeatValuesAreAllowed, dontSendNotification);
 	toggle_AllowRepeatValues.setEnabled(true);
 }

@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "randomization_RepeatValuesToggleComponent.h"
 #include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
 #include "../widgets_Slider/widget_ModifiedJuceSliders.h"
 
@@ -19,6 +20,7 @@ class RandomizationOptionsComponent_ValueRange :
 	RendererForKnobValueStrings valueDisplay_ForMinValue;
 	RotarySliderWithMouseWheelMod knob_ForMaxValue;
 	RendererForKnobValueStrings valueDisplay_ForMaxValue;
+	RepeatValuesToggleComponent repeatValues;
 	TextButton button_ForClosingComponent;
 	int background_x;
 	int background_y;

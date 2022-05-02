@@ -267,6 +267,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack.cpp"/>
         <FILE id="PwCsTd" name="randomization_OptionsComponent_SeqTrack.h"
               compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack.h"/>
+        <FILE id="NGbAgk" name="randomization_OptionsComponent_Toggles.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_Toggles.cpp"/>
+        <FILE id="TLQbpO" name="randomization_OptionsComponent_Toggles.h" compile="0"
+              resource="0" file="Source/randomization/randomization_OptionsComponent_Toggles.h"/>
         <FILE id="e5Q6dE" name="randomization_OptionsComponent_ValueRange.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.cpp"/>
         <FILE id="GTauAU" name="randomization_OptionsComponent_ValueRange.h"
@@ -285,6 +289,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_ProbabilitiesComponentForSeqTrack.cpp"/>
         <FILE id="L0B6IM" name="randomization_ProbabilitiesComponentForSeqTrack.h"
               compile="0" resource="0" file="Source/randomization/randomization_ProbabilitiesComponentForSeqTrack.h"/>
+        <FILE id="DReOlV" name="randomization_RepeatValuesToggleComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponent.cpp"/>
+        <FILE id="B45aPa" name="randomization_RepeatValuesToggleComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponent.h"/>
         <FILE id="TzD18V" name="randomization_SeqTrackEditModeComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.cpp"/>
         <FILE id="PPDcsM" name="randomization_SeqTrackEditModeComponent.h"
