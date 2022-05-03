@@ -476,6 +476,31 @@ void RandomizationOptions::setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 p
 	allowedOscShapesTree.setProperty("maxPulseWidthAllowedFor_" + paramID, newMax, nullptr);
 }
 
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForOscShapeParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	Array<uint8> allowedShapes;
+	for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape) {
+		if (oscShapeIsAllowedForParam(shape, paramIndex))
+			allowedShapes.add((uint8)shape);
+	}
+	if (allowedShapes.size() == 1) {
+		if (allowedShapes[0] != (int)OscWaveShape::pulse)
+			setValueIsOnlyOneAllowedForParam(allowedShapes[0], paramIndex);
+		else {
+			auto minPulseWidth{ minPulseWidthAllowedForParam(paramIndex) };
+			auto maxPulseWidth{ maxPulseWidthAllowedForParam(paramIndex) };
+			if (minPulseWidth == maxPulseWidth)
+				setValueIsOnlyOneAllowedForParam(allowedShapes[0] + minPulseWidth, paramIndex);
+			else
+				setMoreThanOneValueIsAllowedForParam(paramIndex);
+		}
+	}
+	else
+		setMoreThanOneValueIsAllowedForParam(paramIndex);
+}
+
 const bool RandomizationOptions::comboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };

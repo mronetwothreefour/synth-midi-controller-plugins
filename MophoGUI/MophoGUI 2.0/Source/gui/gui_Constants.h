@@ -269,11 +269,13 @@ namespace constants
 		static const int randomizationOptionsComponent_LPFfreq_ValueRangeComponent_x{ 144 };
 		static const int randomizationOptionsComponent_LPFfreq_ValueRangeComponent_y{ 249 };
 		static const int randomizationOptionsComponent_LPFfreq_ValueRangeModeToggle_x{ 105 };
-		static const int randomizationOptionsComponent_OscShape_CloseButton_x{ 65 };
-		static const int randomizationOptionsComponent_OscShape_CloseButton_y{ 264 };
+		static const int randomizationOptionsComponent_OscShape_CloseButton_x{ 115 };
+		static const int randomizationOptionsComponent_OscShape_CloseButton_y{ 263 };
 		static const int randomizationOptionsComponent_OscShape_Knobs_y{ 204 };
 		static const int randomizationOptionsComponent_OscShape_MinKnob_x{ 40 };
 		static const int randomizationOptionsComponent_OscShape_MaxKnob_x{ 100 };
+		static const int randomizationOptionsComponent_OscShape_RepeatValues_x{ 17 };
+		static const int randomizationOptionsComponent_OscShape_RepeatValues_y{ 267 };
 		static const int randomizationOptionsComponent_Pitch_AllowedNotes_x{ 17 };
 		static const int randomizationOptionsComponent_Pitch_AllowedNotes_y{ 52 };
 		static const int randomizationOptionsComponent_Pitch_AllowedOctaves_x{ 28 };

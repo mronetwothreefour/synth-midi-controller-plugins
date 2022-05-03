@@ -75,6 +75,7 @@ public:
 	void setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex);
 	const uint8 maxPulseWidthAllowedForParam(uint8 paramIndex);
 	void setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex);
+	void checkIfOnlyOneValueIsAllowedForOscShapeParam(uint8 paramIndex);
 
 	const bool comboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex);
 	void setComboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex);

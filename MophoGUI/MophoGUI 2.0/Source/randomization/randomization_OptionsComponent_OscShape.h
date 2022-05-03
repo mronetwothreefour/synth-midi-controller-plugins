@@ -5,6 +5,7 @@
 #include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
 #include "../guiRenderers/guiRenderer_ForKnobWaveShapes.h"
 #include "../widgets_Slider/widget_ModifiedJuceSliders.h"
+#include "randomization_RepeatValuesToggleComponent.h"
 
 
 
@@ -27,6 +28,7 @@ class RandomizationOptionsComponent_OscShape :
 	RendererForKnobValueStrings valueDisplay_ForMinWidth;
 	RotarySliderWithMouseWheelMod knob_ForMaxWidth;
 	RendererForKnobValueStrings valueDisplay_ForMaxWidth;
+	RepeatValuesToggleComponent repeatValues;
 	TextButton button_ForClosingComponent;
 	int background_x;
 	int background_y;

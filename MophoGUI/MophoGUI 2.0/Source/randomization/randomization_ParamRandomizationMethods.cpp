@@ -227,25 +227,62 @@ uint8 ParamRandomizationMethods::pickRandomOscShapeAndPulseWidthForParam(uint8 p
 
 uint8 ParamRandomizationMethods::pickRandomOscShapeIndexForParameter(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
 	Array<uint8> allowedShapeIndices;
-	for (auto shapeIndex = (uint8)OscWaveShape::off; shapeIndex <= (uint8)OscWaveShape::pulse; ++shapeIndex) {
-		if (randomizationOptions->oscShapeIsAllowedForParam(shapeIndex, paramIndex))
-			allowedShapeIndices.add(shapeIndex);
+	if (repeatValuesAreNotAllowed) {
+		auto& info{ InfoForExposedParameters::get() };
+		auto paramID{ info.IDfor(paramIndex) };
+		auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+		auto maxValue{ info.maxValueFor(paramIndex) };
+		auto currentShape{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
+		if (currentShape > (uint8)OscWaveShape::pulse)
+			currentShape = (uint8)OscWaveShape::pulse;
+		for (auto shapeIndex = (uint8)OscWaveShape::off; shapeIndex <= (uint8)OscWaveShape::pulse; ++shapeIndex) {
+			if (shapeIndex != currentShape) {
+				if (randomizationOptions->oscShapeIsAllowedForParam(shapeIndex, paramIndex))
+					allowedShapeIndices.add(shapeIndex);
+			}
+		}
+	}
+	else {
+		for (auto shapeIndex = (uint8)OscWaveShape::off; shapeIndex <= (uint8)OscWaveShape::pulse; ++shapeIndex) {
+			if (randomizationOptions->oscShapeIsAllowedForParam(shapeIndex, paramIndex))
+				allowedShapeIndices.add(shapeIndex);
+		}
 	}
 	Random rndmNumGenerator{};
 	auto newFloat{ rndmNumGenerator.nextFloat() };
 	auto numberOfShapeIndices{ allowedShapeIndices.size() };
-	auto newShapeIndex{ (int)floor(newFloat * numberOfShapeIndices) };
-	return allowedShapeIndices[newShapeIndex];
+	if (numberOfShapeIndices == 0)
+		return (uint8)OscWaveShape::pulse;
+	else {
+		auto newShapeIndex{ (int)floor(newFloat * numberOfShapeIndices) };
+		return allowedShapeIndices[newShapeIndex];
+	}
 }
 
 uint8 ParamRandomizationMethods::pickRandomPulseWidthForParam(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	Array<uint8> allowedWidths;
 	auto minWidthAllowed{ randomizationOptions->minPulseWidthAllowedForParam(paramIndex) };
 	auto maxWidthAllowed{ randomizationOptions->maxPulseWidthAllowedForParam(paramIndex) };
-	for (auto width = minWidthAllowed; width <= maxWidthAllowed; ++width)
-		allowedWidths.add(width);
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	auto currentShape{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
+	Array<uint8> allowedWidths;
+	if (repeatValuesAreNotAllowed && currentShape >= (uint8)OscWaveShape::pulse) {
+		auto currentWidth{ uint8(currentShape - (uint8)OscWaveShape::pulse) };
+		for (auto width = minWidthAllowed; width <= maxWidthAllowed; ++width) {
+			if (width != currentWidth)
+				allowedWidths.add(width);
+		}
+	}
+	else {
+		for (auto width = minWidthAllowed; width <= maxWidthAllowed; ++width)
+			allowedWidths.add(width);
+	}
 	Random rndmNumGenerator{};
 	auto newFloat{ rndmNumGenerator.nextFloat() };
 	auto numberOfWidthOptions{ allowedWidths.size() };

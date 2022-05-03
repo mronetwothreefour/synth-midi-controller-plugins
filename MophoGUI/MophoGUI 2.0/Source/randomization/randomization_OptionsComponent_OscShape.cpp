@@ -17,7 +17,8 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 	knob_ForMinWidth{ unexposedParams },
 	valueDisplay_ForMinWidth{ &knob_ForMinWidth, IntToPlainValueString::get() },
 	knob_ForMaxWidth{ unexposedParams },
-	valueDisplay_ForMaxWidth{ &knob_ForMaxWidth, IntToPlainValueString::get() }
+	valueDisplay_ForMaxWidth{ &knob_ForMaxWidth, IntToPlainValueString::get() },
+	repeatValues{ paramIndex, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::oscShape);
@@ -133,6 +134,8 @@ RandomizationOptionsComponent_OscShape::RandomizationOptionsComponent_OscShape(u
 	addAndMakeVisible(valueDisplay_ForMaxWidth);
 	valueDisplay_ForMaxWidth.setInterceptsMouseClicks(false, false);
 
+	addAndMakeVisible(repeatValues);
+
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
@@ -173,6 +176,8 @@ void RandomizationOptionsComponent_OscShape::resized() {
 	knob_ForMaxWidth.setBounds( background_x + GUI::randomizationOptionsComponent_OscShape_MaxKnob_x, background_y + GUI::randomizationOptionsComponent_OscShape_Knobs_y, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMaxWidth.setBounds(knob_ForMaxWidth.getBounds());
 
+	repeatValues.setBounds(background_x + GUI::randomizationOptionsComponent_OscShape_RepeatValues_x, background_y + GUI::randomizationOptionsComponent_OscShape_RepeatValues_y, GUI::randomizationRepeatValuesComponents_w, GUI::randomizationRepeatValuesComponents_h);
+
 	button_ForClosingComponent.setBounds(background_x + GUI::randomizationOptionsComponent_OscShape_CloseButton_x, background_y + GUI::randomizationOptionsComponent_OscShape_CloseButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 
@@ -204,6 +209,7 @@ void RandomizationOptionsComponent_OscShape::buttonClicked(Button* button) {
 				}
 			}
 		}
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForOscShapeParam(paramIndex);
 	}
 	if (buttonID == ID::button_AllShapesFor_.toString() + paramID) {
 		toggle_ForAllowingOff.setToggleState(true, dontSendNotification);
@@ -246,6 +252,7 @@ void RandomizationOptionsComponent_OscShape::sliderValueChanged(Slider* slider) 
 			randomizationOptions->setMinPulseWidthAllowedForParam(newMaxWidth, paramIndex);
 		}
 	}
+	randomizationOptions->checkIfOnlyOneValueIsAllowedForOscShapeParam(paramIndex);
 }
 
 void RandomizationOptionsComponent_OscShape::hideThisComponent() {
