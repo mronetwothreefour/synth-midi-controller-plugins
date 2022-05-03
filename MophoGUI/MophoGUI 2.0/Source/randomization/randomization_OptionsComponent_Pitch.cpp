@@ -14,10 +14,12 @@ RandomizationOptionsComponent_Pitch::RandomizationOptionsComponent_Pitch(uint8 p
 	paramIndex{ paramIndex },
 	unexposedParams{ unexposedParams },
 	allowedNotes{ paramIndex, unexposedParams },
-	allowedOctaves{ paramIndex, unexposedParams }
+	allowedOctaves{ paramIndex, unexposedParams },
+	repeatValues{ paramIndex, unexposedParams }
 {
 	addAndMakeVisible(allowedNotes);
 	addAndMakeVisible(allowedOctaves);
+	addAndMakeVisible(repeatValues);
 
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -56,6 +58,7 @@ void RandomizationOptionsComponent_Pitch::paint(Graphics& g) {
 void RandomizationOptionsComponent_Pitch::resized() {
 	allowedNotes.setBounds(background_x + GUI::randomizationOptionsComponent_Pitch_AllowedNotes_x, background_y + GUI::randomizationOptionsComponent_Pitch_AllowedNotes_y, GUI::randomizationAllowedNotesComponent_w, GUI::randomizationAllowedNotesComponent_h);
 	allowedOctaves.setBounds(background_x + GUI::randomizationOptionsComponent_Pitch_AllowedOctaves_x, background_y + GUI::randomizationOptionsComponent_Pitch_AllowedOctaves_y, GUI::randomizationAllowedOctavesComponent_w, GUI::randomizationAllowedOctavesComponent_h);
+	repeatValues.setBounds(background_x + GUI::randomizationOptionsComponent_Pitch_RepeatValues_x, background_y + GUI::randomizationOptionsComponent_Pitch_RepeatValues_y, GUI::randomizationRepeatValuesComponents_w, GUI::randomizationRepeatValuesComponents_h);
 	button_ForClosingComponent.setBounds(background_x + GUI::randomizationOptionsComponent_Pitch_CloseButton_x, background_y + GUI::randomizationOptionsComponent_Pitch_CloseButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 

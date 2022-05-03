@@ -95,6 +95,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			else
 				setRepeatValuesAreNotAllowedForParam(param);
 		}
+		setMoreThanOneValueIsAllowedForParam(param);
 	}
 	for (auto trackNum = 1; trackNum != 5; ++trackNum) {
 		setEditModeForSeqTrackToAllSteps(trackNum);
@@ -274,6 +275,21 @@ const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 para
 	auto noteIsAllowed{ noteIsAllowedForParam(pitchNum % numberOfNotes, paramIndex) };
 	auto octaveIsAllowed{ octaveIsAllowedForParam(pitchNum / numberOfNotes, paramIndex) };
 	return noteIsAllowed && octaveIsAllowed;
+}
+
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForPitchParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::pitch);
+	Array<uint8> allowedPitches;
+	for (auto pitchNum = (uint8)0; pitchNum != randomization::numberOfPitchesForOscillators; ++pitchNum) {
+		if (pitchIsAllowedForParam(pitchNum, paramIndex))
+			allowedPitches.add(pitchNum);
+	}
+	if (allowedPitches.size() == 1)
+		setValueIsOnlyOneAllowedForParam(allowedPitches[0], paramIndex);
+	else
+		setMoreThanOneValueIsAllowedForParam(paramIndex);
 }
 
 const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {
@@ -711,6 +727,14 @@ const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 		return true;
 }
 
+void RandomizationOptions::addListenerToRepeatValuesOptionsTree(ValueTree::Listener* listener) {
+	repeatValuesOptionsTree.addListener(listener);
+}
+
+void RandomizationOptions::removeListenerFromRepeatValuesOptionsTree(ValueTree::Listener* listener) {
+	repeatValuesOptionsTree.removeListener(listener);
+}
+
 const bool RandomizationOptions::repeatValuesAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
@@ -743,6 +767,35 @@ void RandomizationOptions::setRepeatValuesAreNotAllowedForParam(uint8 paramIndex
 	auto paramID(info.IDfor(paramIndex).toString());
 	repeatValuesOptionsTree.setProperty("repeatValuesAreAllowedFor_" + paramID, (bool)false, nullptr);
 	repeatValuesOptionsTree.setProperty("repeatValuesAreNotAllowedFor_" + paramID, (bool)true, nullptr);
+}
+
+const bool RandomizationOptions::onlyOneValueIsAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID(info.IDfor(paramIndex).toString());
+	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID);
+}
+
+const uint8 RandomizationOptions::onlyAllowedValueForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID(info.IDfor(paramIndex).toString());
+	auto onlyAllowedValue{ (int)repeatValuesOptionsTree.getProperty("onlyValueAllowedFor_" + paramID) };
+	return (uint8)onlyAllowedValue;
+}
+
+void RandomizationOptions::setValueIsOnlyOneAllowedForParam(uint8 val, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID(info.IDfor(paramIndex).toString());
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty("onlyValueAllowedFor_" + paramID, val, nullptr);
+}
+
+void RandomizationOptions::setMoreThanOneValueIsAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID(info.IDfor(paramIndex).toString());
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty("onlyValueAllowedFor_" + paramID, (uint8)255, nullptr);
 }
 
 void RandomizationOptions::addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener) {

@@ -129,10 +129,11 @@ void RandomizationOptionsComponent_ValueRange::sliderValueChanged(Slider* slider
 			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 		}
 	}
-	if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex))
-		repeatValues.disableToggle();
+	if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex)) {
+		randomizationOptions->setValueIsOnlyOneAllowedForParam(randomizationOptions->minValueAllowedForParam(paramIndex), paramIndex);
+	}
 	else
-		repeatValues.restoreToggle();
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
 }
 
 void RandomizationOptionsComponent_ValueRange::hideThisComponent() {

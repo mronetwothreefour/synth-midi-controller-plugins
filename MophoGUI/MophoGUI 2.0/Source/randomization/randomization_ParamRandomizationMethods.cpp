@@ -101,6 +101,10 @@ void ParamRandomizationMethods::randomizeParameter(String paramID) {
 
 uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+	if (onlyOneValueIsAllowed)
+		return randomizationOptions->onlyAllowedValueForParam(paramIndex);
 	auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	switch (randomizationOptionsType)
 	{
@@ -129,6 +133,19 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 		return pickRandomLFOfreqForParam(paramIndex);
 	case RandomizationOptionsType::sequencerTrackStep:
 		return pickRandomSeqStepValueForParam(paramIndex);
+	case RandomizationOptionsType::toggles: {
+		auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+		if (repeatValuesAreNotAllowed) {
+			auto paramID{ info.IDfor(paramIndex).toString() };
+			auto currentValue{ roundToInt(exposedParams->getParameter(paramID)->getValue()) };
+			return uint8(1.0f - currentValue);
+		}
+		else {
+			Random rndmNumGenerator{};
+			auto newValue{ (int)floor(rndmNumGenerator.nextFloat() * 2) };
+			return (uint8)newValue;
+		}
+	}
 	default:
 		return (uint8)255;
 	}
@@ -138,11 +155,26 @@ uint8 ParamRandomizationMethods::pickRandomPitchForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto maxPitch{ uint8(info.maxValueFor(paramIndex)) };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
 	Array<uint8> allowedPitches;
-	for (uint8 pitch = 0; pitch <= maxPitch; ++pitch) {
-		auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex) };
-		if (pitchIsAllowed)
-			allowedPitches.add(pitch);
+	if (repeatValuesAreNotAllowed) {
+		auto paramID{ info.IDfor(paramIndex) };
+		auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+		auto currentPitch{ (uint8)roundToInt(maxPitch * currentNormalizedValue) };
+		for (uint8 pitch = 0; pitch <= maxPitch; ++pitch) {
+			if (pitch != currentPitch) {
+				auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex) };
+				if (pitchIsAllowed)
+					allowedPitches.add(pitch);
+			}
+		}
+	}
+	else {
+		for (uint8 pitch = 0; pitch <= maxPitch; ++pitch) {
+			auto pitchIsAllowed{ randomizationOptions->pitchIsAllowedForParam(pitch, paramIndex) };
+			if (pitchIsAllowed)
+				allowedPitches.add(pitch);
+		}
 	}
 	auto numberOfAllowedPitches{ allowedPitches.size() };
 	if (numberOfAllowedPitches == 0) {
@@ -156,12 +188,26 @@ uint8 ParamRandomizationMethods::pickRandomPitchForParam(uint8 paramIndex) {
 }
 
 uint8 ParamRandomizationMethods::pickRandomValueFromRangeForParam(uint8 paramIndex) {
-	Array<uint8> allowedValues;
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto minValueAllowed{ randomizationOptions->minValueAllowedForParam(paramIndex) };
 	auto maxValueAllowed{ randomizationOptions->maxValueAllowedForParam(paramIndex) };
-	for (auto val = minValueAllowed; val <= maxValueAllowed; ++val)
-		allowedValues.add(val);
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+	Array<uint8> allowedValues;
+	if (repeatValuesAreNotAllowed) {
+		auto& info{ InfoForExposedParameters::get() };
+		auto paramID{ info.IDfor(paramIndex) };
+		auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+		auto maxValue{ info.maxValueFor(paramIndex) };
+		auto currentValue{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
+		for (auto val = minValueAllowed; val <= maxValueAllowed; ++val) {
+			if (val != currentValue)
+				allowedValues.add(val);
+		}
+	}
+	else {
+		for (auto val = minValueAllowed; val <= maxValueAllowed; ++val)
+			allowedValues.add(val);
+	}
 	Random rndmNumGenerator{};
 	auto newFloat{ rndmNumGenerator.nextFloat() };
 	auto numberOfValueOptions{ allowedValues.size() };

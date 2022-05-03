@@ -4,6 +4,7 @@
 
 #include "randomization_AllowedNotesComponent.h"
 #include "randomization_AllowedOctavesComponent.h"
+#include "randomization_RepeatValuesToggleComponent.h"
 
 
 
@@ -16,6 +17,7 @@ class RandomizationOptionsComponent_Pitch :
 	UnexposedParameters* unexposedParams;
 	AllowedNotesComponent allowedNotes;
 	AllowedOctavesComponent allowedOctaves;
+	RepeatValuesToggleComponent repeatValues;
 	TextButton button_ForClosingComponent;
 	int background_x;
 	int background_y;

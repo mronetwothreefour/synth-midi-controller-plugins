@@ -149,6 +149,19 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setNoteIsAllowedForParam(clickedNoteNum, paramIndex);
 		}
+		auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+		switch (optionsType)
+		{
+		case RandomizationOptionsType::pitch:
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForPitchParam(paramIndex);
+			break;
+		case RandomizationOptionsType::lpfFreq:
+			break;
+		case RandomizationOptionsType::lfoFreq:
+			break;
+		default:
+			break;
+		}
 	}
 	if (buttonID == ID::button_AllNotesFor_.toString() + paramID) {
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {

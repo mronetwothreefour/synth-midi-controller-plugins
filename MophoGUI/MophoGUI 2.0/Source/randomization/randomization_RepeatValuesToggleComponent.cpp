@@ -17,6 +17,7 @@ RepeatValuesToggleComponent::RepeatValuesToggleComponent(uint8 paramIndex, Unexp
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType != RandomizationOptionsType::none);
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->addListenerToRepeatValuesOptionsTree(this);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	toggle_AllowRepeatValues.setComponentID(ID::component_ToggleButton_AllowRepeatValuesFor_.toString() + paramID);
 	auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
@@ -34,8 +35,8 @@ RepeatValuesToggleComponent::RepeatValuesToggleComponent(uint8 paramIndex, Unexp
 		knobTooltip += "will never produce the same value. ";
 		if (optionsType != RandomizationOptionsType::toggles) {
 			knobTooltip += "Obviously,\n";
-			knobTooltip += "if there is only one allowed value then\n";
-			knobTooltip += "repeat values must also be allowed.";
+			knobTooltip += "if there is only one allowed value then repeat\n";
+			knobTooltip += "values must also be allowed.";
 		}
 		else {
 			knobTooltip += "In effect,\n";
@@ -72,18 +73,26 @@ void RepeatValuesToggleComponent::buttonClicked(Button* button) {
 	}
 }
 
-void RepeatValuesToggleComponent::disableToggle() {
-	toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
-	toggle_AllowRepeatValues.setEnabled(false);
-}
-
-void RepeatValuesToggleComponent::restoreToggle() {
-	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-	auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
-	toggle_AllowRepeatValues.setToggleState(repeatValuesAreAllowed, dontSendNotification);
-	toggle_AllowRepeatValues.setEnabled(true);
+void RepeatValuesToggleComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	if (propertyID.toString() == ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID) {
+		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+		if (onlyOneValueIsAllowed) {
+			toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
+			toggle_AllowRepeatValues.setEnabled(false);
+		}
+		else {
+			auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
+			toggle_AllowRepeatValues.setToggleState(repeatValuesAreAllowed, dontSendNotification);
+			toggle_AllowRepeatValues.setEnabled(true);
+		}
+	}
 }
 
 RepeatValuesToggleComponent::~RepeatValuesToggleComponent() {
 	toggle_AllowRepeatValues.removeListener(this);
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->removeListenerFromRepeatValuesOptionsTree(this);
 }

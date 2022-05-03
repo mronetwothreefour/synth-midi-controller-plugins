@@ -8,7 +8,8 @@ class UnexposedParameters;
 
 class RepeatValuesToggleComponent :
 	public Component,
-	public Button::Listener
+	public Button::Listener,
+	public ValueTree::Listener
 {
 	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
@@ -21,8 +22,7 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
-	void disableToggle();
-	void restoreToggle();
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~RepeatValuesToggleComponent();
 
 private:

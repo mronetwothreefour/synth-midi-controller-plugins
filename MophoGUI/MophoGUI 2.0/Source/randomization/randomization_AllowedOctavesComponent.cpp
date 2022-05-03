@@ -108,6 +108,7 @@ void AllowedOctavesComponent::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 		}
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForPitchParam(paramIndex);
 	}
 	if (buttonID == ID::button_AllOctavesFor_.toString() + paramID) {
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum) {

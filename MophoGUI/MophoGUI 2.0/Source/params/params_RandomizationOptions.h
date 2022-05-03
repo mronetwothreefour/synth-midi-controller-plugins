@@ -59,6 +59,7 @@ public:
 	void setOctaveIsNotAllowedForParam(int octaveNum, uint8 paramIndex);
 	const bool noOctaveIsAllowedForParam(uint8 paramIndex);
 	const bool pitchIsAllowedForParam(int pitchNum, uint8 paramIndex);
+	void checkIfOnlyOneValueIsAllowedForPitchParam(uint8 paramIndex);
 
 	const uint8 minValueAllowedForParam(uint8 paramIndex);
 	void setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex);
@@ -109,10 +110,16 @@ public:
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
 
+	void addListenerToRepeatValuesOptionsTree(ValueTree::Listener* listener);
+	void removeListenerFromRepeatValuesOptionsTree(ValueTree::Listener* listener);
 	const bool repeatValuesAreAllowedForParam(uint8 paramIndex);
 	const bool repeatValuesAreNotAllowedForParam(uint8 paramIndex);
 	void setRepeatValuesAreAllowedForParam(uint8 paramIndex);
 	void setRepeatValuesAreNotAllowedForParam(uint8 paramIndex);
+	const bool onlyOneValueIsAllowedForParam(uint8 paramIndex);
+	const uint8 onlyAllowedValueForParam(uint8 paramIndex);
+	void setValueIsOnlyOneAllowedForParam(uint8 val, uint8 paramIndex);
+	void setMoreThanOneValueIsAllowedForParam(uint8 paramIndex);
 
 	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);
