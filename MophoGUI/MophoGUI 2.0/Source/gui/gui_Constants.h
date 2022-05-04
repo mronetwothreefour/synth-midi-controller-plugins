@@ -258,6 +258,8 @@ namespace constants
 		static const int randomizationOptionsComponent_LFOfreq_AllowUnsyncedToggle_y{ randomizationOptionsComponent_LFOfreq_AllowSyncedToggle_y };
 		static const int randomizationOptionsComponent_LFOfreq_CloseButton_x{ 326 };
 		static const int randomizationOptionsComponent_LFOfreq_CloseButton_y{ 17 };
+		static const int randomizationOptionsComponent_LFOfreq_RepeatValues_x{ 162 };
+		static const int randomizationOptionsComponent_LFOfreq_RepeatValues_y{ 324 };
 		static const int randomizationOptionsComponent_LPFfreq_AllowedNotesComponent_x{ 257 };
 		static const int randomizationOptionsComponent_LPFfreq_AllowedNotesComponent_y{ 283 };
 		static const int randomizationOptionsComponent_LPFfreq_AllowedOctavesComponent_x{ 423 };

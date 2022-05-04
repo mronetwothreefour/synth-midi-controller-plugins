@@ -6,6 +6,7 @@
 #include "randomization_AllowedOctavesComponentForLFOfreq.h"
 #include "randomization_AllowedSyncedFreqComponent.h"
 #include "randomization_AllowedUnsyncedFreqComponent.h"
+#include "randomization_RepeatValuesToggleComponent.h"
 
 
 
@@ -24,6 +25,7 @@ class RandomizationOptionsComponent_LFOfreq :
 	AllowedUnsyncedFreqComponent allowedUnsyncedFreq;
 	ToggleButton toggle_ForAllowingSyncedFreq;
 	AllowedSyncedFreqComponent allowedSyncedFreq;
+	RepeatValuesToggleComponent repeatValues;
 	TextButton button_ForClosingComponent;
 	int background_x;
 	int background_y;

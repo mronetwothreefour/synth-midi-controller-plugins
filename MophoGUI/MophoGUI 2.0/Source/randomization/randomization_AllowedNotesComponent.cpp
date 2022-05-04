@@ -158,6 +158,7 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 		case RandomizationOptionsType::lpfFreq:
 			break;
 		case RandomizationOptionsType::lfoFreq:
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 			break;
 		default:
 			break;

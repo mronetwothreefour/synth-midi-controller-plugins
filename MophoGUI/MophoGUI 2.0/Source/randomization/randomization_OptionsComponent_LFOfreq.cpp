@@ -16,7 +16,8 @@ RandomizationOptionsComponent_LFOfreq::RandomizationOptionsComponent_LFOfreq(uin
 	allowedNotes{ paramIndex, unexposedParams },
 	allowedOctaves{ paramIndex, unexposedParams },
 	allowedSyncedFreq{ paramIndex, unexposedParams },
-	allowedUnsyncedFreq{ paramIndex, unexposedParams }
+	allowedUnsyncedFreq{ paramIndex, unexposedParams },
+	repeatValues{ paramIndex, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::lfoFreq);
@@ -85,6 +86,8 @@ RandomizationOptionsComponent_LFOfreq::RandomizationOptionsComponent_LFOfreq(uin
 		allowedSyncedFreq.setEnabled(false);
 	}
 
+	addAndMakeVisible(repeatValues);
+
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_ForClosingComponent.onClick = [this] { hideThisComponent(); };
@@ -119,6 +122,7 @@ void RandomizationOptionsComponent_LFOfreq::resized() {
 	allowedOctaves.setBounds(background_x + GUI::randomizationOptionsComponent_LFOfreq_AllowedOctaves_x, background_y + GUI::randomizationOptionsComponent_LFOfreq_AllowedOctaves_y, GUI::randomizationAllowedOctavesComponent_w, GUI::randomizationAllowedOctavesComponent_h);
 	allowedUnsyncedFreq.setBounds(background_x + GUI::randomizationOptionsComponent_LFOfreq_AllowedUnsynced_x, background_y + GUI::randomizationOptionsComponent_LFOfreq_AllowedUnsynced_y, GUI::randomizationAllowedUnsyncedFreqComponent_w, GUI::randomizationAllowedUnsyncedFreqComponent_h);
 	allowedSyncedFreq.setBounds(background_x + GUI::randomizationOptionsComponent_LFOfreq_AllowedSynced_x, background_y + GUI::randomizationOptionsComponent_LFOfreq_AllowedSynced_y, GUI::randomizationAllowedSyncedFreqComponent_w, GUI::randomizationAllowedSyncedFreqComponent_h);
+	repeatValues.setBounds(background_x + GUI::randomizationOptionsComponent_LFOfreq_RepeatValues_x, background_y + GUI::randomizationOptionsComponent_LFOfreq_RepeatValues_y, GUI::randomizationRepeatValuesComponents_w, GUI::randomizationRepeatValuesComponents_h);
 	button_ForClosingComponent.setBounds(background_x + GUI::randomizationOptionsComponent_LFOfreq_CloseButton_x, background_y + GUI::randomizationOptionsComponent_LFOfreq_CloseButton_y, GUI::secondaryWindowsControls_w, GUI::secondaryWindowsControls_h);
 }
 
@@ -187,6 +191,7 @@ void RandomizationOptionsComponent_LFOfreq::buttonClicked(Button* button) {
 			}
 		}
 	}
+	randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 }
 
 void RandomizationOptionsComponent_LFOfreq::hideThisComponent() {

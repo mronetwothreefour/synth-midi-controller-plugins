@@ -93,6 +93,7 @@ public:
 	const bool pitchedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setPitchedFreqAreAllowedForParam(uint8 paramIndex);
 	void setPitchedFreqAreNotAllowedForParam(uint8 paramIndex);
+	const bool moreThanOnePitchedFreqIsAllowedForParam(uint8 paramIndex);
 	const bool unsyncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool unsyncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setUnsyncedFreqAreAllowedForParam(uint8 paramIndex);
@@ -101,6 +102,7 @@ public:
 	void setMinUnsyncedFreqForParam(uint8 newMin, uint8 paramIndex);
 	const uint8 maxUnsyncedFreqForParam(uint8 paramIndex);
 	void setMaxUnsyncedFreqForParam(uint8 newMax, uint8 paramIndex);
+	const bool moreThanOneUnsyncedFreqIsAllowedForParam(uint8 paramIndex);
 	const bool syncedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool syncedFreqAreNotAllowedForParam(uint8 paramIndex);
 	void setSyncedFreqAreAllowedForParam(uint8 paramIndex);
@@ -109,7 +111,9 @@ public:
 	void setSyncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex);
 	void setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex);
 	const bool noSyncedFreqAreAllowedForParam(uint8 paramIndex);
+	const bool moreThanOneSyncedFreqIsAllowedForParam(uint8 paramIndex);
 	const bool noFreqAreAllowedForParam(uint8 paramIndex);
+	void checkIfOnlyOneValueIsAllowedForLFOfreqParam(uint8 paramIndex);
 
 	void addListenerToRepeatValuesOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromRepeatValuesOptionsTree(ValueTree::Listener* listener);

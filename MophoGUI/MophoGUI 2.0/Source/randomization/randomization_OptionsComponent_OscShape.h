@@ -2,10 +2,10 @@
 
 #include <JuceHeader.h>
 
+#include "randomization_RepeatValuesToggleComponent.h"
 #include "../guiRenderers/guiRenderer_ForKnobValueStrings.h"
 #include "../guiRenderers/guiRenderer_ForKnobWaveShapes.h"
 #include "../widgets_Slider/widget_ModifiedJuceSliders.h"
-#include "randomization_RepeatValuesToggleComponent.h"
 
 
 

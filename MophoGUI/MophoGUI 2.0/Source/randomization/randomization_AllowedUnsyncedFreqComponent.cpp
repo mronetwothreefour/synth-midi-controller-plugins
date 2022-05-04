@@ -98,6 +98,7 @@ void AllowedUnsyncedFreqComponent::sliderValueChanged(Slider* slider) {
 			randomizationOptions->setMinUnsyncedFreqForParam(newMaxFreq, paramIndex);
 		}
 	}
+	randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 }
 
 AllowedUnsyncedFreqComponent::~AllowedUnsyncedFreqComponent() {

@@ -124,6 +124,7 @@ void AllowedSyncedFreqComponent::buttonClicked(Button* button) {
 		}
 		else
 			button->setToggleState(false, dontSendNotification);
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 	}
 	if (buttonID == ID::button_AllSyncedFreqFor_.toString() + paramID) {
 		if (syncedFreqAreAllowed) {

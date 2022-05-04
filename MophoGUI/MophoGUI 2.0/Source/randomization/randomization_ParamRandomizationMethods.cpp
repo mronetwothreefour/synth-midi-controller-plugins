@@ -335,13 +335,43 @@ uint8 ParamRandomizationMethods::pickRandomLFOfreqForParam(uint8 paramIndex) {
 
 LFOfreqCategory ParamRandomizationMethods::pickRandomFreqCategoryForParam(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
 	Array<LFOfreqCategory> allowedFreqCategories;
-	if (randomizationOptions->unsyncedFreqAreAllowedForParam(paramIndex))
-		allowedFreqCategories.add(LFOfreqCategory::unsynced);
-	if (randomizationOptions->pitchedFreqAreAllowedForParam(paramIndex))
-		allowedFreqCategories.add(LFOfreqCategory::pitched);
-	if (randomizationOptions->syncedFreqAreAllowedForParam(paramIndex))
-		allowedFreqCategories.add(LFOfreqCategory::synced);
+	if (repeatValuesAreNotAllowed) {
+		auto& info{ InfoForExposedParameters::get() };
+		auto paramID{ info.IDfor(paramIndex) };
+		auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+		auto maxValue{ info.maxValueFor(paramIndex) };
+		auto currentValue{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
+		auto currentCategory{ LFOfreqCategory::unsynced };
+		if (currentValue >= params::firstPitchedLFOfreq && currentValue < params::firstSyncedLFOfreq)
+			currentCategory = LFOfreqCategory::pitched;
+		if (currentValue >= params::firstSyncedLFOfreq)
+			currentCategory = LFOfreqCategory::synced;
+		if (randomizationOptions->unsyncedFreqAreAllowedForParam(paramIndex)) {
+			if (currentCategory != LFOfreqCategory::unsynced ||
+				(currentCategory == LFOfreqCategory::unsynced && randomizationOptions->moreThanOneUnsyncedFreqIsAllowedForParam(paramIndex)))
+				allowedFreqCategories.add(LFOfreqCategory::unsynced);
+		}
+		if (randomizationOptions->pitchedFreqAreAllowedForParam(paramIndex)) {
+			if (currentCategory != LFOfreqCategory::pitched ||
+				(currentCategory == LFOfreqCategory::pitched && randomizationOptions->moreThanOnePitchedFreqIsAllowedForParam(paramIndex)))
+				allowedFreqCategories.add(LFOfreqCategory::pitched);
+		}
+		if (randomizationOptions->syncedFreqAreAllowedForParam(paramIndex)) {
+			if (currentCategory != LFOfreqCategory::synced ||
+				(currentCategory == LFOfreqCategory::synced && randomizationOptions->moreThanOneSyncedFreqIsAllowedForParam(paramIndex)))
+				allowedFreqCategories.add(LFOfreqCategory::synced);
+		}
+	}
+	else {
+		if (randomizationOptions->unsyncedFreqAreAllowedForParam(paramIndex))
+			allowedFreqCategories.add(LFOfreqCategory::unsynced);
+		if (randomizationOptions->pitchedFreqAreAllowedForParam(paramIndex))
+			allowedFreqCategories.add(LFOfreqCategory::pitched);
+		if (randomizationOptions->syncedFreqAreAllowedForParam(paramIndex))
+			allowedFreqCategories.add(LFOfreqCategory::synced);
+	}
 	auto numberOfAllowedCategories{ allowedFreqCategories.size() };
 	Random rndmNumGeneratorForCategory{};
 	auto newCategoryFloat{ rndmNumGeneratorForCategory.nextFloat() };
@@ -353,9 +383,23 @@ uint8 ParamRandomizationMethods::pickRandomUnsyncedLFOfreqForParam(uint8 paramIn
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto minUnsyncedFreq{ randomizationOptions->minUnsyncedFreqForParam(paramIndex) };
 	auto maxUnsyncedFreq{ randomizationOptions->maxUnsyncedFreqForParam(paramIndex) };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	auto currentFreq{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
 	Array<uint8> allowedUnsyncedFreq;
-	for (uint8 freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq)
-		allowedUnsyncedFreq.add(freq);
+	if (repeatValuesAreNotAllowed && currentFreq >= minUnsyncedFreq && currentFreq <= maxUnsyncedFreq) {
+		for (uint8 freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq) {
+			if (freq != currentFreq)
+				allowedUnsyncedFreq.add(freq);
+		}
+	}
+	else {
+		for (uint8 freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq)
+			allowedUnsyncedFreq.add(freq);
+	}
 	auto numberOfAllowedFreq{ allowedUnsyncedFreq.size() };
 	Random rndmNumGenerator{};
 	auto newFloat{ rndmNumGenerator.nextFloat() };
@@ -365,11 +409,27 @@ uint8 ParamRandomizationMethods::pickRandomUnsyncedLFOfreqForParam(uint8 paramIn
 
 uint8 ParamRandomizationMethods::pickRandomPitchedLFOfreqForParam(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	auto currentFreq{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
 	Array<uint8> allowedPitchedFreq;
-	for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLFOs; ++freq) {
-		auto pitchedFreqIsAllowed{ randomizationOptions->pitchIsAllowedForParam(freq, paramIndex) };
-		if (pitchedFreqIsAllowed)
-			allowedPitchedFreq.add(freq);
+	if (repeatValuesAreNotAllowed && currentFreq >= params::firstPitchedLFOfreq && currentFreq < params::firstSyncedLFOfreq) {
+		auto currentPitchedFreq{ uint8(currentFreq - params::firstPitchedLFOfreq) };
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLFOs; ++freq) {
+			auto pitchedFreqIsAllowed{ randomizationOptions->pitchIsAllowedForParam(freq, paramIndex) };
+			if (pitchedFreqIsAllowed && freq != currentPitchedFreq)
+				allowedPitchedFreq.add(freq);
+		}
+	}
+	else {
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLFOs; ++freq) {
+			auto pitchedFreqIsAllowed{ randomizationOptions->pitchIsAllowedForParam(freq, paramIndex) };
+			if (pitchedFreqIsAllowed)
+				allowedPitchedFreq.add(freq);
+		}
 	}
 	auto numberOfAllowedPitchedFreq{ allowedPitchedFreq.size() };
 	auto newPitchedFreq{ (uint8)0 };
@@ -387,7 +447,21 @@ uint8 ParamRandomizationMethods::pickRandomPitchedLFOfreqForParam(uint8 paramInd
 
 uint8 ParamRandomizationMethods::pickRandomSyncedLFOfreqForParam(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto currentNormalizedValue{ exposedParams->getParameter(paramID)->getValue() };
+	auto maxValue{ info.maxValueFor(paramIndex) };
+	auto currentFreq{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
 	Array<uint8> allowedSyncedFreq;
+	if (repeatValuesAreNotAllowed && currentFreq >= params::firstSyncedLFOfreq) {
+		auto currentSyncedFreq{ uint8(currentFreq - params::firstSyncedLFOfreq) };
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfSyncedFreqForLFOs; ++freq) {
+			auto syncedFreqIsAllowed{ randomizationOptions->syncedFreqIsAllowedForParam(freq, paramIndex) };
+			if (syncedFreqIsAllowed && freq != currentSyncedFreq)
+				allowedSyncedFreq.add(freq);
+		}
+	}
 	for (uint8 freq = 0; freq != (uint8)randomization::numberOfSyncedFreqForLFOs; ++freq) {
 		auto syncedFreqIsAllowed{ randomizationOptions->syncedFreqIsAllowedForParam(freq, paramIndex) };
 		if (syncedFreqIsAllowed)

@@ -111,6 +111,7 @@ void AllowedOctavesComponentForLFOfreq::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 		}
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 	}
 	if (buttonID == ID::button_AllOctavesFor_.toString() + paramID) {
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {

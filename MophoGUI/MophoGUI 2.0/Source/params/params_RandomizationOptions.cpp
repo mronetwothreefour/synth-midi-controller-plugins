@@ -601,6 +601,20 @@ void RandomizationOptions::setPitchedFreqAreNotAllowedForParam(uint8 paramIndex)
 	allowedFrequencyTypesTree.setProperty("pitchedFreqAreNotAllowedFor_" + paramID, (bool)true, nullptr);
 }
 
+const bool RandomizationOptions::moreThanOnePitchedFreqIsAllowedForParam(uint8 paramIndex) {
+	auto atLeastOnePitchedFreqIsAllowed{ (bool)false };
+	auto onlyOnePitchedFreqIsAllowed{ (bool)false };
+	auto moreThanOnePitchedFreqIsAllowed{ (bool)true };
+	for (uint8 freq = 0; freq != randomization::numberOfPitchedFreqForLFOs; ++freq) {
+		if (pitchIsAllowedForParam(freq, paramIndex)) {
+			if (atLeastOnePitchedFreqIsAllowed)
+				return moreThanOnePitchedFreqIsAllowed;
+			else atLeastOnePitchedFreqIsAllowed = true;
+		}
+	}
+	return onlyOnePitchedFreqIsAllowed;
+}
+
 const bool RandomizationOptions::unsyncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
@@ -669,6 +683,17 @@ void RandomizationOptions::setMaxUnsyncedFreqForParam(uint8 newMax, uint8 paramI
 	jassert(newMax <= params::maxUnsyncedLFOfreq);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("maxUnsyncedFreqFor_" + paramID, newMax, nullptr);
+}
+
+const bool RandomizationOptions::moreThanOneUnsyncedFreqIsAllowedForParam(uint8 paramIndex) {
+	auto onlyOneUnsyncedFreqIsAllowed{ (bool)false };
+	auto moreThanOneUnsyncedFreqIsAllowed{ (bool)true };
+	auto minUnsyncedFreq{ minUnsyncedFreqForParam(paramIndex) };
+	auto maxUnsyncedFreq{ maxUnsyncedFreqForParam(paramIndex) };
+	if (minUnsyncedFreq == maxUnsyncedFreq)
+		return onlyOneUnsyncedFreqIsAllowed;
+	else
+		return moreThanOneUnsyncedFreqIsAllowed;
 }
 
 const bool RandomizationOptions::syncedFreqAreAllowedForParam(uint8 paramIndex) {
@@ -742,6 +767,20 @@ const bool RandomizationOptions::noSyncedFreqAreAllowedForParam(uint8 paramIndex
 	return noSyncedFreqIsAllowed;
 }
 
+const bool RandomizationOptions::moreThanOneSyncedFreqIsAllowedForParam(uint8 paramIndex) {
+	auto atLeastOneSyncedFreqIsAllowed{ (bool)false };
+	auto onlyOneSyncedFreqIsAllowed{ (bool)false };
+	auto moreThanOneSyncedFreqIsAllowed{ (bool)true };
+	for (uint8 freq = 0; freq != randomization::numberOfSyncedFreqForLFOs; ++freq) {
+		if (syncedFreqIsAllowedForParam(freq, paramIndex)) {
+			if (atLeastOneSyncedFreqIsAllowed)
+				return moreThanOneSyncedFreqIsAllowed;
+			else atLeastOneSyncedFreqIsAllowed = true;
+		}
+	}
+	return onlyOneSyncedFreqIsAllowed;
+}
+
 const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
@@ -750,6 +789,55 @@ const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 		return false;
 	else
 		return true;
+}
+
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForLFOfreqParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	Array<uint8> allowedFrequencies;
+	if (unsyncedFreqAreAllowedForParam(paramIndex)) {
+		auto minUnsyncedFreq{ minUnsyncedFreqForParam(paramIndex) };
+		auto maxUnsyncedFreq{ maxUnsyncedFreqForParam(paramIndex) };
+		for (auto freq = minUnsyncedFreq; freq <= maxUnsyncedFreq; ++freq)
+			allowedFrequencies.add(freq);
+		if (allowedFrequencies.size() > 1) {
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+			return;
+		}
+	}
+	if (pitchedFreqAreAllowedForParam(paramIndex)) {
+		if (allowedFrequencies.size() > 0) {
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+			return;
+		}
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLFOs; ++freq) {
+			if (pitchIsAllowedForParam(freq, paramIndex)) {
+				auto freqWithOffset{ uint8(freq + params::firstPitchedLFOfreq) };
+				allowedFrequencies.add(freqWithOffset);
+			}
+		}
+		if (allowedFrequencies.size() > 1) {
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+			return;
+		}
+	}
+	if (syncedFreqAreAllowedForParam(paramIndex)) {
+		if (allowedFrequencies.size() > 0) {
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+			return;
+		}
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfSyncedFreqForLFOs; ++freq) {
+			if (syncedFreqIsAllowedForParam(freq, paramIndex)) {
+				auto freqWithOffset{ uint8(freq + params::firstSyncedLFOfreq) };
+				allowedFrequencies.add(freqWithOffset);
+			}
+		}
+	}
+	if (allowedFrequencies.size() == 1)
+		setValueIsOnlyOneAllowedForParam(allowedFrequencies[0], paramIndex);
+	else
+		setMoreThanOneValueIsAllowedForParam(paramIndex);
 }
 
 void RandomizationOptions::addListenerToRepeatValuesOptionsTree(ValueTree::Listener* listener) {

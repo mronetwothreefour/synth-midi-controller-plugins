@@ -20,8 +20,15 @@ RepeatValuesToggleComponent::RepeatValuesToggleComponent(uint8 paramIndex, Unexp
 	randomizationOptions->addListenerToRepeatValuesOptionsTree(this);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	toggle_AllowRepeatValues.setComponentID(ID::component_ToggleButton_AllowRepeatValuesFor_.toString() + paramID);
-	auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
-	toggle_AllowRepeatValues.setToggleState(repeatValuesAreAllowed, dontSendNotification);
+	auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+	if (onlyOneValueIsAllowed) {
+		toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
+		toggle_AllowRepeatValues.setEnabled(false);
+	}
+	else {
+		auto repeatValuesAreAllowed{ randomizationOptions->repeatValuesAreAllowedForParam(paramIndex) };
+		toggle_AllowRepeatValues.setToggleState(repeatValuesAreAllowed, dontSendNotification);
+	}
 	toggle_AllowRepeatValues.addListener(this);
 	addAndMakeVisible(toggle_AllowRepeatValues);
 	toggle_AllowRepeatValues.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
