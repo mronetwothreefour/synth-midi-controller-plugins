@@ -216,6 +216,7 @@ namespace ID
 	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" };
 	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
 	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
+	static const Identifier randomization_HighestOctaveIsOnlyOneAllowedFor_{ "randomization_HighestOctaveIsOnlyOneAllowedFor_" };
 	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
 	static const Identifier randomization_MoreThanOneValueIsAllowedFor_{ "randomization_MoreThanOneValueIsAllowedFor_" };
 	static const Identifier randomization_OnlyOneValueIsAllowedFor_{ "randomization_OnlyOneValueIsAllowedFor_" };

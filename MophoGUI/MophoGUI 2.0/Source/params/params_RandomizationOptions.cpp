@@ -151,6 +151,14 @@ void RandomizationOptions::setParamIsUnlocked(uint8 param) {
 	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)false, nullptr);
 }
 
+void RandomizationOptions::addListenerToAllowedPitchesTree(ValueTree::Listener* listener) {
+	allowedPitchesTree.addListener(listener);
+}
+
+void RandomizationOptions::removeListenerFromAllowedPitchesTree(ValueTree::Listener* listener) {
+	allowedPitchesTree.removeListener(listener);
+}
+
 const bool RandomizationOptions::noteIsAllowedForParam(int noteNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
@@ -290,6 +298,63 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForPitchParam(uint8 param
 		setValueIsOnlyOneAllowedForParam(allowedPitches[0], paramIndex);
 	else
 		setMoreThanOneValueIsAllowedForParam(paramIndex);
+}
+
+void RandomizationOptions::checkIfHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::pitch ||
+		optionsType == RandomizationOptionsType::lpfFreq ||
+		optionsType == RandomizationOptionsType::lfoFreq ||
+		optionsType == RandomizationOptionsType::sequencerTrackStep);
+	int numberOfOctaves{ randomization::numberOfOctaves };
+	if (optionsType == RandomizationOptionsType::lpfFreq)
+		numberOfOctaves = randomization::numberOfOctavesForLPFfreq;
+	if (optionsType == RandomizationOptionsType::lfoFreq || optionsType == RandomizationOptionsType::sequencerTrackStep)
+		numberOfOctaves = randomization::numberOfOctavesForLFOfreqAndSeqSteps;
+	Array<int> allowedOctaves;
+	for (auto octaveNum = 0; octaveNum != numberOfOctaves; ++octaveNum) {
+		if (octaveIsAllowedForParam(octaveNum, paramIndex))
+			allowedOctaves.add(octaveNum);
+	}
+	if (allowedOctaves.size() == 1 && allowedOctaves[0] == (numberOfOctaves - 1))
+		setHighestOctaveIsOnlyOneAllowedForParam(paramIndex);
+	else
+		setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
+}
+
+const bool RandomizationOptions::highestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::pitch ||
+		optionsType == RandomizationOptionsType::lpfFreq ||
+		optionsType == RandomizationOptionsType::lfoFreq ||
+		optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto highestOctaveIsOnlyOneAllowed{ (bool)allowedPitchesTree.getProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID)};
+	return highestOctaveIsOnlyOneAllowed;
+}
+
+void RandomizationOptions::setHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::pitch ||
+		optionsType == RandomizationOptionsType::lpfFreq ||
+		optionsType == RandomizationOptionsType::lfoFreq ||
+		optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID, (bool)true, nullptr);
+}
+
+void RandomizationOptions::setHighestOctaveIsNotOnlyOneAllowedForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::pitch ||
+		optionsType == RandomizationOptionsType::lpfFreq ||
+		optionsType == RandomizationOptionsType::lfoFreq ||
+		optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
 
 const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {

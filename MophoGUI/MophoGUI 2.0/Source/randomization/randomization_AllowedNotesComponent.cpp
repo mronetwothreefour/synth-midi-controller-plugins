@@ -17,8 +17,10 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 	jassert(optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lpfFreq || optionsType == RandomizationOptionsType::lfoFreq);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->addListenerToAllowedPitchesTree(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto highestOctaveIsOnlyOneAllowed{ randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex) };
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		auto toggleID{ ID::component_ToggleButton.toString() + "For_" + paramID + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);
@@ -27,6 +29,11 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 		allowedNoteToggles[noteNum].addListener(this);
 		addAndMakeVisible(allowedNoteToggles[noteNum]);
 		allowedNoteToggles[noteNum].setSize(GUI::toggle_diameter, GUI::toggle_diameter);
+		if (highestOctaveIsOnlyOneAllowed) {
+			if (optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lfoFreq)
+				if (noteNum > randomization::highestNoteNumAllowedForHighestOctave_PitchAndLFOfreq)
+					allowedNoteToggles[noteNum].setEnabled(false);
+		}
 		auto noteName{ IntToPitchName::convert((uint8)noteNum).upToFirstOccurrenceOf(" ", false, false) };
 		if (shouldShowDescriptions) {
 			String toggleTooltip{ "" };
@@ -169,6 +176,35 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
 		}
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+	}
+}
+
+void AllowedNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	if (propertyID.toString() == ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID) {
+		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+		auto highestOctaveIsOnlyOneAllowed{ randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex) };
+		auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+		int highestAllowedNote{ 0 };
+		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
+			if (highestOctaveIsOnlyOneAllowed) {
+				if (noteNum <= highestAllowedNote) {
+					randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
+					allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+					allowedNoteToggles[noteNum].setEnabled(true);
+				}
+				else {
+					randomizationOptions->setNoteIsNotAllowedForParam(noteNum, paramIndex);
+					allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+					allowedNoteToggles[noteNum].setEnabled(false);
+				}
+			}
+			else
+				allowedNoteToggles[noteNum].setEnabled(true);
+		}
+		button_ForAllowingAllNotes.setEnabled(highestOctaveIsOnlyOneAllowed ? false : true);
 	}
 }
 
@@ -176,4 +212,6 @@ AllowedNotesComponent::~AllowedNotesComponent() {
 	button_ForAllowingAllNotes.removeListener(this);
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum)
 		allowedNoteToggles[noteNum].removeListener(this);
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->removeListenerFromAllowedPitchesTree(this);
 }

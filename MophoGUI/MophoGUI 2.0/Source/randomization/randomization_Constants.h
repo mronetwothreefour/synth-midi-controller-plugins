@@ -6,6 +6,7 @@ namespace constants
 {
 	namespace randomization
 	{
+		static const int highestNoteNumAllowedForHighestOctave_PitchAndLFOfreq{ 0 };
 		static const int numberOfNotes{ 12 };
 		static const int numberOfNotesAndBentNotes{ 24 };
 		static const int numberOfOctaves{ 11 };

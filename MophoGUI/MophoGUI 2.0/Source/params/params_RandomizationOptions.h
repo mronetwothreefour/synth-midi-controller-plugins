@@ -50,6 +50,8 @@ public:
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
 
+	void addListenerToAllowedPitchesTree(ValueTree::Listener* listener);
+	void removeListenerFromAllowedPitchesTree(ValueTree::Listener* listener);
 	const bool noteIsAllowedForParam(int noteNum, uint8 paramIndex);
 	void setNoteIsAllowedForParam(int noteNum, uint8 paramIndex);
 	void setNoteIsNotAllowedForParam(int noteNum, uint8 paramIndex);
@@ -60,6 +62,11 @@ public:
 	const bool noOctaveIsAllowedForParam(uint8 paramIndex);
 	const bool pitchIsAllowedForParam(int pitchNum, uint8 paramIndex);
 	void checkIfOnlyOneValueIsAllowedForPitchParam(uint8 paramIndex);
+	void checkIfHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex);
+	const bool highestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex);
+	void setHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex);
+	void setHighestOctaveIsNotOnlyOneAllowedForParam(uint8 paramIndex);
+
 
 	const uint8 minValueAllowedForParam(uint8 paramIndex);
 	void setMinValueAllowedForParam(uint8 newMin, uint8 paramIndex);

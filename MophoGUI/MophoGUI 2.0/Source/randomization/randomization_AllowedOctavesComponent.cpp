@@ -41,9 +41,8 @@ AllowedOctavesComponent::AllowedOctavesComponent(uint8 paramIndex, UnexposedPara
 			toggleTooltip += "will make notes in octave " + (String)octaveNum + " the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed octave.\n";
 			if (octaveNum == 10) {
-				toggleTooltip += "Note: C is the only note in octave 10. If only\n";
-				toggleTooltip += "octave 10 is allowed, a pitch of C 10 will always\n";
-				toggleTooltip += "be produced, regardless of the allowed note settings.";
+				toggleTooltip += "Note: C is the only note in octave 10. If only octave 10\n";
+				toggleTooltip += "is allowed, a pitch of C 10 will always be produced.";
 			}
 			allowedOctaveToggles[octaveNum].setTooltip(toggleTooltip);
 		}
@@ -108,6 +107,7 @@ void AllowedOctavesComponent::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 		}
+		randomizationOptions->checkIfHighestOctaveIsOnlyOneAllowedForParam(paramIndex);
 		randomizationOptions->checkIfOnlyOneValueIsAllowedForPitchParam(paramIndex);
 	}
 	if (buttonID == ID::button_AllOctavesFor_.toString() + paramID) {
@@ -115,6 +115,8 @@ void AllowedOctavesComponent::buttonClicked(Button* button) {
 			allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 		}
+		randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
 	}
 }
 

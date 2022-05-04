@@ -12,7 +12,8 @@ class UnexposedParameters;
 
 class AllowedNotesComponent :
 	public Component,
-	public Button::Listener
+	public Button::Listener,
+	public ValueTree::Listener
 {
 	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
@@ -27,6 +28,7 @@ public:
 	void turnOffAllToggles();
 	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
+	void valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) override;
 	~AllowedNotesComponent();
 
 private:
