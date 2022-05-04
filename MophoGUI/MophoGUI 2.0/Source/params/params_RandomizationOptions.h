@@ -95,6 +95,7 @@ public:
 	const bool randomizationModeForLPFfreqIsValueRange();
 	void setRandomizationModeForLPFfreqToPitches();
 	void setRandomizationModeForLPFfreqToValueRange();
+	void checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 
 	const bool pitchedFreqAreAllowedForParam(uint8 paramIndex);
 	const bool pitchedFreqAreNotAllowedForParam(uint8 paramIndex);

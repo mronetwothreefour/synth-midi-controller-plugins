@@ -5,6 +5,7 @@
 #include "randomization_AllowedNotesComponent.h"
 #include "randomization_AllowedOctavesComponentForLPFfreq.h"
 #include "randomization_ValueRangeComponentForLPFfreq.h"
+#include "randomization_RepeatValuesToggleComponent.h"
 
 
 
@@ -21,6 +22,7 @@ class RandomizationOptionsComponent_LPFfreq :
 	ValueRangeComponentForLPFfreq valueRange;
 	AllowedNotesComponent allowedNotes;
 	AllowedOctavesComponentForLPFfreq allowedOctaves;
+	RepeatValuesToggleComponent repeatValues;
 	TextButton button_ForClosingComponent;
 
 public:

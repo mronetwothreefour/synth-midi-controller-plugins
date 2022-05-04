@@ -57,13 +57,13 @@ ValueRangeComponentForLPFfreq::ValueRangeComponentForLPFfreq(UnexposedParameters
 	addAndMakeVisible(valueDisplay_ForMaxValue);
 	valueDisplay_ForMaxValue.setInterceptsMouseClicks(false, false);
 
-	setSize(GUI::knob_diameter, GUI::randomizationValueRangeComponentForLPFfreq_h);
+	setSize(GUI::randomizationValueRangeComponentForLPFfreq_w, GUI::knob_diameter);
 }
 
 void ValueRangeComponentForLPFfreq::resized() {
 	knob_ForMinValue.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMinValue.setBounds(knob_ForMinValue.getBounds());
-	knob_ForMaxValue.setBounds(0, GUI::randomizationLPFOptions_VertKnobSpacing, GUI::knob_diameter, GUI::knob_diameter);
+	knob_ForMaxValue.setBounds(GUI::randomizationLPFOptions_HorizKnobSpacing, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMaxValue.setBounds(knob_ForMaxValue.getBounds());
 }
 
@@ -91,6 +91,11 @@ void ValueRangeComponentForLPFfreq::sliderValueChanged(Slider* slider) {
 			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 		}
 	}
+	if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex)) {
+		randomizationOptions->setValueIsOnlyOneAllowedForParam(randomizationOptions->minValueAllowedForParam(paramIndex), paramIndex);
+	}
+	else
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
 }
 
 ValueRangeComponentForLPFfreq::~ValueRangeComponentForLPFfreq() {

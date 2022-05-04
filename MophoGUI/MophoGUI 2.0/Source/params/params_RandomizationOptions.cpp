@@ -35,6 +35,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
+			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
 		}
 		if (optionsType == RandomizationOptionsType::valueRange) {
 			setMinValueAllowedForParam((uint8)0, param);
@@ -62,6 +63,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLPFfreq; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
+			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
 		}
 		if (optionsType == RandomizationOptionsType::lfoFreq) {
 			setUnsyncedFreqAreAllowedForParam(param);
@@ -71,6 +73,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
+			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
 			setMinUnsyncedFreqForParam((uint8)0, param);
 			setMaxUnsyncedFreqForParam(params::maxUnsyncedLFOfreq, param);
 			for (auto syncedFreqNum = 0; syncedFreqNum != randomization::numberOfSyncedFreqForLFOs; ++syncedFreqNum)
@@ -88,6 +91,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 				setOctaveIsAllowedForParam(octaveNum, param);
+			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
 		}
 		if (optionsType != RandomizationOptionsType::none) {
 			if (optionsType == RandomizationOptionsType::toggles)
@@ -630,6 +634,35 @@ void RandomizationOptions::setRandomizationModeForLPFfreqToPitches() {
 void RandomizationOptions::setRandomizationModeForLPFfreqToValueRange() {
 	lpfFreqOptionsTree.setProperty("randomizationModeIsPitches", (bool)false, nullptr);
 	lpfFreqOptionsTree.setProperty("randomizationModeIsValueRange", (bool)true, nullptr);
+}
+
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForLPFfreqParam() {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramIndex{ info.indexForParamID(ID::lpfFreq.toString()) };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::lpfFreq);
+	if (randomizationModeForLPFfreqIsValueRange()) {
+		auto minValue{ minValueAllowedForParam(paramIndex) };
+		auto maxValue{ maxValueAllowedForParam(paramIndex) };
+		if (minValue == maxValue) {
+			setValueIsOnlyOneAllowedForParam(minValue, paramIndex);
+		}
+		else
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+	}
+	if (randomizationModeForLPFfreqIsPitches()) {
+		Array<uint8> allowedFrequencies;
+		for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLPF; ++freq) {
+			if (pitchIsAllowedForParam(freq, paramIndex)) {
+				auto freqWithOffset{ uint8(freq + params::firstPitchedLFOfreq) };
+				allowedFrequencies.add(freqWithOffset);
+			}
+		}
+		if (allowedFrequencies.size() == 1)
+			setValueIsOnlyOneAllowedForParam(allowedFrequencies[0], paramIndex);
+		else
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+	}
 }
 
 const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex) {

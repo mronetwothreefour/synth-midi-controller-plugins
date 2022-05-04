@@ -15,7 +15,8 @@ RandomizationOptionsComponent_LPFfreq::RandomizationOptionsComponent_LPFfreq(Une
 	unexposedParams{ unexposedParams },
 	allowedNotes{ paramIndex, unexposedParams },
 	allowedOctaves{  unexposedParams },
-	valueRange{ unexposedParams }
+	valueRange{ unexposedParams },
+	repeatValues{ paramIndex, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString() };
@@ -35,6 +36,11 @@ RandomizationOptionsComponent_LPFfreq::RandomizationOptionsComponent_LPFfreq(Une
 	}
 	addAndMakeVisible(valueRangeModeToggle);
 
+	addAndMakeVisible(valueRange);
+	if (randomizationOptions->randomizationModeForLPFfreqIsPitches()) {
+		valueRange.setEnabled(false);
+	}
+
 	pitchesModeToggle.setComponentID(ID::component_ToggleButton_PitchesModeFor_.toString() + paramID);
 	pitchesModeToggle.addListener(this);
 	pitchesModeToggle.setToggleState(randomizationOptions->randomizationModeForLPFfreqIsPitches(), dontSendNotification);
@@ -47,11 +53,6 @@ RandomizationOptionsComponent_LPFfreq::RandomizationOptionsComponent_LPFfreq(Une
 	}
 	addAndMakeVisible(pitchesModeToggle);
 
-	addAndMakeVisible(valueRange);
-	if (randomizationOptions->randomizationModeForLPFfreqIsPitches()) {
-		valueRange.setEnabled(false);
-	}
-
 	addAndMakeVisible(allowedNotes);
 	addAndMakeVisible(allowedOctaves);
 	if (randomizationOptions->randomizationModeForLPFfreqIsValueRange()) {
@@ -60,6 +61,8 @@ RandomizationOptionsComponent_LPFfreq::RandomizationOptionsComponent_LPFfreq(Une
 		allowedOctaves.turnOffAllToggles();
 		allowedOctaves.setEnabled(false);
 	}
+
+	addAndMakeVisible(repeatValues);
 
 	button_ForClosingComponent.setComponentID(ID::button_Close.toString());
 	button_ForClosingComponent.addShortcut(KeyPress(KeyPress::escapeKey));
@@ -80,15 +83,16 @@ void RandomizationOptionsComponent_LPFfreq::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::RandomizationOptionsLPFfreqBackground_png, BinaryData::RandomizationOptionsLPFfreqBackground_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 88, 200);
+	g.drawImageAt(backgroundImage, 82, 145);
 }
 
 void RandomizationOptionsComponent_LPFfreq::resized() {
 	valueRangeModeToggle.setBounds(GUI::bounds_RandomizationValueRangeModeToggleForLPFfreq);
-	pitchesModeToggle.setBounds(GUI::bounds_RandomizationPitchesModeToggleForLPFfreq);
 	valueRange.setBounds(GUI::bounds_RandomizationValueRangeForLPFfreq);
+	pitchesModeToggle.setBounds(GUI::bounds_RandomizationPitchesModeToggleForLPFfreq);
 	allowedNotes.setBounds(GUI::bounds_RandomizationAllowedNotesForLPFfreq);
 	allowedOctaves.setBounds(GUI::bounds_RandomizationAllowedOctavesForLPFfreq);
+	repeatValues.setBounds(GUI::bounds_RandomizationLPFfreqOptionsRepeatValues);
 	button_ForClosingComponent.setBounds(GUI::bounds_RandomizationLPFfreqOptionsCloseButton);
 }
 
@@ -118,6 +122,7 @@ void RandomizationOptionsComponent_LPFfreq::buttonClicked(Button* button) {
 			allowedOctaves.setEnabled(true);
 		}
 	}
+	randomizationOptions->checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 }
 
 void RandomizationOptionsComponent_LPFfreq::hideThisComponent() {

@@ -163,6 +163,7 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 			randomizationOptions->checkIfOnlyOneValueIsAllowedForPitchParam(paramIndex);
 			break;
 		case RandomizationOptionsType::lpfFreq:
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 			break;
 		case RandomizationOptionsType::lfoFreq:
 			randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
@@ -187,7 +188,9 @@ void AllowedNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const 
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 		auto highestOctaveIsOnlyOneAllowed{ randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex) };
 		auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-		int highestAllowedNote{ 0 };
+		int highestAllowedNote{ randomization::highestNoteNumAllowedForHighestOctave_PitchAndLFOfreq };
+		if (optionsType == RandomizationOptionsType::lpfFreq)
+			highestAllowedNote = randomization::highestNoteNumAllowedForHighestOctave_LPFfreq;
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 			if (highestOctaveIsOnlyOneAllowed) {
 				if (noteNum <= highestAllowedNote) {

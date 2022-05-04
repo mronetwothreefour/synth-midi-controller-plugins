@@ -31,6 +31,9 @@ AllowedOctavesComponentForLPFfreq::AllowedOctavesComponentForLPFfreq(UnexposedPa
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make notes in octave " + (String)octaveNum + " the only ones allowed.\n";
 			toggleTooltip += "There must always be at least one allowed octave.";
+			if (octaveNum == 13) {
+				toggleTooltip += "\nNote: Only notes C through G# are available in octave 13.";
+			}
 			allowedOctaveToggles[octaveNum].setTooltip(toggleTooltip);
 		}
 	}
@@ -110,12 +113,16 @@ void AllowedOctavesComponentForLPFfreq::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(clickedOctaveNum, paramIndex);
 		}
+		randomizationOptions->checkIfHighestOctaveIsOnlyOneAllowedForParam(paramIndex);
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 	}
 	if (buttonID == ID::button_AllOctavesFor_.toString() + paramID) {
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLPFfreq; ++octaveNum) {
 			allowedOctaveToggles[octaveNum].setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 		}
+		randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
 	}
 }
 
