@@ -32,6 +32,15 @@ RandomizationOptionsComponent_SeqTrack::RandomizationOptionsComponent_SeqTrack(i
 	addAndMakeVisible(allowedNotes);
 	addAndMakeVisible(allowedOctaves);
 
+	if (randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum))
+		valueRange.setEnabled(false);
+	else {
+		allowedNotes.turnOffAllToggles();
+		allowedNotes.setEnabled(false);
+		allowedOctaves.turnOffAllToggles();
+		allowedOctaves.setEnabled(false);
+	}
+
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 

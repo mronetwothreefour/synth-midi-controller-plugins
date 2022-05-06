@@ -91,11 +91,7 @@ void ValueRangeComponentForLPFfreq::sliderValueChanged(Slider* slider) {
 			randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 		}
 	}
-	if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex)) {
-		randomizationOptions->setValueIsOnlyOneAllowedForParam(randomizationOptions->minValueAllowedForParam(paramIndex), paramIndex);
-	}
-	else
-		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+	randomizationOptions->checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 }
 
 ValueRangeComponentForLPFfreq::~ValueRangeComponentForLPFfreq() {

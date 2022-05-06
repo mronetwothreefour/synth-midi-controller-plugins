@@ -195,6 +195,10 @@ void ProbabilitiesComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 		else
 			randomizationOptions->setProbabilityOfResetForAllStepsInSeqTrack(newValue, trackNum);
 	}
+	if (editModeIsSelectedStep)
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForSeqStepParam(paramIndex);
+	else
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 }
 
 void ProbabilitiesComponentForSeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {

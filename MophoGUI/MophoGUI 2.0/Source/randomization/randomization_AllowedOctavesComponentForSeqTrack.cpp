@@ -89,6 +89,11 @@ void AllowedOctavesComponentForSeqTrack::resized() {
 	button_ForAllowingAllOctaves.setBounds(GUI::bounds_RandomizationAllowAllOctavesForLFOandSeqStepButton);
 }
 
+void AllowedOctavesComponentForSeqTrack::turnOffAllToggles() {
+	for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
+		allowedOctaveToggles[octaveNum].setToggleState(false, dontSendNotification);
+}
+
 void AllowedOctavesComponentForSeqTrack::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };

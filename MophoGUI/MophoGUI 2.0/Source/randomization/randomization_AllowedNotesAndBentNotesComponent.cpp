@@ -17,6 +17,7 @@ AllowedNotesAndBentNotesComponent::AllowedNotesAndBentNotesComponent(int trackNu
 	jassert(trackNum > 0 && trackNum < 5);
 
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->addListenerToAllowedPitchesTree(this);
 	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
 	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
@@ -48,6 +49,15 @@ AllowedNotesAndBentNotesComponent::AllowedNotesAndBentNotesComponent(int trackNu
 	addAndMakeVisible(button_ForAllowingAllBentNotes);
 
 	generateTooltips();
+
+	if (randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum)) {
+		ValueTree placeholderTree("placeholderTree");
+		if (editModeIsSelectedStep)
+			valueTreePropertyChanged(placeholderTree, ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + "seqTrack" + (String)trackNum + "Step" + (String)selectedStep);
+		else
+			valueTreePropertyChanged(placeholderTree, ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + "AllStepsInSeqTrack" + (String)trackNum);
+	}
+
 
 	setSize(GUI::randomizationAllowedNotesComponentForSeqTrack_w, GUI::randomizationAllowedNotesComponentForSeqTrack_h);
 }
@@ -126,6 +136,12 @@ void AllowedNotesAndBentNotesComponent::resized() {
 	button_ForAllowingAllBentNotes.setBounds(GUI::bounds_RandomizationAllowAllBentNotesButton);
 }
 
+void AllowedNotesAndBentNotesComponent::turnOffAllToggles() {
+	for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+		allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+	}
+}
+
 void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
@@ -177,24 +193,39 @@ void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(clickedNoteNum, trackNum);
 		}
+		if (editModeIsSelectedStep)
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForSeqStepParam(paramIndex);
+		else
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 	}
-	if (buttonID == ID::button_AllNotesFor_.toString() + "SeqTrack" + (String)trackNum) {
-		for (auto noteNum = 0; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
-			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-			if (editModeIsSelectedStep)
-				randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
-			else
-				randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+	if (buttonID.startsWith(ID::button_AllNotesFor_.toString())) {
+		auto numberOfNotes{ randomization::numberOfNotesAndBentNotes };
+		auto highestOctaveIsOnlyOneAllowed{ editModeIsSelectedStep ? randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex) :
+											randomizationOptions->highestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(trackNum) };
+		if (highestOctaveIsOnlyOneAllowed)
+			numberOfNotes = randomization::highestNoteNumAllowedForHighestOctave_SeqTrackStep + 1;
+		if (buttonID == ID::button_AllNotesFor_.toString() + "SeqTrack" + (String)trackNum) {
+			for (auto noteNum = 0; noteNum < numberOfNotes; noteNum += 2) {
+				allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+				if (editModeIsSelectedStep)
+					randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
+				else
+					randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+			}
 		}
-	}
-	if (buttonID == ID::button_AllNotesFor_.toString() + "BentNotesInSeqTrack" + (String)trackNum) {
-		for (auto noteNum = 1; noteNum < randomization::numberOfNotesAndBentNotes; noteNum += 2) {
-			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
-			if (editModeIsSelectedStep)
-				randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
-			else
-				randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+		if (buttonID == ID::button_AllNotesFor_.toString() + "BentNotesInSeqTrack" + (String)trackNum) {
+			for (auto noteNum = 1; noteNum < numberOfNotes; noteNum += 2) {
+				allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+				if (editModeIsSelectedStep)
+					randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
+				else
+					randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+			}
 		}
+		if (editModeIsSelectedStep)
+			randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+		else
+			randomizationOptions->setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 	}
 }
 
@@ -224,7 +255,7 @@ void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tr
 	}
 	if (propertyIDstring.startsWith(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString())) {
 		if ((editModeIsSelectedStep && propertyIDstring.endsWith("seqTrack" + (String)trackNum + "Step" + (String)selectedStep)) ||
-			(editModeIsAllSteps && propertyIDstring.endsWith("AllStepsForSeqTrack" + (String)trackNum))) 
+			(editModeIsAllSteps && propertyIDstring.endsWith("AllStepsInSeqTrack" + (String)trackNum))) 
 		{
 			int highestAllowedNote{ randomization::highestNoteNumAllowedForHighestOctave_SeqTrackStep };
 			auto highestOctaveIsOnlyOneAllowed{ (bool)false };
@@ -254,7 +285,6 @@ void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tr
 				else
 					allowedNoteToggles[noteNum].setEnabled(true);
 			}
-			button_ForAllowingAllNotes.setEnabled(highestOctaveIsOnlyOneAllowed ? false : true);
 		}
 	}
 }
@@ -267,4 +297,5 @@ AllowedNotesAndBentNotesComponent::~AllowedNotesAndBentNotesComponent() {
 	}
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
+	randomizationOptions->removeListenerFromAllowedPitchesTree(this);
 }

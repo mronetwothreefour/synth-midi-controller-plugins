@@ -151,22 +151,10 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 		}
 	}
 	auto trackDestinationIsNotAnOscPitchParameter{ !randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
-	if (trackDestinationIsNotAnOscPitchParameter) {
-		if (editModeIsSelectedStep) {
-			if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex)) {
-				randomizationOptions->setValueIsOnlyOneAllowedForParam(randomizationOptions->minValueAllowedForParam(paramIndex), paramIndex);
-			}
-			else
-				randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
-		}
-		else {
-			if (randomizationOptions->minValueForAllStepsInSeqTrack(trackNum) == randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum)) {
-				randomizationOptions->setValueIsOnlyOneAllowedForAllStepsInSeqTrack(randomizationOptions->minValueAllowedForParam(paramIndex), trackNum);
-			}
-			else
-				randomizationOptions->setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
-		}
-	}
+	if (editModeIsSelectedStep)
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForSeqStepParam(paramIndex);
+	else
+		randomizationOptions->checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 }
 
 void ValueRangeComponentForSeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
