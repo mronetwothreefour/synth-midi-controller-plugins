@@ -114,6 +114,9 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum)
 			setOctaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum);
+		setHighestOctaveIsNotOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+		setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+		setRepeatValuesAreNotAllowedForAllStepsInSeqTrack(trackNum);
 	}
 }
 
@@ -359,6 +362,32 @@ void RandomizationOptions::setHighestOctaveIsNotOnlyOneAllowedForParam(uint8 par
 		optionsType == RandomizationOptionsType::sequencerTrackStep);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID, (bool)false, nullptr);
+}
+
+void RandomizationOptions::checkIfHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum) {
+	int numberOfOctaves{ randomization::numberOfOctavesForLFOfreqAndSeqSteps };
+	Array<int> allowedOctaves;
+	for (auto octaveNum = 0; octaveNum != numberOfOctaves; ++octaveNum) {
+		if (octaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum))
+			allowedOctaves.add(octaveNum);
+	}
+	if (allowedOctaves.size() == 1 && allowedOctaves[0] == (numberOfOctaves - 1))
+		setHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+	else
+		setHighestOctaveIsNotOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+}
+
+const bool RandomizationOptions::highestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto highestOctaveIsOnlyOneAllowed{ (bool)allowedPitchesTree.getProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + "AllStepsInSeqTrack" + (String)trackNum) };
+	return highestOctaveIsOnlyOneAllowed;
+}
+
+void RandomizationOptions::setHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum) {
+	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + "AllStepsInSeqTrack" + (String)trackNum, (bool)true, nullptr);
+}
+
+void RandomizationOptions::setHighestOctaveIsNotOnlyOneAllowedForAllStepsInSeqTrack(int trackNum) {
+	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + "AllStepsInSeqTrack" + (String)trackNum, (bool)false, nullptr);
 }
 
 const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {
@@ -1009,6 +1038,52 @@ void RandomizationOptions::setMoreThanOneValueIsAllowedForParam(uint8 paramIndex
 	repeatValuesOptionsTree.setProperty("onlyValueAllowedFor_" + paramID, (uint8)255, nullptr);
 }
 
+const bool RandomizationOptions::repeatValuesAreAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	return (bool)repeatValuesOptionsTree.getProperty("repeatValuesAreAllowedFor_AllStepsInSeqTrack" + trackNumString);
+}
+
+const bool RandomizationOptions::repeatValuesAreNotAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	return (bool)repeatValuesOptionsTree.getProperty("repeatValuesAreNotAllowedFor_AllStepsInSeqTrack" + trackNumString);
+}
+
+void RandomizationOptions::setRepeatValuesAreAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	repeatValuesOptionsTree.setProperty("repeatValuesAreAllowedFor_AllStepsInSeqTrack" + trackNumString, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty("repeatValuesAreNotAllowedFor_AllStepsInSeqTrack" + trackNumString, (bool)false, nullptr);
+}
+
+void RandomizationOptions::setRepeatValuesAreNotAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	repeatValuesOptionsTree.setProperty("repeatValuesAreAllowedFor_AllStepsInSeqTrack" + trackNumString, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty("repeatValuesAreNotAllowedFor_AllStepsInSeqTrack" + trackNumString, (bool)true, nullptr);
+}
+
+const bool RandomizationOptions::onlyOneValueIsAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + "AllStepsInSeqTrack" + trackNumString);
+}
+
+const uint8 RandomizationOptions::onlyAllowedValueForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	auto onlyAllowedValue{ (int)repeatValuesOptionsTree.getProperty("onlyValueAllowedFor_AllStepsInSeqTrack" + trackNumString) };
+	return (uint8)onlyAllowedValue;
+}
+
+void RandomizationOptions::setValueIsOnlyOneAllowedForAllStepsInSeqTrack(uint8 val, int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + "AllStepsInSeqTrack" + trackNumString, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + "AllStepsInSeqTrack" + trackNumString, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty("onlyValueAllowedFor_AllStepsInSeqTrack" + trackNumString, val, nullptr);
+}
+
+void RandomizationOptions::setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(int trackNum) {
+	auto trackNumString{ (String)trackNum };
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + "AllStepsInSeqTrack" + trackNumString, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + "AllStepsInSeqTrack" + trackNumString, (bool)true, nullptr);
+}
+
 void RandomizationOptions::addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener) {
 	seqTrackOptionsTree.addListener(listener);
 }
@@ -1238,6 +1313,73 @@ void RandomizationOptions::setTrackDestinationIsAnOscPitchParameter(int trackNum
 void RandomizationOptions::setTrackDestinationIsNotAnOscPitchParameter(int trackNum) {
 	jassert(trackNum > 0 && trackNum < 5);
 	seqTrackOptionsTree.setProperty("DestinationForTrack" + String(trackNum) + "_IsAnOscPitchParameter", (bool)false, nullptr);
+}
+
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForSeqStepParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
+	if (trackNum == 1 && probabilityOfRestForParam(paramIndex) == 1.0f) {
+		setValueIsOnlyOneAllowedForParam(params::seqStepValueForRest, paramIndex);
+		return;
+	}
+	if (probabilityOfResetForParam(paramIndex) == 1.0f) {
+		setValueIsOnlyOneAllowedForParam(params::seqStepValueForReset, paramIndex);
+		return;
+	}
+	if (trackDestinationIsAnOscPitchParameter(trackNum)) {
+		Array<uint8> allowedPitches;
+		for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
+			if (pitchIsAllowedForParam(pitch, paramIndex)) {
+				allowedPitches.add(pitch);
+			}
+		}
+		if (allowedPitches.size() == 1)
+			setValueIsOnlyOneAllowedForParam(allowedPitches[0], paramIndex);
+		else
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+	}
+	else {
+		auto minValue{ minValueAllowedForParam(paramIndex) };
+		auto maxValue{ maxValueAllowedForParam(paramIndex) };
+		if (minValue == maxValue)
+			setValueIsOnlyOneAllowedForParam(minValue, paramIndex);
+		else
+			setMoreThanOneValueIsAllowedForParam(paramIndex);
+	}
+}
+
+void RandomizationOptions::checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(int trackNum) {
+	if (trackNum == 1 && probabilityOfRestForAllStepsInSeqTrack1() == 1.0f) {
+		setValueIsOnlyOneAllowedForAllStepsInSeqTrack(params::seqStepValueForRest, trackNum);
+		return;
+	}
+	if (probabilityOfResetForAllStepsInSeqTrack(trackNum) == 1.0f) {
+		setValueIsOnlyOneAllowedForAllStepsInSeqTrack(params::seqStepValueForReset, trackNum);
+		return;
+	}
+	if (trackDestinationIsAnOscPitchParameter(trackNum)) {
+		Array<uint8> allowedPitches;
+		for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
+			if (pitchIsAllowedForAllStepsInSeqTrack(pitch, trackNum)) {
+				allowedPitches.add(pitch);
+			}
+		}
+		if (allowedPitches.size() == 1)
+			setValueIsOnlyOneAllowedForAllStepsInSeqTrack(allowedPitches[0], trackNum);
+		else
+			setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+	}
+	else {
+		auto minValue{ minValueForAllStepsInSeqTrack(trackNum) };
+		auto maxValue{ maxValueForAllStepsInSeqTrack(trackNum) };
+		if (minValue == maxValue)
+			setValueIsOnlyOneAllowedForAllStepsInSeqTrack(minValue, trackNum);
+		else
+			setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+	}
 }
 
 XmlElement* RandomizationOptions::getStateXml() {

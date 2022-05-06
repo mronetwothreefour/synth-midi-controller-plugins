@@ -199,17 +199,19 @@ void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 }
 
 void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
-	if (propertyID.toString() == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
-		propertyID.toString() == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
+	auto propertyIDstring{ propertyID.toString() };
+	auto& info{ InfoForExposedParameters::get() };
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	auto editModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
+	auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+	auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
+	auto paramIndex{ info.indexForParamID(paramID) };
+	if (propertyIDstring == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
+		propertyIDstring == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
 	{
-		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		auto editModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
-		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
 			if (editModeIsSelectedStep) {
-				auto paramID{ "seqTrack" + (String)trackNum + "Step" + (String)selectedStep };
-				auto& info{ InfoForExposedParameters::get() };
-				auto paramIndex{ info.indexForParamID(paramID) };
 				auto noteIsAllowed{ randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex) };
 				allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 			}
@@ -219,6 +221,41 @@ void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tr
 			}
 		}
 		generateTooltips();
+	}
+	if (propertyIDstring.startsWith(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString())) {
+		if ((editModeIsSelectedStep && propertyIDstring.endsWith("seqTrack" + (String)trackNum + "Step" + (String)selectedStep)) ||
+			(editModeIsAllSteps && propertyIDstring.endsWith("AllStepsForSeqTrack" + (String)trackNum))) 
+		{
+			int highestAllowedNote{ randomization::highestNoteNumAllowedForHighestOctave_SeqTrackStep };
+			auto highestOctaveIsOnlyOneAllowed{ (bool)false };
+			if (editModeIsSelectedStep)
+				highestOctaveIsOnlyOneAllowed = randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex);
+			else
+				highestOctaveIsOnlyOneAllowed = randomizationOptions->highestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+			for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
+				if (highestOctaveIsOnlyOneAllowed) {
+					if (noteNum <= highestAllowedNote) {
+						if (editModeIsSelectedStep)
+							randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
+						else
+							randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+						allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+						allowedNoteToggles[noteNum].setEnabled(true);
+					}
+					else {
+						if (editModeIsSelectedStep)
+							randomizationOptions->setNoteIsNotAllowedForParam(noteNum, paramIndex);
+						else
+							randomizationOptions->setNoteIsNotAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+						allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
+						allowedNoteToggles[noteNum].setEnabled(false);
+					}
+				}
+				else
+					allowedNoteToggles[noteNum].setEnabled(true);
+			}
+			button_ForAllowingAllNotes.setEnabled(highestOctaveIsOnlyOneAllowed ? false : true);
+		}
 	}
 }
 

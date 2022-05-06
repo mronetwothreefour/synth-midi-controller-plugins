@@ -293,6 +293,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponent.cpp"/>
         <FILE id="B45aPa" name="randomization_RepeatValuesToggleComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponent.h"/>
+        <FILE id="crIDnH" name="randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.cpp"/>
+        <FILE id="Wdu1R3" name="randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.h"/>
         <FILE id="TzD18V" name="randomization_SeqTrackEditModeComponent.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_SeqTrackEditModeComponent.cpp"/>
         <FILE id="PPDcsM" name="randomization_SeqTrackEditModeComponent.h"

@@ -66,6 +66,10 @@ public:
 	const bool highestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex);
 	void setHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex);
 	void setHighestOctaveIsNotOnlyOneAllowedForParam(uint8 paramIndex);
+	void checkIfHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum);
+	const bool highestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum);
+	void setHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(int trackNum);
+	void setHighestOctaveIsNotOnlyOneAllowedForAllStepsInSeqTrack(int trackNum);
 
 
 	const uint8 minValueAllowedForParam(uint8 paramIndex);
@@ -133,6 +137,14 @@ public:
 	const uint8 onlyAllowedValueForParam(uint8 paramIndex);
 	void setValueIsOnlyOneAllowedForParam(uint8 val, uint8 paramIndex);
 	void setMoreThanOneValueIsAllowedForParam(uint8 paramIndex);
+	const bool repeatValuesAreAllowedForAllStepsInSeqTrack(int trackNum);
+	const bool repeatValuesAreNotAllowedForAllStepsInSeqTrack(int trackNum);
+	void setRepeatValuesAreAllowedForAllStepsInSeqTrack(int trackNum);
+	void setRepeatValuesAreNotAllowedForAllStepsInSeqTrack(int trackNum);
+	const bool onlyOneValueIsAllowedForAllStepsInSeqTrack(int trackNum);
+	const uint8 onlyAllowedValueForAllStepsInSeqTrack(int trackNum);
+	void setValueIsOnlyOneAllowedForAllStepsInSeqTrack(uint8 val, int trackNum);
+	void setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(int trackNum);
 
 	void addListenerToSeqTrackOptionsTree(ValueTree::Listener* listener);
 	void removeListenerFromSeqTrackOptionsTree(ValueTree::Listener* listener);
@@ -170,6 +182,8 @@ public:
 	const bool trackDestinationIsAnOscPitchParameter(int trackNum);
 	void setTrackDestinationIsAnOscPitchParameter(int trackNum);
 	void setTrackDestinationIsNotAnOscPitchParameter(int trackNum);
+	void checkIfOnlyOneValueIsAllowedForSeqStepParam(uint8 paramIndex);
+	void checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(int trackNum);
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);

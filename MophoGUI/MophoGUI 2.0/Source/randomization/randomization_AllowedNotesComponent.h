@@ -28,7 +28,7 @@ public:
 	void turnOffAllToggles();
 	void restoreAllToggles();
 	void buttonClicked(Button* button) override;
-	void valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowedNotesComponent();
 
 private:

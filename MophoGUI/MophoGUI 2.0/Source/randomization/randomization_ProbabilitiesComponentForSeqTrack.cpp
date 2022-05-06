@@ -162,9 +162,9 @@ void ProbabilitiesComponentForSeqTrack::resized() {
 		knob_ForRestProbability.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
 		valueDisplay_ForRestProbability.setBounds(knob_ForRestProbability.getBounds());
 	}
-	knob_ForRepeatValueProbability.setBounds(trackNum == 1 ? GUI::randomizationSeqTrackOptions_HorizKnobSpacing : 0, 0, GUI::knob_diameter, GUI::knob_diameter);
+	knob_ForRepeatValueProbability.setBounds(trackNum == 1 ? 64 : 9, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForRepeatValueProbability.setBounds(knob_ForRepeatValueProbability.getBounds());
-	knob_ForResetProbability.setBounds(knob_ForRepeatValueProbability.getX() + GUI::randomizationSeqTrackOptions_HorizKnobSpacing, 0, GUI::knob_diameter, GUI::knob_diameter);
+	knob_ForResetProbability.setBounds(trackNum == 1 ? 128 : 77, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForResetProbability.setBounds(knob_ForResetProbability.getBounds());
 }
 

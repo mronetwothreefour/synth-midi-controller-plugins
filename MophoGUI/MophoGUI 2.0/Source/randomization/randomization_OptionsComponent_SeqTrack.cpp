@@ -1,5 +1,7 @@
 #include "randomization_OptionsComponent_SeqTrack.h"
 
+#include "randomization_RepeatValuesToggleComponent.h"
+#include "randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.h"
 #include "../gui/gui_Colors.h"
 #include "../gui/gui_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
@@ -21,6 +23,9 @@ RandomizationOptionsComponent_SeqTrack::RandomizationOptionsComponent_SeqTrack(i
 {
 	jassert(trackNum > 0 && trackNum < 5);
 
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->addListenerToSeqTrackOptionsTree(this);
+
 	addAndMakeVisible(editMode);
 	addAndMakeVisible(probabilites);
 	addAndMakeVisible(valueRange);
@@ -38,6 +43,31 @@ RandomizationOptionsComponent_SeqTrack::RandomizationOptionsComponent_SeqTrack(i
 	addAndMakeVisible(button_ForClosingSeqTrackOptionsComponent);
 
 	setSize(GUI::editor_w, GUI::editor_h);
+
+	resetAndRepaintAppropriateRepeatValuesToggle();
+}
+
+void RandomizationOptionsComponent_SeqTrack::resetAndRepaintAppropriateRepeatValuesToggle() {
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	if (randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum)) {
+		repeatValues = nullptr;
+		repeatValuesForAllSteps.reset(new RepeatValuesToggleComponentForAllStepsInSeqTrack(trackNum, unexposedParams));
+		if (repeatValuesForAllSteps != nullptr) {
+			addAndMakeVisible(repeatValuesForAllSteps.get());
+			repeatValuesForAllSteps->setBounds(GUI::bounds_RandomizationSeqTrackOptionsRepeatValuesToggle);
+		}
+	}
+	else {
+		repeatValuesForAllSteps = nullptr;
+		auto selectedStep{ randomizationOptions->stepSelectedForEditingInSeqTrack(trackNum) };
+		auto& info{ InfoForExposedParameters::get() };
+		auto paramIndex{ info.indexForParamID("seqTrack" + (String)trackNum + "Step" + (String)selectedStep) };
+		repeatValues.reset(new RepeatValuesToggleComponent(paramIndex, unexposedParams));
+		if (repeatValues != nullptr) {
+			addAndMakeVisible(repeatValues.get());
+			repeatValues->setBounds(GUI::bounds_RandomizationSeqTrackOptionsRepeatValuesToggle);
+		}
+	}
 }
 
 void RandomizationOptionsComponent_SeqTrack::paint(Graphics& g) {
@@ -69,7 +99,21 @@ void RandomizationOptionsComponent_SeqTrack::resized() {
 	button_ForClosingSeqTrackOptionsComponent.setBounds(GUI::bounds_RandomizationSeqTrackOptionsCloseButton);
 }
 
+void RandomizationOptionsComponent_SeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	auto propertyIDstring{ propertyID.toString() };
+	if (propertyIDstring == "editModeIsSelectedStepForSeqTrack" + (String)trackNum ||
+		propertyIDstring == "stepSelectedForEditingInSeqTrack" + (String)trackNum)
+		resetAndRepaintAppropriateRepeatValuesToggle();
+}
+
 void RandomizationOptionsComponent_SeqTrack::hideThisComponent() {
 	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
+}
+
+RandomizationOptionsComponent_SeqTrack::~RandomizationOptionsComponent_SeqTrack() {
+	repeatValues = nullptr;
+	repeatValuesForAllSteps = nullptr;
+	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+	randomizationOptions->removeListenerFromSeqTrackOptionsTree(this);
 }

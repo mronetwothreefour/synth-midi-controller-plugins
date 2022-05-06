@@ -682,6 +682,9 @@
     <ClCompile Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3283,6 +3286,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponent.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.h">

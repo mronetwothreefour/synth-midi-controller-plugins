@@ -77,9 +77,9 @@ void ValueRangeComponentForSeqTrack::generateTooltips() {
 			minValueKnobTooltip += "Range: 0 to 125.";
 		}
 		else {
-			minValueKnobTooltip += "Sets the minimum value that\n";
-			minValueKnobTooltip += "can be generated for all steps\n";
-			minValueKnobTooltip += "in track " + (String)trackNum + " (if the track destination\n";
+			minValueKnobTooltip += "Sets the minimum value that can\n";
+			minValueKnobTooltip += "be generated for all steps in\n";
+			minValueKnobTooltip += "track " + (String)trackNum + " (if the track destination\n";
 			minValueKnobTooltip += "is not an oscillator pitch).\n";
 			minValueKnobTooltip += "Range: 0 to 125.";
 		}
@@ -94,9 +94,9 @@ void ValueRangeComponentForSeqTrack::generateTooltips() {
 			maxValueKnobTooltip += "Range: 0 to 125.";
 		}
 		else {
-			maxValueKnobTooltip += "Sets the maximum value that\n";
-			maxValueKnobTooltip += "can be generated for all steps\n";
-			maxValueKnobTooltip += "in track " + (String)trackNum + " (if the track destination\n";
+			maxValueKnobTooltip += "Sets the maximum value that can\n";
+			maxValueKnobTooltip += "be generated for all steps in\n";
+			maxValueKnobTooltip += "track " + (String)trackNum + " (if the track destination\n";
 			maxValueKnobTooltip += "is not an oscillator pitch).\n";
 			maxValueKnobTooltip += "Range: 0 to 125.";
 		}
@@ -107,7 +107,7 @@ void ValueRangeComponentForSeqTrack::generateTooltips() {
 void ValueRangeComponentForSeqTrack::resized() {
 	knob_ForMinStepValue.setBounds(0, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMinStepValue.setBounds(knob_ForMinStepValue.getBounds());
-	knob_ForMaxStepValue.setBounds(GUI::randomizationSeqTrackOptions_HorizKnobSpacing, 0, GUI::knob_diameter, GUI::knob_diameter);
+	knob_ForMaxStepValue.setBounds(60, 0, GUI::knob_diameter, GUI::knob_diameter);
 	valueDisplay_ForMaxStepValue.setBounds(knob_ForMaxStepValue.getBounds());
 }
 
@@ -148,6 +148,23 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 				randomizationOptions->setMinValueAllowedForParam(newMaxValue, paramIndex);
 			else
 				randomizationOptions->setMinValueForAllStepsInSeqTrack(newMaxValue, trackNum);
+		}
+	}
+	auto trackDestinationIsNotAnOscPitchParameter{ !randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
+	if (trackDestinationIsNotAnOscPitchParameter) {
+		if (editModeIsSelectedStep) {
+			if (randomizationOptions->minValueAllowedForParam(paramIndex) == randomizationOptions->maxValueAllowedForParam(paramIndex)) {
+				randomizationOptions->setValueIsOnlyOneAllowedForParam(randomizationOptions->minValueAllowedForParam(paramIndex), paramIndex);
+			}
+			else
+				randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+		}
+		else {
+			if (randomizationOptions->minValueForAllStepsInSeqTrack(trackNum) == randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum)) {
+				randomizationOptions->setValueIsOnlyOneAllowedForAllStepsInSeqTrack(randomizationOptions->minValueAllowedForParam(paramIndex), trackNum);
+			}
+			else
+				randomizationOptions->setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 		}
 	}
 }

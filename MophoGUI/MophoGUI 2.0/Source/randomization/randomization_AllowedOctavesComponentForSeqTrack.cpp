@@ -62,7 +62,9 @@ void AllowedOctavesComponentForSeqTrack::generateTooltips() {
 			toggleTooltip += "(when the track destination is an oscillator pitch).\n";
 			toggleTooltip += "Holding down the CTRL key when clicking the toggle\n";
 			toggleTooltip += "will make notes in octave " + (String)octaveNum + " the only ones allowed.\n";
-			toggleTooltip += "There must always be at least one allowed octave.\n";
+			toggleTooltip += "There must always be at least one allowed octave.";
+			if (octaveNum == 5)
+				toggleTooltip += "\nNote: Only notes C through D+ are available in octave 5.";
 			allowedOctaveToggles[octaveNum].setTooltip(toggleTooltip);
 		}
 		String buttonTooltip{ "" };
@@ -138,6 +140,14 @@ void AllowedOctavesComponentForSeqTrack::buttonClicked(Button* button) {
 			button->setToggleState(true, dontSendNotification);
 			randomizationOptions->setOctaveIsAllowedForAllStepsInSeqTrack(clickedOctaveNum, trackNum);
 		}
+		if (editModeIsAllSteps) {
+			randomizationOptions->checkIfHighestOctaveIsOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+		}
+		else {
+			randomizationOptions->checkIfHighestOctaveIsOnlyOneAllowedForParam(paramIndex);
+			randomizationOptions->checkIfOnlyOneValueIsAllowedForSeqStepParam(paramIndex);
+		}
 	}
 	if (buttonID == ID::button_AllOctavesFor_.toString() + "SeqTrack" + (String)trackNum) {
 		for (auto octaveNum = 0; octaveNum != randomization::numberOfOctavesForLFOfreqAndSeqSteps; ++octaveNum) {
@@ -146,6 +156,14 @@ void AllowedOctavesComponentForSeqTrack::buttonClicked(Button* button) {
 				randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 			else
 				randomizationOptions->setOctaveIsAllowedForAllStepsInSeqTrack(octaveNum, trackNum);
+		}
+		if (editModeIsAllSteps) {
+			randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForAllStepsInSeqTrack(trackNum);
+			randomizationOptions->setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+		}
+		else {
+			randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
+			randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
 		}
 	}
 }

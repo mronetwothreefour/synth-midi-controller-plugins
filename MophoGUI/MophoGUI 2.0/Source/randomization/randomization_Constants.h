@@ -8,6 +8,7 @@ namespace constants
 	{
 		static const int highestNoteNumAllowedForHighestOctave_LPFfreq{ 8 };
 		static const int highestNoteNumAllowedForHighestOctave_PitchAndLFOfreq{ 0 };
+		static const int highestNoteNumAllowedForHighestOctave_SeqTrackStep{ 5 };
 		static const int numberOfNotes{ 12 };
 		static const int numberOfNotesAndBentNotes{ 24 };
 		static const int numberOfOctaves{ 11 };

@@ -7,11 +7,13 @@
 #include "randomization_ValueRangeComponentForSeqTrack.h"
 
 
-
+class RepeatValuesToggleComponent;
+class RepeatValuesToggleComponentForAllStepsInSeqTrack;
 class UnexposedParameters;
 
 class RandomizationOptionsComponent_SeqTrack :
-	public Component
+	public Component,
+	public ValueTree::Listener
 {
 	int trackNum;
 	UnexposedParameters* unexposedParams;
@@ -20,15 +22,20 @@ class RandomizationOptionsComponent_SeqTrack :
 	ValueRangeComponentForSeqTrack valueRange;
 	AllowedNotesAndBentNotesComponent allowedNotes;
 	AllowedOctavesComponentForSeqTrack allowedOctaves;
+	std::unique_ptr<RepeatValuesToggleComponent> repeatValues;
+	std::unique_ptr<RepeatValuesToggleComponentForAllStepsInSeqTrack> repeatValuesForAllSteps;
 	TextButton button_ForClosingSeqTrackOptionsComponent;
 
 public:
 	RandomizationOptionsComponent_SeqTrack() = delete;
 
 	RandomizationOptionsComponent_SeqTrack(int trackNum, UnexposedParameters* unexposedParams);
+	void resetAndRepaintAppropriateRepeatValuesToggle();
 	void paint(Graphics& g) override;
 	void resized() override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	void hideThisComponent();
+	~RandomizationOptionsComponent_SeqTrack();
 
 private:
 	//==============================================================================

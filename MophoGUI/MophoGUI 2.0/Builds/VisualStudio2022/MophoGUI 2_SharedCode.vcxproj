@@ -200,6 +200,7 @@
     <ClCompile Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ProbabilitiesComponentForSeqTrack.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponent.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ValueRangeComponentForLPFfreq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.cpp"/>
@@ -2327,6 +2328,7 @@
     <ClInclude Include="..\..\Source\randomization\randomization_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ProbabilitiesComponentForSeqTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponent.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_RepeatValuesToggleComponentForAllStepsInSeqTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_SeqTrackEditModeComponent.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ValueRangeComponentForLPFfreq.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_ValueRangeComponentForSeqTrack.h"/>
