@@ -266,11 +266,12 @@ void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tr
 			for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
 				if (highestOctaveIsOnlyOneAllowed) {
 					if (noteNum <= highestAllowedNote) {
+						auto noteIsAllowed{ (bool)false };
 						if (editModeIsSelectedStep)
-							randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
+							noteIsAllowed = randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex);
 						else
-							randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
-						allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+							noteIsAllowed = randomizationOptions->noteIsAllowedForAllStepsInSeqTrack(noteNum, trackNum);
+						allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 						allowedNoteToggles[noteNum].setEnabled(true);
 					}
 					else {
@@ -284,6 +285,18 @@ void AllowedNotesAndBentNotesComponent::valueTreePropertyChanged(ValueTree& /*tr
 				}
 				else
 					allowedNoteToggles[noteNum].setEnabled(true);
+			}
+			if (editModeIsSelectedStep) {
+				if (randomizationOptions->noNoteIsAllowedForParam(paramIndex)) {
+					randomizationOptions->setNoteIsAllowedForParam(highestAllowedNote, paramIndex);
+					allowedNoteToggles[highestAllowedNote].setToggleState(true, dontSendNotification);
+				}
+			}
+			else {
+				if (randomizationOptions->noNoteIsAllowedForAllStepsInSeqTrack(trackNum)) {
+					randomizationOptions->setNoteIsAllowedForAllStepsInSeqTrack(highestAllowedNote, trackNum);
+					allowedNoteToggles[highestAllowedNote].setToggleState(true, dontSendNotification);
+				}
 			}
 		}
 	}

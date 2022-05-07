@@ -196,8 +196,8 @@ void AllowedNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const 
 		for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 			if (highestOctaveIsOnlyOneAllowed) {
 				if (noteNum <= highestAllowedNote) {
-					randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
-					allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
+					auto noteIsAllowed{ randomizationOptions->noteIsAllowedForParam(noteNum, paramIndex) };
+					allowedNoteToggles[noteNum].setToggleState(noteIsAllowed, dontSendNotification);
 					allowedNoteToggles[noteNum].setEnabled(true);
 				}
 				else {
@@ -208,6 +208,10 @@ void AllowedNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const 
 			}
 			else
 				allowedNoteToggles[noteNum].setEnabled(true);
+		}
+		if (randomizationOptions->noNoteIsAllowedForParam(paramIndex)) {
+			randomizationOptions->setNoteIsAllowedForParam(highestAllowedNote, paramIndex);
+			allowedNoteToggles[highestAllowedNote].setToggleState(true, dontSendNotification);
 		}
 		if (optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lfoFreq)
 			button_ForAllowingAllNotes.setEnabled(highestOctaveIsOnlyOneAllowed ? false : true);
