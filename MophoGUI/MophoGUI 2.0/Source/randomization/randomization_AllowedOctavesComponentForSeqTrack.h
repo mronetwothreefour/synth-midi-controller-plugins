@@ -27,7 +27,6 @@ public:
 	AllowedOctavesComponentForSeqTrack(int trackNum, UnexposedParameters* unexposedParams);
 	void generateTooltips();
 	void resized() override;
-	void turnOffAllToggles();
 	void buttonClicked(Button* button) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowedOctavesComponentForSeqTrack();

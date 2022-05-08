@@ -20,7 +20,6 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 	randomizationOptions->addListenerToAllowedPitchesTree(this);
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	auto highestOctaveIsOnlyOneAllowed{ randomizationOptions->highestOctaveIsOnlyOneAllowedForParam(paramIndex) };
 	for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum) {
 		auto toggleID{ ID::component_ToggleButton.toString() + "For_" + paramID + "_Note" + String(noteNum) };
 		allowedNoteToggles[noteNum].setComponentID(toggleID);

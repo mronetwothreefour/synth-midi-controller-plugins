@@ -72,15 +72,13 @@ void ValueRangeComponentForSeqTrack::generateTooltips() {
 		if (editModeIsSelectedStep) {
 			minValueKnobTooltip += "Sets the minimum value that can be\n";
 			minValueKnobTooltip += "generated for the selected step\n";
-			minValueKnobTooltip += "in track " + (String)trackNum + " (if the track destination\n";
-			minValueKnobTooltip += "is not an oscillator pitch).\n";
+			minValueKnobTooltip += "in sequencer track " + (String)trackNum + ".\n";
 			minValueKnobTooltip += "Range: 0 to 125.";
 		}
 		else {
 			minValueKnobTooltip += "Sets the minimum value that can\n";
 			minValueKnobTooltip += "be generated for all steps in\n";
-			minValueKnobTooltip += "track " + (String)trackNum + " (if the track destination\n";
-			minValueKnobTooltip += "is not an oscillator pitch).\n";
+			minValueKnobTooltip += "sequencer track " + (String)trackNum + ".\n";
 			minValueKnobTooltip += "Range: 0 to 125.";
 		}
 		knob_ForMinStepValue.setTooltip(minValueKnobTooltip);
@@ -89,16 +87,14 @@ void ValueRangeComponentForSeqTrack::generateTooltips() {
 		if (editModeIsSelectedStep) {
 			maxValueKnobTooltip += "Sets the maximum value that can be\n";
 			maxValueKnobTooltip += "generated for the selected step\n";
-			maxValueKnobTooltip += "in track " + (String)trackNum + " (if the track destination\n";
-			maxValueKnobTooltip += "is not an oscillator pitch).\n";
-			maxValueKnobTooltip += "Range: 0 to 125.";
+			minValueKnobTooltip += "in sequencer track " + (String)trackNum + ".\n";
+			minValueKnobTooltip += "Range: 0 to 125.";
 		}
 		else {
 			maxValueKnobTooltip += "Sets the maximum value that can\n";
 			maxValueKnobTooltip += "be generated for all steps in\n";
-			maxValueKnobTooltip += "track " + (String)trackNum + " (if the track destination\n";
-			maxValueKnobTooltip += "is not an oscillator pitch).\n";
-			maxValueKnobTooltip += "Range: 0 to 125.";
+			minValueKnobTooltip += "in sequencer track " + (String)trackNum + ".\n";
+			minValueKnobTooltip += "Range: 0 to 125.";
 		}
 		knob_ForMaxStepValue.setTooltip(maxValueKnobTooltip);
 	}
@@ -150,7 +146,6 @@ void ValueRangeComponentForSeqTrack::sliderValueChanged(Slider* slider) {
 				randomizationOptions->setMinValueForAllStepsInSeqTrack(newMaxValue, trackNum);
 		}
 	}
-	auto trackDestinationIsNotAnOscPitchParameter{ !randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum) };
 	if (editModeIsSelectedStep)
 		randomizationOptions->checkIfOnlyOneValueIsAllowedForSeqStepParam(paramIndex);
 	else

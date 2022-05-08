@@ -136,12 +136,6 @@ void AllowedNotesAndBentNotesComponent::resized() {
 	button_ForAllowingAllBentNotes.setBounds(GUI::bounds_RandomizationAllowAllBentNotesButton);
 }
 
-void AllowedNotesAndBentNotesComponent::turnOffAllToggles() {
-	for (auto noteNum = 0; noteNum != randomization::numberOfNotesAndBentNotes; ++noteNum) {
-		allowedNoteToggles[noteNum].setToggleState(false, dontSendNotification);
-	}
-}
-
 void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };

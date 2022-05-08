@@ -661,7 +661,10 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.cpp">
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Toggles.cpp">
@@ -3264,7 +3267,10 @@
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.h">
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Toggles.h">
@@ -6243,6 +6249,12 @@
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Pitch-Background.png">
+      <Filter>MophoGUI 2\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Value-Background.png">
       <Filter>MophoGUI 2\Resources</Filter>
     </None>
     <None Include="..\..\Resources\Randomization-Options-Toggles-Background.png">

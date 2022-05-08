@@ -5,7 +5,8 @@
 #include "randomization_OptionsComponent_LPFfreq.h"
 #include "randomization_OptionsComponent_OscShape.h"
 #include "randomization_OptionsComponent_Pitch.h"
-#include "randomization_OptionsComponent_SeqTrack.h"
+#include "randomization_OptionsComponent_SeqTrack_Pitch.h"
+#include "randomization_OptionsComponent_SeqTrack_Value.h"
 #include "randomization_OptionsComponent_Toggles.h"
 #include "randomization_OptionsComponent_ValueRange.h"
 #include "../gui/gui_Constants.h"
@@ -265,7 +266,10 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 				auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
 				randomizationOptions->setStepSelectedForEditingInSeqTrack(stepNum, trackNum);
-				showRandomizationOptionsComponent_SeqTrackForTrack(trackNum);
+				if (randomizationOptions->trackDestinationIsAnOscPitchParameter(trackNum))
+					showRandomizationOptionsComponent_SeqTrackPitchForTrack(trackNum);
+				else
+					showRandomizationOptionsComponent_SeqTrackValueForTrack(trackNum);
 			}
 			button->setToggleState(false, dontSendNotification);
 			randomizationOptions->setParamIsUnlocked(paramIndex);
@@ -356,12 +360,21 @@ void RandomizationComponent::showRandomizationOptionsComponent_LFOfreqForParam(u
 	}
 }
 
-void RandomizationComponent::showRandomizationOptionsComponent_SeqTrackForTrack(int trackNum) {
-	randomizationOptionsComponent_SeqTrack.reset(new RandomizationOptionsComponent_SeqTrack(trackNum, unexposedParams));
-	if (randomizationOptionsComponent_SeqTrack != nullptr) {
-		addAndMakeVisible(randomizationOptionsComponent_SeqTrack.get());
-		randomizationOptionsComponent_SeqTrack->setBounds(getLocalBounds());
-		randomizationOptionsComponent_SeqTrack->grabKeyboardFocus();
+void RandomizationComponent::showRandomizationOptionsComponent_SeqTrackPitchForTrack(int trackNum) {
+	randomizationOptionsComponent_SeqTrack_Pitch.reset(new RandomizationOptionsComponent_SeqTrack_Pitch(trackNum, unexposedParams));
+	if (randomizationOptionsComponent_SeqTrack_Pitch != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_SeqTrack_Pitch.get());
+		randomizationOptionsComponent_SeqTrack_Pitch->setBounds(getLocalBounds());
+		randomizationOptionsComponent_SeqTrack_Pitch->grabKeyboardFocus();
+	}
+}
+
+void RandomizationComponent::showRandomizationOptionsComponent_SeqTrackValueForTrack(int trackNum) {
+	randomizationOptionsComponent_SeqTrack_Value.reset(new RandomizationOptionsComponent_SeqTrack_Value(trackNum, unexposedParams));
+	if (randomizationOptionsComponent_SeqTrack_Value != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_SeqTrack_Value.get());
+		randomizationOptionsComponent_SeqTrack_Value->setBounds(getLocalBounds());
+		randomizationOptionsComponent_SeqTrack_Value->grabKeyboardFocus();
 	}
 }
 
@@ -371,7 +384,8 @@ void RandomizationComponent::hideThisComponent() {
 }
 
 RandomizationComponent::~RandomizationComponent() {
-	randomizationOptionsComponent_SeqTrack = nullptr;
+	randomizationOptionsComponent_SeqTrack_Value = nullptr;
+	randomizationOptionsComponent_SeqTrack_Pitch = nullptr;
 	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_LPFfreq = nullptr;
 	randomizationOptionsComponent_ComboBoxes = nullptr;

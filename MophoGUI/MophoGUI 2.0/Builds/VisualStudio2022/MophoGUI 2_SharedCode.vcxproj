@@ -193,7 +193,8 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Toggles.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
@@ -2320,7 +2321,8 @@
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.h"/>
-    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.h"/>
+    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Toggles.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ValueRange.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_Constants.h"/>
@@ -3315,6 +3317,8 @@
     <None Include="..\..\Resources\Randomization-Options-Osc-Shape-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Pitch-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Background.png"/>
+    <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Pitch-Background.png"/>
+    <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Value-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Toggles-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Value-Range-Background.png"/>
     <None Include="..\..\Resources\Randomization-Repeat-Values-Toggles-Background.png"/>

@@ -646,10 +646,12 @@ uint8 ParamRandomizationMethods::pickRandomValueFromRangeForStepParamInTrack(uin
 	auto maxValueAllowed{ params::maxValueForSeqTrackStep };
 	Array<uint8> allowedValues;
 	if (trackEditModeIsAllSteps) {
+		repeatValuesAreAllowed = randomizationOptions->repeatValuesAreAllowedForAllStepsInSeqTrack(trackNum);
 		minValueAllowed = randomizationOptions->minValueForAllStepsInSeqTrack(trackNum);
 		maxValueAllowed = randomizationOptions->maxValueForAllStepsInSeqTrack(trackNum);
 	}
 	else {
+		repeatValuesAreAllowed = randomizationOptions->repeatValuesAreAllowedForParam(paramIndex);
 		minValueAllowed = randomizationOptions->minValueAllowedForParam(paramIndex);
 		maxValueAllowed = randomizationOptions->maxValueAllowedForParam(paramIndex);
 	}
