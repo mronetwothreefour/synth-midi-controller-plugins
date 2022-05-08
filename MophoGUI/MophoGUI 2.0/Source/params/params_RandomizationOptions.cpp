@@ -683,8 +683,7 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForLPFfreqParam() {
 		Array<uint8> allowedFrequencies;
 		for (uint8 freq = 0; freq != (uint8)randomization::numberOfPitchedFreqForLPF; ++freq) {
 			if (pitchIsAllowedForParam(freq, paramIndex)) {
-				auto freqWithOffset{ uint8(freq + params::firstPitchedLFOfreq) };
-				allowedFrequencies.add(freqWithOffset);
+				allowedFrequencies.add(freq);
 			}
 		}
 		if (allowedFrequencies.size() == 1)
@@ -1321,34 +1320,45 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForSeqStepParam(uint8 par
 	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
-	if (trackNum == 1 && probabilityOfRestForParam(paramIndex) == 1.0f) {
-		setValueIsOnlyOneAllowedForParam(params::seqStepValueForRest, paramIndex);
-		return;
+	if (trackNum == 1) {
+		if (probabilityOfRestForParam(paramIndex) == 1.0f) {
+			setValueIsOnlyOneAllowedForParam(params::seqStepValueForRest, paramIndex);
+			return;
+		}
 	}
 	if (probabilityOfResetForParam(paramIndex) == 1.0f) {
 		setValueIsOnlyOneAllowedForParam(params::seqStepValueForReset, paramIndex);
 		return;
 	}
-	if (trackDestinationIsAnOscPitchParameter(trackNum)) {
-		Array<uint8> allowedPitches;
-		for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
-			if (pitchIsAllowedForParam(pitch, paramIndex)) {
-				allowedPitches.add(pitch);
+	auto restsAreNotAllowed{ (bool)true };
+	if (trackNum == 1 && probabilityOfRestForParam(paramIndex) > 0.0f)
+		restsAreNotAllowed = false;
+	auto resetsAreNotAllowed{ (bool)true };
+	if (probabilityOfResetForParam(paramIndex) > 0.0f)
+		resetsAreNotAllowed = false;
+	if (restsAreNotAllowed && resetsAreNotAllowed) {
+		if (trackDestinationIsAnOscPitchParameter(trackNum)) {
+			Array<uint8> allowedPitches;
+			for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
+				if (pitchIsAllowedForParam(pitch, paramIndex))
+					allowedPitches.add(pitch);
 			}
+			if (allowedPitches.size() == 1)
+				setValueIsOnlyOneAllowedForParam(allowedPitches[0], paramIndex);
+			else
+				setMoreThanOneValueIsAllowedForParam(paramIndex);
 		}
-		if (allowedPitches.size() == 1)
-			setValueIsOnlyOneAllowedForParam(allowedPitches[0], paramIndex);
-		else
-			setMoreThanOneValueIsAllowedForParam(paramIndex);
+		else {
+			auto minValue{ minValueAllowedForParam(paramIndex) };
+			auto maxValue{ maxValueAllowedForParam(paramIndex) };
+			if (minValue == maxValue)
+				setValueIsOnlyOneAllowedForParam(minValue, paramIndex);
+			else
+				setMoreThanOneValueIsAllowedForParam(paramIndex);
+		}
 	}
-	else {
-		auto minValue{ minValueAllowedForParam(paramIndex) };
-		auto maxValue{ maxValueAllowedForParam(paramIndex) };
-		if (minValue == maxValue)
-			setValueIsOnlyOneAllowedForParam(minValue, paramIndex);
-		else
-			setMoreThanOneValueIsAllowedForParam(paramIndex);
-	}
+	else
+		setMoreThanOneValueIsAllowedForParam(paramIndex);
 }
 
 void RandomizationOptions::checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(int trackNum) {
@@ -1360,26 +1370,36 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForAllStepsInSeqTrack(int
 		setValueIsOnlyOneAllowedForAllStepsInSeqTrack(params::seqStepValueForReset, trackNum);
 		return;
 	}
-	if (trackDestinationIsAnOscPitchParameter(trackNum)) {
-		Array<uint8> allowedPitches;
-		for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
-			if (pitchIsAllowedForAllStepsInSeqTrack(pitch, trackNum)) {
-				allowedPitches.add(pitch);
+	auto restsAreNotAllowed{ (bool)true };
+	if (trackNum == 1 && probabilityOfRestForAllStepsInSeqTrack1() > 0.0f)
+		restsAreNotAllowed = false;
+	auto resetsAreNotAllowed{ (bool)true };
+	if (probabilityOfResetForAllStepsInSeqTrack(trackNum) > 0.0f)
+		resetsAreNotAllowed = false;
+	if (restsAreNotAllowed && resetsAreNotAllowed) {
+		if (trackDestinationIsAnOscPitchParameter(trackNum)) {
+			Array<uint8> allowedPitches;
+			for (uint8 pitch = 0; pitch != (uint8)randomization::numberOfPitchesForSeqSteps; ++pitch) {
+				if (pitchIsAllowedForAllStepsInSeqTrack(pitch, trackNum)) {
+					allowedPitches.add(pitch);
+				}
 			}
+			if (allowedPitches.size() == 1)
+				setValueIsOnlyOneAllowedForAllStepsInSeqTrack(allowedPitches[0], trackNum);
+			else
+				setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 		}
-		if (allowedPitches.size() == 1)
-			setValueIsOnlyOneAllowedForAllStepsInSeqTrack(allowedPitches[0], trackNum);
-		else
-			setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+		else {
+			auto minValue{ minValueForAllStepsInSeqTrack(trackNum) };
+			auto maxValue{ maxValueForAllStepsInSeqTrack(trackNum) };
+			if (minValue == maxValue)
+				setValueIsOnlyOneAllowedForAllStepsInSeqTrack(minValue, trackNum);
+			else
+				setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
+		}
 	}
-	else {
-		auto minValue{ minValueForAllStepsInSeqTrack(trackNum) };
-		auto maxValue{ maxValueForAllStepsInSeqTrack(trackNum) };
-		if (minValue == maxValue)
-			setValueIsOnlyOneAllowedForAllStepsInSeqTrack(minValue, trackNum);
-		else
-			setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
-	}
+	else
+		setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 }
 
 XmlElement* RandomizationOptions::getStateXml() {

@@ -592,7 +592,9 @@ uint8 ParamRandomizationMethods::pickRandomPitchForStepParamInTrack(uint8 paramI
 	auto currentPitch{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	auto trackEditModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto repeatValuesAreAllowed{ (bool)false };
+	auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
 	if (trackEditModeIsAllSteps)
 		repeatValuesAreAllowed = randomizationOptions->repeatValuesAreAllowedForAllStepsInSeqTrack(trackNum);
 	else
@@ -612,6 +614,14 @@ uint8 ParamRandomizationMethods::pickRandomPitchForStepParamInTrack(uint8 paramI
 	}
 	auto numberOfAllowedPitches{ allowedPitches.size() };
 	if (numberOfAllowedPitches == 0) {
+		if (trackNum == 1) {
+			if ((trackEditModeIsAllSteps && randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() > 0.0f) ||
+				(trackEditModeIsSelectedStep && randomizationOptions->probabilityOfRestForParam(paramIndex) > 0.0f))
+				return params::seqStepValueForRest;
+		}
+		if ((trackEditModeIsAllSteps && randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) > 0.0f) ||
+			(trackEditModeIsSelectedStep && stepNum != 1 && randomizationOptions->probabilityOfResetForParam(paramIndex) > 0.0f))
+			return params::seqStepValueForReset;
 		return maxPitch;
 	}
 	else {
@@ -629,7 +639,9 @@ uint8 ParamRandomizationMethods::pickRandomValueFromRangeForStepParamInTrack(uin
 	auto currentValue{ (uint8)roundToInt(maxValue * currentNormalizedValue) };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto trackEditModeIsAllSteps{ randomizationOptions->editModeForSeqTrackIsAllSteps(trackNum) };
+	auto trackEditModeIsSelectedStep{ randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum) };
 	auto repeatValuesAreAllowed{ (bool)false };
+	auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
 	auto minValueAllowed{ (uint8)0 };
 	auto maxValueAllowed{ params::maxValueForSeqTrackStep };
 	Array<uint8> allowedValues;
@@ -644,11 +656,24 @@ uint8 ParamRandomizationMethods::pickRandomValueFromRangeForStepParamInTrack(uin
 	for (auto val = minValueAllowed; val <= maxValueAllowed; ++val)
 		if (val != currentValue || repeatValuesAreAllowed)
 			allowedValues.add(val);
-	Random rndmNumGenerator{};
-	auto newFloat{ rndmNumGenerator.nextFloat() };
-	auto numberOfValueOptions{ allowedValues.size() };
-	auto newValueIndex{ (int)floor(newFloat * numberOfValueOptions) };
-	return allowedValues[newValueIndex];
+	if (allowedValues.size() == 0) {
+		if (trackNum == 1) {
+			if ((trackEditModeIsAllSteps && randomizationOptions->probabilityOfRestForAllStepsInSeqTrack1() > 0.0f) ||
+				(trackEditModeIsSelectedStep && randomizationOptions->probabilityOfRestForParam(paramIndex) > 0.0f))
+				return params::seqStepValueForRest;
+		}
+		if ((trackEditModeIsAllSteps && randomizationOptions->probabilityOfResetForAllStepsInSeqTrack(trackNum) > 0.0f) ||
+			(trackEditModeIsSelectedStep && stepNum != 1 && randomizationOptions->probabilityOfResetForParam(paramIndex) > 0.0f))
+			return params::seqStepValueForReset;
+		return params::maxValueForSeqTrackStep;
+	}
+	else {
+		Random rndmNumGenerator{};
+		auto newFloat{ rndmNumGenerator.nextFloat() };
+		auto numberOfValueOptions{ allowedValues.size() };
+		auto newValueIndex{ (int)floor(newFloat * numberOfValueOptions) };
+		return allowedValues[newValueIndex];
+	}
 }
 
 void ParamRandomizationMethods::randomizeArpAndSeqOnOffParametersAfterDelay(int delayInMs) {
