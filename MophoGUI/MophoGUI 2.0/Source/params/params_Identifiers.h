@@ -211,14 +211,16 @@ namespace ID
 
 	static const Identifier label_FolderName{ "label_FolderName" };
 
-	static const Identifier randomization_AllowedComboBoxItems{ "randomization_AllowedComboBoxItems" };
-	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" };
-	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" };
-	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" };
-	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" };
-	static const Identifier randomization_HighestOctaveIsOnlyOneAllowedFor_{ "randomization_HighestOctaveIsOnlyOneAllowedFor_" };
-	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" };
+	static const Identifier randomization_AllowedComboBoxItems{ "randomization_AllowedComboBoxItems" }; // todo: delete
+	static const Identifier randomization_AllowedFrequencyTypes{ "randomization_AllowedFrequencyTypes" }; // todo: delete
+	static const Identifier randomization_AllowedOscShapes{ "randomization_AllowedOscShapes" }; // todo: delete
+	static const Identifier randomization_AllowedPitches{ "randomization_AllowedPitches" }; // todo: delete
+	static const Identifier randomization_AllowedValueRanges{ "randomization_AllowedValueRanges" }; // todo: delete
+	static const Identifier randomization_AllowedValues{ "randomization_AllowedValues" };
+	static const Identifier randomization_HighestOctaveIsOnlyOneAllowedFor_{ "randomization_HighestOctaveIsOnlyOneAllowedFor_" }; // todo: delete
+	static const Identifier randomization_LPFfreqOptions{ "randomization_LPFfreqOptions" }; // todo: delete
 	static const Identifier randomization_MoreThanOneValueIsAllowedFor_{ "randomization_MoreThanOneValueIsAllowedFor_" };
+	static const Identifier randomization_NoValueIsAllowedFor_{ "randomization_NoValueIsAllowedFor_" };
 	static const Identifier randomization_OnlyOneValueIsAllowedFor_{ "randomization_OnlyOneValueIsAllowedFor_" };
 	static const Identifier randomization_ParamLocks{ "randomization_ParamLocks" };
 	static const Identifier randomization_RepeatValuesOptions{ "randomization_RepeatValuesOptions" };

@@ -122,7 +122,7 @@ void AllowedOctavesComponentForLPFfreq::buttonClicked(Button* button) {
 			randomizationOptions->setOctaveIsAllowedForParam(octaveNum, paramIndex);
 		}
 		randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
-		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam_z(paramIndex);
 	}
 }
 

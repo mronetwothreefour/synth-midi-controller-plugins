@@ -20,7 +20,7 @@ RepeatValuesToggleComponent::RepeatValuesToggleComponent(uint8 paramIndex, Unexp
 	randomizationOptions->addListenerToRepeatValuesOptionsTree(this);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	toggle_AllowRepeatValues.setComponentID(ID::component_ToggleButton_AllowRepeatValuesFor_.toString() + paramID);
-	auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+	auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam_z(paramIndex) };
 	if (onlyOneValueIsAllowed) {
 		toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
 		toggle_AllowRepeatValues.setEnabled(false);
@@ -85,7 +85,7 @@ void RepeatValuesToggleComponent::valueTreePropertyChanged(ValueTree& /*tree*/, 
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	if (propertyID.toString() == ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam_z(paramIndex) };
 		if (onlyOneValueIsAllowed) {
 			toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
 			toggle_AllowRepeatValues.setEnabled(false);

@@ -163,7 +163,7 @@ void AllowedOctavesComponentForSeqTrack::buttonClicked(Button* button) {
 		}
 		else {
 			randomizationOptions->setHighestOctaveIsNotOnlyOneAllowedForParam(paramIndex);
-			randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+			randomizationOptions->setMoreThanOneValueIsAllowedForParam_z(paramIndex);
 		}
 	}
 }

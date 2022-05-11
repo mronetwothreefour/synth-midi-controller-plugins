@@ -217,7 +217,7 @@ void AllowedNotesAndBentNotesComponent::buttonClicked(Button* button) {
 			}
 		}
 		if (editModeIsSelectedStep)
-			randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+			randomizationOptions->setMoreThanOneValueIsAllowedForParam_z(paramIndex);
 		else
 			randomizationOptions->setMoreThanOneValueIsAllowedForAllStepsInSeqTrack(trackNum);
 	}

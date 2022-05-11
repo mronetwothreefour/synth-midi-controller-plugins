@@ -107,9 +107,9 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 		auto paramID{ info.IDfor(paramIndex).toString() };
 		auto trackNum{ paramID.fromFirstOccurrenceOf("seqTrack", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 		if (randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum)) {
-			auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+			auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam_z(paramIndex) };
 			if (onlyOneValueIsAllowed)
-				return randomizationOptions->onlyAllowedValueForParam(paramIndex);
+				return randomizationOptions->onlyAllowedValueForParam_z(paramIndex);
 		}
 		else {
 			auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForAllStepsInSeqTrack(trackNum) };
@@ -118,9 +118,9 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 		}
 	}
 	else {
-		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
+		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam_z(paramIndex) };
 		if (onlyOneValueIsAllowed)
-			return randomizationOptions->onlyAllowedValueForParam(paramIndex);
+			return randomizationOptions->onlyAllowedValueForParam_z(paramIndex);
 	}
 	auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	switch (randomizationOptionsType)

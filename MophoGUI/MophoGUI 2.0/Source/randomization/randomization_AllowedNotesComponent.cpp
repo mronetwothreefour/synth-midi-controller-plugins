@@ -178,7 +178,7 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 			allowedNoteToggles[noteNum].setToggleState(true, dontSendNotification);
 			randomizationOptions->setNoteIsAllowedForParam(noteNum, paramIndex);
 		}
-		randomizationOptions->setMoreThanOneValueIsAllowedForParam(paramIndex);
+		randomizationOptions->setMoreThanOneValueIsAllowedForParam_z(paramIndex);
 	}
 }
 
