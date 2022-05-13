@@ -22,8 +22,7 @@ class UnexposedParameters;
 
 class ButtonsLayer :
 	public Component,
-	private Timer,
-	public Button::Listener
+	private Timer
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -61,7 +60,7 @@ private:
 	void timerCallback() override;
 
 public:
-	void buttonClicked(Button* button) override;
+	void mouseDown(const MouseEvent& event) override;
 	void resized() override;
 	~ButtonsLayer();
 

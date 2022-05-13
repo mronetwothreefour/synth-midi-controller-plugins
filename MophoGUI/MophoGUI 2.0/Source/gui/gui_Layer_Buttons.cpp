@@ -41,7 +41,7 @@ ButtonsLayer::ButtonsLayer(AudioProcessorValueTreeState* exposedParams, Unexpose
     addAndMakeVisible(button_ForShowingGlobalParametersComponent);
     button_ForShowingGlobalParametersComponent.onClick = [this] { prepareToShowGlobalParametersComponent(); };
     addAndMakeVisible(button_Randomize);
-    button_Randomize.addListener(this);
+    button_Randomize.addMouseListener(this, false);
     addAndMakeVisible(button_ForPerformingUndo);
     addAndMakeVisible(button_ForPerformingRedo);
     addAndMakeVisible(button_ForClearingSequencerTrack1);
@@ -113,9 +113,9 @@ void ButtonsLayer::showRandomizationComponent() {
 void ButtonsLayer::timerCallback() {
 }
 
-void ButtonsLayer::buttonClicked(Button* button) {
-    if (button == &button_Randomize) {
-        if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier)
+void ButtonsLayer::mouseDown(const MouseEvent& event) {
+    if (event.eventComponent == &button_Randomize) {
+        if (event.mods == ModifierKeys::rightButtonModifier)
             showRandomizationComponent();
         else {
             ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
@@ -146,5 +146,5 @@ ButtonsLayer::~ButtonsLayer() {
     randomizationComponent = nullptr;
     nrpnIsOffWarningComponent = nullptr;
     sysExIsOffWarningComponent = nullptr;
-    button_Randomize.removeListener(this);
+    button_Randomize.removeMouseListener(this);
 }
