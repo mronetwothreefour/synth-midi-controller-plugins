@@ -282,10 +282,6 @@ namespace constants
 		static const int randomizationOptionsComponent_OscShape_MaxKnob_x{ 100 };
 		static const int randomizationOptionsComponent_OscShape_RepeatValues_x{ 17 };
 		static const int randomizationOptionsComponent_OscShape_RepeatValues_y{ 267 };
-		static const int randomizationOptionsComponent_Toggle_CloseButton_x{ 27 };
-		static const int randomizationOptionsComponent_Toggle_CloseButton_y{ 39 };
-		static const int randomizationOptionsComponent_Toggle_RepeatValues_x{ 16 };
-		static const int randomizationOptionsComponent_Toggle_RepeatValues_y{ 17 };
 		static const int randomizationOptionsComponent_ValueRange_h{ 138 };
 		static const int randomizationOptionsComponent_ValueRange_w{ 135 };
 		static const int randomizationOptionsComponent_ValueRange_CloseButton_x{ 43 };

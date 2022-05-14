@@ -60,7 +60,6 @@ void ParamRandomizationOptionsComponent_Toggle::paint(Graphics& g) {
 	g.fillAll(Color::black.withAlpha(0.4f));
 	auto& info{ InfoForExposedParameters::get() };
 	auto controlCenter{ info.controlCenterPointFor(paramIndex) };
-	auto control_w{ info.controlWidthFor(paramIndex) };
 	g.setColour(Color::switchOn);
 	g.drawEllipse((float)controlCenter.x - 11.0f, (float)controlCenter.y - 11.0f, GUI::toggleLockButton_diameter, GUI::toggleLockButton_diameter, 2);
 	g.setColour(Color::black);

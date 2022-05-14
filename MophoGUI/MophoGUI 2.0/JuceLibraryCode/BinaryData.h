@@ -251,6 +251,9 @@ namespace BinaryData
     extern const char*   RandomizationOptionsOscShapeBackground_png;
     const int            RandomizationOptionsOscShapeBackground_pngSize = 5952;
 
+    extern const char*   RandomizationOptionsOscShapes_png;
+    const int            RandomizationOptionsOscShapes_pngSize = 2128;
+
     extern const char*   RandomizationOptionsSeqStepsBackground_png;
     const int            RandomizationOptionsSeqStepsBackground_pngSize = 11208;
 
@@ -259,9 +262,6 @@ namespace BinaryData
 
     extern const char*   RandomizationOptionsSeqStepsValueBackground_png;
     const int            RandomizationOptionsSeqStepsValueBackground_pngSize = 4678;
-
-    extern const char*   RandomizationOptionsTogglesBackground_png;
-    const int            RandomizationOptionsTogglesBackground_pngSize = 233;
 
     extern const char*   RandomizationOptionsValueRangeBackground_png;
     const int            RandomizationOptionsValueRangeBackground_pngSize = 2073;

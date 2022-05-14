@@ -271,10 +271,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack_Value.cpp"/>
         <FILE id="SWU83m" name="randomization_OptionsComponent_SeqTrack_Value.h"
               compile="0" resource="0" file="Source/randomization/randomization_OptionsComponent_SeqTrack_Value.h"/>
-        <FILE id="NGbAgk" name="randomization_OptionsComponent_Toggles.cpp"
-              compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_Toggles.cpp"/>
-        <FILE id="TLQbpO" name="randomization_OptionsComponent_Toggles.h" compile="0"
-              resource="0" file="Source/randomization/randomization_OptionsComponent_Toggles.h"/>
         <FILE id="e5Q6dE" name="randomization_OptionsComponent_ValueRange.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ValueRange.cpp"/>
         <FILE id="GTauAU" name="randomization_OptionsComponent_ValueRange.h"
@@ -289,6 +285,10 @@
               resource="0" file="Source/randomization/randomization_ParamOptionsComponent.cpp"/>
         <FILE id="NaHuB3" name="randomization_ParamOptionsComponent.h" compile="0"
               resource="0" file="Source/randomization/randomization_ParamOptionsComponent.h"/>
+        <FILE id="cBJGMo" name="randomization_ParamOptionsComponent_Toggle.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_ParamOptionsComponent_Toggle.cpp"/>
+        <FILE id="DNnxEe" name="randomization_ParamOptionsComponent_Toggle.h"
+              compile="0" resource="0" file="Source/randomization/randomization_ParamOptionsComponent_Toggle.h"/>
         <FILE id="roLIxI" name="randomization_ParamRandomizationMethods.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.cpp"/>
         <FILE id="BA9u8k" name="randomization_ParamRandomizationMethods.h"
@@ -851,14 +851,14 @@
             compile="0" resource="1" file="Resources/Randomization-Options-LPFfreq-Background.png"/>
       <FILE id="DibBxi" name="Randomization-Options-Osc-Shape-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Osc-Shape-Background.png"/>
+      <FILE id="vp6NEu" name="Randomization-Options-Osc-Shapes.png" compile="0"
+            resource="1" file="Resources/Randomization-Options-Osc-Shapes.png"/>
       <FILE id="zORxyS" name="Randomization-Options-Seq-Steps-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Background.png"/>
       <FILE id="D86uQJ" name="Randomization-Options-Seq-Steps-Pitch-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Pitch-Background.png"/>
       <FILE id="dh4bIs" name="Randomization-Options-Seq-Steps-Value-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Value-Background.png"/>
-      <FILE id="mo7CNF" name="Randomization-Options-Toggles-Background.png"
-            compile="0" resource="1" file="Resources/Randomization-Options-Toggles-Background.png"/>
       <FILE id="HzPfvm" name="Randomization-Options-Value-Range-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Value-Range-Background.png"/>
       <FILE id="LtY5AY" name="Randomization-Repeat-Values-Toggles-Background.png"
