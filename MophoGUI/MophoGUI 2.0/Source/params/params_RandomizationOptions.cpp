@@ -36,7 +36,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 		checkNumberOfAllowedValuesForParam(param);
 
 		auto optionsType{ info.randomizationOptionsTypeFor(param) };
-		if (optionsType == RandomizationOptionsType::pitch) {
+		if (optionsType == RandomizationOptionsType::allowedValues) {
 			for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum)
 				setNoteIsAllowedForParam(noteNum, param);
 			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum)
@@ -71,7 +71,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 				setOctaveIsAllowedForParam(octaveNum, param);
 			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
 		}
-		if (optionsType == RandomizationOptionsType::lfoFreq) {
+		if (optionsType == RandomizationOptionsType::allowedLFOfrequencies) {
 			setUnsyncedFreqAreAllowedForParam(param);
 			setPitchedFreqAreAllowedForParam(param);
 			setSyncedFreqAreAllowedForParam(param);
@@ -85,7 +85,7 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			for (auto syncedFreqNum = 0; syncedFreqNum != randomization::numberOfSyncedFreqForLFOs; ++syncedFreqNum)
 				setSyncedFreqIsAllowedForParam(syncedFreqNum, param);
 		}
-		if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
+		if (optionsType == RandomizationOptionsType::allowedSeqTrackStepValues) {
 			auto paramName{ info.IDfor(param).toString() };
 			if (paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1")
 				setProbabilityOfRestForParam(0.10f, param);
@@ -177,7 +177,7 @@ const bool RandomizationOptions::valueIsAllowedForParam(uint8 value, uint8 param
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
 	jassert(value < info.numberOfStepsFor(param));
-	auto propertyID{ (String)value + "_IsAllowed" };
+	auto propertyID{ "value_" + (String)value + "_IsAllowed"};
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	return paramTree.hasProperty(propertyID);
 }
@@ -187,7 +187,7 @@ const bool RandomizationOptions::valueIsNotAllowedForParam(uint8 value, uint8 pa
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
 	jassert(value < info.numberOfStepsFor(param));
-	auto propertyID{ (String)value + "_IsAllowed" };
+	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	return !paramTree.hasProperty(propertyID);
 }
@@ -198,7 +198,7 @@ void RandomizationOptions::setValueIsAllowedForParam(uint8 value, uint8 param) {
 	auto paramID{ info.IDfor(param).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	jassert(value < info.numberOfStepsFor(param));
-	auto propertyID{ (String)value + "_IsAllowedFor_" + info.IDfor(param).toString() };
+	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
 	if (!paramTree.hasProperty(propertyID))
 		paramTree.setProperty(propertyID, value, nullptr);
 }
@@ -209,7 +209,7 @@ void RandomizationOptions::setValueIsNotAllowedForParam(uint8 value, uint8 param
 	auto paramID{ info.IDfor(param).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	jassert(value < info.numberOfStepsFor(param));
-	auto propertyID{ (String)value + "_IsAllowedFor_" + info.IDfor(param).toString() };
+	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
 	if (paramTree.hasProperty(propertyID))
 		paramTree.removeProperty(propertyID, nullptr);
 }
@@ -218,21 +218,21 @@ const bool RandomizationOptions::onlyOneValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	return (bool)allowedValuesTrees.getProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID);
+	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID);
 }
 
 const bool RandomizationOptions::moreThanOneValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	return (bool)allowedValuesTrees.getProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID);
+	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID);
 }
 
 const bool RandomizationOptions::noValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	return (bool)allowedValuesTrees.getProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID);
+	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID);
 }
 
 const uint8 RandomizationOptions::onlyValueAllowedForParam(uint8 param) {
@@ -251,7 +251,6 @@ void RandomizationOptions::checkNumberOfAllowedValuesForParam(uint8 param) {
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	auto numberOfAllowedValues{ paramTree.getNumProperties() };
 	if (numberOfAllowedValues == 1) {
-		auto value{ (int)paramTree[0] };
 		setOnlyOneValueIsAllowedForParam(param);
 		return;
 	}
@@ -266,27 +265,27 @@ void RandomizationOptions::setOnlyOneValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	allowedValuesTrees.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
 
 void RandomizationOptions::setMoreThanOneValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	allowedValuesTrees.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
 
 void RandomizationOptions::setNoValueIsAllowedForParam(uint8 param) {
 	jassert(param < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(param).toString() };
-	allowedValuesTrees.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
-	allowedValuesTrees.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
+	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
 }
 
 void RandomizationOptions::addListenerToAllowedPitchesTree(ValueTree::Listener* listener) {
@@ -300,11 +299,11 @@ void RandomizationOptions::removeListenerFromAllowedPitchesTree(ValueTree::Liste
 const bool RandomizationOptions::noteIsAllowedForParam(int noteNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep ?
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues ?
 		noteNum < randomization::numberOfNotesAndBentNotes : noteNum < randomization::numberOfNotes);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	return (bool)allowedPitchesTree.getProperty("note" + String(noteNum) + "_IsAllowedFor_" + paramID);
@@ -313,11 +312,11 @@ const bool RandomizationOptions::noteIsAllowedForParam(int noteNum, uint8 paramI
 void RandomizationOptions::setNoteIsAllowedForParam(int noteNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep ?
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues ?
 		noteNum < randomization::numberOfNotesAndBentNotes : noteNum < randomization::numberOfNotes);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty("note" + String(noteNum) + "_IsAllowedFor_" + paramID, (bool)true, nullptr);
@@ -326,11 +325,11 @@ void RandomizationOptions::setNoteIsAllowedForParam(int noteNum, uint8 paramInde
 void RandomizationOptions::setNoteIsNotAllowedForParam(int noteNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep ?
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues ?
 		noteNum < randomization::numberOfNotesAndBentNotes : noteNum < randomization::numberOfNotes);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty("note" + String(noteNum) + "_IsAllowedFor_" + paramID, (bool)false, nullptr);
@@ -339,11 +338,11 @@ void RandomizationOptions::setNoteIsNotAllowedForParam(int noteNum, uint8 paramI
 const bool RandomizationOptions::noNoteIsAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
-	auto numberOfNotes{ optionsType == RandomizationOptionsType::sequencerTrackStep ? 
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
+	auto numberOfNotes{ optionsType == RandomizationOptionsType::allowedSeqTrackStepValues ? 
 		randomization::numberOfNotesAndBentNotes : randomization::numberOfNotes };
 	auto atLeastOneNoteIsAllowed{ (bool)false };
 	auto noNoteIsAllowed{ (bool)true };
@@ -357,10 +356,10 @@ const bool RandomizationOptions::noNoteIsAllowedForParam(uint8 paramIndex) {
 const bool RandomizationOptions::octaveIsAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
+	jassert((optionsType == RandomizationOptionsType::allowedValues && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
-		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
-		(optionsType == RandomizationOptionsType::sequencerTrackStep && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
+		(optionsType == RandomizationOptionsType::allowedLFOfrequencies && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
+		(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	return (bool)allowedPitchesTree.getProperty("octave" + String(octaveNum) + "_IsAllowedFor_" + paramID);
 }
@@ -368,10 +367,10 @@ const bool RandomizationOptions::octaveIsAllowedForParam(int octaveNum, uint8 pa
 void RandomizationOptions::setOctaveIsAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
+	jassert((optionsType == RandomizationOptionsType::allowedValues && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
-		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
-		(optionsType == RandomizationOptionsType::sequencerTrackStep && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
+		(optionsType == RandomizationOptionsType::allowedLFOfrequencies && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
+		(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedFor_" + paramID, (bool)true, nullptr);
 }
@@ -379,10 +378,10 @@ void RandomizationOptions::setOctaveIsAllowedForParam(int octaveNum, uint8 param
 void RandomizationOptions::setOctaveIsNotAllowedForParam(int octaveNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert((optionsType == RandomizationOptionsType::pitch && octaveNum < randomization::numberOfOctaves) ||
+	jassert((optionsType == RandomizationOptionsType::allowedValues && octaveNum < randomization::numberOfOctaves) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && octaveNum < randomization::numberOfOctavesForLPFfreq) ||
-		(optionsType == RandomizationOptionsType::lfoFreq && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
-		(optionsType == RandomizationOptionsType::sequencerTrackStep && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
+		(optionsType == RandomizationOptionsType::allowedLFOfrequencies && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps) ||
+		(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues && octaveNum < randomization::numberOfOctavesForLFOfreqAndSeqSteps));
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty("octave" + String(octaveNum) + "_IsAllowedFor_" + paramID, (bool)false, nullptr);
 }
@@ -390,14 +389,14 @@ void RandomizationOptions::setOctaveIsNotAllowedForParam(int octaveNum, uint8 pa
 const bool RandomizationOptions::noOctaveIsAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	int numberOfOctaves{ randomization::numberOfOctaves };
 	if (optionsType == RandomizationOptionsType::lpfFreq)
 		numberOfOctaves = randomization::numberOfOctavesForLPFfreq;
-	if (optionsType == RandomizationOptionsType::lfoFreq || optionsType == RandomizationOptionsType::sequencerTrackStep)
+	if (optionsType == RandomizationOptionsType::allowedLFOfrequencies || optionsType == RandomizationOptionsType::allowedSeqTrackStepValues)
 		numberOfOctaves = randomization::numberOfOctavesForLFOfreqAndSeqSteps;
 	auto atLeastOneOctaveIsAllowed{ (bool)false };
 	auto noOctaveIsAllowed{ (bool)true };
@@ -412,11 +411,11 @@ const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 para
 	jassert(pitchNum > -1);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert((optionsType == RandomizationOptionsType::pitch && pitchNum < randomization::numberOfPitchesForOscillators) ||
+	jassert((optionsType == RandomizationOptionsType::allowedValues && pitchNum < randomization::numberOfPitchesForOscillators) ||
 		(optionsType == RandomizationOptionsType::lpfFreq && pitchNum < randomization::numberOfPitchedFreqForLPF) ||
-		(optionsType == RandomizationOptionsType::lfoFreq && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||
-		(optionsType == RandomizationOptionsType::sequencerTrackStep && pitchNum < randomization::numberOfPitchesForSeqSteps));
-	auto numberOfNotes{ optionsType == RandomizationOptionsType::sequencerTrackStep ?
+		(optionsType == RandomizationOptionsType::allowedLFOfrequencies && pitchNum < randomization::numberOfPitchedFreqForLFOs) ||
+		(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues && pitchNum < randomization::numberOfPitchesForSeqSteps));
+	auto numberOfNotes{ optionsType == RandomizationOptionsType::allowedSeqTrackStepValues ?
 		randomization::numberOfNotesAndBentNotes : randomization::numberOfNotes };
 	auto noteIsAllowed{ noteIsAllowedForParam(pitchNum % numberOfNotes, paramIndex) };
 	auto octaveIsAllowed{ octaveIsAllowedForParam(pitchNum / numberOfNotes, paramIndex) };
@@ -426,7 +425,7 @@ const bool RandomizationOptions::pitchIsAllowedForParam(int pitchNum, uint8 para
 void RandomizationOptions::checkIfOnlyOneValueIsAllowedForPitchParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch);
+	jassert(optionsType == RandomizationOptionsType::allowedValues);
 	Array<uint8> allowedPitches;
 	for (auto pitchNum = (uint8)0; pitchNum != randomization::numberOfPitchesForOscillators; ++pitchNum) {
 		if (pitchIsAllowedForParam(pitchNum, paramIndex))
@@ -441,14 +440,14 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForPitchParam(uint8 param
 void RandomizationOptions::checkIfHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	int numberOfOctaves{ randomization::numberOfOctaves };
 	if (optionsType == RandomizationOptionsType::lpfFreq)
 		numberOfOctaves = randomization::numberOfOctavesForLPFfreq;
-	if (optionsType == RandomizationOptionsType::lfoFreq || optionsType == RandomizationOptionsType::sequencerTrackStep)
+	if (optionsType == RandomizationOptionsType::allowedLFOfrequencies || optionsType == RandomizationOptionsType::allowedSeqTrackStepValues)
 		numberOfOctaves = randomization::numberOfOctavesForLFOfreqAndSeqSteps;
 	Array<int> allowedOctaves;
 	for (auto octaveNum = 0; octaveNum != numberOfOctaves; ++octaveNum) {
@@ -464,10 +463,10 @@ void RandomizationOptions::checkIfHighestOctaveIsOnlyOneAllowedForParam(uint8 pa
 const bool RandomizationOptions::highestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto highestOctaveIsOnlyOneAllowed{ (bool)allowedPitchesTree.getProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID)};
 	return highestOctaveIsOnlyOneAllowed;
@@ -476,10 +475,10 @@ const bool RandomizationOptions::highestOctaveIsOnlyOneAllowedForParam(uint8 par
 void RandomizationOptions::setHighestOctaveIsOnlyOneAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID, (bool)true, nullptr);
 }
@@ -487,10 +486,10 @@ void RandomizationOptions::setHighestOctaveIsOnlyOneAllowedForParam(uint8 paramI
 void RandomizationOptions::setHighestOctaveIsNotOnlyOneAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch ||
+	jassert(optionsType == RandomizationOptionsType::allowedValues ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::lfoFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedLFOfrequencies ||
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	allowedPitchesTree.setProperty(ID::randomization_HighestOctaveIsOnlyOneAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
@@ -526,7 +525,7 @@ const uint8 RandomizationOptions::minValueAllowedForParam(uint8 paramIndex) {
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::valueRange || 
 		optionsType == RandomizationOptionsType::lpfFreq || 
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int minValueAllowed{ allowedValueRangesTree.getProperty("minValueAllowedFor_" + paramID) };
 	return (uint8)minValueAllowed;
@@ -537,7 +536,7 @@ void RandomizationOptions::setMinValueAllowedForParam(uint8 newMin, uint8 paramI
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::valueRange ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto maxValue{ info.maxValueFor(paramIndex) };
 	jassert(newMin <= maxValue);
 	auto paramID(info.IDfor(paramIndex).toString());
@@ -549,7 +548,7 @@ const uint8 RandomizationOptions::maxValueAllowedForParam(uint8 paramIndex) {
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::valueRange ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int maxValueAllowed{ allowedValueRangesTree.getProperty("maxValueAllowedFor_" + paramID) };
 	return (uint8)maxValueAllowed;
@@ -560,7 +559,7 @@ void RandomizationOptions::setMaxValueAllowedForParam(uint8 newMax, uint8 paramI
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::valueRange ||
 		optionsType == RandomizationOptionsType::lpfFreq ||
-		optionsType == RandomizationOptionsType::sequencerTrackStep);
+		optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto maxValue{ info.maxValueFor(paramIndex) };
 	jassert(newMax <= maxValue);
 	auto paramID(info.IDfor(paramIndex).toString());
@@ -827,7 +826,7 @@ void RandomizationOptions::checkIfOnlyOneValueIsAllowedForLPFfreqParam() {
 const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("pitchedFreqAreAllowedFor_" + paramID);
 }
@@ -835,7 +834,7 @@ const bool RandomizationOptions::pitchedFreqAreAllowedForParam(uint8 paramIndex)
 const bool RandomizationOptions::pitchedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("pitchedFreqAreNotAllowedFor_" + paramID);
 }
@@ -843,7 +842,7 @@ const bool RandomizationOptions::pitchedFreqAreNotAllowedForParam(uint8 paramInd
 void RandomizationOptions::setPitchedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("pitchedFreqAreAllowedFor_" + paramID, (bool)true, nullptr);
 	allowedFrequencyTypesTree.setProperty("pitchedFreqAreNotAllowedFor_" + paramID, (bool)false, nullptr);
@@ -852,7 +851,7 @@ void RandomizationOptions::setPitchedFreqAreAllowedForParam(uint8 paramIndex) {
 void RandomizationOptions::setPitchedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("pitchedFreqAreAllowedFor_" + paramID, (bool)false, nullptr);
 	allowedFrequencyTypesTree.setProperty("pitchedFreqAreNotAllowedFor_" + paramID, (bool)true, nullptr);
@@ -875,7 +874,7 @@ const bool RandomizationOptions::moreThanOnePitchedFreqIsAllowedForParam(uint8 p
 const bool RandomizationOptions::unsyncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("unsyncedFreqAreAllowedFor_" + paramID);
 }
@@ -883,7 +882,7 @@ const bool RandomizationOptions::unsyncedFreqAreAllowedForParam(uint8 paramIndex
 const bool RandomizationOptions::unsyncedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("unsyncedFreqAreNotAllowedFor_" + paramID);
 }
@@ -891,7 +890,7 @@ const bool RandomizationOptions::unsyncedFreqAreNotAllowedForParam(uint8 paramIn
 void RandomizationOptions::setUnsyncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("unsyncedFreqAreAllowedFor_" + paramID, (bool)true, nullptr);
 	allowedFrequencyTypesTree.setProperty("unsyncedFreqAreNotAllowedFor_" + paramID, (bool)false, nullptr);
@@ -900,7 +899,7 @@ void RandomizationOptions::setUnsyncedFreqAreAllowedForParam(uint8 paramIndex) {
 void RandomizationOptions::setUnsyncedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("unsyncedFreqAreAllowedFor_" + paramID, (bool)false, nullptr);
 	allowedFrequencyTypesTree.setProperty("unsyncedFreqAreNotAllowedFor_" + paramID, (bool)true, nullptr);
@@ -909,7 +908,7 @@ void RandomizationOptions::setUnsyncedFreqAreNotAllowedForParam(uint8 paramIndex
 const uint8 RandomizationOptions::minUnsyncedFreqForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int minFreq{ allowedFrequencyTypesTree.getProperty("minUnsyncedFreqFor_" + paramID) };
 	return (uint8)minFreq;
@@ -918,7 +917,7 @@ const uint8 RandomizationOptions::minUnsyncedFreqForParam(uint8 paramIndex) {
 void RandomizationOptions::setMinUnsyncedFreqForParam(uint8 newMin, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	jassert(newMin <= params::maxUnsyncedLFOfreq);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("minUnsyncedFreqFor_" + paramID, newMin, nullptr);
@@ -927,7 +926,7 @@ void RandomizationOptions::setMinUnsyncedFreqForParam(uint8 newMin, uint8 paramI
 const uint8 RandomizationOptions::maxUnsyncedFreqForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	int maxFreq{ allowedFrequencyTypesTree.getProperty("maxUnsyncedFreqFor_" + paramID) };
 	return (uint8)maxFreq;
@@ -936,7 +935,7 @@ const uint8 RandomizationOptions::maxUnsyncedFreqForParam(uint8 paramIndex) {
 void RandomizationOptions::setMaxUnsyncedFreqForParam(uint8 newMax, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	jassert(newMax <= params::maxUnsyncedLFOfreq);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("maxUnsyncedFreqFor_" + paramID, newMax, nullptr);
@@ -956,7 +955,7 @@ const bool RandomizationOptions::moreThanOneUnsyncedFreqIsAllowedForParam(uint8 
 const bool RandomizationOptions::syncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("syncedFreqAreAllowedFor_" + paramID);
 }
@@ -964,7 +963,7 @@ const bool RandomizationOptions::syncedFreqAreAllowedForParam(uint8 paramIndex) 
 const bool RandomizationOptions::syncedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("syncedFreqAreNotAllowedFor_" + paramID);
 }
@@ -972,7 +971,7 @@ const bool RandomizationOptions::syncedFreqAreNotAllowedForParam(uint8 paramInde
 void RandomizationOptions::setSyncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("syncedFreqAreAllowedFor_" + paramID, (bool)true, nullptr);
 	allowedFrequencyTypesTree.setProperty("syncedFreqAreNotAllowedFor_" + paramID, (bool)false, nullptr);
@@ -981,7 +980,7 @@ void RandomizationOptions::setSyncedFreqAreAllowedForParam(uint8 paramIndex) {
 void RandomizationOptions::setSyncedFreqAreNotAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("syncedFreqAreAllowedFor_" + paramID, (bool)false, nullptr);
 	allowedFrequencyTypesTree.setProperty("syncedFreqAreNotAllowedFor_" + paramID, (bool)true, nullptr);
@@ -990,7 +989,7 @@ void RandomizationOptions::setSyncedFreqAreNotAllowedForParam(uint8 paramIndex) 
 const bool RandomizationOptions::syncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	return (bool)allowedFrequencyTypesTree.getProperty("syncedFreq" + (String)syncedFreqNum + "_IsAllowedFor_" + paramID);
 }
@@ -998,7 +997,7 @@ const bool RandomizationOptions::syncedFreqIsAllowedForParam(int syncedFreqNum, 
 void RandomizationOptions::setSyncedFreqIsAllowedForParam(int syncedFreqNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("syncedFreq" + (String)syncedFreqNum + "_IsAllowedFor_" + paramID, (bool)true, nullptr);
 }
@@ -1006,7 +1005,7 @@ void RandomizationOptions::setSyncedFreqIsAllowedForParam(int syncedFreqNum, uin
 void RandomizationOptions::setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID(info.IDfor(paramIndex).toString());
 	allowedFrequencyTypesTree.setProperty("syncedFreq" + (String)syncedFreqNum + "_IsAllowedFor_" + paramID, (bool)false, nullptr);
 }
@@ -1014,7 +1013,7 @@ void RandomizationOptions::setSyncedFreqIsNotAllowedForParam(int syncedFreqNum, 
 const bool RandomizationOptions::noSyncedFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto atLeastOneSyncedFreqIsAllowed{ (bool)false };
 	auto noSyncedFreqIsAllowed{ (bool)true };
 	for (auto freqNum = 0; freqNum != randomization::numberOfSyncedFreqForLFOs; ++freqNum) {
@@ -1041,7 +1040,7 @@ const bool RandomizationOptions::moreThanOneSyncedFreqIsAllowedForParam(uint8 pa
 const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	if (pitchedFreqAreAllowedForParam(paramIndex) || syncedFreqAreAllowedForParam(paramIndex) || unsyncedFreqAreAllowedForParam(paramIndex))
 		return false;
 	else
@@ -1051,7 +1050,7 @@ const bool RandomizationOptions::noFreqAreAllowedForParam(uint8 paramIndex) {
 void RandomizationOptions::checkIfOnlyOneValueIsAllowedForLFOfreqParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	Array<uint8> allowedFrequencies;
 	if (unsyncedFreqAreAllowedForParam(paramIndex)) {
 		auto minUnsyncedFreq{ minUnsyncedFreqForParam(paramIndex) };
@@ -1266,7 +1265,7 @@ void RandomizationOptions::setProbabilityOfRestForAllStepsInSeqTrack1(float newP
 const float RandomizationOptions::probabilityOfRestForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	if (paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1") {
 		float probability{ seqTrackOptionsTree.getProperty("probabilityOfRestFor_" + paramName) };
@@ -1280,7 +1279,7 @@ void RandomizationOptions::setProbabilityOfRestForParam(float newProb, uint8 par
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	jassert(paramName.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false) == "1");
 	seqTrackOptionsTree.setProperty("probabilityOfRestFor_" + paramName, newProb, nullptr);
@@ -1299,7 +1298,7 @@ void RandomizationOptions::setProbabilityOfRepeatForAllStepsInSeqTrack(float new
 const float RandomizationOptions::probabilityOfRepeatValueForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	float probability{ seqTrackOptionsTree.getProperty("probabilityOfRepeatValueFor_" + paramName) };
 	return probability;
@@ -1309,7 +1308,7 @@ void RandomizationOptions::setProbabilityOfRepeatValueForParam(float newProb, ui
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	seqTrackOptionsTree.setProperty("probabilityOfRepeatValueFor_" + paramName, newProb, nullptr);
 }
@@ -1327,7 +1326,7 @@ void RandomizationOptions::setProbabilityOfResetForAllStepsInSeqTrack(float newP
 const float RandomizationOptions::probabilityOfResetForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	float probability{ seqTrackOptionsTree.getProperty("probabilityOfResetFor_" + paramName) };
 	return probability;
@@ -1337,7 +1336,7 @@ void RandomizationOptions::setProbabilityOfResetForParam(float newProb, uint8 pa
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramName{ info.IDfor(paramIndex).toString() };
 	seqTrackOptionsTree.setProperty("probabilityOfResetFor_" + paramName, newProb, nullptr);
 }
@@ -1448,7 +1447,7 @@ void RandomizationOptions::setTrackDestinationIsNotAnOscPitchParameter(int track
 void RandomizationOptions::checkIfOnlyOneValueIsAllowedForSeqStepParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::sequencerTrackStep);
+	jassert(optionsType == RandomizationOptionsType::allowedSeqTrackStepValues);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 	if (trackNum == 1) {

@@ -17,7 +17,7 @@ namespace ID
 	static const Identifier bank_custom3_VoiceNameStrings{ "bank_custom3_VoiceNameStrings" };
 
 	static const Identifier button_AllBentNotesFor_{ "button_AllBentNotesFor_" };
-	static const Identifier button_AllItemsFor_{ "button_AllItemsFor_" };
+	static const Identifier button_AllValuesFor_{ "button_AllValuesFor_" };
 	static const Identifier button_AllNotesFor_{ "button_AllNotesFor_" };
 	static const Identifier button_AllOctavesFor_{ "button_AllOctavesFor_" };
 	static const Identifier button_AllShapesFor_{ "button_AllShapesFor_" };
@@ -96,6 +96,7 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
+	static const Identifier component_Allow_ToggleButton_Value_{ "component_Allow_ToggleButton_Value_" };
 	static const Identifier component_AllowComboBoxItem_ToggleButton_{ "component_AllowComboBoxItem_ToggleButton_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off(0)_For_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Pulse_For_{ "component_ToggleButton_AllowOscShape_Pulse(4)_For_" };

@@ -108,7 +108,7 @@ void GUILookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Col
 }
 
 const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
-	if (button.getComponentID().startsWith("button_AllItems"))
+	if (button.getComponentID().startsWith("button_AllValuesFor_"))
 		return isDown ? BinaryData::ButtonDownAllowAll_png : BinaryData::ButtonUpAllowAll_png;
 
 	if (button.getComponentID().startsWith("button_AllNotes"))
@@ -202,7 +202,7 @@ const char* GUILookAndFeel::getButtonImageData(Button& button, bool isDown) {
 }
 
 size_t GUILookAndFeel::getButtonImageDataSize(Button& button, bool isDown) {
-	if (button.getComponentID().startsWith("button_AllItems"))
+	if (button.getComponentID().startsWith("button_AllValuesFor_"))
 		return size_t(isDown ? BinaryData::ButtonDownAllowAll_pngSize : BinaryData::ButtonUpAllowAll_pngSize);
 
 	if (button.getComponentID().startsWith("button_AllNotes"))
@@ -321,6 +321,17 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
+	if (componentID.startsWith(ID::component_Allow_ToggleButton_Value_.toString())) {
+		if (isTicked) {
+			g.setColour(Color::white.withAlpha(0.2f));
+			g.fillRect(x, y, w, h);
+		}
+		g.setColour(Color::black);
+		g.setFont(FontsMenu::fontFor_Labels);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getHelpText(), textArea, Justification::centredLeft);
+	}
+	// todo: delete
 	if (componentID.startsWith(ID::component_AllowComboBoxItem_ToggleButton_.toString())) {
 		if (isTicked) {
 			g.setColour(Color::white.withAlpha(0.2f));
@@ -331,6 +342,7 @@ void GUILookAndFeel::drawTickBox(Graphics& g, Component& component, float x, flo
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getHelpText(), textArea, Justification::centredLeft);
 	}
+	//
 	if (componentID.startsWith("lockButtonForComboBox_")) {
 		if (isTicked) {
 			g.setColour(Color::black.withAlpha(0.3f));

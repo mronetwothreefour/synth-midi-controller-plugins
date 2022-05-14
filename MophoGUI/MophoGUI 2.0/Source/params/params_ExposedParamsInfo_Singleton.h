@@ -29,6 +29,12 @@ private:
 	Array<uint16> msBitPackedByteLocations;
 	Array<uint16> lsByteLocations;
 	Array<uint8> msBitMasks;
+	Array<int> allowedValuesColumnCounts;
+	Array<int> allowedValuesColumnWidths;
+	Array<int> allowedValuesRowsCounts;
+	Array<int> allowedValuesFirstRows;
+	Array<Point<int>> randomizationOptionsTopLeftCoordinates;
+
 
 	InfoForExposedParameters();
 	void fillAllInfoContainers();
@@ -48,7 +54,7 @@ public:
 	IntToContextualStringConverter* converterFor(uint8 paramIndex) const;
 	uint8 maxValueFor(uint8 paramIndex) const;
 	uint8 defaultValueFor(uint8 paramIndex) const;
-	uint16 numberOfStepsFor(uint8 paramIndex) const;
+	uint8 numberOfStepsFor(uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;
 	Point<int> controlCenterPointFor(uint8 paramIndex) const;
 	int controlWidthFor(uint8 paramIndex) const;
@@ -57,7 +63,14 @@ public:
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
 	uint8 msBitMaskFor(uint8 paramIndex) const;
-	RandomizationOptionsType randomizationOptionsTypeFor(uint8 paramIndex) const;
+	RandomizationOptionsType randomizationOptionsTypeFor(uint8 paramIndex) const; // todo: delete
+	int numberOfAllowedValuesColumnsFor(uint8 paramIndex) const;
+	int widthOfAllowedValuesColumnFor(uint8 paramIndex) const;
+	int numberOfAllowedValuesRowsFor(uint8 paramIndex) const;
+	int firstAllowedValuesRowFor(uint8 paramIndex) const;
+	int randomizationOptions_x_For(uint8 paramIndex) const;
+	int randomizationOptions_y_For(uint8 paramIndex) const;
+
 
 	// Returns 255 if NRPN is not found
 	uint8 indexForNRPN(const uint8 nrpn) const;

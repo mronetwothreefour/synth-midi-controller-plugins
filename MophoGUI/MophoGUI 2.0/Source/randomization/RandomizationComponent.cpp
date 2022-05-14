@@ -1,5 +1,6 @@
 #include "RandomizationComponent.h"
 
+#include "randomization_ParamOptionsComponent.h"
 #include "randomization_OptionsComponent_ComboBoxes.h"
 #include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_LPFfreq.h"
@@ -177,7 +178,7 @@ void RandomizationComponent::setUpParamLockToggleButton(uint8 param) {
 	}
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	paramLockToggleButtons[param].setToggleState(randomizationOptions->paramIsLocked(param), dontSendNotification);
-	paramLockToggleButtons[param].addListener(this);
+	paramLockToggleButtons[param].addMouseListener(this, false);
 }
 
 void RandomizationComponent::paint(Graphics& g) {
@@ -236,20 +237,25 @@ void RandomizationComponent::resized() {
 }
 
 void RandomizationComponent::buttonClicked(Button* button) {
-	auto& info{ InfoForExposedParameters::get() };
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	if (buttonID == ID::component_ToggleButton_TransmitRandomValuesViaNRPN.toString())
 		randomizationOptions->setTransmissionMethodIsNRPN();
 	if (buttonID == ID::component_ToggleButton_TransmitRandomValuesViaSysEx.toString())
 		randomizationOptions->setTransmissionMethodIsSysEx();
-	if (buttonID.startsWith("lockButton")) {
-		auto paramID{ buttonID.fromFirstOccurrenceOf("_", false, false) };
-		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
-			auto paramIndex{ info.indexForParamID(paramID) };
+}
+
+void RandomizationComponent::mouseDown(const MouseEvent& event) {
+	auto eventComponentID{ event.eventComponent->getComponentID() };
+	if (eventComponentID.startsWith("lockButton")) {
+		auto& info{ InfoForExposedParameters::get() };
+		auto paramID{ eventComponentID.fromFirstOccurrenceOf("_", false, false) };
+		auto paramIndex{ info.indexForParamID(paramID) };
+		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
+		if (event.mods == ModifierKeys::rightButtonModifier) {
 			auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-			if (optionsType == RandomizationOptionsType::pitch)
-				showRandomizationOptionsComponent_PitchForParam(paramIndex);
+			if (optionsType == RandomizationOptionsType::allowedValues)
+				showParamRandomizationOptionsComponentForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::valueRange)
 				showRandomizationOptionsComponent_ValueRangeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::oscShape)
@@ -258,11 +264,11 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				showRandomizationOptionsComponent_Toggles(paramIndex);
 			if (optionsType == RandomizationOptionsType::comboBoxes)
 				showRandomizationOptionsComponent_ComboBoxes(paramIndex);
-			if (optionsType == RandomizationOptionsType::lfoFreq)
+			if (optionsType == RandomizationOptionsType::allowedLFOfrequencies)
 				showRandomizationOptionsComponent_LFOfreqForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::lpfFreq)
 				showRandomizationOptionsComponent_LPFfreq();
-			if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
+			if (optionsType == RandomizationOptionsType::allowedSeqTrackStepValues) {
 				auto trackNum{ paramID.fromFirstOccurrenceOf("Track", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 				auto stepNum{ paramID.fromFirstOccurrenceOf("Step", false, false).getIntValue() };
 				randomizationOptions->setStepSelectedForEditingInSeqTrack(stepNum, trackNum);
@@ -271,24 +277,23 @@ void RandomizationComponent::buttonClicked(Button* button) {
 				else
 					showRandomizationOptionsComponent_SeqTrackValueForTrack(trackNum);
 			}
-			button->setToggleState(false, dontSendNotification);
+			paramLockToggleButtons[paramIndex].setToggleState(false, dontSendNotification);
 			randomizationOptions->setParamIsUnlocked(paramIndex);
 		}
 		else {
 			if (paramID == "arpegOnOff" || paramID == "sequencerOnOff") {
 				if (exposedParams->getParameter(paramID)->getValue() == 1.0f) {
+					auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
+					auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
 					if (paramID == "arpegOnOff") {
-						auto sequencerOnOffIndex{ info.indexForParamID("sequencerOnOff") };
-						paramLockToggleButtons[sequencerOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+						paramLockToggleButtons[sequencerOnOffIndex].setToggleState(paramLockToggleButtons[arpegOnOffIndex].getToggleState(), sendNotification);
 					}
 					if (paramID == "sequencerOnOff") {
-						auto arpegOnOffIndex{ info.indexForParamID("arpegOnOff") };
-						paramLockToggleButtons[arpegOnOffIndex].setToggleState(button->getToggleState(), sendNotification);
+						paramLockToggleButtons[arpegOnOffIndex].setToggleState(paramLockToggleButtons[sequencerOnOffIndex].getToggleState(), sendNotification);
 					}
 				}
 			}
-			auto paramIndex{ info.indexForParamID(paramID) };
-			auto buttonIsToggledOn{ button->getToggleState() };
+			auto buttonIsToggledOn{ paramLockToggleButtons[paramIndex].getToggleState() };
 			if (buttonIsToggledOn)
 				randomizationOptions->setParamIsLocked(paramIndex);
 			else
@@ -297,12 +302,12 @@ void RandomizationComponent::buttonClicked(Button* button) {
 	}
 }
 
-void RandomizationComponent::showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex) {
-	randomizationOptionsComponent_Pitch.reset(new RandomizationOptionsComponent_Pitch(paramIndex, unexposedParams));
-	if (randomizationOptionsComponent_Pitch != nullptr) {
-		addAndMakeVisible(randomizationOptionsComponent_Pitch.get());
-		randomizationOptionsComponent_Pitch->setBounds(getLocalBounds());
-		randomizationOptionsComponent_Pitch->grabKeyboardFocus();
+void RandomizationComponent::showParamRandomizationOptionsComponentForParam(uint8 paramIndex) {
+	randomizationOptionsComponent.reset(new ParamRandomizationOptionsComponent(paramIndex, exposedParams, unexposedParams));
+	if (randomizationOptionsComponent != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent.get());
+		randomizationOptionsComponent->setBounds(getLocalBounds());
+		randomizationOptionsComponent->grabKeyboardFocus();
 	}
 }
 
@@ -392,10 +397,10 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_Toggles = nullptr;
 	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
-	randomizationOptionsComponent_Pitch = nullptr;
+	randomizationOptionsComponent = nullptr;
 	toggle_ForTransmittingViaSysEx.removeListener(this);
 	toggle_ForTransmittingViaNRPN.removeListener(this);
 	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		paramLockToggleButtons[param].removeListener(this);
+		paramLockToggleButtons[param].removeMouseListener(this);
 }

@@ -85,7 +85,7 @@ void RepeatValuesToggleComponent::valueTreePropertyChanged(ValueTree& /*tree*/, 
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	if (propertyID.toString() == ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID) {
 		auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
-		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam_z(paramIndex) };
+		auto onlyOneValueIsAllowed{ randomizationOptions->onlyOneValueIsAllowedForParam(paramIndex) };
 		if (onlyOneValueIsAllowed) {
 			toggle_AllowRepeatValues.setToggleState(true, dontSendNotification);
 			toggle_AllowRepeatValues.setEnabled(false);

@@ -243,6 +243,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.cpp"/>
         <FILE id="fkB6Aw" name="randomization_AllowedUnsyncedFreqComponent.h"
               compile="0" resource="0" file="Source/randomization/randomization_AllowedUnsyncedFreqComponent.h"/>
+        <FILE id="gXHQbT" name="randomization_AllowedValuesTogglesComponent.cpp"
+              compile="1" resource="0" file="Source/randomization/randomization_AllowedValuesTogglesComponent.cpp"/>
+        <FILE id="wpHewU" name="randomization_AllowedValuesTogglesComponent.h"
+              compile="0" resource="0" file="Source/randomization/randomization_AllowedValuesTogglesComponent.h"/>
         <FILE id="p6ZLtB" name="randomization_OptionsComponent_ComboBoxes.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_ComboBoxes.cpp"/>
         <FILE id="s2Xk7U" name="randomization_OptionsComponent_ComboBoxes.h"
@@ -285,6 +289,10 @@
               compile="1" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.cpp"/>
         <FILE id="MRNFF4" name="randomization_ParamGroupLockingAndUnlockingMethods.h"
               compile="0" resource="0" file="Source/randomization/randomization_ParamGroupLockingAndUnlockingMethods.h"/>
+        <FILE id="gdn93a" name="randomization_ParamOptionsComponent.cpp" compile="1"
+              resource="0" file="Source/randomization/randomization_ParamOptionsComponent.cpp"/>
+        <FILE id="NaHuB3" name="randomization_ParamOptionsComponent.h" compile="0"
+              resource="0" file="Source/randomization/randomization_ParamOptionsComponent.h"/>
         <FILE id="roLIxI" name="randomization_ParamRandomizationMethods.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_ParamRandomizationMethods.cpp"/>
         <FILE id="BA9u8k" name="randomization_ParamRandomizationMethods.h"

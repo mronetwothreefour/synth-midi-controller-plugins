@@ -8,13 +8,13 @@
 
 enum class RandomizationOptionsType {
 	none = 0,
-	pitch,
+	allowedValues,
 	valueRange,
 	oscShape,
 	comboBoxes,
 	lpfFreq,
-	lfoFreq,
-	sequencerTrackStep,
+	allowedLFOfrequencies,
+	allowedSeqTrackStepValues,
 	toggles
 };
 
@@ -51,8 +51,8 @@ public:
 	void setParamIsLocked(uint8 param);
 	void setParamIsUnlocked(uint8 param);
 
-	void addListenerToAllowedValuesTree(ValueTree::Listener* listener);
-	void removeListenerFromAllowedValuesTree(ValueTree::Listener* listener);
+	void addListenerToAllowedValuesTree(ValueTree::Listener* listener); // todo: delete
+	void removeListenerFromAllowedValuesTree(ValueTree::Listener* listener); // todo: delete
 	const bool valueIsAllowedForParam(uint8 value, uint8 param);
 	const bool valueIsNotAllowedForParam(uint8 value, uint8 param); // todo: delete(?)
 	void setValueIsAllowedForParam(uint8 value, uint8 param);

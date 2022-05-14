@@ -14,7 +14,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lpfFreq || optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedValues || optionsType == RandomizationOptionsType::lpfFreq || optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	randomizationOptions->addListenerToAllowedPitchesTree(this);
@@ -32,7 +32,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 		if (shouldShowDescriptions) {
 			String toggleTooltip{ "" };
 			toggleTooltip += "Toggles whether or not " + noteName + " notes\n";
-			if (optionsType == RandomizationOptionsType::pitch) {
+			if (optionsType == RandomizationOptionsType::allowedValues) {
 				String paramName{ "" };
 				if (paramID.contains("push"))
 					paramName = "the Push It! switch";
@@ -47,7 +47,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 				toggleTooltip += "are allowed when a random LPF\n";
 				toggleTooltip += "cutoff frequency is generated.\n";
 			}
-			if (optionsType == RandomizationOptionsType::lfoFreq) {
+			if (optionsType == RandomizationOptionsType::allowedLFOfrequencies) {
 				auto lfoNum{ paramID.fromFirstOccurrenceOf("lfo", false, false).upToFirstOccurrenceOf("Freq", false, false) };
 				toggleTooltip += "are allowed when a random pitched\n";
 				toggleTooltip += "frequency is generated for LFO " + lfoNum + ".\n";
@@ -65,7 +65,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 	if (tooltipOptions->shouldShowDescriptions()) {
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all notes when generating\n";
-		if (optionsType == RandomizationOptionsType::pitch) {
+		if (optionsType == RandomizationOptionsType::allowedValues) {
 			String paramName{ "" };
 			if (paramID.contains("push"))
 				paramName = "the Push It! switch";
@@ -78,7 +78,7 @@ AllowedNotesComponent::AllowedNotesComponent(uint8 paramIndex, UnexposedParamete
 		if (optionsType == RandomizationOptionsType::lpfFreq) {
 			buttonTooltip += "a random LPF cutoff frequency.";
 		}
-		if (optionsType == RandomizationOptionsType::lfoFreq) {
+		if (optionsType == RandomizationOptionsType::allowedLFOfrequencies) {
 			auto lfoNum{ paramID.fromFirstOccurrenceOf("lfo", false, false).upToFirstOccurrenceOf("Freq", false, false) };
 			buttonTooltip += "a random pitched frequency for LFO " + lfoNum + ".\n";
 		}
@@ -156,13 +156,13 @@ void AllowedNotesComponent::buttonClicked(Button* button) {
 		auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 		switch (optionsType)
 		{
-		case RandomizationOptionsType::pitch:
+		case RandomizationOptionsType::allowedValues:
 			randomizationOptions->checkIfOnlyOneValueIsAllowedForPitchParam(paramIndex);
 			break;
 		case RandomizationOptionsType::lpfFreq:
 			randomizationOptions->checkIfOnlyOneValueIsAllowedForLPFfreqParam();
 			break;
-		case RandomizationOptionsType::lfoFreq:
+		case RandomizationOptionsType::allowedLFOfrequencies:
 			randomizationOptions->checkIfOnlyOneValueIsAllowedForLFOfreqParam(paramIndex);
 			break;
 		default:
@@ -212,7 +212,7 @@ void AllowedNotesComponent::valueTreePropertyChanged(ValueTree& /*tree*/, const 
 			randomizationOptions->setNoteIsAllowedForParam(highestAllowedNote, paramIndex);
 			allowedNoteToggles[highestAllowedNote].setToggleState(true, dontSendNotification);
 		}
-		if (optionsType == RandomizationOptionsType::pitch || optionsType == RandomizationOptionsType::lfoFreq)
+		if (optionsType == RandomizationOptionsType::allowedValues || optionsType == RandomizationOptionsType::allowedLFOfrequencies)
 			button_ForAllowingAllNotes.setEnabled(highestOctaveIsOnlyOneAllowed ? false : true);
 	}
 }

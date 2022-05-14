@@ -13,7 +13,7 @@ AllowedOctavesComponent::AllowedOctavesComponent(uint8 paramIndex, UnexposedPara
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::pitch);
+	jassert(optionsType == RandomizationOptionsType::allowedValues);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

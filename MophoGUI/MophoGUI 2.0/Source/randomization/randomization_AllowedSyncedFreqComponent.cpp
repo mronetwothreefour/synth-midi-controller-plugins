@@ -15,7 +15,7 @@ AllowedSyncedFreqComponent::AllowedSyncedFreqComponent(uint8 paramIndex, Unexpos
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto syncedFreqAreAllowed{ randomizationOptions->syncedFreqAreAllowedForParam(paramIndex) };

@@ -32,7 +32,7 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 				if (randomizationOptions->paramIsUnlocked(param)) {
 					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(param) };
 					auto newValue{ pickRandomValueForParam(paramIndex) };
-					if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
+					if (randomizationOptionsType == RandomizationOptionsType::allowedSeqTrackStepValues && newValue == params::seqStepValueForRepeat) {
 						auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
 						auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
 						exposedParams->getParameter(paramID)->setValueNotifyingHost(previousStepValue);
@@ -59,7 +59,7 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 				if (randomizationOptions->paramIsUnlocked(param)) {
 					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(param) };
 					auto newValue{ pickRandomValueForParam(paramIndex) };
-					if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
+					if (randomizationOptionsType == RandomizationOptionsType::allowedSeqTrackStepValues && newValue == params::seqStepValueForRepeat) {
 						auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
 						auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
 						auto paramPtr{ exposedParams->getParameter(paramID) };
@@ -83,7 +83,7 @@ void ParamRandomizationMethods::randomizeParameter(String paramID) {
 	auto paramIndex{ info.indexForParamID(paramID) };
 	auto newValue{ pickRandomValueForParam(paramIndex) };
 	auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	if (randomizationOptionsType == RandomizationOptionsType::sequencerTrackStep && newValue == params::seqStepValueForRepeat) {
+	if (randomizationOptionsType == RandomizationOptionsType::allowedSeqTrackStepValues && newValue == params::seqStepValueForRepeat) {
 		auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
 		auto previousStepValue{ exposedParams->getParameter(paramIDforPreviousStep)->getValue() };
 		auto paramPtr{ exposedParams->getParameter(paramID) };
@@ -103,7 +103,7 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	if (optionsType == RandomizationOptionsType::sequencerTrackStep) {
+	if (optionsType == RandomizationOptionsType::allowedSeqTrackStepValues) {
 		auto paramID{ info.IDfor(paramIndex).toString() };
 		auto trackNum{ paramID.fromFirstOccurrenceOf("seqTrack", false, false).upToFirstOccurrenceOf("Step", false, false).getIntValue() };
 		if (randomizationOptions->editModeForSeqTrackIsSelectedStep(trackNum)) {
@@ -136,7 +136,7 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 			newValue += params::offsetForSpecialASCIIchars;
 		return (uint8)newValue;
 	}
-	case RandomizationOptionsType::pitch:
+	case RandomizationOptionsType::allowedValues:
 		return pickRandomPitchForParam(paramIndex);
 	case RandomizationOptionsType::valueRange:
 		return pickRandomValueFromRangeForParam(paramIndex);
@@ -146,9 +146,9 @@ uint8 ParamRandomizationMethods::pickRandomValueForParam(uint8 paramIndex) {
 		return pickRandomComboBoxItemForParam(paramIndex);
 	case RandomizationOptionsType::lpfFreq:
 		return pickRandomLPFfreq();
-	case RandomizationOptionsType::lfoFreq:
+	case RandomizationOptionsType::allowedLFOfrequencies:
 		return pickRandomLFOfreqForParam(paramIndex);
-	case RandomizationOptionsType::sequencerTrackStep:
+	case RandomizationOptionsType::allowedSeqTrackStepValues:
 		return pickRandomSeqStepValueForParam(paramIndex);
 	case RandomizationOptionsType::toggles: {
 		auto repeatValuesAreNotAllowed{ randomizationOptions->repeatValuesAreNotAllowedForParam(paramIndex) };

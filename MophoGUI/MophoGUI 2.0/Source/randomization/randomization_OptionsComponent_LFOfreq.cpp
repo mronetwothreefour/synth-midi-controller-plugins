@@ -20,7 +20,7 @@ RandomizationOptionsComponent_LFOfreq::RandomizationOptionsComponent_LFOfreq(uin
 	repeatValues{ paramIndex, unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
-	jassert(info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::lfoFreq);
+	jassert(info.randomizationOptionsTypeFor(paramIndex) == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

@@ -31,6 +31,7 @@
 
 
 
+class ParamRandomizationOptionsComponent;
 class RandomizationOptionsComponent_ComboBoxes;
 class RandomizationOptionsComponent_LFOfreq;
 class RandomizationOptionsComponent_LPFfreq;
@@ -88,7 +89,7 @@ class RandomizationComponent :
 	ToggleButton toggle_ForTransmittingViaNRPN;
 	ToggleButton toggle_ForTransmittingViaSysEx;
 	TextButton button_ForClosingRandomizationComponent;
-	std::unique_ptr<RandomizationOptionsComponent_Pitch> randomizationOptionsComponent_Pitch;
+	std::unique_ptr<ParamRandomizationOptionsComponent> randomizationOptionsComponent;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
 	std::unique_ptr<RandomizationOptionsComponent_OscShape> randomizationOptionsComponent_OscShape;
 	std::unique_ptr<RandomizationOptionsComponent_Toggles> randomizationOptionsComponent_Toggles;
@@ -108,9 +109,10 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
+	void mouseDown(const MouseEvent& event) override;
 
 private:
-	void showRandomizationOptionsComponent_PitchForParam(uint8 paramIndex);
+	void showParamRandomizationOptionsComponentForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_OscShapeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_Toggles(uint8 paramIndex);

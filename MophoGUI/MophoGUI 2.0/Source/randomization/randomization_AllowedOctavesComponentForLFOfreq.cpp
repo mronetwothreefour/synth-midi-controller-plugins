@@ -13,7 +13,7 @@ AllowedOctavesComponentForLFOfreq::AllowedOctavesComponentForLFOfreq(uint8 param
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
-	jassert(optionsType == RandomizationOptionsType::lfoFreq);
+	jassert(optionsType == RandomizationOptionsType::allowedLFOfrequencies);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

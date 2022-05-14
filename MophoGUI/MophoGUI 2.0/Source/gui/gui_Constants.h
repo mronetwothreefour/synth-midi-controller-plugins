@@ -17,6 +17,7 @@ namespace constants
 
 		static const int alertWindowCloseButton_x{ 612 };
 		static const int alertWindowCloseButton_y{ 310 };
+		static const int allowValueToggle_h{ 16 };
 		static const int bankTransmitTitleLabel_x{ 454 };
 		static const int bankTransmitTitleLabel_y{ 260 };
 		static const int comboBox_h{ 16 };
@@ -170,7 +171,7 @@ namespace constants
 		static const int randomizationAllowAllNotesForOscButtons_w{ 70 };
 		static const int randomizationAllowAllNotesButton_x{ 38 };
 		static const int randomizationAllowAllBentNotesForOscButtons_x{ 211 };
-		static const int randomizationAllowAllItemsButton_w{ 72 };
+		static const int randomizationAllowAllValuesButton_w{ 72 };
 		static const int randomizationAllowAllNotesButton_y{ 52 };
 		static const int randomizationAllowAllOctavesButton_w{ 82 };
 		static const int randomizationAllowAllOctavesButtons_x{ 21 };
@@ -304,6 +305,8 @@ namespace constants
 		static const int randomizationOptionsComponent_ValueRange_Knobs_y{ 40 };
 		static const int randomizationOptionsComponent_ValueRange_MinKnob_x{ 17 };
 		static const int randomizationOptionsComponent_ValueRange_MaxKnob_x{ 78 };
+		static const int randomizationOptionsComponents_Inset{ 17 };
+		static const int randomizationOptionsComponents_VertGapBetweenChildren{ 10 };
 		static const int randomizationRepeatValuesComponents_h{ 14 };
 		static const int randomizationRepeatValuesComponents_w{ 70 };
 		static const int randomizationSeqTrackOptionsPitchComponentsRow1_y{ 244 };
