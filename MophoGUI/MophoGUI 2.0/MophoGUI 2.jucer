@@ -259,10 +259,6 @@
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_LPFfreq.cpp"/>
         <FILE id="bv9c5I" name="randomization_OptionsComponent_LPFfreq.h" compile="0"
               resource="0" file="Source/randomization/randomization_OptionsComponent_LPFfreq.h"/>
-        <FILE id="xQ0ONq" name="randomization_OptionsComponent_Pitch.cpp" compile="1"
-              resource="0" file="Source/randomization/randomization_OptionsComponent_Pitch.cpp"/>
-        <FILE id="ZBgI2c" name="randomization_OptionsComponent_Pitch.h" compile="0"
-              resource="0" file="Source/randomization/randomization_OptionsComponent_Pitch.h"/>
         <FILE id="IzgzPE" name="randomization_OptionsComponent_OscShape.cpp"
               compile="1" resource="0" file="Source/randomization/randomization_OptionsComponent_OscShape.cpp"/>
         <FILE id="T0B92Y" name="randomization_OptionsComponent_OscShape.h"
@@ -855,8 +851,6 @@
             compile="0" resource="1" file="Resources/Randomization-Options-LPFfreq-Background.png"/>
       <FILE id="DibBxi" name="Randomization-Options-Osc-Shape-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Osc-Shape-Background.png"/>
-      <FILE id="e5p8yH" name="Randomization-Options-Pitch-Background.png"
-            compile="0" resource="1" file="Resources/Randomization-Options-Pitch-Background.png"/>
       <FILE id="zORxyS" name="Randomization-Options-Seq-Steps-Background.png"
             compile="0" resource="1" file="Resources/Randomization-Options-Seq-Steps-Background.png"/>
       <FILE id="D86uQJ" name="Randomization-Options-Seq-Steps-Pitch-Background.png"

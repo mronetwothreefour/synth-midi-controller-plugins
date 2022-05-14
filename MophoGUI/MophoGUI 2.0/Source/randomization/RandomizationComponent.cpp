@@ -5,7 +5,6 @@
 #include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_LPFfreq.h"
 #include "randomization_OptionsComponent_OscShape.h"
-#include "randomization_OptionsComponent_Pitch.h"
 #include "randomization_OptionsComponent_SeqTrack_Pitch.h"
 #include "randomization_OptionsComponent_SeqTrack_Value.h"
 #include "randomization_OptionsComponent_Toggles.h"

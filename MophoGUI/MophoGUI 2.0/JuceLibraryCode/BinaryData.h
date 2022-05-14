@@ -251,9 +251,6 @@ namespace BinaryData
     extern const char*   RandomizationOptionsOscShapeBackground_png;
     const int            RandomizationOptionsOscShapeBackground_pngSize = 5952;
 
-    extern const char*   RandomizationOptionsPitchBackground_png;
-    const int            RandomizationOptionsPitchBackground_pngSize = 5485;
-
     extern const char*   RandomizationOptionsSeqStepsBackground_png;
     const int            RandomizationOptionsSeqStepsBackground_pngSize = 11208;
 
@@ -294,7 +291,7 @@ namespace BinaryData
     const int            WindowTitleImportProgramBank_pngSize = 2735;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 95;
+    const int namedResourceListSize = 94;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

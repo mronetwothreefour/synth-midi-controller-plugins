@@ -192,7 +192,6 @@
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.cpp"/>
@@ -2322,7 +2321,6 @@
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_ComboBoxes.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LFOfreq.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_LPFfreq.h"/>
-    <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_Pitch.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_OscShape.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Pitch.h"/>
     <ClInclude Include="..\..\Source\randomization\randomization_OptionsComponent_SeqTrack_Value.h"/>
@@ -3319,7 +3317,6 @@
     <None Include="..\..\Resources\Randomization-Options-LFOfreq-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-LPFfreq-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Osc-Shape-Background.png"/>
-    <None Include="..\..\Resources\Randomization-Options-Pitch-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Pitch-Background.png"/>
     <None Include="..\..\Resources\Randomization-Options-Seq-Steps-Value-Background.png"/>
