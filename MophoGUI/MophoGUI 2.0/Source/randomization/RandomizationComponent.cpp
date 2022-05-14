@@ -1,13 +1,13 @@
 #include "RandomizationComponent.h"
 
 #include "randomization_ParamOptionsComponent.h"
+#include "randomization_ParamOptionsComponent_Toggle.h"
 #include "randomization_OptionsComponent_ComboBoxes.h"
 #include "randomization_OptionsComponent_LFOfreq.h"
 #include "randomization_OptionsComponent_LPFfreq.h"
 #include "randomization_OptionsComponent_OscShape.h"
 #include "randomization_OptionsComponent_SeqTrack_Pitch.h"
 #include "randomization_OptionsComponent_SeqTrack_Value.h"
-#include "randomization_OptionsComponent_Toggles.h"
 #include "randomization_OptionsComponent_ValueRange.h"
 #include "../gui/gui_Constants.h"
 #include "../midi/midi_Constants.h"
@@ -260,7 +260,7 @@ void RandomizationComponent::mouseDown(const MouseEvent& event) {
 			if (optionsType == RandomizationOptionsType::oscShape)
 				showRandomizationOptionsComponent_OscShapeForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::toggles)
-				showRandomizationOptionsComponent_Toggles(paramIndex);
+				showParamRandomizationOptionsComponent_ToggleForParam(paramIndex);
 			if (optionsType == RandomizationOptionsType::comboBoxes)
 				showRandomizationOptionsComponent_ComboBoxes(paramIndex);
 			if (optionsType == RandomizationOptionsType::allowedLFOfrequencies)
@@ -328,12 +328,12 @@ void RandomizationComponent::showRandomizationOptionsComponent_OscShapeForParam(
 	}
 }
 
-void RandomizationComponent::showRandomizationOptionsComponent_Toggles(uint8 paramIndex) {
-	randomizationOptionsComponent_Toggles.reset(new RandomizationOptionsComponent_Toggles(paramIndex, unexposedParams));
-	if (randomizationOptionsComponent_Toggles != nullptr) {
-		addAndMakeVisible(randomizationOptionsComponent_Toggles.get());
-		randomizationOptionsComponent_Toggles->setBounds(getLocalBounds());
-		randomizationOptionsComponent_Toggles->grabKeyboardFocus();
+void RandomizationComponent::showParamRandomizationOptionsComponent_ToggleForParam(uint8 paramIndex) {
+	randomizationOptionsComponent_Toggle.reset(new ParamRandomizationOptionsComponent_Toggle(paramIndex, exposedParams, unexposedParams));
+	if (randomizationOptionsComponent_Toggle != nullptr) {
+		addAndMakeVisible(randomizationOptionsComponent_Toggle.get());
+		randomizationOptionsComponent_Toggle->setBounds(getLocalBounds());
+		randomizationOptionsComponent_Toggle->grabKeyboardFocus();
 	}
 }
 
@@ -393,7 +393,7 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent_LFOfreq = nullptr;
 	randomizationOptionsComponent_LPFfreq = nullptr;
 	randomizationOptionsComponent_ComboBoxes = nullptr;
-	randomizationOptionsComponent_Toggles = nullptr;
+	randomizationOptionsComponent_Toggle = nullptr;
 	randomizationOptionsComponent_OscShape = nullptr;
 	randomizationOptionsComponent_ValueRange = nullptr;
 	randomizationOptionsComponent = nullptr;

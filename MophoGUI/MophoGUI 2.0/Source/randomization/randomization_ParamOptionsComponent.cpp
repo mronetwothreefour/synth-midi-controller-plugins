@@ -22,8 +22,8 @@ ParamRandomizationOptionsComponent::ParamRandomizationOptionsComponent(uint8 par
 	repeatValues{ paramIndex, unexposedParams },
 	childrenShouldBeStackedVertically{ false }
 {
-	auto& info{ InfoForExposedParameters::get() };
 	jassert(paramIndex < params::numberOfExposedParams);
+	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramName{ info.exposedNameFor(paramIndex) };
 	auto tooltipOptions{ unexposedParams->tooltipOptions_get() };

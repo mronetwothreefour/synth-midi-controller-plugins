@@ -128,7 +128,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		allowedValuesColumnWidths.add(0);
 		allowedValuesRowsCounts.add(0);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::toggle_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::toggleLockButton_diameter / 2));
 
 		identifiers.add(i == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel); // 5 & 11
 		exposedNames.add("Sub-Oscillator " + (String)i + " Level");
@@ -172,7 +172,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(0);
 	allowedValuesRowsCounts.add(0);
 	allowedValuesFirstRows.add(0);
-	randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, 15));
+	randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, 11));
 
 	//======================================================
 

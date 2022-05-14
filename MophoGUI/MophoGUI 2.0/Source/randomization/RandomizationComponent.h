@@ -39,7 +39,7 @@ class RandomizationOptionsComponent_OscShape;
 class RandomizationOptionsComponent_Pitch;
 class RandomizationOptionsComponent_SeqTrack_Pitch;
 class RandomizationOptionsComponent_SeqTrack_Value;
-class RandomizationOptionsComponent_Toggles;
+class ParamRandomizationOptionsComponent_Toggle;
 class RandomizationOptionsComponent_ValueRange;
 class UnexposedParameters;
 
@@ -92,7 +92,7 @@ class RandomizationComponent :
 	std::unique_ptr<ParamRandomizationOptionsComponent> randomizationOptionsComponent;
 	std::unique_ptr<RandomizationOptionsComponent_ValueRange> randomizationOptionsComponent_ValueRange;
 	std::unique_ptr<RandomizationOptionsComponent_OscShape> randomizationOptionsComponent_OscShape;
-	std::unique_ptr<RandomizationOptionsComponent_Toggles> randomizationOptionsComponent_Toggles;
+	std::unique_ptr<ParamRandomizationOptionsComponent_Toggle> randomizationOptionsComponent_Toggle;
 	std::unique_ptr<RandomizationOptionsComponent_ComboBoxes> randomizationOptionsComponent_ComboBoxes;
 	std::unique_ptr<RandomizationOptionsComponent_LPFfreq> randomizationOptionsComponent_LPFfreq;
 	std::unique_ptr<RandomizationOptionsComponent_LFOfreq> randomizationOptionsComponent_LFOfreq;
@@ -115,7 +115,7 @@ private:
 	void showParamRandomizationOptionsComponentForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ValueRangeForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_OscShapeForParam(uint8 paramIndex);
-	void showRandomizationOptionsComponent_Toggles(uint8 paramIndex);
+	void showParamRandomizationOptionsComponent_ToggleForParam(uint8 paramIndex);
 	void showRandomizationOptionsComponent_ComboBoxes(uint8 paramIndex);
 	void showRandomizationOptionsComponent_LPFfreq();
 	void showRandomizationOptionsComponent_LFOfreqForParam(uint8 paramIndex);
