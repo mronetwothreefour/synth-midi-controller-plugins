@@ -16,7 +16,6 @@ public:
 private:
 	ValueTree exposedParamsInfoTree;
 
-	Array<uint8> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
 	Array<uint8> maxValues;
 	Array<uint8> defaultValues;
@@ -68,10 +67,7 @@ public:
 	int firstAllowedValuesRowFor(uint8 paramIndex) const;
 	int randomizationOptions_x_For(uint8 paramIndex) const;
 	int randomizationOptions_y_For(uint8 paramIndex) const;
-
-
-	// Returns 255 if NRPN is not found
-	uint8 indexForNRPN(const uint8 nrpn) const;
+	uint8 paramIndexForNRPN(const uint8 NRPN) const;
 
 private:
 	//==============================================================================

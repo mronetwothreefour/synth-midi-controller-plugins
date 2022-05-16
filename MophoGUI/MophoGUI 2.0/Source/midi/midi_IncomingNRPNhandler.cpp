@@ -103,9 +103,9 @@ void IncomingNRPNhandler::applyIncomingNRPNvalueToExposedParameter(int nrpnType,
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
     voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
-    auto param{ info.indexForNRPN((uint8)nrpnType) };
-    auto paramID{ info.IDfor(param) };
-    auto normalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
+    auto paramIndex{ info.paramIndexForNRPN((uint8)nrpnType) };
+    auto paramID{ info.IDfor(paramIndex) };
+    auto normalizedValue{ (float)newValue / (float)info.maxValueFor(paramIndex) };
     exposedParams->getParameter(paramID)->setValueNotifyingHost(normalizedValue);
     voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }

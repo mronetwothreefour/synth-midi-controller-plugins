@@ -22,79 +22,79 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 
 	//======================================================
 
-	for (uint8 i = 1; i != 3; ++i) {
+	for (uint8 oscNum = 1; oscNum != 3; ++oscNum) {
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 0 : 6), {}, { ValueTree{ (i == 1 ? ID::osc1_Pitch : ID::osc2_Pitch), {
-							{ "exposedName", "Oscillator " + (String)i + " Pitch" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 0 : 6), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_Pitch : ID::osc2_Pitch), {
+							{ "exposedName", "Oscillator " + (String)oscNum + " Pitch" },
 							{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
+							{ "NRPN", oscNum == 1 ? 0 : 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)0 : (uint8)5);
 		converters.add(IntToOscPitchString::get());
 		maxValues.add((uint8)120);
 		defaultValues.add((uint8)24);
-		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s base pitch in semitone steps.\n";
+		descriptionString =  "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch in semitone steps.\n";
 		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.\n";
 		descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
 		descriptionString += "increment the pitch by one octave (12 semitones).";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol1_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::allowedValues);
 		allowedValuesColumnCounts.add(11);
 		allowedValuesColumnWidths.add(38);
 		allowedValuesRowsCounts.add(12);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol1_x + GUI::knob_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol1_x + GUI::knob_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 1 : 7), {}, { ValueTree{ (i == 1 ? ID::osc1_Fine : ID::osc2_Fine), {
-							{ "exposedName", "Oscillator " + (String)i + " Fine Tune" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 1 : 7), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_Fine : ID::osc2_Fine), {
+							{ "exposedName", "Oscillator " + (String)oscNum + " Fine Tune" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", oscNum == 1 ? 1 : 6 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)1 : (uint8)6);
 		converters.add(IntToFineTuneString::get());
 		maxValues.add((uint8)100); 
-		defaultValues.add(i == 1 ? (uint8)49 : (uint8)51);
-		descriptionString =  "Fine tunes oscillator " + (String)i + GUI::apostrophe + "s base pitch.\n";
+		defaultValues.add(oscNum == 1 ? (uint8)49 : (uint8)51);
+		descriptionString =  "Fine tunes oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch.\n";
 		descriptionString += "Range: -50 cents to +50 cents.\n";
 		descriptionString += "0 = no detuning (centered).";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol2_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::allowedValues);
 		allowedValuesColumnCounts.add(11);
 		allowedValuesColumnWidths.add(28);
 		allowedValuesRowsCounts.add(10);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol2_x + GUI::knob_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol2_x + GUI::knob_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 2 : 8), {}, { ValueTree{ (i == 1 ? ID::osc1_Shape : ID::osc2_Shape), {
-							{ "exposedName", "Oscillator " + (String)i + " Wave Shape" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 2 : 8), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_Shape : ID::osc2_Shape), {
+							{ "exposedName", "Oscillator " + (String)oscNum + " Wave Shape" },
 							{ "controlType", (int)ControlType::knobWithWaveShapeDisplay },
+							{ "NRPN", oscNum == 1 ? 2 : 7 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)2 : (uint8)7);
 		converters.add(IntToOscWaveShapeString::get());
 		maxValues.add((uint8)103); 
 		defaultValues.add((uint8)1);
-		descriptionString =  "Selects oscillator " + (String)i + GUI::apostrophe + "s wave shape.\n";
+		descriptionString =  "Selects oscillator " + (String)oscNum + GUI::apostrophe + "s wave shape.\n";
 		descriptionString += "Hold down a number on the keyboard and click\n";
 		descriptionString += "the knob to jump directly to a wave shape:\n";
 		descriptionString += "0 = Off;  1 = Sawtooth;  2 = Triangle;\n";
@@ -103,111 +103,111 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol3_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::oscShape);
 		allowedValuesColumnCounts.add(0);
 		allowedValuesColumnWidths.add(0);
 		allowedValuesRowsCounts.add(0);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol3_x + GUI::knob_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol3_x + GUI::knob_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 3 : 9), {}, { ValueTree{ (i == 1 ? ID::osc1_Glide : ID::osc2_Glide), {
-							{ "exposedName", "Oscillator " + (String)i + " Glide Rate" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 3 : 9), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_Glide : ID::osc2_Glide), {
+							{ "exposedName", "Oscillator " + (String)oscNum + " Glide Rate" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", oscNum == 1 ? 3 : 8 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)3 : (uint8)8);
 		converters.add(IntToPlainValueString::get());
 		maxValues.add((uint8)127); 
 		defaultValues.add((uint8)0);
-		descriptionString =  "Sets oscillator " + (String)i + GUI::apostrophe + "s glide (portamento) rate.\n";
+		descriptionString =  "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s glide (portamento) rate.\n";
 		descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol4_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::allowedValues);
 		allowedValuesColumnCounts.add(13);
 		allowedValuesColumnWidths.add(26);
 		allowedValuesRowsCounts.add(10);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol4_x + GUI::knob_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol4_x + GUI::knob_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 4 : 10), {}, { ValueTree{ (i == 1 ? ID::osc1_KeyTrack : ID::osc2_KeyTrack), {
-							{ "exposedName", "Oscillator " + (String)i + " Keyboard Track On/Off" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 4 : 10), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_KeyTrack : ID::osc2_KeyTrack), {
+							{ "exposedName", "Oscillator " + (String)oscNum + " Keyboard Track On/Off" },
 							{ "controlType", (int)ControlType::toggleButton },
+							{ "NRPN", oscNum == 1 ? 4 : 9 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)4 : (uint8)9);
 		converters.add(IntToOffOnString::get());
 		maxValues.add((uint8)1); 
 		defaultValues.add((uint8)1);
-		descriptionString =  "Turns keyboard tracking for oscillator " + (String)i + "\n";
-		descriptionString += "on or off. When turned off, oscillator " + (String)i + "\n";
+		descriptionString =  "Turns keyboard tracking for oscillator " + (String)oscNum + "\n";
+		descriptionString += "on or off. When turned off, oscillator " + (String)oscNum + "\n";
 		descriptionString += "always produces its base pitch, unaffected\n";
 		descriptionString += "by the pitch of incoming MIDI notes.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::toggle_diameter);
 		controlHeights.add(GUI::toggle_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol6_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::toggles);
 		allowedValuesColumnCounts.add(0);
 		allowedValuesColumnWidths.add(0);
 		allowedValuesRowsCounts.add(0);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::toggleLockButton_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol6_x + GUI::toggle_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::toggleLockButton_diameter / 2));
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_" + String(i == 1 ? 5 : 11), {}, { ValueTree{ (i == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel), {
-							{ "exposedName", "Sub-Oscillator " + (String)i + " Level" },
+			ValueTree{ "exposedParam_" + String(oscNum == 1 ? 5 : 11), {}, { ValueTree{ (oscNum == 1 ? ID::osc1_SubLevel : ID::osc2_SubLevel), {
+							{ "exposedName", "Sub-Oscillator " + (String)oscNum + " Level" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", oscNum == 1 ? 114 : 115 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add(i == 1 ? (uint8)114 : (uint8)115);
 		converters.add(IntToPlainValueString::get());
 		maxValues.add((uint8)127); 
 		defaultValues.add((uint8)0);
-		descriptionString =  "Sets the level of sub-oscillator " + (String)i + ",\n";
+		descriptionString =  "Sets the level of sub-oscillator " + (String)oscNum + ",\n";
 		descriptionString += "which generates a square wave pitched\n";
-		descriptionString += "one octave lower than oscillator " + (String)i + ".\n";
+		descriptionString += "one octave lower than oscillator " + (String)oscNum + ".\n";
 		descriptionString += "Range: 0 to 127.";
 		descriptions.add(descriptionString);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
-		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
+		controlCenterPoints.add(Point<int>(GUI::controlsCol5_x, oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y));
 		randomizationOptionsTypes.add(RandomizationOptionsType::allowedValues);
 		allowedValuesColumnCounts.add(13);
 		allowedValuesColumnWidths.add(26);
 		allowedValuesRowsCounts.add(10);
 		allowedValuesFirstRows.add(0);
-		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol5_x + GUI::knob_diameter, (i == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
+		randomizationOptionsTopLeftCoordinates.add(Point(GUI::controlsCol5_x + GUI::knob_diameter, (oscNum == 1 ? GUI::oscControlsRow1_y : GUI::oscControlsRow2_y) - GUI::knob_diameter / 2));
 	}
 
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "exposedParam_12", {}, { ValueTree{ ID::oscSync, {
 						{ "exposedName", "Hard Oscillator Sync On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
+						{ "NRPN", 10 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)10);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -231,13 +231,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_13", {}, { ValueTree{ ID::glideMode, {
 						{ "exposedName", "Glide Mode" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 11 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)11);
 	converters.add(IntToGlideModeString::get());
 	maxValues.add((uint8)3);
 	defaultValues.add((uint8)0);
@@ -260,13 +260,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_14", {}, { ValueTree{ ID::oscSlop, {
 						{ "exposedName", "Oscillator Slop" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 12 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)12);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)2);
@@ -288,13 +288,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_15", {}, { ValueTree{ ID::bendRange, {
 						{ "exposedName", "Pitch Bend Range" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 93 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)93);
 	converters.add(IntToBendRangeString::get());
 	maxValues.add((uint8)12);
 	defaultValues.add((uint8)4);
@@ -313,13 +313,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_16", {}, { ValueTree{ ID::notePriority, {
 						{ "exposedName", "Note Priority (Key Assign)" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 96 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)96);
 	converters.add(IntToNotePriorityString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)0);
@@ -339,13 +339,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_17", {}, { ValueTree{ ID::oscMix, {
 						{ "exposedName", "Oscillator 1 & 2 Mix" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 13 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)13);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -365,13 +365,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_18", {}, { ValueTree{ ID::noiseLevel, {
 						{ "exposedName", "Noise Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 14 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)14);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -390,13 +390,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_19", {}, { ValueTree{ ID::extInLevel, {
 						{ "exposedName", "External Audio Input Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 116 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)116);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -420,13 +420,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_20", {}, { ValueTree{ ID::lpfFreq, {
 						{ "exposedName", "LPF Cutoff Frequency" },
 						{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
+						{ "NRPN", 15 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)15);
 	converters.add(IntToLPFfreqString::get());
 	maxValues.add((uint8)164);
 	defaultValues.add((uint8)148);
@@ -446,13 +446,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_21", {}, { ValueTree{ ID::lpfReso, {
 						{ "exposedName", "LPF Resonance" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 16 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)16);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -472,13 +472,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_22", {}, { ValueTree{ ID::lpfKeyAmount, {
 						{ "exposedName", "LPF Keyboard Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 17 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)17);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -499,13 +499,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_23", {}, { ValueTree{ ID::lpfFMamount, {
 						{ "exposedName", "LPF FM (By Oscillator 1)" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 18 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)18);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -525,13 +525,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_24", {}, { ValueTree{ ID::lpfType, {
 						{ "exposedName", "LPF Type" },
 						{ "controlType", (int)ControlType::toggleButton },
+						{ "NRPN", 19 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)19);
 	converters.add(IntToLPFtypeString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)1);
@@ -550,13 +550,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_25", {}, { ValueTree{ ID::lpfEnvAmount, {
 						{ "exposedName", "LPF Envelope Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 20 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)20);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -576,13 +576,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_26", {}, { ValueTree{ ID::lpfVelAmount, {
 						{ "exposedName", "LPF Envelope Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 21 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)21);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -601,13 +601,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_27", {}, { ValueTree{ ID::lpfDelay, {
 						{ "exposedName", "LPF Envelope Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 22 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)22);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -627,13 +627,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_28", {}, { ValueTree{ ID::lpfAttack, {
 						{ "exposedName", "LPF Envelope Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 23 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)23);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -653,13 +653,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_29", {}, { ValueTree{ ID::lpfDecay, {
 						{ "exposedName", "LPF Envelope Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 24 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)24);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -679,13 +679,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_30", {}, { ValueTree{ ID::lpfSustain, {
 						{ "exposedName", "LPF Envelope Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 25 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)25);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -705,13 +705,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_31", {}, { ValueTree{ ID::lpfRelease, {
 						{ "exposedName", "LPF Envelope Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 26 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)26);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -733,13 +733,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_32", {}, { ValueTree{ ID::vcaLevel, {
 						{ "exposedName", "VCA Baseline Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 27 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)27);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -759,13 +759,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_33", {}, { ValueTree{ ID::vcaEnvAmount, {
 						{ "exposedName", "VCA Envelope Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 30 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)30);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)127);
@@ -784,13 +784,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_34", {}, { ValueTree{ ID::vcaVelAmount, {
 						{ "exposedName", "VCA Envelope Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 31 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)31);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -809,13 +809,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_35", {}, { ValueTree{ ID::vcaDelay, {
 						{ "exposedName", "VCA Envelope Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 32 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)32);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -835,13 +835,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_36", {}, { ValueTree{ ID::vcaAttack, {
 						{ "exposedName", "VCA Envelope Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 33 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)33);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -861,13 +861,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_37", {}, { ValueTree{ ID::vcaDecay, {
 						{ "exposedName", "VCA Envelope Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 34 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)34);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -887,13 +887,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_38", {}, { ValueTree{ ID::vcaSustain, {
 						{ "exposedName", "VCA Envelope Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 35 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)35);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -913,13 +913,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_39", {}, { ValueTree{ ID::vcaRelease, {
 						{ "exposedName", "VCA Envelope Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 36 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)36);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)64);
@@ -939,13 +939,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_40", {}, { ValueTree{ ID::voiceVolume, {
 						{ "exposedName", "Program Volume" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 29 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)29);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)120);
@@ -966,13 +966,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(41 + lfoNum * 5), {}, { ValueTree{ "lfo" + String(lfoNum + 1) + "Freq", {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Frequency" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", 37 + lfoNum * 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(37 + lfoNum * 5));
 		converters.add(IntToLFOfreqString::get());
 		maxValues.add((uint8)166);
 		defaultValues.add((uint8)80);
@@ -994,13 +994,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(42 + lfoNum * 5), {}, { ValueTree{ "lfo" + String(lfoNum + 1) + "Shape", {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Wave Shape" },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 38 + lfoNum * 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(38 + lfoNum * 5));
 		converters.add(IntToLFOshapeString::get());
 		maxValues.add((uint8)4);
 		defaultValues.add((uint8)1);
@@ -1016,13 +1016,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(43 + lfoNum * 5), {}, { ValueTree{ "lfo" + String(lfoNum + 1) + "Amount", {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Amount" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", 39 + lfoNum * 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(39 + lfoNum * 5));
 		converters.add(IntToPlainValueString::get());
 		maxValues.add((uint8)127);
 		defaultValues.add((uint8)0);
@@ -1041,13 +1041,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(44 + lfoNum * 5), {}, { ValueTree{ "lfo" + String(lfoNum + 1) + "Destination", {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Modulation Destination" },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 40 + lfoNum * 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(40 + lfoNum * 5));
 		converters.add(IntToModDestinationString::get());
 		maxValues.add((uint8)46);
 		defaultValues.add((uint8)0);
@@ -1063,13 +1063,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(45 + lfoNum * 5), {}, { ValueTree{ "lfo" + String(lfoNum + 1) + "KeySync", {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Key Sync On/Off" },
 							{ "controlType", (int)ControlType::toggleButton },
+							{ "NRPN", 41 + lfoNum * 5 },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(41 + lfoNum * 5));
 		converters.add(IntToOffOnString::get());
 		maxValues.add((uint8)1);
 		defaultValues.add((uint8)0);
@@ -1090,13 +1090,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_61", {}, { ValueTree{ ID::env3Destination, {
 						{ "exposedName", "Envelope 3 Modulation Destination" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 57 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)57);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1112,13 +1112,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_62", {}, { ValueTree{ ID::env3Amount, {
 						{ "exposedName", "Envelope 3 Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 58 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)58);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1138,13 +1138,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_63", {}, { ValueTree{ ID::env3VelAmount, {
 						{ "exposedName", "Envelope 3 Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 59 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)59);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1163,13 +1163,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_64", {}, { ValueTree{ ID::env3Delay, {
 						{ "exposedName", "Envelope 3 Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 60 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)60);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1189,13 +1189,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_65", {}, { ValueTree{ ID::env3Attack, {
 						{ "exposedName", "Envelope 3 Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 61 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)61);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1215,13 +1215,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_66", {}, { ValueTree{ ID::env3Decay, {
 						{ "exposedName", "Envelope 3 Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 62 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)62);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1241,13 +1241,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_67", {}, { ValueTree{ ID::env3Sustain, {
 						{ "exposedName", "Envelope 3 Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 63 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)63);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1267,13 +1267,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_68", {}, { ValueTree{ ID::env3Release, {
 						{ "exposedName", "Envelope 3 Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 64 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)64);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)0);
@@ -1293,13 +1293,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_69", {}, { ValueTree{ ID::env3Repeat, {
 						{ "exposedName", "Envelope 3 Repeat" },
 						{ "controlType", (int)ControlType::toggleButton },
+						{ "NRPN", 98 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)98);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1327,13 +1327,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(70 + modNum * 3), {}, { ValueTree{ "mod" + (String)(modNum + 1) + "Source", {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Source" },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 65 + 3 * modNum },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)65 + (uint8)3 * modNum);
 		converters.add(IntToModSourceString::get());
 		maxValues.add((uint8)22);
 		defaultValues.add((uint8)0);
@@ -1349,13 +1349,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(71 + modNum * 3), {}, { ValueTree{ "mod" + (String)(modNum + 1) + "Amount", {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Amount" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+							{ "NRPN", 66 + 3 * modNum },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)66 + (uint8)3 * modNum);
 		converters.add(IntToPlusMinus127String::get());
 		maxValues.add((uint8)254);
 		defaultValues.add((uint8)127);
@@ -1371,13 +1371,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + (String)(72 + modNum * 3), {}, { ValueTree{ "mod" + (String)(modNum + 1) + "Destination", {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Destination" },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 67 + 3 * modNum },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)67 + (uint8)3 * modNum);
 		converters.add(IntToModDestinationString::get());
 		maxValues.add((uint8)46);
 		defaultValues.add((uint8)0);
@@ -1396,13 +1396,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_82", {}, { ValueTree{ ID::modWheelAmount, {
 						{ "exposedName", "Modulation Wheel Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 81 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)81);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1422,13 +1422,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_83", {}, { ValueTree{ ID::modWheelDest, {
 						{ "exposedName", "Modulation Wheel Destination" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 82 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)82);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1444,13 +1444,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_84", {}, { ValueTree{ ID::pressureAmount, {
 						{ "exposedName", "Pressure (Aftertouch) Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 83 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)83);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1470,13 +1470,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_85", {}, { ValueTree{ ID::pressureDest, {
 						{ "exposedName", "Pressure (Aftertouch) Destination" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 84 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)84);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1492,13 +1492,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_86", {}, { ValueTree{ ID::breathAmount, {
 						{ "exposedName", "Breath Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 85 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)85);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1518,13 +1518,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_87", {}, { ValueTree{ ID::breathDest, {
 						{ "exposedName", "Breath Destination" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 86 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)86);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1540,13 +1540,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_88", {}, { ValueTree{ ID::velocityAmount, {
 						{ "exposedName", "Note Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 87 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)87);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1566,13 +1566,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_89", {}, { ValueTree{ ID::velocityDest, {
 						{ "exposedName", "Note Velocity Destination" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 88 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)88);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1588,13 +1588,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_90", {}, { ValueTree{ ID::footPedalAmount, {
 						{ "exposedName", "Foot Pedal Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 89 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)89);
 	converters.add(IntToPlusMinus127String::get());
 	maxValues.add((uint8)254);
 	defaultValues.add((uint8)127);
@@ -1614,13 +1614,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_91", {}, { ValueTree{ ID::footPedalDest, {
 						{ "controlType", (int)ControlType::comboBox },
 						{ "exposedName", "Foot Pedal Destination" },
+						{ "NRPN", 90 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)90);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)0);
@@ -1638,13 +1638,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_92", {}, { ValueTree{ ID::pushItPitch, {
 						{ "exposedName", "Push It! Switch Pitch" },
 						{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
+						{ "NRPN", 111 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)111);
 	converters.add(IntToOscPitchString::get());
 	maxValues.add((uint8)120);
 	defaultValues.add((uint8)60);
@@ -1664,13 +1664,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_93", {}, { ValueTree{ ID::pushItVelocity, {
 						{ "exposedName", "Push It! Switch Velocity" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 112 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)112);
 	converters.add(IntToPlainValueString::get());
 	maxValues.add((uint8)127);
 	defaultValues.add((uint8)100);
@@ -1689,13 +1689,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_94", {}, { ValueTree{ ID::pushItMode, {
 						{ "exposedName", "Push It! Switch Mode" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 113 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)113);
 	converters.add(IntToPushItModeString::get());
 	maxValues.add((uint8)2);
 	defaultValues.add((uint8)0);
@@ -1720,13 +1720,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_95", {}, { ValueTree{ ID::clockTempo, {
 						{ "exposedName", "Clock Tempo" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "NRPN", 91 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)91);
 	converters.add(IntToClockTempoString::get());
 	maxValues.add((uint8)220);
 	defaultValues.add((uint8)90);
@@ -1745,13 +1745,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_96", {}, { ValueTree{ ID::clockDivision, {
 						{ "exposedName", "Clock Division" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 92 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)92);
 	converters.add(IntToClockDivString::get());
 	maxValues.add((uint8)12);
 	defaultValues.add((uint8)2);
@@ -1771,13 +1771,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_97", {}, { ValueTree{ ID::arpegMode, {
 						{ "exposedName", "Arpeggiator Mode" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 97 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)97);
 	converters.add(IntToArpegModeString::get());
 	maxValues.add((uint8)14);
 	defaultValues.add((uint8)0);
@@ -1795,13 +1795,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_98", {}, { ValueTree{ ID::arpegOnOff, {
 						{ "exposedName", "Arpeggiator On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
+						{ "NRPN", 100 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)100);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1819,13 +1819,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_99", {}, { ValueTree{ ID::sequencerTrigMode, {
 						{ "exposedName", "Sequencer Trigger Mode" },
 						{ "controlType", (int)ControlType::comboBox },
+						{ "NRPN", 94 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)94);
 	converters.add(IntToSeqTrigModeString::get());
 	maxValues.add((uint8)5);
 	defaultValues.add((uint8)0);
@@ -1852,13 +1852,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_100", {}, { ValueTree{ ID::sequencerOnOff, {
 						{ "exposedName", "Sequencer On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
+						{ "NRPN", 101 },
 					}, {} } }
 		},
 		-1,
 		nullptr
 	);
 
-	NRPNs.add((uint8)101);
 	converters.add(IntToOffOnString::get());
 	maxValues.add((uint8)1);
 	defaultValues.add((uint8)0);
@@ -1872,11 +1872,12 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(0);
 	allowedValuesColumnWidths.add(0);
 
-	for (uint8 trackNum = 1; trackNum != 5; ++trackNum) {
+	for (uint8 trackNum = 0; trackNum != 4; ++trackNum) {
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "exposedParam_10" + (String)trackNum, {}, { ValueTree{ "seqTrack" + (String)trackNum + "Dest", {
-							{ "exposedName", "Sequencer Track " + (String)trackNum + " Destination" },
+			ValueTree{ "exposedParam_10" + String(trackNum + 1), {}, { ValueTree{ "seqTrack" + String(trackNum + 1) + "Dest", {
+							{ "exposedName", "Sequencer Track " + String(trackNum + 1) + " Destination" },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 77 + trackNum },
 						}, {} } }
 			},
 			-1,
@@ -1884,7 +1885,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 	}
 
-	NRPNs.add((uint8)77);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)1);
@@ -1898,7 +1898,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(5);
 	allowedValuesColumnWidths.add(134);
 
-	NRPNs.add((uint8)78);
 	converters.add(IntToSeqTrack2DestinationString::get());
 	maxValues.add((uint8)47);
 	defaultValues.add((uint8)2);
@@ -1912,7 +1911,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(5);
 	allowedValuesColumnWidths.add(134);
 
-	NRPNs.add((uint8)79);
 	converters.add(IntToModDestinationString::get());
 	maxValues.add((uint8)46);
 	defaultValues.add((uint8)9);
@@ -1926,7 +1924,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(5);
 	allowedValuesColumnWidths.add(134);
 
-	NRPNs.add((uint8)80);
 	converters.add(IntToSeqTrack4DestinationString::get());
 	maxValues.add((uint8)47);
 	defaultValues.add((uint8)0);
@@ -1947,6 +1944,7 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_10" + String(knobNum + 5), {}, { ValueTree{ "assignKnob" + String(knobNum + 1), {
 							{ "exposedName", "Assign Parameter to Knob " + String(knobNum + 1) },
 							{ "controlType", (int)ControlType::comboBox },
+							{ "NRPN", 105 + knobNum },
 						}, {} } }
 			},
 			-1,
@@ -1954,7 +1952,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 	}
 
-	NRPNs.add((uint8)105);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)5);
@@ -1968,7 +1965,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(9);
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
-	NRPNs.add((uint8)106);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)11);
@@ -1982,7 +1978,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(9);
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
-	NRPNs.add((uint8)107);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)43);
@@ -1996,7 +1991,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnCounts.add(9);
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
-	NRPNs.add((uint8)108);
 	converters.add(IntToParamNameString::get());
 	maxValues.add((uint8)168);
 	defaultValues.add((uint8)23);
@@ -2025,13 +2019,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 				ValueTree{ "exposedParam_" + String(109 + (track * 16 + step)), {}, { ValueTree{ "seqTrack" + trackString + "Step" + stepString, {
 								{ "exposedName", "Sequencer Track " + trackString + " Step " + stepString },
 								{ "controlType", (int)ControlType::sequencerStep },
+								{ "NRPN", params::paramNumForSeqTrack1Step1 + (16 * track) + step },
 							}, {} } }
 				},
 				-1,
 				nullptr
 			);
 
-			NRPNs.add((uint8)(params::paramNumForSeqTrack1Step1 + (16 * track) + step));
 			converters.add(IntToSeqStepValueString::get());
 			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
 			defaultValues.add((uint8)0);
@@ -2064,13 +2058,13 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			ValueTree{ "exposedParam_" + String(173 + charNum), {}, { ValueTree{ "nameChar" + charNumString, {
 							{ "exposedName", "Program Name Character " + charNumString },
 							{ "controlType", (int)ControlType::voiceNameChar },
+							{ "NRPN", params::paramNumFor1stNameChar + charNum },
 						}, {} } }
 			},
 			-1,
 			nullptr
 		);
 
-		NRPNs.add((uint8)(params::paramNumFor1stNameChar + charNum));
 		converters.add(IntToVoiceNameCharString::get());
 		maxValues.add((uint8)127);
 		descriptionString =  "To change character " + charNumString + " of the program" + GUI::apostrophe + "s name,\n";
@@ -2144,8 +2138,8 @@ String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 
 ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	jassert(paramIndex < params::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("exposedParam_" + (String)paramIndex).getChild(0) };
-	auto controlType{ (int)paramTree.getProperty("controlType") };
+	auto paramTree{ exposedParamsInfoTree.getChildWithName("exposedParam_" + (String)paramIndex) };
+	auto controlType{ (int)paramTree.getChild(0).getProperty("controlType") };
 	switch (controlType)
 	{
 	case (int)ControlType::knobWithValueStringDisplay:
@@ -2168,7 +2162,10 @@ ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 }
 
 uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
-	return NRPNs[paramIndex];
+	jassert(paramIndex < params::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName("exposedParam_" + (String)paramIndex) };
+	auto NRPN{ (int)paramTree.getChild(0).getProperty("NRPN") };
+	return (uint8)NRPN;
 }
 
 IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 paramIndex) const {
@@ -2252,11 +2249,11 @@ int InfoForExposedParameters::randomizationOptions_y_For(uint8 paramIndex) const
 	return randomizationOptionsTopLeftCoordinates[paramIndex].getY();
 }
 
-uint8 InfoForExposedParameters::indexForNRPN(const uint8 nrpn) const {
-	auto index{ NRPNs.indexOf(nrpn) };
-	if (index > -1)
-		return (uint8)NRPNs.indexOf(nrpn);
-	else
-		return (uint8)255;
+uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
+	for (auto paramIndex = (uint8)0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		if (NRPNfor(paramIndex) == NRPN)
+			return paramIndex;
+	}
+	return (uint8)255;
 }
 
