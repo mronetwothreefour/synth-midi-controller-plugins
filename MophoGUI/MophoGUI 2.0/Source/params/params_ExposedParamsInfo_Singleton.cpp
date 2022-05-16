@@ -28,6 +28,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Oscillator " + (String)oscNum + " Pitch" },
 							{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
 							{ "NRPN", oscNum == 1 ? 0 : 5 },
+							{ "maxValue", 120 },
+							{ "defaultValue", 24 },
 						}, {} } }
 			},
 			-1,
@@ -35,8 +37,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToOscPitchString::get());
-		maxValues.add((uint8)120);
-		defaultValues.add((uint8)24);
 		descriptionString =  "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch in semitone steps.\n";
 		descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.\n";
 		descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
@@ -57,6 +57,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Oscillator " + (String)oscNum + " Fine Tune" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", oscNum == 1 ? 1 : 6 },
+							{ "maxValue", 100 },
+							{ "defaultValue", 1 ? 49 : 51 },
 						}, {} } }
 			},
 			-1,
@@ -64,8 +66,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToFineTuneString::get());
-		maxValues.add((uint8)100); 
-		defaultValues.add(oscNum == 1 ? (uint8)49 : (uint8)51);
 		descriptionString =  "Fine tunes oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch.\n";
 		descriptionString += "Range: -50 cents to +50 cents.\n";
 		descriptionString += "0 = no detuning (centered).";
@@ -85,6 +85,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Oscillator " + (String)oscNum + " Wave Shape" },
 							{ "controlType", (int)ControlType::knobWithWaveShapeDisplay },
 							{ "NRPN", oscNum == 1 ? 2 : 7 },
+							{ "maxValue", 103 },
+							{ "defaultValue", 1 },
 						}, {} } }
 			},
 			-1,
@@ -92,8 +94,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToOscWaveShapeString::get());
-		maxValues.add((uint8)103); 
-		defaultValues.add((uint8)1);
 		descriptionString =  "Selects oscillator " + (String)oscNum + GUI::apostrophe + "s wave shape.\n";
 		descriptionString += "Hold down a number on the keyboard and click\n";
 		descriptionString += "the knob to jump directly to a wave shape:\n";
@@ -116,6 +116,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Oscillator " + (String)oscNum + " Glide Rate" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", oscNum == 1 ? 3 : 8 },
+							{ "maxValue", 127 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -123,8 +125,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToPlainValueString::get());
-		maxValues.add((uint8)127); 
-		defaultValues.add((uint8)0);
 		descriptionString =  "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s glide (portamento) rate.\n";
 		descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
 		descriptions.add(descriptionString);
@@ -143,6 +143,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Oscillator " + (String)oscNum + " Keyboard Track On/Off" },
 							{ "controlType", (int)ControlType::toggleButton },
 							{ "NRPN", oscNum == 1 ? 4 : 9 },
+							{ "maxValue", 1 },
+							{ "defaultValue", 1 },
 						}, {} } }
 			},
 			-1,
@@ -150,8 +152,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToOffOnString::get());
-		maxValues.add((uint8)1); 
-		defaultValues.add((uint8)1);
 		descriptionString =  "Turns keyboard tracking for oscillator " + (String)oscNum + "\n";
 		descriptionString += "on or off. When turned off, oscillator " + (String)oscNum + "\n";
 		descriptionString += "always produces its base pitch, unaffected\n";
@@ -172,6 +172,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Sub-Oscillator " + (String)oscNum + " Level" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", oscNum == 1 ? 114 : 115 },
+							{ "maxValue", 127 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -179,8 +181,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToPlainValueString::get());
-		maxValues.add((uint8)127); 
-		defaultValues.add((uint8)0);
 		descriptionString =  "Sets the level of sub-oscillator " + (String)oscNum + ",\n";
 		descriptionString += "which generates a square wave pitched\n";
 		descriptionString += "one octave lower than oscillator " + (String)oscNum + ".\n";
@@ -202,6 +202,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Hard Oscillator Sync On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
 						{ "NRPN", 10 },
+						{ "maxValue", 1 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -209,8 +211,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Turns hard oscillator sync on or off. When\n";
 	descriptionString += "turned on, every time oscillator 2 resets,\n";
 	descriptionString += "it forces oscillator 1 to reset as well.";
@@ -232,6 +232,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Glide Mode" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 11 },
+						{ "maxValue", 3 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -239,8 +241,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToGlideModeString::get());
-	maxValues.add((uint8)3);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Fixed Rate: The actual glide time depends on the size of the note interval.\n";
 	descriptionString += "Fixed Time: The glide time is constant, regardless of the interval size.\n";
 	descriptionString += "The Auto modes only apply glide when a note is played legato\n";
@@ -261,6 +261,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Oscillator Slop" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 12 },
+						{ "maxValue", 5 },
+						{ "defaultValue", 2 },
 					}, {} } }
 		},
 		-1,
@@ -268,8 +270,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)5);
-	defaultValues.add((uint8)2);
 	descriptionString =  "Introduces a subtle amount of random oscillator\n";
 	descriptionString += "pitch drift for a " + GUI::openQuote + "vintage analog" + GUI::closeQuote + " sound.\n";
 	descriptionString += "Range: 0 to 5.";
@@ -289,6 +289,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Pitch Bend Range" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 93 },
+						{ "maxValue", 12 },
+						{ "defaultValue", 4 },
 					}, {} } }
 		},
 		-1,
@@ -296,8 +298,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToBendRangeString::get());
-	maxValues.add((uint8)12);
-	defaultValues.add((uint8)4);
 	descriptionString =  "Sets the maximum amount (in semitones) by which pitch wheel\n";
 	descriptionString += "messages can raise or lower the pitches of the oscillators.\n";
 	descriptionString += "Range: 0 (no pitch bend) to +/-12 semitones.";
@@ -314,6 +314,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Note Priority (Key Assign)" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 96 },
+						{ "maxValue", 5 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -321,8 +323,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToNotePriorityString::get());
-	maxValues.add((uint8)5);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Selects which note is given priority when multiple\n";
 	descriptionString += "notes are played, and whether the envelopes are\n";
 	descriptionString += "re-triggered when a note is played legato (before\n";
@@ -340,6 +340,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Oscillator 1 & 2 Mix" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 13 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 64 },
 					}, {} } }
 		},
 		-1,
@@ -347,8 +349,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)64);
 	descriptionString =  "Controls the level balance between oscillators 1 & 2.\n";
 	descriptionString += "Range: 0 to 127. At 0, only oscillator 1 is heard.\n";
 	descriptionString += "At 127, only oscillator 2 is heard. At 64, an equal\n";
@@ -366,6 +366,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Noise Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 14 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -373,8 +375,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the level of white noise\n";
 	descriptionString += "sent into the low-pass filter.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -391,6 +391,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "External Audio Input Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 116 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -398,8 +400,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the level of external audio\n";
 	descriptionString += "input sent into the low-pass filter.\n";
 	descriptionString += "When nothing is connected to audio in,\n";
@@ -421,6 +421,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Cutoff Frequency" },
 						{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
 						{ "NRPN", 15 },
+						{ "maxValue", 164 },
+						{ "defaultValue", 148 },
 					}, {} } }
 		},
 		-1,
@@ -428,8 +430,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToLPFfreqString::get());
-	maxValues.add((uint8)164);
-	defaultValues.add((uint8)148);
 	descriptionString =  "Sets the base cutoff frequency for the low-pass filter\n";
 	descriptionString += "(in semitone steps). Range: 0 (C 0) to 164 (G# 13).\n";
 	descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
@@ -447,6 +447,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Resonance" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 16 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -454,8 +456,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the resonance level of the low-pass\n";
 	descriptionString += "filter. When in 4-pole mode, high settings\n";
 	descriptionString += "will cause the filter to self-oscillate.\n";
@@ -473,6 +473,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Keyboard Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 17 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -480,8 +482,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the amount by which keyboard (MIDI) notes\n";
 	descriptionString += "will shift the low-pass filter" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Range: 0 to 127. At 64, cutoff is shifted by one\n";
@@ -500,6 +500,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF FM (By Oscillator 1)" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 18 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -507,8 +509,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which oscillator 1 modulates\n";
 	descriptionString += "the low-pass filter" + GUI::apostrophe + "s cutoff frequency. This is\n";
 	descriptionString += "useful for generating bell-like sounds.\n";
@@ -526,6 +526,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Type" },
 						{ "controlType", (int)ControlType::toggleButton },
 						{ "NRPN", 19 },
+						{ "maxValue", 1 },
+						{ "defaultValue", 1 },
 					}, {} } }
 		},
 		-1,
@@ -533,8 +535,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToLPFtypeString::get());
-	maxValues.add((uint8)1);
-	defaultValues.add((uint8)1);
 	descriptionString =  "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
 	descriptionString += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
 	descriptionString += "slope and more pronounced resonance.";
@@ -551,6 +551,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 20 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -558,8 +560,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which the LPF envelope\n";
 	descriptionString += "modulates the filter" + GUI::apostrophe + "s cutoff frequency.\n";
 	descriptionString += "Negative values invert the envelope.\n";
@@ -577,6 +577,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 21 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -584,8 +586,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which MIDI note velocity modulates\n";
 	descriptionString += "the amplitude of the low-pass filter" + GUI::apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -602,6 +602,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 22 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -609,8 +611,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
@@ -628,6 +628,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 23 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -635,8 +637,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s attack segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
@@ -654,6 +654,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 24 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -661,8 +663,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s decay segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
@@ -680,6 +680,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 25 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -687,8 +689,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the LPF envelope" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
@@ -706,6 +706,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "LPF Envelope Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 26 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -713,8 +715,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the LPF envelope" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
@@ -734,6 +734,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Baseline Level" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 27 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -741,8 +743,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the voltage-controlled amplifier" + GUI::apostrophe + "s baseline level. Turn this\n";
 	descriptionString += "up for droning sounds or when processing external audio input.\n";
 	descriptionString += "When this level is set to 127, the VCA envelope has no effect.\n";
@@ -760,6 +760,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 30 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -767,8 +769,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which the VCA envelope\n";
 	descriptionString += "modulates the voltage-controlled ampifier" + GUI::apostrophe + "s level.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -785,6 +785,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 31 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -792,8 +794,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which MIDI note velocity modulates\n";
 	descriptionString += "the amplitude of the voltage-controlled ampifier" + GUI::apostrophe + "s envelope.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -810,6 +810,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 32 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -817,8 +819,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
@@ -836,6 +836,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 33 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -843,8 +845,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s attack segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
@@ -862,6 +862,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 34 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -869,8 +871,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s decay segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
@@ -888,6 +888,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 35 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 64 },
 					}, {} } }
 		},
 		-1,
@@ -895,8 +897,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)64);
 	descriptionString =  "Sets the VCA envelope" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
@@ -914,6 +914,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "VCA Envelope Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 36 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 64 },
 					}, {} } }
 		},
 		-1,
@@ -921,8 +923,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)64);
 	descriptionString =  "Sets the length of the VCA envelope" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
@@ -940,6 +940,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Program Volume" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 29 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 120 },
 					}, {} } }
 		},
 		-1,
@@ -947,8 +949,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)120);
 	descriptionString =  "Sets the overall gain of the current program.\n";
 	descriptionString += "Range: 0 to 127.";
 	descriptions.add(descriptionString);
@@ -967,6 +967,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Frequency" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", 37 + lfoNum * 5 },
+							{ "maxValue", 166 },
+							{ "defaultValue", 80 },
 						}, {} } }
 			},
 			-1,
@@ -974,8 +976,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToLFOfreqString::get());
-		maxValues.add((uint8)166);
-		defaultValues.add((uint8)80);
 		descriptionString =  "Sets LFO " + String(lfoNum + 1) + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
 		descriptionString += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
 		descriptionString += "From 90 to 150, LFO " + String(lfoNum + 1) + " has a pitched frequency, increasing\n";
@@ -995,6 +995,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Wave Shape" },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 38 + lfoNum * 5 },
+							{ "maxValue", 4 },
+							{ "defaultValue", 1 },
 						}, {} } }
 			},
 			-1,
@@ -1002,8 +1004,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToLFOshapeString::get());
-		maxValues.add((uint8)4);
-		defaultValues.add((uint8)1);
 		descriptions.add("Selects LFO " + String(lfoNum + 1) + GUI::apostrophe + "s wave shape.");
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
@@ -1017,6 +1017,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Amount" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", 39 + lfoNum * 5 },
+							{ "maxValue", 127 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -1024,8 +1026,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToPlainValueString::get());
-		maxValues.add((uint8)127);
-		defaultValues.add((uint8)0);
 		descriptionString =  "Sets the degree to which LFO " + String(lfoNum + 1) + "\n";
 		descriptionString += "modulates the destination parameter.\n";
 		descriptionString += "Range: 0 to 127.";
@@ -1042,6 +1042,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Modulation Destination" },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 40 + lfoNum * 5 },
+							{ "maxValue", 46 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -1049,8 +1051,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToModDestinationString::get());
-		maxValues.add((uint8)46);
-		defaultValues.add((uint8)0);
 		descriptions.add("Selects the target parameter for modulation by LFO " + String(lfoNum + 1) + ".");
 		controlWidths.add(134);
 		controlHeights.add(GUI::comboBox_h);
@@ -1064,6 +1064,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "LFO " + String(lfoNum + 1) + " Key Sync On/Off" },
 							{ "controlType", (int)ControlType::toggleButton },
 							{ "NRPN", 41 + lfoNum * 5 },
+							{ "maxValue", 1 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -1071,8 +1073,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToOffOnString::get());
-		maxValues.add((uint8)1);
-		defaultValues.add((uint8)0);
 		descriptionString =  "When on, LFO " + String(lfoNum + 1) + GUI::apostrophe + "s cycle will reset\n";
 		descriptionString += "each time a new note is played.";
 		descriptions.add(descriptionString);
@@ -1091,6 +1091,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Modulation Destination" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 57 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1098,8 +1100,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add("Selects the target parameter for modulation by envelope 3");
 	controlWidths.add(126);
 	controlHeights.add(GUI::comboBox_h);
@@ -1113,6 +1113,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 58 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -1120,8 +1122,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which envelope 3\n";
 	descriptionString += "modulates the destination parameter.\n";
 	descriptionString += "Negative values invert the envelope.\n";
@@ -1139,6 +1139,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 59 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1146,8 +1148,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the degree to which MIDI note velocity\n";
 	descriptionString += "modulates the amplitude of envelope 3.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -1164,6 +1164,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Delay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 60 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1171,8 +1173,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s delay segment\n";
 	descriptionString += "(the amount of time that passes after the envelope\n";
 	descriptionString += "is triggered before its attack segment begins).\n";
@@ -1190,6 +1190,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Attack" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 61 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1197,8 +1199,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s attack segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to rise from minimum to maximum).\n";
@@ -1216,6 +1216,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Decay" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 62 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1223,8 +1225,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of the envelope 3" + GUI::apostrophe + "s decay segment\n";
 	descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
 	descriptionString += "level to fall from maximum to the sustain level).\n";
@@ -1242,6 +1242,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Sustain" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 63 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1249,8 +1251,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets envelope 3" + GUI::apostrophe + "s sustain level (once the\n";
 	descriptionString += "decay segment completes, the envelope stays\n";
 	descriptionString += "at this level until it is gated off).\n";
@@ -1268,6 +1268,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Release" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 64 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1275,8 +1277,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the length of envelope 3" + GUI::apostrophe + "s release segment\n";
 	descriptionString += "(the amount of time it takes to fall from the sustain\n";
 	descriptionString += "level down to minimum once the envelope is gated off).\n";
@@ -1294,6 +1294,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Envelope 3 Repeat" },
 						{ "controlType", (int)ControlType::toggleButton },
 						{ "NRPN", 98 },
+						{ "maxValue", 1 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1301,8 +1303,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1);
-	defaultValues.add((uint8)0);
 	descriptionString =  "When repeat is on, envelope 3 loops through\n";
 	descriptionString += "its delay, attack, decay, and sustain segments\n";
 	descriptionString += "for as long as the envelope is gated on.";
@@ -1328,6 +1328,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Source" },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 65 + 3 * modNum },
+							{ "maxValue", 22 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -1335,8 +1337,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToModSourceString::get());
-		maxValues.add((uint8)22);
-		defaultValues.add((uint8)0);
 		descriptions.add(modSourceDescription);
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
@@ -1350,6 +1350,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Amount" },
 							{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 							{ "NRPN", 66 + 3 * modNum },
+							{ "maxValue", 254 },
+							{ "defaultValue", 127 },
 						}, {} } }
 			},
 			-1,
@@ -1357,8 +1359,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToPlusMinus127String::get());
-		maxValues.add((uint8)254);
-		defaultValues.add((uint8)127);
 		descriptions.add(modAmountDescription);
 		controlWidths.add(GUI::knob_diameter);
 		controlHeights.add(GUI::knob_diameter);
@@ -1372,6 +1372,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Modulator " + (String)(modNum + 1) + " Destination" },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 67 + 3 * modNum },
+							{ "maxValue", 46 },
+							{ "defaultValue", 0 },
 						}, {} } }
 			},
 			-1,
@@ -1379,8 +1381,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToModDestinationString::get());
-		maxValues.add((uint8)46);
-		defaultValues.add((uint8)0);
 		descriptions.add(modDestinationDescription);
 		controlWidths.add(GUI::modulatorComboBox_w);
 		controlHeights.add(GUI::comboBox_h);
@@ -1397,6 +1397,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Modulation Wheel Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 81 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -1404,8 +1406,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which MIDI modulation wheel controller\n";
 	descriptionString += "messages (CC#1) modulate the destination parameter.\n";
 	descriptionString += "Negative values invert the modulation.\n";
@@ -1423,6 +1423,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Modulation Wheel Destination" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 82 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1430,8 +1432,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
@@ -1444,6 +1444,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		ValueTree{ "exposedParam_84", {}, { ValueTree{ ID::pressureAmount, {
 						{ "exposedName", "Pressure (Aftertouch) Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 						{ "NRPN", 83 },
 					}, {} } }
 		},
@@ -1452,8 +1454,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which MIDI channel pressure\n";
 	descriptionString += "(aftertouch) messages modulate the destination parameter.\n";
 	descriptionString += "Negative values invert the modulation.\n";
@@ -1471,6 +1471,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Pressure (Aftertouch) Destination" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 84 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1478,8 +1480,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
@@ -1493,6 +1493,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Breath Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 85 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -1500,8 +1502,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which MIDI breath controller\n";
 	descriptionString += "messages (CC#2) modulate the destination parameter.\n";
 	descriptionString += "Negative values invert the modulation.\n";
@@ -1519,6 +1519,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Breath Destination" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 86 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1526,8 +1528,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
@@ -1541,6 +1541,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Note Velocity Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 87 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -1548,8 +1550,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which MIDI note velocity\n";
 	descriptionString += "messages modulate the destination parameter.\n";
 	descriptionString += "Negative values invert the modulation.\n";
@@ -1567,6 +1567,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Note Velocity Destination" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 88 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1574,8 +1576,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
@@ -1589,6 +1589,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Foot Pedal Amount" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 89 },
+						{ "maxValue", 254 },
+						{ "defaultValue", 127 },
 					}, {} } }
 		},
 		-1,
@@ -1596,8 +1598,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlusMinus127String::get());
-	maxValues.add((uint8)254);
-	defaultValues.add((uint8)127);
 	descriptionString =  "Sets the degree to which MIDI foot pedal controller\n";
 	descriptionString += "messages (CC#4) modulate the destination parameter.\n";
 	descriptionString += "Negative values invert the modulation.\n";
@@ -1615,6 +1615,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "controlType", (int)ControlType::comboBox },
 						{ "exposedName", "Foot Pedal Destination" },
 						{ "NRPN", 90 },
+						{ "maxValue", 46 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1622,8 +1624,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)0);
 	descriptions.add(modDestinationDescription);
 	controlWidths.add(GUI::midiControllerComboBox_w);
 	controlHeights.add(GUI::comboBox_h);
@@ -1639,6 +1639,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Push It! Switch Pitch" },
 						{ "controlType", (int)ControlType::knobForPitchWithValueStringDisplay },
 						{ "NRPN", 111 },
+						{ "maxValue", 120 },
+						{ "defaultValue", 60 },
 					}, {} } }
 		},
 		-1,
@@ -1646,8 +1648,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToOscPitchString::get());
-	maxValues.add((uint8)120);
-	defaultValues.add((uint8)60);
 	descriptionString =  "Sets the note that plays when the Push It! switch is pressed.\n";
 	descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz). Middle C is C 5.\n";
 	descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
@@ -1665,6 +1665,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Push It! Switch Velocity" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 112 },
+						{ "maxValue", 127 },
+						{ "defaultValue", 100 },
 					}, {} } }
 		},
 		-1,
@@ -1672,8 +1674,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPlainValueString::get());
-	maxValues.add((uint8)127);
-	defaultValues.add((uint8)100);
 	descriptionString =  "Sets the velocity of the note that plays\n";
 	descriptionString += "when the Push It! switch is pressed.\n";
 	descriptionString += "Range: 0 to 127.";
@@ -1690,6 +1690,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Push It! Switch Mode" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 113 },
+						{ "maxValue", 2 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1697,8 +1699,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToPushItModeString::get());
-	maxValues.add((uint8)2);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the operating mode for the Mopho" + GUI::apostrophe + "s Push It! switch.\n";
 	descriptionString += "Normal: The selected note is gated on when the switch is\n";
 	descriptionString += "pressed and gated off when the switch is released.\n";
@@ -1721,6 +1721,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Clock Tempo" },
 						{ "controlType", (int)ControlType::knobWithValueStringDisplay },
 						{ "NRPN", 91 },
+						{ "maxValue", 220 },
+						{ "defaultValue", 90 },
 					}, {} } }
 		},
 		-1,
@@ -1728,8 +1730,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToClockTempoString::get());
-	maxValues.add((uint8)220);
-	defaultValues.add((uint8)90);
 	descriptionString =  "Sets the tempo (in beats per minute)\n";
 	descriptionString += "for the sequencer and the arpeggiator.\n";
 	descriptionString += "Range: 30 to 250 BPM.\n";
@@ -1746,6 +1746,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Clock Division" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 92 },
+						{ "maxValue", 12 },
+						{ "defaultValue", 2 },
 					}, {} } }
 		},
 		-1,
@@ -1753,8 +1755,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToClockDivString::get());
-	maxValues.add((uint8)12);
-	defaultValues.add((uint8)2);
 	descriptionString =  "Sets the rate at which the sequencer and\n";
 	descriptionString += "arpeggiator advance, relative to the tempo.";
 	descriptions.add(descriptionString);
@@ -1772,6 +1772,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Arpeggiator Mode" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 97 },
+						{ "maxValue", 14 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1779,8 +1781,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToArpegModeString::get());
-	maxValues.add((uint8)14);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Sets the order in which the arpeggiator plays notes.\n";
 	descriptionString += "Assign mode: notes play in the order in which they were struck.";
 	descriptions.add(descriptionString);
@@ -1796,6 +1796,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Arpeggiator On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
 						{ "NRPN", 100 },
+						{ "maxValue", 1 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1803,8 +1805,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Turns the Mopho" + GUI::apostrophe + "s arpeggiator on and off.\n";
 	descriptionString += "Turning this on will turn off the sequencer.";
 	descriptions.add(descriptionString);
@@ -1820,6 +1820,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Sequencer Trigger Mode" },
 						{ "controlType", (int)ControlType::comboBox },
 						{ "NRPN", 94 },
+						{ "maxValue", 5 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1827,8 +1829,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToSeqTrigModeString::get());
-	maxValues.add((uint8)5);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Normal: New notes reset the sequencer to the first step.\n";
 	descriptionString += "The envelopes are re-triggered with each step.\n";
 	descriptionString += "Normal, No Reset: New notes do not reset the sequencer to the\n";
@@ -1853,6 +1853,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 						{ "exposedName", "Sequencer On/Off" },
 						{ "controlType", (int)ControlType::toggleButton },
 						{ "NRPN", 101 },
+						{ "maxValue", 1 },
+						{ "defaultValue", 0 },
 					}, {} } }
 		},
 		-1,
@@ -1860,8 +1862,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	);
 
 	converters.add(IntToOffOnString::get());
-	maxValues.add((uint8)1);
-	defaultValues.add((uint8)0);
 	descriptionString =  "Turns the Mopho" + GUI::apostrophe + "s internal sequencer on and off.\n";
 	descriptionString += "Turning this on will turn off the arpeggiator.";
 	descriptions.add(descriptionString);
@@ -1878,6 +1878,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Sequencer Track " + String(trackNum + 1) + " Destination" },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 77 + trackNum },
+							{ "maxValue", trackNum == 0 || trackNum == 2 ? 46 : 47 },
+							{ "defaultValue", trackNum < 2 ? trackNum + 1 : trackNum == 2 ? 9 : 0 },
 						}, {} } }
 			},
 			-1,
@@ -1886,8 +1888,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	}
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)1);
 	descriptionString =  "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 1.";
 	descriptions.add(descriptionString);
@@ -1899,8 +1899,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(134);
 
 	converters.add(IntToSeqTrack2DestinationString::get());
-	maxValues.add((uint8)47);
-	defaultValues.add((uint8)2);
 	descriptionString =  "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 2.";
 	descriptions.add(descriptionString);
@@ -1912,8 +1910,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(134);
 
 	converters.add(IntToModDestinationString::get());
-	maxValues.add((uint8)46);
-	defaultValues.add((uint8)9);
 	descriptionString = "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 3.";
 	descriptions.add(descriptionString);
@@ -1925,8 +1921,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(134);
 
 	converters.add(IntToSeqTrack4DestinationString::get());
-	maxValues.add((uint8)47);
-	defaultValues.add((uint8)0);
 	descriptionString = "Selects the target parameter for\n";
 	descriptionString += "modulation by sequencer track 4.";
 	descriptions.add(descriptionString);
@@ -1945,6 +1939,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Assign Parameter to Knob " + String(knobNum + 1) },
 							{ "controlType", (int)ControlType::comboBox },
 							{ "NRPN", 105 + knobNum },
+							{ "maxValue", 168 },
+							{ "defaultValue", knobNum == 0 ? 5 : knobNum == 1 ? 11 : knobNum == 2 ? 43 : 23 },
 						}, {} } }
 			},
 			-1,
@@ -1953,8 +1949,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	}
 
 	converters.add(IntToParamNameString::get());
-	maxValues.add((uint8)168);
-	defaultValues.add((uint8)5);
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 1.";
 	descriptions.add(descriptionString);
@@ -1966,8 +1960,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
 	converters.add(IntToParamNameString::get());
-	maxValues.add((uint8)168);
-	defaultValues.add((uint8)11);
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 2.";
 	descriptions.add(descriptionString);
@@ -1979,8 +1971,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
 	converters.add(IntToParamNameString::get());
-	maxValues.add((uint8)168);
-	defaultValues.add((uint8)43);
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 3.";
 	descriptions.add(descriptionString);
@@ -1992,8 +1982,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 	allowedValuesColumnWidths.add(GUI::knobAssignComboBoxes_w);
 
 	converters.add(IntToParamNameString::get());
-	maxValues.add((uint8)168);
-	defaultValues.add((uint8)23);
 	descriptionString =  "Selects a target parameter for\n";
 	descriptionString += "assignable hardware knob 4.";
 	descriptions.add(descriptionString);
@@ -2020,6 +2008,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 								{ "exposedName", "Sequencer Track " + trackString + " Step " + stepString },
 								{ "controlType", (int)ControlType::sequencerStep },
 								{ "NRPN", params::paramNumForSeqTrack1Step1 + (16 * track) + step },
+								{ "maxValue", track == 0 ? 127 : 126 },
+								{ "defaultValue", 0 },
 							}, {} } }
 				},
 				-1,
@@ -2027,8 +2017,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 			);
 
 			converters.add(IntToSeqStepValueString::get());
-			maxValues.add(track == 0 ? (uint8)127 : (uint8)126);
-			defaultValues.add((uint8)0);
 			descriptionString =  "Sets the value that sequencer track " + trackString + GUI::apostrophe + "s destination parameter has at step " + stepString + ",\n";
 			descriptionString += "Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.\n";
 			descriptionString += "A " + GUI::openQuote + "+" + GUI::closeQuote + " indicates that the pitch is a quarter-tone higher than the displayed note.\n";
@@ -2059,6 +2047,8 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 							{ "exposedName", "Program Name Character " + charNumString },
 							{ "controlType", (int)ControlType::voiceNameChar },
 							{ "NRPN", params::paramNumFor1stNameChar + charNum },
+							{ "maxValue", 127 },
+							{ "defaultValue", int(String("Basic Program   ")[charNum]) },
 						}, {} } }
 			},
 			-1,
@@ -2066,7 +2056,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		);
 
 		converters.add(IntToVoiceNameCharString::get());
-		maxValues.add((uint8)127);
 		descriptionString =  "To change character " + charNumString + " of the program" + GUI::apostrophe + "s name,\n";
 		descriptionString += "click-and-drag the character or hover over\n";
 		descriptionString += "it and turn the mouse wheel. Click the edit\n";
@@ -2081,22 +2070,6 @@ void InfoForExposedParameters::fillAllInfoContainers() {
 		allowedValuesColumnCounts.add(13);
 		allowedValuesColumnWidths.add(20);
 	}
-	defaultValues.add((uint8)'B');
-	defaultValues.add((uint8)'a');
-	defaultValues.add((uint8)'s');
-	defaultValues.add((uint8)'i');
-	defaultValues.add((uint8)'c');
-	defaultValues.add((uint8)' ');
-	defaultValues.add((uint8)'P');
-	defaultValues.add((uint8)'r');
-	defaultValues.add((uint8)'o');
-	defaultValues.add((uint8)'g');
-	defaultValues.add((uint8)'r');
-	defaultValues.add((uint8)'a');
-	defaultValues.add((uint8)'m');
-	defaultValues.add((uint8)' ');
-	defaultValues.add((uint8)' ');
-	defaultValues.add((uint8)' ');
 
 	for (uint8 param = 0; param != params::numberOfExposedParams; ++param) {
 		if (param < 92)
@@ -2173,15 +2146,21 @@ IntToContextualStringConverter* InfoForExposedParameters::converterFor(uint8 par
 }
 
 uint8 InfoForExposedParameters::maxValueFor(uint8 paramIndex) const {
-	return maxValues[paramIndex];
+	jassert(paramIndex < params::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName("exposedParam_" + (String)paramIndex) };
+	auto maxValue{ (int)paramTree.getChild(0).getProperty("maxValue") };
+	return (uint8)maxValue;
 }
 
 uint8 InfoForExposedParameters::defaultValueFor(uint8 paramIndex) const {
-	return defaultValues[paramIndex];
+	jassert(paramIndex < params::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName("exposedParam_" + (String)paramIndex) };
+	auto defaultValue{ (int)paramTree.getChild(0).getProperty("defaultValue") };
+	return (uint8)defaultValue;
 }
 
 uint8 InfoForExposedParameters::numberOfStepsFor(uint8 paramIndex) const {
-	return maxValues[paramIndex] + 1;
+	return uint8(maxValueFor(paramIndex) + 1);
 }
 
 String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {

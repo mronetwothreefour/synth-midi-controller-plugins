@@ -17,8 +17,6 @@ private:
 	ValueTree exposedParamsInfoTree;
 
 	Array<IntToContextualStringConverter*> converters;
-	Array<uint8> maxValues;
-	Array<uint8> defaultValues;
 	Array<String> descriptions;
 	Array<int> controlWidths;
 	Array<int> controlHeights;
