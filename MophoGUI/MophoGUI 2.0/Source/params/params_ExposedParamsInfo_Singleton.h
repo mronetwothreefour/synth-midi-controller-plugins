@@ -16,7 +16,6 @@ public:
 private:
 	ValueTree exposedParamsInfoTree;
 
-	Array<ControlType> controlTypes;
 	Array<uint8> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
 	Array<uint8> maxValues;

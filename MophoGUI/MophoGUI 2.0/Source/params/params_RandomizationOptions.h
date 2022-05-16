@@ -46,25 +46,22 @@ public:
 	void setTransmissionMethodIsNRPN();
 	void setTransmissionMethodIsSysEx();
 
-	const bool paramIsLocked(uint8 param);
-	const bool paramIsUnlocked(uint8 param);
-	void setParamIsLocked(uint8 param);
-	void setParamIsUnlocked(uint8 param);
+	const bool paramIsLocked(uint8 paramIndex);
+	const bool paramIsUnlocked(uint8 paramIndex);
+	void setParamIsLocked(uint8 paramIndex);
+	void setParamIsUnlocked(uint8 paramIndex);
 
-	void addListenerToAllowedValuesTree(ValueTree::Listener* listener); // todo: delete
-	void removeListenerFromAllowedValuesTree(ValueTree::Listener* listener); // todo: delete
-	const bool valueIsAllowedForParam(uint8 value, uint8 param);
-	const bool valueIsNotAllowedForParam(uint8 value, uint8 param); // todo: delete(?)
-	void setValueIsAllowedForParam(uint8 value, uint8 param);
-	void setValueIsNotAllowedForParam(uint8 value, uint8 param);
-	const bool onlyOneValueIsAllowedForParam(uint8 param);
-	const bool moreThanOneValueIsAllowedForParam(uint8 param);
-	const bool noValueIsAllowedForParam(uint8 param);
-	const uint8 onlyValueAllowedForParam(uint8 param);
-	void checkNumberOfAllowedValuesForParam(uint8 param);
-	void setOnlyOneValueIsAllowedForParam(uint8 param);
-	void setMoreThanOneValueIsAllowedForParam(uint8 param);
-	void setNoValueIsAllowedForParam(uint8 param);
+	const bool valueIsAllowedForParam(uint8 value, uint8 paramIndex);
+	void setValueIsAllowedForParam(uint8 value, uint8 paramIndex);
+	void setValueIsNotAllowedForParam(uint8 value, uint8 paramIndex);
+	const bool onlyOneValueIsAllowedForParam(uint8 paramIndex);
+	const bool moreThanOneValueIsAllowedForParam(uint8 paramIndex);
+	const bool noValueIsAllowedForParam(uint8 paramIndex);
+	const uint8 onlyValueAllowedForParam(uint8 paramIndex);
+	void checkNumberOfAllowedValuesForParam(uint8 paramIndex);
+	void setOnlyOneValueIsAllowedForParam(uint8 paramIndex);
+	void setMoreThanOneValueIsAllowedForParam(uint8 paramIndex);
+	void setNoValueIsAllowedForParam(uint8 paramIndex);
 
 	void addListenerToAllowedPitchesTree(ValueTree::Listener* listener); // todo: delete
 	void removeListenerFromAllowedPitchesTree(ValueTree::Listener* listener); // todo: delete
@@ -93,16 +90,20 @@ public:
 	const uint8 maxValueAllowedForParam(uint8 paramIndex); // todo: delete
 	void setMaxValueAllowedForParam(uint8 newMax, uint8 paramIndex); // todo: delete
 
-	const bool oscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex); // todo: delete
-	void setOscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex); // todo: delete
-	void setOscShapeIsNotAllowedForParam(int shapeIndex, uint8 paramIndex); // todo: delete
-	void setOscShapeIsTheOnlyAllowedForParam(int shapeIndex, uint8 paramIndex); // todo: delete
-	const bool noOscShapeIsAllowedForParam(uint8 paramIndex); // todo: delete
+	const bool oscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsNotAllowedForParam(int shapeIndex, uint8 paramIndex);
+	void setOscShapeIsTheOnlyAllowedForParam(int shapeIndex, uint8 paramIndex);
+	const bool noOscShapeIsAllowedForParam(uint8 paramIndex);
+	const bool pulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex);
+	void setPulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex);
+	void setPulseWidthIsNotAllowedForParam(int pulseWidth, uint8 paramIndex);
+	const bool noPulseWidthIsAllowedForParam(uint8 paramIndex);
 	const uint8 minPulseWidthAllowedForParam(uint8 paramIndex); // todo: delete
 	void setMinPulseWidthAllowedForParam(uint8 newMin, uint8 paramIndex); // todo: delete
 	const uint8 maxPulseWidthAllowedForParam(uint8 paramIndex); // todo: delete
 	void setMaxPulseWidthAllowedForParam(uint8 newMax, uint8 paramIndex); // todo: delete
-	void checkIfOnlyOneValueIsAllowedForOscShapeParam(uint8 paramIndex); // todo: delete
+	void checkIfOnlyOneValueIsAllowedForOscShapeParam(uint8 paramIndex);
 
 	const bool comboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex); // todo: delete
 	void setComboBoxItemIsAllowedForParam(int itemNum, uint8 paramIndex); // todo: delete

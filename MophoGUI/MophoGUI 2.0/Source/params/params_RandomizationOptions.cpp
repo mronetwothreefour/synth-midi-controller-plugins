@@ -30,18 +30,12 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 	for (uint8 param = 0; param != params::numberOfExposedParams; ++param) {
 		setParamIsUnlocked(param);
 		auto& info{ InfoForExposedParameters::get() };
-		auto numberOfSteps{ info.numberOfStepsFor(param) };
-		for (uint8 val = 0; val != numberOfSteps; ++val)
-			setValueIsAllowedForParam(val, param);
-		checkNumberOfAllowedValuesForParam(param);
-
 		auto optionsType{ info.randomizationOptionsTypeFor(param) };
 		if (optionsType == RandomizationOptionsType::allowedValues) {
-			for (auto noteNum = 0; noteNum != randomization::numberOfNotes; ++noteNum)
-				setNoteIsAllowedForParam(noteNum, param);
-			for (auto octaveNum = 0; octaveNum != randomization::numberOfOctaves; ++octaveNum)
-				setOctaveIsAllowedForParam(octaveNum, param);
-			setHighestOctaveIsNotOnlyOneAllowedForParam(param);
+			auto numberOfSteps{ info.numberOfStepsFor(param) };
+			for (uint8 val = 0; val != numberOfSteps; ++val)
+				setValueIsAllowedForParam(val, param);
+			checkNumberOfAllowedValuesForParam(param);
 		}
 		if (optionsType == RandomizationOptionsType::valueRange) {
 			setMinValueAllowedForParam((uint8)0, param);
@@ -53,8 +47,10 @@ void RandomizationOptions::fillAllRandomizationOptionsTreesWithProperties() {
 			setOscShapeIsAllowedForParam((uint8)OscWaveShape::triangle, param);
 			setOscShapeIsAllowedForParam((uint8)OscWaveShape::sawTriMix, param);
 			setOscShapeIsAllowedForParam((uint8)OscWaveShape::pulse, param);
-			setMinPulseWidthAllowedForParam((uint8)0, param);
-			setMaxPulseWidthAllowedForParam(params::maxPulseWidth, param);
+			for (auto pulseWidth = 0; pulseWidth != 100; ++pulseWidth)
+				setPulseWidthIsAllowedForParam(pulseWidth, param);
+			setMinPulseWidthAllowedForParam((uint8)0, param); // todo: delete
+			setMaxPulseWidthAllowedForParam(params::maxPulseWidth, param);; // todo: delete
 		}
 		if (optionsType == RandomizationOptionsType::comboBoxes) {
 			auto numberOfItems{ info.numberOfStepsFor(param) };
@@ -144,145 +140,127 @@ void RandomizationOptions::setTransmissionMethodIsSysEx() {
 	transmissionOptionsTree.setProperty("transmissionMethodIsSysEx", (bool)true, nullptr);
 }
 
-const bool RandomizationOptions::paramIsLocked(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
-	return (bool)paramLocksTree.getProperty("param" + String(param) + "_IsLocked");
+const bool RandomizationOptions::paramIsLocked(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
+	return (bool)paramLocksTree.getProperty("param" + String(paramIndex) + "_IsLocked");
 }
 
-const bool RandomizationOptions::paramIsUnlocked(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
-	return !(bool)paramLocksTree.getProperty("param" + String(param) + "_IsLocked");
+const bool RandomizationOptions::paramIsUnlocked(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
+	return !(bool)paramLocksTree.getProperty("param" + String(paramIndex) + "_IsLocked");
 }
 
-void RandomizationOptions::setParamIsLocked(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
-	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)true, nullptr);
+void RandomizationOptions::setParamIsLocked(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
+	paramLocksTree.setProperty("param" + String(paramIndex) + "_IsLocked", (bool)true, nullptr);
 }
 
-void RandomizationOptions::setParamIsUnlocked(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
-	paramLocksTree.setProperty("param" + String(param) + "_IsLocked", (bool)false, nullptr);
+void RandomizationOptions::setParamIsUnlocked(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
+	paramLocksTree.setProperty("param" + String(paramIndex) + "_IsLocked", (bool)false, nullptr);
 }
 
-void RandomizationOptions::addListenerToAllowedValuesTree(ValueTree::Listener* listener) {
-	allowedValuesTrees.addListener(listener);
-}
-
-void RandomizationOptions::removeListenerFromAllowedValuesTree(ValueTree::Listener* listener) {
-	allowedValuesTrees.removeListener(listener);
-}
-
-const bool RandomizationOptions::valueIsAllowedForParam(uint8 value, uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+const bool RandomizationOptions::valueIsAllowedForParam(uint8 value, uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
-	jassert(value < info.numberOfStepsFor(param));
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	jassert(value < info.numberOfStepsFor(paramIndex));
 	auto propertyID{ "value_" + (String)value + "_IsAllowed"};
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	return paramTree.hasProperty(propertyID);
 }
 
-const bool RandomizationOptions::valueIsNotAllowedForParam(uint8 value, uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::setValueIsAllowedForParam(uint8 value, uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
-	jassert(value < info.numberOfStepsFor(param));
-	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
-	return !paramTree.hasProperty(propertyID);
-}
-
-void RandomizationOptions::setValueIsAllowedForParam(uint8 value, uint8 param) {
-	jassert(param < params::numberOfExposedParams);
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
-	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
-	jassert(value < info.numberOfStepsFor(param));
+	jassert(value < info.numberOfStepsFor(paramIndex));
 	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
 	if (!paramTree.hasProperty(propertyID))
 		paramTree.setProperty(propertyID, value, nullptr);
 }
 
-void RandomizationOptions::setValueIsNotAllowedForParam(uint8 value, uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::setValueIsNotAllowedForParam(uint8 value, uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
-	jassert(value < info.numberOfStepsFor(param));
+	jassert(value < info.numberOfStepsFor(paramIndex));
 	auto propertyID{ "value_" + (String)value + "_IsAllowed" };
 	if (paramTree.hasProperty(propertyID))
 		paramTree.removeProperty(propertyID, nullptr);
 }
 
-const bool RandomizationOptions::onlyOneValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+const bool RandomizationOptions::onlyOneValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID);
 }
 
-const bool RandomizationOptions::moreThanOneValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+const bool RandomizationOptions::moreThanOneValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID);
 }
 
-const bool RandomizationOptions::noValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+const bool RandomizationOptions::noValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	return (bool)repeatValuesOptionsTree.getProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID);
 }
 
-const uint8 RandomizationOptions::onlyValueAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+const uint8 RandomizationOptions::onlyValueAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	auto value{ paramTree.getNumProperties() == 1 ? (int)paramTree[0] : 255 };
 	return (uint8)value;
 }
 
-void RandomizationOptions::checkNumberOfAllowedValuesForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::checkNumberOfAllowedValuesForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr) };
 	auto numberOfAllowedValues{ paramTree.getNumProperties() };
 	if (numberOfAllowedValues == 1) {
-		setOnlyOneValueIsAllowedForParam(param);
+		setOnlyOneValueIsAllowedForParam(paramIndex);
 		return;
 	}
 	if (numberOfAllowedValues > 1) {
-		setMoreThanOneValueIsAllowedForParam(param);
+		setMoreThanOneValueIsAllowedForParam(paramIndex);
 		return;
 	}
-	setNoValueIsAllowedForParam(param);
+	setNoValueIsAllowedForParam(paramIndex);
 }
 
-void RandomizationOptions::setOnlyOneValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::setOnlyOneValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
 
-void RandomizationOptions::setMoreThanOneValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::setMoreThanOneValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 }
 
-void RandomizationOptions::setNoValueIsAllowedForParam(uint8 param) {
-	jassert(param < params::numberOfExposedParams);
+void RandomizationOptions::setNoValueIsAllowedForParam(uint8 paramIndex) {
+	jassert(paramIndex < params::numberOfExposedParams);
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(param).toString() };
+	auto paramID{ info.IDfor(paramIndex).toString() };
 	repeatValuesOptionsTree.setProperty(ID::randomization_OnlyOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_MoreThanOneValueIsAllowedFor_.toString() + paramID, (bool)false, nullptr);
 	repeatValuesOptionsTree.setProperty(ID::randomization_NoValueIsAllowedFor_.toString() + paramID, (bool)true, nullptr);
@@ -571,22 +549,10 @@ const bool RandomizationOptions::oscShapeIsAllowedForParam(int shapeIndex, uint8
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
-	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shapeIndex)
-	{
-	case (int)OscWaveShape::off:
-		return (bool)allowedOscShapesTree.getProperty("off_IsAllowedFor_" + paramID);
-	case (int)OscWaveShape::sawtooth:
-		return (bool)allowedOscShapesTree.getProperty("sawtooth_IsAllowedFor_" + paramID);
-	case (int)OscWaveShape::triangle:
-		return (bool)allowedOscShapesTree.getProperty("triangle_IsAllowedFor_" + paramID);
-	case (int)OscWaveShape::sawTriMix:
-		return (bool)allowedOscShapesTree.getProperty("sawTriMix_IsAllowedFor_" + paramID);
-	case (int)OscWaveShape::pulse:
-		return (bool)allowedOscShapesTree.getProperty("pulse_IsAllowedFor_" + paramID);
-	default:
-		return false;
-	}
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto propertyID{ "shape_" + (String)shapeIndex + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedShapes", nullptr)};
+	return paramTree.hasProperty(propertyID);
 }
 
 void RandomizationOptions::setOscShapeIsAllowedForParam(int shapeIndex, uint8 paramIndex) {
@@ -594,27 +560,11 @@ void RandomizationOptions::setOscShapeIsAllowedForParam(int shapeIndex, uint8 pa
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
-	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shapeIndex)
-	{
-	case (int)OscWaveShape::off:
-		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)true, nullptr);
-		break;
-	case (int)OscWaveShape::sawtooth:
-		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)true, nullptr);
-		break;
-	case (int)OscWaveShape::triangle:
-		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)true, nullptr);
-		break;
-	case (int)OscWaveShape::sawTriMix:
-		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)true, nullptr);
-		break;
-	case (int)OscWaveShape::pulse:
-		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)true, nullptr);
-		break;
-	default:
-		break;
-	}
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto propertyID{ "shape_" + (String)shapeIndex + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedShapes", nullptr) };
+	if (!paramTree.hasProperty(propertyID))
+		paramTree.setProperty(propertyID, shapeIndex, nullptr);
 }
 
 void RandomizationOptions::setOscShapeIsNotAllowedForParam(int shapeIndex, uint8 paramIndex) {
@@ -622,31 +572,18 @@ void RandomizationOptions::setOscShapeIsNotAllowedForParam(int shapeIndex, uint8
 	auto& info{ InfoForExposedParameters::get() };
 	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 	jassert(optionsType == RandomizationOptionsType::oscShape);
-	auto paramID(info.IDfor(paramIndex).toString());
-	switch (shapeIndex)
-	{
-	case (int)OscWaveShape::off:
-		allowedOscShapesTree.setProperty("off_IsAllowedFor_" + paramID, (bool)false, nullptr);
-		break;
-	case (int)OscWaveShape::sawtooth:
-		allowedOscShapesTree.setProperty("sawtooth_IsAllowedFor_" + paramID, (bool)false, nullptr);
-		break;
-	case (int)OscWaveShape::triangle:
-		allowedOscShapesTree.setProperty("triangle_IsAllowedFor_" + paramID, (bool)false, nullptr);
-		break;
-	case (int)OscWaveShape::sawTriMix:
-		allowedOscShapesTree.setProperty("sawTriMix_IsAllowedFor_" + paramID, (bool)false, nullptr);
-		break;
-	case (int)OscWaveShape::pulse:
-		allowedOscShapesTree.setProperty("pulse_IsAllowedFor_" + paramID, (bool)false, nullptr);
-		break;
-	default:
-		break;
-	}
+	auto paramID{ info.IDfor(paramIndex).toString() };
+	auto propertyID{ "shape_" + (String)shapeIndex + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedShapes", nullptr) };
+	if (paramTree.hasProperty(propertyID))
+		paramTree.removeProperty(propertyID, nullptr);
 }
 
 void RandomizationOptions::setOscShapeIsTheOnlyAllowedForParam(int shapeIndex, uint8 paramIndex) {
 	jassert(shapeIndex >= (int)OscWaveShape::off && shapeIndex <= (int)OscWaveShape::pulse);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
 	for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape) {
 		if (shape == shapeIndex)
 			setOscShapeIsAllowedForParam(shape, paramIndex);
@@ -666,6 +603,46 @@ const bool RandomizationOptions::noOscShapeIsAllowedForParam(uint8 paramIndex) {
 			return atLeastOneOscShapeIsAllowed;
 	}
 	return noOscShapeIsAllowed;
+}
+
+const bool RandomizationOptions::pulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex) {
+	jassert(pulseWidth > -1 && pulseWidth < 100);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	auto propertyID{ "pulseWidth_" + (String)pulseWidth + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedPulseWidths", nullptr) };
+	return paramTree.hasProperty(propertyID);
+}
+
+void RandomizationOptions::setPulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex) {
+	jassert(pulseWidth > -1 && pulseWidth < 100);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	auto propertyID{ "pulseWidth_" + (String)pulseWidth + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedPulseWidths", nullptr) };
+	if (!paramTree.hasProperty(propertyID))
+		paramTree.setProperty(propertyID, pulseWidth + 4, nullptr);
+}
+
+void RandomizationOptions::setPulseWidthIsNotAllowedForParam(int pulseWidth, uint8 paramIndex) {
+	jassert(pulseWidth > -1 && pulseWidth < 100);
+	auto& info{ InfoForExposedParameters::get() };
+	auto optionsType{ info.randomizationOptionsTypeFor(paramIndex) };
+	jassert(optionsType == RandomizationOptionsType::oscShape);
+	auto paramID(info.IDfor(paramIndex).toString());
+	auto propertyID{ "pulseWidth_" + (String)pulseWidth + "_IsAllowed" };
+	auto paramTree{ allowedValuesTrees.getOrCreateChildWithName(paramID, nullptr).getOrCreateChildWithName("allowedPulseWidths", nullptr) };
+	if (paramTree.hasProperty(propertyID))
+		paramTree.removeProperty(propertyID, nullptr);
+}
+
+const bool RandomizationOptions::noPulseWidthIsAllowedForParam(uint8 /*paramIndex*/)
+{
+	return false;
 }
 
 const uint8 RandomizationOptions::minPulseWidthAllowedForParam(uint8 paramIndex) {
