@@ -1,5 +1,6 @@
 #include "midi_RawDataTools.h"
 
+#include "../params/params_Constants.h"
 #include "../params/params_ExposedParamsInfo_Singleton.h"
 #include "../params/params_SpecialValueOffsets.h"
 #include "../params/params_UnexposedParameters_Facade.h"
@@ -36,7 +37,7 @@ void RawDataTools::applyToExposedParameters(const uint8* dumpData, AudioProcesso
     auto voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() };
     voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
     auto& info{ InfoForExposedParameters::get() };
-    for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+    for (uint8 param = 0; param != params::numberOfExposedParams; ++param) {
         auto paramID{ info.IDfor(param) };
         auto lsByteLocation{ info.lsByteLocationFor(param) };
         auto msBitLocation{ info.msBitPackedByteLocationFor(param) };
@@ -57,7 +58,7 @@ const std::vector<uint8> RawDataTools::extractFromExposedParameters(AudioProcess
         voiceData.push_back((uint8)0);
     }
     auto& info{ InfoForExposedParameters::get() };
-    for (uint8 paramIndex = 0; paramIndex != info.paramOutOfRange(); ++paramIndex) {
+    for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
         auto paramID{ info.IDfor(paramIndex) };
         auto param{ exposedParams->getParameter(paramID) };
         auto paramValue{ uint8(param->getValue() * info.maxValueFor(paramIndex)) };

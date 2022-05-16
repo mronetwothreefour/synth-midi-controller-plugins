@@ -1,5 +1,9 @@
 #include "widget_ControlsForExposedParameters.h"
 
+#include "../params/params_Constants.h"
+
+using namespace constants;
+
 
 
 ControlsForExposedParameters::ControlsForExposedParameters(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
@@ -7,9 +11,8 @@ ControlsForExposedParameters::ControlsForExposedParameters(AudioProcessorValueTr
 }
 
 void ControlsForExposedParameters::fillControlsVector(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) {
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		controlsVector.push_back(std::make_unique<ControlForExposedParameter>(param, exposedParams, unexposedParams));
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex)
+		controlsVector.push_back(std::make_unique<ControlForExposedParameter>(paramIndex, exposedParams, unexposedParams));
 }
 
 ControlForExposedParameter* ControlsForExposedParameters::controlFor(uint8 paramIndex) const {

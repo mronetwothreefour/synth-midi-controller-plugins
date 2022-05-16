@@ -11,9 +11,8 @@ using namespace constants;
 
 
 void ParamGroupLockingAndUnlockingMethods::lockOrUnlockAllParameters(RandomizationComponent* randomizationComponent, bool shouldBeLocked) {
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		randomizationComponent->paramLockToggleButtons[param].setToggleState(shouldBeLocked, sendNotification);
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		randomizationComponent->paramLockToggleButtons[paramIndex].setToggleState(shouldBeLocked, sendNotification);
 	}
 }
 

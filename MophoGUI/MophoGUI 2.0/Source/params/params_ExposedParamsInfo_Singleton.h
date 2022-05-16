@@ -14,8 +14,8 @@ public:
 	static const int numberOfExposedParameters{ 189 };
 
 private:
-	Array<Identifier> identifiers;
-	Array<String> exposedNames;
+	ValueTree exposedParamsInfoTree;
+
 	Array<ControlType> controlTypes;
 	Array<uint8> NRPNs;
 	Array<IntToContextualStringConverter*> converters;
@@ -38,7 +38,7 @@ private:
 
 	InfoForExposedParameters();
 	void fillAllInfoContainers();
-	void fillDataByteLocationsFor(uint16 param);
+	void fillDataByteLocationsFor(uint8 param);
 	uint16 offsetParamToAccountForUnassignedParams109to119(uint16 param);
 
 public:
@@ -46,7 +46,6 @@ public:
 	InfoForExposedParameters& operator=(InfoForExposedParameters&&) = delete;
 
 	static InfoForExposedParameters& get() noexcept;
-	int paramOutOfRange() const noexcept;
 	Identifier IDfor(uint8 paramIndex) const;
 	String exposedNameFor(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;

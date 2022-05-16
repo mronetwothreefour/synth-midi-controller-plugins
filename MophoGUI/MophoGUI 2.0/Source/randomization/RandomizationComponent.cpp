@@ -141,10 +141,9 @@ RandomizationComponent::RandomizationComponent(AudioProcessorValueTreeState* exp
 		button_ForClosingRandomizationComponent.setTooltip("Click to close the Randomize\nProgram Settings window.");
 	addAndMakeVisible(button_ForClosingRandomizationComponent);
 
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		setUpParamLockToggleButton(param);
-		addAndMakeVisible(paramLockToggleButtons[param]);
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		setUpParamLockToggleButton(paramIndex);
+		addAndMakeVisible(paramLockToggleButtons[paramIndex]);
 	}
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -229,9 +228,9 @@ void RandomizationComponent::resized() {
 	button_ForLockingAllPushItParams.setBounds(GUI::bounds_RandomizationPushItLockButton);
 	button_ForUnlockingAllPushItParams.setBounds(GUI::bounds_RandomizationPushItUnlockButton);
 	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		auto ctrlCenterPoint{ info.controlCenterPointFor(param) };
-		paramLockToggleButtons[param].setCentrePosition(ctrlCenterPoint);
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		auto ctrlCenterPoint{ info.controlCenterPointFor(paramIndex) };
+		paramLockToggleButtons[paramIndex].setCentrePosition(ctrlCenterPoint);
 	}
 }
 
@@ -399,7 +398,6 @@ RandomizationComponent::~RandomizationComponent() {
 	randomizationOptionsComponent = nullptr;
 	toggle_ForTransmittingViaSysEx.removeListener(this);
 	toggle_ForTransmittingViaNRPN.removeListener(this);
-	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param)
-		paramLockToggleButtons[param].removeMouseListener(this);
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex)
+		paramLockToggleButtons[paramIndex].removeMouseListener(this);
 }

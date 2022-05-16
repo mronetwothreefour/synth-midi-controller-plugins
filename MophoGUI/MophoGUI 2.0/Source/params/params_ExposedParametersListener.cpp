@@ -18,8 +18,8 @@ ExposedParametersListener::ExposedParametersListener(AudioProcessorValueTreeStat
 	voiceTransmissionOptions{ unexposedParams->voiceTransmissionOptions_get() }
 {
 	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		auto paramID{ info.IDfor(param).toString() };
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		auto paramID{ info.IDfor(paramIndex).toString() };
 		exposedParams->addParameterListener(paramID, this);
 		exposedParams->addParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
@@ -65,8 +65,8 @@ void ExposedParametersListener::arpeggiatorAndSequencerCannotBothBeOn(uint8 para
 ExposedParametersListener::~ExposedParametersListener() {
 	exposedParams->removeParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 	auto& info{ InfoForExposedParameters::get() };
-	for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-		auto paramID{ info.IDfor(param).toString() };
+	for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+		auto paramID{ info.IDfor(paramIndex).toString() };
 		exposedParams->removeParameterListener(paramID, this);
 		exposedParams->removeParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}

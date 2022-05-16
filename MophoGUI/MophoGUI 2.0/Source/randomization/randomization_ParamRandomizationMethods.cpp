@@ -24,13 +24,12 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 	auto& info{ InfoForExposedParameters::get() };
 	auto randomizationOptions{ unexposedParams->randomizationOptions_get() };
 	if (randomizationOptions->transmissionMethodIsSysEx()) {
-		for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
+		for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
 			voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
-			auto paramID{ info.IDfor(param) };
-			auto paramIndex{ info.indexForParamID(paramID.toString()) };
+			auto paramID{ info.IDfor(paramIndex) };
 			if (paramID != ID::arpegOnOff && paramID != ID::sequencerOnOff) {
-				if (randomizationOptions->paramIsUnlocked(param)) {
-					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(param) };
+				if (randomizationOptions->paramIsUnlocked(paramIndex)) {
+					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 					auto newValue{ pickRandomValueForParam(paramIndex) };
 					if (randomizationOptionsType == RandomizationOptionsType::allowedSeqTrackStepValues && newValue == params::seqStepValueForRepeat) {
 						auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
@@ -38,7 +37,7 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 						exposedParams->getParameter(paramID)->setValueNotifyingHost(previousStepValue);
 					}
 					else {
-						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
+						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(paramIndex) };
 						auto paramPtr{ exposedParams->getParameter(paramID) };
 						if (paramPtr != nullptr)
 							paramPtr->setValueNotifyingHost(newNormalizedValue);
@@ -52,12 +51,11 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 	}
 	else {
 		auto delayInMS{ 0 };
-		for (uint8 param = 0; param != info.paramOutOfRange(); ++param) {
-			auto paramID{ info.IDfor(param) };
-			auto paramIndex{ info.indexForParamID(paramID.toString()) };
+		for (uint8 paramIndex = 0; paramIndex != params::numberOfExposedParams; ++paramIndex) {
+			auto paramID{ info.IDfor(paramIndex) };
 			if (paramID != ID::arpegOnOff && paramID != ID::sequencerOnOff) {
-				if (randomizationOptions->paramIsUnlocked(param)) {
-					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(param) };
+				if (randomizationOptions->paramIsUnlocked(paramIndex)) {
+					auto randomizationOptionsType{ info.randomizationOptionsTypeFor(paramIndex) };
 					auto newValue{ pickRandomValueForParam(paramIndex) };
 					if (randomizationOptionsType == RandomizationOptionsType::allowedSeqTrackStepValues && newValue == params::seqStepValueForRepeat) {
 						auto paramIDforPreviousStep{ info.IDfor(paramIndex - (uint8)1) };
@@ -67,7 +65,7 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 							paramPtr->setValueNotifyingHost(previousStepValue);
 					}
 					else {
-						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(param) };
+						auto newNormalizedValue{ (float)newValue / (float)info.maxValueFor(paramIndex) };
 						updateParamWithNewNormalizedValueAfterDelay(paramID.toString(), newNormalizedValue, delayInMS);
 					}
 					delayInMS += 50;

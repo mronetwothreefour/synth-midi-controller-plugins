@@ -96,6 +96,7 @@ namespace ID
 	static const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 	static const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 	static const Identifier component_ToggleButton{ "component_ToggleButton" };
+	static const Identifier component_Allow_ToggleButton_PulseWidth_{ "component_Allow_ToggleButton_PulseWidth_" };
 	static const Identifier component_Allow_ToggleButton_Value_{ "component_Allow_ToggleButton_Value_" };
 	static const Identifier component_AllowComboBoxItem_ToggleButton_{ "component_AllowComboBoxItem_ToggleButton_" };
 	static const Identifier component_ToggleButton_AllowOscShape_Off_For_{ "component_ToggleButton_AllowOscShape_Off(0)_For_" };
@@ -113,6 +114,8 @@ namespace ID
 	static const Identifier component_ToggleButton_ValueRangeModeFor_{ "component_ToggleButton_ValueRangeModeFor_" };
 	static const Identifier component_ToggleButton_TransmitRandomValuesViaNRPN{ "component_ToggleButton_TransmitRandomValuesViaNRPN" };
 	static const Identifier component_ToggleButton_TransmitRandomValuesViaSysEx{ "component_ToggleButton_TransmitRandomValuesViaSysEx" };
+
+	static const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
 	// exposed parameters
 	static const Identifier osc1_Pitch{ "osc1_Pitch" };
