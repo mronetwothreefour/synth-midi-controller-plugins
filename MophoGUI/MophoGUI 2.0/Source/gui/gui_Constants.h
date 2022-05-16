@@ -133,6 +133,7 @@ namespace constants
 		static const int imptExptWindow_y{ 147 };
 		static const int knobAssignComboBoxes_w{ 134 };
 		static const int knobAssignComboBoxes_x{ 1089 };
+		static const int knobAssignComboBoxesVerticalSpacer{ 28 };
 		static const int lockIcon_h{ 20 };
 		static const int lockIcon_w{ 14 };
 		static const int lockIconForKnobs_x{ 8 };

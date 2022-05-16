@@ -18,9 +18,6 @@ private:
 
 	Array<IntToContextualStringConverter*> converters;
 	Array<String> descriptions;
-	Array<int> controlWidths;
-	Array<int> controlHeights;
-	Array<Point<int>> controlCenterPoints;
 	Array<RandomizationOptionsType> randomizationOptionsTypes;
 	Array<uint16> msBitPackedByteLocations;
 	Array<uint16> lsByteLocations;
