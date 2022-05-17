@@ -1,10 +1,13 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "params/params_build_ExposedParamsLayout.h"
+
 
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor{ BusesProperties() }
+    AudioProcessor{ BusesProperties() },
+    exposedParams{ new AudioProcessorValueTreeState(*this, nullptr, "exposedParams", ExposedParametersLayout::build()) } // todo: add undoManager
 {
 }
 
@@ -75,6 +78,7 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 }
 
 PluginProcessor::~PluginProcessor() {
+    exposedParams = nullptr;
 }
 
 //==============================================================================
