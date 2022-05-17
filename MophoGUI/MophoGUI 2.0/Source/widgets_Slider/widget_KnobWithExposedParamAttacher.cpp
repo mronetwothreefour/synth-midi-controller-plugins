@@ -5,18 +5,18 @@
 
 
 
-KnobWithExposedParamAttacher::KnobWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams) :
-	param{ param },
+KnobWithExposedParamAttacher::KnobWithExposedParamAttacher(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+	paramIndex{ paramIndex },
 	slider{ unexposedParams },
-	tooltipSetter{ slider, param, unexposedParams }
+	tooltipSetter{ slider, paramIndex, unexposedParams }
 {
 	addAndMakeVisible(slider);
-	slider.setMouseDragSensitivity(80 + InfoForExposedParameters::get().numberOfStepsFor(param) / 2);
+	slider.setMouseDragSensitivity(80 + InfoForExposedParameters::get().numberOfStepsFor(paramIndex) / 2);
 	slider.setComponentID(ID::component_Knob.toString());
 }
 
 void KnobWithExposedParamAttacher::attachToExposedParameter(AudioProcessorValueTreeState* exposedParams) {
-	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(param).toString(), slider));
+	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), slider));
 }
 
 void KnobWithExposedParamAttacher::deleteAttachment() {

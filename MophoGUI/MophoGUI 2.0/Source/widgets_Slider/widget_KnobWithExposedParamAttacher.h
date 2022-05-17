@@ -12,7 +12,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 class KnobWithExposedParamAttacher : public Component
 {
 protected:
-	uint8 param;
+	uint8 paramIndex;
 	RotarySliderWithMouseWheelMod slider;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipSetterForExposedParamSliders tooltipSetter;
@@ -20,7 +20,7 @@ protected:
 public:
 	KnobWithExposedParamAttacher() = delete;
 
-	KnobWithExposedParamAttacher(uint8 param, UnexposedParameters* unexposedParams);
+	KnobWithExposedParamAttacher(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void attachToExposedParameter(AudioProcessorValueTreeState* exposedParams);
 	void deleteAttachment();
 
