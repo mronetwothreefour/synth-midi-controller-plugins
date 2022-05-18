@@ -180,6 +180,88 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		nullptr
 	);
 
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_016", {}, {
+			ValueTree{ ID::ep_016_NotePriority, {
+						{ ID::property_ExposedName, "Note Priority(Key Assign)" },
+						{ ID::property_NRPN, 96 },
+						{ ID::property_NumberOfChoices, 6 },
+						{ ID::property_DefaultChoice, 4 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_NotePriority(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_NotePriority(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_017", {}, {
+			ValueTree{ ID::ep_017_OscMix, {
+						{ ID::property_ExposedName, "Oscillator 1 & 2 Mix" },
+						{ ID::property_NRPN, 13 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 64 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_018", {}, {
+			ValueTree{ ID::ep_018_NoiseLevel, {
+						{ ID::property_ExposedName, "Noise Level" },
+						{ ID::property_NRPN, 14 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_019", {}, {
+			ValueTree{ ID::ep_019_ExtInLevel, {
+						{ ID::property_ExposedName, "External Audio Input Level" },
+						{ ID::property_NRPN, 116 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	//---------------------------------------------------------------------------------------------------------------------- LPF
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_020", {}, {
+			ValueTree{ ID::ep_020_LPF_Freq, {
+						{ ID::property_ExposedName, "LPF Cutoff Frequency" },
+						{ ID::property_NRPN, 15 },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForLPF_Freq },
+						{ ID::property_DefaultChoice, 148 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 

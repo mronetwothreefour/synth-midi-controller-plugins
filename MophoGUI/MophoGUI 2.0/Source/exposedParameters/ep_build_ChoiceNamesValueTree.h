@@ -9,6 +9,8 @@ struct ChoiceNamesValueTree {
 
 	static ValueTree buildFor_BendRange(bool verbose);
 	static ValueTree buildFor_GildeMode(bool verbose);
+	static ValueTree buildFor_LPF_Freq(bool verbose);
+	static ValueTree buildFor_NotePriority(bool verbose);
 	static ValueTree buildFor_OffOn(bool verbose);
 	static ValueTree buildFor_OscFineTune(bool verbose);
 	static ValueTree buildFor_OscPitch(bool verbose);

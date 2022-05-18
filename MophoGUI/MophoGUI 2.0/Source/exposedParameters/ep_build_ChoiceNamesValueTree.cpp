@@ -62,6 +62,28 @@ ValueTree ChoiceNamesValueTree::buildFor_GildeMode(bool verbose) {
 	return choiceNamesTree;
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_LPF_Freq(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForLPF_Freq; ++choiceNum) {
+		auto choiceNumString{ (String)choiceNum };
+		auto pitchString{ convertIntToPitchName(choiceNum) };
+		auto choiceName{ verbose ? choiceNumString + " (Pitch Freq. " + pitchString + ")" : pitchString };
+		choiceNamesTree.setProperty("choice_" + choiceNumString, choiceName, nullptr);
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_NotePriority(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", verbose ? "Low Note Has Priority" : "Low Note", nullptr);
+	choiceNamesTree.setProperty("choice_1", verbose ? "Low Note Has Priority (Re-trigger)" : "Low Note (Re-trigger)", nullptr);
+	choiceNamesTree.setProperty("choice_2", verbose ? "High Note Has Priority" : "High Note", nullptr);
+	choiceNamesTree.setProperty("choice_3", verbose ? "High Note Has Priority (Re-trigger)" : "High Note (Re-trigger)", nullptr);
+	choiceNamesTree.setProperty("choice_4", verbose ? "Last Note Hit Has Priority" : "Last Note", nullptr);
+	choiceNamesTree.setProperty("choice_5", verbose ? "Last Note Hit Has Priority (Re-trigger)" : "Last Note (Re-trigger)", nullptr);
+	return choiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_OffOn(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = (uint8)0; choiceNum != 2; ++choiceNum) {
