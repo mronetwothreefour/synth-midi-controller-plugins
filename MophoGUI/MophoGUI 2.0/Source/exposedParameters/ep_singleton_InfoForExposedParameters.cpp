@@ -98,6 +98,22 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			-1,
 			nullptr
 		);
+
+		exposedParamsInfoTree.addChild(
+			ValueTree{ oscNum == 1 ? "ep_005" : "ep_011", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_005_Osc_1_SubLevel : ID::ep_011_Osc_2_SubLevel), {
+							{ ID::property_ExposedName, "Sub-Oscillator " + (String)oscNum + " Level"  },
+							{ ID::property_NRPN, oscNum == 1 ? 114 : 115 },
+							{ ID::property_NumberOfChoices, 128 },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128, concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128, verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
 	}
 
 	//--------------------------------------------------------------------------------------------------------------------------

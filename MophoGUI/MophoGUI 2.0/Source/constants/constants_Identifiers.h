@@ -16,11 +16,13 @@ namespace mophoConstants
 		static const Identifier ep_002_Osc_1_Shape{ "ep_002_Osc_1_Shape" };
 		static const Identifier ep_003_Osc_1_Glide{ "ep_003_Osc_1_Glide" };
 		static const Identifier ep_004_Osc_1_KeyTrack{ "ep_004_Osc_1_KeyTrack" };
+		static const Identifier ep_005_Osc_1_SubLevel{ "ep_005_Osc_1_SubLevel" };
 		static const Identifier ep_006_Osc_2_Pitch{ "ep_006_Osc_2_Pitch" };
 		static const Identifier ep_007_Osc_2_FineTune{ "ep_7_Osc_2_Pitch" };
 		static const Identifier ep_008_Osc_2_Shape{ "ep_008_Osc_2_Shape" };
 		static const Identifier ep_009_Osc_2_Glide{ "ep_009_Osc_2_Glide" };
 		static const Identifier ep_010_Osc_2_KeyTrack{ "ep_010_Osc_2_KeyTrack" };
+		static const Identifier ep_011_Osc_2_SubLevel{ "ep_011_Osc_2_SubLevel" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
