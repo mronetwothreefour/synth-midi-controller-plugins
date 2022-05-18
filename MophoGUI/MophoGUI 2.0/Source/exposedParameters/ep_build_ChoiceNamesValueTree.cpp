@@ -28,6 +28,40 @@ String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	}
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForBendRange; ++choiceNum) {
+		if (verbose) {
+			String choiceName{ "" };
+			if (choiceNum == 0) 
+				choiceName = "No Bend";
+			if (choiceNum == 1) 
+				choiceName = "+/-1 semitone";
+			if (choiceNum > 1)
+				choiceName = "+/-" + (String)choiceNum + " semitones";
+			choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+		}
+		else {
+			String choiceName{ "" };
+			if (choiceNum == 0)
+				choiceName = "0";
+			else
+				choiceName = "+/-" + (String)choiceNum;
+			choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+		}
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_GildeMode(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", "Fixed Rate", nullptr);
+	choiceNamesTree.setProperty("choice_1", "Fixed Rate Auto", nullptr);
+	choiceNamesTree.setProperty("choice_2", "Fixed Time", nullptr);
+	choiceNamesTree.setProperty("choice_3", "Fixed Time Auto", nullptr);
+	return choiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_OffOn(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = (uint8)0; choiceNum != 2; ++choiceNum) {

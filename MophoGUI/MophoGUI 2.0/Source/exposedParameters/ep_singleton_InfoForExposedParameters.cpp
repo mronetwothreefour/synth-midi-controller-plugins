@@ -116,6 +116,70 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 	}
 
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_012", {}, {
+			ValueTree{ ID::ep_012_OscSync, {
+						{ ID::property_ExposedName, "Hard Oscillator Sync On/Off" },
+						{ ID::property_NRPN, 10 },
+						{ ID::property_NumberOfChoices, 2 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_013", {}, {
+			ValueTree{ ID::ep_013_GlideMode, {
+						{ ID::property_ExposedName, "Glide Mode" },
+						{ ID::property_NRPN, 11 },
+						{ ID::property_NumberOfChoices, 4 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_GildeMode(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_GildeMode(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_014", {}, {
+			ValueTree{ ID::ep_014_OscSlop, {
+						{ ID::property_ExposedName, "Oscillator Slop" },
+						{ ID::property_NRPN, 12 },
+						{ ID::property_NumberOfChoices, 6 },
+						{ ID::property_DefaultChoice, 2 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)6, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)6, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_015", {}, {
+			ValueTree{ ID::ep_015_BendRange, {
+						{ ID::property_ExposedName, "Pitch Bend Range" },
+						{ ID::property_NRPN, 93 },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForBendRange },
+						{ ID::property_DefaultChoice, 4 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_BendRange(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_BendRange(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 

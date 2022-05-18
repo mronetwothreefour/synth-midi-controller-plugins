@@ -23,6 +23,10 @@ namespace mophoConstants
 		static const Identifier ep_009_Osc_2_Glide{ "ep_009_Osc_2_Glide" };
 		static const Identifier ep_010_Osc_2_KeyTrack{ "ep_010_Osc_2_KeyTrack" };
 		static const Identifier ep_011_Osc_2_SubLevel{ "ep_011_Osc_2_SubLevel" };
+		static const Identifier ep_012_OscSync{ "ep_012_OscSync" };
+		static const Identifier ep_013_GlideMode{ "ep_013_GlideMode" };
+		static const Identifier ep_014_OscSlop{ "ep_014_OscSlop" };
+		static const Identifier ep_015_BendRange{ "ep_015_BendRange" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };

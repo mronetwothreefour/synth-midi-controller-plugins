@@ -7,6 +7,8 @@
 struct ChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
 
+	static ValueTree buildFor_BendRange(bool verbose);
+	static ValueTree buildFor_GildeMode(bool verbose);
 	static ValueTree buildFor_OffOn(bool verbose);
 	static ValueTree buildFor_OscFineTune(bool verbose);
 	static ValueTree buildFor_OscPitch(bool verbose);
