@@ -28,6 +28,34 @@ String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	}
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_OscFineTune() {
+	ValueTree choiceNamesTree{ ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
+		auto choiceName{ choiceNum < 51 ? (String)(choiceNum - 50) : "+" + (String)(choiceNum - 50) };
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_OscFineTune_Verbose() {
+	ValueTree verboseChoiceNamesTree{ ID::choiceNames_Verbose };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
+		String choiceName{ "" };
+		if (choiceNum < 49)
+			choiceName = (String)(choiceNum - 50) + " cents";
+		if (choiceNum == 49)
+			choiceName = "-1 cent";
+		if (choiceNum == 50)
+			choiceName = "No Detune";
+		if (choiceNum == 51)
+			choiceName = "+1 cent";
+		if (choiceNum > 51)
+			choiceName = "+" + (String)(choiceNum - 50) + " cents";
+		verboseChoiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return verboseChoiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_OscPitch() {
 	ValueTree choiceNamesTree{ ID::choiceNames };
 	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum)
@@ -48,29 +76,39 @@ ValueTree ChoiceNamesValueTree::buildFor_OscPitch_Verbose() {
 	return verboseChoiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OscFineTune() {
+ValueTree ChoiceNamesValueTree::buildFor_OscShape() {
 	ValueTree choiceNamesTree{ ID::choiceNames };
-	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
-		auto choiceName{ choiceNum < 51 ? (String)(choiceNum - 50) : "+" + (String)(choiceNum - 50) };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscWaveShape; ++choiceNum) {
+		String choiceName{ "" };
+		if (choiceNum == 0)
+			choiceName = "Off";
+		if (choiceNum == 1)
+			choiceName = "Saw";
+		if (choiceNum == 2)
+			choiceName = "Tri";
+		if (choiceNum == 3)
+			choiceName = "Saw/Tri";
+		if (choiceNum > 3)
+			choiceName = "PW " + String(choiceNum - 4);
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 	}
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OscFineTune_Verbose() {
+ValueTree ChoiceNamesValueTree::buildFor_OscShape_Verbose() {
 	ValueTree verboseChoiceNamesTree{ ID::choiceNames_Verbose };
-	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
-		String choiceName{""};
-		if (choiceNum < 49) 
-			choiceName = (String)(choiceNum - 50) + " cents";
-		if (choiceNum == 49)
-			choiceName = "-1 cent";
-		if (choiceNum == 50)
-			choiceName = "No Detune";
-		if (choiceNum == 51)
-			choiceName = "+1 cent";
-		if (choiceNum > 51)
-			choiceName = "+" + (String)(choiceNum - 50) + " cents";
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscWaveShape; ++choiceNum) {
+		String choiceName{ "" };
+		if (choiceNum == 0)
+			choiceName = "Oscillator Off";
+		if (choiceNum == 1)
+			choiceName = "Sawtooth";
+		if (choiceNum == 2)
+			choiceName = "Triangle";
+		if (choiceNum == 3)
+			choiceName = "Sawtooth/Triangle Mix";
+		if (choiceNum > 3)
+			choiceName = "Pulse (Width: " + String(choiceNum - 4) + ")";
 		verboseChoiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 	}
 	return verboseChoiceNamesTree;

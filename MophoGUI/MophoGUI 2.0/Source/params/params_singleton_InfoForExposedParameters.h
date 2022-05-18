@@ -19,8 +19,8 @@ public:
 	Identifier IDfor(uint8 paramIndex) const;
 	String exposedNameFor(uint8 paramIndex) const;
 	uint8 NRPNfor(uint8 paramIndex) const;
-	uint8 lastChoiceFor(uint8 paramIndex) const;
 	uint8 numberOfChoicesFor(uint8 paramIndex) const;
+	uint8 lastChoiceFor(uint8 paramIndex) const;
 	uint8 defaultChoiceFor(uint8 paramIndex) const;
 	String choiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
 	String verboseChoiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
