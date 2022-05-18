@@ -15,19 +15,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 }
 
 void InfoForExposedParameters::fillExposedParamsInfoTree() {
-
+	auto concise{ (bool)false };
+	auto verbose{ (bool)true };
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_" + String(oscNum == 1 ? 0 : 6), {}, {
-				ValueTree{ (oscNum == 1 ? ID::ep_0_Osc_1_Pitch : ID::ep_6_Osc_2_Pitch), {
+			ValueTree{ oscNum == 1 ? "ep_000" : "ep_006", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_000_Osc_1_Pitch : ID::ep_006_Osc_2_Pitch), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Pitch" },
 							{ ID::property_NRPN, oscNum == 1 ? 0 : 5 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscPitch },
 							{ ID::property_DefaultChoice, 24 },
 						}, {
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch() },
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch_Verbose() }
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch(verbose) }
 						} } }
 			},
 			-1,
@@ -35,15 +36,15 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_" + String(oscNum == 1 ? 1 : 7), {}, {
-				ValueTree{ (oscNum == 1 ? ID::ep_1_Osc_1_FineTune : ID::ep_7_Osc_2_FineTune), {
+			ValueTree{ oscNum == 1 ? "ep_001" : "ep_007", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_001_Osc_1_FineTune : ID::ep_007_Osc_2_FineTune), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Fine Tune" },
 							{ ID::property_NRPN, oscNum == 1 ? 1 : 6 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscFineTune },
 							{ ID::property_DefaultChoice, oscNum == 1 ? 49 : 51 },
 						}, {
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscFineTune() },
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscFineTune_Verbose() }
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscFineTune(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscFineTune(verbose) }
 						} } }
 			},
 			-1,
@@ -51,15 +52,15 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_" + String(oscNum == 1 ? 2 : 8), {}, {
-				ValueTree{ (oscNum == 1 ? ID::ep_2_Osc_1_Shape : ID::ep_8_Osc_2_Shape), {
+			ValueTree{ oscNum == 1 ? "ep_002" : "ep_008", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_002_Osc_1_Shape : ID::ep_008_Osc_2_Shape), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Wave Shape" },
 							{ ID::property_NRPN, oscNum == 1 ? 2 : 7 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscWaveShape },
 							{ ID::property_DefaultChoice, 1 },
 						}, {
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscShape() },
-							ValueTree{ ChoiceNamesValueTree::buildFor_OscShape_Verbose() }
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscShape(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_OscShape(verbose) }
 						} } }
 			},
 			-1,
@@ -67,15 +68,31 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_" + String(oscNum == 1 ? 3 : 9), {}, {
-				ValueTree{ (oscNum == 1 ? ID::ep_3_Osc_1_Glide : ID::ep_9_Osc_2_Glide), {
+			ValueTree{ oscNum == 1 ? "ep_003" : "ep_009", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_003_Osc_1_Glide : ID::ep_009_Osc_2_Glide), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Glide Rate" },
 							{ ID::property_NRPN, oscNum == 1 ? 3 : 8 },
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
-							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128) },
-							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue_Verbose((uint8)128) }
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128, concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128, verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		exposedParamsInfoTree.addChild(
+			ValueTree{ oscNum == 1 ? "ep_004" : "ep_010", {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_004_Osc_1_KeyTrack : ID::ep_010_Osc_2_KeyTrack), {
+							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Keyboard Track On/Off" },
+							{ ID::property_NRPN, oscNum == 1 ? 4 : 9 },
+							{ ID::property_NumberOfChoices, 2 },
+							{ ID::property_DefaultChoice, 1 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
 						} } }
 			},
 			-1,
@@ -95,27 +112,35 @@ InfoForExposedParameters& InfoForExposedParameters::get() noexcept {
 
 Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	return paramTree.getType().toString();
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	return paramTree.getChild(0).getType().toString();
 }
 
 String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	return paramTree.getProperty(ID::property_ExposedName).toString();
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	return paramTree.getChild(0).getProperty(ID::property_ExposedName).toString();
 }
 
 uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	auto NRPN{ (int)paramTree.getProperty(ID::property_NRPN) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto NRPN{ (int)paramTree.getChild(0).getProperty(ID::property_NRPN) };
 	return (uint8)NRPN;
 }
 
 uint8 InfoForExposedParameters::numberOfChoicesFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	auto numberOfChoices{ (int)paramTree.getProperty(ID::property_NumberOfChoices) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto numberOfChoices{ (int)paramTree.getChild(0).getProperty(ID::property_NumberOfChoices) };
 	return (uint8)numberOfChoices;
 }
 
@@ -125,16 +150,20 @@ uint8 InfoForExposedParameters::lastChoiceFor(uint8 paramIndex) const {
 
 uint8 InfoForExposedParameters::defaultChoiceFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	auto defaultChoice{ (int)paramTree.getProperty(ID::property_DefaultChoice) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto defaultChoice{ (int)paramTree.getChild(0).getProperty(ID::property_DefaultChoice) };
 	return (uint8)defaultChoice;
 }
 
 String InfoForExposedParameters::choiceNameFor(uint8 choiceNum, uint8 paramIndex) const {
 	jassert(choiceNum < numberOfChoicesFor(paramIndex));
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	auto choiceNamesTree{ paramTree.getChildWithName(ID::choiceNames) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto choiceNamesTree{ paramTree.getChild(0).getChildWithName(ID::choiceNames) };
 	auto choiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return choiceName;
 }
@@ -142,8 +171,10 @@ String InfoForExposedParameters::choiceNameFor(uint8 choiceNum, uint8 paramIndex
 String InfoForExposedParameters::verboseChoiceNameFor(uint8 choiceNum, uint8 paramIndex) const {
 	jassert(choiceNum < numberOfChoicesFor(paramIndex));
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChildWithName("ep_" + (String)paramIndex).getChild(0) };
-	auto verboseChoiceNamesTree{ paramTree.getChildWithName(ID::choiceNames_Verbose) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto verboseChoiceNamesTree{ paramTree.getChild(0).getChildWithName(ID::choiceNames_Verbose) };
 	auto verboseChoiceName{ verboseChoiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return verboseChoiceName;
 }
