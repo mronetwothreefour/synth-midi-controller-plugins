@@ -10,6 +10,12 @@
   <MAINGROUP id="bESqsD" name="MophoGUI 2">
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources"/>
     <GROUP id="{DA7CF7F1-35A4-9559-7D41-177380A1BF4B}" name="Source">
+      <GROUP id="{62E13D27-6659-B7FB-13E2-73B203E87421}" name="constants">
+        <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
+              resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="ZHL3gW" name="constants_Identifiers.h" compile="0" resource="0"
+              file="Source/constants/constants_Identifiers.h"/>
+      </GROUP>
       <GROUP id="{E7EA50CA-7C6F-0CE9-5192-646520E3C865}" name="core">
         <FILE id="lKjLEq" name="core_PluginProcessor.cpp" compile="1" resource="0"
               file="Source/core_PluginProcessor.cpp"/>
@@ -21,10 +27,18 @@
               file="Source/core_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{FFE7CDE1-09D3-1FD2-D28D-223F876A7858}" name="params">
-        <FILE id="vBYppi" name="params_struct_ChoiceNamesValueTreeGenerators.cpp"
-              compile="1" resource="0" file="Source/params/params_struct_ChoiceNamesValueTreeGenerators.cpp"/>
-        <FILE id="KqhjkQ" name="params_struct_ChoiceNamesValueTreeGenerators.h"
-              compile="0" resource="0" file="Source/params/params_struct_ChoiceNamesValueTreeGenerators.h"/>
+        <FILE id="Jipruv" name="params_build_ChoiceNamesValueTree.cpp" compile="1"
+              resource="0" file="Source/params/params_build_ChoiceNamesValueTree.cpp"/>
+        <FILE id="bmZfqf" name="params_build_ChoiceNamesValueTree.h" compile="0"
+              resource="0" file="Source/params/params_build_ChoiceNamesValueTree.h"/>
+        <FILE id="gqOWc0" name="params_build_ExposedParamsLayout.cpp" compile="1"
+              resource="0" file="Source/params/params_build_ExposedParamsLayout.cpp"/>
+        <FILE id="rnM7Kv" name="params_build_ExposedParamsLayout.h" compile="0"
+              resource="0" file="Source/params/params_build_ExposedParamsLayout.h"/>
+        <FILE id="etK5qF" name="params_singleton_InfoForExposedParameters.cpp"
+              compile="1" resource="0" file="Source/params/params_singleton_InfoForExposedParameters.cpp"/>
+        <FILE id="NMudq5" name="params_singleton_InfoForExposedParameters.h"
+              compile="0" resource="0" file="Source/params/params_singleton_InfoForExposedParameters.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{0E5C9ECA-9212-4B25-ED7A-C643352217E2}" name="z_Source">

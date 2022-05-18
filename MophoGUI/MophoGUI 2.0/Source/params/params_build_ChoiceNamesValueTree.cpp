@@ -1,5 +1,10 @@
 #include "params_build_ChoiceNamesValueTree.h"
 
+#include "../constants/constants_ExposedParameters.h"
+#include "../constants/constants_Identifiers.h"
+
+using namespace mophoConstants;
+
 
 
 String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
@@ -24,9 +29,8 @@ String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 }
 
 ValueTree ChoiceNamesValueTree::buildFor_OscPitch() {
-	ValueTree choiceNamesTree{ "choiceNames" };
-	const int numberOfOscPitchChoices{ 121 };
-	for (auto choiceNum = (uint8)0; choiceNum != numberOfOscPitchChoices; ++choiceNum)
+	ValueTree choiceNamesTree{ ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum)
 		choiceNamesTree.setProperty(
 			"choice_" + (String)choiceNum,
 			convertIntToPitchName(choiceNum),
@@ -35,12 +39,39 @@ ValueTree ChoiceNamesValueTree::buildFor_OscPitch() {
 }
 
 ValueTree ChoiceNamesValueTree::buildFor_OscPitch_Verbose() {
-	ValueTree verboseChoiceNamesTree{ "verboseChoiceNames" };
-	const int numberOfOscPitchChoices{ 121 };
-	for (auto choiceNum = (uint8)0; choiceNum != numberOfOscPitchChoices; ++choiceNum)
+	ValueTree verboseChoiceNamesTree{ ID::choiceNames_Verbose };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum)
 		verboseChoiceNamesTree.setProperty(
 			"choice_" + (String)choiceNum,
 			convertIntToPitchName(choiceNum) + " (MIDI Note " + String(choiceNum) + ")",
 			nullptr);
+	return verboseChoiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_OscFineTune() {
+	ValueTree choiceNamesTree{ ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
+		auto choiceName{ choiceNum < 51 ? (String)(choiceNum - 50) : "+" + (String)(choiceNum - 50) };
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_OscFineTune_Verbose() {
+	ValueTree verboseChoiceNamesTree{ ID::choiceNames_Verbose };
+	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
+		String choiceName{""};
+		if (choiceNum < 49) 
+			choiceName = (String)(choiceNum - 50) + " cents";
+		if (choiceNum == 49)
+			choiceName = "-1 cent";
+		if (choiceNum == 50)
+			choiceName = "No Detune";
+		if (choiceNum == 51)
+			choiceName = "+1 cent";
+		if (choiceNum > 51)
+			choiceName = "+" + (String)(choiceNum - 50) + " cents";
+		verboseChoiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
 	return verboseChoiceNamesTree;
 }
