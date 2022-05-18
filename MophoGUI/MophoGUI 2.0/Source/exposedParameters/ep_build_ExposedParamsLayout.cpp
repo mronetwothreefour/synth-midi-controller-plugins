@@ -12,7 +12,7 @@ using namespace mophoConstants;
 ParameterLayout ExposedParametersLayout::build() {
 	ParameterLayout layout;
 	auto& info{ InfoForExposedParameters::get() };
-	for (auto paramIndex = (uint8)0; paramIndex != 21; ++paramIndex) {
+	for (auto paramIndex = (uint8)0; paramIndex != 26; ++paramIndex) {
 		StringArray choices;
 		for (auto choiceNum = (uint8)0; choiceNum != info.numberOfChoicesFor(paramIndex); ++choiceNum)
 			choices.add(info.verboseChoiceNameFor(choiceNum, paramIndex));

@@ -140,8 +140,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 4 },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
-						ValueTree{ ChoiceNamesValueTree::buildFor_GildeMode(concise) },
-						ValueTree{ ChoiceNamesValueTree::buildFor_GildeMode(verbose) }
+						ValueTree{ ChoiceNamesValueTree::buildFor_GlideMode(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_GlideMode(verbose) }
 					} } }
 		},
 		-1,
@@ -256,6 +256,86 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_021", {}, {
+			ValueTree{ ID::ep_021_LPF_Reso, {
+						{ ID::property_ExposedName, "LPF Resonance" },
+						{ ID::property_NRPN, 15 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_022", {}, {
+			ValueTree{ ID::ep_022_LPF_KeyAmount, {
+						{ ID::property_ExposedName, "LPF Keyboard Amount" },
+						{ ID::property_NRPN, 17 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_023", {}, {
+			ValueTree{ ID::ep_023_LPF_FM_Amount, {
+						{ ID::property_ExposedName, "LPF FM (By Oscillator 1)" },
+						{ ID::property_NRPN, 18 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_024", {}, {
+			ValueTree{ ID::ep_024_LPF_Type, {
+						{ ID::property_ExposedName, "LPF Type" },
+						{ ID::property_NRPN, 19 },
+						{ ID::property_NumberOfChoices, 2 },
+						{ ID::property_DefaultChoice, 1 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Type(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Type(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_025", {}, {
+			ValueTree{ ID::ep_025_LPF_EnvAmount, {
+						{ ID::property_ExposedName, "LPF Envelope Amount" },
+						{ ID::property_NRPN, 20 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
 					} } }
 		},
 		-1,
