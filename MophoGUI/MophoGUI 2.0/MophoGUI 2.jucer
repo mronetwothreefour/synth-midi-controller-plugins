@@ -26,19 +26,19 @@
         <FILE id="K91Aty" name="core_PluginEditor.h" compile="0" resource="0"
               file="Source/core_PluginEditor.h"/>
       </GROUP>
-      <GROUP id="{FFE7CDE1-09D3-1FD2-D28D-223F876A7858}" name="params">
-        <FILE id="Jipruv" name="params_build_ChoiceNamesValueTree.cpp" compile="1"
-              resource="0" file="Source/params/params_build_ChoiceNamesValueTree.cpp"/>
-        <FILE id="bmZfqf" name="params_build_ChoiceNamesValueTree.h" compile="0"
-              resource="0" file="Source/params/params_build_ChoiceNamesValueTree.h"/>
-        <FILE id="gqOWc0" name="params_build_ExposedParamsLayout.cpp" compile="1"
-              resource="0" file="Source/params/params_build_ExposedParamsLayout.cpp"/>
-        <FILE id="rnM7Kv" name="params_build_ExposedParamsLayout.h" compile="0"
-              resource="0" file="Source/params/params_build_ExposedParamsLayout.h"/>
-        <FILE id="etK5qF" name="params_singleton_InfoForExposedParameters.cpp"
-              compile="1" resource="0" file="Source/params/params_singleton_InfoForExposedParameters.cpp"/>
-        <FILE id="NMudq5" name="params_singleton_InfoForExposedParameters.h"
-              compile="0" resource="0" file="Source/params/params_singleton_InfoForExposedParameters.h"/>
+      <GROUP id="{CC729A8C-68B3-B62B-0FBF-82BEF4A2D9C3}" name="exposedParameters">
+        <FILE id="HA9JKU" name="ep_build_ChoiceNamesValueTree.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.cpp"/>
+        <FILE id="VLGOge" name="ep_build_ChoiceNamesValueTree.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.h"/>
+        <FILE id="DzOFbx" name="ep_build_ExposedParamsLayout.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.cpp"/>
+        <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.h"/>
+        <FILE id="ltHhZw" name="ep_singleton_InfoForExposedParameters.cpp"
+              compile="1" resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.cpp"/>
+        <FILE id="MYC3I4" name="ep_singleton_InfoForExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{0E5C9ECA-9212-4B25-ED7A-C643352217E2}" name="z_Source">

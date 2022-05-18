@@ -8,8 +8,8 @@
     <Filter Include="MophoGUI 2\Source\core">
       <UniqueIdentifier>{B44A4FAC-3FAD-B837-1502-C411933EDB2B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI 2\Source\params">
-      <UniqueIdentifier>{D80A7078-B3B7-856B-80EB-557DDA1FC1F5}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2\Source\exposedParameters">
+      <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2\Source">
       <UniqueIdentifier>{C21000ED-D9E9-3422-1FB1-C8D13F6A1FC6}</UniqueIdentifier>
@@ -508,14 +508,14 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_build_ChoiceNamesValueTree.cpp">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_build_ExposedParamsLayout.cpp">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\params\params_singleton_InfoForExposedParameters.cpp">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\z_Source\global\global_GlobalParametersComponent.cpp">
       <Filter>MophoGUI 2\z_Source\global</Filter>
@@ -3105,14 +3105,14 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>MophoGUI 2\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_build_ChoiceNamesValueTree.h">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_build_ExposedParamsLayout.h">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\params\params_singleton_InfoForExposedParameters.h">
-      <Filter>MophoGUI 2\Source\params</Filter>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\z_Source\global\global_GlobalParametersComponent.h">
       <Filter>MophoGUI 2\z_Source\global</Filter>

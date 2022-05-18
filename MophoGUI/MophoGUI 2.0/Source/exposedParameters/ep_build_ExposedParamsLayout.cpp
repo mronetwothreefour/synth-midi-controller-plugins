@@ -1,6 +1,6 @@
-#include "params_build_ExposedParamsLayout.h"
+#include "ep_build_ExposedParamsLayout.h"
 
-#include "params_singleton_InfoForExposedParameters.h"
+#include "ep_singleton_InfoForExposedParameters.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 

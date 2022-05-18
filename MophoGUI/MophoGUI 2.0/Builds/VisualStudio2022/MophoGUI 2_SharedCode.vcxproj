@@ -140,9 +140,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
-    <ClCompile Include="..\..\Source\params\params_build_ChoiceNamesValueTree.cpp"/>
-    <ClCompile Include="..\..\Source\params\params_build_ExposedParamsLayout.cpp"/>
-    <ClCompile Include="..\..\Source\params\params_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\z_Source\global\global_GlobalParametersComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2575,9 +2575,9 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
-    <ClInclude Include="..\..\Source\params\params_build_ChoiceNamesValueTree.h"/>
-    <ClInclude Include="..\..\Source\params\params_build_ExposedParamsLayout.h"/>
-    <ClInclude Include="..\..\Source\params\params_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\z_Source\global\global_GlobalParametersComponent.h"/>
     <ClInclude Include="..\..\z_Source\global\global_GlobalParametersConstants.h"/>
     <ClInclude Include="..\..\z_Source\global\global_HardwareSettingsWarningComponent.h"/>

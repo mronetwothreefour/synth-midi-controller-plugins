@@ -1,7 +1,7 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-#include "params/params_build_ExposedParamsLayout.h"
+#include "exposedParameters/ep_build_ExposedParamsLayout.h"
 
 
 
