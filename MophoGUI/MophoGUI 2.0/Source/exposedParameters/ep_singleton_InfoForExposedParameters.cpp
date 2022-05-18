@@ -65,6 +65,22 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			-1,
 			nullptr
 		);
+
+		exposedParamsInfoTree.addChild(
+			ValueTree{ "ep_" + String(oscNum == 1 ? 3 : 9), {}, {
+				ValueTree{ (oscNum == 1 ? ID::ep_3_Osc_1_Glide : ID::ep_9_Osc_2_Glide), {
+							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Glide Rate" },
+							{ ID::property_NRPN, oscNum == 1 ? 3 : 8 },
+							{ ID::property_NumberOfChoices, 128 },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue((uint8)128) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue_Verbose((uint8)128) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
 	}
 
 	//--------------------------------------------------------------------------------------------------------------------------

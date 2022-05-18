@@ -12,6 +12,8 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_OscPitch_Verbose();
 	static ValueTree buildFor_OscShape();
 	static ValueTree buildFor_OscShape_Verbose();
+	static ValueTree buildFor_PlainValue(uint8 numberOfChoices);
+	static ValueTree buildFor_PlainValue_Verbose(uint8 numberOfChoices);
 
 private:
 	//==============================================================================

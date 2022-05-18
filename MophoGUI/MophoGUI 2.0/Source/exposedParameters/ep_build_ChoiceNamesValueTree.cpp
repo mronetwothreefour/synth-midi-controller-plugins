@@ -113,3 +113,21 @@ ValueTree ChoiceNamesValueTree::buildFor_OscShape_Verbose() {
 	}
 	return verboseChoiceNamesTree;
 }
+
+ValueTree ChoiceNamesValueTree::buildFor_PlainValue(uint8 numberOfChoices) {
+	ValueTree choiceNamesTree{ ID::choiceNames };
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum) {
+		auto choiceName{ (String)choiceNum };
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_PlainValue_Verbose(uint8 numberOfChoices) {
+	ValueTree verboseChoiceNamesTree{ ID::choiceNames_Verbose };
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum) {
+		auto choiceName{ (String)choiceNum };
+		verboseChoiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return verboseChoiceNamesTree;
+}
