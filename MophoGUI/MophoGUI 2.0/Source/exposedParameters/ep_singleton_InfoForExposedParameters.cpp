@@ -688,6 +688,152 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 	}
 
+	//--------------------------------------------------------------------------------------------------------------- Envelope 3
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_061", {}, {
+			ValueTree{ ID::ep_061_Env_3_Destination, {
+						{ ID::property_ExposedName, "Envelope 3 Modulation Destination" },
+						{ ID::property_NRPN, 57 },
+						{ ID::property_NumberOfChoices, 47 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_062", {}, {
+			ValueTree{ ID::ep_062_Env_3_Amount, {
+						{ ID::property_ExposedName, "Envelope 3 Amount" },
+						{ ID::property_NRPN, 58 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_063", {}, {
+			ValueTree{ ID::ep_063_Env_3_VelAmount, {
+						{ ID::property_ExposedName, "Envelope 3 Velocity Amount" },
+						{ ID::property_NRPN, 59 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_064", {}, {
+			ValueTree{ ID::ep_064_Env_3_Delay, {
+						{ ID::property_ExposedName, "Envelope 3 Delay" },
+						{ ID::property_NRPN, 60 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_065", {}, {
+			ValueTree{ ID::ep_065_Env_3_Attack, {
+						{ ID::property_ExposedName, "Envelope 3 Attack" },
+						{ ID::property_NRPN, 61 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_066", {}, {
+			ValueTree{ ID::ep_066_Env_3_Decay, {
+						{ ID::property_ExposedName, "Envelope 3 Decay" },
+						{ ID::property_NRPN, 62 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_067", {}, {
+			ValueTree{ ID::ep_067_Env_3_Sustain, {
+						{ ID::property_ExposedName, "Envelope 3 Sustain" },
+						{ ID::property_NRPN, 63 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_068", {}, {
+			ValueTree{ ID::ep_068_Env_3_Release, {
+						{ ID::property_ExposedName, "Envelope 3 Release" },
+						{ ID::property_NRPN, 64 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_069", {}, {
+			ValueTree{ ID::ep_069_Env_3_Repeat, {
+						{ ID::property_ExposedName, "Envelope 3 Repeat" },
+						{ ID::property_NRPN, 98 },
+						{ ID::property_NumberOfChoices, 2 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 
