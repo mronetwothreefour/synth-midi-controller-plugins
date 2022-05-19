@@ -16,6 +16,8 @@ namespace mophoConstants
 		static const uint8 numberOfChoicesForOscFineTune{ 101 };
 		static const uint8 numberOfChoicesForOscPitch{ 121 };
 		static const uint8 numberOfChoicesForOscWaveShape{ 104 };
+		static const uint8 numberOfModDestinations{ 47 };
+		static const uint8 numberOfModSources{ 23 };
 
 		static const uint8 numberOfExposedParams{ 189 };
 	}

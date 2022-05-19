@@ -656,7 +656,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, 47 },
+							{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -695,7 +695,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_061_Env_3_Destination, {
 						{ ID::property_ExposedName, "Envelope 3 Modulation Destination" },
 						{ ID::property_NRPN, 57 },
-						{ ID::property_NumberOfChoices, 47 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -833,6 +833,70 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		-1,
 		nullptr
 	);
+
+	//--------------------------------------------------------------------------------------------------------------- modulators
+
+	for (uint8 modNum = 0; modNum != 4; ++modNum) {
+		auto paramNumString{ "ep_0" + (String)(70 + modNum * 3) };
+		auto paramNameString{ paramNumString + "_Mod_" + String(modNum + 1) + "_Source" };
+		auto exposedNameString{ "Modulator " + String(modNum + 1) + " Source" };
+		auto nrpn{ 65 + modNum * 3 };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, EP::numberOfModSources },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModSource(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModSource(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(71 + modNum * 3);
+		paramNameString = paramNumString + "_Mod_" + String(modNum + 1) + "_Amount";
+		exposedNameString = "Modulator " + String(modNum + 1) + " Amount";
+		nrpn = 66 + modNum * 3;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 255 },
+							{ ID::property_DefaultChoice, 127 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(72 + modNum * 3);
+		paramNameString = paramNumString + "_Mod_" + String(modNum + 1) + "_Destination";
+		exposedNameString = "Modulator " + String(modNum + 1) + " Destination";
+		nrpn = 67 + modNum * 3;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+	}
 
 	//--------------------------------------------------------------------------------------------------------------------------
 }

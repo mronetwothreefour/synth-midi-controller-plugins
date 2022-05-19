@@ -14,6 +14,7 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_LPF_Freq(bool verbose);
 	static ValueTree buildFor_LPF_Type(bool verbose);
 	static ValueTree buildFor_ModDestination(bool verbose);
+	static ValueTree buildFor_ModSource(bool verbose);
 	static ValueTree buildFor_NotePriority(bool verbose);
 	static ValueTree buildFor_OffOn(bool verbose);
 	static ValueTree buildFor_OscFineTune(bool verbose);

@@ -127,7 +127,6 @@ ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	choiceNamesTree.setProperty("choice_3", "Oscillator 1 & 2 Pitch", nullptr);
 	choiceNamesTree.setProperty("choice_4", "Oscillator Mix", nullptr);
 	choiceNamesTree.setProperty("choice_5", "Noise Level", nullptr);
-	choiceNamesTree.setProperty("choice_5", "Noise Level", nullptr);
 	choiceNamesTree.setProperty("choice_6", "Oscillator 1 Pulse Width", nullptr);
 	choiceNamesTree.setProperty("choice_7", "Oscillator 2 Pulse Width", nullptr);
 	choiceNamesTree.setProperty("choice_8", "Oscillator 1 & 2 PW", nullptr);
@@ -136,15 +135,11 @@ ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	choiceNamesTree.setProperty("choice_11", "LPF FM Amount", nullptr);
 	choiceNamesTree.setProperty("choice_12", "VCA Level", nullptr);
 	choiceNamesTree.setProperty("choice_13", "Output Panning", nullptr);
-	choiceNamesTree.setProperty("choice_14", "LFO 1 Frequency", nullptr);
-	choiceNamesTree.setProperty("choice_15", "LFO 2 Frequency", nullptr);
-	choiceNamesTree.setProperty("choice_16", "LFO 3 Frequency", nullptr);
-	choiceNamesTree.setProperty("choice_17", "LFO 4 Frequency", nullptr);
+	for (auto choiceNum = 14; choiceNum != 18; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "LFO " + String(choiceNum - 13) + " Frequency", nullptr);
 	choiceNamesTree.setProperty("choice_18", "All LFO Frequencies", nullptr);
-	choiceNamesTree.setProperty("choice_19", "LFO 1 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_20", "LFO 2 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_21", "LFO 3 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_22", "LFO 4 Amount", nullptr);
+	for (auto choiceNum = 19; choiceNum != 23; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "LFO " + String(choiceNum - 18) + " Amount", nullptr);
 	choiceNamesTree.setProperty("choice_23", "All LFO Amounts", nullptr);
 	choiceNamesTree.setProperty("choice_24", "LPF Envelope Amount", nullptr);
 	choiceNamesTree.setProperty("choice_25", "VCA Envelope Amount", nullptr);
@@ -162,13 +157,35 @@ ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	choiceNamesTree.setProperty("choice_37", "VCA Envelope Release", nullptr);
 	choiceNamesTree.setProperty("choice_38", "Envelope 3 Release", nullptr);
 	choiceNamesTree.setProperty("choice_39", "All Envelope Releases", nullptr);
-	choiceNamesTree.setProperty("choice_40", "Modulator 1 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_41", "Modulator 2 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_42", "Modulator 3 Amount", nullptr);
-	choiceNamesTree.setProperty("choice_43", "Modulator 4 Amount", nullptr);
+	for (auto choiceNum = 40; choiceNum != 44; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "Modulator " + String(choiceNum - 39) + " Amount", nullptr);
 	choiceNamesTree.setProperty("choice_44", "External Audio In Level", nullptr);
 	choiceNamesTree.setProperty("choice_45", "Sub-Osc 1 Level", nullptr);
 	choiceNamesTree.setProperty("choice_46", "Sub-Osc 2 Level", nullptr);
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_ModSource(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", "Off", nullptr);
+	for (auto choiceNum = 1; choiceNum != 5; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "Sequencer Track " + (String)choiceNum, nullptr);
+	for (auto choiceNum = 5; choiceNum != 9; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "LFO " + String(choiceNum - 4), nullptr);
+	choiceNamesTree.setProperty("choice_9", "LPF Envelope", nullptr);
+	choiceNamesTree.setProperty("choice_10", "VCA Envelope", nullptr);
+	choiceNamesTree.setProperty("choice_11", "Envelope 3", nullptr);
+	choiceNamesTree.setProperty("choice_12", "Pitch Bend", nullptr);
+	choiceNamesTree.setProperty("choice_13", "Mod Wheel", nullptr);
+	choiceNamesTree.setProperty("choice_14", "Pressure (Aftertouch)", nullptr);
+	choiceNamesTree.setProperty("choice_15", "MIDI Breath", nullptr);
+	choiceNamesTree.setProperty("choice_16", "MIDI Foot Pedal", nullptr);
+	choiceNamesTree.setProperty("choice_17", "MIDI Expression", nullptr);
+	choiceNamesTree.setProperty("choice_18", "Velocity", nullptr);
+	choiceNamesTree.setProperty("choice_19", "Note Number", nullptr);
+	choiceNamesTree.setProperty("choice_20", "Noise", nullptr);
+	choiceNamesTree.setProperty("choice_21", "Audio In Env. Follower", nullptr);
+	choiceNamesTree.setProperty("choice_22", "Audio In Peak Hold", nullptr);
 	return choiceNamesTree;
 }
 
