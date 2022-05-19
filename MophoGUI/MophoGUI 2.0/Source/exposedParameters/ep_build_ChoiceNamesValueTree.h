@@ -7,7 +7,10 @@
 struct ChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
 
+	static ValueTree buildFor_ArpegMode(bool verbose);
 	static ValueTree buildFor_BendRange(bool verbose);
+	static ValueTree buildFor_ClockDivision(bool verbose);
+	static ValueTree buildFor_ClockTempo(bool verbose);
 	static ValueTree buildFor_GlideMode(bool verbose);
 	static ValueTree buildFor_LFO_Freq(bool verbose);
 	static ValueTree buildFor_LFO_Shape(bool verbose);
@@ -22,6 +25,7 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_OscShape(bool verbose);
 	static ValueTree buildFor_PlainValue(uint8 numberOfChoices, bool verbose);
 	static ValueTree buildFor_PlusMinus127(bool verbose);
+	static ValueTree buildFor_PushItMode(bool verbose);
 
 private:
 	//==============================================================================

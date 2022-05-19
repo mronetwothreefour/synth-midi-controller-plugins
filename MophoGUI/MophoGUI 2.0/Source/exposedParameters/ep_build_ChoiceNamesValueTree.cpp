@@ -28,6 +28,26 @@ String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	}
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_ArpegMode(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", "Up", nullptr);
+	choiceNamesTree.setProperty("choice_1", "Down", nullptr);
+	choiceNamesTree.setProperty("choice_2", "Up & Down", nullptr);
+	choiceNamesTree.setProperty("choice_3", "Assign", nullptr);
+	choiceNamesTree.setProperty("choice_4", "Random", nullptr);
+	choiceNamesTree.setProperty("choice_5", "2 Octaves Up", nullptr);
+	choiceNamesTree.setProperty("choice_6", "2 Octaves Down", nullptr);
+	choiceNamesTree.setProperty("choice_7", "2 Octaves Up & Down", nullptr);
+	choiceNamesTree.setProperty("choice_8", "2 Octaves Assign", nullptr);
+	choiceNamesTree.setProperty("choice_9", "2 Octaves Random", nullptr);
+	choiceNamesTree.setProperty("choice_10", "3 Octaves Up", nullptr);
+	choiceNamesTree.setProperty("choice_11", "3 Octaves Down", nullptr);
+	choiceNamesTree.setProperty("choice_12", "3 Octaves Up & Down", nullptr);
+	choiceNamesTree.setProperty("choice_13", "3 Octaves Assign", nullptr);
+	choiceNamesTree.setProperty("choice_14", "3 Octaves Random", nullptr);
+	return choiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForBendRange; ++choiceNum) {
@@ -49,6 +69,35 @@ ValueTree ChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
 				choiceName = "+/-" + (String)choiceNum;
 			choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 		}
+	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_ClockDivision(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", verbose ? "Half Note (BPM / 2)" : "Half Note", nullptr);
+	choiceNamesTree.setProperty("choice_1", verbose ? "Quarter Note (BPM x 1)" : "Quarter Note", nullptr);
+	choiceNamesTree.setProperty("choice_2", verbose ? "8th Note (BPM x 2)" : "8th Note", nullptr);
+	choiceNamesTree.setProperty("choice_3", verbose ? "8th Note, 1/2 Swing (BPM x 2)" : "8th Note, 1/2 Swing", nullptr);
+	choiceNamesTree.setProperty("choice_4", verbose ? "8th Note, Full Swing (BPM x 2)" : "8th Note, Full Swing", nullptr);
+	choiceNamesTree.setProperty("choice_5", verbose ? "8th Note Triplets (BPM x 3)" : "8th Note Triplets", nullptr);
+	choiceNamesTree.setProperty("choice_6", verbose ? "16th Note (BPM x 4)" : "16th Note", nullptr);
+	choiceNamesTree.setProperty("choice_7", verbose ? "16th Note, 1/2 Swing (BPM x 4)" : "16th Note, 1/2 Swing", nullptr);
+	choiceNamesTree.setProperty("choice_8", verbose ? "16th Note, Full Swing (BPM x 4)" : "16th Note, Full Swing", nullptr);
+	choiceNamesTree.setProperty("choice_9", verbose ? "16th Note Triplets (BPM x 6)" : "16th Note Triplets", nullptr);
+	choiceNamesTree.setProperty("choice_10", verbose ? "32nd Note (BPM x 8)" : "32nd Note", nullptr);
+	choiceNamesTree.setProperty("choice_11", verbose ? "32nd Note Triplets (BPM x 12)" : "32nd Note Triplets", nullptr);
+	choiceNamesTree.setProperty("choice_12", verbose ? "64th Note Triplets (BPM x 24)" : "64th Note Triplets", nullptr);
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_ClockTempo(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForClockTempo; ++choiceNum) {
+		auto choiceName{ String(choiceNum + 30)};
+		if (verbose)
+			choiceName += " BPM";
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 	}
 	return choiceNamesTree;
 }
@@ -281,6 +330,14 @@ ValueTree ChoiceNamesValueTree::buildFor_PlusMinus127(bool verbose) {
 		auto choiceName{ (choiceNum > 127 ? "+" : "") + String(choiceNum - 127) };
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 	}
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", "Normal", nullptr);
+	choiceNamesTree.setProperty("choice_1", "Toggle", nullptr);
+	choiceNamesTree.setProperty("choice_2", "Audio In", nullptr);
 	return choiceNamesTree;
 }
 

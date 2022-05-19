@@ -656,7 +656,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -695,7 +695,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_061_Env_3_Destination, {
 						{ ID::property_ExposedName, "Envelope 3 Modulation Destination" },
 						{ ID::property_NRPN, 57 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -846,7 +846,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, EP::numberOfModSources },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModSource },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModSource(concise) },
@@ -886,7 +886,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -921,7 +921,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_083_ModWheelDest, {
 						{ ID::property_ExposedName, "Modulation Wheel Destination" },
 						{ ID::property_NRPN, 82 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -953,7 +953,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_085_PressureDest, {
 						{ ID::property_ExposedName, "Pressure (Aftertouch) Destination" },
 						{ ID::property_NRPN, 84 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -985,7 +985,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_087_BreathDest, {
 						{ ID::property_ExposedName, "Breath Destination" },
 						{ ID::property_NRPN, 86 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -1017,7 +1017,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_089_VelocityDest, {
 						{ ID::property_ExposedName, "Note Velocity Destination" },
 						{ ID::property_NRPN, 88 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -1049,11 +1049,127 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_091_PedalDest, {
 						{ ID::property_ExposedName, "Foot Pedal Destination" },
 						{ ID::property_NRPN, 90 },
-						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	//------------------------------------------------------------------------------------------------------------------ Push It
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_092", {}, {
+			ValueTree{ ID::ep_092_PushItPitch, {
+						{ ID::property_ExposedName, "Push It! Switch Pitch" },
+						{ ID::property_NRPN, 111 },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscPitch },
+						{ ID::property_DefaultChoice, 60 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_OscPitch(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_093", {}, {
+			ValueTree{ ID::ep_093_PushItVelocity, {
+						{ ID::property_ExposedName, "Push It! Switch Velocity" },
+						{ ID::property_NRPN, 112 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 100 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_094", {}, {
+			ValueTree{ ID::ep_094_PushItMode, {
+						{ ID::property_ExposedName, "Push It! Switch Mode" },
+						{ ID::property_NRPN, 113 },
+						{ ID::property_NumberOfChoices, 3 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PushItMode(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PushItMode(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	//------------------------------------------------------------------------------------------------------ clock & arpeggiator
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_095", {}, {
+			ValueTree{ ID::ep_095_ClockTempo, {
+						{ ID::property_ExposedName, "Clock Tempo" },
+						{ ID::property_NRPN, 91 },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForClockTempo },
+						{ ID::property_DefaultChoice, 90 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ClockTempo(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ClockTempo(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_096", {}, {
+			ValueTree{ ID::ep_096_ClockDivision, {
+						{ ID::property_ExposedName, "Clock Division" },
+						{ ID::property_NRPN, 92 },
+						{ ID::property_NumberOfChoices, 13 },
+						{ ID::property_DefaultChoice, 2 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ClockDivision(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ClockDivision(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_097", {}, {
+			ValueTree{ ID::ep_097_ArpegMode, {
+						{ ID::property_ExposedName, "Arpeggiator Mode" },
+						{ ID::property_NRPN, 97 },
+						{ ID::property_NumberOfChoices, 15 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ArpegMode(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ArpegMode(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_098", {}, {
+			ValueTree{ ID::ep_098_ArpegOnOff, {
+						{ ID::property_ExposedName, "Arpeggiator On/Off" },
+						{ ID::property_NRPN, 100 },
+						{ ID::property_NumberOfChoices, 2 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
 					} } }
 		},
 		-1,

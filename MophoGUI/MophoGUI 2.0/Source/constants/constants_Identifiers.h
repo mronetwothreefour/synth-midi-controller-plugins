@@ -71,6 +71,13 @@ namespace mophoConstants
 		static const Identifier ep_089_VelocityDest{ "ep_089_VelocityDest" };
 		static const Identifier ep_090_PedalAmount{ "ep_090_PedalAmount" };
 		static const Identifier ep_091_PedalDest{ "ep_091_PedalDest" };
+		static const Identifier ep_092_PushItPitch{ "ep_092_PushItPitch" };
+		static const Identifier ep_093_PushItVelocity{ "ep_093_PushItVelocity" };
+		static const Identifier ep_094_PushItMode{ "ep_094_PushItMode" };
+		static const Identifier ep_095_ClockTempo{ "ep_095_ClockTempo" };
+		static const Identifier ep_096_ClockDivision{ "ep_096_ClockDivision" };
+		static const Identifier ep_097_ArpegMode{ "ep_097_ArpegMode" };
+		static const Identifier ep_098_ArpegOnOff{ "ep_098_ArpegOnOff" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
