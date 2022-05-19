@@ -584,6 +584,110 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		nullptr
 	);
 
+	//--------------------------------------------------------------------------------------------------------------------- LFOs
+
+	for (uint8 lfoNum = 0; lfoNum != 4; ++lfoNum) {
+		auto paramNumString{ "ep_0" + (String)(41 + lfoNum * 5) };
+		auto paramNameString{ paramNumString + "_LFO_" + String(lfoNum + 1) + "_Freq" };
+		auto exposedNameString{ "LFO " + String(lfoNum + 1) + " Frequency" };
+		auto nrpn{ 37 + lfoNum * 5 };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 167 },
+							{ ID::property_DefaultChoice, 80 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Freq(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Freq(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(42 + lfoNum * 5);
+		paramNameString = paramNumString + "_LFO_" + String(lfoNum + 1) + "_Shape";
+		exposedNameString = "LFO " + String(lfoNum + 1) + " Wave Shape";
+		nrpn = 38 + lfoNum * 5;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 5 },
+							{ ID::property_DefaultChoice, 1 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Shape(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Shape(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(43 + lfoNum * 5);
+		paramNameString = paramNumString + "_LFO_" + String(lfoNum + 1) + "_Amount";
+		exposedNameString = "LFO " + String(lfoNum + 1) + " Amount";
+		nrpn = 39 + lfoNum * 5;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 128 },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(44 + lfoNum * 5);
+		paramNameString = paramNumString + "_LFO_" + String(lfoNum + 1) + "_Destination";
+		exposedNameString = "LFO " + String(lfoNum + 1) + " Modulation Destination";
+		nrpn = 40 + lfoNum * 5;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 47 },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+
+		paramNumString = "ep_0" + (String)(45 + lfoNum * 5);
+		paramNameString = paramNumString + "_LFO_" + String(lfoNum + 1) + "_KeySync";
+		exposedNameString = "LFO " + String(lfoNum + 1) + " Key Sync On/Off";
+		nrpn = 41 + lfoNum * 5;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 2 },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+	}
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 

@@ -4,12 +4,12 @@
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor/*, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams*/) :
+PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams/*, UnexposedParameters* unexposedParams*/) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }/*,
-    exposedParams{ exposedParams }*/
+    processor{ processor },
+    exposedParams{ exposedParams }
 {
-    setSize(400, 200);
+    setSize(1200, 600);
     setResizable(false, false);
 }
 

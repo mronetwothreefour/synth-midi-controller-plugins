@@ -15,7 +15,7 @@ class PluginEditor :
     UnexposedParameters* unexposedParams;
 
 public:
-    PluginEditor(PluginProcessor& processor/*, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams*/);
+    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams/*, UnexposedParameters* unexposedParams*/);
 
 public:
     void paint(Graphics& g) override;
