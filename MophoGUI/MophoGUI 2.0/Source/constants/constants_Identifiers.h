@@ -43,6 +43,15 @@ namespace mophoConstants
 		static const Identifier ep_029_LPF_Decay{ "ep_029_LPF_Decay" };
 		static const Identifier ep_030_LPF_Sustain{ "ep_030_LPF_Sustain" };
 		static const Identifier ep_031_LPF_Release{ "ep_031_LPF_Release" };
+		static const Identifier ep_032_VCA_Level{ "ep_032_VCA_Level" };
+		static const Identifier ep_033_VCA_EnvAmount{ "ep_033_VCA_EnvAmount" };
+		static const Identifier ep_034_VCA_VelAmount{ "ep_034_VCA_VelAmount" };
+		static const Identifier ep_035_VCA_Delay{ "ep_035_VCA_Delay" };
+		static const Identifier ep_036_VCA_Attack{ "ep_036_VCA_Attack" };
+		static const Identifier ep_037_VCA_Decay{ "ep_037_VCA_Decay" };
+		static const Identifier ep_038_VCA_Sustain{ "ep_038_VCA_Sustain" };
+		static const Identifier ep_039_VCA_Release{ "ep_039_VCA_Release" };
+		static const Identifier ep_040_VoiceVolume{ "ep_040_VoiceVolume" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };

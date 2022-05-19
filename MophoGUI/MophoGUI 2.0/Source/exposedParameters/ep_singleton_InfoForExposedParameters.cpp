@@ -438,6 +438,152 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		nullptr
 	);
 
+	//---------------------------------------------------------------------------------------------------------------------- VCA
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_032", {}, {
+			ValueTree{ ID::ep_032_VCA_Level, {
+						{ ID::property_ExposedName, "VCA Baseline Level" },
+						{ ID::property_NRPN, 27 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_033", {}, {
+			ValueTree{ ID::ep_033_VCA_EnvAmount, {
+						{ ID::property_ExposedName, "VCA Envelope Amount" },
+						{ ID::property_NRPN, 30 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_034", {}, {
+			ValueTree{ ID::ep_034_VCA_VelAmount, {
+						{ ID::property_ExposedName, "VCA Envelope Velocity Amount" },
+						{ ID::property_NRPN, 31 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_035", {}, {
+			ValueTree{ ID::ep_035_VCA_Delay, {
+						{ ID::property_ExposedName, "VCA Envelope Delay" },
+						{ ID::property_NRPN, 32 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_036", {}, {
+			ValueTree{ ID::ep_036_VCA_Attack, {
+						{ ID::property_ExposedName, "VCA Envelope Attack" },
+						{ ID::property_NRPN, 33 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_037", {}, {
+			ValueTree{ ID::ep_037_VCA_Decay, {
+						{ ID::property_ExposedName, "VCA Envelope Decay" },
+						{ ID::property_NRPN, 34 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_038", {}, {
+			ValueTree{ ID::ep_038_VCA_Sustain, {
+						{ ID::property_ExposedName, "VCA Envelope Sustain" },
+						{ ID::property_NRPN, 35 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 64 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_039", {}, {
+			ValueTree{ ID::ep_039_VCA_Release, {
+						{ ID::property_ExposedName, "VCA Envelope Release" },
+						{ ID::property_NRPN, 36 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 64 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_040", {}, {
+			ValueTree{ ID::ep_040_VoiceVolume, {
+						{ ID::property_ExposedName, "Program Volume" },
+						{ ID::property_NRPN, 29 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 120 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 
