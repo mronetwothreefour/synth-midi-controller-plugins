@@ -341,3 +341,21 @@ ValueTree ChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
 	return choiceNamesTree;
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose) {
+	jassert(trackNum == 2 || trackNum == 4);
+	auto choiceNamesTree{ buildFor_ModDestination(verbose) };
+	choiceNamesTree.setProperty("choice_47", "Seq. Track " + String(trackNum - 1) + " Slew", nullptr);
+	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_SeqTrigMode(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	choiceNamesTree.setProperty("choice_0", "Normal", nullptr);
+	choiceNamesTree.setProperty("choice_1", "Normal, No Reset", nullptr);
+	choiceNamesTree.setProperty("choice_2", "No Gate", nullptr);
+	choiceNamesTree.setProperty("choice_3", "No Gate, No Reset", nullptr);
+	choiceNamesTree.setProperty("choice_4", "Key Step", nullptr);
+	choiceNamesTree.setProperty("choice_5", "Audio Input", nullptr);
+	return choiceNamesTree;
+}
+

@@ -14,11 +14,12 @@ namespace mophoConstants
 		static const uint8 numberOfChoicesForClockTempo{ 221 };
 		static const uint8 numberOfChoicesForLFO_Freq{ 167 };
 		static const uint8 numberOfChoicesForLPF_Freq{ 165 };
-		static const uint8 numberOfChoicesForModDestination{ 47 };
+		static const uint8 numberOfChoicesForModDest{ 47 };
 		static const uint8 numberOfChoicesForModSource{ 23 };
 		static const uint8 numberOfChoicesForOscFineTune{ 101 };
 		static const uint8 numberOfChoicesForOscPitch{ 121 };
 		static const uint8 numberOfChoicesForOscWaveShape{ 104 };
+		static const uint8 numberOfChoicesForSeqTracks_2_4_Dest{ 48 };
 
 		static const uint8 numberOfExposedParams{ 189 };
 	}

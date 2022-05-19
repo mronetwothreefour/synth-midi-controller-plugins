@@ -656,7 +656,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -695,7 +695,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_061_Env_3_Destination, {
 						{ ID::property_ExposedName, "Envelope 3 Modulation Destination" },
 						{ ID::property_NRPN, 57 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -886,7 +886,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
 							{ ID::property_NRPN, nrpn },
-							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -921,7 +921,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_083_ModWheelDest, {
 						{ ID::property_ExposedName, "Modulation Wheel Destination" },
 						{ ID::property_NRPN, 82 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -953,7 +953,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_085_PressureDest, {
 						{ ID::property_ExposedName, "Pressure (Aftertouch) Destination" },
 						{ ID::property_NRPN, 84 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -985,7 +985,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_087_BreathDest, {
 						{ ID::property_ExposedName, "Breath Destination" },
 						{ ID::property_NRPN, 86 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -1017,7 +1017,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_089_VelocityDest, {
 						{ ID::property_ExposedName, "Note Velocity Destination" },
 						{ ID::property_NRPN, 88 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -1049,7 +1049,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_091_PedalDest, {
 						{ ID::property_ExposedName, "Foot Pedal Destination" },
 						{ ID::property_NRPN, 90 },
-						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDestination },
+						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
@@ -1175,6 +1175,68 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		-1,
 		nullptr
 	);
+
+	//---------------------------------------------------------------------------------------------------------------- sequencer
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_099", {}, {
+			ValueTree{ ID::ep_099_SeqTrigMode, {
+						{ ID::property_ExposedName, "Sequencer Trigger Mode" },
+						{ ID::property_NRPN, 94 },
+						{ ID::property_NumberOfChoices, 6 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrigMode(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrigMode(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_100", {}, {
+			ValueTree{ ID::ep_100_SeqOnOff, {
+						{ ID::property_ExposedName, "Sequencer On/Off" },
+						{ ID::property_NRPN, 101 },
+						{ ID::property_NumberOfChoices, 2 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	for (uint8 trackNum = 1; trackNum != 5; ++trackNum) {
+		auto paramNumString{ "ep_" + String(100 + trackNum) };
+		auto paramNameString{ paramNumString + "SeqTrack_" + (String)trackNum + "_Dest" };
+		auto exposedNameString{ "Sequencer Track " + (String)trackNum + " Destination" };
+		auto nrpn{ 76 + trackNum };
+		auto track2or4{ trackNum == 2 || trackNum == 4 };
+		auto numberOfChoices{ track2or4 ? EP::numberOfChoicesForSeqTracks_2_4_Dest : EP::numberOfChoicesForModDest };
+		auto oddTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_ModDestination(concise) };
+		auto oddTrackChoiceNamesVerbose{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) };
+		auto evenTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, concise) };
+		auto evenTrackChoiceNamesVerbose{ ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, verbose) };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, numberOfChoices },
+							{ ID::property_DefaultChoice, 0 },
+						}, {
+							ValueTree{ track2or4 ? evenTrackChoiceNamesConcise : oddTrackChoiceNamesConcise },
+							ValueTree{ track2or4 ? evenTrackChoiceNamesVerbose : oddTrackChoiceNamesVerbose }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+	}
 
 	//--------------------------------------------------------------------------------------------------------------------------
 }

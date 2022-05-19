@@ -78,6 +78,8 @@ namespace mophoConstants
 		static const Identifier ep_096_ClockDivision{ "ep_096_ClockDivision" };
 		static const Identifier ep_097_ArpegMode{ "ep_097_ArpegMode" };
 		static const Identifier ep_098_ArpegOnOff{ "ep_098_ArpegOnOff" };
+		static const Identifier ep_099_SeqTrigMode{ "ep_099_SeqTrigMode" };
+		static const Identifier ep_100_SeqOnOff{ "ep_100_SeqOnOff" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };

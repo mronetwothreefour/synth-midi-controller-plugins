@@ -26,6 +26,8 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_PlainValue(uint8 numberOfChoices, bool verbose);
 	static ValueTree buildFor_PlusMinus127(bool verbose);
 	static ValueTree buildFor_PushItMode(bool verbose);
+	static ValueTree buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose);
+	static ValueTree buildFor_SeqTrigMode(bool verbose);
 
 private:
 	//==============================================================================
