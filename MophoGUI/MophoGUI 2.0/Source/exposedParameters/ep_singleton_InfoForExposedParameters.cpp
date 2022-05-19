@@ -342,6 +342,102 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		nullptr
 	);
 
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_026", {}, {
+			ValueTree{ ID::ep_026_LPF_VelAmount, {
+						{ ID::property_ExposedName, "LPF Envelope Velocity Amount" },
+						{ ID::property_NRPN, 21 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_027", {}, {
+			ValueTree{ ID::ep_027_LPF_Delay, {
+						{ ID::property_ExposedName, "LPF Envelope Delay" },
+						{ ID::property_NRPN, 22 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_028", {}, {
+			ValueTree{ ID::ep_028_LPF_Attack, {
+						{ ID::property_ExposedName, "LPF Envelope Attack" },
+						{ ID::property_NRPN, 23 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_029", {}, {
+			ValueTree{ ID::ep_029_LPF_Decay, {
+						{ ID::property_ExposedName, "LPF Envelope Decay" },
+						{ ID::property_NRPN, 24 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_030", {}, {
+			ValueTree{ ID::ep_030_LPF_Sustain, {
+						{ ID::property_ExposedName, "LPF Envelope Sustain" },
+						{ ID::property_NRPN, 25 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_031", {}, {
+			ValueTree{ ID::ep_031_LPF_Release, {
+						{ ID::property_ExposedName, "LPF Envelope Release" },
+						{ ID::property_NRPN, 26 },
+						{ ID::property_NumberOfChoices, 128 },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 
