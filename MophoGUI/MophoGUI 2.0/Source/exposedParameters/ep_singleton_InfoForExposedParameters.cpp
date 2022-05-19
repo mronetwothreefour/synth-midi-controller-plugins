@@ -898,6 +898,168 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 	}
 
+	//---------------------------------------------------------------------------------------------------------- MIDI modulators
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_082", {}, {
+			ValueTree{ ID::ep_082_ModWheelAmount, {
+						{ ID::property_ExposedName, "Modulation Wheel Amount" },
+						{ ID::property_NRPN, 81 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_083", {}, {
+			ValueTree{ ID::ep_083_ModWheelDest, {
+						{ ID::property_ExposedName, "Modulation Wheel Destination" },
+						{ ID::property_NRPN, 82 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_084", {}, {
+			ValueTree{ ID::ep_084_PressureAmount, {
+						{ ID::property_ExposedName, "Pressure (Aftertouch) Amount" },
+						{ ID::property_NRPN, 83 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_085", {}, {
+			ValueTree{ ID::ep_085_PressureDest, {
+						{ ID::property_ExposedName, "Pressure (Aftertouch) Destination" },
+						{ ID::property_NRPN, 84 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_086", {}, {
+			ValueTree{ ID::ep_086_BreathAmount, {
+						{ ID::property_ExposedName, "Breath Amount" },
+						{ ID::property_NRPN, 85 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_087", {}, {
+			ValueTree{ ID::ep_087_BreathDest, {
+						{ ID::property_ExposedName, "Breath Destination" },
+						{ ID::property_NRPN, 86 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_088", {}, {
+			ValueTree{ ID::ep_088_VelocityAmount, {
+						{ ID::property_ExposedName, "Note Velocity Amount" },
+						{ ID::property_NRPN, 87 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_089", {}, {
+			ValueTree{ ID::ep_089_VelocityDest, {
+						{ ID::property_ExposedName, "Note Velocity Destination" },
+						{ ID::property_NRPN, 88 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_090", {}, {
+			ValueTree{ ID::ep_090_PedalAmount, {
+						{ ID::property_ExposedName, "Foot Pedal Amount" },
+						{ ID::property_NRPN, 89 },
+						{ ID::property_NumberOfChoices, 255 },
+						{ ID::property_DefaultChoice, 127 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_091", {}, {
+			ValueTree{ ID::ep_091_PedalDest, {
+						{ ID::property_ExposedName, "Foot Pedal Destination" },
+						{ ID::property_NRPN, 90 },
+						{ ID::property_NumberOfChoices, EP::numberOfModDestinations },
+						{ ID::property_DefaultChoice, 0 },
+					}, {
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+						ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
+					} } }
+		},
+		-1,
+		nullptr
+	);
+
 	//--------------------------------------------------------------------------------------------------------------------------
 }
 

@@ -61,6 +61,16 @@ namespace mophoConstants
 		static const Identifier ep_067_Env_3_Sustain{ "ep_067_Env_3_Sustain" };
 		static const Identifier ep_068_Env_3_Release{ "ep_068_Env_3_Release" };
 		static const Identifier ep_069_Env_3_Repeat{ "ep_069_Env_3_Repeat" };
+		static const Identifier ep_082_ModWheelAmount{ "ep_082_ModWheelAmount" };
+		static const Identifier ep_083_ModWheelDest{ "ep_083_ModWheelDest" };
+		static const Identifier ep_084_PressureAmount{ "ep_084_PressureAmount" };
+		static const Identifier ep_085_PressureDest{ "ep_085_PressureDest" };
+		static const Identifier ep_086_BreathAmount{ "ep_086_BreathAmount" };
+		static const Identifier ep_087_BreathDest{ "ep_087_BreathDest" };
+		static const Identifier ep_088_VelocityAmount{ "ep_088_VelocityAmount" };
+		static const Identifier ep_089_VelocityDest{ "ep_089_VelocityDest" };
+		static const Identifier ep_090_PedalAmount{ "ep_090_PedalAmount" };
+		static const Identifier ep_091_PedalDest{ "ep_091_PedalDest" };
 
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
