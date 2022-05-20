@@ -111,6 +111,103 @@ ValueTree ChoiceNamesValueTree::buildFor_GlideMode(bool verbose) {
 	return choiceNamesTree;
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_KnobAssign(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_0" : "choice_6", "Oscillator " + (String)oscNum + " Pitch", nullptr);
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_1" : "choice_7", "Oscillator " + (String)oscNum + " Fine Tune", nullptr);
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_2" : "choice_8", "Oscillator " + (String)oscNum + " Wave Shape", nullptr);
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_3" : "choice_9", "Oscillator " + (String)oscNum + " Glide Rate", nullptr);
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_4" : "choice_10", "Oscillator " + (String)oscNum + " Key Track", nullptr);
+		choiceNamesTree.setProperty(oscNum == 1 ? "choice_5" : "choice_11", "Sub-Oscillator " + (String)oscNum + " Level", nullptr);
+	}
+	choiceNamesTree.setProperty("choice_12", "Hard Sync Oscillators", nullptr);
+	choiceNamesTree.setProperty("choice_13", "Glide Mode", nullptr);
+	choiceNamesTree.setProperty("choice_14", "Oscillator Slop", nullptr);
+	choiceNamesTree.setProperty("choice_15", "Pitch Bend Range", nullptr);
+	choiceNamesTree.setProperty("choice_16", "Keyed Note Priority", nullptr);
+	choiceNamesTree.setProperty("choice_17", "Oscillators 1 & 2 Mix", nullptr);
+	choiceNamesTree.setProperty("choice_18", "Noise Level", nullptr);
+	choiceNamesTree.setProperty("choice_19", verbose ? "External Audio Input Level" : "External Audio In Level", nullptr);
+	choiceNamesTree.setProperty("choice_20", "LPF Cutoff Frequency", nullptr);
+	choiceNamesTree.setProperty("choice_21", "LPF Resonance", nullptr);
+	choiceNamesTree.setProperty("choice_22", "LPF Keyboard Amount", nullptr);
+	choiceNamesTree.setProperty("choice_23", "LPF Freq. Mod. Amount", nullptr);
+	choiceNamesTree.setProperty("choice_24", "LPF 2- or 4-Pole Select", nullptr);
+	choiceNamesTree.setProperty("choice_25", "LPF Envelope Amount", nullptr);
+	choiceNamesTree.setProperty("choice_26", verbose ? "LPF Envelope Velocity Amount" : "LPF Env Vel Amt", nullptr);
+	choiceNamesTree.setProperty("choice_27", "LPF Envelope Delay", nullptr);
+	choiceNamesTree.setProperty("choice_28", "LPF Envelope Attack", nullptr);
+	choiceNamesTree.setProperty("choice_29", "LPF Envelope Decay", nullptr);
+	choiceNamesTree.setProperty("choice_30", "LPF Envelope Sustain", nullptr);
+	choiceNamesTree.setProperty("choice_31", "LPF Envelope Release", nullptr);
+	choiceNamesTree.setProperty("choice_32", "VCA Initial Level", nullptr);
+	choiceNamesTree.setProperty("choice_33", "VCA Envelope Amount", nullptr);
+	choiceNamesTree.setProperty("choice_34", verbose ? "VCA Envelope Velocity Amount" : "VCA Env Vel Amnt", nullptr);
+	choiceNamesTree.setProperty("choice_35", "VCA Envelope Delay", nullptr);
+	choiceNamesTree.setProperty("choice_36", "VCA Envelope Attack", nullptr);
+	choiceNamesTree.setProperty("choice_37", "VCA Envelope Decay", nullptr);
+	choiceNamesTree.setProperty("choice_38", "VCA Envelope Sustain", nullptr);
+	choiceNamesTree.setProperty("choice_39", "VCA Envelope Release", nullptr);
+	choiceNamesTree.setProperty("choice_40", "Voice Volume", nullptr);
+	for (auto lfoNum = 0; lfoNum != 4; ++lfoNum) {
+		choiceNamesTree.setProperty("choice_" + String(41 + lfoNum * 5), "LFO " + String(lfoNum + 1) + " Frequency", nullptr);
+		choiceNamesTree.setProperty("choice_" + String(42 + lfoNum * 5), "LFO " + String(lfoNum + 1) + " Wave Shape", nullptr);
+		choiceNamesTree.setProperty("choice_" + String(43 + lfoNum * 5), "LFO " + String(lfoNum + 1) + " Amount", nullptr);
+		choiceNamesTree.setProperty(
+			"choice_" + String(44 + lfoNum * 5), 
+			"LFO " + String(lfoNum + 1) + String(verbose ? " Modulation" : " Mod") + " Destination", 
+			nullptr);
+		choiceNamesTree.setProperty("choice_" + String(45 + lfoNum * 5), "LFO " + String(lfoNum + 1) + " Key Sync", nullptr);
+	}
+	choiceNamesTree.setProperty("choice_61", "Env 3 " + String(verbose ? "Modulation" : "Mod") + " Destination", nullptr);
+	choiceNamesTree.setProperty("choice_62", "Envelope 3 Amount", nullptr);
+	choiceNamesTree.setProperty("choice_63", "Env 3 Velocity Amount", nullptr);
+	choiceNamesTree.setProperty("choice_64", "Envelope 3 Delay", nullptr);
+	choiceNamesTree.setProperty("choice_65", "Envelope 3 Attack", nullptr);
+	choiceNamesTree.setProperty("choice_66", "Envelope 3 Decay", nullptr);
+	choiceNamesTree.setProperty("choice_67", "Envelope 3 Sustain", nullptr);
+	choiceNamesTree.setProperty("choice_68", "Envelope 3 Release", nullptr);
+	choiceNamesTree.setProperty("choice_69", "Envelope 3 Repeat", nullptr);
+	for (auto modNum = 0; modNum != 4; ++modNum) {
+		choiceNamesTree.setProperty("choice_" + String(70 + modNum * 3), "Modulator " + String(modNum + 1) + " Source", nullptr);
+		choiceNamesTree.setProperty("choice_" + String(71 + modNum * 3), "Modulator " + String(modNum + 1) + " Amount", nullptr);
+		choiceNamesTree.setProperty("choice_" + String(72 + modNum * 3), "Modulator " + String(modNum + 1) + " Destination", nullptr);
+	}
+	choiceNamesTree.setProperty("choice_82", "Modulation Wheel " + String(verbose ? "Amount" : "Amt"), nullptr);
+	choiceNamesTree.setProperty("choice_83", "Modulation Wheel " + String(verbose ? "Destination" : "Dest"), nullptr);
+	choiceNamesTree.setProperty("choice_84", "Pressure " + String(verbose ? "(Aftertouch) " : "") + "Amount", nullptr);
+	choiceNamesTree.setProperty("choice_85", "Pressure " + String(verbose ? "(Aftertouch) " : "") + "Destination", nullptr);
+	choiceNamesTree.setProperty("choice_86", "Breath " + String(verbose ? "Controller " : "") + "Amount", nullptr);
+	choiceNamesTree.setProperty("choice_87", "Breath " + String(verbose ? "Controller " : "") + "Destination", nullptr);
+	choiceNamesTree.setProperty("choice_88", String(verbose ? "Note " : "") + "Velocity Amount", nullptr);
+	choiceNamesTree.setProperty("choice_89", String(verbose ? "Note " : "") + "Velocity Destination", nullptr);
+	choiceNamesTree.setProperty("choice_90", "Foot Pedal Amount", nullptr);
+	choiceNamesTree.setProperty("choice_91", "Foot Pedal Destination", nullptr);
+	choiceNamesTree.setProperty("choice_92", "Push It! Switch Pitch", nullptr);
+	choiceNamesTree.setProperty("choice_93", "Push It! Switch Velocity", nullptr);
+	choiceNamesTree.setProperty("choice_94", "Push It! Switch Mode", nullptr);
+	choiceNamesTree.setProperty("choice_95", "Clock Tempo (BPM)", nullptr);
+	choiceNamesTree.setProperty("choice_96", "Clock Divide", nullptr);
+	choiceNamesTree.setProperty("choice_97", "Arpeggiator Mode", nullptr);
+	choiceNamesTree.setProperty("choice_98", "Arpeggiator On/Off", nullptr);
+	choiceNamesTree.setProperty("choice_99", "Sequencer Trigger Mode", nullptr);
+	choiceNamesTree.setProperty("choice_100", "Sequencer On/Off", nullptr);
+	for (auto trackNum = 1; trackNum != 5; ++trackNum)
+		choiceNamesTree.setProperty(
+			"choice_10" + (String)trackNum, 
+			"Sequencer Track " + (String)trackNum + String(verbose ? " Destination" : " Dest"),
+			nullptr);
+	for (auto trackNum = 0; trackNum != 4; ++trackNum) {
+		for (auto stepNum = 0; stepNum != 16; ++stepNum)
+			choiceNamesTree.setProperty(
+				"choice_" + String(105 + trackNum * 16 + stepNum), 
+				String(verbose ? "Sequencer" : "Seq") + " Track " + String(trackNum + 1) + " Step " + String(stepNum + 1),
+				nullptr);
+	}
+	return choiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_LFO_Freq(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::firstLFO_PitchedFreqChoice; ++choiceNum) {

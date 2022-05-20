@@ -12,6 +12,7 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_ClockDivision(bool verbose);
 	static ValueTree buildFor_ClockTempo(bool verbose);
 	static ValueTree buildFor_GlideMode(bool verbose);
+	static ValueTree buildFor_KnobAssign(bool verbose);
 	static ValueTree buildFor_LFO_Freq(bool verbose);
 	static ValueTree buildFor_LFO_Shape(bool verbose);
 	static ValueTree buildFor_LPF_Freq(bool verbose);

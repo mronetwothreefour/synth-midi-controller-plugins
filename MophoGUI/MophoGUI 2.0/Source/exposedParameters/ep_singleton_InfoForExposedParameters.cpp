@@ -1212,11 +1212,11 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 
 	for (uint8 trackNum = 1; trackNum != 5; ++trackNum) {
 		auto paramNumString{ "ep_" + String(100 + trackNum) };
-		auto paramNameString{ paramNumString + "SeqTrack_" + (String)trackNum + "_Dest" };
+		auto paramNameString{ paramNumString + "_SeqTrack_" + (String)trackNum + "_Dest" };
 		auto exposedNameString{ "Sequencer Track " + (String)trackNum + " Destination" };
 		auto nrpn{ 76 + trackNum };
-		auto track2or4{ trackNum == 2 || trackNum == 4 };
-		auto numberOfChoices{ track2or4 ? EP::numberOfChoicesForSeqTracks_2_4_Dest : EP::numberOfChoicesForModDest };
+		auto trackNumIsEven{ trackNum == 2 || trackNum == 4 };
+		auto numberOfChoices{ trackNumIsEven ? EP::numberOfChoicesForSeqTracks_2_4_Dest : EP::numberOfChoicesForModDest };
 		auto oddTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_ModDestination(concise) };
 		auto oddTrackChoiceNamesVerbose{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) };
 		auto evenTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, concise) };
@@ -1229,8 +1229,32 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, numberOfChoices },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
-							ValueTree{ track2or4 ? evenTrackChoiceNamesConcise : oddTrackChoiceNamesConcise },
-							ValueTree{ track2or4 ? evenTrackChoiceNamesVerbose : oddTrackChoiceNamesVerbose }
+							ValueTree{ trackNumIsEven ? evenTrackChoiceNamesConcise : oddTrackChoiceNamesConcise },
+							ValueTree{ trackNumIsEven ? evenTrackChoiceNamesVerbose : oddTrackChoiceNamesVerbose }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+	}
+
+	//-------------------------------------------------------------------------------------------------------------- knob assign
+
+	for (uint8 knobNum = 1; knobNum != 5; ++knobNum) {
+		auto paramNumString{ "ep_" + String(104 + knobNum) };
+		auto paramNameString{ paramNumString + "_AssignKnob_" + (String)knobNum };
+		auto exposedNameString{ "Assign Parameter to Knob " + (String)knobNum };
+		auto nrpn{ 104 + knobNum };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ paramNumString, {}, {
+				ValueTree{ paramNameString, {
+							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_NRPN, nrpn },
+							{ ID::property_NumberOfChoices, 169 },
+							{ ID::property_DefaultChoice, knobNum == 1 ? 5 : knobNum == 2 ? 11 : knobNum == 3 ? 43 : 23 },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_KnobAssign(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_KnobAssign(verbose) }
 						} } }
 			},
 			-1,
