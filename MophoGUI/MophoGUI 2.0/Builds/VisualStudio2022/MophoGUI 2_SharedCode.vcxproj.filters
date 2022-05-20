@@ -11,6 +11,12 @@
     <Filter Include="MophoGUI 2\Source\constants">
       <UniqueIdentifier>{11CBDC46-3D32-FDEB-BCBF-38F7473A0297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\controls\sliders">
+      <UniqueIdentifier>{A66D16FF-B5E5-DC14-67E0-CC60638E2F10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI 2\Source\controls">
+      <UniqueIdentifier>{9B94EAE3-78B1-63D3-298F-A2EE181F3AB6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
@@ -465,6 +471,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.cpp">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
@@ -2606,6 +2615,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.h">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>

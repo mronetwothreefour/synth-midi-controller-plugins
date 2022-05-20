@@ -34,7 +34,12 @@
       <GROUP id="{DE1BA14A-94C6-4C31-DE12-8C88128CA8D4}" name="controls">
         <GROUP id="{D909148C-5320-2E4D-DA46-43AF8DE3E7C3}" name="buttons"/>
         <GROUP id="{CBFB8EE0-11F5-582D-75A5-A39FA71AD6EB}" name="comboBoxes"/>
-        <GROUP id="{0CAACFD6-5499-812D-EC93-910842B85161}" name="sliders"/>
+        <GROUP id="{0CAACFD6-5499-812D-EC93-910842B85161}" name="sliders">
+          <FILE id="af25zT" name="slider_JuceSlidersWithMods.cpp" compile="1"
+                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMods.cpp"/>
+          <FILE id="CHSltE" name="slider_JuceSlidersWithMods.h" compile="0" resource="0"
+                file="Source/controls/sliders/slider_JuceSlidersWithMods.h"/>
+        </GROUP>
       </GROUP>
       <GROUP id="{CC729A8C-68B3-B62B-0FBF-82BEF4A2D9C3}" name="exposedParameters">
         <FILE id="HA9JKU" name="ep_build_ChoiceNamesValueTree.cpp" compile="1"
