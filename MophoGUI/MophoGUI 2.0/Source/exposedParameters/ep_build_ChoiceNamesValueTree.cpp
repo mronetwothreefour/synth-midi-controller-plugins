@@ -9,22 +9,55 @@ using namespace mophoConstants;
 
 String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	auto noteNum{ i % 12 };
-	auto octaveNum{ i / 12 };
+	auto octaveNumString{ String(i / 12) };
 	String pitchName;
 	switch (noteNum) {
-	case 0: return "C " + (String)octaveNum;
-	case 1: return "C# " + (String)octaveNum;
-	case 2: return "D " + (String)octaveNum;
-	case 3: return "D# " + (String)octaveNum;
-	case 4: return "E " + (String)octaveNum;
-	case 5: return "F " + (String)octaveNum;
-	case 6: return "F# " + (String)octaveNum;
-	case 7: return "G " + (String)octaveNum;
-	case 8: return "G# " + (String)octaveNum;
-	case 9: return "A " + (String)octaveNum;
-	case 10: return "A# " + (String)octaveNum;
-	case 11: return "B " + (String)octaveNum;
+	case 0: return "C " + octaveNumString;
+	case 1: return "C# " + octaveNumString;
+	case 2: return "D " + octaveNumString;
+	case 3: return "D# " + octaveNumString;
+	case 4: return "E " + octaveNumString;
+	case 5: return "F " + octaveNumString;
+	case 6: return "F# " + octaveNumString;
+	case 7: return "G " + octaveNumString;
+	case 8: return "G# " + octaveNumString;
+	case 9: return "A " + octaveNumString;
+	case 10: return "A# " + octaveNumString;
+	case 11: return "B " + octaveNumString;
 	default: return "invalid";
+	}
+}
+
+String ChoiceNamesValueTree::convertIntToSeqStepPitchName(const uint8& i) noexcept {
+	auto noteNum{ i % 24 };
+	auto octaveNumString{ String(i / 24) };
+	switch (noteNum)
+	{
+	case 0: return "C" + octaveNumString;
+	case 1: return "C" + octaveNumString + "+";
+	case 2: return "C#" + octaveNumString;
+	case 3: return "C#" + octaveNumString + "+";
+	case 4: return "D" + octaveNumString;
+	case 5: return "D" + octaveNumString + "+";
+	case 6: return "D#" + octaveNumString;
+	case 7: return "D#" + octaveNumString + "+";
+	case 8: return "E" + octaveNumString;
+	case 9: return "E" + octaveNumString + "+";
+	case 10: return "F" + octaveNumString;
+	case 11: return "F" + octaveNumString + "+";
+	case 12: return "F#" + octaveNumString;
+	case 13: return "F#" + octaveNumString + "+";
+	case 14: return "G" + octaveNumString;
+	case 15: return "G" + octaveNumString + "+";
+	case 16: return "G#" + octaveNumString;
+	case 17: return "G#" + octaveNumString + "+";
+	case 18: return "A" + octaveNumString;
+	case 19: return "A" + octaveNumString + "+";
+	case 20: return "A#" + octaveNumString;
+	case 21: return "A#" + octaveNumString + "+";
+	case 22: return "B" + octaveNumString;
+	case 23: return "B" + octaveNumString + "+";
+	default: return "err";
 	}
 }
 
@@ -438,6 +471,18 @@ ValueTree ChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
 	return choiceNamesTree;
 }
 
+ValueTree ChoiceNamesValueTree::buildFor_SeqTrackStep(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto choiceNum = 0; choiceNum != 126; ++choiceNum)
+		choiceNamesTree.setProperty(
+			"choice_" + (String)choiceNum, 
+			(String)choiceNum + " (" + convertIntToSeqStepPitchName((uint8)choiceNum) + ")",
+			nullptr);
+	choiceNamesTree.setProperty("choice_126", "Reset Sequence", nullptr);
+	choiceNamesTree.setProperty("choice_127", "Rest", nullptr);
+	return choiceNamesTree;
+}
+
 ValueTree ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose) {
 	jassert(trackNum == 2 || trackNum == 4);
 	auto choiceNamesTree{ buildFor_ModDestination(verbose) };
@@ -454,5 +499,24 @@ ValueTree ChoiceNamesValueTree::buildFor_SeqTrigMode(bool verbose) {
 	choiceNamesTree.setProperty("choice_4", "Key Step", nullptr);
 	choiceNamesTree.setProperty("choice_5", "Audio Input", nullptr);
 	return choiceNamesTree;
+}
+
+ValueTree ChoiceNamesValueTree::buildFor_VoiceNameChar(bool verbose) {
+	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
+	for (auto choiceNum = 0; choiceNum != 32; ++choiceNum)
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "ASCII Control Character " + (String)choiceNum, nullptr);
+	choiceNamesTree.setProperty("choice_32", "Space", nullptr);
+	for (auto choiceNum = 33; choiceNum != 128; ++choiceNum) {
+		auto choiceName{ String(std::string(1, (char)choiceNum)) };
+		if (choiceNum == 92)
+			choiceName = "Yen Symbol";
+		if (choiceNum == 126)
+			choiceName = "Right Arrow";
+		if (choiceNum == 127)
+			choiceName = "Left Arrow";
+		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
+	}
+	return choiceNamesTree;
+
 }
 

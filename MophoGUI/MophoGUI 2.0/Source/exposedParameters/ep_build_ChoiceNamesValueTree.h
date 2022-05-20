@@ -6,6 +6,7 @@
 
 struct ChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
+	static String convertIntToSeqStepPitchName(const uint8& i) noexcept;
 
 	static ValueTree buildFor_ArpegMode(bool verbose);
 	static ValueTree buildFor_BendRange(bool verbose);
@@ -27,8 +28,10 @@ struct ChoiceNamesValueTree {
 	static ValueTree buildFor_PlainValue(uint8 numberOfChoices, bool verbose);
 	static ValueTree buildFor_PlusMinus127(bool verbose);
 	static ValueTree buildFor_PushItMode(bool verbose);
+	static ValueTree buildFor_SeqTrackStep(bool verbose);
 	static ValueTree buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose);
 	static ValueTree buildFor_SeqTrigMode(bool verbose);
+	static ValueTree buildFor_VoiceNameChar(bool verbose);
 
 private:
 	//==============================================================================

@@ -1262,7 +1262,54 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		);
 	}
 
-	//--------------------------------------------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------- sequencer steps
+
+	for (auto trackNum = 0; trackNum != 4; ++trackNum) {
+		auto trackString{ String(trackNum + 1) };
+		for (auto stepNum = 0; stepNum != 16; ++stepNum) {
+			auto stepString{ String(stepNum + 1) };
+			auto paramNumString{ "ep_" + String(109 + trackNum * 16 + stepNum) };
+			auto paramNameString{ paramNumString + "_SeqTrack_" + trackString + "_Step_" + stepString };
+			auto exposedNameString{ "Sequencer Track " + trackString + " Step " + stepString };
+			auto nrpn{ 120 + trackNum * 16 + stepNum };
+			exposedParamsInfoTree.addChild(
+				ValueTree{ paramNumString, {}, {
+					ValueTree{ paramNameString, {
+								{ ID::property_ExposedName, exposedNameString },
+								{ ID::property_NRPN, nrpn },
+								{ ID::property_NumberOfChoices, trackNum == 0 ? 128 : 127 },
+								{ ID::property_DefaultChoice, 0 },
+							}, {
+								ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrackStep(concise) },
+								ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrackStep(verbose) }
+							} } }
+				},
+				-1,
+				nullptr
+			);
+		}
+	}
+
+	//---------------------------------------------------------------------------------------------------- voice name characters
+
+	for (auto charNum = 0; charNum != 16; ++charNum) {
+		auto charNumString{ String(charNum + 1) };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ "ep_" + String(173 + charNum), {}, {
+				ValueTree{ "ep_" + String(173 + charNum) + "_VoiceNameChar_" + charNumString, {
+							{ ID::property_ExposedName, "Program Name Character " + charNumString },
+							{ ID::property_NRPN, 173 + charNum },
+							{ ID::property_NumberOfChoices, 128 },
+							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
+						}, {
+							ValueTree{ ChoiceNamesValueTree::buildFor_VoiceNameChar(concise) },
+							ValueTree{ ChoiceNamesValueTree::buildFor_VoiceNameChar(verbose) }
+						} } }
+			},
+			-1,
+			nullptr
+		);
+	}
 }
 
 //==============================================================================================================================
