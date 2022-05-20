@@ -1217,10 +1217,6 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		auto nrpn{ 76 + trackNum };
 		auto trackNumIsEven{ trackNum == 2 || trackNum == 4 };
 		auto numberOfChoices{ trackNumIsEven ? EP::numberOfChoicesForSeqTracks_2_4_Dest : EP::numberOfChoicesForModDest };
-		auto oddTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_ModDestination(concise) };
-		auto oddTrackChoiceNamesVerbose{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) };
-		auto evenTrackChoiceNamesConcise{ ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, concise) };
-		auto evenTrackChoiceNamesVerbose{ ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, verbose) };
 		exposedParamsInfoTree.addChild(
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
@@ -1229,8 +1225,12 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, numberOfChoices },
 							{ ID::property_DefaultChoice, 0 },
 						}, {
-							ValueTree{ trackNumIsEven ? evenTrackChoiceNamesConcise : oddTrackChoiceNamesConcise },
-							ValueTree{ trackNumIsEven ? evenTrackChoiceNamesVerbose : oddTrackChoiceNamesVerbose }
+							ValueTree{ trackNumIsEven ? 
+								ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, concise) : 
+								ChoiceNamesValueTree::buildFor_ModDestination(concise) },
+							ValueTree{ trackNumIsEven ? 
+								ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(trackNum, verbose) :
+								ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
 						} } }
 			},
 			-1,
