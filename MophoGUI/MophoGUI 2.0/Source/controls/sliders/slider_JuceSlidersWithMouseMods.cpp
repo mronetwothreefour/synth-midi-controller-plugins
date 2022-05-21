@@ -1,9 +1,9 @@
-#include "slider_JuceSlidersWithMods.h"
+#include "slider_JuceSlidersWithMouseMods.h"
 
 
 
-SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(bool isModifyingPitch, UnexposedParameters* unexposedParams) :
-	isModifyingPitch{ isModifyingPitch },
+SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
+	isModifyingPitch{ false },
 	unexposedParams{ unexposedParams }
 {
 }
@@ -25,8 +25,8 @@ void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, c
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 
-RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(bool isModifyingPitch, UnexposedParameters* unexposedParams) :
-	SliderWithMouseWheelMoveOverride{ isModifyingPitch, unexposedParams }
+RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
+	SliderWithMouseWheelMoveOverride{ unexposedParams }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
@@ -39,7 +39,7 @@ RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(b
 
 
 RotarySliderWithMouseDownModForOscShape::RotarySliderWithMouseDownModForOscShape(UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMoveOverride{ false, unexposedParams }
+	RotarySliderWithMouseWheelMoveOverride{ unexposedParams }
 {
 }
 
@@ -72,8 +72,8 @@ void RotarySliderWithMouseDownModForOscShape::mouseDown(const MouseEvent& event)
 
 
 
-RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(int trackNum, bool isModifyingPitch, UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMoveOverride{ isModifyingPitch, unexposedParams },
+RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(int trackNum, UnexposedParameters* unexposedParams) :
+	RotarySliderWithMouseWheelMoveOverride{ unexposedParams },
 	trackNum{ trackNum }
 {
 }

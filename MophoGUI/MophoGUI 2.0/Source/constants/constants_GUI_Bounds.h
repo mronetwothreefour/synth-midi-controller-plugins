@@ -8,7 +8,8 @@ namespace mophoConstants
 {
 	namespace GUI
 	{
-		static const int editor_w{ 1273 };
-		static const int editor_h{ 626 };
+		const int editor_w{ 1273 };
+		const int editor_h{ 626 };
+		const int knob_diameter{ 40 };
 	}
 }

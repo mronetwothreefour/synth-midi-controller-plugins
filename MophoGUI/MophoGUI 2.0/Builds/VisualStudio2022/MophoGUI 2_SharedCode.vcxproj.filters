@@ -472,8 +472,14 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.cpp">
+    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.cpp">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.cpp">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.cpp">
+      <Filter>MophoGUI 2\Source\controls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
@@ -485,6 +491,9 @@
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2607,17 +2616,32 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Bounds.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.h">
+    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.h">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.h">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.h">
+      <Filter>MophoGUI 2\Source\controls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
@@ -2629,6 +2653,9 @@
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5060,6 +5087,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf">
+      <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
     <None Include="..\..\BinaryResources\background_MainWindow.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>

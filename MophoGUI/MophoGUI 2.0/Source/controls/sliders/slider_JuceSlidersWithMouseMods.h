@@ -16,7 +16,7 @@ public:
 
 	SliderWithMouseWheelMoveOverride() = delete;
 
-	SliderWithMouseWheelMoveOverride(bool isModifyingPitch, UnexposedParameters* unexposedParams);
+	SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams);
 	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
 
 private:
@@ -33,7 +33,7 @@ class RotarySliderWithMouseWheelMoveOverride :
 public:
 	RotarySliderWithMouseWheelMoveOverride() = delete;
 
-	RotarySliderWithMouseWheelMoveOverride(bool isModifyingPitch, UnexposedParameters* unexposedParams);
+	explicit RotarySliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams);
 
 private:
 	//==============================================================================
@@ -68,7 +68,7 @@ class RotarySliderWithMouseDownModForSeqStep :
 public:
 	RotarySliderWithMouseDownModForSeqStep() = delete;
 
-	RotarySliderWithMouseDownModForSeqStep(int trackNum, bool isModifyingPitch, UnexposedParameters* unexposedParams);
+	RotarySliderWithMouseDownModForSeqStep(int trackNum, UnexposedParameters* unexposedParams);
 	void mouseDown(const MouseEvent& event) override;
 
 private:

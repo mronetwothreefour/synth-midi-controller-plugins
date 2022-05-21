@@ -8,11 +8,14 @@
 
 namespace BinaryData
 {
+    extern const char*   OverpassBold_ttf;
+    const int            OverpassBold_ttfSize = 123228;
+
     extern const char*   background_MainWindow_png;
     const int            background_MainWindow_pngSize = 93983;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 2;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

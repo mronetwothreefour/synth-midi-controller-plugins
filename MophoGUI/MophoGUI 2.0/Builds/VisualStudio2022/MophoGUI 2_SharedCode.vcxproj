@@ -140,11 +140,14 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
-    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.cpp"/>
+    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.cpp"/>
+    <ClCompile Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.cpp"/>
+    <ClCompile Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2111,14 +2114,20 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Bounds.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
-    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMods.h"/>
+    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.h"/>
+    <ClInclude Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.h"/>
+    <ClInclude Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -2930,6 +2939,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
     <None Include="..\..\BinaryResources\background_MainWindow.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>

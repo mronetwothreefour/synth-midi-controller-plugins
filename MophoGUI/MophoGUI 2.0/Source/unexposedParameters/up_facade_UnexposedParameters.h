@@ -2,15 +2,21 @@
 
 #include <JuceHeader.h>
 
+#include "up_tree_TooltipsOptions.h"
+
 
 
 class UnexposedParameters
 {
+	std::unique_ptr<TooltipsOptions> tooltipsOptions;
 	std::unique_ptr<UndoManager> undoManager;
 
 public:
 	UnexposedParameters();
+	TooltipsOptions* getTooltipsOptions();
 	UndoManager* getUndoManager();
+	XmlElement getStateXml();
+	void replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 
 private:

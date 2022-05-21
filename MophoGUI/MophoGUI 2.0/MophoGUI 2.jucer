@@ -9,6 +9,8 @@
               pluginCode="Ygwg">
   <MAINGROUP id="bESqsD" name="MophoGUI 2">
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources">
+      <FILE id="ukSPA9" name="Overpass-Bold.ttf" compile="0" resource="1"
+            file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
       <FILE id="ScCwTt" name="background_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/background_MainWindow.png"/>
     </GROUP>
@@ -24,10 +26,16 @@
               file="Source/core_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{62E13D27-6659-B7FB-13E2-73B203E87421}" name="constants">
+        <FILE id="oBVJT4" name="constants_enum_ControlType.h" compile="0" resource="0"
+              file="Source/constants/constants_enum_ControlType.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
         <FILE id="Z329wf" name="constants_GUI_Bounds.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Bounds.h"/>
+        <FILE id="UGPUNx" name="constants_GUI_Colors.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Colors.h"/>
+        <FILE id="zHsjKH" name="constants_GUI_FontsAndSpecialCharacters.h"
+              compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
         <FILE id="ZHL3gW" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
       </GROUP>
@@ -35,11 +43,19 @@
         <GROUP id="{D909148C-5320-2E4D-DA46-43AF8DE3E7C3}" name="buttons"/>
         <GROUP id="{CBFB8EE0-11F5-582D-75A5-A39FA71AD6EB}" name="comboBoxes"/>
         <GROUP id="{0CAACFD6-5499-812D-EC93-910842B85161}" name="sliders">
-          <FILE id="af25zT" name="slider_JuceSlidersWithMods.cpp" compile="1"
-                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMods.cpp"/>
-          <FILE id="CHSltE" name="slider_JuceSlidersWithMods.h" compile="0" resource="0"
-                file="Source/controls/sliders/slider_JuceSlidersWithMods.h"/>
+          <FILE id="af25zT" name="slider_JuceSlidersWithMouseMods.cpp" compile="1"
+                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMouseMods.cpp"/>
+          <FILE id="CHSltE" name="slider_JuceSlidersWithMouseMods.h" compile="0"
+                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMouseMods.h"/>
+          <FILE id="H1k2jQ" name="component_KnobWithExposedParamAttacher.cpp"
+                compile="1" resource="0" file="Source/controls/sliders/component_KnobWithExposedParamAttacher.cpp"/>
+          <FILE id="HGFBJ0" name="component_KnobWithExposedParamAttacher.h" compile="0"
+                resource="0" file="Source/controls/sliders/component_KnobWithExposedParamAttacher.h"/>
         </GROUP>
+        <FILE id="jEERiU" name="component_TooltipUpdaterForExposedParamControl.cpp"
+              compile="1" resource="0" file="Source/controls/component_TooltipUpdaterForExposedParamControl.cpp"/>
+        <FILE id="lSyUGg" name="component_TooltipUpdaterForExposedParamControl.h"
+              compile="0" resource="0" file="Source/controls/component_TooltipUpdaterForExposedParamControl.h"/>
       </GROUP>
       <GROUP id="{CC729A8C-68B3-B62B-0FBF-82BEF4A2D9C3}" name="exposedParameters">
         <FILE id="HA9JKU" name="ep_build_ChoiceNamesValueTree.cpp" compile="1"
@@ -60,6 +76,10 @@
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>
         <FILE id="jcR7Y5" name="up_facade_UnexposedParameters.h" compile="0"
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.h"/>
+        <FILE id="ekcYga" name="up_tree_TooltipsOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_tree_TooltipsOptions.cpp"/>
+        <FILE id="MFU0dA" name="up_tree_TooltipsOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_tree_TooltipsOptions.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
