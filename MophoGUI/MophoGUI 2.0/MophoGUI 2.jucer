@@ -28,6 +28,8 @@
       <GROUP id="{62E13D27-6659-B7FB-13E2-73B203E87421}" name="constants">
         <FILE id="oBVJT4" name="constants_enum_ControlType.h" compile="0" resource="0"
               file="Source/constants/constants_enum_ControlType.h"/>
+        <FILE id="pBOSzK" name="constants_enum_OscWaveShape.h" compile="0"
+              resource="0" file="Source/constants/constants_enum_OscWaveShape.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
         <FILE id="Z329wf" name="constants_GUI_Bounds.h" compile="0" resource="0"
@@ -43,19 +45,27 @@
         <GROUP id="{D909148C-5320-2E4D-DA46-43AF8DE3E7C3}" name="buttons"/>
         <GROUP id="{CBFB8EE0-11F5-582D-75A5-A39FA71AD6EB}" name="comboBoxes"/>
         <GROUP id="{0CAACFD6-5499-812D-EC93-910842B85161}" name="sliders">
-          <FILE id="af25zT" name="slider_JuceSlidersWithMouseMods.cpp" compile="1"
-                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMouseMods.cpp"/>
-          <FILE id="CHSltE" name="slider_JuceSlidersWithMouseMods.h" compile="0"
-                resource="0" file="Source/controls/sliders/slider_JuceSlidersWithMouseMods.h"/>
-          <FILE id="H1k2jQ" name="component_KnobWithExposedParamAttacher.cpp"
-                compile="1" resource="0" file="Source/controls/sliders/component_KnobWithExposedParamAttacher.cpp"/>
-          <FILE id="HGFBJ0" name="component_KnobWithExposedParamAttacher.h" compile="0"
-                resource="0" file="Source/controls/sliders/component_KnobWithExposedParamAttacher.h"/>
+          <FILE id="af25zT" name="0_slider_JuceSlidersWithMouseMods.cpp" compile="1"
+                resource="0" file="Source/controls/sliders/0_slider_JuceSlidersWithMouseMods.cpp"/>
+          <FILE id="CHSltE" name="0_slider_JuceSlidersWithMouseMods.h" compile="0"
+                resource="0" file="Source/controls/sliders/0_slider_JuceSlidersWithMouseMods.h"/>
+          <FILE id="H1k2jQ" name="1_comp_KnobAndAttachment.cpp" compile="1" resource="0"
+                file="Source/controls/sliders/1_comp_KnobAndAttachment.cpp"/>
+          <FILE id="HGFBJ0" name="1_comp_KnobAndAttachment.h" compile="0" resource="0"
+                file="Source/controls/sliders/1_comp_KnobAndAttachment.h"/>
+          <FILE id="mFOMP8" name="1_comp_KnobAndAttachment_ForOscShape.cpp" compile="1"
+                resource="0" file="Source/controls/sliders/1_comp_KnobAndAttachment_ForOscShape.cpp"/>
+          <FILE id="pFn7M7" name="1_comp_KnobAndAttachment_ForOscShape.h" compile="0"
+                resource="0" file="Source/controls/sliders/1_comp_KnobAndAttachment_ForOscShape.h"/>
+          <FILE id="slGiag" name="1_comp_KnobAndAttachment_ForSeqStep.cpp" compile="1"
+                resource="0" file="Source/controls/sliders/1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
+          <FILE id="sOq7tY" name="1_comp_KnobAndAttachment_ForSeqStep.h" compile="0"
+                resource="0" file="Source/controls/sliders/1_comp_KnobAndAttachment_ForSeqStep.h"/>
         </GROUP>
-        <FILE id="jEERiU" name="component_TooltipUpdaterForExposedParamControl.cpp"
-              compile="1" resource="0" file="Source/controls/component_TooltipUpdaterForExposedParamControl.cpp"/>
-        <FILE id="lSyUGg" name="component_TooltipUpdaterForExposedParamControl.h"
-              compile="0" resource="0" file="Source/controls/component_TooltipUpdaterForExposedParamControl.h"/>
+        <FILE id="jEERiU" name="0_comp_TooltipUpdaterForExposedParamControl.cpp"
+              compile="1" resource="0" file="Source/controls/0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
+        <FILE id="lSyUGg" name="0_comp_TooltipUpdaterForExposedParamControl.h"
+              compile="0" resource="0" file="Source/controls/0_comp_TooltipUpdaterForExposedParamControl.h"/>
       </GROUP>
       <GROUP id="{CC729A8C-68B3-B62B-0FBF-82BEF4A2D9C3}" name="exposedParameters">
         <FILE id="HA9JKU" name="ep_build_ChoiceNamesValueTree.cpp" compile="1"

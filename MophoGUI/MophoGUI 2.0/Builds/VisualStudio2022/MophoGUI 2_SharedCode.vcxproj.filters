@@ -472,13 +472,19 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.cpp">
+    <ClCompile Include="..\..\Source\controls\sliders\0_slider_JuceSlidersWithMouseMods.cpp">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.cpp">
+    <ClCompile Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.cpp">
+    <ClCompile Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment_ForOscShape.cpp">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment_ForSeqStep.cpp">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\controls\0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\controls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
@@ -2619,6 +2625,9 @@
     <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_enum_OscWaveShape.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
@@ -2634,13 +2643,19 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\controls\sliders\slider_JuceSlidersWithMouseMods.h">
+    <ClInclude Include="..\..\Source\controls\sliders\0_slider_JuceSlidersWithMouseMods.h">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\controls\sliders\component_KnobWithExposedParamAttacher.h">
+    <ClInclude Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment.h">
       <Filter>MophoGUI 2\Source\controls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\controls\component_TooltipUpdaterForExposedParamControl.h">
+    <ClInclude Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment_ForOscShape.h">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\controls\sliders\1_comp_KnobAndAttachment_ForSeqStep.h">
+      <Filter>MophoGUI 2\Source\controls\sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\controls\0_comp_TooltipUpdaterForExposedParamControl.h">
       <Filter>MophoGUI 2\Source\controls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">

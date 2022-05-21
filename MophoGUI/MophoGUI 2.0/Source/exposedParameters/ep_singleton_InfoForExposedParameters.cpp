@@ -1387,3 +1387,11 @@ String InfoForExposedParameters::verboseChoiceNameFor(uint8 choiceNum, uint8 par
 	auto verboseChoiceName{ verboseChoiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return verboseChoiceName;
 }
+
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
+	return String();
+}
+
+int InfoForExposedParameters::mouseDragSensitivityFor(uint8 paramIndex) const {
+	return 80 + roundToInt(numberOfChoicesFor(paramIndex) / 2);
+}
