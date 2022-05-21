@@ -23,6 +23,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_000" : "ep_006", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_000_Osc_1_Pitch : ID::ep_006_Osc_2_Pitch), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Pitch" },
+							{ ID::property_ControlType, (int)ControlType::knobForPitch },
 							{ ID::property_NRPN, oscNum == 1 ? 0 : 5 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscPitch },
 							{ ID::property_DefaultChoice, 24 },
@@ -39,6 +40,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_001" : "ep_007", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_001_Osc_1_FineTune : ID::ep_007_Osc_2_FineTune), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Fine Tune" },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, oscNum == 1 ? 1 : 6 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscFineTune },
 							{ ID::property_DefaultChoice, oscNum == 1 ? 49 : 51 },
@@ -55,6 +57,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_002" : "ep_008", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_002_Osc_1_Shape : ID::ep_008_Osc_2_Shape), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Wave Shape" },
+							{ ID::property_ControlType, (int)ControlType::knobForOscShape },
 							{ ID::property_NRPN, oscNum == 1 ? 2 : 7 },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscWaveShape },
 							{ ID::property_DefaultChoice, 1 },
@@ -71,6 +74,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_003" : "ep_009", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_003_Osc_1_Glide : ID::ep_009_Osc_2_Glide), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Glide Rate" },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, oscNum == 1 ? 3 : 8 },
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
@@ -87,6 +91,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_004" : "ep_010", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_004_Osc_1_KeyTrack : ID::ep_010_Osc_2_KeyTrack), {
 							{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Keyboard Track On/Off" },
+							{ ID::property_ControlType, (int)ControlType::toggleButton },
 							{ ID::property_NRPN, oscNum == 1 ? 4 : 9 },
 							{ ID::property_NumberOfChoices, 2 },
 							{ ID::property_DefaultChoice, 1 },
@@ -103,6 +108,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ oscNum == 1 ? "ep_005" : "ep_011", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_005_Osc_1_SubLevel : ID::ep_011_Osc_2_SubLevel), {
 							{ ID::property_ExposedName, "Sub-Oscillator " + (String)oscNum + " Level"  },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, oscNum == 1 ? 114 : 115 },
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
@@ -120,6 +126,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_012", {}, {
 			ValueTree{ ID::ep_012_OscSync, {
 						{ ID::property_ExposedName, "Hard Oscillator Sync On/Off" },
+						{ ID::property_ControlType, (int)ControlType::toggleButton },
 						{ ID::property_NRPN, 10 },
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 0 },
@@ -136,6 +143,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_013", {}, {
 			ValueTree{ ID::ep_013_GlideMode, {
 						{ ID::property_ExposedName, "Glide Mode" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 11 },
 						{ ID::property_NumberOfChoices, 4 },
 						{ ID::property_DefaultChoice, 0 },
@@ -152,6 +160,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_014", {}, {
 			ValueTree{ ID::ep_014_OscSlop, {
 						{ ID::property_ExposedName, "Oscillator Slop" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 12 },
 						{ ID::property_NumberOfChoices, 6 },
 						{ ID::property_DefaultChoice, 2 },
@@ -168,6 +177,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_015", {}, {
 			ValueTree{ ID::ep_015_BendRange, {
 						{ ID::property_ExposedName, "Pitch Bend Range" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 93 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForBendRange },
 						{ ID::property_DefaultChoice, 4 },
@@ -184,6 +194,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_016", {}, {
 			ValueTree{ ID::ep_016_NotePriority, {
 						{ ID::property_ExposedName, "Note Priority(Key Assign)" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 96 },
 						{ ID::property_NumberOfChoices, 6 },
 						{ ID::property_DefaultChoice, 4 },
@@ -200,6 +211,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_017", {}, {
 			ValueTree{ ID::ep_017_OscMix, {
 						{ ID::property_ExposedName, "Oscillator 1 & 2 Mix" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 13 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 64 },
@@ -216,6 +228,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_018", {}, {
 			ValueTree{ ID::ep_018_NoiseLevel, {
 						{ ID::property_ExposedName, "Noise Level" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 14 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -232,6 +245,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_019", {}, {
 			ValueTree{ ID::ep_019_ExtInLevel, {
 						{ ID::property_ExposedName, "External Audio Input Level" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 116 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -250,6 +264,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_020", {}, {
 			ValueTree{ ID::ep_020_LPF_Freq, {
 						{ ID::property_ExposedName, "LPF Cutoff Frequency" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 15 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForLPF_Freq },
 						{ ID::property_DefaultChoice, 148 },
@@ -266,6 +281,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_021", {}, {
 			ValueTree{ ID::ep_021_LPF_Reso, {
 						{ ID::property_ExposedName, "LPF Resonance" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 15 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -282,6 +298,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_022", {}, {
 			ValueTree{ ID::ep_022_LPF_KeyAmount, {
 						{ ID::property_ExposedName, "LPF Keyboard Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 17 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -298,6 +315,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_023", {}, {
 			ValueTree{ ID::ep_023_LPF_FM_Amount, {
 						{ ID::property_ExposedName, "LPF FM (By Oscillator 1)" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 18 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -314,6 +332,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_024", {}, {
 			ValueTree{ ID::ep_024_LPF_Type, {
 						{ ID::property_ExposedName, "LPF Type" },
+						{ ID::property_ControlType, (int)ControlType::toggleButton },
 						{ ID::property_NRPN, 19 },
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 1 },
@@ -330,6 +349,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_025", {}, {
 			ValueTree{ ID::ep_025_LPF_EnvAmount, {
 						{ ID::property_ExposedName, "LPF Envelope Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 20 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -346,6 +366,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_026", {}, {
 			ValueTree{ ID::ep_026_LPF_VelAmount, {
 						{ ID::property_ExposedName, "LPF Envelope Velocity Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 21 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -362,6 +383,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_027", {}, {
 			ValueTree{ ID::ep_027_LPF_Delay, {
 						{ ID::property_ExposedName, "LPF Envelope Delay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 22 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -378,6 +400,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_028", {}, {
 			ValueTree{ ID::ep_028_LPF_Attack, {
 						{ ID::property_ExposedName, "LPF Envelope Attack" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 23 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -394,6 +417,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_029", {}, {
 			ValueTree{ ID::ep_029_LPF_Decay, {
 						{ ID::property_ExposedName, "LPF Envelope Decay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 24 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -410,6 +434,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_030", {}, {
 			ValueTree{ ID::ep_030_LPF_Sustain, {
 						{ ID::property_ExposedName, "LPF Envelope Sustain" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 25 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -426,6 +451,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_031", {}, {
 			ValueTree{ ID::ep_031_LPF_Release, {
 						{ ID::property_ExposedName, "LPF Envelope Release" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 26 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -444,6 +470,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_032", {}, {
 			ValueTree{ ID::ep_032_VCA_Level, {
 						{ ID::property_ExposedName, "VCA Baseline Level" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 27 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -460,6 +487,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_033", {}, {
 			ValueTree{ ID::ep_033_VCA_EnvAmount, {
 						{ ID::property_ExposedName, "VCA Envelope Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 30 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 127 },
@@ -476,6 +504,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_034", {}, {
 			ValueTree{ ID::ep_034_VCA_VelAmount, {
 						{ ID::property_ExposedName, "VCA Envelope Velocity Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 31 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -492,6 +521,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_035", {}, {
 			ValueTree{ ID::ep_035_VCA_Delay, {
 						{ ID::property_ExposedName, "VCA Envelope Delay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 32 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -508,6 +538,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_036", {}, {
 			ValueTree{ ID::ep_036_VCA_Attack, {
 						{ ID::property_ExposedName, "VCA Envelope Attack" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 33 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -524,6 +555,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_037", {}, {
 			ValueTree{ ID::ep_037_VCA_Decay, {
 						{ ID::property_ExposedName, "VCA Envelope Decay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 34 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -540,6 +572,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_038", {}, {
 			ValueTree{ ID::ep_038_VCA_Sustain, {
 						{ ID::property_ExposedName, "VCA Envelope Sustain" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 35 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 64 },
@@ -556,6 +589,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_039", {}, {
 			ValueTree{ ID::ep_039_VCA_Release, {
 						{ ID::property_ExposedName, "VCA Envelope Release" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 36 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 64 },
@@ -572,6 +606,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_040", {}, {
 			ValueTree{ ID::ep_040_VoiceVolume, {
 						{ ID::property_ExposedName, "Program Volume" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 29 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 120 },
@@ -595,6 +630,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 167 },
 							{ ID::property_DefaultChoice, 80 },
@@ -615,6 +651,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 5 },
 							{ ID::property_DefaultChoice, 1 },
@@ -635,6 +672,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
@@ -655,6 +693,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 							{ ID::property_DefaultChoice, 0 },
@@ -675,6 +714,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::toggleButton },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 2 },
 							{ ID::property_DefaultChoice, 0 },
@@ -694,6 +734,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_061", {}, {
 			ValueTree{ ID::ep_061_Env_3_Destination, {
 						{ ID::property_ExposedName, "Envelope 3 Modulation Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 57 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -710,6 +751,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_062", {}, {
 			ValueTree{ ID::ep_062_Env_3_Amount, {
 						{ ID::property_ExposedName, "Envelope 3 Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 58 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -726,6 +768,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_063", {}, {
 			ValueTree{ ID::ep_063_Env_3_VelAmount, {
 						{ ID::property_ExposedName, "Envelope 3 Velocity Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 59 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -742,6 +785,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_064", {}, {
 			ValueTree{ ID::ep_064_Env_3_Delay, {
 						{ ID::property_ExposedName, "Envelope 3 Delay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 60 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -758,6 +802,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_065", {}, {
 			ValueTree{ ID::ep_065_Env_3_Attack, {
 						{ ID::property_ExposedName, "Envelope 3 Attack" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 61 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -774,6 +819,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_066", {}, {
 			ValueTree{ ID::ep_066_Env_3_Decay, {
 						{ ID::property_ExposedName, "Envelope 3 Decay" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 62 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -790,6 +836,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_067", {}, {
 			ValueTree{ ID::ep_067_Env_3_Sustain, {
 						{ ID::property_ExposedName, "Envelope 3 Sustain" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 63 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -806,6 +853,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_068", {}, {
 			ValueTree{ ID::ep_068_Env_3_Release, {
 						{ ID::property_ExposedName, "Envelope 3 Release" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 64 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
@@ -822,6 +870,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_069", {}, {
 			ValueTree{ ID::ep_069_Env_3_Repeat, {
 						{ ID::property_ExposedName, "Envelope 3 Repeat" },
+						{ ID::property_ControlType, (int)ControlType::toggleButton },
 						{ ID::property_NRPN, 98 },
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 0 },
@@ -845,6 +894,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModSource },
 							{ ID::property_DefaultChoice, 0 },
@@ -865,6 +915,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::knob },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 255 },
 							{ ID::property_DefaultChoice, 127 },
@@ -885,6 +936,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 							{ ID::property_DefaultChoice, 0 },
@@ -904,6 +956,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_082", {}, {
 			ValueTree{ ID::ep_082_ModWheelAmount, {
 						{ ID::property_ExposedName, "Modulation Wheel Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 81 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -920,6 +973,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_083", {}, {
 			ValueTree{ ID::ep_083_ModWheelDest, {
 						{ ID::property_ExposedName, "Modulation Wheel Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 82 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -936,6 +990,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_084", {}, {
 			ValueTree{ ID::ep_084_PressureAmount, {
 						{ ID::property_ExposedName, "Pressure (Aftertouch) Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 83 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -952,6 +1007,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_085", {}, {
 			ValueTree{ ID::ep_085_PressureDest, {
 						{ ID::property_ExposedName, "Pressure (Aftertouch) Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 84 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -968,6 +1024,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_086", {}, {
 			ValueTree{ ID::ep_086_BreathAmount, {
 						{ ID::property_ExposedName, "Breath Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 85 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -984,6 +1041,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_087", {}, {
 			ValueTree{ ID::ep_087_BreathDest, {
 						{ ID::property_ExposedName, "Breath Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 86 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -1000,6 +1058,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_088", {}, {
 			ValueTree{ ID::ep_088_VelocityAmount, {
 						{ ID::property_ExposedName, "Note Velocity Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 87 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -1016,6 +1075,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_089", {}, {
 			ValueTree{ ID::ep_089_VelocityDest, {
 						{ ID::property_ExposedName, "Note Velocity Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 88 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -1032,6 +1092,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_090", {}, {
 			ValueTree{ ID::ep_090_PedalAmount, {
 						{ ID::property_ExposedName, "Foot Pedal Amount" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 89 },
 						{ ID::property_NumberOfChoices, 255 },
 						{ ID::property_DefaultChoice, 127 },
@@ -1048,6 +1109,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_091", {}, {
 			ValueTree{ ID::ep_091_PedalDest, {
 						{ ID::property_ExposedName, "Foot Pedal Destination" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 90 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 						{ ID::property_DefaultChoice, 0 },
@@ -1066,6 +1128,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_092", {}, {
 			ValueTree{ ID::ep_092_PushItPitch, {
 						{ ID::property_ExposedName, "Push It! Switch Pitch" },
+						{ ID::property_ControlType, (int)ControlType::knobForPitch },
 						{ ID::property_NRPN, 111 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscPitch },
 						{ ID::property_DefaultChoice, 60 },
@@ -1082,6 +1145,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_093", {}, {
 			ValueTree{ ID::ep_093_PushItVelocity, {
 						{ ID::property_ExposedName, "Push It! Switch Velocity" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 112 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 100 },
@@ -1098,6 +1162,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_094", {}, {
 			ValueTree{ ID::ep_094_PushItMode, {
 						{ ID::property_ExposedName, "Push It! Switch Mode" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 113 },
 						{ ID::property_NumberOfChoices, 3 },
 						{ ID::property_DefaultChoice, 0 },
@@ -1116,6 +1181,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_095", {}, {
 			ValueTree{ ID::ep_095_ClockTempo, {
 						{ ID::property_ExposedName, "Clock Tempo" },
+						{ ID::property_ControlType, (int)ControlType::knob },
 						{ ID::property_NRPN, 91 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForClockTempo },
 						{ ID::property_DefaultChoice, 90 },
@@ -1132,6 +1198,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_096", {}, {
 			ValueTree{ ID::ep_096_ClockDivision, {
 						{ ID::property_ExposedName, "Clock Division" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 92 },
 						{ ID::property_NumberOfChoices, 13 },
 						{ ID::property_DefaultChoice, 2 },
@@ -1148,6 +1215,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_097", {}, {
 			ValueTree{ ID::ep_097_ArpegMode, {
 						{ ID::property_ExposedName, "Arpeggiator Mode" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 97 },
 						{ ID::property_NumberOfChoices, 15 },
 						{ ID::property_DefaultChoice, 0 },
@@ -1164,6 +1232,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_098", {}, {
 			ValueTree{ ID::ep_098_ArpegOnOff, {
 						{ ID::property_ExposedName, "Arpeggiator On/Off" },
+						{ ID::property_ControlType, (int)ControlType::toggleButton },
 						{ ID::property_NRPN, 100 },
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 0 },
@@ -1182,6 +1251,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_099", {}, {
 			ValueTree{ ID::ep_099_SeqTrigMode, {
 						{ ID::property_ExposedName, "Sequencer Trigger Mode" },
+						{ ID::property_ControlType, (int)ControlType::comboBox },
 						{ ID::property_NRPN, 94 },
 						{ ID::property_NumberOfChoices, 6 },
 						{ ID::property_DefaultChoice, 0 },
@@ -1198,6 +1268,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_100", {}, {
 			ValueTree{ ID::ep_100_SeqOnOff, {
 						{ ID::property_ExposedName, "Sequencer On/Off" },
+						{ ID::property_ControlType, (int)ControlType::toggleButton },
 						{ ID::property_NRPN, 101 },
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 0 },
@@ -1221,6 +1292,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, numberOfChoices },
 							{ ID::property_DefaultChoice, 0 },
@@ -1249,6 +1321,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ paramNumString, {}, {
 				ValueTree{ paramNameString, {
 							{ ID::property_ExposedName, exposedNameString },
+							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, 169 },
 							{ ID::property_DefaultChoice, knobNum == 1 ? 5 : knobNum == 2 ? 11 : knobNum == 3 ? 43 : 23 },
@@ -1276,6 +1349,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 				ValueTree{ paramNumString, {}, {
 					ValueTree{ paramNameString, {
 								{ ID::property_ExposedName, exposedNameString },
+								{ ID::property_ControlType, (int)ControlType::seqTrackStep },
 								{ ID::property_NRPN, nrpn },
 								{ ID::property_NumberOfChoices, trackNum == 0 ? 128 : 127 },
 								{ ID::property_DefaultChoice, 0 },
@@ -1298,6 +1372,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ "ep_" + String(173 + charNum), {}, {
 				ValueTree{ "ep_" + String(173 + charNum) + "_VoiceNameChar_" + charNumString, {
 							{ ID::property_ExposedName, "Program Name Character " + charNumString },
+							{ ID::property_ControlType, (int)ControlType::voiceNameChar },
 							{ ID::property_NRPN, 173 + charNum },
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
@@ -1333,6 +1408,33 @@ String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return paramTree.getChild(0).getProperty(ID::property_ExposedName).toString();
+}
+
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto controlType{ (int)paramTree.getChild(0).getProperty(ID::property_ControlType) };
+	switch (controlType)
+	{
+	case (int)ControlType::knob:
+		return ControlType::knob;
+	case (int)ControlType::knobForPitch:
+		return ControlType::knobForPitch;
+	case (int)ControlType::knobForOscShape:
+		return ControlType::knobForOscShape;
+	case (int)ControlType::toggleButton:
+		return ControlType::toggleButton;
+	case (int)ControlType::comboBox:
+		return ControlType::comboBox;
+	case (int)ControlType::seqTrackStep:
+		return ControlType::seqTrackStep;
+	case (int)ControlType::voiceNameChar:
+		return ControlType::voiceNameChar;
+	default:
+		return ControlType::nullControl;
+	}
 }
 
 uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {

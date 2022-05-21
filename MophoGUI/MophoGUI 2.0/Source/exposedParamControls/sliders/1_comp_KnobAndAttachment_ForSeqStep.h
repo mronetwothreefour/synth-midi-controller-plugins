@@ -9,7 +9,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class KnobAndAttachment_ForOscShape :
+class KnobAndAttachment_ForSeqStep :
 	public Component,
 	public AudioProcessorParameter::Listener
 {
@@ -17,28 +17,26 @@ protected:
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	RotarySliderWithMouseDownModForOscShape knob;
+	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 	int choiceNum;
-	const PathStrokeType strokeType;
+	// todo: add int trackNum
 
 public:
-	KnobAndAttachment_ForOscShape() = delete;
+	KnobAndAttachment_ForSeqStep() = delete;
 
-	KnobAndAttachment_ForOscShape(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForSeqStep(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void paintText(Graphics& g, String text);
-	void paintSawtooth(Graphics& g, Path path);
-	void paintTriangle(Graphics& g, Path path);
-	void paintSawTriMix(Graphics& g, Path path);
-	void paintPulse(Graphics& g, Path path, int pulseWidth);
-	void attachToExposedParameter();
+	void paintResetSequenceArrow(Graphics& g);
+	void paintTrack1RestDot(Graphics& g);
+	void paintChoiceNameString(Graphics& g, String stepChoiceName);
+	void attachKnobToExposedParameter();
 	void parameterValueChanged(int changedParamIndex, float newValue);
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
-	void deleteAttachmentBeforeKnobToPreventLeaking();
+	void deleteAttachmentBeforeKnobToPreventMemLeak();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobAndAttachment_ForOscShape)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobAndAttachment_ForSeqStep)
 };

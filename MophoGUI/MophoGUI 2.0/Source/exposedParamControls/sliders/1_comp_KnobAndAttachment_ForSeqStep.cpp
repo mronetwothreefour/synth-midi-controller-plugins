@@ -20,10 +20,12 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
 {
+	// todo: add listener to track destination
 	auto& info{ InfoForExposedParameters::get() };
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
+	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 }
@@ -59,11 +61,12 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 	g.drawText(stepChoiceName, getLocalBounds(), Justification::centred, false);
 }
 
-void KnobAndAttachment_ForSeqStep::attachToExposedParameter() {
+void KnobAndAttachment_ForSeqStep::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
 }
 
 void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, float newValue) {
+	// todo: add logic for setting isModifyingPitch when the track destination changes
 	if (changedParamIndex == paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto paramID{ info.IDfor(paramIndex) };
@@ -77,6 +80,6 @@ void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, 
 void KnobAndAttachment_ForSeqStep::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
-void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventLeaking() {
+void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }

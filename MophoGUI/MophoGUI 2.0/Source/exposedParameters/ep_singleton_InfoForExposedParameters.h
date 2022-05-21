@@ -2,6 +2,11 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_enum_ControlType.h"
+
+using namespace mophoConstants;
+
+
 
 
 class InfoForExposedParameters
@@ -18,6 +23,7 @@ public:
 	static InfoForExposedParameters& get() noexcept;
 	Identifier IDfor(uint8 paramIndex) const;
 	String exposedNameFor(uint8 paramIndex) const;
+	ControlType controlTypeFor(uint8 paramIndex) const;
 	uint8 NRPNfor(uint8 paramIndex) const;
 	uint8 numberOfChoicesFor(uint8 paramIndex) const;
 	uint8 lastChoiceFor(uint8 paramIndex) const;

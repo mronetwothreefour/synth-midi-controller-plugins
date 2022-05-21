@@ -1,4 +1,4 @@
-#include "component_TooltipUpdaterForExposedParamControl.h"
+#include "0_comp_TooltipUpdaterForExposedParamControl.h"
 
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
@@ -38,7 +38,7 @@ String TooltipUpdaterForExposedParamControl::generateTooltipText() {
         auto paramID{ info.IDfor(paramIndex) };
         auto paramaterPtr{ exposedParams->getParameter(paramID) };
         auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
-        auto choiceName{ info.verboseChoiceNameFor(currentChoice, paramIndex) };
+        auto choiceName{ info.verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
         tooltipText += "Current Setting: " + choiceName;
     }
     return tooltipText;

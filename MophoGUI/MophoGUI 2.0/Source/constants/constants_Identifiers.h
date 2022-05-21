@@ -86,6 +86,7 @@ namespace mophoConstants
 
 		const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
+		const Identifier property_ControlType{ "property_ControlType" };
 		const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };

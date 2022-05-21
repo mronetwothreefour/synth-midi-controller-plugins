@@ -26,6 +26,7 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
+	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 }
@@ -98,7 +99,7 @@ void KnobAndAttachment_ForOscShape::paintPulse(Graphics& g, Path path, int pulse
 	g.drawText((String)(pulseWidth), pwTextArea, Justification::centred);
 }
 
-void KnobAndAttachment_ForOscShape::attachToExposedParameter() {
+void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
 }
 
@@ -116,6 +117,6 @@ void KnobAndAttachment_ForOscShape::parameterValueChanged(int changedParamIndex,
 void KnobAndAttachment_ForOscShape::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
-void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventLeaking() {
+void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }

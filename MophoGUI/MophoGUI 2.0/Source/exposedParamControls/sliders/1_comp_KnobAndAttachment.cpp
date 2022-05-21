@@ -23,6 +23,7 @@ KnobAndAttachment::KnobAndAttachment(
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
+	knob.isModifyingPitch = true;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 }
@@ -33,7 +34,7 @@ void KnobAndAttachment::paint(Graphics& g) {
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
 }
 
-void KnobAndAttachment::attachToExposedParameter() {
+void KnobAndAttachment::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
 }
 
@@ -43,7 +44,7 @@ void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newVa
 		auto paramID{ info.IDfor(paramIndex) };
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		choiceNameString = info.verboseChoiceNameFor(currentChoice, paramIndex);
+		choiceNameString = info.verboseChoiceNameFor((uint8)currentChoice, paramIndex);
 		repaint();
 	}
 }
@@ -51,7 +52,7 @@ void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newVa
 void KnobAndAttachment::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
-void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventLeaking() {
+void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }
 
