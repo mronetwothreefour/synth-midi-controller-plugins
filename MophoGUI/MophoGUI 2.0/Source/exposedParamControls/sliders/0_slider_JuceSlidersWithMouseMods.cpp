@@ -30,7 +30,9 @@ RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(U
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-	setRotaryParameters(degreesToRadians(225.0f), degreesToRadians(495.0f), true);
+	auto startAngleInRadians{ degreesToRadians(225.0f) };
+	auto endAngleInRadians{ degreesToRadians(495.0f) };
+	setRotaryParameters(startAngleInRadians, endAngleInRadians, true);
 }
 
 

@@ -4,7 +4,7 @@
 
 
 
-namespace mophoConstants
+namespace MophoConstants
 {
 	namespace GUI
 	{

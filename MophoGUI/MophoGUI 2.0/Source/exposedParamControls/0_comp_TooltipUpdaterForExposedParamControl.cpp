@@ -4,7 +4,7 @@
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
@@ -58,6 +58,9 @@ void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /
 }
 
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
+    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
+    tooltipsOptions->removeListener(this);
+
     auto& info{ InfoForExposedParameters::get() };
     auto paramID{ info.IDfor(paramIndex) };
     exposedParams->getParameter(paramID)->removeListener(this);

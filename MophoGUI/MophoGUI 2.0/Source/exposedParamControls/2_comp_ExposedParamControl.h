@@ -7,7 +7,7 @@
 #include "sliders/1_comp_KnobAndAttachment_ForSeqStep.h"
 #include "../constants/constants_enum_ControlType.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
@@ -35,7 +35,7 @@ private:
 	void buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam();
 
 public:
-	void attachToExposedParameter() const;
+	void attachControlToExposedParameter() const;
 	void mouseDown(const MouseEvent& event) override;
 	void deleteAttachmentBeforeControlToPreventMemLeak() const;
 	~ExposedParamControl();

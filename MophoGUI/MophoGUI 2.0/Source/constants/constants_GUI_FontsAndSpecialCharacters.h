@@ -12,7 +12,7 @@ struct FontBuilder {
 	}
 };
 
-namespace mophoConstants 
+namespace MophoConstants 
 {
 	namespace GUI
 	{

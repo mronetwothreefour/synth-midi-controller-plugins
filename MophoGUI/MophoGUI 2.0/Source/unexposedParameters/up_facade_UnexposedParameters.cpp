@@ -2,11 +2,12 @@
 
 #include "../constants/constants_Identifiers.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
 UnexposedParameters::UnexposedParameters() :
+	tooltipsOptions{ new TooltipsOptions() },
 	undoManager{ new UndoManager() }
 {
 }

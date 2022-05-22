@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 
-namespace mophoConstants
+namespace MophoConstants
 {
 	namespace GUI
 	{

@@ -32,9 +32,13 @@ public:
 	void paintTrack1RestDot(Graphics& g);
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
 	void attachKnobToExposedParameter();
+	void setKnobIsModifyingPitch();
+	void setKnobIsNotModifyingPitch();
 	void parameterValueChanged(int changedParamIndex, float newValue);
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
+
+	~KnobAndAttachment_ForSeqStep();
 
 private:
 	//==============================================================================

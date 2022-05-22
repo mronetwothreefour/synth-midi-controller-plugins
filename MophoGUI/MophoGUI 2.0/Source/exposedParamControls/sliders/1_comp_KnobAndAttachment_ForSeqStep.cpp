@@ -7,7 +7,7 @@
 #include "../../constants/constants_Identifiers.h"
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
@@ -22,15 +22,22 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 {
 	// todo: add listener to track destination
 	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto paramaterPtr{ exposedParams->getParameter(paramID) };
+	paramaterPtr->addListener(this);
+
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
+
+	parameterValueChanged(paramIndex, paramaterPtr->getValue());
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
+// todo: logic is needed for painting pitch name when track destination is an oscillator pitch
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
 		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
@@ -65,6 +72,14 @@ void KnobAndAttachment_ForSeqStep::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
 }
 
+void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch() {
+	knob.isModifyingPitch = true;
+}
+
+void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
+	knob.isModifyingPitch = false;
+}
+
 void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, float newValue) {
 	// todo: add logic for setting isModifyingPitch when the track destination changes
 	if (changedParamIndex == paramIndex) {
@@ -82,4 +97,11 @@ void KnobAndAttachment_ForSeqStep::parameterGestureChanged(int /*paramIndex*/, b
 
 void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
+}
+
+KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto paramaterPtr{ exposedParams->getParameter(paramID) };
+	paramaterPtr->removeListener(this);
 }

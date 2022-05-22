@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 
-namespace mophoConstants
+namespace MophoConstants
 {
 	const enum class ControlType {
 		nullControl = -1, // needed by ExposedParamControl's default constructor

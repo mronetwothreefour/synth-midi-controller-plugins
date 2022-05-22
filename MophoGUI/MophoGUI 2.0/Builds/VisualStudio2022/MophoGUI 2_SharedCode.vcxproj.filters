@@ -20,6 +20,9 @@
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\gui">
+      <UniqueIdentifier>{F3565732-B8AC-B941-FD8B-18C0D7E20F25}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
     </Filter>
@@ -490,6 +493,9 @@
     <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -498,6 +504,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
@@ -2664,6 +2676,9 @@
     <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -2672,6 +2687,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>

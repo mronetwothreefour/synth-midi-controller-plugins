@@ -146,9 +146,12 @@
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2130,9 +2133,12 @@
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h"/>
+    <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

@@ -50,6 +50,10 @@ void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
 		addAndMakeVisible(knobAndAttachment.get());
 		setSize(knobAndAttachment->getWidth(), knobAndAttachment->getHeight());
 		knobAndAttachment->addMouseListener(this, true);
+		if (controlType == ControlType::knobForPitch)
+			knobAndAttachment->setKnobIsModifyingPitch();
+		else
+			knobAndAttachment->setKnobIsNotModifyingPitch();
 	}
 }
 
@@ -71,7 +75,7 @@ void ExposedParamControl::buildKnobAndAttachmentControl_ForSeqStep_ForExposedPar
 	}
 }
 
-void ExposedParamControl::attachToExposedParameter() const {
+void ExposedParamControl::attachControlToExposedParameter() const {
 	jassert(exposedParams != nullptr);
 	switch (controlType)
 	{

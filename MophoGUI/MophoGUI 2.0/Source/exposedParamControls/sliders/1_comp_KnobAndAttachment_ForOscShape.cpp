@@ -8,7 +8,7 @@
 #include "../../constants/constants_Identifiers.h"
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
@@ -23,12 +23,18 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 		strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded }
 {
 	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto paramaterPtr{ exposedParams->getParameter(paramID) };
+	paramaterPtr->addListener(this);
+
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
+
+	parameterValueChanged(paramIndex, paramaterPtr->getValue());
 }
 
 void KnobAndAttachment_ForOscShape::paint(Graphics& g) {
@@ -60,6 +66,7 @@ void KnobAndAttachment_ForOscShape::paintSawtooth(Graphics& g, Path path) {
 	Line<float> line2{ 21.0f, 8.0f, 21.0f, 20.0f };
 	path.addLineSegment(line1, 0.5f);
 	path.addLineSegment(line2, 0.5f);
+	path.applyTransform(AffineTransform::translation(5.0f, 5.0f));
 	g.strokePath(path, strokeType);
 }
 
@@ -68,6 +75,7 @@ void KnobAndAttachment_ForOscShape::paintTriangle(Graphics& g, Path path) {
 	Line<float> line2{ 15.0f, 9.0f, 23.0f, 20.0f };
 	path.addLineSegment(line1, 0.5f);
 	path.addLineSegment(line2, 0.5f);
+	path.applyTransform(AffineTransform::translation(5.0f, 5.0f));
 	g.strokePath(path, strokeType);
 }
 
@@ -80,6 +88,7 @@ void KnobAndAttachment_ForOscShape::paintSawTriMix(Graphics& g, Path path) {
 	path.addLineSegment(line2, 0.5f);
 	path.addLineSegment(line3, 0.5f);
 	path.addLineSegment(line4, 0.5f);
+	path.applyTransform(AffineTransform::translation(5.0f, 5.0f));
 	g.strokePath(path, strokeType);
 }
 
@@ -93,9 +102,10 @@ void KnobAndAttachment_ForOscShape::paintPulse(Graphics& g, Path path, int pulse
 	path.addLineSegment(line2, 0.5f);
 	path.addLineSegment(line3, 0.5f);
 	path.addLineSegment(line4, 0.5f);
+	path.applyTransform(AffineTransform::translation(5.0f, 5.0f));
 	g.strokePath(path, strokeType);
 	g.setFont(GUI::fontFor_PulseWidthText);
-	Rectangle<int> pwTextArea{ 6, 18, 18, 11 };
+	Rectangle<int> pwTextArea{ 11, 23, 18, 11 };
 	g.drawText((String)(pulseWidth), pwTextArea, Justification::centred);
 }
 
@@ -119,4 +129,11 @@ void KnobAndAttachment_ForOscShape::parameterGestureChanged(int /*paramIndex*/, 
 
 void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
+}
+
+KnobAndAttachment_ForOscShape::~KnobAndAttachment_ForOscShape() {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	auto paramaterPtr{ exposedParams->getParameter(paramID) };
+	paramaterPtr->removeListener(this);
 }

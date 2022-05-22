@@ -38,6 +38,8 @@ public:
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
 
+	~KnobAndAttachment_ForOscShape();
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobAndAttachment_ForOscShape)

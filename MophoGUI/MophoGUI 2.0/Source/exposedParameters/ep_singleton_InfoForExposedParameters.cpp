@@ -5,7 +5,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 
@@ -1736,7 +1736,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
 							{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
-							{ ID::property_Center_y, GUI::voiceNameCharacters_h },
+							{ ID::property_Center_y, voiceNameCharacters_y },
 							{ ID::property_Width, GUI::seqSteps_w },
 							{ ID::property_Height, GUI::seqSteps_h },
 						}, {

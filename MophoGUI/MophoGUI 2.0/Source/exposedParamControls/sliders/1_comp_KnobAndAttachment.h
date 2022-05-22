@@ -28,9 +28,12 @@ public:
 	KnobAndAttachment(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void attachKnobToExposedParameter();
+	void setKnobIsModifyingPitch();
+	void setKnobIsNotModifyingPitch();
 	void parameterValueChanged(int changedParamIndex, float newValue);
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
+	~KnobAndAttachment();
 
 private:
 	//==============================================================================

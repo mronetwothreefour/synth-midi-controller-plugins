@@ -4,7 +4,7 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 

@@ -4,7 +4,7 @@
 
 #include "../constants/constants_enum_ControlType.h"
 
-using namespace mophoConstants;
+using namespace MophoConstants;
 
 
 

@@ -70,6 +70,10 @@
               resource="0" file="Source/exposedParamControls/2_comp_ExposedParamControl.cpp"/>
         <FILE id="Kl6ldD" name="2_comp_ExposedParamControl.h" compile="0" resource="0"
               file="Source/exposedParamControls/2_comp_ExposedParamControl.h"/>
+        <FILE id="num65R" name="3_vector_ExposedParamControlsServer.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/3_vector_ExposedParamControlsServer.cpp"/>
+        <FILE id="HXYf2H" name="3_vector_ExposedParamControlsServer.h" compile="0"
+              resource="0" file="Source/exposedParamControls/3_vector_ExposedParamControlsServer.h"/>
       </GROUP>
       <GROUP id="{CC729A8C-68B3-B62B-0FBF-82BEF4A2D9C3}" name="exposedParameters">
         <FILE id="HA9JKU" name="ep_build_ChoiceNamesValueTree.cpp" compile="1"
@@ -84,6 +88,16 @@
               compile="1" resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.cpp"/>
         <FILE id="MYC3I4" name="ep_singleton_InfoForExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
+      </GROUP>
+      <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
+        <FILE id="IRVoGG" name="gui_layer_ExposedParamControls.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_ExposedParamControls.cpp"/>
+        <FILE id="tlyZrU" name="gui_layer_ExposedParamControls.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="tpzqTT" name="gui_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_LookAndFeel.cpp"/>
+        <FILE id="Ym2eWM" name="gui_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_LookAndFeel.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

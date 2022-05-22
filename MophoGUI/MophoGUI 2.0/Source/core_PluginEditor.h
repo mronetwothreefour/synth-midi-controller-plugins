@@ -4,6 +4,8 @@
 
 
 
+class GUI_Layer_ExposedParamControls;
+class MophoLookAndFeel;
 class UnexposedParameters;
 
 class PluginEditor :
@@ -13,6 +15,8 @@ class PluginEditor :
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    std::unique_ptr<MophoLookAndFeel> lookAndFeel;
+    std::unique_ptr<GUI_Layer_ExposedParamControls> layerForExposedParamControls;
 
 public:
     PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
