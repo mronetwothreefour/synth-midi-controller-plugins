@@ -32,8 +32,8 @@
               resource="0" file="Source/constants/constants_enum_OscWaveShape.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
-        <FILE id="Z329wf" name="constants_GUI_Bounds.h" compile="0" resource="0"
-              file="Source/constants/constants_GUI_Bounds.h"/>
+        <FILE id="Z329wf" name="constants_GUI_Dimensions.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="UGPUNx" name="constants_GUI_Colors.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="zHsjKH" name="constants_GUI_FontsAndSpecialCharacters.h"

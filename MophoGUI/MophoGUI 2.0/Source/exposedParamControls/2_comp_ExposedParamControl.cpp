@@ -101,7 +101,7 @@ void ExposedParamControl::attachToExposedParameter() const {
 	}
 }
 
-void ExposedParamControl::mouseDown(const MouseEvent& event) {
+void ExposedParamControl::mouseDown(const MouseEvent& /*event*/) {
 	// todo: use this for randomizing control with right-click
 }
 

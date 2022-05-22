@@ -2634,7 +2634,7 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\constants_GUI_Bounds.h">
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">

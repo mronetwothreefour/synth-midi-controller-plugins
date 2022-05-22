@@ -86,11 +86,15 @@ namespace mophoConstants
 
 		const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
+		const Identifier property_Center_x{ "property_ControlCenter_x" };
+		const Identifier property_Center_y{ "property_ControlCenter_y" };
 		const Identifier property_ControlType{ "property_ControlType" };
 		const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
+		const Identifier property_Height{ "property_Width" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
+		const Identifier property_Width{ "property_Width" };
 
 		const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		const Identifier state_UnexposedParams{ "state_UnexposedParams" };

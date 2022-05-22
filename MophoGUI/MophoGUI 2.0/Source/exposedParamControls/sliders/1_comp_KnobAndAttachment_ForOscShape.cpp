@@ -2,7 +2,7 @@
 
 #include "../../constants/constants_enum_OscWaveShape.h"
 #include "../../constants/constants_ExposedParameters.h"
-#include "../../constants/constants_GUI_Bounds.h"
+#include "../../constants/constants_GUI_Dimensions.h"
 #include "../../constants/constants_GUI_Colors.h"
 #include "../../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../../constants/constants_Identifiers.h"

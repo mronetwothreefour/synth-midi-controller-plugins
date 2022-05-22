@@ -2120,7 +2120,7 @@
     <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h"/>
     <ClInclude Include="..\..\Source\constants\constants_enum_OscWaveShape.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
-    <ClInclude Include="..\..\Source\constants\constants_GUI_Bounds.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>

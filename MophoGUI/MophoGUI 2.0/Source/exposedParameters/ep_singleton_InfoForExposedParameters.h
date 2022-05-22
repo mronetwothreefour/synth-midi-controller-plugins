@@ -28,6 +28,9 @@ public:
 	uint8 numberOfChoicesFor(uint8 paramIndex) const;
 	uint8 lastChoiceFor(uint8 paramIndex) const;
 	uint8 defaultChoiceFor(uint8 paramIndex) const;
+	Point<int> centerPointFor(uint8 paramIndex) const;
+	int widthFor(uint8 paramIndex) const;
+	int heightFor(uint8 paramIndex) const;
 	String choiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
 	String verboseChoiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;

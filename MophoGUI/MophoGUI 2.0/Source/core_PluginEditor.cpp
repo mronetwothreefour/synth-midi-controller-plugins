@@ -1,7 +1,7 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
-#include "constants/constants_GUI_Bounds.h"
+#include "constants/constants_GUI_Dimensions.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace mophoConstants;
