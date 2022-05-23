@@ -25,6 +25,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 	unexposedParams{ unexposedParams },
 	controlType{ InfoForExposedParameters::get().controlTypeFor(paramIndex) }
 {
+	jassert((int)controlType > -1 && (int)controlType <= (int)ControlType::voiceNameChar);
 	switch (controlType) {
 	case ControlType::knob:
 		buildKnobAndAttachmentControlForExposedParam();
@@ -41,10 +42,10 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 	case ControlType::comboBox:
 		buildComboBoxAndAttachment_ForExposedParam();
 		break;
-	case ControlType::voiceNameChar:
-		break;
 	case ControlType::seqTrackStep:
 		buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam();
+		break;
+	case ControlType::voiceNameChar:
 		break;
 	default:
 		break;

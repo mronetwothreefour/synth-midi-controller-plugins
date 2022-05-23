@@ -357,7 +357,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		ValueTree{ "ep_020", {}, {
 			ValueTree{ ID::ep_020_LPF_Freq, {
 						{ ID::property_ExposedName, "LPF Cutoff Frequency" },
-						{ ID::property_ControlType, (int)ControlType::knob },
+						{ ID::property_ControlType, (int)ControlType::knobForPitch },
 						{ ID::property_NRPN, 15 },
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForLPF_Freq },
 						{ ID::property_DefaultChoice, 148 },
@@ -365,6 +365,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow2_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_Freq() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Freq(verbose) }

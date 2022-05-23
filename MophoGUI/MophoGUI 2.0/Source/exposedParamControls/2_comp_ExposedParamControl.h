@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../constants/constants_enum_ControlType.h"
+#include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
 

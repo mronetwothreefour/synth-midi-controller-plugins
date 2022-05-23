@@ -26,10 +26,8 @@
               file="Source/core_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{62E13D27-6659-B7FB-13E2-73B203E87421}" name="constants">
-        <FILE id="oBVJT4" name="constants_enum_ControlType.h" compile="0" resource="0"
-              file="Source/constants/constants_enum_ControlType.h"/>
-        <FILE id="pBOSzK" name="constants_enum_OscWaveShape.h" compile="0"
-              resource="0" file="Source/constants/constants_enum_OscWaveShape.h"/>
+        <FILE id="GLI1BD" name="constants_Enum.h" compile="0" resource="0"
+              file="Source/constants/constants_Enum.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
         <FILE id="Z329wf" name="constants_GUI_Dimensions.h" compile="0" resource="0"

@@ -2123,8 +2123,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
-    <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h"/>
-    <ClInclude Include="..\..\Source\constants\constants_enum_OscWaveShape.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>

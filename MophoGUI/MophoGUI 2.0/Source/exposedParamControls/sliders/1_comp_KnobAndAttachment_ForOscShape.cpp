@@ -1,6 +1,6 @@
 #include "1_comp_KnobAndAttachment_ForOscShape.h"
 
-#include "../../constants/constants_enum_OscWaveShape.h"
+#include "../../constants/constants_Enum.h"
 #include "../../constants/constants_ExposedParameters.h"
 #include "../../constants/constants_GUI_Dimensions.h"
 #include "../../constants/constants_GUI_Colors.h"

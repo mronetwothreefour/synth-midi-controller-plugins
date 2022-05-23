@@ -2652,10 +2652,7 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\constants_enum_ControlType.h">
-      <Filter>MophoGUI 2\Source\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\constants\constants_enum_OscWaveShape.h">
+    <ClInclude Include="..\..\Source\constants\constants_Enum.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">

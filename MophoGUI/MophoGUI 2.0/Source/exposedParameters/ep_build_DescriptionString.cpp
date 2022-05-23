@@ -34,6 +34,16 @@ String DescriptionString::buildFor_GlideMode() {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_LPF_Freq()
+{
+    String descriptionString{ "" };
+    descriptionString += "Sets the base cutoff frequency for the low-pass filter\n";
+    descriptionString += "(in semitone steps). Range: 0 (C 0) to 164 (G# 13).\n";
+    descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
+    descriptionString += "increment the frequency by one octave (12 semitones).";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_NoiseLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of white noise\n";

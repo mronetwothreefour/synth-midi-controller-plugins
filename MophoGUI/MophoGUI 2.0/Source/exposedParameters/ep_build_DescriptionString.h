@@ -9,6 +9,7 @@ struct DescriptionString
 	static String buildFor_BendRange();
 	static String buildFor_ExtInLevel();
 	static String buildFor_GlideMode();
+	static String buildFor_LPF_Freq();
 	static String buildFor_NoiseLevel();
 	static String buildFor_NotePriority();
 	static String buildFor_OscFine(int oscNum);

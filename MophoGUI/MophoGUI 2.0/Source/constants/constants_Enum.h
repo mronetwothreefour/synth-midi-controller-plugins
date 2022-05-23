@@ -15,5 +15,25 @@ namespace MophoConstants
 		seqTrackStep,
 		voiceNameChar
 	};
+
+
+
+
+	const enum class EnvelopeType {
+		env_3 = 0,
+		vca,
+		vcf
+	};
+
+
+
+
+	const enum class OscWaveShape {
+		off = 0,
+		sawtooth,
+		triangle,
+		sawTriMix,
+		pulse
+	};
 }
 
