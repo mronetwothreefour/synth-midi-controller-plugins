@@ -1,6 +1,7 @@
 #include "1_comp_KnobAndAttachment.h"
 
 #include "../../constants/constants_GUI_Dimensions.h"
+#include "../../constants/constants_ExposedParameters.h"
 #include "../../constants/constants_GUI_Colors.h"
 #include "../../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../../constants/constants_Identifiers.h"
@@ -60,6 +61,12 @@ void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newVa
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		choiceNameString = info.choiceNameFor((uint8)currentChoice, paramIndex);
 		repaint();
+		if (paramID.toString().contains("_LFO_") && paramID.toString().endsWith("_Freq")) {
+			if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
+				knob.isModifyingPitch = true;
+			else
+				knob.isModifyingPitch = false;
+		}
 	}
 }
 

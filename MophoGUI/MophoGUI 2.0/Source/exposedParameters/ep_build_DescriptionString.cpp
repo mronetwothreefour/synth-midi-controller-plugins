@@ -91,6 +91,40 @@ String DescriptionString::buildFor_GlideMode() {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_LFO_Amount(int lfoNum) {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which LFO " + (String)lfoNum + "\n";
+    descriptionString += "modulates the destination parameter.\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LFO_Destination(int lfoNum) {
+    return "Selects the target parameter for modulation by LFO " + (String)lfoNum + ".";
+}
+
+String DescriptionString::buildFor_LFO_Freq(int lfoNum) {
+    String descriptionString{ "" };
+    descriptionString += "Sets LFO " + (String)lfoNum + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
+    descriptionString += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
+    descriptionString += "From 90 to 150, LFO " + (String)lfoNum + " has a pitched frequency, increasing\n";
+    descriptionString += "in semitone steps from C 0 (8.2 Hz) up to C 5 (261.6 Hz).\n";
+    descriptionString += "Above 150, LFO " + (String)lfoNum + " is synced with the step sequencer,\n";
+    descriptionString += "displayed as [number of LFO cycles] : [length in steps].";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LFO_KeySync(int lfoNum) {
+    String descriptionString{ "" };
+    descriptionString += "When on, LFO " + (String)lfoNum + GUI::apostrophe + "s cycle will reset\n";
+    descriptionString += "each time a new note is played.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LFO_Shape(int lfoNum) {
+    return "Selects LFO " + (String)lfoNum + GUI::apostrophe + "s wave shape.";
+}
+
 String DescriptionString::buildFor_LPF_EnvAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which the LPF envelope\n";

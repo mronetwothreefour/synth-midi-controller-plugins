@@ -845,6 +845,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Center_y, lfoControlsRow1_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
+							{ ID::property_Description, DescriptionString::buildFor_LFO_Freq(lfoNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Freq(concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Freq(verbose) }
@@ -870,6 +871,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Center_y, lfoControlsRow2_y },
 							{ ID::property_Width, 134 },
 							{ ID::property_Height, GUI::comboBox_h },
+							{ ID::property_Description, DescriptionString::buildFor_LFO_Shape(lfoNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Shape(concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_LFO_Shape(verbose) }
@@ -895,6 +897,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Center_y, lfoControlsRow1_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
+							{ ID::property_Description, DescriptionString::buildFor_LFO_Amount(lfoNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -920,6 +923,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Center_y, lfoControlsRow3_y },
 							{ ID::property_Width, 134 },
 							{ ID::property_Height, GUI::comboBox_h },
+							{ ID::property_Description, DescriptionString::buildFor_LFO_Destination(lfoNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_ModDestination(verbose) }
@@ -945,6 +949,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Center_y, lfoControlsRow1_y },
 							{ ID::property_Width, GUI::toggle_diameter },
 							{ ID::property_Height, GUI::toggle_diameter },
+							{ ID::property_Description, DescriptionString::buildFor_LFO_KeySync(lfoNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_OffOn(verbose) }

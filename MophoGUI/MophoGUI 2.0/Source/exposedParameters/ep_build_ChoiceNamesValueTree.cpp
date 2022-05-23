@@ -161,7 +161,7 @@ ValueTree ChoiceNamesValueTree::buildFor_KnobAssign(bool verbose) {
 	choiceNamesTree.setProperty("choice_16", "Keyed Note Priority", nullptr);
 	choiceNamesTree.setProperty("choice_17", "Oscillators 1 & 2 Mix", nullptr);
 	choiceNamesTree.setProperty("choice_18", "Noise Level", nullptr);
-	choiceNamesTree.setProperty("choice_19", verbose ? "External Audio Input Level" : "External Audio In Level", nullptr);
+	choiceNamesTree.setProperty("choice_19", "External Audio " + String(verbose ? "Input Level" : "In Level"), nullptr);
 	choiceNamesTree.setProperty("choice_20", "LPF Cutoff Frequency", nullptr);
 	choiceNamesTree.setProperty("choice_21", "LPF Resonance", nullptr);
 	choiceNamesTree.setProperty("choice_22", "LPF Keyboard Amount", nullptr);
@@ -338,9 +338,9 @@ ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	choiceNamesTree.setProperty("choice_39", "All Envelope Releases", nullptr);
 	for (auto choiceNum = 40; choiceNum != 44; ++choiceNum)
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "Modulator " + String(choiceNum - 39) + " Amount", nullptr);
-	choiceNamesTree.setProperty("choice_44", "External Audio In Level", nullptr);
-	choiceNamesTree.setProperty("choice_45", "Sub-Osc 1 Level", nullptr);
-	choiceNamesTree.setProperty("choice_46", "Sub-Osc 2 Level", nullptr);
+	choiceNamesTree.setProperty("choice_44", "External Audio " + String(verbose ? "Input Level" : "In Level"), nullptr);
+	choiceNamesTree.setProperty("choice_45", String(verbose ? "Sub-Oscillator" : "Sub-Osc") + " 1 Level", nullptr);
+	choiceNamesTree.setProperty("choice_46", String(verbose ? "Sub-Oscillator" : "Sub-Osc") + " 2 Level", nullptr);
 	return choiceNamesTree;
 }
 
@@ -486,7 +486,8 @@ ValueTree ChoiceNamesValueTree::buildFor_SeqTrackStep(bool verbose) {
 ValueTree ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose) {
 	jassert(trackNum == 2 || trackNum == 4);
 	auto choiceNamesTree{ buildFor_ModDestination(verbose) };
-	choiceNamesTree.setProperty("choice_47", "Seq. Track " + String(trackNum - 1) + " Slew", nullptr);
+	auto choiceNameString{ String(verbose ? "Sequencer" : "Seq.") + " Track " + String(trackNum - 1) + " Slew" };
+	choiceNamesTree.setProperty("choice_47", choiceNameString, nullptr);
 	return choiceNamesTree;
 }
 
