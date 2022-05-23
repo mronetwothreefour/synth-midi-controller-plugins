@@ -17,10 +17,11 @@ struct DescriptionString
 	static String buildFor_EnvRelease(EnvelopeType envType);
 	static String buildFor_EnvSustain(EnvelopeType envType);
 	static String buildFor_EnvVelAmount(EnvelopeType envType);
+	static String buildFor_Env_3_Amount();
+	static String buildFor_Env_3_Repeat();
 	static String buildFor_ExtInLevel();
 	static String buildFor_GlideMode();
 	static String buildFor_LFO_Amount(int lfoNum);
-	static String buildFor_LFO_Destination(int lfoNum);
 	static String buildFor_LFO_Freq(int lfoNum);
 	static String buildFor_LFO_KeySync(int lfoNum);
 	static String buildFor_LFO_Shape(int lfoNum);

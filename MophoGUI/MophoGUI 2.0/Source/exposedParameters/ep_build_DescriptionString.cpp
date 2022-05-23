@@ -71,6 +71,23 @@ String DescriptionString::buildFor_EnvVelAmount(EnvelopeType envType) {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_Env_3_Amount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which envelope 3\n";
+    descriptionString += "modulates the destination parameter.\n";
+    descriptionString += "Negative values invert the envelope.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_Env_3_Repeat() {
+    String descriptionString{ "" };
+    descriptionString += "When repeat is on, envelope 3 loops through\n";
+    descriptionString += "its delay, attack, decay, and sustain segments\n";
+    descriptionString += "for as long as the envelope is gated on.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_ExtInLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of external audio\n";
@@ -97,10 +114,6 @@ String DescriptionString::buildFor_LFO_Amount(int lfoNum) {
     descriptionString += "modulates the destination parameter.\n";
     descriptionString += "Range: 0 to 127.";
     return descriptionString;
-}
-
-String DescriptionString::buildFor_LFO_Destination(int lfoNum) {
-    return "Selects the target parameter for modulation by LFO " + (String)lfoNum + ".";
 }
 
 String DescriptionString::buildFor_LFO_Freq(int lfoNum) {
