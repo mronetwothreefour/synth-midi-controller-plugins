@@ -1,5 +1,10 @@
 #include "2_comp_ExposedParamControl.h"
 
+#include "buttons/1_comp_ToggleButtonAndAttachment.h"
+#include "comboBoxes/1_comp_ComboBoxAndAttachment.h"
+#include "sliders/1_comp_KnobAndAttachment.h"
+#include "sliders/1_comp_KnobAndAttachment_ForOscShape.h"
+#include "sliders/1_comp_KnobAndAttachment_ForSeqStep.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
@@ -34,6 +39,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 		buildToggleButtonAndAttachment_ForExposedParam();
 		break;
 	case ControlType::comboBox:
+		buildComboBoxAndAttachment_ForExposedParam();
 		break;
 	case ControlType::voiceNameChar:
 		break;
@@ -85,6 +91,15 @@ void ExposedParamControl::buildToggleButtonAndAttachment_ForExposedParam() {
 	}
 }
 
+void ExposedParamControl::buildComboBoxAndAttachment_ForExposedParam() {
+	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, unexposedParams));
+	if (comboBoxAndAttachment != nullptr) {
+		addAndMakeVisible(comboBoxAndAttachment.get());
+		setSize(comboBoxAndAttachment->getWidth(), comboBoxAndAttachment->getHeight());
+		comboBoxAndAttachment->addMouseListener(this, true);
+	}
+}
+
 void ExposedParamControl::attachControlToExposedParameter() const {
 	jassert(exposedParams != nullptr);
 	switch (controlType)
@@ -106,6 +121,8 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 			toggleButtonAndAttachment->attachToggleToExposedParameter();
 		break;
 	case ControlType::comboBox:
+		if (comboBoxAndAttachment != nullptr)
+			comboBoxAndAttachment->attachComboBoxToExposedParameter();
 		break;
 	case ControlType::seqTrackStep:
 		if (knobAndAttachment_ForSeqStep != nullptr)
@@ -130,6 +147,8 @@ void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const 
 		knobAndAttachment_ForSeqStep->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (toggleButtonAndAttachment != nullptr)
 		toggleButtonAndAttachment->deleteAttachmentBeforeToggleToPreventMemLeak();
+	if (comboBoxAndAttachment != nullptr)
+		comboBoxAndAttachment->deleteAttachmentBeforeComboBoxToPreventMemLeak();
 }
 
 ExposedParamControl::~ExposedParamControl() {
@@ -148,5 +167,9 @@ ExposedParamControl::~ExposedParamControl() {
 	if (toggleButtonAndAttachment != nullptr) {
 		toggleButtonAndAttachment->removeMouseListener(this);
 		toggleButtonAndAttachment = nullptr;
+	}
+	if (comboBoxAndAttachment != nullptr) {
+		comboBoxAndAttachment->removeMouseListener(this);
+		comboBoxAndAttachment = nullptr;
 	}
 }

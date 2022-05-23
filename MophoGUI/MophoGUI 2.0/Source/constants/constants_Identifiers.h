@@ -92,7 +92,7 @@ namespace MophoConstants
 		const Identifier property_ControlType{ "property_ControlType" };
 		const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
-		const Identifier property_Height{ "property_Width" };
+		const Identifier property_Height{ "property_Height" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };

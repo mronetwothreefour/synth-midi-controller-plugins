@@ -1876,7 +1876,23 @@ String InfoForExposedParameters::verboseChoiceNameFor(uint8 choiceNum, uint8 par
 	return verboseChoiceName;
 }
 
-String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
+StringArray InfoForExposedParameters::choiceNamesListFor(uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	StringArray choiceNamesList;
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
+		choiceNamesList.add(choiceNameFor(choiceNum, paramIndex));
+	return choiceNamesList;
+}
+
+StringArray InfoForExposedParameters::verboseChoiceNamesListFor(uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	StringArray verboseChoiceNamesList;
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
+		verboseChoiceNamesList.add(verboseChoiceNameFor(choiceNum, paramIndex));
+	return verboseChoiceNamesList;
+}
+
+String InfoForExposedParameters::descriptionFor(uint8 /*paramIndex*/) const {
 	return String();
 }
 

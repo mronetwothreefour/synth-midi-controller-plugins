@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.cpp"/>
@@ -2129,6 +2130,7 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h"/>
+    <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.h"/>

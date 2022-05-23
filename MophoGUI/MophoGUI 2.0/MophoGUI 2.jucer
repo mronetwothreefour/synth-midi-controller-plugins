@@ -48,7 +48,12 @@
           <FILE id="kYFwmU" name="1_comp_ToggleButtonAndAttachment.h" compile="0"
                 resource="0" file="Source/exposedParamControls/buttons/1_comp_ToggleButtonAndAttachment.h"/>
         </GROUP>
-        <GROUP id="{6D1A06DD-DCBB-2626-F783-C7A2D224447A}" name="comboBoxes"/>
+        <GROUP id="{6D1A06DD-DCBB-2626-F783-C7A2D224447A}" name="comboBoxes">
+          <FILE id="etBYWa" name="1_comp_ComboBoxAndAttachment.cpp" compile="1"
+                resource="0" file="Source/exposedParamControls/comboBoxes/1_comp_ComboBoxAndAttachment.cpp"/>
+          <FILE id="UHylom" name="1_comp_ComboBoxAndAttachment.h" compile="0"
+                resource="0" file="Source/exposedParamControls/comboBoxes/1_comp_ComboBoxAndAttachment.h"/>
+        </GROUP>
         <GROUP id="{8849AA50-A33A-2263-A871-4B1804655E3A}" name="sliders">
           <FILE id="pOcF8R" name="0_slider_JuceSlidersWithMouseMods.cpp" compile="1"
                 resource="0" file="Source/exposedParamControls/sliders/0_slider_JuceSlidersWithMouseMods.cpp"/>

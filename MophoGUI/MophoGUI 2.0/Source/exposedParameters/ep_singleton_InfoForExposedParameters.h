@@ -33,6 +33,8 @@ public:
 	int heightFor(uint8 paramIndex) const;
 	String choiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
 	String verboseChoiceNameFor(uint8 choiceNum, uint8 paramIndex) const;
+	StringArray choiceNamesListFor(uint8 paramIndex) const;
+	StringArray verboseChoiceNamesListFor(uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;
 	int mouseDragSensitivityFor(uint8 paramIndex) const;
 
