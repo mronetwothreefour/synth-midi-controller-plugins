@@ -11,6 +11,9 @@
     <Filter Include="MophoGUI 2\Source\constants">
       <UniqueIdentifier>{11CBDC46-3D32-FDEB-BCBF-38F7473A0297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\exposedParamControls\buttons">
+      <UniqueIdentifier>{57491C9C-EB7E-0DDE-6BE9-5EBAFF7A2FD1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\exposedParamControls\sliders">
       <UniqueIdentifier>{C904F5A7-FAC6-0525-750B-556FC7A2CEDB}</UniqueIdentifier>
     </Filter>
@@ -474,6 +477,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
@@ -2657,6 +2663,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>

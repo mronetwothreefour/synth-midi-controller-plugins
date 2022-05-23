@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "buttons/1_comp_ToggleButtonAndAttachment.h"
 #include "sliders/1_comp_KnobAndAttachment.h"
 #include "sliders/1_comp_KnobAndAttachment_ForOscShape.h"
 #include "sliders/1_comp_KnobAndAttachment_ForSeqStep.h"
@@ -23,6 +24,7 @@ class ExposedParamControl :
 	std::unique_ptr<KnobAndAttachment> knobAndAttachment;
 	std::unique_ptr<KnobAndAttachment_ForOscShape> knobAndAttachment_ForOscShape;
 	std::unique_ptr<KnobAndAttachment_ForSeqStep> knobAndAttachment_ForSeqStep;
+	std::unique_ptr<ToggleButtonAndAttachment> toggleButtonAndAttachment;
 
 	ExposedParamControl(); 
 
@@ -33,6 +35,7 @@ private:
 	void buildKnobAndAttachmentControlForExposedParam();
 	void buildKnobAndAttachmentControl_ForOscShape_ForExposedParam();
 	void buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam();
+	void buildToggleButtonAndAttachment_ForExposedParam();
 
 public:
 	void attachControlToExposedParameter() const;

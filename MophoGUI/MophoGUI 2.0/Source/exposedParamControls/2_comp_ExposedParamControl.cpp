@@ -11,7 +11,7 @@ ExposedParamControl::ExposedParamControl() :
 	unexposedParams{ nullptr },
 	controlType{ ControlType::nullControl }
 {
-	// this default constructor is needed when initializing VectorForExposedParamControls
+	// this default constructor is needed when initializing the vector in ExposedParamControlsServer
 }
 
 ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
@@ -31,6 +31,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 		buildKnobAndAttachmentControl_ForOscShape_ForExposedParam();
 		break;
 	case ControlType::toggleButton:
+		buildToggleButtonAndAttachment_ForExposedParam();
 		break;
 	case ControlType::comboBox:
 		break;
@@ -75,6 +76,15 @@ void ExposedParamControl::buildKnobAndAttachmentControl_ForSeqStep_ForExposedPar
 	}
 }
 
+void ExposedParamControl::buildToggleButtonAndAttachment_ForExposedParam() {
+	toggleButtonAndAttachment.reset(new ToggleButtonAndAttachment(paramIndex, exposedParams, unexposedParams));
+	if (toggleButtonAndAttachment != nullptr) {
+		addAndMakeVisible(toggleButtonAndAttachment.get());
+		setSize(toggleButtonAndAttachment->getWidth(), toggleButtonAndAttachment->getHeight());
+		toggleButtonAndAttachment->addMouseListener(this, true);
+	}
+}
+
 void ExposedParamControl::attachControlToExposedParameter() const {
 	jassert(exposedParams != nullptr);
 	switch (controlType)
@@ -92,6 +102,8 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 			knobAndAttachment_ForOscShape->attachKnobToExposedParameter();
 		break;
 	case ControlType::toggleButton:
+		if (toggleButtonAndAttachment != nullptr)
+			toggleButtonAndAttachment->attachToggleToExposedParameter();
 		break;
 	case ControlType::comboBox:
 		break;
@@ -116,6 +128,8 @@ void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const 
 		knobAndAttachment_ForOscShape->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (knobAndAttachment_ForSeqStep != nullptr)
 		knobAndAttachment_ForSeqStep->deleteAttachmentBeforeKnobToPreventMemLeak();
+	if (toggleButtonAndAttachment != nullptr)
+		toggleButtonAndAttachment->deleteAttachmentBeforeToggleToPreventMemLeak();
 }
 
 ExposedParamControl::~ExposedParamControl() {
@@ -130,5 +144,9 @@ ExposedParamControl::~ExposedParamControl() {
 	if (knobAndAttachment_ForSeqStep != nullptr) {
 		knobAndAttachment_ForSeqStep->removeMouseListener(this);
 		knobAndAttachment_ForSeqStep = nullptr;
+	}
+	if (toggleButtonAndAttachment != nullptr) {
+		toggleButtonAndAttachment->removeMouseListener(this);
+		toggleButtonAndAttachment = nullptr;
 	}
 }

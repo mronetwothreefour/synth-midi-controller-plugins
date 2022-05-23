@@ -42,7 +42,12 @@
               file="Source/constants/constants_Identifiers.h"/>
       </GROUP>
       <GROUP id="{0A8BB4C6-FED6-C229-D725-5CFC11F21C42}" name="exposedParamControls">
-        <GROUP id="{21E2B2F5-D349-307A-4D79-88AE1C2C8313}" name="buttons"/>
+        <GROUP id="{21E2B2F5-D349-307A-4D79-88AE1C2C8313}" name="buttons">
+          <FILE id="M3eJY8" name="1_comp_ToggleButtonAndAttachment.cpp" compile="1"
+                resource="0" file="Source/exposedParamControls/buttons/1_comp_ToggleButtonAndAttachment.cpp"/>
+          <FILE id="kYFwmU" name="1_comp_ToggleButtonAndAttachment.h" compile="0"
+                resource="0" file="Source/exposedParamControls/buttons/1_comp_ToggleButtonAndAttachment.h"/>
+        </GROUP>
         <GROUP id="{6D1A06DD-DCBB-2626-F783-C7A2D224447A}" name="comboBoxes"/>
         <GROUP id="{8849AA50-A33A-2263-A871-4B1804655E3A}" name="sliders">
           <FILE id="pOcF8R" name="0_slider_JuceSlidersWithMouseMods.cpp" compile="1"

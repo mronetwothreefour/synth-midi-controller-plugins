@@ -13,6 +13,7 @@ namespace MophoConstants
 
 
 		const Identifier component_Knob{ "component_Knob" };
+		const Identifier component_ParamToggle{ "component_ParamToggle" };
 
 		const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };
 		const Identifier ep_001_Osc_1_FineTune{ "ep_001_Osc_1_FineTune" };
