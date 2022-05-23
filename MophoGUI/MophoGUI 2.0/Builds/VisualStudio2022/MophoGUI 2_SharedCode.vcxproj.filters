@@ -511,6 +511,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_DescriptionString.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -2698,6 +2701,9 @@
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_DescriptionString.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h">

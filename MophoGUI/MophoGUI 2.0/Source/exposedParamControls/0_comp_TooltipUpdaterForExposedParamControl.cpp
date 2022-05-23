@@ -17,10 +17,13 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
 {
     auto& info{ InfoForExposedParameters::get() };
     auto paramID{ info.IDfor(paramIndex) };
-    exposedParams->getParameter(paramID)->addListener(this);
+    auto paramaterPtr{ exposedParams->getParameter(paramID) };
+    paramaterPtr->addListener(this);
 
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
     tooltipsOptions->addListener(this);
+
+    parameterValueChanged(paramIndex, paramaterPtr->getValue());
 }
 
 void TooltipUpdaterForExposedParamControl::setTooltip() {

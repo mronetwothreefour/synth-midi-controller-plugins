@@ -2,6 +2,7 @@
 #include "core_PluginEditor.h"
 
 #include "constants/constants_GUI_Dimensions.h"
+#include "constants/constants_Identifiers.h"
 #include "gui/gui_LookAndFeel.h"
 #include "gui/gui_layer_ExposedParamControls.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
@@ -17,11 +18,18 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new MophoLookAndFeel() },
-    layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) }
+    layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
+    tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(layerForExposedParamControls.get());
+
+    auto tooltips{ unexposedParams->getTooltipsOptions() };
+    tooltips->addListener(this);
+    addChildComponent(tooltipWindow.get());
+    tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    tooltipWindow->setComponentEffect(nullptr);
 
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
@@ -38,9 +46,16 @@ void PluginEditor::resized() {
     layerForExposedParamControls->setBounds(getLocalBounds());
 }
 
-void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& /*property*/) {
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+    if (property == ID::tooltips_DelayInMilliseconds) {
+        auto tooltips{ unexposedParams->getTooltipsOptions() };
+        tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
+    }
 }
 
 PluginEditor::~PluginEditor() {
+    auto tooltips{ unexposedParams->getTooltipsOptions() };
+    tooltips->removeListener(this);
+    tooltipWindow = nullptr;
     layerForExposedParamControls = nullptr;
 }

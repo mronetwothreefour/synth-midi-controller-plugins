@@ -2,6 +2,7 @@
 #pragma once
 
 #include "../constants/constants_GUI_Colors.h"
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 
@@ -61,6 +62,37 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		//else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 	//}
+}
+
+
+
+
+Rectangle<int> MophoLookAndFeel::getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) {
+	const TextLayout tl(layoutTooltipText(tipText, GUI::color_Black));
+	auto w = (int)(tl.getWidth() + 16.0f);
+	auto h = (int)(tl.getHeight() + 14.0f);
+	return Rectangle<int>(
+		screenPos.x > parentArea.getCentreX() ? screenPos.x - (w + 12) : screenPos.x + 24,
+		screenPos.y > parentArea.getCentreY() ? screenPos.y - (h + 6) : screenPos.y + 6, w, h).constrainedWithin(parentArea);
+}
+
+void MophoLookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
+	Rectangle<int> bounds(width, height);
+	g.setColour(GUI::color_Black.brighter(0.1f));
+	g.fillRect(bounds.toFloat());
+	g.setColour(GUI::color_White);
+	g.drawRect(bounds.toFloat(), 2.0f);
+	layoutTooltipText(text, findColour(TooltipWindow::textColourId))
+		.draw(g, { static_cast<float>(width), static_cast<float>(height) });
+}
+
+TextLayout MophoLookAndFeel::layoutTooltipText(const String& text, Colour colour) noexcept {
+	AttributedString s;
+	s.setJustification(Justification::centred);
+	s.append(text, GUI::fontFor_Tooltips, colour);
+	TextLayout tl;
+	tl.createLayout(s, GUI::tooltipMaxWidth);
+	return tl;
 }
 
 

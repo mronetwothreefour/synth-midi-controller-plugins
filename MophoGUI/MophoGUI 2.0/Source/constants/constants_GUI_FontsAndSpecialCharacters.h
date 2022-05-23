@@ -30,9 +30,9 @@ namespace MophoConstants
 		const Font fontFor_PulseWidthText{ FontBuilder::createFontFromTypeface_Size_Kerning(Overpass_Bold, 11.0f, 0.0f) };
 		const Font fontFor_SeqSteps{ FontBuilder::createFontFromTypeface_Size_Kerning(Overpass_Bold, 13.5f, 0.0f) };
 		const Font fontFor_Tooltips{ FontBuilder::createFontFromTypeface_Size_Kerning(Overpass_Bold, 16.0f, 0.0f) };
-	};
 
-	const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
-	const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
-	const String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
+		const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
+		const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
+		const String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };
+	};
 }

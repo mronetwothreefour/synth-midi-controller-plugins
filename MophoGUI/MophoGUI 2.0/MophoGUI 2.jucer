@@ -90,6 +90,10 @@
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.cpp"/>
         <FILE id="VLGOge" name="ep_build_ChoiceNamesValueTree.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.h"/>
+        <FILE id="jp9b5c" name="ep_build_DescriptionString.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_build_DescriptionString.cpp"/>
+        <FILE id="jdfTHE" name="ep_build_DescriptionString.h" compile="0" resource="0"
+              file="Source/exposedParameters/ep_build_DescriptionString.h"/>
         <FILE id="DzOFbx" name="ep_build_ExposedParamsLayout.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.cpp"/>
         <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"

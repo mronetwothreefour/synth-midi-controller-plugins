@@ -91,6 +91,7 @@ namespace MophoConstants
 		const Identifier property_Center_y{ "property_ControlCenter_y" };
 		const Identifier property_ControlType{ "property_ControlType" };
 		const Identifier property_DefaultChoice{ "property_DefaultChoice" };
+		const Identifier property_Description{ "property_Description" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
 		const Identifier property_Height{ "property_Height" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };

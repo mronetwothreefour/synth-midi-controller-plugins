@@ -15,6 +15,10 @@ public:
 
 	void drawLabel(Graphics& g, Label& label) override;
 
+	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;
+	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
+	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;
+
 	void drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) override;
 	void drawTickBox(
 		Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, 

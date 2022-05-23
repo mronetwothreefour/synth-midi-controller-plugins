@@ -8,6 +8,8 @@ namespace MophoConstants
 {
 	namespace GUI
 	{
+		const float tooltipMaxWidth{ 400.0f };
+
 		const int comboBox_h{ 16 };
 		const int editor_h{ 626 };
 		const int editor_w{ 1273 };

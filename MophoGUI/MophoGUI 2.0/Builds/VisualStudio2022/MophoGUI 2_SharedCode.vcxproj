@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_build_DescriptionString.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
@@ -2139,6 +2140,7 @@
     <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_build_DescriptionString.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
