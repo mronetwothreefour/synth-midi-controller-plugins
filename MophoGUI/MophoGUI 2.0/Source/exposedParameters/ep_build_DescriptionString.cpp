@@ -62,6 +62,15 @@ String DescriptionString::buildFor_EnvSustain(EnvelopeType envType) {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_EnvVelAmount(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI note velocity\n";
+    descriptionString += "modulates the amplitude of " + theEnvelope + ".\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_ExtInLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of external audio\n";
@@ -133,14 +142,6 @@ String DescriptionString::buildFor_LPF_Type() {
     descriptionString += "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
     descriptionString += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
     descriptionString += "slope and more pronounced resonance.";
-    return descriptionString;
-}
-
-String DescriptionString::buildFor_LPF_VelAmount() {
-    String descriptionString{ "" };
-    descriptionString += "Sets the degree to which MIDI note velocity modulates\n";
-    descriptionString += "the amplitude of the low-pass filter" + GUI::apostrophe + "s envelope.\n";
-    descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 
@@ -236,6 +237,30 @@ String DescriptionString::buildFor_OscSync() {
     descriptionString += "Turns hard oscillator sync on or off. When\n";
     descriptionString += "turned on, every time oscillator 2 resets,\n";
     descriptionString += "it forces oscillator 1 to reset as well.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_VCA_EnvAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which the VCA envelope\n";
+    descriptionString += "modulates the voltage-controlled ampifier" + GUI::apostrophe + "s level.\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_VCA_Level() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the voltage-controlled amplifier" + GUI::apostrophe + "s baseline level. Turn this\n";
+    descriptionString += "up for droning sounds or when processing external audio input.\n";
+    descriptionString += "When this level is set to 127, the VCA envelope has no effect.\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_VoiceVolume() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the overall gain of the current program.\n";
+    descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 

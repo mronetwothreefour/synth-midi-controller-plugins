@@ -16,6 +16,7 @@ struct DescriptionString
 	static String buildFor_EnvDelay(EnvelopeType envType);
 	static String buildFor_EnvRelease(EnvelopeType envType);
 	static String buildFor_EnvSustain(EnvelopeType envType);
+	static String buildFor_EnvVelAmount(EnvelopeType envType);
 	static String buildFor_ExtInLevel();
 	static String buildFor_GlideMode();
 	static String buildFor_LPF_EnvAmount();
@@ -24,7 +25,6 @@ struct DescriptionString
 	static String buildFor_LPF_KeyAmount();
 	static String buildFor_LPF_Reso();
 	static String buildFor_LPF_Type();
-	static String buildFor_LPF_VelAmount();
 	static String buildFor_NoiseLevel();
 	static String buildFor_NotePriority();
 	static String buildFor_OscFine(int oscNum);
@@ -36,6 +36,9 @@ struct DescriptionString
 	static String buildFor_OscSlop();
 	static String buildFor_OscSubLevel(int oscNum);
 	static String buildFor_OscSync();
+	static String buildFor_VCA_EnvAmount();
+	static String buildFor_VCA_Level();
+	static String buildFor_VoiceVolume();
 
 private:
 	static String buildEnvNameString(EnvelopeType envType);
