@@ -2,8 +2,6 @@
 
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 
-using namespace MophoConstants;
-
 
 
 String DescriptionString::buildFor_BendRange() {
@@ -11,6 +9,56 @@ String DescriptionString::buildFor_BendRange() {
     descriptionString += "Sets the maximum amount (in semitones) by which pitch wheel\n";
     descriptionString += "messages can raise or lower the pitches of the oscillators.\n";
     descriptionString += "Range: 0 (no pitch bend) to +/-12 semitones.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_EnvAttack(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s attack segment\n";
+    descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
+    descriptionString += "level to rise from minimum to maximum).\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_EnvDecay(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s decay segment\n";
+    descriptionString += "(the amount of time it takes for the envelope" + GUI::apostrophe + "s\n";
+    descriptionString += "level to fall from maximum to the sustain level).\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_EnvDelay(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s delay segment\n";
+    descriptionString += "(the amount of time that passes after the envelope\n";
+    descriptionString += "is triggered before its attack segment begins).\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_EnvRelease(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s release segment\n";
+    descriptionString += "(the amount of time it takes to fall from the sustain\n";
+    descriptionString += "level down to minimum once the envelope is gated off).\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_EnvSustain(EnvelopeType envType) {
+    auto theEnvelope{ buildEnvNameString(envType) };
+    String descriptionString{ "" };
+    descriptionString += "Sets " + theEnvelope + GUI::apostrophe + "s sustain level (once the\n";
+    descriptionString += "decay segment completes, the envelope stays\n";
+    descriptionString += "at this level until it is gated off).\n";
+    descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 
@@ -34,13 +82,65 @@ String DescriptionString::buildFor_GlideMode() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_Freq()
-{
+String DescriptionString::buildFor_LPF_EnvAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which the LPF envelope\n";
+    descriptionString += "modulates the filter" + GUI::apostrophe + "s cutoff frequency.\n";
+    descriptionString += "Negative values invert the envelope.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_FM_Amount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which oscillator 1 modulates\n";
+    descriptionString += "the low-pass filter" + GUI::apostrophe + "s cutoff frequency. This is\n";
+    descriptionString += "useful for generating bell-like sounds.\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_Freq() {
     String descriptionString{ "" };
     descriptionString += "Sets the base cutoff frequency for the low-pass filter\n";
     descriptionString += "(in semitone steps). Range: 0 (C 0) to 164 (G# 13).\n";
     descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
     descriptionString += "increment the frequency by one octave (12 semitones).";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_KeyAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the amount by which keyboard (MIDI) notes\n";
+    descriptionString += "will shift the low-pass filter" + GUI::apostrophe + "s cutoff frequency.\n";
+    descriptionString += "Range: 0 to 127. At 64, cutoff is shifted by one\n";
+    descriptionString += "semitone for each note. At 32, cutoff is shifted\n";
+    descriptionString += "by one half-semitone for each note.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_Reso() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the resonance level of the low-pass\n";
+    descriptionString += "filter. When in 4-pole mode, high resonance\n";
+    descriptionString += "will cause the filter to self-oscillate.\n";
+    descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_Type() {
+    String descriptionString{ "" };
+    descriptionString += "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
+    descriptionString += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
+    descriptionString += "slope and more pronounced resonance.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_LPF_VelAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI note velocity modulates\n";
+    descriptionString += "the amplitude of the low-pass filter" + GUI::apostrophe + "s envelope.\n";
+    descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 
@@ -137,4 +237,19 @@ String DescriptionString::buildFor_OscSync() {
     descriptionString += "turned on, every time oscillator 2 resets,\n";
     descriptionString += "it forces oscillator 1 to reset as well.";
     return descriptionString;
+}
+
+String DescriptionString::buildEnvNameString(EnvelopeType envType) {
+    switch (envType)
+    {
+    case EnvelopeType::env_3:
+        return "envelope 3";
+    case EnvelopeType::lpf:
+        return "the LPF envelope";
+    case EnvelopeType::vca:
+        return "the VCA envelope";
+    default:
+        break;
+    }
+    return String();
 }

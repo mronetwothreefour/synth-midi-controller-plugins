@@ -2,6 +2,7 @@
 
 #include "ep_build_ChoiceNamesValueTree.h"
 #include "ep_build_DescriptionString.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
@@ -387,6 +388,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow2_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_Reso() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -408,6 +410,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow2_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_KeyAmount() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -429,6 +432,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_FM_Amount() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -450,6 +454,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow1_y },
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_Type() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Type(concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_LPF_Type(verbose) }
@@ -471,6 +476,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_EnvAmount() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlusMinus127(verbose) }
@@ -492,6 +498,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_LPF_VelAmount() },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -513,6 +520,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_EnvDelay(EnvelopeType::lpf) },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -534,6 +542,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_EnvAttack(EnvelopeType::lpf) },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -555,6 +564,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_EnvDecay(EnvelopeType::lpf) },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -576,6 +586,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_EnvSustain(EnvelopeType::lpf) },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }
@@ -597,6 +608,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Center_y, lpfControlsRow3_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
+						{ ID::property_Description, DescriptionString::buildFor_EnvRelease(EnvelopeType::lpf) },
 					}, {
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNamesValueTree::buildFor_PlainValue(128, verbose) }

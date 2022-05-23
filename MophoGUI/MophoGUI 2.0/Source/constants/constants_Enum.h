@@ -21,8 +21,8 @@ namespace MophoConstants
 
 	const enum class EnvelopeType {
 		env_3 = 0,
-		vca,
-		vcf
+		lpf,
+		vca
 	};
 
 
