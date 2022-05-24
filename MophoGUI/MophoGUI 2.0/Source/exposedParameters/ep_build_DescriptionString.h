@@ -31,6 +31,12 @@ struct DescriptionString
 	static String buildFor_LPF_KeyAmount();
 	static String buildFor_LPF_Reso();
 	static String buildFor_LPF_Type();
+	static String buildFor_MIDI_BreathAmount();
+	static String buildFor_MIDI_ModWheelAmount();
+	static String buildFor_MIDI_PedalAmount();
+	static String buildFor_MIDI_PressureAmount();
+	static String buildFor_MIDI_VelocityAmount();
+	static String buildFor_ModAmount();
 	static String buildFor_NoiseLevel();
 	static String buildFor_NotePriority();
 	static String buildFor_OscFine(int oscNum);
@@ -42,6 +48,9 @@ struct DescriptionString
 	static String buildFor_OscSlop();
 	static String buildFor_OscSubLevel(int oscNum);
 	static String buildFor_OscSync();
+	static String buildFor_PushItMode();
+	static String buildFor_PushItPitch();
+	static String buildFor_PushItVelocity();
 	static String buildFor_VCA_EnvAmount();
 	static String buildFor_VCA_Level();
 	static String buildFor_VoiceVolume();

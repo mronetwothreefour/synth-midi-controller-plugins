@@ -14,7 +14,7 @@ ExposedParamControlsServer::ExposedParamControlsServer(AudioProcessorValueTreeSt
 }
 
 void ExposedParamControlsServer::fillControlsVector() {
-	for (uint8 paramIndex = 0; paramIndex != 70; ++paramIndex)
+	for (uint8 paramIndex = 0; paramIndex != 95; ++paramIndex)
 		controlsVector.push_back(std::make_unique<ExposedParamControl>(paramIndex, exposedParams, unexposedParams));
 }
 

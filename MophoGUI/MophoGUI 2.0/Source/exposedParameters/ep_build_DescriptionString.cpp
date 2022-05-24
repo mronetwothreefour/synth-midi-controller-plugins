@@ -192,6 +192,59 @@ String DescriptionString::buildFor_LPF_Type() {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_MIDI_BreathAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI breath controller\n";
+    descriptionString += "messages (CC#2) modulate the destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_MIDI_ModWheelAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI modulation wheel controller\n";
+    descriptionString += "messages (CC#1) modulate the destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_MIDI_PedalAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI foot pedal controller\n";
+    descriptionString += "messages (CC#4) modulate the destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_MIDI_PressureAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI channel pressure\n";
+    descriptionString += "(aftertouch) messages modulate the destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_MIDI_VelocityAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which MIDI note velocity\n";
+    descriptionString += "messages modulate the destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\n";
+    descriptionString += "Range: -127 to +127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_ModAmount() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree to which the selected source\n";
+    descriptionString += "modulates the selected destination parameter.\n";
+    descriptionString += "Negative values invert the modulation.\nRange: -127 to +127.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_NoiseLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of white noise\n";
@@ -284,6 +337,35 @@ String DescriptionString::buildFor_OscSync() {
     descriptionString += "Turns hard oscillator sync on or off. When\n";
     descriptionString += "turned on, every time oscillator 2 resets,\n";
     descriptionString += "it forces oscillator 1 to reset as well.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_PushItMode() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the operating mode for the Mopho" + GUI::apostrophe + "s Push It! switch.\n";
+    descriptionString += "Normal: The selected note is gated on when the switch is\n";
+    descriptionString += "pressed and gated off when the switch is released.\n";
+    descriptionString += "Toggle: The selected note is gated on when the switch is\n";
+    descriptionString += "pressed and remains on until the switch is pressed again.\n";
+    descriptionString += "Audio In: The selected note is gated on for as long as the\n";
+    descriptionString += "external audio input level is above a certain threshold.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_PushItPitch() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the note that plays when the Push It! switch is pressed.\n";
+    descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz). Middle C is C 5.\n";
+    descriptionString += "Hold down the SHIFT key when using the mouse wheel to\n";
+    descriptionString += "increment the pitch by one octave (12 semitones).";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_PushItVelocity() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the velocity of the note that plays\n";
+    descriptionString += "when the Push It! switch is pressed.\n";
+    descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 
