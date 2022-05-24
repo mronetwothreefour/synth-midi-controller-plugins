@@ -4,11 +4,40 @@
 
 
 
+String DescriptionString::buildFor_ArpegMode() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the order in which the arpeggiator plays notes.\n";
+    descriptionString += "Assign mode: notes play in the order in which they were struck.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_ArpegOnOff() {
+    String descriptionString{ "" };
+    descriptionString += "Turns the Mopho" + GUI::apostrophe + "s arpeggiator on and off.\n";
+    descriptionString += "Turning this on will turn off the sequencer.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_BendRange() {
     String descriptionString{ "" };
     descriptionString += "Sets the maximum amount (in semitones) by which pitch wheel\n";
     descriptionString += "messages can raise or lower the pitches of the oscillators.\n";
     descriptionString += "Range: 0 (no pitch bend) to +/-12 semitones.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_ClockDivision() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the rate at which the sequencer and\n";
+    descriptionString += "arpeggiator advance, relative to the tempo.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_ClockTempo() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the tempo (in beats per minute)\n";
+    descriptionString += "for the sequencer and the arpeggiator.\n";
+    descriptionString += "Range: 30 to 250 BPM.";
     return descriptionString;
 }
 
@@ -105,6 +134,13 @@ String DescriptionString::buildFor_GlideMode() {
     descriptionString += "Fixed Time: The glide time is constant, regardless of the interval size.\n";
     descriptionString += "The Auto modes only apply glide when a note is played legato\n";
     descriptionString += "(the new note is triggered before the previous note is released).";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_KnobAssign(int knobNum) {
+    String descriptionString{ "" };
+    descriptionString += "Selects a target parameter for\n";
+    descriptionString += "assignable hardware knob " + (String)knobNum + ".";
     return descriptionString;
 }
 
@@ -366,6 +402,36 @@ String DescriptionString::buildFor_PushItVelocity() {
     descriptionString += "Sets the velocity of the note that plays\n";
     descriptionString += "when the Push It! switch is pressed.\n";
     descriptionString += "Range: 0 to 127.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_SeqOnOff() {
+    String descriptionString{ "" };
+    descriptionString += "Turns the Mopho" + GUI::apostrophe + "s internal sequencer on and off.\n";
+    descriptionString += "Turning this on will turn off the arpeggiator.";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_SeqTrackDestination(int trackNum) {
+    String descriptionString{ "" };
+    descriptionString += "Selects the target parameter for\n";
+    descriptionString += "modulation by sequencer track " + (String)trackNum + ".";
+    return descriptionString;
+}
+
+String DescriptionString::buildFor_SeqTrigMode() {
+    String descriptionString{ "" };
+    descriptionString += "Normal: New notes reset the sequencer to the first step.\n";
+    descriptionString += "The envelopes are re-triggered with each step.\n";
+    descriptionString += "Normal, No Reset: New notes do not reset the sequencer to the\n";
+    descriptionString += "first step. The envelopes are re-triggered with each step.\n";
+    descriptionString += "No Gate: New notes reset the sequencer to the first step. New\n";
+    descriptionString += "notes re-trigger the envelopes, but sequencer steps do not.\n";
+    descriptionString += "No Gate, No Reset: New notes do not reset the sequencer to the\n";
+    descriptionString += "first step. Sequencer steps do not re-trigger the envelopes.\n";
+    descriptionString += "Key Step: Each new note advances the sequencer one step.\n";
+    descriptionString += "Audio Input: The sequencer advances one step every time the\n";
+    descriptionString += "external audio input level surpasses a certain threshold.";
     return descriptionString;
 }
 

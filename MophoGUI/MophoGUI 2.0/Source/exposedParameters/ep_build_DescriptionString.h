@@ -10,7 +10,11 @@ using namespace MophoConstants;
 
 struct DescriptionString
 {
+	static String buildFor_ArpegMode();
+	static String buildFor_ArpegOnOff();
 	static String buildFor_BendRange();
+	static String buildFor_ClockDivision();
+	static String buildFor_ClockTempo();
 	static String buildFor_EnvAttack(EnvelopeType envType);
 	static String buildFor_EnvDecay(EnvelopeType envType);
 	static String buildFor_EnvDelay(EnvelopeType envType);
@@ -21,6 +25,7 @@ struct DescriptionString
 	static String buildFor_Env_3_Repeat();
 	static String buildFor_ExtInLevel();
 	static String buildFor_GlideMode();
+	static String buildFor_KnobAssign(int knobNum);
 	static String buildFor_LFO_Amount(int lfoNum);
 	static String buildFor_LFO_Freq(int lfoNum);
 	static String buildFor_LFO_KeySync(int lfoNum);
@@ -51,6 +56,9 @@ struct DescriptionString
 	static String buildFor_PushItMode();
 	static String buildFor_PushItPitch();
 	static String buildFor_PushItVelocity();
+	static String buildFor_SeqOnOff();
+	static String buildFor_SeqTrackDestination(int trackNum);
+	static String buildFor_SeqTrigMode();
 	static String buildFor_VCA_EnvAmount();
 	static String buildFor_VCA_Level();
 	static String buildFor_VoiceVolume();
