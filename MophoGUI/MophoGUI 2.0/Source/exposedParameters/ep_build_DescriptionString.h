@@ -62,6 +62,7 @@ struct DescriptionString
 	static String buildFor_SeqTrigMode();
 	static String buildFor_VCA_EnvAmount();
 	static String buildFor_VCA_Level();
+	static String buildFor_VoiceNameChar(int charNum);
 	static String buildFor_VoiceVolume();
 
 private:

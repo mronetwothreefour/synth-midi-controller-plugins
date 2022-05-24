@@ -11,6 +11,7 @@ class ComboBoxAndAttachment;
 class KnobAndAttachment;
 class KnobAndAttachment_ForOscShape;
 class KnobAndAttachment_ForSeqStep;
+class KnobAndAttachment_ForVoiceNameChar;
 class ToggleButtonAndAttachment;
 class UnexposedParameters;
 
@@ -24,6 +25,7 @@ class ExposedParamControl :
 	std::unique_ptr<KnobAndAttachment> knobAndAttachment;
 	std::unique_ptr<KnobAndAttachment_ForOscShape> knobAndAttachment_ForOscShape;
 	std::unique_ptr<KnobAndAttachment_ForSeqStep> knobAndAttachment_ForSeqStep;
+	std::unique_ptr<KnobAndAttachment_ForVoiceNameChar> knobAndAttachment_ForVoiceNameChar;
 	std::unique_ptr<ToggleButtonAndAttachment> toggleButtonAndAttachment;
 	std::unique_ptr<ComboBoxAndAttachment> comboBoxAndAttachment;
 
@@ -34,10 +36,11 @@ public:
 
 private:
 	void buildKnobAndAttachmentControlForExposedParam();
-	void buildKnobAndAttachmentControl_ForOscShape_ForExposedParam();
-	void buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam();
-	void buildToggleButtonAndAttachment_ForExposedParam();
-	void buildComboBoxAndAttachment_ForExposedParam();
+	void buildKnobAndAttachment_ForOscShape_ControlForExposedParam();
+	void buildKnobAndAttachment_ForSeqStep_ControlForExposedParam();
+	void buildKnobAndAttachment_ForVoiceNameChar_ControlForExposedParam();
+	void buildToggleButtonAndAttachmentControlForExposedParam();
+	void buildComboBoxAndAttachmentControlForExposedParam();
 
 public:
 	void attachControlToExposedParameter() const;

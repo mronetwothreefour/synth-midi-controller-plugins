@@ -1810,12 +1810,13 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_ExposedName, "Program Name Character " + charNumString },
 							{ ID::property_ControlType, (int)ControlType::voiceNameChar },
 							{ ID::property_NRPN, 173 + charNum },
-							{ ID::property_NumberOfChoices, 128 },
+							{ ID::property_NumberOfChoices, EP::numberOfChoicesForVoiceNameChar },
 							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
 							{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
 							{ ID::property_Center_y, voiceNameCharacters_y },
 							{ ID::property_Width, GUI::seqSteps_w },
 							{ ID::property_Height, GUI::seqSteps_h },
+							{ ID::property_Description, DescriptionString::buildFor_VoiceNameChar(charNum + 1) },
 						}, {
 							ValueTree{ ChoiceNamesValueTree::buildFor_VoiceNameChar(concise) },
 							ValueTree{ ChoiceNamesValueTree::buildFor_VoiceNameChar(verbose) }

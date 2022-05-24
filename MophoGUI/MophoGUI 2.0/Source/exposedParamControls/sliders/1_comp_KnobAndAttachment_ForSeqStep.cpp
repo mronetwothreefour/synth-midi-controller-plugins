@@ -91,7 +91,7 @@ void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
 void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, float newValue) {
 	if (changedParamIndex == trackDestIndex || changedParamIndex == paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(changedParamIndex) };
+		auto paramID{ info.IDfor((uint8)changedParamIndex) };
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		if (changedParamIndex == trackDestIndex) {

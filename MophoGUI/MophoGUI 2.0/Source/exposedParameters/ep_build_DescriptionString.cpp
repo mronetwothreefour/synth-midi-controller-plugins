@@ -469,6 +469,15 @@ String DescriptionString::buildFor_VCA_Level() {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_VoiceNameChar(int charNum) {
+    String descriptionString{ "" };
+    descriptionString += "To change character " + (String)charNum + " of the program" + GUI::apostrophe + "s name,\n";
+    descriptionString += "click-and-drag the character or hover over\n";
+    descriptionString += "it and turn the mouse wheel. Click the edit\n";
+    descriptionString += "button above to type in the entire name.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_VoiceVolume() {
     String descriptionString{ "" };
     descriptionString += "Sets the overall gain of the current program.\n";

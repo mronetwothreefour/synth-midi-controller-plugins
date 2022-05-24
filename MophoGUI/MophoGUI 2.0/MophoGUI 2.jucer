@@ -30,12 +30,14 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
-        <FILE id="Z329wf" name="constants_GUI_Dimensions.h" compile="0" resource="0"
-              file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="UGPUNx" name="constants_GUI_Colors.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Colors.h"/>
+        <FILE id="Z329wf" name="constants_GUI_Dimensions.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="zHsjKH" name="constants_GUI_FontsAndSpecialCharacters.h"
               compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
+        <FILE id="ec4XTj" name="constants_GUI_PathData.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="ZHL3gW" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
       </GROUP>
@@ -69,6 +71,10 @@
                 resource="0" file="Source/exposedParamControls/sliders/1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
           <FILE id="ZUWo4J" name="1_comp_KnobAndAttachment_ForSeqStep.h" compile="0"
                 resource="0" file="Source/exposedParamControls/sliders/1_comp_KnobAndAttachment_ForSeqStep.h"/>
+          <FILE id="gzSYyr" name="1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"
+                compile="1" resource="0" file="Source/exposedParamControls/sliders/1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"/>
+          <FILE id="pK0e44" name="1_comp_KnobAndAttachment_ForVoiceNameChar.h"
+                compile="0" resource="0" file="Source/exposedParamControls/sliders/1_comp_KnobAndAttachment_ForVoiceNameChar.h"/>
         </GROUP>
         <FILE id="MpBv7o" name="0_comp_TooltipUpdaterForExposedParamControl.cpp"
               compile="1" resource="0" file="Source/exposedParamControls/0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
@@ -106,6 +112,8 @@
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.cpp"/>
         <FILE id="tlyZrU" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
+              resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
         <FILE id="tpzqTT" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="Ym2eWM" name="gui_LookAndFeel.h" compile="0" resource="0"

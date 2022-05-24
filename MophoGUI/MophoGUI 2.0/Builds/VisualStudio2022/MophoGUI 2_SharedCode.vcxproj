@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp"/>
@@ -2125,9 +2126,10 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
-    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.h"/>
@@ -2135,6 +2137,7 @@
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.h"/>
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h"/>
@@ -2143,6 +2146,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>

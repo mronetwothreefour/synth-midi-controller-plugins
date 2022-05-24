@@ -5,6 +5,7 @@
 #include "sliders/1_comp_KnobAndAttachment.h"
 #include "sliders/1_comp_KnobAndAttachment_ForOscShape.h"
 #include "sliders/1_comp_KnobAndAttachment_ForSeqStep.h"
+#include "sliders/1_comp_KnobAndAttachment_ForVoiceNameChar.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
@@ -34,18 +35,19 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 		buildKnobAndAttachmentControlForExposedParam();
 		break;
 	case ControlType::knobForOscShape:
-		buildKnobAndAttachmentControl_ForOscShape_ForExposedParam();
+		buildKnobAndAttachment_ForOscShape_ControlForExposedParam();
 		break;
 	case ControlType::toggleButton:
-		buildToggleButtonAndAttachment_ForExposedParam();
+		buildToggleButtonAndAttachmentControlForExposedParam();
 		break;
 	case ControlType::comboBox:
-		buildComboBoxAndAttachment_ForExposedParam();
+		buildComboBoxAndAttachmentControlForExposedParam();
 		break;
 	case ControlType::seqTrackStep:
-		buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam();
+		buildKnobAndAttachment_ForSeqStep_ControlForExposedParam();
 		break;
 	case ControlType::voiceNameChar:
+		buildKnobAndAttachment_ForVoiceNameChar_ControlForExposedParam();
 		break;
 	default:
 		break;
@@ -65,7 +67,7 @@ void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
 	}
 }
 
-void ExposedParamControl::buildKnobAndAttachmentControl_ForOscShape_ForExposedParam() {
+void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedParam() {
 	knobAndAttachment_ForOscShape.reset(new KnobAndAttachment_ForOscShape(paramIndex, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForOscShape != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForOscShape.get());
@@ -74,7 +76,7 @@ void ExposedParamControl::buildKnobAndAttachmentControl_ForOscShape_ForExposedPa
 	}
 }
 
-void ExposedParamControl::buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam() {
+void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
@@ -86,7 +88,16 @@ void ExposedParamControl::buildKnobAndAttachmentControl_ForSeqStep_ForExposedPar
 	}
 }
 
-void ExposedParamControl::buildToggleButtonAndAttachment_ForExposedParam() {
+void ExposedParamControl::buildKnobAndAttachment_ForVoiceNameChar_ControlForExposedParam() {
+	knobAndAttachment_ForVoiceNameChar.reset(new KnobAndAttachment_ForVoiceNameChar(paramIndex, exposedParams, unexposedParams));
+	if (knobAndAttachment_ForVoiceNameChar != nullptr) {
+		addAndMakeVisible(knobAndAttachment_ForVoiceNameChar.get());
+		setSize(knobAndAttachment_ForVoiceNameChar->getWidth(), knobAndAttachment_ForVoiceNameChar->getHeight());
+		knobAndAttachment_ForVoiceNameChar->addMouseListener(this, true);
+	}
+}
+
+void ExposedParamControl::buildToggleButtonAndAttachmentControlForExposedParam() {
 	toggleButtonAndAttachment.reset(new ToggleButtonAndAttachment(paramIndex, exposedParams, unexposedParams));
 	if (toggleButtonAndAttachment != nullptr) {
 		addAndMakeVisible(toggleButtonAndAttachment.get());
@@ -95,7 +106,7 @@ void ExposedParamControl::buildToggleButtonAndAttachment_ForExposedParam() {
 	}
 }
 
-void ExposedParamControl::buildComboBoxAndAttachment_ForExposedParam() {
+void ExposedParamControl::buildComboBoxAndAttachmentControlForExposedParam() {
 	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, unexposedParams));
 	if (comboBoxAndAttachment != nullptr) {
 		addAndMakeVisible(comboBoxAndAttachment.get());
@@ -133,6 +144,8 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 			knobAndAttachment_ForSeqStep->attachKnobToExposedParameter();
 		break;
 	case ControlType::voiceNameChar:
+		if (knobAndAttachment_ForVoiceNameChar != nullptr)
+			knobAndAttachment_ForVoiceNameChar->attachKnobToExposedParameter();
 		break;
 	default: break;
 	}
@@ -149,6 +162,8 @@ void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const 
 		knobAndAttachment_ForOscShape->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (knobAndAttachment_ForSeqStep != nullptr)
 		knobAndAttachment_ForSeqStep->deleteAttachmentBeforeKnobToPreventMemLeak();
+	if (knobAndAttachment_ForVoiceNameChar != nullptr)
+		knobAndAttachment_ForVoiceNameChar->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (toggleButtonAndAttachment != nullptr)
 		toggleButtonAndAttachment->deleteAttachmentBeforeToggleToPreventMemLeak();
 	if (comboBoxAndAttachment != nullptr)
@@ -167,6 +182,10 @@ ExposedParamControl::~ExposedParamControl() {
 	if (knobAndAttachment_ForSeqStep != nullptr) {
 		knobAndAttachment_ForSeqStep->removeMouseListener(this);
 		knobAndAttachment_ForSeqStep = nullptr;
+	}
+	if (knobAndAttachment_ForVoiceNameChar != nullptr) {
+		knobAndAttachment_ForVoiceNameChar->removeMouseListener(this);
+		knobAndAttachment_ForVoiceNameChar = nullptr;
 	}
 	if (toggleButtonAndAttachment != nullptr) {
 		toggleButtonAndAttachment->removeMouseListener(this);

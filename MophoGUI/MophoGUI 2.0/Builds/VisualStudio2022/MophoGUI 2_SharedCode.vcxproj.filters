@@ -499,6 +499,9 @@
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -2658,13 +2661,16 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
-      <Filter>MophoGUI 2\Source\constants</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
@@ -2686,6 +2692,9 @@
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.h">
@@ -2710,6 +2719,9 @@
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">

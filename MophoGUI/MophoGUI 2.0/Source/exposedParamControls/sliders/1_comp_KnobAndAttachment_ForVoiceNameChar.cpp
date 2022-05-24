@@ -1,24 +1,24 @@
-#include "1_comp_KnobAndAttachment.h"
+#include "1_comp_KnobAndAttachment_ForVoiceNameChar.h"
 
 #include "../../constants/constants_GUI_Dimensions.h"
 #include "../../constants/constants_ExposedParameters.h"
 #include "../../constants/constants_GUI_Colors.h"
-#include "../../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../../constants/constants_Identifiers.h"
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
+#include "../../gui/gui_build_LCD_CharacterPath.h"
 
 using namespace MophoConstants;
 
 
 
-KnobAndAttachment::KnobAndAttachment(
+KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
-		paramIndex{ paramIndex },
-		exposedParams{ exposedParams },
-		unexposedParams{ unexposedParams },
-		knob{ unexposedParams },
-		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
-		choiceNameString{""}
+	paramIndex{ paramIndex },
+	exposedParams{ exposedParams },
+	unexposedParams{ unexposedParams },
+	knob{ unexposedParams },
+	tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
+	charNum{ 0 }
 {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex) };
@@ -28,58 +28,49 @@ KnobAndAttachment::KnobAndAttachment(
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
-	setSize(GUI::knob_diameter, GUI::knob_diameter);
+	knob.setAlpha(0.0f);
+	knob.isModifyingPitch = false;
+	setSize(GUI::voiceNameCharacters_w, GUI::voiceNameCharacters_h);
 	knob.setBounds(getLocalBounds());
 
 	parameterValueChanged(paramIndex, paramaterPtr->getValue());
 }
 
-void KnobAndAttachment::paint(Graphics& g) {
-	g.setFont(GUI::fontFor_KnobValueDisplays);
+void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
 	g.setColour(GUI::color_White);
-	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
+	g.fillPath(LCD_CharacterPath::buildForChar((uint8)charNum));
 }
 
-void KnobAndAttachment::attachKnobToExposedParameter() {
+void KnobAndAttachment_ForVoiceNameChar::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
+	limitKnobRangeToBasic_ASCII_CharsThatAreVisible();
 }
 
-void KnobAndAttachment::setKnobIsModifyingPitch() {
-	knob.isModifyingPitch = true;
+void KnobAndAttachment_ForVoiceNameChar::limitKnobRangeToBasic_ASCII_CharsThatAreVisible() {
+	knob.setRange(32.0, 127.0, 1.0);
 }
 
-void KnobAndAttachment::setKnobIsNotModifyingPitch() {
-	knob.isModifyingPitch = false;
-}
-
-void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newValue) {
+void KnobAndAttachment_ForVoiceNameChar::parameterValueChanged(int changedParamIndex, float newValue) {
 	if (changedParamIndex == paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto paramID{ info.IDfor(paramIndex) };
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		choiceNameString = info.choiceNameFor((uint8)currentChoice, paramIndex);
+		charNum = currentChoice;
 		repaint();
-		if (paramID.toString().contains("_LFO_") && paramID.toString().endsWith("_Freq")) {
-			if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
-				knob.isModifyingPitch = true;
-			else
-				knob.isModifyingPitch = false;
-		}
 	}
 }
 
-void KnobAndAttachment::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
+void KnobAndAttachment_ForVoiceNameChar::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
-void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
+void KnobAndAttachment_ForVoiceNameChar::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }
 
-KnobAndAttachment::~KnobAndAttachment() {
+KnobAndAttachment_ForVoiceNameChar::~KnobAndAttachment_ForVoiceNameChar() {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex) };
 	auto paramaterPtr{ exposedParams->getParameter(paramID) };
 	paramaterPtr->removeListener(this);
 }
-

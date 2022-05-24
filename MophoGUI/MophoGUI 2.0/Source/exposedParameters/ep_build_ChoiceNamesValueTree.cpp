@@ -507,7 +507,7 @@ ValueTree ChoiceNamesValueTree::buildFor_VoiceNameChar(bool verbose) {
 	for (auto choiceNum = 0; choiceNum != 32; ++choiceNum)
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "ASCII Control Character " + (String)choiceNum, nullptr);
 	choiceNamesTree.setProperty("choice_32", "Space", nullptr);
-	for (auto choiceNum = 33; choiceNum != 128; ++choiceNum) {
+	for (auto choiceNum = 33; choiceNum != EP::numberOfChoicesForVoiceNameChar; ++choiceNum) {
 		auto choiceName{ String(std::string(1, (char)choiceNum)) };
 		if (choiceNum == 92)
 			choiceName = "Yen Symbol";

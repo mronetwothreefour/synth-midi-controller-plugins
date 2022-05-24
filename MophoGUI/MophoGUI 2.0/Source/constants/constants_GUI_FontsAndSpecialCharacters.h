@@ -16,7 +16,7 @@ namespace MophoConstants
 {
 	namespace GUI
 	{
-		static const Typeface::Ptr Overpass_Bold{ Typeface::createSystemTypefaceFor(BinaryData::OverpassBold_ttf, BinaryData::OverpassBold_ttfSize) };
+		const Typeface::Ptr Overpass_Bold{ Typeface::createSystemTypefaceFor(BinaryData::OverpassBold_ttf, BinaryData::OverpassBold_ttfSize) };
 
 		const Font fontFor_BrowserText{ FontBuilder::createFontFromTypeface_Size_Kerning(Overpass_Bold, 18.0f, 0.0f) };
 		const Font fontFor_DisplayLabels{ FontBuilder::createFontFromTypeface_Size_Kerning(Overpass_Bold, 15.0f, 0.0f) };
