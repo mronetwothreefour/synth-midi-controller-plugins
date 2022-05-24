@@ -419,6 +419,23 @@ String DescriptionString::buildFor_SeqTrackDestination(int trackNum) {
     return descriptionString;
 }
 
+String DescriptionString::buildFor_SeqTrackStep(int trackNum, int stepNum) {
+    String descriptionString{ "" };
+    descriptionString = "Sets the value that sequencer track " + (String)trackNum + GUI::apostrophe + "s destination parameter has at step " + (String)stepNum + ",\n";
+    descriptionString += "Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.\n";
+    descriptionString += "A " + GUI::openQuote + "+" + GUI::closeQuote + " indicates that the pitch is a quarter-tone higher than the displayed note.\n";
+    descriptionString += "Reset (126): Restarts the track from step 1. CTRL-click a step to set it to reset.";
+    if (trackNum == 0) {
+        descriptionString += "\nRest (127): The step produces no output. ALT-click a step to make it a rest\n";
+        descriptionString += "(Rests are only available for the steps in sequencer track 1).";
+    }
+    descriptionString += "\nWhen the track destination is an oscillator pitch, holding down the\n";
+    descriptionString += "SHIFT key while turning the mouse wheel will increment a step" + GUI::apostrophe + "s value \n";
+    descriptionString += "by 24 (equivalent to one octave including the " + GUI::openQuote + "bent" + GUI::closeQuote + " pitches).\n";
+    descriptionString += "Otherwise, the value will increment by 10.";
+    return descriptionString;
+}
+
 String DescriptionString::buildFor_SeqTrigMode() {
     String descriptionString{ "" };
     descriptionString += "Normal: New notes reset the sequencer to the first step.\n";

@@ -4,6 +4,7 @@
 
 SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
 	isModifyingPitch{ false },
+	isModifyingSeqStep{ false },
 	unexposedParams{ unexposedParams }
 {
 }
@@ -14,8 +15,12 @@ void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, c
 	auto currentValue{ getValue() };
 	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 	if (delta != 0.0f) {
-		if (event.mods == ModifierKeys::shiftModifier)
-			interval *= isModifyingPitch ? 12.0 : 10.0;
+		if (event.mods == ModifierKeys::shiftModifier) {
+			if (isModifyingPitch)
+				interval *= isModifyingSeqStep ? 24.0 : 12.0;
+			else
+				interval *= 10.0;
+		}
 		setValue(currentValue + interval);
 	}
 	unexposedParams->getUndoManager()->beginNewTransaction();
@@ -85,8 +90,9 @@ void RotarySliderWithMouseDownModForSeqStep::mouseDown(const MouseEvent& event) 
 		setValue(126.0, sendNotification);
 		return;
 	}
-	if (trackNum == 1 && event.mods.isAltDown()) {
-		setValue(127.0, sendNotification);
+	if (event.mods.isAltDown()) {
+		if (trackNum == 1)
+			setValue(127.0, sendNotification);
 		return;
 	}
 	else Slider::mouseDown(event);

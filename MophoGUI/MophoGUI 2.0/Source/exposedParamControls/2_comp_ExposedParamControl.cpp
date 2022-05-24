@@ -75,7 +75,10 @@ void ExposedParamControl::buildKnobAndAttachmentControl_ForOscShape_ForExposedPa
 }
 
 void ExposedParamControl::buildKnobAndAttachmentControl_ForSeqStep_ForExposedParam() {
-	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, exposedParams, unexposedParams));
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex).toString()};
+	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
+	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, trackNum, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForSeqStep != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForSeqStep.get());
 		setSize(knobAndAttachment_ForSeqStep->getWidth(), knobAndAttachment_ForSeqStep->getHeight());

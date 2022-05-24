@@ -13,6 +13,7 @@ class SliderWithMouseWheelMoveOverride :
 
 public:
 	bool isModifyingPitch;
+	bool isModifyingSeqStep;
 
 	SliderWithMouseWheelMoveOverride() = delete;
 

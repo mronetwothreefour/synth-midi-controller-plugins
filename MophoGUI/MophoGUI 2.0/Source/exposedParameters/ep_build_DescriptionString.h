@@ -58,6 +58,7 @@ struct DescriptionString
 	static String buildFor_PushItVelocity();
 	static String buildFor_SeqOnOff();
 	static String buildFor_SeqTrackDestination(int trackNum);
+	static String buildFor_SeqTrackStep(int trackNum, int stepNum);
 	static String buildFor_SeqTrigMode();
 	static String buildFor_VCA_EnvAmount();
 	static String buildFor_VCA_Level();

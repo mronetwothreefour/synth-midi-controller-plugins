@@ -1708,7 +1708,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_ControlType, (int)ControlType::comboBox },
 							{ ID::property_NRPN, nrpn },
 							{ ID::property_NumberOfChoices, numberOfChoices },
-							{ ID::property_DefaultChoice, 0 },
+							{ ID::property_DefaultChoice, trackNum < 3 ? trackNum : trackNum == 3 ? 9 : 0 },
 							{ ID::property_Center_x, seqTrackDestComboBoxes_x },
 							{ ID::property_Center_y, 169 + ((trackNum - 1) * GUI::seqTrackControlsGroup_h) },
 							{ ID::property_Width, seqTrackDestComboBoxes_w },
@@ -1783,9 +1783,10 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 								{ ID::property_NumberOfChoices, trackNum == 0 ? 128 : 127 },
 								{ ID::property_DefaultChoice, 0 },
 								{ ID::property_Center_x, 825 + stepNum * (GUI::seqSteps_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
-								{ ID::property_Center_y, 183 + trackNum * GUI::seqTrackControlsGroup_h },
+								{ ID::property_Center_y, 196 + trackNum * GUI::seqTrackControlsGroup_h },
 								{ ID::property_Width, GUI::seqSteps_w },
 								{ ID::property_Height, GUI::seqSteps_h },
+								{ ID::property_Description, DescriptionString::buildFor_SeqTrackStep(trackNum + 1, stepNum + 1) },
 							}, {
 								ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrackStep(concise) },
 								ValueTree{ ChoiceNamesValueTree::buildFor_SeqTrackStep(verbose) }

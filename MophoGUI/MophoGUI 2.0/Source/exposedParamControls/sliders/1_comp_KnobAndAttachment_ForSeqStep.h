@@ -17,16 +17,16 @@ protected:
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	RotarySliderWithMouseWheelMoveOverride knob;
+	RotarySliderWithMouseDownModForSeqStep knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 	int choiceNum;
-	// todo: add int trackNum
+	uint8 trackDestIndex;
 
 public:
 	KnobAndAttachment_ForSeqStep() = delete;
 
-	KnobAndAttachment_ForSeqStep(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForSeqStep(uint8 paramIndex, int trackNum, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);

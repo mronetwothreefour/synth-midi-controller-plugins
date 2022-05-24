@@ -12,37 +12,45 @@ using namespace MophoConstants;
 
 
 KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
-    uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+    uint8 paramIndex, int trackNum, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
 		unexposedParams{ unexposedParams },
-		knob{ unexposedParams },
+		knob{ trackNum, unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
 {
-	// todo: add listener to track destination
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex) };
 	auto paramaterPtr{ exposedParams->getParameter(paramID) };
 	paramaterPtr->addListener(this);
+	trackDestIndex = (uint8)100 + (uint8)trackNum;
+	auto trackDestParamID{ info.IDfor(trackDestIndex) };
+	auto trackDestParamaterPtr{ exposedParams->getParameter(trackDestParamID) };
+	trackDestParamaterPtr->addListener(this);
 
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
-	setSize(GUI::knob_diameter, GUI::knob_diameter);
+	knob.isModifyingSeqStep = true;
+	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	knob.setBounds(getLocalBounds());
 
+	parameterValueChanged(trackDestIndex, trackDestParamaterPtr->getValue());
 	parameterValueChanged(paramIndex, paramaterPtr->getValue());
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
-// todo: logic is needed for painting pitch name when track destination is an oscillator pitch
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
 		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
 			auto& info{ InfoForExposedParameters::get() };
 			auto choiceNameString{ info.choiceNameFor((uint8)choiceNum, paramIndex) };
+			if (knob.isModifyingPitch)
+				choiceNameString = choiceNameString.fromFirstOccurrenceOf("(", false, false).upToFirstOccurrenceOf(")", false, false);
+			else
+				choiceNameString = choiceNameString.upToFirstOccurrenceOf(" ", false, false);
 			paintChoiceNameString(g, choiceNameString);
 		}
 		if (choiceNum == EP::choiceNumForSeqStep_Reset)
@@ -81,13 +89,20 @@ void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
 }
 
 void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, float newValue) {
-	// todo: add logic for setting isModifyingPitch when the track destination changes
-	if (changedParamIndex == paramIndex) {
+	if (changedParamIndex == trackDestIndex || changedParamIndex == paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex) };
+		auto paramID{ info.IDfor(changedParamIndex) };
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		choiceNum = currentChoice;
+		if (changedParamIndex == trackDestIndex) {
+			if (currentChoice > 0 && currentChoice < 4)
+				knob.isModifyingPitch = true;
+			else
+				knob.isModifyingPitch = false;
+		}
+		else {
+			choiceNum = currentChoice;
+		}
 		repaint();
 	}
 }
@@ -101,6 +116,9 @@ void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventMemLeak() 
 
 KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
 	auto& info{ InfoForExposedParameters::get() };
+	auto trackDestParamID{ info.IDfor(trackDestIndex) };
+	auto trackDestParamaterPtr{ exposedParams->getParameter(trackDestParamID) };
+	trackDestParamaterPtr->removeListener(this);
 	auto paramID{ info.IDfor(paramIndex) };
 	auto paramaterPtr{ exposedParams->getParameter(paramID) };
 	paramaterPtr->removeListener(this);
