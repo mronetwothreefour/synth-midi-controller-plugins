@@ -98,12 +98,19 @@ namespace MophoConstants
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };
 
+		const Identifier state_ExposedParams{ "state_ExposedParams" };
+		const Identifier state_PluginState{ "state_PluginState" };
 		const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+		const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
 
 		const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 		const Identifier tooltips_Options{ "tooltips_Options" };
 		const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
 		const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
+		const Identifier voiceTx_Options{ "voiceTx_Options" };
+		const Identifier voiceTx_ParamChangeEchoesAreNotBlocked{ "voiceTx_ParamChangeEchoesAreNotBlocked" };
+		const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}
 }

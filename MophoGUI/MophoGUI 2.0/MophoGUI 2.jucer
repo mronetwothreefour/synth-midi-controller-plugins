@@ -140,6 +140,10 @@
               file="Source/unexposedParameters/up_tree_TooltipsOptions.cpp"/>
         <FILE id="MFU0dA" name="up_tree_TooltipsOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_tree_TooltipsOptions.h"/>
+        <FILE id="SWxLDL" name="up_tree_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.cpp"/>
+        <FILE id="eJHjZX" name="up_tree_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

@@ -9,13 +9,9 @@ using namespace MophoConstants;
 TooltipsOptions::TooltipsOptions() :
 	tooltipsOptionsTree{ ID::tooltips_Options }
 {
-	addTooltipOptionsProperties();
-}
-
-void TooltipsOptions::addTooltipOptionsProperties() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentValue, (bool)true, nullptr);
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, (bool)true, nullptr);
-	tooltipsOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, 1000, nullptr);
+	setShouldShowCurrentValue();
+	setShouldShowDescription();
+	setDelayInMilliseconds(1000);
 }
 
 void TooltipsOptions::addListener(ValueTree::Listener* listener) {

@@ -1,8 +1,11 @@
 #include "core_PluginProcessor.h"
 #include "core_PluginEditor.h"
 
+#include "constants/constants_Identifiers.h"
 #include "exposedParameters/ep_build_ExposedParamsLayout.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
+
+using namespace MophoConstants;
 
 
 PluginProcessor::PluginProcessor() :
@@ -79,10 +82,44 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor(*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
+void PluginProcessor::getStateInformation(MemoryBlock& destData) {
+    createPluginStateXml();
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
 }
 
-void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
+void PluginProcessor::createPluginStateXml() {
+    auto exposedParamsStateTree{ exposedParams->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
+    pluginStateXml.reset(new XmlElement(ID::state_PluginState));
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(unexposedParamsStateXml.release());
+}
+
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    pluginStateXml = getXmlFromBinary(data, sizeInBytes);
+    if (pluginStateXml != nullptr)
+        restorePluginStateFromXml(pluginStateXml.get());
+}
+
+void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
+    auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
+    if (exposedParamsStateXml != nullptr) {
+        auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
+        voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+        auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
+        exposedParams->replaceState(exposedParamsStateTree);
+        voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+    }
+    auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    if (unexposedParamsStateXml != nullptr) {
+        auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+        unexposedParams->replaceState(unexposedParamsStateTree);
+    }
 }
 
 PluginProcessor::~PluginProcessor() {

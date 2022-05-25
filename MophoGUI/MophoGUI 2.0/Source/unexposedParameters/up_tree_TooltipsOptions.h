@@ -10,11 +10,6 @@ class TooltipsOptions
 
 public:
 	TooltipsOptions();
-
-private:
-	void addTooltipOptionsProperties();
-
-public:
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 	const bool shouldShowCurrentValue();

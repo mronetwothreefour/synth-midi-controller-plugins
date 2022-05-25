@@ -544,6 +544,9 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2749,6 +2752,9 @@
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
