@@ -125,6 +125,12 @@
         <FILE id="BGcXSp" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
               file="Source/gui/gui_comp_EnvelopePainter.h"/>
       </GROUP>
+      <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
+        <FILE id="jTpFOS" name="0_midi_OutgoingMidiBuffers.cpp" compile="1"
+              resource="0" file="Source/midi/0_midi_OutgoingMidiBuffers.cpp"/>
+        <FILE id="rF0s25" name="0_midi_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/0_midi_OutgoingMidiBuffers.h"/>
+      </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>

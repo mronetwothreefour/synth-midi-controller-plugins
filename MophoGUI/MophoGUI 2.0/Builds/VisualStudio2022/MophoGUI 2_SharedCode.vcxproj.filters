@@ -29,6 +29,9 @@
     <Filter Include="MophoGUI 2\Source\gui">
       <UniqueIdentifier>{F3565732-B8AC-B941-FD8B-18C0D7E20F25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\midi">
+      <UniqueIdentifier>{34FF079E-7720-B807-9AC9-E9F8E37BDAB2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
     </Filter>
@@ -531,6 +534,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\0_midi_OutgoingMidiBuffers.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
@@ -2735,6 +2741,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\0_midi_OutgoingMidiBuffers.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>

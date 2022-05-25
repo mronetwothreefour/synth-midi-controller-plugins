@@ -8,7 +8,8 @@
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->getUndoManager(), "exposedParams", ExposedParametersLayout::build()) }
+    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->getUndoManager(), "exposedParams", ExposedParametersLayout::build()) },
+    bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() }
 {
 }
 
@@ -46,8 +47,14 @@ const String PluginProcessor::getProgramName(int /*index*/) {
 void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& /*midiMessages*/) {
+void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
+
+    if (!bundledOutgoingBuffers->isEmpty()) {
+        for (auto event : bundledOutgoingBuffers->removeAndReturn(0)) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
+        }
+    }
 }
 
 bool PluginProcessor::isBusesLayoutSupported(const BusesLayout& /*layouts*/) const {

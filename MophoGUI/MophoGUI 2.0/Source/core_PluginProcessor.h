@@ -38,6 +38,7 @@ class PluginProcessor :
 {
     std::unique_ptr<UnexposedParameters> unexposedParams;
     std::unique_ptr<AudioProcessorValueTreeState> exposedParams;
+    Array<MidiBuffer, CriticalSection>* bundledOutgoingBuffers;
 
 public:
     PluginProcessor();

@@ -7,9 +7,18 @@ using namespace MophoConstants;
 
 
 UnexposedParameters::UnexposedParameters() :
+	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	tooltipsOptions{ new TooltipsOptions() },
 	undoManager{ new UndoManager() }
 {
+}
+
+Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
+	return outgoingMidiBuffers->getBundledOutgoingBuffers();
+}
+
+OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
+	return outgoingMidiBuffers.get();
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
@@ -37,6 +46,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 }
 
 UnexposedParameters::~UnexposedParameters() {
-	tooltipsOptions = nullptr;
 	undoManager = nullptr;
+	tooltipsOptions = nullptr;
+	outgoingMidiBuffers = nullptr;
 }
