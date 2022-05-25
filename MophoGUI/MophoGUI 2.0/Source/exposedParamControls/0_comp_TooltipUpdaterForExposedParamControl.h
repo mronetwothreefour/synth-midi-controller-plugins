@@ -26,8 +26,8 @@ private:
 
 public:
 	void parameterValueChanged(int changedParamIndex, float newValue);
-	void parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/);
-	void valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) override;
+	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	~TooltipUpdaterForExposedParamControl();
 
 private:

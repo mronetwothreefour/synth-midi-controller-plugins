@@ -529,6 +529,9 @@
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -2718,13 +2721,19 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
-      <Filter>MophoGUI 2\Source\gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">

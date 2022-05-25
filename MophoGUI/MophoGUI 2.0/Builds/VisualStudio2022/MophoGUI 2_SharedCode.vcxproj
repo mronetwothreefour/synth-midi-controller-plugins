@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2145,9 +2146,11 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_DescriptionString.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
-    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

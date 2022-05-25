@@ -108,16 +108,22 @@
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
+        <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
+              resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
+        <FILE id="ngUmq4" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
+              file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="IRVoGG" name="gui_layer_ExposedParamControls.cpp" compile="1"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.cpp"/>
         <FILE id="tlyZrU" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
-        <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
-              resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
         <FILE id="tpzqTT" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="Ym2eWM" name="gui_LookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_LookAndFeel.h"/>
+        <FILE id="i6YRhP" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
+        <FILE id="BGcXSp" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

@@ -4,6 +4,7 @@
 #include "constants/constants_GUI_Dimensions.h"
 #include "constants/constants_Identifiers.h"
 #include "gui/gui_LookAndFeel.h"
+#include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
@@ -18,11 +19,13 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     lookAndFeel{ new MophoLookAndFeel() },
+    layerForEnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
     layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
+    addAndMakeVisible(layerForEnvelopePainters.get());
     addAndMakeVisible(layerForExposedParamControls.get());
 
     auto tooltips{ unexposedParams->getTooltipsOptions() };
@@ -43,6 +46,7 @@ void PluginEditor::paint(Graphics& g) {
 }
 
 void PluginEditor::resized() {
+    layerForEnvelopePainters->setBounds(getLocalBounds());
     layerForExposedParamControls->setBounds(getLocalBounds());
 }
 
@@ -58,4 +62,5 @@ PluginEditor::~PluginEditor() {
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     layerForExposedParamControls = nullptr;
+    layerForEnvelopePainters = nullptr;
 }
