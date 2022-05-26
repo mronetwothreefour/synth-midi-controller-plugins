@@ -1908,6 +1908,14 @@ uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 	return (uint8)NRPN;
 }
 
+uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+		if (NRPNfor(paramIndex == NRPN))
+			return paramIndex;
+	}
+	return (uint8)255;
+}
+
 uint8 InfoForExposedParameters::numberOfChoicesFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramNumString{ (String)paramIndex };

@@ -8,9 +8,9 @@ namespace MophoConstants
 {
 	namespace MIDI
 	{
-		const int nrpnTypeMSB{ 99 };
-		const int nrpnTypeLSB{ 98 };
-		const int nrpnValueMSB{ 6 };
-		const int nrpnValueLSB{ 38 };
+		const int nrpnType_MSB{ 99 };
+		const int nrpnType_LSB{ 98 };
+		const int nrpnValue_MSB{ 6 };
+		const int nrpnValue_LSB{ 38 };
 	}
 }

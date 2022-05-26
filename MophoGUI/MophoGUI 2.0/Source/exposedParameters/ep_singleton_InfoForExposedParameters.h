@@ -26,6 +26,7 @@ public:
 	String exposedNameFor(uint8 paramIndex) const;
 	ControlType controlTypeFor(uint8 paramIndex) const;
 	uint8 NRPNfor(uint8 paramIndex) const;
+	uint8 paramIndexForNRPN(const uint8 NRPN) const;
 	uint8 numberOfChoicesFor(uint8 paramIndex) const;
 	uint8 lastChoiceFor(uint8 paramIndex) const;
 	uint8 defaultChoiceFor(uint8 paramIndex) const;
