@@ -1,4 +1,4 @@
-#include "0_midi_IncomingMessageHandler_NRPN.h"
+#include "1_midi_IncomingMessageHandler_NRPN.h"
 
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
@@ -107,7 +107,7 @@ void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnT
     auto paramIndex{ info.paramIndexForNRPN((uint8)nrpnType) };
     auto paramID{ info.IDfor(paramIndex) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
-    paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newValue));
+    paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
     voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
 }
 

@@ -128,10 +128,6 @@
               file="Source/gui/gui_comp_EnvelopePainter.h"/>
       </GROUP>
       <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
-        <FILE id="vEal1a" name="0_midi_IncomingMessageHandler_NRPN.cpp" compile="1"
-              resource="0" file="Source/midi/0_midi_IncomingMessageHandler_NRPN.cpp"/>
-        <FILE id="nJFSpi" name="0_midi_IncomingMessageHandler_NRPN.h" compile="0"
-              resource="0" file="Source/midi/0_midi_IncomingMessageHandler_NRPN.h"/>
         <FILE id="e5Hb96" name="0_midi_NRPNbufferWithLeadingMSBs.cpp" compile="1"
               resource="0" file="Source/midi/0_midi_NRPNbufferWithLeadingMSBs.cpp"/>
         <FILE id="R4iVsm" name="0_midi_NRPNbufferWithLeadingMSBs.h" compile="0"
@@ -150,6 +146,14 @@
               resource="0" file="Source/midi/1_midi_EditBufferDataMessage.h"/>
         <FILE id="cJyg4C" name="1_midi_GlobalParametersDataRequest.h" compile="0"
               resource="0" file="Source/midi/1_midi_GlobalParametersDataRequest.h"/>
+        <FILE id="vEal1a" name="1_midi_IncomingMessageHandler_NRPN.cpp" compile="1"
+              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_NRPN.cpp"/>
+        <FILE id="nJFSpi" name="1_midi_IncomingMessageHandler_NRPN.h" compile="0"
+              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_NRPN.h"/>
+        <FILE id="QtdY7O" name="1_midi_IncomingMessageHandler_SysEx.cpp" compile="1"
+              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_SysEx.cpp"/>
+        <FILE id="K91Xtg" name="1_midi_IncomingMessageHandler_SysEx.h" compile="0"
+              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_SysEx.h"/>
         <FILE id="RKfpSL" name="1_midi_ParameterChangeMessage.h" compile="0"
               resource="0" file="Source/midi/1_midi_ParameterChangeMessage.h"/>
       </GROUP>

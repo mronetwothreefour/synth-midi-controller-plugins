@@ -535,9 +535,6 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\0_midi_IncomingMessageHandler_NRPN.cpp">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
@@ -548,6 +545,12 @@
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\1_midi_EditBufferDataMessage.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\1_midi_IncomingMessageHandler_NRPN.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\1_midi_IncomingMessageHandler_SysEx.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
@@ -2763,9 +2766,6 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\0_midi_IncomingMessageHandler_NRPN.h">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
@@ -2779,6 +2779,12 @@
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\1_midi_GlobalParametersDataRequest.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\1_midi_IncomingMessageHandler_NRPN.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\1_midi_IncomingMessageHandler_SysEx.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\1_midi_ParameterChangeMessage.h">

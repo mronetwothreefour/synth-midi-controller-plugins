@@ -74,7 +74,7 @@ namespace MophoConstants
 		voiceDataRequest = 5,
 		editBufferDataRequest = 6,
 		globalParametersDataRequest = 14,
-		globalParametersData = 15
+		globalOptionsData = 15
 	};
 }
 
