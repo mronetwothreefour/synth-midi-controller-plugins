@@ -94,6 +94,9 @@ namespace MophoConstants
 		const Identifier property_Description{ "property_Description" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
 		const Identifier property_Height{ "property_Height" };
+		const Identifier property_LSByteLocation{ "property_LSByteLocation" };
+		const Identifier property_MSBitMask{ "property_MSBitMask" };
+		const Identifier property_MSBitPackedByteLocation{ "property_MSbitPackedByteLocation" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };

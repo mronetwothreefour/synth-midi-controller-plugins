@@ -40,6 +40,8 @@
               file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="ZHL3gW" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
+        <FILE id="Ran6UQ" name="constants_MIDI.h" compile="0" resource="0"
+              file="Source/constants/constants_MIDI.h"/>
       </GROUP>
       <GROUP id="{0A8BB4C6-FED6-C229-D725-5CFC11F21C42}" name="exposedParamControls">
         <GROUP id="{21E2B2F5-D349-307A-4D79-88AE1C2C8313}" name="buttons">
@@ -126,10 +128,24 @@
               file="Source/gui/gui_comp_EnvelopePainter.h"/>
       </GROUP>
       <GROUP id="{AFC00280-01BF-A806-BCAC-51D24FBE711D}" name="midi">
+        <FILE id="e5Hb96" name="0_midi_NRPNbufferWithLeadingMSBs.cpp" compile="1"
+              resource="0" file="Source/midi/0_midi_NRPNbufferWithLeadingMSBs.cpp"/>
+        <FILE id="R4iVsm" name="0_midi_NRPNbufferWithLeadingMSBs.h" compile="0"
+              resource="0" file="Source/midi/0_midi_NRPNbufferWithLeadingMSBs.h"/>
         <FILE id="jTpFOS" name="0_midi_OutgoingMidiBuffers.cpp" compile="1"
               resource="0" file="Source/midi/0_midi_OutgoingMidiBuffers.cpp"/>
         <FILE id="rF0s25" name="0_midi_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/0_midi_OutgoingMidiBuffers.h"/>
+        <FILE id="GDTJSm" name="0_midi_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/0_midi_RawDataTools.cpp"/>
+        <FILE id="kOob0h" name="0_midi_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/0_midi_RawDataTools.h"/>
+        <FILE id="hs9O9C" name="1_midi_EditBufferDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/1_midi_EditBufferDataMessage.cpp"/>
+        <FILE id="ybZrKJ" name="1_midi_EditBufferDataMessage.h" compile="0"
+              resource="0" file="Source/midi/1_midi_EditBufferDataMessage.h"/>
+        <FILE id="RKfpSL" name="1_midi_ParameterChangeMessage.h" compile="0"
+              resource="0" file="Source/midi/1_midi_ParameterChangeMessage.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

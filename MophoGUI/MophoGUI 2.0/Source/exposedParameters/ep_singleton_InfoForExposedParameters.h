@@ -13,10 +13,11 @@ class InfoForExposedParameters
 {
 	ValueTree exposedParamsInfoTree;
 
-public:
 	InfoForExposedParameters();
 	void fillExposedParamsInfoTree();
+	void setDataByteLocationPropertiesForAllParams();
 
+public:
 	InfoForExposedParameters(InfoForExposedParameters&&) = delete;
 	InfoForExposedParameters& operator=(InfoForExposedParameters&&) = delete;
 
@@ -37,6 +38,9 @@ public:
 	StringArray verboseChoiceNamesListFor(uint8 paramIndex) const;
 	String descriptionFor(uint8 paramIndex) const;
 	int mouseDragSensitivityFor(uint8 paramIndex) const;
+	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
+	uint8 msBitMaskFor(uint8 paramIndex) const;
+	uint16 lsByteLocationFor(uint8 paramIndex) const;
 
 private:
 	//==============================================================================

@@ -35,5 +35,17 @@ namespace MophoConstants
 		sawTriMix,
 		pulse
 	};
+
+
+
+
+	enum class SysExMessageType {
+		voiceData = 2,
+		editBufferData = 3,
+		voiceDataRequest = 5,
+		editBufferDataRequest = 6,
+		globalParametersDataRequest = 14,
+		globalParametersData = 15
+	};
 }
 

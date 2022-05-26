@@ -1826,6 +1826,27 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			nullptr
 		);
 	}
+
+	setDataByteLocationPropertiesForAllParams();
+}
+
+void InfoForExposedParameters::setDataByteLocationPropertiesForAllParams() {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+		auto paramNumString{ (String)paramIndex };
+		auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+		auto paramPropertiesTree{ exposedParamsInfoTree.getChildWithName(paramTreeName).getChild(0) };
+		auto firstUnassignedParamNumber{ 109 };
+		auto numberOfUnassignedParams{ (uint8)11 };
+		auto paramNumber{ paramIndex };
+		if (paramNumber >= firstUnassignedParamNumber)
+			paramNumber += numberOfUnassignedParams;
+		auto msBitPackedByteLocation{ uint16((paramNumber / 7) * 8) };
+		paramPropertiesTree.setProperty(ID::property_MSBitPackedByteLocation, msBitPackedByteLocation, nullptr);
+		uint8 msBitMask{ (uint8)(roundToInt(pow(2, paramNumber % 7))) };
+		paramPropertiesTree.setProperty(ID::property_MSBitMask, msBitMask, nullptr);
+		uint16 lsByteLocation{ (uint16)(msBitPackedByteLocation + paramNumber % 7 + 1) };
+		paramPropertiesTree.setProperty(ID::property_LSByteLocation, lsByteLocation, nullptr);
+	}
 }
 
 //==============================================================================================================================
@@ -1980,4 +2001,28 @@ String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
 
 int InfoForExposedParameters::mouseDragSensitivityFor(uint8 paramIndex) const {
 	return 80 + roundToInt(numberOfChoicesFor(paramIndex) / 2);
+}
+
+uint16 InfoForExposedParameters::msBitPackedByteLocationFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto msBitLocation((int)paramTree.getChild(0).getProperty(ID::property_MSBitPackedByteLocation));
+	return (uint16)msBitLocation;
+}
+
+uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto msBitMask{ (int)paramTree.getChild(0).getProperty(ID::property_MSBitMask) };
+	return (uint8)msBitMask;
+}
+
+uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto lsByteLocation{ (int)paramTree.getChild(0).getProperty(ID::property_LSByteLocation) };
+	return (uint8)lsByteLocation;
 }
