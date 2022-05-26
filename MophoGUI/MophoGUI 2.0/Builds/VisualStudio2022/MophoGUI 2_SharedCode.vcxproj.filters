@@ -523,6 +523,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -547,10 +550,10 @@
     <ClCompile Include="..\..\Source\midi\1_midi_EditBufferDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_IncomingMessageHandler_NRPN.cpp">
+    <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_IncomingMessageHandler_SysEx.cpp">
+    <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
@@ -2748,6 +2751,9 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -2781,10 +2787,10 @@
     <ClInclude Include="..\..\Source\midi\1_midi_GlobalParametersDataRequest.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_IncomingMessageHandler_NRPN.h">
+    <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_IncomingMessageHandler_SysEx.h">
+    <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\1_midi_ParameterChangeMessage.h">

@@ -47,9 +47,9 @@ void RawDataTools::applyRawDataToExposedParameters(
         if (msBitIsFlagged)
             newValue += 128;
         if (paramID == ID::ep_095_ClockTempo)
-            newValue -= clockTempoOffset;
-        if (paramID.toString().contains("_AssignKnob_") && newValue >= lastUnassignParamNumber)
-            newValue -= knobAssignAndUnassignedParamsOffset;
+            newValue -= EP::clockTempoOffset;
+        if (paramID.toString().contains("_AssignKnob_") && newValue >= EP::lastUnassignedParamNumber)
+            newValue -= EP::knobAssignAndUnassignedParamsOffset;
         auto paramPtr{ exposedParams->getParameter(paramID) };
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newValue));
     }
@@ -67,9 +67,9 @@ const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(Audio
         auto paramPtr{ exposedParams->getParameter(paramID) };
         auto paramValue{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
         if (paramID == ID::ep_095_ClockTempo)
-            paramValue += clockTempoOffset;
-        if (paramID.toString().contains("_AssignKnob_") && paramValue >= firstKnobAssignParamNumber)
-            paramValue += knobAssignAndUnassignedParamsOffset;
+            paramValue += EP::clockTempoOffset;
+        if (paramID.toString().contains("_AssignKnob_") && paramValue >= EP::firstKnobAssignParamNumber)
+            paramValue += EP::knobAssignAndUnassignedParamsOffset;
         auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) };
         auto lsbLocation{ info.lsByteLocationFor(paramIndex) };
         if (paramValue > 127) {

@@ -104,6 +104,10 @@
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.cpp"/>
         <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.h"/>
+        <FILE id="GyhbY4" name="ep_handle_ExposedParamChanges.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.cpp"/>
+        <FILE id="UIQ6QK" name="ep_handle_ExposedParamChanges.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.h"/>
         <FILE id="ltHhZw" name="ep_singleton_InfoForExposedParameters.cpp"
               compile="1" resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.cpp"/>
         <FILE id="MYC3I4" name="ep_singleton_InfoForExposedParameters.h" compile="0"
@@ -146,14 +150,14 @@
               resource="0" file="Source/midi/1_midi_EditBufferDataMessage.h"/>
         <FILE id="cJyg4C" name="1_midi_GlobalParametersDataRequest.h" compile="0"
               resource="0" file="Source/midi/1_midi_GlobalParametersDataRequest.h"/>
-        <FILE id="vEal1a" name="1_midi_IncomingMessageHandler_NRPN.cpp" compile="1"
-              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_NRPN.cpp"/>
-        <FILE id="nJFSpi" name="1_midi_IncomingMessageHandler_NRPN.h" compile="0"
-              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_NRPN.h"/>
-        <FILE id="QtdY7O" name="1_midi_IncomingMessageHandler_SysEx.cpp" compile="1"
-              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_SysEx.cpp"/>
-        <FILE id="K91Xtg" name="1_midi_IncomingMessageHandler_SysEx.h" compile="0"
-              resource="0" file="Source/midi/1_midi_IncomingMessageHandler_SysEx.h"/>
+        <FILE id="vEal1a" name="1_midi_handle_IncomingMessage_NRPN.cpp" compile="1"
+              resource="0" file="Source/midi/1_midi_handle_IncomingMessage_NRPN.cpp"/>
+        <FILE id="nJFSpi" name="1_midi_handle_IncomingMessage_NRPN.h" compile="0"
+              resource="0" file="Source/midi/1_midi_handle_IncomingMessage_NRPN.h"/>
+        <FILE id="QtdY7O" name="1_midi_handle_IncomingMessage_SysEx.cpp" compile="1"
+              resource="0" file="Source/midi/1_midi_handle_IncomingMessage_SysEx.cpp"/>
+        <FILE id="K91Xtg" name="1_midi_handle_IncomingMessage_SysEx.h" compile="0"
+              resource="0" file="Source/midi/1_midi_handle_IncomingMessage_SysEx.h"/>
         <FILE id="RKfpSL" name="1_midi_ParameterChangeMessage.h" compile="0"
               resource="0" file="Source/midi/1_midi_ParameterChangeMessage.h"/>
       </GROUP>

@@ -3,15 +3,22 @@
 
 #include "constants/constants_Identifiers.h"
 #include "exposedParameters/ep_build_ExposedParamsLayout.h"
+#include "exposedParameters/ep_handle_ExposedParamChanges.h"
+#include "midi/1_midi_handle_IncomingMessage_NRPN.h"
+#include "midi/1_midi_handle_IncomingMessage_SysEx.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+
 
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
     exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->getUndoManager(), "exposedParams", ExposedParametersLayout::build()) },
+    exposedParamChangesHandler{ new ExposedParamChangesHandler(exposedParams.get(), unexposedParams.get()) },
+    incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN(exposedParams.get(), unexposedParams.get()) },
+    incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx(exposedParams.get(), unexposedParams.get()) },
     bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() }
 {
 }
@@ -52,6 +59,13 @@ void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/
 
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
+
+    if (!midiMessages.isEmpty()) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingMessageHandler_SysEx->pullMessageForMophoOutOfBuffer(midiMessages);
+        midiMessagesToPassThrough = incomingMessageHandler_NRPN->pullFullyFormedMessageOutOfBuffer(midiMessagesToPassThrough);
+        midiMessages.swapWith(midiMessagesToPassThrough);
+    }
 
     if (!bundledOutgoingBuffers->isEmpty()) {
         for (auto event : bundledOutgoingBuffers->removeAndReturn(0)) {
@@ -123,7 +137,11 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
 }
 
 PluginProcessor::~PluginProcessor() {
+    pluginStateXml = nullptr;
     unexposedParams->getUndoManager()->clearUndoHistory();
+    incomingMessageHandler_SysEx = nullptr;
+    incomingMessageHandler_NRPN = nullptr;
+    exposedParamChangesHandler = nullptr;
     exposedParams = nullptr;
     unexposedParams = nullptr;
 }

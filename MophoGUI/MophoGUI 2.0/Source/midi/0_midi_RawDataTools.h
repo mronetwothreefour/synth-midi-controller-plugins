@@ -8,10 +8,6 @@ class UnexposedParameters;
 
 struct RawDataTools {
     static const int rawVoiceDataSize{ 293 };
-    static const uint8 clockTempoOffset{ 30 };
-    static const uint8 firstKnobAssignParamNumber{ 105 };
-    static const uint8 lastUnassignParamNumber{ 119 };
-    static const uint8 knobAssignAndUnassignedParamsOffset{ 15 };
     static const uint8 daveSmithInstrumentsID = 1;
     static const uint8 mophoID = 37;
 

@@ -1,4 +1,4 @@
-#include "1_midi_IncomingMessageHandler_SysEx.h"
+#include "1_midi_handle_IncomingMessage_SysEx.h"
 
 #include "0_midi_RawDataTools.h"
 #include "../constants/constants_MIDI.h"
@@ -71,7 +71,7 @@ void IncomingMessageHandler_SysEx::handleIncomingVoiceData(const uint8* sysExDat
 }
 
 void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExData) {
-    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalOptionsData) {
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalParametersData) {
         const int globalControllersOnByte{ 16 };
         const int globalFineTuneLSByte{ 6 };
         const int globalFineTuneMSByte{ 7 };

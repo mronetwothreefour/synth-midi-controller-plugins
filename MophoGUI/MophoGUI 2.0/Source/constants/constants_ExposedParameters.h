@@ -10,8 +10,12 @@ namespace MophoConstants
 	{
 		const uint8 choiceNumForSeqStep_Reset{ 126 };
 		const uint8 choiceNumForSeqTrack1Step_Rest{ 127 };
+		const uint8 clockTempoOffset{ 30 };
+		const uint8 firstKnobAssignParamNumber{ 105 };
 		const uint8 firstLFO_PitchedFreqChoice{ 90 };
 		const uint8 firstLFO_SyncedFreqChoice{ 151 };
+		const uint8 knobAssignAndUnassignedParamsOffset{ 15 };
+		const uint8 lastUnassignedParamNumber{ 119 };
 		const uint8 numberOfChoicesForBendRange{ 13 };
 		const uint8 numberOfChoicesForClockTempo{ 221 };
 		const uint8 numberOfChoicesForLFO_Freq{ 167 };
