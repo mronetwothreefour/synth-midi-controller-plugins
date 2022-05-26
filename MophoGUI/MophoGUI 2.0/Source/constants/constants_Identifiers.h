@@ -87,6 +87,21 @@ namespace MophoConstants
 
 		const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
+		const Identifier global_ControllersAreOn{ "global_ControllersAreOn" };
+		const Identifier global_FineTune{ "global_FineTune" };
+		const Identifier global_HardwareOutputBalance{ "global_HardwareOutputBalance" };
+		const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
+		const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
+		const Identifier global_MIDI_ClockSource{ "global_MIDI_ClockSource" };
+		const Identifier global_Options{ "global_Options" };
+		const Identifier global_ParamChangeReceiveType{ "global_ParamChangeReceiveType" };
+		const Identifier global_ParamChangeSendType{ "global_ParamChangeSendType" };
+		const Identifier global_PedalModeIsArpLatch{ "global_PedalModeIsArpLatch" };
+		const Identifier global_SysExIsOn{ "global_SysExIsOn" };
+		const Identifier global_TransmitChannel{ "global_TransmitChannel" };
+		const Identifier global_Transpose{ "global_Transpose" };
+		const Identifier global_VoiceChangeIsOn{ "global_VoiceChangeIsOn" };
+
 		const Identifier property_Center_x{ "property_ControlCenter_x" };
 		const Identifier property_Center_y{ "property_ControlCenter_y" };
 		const Identifier property_ControlType{ "property_ControlType" };

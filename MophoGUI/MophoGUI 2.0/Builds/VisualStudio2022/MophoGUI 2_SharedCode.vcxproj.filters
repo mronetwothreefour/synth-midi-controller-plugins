@@ -550,6 +550,9 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -2773,6 +2776,9 @@
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h">

@@ -152,6 +152,10 @@
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>
         <FILE id="jcR7Y5" name="up_facade_UnexposedParameters.h" compile="0"
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.h"/>
+        <FILE id="oElNci" name="up_tree_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_tree_GlobalOptions.cpp"/>
+        <FILE id="wcM1nu" name="up_tree_GlobalOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_tree_GlobalOptions.h"/>
         <FILE id="ekcYga" name="up_tree_TooltipsOptions.cpp" compile="1" resource="0"
               file="Source/unexposedParameters/up_tree_TooltipsOptions.cpp"/>
         <FILE id="MFU0dA" name="up_tree_TooltipsOptions.h" compile="0" resource="0"

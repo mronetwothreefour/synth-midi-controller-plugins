@@ -7,6 +7,7 @@ using namespace MophoConstants;
 
 
 UnexposedParameters::UnexposedParameters() :
+	globalOptions{ new GlobalOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	tooltipsOptions{ new TooltipsOptions() },
 	undoManager{ new UndoManager() },
@@ -16,6 +17,10 @@ UnexposedParameters::UnexposedParameters() :
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
 	return outgoingMidiBuffers->getBundledOutgoingBuffers();
+}
+
+GlobalOptions* UnexposedParameters::getGlobalOptions() {
+	return globalOptions.get();
 }
 
 OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
@@ -63,4 +68,5 @@ UnexposedParameters::~UnexposedParameters() {
 	undoManager = nullptr;
 	tooltipsOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
+	globalOptions = nullptr;
 }
