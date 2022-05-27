@@ -76,5 +76,17 @@ namespace MophoConstants
 		globalParametersDataRequest = 14,
 		globalParametersData = 15
 	};
+
+
+
+
+	const enum class VoicesBank {
+		factory_1 = 0,
+		factory_2,
+		factory_3,
+		custom_1,
+		custom_2,
+		custom_3
+	};
 }
 

@@ -2,6 +2,7 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
+#include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
@@ -23,8 +24,7 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
 
 bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
     auto hexStringStrippedOfNonHexCharacters{ hexString.initialSectionContainingOnly("1234567890ABCDEFabcdef") };
-    const int lengthOfVoiceDataHexString{ 458 };
-    auto isNotCorrectLength{ hexStringStrippedOfNonHexCharacters.length() != lengthOfVoiceDataHexString };
+    auto isNotCorrectLength{ hexStringStrippedOfNonHexCharacters.length() != Voices::lengthOfVoiceDataHexString };
     if (isNotCorrectLength)
         return false;
     else

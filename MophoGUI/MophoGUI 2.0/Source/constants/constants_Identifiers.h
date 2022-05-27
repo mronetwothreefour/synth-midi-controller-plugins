@@ -8,9 +8,18 @@ namespace MophoConstants
 {
 	namespace ID 
 	{
+		const Identifier bank_factory_1_VoiceNameStrings{ "bank_factory_1_VoiceNameStrings" };
+		const Identifier bank_factory_2_VoiceNameStrings{ "bank_factory_2_VoiceNameStrings" };
+		const Identifier bank_factory_3_VoiceNameStrings{ "bank_factory_3_VoiceNameStrings" };
+		const Identifier bank_custom_1_VoiceDataHexStrings{ "bank_custom_1_VoiceDataHexStrings" };
+		const Identifier bank_custom_2_VoiceDataHexStrings{ "bank_custom_2_VoiceDataHexStrings" };
+		const Identifier bank_custom_3_VoiceDataHexStrings{ "bank_custom_3_VoiceDataHexStrings" };
+		const Identifier bank_custom_1_VoiceNameStrings{ "bank_custom_1_VoiceNameStrings" };
+		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
+		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
+
 		const Identifier choiceNames{ "choiceNames" };
 		const Identifier choiceNames_Verbose{ "choiceNames_Verbose" };
-
 
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
@@ -116,10 +125,14 @@ namespace MophoConstants
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };
 
+		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
+		const Identifier state_CustomVoicesBank_2{ "state_CustomVoicesBank_2" };
+		const Identifier state_CustomVoicesBank_3{ "state_CustomVoicesBank_3" };
 		const Identifier state_ExposedParams{ "state_ExposedParams" };
 		const Identifier state_PluginState{ "state_PluginState" };
 		const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+		const Identifier state_VoicesBanks{ "state_VoicesBanks" };
 		const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
 
 		const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };

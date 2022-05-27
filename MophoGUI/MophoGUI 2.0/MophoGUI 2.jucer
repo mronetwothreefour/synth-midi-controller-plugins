@@ -42,6 +42,8 @@
               file="Source/constants/constants_Identifiers.h"/>
         <FILE id="Ran6UQ" name="constants_MIDI.h" compile="0" resource="0"
               file="Source/constants/constants_MIDI.h"/>
+        <FILE id="ApRSfD" name="constants_Voices.h" compile="0" resource="0"
+              file="Source/constants/constants_Voices.h"/>
       </GROUP>
       <GROUP id="{0A8BB4C6-FED6-C229-D725-5CFC11F21C42}" name="exposedParamControls">
         <GROUP id="{21E2B2F5-D349-307A-4D79-88AE1C2C8313}" name="buttons">
@@ -178,6 +180,16 @@
               resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.cpp"/>
         <FILE id="eJHjZX" name="up_tree_VoiceTransmissionOptions.h" compile="0"
               resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
+      </GROUP>
+      <GROUP id="{7888D355-7132-F658-C2E0-43CBE34D07C4}" name="voices">
+        <FILE id="nYyk31" name="0_voices_singleton_FactoryVoiceDataHexStrings.cpp"
+              compile="1" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
+        <FILE id="arpaK3" name="0_voices_singleton_FactoryVoiceDataHexStrings.h"
+              compile="0" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.h"/>
+        <FILE id="GsXFhz" name="1_voices_tree_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/1_voices_tree_VoicesBanks.cpp"/>
+        <FILE id="YIzv0X" name="1_voices_tree_VoicesBanks.h" compile="0" resource="0"
+              file="Source/voices/1_voices_tree_VoicesBanks.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

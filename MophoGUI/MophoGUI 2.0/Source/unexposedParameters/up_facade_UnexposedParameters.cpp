@@ -11,6 +11,7 @@ UnexposedParameters::UnexposedParameters() :
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
 	tooltipsOptions{ new TooltipsOptions() },
 	undoManager{ new UndoManager() },
+	voicesBanks{ new VoicesBanks() },
 	voiceTransmissionOptions{ new VoiceTransmissionOptions() }
 {
 }
@@ -35,6 +36,10 @@ UndoManager* UnexposedParameters::getUndoManager() {
 	return undoManager.get();
 }
 
+VoicesBanks* UnexposedParameters::getVoicesBanks() {
+	return voicesBanks.get();
+}
+
 VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
 	return voiceTransmissionOptions.get();
 }
@@ -45,6 +50,10 @@ XmlElement UnexposedParameters::getStateXml() {
 	auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
+
+	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
+	if (voicesBanksStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voicesBanksStateXml);
 
 	auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTxOptionsStateXml != nullptr)
@@ -58,6 +67,10 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 	if (tooltipOptionsState.isValid())
 		tooltipsOptions->replaceState(tooltipOptionsState);
 
+	auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
+	if (voicesBanksState.isValid())
+		voicesBanks->replaceState(voicesBanksState);
+
 	auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
 	if (voiceTxOptionsState.isValid())
 		voiceTransmissionOptions->replaceState(voiceTxOptionsState);
@@ -65,6 +78,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 
 UnexposedParameters::~UnexposedParameters() {
 	voiceTransmissionOptions = nullptr;
+	voicesBanks = nullptr;
 	undoManager = nullptr;
 	tooltipsOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
