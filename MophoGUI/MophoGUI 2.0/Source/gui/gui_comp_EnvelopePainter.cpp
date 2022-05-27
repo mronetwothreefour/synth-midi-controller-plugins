@@ -72,11 +72,11 @@ EnvelopePainter::EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeSt
 	parameterValueChanged(delayParamIndex, delayParamPtr->getValue());
 }
 
-void EnvelopePainter::parameterValueChanged(int changedParamIndex, float /*newValue*/) {
-	if (changedParamIndex >= delayParamIndex && changedParamIndex <= releaseParamIndex) {
-		setEnvelopeCoordinates();
-		repaint();
-	}
+void EnvelopePainter::parameterValueChanged(int /*changedParamIndex*/, float /*newValue*/) {
+	//if (changedParamIndex >= delayParamIndex && changedParamIndex <= releaseParamIndex) {
+	//	setEnvelopeCoordinates();
+	//	repaint();
+	//}
 }
 
 void EnvelopePainter::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {

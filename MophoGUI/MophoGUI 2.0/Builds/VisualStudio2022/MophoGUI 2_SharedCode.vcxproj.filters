@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MophoGUI 2\BinaryResources\buttons">
+      <UniqueIdentifier>{FA69FA69-D1AA-BC0A-0E34-6489DEDAEC1F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\BinaryResources">
       <UniqueIdentifier>{F11A2305-4D25-FC4B-C5E3-BB22DC1CDEE7}</UniqueIdentifier>
     </Filter>
@@ -532,7 +535,13 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
@@ -2769,6 +2778,9 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
@@ -2776,6 +2788,9 @@
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
@@ -5260,6 +5275,18 @@
     </None>
     <None Include="..\..\BinaryResources\background_MainWindow.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>

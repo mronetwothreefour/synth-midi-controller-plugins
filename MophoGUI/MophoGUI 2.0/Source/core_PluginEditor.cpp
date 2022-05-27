@@ -6,6 +6,7 @@
 #include "gui/gui_LookAndFeel.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
+#include "gui/gui_layer_MainWindowButtons.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -21,12 +22,14 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     lookAndFeel{ new MophoLookAndFeel() },
     layerForEnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
     layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
+    layerForButtons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
     addAndMakeVisible(layerForEnvelopePainters.get());
     addAndMakeVisible(layerForExposedParamControls.get());
+    addAndMakeVisible(layerForButtons.get());
 
     auto tooltips{ unexposedParams->getTooltipsOptions() };
     tooltips->addListener(this);
@@ -48,6 +51,7 @@ void PluginEditor::paint(Graphics& g) {
 void PluginEditor::resized() {
     layerForEnvelopePainters->setBounds(getLocalBounds());
     layerForExposedParamControls->setBounds(getLocalBounds());
+    layerForButtons->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
@@ -61,6 +65,7 @@ PluginEditor::~PluginEditor() {
     auto tooltips{ unexposedParams->getTooltipsOptions() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
+    layerForButtons = nullptr;
     layerForExposedParamControls = nullptr;
     layerForEnvelopePainters = nullptr;
 }

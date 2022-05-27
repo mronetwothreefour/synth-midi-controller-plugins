@@ -4,21 +4,21 @@
 
 
 
-String DescriptionString::buildFor_ArpegMode() {
+String ExposedParamDescriptionString::buildFor_ArpegMode() {
     String descriptionString{ "" };
     descriptionString += "Sets the order in which the arpeggiator plays notes.\n";
     descriptionString += "Assign mode: notes play in the order in which they were struck.";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_ArpegOnOff() {
+String ExposedParamDescriptionString::buildFor_ArpegOnOff() {
     String descriptionString{ "" };
     descriptionString += "Turns the Mopho" + GUI::apostrophe + "s arpeggiator on and off.\n";
     descriptionString += "Turning this on will turn off the sequencer.";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_BendRange() {
+String ExposedParamDescriptionString::buildFor_BendRange() {
     String descriptionString{ "" };
     descriptionString += "Sets the maximum amount (in semitones) by which pitch wheel\n";
     descriptionString += "messages can raise or lower the pitches of the oscillators.\n";
@@ -26,14 +26,14 @@ String DescriptionString::buildFor_BendRange() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_ClockDivision() {
+String ExposedParamDescriptionString::buildFor_ClockDivision() {
     String descriptionString{ "" };
     descriptionString += "Sets the rate at which the sequencer and\n";
     descriptionString += "arpeggiator advance, relative to the tempo.";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_ClockTempo() {
+String ExposedParamDescriptionString::buildFor_ClockTempo() {
     String descriptionString{ "" };
     descriptionString += "Sets the tempo (in beats per minute)\n";
     descriptionString += "for the sequencer and the arpeggiator.\n";
@@ -41,7 +41,7 @@ String DescriptionString::buildFor_ClockTempo() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvAttack(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvAttack(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s attack segment\n";
@@ -51,7 +51,7 @@ String DescriptionString::buildFor_EnvAttack(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvDecay(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvDecay(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s decay segment\n";
@@ -61,7 +61,7 @@ String DescriptionString::buildFor_EnvDecay(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvDelay(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvDelay(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s delay segment\n";
@@ -71,7 +71,7 @@ String DescriptionString::buildFor_EnvDelay(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvRelease(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvRelease(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets the length of " + theEnvelope + GUI::apostrophe + "s release segment\n";
@@ -81,7 +81,7 @@ String DescriptionString::buildFor_EnvRelease(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvSustain(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvSustain(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets " + theEnvelope + GUI::apostrophe + "s sustain level (once the\n";
@@ -91,7 +91,7 @@ String DescriptionString::buildFor_EnvSustain(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_EnvVelAmount(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildFor_EnvVelAmount(EnvelopeType envType) {
     auto theEnvelope{ buildEnvNameString(envType) };
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI note velocity\n";
@@ -100,7 +100,7 @@ String DescriptionString::buildFor_EnvVelAmount(EnvelopeType envType) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_Env_3_Amount() {
+String ExposedParamDescriptionString::buildFor_Env_3_Amount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which envelope 3\n";
     descriptionString += "modulates the destination parameter.\n";
@@ -109,7 +109,7 @@ String DescriptionString::buildFor_Env_3_Amount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_Env_3_Repeat() {
+String ExposedParamDescriptionString::buildFor_Env_3_Repeat() {
     String descriptionString{ "" };
     descriptionString += "When repeat is on, envelope 3 loops through\n";
     descriptionString += "its delay, attack, decay, and sustain segments\n";
@@ -117,7 +117,7 @@ String DescriptionString::buildFor_Env_3_Repeat() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_ExtInLevel() {
+String ExposedParamDescriptionString::buildFor_ExtInLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of external audio\n";
     descriptionString += "input sent into the low-pass filter.\n";
@@ -128,7 +128,7 @@ String DescriptionString::buildFor_ExtInLevel() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_GlideMode() {
+String ExposedParamDescriptionString::buildFor_GlideMode() {
     String descriptionString{ "" };
     descriptionString += "Fixed Rate: The actual glide time depends on the size of the note interval.\n";
     descriptionString += "Fixed Time: The glide time is constant, regardless of the interval size.\n";
@@ -137,14 +137,14 @@ String DescriptionString::buildFor_GlideMode() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_KnobAssign(int knobNum) {
+String ExposedParamDescriptionString::buildFor_KnobAssign(int knobNum) {
     String descriptionString{ "" };
     descriptionString += "Selects a target parameter for\n";
     descriptionString += "assignable hardware knob " + (String)knobNum + ".";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LFO_Amount(int lfoNum) {
+String ExposedParamDescriptionString::buildFor_LFO_Amount(int lfoNum) {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which LFO " + (String)lfoNum + "\n";
     descriptionString += "modulates the destination parameter.\n";
@@ -152,7 +152,7 @@ String DescriptionString::buildFor_LFO_Amount(int lfoNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LFO_Freq(int lfoNum) {
+String ExposedParamDescriptionString::buildFor_LFO_Freq(int lfoNum) {
     String descriptionString{ "" };
     descriptionString += "Sets LFO " + (String)lfoNum + GUI::apostrophe + "s cycle speed. Range: 0 to 166.\n";
     descriptionString += "At 0, 1 cycle lasts 30 sec. At 89, the frequency is 8 Hz.\n";
@@ -163,18 +163,18 @@ String DescriptionString::buildFor_LFO_Freq(int lfoNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LFO_KeySync(int lfoNum) {
+String ExposedParamDescriptionString::buildFor_LFO_KeySync(int lfoNum) {
     String descriptionString{ "" };
     descriptionString += "When on, LFO " + (String)lfoNum + GUI::apostrophe + "s cycle will reset\n";
     descriptionString += "each time a new note is played.";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LFO_Shape(int lfoNum) {
+String ExposedParamDescriptionString::buildFor_LFO_Shape(int lfoNum) {
     return "Selects LFO " + (String)lfoNum + GUI::apostrophe + "s wave shape.";
 }
 
-String DescriptionString::buildFor_LPF_EnvAmount() {
+String ExposedParamDescriptionString::buildFor_LPF_EnvAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which the LPF envelope\n";
     descriptionString += "modulates the filter" + GUI::apostrophe + "s cutoff frequency.\n";
@@ -183,7 +183,7 @@ String DescriptionString::buildFor_LPF_EnvAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_FM_Amount() {
+String ExposedParamDescriptionString::buildFor_LPF_FM_Amount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which oscillator 1 modulates\n";
     descriptionString += "the low-pass filter" + GUI::apostrophe + "s cutoff frequency. This is\n";
@@ -192,7 +192,7 @@ String DescriptionString::buildFor_LPF_FM_Amount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_Freq() {
+String ExposedParamDescriptionString::buildFor_LPF_Freq() {
     String descriptionString{ "" };
     descriptionString += "Sets the base cutoff frequency for the low-pass filter\n";
     descriptionString += "(in semitone steps). Range: 0 (C 0) to 164 (G# 13).\n";
@@ -201,7 +201,7 @@ String DescriptionString::buildFor_LPF_Freq() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_KeyAmount() {
+String ExposedParamDescriptionString::buildFor_LPF_KeyAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the amount by which keyboard (MIDI) notes\n";
     descriptionString += "will shift the low-pass filter" + GUI::apostrophe + "s cutoff frequency.\n";
@@ -211,7 +211,7 @@ String DescriptionString::buildFor_LPF_KeyAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_Reso() {
+String ExposedParamDescriptionString::buildFor_LPF_Reso() {
     String descriptionString{ "" };
     descriptionString += "Sets the resonance level of the low-pass\n";
     descriptionString += "filter. When in 4-pole mode, high resonance\n";
@@ -220,7 +220,7 @@ String DescriptionString::buildFor_LPF_Reso() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_LPF_Type() {
+String ExposedParamDescriptionString::buildFor_LPF_Type() {
     String descriptionString{ "" };
     descriptionString += "Switches the low-pass filter type between 2-Pole and 4-Pole.\n";
     descriptionString += "When set to 4-pole, the filter has a steeper cutoff frequency\n";
@@ -228,7 +228,7 @@ String DescriptionString::buildFor_LPF_Type() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_MIDI_BreathAmount() {
+String ExposedParamDescriptionString::buildFor_MIDI_BreathAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI breath controller\n";
     descriptionString += "messages (CC#2) modulate the destination parameter.\n";
@@ -237,7 +237,7 @@ String DescriptionString::buildFor_MIDI_BreathAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_MIDI_ModWheelAmount() {
+String ExposedParamDescriptionString::buildFor_MIDI_ModWheelAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI modulation wheel controller\n";
     descriptionString += "messages (CC#1) modulate the destination parameter.\n";
@@ -246,7 +246,7 @@ String DescriptionString::buildFor_MIDI_ModWheelAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_MIDI_PedalAmount() {
+String ExposedParamDescriptionString::buildFor_MIDI_PedalAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI foot pedal controller\n";
     descriptionString += "messages (CC#4) modulate the destination parameter.\n";
@@ -255,7 +255,7 @@ String DescriptionString::buildFor_MIDI_PedalAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_MIDI_PressureAmount() {
+String ExposedParamDescriptionString::buildFor_MIDI_PressureAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI channel pressure\n";
     descriptionString += "(aftertouch) messages modulate the destination parameter.\n";
@@ -264,7 +264,7 @@ String DescriptionString::buildFor_MIDI_PressureAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_MIDI_VelocityAmount() {
+String ExposedParamDescriptionString::buildFor_MIDI_VelocityAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which MIDI note velocity\n";
     descriptionString += "messages modulate the destination parameter.\n";
@@ -273,7 +273,7 @@ String DescriptionString::buildFor_MIDI_VelocityAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_ModAmount() {
+String ExposedParamDescriptionString::buildFor_ModAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which the selected source\n";
     descriptionString += "modulates the selected destination parameter.\n";
@@ -281,7 +281,7 @@ String DescriptionString::buildFor_ModAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_NoiseLevel() {
+String ExposedParamDescriptionString::buildFor_NoiseLevel() {
     String descriptionString{ "" };
     descriptionString += "Sets the level of white noise\n";
     descriptionString += "sent into the low-pass filter.\n";
@@ -289,7 +289,7 @@ String DescriptionString::buildFor_NoiseLevel() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_NotePriority() {
+String ExposedParamDescriptionString::buildFor_NotePriority() {
     String descriptionString{ "" };
     descriptionString += "Selects which note is given priority when multiple\n";
     descriptionString += "notes are played, and whether the envelopes are\n";
@@ -298,7 +298,7 @@ String DescriptionString::buildFor_NotePriority() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscFine(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscFine(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Fine tunes oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch.\n";
     descriptionString += "Range: -50 cents to +50 cents.\n";
@@ -306,14 +306,14 @@ String DescriptionString::buildFor_OscFine(int oscNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscGlide(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscGlide(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s glide (portamento) rate.\n";
     descriptionString += "Range: 0 (instantaneous) to 127 (very slow)";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscKeyTrack(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscKeyTrack(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Turns keyboard tracking for oscillator " + (String)oscNum + "\n";
     descriptionString += "on or off. When turned off, the oscillator\n";
@@ -322,7 +322,7 @@ String DescriptionString::buildFor_OscKeyTrack(int oscNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscMix() {
+String ExposedParamDescriptionString::buildFor_OscMix() {
     String descriptionString{ "" };
     descriptionString += "Controls the level balance between oscillators 1 & 2.\n";
     descriptionString += "Range: 0 to 127. At 0, only oscillator 1 is heard.\n";
@@ -331,7 +331,7 @@ String DescriptionString::buildFor_OscMix() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscPitch(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscPitch(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Sets oscillator " + (String)oscNum + GUI::apostrophe + "s base pitch in semitone steps.\n";
     descriptionString += "Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.\n";
@@ -340,7 +340,7 @@ String DescriptionString::buildFor_OscPitch(int oscNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscShape(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscShape(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Selects oscillator " + (String)oscNum + GUI::apostrophe + "s wave shape.\n";
     descriptionString += "Hold down a number on the keyboard and click\n";
@@ -351,7 +351,7 @@ String DescriptionString::buildFor_OscShape(int oscNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscSlop() {
+String ExposedParamDescriptionString::buildFor_OscSlop() {
     String descriptionString{ "" };
     descriptionString += "Introduces a subtle amount of random oscillator\n";
     descriptionString += "pitch drift for a " + GUI::openQuote + "vintage analog" + GUI::closeQuote + " sound.\n";
@@ -359,7 +359,7 @@ String DescriptionString::buildFor_OscSlop() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscSubLevel(int oscNum) {
+String ExposedParamDescriptionString::buildFor_OscSubLevel(int oscNum) {
     String descriptionString{ "" };
     descriptionString += "Sets the level of sub-oscillator " + (String)oscNum + ",\n";
     descriptionString += "which generates a square wave pitched\n";
@@ -368,7 +368,7 @@ String DescriptionString::buildFor_OscSubLevel(int oscNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_OscSync() {
+String ExposedParamDescriptionString::buildFor_OscSync() {
     String descriptionString{ "" };
     descriptionString += "Turns hard oscillator sync on or off. When\n";
     descriptionString += "turned on, every time oscillator 2 resets,\n";
@@ -376,7 +376,7 @@ String DescriptionString::buildFor_OscSync() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_PushItMode() {
+String ExposedParamDescriptionString::buildFor_PushItMode() {
     String descriptionString{ "" };
     descriptionString += "Sets the operating mode for the Mopho" + GUI::apostrophe + "s Push It! switch.\n";
     descriptionString += "Normal: The selected note is gated on when the switch is\n";
@@ -388,7 +388,7 @@ String DescriptionString::buildFor_PushItMode() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_PushItPitch() {
+String ExposedParamDescriptionString::buildFor_PushItPitch() {
     String descriptionString{ "" };
     descriptionString += "Sets the note that plays when the Push It! switch is pressed.\n";
     descriptionString += "Range: C 0 (8.2 Hz) to C 10 (8.4 KHz). Middle C is C 5.\n";
@@ -397,7 +397,7 @@ String DescriptionString::buildFor_PushItPitch() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_PushItVelocity() {
+String ExposedParamDescriptionString::buildFor_PushItVelocity() {
     String descriptionString{ "" };
     descriptionString += "Sets the velocity of the note that plays\n";
     descriptionString += "when the Push It! switch is pressed.\n";
@@ -405,21 +405,21 @@ String DescriptionString::buildFor_PushItVelocity() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_SeqOnOff() {
+String ExposedParamDescriptionString::buildFor_SeqOnOff() {
     String descriptionString{ "" };
     descriptionString += "Turns the Mopho" + GUI::apostrophe + "s internal sequencer on and off.\n";
     descriptionString += "Turning this on will turn off the arpeggiator.";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_SeqTrackDestination(int trackNum) {
+String ExposedParamDescriptionString::buildFor_SeqTrackDestination(int trackNum) {
     String descriptionString{ "" };
     descriptionString += "Selects the target parameter for\n";
     descriptionString += "modulation by sequencer track " + (String)trackNum + ".";
     return descriptionString;
 }
 
-String DescriptionString::buildFor_SeqTrackStep(int trackNum, int stepNum) {
+String ExposedParamDescriptionString::buildFor_SeqTrackStep(int trackNum, int stepNum) {
     String descriptionString{ "" };
     descriptionString = "Sets the value that sequencer track " + (String)trackNum + GUI::apostrophe + "s destination parameter has at step " + (String)stepNum + ",\n";
     descriptionString += "Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.\n";
@@ -436,7 +436,7 @@ String DescriptionString::buildFor_SeqTrackStep(int trackNum, int stepNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_SeqTrigMode() {
+String ExposedParamDescriptionString::buildFor_SeqTrigMode() {
     String descriptionString{ "" };
     descriptionString += "Normal: New notes reset the sequencer to the first step.\n";
     descriptionString += "The envelopes are re-triggered with each step.\n";
@@ -452,7 +452,7 @@ String DescriptionString::buildFor_SeqTrigMode() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_VCA_EnvAmount() {
+String ExposedParamDescriptionString::buildFor_VCA_EnvAmount() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree to which the VCA envelope\n";
     descriptionString += "modulates the voltage-controlled ampifier" + GUI::apostrophe + "s level.\n";
@@ -460,7 +460,7 @@ String DescriptionString::buildFor_VCA_EnvAmount() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_VCA_Level() {
+String ExposedParamDescriptionString::buildFor_VCA_Level() {
     String descriptionString{ "" };
     descriptionString += "Sets the voltage-controlled amplifier" + GUI::apostrophe + "s baseline level. Turn this\n";
     descriptionString += "up for droning sounds or when processing external audio input.\n";
@@ -469,7 +469,7 @@ String DescriptionString::buildFor_VCA_Level() {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_VoiceNameChar(int charNum) {
+String ExposedParamDescriptionString::buildFor_VoiceNameChar(int charNum) {
     String descriptionString{ "" };
     descriptionString += "To change character " + (String)charNum + " of the program" + GUI::apostrophe + "s name,\n";
     descriptionString += "click-and-drag the character or hover over\n";
@@ -478,14 +478,14 @@ String DescriptionString::buildFor_VoiceNameChar(int charNum) {
     return descriptionString;
 }
 
-String DescriptionString::buildFor_VoiceVolume() {
+String ExposedParamDescriptionString::buildFor_VoiceVolume() {
     String descriptionString{ "" };
     descriptionString += "Sets the overall gain of the current program.\n";
     descriptionString += "Range: 0 to 127.";
     return descriptionString;
 }
 
-String DescriptionString::buildEnvNameString(EnvelopeType envType) {
+String ExposedParamDescriptionString::buildEnvNameString(EnvelopeType envType) {
     switch (envType)
     {
     case EnvelopeType::env_3:

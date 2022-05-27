@@ -7,6 +7,9 @@
 #include "../constants/constants_Identifiers.h"
 
 using namespace MophoConstants;
+using namespace BinaryData;
+using MemBlock = MemoryBlock;
+using s_t = size_t;
 
 
 
@@ -93,6 +96,28 @@ TextLayout MophoLookAndFeel::layoutTooltipText(const String& text, Colour colour
 	TextLayout tl;
 	tl.createLayout(s, GUI::tooltipMaxWidth);
 	return tl;
+}
+
+
+
+
+void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+	auto buttonID{ button.getComponentID() };
+	MemBlock mBlock{};
+
+	if (buttonID == ID::button_Read.toString())
+		mBlock = MemBlock{ isDown ? btn_Read_Dn_png : btn_Read_Up_png, isDown ? (s_t)btn_Read_Dn_pngSize : (s_t)btn_Read_Up_pngSize };
+
+	if (buttonID == ID::button_Write.toString())
+		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
+
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ mBlock, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(buttonImage, 0, 0);
+}
+
+void MophoLookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
 
 

@@ -155,7 +155,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.cpp"/>
@@ -2160,9 +2162,11 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>
     <ClInclude Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.h"/>
@@ -2992,6 +2996,10 @@
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
     <None Include="..\..\BinaryResources\background_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

@@ -13,6 +13,14 @@
             file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
       <FILE id="ScCwTt" name="background_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/background_MainWindow.png"/>
+      <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
+        <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
+        <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
+        <FILE id="wNrBkc" name="btn_Write_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Write_Dn.png"/>
+        <FILE id="JQxfiK" name="btn_Write_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Write_Up.png"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{DA7CF7F1-35A4-9559-7D41-177380A1BF4B}" name="Source">
       <GROUP id="{E7EA50CA-7C6F-0CE9-5192-646520E3C865}" name="_core">
@@ -116,6 +124,10 @@
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
+        <FILE id="WUbOEy" name="gui_build_ButtonDescriptionString.cpp" compile="1"
+              resource="0" file="Source/gui/gui_build_ButtonDescriptionString.cpp"/>
+        <FILE id="eK21vm" name="gui_build_ButtonDescriptionString.h" compile="0"
+              resource="0" file="Source/gui/gui_build_ButtonDescriptionString.h"/>
         <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
         <FILE id="ngUmq4" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
@@ -124,6 +136,10 @@
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.cpp"/>
         <FILE id="tlyZrU" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="R99WMf" name="gui_layer_MainWindowButtons.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
+        <FILE id="FgbTRI" name="gui_layer_MainWindowButtons.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
         <FILE id="tpzqTT" name="gui_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_LookAndFeel.cpp"/>
         <FILE id="Ym2eWM" name="gui_LookAndFeel.h" compile="0" resource="0"

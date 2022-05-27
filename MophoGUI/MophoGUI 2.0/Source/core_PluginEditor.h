@@ -6,6 +6,7 @@
 
 class GUI_Layer_EnvelopePainters;
 class GUI_Layer_ExposedParamControls;
+class GUI_Layer_MainWindowButtons;
 class MophoLookAndFeel;
 class UnexposedParameters;
 
@@ -19,6 +20,7 @@ class PluginEditor :
     std::unique_ptr<MophoLookAndFeel> lookAndFeel;
     std::unique_ptr<GUI_Layer_EnvelopePainters> layerForEnvelopePainters;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layerForExposedParamControls;
+    std::unique_ptr<GUI_Layer_MainWindowButtons> layerForButtons;
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:

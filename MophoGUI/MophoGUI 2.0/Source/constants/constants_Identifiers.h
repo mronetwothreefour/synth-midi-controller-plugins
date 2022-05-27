@@ -18,6 +18,10 @@ namespace MophoConstants
 		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
+		const Identifier button_Hyperlink{ "button_Hyperlink" };
+		const Identifier button_Read{ "button_Read" };
+		const Identifier button_Write{ "button_Write" };
+
 		const Identifier choiceNames{ "choiceNames" };
 		const Identifier choiceNames_Verbose{ "choiceNames_Verbose" };
 

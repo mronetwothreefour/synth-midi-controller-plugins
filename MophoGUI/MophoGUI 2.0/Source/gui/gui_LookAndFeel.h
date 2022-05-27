@@ -19,6 +19,9 @@ public:
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
 	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;
 
+	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
+	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+
 	void drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) override;
 	void drawTickBox(
 		Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, 
