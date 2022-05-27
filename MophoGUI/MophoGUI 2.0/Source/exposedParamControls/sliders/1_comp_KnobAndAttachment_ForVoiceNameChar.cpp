@@ -57,6 +57,7 @@ void KnobAndAttachment_ForVoiceNameChar::parameterValueChanged(int changedParamI
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		charNum = currentChoice;
+		MessageManagerLock mmLock;
 		repaint();
 	}
 }

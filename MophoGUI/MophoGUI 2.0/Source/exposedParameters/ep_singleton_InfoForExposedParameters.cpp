@@ -381,7 +381,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			ValueTree{ ID::ep_021_LPF_Reso, {
 						{ ID::property_ExposedName, "LPF Resonance" },
 						{ ID::property_ControlType, (int)ControlType::knob },
-						{ ID::property_NRPN, 15 },
+						{ ID::property_NRPN, 16 },
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
 						{ ID::property_Center_x, controlsCol2_x },
@@ -1910,7 +1910,7 @@ uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 
 uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		if (NRPNfor(paramIndex == NRPN))
+		if (NRPNfor(paramIndex) == NRPN)
 			return paramIndex;
 	}
 	return (uint8)255;

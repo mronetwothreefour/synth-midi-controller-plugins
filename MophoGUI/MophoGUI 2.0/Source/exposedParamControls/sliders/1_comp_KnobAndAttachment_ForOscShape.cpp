@@ -120,6 +120,7 @@ void KnobAndAttachment_ForOscShape::parameterValueChanged(int changedParamIndex,
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		choiceNum = currentChoice;
+		MessageManagerLock mmLock;
 		repaint();
 	}
 }

@@ -59,13 +59,14 @@ void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newVa
 		auto paramaterPtr{ exposedParams->getParameter(paramID) };
 		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		choiceNameString = info.choiceNameFor((uint8)currentChoice, paramIndex);
-		repaint();
 		if (paramID.toString().contains("_LFO_") && paramID.toString().endsWith("_Freq")) {
 			if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
 				knob.isModifyingPitch = true;
 			else
 				knob.isModifyingPitch = false;
 		}
+		MessageManagerLock mmLock;
+		repaint();
 	}
 }
 

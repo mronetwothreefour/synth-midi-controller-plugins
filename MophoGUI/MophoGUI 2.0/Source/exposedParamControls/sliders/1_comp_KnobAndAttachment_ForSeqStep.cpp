@@ -35,6 +35,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	knob.isModifyingPitch = false;
 	knob.isModifyingSeqStep = true;
 	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
+	knob.setAlpha(0.0f);
 	knob.setBounds(getLocalBounds());
 
 	parameterValueChanged(trackDestIndex, trackDestParamaterPtr->getValue());
@@ -103,6 +104,7 @@ void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, 
 		else {
 			choiceNum = currentChoice;
 		}
+		MessageManagerLock mmLock;
 		repaint();
 	}
 }
