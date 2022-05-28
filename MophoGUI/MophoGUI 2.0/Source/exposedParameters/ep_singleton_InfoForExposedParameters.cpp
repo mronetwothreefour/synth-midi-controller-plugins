@@ -6,6 +6,7 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../constants/constants_Voices.h"
 
 using namespace MophoConstants;
 
@@ -1770,7 +1771,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 		auto trackString{ String(trackNum + 1) };
 		for (auto stepNum = 0; stepNum != 16; ++stepNum) {
 			auto stepString{ String(stepNum + 1) };
-			auto paramNumString{ "ep_" + String(109 + trackNum * 16 + stepNum) };
+			auto paramNumString{ "ep_" + String(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum) };
 			auto paramNameString{ paramNumString + "_SeqTrack_" + trackString + "_Step_" + stepString };
 			auto exposedNameString{ "Sequencer Track " + trackString + " Step " + stepString };
 			auto nrpn{ 120 + trackNum * 16 + stepNum };
@@ -1802,14 +1803,15 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 
 	const int voiceNameCharacters_y{ 52 };
 
-	for (auto charNum = 0; charNum != 16; ++charNum) {
+	for (auto charNum = 0; charNum != Voices::numberOfCharsInVoiceName; ++charNum) {
 		auto charNumString{ String(charNum + 1) };
+		auto paramNumString{ String(EP::firstVoiceNameCharParamNumber + charNum) };
 		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_" + String(173 + charNum), {}, {
-				ValueTree{ "ep_" + String(173 + charNum) + "_VoiceNameChar_" + charNumString, {
+			ValueTree{ "ep_" + paramNumString, {}, {
+				ValueTree{ "ep_" + paramNumString + "_VoiceNameChar_" + charNumString, {
 							{ ID::property_ExposedName, "Program Name Character " + charNumString },
 							{ ID::property_ControlType, (int)ControlType::voiceNameChar },
-							{ ID::property_NRPN, 173 + charNum },
+							{ ID::property_NRPN, 184 + charNum },
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForVoiceNameChar },
 							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
 							{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },

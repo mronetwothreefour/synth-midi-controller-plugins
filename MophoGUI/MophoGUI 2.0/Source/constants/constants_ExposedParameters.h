@@ -15,6 +15,7 @@ namespace MophoConstants
 		const uint8 firstSeqStepParamNumber{ 109 };
 		const uint8 firstLFO_PitchedFreqChoice{ 90 };
 		const uint8 firstLFO_SyncedFreqChoice{ 151 };
+		const uint8 firstVoiceNameCharParamNumber{ 173 };
 		const uint8 knobAssignAndUnassignedParamsOffset{ 15 };
 		const uint8 lastUnassignedParamNumber{ 119 };
 		const uint8 numberOfChoicesForBendRange{ 13 };

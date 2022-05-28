@@ -46,7 +46,7 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 	//else {
 		g.setFont(GUI::fontFor_Labels);
 		g.setColour(GUI::color_White);
-		//if (label.getComponentID() != "") {
+		if (label.getComponentID() != "") {
 		//	if (label.getComponentID() == ID::component_EditLabel.toString()) {
 		//		g.fillAll(Color::black);
 		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
@@ -56,13 +56,13 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		//		g.setColour(label.findColour(label.textColourId));
 		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		//	}
-		//	if (label.getComponentID() == ID::component_VoiceNameEditLabel.toString()) {
-		//		g.setFont(FontsMenu::fontFor_VoiceNameEditorText);
-		//		g.setColour(Colours::transparentBlack);
-		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		//	}
-		//}
-		//else
+			if (label.getComponentID() == ID::label_VoiceNameEditor.toString()) {
+				g.setFont(GUI::fontFor_VoiceNameEditorText);
+				g.setColour(GUI::color_Black.withAlpha(0.0f));
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
+		}
+		else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 	//}
 }
@@ -107,6 +107,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 
 	if (buttonID == ID::button_Clear.toString())
 		mBlock = MemBlock{ isDown ? btn_Clear_Dn_png : btn_Clear_Up_png, isDown ? (s_t)btn_Clear_Dn_pngSize : (s_t)btn_Clear_Up_pngSize };
+
+	if (buttonID == ID::button_Edit.toString())
+		mBlock = MemBlock{ isDown ? btn_Edit_Dn_png : btn_Edit_Up_png, isDown ? (s_t)btn_Edit_Dn_pngSize : (s_t)btn_Edit_Up_pngSize };
 
 	if (buttonID == ID::button_Read.toString())
 		mBlock = MemBlock{ isDown ? btn_Read_Dn_png : btn_Read_Up_png, isDown ? (s_t)btn_Read_Dn_pngSize : (s_t)btn_Read_Up_pngSize };

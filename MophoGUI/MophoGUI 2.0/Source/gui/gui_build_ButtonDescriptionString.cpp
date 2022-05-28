@@ -42,9 +42,29 @@ String ButtonDescriptionString::buildFor_Redo() {
     return descriptionString;
 }
 
+String ButtonDescriptionString::buildFor_ShowVoiceNameEditor() {
+    String descriptionString{ "" };
+    descriptionString += "Opens an editor where you can\n";
+    descriptionString += "type in a new program name.";
+    return descriptionString;
+}
+
 String ButtonDescriptionString::buildFor_Undo() {
     String descriptionString{ "" };
     descriptionString += "Click this button (or type Ctrl+Z) to\n";
     descriptionString += "undo the previous parameter change.";
+    return descriptionString;
+}
+
+String ButtonDescriptionString::buildFor_VoiceNameEditor() {
+    String descriptionString{ "" };
+    descriptionString += "Type in a new name for the program (max. 16 characters) and hit ENTER\n";
+    descriptionString += "to apply it. Hit ESC to cancel. The Mopho" + GUI::apostrophe + "s hardware LCD characters use\n";
+    descriptionString += "the basic ASCII character set, with a few exceptions: " + GUI::openQuote + "\\" + GUI::closeQuote + " becomes\n";
+    descriptionString += "a yen sign and " + GUI::openQuote + "~" + GUI::closeQuote + " (tilde) becomes a right arrow. The " + GUI::openQuote + "delete" + GUI::closeQuote + " character\n";
+    descriptionString += "becomes a left arrow; obviously, you can" + GUI::apostrophe + "t type that in the editor. However,\n";
+    descriptionString += "you can access it by changing a character in the GUI" + GUI::apostrophe + "s name display with\n";
+    descriptionString += "the mouse. The hardware name display will not update immediately -\n";
+    descriptionString += "press the Program Mode button to see the new name.";
     return descriptionString;
 }
