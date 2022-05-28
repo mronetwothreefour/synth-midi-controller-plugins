@@ -14,6 +14,8 @@ class GUI_Layer_MainWindowButtons :
 	UnexposedParameters* unexposedParams;
 	TextButton button_WriteEditBuffer;
 	TextButton button_ReadEditBuffer;
+	TextButton button_Redo;
+	TextButton button_Undo;
 	HyperlinkButton button_Hyperlink;
 
 public:

@@ -11,11 +11,21 @@
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources">
       <FILE id="ukSPA9" name="Overpass-Bold.ttf" compile="0" resource="1"
             file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
-      <FILE id="ScCwTt" name="background_MainWindow.png" compile="0" resource="1"
-            file="BinaryResources/background_MainWindow.png"/>
+      <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_MainWindow.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
+        <FILE id="tI3kKm" name="btn_Clear_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Clear_Dn.png"/>
+        <FILE id="dUe3Jj" name="btn_Clear_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Clear_Up.png"/>
+        <FILE id="lgB8AA" name="btn_Edit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Dn.png"/>
+        <FILE id="aoeVFc" name="btn_Edit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Up.png"/>
         <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
         <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
+        <FILE id="ENSK24" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
+        <FILE id="x8CYUB" name="btn_Redo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Up.png"/>
+        <FILE id="pcBCtX" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
+        <FILE id="CeY3gv" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
         <FILE id="wNrBkc" name="btn_Write_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Write_Dn.png"/>
         <FILE id="JQxfiK" name="btn_Write_Up.png" compile="0" resource="1"

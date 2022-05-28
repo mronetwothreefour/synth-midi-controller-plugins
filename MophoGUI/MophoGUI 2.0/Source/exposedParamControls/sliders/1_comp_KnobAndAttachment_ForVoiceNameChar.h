@@ -12,6 +12,8 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 class KnobAndAttachment_ForVoiceNameChar :
 	public Component,
 	public Slider::Listener
+	// Note: listening to a slider with an exposed parameter attachment is
+	// much, much faster than listening directly to an exposed parameter
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;

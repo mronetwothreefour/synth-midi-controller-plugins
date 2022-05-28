@@ -42,7 +42,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 }
 
 void PluginEditor::paint(Graphics& g) {
-    MemoryInputStream memInputStream{ BinaryData::background_MainWindow_png, BinaryData::background_MainWindow_pngSize, false };
+    MemoryInputStream memInputStream{ BinaryData::bkgrnd_MainWindow_png, BinaryData::bkgrnd_MainWindow_pngSize, false };
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
     g.drawImageAt(backgroundImage, 0, 0);

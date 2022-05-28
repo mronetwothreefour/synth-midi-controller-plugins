@@ -108,6 +108,12 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::button_Read.toString())
 		mBlock = MemBlock{ isDown ? btn_Read_Dn_png : btn_Read_Up_png, isDown ? (s_t)btn_Read_Dn_pngSize : (s_t)btn_Read_Up_pngSize };
 
+	if (buttonID == ID::button_Redo.toString())
+		mBlock = MemBlock{ isDown ? btn_Redo_Dn_png : btn_Redo_Up_png, isDown ? (s_t)btn_Redo_Dn_pngSize : (s_t)btn_Redo_Up_pngSize };
+
+	if (buttonID == ID::button_Undo.toString())
+		mBlock = MemBlock{ isDown ? btn_Undo_Dn_png : btn_Undo_Up_png, isDown ? (s_t)btn_Undo_Dn_pngSize : (s_t)btn_Undo_Up_pngSize };
+
 	if (buttonID == ID::button_Write.toString())
 		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
 

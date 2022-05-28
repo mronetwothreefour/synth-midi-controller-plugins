@@ -36,6 +36,18 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     };
     addAndMakeVisible(button_ReadEditBuffer);
 
+    button_Undo.setComponentID(ID::button_Undo.toString());
+    button_Undo.onClick = [unexposedParams] {
+        unexposedParams->getUndoManager()->undo();
+    };
+    addAndMakeVisible(button_Undo);
+
+    button_Redo.setComponentID(ID::button_Redo.toString());
+    button_Redo.onClick = [unexposedParams] {
+        unexposedParams->getUndoManager()->redo();
+    };
+    addAndMakeVisible(button_Redo);
+
     button_Hyperlink.setComponentID(ID::button_Hyperlink.toString());
     addAndMakeVisible(button_Hyperlink);
 
@@ -53,6 +65,12 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_button_Read{ shouldShow ? TipString::buildFor_EditBufferRead() : String{ "" } };
     button_ReadEditBuffer.setTooltip(tipFor_button_Read);
+
+    auto tipFor_button_Undo{ shouldShow ? TipString::buildFor_Undo() : String{ "" } };
+    button_Undo.setTooltip(tipFor_button_Undo);
+
+    auto tipFor_button_Redo{ shouldShow ? TipString::buildFor_Redo() : String{ "" } };
+    button_Redo.setTooltip(tipFor_button_Redo);
 
     auto tipFor_button_Hyperlink{ shouldShow ? TipString::buildFor_Hyperlink() : String{ "" } };
     button_Hyperlink.setTooltip(tipFor_button_Hyperlink);
@@ -72,9 +90,13 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
 
 void GUI_Layer_MainWindowButtons::resized() {
     const int rowBeneathProgramName_y{ 83 };
+    const int undoRedoButtons_w{ 44 };
+    const int undoRedoButtons_x{ 832 };
     const int writeReadButtons_w{ 44 };
     button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
+    button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
+    button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
     button_Hyperlink.setBounds(644, 122, 157, 9);
 }
 

@@ -2995,9 +2995,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
-    <None Include="..\..\BinaryResources\background_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Clear_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Clear_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Edit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Edit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
