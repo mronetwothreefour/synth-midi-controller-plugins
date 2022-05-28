@@ -1,8 +1,11 @@
 #include "gui_layer_MainWindowButtons.h"
 
 #include "gui_build_ButtonDescriptionString.h"
+#include "../constants/constants_Enum.h"
+#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../midi/1_midi_EditBufferDataMessage.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
@@ -51,6 +54,12 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     button_Hyperlink.setComponentID(ID::button_Hyperlink.toString());
     addAndMakeVisible(button_Hyperlink);
 
+    for (auto trackNum = 0; trackNum != 4; ++trackNum) {
+        buttons_ForClearingSeqTracks[trackNum].setComponentID(ID::button_Clear.toString());
+        buttons_ForClearingSeqTracks[trackNum].onClick = [this, trackNum] { clearSeqTrack(trackNum); };
+        addAndMakeVisible(buttons_ForClearingSeqTracks[trackNum]);
+    }
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -74,11 +83,43 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_button_Hyperlink{ shouldShow ? TipString::buildFor_Hyperlink() : String{ "" } };
     button_Hyperlink.setTooltip(tipFor_button_Hyperlink);
+
+    for (auto trackNum = 0; trackNum != 4; ++trackNum) {
+        auto tipFor_button_Clear{ shouldShow ? TipString::buildFor_ClearSeqTrack(trackNum) : String{ "" } };
+        buttons_ForClearingSeqTracks[trackNum].setTooltip(tipFor_button_Clear);
+    }
 }
 
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
     if (property == ID::tooltips_ShouldShowDescription)
         updateTooltips();
+}
+
+void GUI_Layer_MainWindowButtons::clearSeqTrack(int trackNum) {
+    sequencerStep = 0;
+    MultiTimer::startTimer(trackNum, 10);
+}
+
+void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
+    MultiTimer::stopTimer(timerID);
+    if (sequencerStep > -1 && sequencerStep < 16) {
+        clearSequencerStep(timerID, sequencerStep);
+        if (sequencerStep < 15) {
+            ++sequencerStep;
+            MultiTimer::startTimer(timerID, 10);
+        }
+        else
+            sequencerStep = -1;
+    }
+}
+
+void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
+    auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
+    auto& info{ InfoForExposedParameters::get() };
+    auto paramID{ info.IDfor(uint8(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum)) };
+    auto param{ exposedParams->getParameter(paramID) };
+    if (param != nullptr)
+        param->setValueNotifyingHost(clearedValue);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
@@ -93,11 +134,14 @@ void GUI_Layer_MainWindowButtons::resized() {
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
     const int writeReadButtons_w{ 44 };
+    const int clearButton_SeqTrack_1_y{ 160 };
     button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
     button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
     button_Hyperlink.setBounds(644, 122, 157, 9);
+    for (auto trackNum = 0; trackNum != 4; ++trackNum)
+        buttons_ForClearingSeqTracks[trackNum].setBounds(1166, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {

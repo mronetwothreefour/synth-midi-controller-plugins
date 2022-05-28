@@ -6,6 +6,17 @@ using namespace MophoConstants;
 
 
 
+String ButtonDescriptionString::buildFor_ClearSeqTrack(int trackNum) {
+    ++trackNum;
+    String descriptionString{ "" };
+    descriptionString += "Sets all steps in sequencer\n";
+    if (trackNum == 1)
+        descriptionString += "track 1 to 127 (" + GUI::openQuote + "rest" + GUI::closeQuote + ")";
+    else
+        descriptionString += "track " + (String)trackNum + " to 0 (C0)";
+    return descriptionString;
+}
+
 String ButtonDescriptionString::buildFor_EditBufferRead() {
     String descriptionString{ "" };
     descriptionString += "Requests a program edit buffer dump from the Mopho\n";
