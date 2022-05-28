@@ -5,24 +5,25 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
+using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
 class EnvelopePainter :
 	public Component,
-	public AudioProcessorParameter::Listener
+	public Slider::Listener
 {
 	AudioProcessorValueTreeState* exposedParams;
-	Identifier delayParamID;
-	Identifier attackParamID;
-	Identifier decayParamID;
-	Identifier sustainParamID;
-	Identifier releaseParamID;
-	int delayParamIndex;
-	int attackParamIndex;
-	int decayParamIndex;
-	int sustainParamIndex;
-	int releaseParamIndex;
+	Slider delay;
+	Slider attack;
+	Slider decay;
+	Slider sustain;
+	Slider release;
+	std::unique_ptr<SliderAttachment> delayAttachment;
+	std::unique_ptr<SliderAttachment> attackAttachment;
+	std::unique_ptr<SliderAttachment> decayAttachment;
+	std::unique_ptr<SliderAttachment> sustainAttachment;
+	std::unique_ptr<SliderAttachment> releaseAttachment;
 	float attackStart_x;
 	float decayStart_x;
 	float sustainStart_x;
@@ -41,14 +42,14 @@ public:
 	EnvelopePainter() = delete;
 
 	EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeState* exposedParams);
-	void parameterValueChanged(int changedParamIndex, float newValue);
-	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
+	void sliderValueChanged(Slider* slider) override;
 
 private:
 	void setEnvelopeCoordinates();
 	void paint(Graphics& g) override;
 
 public:
+	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 	~EnvelopePainter();
 
 private:

@@ -43,6 +43,12 @@ public:
 		envelopePainter_Env3.setBounds(envPainter_x, envPainter_Env3_y, envPainter_w, envPainter_h);
 	}
 
+	~GUI_Layer_EnvelopePainters() {
+		envelopePainter_LPF.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
+		envelopePainter_VCA.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
+		envelopePainter_Env3.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
+	}
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_EnvelopePainters)

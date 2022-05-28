@@ -17,83 +17,72 @@ EnvelopePainter::EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeSt
 	releaseStart_x{ 0.0f },
 	releaseEnd_x{ 0.0f }
 {
+	String delayParamID{ "" };
+	String attackParamID{ "" };
+	String decayParamID{ "" };
+	String sustainParamID{ "" };
+	String releaseParamID{ "" };
 	switch (envType)
 	{
 	case MophoConstants::EnvelopeType::env_3: {
-		delayParamID = ID::ep_064_Env_3_Delay;
-		attackParamID = ID::ep_065_Env_3_Attack;
-		decayParamID = ID::ep_066_Env_3_Decay;
-		sustainParamID = ID::ep_067_Env_3_Sustain;
-		releaseParamID = ID::ep_068_Env_3_Release;
+		delayParamID = ID::ep_064_Env_3_Delay.toString();
+		attackParamID = ID::ep_065_Env_3_Attack.toString();
+		decayParamID = ID::ep_066_Env_3_Decay.toString();
+		sustainParamID = ID::ep_067_Env_3_Sustain.toString();
+		releaseParamID = ID::ep_068_Env_3_Release.toString();
 		break;
 	}
 	case MophoConstants::EnvelopeType::lpf:
-		delayParamID = ID::ep_027_LPF_Delay;
-		attackParamID = ID::ep_028_LPF_Attack;
-		decayParamID = ID::ep_029_LPF_Decay;
-		sustainParamID = ID::ep_030_LPF_Sustain;
-		releaseParamID = ID::ep_031_LPF_Release;
+		delayParamID = ID::ep_027_LPF_Delay.toString();
+		attackParamID = ID::ep_028_LPF_Attack.toString();
+		decayParamID = ID::ep_029_LPF_Decay.toString();
+		sustainParamID = ID::ep_030_LPF_Sustain.toString();
+		releaseParamID = ID::ep_031_LPF_Release.toString();
 		break;
 	case MophoConstants::EnvelopeType::vca:
-		delayParamID = ID::ep_035_VCA_Delay;
-		attackParamID = ID::ep_036_VCA_Attack;
-		decayParamID = ID::ep_037_VCA_Decay;
-		sustainParamID = ID::ep_038_VCA_Sustain;
-		releaseParamID = ID::ep_039_VCA_Release;
+		delayParamID = ID::ep_035_VCA_Delay.toString();
+		attackParamID = ID::ep_036_VCA_Attack.toString();
+		decayParamID = ID::ep_037_VCA_Decay.toString();
+		sustainParamID = ID::ep_038_VCA_Sustain.toString();
+		releaseParamID = ID::ep_039_VCA_Release.toString();
 		break;
 	default:
 		break;
 	}
 
-	auto delayParamPtr{ exposedParams->getParameter(delayParamID) };
-	delayParamPtr->addListener(this);
-	delayParamIndex = delayParamPtr->getParameterIndex();
+	delay.addListener(this);
+	attack.addListener(this);
+	decay.addListener(this);
+	sustain.addListener(this);
+	release.addListener(this);
 
-	auto attackParamPtr{ exposedParams->getParameter(attackParamID) };
-	attackParamPtr->addListener(this);
-	attackParamIndex = attackParamPtr->getParameterIndex();
-
-	auto decayParamPtr{ exposedParams->getParameter(decayParamID) };
-	decayParamPtr->addListener(this);
-	decayParamIndex = decayParamPtr->getParameterIndex();
-
-	auto sustainParamPtr{ exposedParams->getParameter(sustainParamID) };
-	sustainParamPtr->addListener(this);
-	sustainParamIndex = sustainParamPtr->getParameterIndex();
-
-	auto releaseParamPtr{ exposedParams->getParameter(releaseParamID) };
-	releaseParamPtr->addListener(this);
-	releaseParamIndex = releaseParamPtr->getParameterIndex();
+	delayAttachment.reset( new SliderAttachment{ *exposedParams, delayParamID, delay } );
+	attackAttachment.reset( new SliderAttachment{ *exposedParams, attackParamID, attack } );
+	decayAttachment.reset( new SliderAttachment{ *exposedParams, decayParamID, decay } );
+	sustainAttachment.reset( new SliderAttachment{ *exposedParams, sustainParamID, sustain } );
+	releaseAttachment.reset( new SliderAttachment{ *exposedParams, releaseParamID, release } );
 
 	const int envelopePainters_w{ 210 };
 	const int envelopePainters_h{ 90 };
 	setSize(envelopePainters_w, envelopePainters_h);
 
-	parameterValueChanged(delayParamIndex, delayParamPtr->getValue());
+	sliderValueChanged(&delay);
 }
 
-void EnvelopePainter::parameterValueChanged(int /*changedParamIndex*/, float /*newValue*/) {
-	//if (changedParamIndex >= delayParamIndex && changedParamIndex <= releaseParamIndex) {
-	//	setEnvelopeCoordinates();
-	//	repaint();
-	//}
-}
-
-void EnvelopePainter::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
+void EnvelopePainter::sliderValueChanged(Slider* slider) {
+	if (slider == &delay || slider == &attack || slider == &decay || slider == &sustain || slider == &release) {
+		setEnvelopeCoordinates();
+		repaint();
+	}
 }
 
 void EnvelopePainter::setEnvelopeCoordinates() {
-	auto delayParamPtr{ exposedParams->getParameter(delayParamID) };
-	auto attackParamPtr{ exposedParams->getParameter(attackParamID) };
-	auto decayParamPtr{ exposedParams->getParameter(decayParamID) };
-	auto sustainParamPtr{ exposedParams->getParameter(sustainParamID) };
-	auto releaseParamPtr{ exposedParams->getParameter(releaseParamID) };
-	attackStart_x = envStart_x + (delayParamPtr->getValue() * envSegmentMax_w);
-	decayStart_x = attackStart_x + (attackParamPtr->getValue() * envSegmentMax_w);
-	sustainStart_x = decayStart_x + (decayParamPtr->getValue() * envSegmentMax_w);
-	sustain_y = envMin_y - (sustainParamPtr->getValue() * env_h);
+	attackStart_x = envStart_x + (((float)delay.getValue() / 127.0f) * envSegmentMax_w);
+	decayStart_x = attackStart_x + (((float)attack.getValue() / 127.0f) * envSegmentMax_w);
+	sustainStart_x = decayStart_x + (((float)decay.getValue() / 127.0f) * envSegmentMax_w);
+	sustain_y = envMin_y - (((float)sustain.getValue() / 127.0f) * env_h);
 	releaseStart_x = sustainStart_x + sustainSegment_w;
-	releaseEnd_x = releaseStart_x + (releaseParamPtr->getValue() * envSegmentMax_w);
+	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 127.0f) * envSegmentMax_w);
 }
 
 void EnvelopePainter::paint(Graphics& g) {
@@ -110,19 +99,18 @@ void EnvelopePainter::paint(Graphics& g) {
 	g.strokePath(path, strokeType);
 }
 
+void EnvelopePainter::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
+	delayAttachment = nullptr;
+	attackAttachment = nullptr;
+	decayAttachment = nullptr;
+	sustainAttachment = nullptr;
+	releaseAttachment = nullptr;
+}
+
 EnvelopePainter::~EnvelopePainter() {
-	auto delayParamPtr{ exposedParams->getParameter(delayParamID) };
-	delayParamPtr->removeListener(this);
-
-	auto attackParamPtr{ exposedParams->getParameter(attackParamID) };
-	attackParamPtr->removeListener(this);
-
-	auto decayParamPtr{ exposedParams->getParameter(decayParamID) };
-	decayParamPtr->removeListener(this);
-
-	auto sustainParamPtr{ exposedParams->getParameter(sustainParamID) };
-	sustainParamPtr->removeListener(this);
-
-	auto releaseParamPtr{ exposedParams->getParameter(releaseParamID) };
-	releaseParamPtr->removeListener(this);
+	delay.removeListener(this);
+	attack.removeListener(this);
+	decay.removeListener(this);
+	sustain.removeListener(this);
+	release.removeListener(this);
 }

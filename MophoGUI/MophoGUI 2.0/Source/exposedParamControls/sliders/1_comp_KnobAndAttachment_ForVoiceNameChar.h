@@ -11,7 +11,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 class KnobAndAttachment_ForVoiceNameChar :
 	public Component,
-	public AudioProcessorParameter::Listener
+	public Slider::Listener
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
@@ -28,8 +28,7 @@ public:
 	void paint(Graphics& g) override;
 	void attachKnobToExposedParameter();
 	void limitKnobRangeToBasic_ASCII_CharsThatAreVisible();
-	void parameterValueChanged(int changedParamIndex, float newValue);
-	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
+	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
 	~KnobAndAttachment_ForVoiceNameChar();
 

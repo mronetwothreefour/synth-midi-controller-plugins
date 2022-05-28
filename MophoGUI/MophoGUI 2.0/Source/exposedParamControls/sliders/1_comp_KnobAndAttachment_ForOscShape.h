@@ -11,9 +11,8 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 class KnobAndAttachment_ForOscShape :
 	public Component,
-	public AudioProcessorParameter::Listener
+	public Slider::Listener
 {
-protected:
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -34,10 +33,8 @@ public:
 	void paintSawTriMix(Graphics& g, Path path);
 	void paintPulse(Graphics& g, Path path, int pulseWidth);
 	void attachKnobToExposedParameter();
-	void parameterValueChanged(int changedParamIndex, float newValue);
-	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
+	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
-
 	~KnobAndAttachment_ForOscShape();
 
 private:

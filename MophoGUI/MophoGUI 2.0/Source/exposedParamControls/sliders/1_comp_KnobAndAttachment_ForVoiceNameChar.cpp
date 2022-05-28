@@ -20,12 +20,9 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	charNum{ 0 }
 {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->addListener(this);
-
+	knob.addListener(this);
 	addAndMakeVisible(knob);
+	auto& info{ InfoForExposedParameters::get() };
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.setAlpha(0.0f);
@@ -33,7 +30,7 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	setSize(GUI::voiceNameCharacters_w, GUI::voiceNameCharacters_h);
 	knob.setBounds(getLocalBounds());
 
-	parameterValueChanged(paramIndex, paramaterPtr->getValue());
+	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
@@ -50,19 +47,11 @@ void KnobAndAttachment_ForVoiceNameChar::limitKnobRangeToBasic_ASCII_CharsThatAr
 	knob.setRange(32.0, 127.0, 1.0);
 }
 
-void KnobAndAttachment_ForVoiceNameChar::parameterValueChanged(int changedParamIndex, float newValue) {
-	if (changedParamIndex == paramIndex) {
-		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex) };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		charNum = currentChoice;
-		MessageManagerLock mmLock;
+void KnobAndAttachment_ForVoiceNameChar::sliderValueChanged(Slider* slider) {
+	if (slider == &knob) {
+		charNum = roundToInt(knob.getValue());
 		repaint();
 	}
-}
-
-void KnobAndAttachment_ForVoiceNameChar::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
 void KnobAndAttachment_ForVoiceNameChar::deleteAttachmentBeforeKnobToPreventMemLeak() {
@@ -70,8 +59,5 @@ void KnobAndAttachment_ForVoiceNameChar::deleteAttachmentBeforeKnobToPreventMemL
 }
 
 KnobAndAttachment_ForVoiceNameChar::~KnobAndAttachment_ForVoiceNameChar() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->removeListener(this);
+	knob.removeListener(this);
 }

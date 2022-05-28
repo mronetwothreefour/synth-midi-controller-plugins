@@ -22,19 +22,16 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 		choiceNum{ 0 },
 		strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded }
 {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->addListener(this);
-
+	knob.addListener(this);
 	addAndMakeVisible(knob);
+	auto& info{ InfoForExposedParameters::get() };
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 
-	parameterValueChanged(paramIndex, paramaterPtr->getValue());
+	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForOscShape::paint(Graphics& g) {
@@ -113,19 +110,11 @@ void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
 }
 
-void KnobAndAttachment_ForOscShape::parameterValueChanged(int changedParamIndex, float newValue) {
-	if (changedParamIndex == paramIndex) {
-		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex) };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		choiceNum = currentChoice;
-		MessageManagerLock mmLock;
+void KnobAndAttachment_ForOscShape::sliderValueChanged(Slider* slider) {	
+	if (slider == &knob) {
+		choiceNum = roundToInt(knob.getValue());
 		repaint();
 	}
-}
-
-void KnobAndAttachment_ForOscShape::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
 void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {
@@ -133,8 +122,5 @@ void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak()
 }
 
 KnobAndAttachment_ForOscShape::~KnobAndAttachment_ForOscShape() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->removeListener(this);
+	knob.removeListener(this);
 }

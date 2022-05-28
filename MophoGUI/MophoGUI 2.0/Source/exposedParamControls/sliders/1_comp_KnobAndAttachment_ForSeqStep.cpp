@@ -20,16 +20,9 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
 {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->addListener(this);
-	trackDestIndex = (uint8)100 + (uint8)trackNum;
-	auto trackDestParamID{ info.IDfor(trackDestIndex) };
-	auto trackDestParamaterPtr{ exposedParams->getParameter(trackDestParamID) };
-	trackDestParamaterPtr->addListener(this);
-
+	knob.addListener(this);
 	addAndMakeVisible(knob);
+	auto& info{ InfoForExposedParameters::get() };
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
@@ -38,8 +31,11 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	knob.setAlpha(0.0f);
 	knob.setBounds(getLocalBounds());
 
-	parameterValueChanged(trackDestIndex, trackDestParamaterPtr->getValue());
-	parameterValueChanged(paramIndex, paramaterPtr->getValue());
+	trackDestIndex = uint8(100 + trackNum);
+	trackDestination.addListener(this);
+
+	sliderValueChanged(&trackDestination);
+	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
@@ -77,8 +73,10 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 	g.drawText(stepChoiceName, getLocalBounds(), Justification::centred, false);
 }
 
-void KnobAndAttachment_ForSeqStep::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
+void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
+	auto& info{ InfoForExposedParameters::get() };
+	knobAttachment.reset(new SliderAttachment(*exposedParams, info.IDfor(paramIndex).toString(), knob));
+	trackDestinationAttachment.reset(new SliderAttachment(*exposedParams, info.IDfor(trackDestIndex).toString(), trackDestination));
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch() {
@@ -89,14 +87,12 @@ void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
 	knob.isModifyingPitch = false;
 }
 
-void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, float newValue) {
-	if (changedParamIndex == trackDestIndex || changedParamIndex == paramIndex) {
-		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor((uint8)changedParamIndex) };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
-		if (changedParamIndex == trackDestIndex) {
-			if (currentChoice > 0 && currentChoice < 4)
+void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* slider) {
+	if (slider == &knob || slider == &trackDestination) {
+		auto currentChoice{ roundToInt(knob.getValue()) };
+		if (slider == &trackDestination) {
+			auto destination{ roundToInt(trackDestination.getValue()) };
+			if (destination > 0 && destination < 4)
 				knob.isModifyingPitch = true;
 			else
 				knob.isModifyingPitch = false;
@@ -104,24 +100,16 @@ void KnobAndAttachment_ForSeqStep::parameterValueChanged(int changedParamIndex, 
 		else {
 			choiceNum = currentChoice;
 		}
-		MessageManagerLock mmLock;
 		repaint();
 	}
 }
 
-void KnobAndAttachment_ForSeqStep::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
-}
-
-void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventMemLeak() {
-	attachment = nullptr;
+void KnobAndAttachment_ForSeqStep::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
+	knobAttachment = nullptr;
+	trackDestinationAttachment = nullptr;
 }
 
 KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto trackDestParamID{ info.IDfor(trackDestIndex) };
-	auto trackDestParamaterPtr{ exposedParams->getParameter(trackDestParamID) };
-	trackDestParamaterPtr->removeListener(this);
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->removeListener(this);
+	trackDestination.removeListener(this);
+	knob.addListener(this);
 }

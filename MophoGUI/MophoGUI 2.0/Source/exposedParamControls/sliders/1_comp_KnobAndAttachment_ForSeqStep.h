@@ -11,14 +11,15 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 class KnobAndAttachment_ForSeqStep :
 	public Component,
-	public AudioProcessorParameter::Listener
+	public Slider::Listener
 {
-protected:
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	RotarySliderWithMouseDownModForSeqStep knob;
-	std::unique_ptr<SliderAttachment> attachment;
+	std::unique_ptr<SliderAttachment> knobAttachment;
+	Slider trackDestination;
+	std::unique_ptr<SliderAttachment> trackDestinationAttachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 	int choiceNum;
 	uint8 trackDestIndex;
@@ -31,13 +32,11 @@ public:
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
-	void attachKnobToExposedParameter();
+	void attachKnobsToExposedParameters();
 	void setKnobIsModifyingPitch();
 	void setKnobIsNotModifyingPitch();
-	void parameterValueChanged(int changedParamIndex, float newValue);
-	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
-	void deleteAttachmentBeforeKnobToPreventMemLeak();
-
+	void sliderValueChanged(Slider* slider) override;
+	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 	~KnobAndAttachment_ForSeqStep();
 
 private:

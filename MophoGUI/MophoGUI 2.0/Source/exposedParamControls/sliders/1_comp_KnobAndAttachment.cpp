@@ -20,18 +20,15 @@ KnobAndAttachment::KnobAndAttachment(
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNameString{""}
 {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->addListener(this);
-
+	knob.addListener(this);
 	addAndMakeVisible(knob);
+	auto& info{ InfoForExposedParameters::get() };
 	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 
-	parameterValueChanged(paramIndex, paramaterPtr->getValue());
+	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment::paint(Graphics& g) {
@@ -52,14 +49,13 @@ void KnobAndAttachment::setKnobIsNotModifyingPitch() {
 	knob.isModifyingPitch = false;
 }
 
-void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newValue) {
-	if (changedParamIndex == paramIndex) {
+void KnobAndAttachment::sliderValueChanged(Slider* slider) {
+	if (slider == &knob) {
+		auto currentChoice{ roundToInt(knob.getValue()) };
 		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex) };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
 		choiceNameString = info.choiceNameFor((uint8)currentChoice, paramIndex);
-		if (paramID.toString().contains("_LFO_") && paramID.toString().endsWith("_Freq")) {
+		auto paramID{ info.IDfor(paramIndex).toString() };
+		if (paramID.contains("_LFO_") && paramID.endsWith("_Freq")) {
 			if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
 				knob.isModifyingPitch = true;
 			else
@@ -70,17 +66,11 @@ void KnobAndAttachment::parameterValueChanged(int changedParamIndex, float newVa
 	}
 }
 
-void KnobAndAttachment::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
-}
-
 void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }
 
 KnobAndAttachment::~KnobAndAttachment() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	auto paramaterPtr{ exposedParams->getParameter(paramID) };
-	paramaterPtr->removeListener(this);
+	knob.removeListener(this);
 }
 
