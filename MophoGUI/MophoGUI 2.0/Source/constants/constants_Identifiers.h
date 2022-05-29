@@ -19,10 +19,12 @@ namespace MophoConstants
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
 		const Identifier button_Clear{ "button_Clear" };
+		const Identifier button_Close{ "button_Close" };
 		const Identifier button_Edit{ "button_Edit" };
 		const Identifier button_Hyperlink{ "button_Hyperlink" };
 		const Identifier button_Read{ "button_Read" };
 		const Identifier button_Redo{ "button_Redo" };
+		const Identifier button_Retry{ "button_Retry" };
 		const Identifier button_Undo{ "button_Undo" };
 		const Identifier button_Write{ "button_Write" };
 

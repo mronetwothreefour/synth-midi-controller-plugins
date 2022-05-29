@@ -11,19 +11,33 @@
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources">
       <FILE id="ukSPA9" name="Overpass-Bold.ttf" compile="0" resource="1"
             file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
+      <FILE id="Pw0ACp" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_GlobalParams.png"/>
       <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="O2i1Kg" name="bkgrnd_CommError_NRPN.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_CommError_NRPN.png"/>
+      <FILE id="y0qDxK" name="bkgrnd_CommError_SysEx.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_CommError_SysEx.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
         <FILE id="tI3kKm" name="btn_Clear_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Clear_Dn.png"/>
         <FILE id="dUe3Jj" name="btn_Clear_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Clear_Up.png"/>
+        <FILE id="k4LTxQ" name="btn_Close_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Close_Dn.png"/>
+        <FILE id="T0kpXR" name="btn_Close_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Close_Up.png"/>
         <FILE id="lgB8AA" name="btn_Edit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Dn.png"/>
         <FILE id="aoeVFc" name="btn_Edit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Up.png"/>
         <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
         <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
         <FILE id="ENSK24" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
         <FILE id="x8CYUB" name="btn_Redo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Up.png"/>
+        <FILE id="UFwg35" name="btn_Retry_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Retry_Dn.png"/>
+        <FILE id="GfBGeT" name="btn_Retry_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Retry_Up.png"/>
         <FILE id="pcBCtX" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
         <FILE id="CeY3gv" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
         <FILE id="wNrBkc" name="btn_Write_Dn.png" compile="0" resource="1"
@@ -48,6 +62,8 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="yFrmX8" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="aojUUb" name="constants_GlobalParameters.h" compile="0" resource="0"
+              file="Source/constants/constants_GlobalParameters.h"/>
         <FILE id="UGPUNx" name="constants_GUI_Colors.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="Z329wf" name="constants_GUI_Dimensions.h" compile="0" resource="0"
@@ -132,6 +148,24 @@
               compile="1" resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.cpp"/>
         <FILE id="MYC3I4" name="ep_singleton_InfoForExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
+      </GROUP>
+      <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
+        <FILE id="FYoGek" name="0_global_gui_layer_CommError_Base.cpp" compile="1"
+              resource="0" file="Source/global/0_global_gui_layer_CommError_Base.cpp"/>
+        <FILE id="gov7sM" name="0_global_gui_layer_CommError_Base.h" compile="0"
+              resource="0" file="Source/global/0_global_gui_layer_CommError_Base.h"/>
+        <FILE id="ggIMGg" name="1_global_gui_layer_CommError_NRPN.cpp" compile="1"
+              resource="0" file="Source/global/1_global_gui_layer_CommError_NRPN.cpp"/>
+        <FILE id="ci2lBt" name="1_global_gui_layer_CommError_NRPN.h" compile="0"
+              resource="0" file="Source/global/1_global_gui_layer_CommError_NRPN.h"/>
+        <FILE id="GNXzWE" name="1_global_gui_layer_CommError_SysEx.cpp" compile="1"
+              resource="0" file="Source/global/1_global_gui_layer_CommError_SysEx.cpp"/>
+        <FILE id="kE3hwZ" name="1_global_gui_layer_CommError_SysEx.h" compile="0"
+              resource="0" file="Source/global/1_global_gui_layer_CommError_SysEx.h"/>
+        <FILE id="qwa5RI" name="2_global_gui_layer_GlobalParams.cpp" compile="1"
+              resource="0" file="Source/global/2_global_gui_layer_GlobalParams.cpp"/>
+        <FILE id="yCeWf7" name="2_global_gui_layer_GlobalParams.h" compile="0"
+              resource="0" file="Source/global/2_global_gui_layer_GlobalParams.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
         <FILE id="WUbOEy" name="gui_build_ButtonDescriptionString.cpp" compile="1"

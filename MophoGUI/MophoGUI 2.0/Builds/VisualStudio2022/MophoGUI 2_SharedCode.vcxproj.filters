@@ -29,6 +29,9 @@
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\global">
+      <UniqueIdentifier>{FEE37698-8F20-C630-FD7F-6F8727A0C4D6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\gui">
       <UniqueIdentifier>{F3565732-B8AC-B941-FD8B-18C0D7E20F25}</UniqueIdentifier>
     </Filter>
@@ -534,6 +537,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\2_global_gui_layer_GlobalParams.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -2712,6 +2727,9 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GlobalParameters.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
@@ -2777,6 +2795,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\2_global_gui_layer_GlobalParams.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -5273,13 +5303,28 @@
     <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
+    <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png">
+      <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
+      <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_CommError_NRPN.png">
+      <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_CommError_SysEx.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Dn.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Dn.png">
@@ -5298,6 +5343,12 @@
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png">

@@ -108,6 +108,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::button_Clear.toString())
 		mBlock = MemBlock{ isDown ? btn_Clear_Dn_png : btn_Clear_Up_png, isDown ? (s_t)btn_Clear_Dn_pngSize : (s_t)btn_Clear_Up_pngSize };
 
+	if (buttonID == ID::button_Close.toString())
+		mBlock = MemBlock{ isDown ? btn_Close_Dn_png : btn_Close_Up_png, isDown ? (s_t)btn_Close_Dn_pngSize : (s_t)btn_Close_Up_pngSize };
+
 	if (buttonID == ID::button_Edit.toString())
 		mBlock = MemBlock{ isDown ? btn_Edit_Dn_png : btn_Edit_Up_png, isDown ? (s_t)btn_Edit_Dn_pngSize : (s_t)btn_Edit_Up_pngSize };
 
@@ -116,6 +119,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 
 	if (buttonID == ID::button_Redo.toString())
 		mBlock = MemBlock{ isDown ? btn_Redo_Dn_png : btn_Redo_Up_png, isDown ? (s_t)btn_Redo_Dn_pngSize : (s_t)btn_Redo_Up_pngSize };
+
+	if (buttonID == ID::button_Retry.toString())
+		mBlock = MemBlock{ isDown ? btn_Retry_Dn_png : btn_Retry_Up_png, isDown ? (s_t)btn_Retry_Dn_pngSize : (s_t)btn_Retry_Up_pngSize };
 
 	if (buttonID == ID::button_Undo.toString())
 		mBlock = MemBlock{ isDown ? btn_Undo_Dn_png : btn_Undo_Up_png, isDown ? (s_t)btn_Undo_Dn_pngSize : (s_t)btn_Undo_Up_pngSize };

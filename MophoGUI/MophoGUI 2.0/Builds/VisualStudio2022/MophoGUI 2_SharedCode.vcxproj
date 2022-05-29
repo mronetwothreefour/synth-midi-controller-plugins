@@ -155,6 +155,10 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.cpp"/>
+    <ClCompile Include="..\..\Source\global\2_global_gui_layer_GlobalParams.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
@@ -2140,6 +2144,7 @@
     <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GlobalParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
@@ -2162,6 +2167,10 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.h"/>
+    <ClInclude Include="..\..\Source\global\2_global_gui_layer_GlobalParams.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
@@ -2995,15 +3004,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
+    <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_CommError_NRPN.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_CommError_SysEx.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
