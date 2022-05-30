@@ -30,9 +30,9 @@ public:
 	const bool pedalModeIsArpLatch();
 	void setPedalModeToArpLatch();
 	void setPedalModeToNormal();
-	const bool voiceChangeIsOn();
-	void setVoiceChangeOn();
-	void setVoiceChangeOff();
+	const bool voiceChangeIsEnabled();
+	void setVoiceChangeEnabled();
+	void setVoiceChangeDisabled();
 	const ParamChangeSendType paramChangeSendType();
 	void setParamChangeSendType(ParamChangeSendType newSendType);
 	const ParamChangeReceiveType paramChangeReceiveType();

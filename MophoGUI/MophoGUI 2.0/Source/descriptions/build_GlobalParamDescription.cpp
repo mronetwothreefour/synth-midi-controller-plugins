@@ -62,7 +62,7 @@ String GlobalParamDescription::buildFor_HardwareReceiveChannel() {
     return descriptionString;
 }
 
-String GlobalParamDescription::buildFor_MIDI_Clock() {
+String GlobalParamDescription::buildFor_MIDI_ClockSource() {
     return "Selects the hardware" + GUI::apostrophe + "s MIDI clock source.\n";
 }
 

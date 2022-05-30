@@ -17,7 +17,7 @@ void GlobalOptions::resetAllOptionsToDefaults() {
     setHardwareReceiveChannel((uint8)0);
     setMIDI_ClockSource(MIDI_ClockSource::internalClock);
     setPedalModeToNormal();
-    setVoiceChangeOff();
+    setVoiceChangeDisabled();
     setParamChangeSendType(ParamChangeSendType::nrpn);
     setParamChangeReceiveType(ParamChangeReceiveType::all);
     setControllersOn();
@@ -88,16 +88,16 @@ void GlobalOptions::setPedalModeToNormal() {
     globalOptionsTree.setProperty(ID::global_PedalModeIsArpLatch, (bool)false, nullptr);
 }
 
-const bool GlobalOptions::voiceChangeIsOn() {
-    return (bool)globalOptionsTree.getProperty(ID::global_VoiceChangeIsOn);
+const bool GlobalOptions::voiceChangeIsEnabled() {
+    return (bool)globalOptionsTree.getProperty(ID::global_VoiceChangeIsEnabled);
 }
 
-void GlobalOptions::setVoiceChangeOn() {
-    globalOptionsTree.setProperty(ID::global_VoiceChangeIsOn, (bool)true, nullptr);
+void GlobalOptions::setVoiceChangeEnabled() {
+    globalOptionsTree.setProperty(ID::global_VoiceChangeIsEnabled, (bool)true, nullptr);
 }
 
-void GlobalOptions::setVoiceChangeOff() {
-    globalOptionsTree.setProperty(ID::global_VoiceChangeIsOn, (bool)false, nullptr);
+void GlobalOptions::setVoiceChangeDisabled() {
+    globalOptionsTree.setProperty(ID::global_VoiceChangeIsEnabled, (bool)false, nullptr);
 }
 
 const ParamChangeSendType GlobalOptions::paramChangeSendType() {

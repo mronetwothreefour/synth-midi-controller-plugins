@@ -1,10 +1,8 @@
 #include "1_global_comp_KnobForGlobalParam.h"
 
 #include "0_global_build_ChoiceName.h"
-#include "../constants/constants_GlobalParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_GlobalParamDescription.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
@@ -30,6 +28,7 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 	case GlobalParamKnobType::globalTranspose: {
 		paramID = ID::global_Transpose;
 		setRange(0.0, 24.0, 1.0);
+		setDoubleClickReturnValue(true, 12.0);
 		setValue((double)globalOptions->globalTranspose(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
@@ -37,6 +36,7 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 	case GlobalParamKnobType::globalFineTune: {
 		paramID = ID::global_FineTune;
 		setRange(0.0, 100.0, 1.0);
+		setDoubleClickReturnValue(true, 50.0);
 		setValue((double)globalOptions->globalFineTune(), dontSendNotification);
 		setMouseDragSensitivity(105);
 		break;
@@ -44,6 +44,7 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 	case GlobalParamKnobType::hardwareReceiveChannel: {
 		paramID = ID::global_HardwareReceiveChannel;
 		setRange(0.0, 16.0, 1.0);
+		setDoubleClickReturnValue(true, 0.0);
 		setValue((double)globalOptions->hardwareReceiveChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
@@ -51,6 +52,8 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 	default:
 		break;
 	}
+
+	updateTooltip();
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 }
@@ -91,34 +94,11 @@ void KnobForGlobalParameter::updateTooltip() {
 	setTooltip(tipString);
 }
 
-void KnobForGlobalParameter::paint(Graphics& g) {
-	g.setFont(GUI::fontFor_KnobValueDisplays);
-	g.setColour(GUI::color_White);
-	auto concise{ (bool)false };
-	auto currentChoice{ roundToInt(getValue()) };
-	String choiceName{ "" };
-	switch (knobType)
-	{
-	case GlobalParamKnobType::globalTranspose:
-		choiceName = ChoiceName::buildFor_GlobalTranspose(currentChoice, concise);
-		break;
-	case GlobalParamKnobType::globalFineTune:
-		choiceName = ChoiceName::buildFor_GlobalFineTune(currentChoice, concise);
-		break;
-	case GlobalParamKnobType::hardwareReceiveChannel:
-		choiceName = ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, concise);
-		break;
-	default:
-		break;
-	}
-	g.drawText(choiceName, getLocalBounds(), Justification::centred);
-}
-
 void KnobForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {
 	if (property == paramID) {
 		MessageManagerLock mmLock;
 		setValue((double)tree.getProperty(property), sendNotification);
-		repaint();
+		updateTooltip();
 	}
 	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription)
 		updateTooltip();

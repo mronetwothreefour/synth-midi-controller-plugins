@@ -122,7 +122,7 @@ namespace MophoConstants
 		const Identifier global_SysExIsOn{ "global_SysExIsOn" };
 		const Identifier global_TransmitChannel{ "global_TransmitChannel" };
 		const Identifier global_Transpose{ "global_Transpose" };
-		const Identifier global_VoiceChangeIsOn{ "global_VoiceChangeIsOn" };
+		const Identifier global_VoiceChangeIsEnabled{ "global_VoiceChangeIsEnabled" };
 
 		const Identifier property_Center_x{ "property_ControlCenter_x" };
 		const Identifier property_Center_y{ "property_ControlCenter_y" };

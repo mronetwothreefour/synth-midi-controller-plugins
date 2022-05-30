@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "1_global_comp_KnobForGlobalParam.h"
+#include "1_global_comp_ComboBoxForGlobalParam.h"
 
 
 
@@ -17,14 +18,14 @@ class GUI_Layer_GlobalParameters :
     private Timer
 {
     UnexposedParameters* unexposedParams;
-    TextButton button_Close;
+    TextButton button_Close; // todo: set up a close layer button class
     KnobForGlobalParameter knob_GlobalTranspose;
     KnobForGlobalParameter knob_GlobalFineTune;
     KnobForGlobalParameter knob_HardwareReceiveChannel;
-    ComboBox comboBox_MIDI_Clock;
-    ComboBox comboBox_PedalMode;
-    ComboBox comboBox_VoiceChange;
-    ComboBox comboBox_ParamChangeSendType;
+    ComboBoxForGlobalParameter comboBox_MIDI_ClockSource;
+    ComboBoxForGlobalParameter comboBox_PedalMode;
+    ComboBoxForGlobalParameter comboBox_VoiceChange;
+    ComboBoxForGlobalParameter comboBox_ParamChangeSendType;
     Label label_ParamChangeReceiveType;
     Label label_MIDI_ControllersStatus;
     Label label_SysExStatus;

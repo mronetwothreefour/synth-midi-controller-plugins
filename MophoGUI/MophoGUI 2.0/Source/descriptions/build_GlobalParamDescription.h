@@ -13,7 +13,7 @@ struct GlobalParamDescription
 	static String buildFor_GlobalFineTune();
 	static String buildFor_GlobalTranspose();
 	static String buildFor_HardwareReceiveChannel();
-	static String buildFor_MIDI_Clock();
+	static String buildFor_MIDI_ClockSource();
 	static String buildFor_MIDI_ControllersStatus();
 	static String buildFor_ParamChangeSendType();
 	static String buildFor_ParamChangeReceiveType();

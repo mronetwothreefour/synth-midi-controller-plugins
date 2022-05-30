@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../constants/constants_Enum.h"
-#include "../exposedParamControls/sliders/0_slider_JuceSlidersWithMouseMods.h"
 
 using namespace MophoConstants;
 
@@ -11,24 +10,24 @@ using namespace MophoConstants;
 
 class UnexposedParameters;
 
-class KnobForGlobalParameter :
-	public RotarySliderWithMouseWheelMoveOverride,
+class ComboBoxForGlobalParameter :
+	public ComboBox,
 	public ValueTree::Listener
 {
-	GlobalParamKnobType knobType;
+	GlobalParamComboBoxType comboBoxType;
 	Identifier paramID;
 	UnexposedParameters* unexposedParams;
 
 public:
-	KnobForGlobalParameter() = delete;
+	ComboBoxForGlobalParameter() = delete;
 
-	KnobForGlobalParameter(GlobalParamKnobType knobType, UnexposedParameters* unexposedParams);
+	ComboBoxForGlobalParameter(GlobalParamComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~KnobForGlobalParameter();
+	~ComboBoxForGlobalParameter();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobForGlobalParameter)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ComboBoxForGlobalParameter)
 
 };

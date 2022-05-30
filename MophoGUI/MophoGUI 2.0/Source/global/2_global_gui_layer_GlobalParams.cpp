@@ -1,13 +1,16 @@
 #include "2_global_gui_layer_GlobalParams.h"
 
+#include "0_global_build_ChoiceName.h"
 #include "../constants/constants_GlobalParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
+#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../midi/0_midi_NRPNbufferWithLeadingMSBs.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+using ChoiceName = GlobalParamChoiceName;
 
 
 
@@ -15,7 +18,11 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	unexposedParams{ unexposedParams },
 	knob_GlobalTranspose{ GlobalParamKnobType::globalTranspose, unexposedParams },
 	knob_GlobalFineTune{ GlobalParamKnobType::globalFineTune, unexposedParams },
-	knob_HardwareReceiveChannel{ GlobalParamKnobType::hardwareReceiveChannel, unexposedParams }
+	knob_HardwareReceiveChannel{ GlobalParamKnobType::hardwareReceiveChannel, unexposedParams },
+	comboBox_MIDI_ClockSource{ GlobalParamComboBoxType::midiClockSource, unexposedParams },
+	comboBox_PedalMode{ GlobalParamComboBoxType::pedalMode, unexposedParams },
+	comboBox_VoiceChange{ GlobalParamComboBoxType::voiceChange, unexposedParams },
+	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams }
 {
 	button_Close.setComponentID(ID::button_Close.toString());
 	button_Close.onClick = [this] { hideThisLayer(); };
@@ -31,6 +38,18 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	knob_HardwareReceiveChannel.addListener(this);
 	addAndMakeVisible(knob_HardwareReceiveChannel);
 
+	comboBox_MIDI_ClockSource.addListener(this);
+	addAndMakeVisible(comboBox_MIDI_ClockSource);
+
+	comboBox_PedalMode.addListener(this);
+	addAndMakeVisible(comboBox_PedalMode);
+
+	comboBox_VoiceChange.addListener(this);
+	addAndMakeVisible(comboBox_VoiceChange);
+
+	comboBox_ParamChangeSendType.addListener(this);
+	addAndMakeVisible(comboBox_ParamChangeSendType);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -40,6 +59,24 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_GlobalParams_png, (size_t)BinaryData::bkgrnd_GlobalParams_png, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 514, 115);
+
+	g.setFont(GUI::fontFor_KnobValueDisplays);
+	g.setColour(GUI::color_White);
+	auto concise{ (bool)false };
+	auto currentChoice{ 0 };
+	String choiceName{ "" };
+
+	currentChoice = roundToInt(knob_GlobalTranspose.getValue());
+	choiceName = ChoiceName::buildFor_GlobalTranspose(currentChoice, concise);
+	g.drawText(choiceName, knob_GlobalTranspose.getBounds(), Justification::centred);
+
+	currentChoice = roundToInt(knob_GlobalFineTune.getValue());
+	choiceName = ChoiceName::buildFor_GlobalFineTune(currentChoice, concise);
+	g.drawText(choiceName, knob_GlobalFineTune.getBounds(), Justification::centred);
+
+	currentChoice = roundToInt(knob_HardwareReceiveChannel.getValue());
+	choiceName = ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, concise);
+	g.drawText(choiceName, knob_HardwareReceiveChannel.getBounds(), Justification::centred);
 }
 
 void GUI_Layer_GlobalParameters::resized() {
@@ -48,14 +85,43 @@ void GUI_Layer_GlobalParameters::resized() {
 	knob_GlobalTranspose.setBounds(542, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
 	knob_GlobalFineTune.setBounds(617, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
 	knob_HardwareReceiveChannel.setBounds(692, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
+	const int comboBoxes_x{ 630 };
+	const auto comboBoxes_w{ comboBox_MIDI_ClockSource.getWidth() };
+	comboBox_MIDI_ClockSource.setBounds(comboBoxes_x, 226, comboBoxes_w, GUI::comboBox_h);
+	comboBox_PedalMode.setBounds(comboBoxes_x, 246, comboBoxes_w, GUI::comboBox_h);
+	comboBox_VoiceChange.setBounds(comboBoxes_x, 266, comboBoxes_w, GUI::comboBox_h);
+	comboBox_ParamChangeSendType.setBounds(comboBoxes_x, 286, comboBoxes_w, GUI::comboBox_h);
 }
 
 void GUI_Layer_GlobalParameters::buttonClicked(Button* button)
 {
 }
 
-void GUI_Layer_GlobalParameters::comboBoxChanged(ComboBox* comboBox)
-{
+void GUI_Layer_GlobalParameters::comboBoxChanged(ComboBox* comboBox) {
+	auto globalOptions{ unexposedParams->getGlobalOptions() };
+	auto currentChoice{ comboBox->getSelectedItemIndex() };
+	if (comboBox == &comboBox_MIDI_ClockSource) {
+		globalOptions->setMIDI_ClockSource(MIDI_ClockSource{ currentChoice });
+		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_MIDI_ClockSource);
+	}
+	if (comboBox == &comboBox_PedalMode) {
+		if (currentChoice == 0)
+			globalOptions->setPedalModeToNormal();
+		else
+			globalOptions->setPedalModeToArpLatch();
+		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_PedalMode);
+	}
+	if (comboBox == &comboBox_VoiceChange) {
+		if (currentChoice == 0)
+			globalOptions->setVoiceChangeDisabled();
+		else
+			globalOptions->setVoiceChangeEnabled();
+		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_VoiceChange);
+	}
+	if (comboBox == &comboBox_ParamChangeSendType) {
+		globalOptions->setParamChangeSendType(ParamChangeSendType{ currentChoice });
+		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_ParamChangeSendType);
+	}
 }
 
 void GUI_Layer_GlobalParameters::editorShown(Label* label, TextEditor& editor)
@@ -107,4 +173,8 @@ GUI_Layer_GlobalParameters::~GUI_Layer_GlobalParameters() {
 	knob_GlobalTranspose.removeListener(this);
 	knob_GlobalFineTune.removeListener(this);
 	knob_HardwareReceiveChannel.removeListener(this);
+	comboBox_MIDI_ClockSource.removeListener(this);
+	comboBox_PedalMode.removeListener(this);
+	comboBox_VoiceChange.removeListener(this);
+	comboBox_ParamChangeSendType.removeListener(this);
 }

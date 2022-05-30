@@ -114,11 +114,11 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         else
             globalOptions->setPedalModeToNormal();
 
-        auto voiceChangeIsOn{ (bool)sysExData[globalVoiceChangeOnByte] };
-        if (voiceChangeIsOn)
-            globalOptions->setVoiceChangeOn();
+        auto voiceChangeIsEnabled{ (bool)sysExData[globalVoiceChangeOnByte] };
+        if (voiceChangeIsEnabled)
+            globalOptions->setVoiceChangeEnabled();
         else
-            globalOptions->setVoiceChangeOff();
+            globalOptions->setVoiceChangeDisabled();
 
         ParamChangeSendType paramChangeSendType{ sysExData[globalParamChangeSendTypeByte] };
         globalOptions->setParamChangeSendType(paramChangeSendType);
