@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.cpp"/>
@@ -151,15 +154,15 @@
     <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_build_DescriptionString.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.cpp"/>
     <ClCompile Include="..\..\Source\global\2_global_gui_layer_GlobalParams.cpp"/>
-    <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
@@ -2152,6 +2155,9 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\constants\constants_MIDI.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_GlobalParamDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.h"/>
@@ -2163,15 +2169,15 @@
     <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_build_DescriptionString.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h"/>
     <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.h"/>
     <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.h"/>
     <ClInclude Include="..\..\Source\global\2_global_gui_layer_GlobalParams.h"/>
-    <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
@@ -3014,6 +3020,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Global_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Global_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>

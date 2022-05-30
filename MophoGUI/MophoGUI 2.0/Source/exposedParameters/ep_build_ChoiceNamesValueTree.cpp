@@ -7,7 +7,7 @@ using namespace MophoConstants;
 
 
 
-String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
+String ExposedParamChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	auto noteNum{ i % 12 };
 	auto octaveNumString{ String(i / 12) };
 	String pitchName;
@@ -28,7 +28,7 @@ String ChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
 	}
 }
 
-String ChoiceNamesValueTree::convertIntToSeqStepPitchName(const uint8& i) noexcept {
+String ExposedParamChoiceNamesValueTree::convertIntToSeqStepPitchName(const uint8& i) noexcept {
 	auto noteNum{ i % 24 };
 	auto octaveNumString{ String(i / 24) };
 	switch (noteNum)
@@ -61,7 +61,7 @@ String ChoiceNamesValueTree::convertIntToSeqStepPitchName(const uint8& i) noexce
 	}
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_ArpegMode(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_ArpegMode(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Up", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Down", nullptr);
@@ -81,7 +81,7 @@ ValueTree ChoiceNamesValueTree::buildFor_ArpegMode(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForBendRange; ++choiceNum) {
 		if (verbose) {
@@ -106,7 +106,7 @@ ValueTree ChoiceNamesValueTree::buildFor_BendRange(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_ClockDivision(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_ClockDivision(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", verbose ? "Half Note (BPM / 2)" : "Half Note", nullptr);
 	choiceNamesTree.setProperty("choice_1", verbose ? "Quarter Note (BPM x 1)" : "Quarter Note", nullptr);
@@ -124,7 +124,7 @@ ValueTree ChoiceNamesValueTree::buildFor_ClockDivision(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_ClockTempo(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_ClockTempo(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForClockTempo; ++choiceNum) {
 		auto choiceName{ String(choiceNum + 30)};
@@ -135,7 +135,7 @@ ValueTree ChoiceNamesValueTree::buildFor_ClockTempo(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_GlideMode(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_GlideMode(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Fixed Rate", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Fixed Rate Auto", nullptr);
@@ -144,7 +144,7 @@ ValueTree ChoiceNamesValueTree::buildFor_GlideMode(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_KnobAssign(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_KnobAssign(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
 		choiceNamesTree.setProperty(oscNum == 1 ? "choice_0" : "choice_6", "Oscillator " + (String)oscNum + " Pitch", nullptr);
@@ -241,7 +241,7 @@ ValueTree ChoiceNamesValueTree::buildFor_KnobAssign(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_LFO_Freq(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_Freq(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::firstLFO_PitchedFreqChoice; ++choiceNum) {
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, verbose ? "Un-synced " + (String)choiceNum : (String)choiceNum, nullptr);
@@ -270,7 +270,7 @@ ValueTree ChoiceNamesValueTree::buildFor_LFO_Freq(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_LFO_Shape(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_Shape(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Triangle", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Reverse Sawtooth", nullptr);
@@ -280,7 +280,7 @@ ValueTree ChoiceNamesValueTree::buildFor_LFO_Shape(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_LPF_Freq(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LPF_Freq(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForLPF_Freq; ++choiceNum) {
 		auto choiceNumString{ (String)choiceNum };
@@ -291,14 +291,14 @@ ValueTree ChoiceNamesValueTree::buildFor_LPF_Freq(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_LPF_Type(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LPF_Type(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "2-Pole", nullptr);
 	choiceNamesTree.setProperty("choice_1", "4-Pole", nullptr);
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Off", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Oscillator 1 Pitch", nullptr);
@@ -344,7 +344,7 @@ ValueTree ChoiceNamesValueTree::buildFor_ModDestination(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_ModSource(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_ModSource(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Off", nullptr);
 	for (auto choiceNum = 1; choiceNum != 5; ++choiceNum)
@@ -368,7 +368,7 @@ ValueTree ChoiceNamesValueTree::buildFor_ModSource(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_NotePriority(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_NotePriority(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", verbose ? "Low Note Has Priority" : "Low Note", nullptr);
 	choiceNamesTree.setProperty("choice_1", verbose ? "Low Note Has Priority (Re-trigger)" : "Low Note (Re-trigger)", nullptr);
@@ -379,14 +379,14 @@ ValueTree ChoiceNamesValueTree::buildFor_NotePriority(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OffOn(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_OffOn(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Off", nullptr);
 	choiceNamesTree.setProperty("choice_1", "On", nullptr);
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OscFineTune(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_OscFineTune(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForOscFineTune; ++choiceNum) {
 		if (verbose) {
@@ -411,7 +411,7 @@ ValueTree ChoiceNamesValueTree::buildFor_OscFineTune(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OscPitch(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_OscPitch(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum) {
 		String choiceName{ "" };
@@ -426,7 +426,7 @@ ValueTree ChoiceNamesValueTree::buildFor_OscPitch(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_OscShape(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_OscShape(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForOscWaveShape; ++choiceNum) {
 		String choiceName{ "" };
@@ -445,7 +445,7 @@ ValueTree ChoiceNamesValueTree::buildFor_OscShape(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_PlainValue(uint8 numberOfChoices, bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_PlainValue(uint8 numberOfChoices, bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != numberOfChoices; ++choiceNum) {
 		auto choiceName{ (String)choiceNum };
@@ -454,7 +454,7 @@ ValueTree ChoiceNamesValueTree::buildFor_PlainValue(uint8 numberOfChoices, bool 
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_PlusMinus127(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_PlusMinus127(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != 255; ++choiceNum) {
 		auto choiceName{ (choiceNum > 127 ? "+" : "") + String(choiceNum - 127) };
@@ -463,7 +463,7 @@ ValueTree ChoiceNamesValueTree::buildFor_PlusMinus127(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Normal", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Toggle", nullptr);
@@ -471,7 +471,7 @@ ValueTree ChoiceNamesValueTree::buildFor_PushItMode(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_SeqTrackStep(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_SeqTrackStep(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != 126; ++choiceNum)
 		choiceNamesTree.setProperty(
@@ -483,7 +483,7 @@ ValueTree ChoiceNamesValueTree::buildFor_SeqTrackStep(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose) {
 	jassert(trackNum == 2 || trackNum == 4);
 	auto choiceNamesTree{ buildFor_ModDestination(verbose) };
 	auto choiceNameString{ String(verbose ? "Sequencer" : "Seq.") + " Track " + String(trackNum - 1) + " Slew" };
@@ -491,7 +491,7 @@ ValueTree ChoiceNamesValueTree::buildFor_SeqTracks_2_4_Destination(int trackNum,
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_SeqTrigMode(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_SeqTrigMode(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	choiceNamesTree.setProperty("choice_0", "Normal", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Normal, No Reset", nullptr);
@@ -502,7 +502,7 @@ ValueTree ChoiceNamesValueTree::buildFor_SeqTrigMode(bool verbose) {
 	return choiceNamesTree;
 }
 
-ValueTree ChoiceNamesValueTree::buildFor_VoiceNameChar(bool verbose) {
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_VoiceNameChar(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
 	for (auto choiceNum = 0; choiceNum != 32; ++choiceNum)
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, "ASCII Control Character " + (String)choiceNum, nullptr);

@@ -14,6 +14,9 @@
     <Filter Include="MophoGUI 2\Source\constants">
       <UniqueIdentifier>{11CBDC46-3D32-FDEB-BCBF-38F7473A0297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\descriptions">
+      <UniqueIdentifier>{7368E3A3-480A-3977-BF1D-583E81118667}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\exposedParamControls\buttons">
       <UniqueIdentifier>{57491C9C-EB7E-0DDE-6BE9-5EBAFF7A2FD1}</UniqueIdentifier>
     </Filter>
@@ -493,6 +496,15 @@
     <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClCompile>
@@ -526,9 +538,6 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_build_DescriptionString.cpp">
-      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -537,6 +546,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
@@ -549,9 +564,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\global\2_global_gui_layer_GlobalParams.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\gui_build_ButtonDescriptionString.cpp">
-      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -2751,6 +2763,15 @@
     <ClInclude Include="..\..\Source\constants\constants_Voices.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_GlobalParamDescription.h">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClInclude>
@@ -2784,9 +2805,6 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_build_DescriptionString.h">
-      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -2795,6 +2813,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h">
       <Filter>MophoGUI 2\Source\global</Filter>
@@ -2807,9 +2831,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\global\2_global_gui_layer_GlobalParams.h">
       <Filter>MophoGUI 2\Source\global</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\gui_build_ButtonDescriptionString.h">
-      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -5331,6 +5352,12 @@
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Global_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Global_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png">

@@ -3,6 +3,10 @@
 #include <JuceHeader.h>
 
 
+
+class GUI_Layer_CommError_NRPN;
+class GUI_Layer_CommError_SysEx;
+class GUI_Layer_GlobalParameters;
 class UnexposedParameters;
 
 class GUI_Layer_MainWindowButtons :
@@ -18,10 +22,14 @@ class GUI_Layer_MainWindowButtons :
 	TextButton button_ShowVoiceNameEditor;
 	TextButton button_WriteEditBuffer;
 	TextButton button_ReadEditBuffer;
+	TextButton button_ShowGlobalParams;
 	TextButton button_Undo;
 	TextButton button_Redo;
 	HyperlinkButton button_Hyperlink;
 	TextButton buttons_ForClearingSeqTracks[4];
+	std::unique_ptr<GUI_Layer_GlobalParameters> globalParams;
+	std::unique_ptr<GUI_Layer_CommError_NRPN> commError_NRPN;
+	std::unique_ptr<GUI_Layer_CommError_SysEx> commError_SysEx;
 	int sequencerStep{ -1 };
 	int nameCharNum{ -1 };
 	const int timerID_VoiceNameEdit{ 4 };
@@ -32,6 +40,7 @@ public:
 	GUI_Layer_MainWindowButtons() = delete;
 
 	GUI_Layer_MainWindowButtons(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	void resized() override;
 
 private:
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
@@ -44,11 +53,14 @@ private:
 	void timerCallback(int timerID) override;
 	void updateExposedParamForNameChar();
 	void clearSequencerStep(int trackNum, int stepNum);
+	void prepareToShowGlobalParamsLayer();
+	void showCommError_SysExLayer();
+	void showCommError_NRPN_Layer();
+	void showGlobalParamsLayer();
 	void timerCallback() override;
 
 public:
 	void mouseDown(const MouseEvent& event) override;
-	void resized() override;
 	~GUI_Layer_MainWindowButtons();
 
 private:

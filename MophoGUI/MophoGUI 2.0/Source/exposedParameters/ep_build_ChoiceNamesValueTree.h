@@ -4,7 +4,7 @@
 
 
 
-struct ChoiceNamesValueTree {
+struct ExposedParamChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
 	static String convertIntToSeqStepPitchName(const uint8& i) noexcept;
 
@@ -35,5 +35,5 @@ struct ChoiceNamesValueTree {
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ChoiceNamesValueTree)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamChoiceNamesValueTree)
 };

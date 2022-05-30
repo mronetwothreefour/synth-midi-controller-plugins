@@ -28,6 +28,15 @@ namespace MophoConstants
 
 
 
+	const enum class GlobalParamKnobType {
+		globalTranspose = 0,
+		globalFineTune,
+		hardwareReceiveChannel
+	};
+
+
+
+
 	const enum class MIDI_ClockSource {
 		internalClock = 0,
 		internalClock_Send,

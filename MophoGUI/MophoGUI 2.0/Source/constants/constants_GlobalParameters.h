@@ -15,5 +15,7 @@ namespace MophoConstants
         const uint16 nrpnType_ParameterSendType{ 390 };
         const uint16 nrpnType_VoiceChange{ 392 };
         const uint16 nrpnType_PedalMode{ 396 };
+
+        const int numberOfChoicesForGlobalTranspose{ 25 };
     }
 }

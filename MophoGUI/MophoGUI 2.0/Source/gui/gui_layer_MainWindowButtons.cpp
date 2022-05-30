@@ -1,6 +1,6 @@
 #include "gui_layer_MainWindowButtons.h"
 
-#include "gui_build_ButtonDescriptionString.h"
+#include "../descriptions/build_MainWindowButtonDescription.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
@@ -8,12 +8,16 @@
 #include "../constants/constants_Voices.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
+#include "../global/1_global_gui_layer_CommError_NRPN.h"
+#include "../global/1_global_gui_layer_CommError_SysEx.h"
+#include "../global/2_global_gui_layer_GlobalParams.h"
 #include "../midi/1_midi_EditBufferDataMessage.h"
+#include "../midi/1_midi_GlobalParametersDataRequest.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 using EditBuffer = EditBufferDataMessage;
-using TipString = ButtonDescriptionString;
+using Description = MainWindowButtonDescription;
 
 
 
@@ -59,6 +63,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     };
     addAndMakeVisible(button_ReadEditBuffer);
 
+    button_ShowGlobalParams.setComponentID(ID::button_Global.toString());
+    button_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
+    addAndMakeVisible(button_ShowGlobalParams);
+
     button_Undo.setComponentID(ID::button_Undo.toString());
     button_Undo.onClick = [unexposedParams] {
         unexposedParams->getUndoManager()->undo();
@@ -85,6 +93,28 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     setSize(GUI::editor_w, GUI::editor_h);
 }
 
+void GUI_Layer_MainWindowButtons::resized() {
+    button_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
+    voiceNameEditor.setBounds(590, 38, 222, 26);
+
+    const int rowBeneathProgramName_y{ 83 };
+    const int writeReadButtons_w{ 44 };
+    button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
+    button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
+    button_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
+
+    const int undoRedoButtons_w{ 44 };
+    const int undoRedoButtons_x{ 832 };
+    button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
+    button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
+
+    button_Hyperlink.setBounds(644, 122, 157, 9);
+
+    const int clearButton_SeqTrack_1_y{ 160 };
+    for (auto trackNum = 0; trackNum != 4; ++trackNum)
+        buttons_ForClearingSeqTracks[trackNum].setBounds(1166, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
+}
+
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
     if (property == ID::tooltips_ShouldShowDescription)
         updateTooltips();
@@ -94,26 +124,29 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
     auto shouldShow{ tooltipsOptions->shouldShowDescriptions() };
 
-    auto tipFor_button_ShowVoiceNameEditor{ shouldShow ? TipString::buildFor_ShowVoiceNameEditor() : String{ "" } };
+    auto tipFor_button_ShowVoiceNameEditor{ shouldShow ? Description::buildFor_ShowVoiceNameEditor() : String{ "" } };
     button_ShowVoiceNameEditor.setTooltip(tipFor_button_ShowVoiceNameEditor);
 
-    auto tipFor_button_Write{ shouldShow ? TipString::buildFor_EditBufferWrite() : String{ "" } };
+    auto tipFor_button_Write{ shouldShow ? Description::buildFor_EditBufferWrite() : String{ "" } };
     button_WriteEditBuffer.setTooltip(tipFor_button_Write);
 
-    auto tipFor_button_Read{ shouldShow ? TipString::buildFor_EditBufferRead() : String{ "" } };
+    auto tipFor_button_Read{ shouldShow ? Description::buildFor_EditBufferRead() : String{ "" } };
     button_ReadEditBuffer.setTooltip(tipFor_button_Read);
 
-    auto tipFor_button_Undo{ shouldShow ? TipString::buildFor_Undo() : String{ "" } };
+    auto tipFor_button_Global{ shouldShow ? Description::buildFor_ShowGlobalParamsLayer() : String{ "" } };
+    button_ShowGlobalParams.setTooltip(tipFor_button_Global);
+
+    auto tipFor_button_Undo{ shouldShow ? Description::buildFor_Undo() : String{ "" } };
     button_Undo.setTooltip(tipFor_button_Undo);
 
-    auto tipFor_button_Redo{ shouldShow ? TipString::buildFor_Redo() : String{ "" } };
+    auto tipFor_button_Redo{ shouldShow ? Description::buildFor_Redo() : String{ "" } };
     button_Redo.setTooltip(tipFor_button_Redo);
 
-    auto tipFor_button_Hyperlink{ shouldShow ? TipString::buildFor_Hyperlink() : String{ "" } };
+    auto tipFor_button_Hyperlink{ shouldShow ? Description::buildFor_Hyperlink() : String{ "" } };
     button_Hyperlink.setTooltip(tipFor_button_Hyperlink);
 
     for (auto trackNum = 0; trackNum != 4; ++trackNum) {
-        auto tipFor_button_Clear{ shouldShow ? TipString::buildFor_ClearSeqTrack(trackNum) : String{ "" } };
+        auto tipFor_button_Clear{ shouldShow ? Description::buildFor_ClearSeqTrack(trackNum) : String{ "" } };
         buttons_ForClearingSeqTracks[trackNum].setTooltip(tipFor_button_Clear);
     }
 }
@@ -124,7 +157,7 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
     voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(Voices::numberOfCharsInVoiceName, basicASCIIcharacters);
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
     auto shouldShow{ tooltipsOptions->shouldShowDescriptions() };
-    auto tipFor_VoiceNameEditor{ shouldShow ? TipString::buildFor_VoiceNameEditor() : String{ "" } };
+    auto tipFor_VoiceNameEditor{ shouldShow ? Description::buildFor_VoiceNameEditor() : String{ "" } };
     voiceNameEditor.getCurrentTextEditor()->setTooltip(tipFor_VoiceNameEditor);
 }
 
@@ -202,6 +235,49 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
         param->setValueNotifyingHost(clearedValue);
 }
 
+void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
+    auto globalOptions{ unexposedParams->getGlobalOptions() };
+    globalOptions->resetAllOptionsToDefaults();
+    auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+    GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
+    callAfterDelay(300, [this, globalOptions] {
+            if (globalOptions->sysExIsOn()) {
+                if (globalOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+                    showCommError_NRPN_Layer();
+                else
+                    showGlobalParamsLayer();
+            }
+            else showCommError_SysExLayer();
+        });
+}
+
+void GUI_Layer_MainWindowButtons::showCommError_SysExLayer() {
+    commError_SysEx.reset(new GUI_Layer_CommError_SysEx(unexposedParams));
+    if (commError_SysEx != nullptr) {
+        addAndMakeVisible(commError_SysEx.get());
+        commError_SysEx->setBounds(getLocalBounds());
+        commError_SysEx->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::showCommError_NRPN_Layer() {
+    commError_NRPN.reset(new GUI_Layer_CommError_NRPN(unexposedParams));
+    if (commError_NRPN != nullptr) {
+        addAndMakeVisible(commError_NRPN.get());
+        commError_NRPN->setBounds(getLocalBounds());
+        commError_NRPN->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
+    globalParams.reset(new GUI_Layer_GlobalParameters(unexposedParams));
+    if (globalParams != nullptr) {
+        addAndMakeVisible(globalParams.get());
+        globalParams->setBounds(getLocalBounds());
+        globalParams->grabKeyboardFocus();
+    }
+}
+
 void GUI_Layer_MainWindowButtons::timerCallback() {
 }
 
@@ -209,28 +285,10 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
     // todo: use for opening randomization layer with right-click
 }
 
-void GUI_Layer_MainWindowButtons::resized() {
-    button_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
-    voiceNameEditor.setBounds(590, 38, 222, 26);
-
-    const int rowBeneathProgramName_y{ 83 };
-    const int writeReadButtons_w{ 44 };
-    button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-    button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-
-    const int undoRedoButtons_w{ 44 };
-    const int undoRedoButtons_x{ 832 };
-    button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
-    button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
-
-    button_Hyperlink.setBounds(644, 122, 157, 9);
-
-    const int clearButton_SeqTrack_1_y{ 160 };
-    for (auto trackNum = 0; trackNum != 4; ++trackNum)
-        buttons_ForClearingSeqTracks[trackNum].setBounds(1166, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
-}
-
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
+    globalParams = nullptr;
+    commError_NRPN = nullptr;
+    commError_SysEx = nullptr;
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
     tooltipsOptions->removeListener(this);
     voiceNameEditor.removeListener(this);

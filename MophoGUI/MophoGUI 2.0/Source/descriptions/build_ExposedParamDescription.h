@@ -8,7 +8,7 @@ using namespace MophoConstants;
 
 
 
-struct ExposedParamDescriptionString
+struct ExposedParamDescription
 {
 	static String buildFor_ArpegMode();
 	static String buildFor_ArpegOnOff();
@@ -69,5 +69,5 @@ private:
 	static String buildEnvNameString(EnvelopeType envType);
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamDescriptionString)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamDescription)
 };

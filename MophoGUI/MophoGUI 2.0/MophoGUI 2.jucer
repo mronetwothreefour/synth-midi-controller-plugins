@@ -30,6 +30,10 @@
               file="BinaryResources/buttons/btn_Close_Up.png"/>
         <FILE id="lgB8AA" name="btn_Edit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Dn.png"/>
         <FILE id="aoeVFc" name="btn_Edit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Up.png"/>
+        <FILE id="zC0Tzh" name="btn_Global_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Global_Dn.png"/>
+        <FILE id="cEXw23" name="btn_Global_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Global_Up.png"/>
         <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
         <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
         <FILE id="ENSK24" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
@@ -78,6 +82,20 @@
               file="Source/constants/constants_MIDI.h"/>
         <FILE id="ApRSfD" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
+      </GROUP>
+      <GROUP id="{52C80618-9076-1336-2405-CDF5AFC55839}" name="descriptions">
+        <FILE id="jRKCwR" name="build_ExposedParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
+        <FILE id="RLUbtQ" name="build_ExposedParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="pZZP6c" name="build_GlobalParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.cpp"/>
+        <FILE id="Kz2OBD" name="build_GlobalParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.h"/>
+        <FILE id="vXXhBf" name="build_MainWindowButtonDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
+        <FILE id="ImebVm" name="build_MainWindowButtonDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
       <GROUP id="{0A8BB4C6-FED6-C229-D725-5CFC11F21C42}" name="exposedParamControls">
         <GROUP id="{21E2B2F5-D349-307A-4D79-88AE1C2C8313}" name="buttons">
@@ -132,10 +150,6 @@
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.cpp"/>
         <FILE id="VLGOge" name="ep_build_ChoiceNamesValueTree.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.h"/>
-        <FILE id="jp9b5c" name="ep_build_DescriptionString.cpp" compile="1"
-              resource="0" file="Source/exposedParameters/ep_build_DescriptionString.cpp"/>
-        <FILE id="jdfTHE" name="ep_build_DescriptionString.h" compile="0" resource="0"
-              file="Source/exposedParameters/ep_build_DescriptionString.h"/>
         <FILE id="DzOFbx" name="ep_build_ExposedParamsLayout.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.cpp"/>
         <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"
@@ -150,6 +164,14 @@
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
+        <FILE id="znUCo4" name="0_global_build_ChoiceName.cpp" compile="1"
+              resource="0" file="Source/global/0_global_build_ChoiceName.cpp"/>
+        <FILE id="xjfStV" name="0_global_build_ChoiceName.h" compile="0" resource="0"
+              file="Source/global/0_global_build_ChoiceName.h"/>
+        <FILE id="hFU8m0" name="1_global_comp_KnobForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/1_global_comp_KnobForGlobalParam.cpp"/>
+        <FILE id="jhEksJ" name="1_global_comp_KnobForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/1_global_comp_KnobForGlobalParam.h"/>
         <FILE id="FYoGek" name="0_global_gui_layer_CommError_Base.cpp" compile="1"
               resource="0" file="Source/global/0_global_gui_layer_CommError_Base.cpp"/>
         <FILE id="gov7sM" name="0_global_gui_layer_CommError_Base.h" compile="0"
@@ -168,10 +190,6 @@
               resource="0" file="Source/global/2_global_gui_layer_GlobalParams.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
-        <FILE id="WUbOEy" name="gui_build_ButtonDescriptionString.cpp" compile="1"
-              resource="0" file="Source/gui/gui_build_ButtonDescriptionString.cpp"/>
-        <FILE id="eK21vm" name="gui_build_ButtonDescriptionString.h" compile="0"
-              resource="0" file="Source/gui/gui_build_ButtonDescriptionString.h"/>
         <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
         <FILE id="ngUmq4" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"

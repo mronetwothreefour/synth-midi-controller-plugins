@@ -20,6 +20,7 @@ namespace MophoConstants
 
 		const Identifier button_Clear{ "button_Clear" };
 		const Identifier button_Close{ "button_Close" };
+		const Identifier button_Global{ "button_Global" };
 		const Identifier button_Edit{ "button_Edit" };
 		const Identifier button_Hyperlink{ "button_Hyperlink" };
 		const Identifier button_Read{ "button_Read" };
