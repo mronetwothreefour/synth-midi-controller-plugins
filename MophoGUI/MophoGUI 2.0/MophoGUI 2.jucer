@@ -194,6 +194,10 @@
               resource="0" file="Source/global/2_global_gui_layer_GlobalParams.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
+        <FILE id="pszZAz" name="gui_comp_ButtonForHidingLayer.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.cpp"/>
+        <FILE id="alSsCI" name="gui_comp_ButtonForHidingLayer.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.h"/>
         <FILE id="gVZAph" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
         <FILE id="ngUmq4" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"

@@ -6,6 +6,7 @@
 #include "../descriptions/build_GlobalParamDescription.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
+using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
 

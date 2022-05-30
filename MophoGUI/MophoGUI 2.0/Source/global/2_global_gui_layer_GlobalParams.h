@@ -4,6 +4,7 @@
 
 #include "1_global_comp_KnobForGlobalParam.h"
 #include "1_global_comp_ComboBoxForGlobalParam.h"
+#include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 
 
@@ -18,7 +19,7 @@ class GUI_Layer_GlobalParameters :
     private Timer
 {
     UnexposedParameters* unexposedParams;
-    TextButton button_Close; // todo: set up a close layer button class
+    ButtonForHidingLayer button_Close;
     KnobForGlobalParameter knob_GlobalTranspose;
     KnobForGlobalParameter knob_GlobalFineTune;
     KnobForGlobalParameter knob_HardwareReceiveChannel;
@@ -50,7 +51,6 @@ public:
 private:
     void sendNewValueForNRPN_TypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType);
     void timerCallback() override;
-    void hideThisLayer();
 
 public:
     ~GUI_Layer_GlobalParameters() override;

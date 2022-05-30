@@ -11,12 +11,9 @@ using namespace MophoConstants;
 
 GUI_Layer_CommError_Base::GUI_Layer_CommError_Base(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
-	button_Close{ "" },
+	button_Close{ unexposedParams },
 	button_RequestGlobalParamsDump{ "" }
 {
-	button_Close.setComponentID(ID::button_Close.toString());
-	button_Close.onClick = [this] { hideThisLayer(); };
-	button_Close.addShortcut(KeyPress(KeyPress::escapeKey));
 	addAndMakeVisible(button_Close);
 
 	button_RequestGlobalParamsDump.setComponentID(ID::button_Retry.toString());
@@ -31,11 +28,6 @@ void GUI_Layer_CommError_Base::requestGlobalParamsDump() {
 	auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 	GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
 	callAfterDelay(200, [this] { checkHardwareSettings(); });
-}
-
-void GUI_Layer_CommError_Base::hideThisLayer() {
-	getParentComponent()->grabKeyboardFocus();
-	setVisible(false);
 }
 
 void GUI_Layer_CommError_Base::timerCallback() {

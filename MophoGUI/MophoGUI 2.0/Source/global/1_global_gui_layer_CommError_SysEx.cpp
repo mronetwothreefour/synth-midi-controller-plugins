@@ -18,7 +18,7 @@ GUI_Layer_CommError_SysEx::GUI_Layer_CommError_SysEx(UnexposedParameters* unexpo
 void GUI_Layer_CommError_SysEx::checkHardwareSettings() {
 	auto globalOptions{ unexposedParams->getGlobalOptions() };
 	if (globalOptions->sysExIsOn())
-		hideThisLayer();
+		button_Close.triggerClick();
 }
 
 void GUI_Layer_CommError_SysEx::paint(Graphics& g) {
@@ -30,6 +30,6 @@ void GUI_Layer_CommError_SysEx::paint(Graphics& g) {
 }
 
 void GUI_Layer_CommError_SysEx::resized() {
-	button_Close.setBounds(830, 150, GUI::button_Close_w, GUI::redButton_h);
+	button_Close.setBounds(830, 150, button_Close.getWidth(), GUI::redButton_h);
 	button_RequestGlobalParamsDump.setBounds(611, 449, GUI::button_Retry_w, GUI::redButton_h);
 }

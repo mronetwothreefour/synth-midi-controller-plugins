@@ -16,6 +16,7 @@ using ChoiceName = GlobalParamChoiceName;
 
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
+	button_Close{ unexposedParams },
 	knob_GlobalTranspose{ GlobalParamKnobType::globalTranspose, unexposedParams },
 	knob_GlobalFineTune{ GlobalParamKnobType::globalFineTune, unexposedParams },
 	knob_HardwareReceiveChannel{ GlobalParamKnobType::hardwareReceiveChannel, unexposedParams },
@@ -24,9 +25,6 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	comboBox_VoiceChange{ GlobalParamComboBoxType::voiceChange, unexposedParams },
 	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams }
 {
-	button_Close.setComponentID(ID::button_Close.toString());
-	button_Close.onClick = [this] { hideThisLayer(); };
-	button_Close.addShortcut(KeyPress(KeyPress::escapeKey));
 	addAndMakeVisible(button_Close);
 
 	knob_GlobalTranspose.addListener(this);
@@ -80,7 +78,7 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 }
 
 void GUI_Layer_GlobalParameters::resized() {
-	button_Close.setBounds(703, 121, GUI::button_Close_w, GUI::redButton_h);
+	button_Close.setBounds(703, 121, button_Close.getWidth(), button_Close.getWidth());
 	const int knobRow_y{ 153 };
 	knob_GlobalTranspose.setBounds(542, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
 	knob_GlobalFineTune.setBounds(617, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
@@ -162,11 +160,6 @@ void GUI_Layer_GlobalParameters::sendNewValueForNRPN_TypeToOutgoingMidiBuffers(u
 }
 
 void GUI_Layer_GlobalParameters::timerCallback() {
-}
-
-void GUI_Layer_GlobalParameters::hideThisLayer() {
-	getParentComponent()->grabKeyboardFocus();
-	setVisible(false);
 }
 
 GUI_Layer_GlobalParameters::~GUI_Layer_GlobalParameters() {

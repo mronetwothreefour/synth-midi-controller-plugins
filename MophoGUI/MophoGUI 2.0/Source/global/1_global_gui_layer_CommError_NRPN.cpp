@@ -18,7 +18,7 @@ GUI_Layer_CommError_NRPN::GUI_Layer_CommError_NRPN(UnexposedParameters* unexpose
 void GUI_Layer_CommError_NRPN::checkHardwareSettings() {
 	auto globalOptions{ unexposedParams->getGlobalOptions() };
 	if (globalOptions->hardwareIsSetToReceiveNRPNcontrollers())
-		hideThisLayer();
+		button_Close.triggerClick();
 }
 
 void GUI_Layer_CommError_NRPN::paint(Graphics& g) {
@@ -30,6 +30,6 @@ void GUI_Layer_CommError_NRPN::paint(Graphics& g) {
 }
 
 void GUI_Layer_CommError_NRPN::resized() {
-	button_Close.setBounds(820, 212, GUI::button_Close_w, GUI::redButton_h);
+	button_Close.setBounds(820, 212, button_Close.getWidth(), GUI::redButton_h);
 	button_RequestGlobalParamsDump.setBounds(611, 387, GUI::button_Retry_w, GUI::redButton_h);
 }

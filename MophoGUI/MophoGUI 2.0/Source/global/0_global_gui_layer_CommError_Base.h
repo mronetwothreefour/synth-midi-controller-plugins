@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "../gui/gui_comp_ButtonForHidingLayer.h"
+
 
 
 class UnexposedParameters;
@@ -12,7 +14,7 @@ class GUI_Layer_CommError_Base :
 {
 protected:
 	UnexposedParameters* unexposedParams;
-	TextButton button_Close;
+	ButtonForHidingLayer button_Close;
 	TextButton button_RequestGlobalParamsDump;
 
 public:
@@ -25,7 +27,6 @@ private:
 
 protected:
 	virtual void checkHardwareSettings() = 0;
-	void hideThisLayer();
 
 private:
 	void timerCallback() override;
