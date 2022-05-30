@@ -157,9 +157,10 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
-    <ClCompile Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_comp_ToggleForTooltipParam.cpp"/>
     <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.cpp"/>
@@ -2174,9 +2175,10 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
-    <ClInclude Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_comp_ToggleForTooltipParam.h"/>
     <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h"/>
     <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.h"/>
     <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.h"/>

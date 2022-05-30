@@ -39,6 +39,12 @@ namespace MophoConstants
 	};
 
 
+	const enum class GlobalParamToggleType {
+		currentValueTooltip = 0,
+		descriptionTooltip,
+	};
+
+
 	const enum class MIDI_ClockSource {
 		internalClock = 0,
 		internalClock_Send,

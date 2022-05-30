@@ -4,6 +4,7 @@
 
 #include "1_global_comp_KnobForGlobalParam.h"
 #include "1_global_comp_ComboBoxForGlobalParam.h"
+#include "1_global_comp_ToggleForTooltipParam.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 
@@ -32,8 +33,8 @@ class GUI_Layer_GlobalParameters :
     Label label_SysExStatus;
     Label label_AudioOutput;
     Label label_BalanceTweak;
-    ToggleButton toggle_CurrentSettingTooltip;
-    ToggleButton toggle_DescriptionTooltip;
+    ToggleForTooltipParam toggle_CurrentValueTooltip;
+    ToggleForTooltipParam toggle_DescriptionTooltip;
     Label label_TooltipDelayEditor;
 
 public:

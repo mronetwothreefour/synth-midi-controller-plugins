@@ -23,7 +23,9 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	comboBox_MIDI_ClockSource{ GlobalParamComboBoxType::midiClockSource, unexposedParams },
 	comboBox_PedalMode{ GlobalParamComboBoxType::pedalMode, unexposedParams },
 	comboBox_VoiceChange{ GlobalParamComboBoxType::voiceChange, unexposedParams },
-	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams }
+	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams },
+	toggle_CurrentValueTooltip{ GlobalParamToggleType::currentValueTooltip, unexposedParams },
+	toggle_DescriptionTooltip{ GlobalParamToggleType::descriptionTooltip, unexposedParams }
 {
 	addAndMakeVisible(button_Close);
 
@@ -47,6 +49,12 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 
 	comboBox_ParamChangeSendType.addListener(this);
 	addAndMakeVisible(comboBox_ParamChangeSendType);
+
+	toggle_CurrentValueTooltip.addListener(this);
+	addAndMakeVisible(toggle_CurrentValueTooltip);
+
+	toggle_DescriptionTooltip.addListener(this);
+	addAndMakeVisible(toggle_DescriptionTooltip);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -89,10 +97,26 @@ void GUI_Layer_GlobalParameters::resized() {
 	comboBox_PedalMode.setBounds(comboBoxes_x, 246, comboBoxes_w, GUI::comboBox_h);
 	comboBox_VoiceChange.setBounds(comboBoxes_x, 266, comboBoxes_w, GUI::comboBox_h);
 	comboBox_ParamChangeSendType.setBounds(comboBoxes_x, 286, comboBoxes_w, GUI::comboBox_h);
+	const int tooltipControls_x{ 678 };
+	toggle_CurrentValueTooltip.setBounds(tooltipControls_x, 441, GUI::toggle_diameter, GUI::toggle_diameter);
+	toggle_DescriptionTooltip.setBounds(tooltipControls_x, 461, GUI::toggle_diameter, GUI::toggle_diameter);
 }
 
-void GUI_Layer_GlobalParameters::buttonClicked(Button* button)
-{
+void GUI_Layer_GlobalParameters::buttonClicked(Button* button) {
+	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+	auto shouldShow{ button->getToggleState() };
+	if (button == &toggle_CurrentValueTooltip) {
+		if (shouldShow)
+			tooltipOptions->setShouldShowCurrentValue();
+		else
+			tooltipOptions->setShouldNotShowCurrentValue();
+	}
+	if (button == &toggle_DescriptionTooltip) {
+		if (shouldShow)
+			tooltipOptions->setShouldShowDescription();
+		else
+			tooltipOptions->setShouldNotShowDescription();
+	}
 }
 
 void GUI_Layer_GlobalParameters::comboBoxChanged(ComboBox* comboBox) {

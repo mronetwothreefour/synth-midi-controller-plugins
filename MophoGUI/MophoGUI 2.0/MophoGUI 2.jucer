@@ -164,18 +164,22 @@
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
-        <FILE id="xZltcF" name="1_global_comp_ComboBoxForGlobalParam.cpp" compile="1"
-              resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.cpp"/>
-        <FILE id="RbHbgl" name="1_global_comp_ComboBoxForGlobalParam.h" compile="0"
-              resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.h"/>
         <FILE id="znUCo4" name="0_global_build_ChoiceName.cpp" compile="1"
               resource="0" file="Source/global/0_global_build_ChoiceName.cpp"/>
         <FILE id="xjfStV" name="0_global_build_ChoiceName.h" compile="0" resource="0"
               file="Source/global/0_global_build_ChoiceName.h"/>
+        <FILE id="xZltcF" name="1_global_comp_ComboBoxForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.cpp"/>
+        <FILE id="RbHbgl" name="1_global_comp_ComboBoxForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.h"/>
         <FILE id="hFU8m0" name="1_global_comp_KnobForGlobalParam.cpp" compile="1"
               resource="0" file="Source/global/1_global_comp_KnobForGlobalParam.cpp"/>
         <FILE id="jhEksJ" name="1_global_comp_KnobForGlobalParam.h" compile="0"
               resource="0" file="Source/global/1_global_comp_KnobForGlobalParam.h"/>
+        <FILE id="jAFJAd" name="1_global_comp_ToggleForTooltipParam.cpp" compile="1"
+              resource="0" file="Source/global/1_global_comp_ToggleForTooltipParam.cpp"/>
+        <FILE id="KHVL7Y" name="1_global_comp_ToggleForTooltipParam.h" compile="0"
+              resource="0" file="Source/global/1_global_comp_ToggleForTooltipParam.h"/>
         <FILE id="FYoGek" name="0_global_gui_layer_CommError_Base.cpp" compile="1"
               resource="0" file="Source/global/0_global_gui_layer_CommError_Base.cpp"/>
         <FILE id="gov7sM" name="0_global_gui_layer_CommError_Base.h" compile="0"

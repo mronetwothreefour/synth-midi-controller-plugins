@@ -236,6 +236,7 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
 }
 
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
+    globalParams = nullptr;
     auto globalOptions{ unexposedParams->getGlobalOptions() };
     globalOptions->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };

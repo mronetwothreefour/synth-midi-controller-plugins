@@ -23,7 +23,7 @@ String GlobalParamDescription::buildFor_BalanceTweak() {
     return descriptionString;
 }
 
-String GlobalParamDescription::buildFor_CurrentSettingTooltip() {
+String GlobalParamDescription::buildFor_CurrentValueTooltip() {
     String descriptionString{ "" };
     descriptionString += "Selects whether hovering over a control with the mouse cursor will open\n";
     descriptionString += "a tooltip box showing a wordy version of the control" + GUI::apostrophe + "s current setting.\n";

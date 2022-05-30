@@ -25,38 +25,34 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 	auto concise{ (bool)false };
 	switch (comboBoxType)
 	{
-	case GlobalParamComboBoxType::midiClockSource: {
+	case GlobalParamComboBoxType::midiClockSource:
 		paramID = ID::global_MIDI_ClockSource;
 		for (auto choiceNum = 0; choiceNum != 4; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildFor_MIDI_ClockSource(choiceNum, concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->midiClockSource(), dontSendNotification);
 		break;
-	}
-	case GlobalParamComboBoxType::pedalMode: {
+	case GlobalParamComboBoxType::pedalMode:
 		paramID = ID::global_PedalModeIsArpLatch;
 		for (auto choiceNum = 0; choiceNum != 2; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildFor_PedalMode(choiceNum));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->pedalModeIsArpLatch(), dontSendNotification);
 		break;
-	}
-	case GlobalParamComboBoxType::voiceChange: {
+	case GlobalParamComboBoxType::voiceChange:
 		paramID = ID::global_VoiceChangeIsEnabled;
 		for (auto choiceNum = 0; choiceNum != 2; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildFor_VoiceChange(choiceNum));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->voiceChangeIsEnabled(), dontSendNotification);
 		break;
-	}
-	case GlobalParamComboBoxType::paramChangeSendType: {
+	case GlobalParamComboBoxType::paramChangeSendType:
 		paramID = ID::global_ParamChangeSendType;
 		for (auto choiceNum = 0; choiceNum != 3; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildFor_ParamChangeSendType(choiceNum));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->paramChangeSendType(), dontSendNotification);
 		break;
-	}
 	default:
 		break;
 	}
@@ -75,34 +71,30 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	String tipString{ "" };
 	switch (comboBoxType)
 	{
-	case GlobalParamComboBoxType::midiClockSource: {
+	case GlobalParamComboBoxType::midiClockSource:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_MIDI_ClockSource();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_MIDI_ClockSource(currentChoice, verbose);
 		break;
-	}
-	case GlobalParamComboBoxType::pedalMode: {
+	case GlobalParamComboBoxType::pedalMode:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_PedalMode();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_PedalMode(currentChoice);
 		break;
-	}
-	case GlobalParamComboBoxType::voiceChange: {
+	case GlobalParamComboBoxType::voiceChange:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_VoiceChange();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_VoiceChange(currentChoice);
 		break;
-	}
-	case GlobalParamComboBoxType::paramChangeSendType: {
+	case GlobalParamComboBoxType::paramChangeSendType:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_ParamChangeSendType();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_ParamChangeSendType(currentChoice);
 		break;
-	}
 	default:
 		break;
 	}

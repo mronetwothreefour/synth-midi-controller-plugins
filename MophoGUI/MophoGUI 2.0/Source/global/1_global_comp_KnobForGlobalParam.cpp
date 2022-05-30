@@ -25,30 +25,27 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 	setComponentID(ID::component_Knob.toString());
 	switch (knobType)
 	{
-	case GlobalParamKnobType::globalTranspose: {
+	case GlobalParamKnobType::globalTranspose:
 		paramID = ID::global_Transpose;
 		setRange(0.0, 24.0, 1.0);
 		setDoubleClickReturnValue(true, 12.0);
 		setValue((double)globalOptions->globalTranspose(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
-	}
-	case GlobalParamKnobType::globalFineTune: {
+	case GlobalParamKnobType::globalFineTune:
 		paramID = ID::global_FineTune;
 		setRange(0.0, 100.0, 1.0);
 		setDoubleClickReturnValue(true, 50.0);
 		setValue((double)globalOptions->globalFineTune(), dontSendNotification);
 		setMouseDragSensitivity(105);
 		break;
-	}
-	case GlobalParamKnobType::hardwareReceiveChannel: {
+	case GlobalParamKnobType::hardwareReceiveChannel:
 		paramID = ID::global_HardwareReceiveChannel;
 		setRange(0.0, 16.0, 1.0);
 		setDoubleClickReturnValue(true, 0.0);
 		setValue((double)globalOptions->hardwareReceiveChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
-	}
 	default:
 		break;
 	}
@@ -67,27 +64,24 @@ void KnobForGlobalParameter::updateTooltip() {
 	String tipString{ "" };
 	switch (knobType)
 	{
-	case GlobalParamKnobType::globalTranspose: {
+	case GlobalParamKnobType::globalTranspose:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_GlobalTranspose();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_GlobalTranspose(currentChoice, verbose);
 		break;
-	}
-	case GlobalParamKnobType::globalFineTune: {
+	case GlobalParamKnobType::globalFineTune:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_GlobalFineTune();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_GlobalFineTune(currentChoice, verbose);
 		break;
-	}
-	case GlobalParamKnobType::hardwareReceiveChannel: {
+	case GlobalParamKnobType::hardwareReceiveChannel:
 		if (shouldShowDescription)
 			tipString += Description::buildFor_HardwareReceiveChannel();
 		if (shouldShowCurrentChoice)
 			tipString += "Current setting: " + ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, verbose);
 		break;
-	}
 	default:
 		break;
 	}
