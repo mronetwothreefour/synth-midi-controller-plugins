@@ -178,12 +178,14 @@
     <ClCompile Include="..\..\Source\midi\1_midi_EditBufferDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.cpp"/>
+    <ClCompile Include="..\..\Source\midi\1_midi_VoiceDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
     <ClCompile Include="..\..\Source\voices\1_voices_tree_VoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\2_voices_comp_VoiceSlots.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2202,12 +2204,14 @@
     <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.h"/>
     <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.h"/>
     <ClInclude Include="..\..\Source\midi\1_midi_ParameterChangeMessage.h"/>
+    <ClInclude Include="..\..\Source\midi\1_midi_VoiceDataMessage.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\1_voices_tree_VoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\2_voices_comp_VoiceSlots.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

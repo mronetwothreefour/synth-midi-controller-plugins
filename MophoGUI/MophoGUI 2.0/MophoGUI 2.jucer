@@ -260,6 +260,10 @@
               resource="0" file="Source/midi/1_midi_handle_IncomingMessage_SysEx.h"/>
         <FILE id="RKfpSL" name="1_midi_ParameterChangeMessage.h" compile="0"
               resource="0" file="Source/midi/1_midi_ParameterChangeMessage.h"/>
+        <FILE id="pXX57v" name="1_midi_VoiceDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/1_midi_VoiceDataMessage.cpp"/>
+        <FILE id="xqRmKx" name="1_midi_VoiceDataMessage.h" compile="0" resource="0"
+              file="Source/midi/1_midi_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"
@@ -288,6 +292,10 @@
               resource="0" file="Source/voices/1_voices_tree_VoicesBanks.cpp"/>
         <FILE id="YIzv0X" name="1_voices_tree_VoicesBanks.h" compile="0" resource="0"
               file="Source/voices/1_voices_tree_VoicesBanks.h"/>
+        <FILE id="cpX2VJ" name="2_voices_comp_VoiceSlots.cpp" compile="1" resource="0"
+              file="Source/voices/2_voices_comp_VoiceSlots.cpp"/>
+        <FILE id="ibwt3n" name="2_voices_comp_VoiceSlots.h" compile="0" resource="0"
+              file="Source/voices/2_voices_comp_VoiceSlots.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
