@@ -22,10 +22,16 @@ namespace MophoConstants
 		const Identifier button_Close{ "button_Close" };
 		const Identifier button_Global{ "button_Global" };
 		const Identifier button_Edit{ "button_Edit" };
+		const Identifier button_Export{ "button_Export" };
 		const Identifier button_Hyperlink{ "button_Hyperlink" };
+		const Identifier button_Import{ "button_Import" };
+		const Identifier button_Load{ "button_Load" };
+		const Identifier button_Pull{ "button_Pull" };
+		const Identifier button_Push{ "button_Push" };
 		const Identifier button_Read{ "button_Read" };
 		const Identifier button_Redo{ "button_Redo" };
 		const Identifier button_Retry{ "button_Retry" };
+		const Identifier button_Save{ "button_Save" };
 		const Identifier button_Undo{ "button_Undo" };
 		const Identifier button_VoiceSlotRadioButton{ "button_VoiceSlotRadioButton" };
 		const Identifier button_Write{ "button_Write" };

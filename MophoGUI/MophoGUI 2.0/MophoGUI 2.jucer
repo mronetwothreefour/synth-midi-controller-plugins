@@ -30,10 +30,24 @@
               file="BinaryResources/buttons/btn_Close_Up.png"/>
         <FILE id="lgB8AA" name="btn_Edit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Dn.png"/>
         <FILE id="aoeVFc" name="btn_Edit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Up.png"/>
+        <FILE id="eYaf8v" name="btn_Export_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Export_Dn.png"/>
+        <FILE id="JQD9ZE" name="btn_Export_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Export_Up.png"/>
         <FILE id="zC0Tzh" name="btn_Global_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Global_Dn.png"/>
         <FILE id="cEXw23" name="btn_Global_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Global_Up.png"/>
+        <FILE id="TH6Zhc" name="btn_Import_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Import_Dn.png"/>
+        <FILE id="FtJHnC" name="btn_Import_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Import_Up.png"/>
+        <FILE id="y6Cl3U" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
+        <FILE id="UbM9GK" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
+        <FILE id="eiZYFv" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
+        <FILE id="GH8xWM" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
+        <FILE id="urAMpD" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
+        <FILE id="N6ZlNf" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
         <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
         <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
         <FILE id="ENSK24" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
@@ -42,6 +56,8 @@
               file="BinaryResources/buttons/btn_Retry_Dn.png"/>
         <FILE id="GfBGeT" name="btn_Retry_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Retry_Up.png"/>
+        <FILE id="unci4D" name="btn_Save_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Dn.png"/>
+        <FILE id="yuYe42" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
         <FILE id="pcBCtX" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
         <FILE id="CeY3gv" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
         <FILE id="wNrBkc" name="btn_Write_Dn.png" compile="0" resource="1"
@@ -296,6 +312,8 @@
               file="Source/voices/2_voices_comp_VoiceSlots.cpp"/>
         <FILE id="ibwt3n" name="2_voices_comp_VoiceSlots.h" compile="0" resource="0"
               file="Source/voices/2_voices_comp_VoiceSlots.h"/>
+        <FILE id="R9WUvY" name="3_voices_comp_ButtonsForVoicesBankTab.h" compile="0"
+              resource="0" file="Source/voices/3_voices_comp_ButtonsForVoicesBankTab.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
