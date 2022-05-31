@@ -51,11 +51,11 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		//		g.fillAll(Color::black);
 		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 		//	}
-		//	if (label.getComponentID() == ID::component_DisplayLabel.toString()) {
-		//		g.setFont(FontsMenu::fontFor_DisplayLabels);
-		//		g.setColour(label.findColour(label.textColourId));
-		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		//	}
+			if (label.getComponentID() == ID::label_DisplayLabel.toString()) {
+				g.setFont(GUI::fontFor_DisplayLabels);
+				g.setColour(label.findColour(label.textColourId));
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
 			if (label.getComponentID() == ID::label_VoiceNameEditor.toString()) {
 				g.setFont(GUI::fontFor_VoiceNameEditorText);
 				g.setColour(GUI::color_Black.withAlpha(0.0f));

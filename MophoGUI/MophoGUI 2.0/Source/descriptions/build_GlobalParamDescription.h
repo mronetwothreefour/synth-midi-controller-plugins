@@ -7,7 +7,7 @@
 struct GlobalParamDescription
 {
 	static String buildFor_AudioOutput();
-	static String buildFor_BalanceTweak();
+	static String buildFor_HardwareOutputBalance();
 	static String buildFor_CurrentValueTooltip();
 	static String buildFor_DescriptionTooltip();
 	static String buildFor_GlobalFineTune();

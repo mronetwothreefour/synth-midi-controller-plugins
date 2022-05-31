@@ -35,6 +35,7 @@ namespace MophoConstants
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
 
+		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 
 		const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };

@@ -32,6 +32,15 @@ namespace MophoConstants
 	};
 
 
+	const enum class GlobalParamDisplayLabelType {
+		paramChangeReceiveType = 0,
+		midiControllersStatus,
+		sysExStatus,
+		audioOutput,
+		hardwareOutputBalance
+	};
+
+
 	const enum class GlobalParamKnobType {
 		globalTranspose = 0,
 		globalFineTune,

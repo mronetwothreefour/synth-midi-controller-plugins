@@ -36,6 +36,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     voiceNameEditor.setFont(GUI::fontFor_VoiceNameEditorText);
     voiceNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
     voiceNameEditor.setJustificationType(Justification::centredLeft);
+    voiceNameEditor.setColour(Label::textColourId, GUI::color_White.withAlpha(0.0f));
     voiceNameEditor.setColour(Label::backgroundColourId, GUI::color_Black.withAlpha(0.0f));
     voiceNameEditor.setColour(Label::outlineColourId, GUI::color_Black.withAlpha(0.0f));
     voiceNameEditor.setColour(Label::textWhenEditingColourId, GUI::color_White);

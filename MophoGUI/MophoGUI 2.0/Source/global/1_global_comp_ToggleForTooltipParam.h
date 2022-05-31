@@ -10,7 +10,7 @@ using namespace MophoConstants;
 
 class UnexposedParameters;
 
-class ToggleForTooltipParam :
+class ToggleForTooltipParameter :
 	public ToggleButton,
 	public ValueTree::Listener
 {
@@ -18,14 +18,14 @@ class ToggleForTooltipParam :
 	UnexposedParameters* unexposedParams;
 
 public:
-	ToggleForTooltipParam() = delete;
+	ToggleForTooltipParameter() = delete;
 
-	ToggleForTooltipParam(GlobalParamToggleType toggleType, UnexposedParameters* unexposedParams);
+	ToggleForTooltipParameter(GlobalParamToggleType toggleType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~ToggleForTooltipParam();
+	~ToggleForTooltipParameter();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ToggleForTooltipParam)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ToggleForTooltipParameter)
 };

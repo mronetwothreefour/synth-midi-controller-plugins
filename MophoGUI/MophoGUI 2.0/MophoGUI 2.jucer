@@ -170,6 +170,10 @@
               file="Source/global/0_global_build_ChoiceName.h"/>
         <FILE id="xZltcF" name="1_global_comp_ComboBoxForGlobalParam.cpp" compile="1"
               resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.cpp"/>
+        <FILE id="x60e8v" name="1_global_comp_DisplayLabelForGlobalParam.cpp"
+              compile="1" resource="0" file="Source/global/1_global_comp_DisplayLabelForGlobalParam.cpp"/>
+        <FILE id="cGAZsf" name="1_global_comp_DisplayLabelForGlobalParam.h"
+              compile="0" resource="0" file="Source/global/1_global_comp_DisplayLabelForGlobalParam.h"/>
         <FILE id="RbHbgl" name="1_global_comp_ComboBoxForGlobalParam.h" compile="0"
               resource="0" file="Source/global/1_global_comp_ComboBoxForGlobalParam.h"/>
         <FILE id="hFU8m0" name="1_global_comp_KnobForGlobalParam.cpp" compile="1"

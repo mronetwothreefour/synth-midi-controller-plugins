@@ -25,7 +25,12 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	comboBox_VoiceChange{ GlobalParamComboBoxType::voiceChange, unexposedParams },
 	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams },
 	toggle_CurrentValueTooltip{ GlobalParamToggleType::currentValueTooltip, unexposedParams },
-	toggle_DescriptionTooltip{ GlobalParamToggleType::descriptionTooltip, unexposedParams }
+	toggle_DescriptionTooltip{ GlobalParamToggleType::descriptionTooltip, unexposedParams },
+	label_ParamChangeReceiveType{ GlobalParamDisplayLabelType::paramChangeReceiveType, unexposedParams },
+	label_MIDI_ControllersStatus{ GlobalParamDisplayLabelType::midiControllersStatus, unexposedParams },
+	label_SysExStatus{ GlobalParamDisplayLabelType::sysExStatus, unexposedParams },
+	label_AudioOutput{ GlobalParamDisplayLabelType::audioOutput, unexposedParams },
+	label_HardwareOutputBalance{ GlobalParamDisplayLabelType::hardwareOutputBalance, unexposedParams }
 {
 	addAndMakeVisible(button_Close);
 
@@ -49,6 +54,12 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 
 	comboBox_ParamChangeSendType.addListener(this);
 	addAndMakeVisible(comboBox_ParamChangeSendType);
+
+	addAndMakeVisible(label_ParamChangeReceiveType);
+	addAndMakeVisible(label_MIDI_ControllersStatus);
+	addAndMakeVisible(label_SysExStatus);
+	addAndMakeVisible(label_AudioOutput);
+	addAndMakeVisible(label_HardwareOutputBalance);
 
 	toggle_CurrentValueTooltip.addListener(this);
 	addAndMakeVisible(toggle_CurrentValueTooltip);
@@ -100,6 +111,14 @@ void GUI_Layer_GlobalParameters::resized() {
 	const int tooltipControls_x{ 678 };
 	toggle_CurrentValueTooltip.setBounds(tooltipControls_x, 441, GUI::toggle_diameter, GUI::toggle_diameter);
 	toggle_DescriptionTooltip.setBounds(tooltipControls_x, 461, GUI::toggle_diameter, GUI::toggle_diameter);
+	const int displayLabels_h{ label_ParamChangeReceiveType.getHeight() };
+	const int displayLabels_w{ label_ParamChangeReceiveType.getWidth() };
+	const int displayLabels_x{ 514 };
+	label_ParamChangeReceiveType.setBounds(displayLabels_x, 311, displayLabels_w, displayLabels_h);
+	label_MIDI_ControllersStatus.setBounds(displayLabels_x, 331, displayLabels_w, displayLabels_h);
+	label_SysExStatus.setBounds(displayLabels_x, 351, displayLabels_w, displayLabels_h);
+	label_AudioOutput.setBounds(displayLabels_x, 371, displayLabels_w, displayLabels_h);
+	label_HardwareOutputBalance.setBounds(displayLabels_x, 391, displayLabels_w, displayLabels_h);
 }
 
 void GUI_Layer_GlobalParameters::buttonClicked(Button* button) {

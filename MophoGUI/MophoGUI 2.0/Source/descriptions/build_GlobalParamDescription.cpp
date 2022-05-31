@@ -14,7 +14,7 @@ String GlobalParamDescription::buildFor_AudioOutput() {
     return descriptionString;
 }
 
-String GlobalParamDescription::buildFor_BalanceTweak() {
+String GlobalParamDescription::buildFor_HardwareOutputBalance() {
     String descriptionString{ "" };
     descriptionString += "Applies a small adjustment to the balance of the hardware" + GUI::apostrophe + "s\n";
     descriptionString += "audio output jacks. This option cannot be changed remotely\n";

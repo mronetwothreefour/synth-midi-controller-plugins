@@ -32,47 +32,95 @@ String GlobalParamChoiceName::buildFor_HardwareReceiveChannel(int choiceNum, boo
         return verbose ? "range error" : "err";
 }
 
-String GlobalParamChoiceName::buildFor_MIDI_ClockSource(int choiceNum, bool verbose) {
-    jassert(choiceNum < 4);
-    if (choiceNum == 0)
+String GlobalParamChoiceName::buildFor_MIDI_ClockSource(MIDI_ClockSource sourceType, bool verbose) {
+    switch (sourceType)
+    {
+    case MIDI_ClockSource::internalClock:
         return verbose ? "Use Internal, Don" + GUI::apostrophe + "t Transmit" : "Internal";
-    if (choiceNum == 1)
+    case MIDI_ClockSource::internalClock_Send:
         return verbose ? "Use Internal, Transmit" : "MIDI Out";
-    if (choiceNum == 2)
+    case MIDI_ClockSource::externalClock:
         return verbose ? "Use Incoming, Don" + GUI::apostrophe + "t Re-Transmit" : "MIDI In";
-    if (choiceNum == 3)
+    case MIDI_ClockSource::externalClock_Resend:
         return verbose ? "Use Incoming, Re-Transmit" : "MIDI In/Out";
-    else
+    default:
         return "range error";
+    }
 }
 
-String GlobalParamChoiceName::buildFor_ParamChangeSendType(int choiceNum) {
-    jassert(choiceNum < 3);
-    if (choiceNum == 0)
+String GlobalParamChoiceName::buildFor_MIDI_Controllers(bool areOn) {
+    if (areOn)
+        return "MIDI CONTROLLERS : ON";
+    else
+        return "MIDI CONTROLLERS : OFF ( ! )";
+}
+
+String GlobalParamChoiceName::buildFor_ParamChangeReceiveType(ParamChangeReceiveType receiveType) {
+    switch (receiveType)
+    {
+    case ParamChangeReceiveType::all:
+        return "PARAMETER RECEIVE : ALL";
+    case ParamChangeReceiveType::nrpnOnly:
+        return "PARAMETER RECEIVE : NRPN ONLY";
+    case ParamChangeReceiveType::ccOnly:
+        return "PARAMETER RECEIVE : CC ONLY ( ! )";
+    case ParamChangeReceiveType::off:
+        return "PARAMETER RECEIVE : OFF ( ! )";
+    default:
+        return "range error";
+    }
+}
+
+String GlobalParamChoiceName::buildFor_ParamChangeSendType(ParamChangeSendType sendType) {
+    switch (sendType)
+    {
+    case ParamChangeSendType::nrpn:
         return "NRPN";
-    if (choiceNum == 1)
+    case ParamChangeSendType::cc:
         return "CC";
-    if (choiceNum == 2)
+    case ParamChangeSendType::off:
         return "Off";
-    else return "range error";
+    default:
+        return "range error";
+    }
 }
 
-String GlobalParamChoiceName::buildFor_PedalMode(int choiceNum) {
-    jassert(choiceNum < 2);
-    if (choiceNum == 0)
-        return "Normal";
-    if (choiceNum == 1)
+String GlobalParamChoiceName::buildFor_PedalMode(bool isArpLatch) {
+    if (isArpLatch)
         return "Arpeggiator Latch";
     else
-        return "range error";
+        return "Normal";
 }
 
-String GlobalParamChoiceName::buildFor_VoiceChange(int choiceNum) {
-    jassert(choiceNum < 2);
-    if (choiceNum == 0)
-        return "Disabled";
-    if (choiceNum == 1)
+String GlobalParamChoiceName::buildFor_SysEx(bool isOn) {
+    if (isOn)
+        return "SYSTEM EXCLUSIVE : ON";
+    else
+        return "SYSTEM EXCLUSIVE : OFF ( ! )";
+}
+
+String GlobalParamChoiceName::buildFor_VoiceChange(bool isEnabled) {
+    if (isEnabled)
         return "Enabled";
+    else
+        return "Disabled";
+}
+
+String GlobalParamChoiceName::buildFor_AudioOutput(bool isStereo) {
+    if (isStereo)
+        return "AUDIO OUTPUT : STEREO";
+    else
+        return "AUDIO OUTPUT : MONO";
+}
+
+String GlobalParamChoiceName::buildFor_HardwareOutputBalance(int choiceNum) {
+    jassert(choiceNum < 15);
+    if (choiceNum < 7)
+        return "BALANCE TWEAK : " + (String)(choiceNum - 7);
+    if (choiceNum == 7)
+        return "BALANCE TWEAK : NONE";
+    if (choiceNum > 7 && choiceNum < 15)
+        return "BALANCE TWEAK : +" + (String)(choiceNum - 7);
     else
         return "range error";
 }

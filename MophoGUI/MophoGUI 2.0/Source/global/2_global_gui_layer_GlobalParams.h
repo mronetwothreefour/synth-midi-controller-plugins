@@ -4,6 +4,7 @@
 
 #include "1_global_comp_KnobForGlobalParam.h"
 #include "1_global_comp_ComboBoxForGlobalParam.h"
+#include "1_global_comp_DisplayLabelForGlobalParam.h"
 #include "1_global_comp_ToggleForTooltipParam.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -28,13 +29,13 @@ class GUI_Layer_GlobalParameters :
     ComboBoxForGlobalParameter comboBox_PedalMode;
     ComboBoxForGlobalParameter comboBox_VoiceChange;
     ComboBoxForGlobalParameter comboBox_ParamChangeSendType;
-    Label label_ParamChangeReceiveType;
-    Label label_MIDI_ControllersStatus;
-    Label label_SysExStatus;
-    Label label_AudioOutput;
-    Label label_BalanceTweak;
-    ToggleForTooltipParam toggle_CurrentValueTooltip;
-    ToggleForTooltipParam toggle_DescriptionTooltip;
+    DisplayLabelForGlobalParameter label_ParamChangeReceiveType;
+    DisplayLabelForGlobalParameter label_MIDI_ControllersStatus;
+    DisplayLabelForGlobalParameter label_SysExStatus;
+    DisplayLabelForGlobalParameter label_AudioOutput;
+    DisplayLabelForGlobalParameter label_HardwareOutputBalance;
+    ToggleForTooltipParameter toggle_CurrentValueTooltip;
+    ToggleForTooltipParameter toggle_DescriptionTooltip;
     Label label_TooltipDelayEditor;
 
 public:

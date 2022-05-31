@@ -10,7 +10,7 @@ using Description = GlobalParamDescription;
 
 
 
-ToggleForTooltipParam::ToggleForTooltipParam(GlobalParamToggleType toggleType, UnexposedParameters* unexposedParams) :
+ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggleType, UnexposedParameters* unexposedParams) :
 	toggleType{ toggleType },
 	unexposedParams{ unexposedParams }
 {
@@ -35,7 +35,7 @@ ToggleForTooltipParam::ToggleForTooltipParam(GlobalParamToggleType toggleType, U
 	setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 }
 
-void ToggleForTooltipParam::updateTooltip() {
+void ToggleForTooltipParameter::updateTooltip() {
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
 	String tipString{ "" };
@@ -53,14 +53,14 @@ void ToggleForTooltipParam::updateTooltip() {
 	setTooltip(tipString);
 }
 
-void ToggleForTooltipParam::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
+void ToggleForTooltipParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == ID::tooltips_ShouldShowDescription) {
 		MessageManagerLock mmLock;
 		updateTooltip();
 	}
 }
 
-ToggleForTooltipParam::~ToggleForTooltipParam() {
+ToggleForTooltipParameter::~ToggleForTooltipParameter() {
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	tooltipOptions->removeListener(this);
 }
