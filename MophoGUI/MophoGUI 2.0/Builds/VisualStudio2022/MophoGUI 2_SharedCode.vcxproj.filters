@@ -547,6 +547,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
@@ -2825,6 +2828,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h">
       <Filter>MophoGUI 2\Source\global</Filter>

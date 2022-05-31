@@ -27,7 +27,7 @@ GUI_Layer_CommError_Base::GUI_Layer_CommError_Base(UnexposedParameters* unexpose
 void GUI_Layer_CommError_Base::requestGlobalParamsDump() {
 	auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 	GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
-	callAfterDelay(200, [this] { checkHardwareSettings(); });
+	callAfterDelay(300, [this] { checkHardwareSettings(); });
 }
 
 void GUI_Layer_CommError_Base::timerCallback() {

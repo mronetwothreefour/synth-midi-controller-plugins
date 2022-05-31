@@ -1,14 +1,17 @@
 #include "1_global_comp_KnobForGlobalParam.h"
 
 #include "0_global_build_ChoiceName.h"
+#include "../constants/constants_GlobalParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_GlobalParamDescription.h"
+#include "../midi/1_midi_ParameterChangeMessage.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
+using ParamChange = ParameterChangeMessage;
 
 
 
@@ -86,6 +89,32 @@ void KnobForGlobalParameter::updateTooltip() {
 		break;
 	}
 	setTooltip(tipString);
+}
+
+void KnobForGlobalParameter::valueChanged() {
+	auto globalOptions{ unexposedParams->getGlobalOptions() };
+	auto currentChoice{ (uint8)roundToInt(getValue()) };
+	switch (knobType)
+	{
+	case GlobalParamKnobType::globalTranspose:
+		globalOptions->setGlobalTranspose(currentChoice);
+		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_GlobalTranspose, unexposedParams);
+		break;
+	case GlobalParamKnobType::globalFineTune:
+		globalOptions->setGlobalFineTune(currentChoice);
+		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_GlobalFineTune, unexposedParams);
+		break;
+	case GlobalParamKnobType::hardwareReceiveChannel:
+		globalOptions->setHardwareReceiveChannel(currentChoice);
+		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_HardwareReceiveChannel, unexposedParams);
+		if (currentChoice == 0)
+			globalOptions->setTransmitChannel(currentChoice);
+		else
+			globalOptions->setTransmitChannel(currentChoice - 1);
+		break;
+	default:
+		break;
+	}
 }
 
 void KnobForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {

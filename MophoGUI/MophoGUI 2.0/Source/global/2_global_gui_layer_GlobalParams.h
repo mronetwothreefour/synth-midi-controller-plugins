@@ -5,6 +5,7 @@
 #include "1_global_comp_KnobForGlobalParam.h"
 #include "1_global_comp_ComboBoxForGlobalParam.h"
 #include "1_global_comp_DisplayLabelForGlobalParam.h"
+#include "1_global_comp_EditorForTooltipDelay.h"
 #include "1_global_comp_ToggleForTooltipParam.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -14,10 +15,6 @@ class UnexposedParameters;
 
 class GUI_Layer_GlobalParameters :
     public Component,
-    public Button::Listener,
-    public ComboBox::Listener,
-    public Label::Listener,
-    public Slider::Listener,
     private Timer
 {
     UnexposedParameters* unexposedParams;
@@ -36,7 +33,7 @@ class GUI_Layer_GlobalParameters :
     DisplayLabelForGlobalParameter label_HardwareOutputBalance;
     ToggleForTooltipParameter toggle_CurrentValueTooltip;
     ToggleForTooltipParameter toggle_DescriptionTooltip;
-    Label label_TooltipDelayEditor;
+    EditorForTooltipDelay editorForTooltipDelay;
 
 public:
     GUI_Layer_GlobalParameters() = delete;
@@ -44,20 +41,10 @@ public:
     explicit GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void resized() override;
-    void buttonClicked(Button* button) override;
-    void comboBoxChanged(ComboBox* comboBox) override;
-    void editorShown(Label* label, TextEditor& editor) override;
-    void labelTextChanged(Label* label) override;
-    void sliderValueChanged(Slider* slider) override;
 
 private:
-    void sendNewValueForNRPN_TypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType);
     void timerCallback() override;
 
-public:
-    ~GUI_Layer_GlobalParameters() override;
-
-private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_GlobalParameters)
 };

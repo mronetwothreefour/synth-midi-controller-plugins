@@ -1,14 +1,18 @@
 #include "1_global_comp_ComboBoxForGlobalParam.h"
 
 #include "0_global_build_ChoiceName.h"
+#include "../constants/constants_Enum.h"
+#include "../constants/constants_GlobalParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_GlobalParamDescription.h"
+#include "../midi/1_midi_ParameterChangeMessage.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
+using ParamChange = ParameterChangeMessage;
 
 
 
@@ -31,6 +35,11 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 			choiceNamesList.add(ChoiceName::buildFor_MIDI_ClockSource(MIDI_ClockSource{ choiceNum }, concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->midiClockSource(), dontSendNotification);
+		onChange = [this, globalOptions, unexposedParams] {
+			auto currentChoice{ getSelectedItemIndex() };
+			globalOptions->setMIDI_ClockSource(MIDI_ClockSource{ currentChoice });
+			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_MIDI_ClockSource, unexposedParams);
+		};
 		break;
 	case GlobalParamComboBoxType::pedalMode:
 		paramID = ID::global_PedalModeIsArpLatch;
@@ -38,6 +47,14 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		choiceNamesList.add(ChoiceName::buildFor_PedalMode(true));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->pedalModeIsArpLatch(), dontSendNotification);
+		onChange = [this, globalOptions, unexposedParams] {
+			auto currentChoice{ getSelectedItemIndex() };
+			if (currentChoice == 0)
+				globalOptions->setPedalModeToNormal();
+			else
+				globalOptions->setPedalModeToArpLatch();
+			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
+		};
 		break;
 	case GlobalParamComboBoxType::voiceChange:
 		paramID = ID::global_VoiceChangeIsEnabled;
@@ -45,6 +62,14 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		choiceNamesList.add(ChoiceName::buildFor_VoiceChange(true));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->voiceChangeIsEnabled(), dontSendNotification);
+		onChange = [this, globalOptions, unexposedParams] {
+			auto currentChoice{ getSelectedItemIndex() };
+			if (currentChoice == 0)
+				globalOptions->setVoiceChangeDisabled();
+			else
+				globalOptions->setVoiceChangeEnabled();
+			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
+		};
 		break;
 	case GlobalParamComboBoxType::paramChangeSendType:
 		paramID = ID::global_ParamChangeSendType;
@@ -52,6 +77,11 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 			choiceNamesList.add(ChoiceName::buildFor_ParamChangeSendType(ParamChangeSendType{ choiceNum }));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->paramChangeSendType(), dontSendNotification);
+		onChange = [this, globalOptions, unexposedParams] {
+			auto currentChoice{ getSelectedItemIndex() };
+			globalOptions->setParamChangeSendType(ParamChangeSendType{ currentChoice });
+			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_ParamChangeSendType, unexposedParams);
+		};
 		break;
 	default:
 		break;

@@ -157,6 +157,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.cpp"/>
     <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\1_global_comp_DisplayLabelForGlobalParam.cpp"/>
@@ -2176,6 +2177,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.h"/>
     <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\global\1_global_comp_DisplayLabelForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.h"/>

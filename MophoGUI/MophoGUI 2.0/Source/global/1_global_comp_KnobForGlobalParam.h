@@ -24,6 +24,7 @@ public:
 
 	KnobForGlobalParameter(GlobalParamKnobType knobType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
+	void valueChanged() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
 	~KnobForGlobalParameter();
 

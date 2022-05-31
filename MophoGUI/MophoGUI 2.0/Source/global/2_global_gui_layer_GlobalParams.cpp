@@ -11,48 +11,40 @@
 
 using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;
-
+using ComboBoxType = GlobalParamComboBoxType;
+using KnobType = GlobalParamKnobType;
+using LabelType = GlobalParamDisplayLabelType;
+using ToggleType = GlobalParamToggleType;
 
 
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	button_Close{ unexposedParams },
-	knob_GlobalTranspose{ GlobalParamKnobType::globalTranspose, unexposedParams },
-	knob_GlobalFineTune{ GlobalParamKnobType::globalFineTune, unexposedParams },
-	knob_HardwareReceiveChannel{ GlobalParamKnobType::hardwareReceiveChannel, unexposedParams },
-	comboBox_MIDI_ClockSource{ GlobalParamComboBoxType::midiClockSource, unexposedParams },
-	comboBox_PedalMode{ GlobalParamComboBoxType::pedalMode, unexposedParams },
-	comboBox_VoiceChange{ GlobalParamComboBoxType::voiceChange, unexposedParams },
-	comboBox_ParamChangeSendType{ GlobalParamComboBoxType::paramChangeSendType, unexposedParams },
-	toggle_CurrentValueTooltip{ GlobalParamToggleType::currentValueTooltip, unexposedParams },
-	toggle_DescriptionTooltip{ GlobalParamToggleType::descriptionTooltip, unexposedParams },
-	label_ParamChangeReceiveType{ GlobalParamDisplayLabelType::paramChangeReceiveType, unexposedParams },
-	label_MIDI_ControllersStatus{ GlobalParamDisplayLabelType::midiControllersStatus, unexposedParams },
-	label_SysExStatus{ GlobalParamDisplayLabelType::sysExStatus, unexposedParams },
-	label_AudioOutput{ GlobalParamDisplayLabelType::audioOutput, unexposedParams },
-	label_HardwareOutputBalance{ GlobalParamDisplayLabelType::hardwareOutputBalance, unexposedParams }
+	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },
+	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams },
+	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams },
+	comboBox_MIDI_ClockSource{ ComboBoxType::midiClockSource, unexposedParams },
+	comboBox_PedalMode{ ComboBoxType::pedalMode, unexposedParams },
+	comboBox_VoiceChange{ ComboBoxType::voiceChange, unexposedParams },
+	comboBox_ParamChangeSendType{ ComboBoxType::paramChangeSendType, unexposedParams },
+	toggle_CurrentValueTooltip{ ToggleType::currentValueTooltip, unexposedParams },
+	toggle_DescriptionTooltip{ ToggleType::descriptionTooltip, unexposedParams },
+	label_ParamChangeReceiveType{ LabelType::paramChangeReceiveType, unexposedParams },
+	label_MIDI_ControllersStatus{ LabelType::midiControllersStatus, unexposedParams },
+	label_SysExStatus{ LabelType::sysExStatus, unexposedParams },
+	label_AudioOutput{ LabelType::audioOutput, unexposedParams },
+	label_HardwareOutputBalance{ LabelType::hardwareOutputBalance, unexposedParams },
+	editorForTooltipDelay{ unexposedParams }
 {
 	addAndMakeVisible(button_Close);
 
-	knob_GlobalTranspose.addListener(this);
 	addAndMakeVisible(knob_GlobalTranspose);
-
-	knob_GlobalFineTune.addListener(this);
 	addAndMakeVisible(knob_GlobalFineTune);
-
-	knob_HardwareReceiveChannel.addListener(this);
 	addAndMakeVisible(knob_HardwareReceiveChannel);
 
-	comboBox_MIDI_ClockSource.addListener(this);
 	addAndMakeVisible(comboBox_MIDI_ClockSource);
-
-	comboBox_PedalMode.addListener(this);
 	addAndMakeVisible(comboBox_PedalMode);
-
-	comboBox_VoiceChange.addListener(this);
 	addAndMakeVisible(comboBox_VoiceChange);
-
-	comboBox_ParamChangeSendType.addListener(this);
 	addAndMakeVisible(comboBox_ParamChangeSendType);
 
 	addAndMakeVisible(label_ParamChangeReceiveType);
@@ -61,11 +53,9 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	addAndMakeVisible(label_AudioOutput);
 	addAndMakeVisible(label_HardwareOutputBalance);
 
-	toggle_CurrentValueTooltip.addListener(this);
 	addAndMakeVisible(toggle_CurrentValueTooltip);
-
-	toggle_DescriptionTooltip.addListener(this);
 	addAndMakeVisible(toggle_DescriptionTooltip);
+	addAndMakeVisible(editorForTooltipDelay);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -108,9 +98,6 @@ void GUI_Layer_GlobalParameters::resized() {
 	comboBox_PedalMode.setBounds(comboBoxes_x, 246, comboBoxes_w, GUI::comboBox_h);
 	comboBox_VoiceChange.setBounds(comboBoxes_x, 266, comboBoxes_w, GUI::comboBox_h);
 	comboBox_ParamChangeSendType.setBounds(comboBoxes_x, 286, comboBoxes_w, GUI::comboBox_h);
-	const int tooltipControls_x{ 678 };
-	toggle_CurrentValueTooltip.setBounds(tooltipControls_x, 441, GUI::toggle_diameter, GUI::toggle_diameter);
-	toggle_DescriptionTooltip.setBounds(tooltipControls_x, 461, GUI::toggle_diameter, GUI::toggle_diameter);
 	const int displayLabels_h{ label_ParamChangeReceiveType.getHeight() };
 	const int displayLabels_w{ label_ParamChangeReceiveType.getWidth() };
 	const int displayLabels_x{ 514 };
@@ -119,98 +106,12 @@ void GUI_Layer_GlobalParameters::resized() {
 	label_SysExStatus.setBounds(displayLabels_x, 351, displayLabels_w, displayLabels_h);
 	label_AudioOutput.setBounds(displayLabels_x, 371, displayLabels_w, displayLabels_h);
 	label_HardwareOutputBalance.setBounds(displayLabels_x, 391, displayLabels_w, displayLabels_h);
-}
-
-void GUI_Layer_GlobalParameters::buttonClicked(Button* button) {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShow{ button->getToggleState() };
-	if (button == &toggle_CurrentValueTooltip) {
-		if (shouldShow)
-			tooltipOptions->setShouldShowCurrentValue();
-		else
-			tooltipOptions->setShouldNotShowCurrentValue();
-	}
-	if (button == &toggle_DescriptionTooltip) {
-		if (shouldShow)
-			tooltipOptions->setShouldShowDescription();
-		else
-			tooltipOptions->setShouldNotShowDescription();
-	}
-}
-
-void GUI_Layer_GlobalParameters::comboBoxChanged(ComboBox* comboBox) {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	auto currentChoice{ comboBox->getSelectedItemIndex() };
-	if (comboBox == &comboBox_MIDI_ClockSource) {
-		globalOptions->setMIDI_ClockSource(MIDI_ClockSource{ currentChoice });
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_MIDI_ClockSource);
-	}
-	if (comboBox == &comboBox_PedalMode) {
-		if (currentChoice == 0)
-			globalOptions->setPedalModeToNormal();
-		else
-			globalOptions->setPedalModeToArpLatch();
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_PedalMode);
-	}
-	if (comboBox == &comboBox_VoiceChange) {
-		if (currentChoice == 0)
-			globalOptions->setVoiceChangeDisabled();
-		else
-			globalOptions->setVoiceChangeEnabled();
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_VoiceChange);
-	}
-	if (comboBox == &comboBox_ParamChangeSendType) {
-		globalOptions->setParamChangeSendType(ParamChangeSendType{ currentChoice });
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers((uint8)currentChoice, GP::nrpnType_ParamChangeSendType);
-	}
-}
-
-void GUI_Layer_GlobalParameters::editorShown(Label* label, TextEditor& editor)
-{
-}
-
-void GUI_Layer_GlobalParameters::labelTextChanged(Label* label)
-{
-}
-
-void GUI_Layer_GlobalParameters::sliderValueChanged(Slider* slider) {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	auto currentChoice{ (uint8)roundToInt(slider->getValue()) };
-	if (slider == &knob_GlobalTranspose) {
-		globalOptions->setGlobalTranspose(currentChoice);
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers(currentChoice, GP::nrpnType_GlobalTranspose);
-	}
-	if (slider == &knob_GlobalFineTune) {
-		globalOptions->setGlobalFineTune(currentChoice);
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers(currentChoice, GP::nrpnType_GlobalFineTune);
-	}
-	if (slider == &knob_HardwareReceiveChannel) {
-		globalOptions->setHardwareReceiveChannel(currentChoice);
-		sendNewValueForNRPN_TypeToOutgoingMidiBuffers(currentChoice, GP::nrpnType_GlobalMidiChannel);
-		if (currentChoice == 0)
-			globalOptions->setTransmitChannel(currentChoice);
-		else
-			globalOptions->setTransmitChannel(currentChoice - 1);
-	}
-}
-
-void GUI_Layer_GlobalParameters::sendNewValueForNRPN_TypeToOutgoingMidiBuffers(uint8 newValue, uint16 nrpnType) {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	auto channel{ globalOptions->transmitChannel() };
-	auto nrpnBuffer{ NRPNbufferWithLeadingMSBs::from_Channel_NRPNtype_NewValue(channel, nrpnType, newValue) };
-	auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-	outgoingMidiBuffers->addMidiBuffer(nrpnBuffer);
+	const int tooltipControls_x{ 678 };
+	toggle_CurrentValueTooltip.setBounds(tooltipControls_x, 441, GUI::toggle_diameter, GUI::toggle_diameter);
+	toggle_DescriptionTooltip.setBounds(tooltipControls_x, 461, GUI::toggle_diameter, GUI::toggle_diameter);
+	editorForTooltipDelay.setBounds(tooltipControls_x, 481, editorForTooltipDelay.getWidth(), GUI::comboBox_h);
 }
 
 void GUI_Layer_GlobalParameters::timerCallback() {
 }
 
-GUI_Layer_GlobalParameters::~GUI_Layer_GlobalParameters() {
-	knob_GlobalTranspose.removeListener(this);
-	knob_GlobalFineTune.removeListener(this);
-	knob_HardwareReceiveChannel.removeListener(this);
-	comboBox_MIDI_ClockSource.removeListener(this);
-	comboBox_PedalMode.removeListener(this);
-	comboBox_VoiceChange.removeListener(this);
-	comboBox_ParamChangeSendType.removeListener(this);
-}

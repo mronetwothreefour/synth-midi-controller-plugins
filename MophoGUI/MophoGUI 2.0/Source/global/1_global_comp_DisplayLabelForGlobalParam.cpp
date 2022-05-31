@@ -21,7 +21,7 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 	globalOptions->addListener(this);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	tooltipOptions->addListener(this);
-
+	
 	setComponentID(ID::label_DisplayLabel.toString());
 	setEditable(false, false);
 	setTextAccordingToParameterSetting();
@@ -98,7 +98,6 @@ void DisplayLabelForGlobalParameter::updateTooltip() {
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
 	String tipString{ "" };
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
 	switch (labelType)
 	{
 	case GlobalParamDisplayLabelType::paramChangeReceiveType:
@@ -130,6 +129,8 @@ void DisplayLabelForGlobalParameter::updateTooltip() {
 void DisplayLabelForGlobalParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == paramID)
 		setTextAccordingToParameterSetting();
+	if (property == ID::tooltips_ShouldShowDescription)
+		updateTooltip();
 }
 
 DisplayLabelForGlobalParameter::~DisplayLabelForGlobalParameter() {

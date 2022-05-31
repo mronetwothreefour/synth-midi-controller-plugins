@@ -22,9 +22,23 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 	{
 	case GlobalParamToggleType::currentValueTooltip:
 		setToggleState(tooltipOptions->shouldShowCurrentValue(), dontSendNotification);
+		onClick = [this, tooltipOptions] {
+			auto shouldShow{ getToggleState() };
+			if (shouldShow)
+				tooltipOptions->setShouldShowCurrentValue();
+			else
+				tooltipOptions->setShouldNotShowCurrentValue();
+		};
 		break;
 	case GlobalParamToggleType::descriptionTooltip:
 		setToggleState(tooltipOptions->shouldShowDescriptions(), dontSendNotification);
+		onClick = [this, tooltipOptions] {
+			auto shouldShow{ getToggleState() };
+			if (shouldShow)
+				tooltipOptions->setShouldShowDescription();
+			else
+				tooltipOptions->setShouldNotShowDescription();
+		};
 		break;
 	default:
 		break;

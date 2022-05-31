@@ -47,10 +47,10 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		g.setFont(GUI::fontFor_Labels);
 		g.setColour(GUI::color_White);
 		if (label.getComponentID() != "") {
-		//	if (label.getComponentID() == ID::component_EditLabel.toString()) {
-		//		g.fillAll(Color::black);
-		//		g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-		//	}
+			if (label.getComponentID() == ID::label_EditLabel.toString()) {
+				g.fillAll(GUI::color_Black);
+				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
+			}
 			if (label.getComponentID() == ID::label_DisplayLabel.toString()) {
 				g.setFont(GUI::fontFor_DisplayLabels);
 				g.setColour(label.findColour(label.textColourId));
@@ -65,6 +65,17 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 	//}
+}
+
+void MophoLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+	//auto editorIsInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	//auto editorIsInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
+	//if (editorIsInImptExptComponent || editorIsInPathComboBoxInImptExptComponent)
+	//	textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
+	g.fillAll(GUI::color_Black);
+}
+
+void MophoLookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
 }
 
 

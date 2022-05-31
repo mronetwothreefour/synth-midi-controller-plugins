@@ -164,6 +164,10 @@
               resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
+        <FILE id="fR6VsR" name="1_global_comp_EditorForTooltipDelay.cpp" compile="1"
+              resource="0" file="Source/global/1_global_comp_EditorForTooltipDelay.cpp"/>
+        <FILE id="A3oYNL" name="1_global_comp_EditorForTooltipDelay.h" compile="0"
+              resource="0" file="Source/global/1_global_comp_EditorForTooltipDelay.h"/>
         <FILE id="znUCo4" name="0_global_build_ChoiceName.cpp" compile="1"
               resource="0" file="Source/global/0_global_build_ChoiceName.cpp"/>
         <FILE id="xjfStV" name="0_global_build_ChoiceName.h" compile="0" resource="0"

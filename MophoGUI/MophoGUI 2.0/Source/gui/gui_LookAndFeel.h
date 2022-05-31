@@ -14,6 +14,8 @@ public:
 		Graphics& g, int x, int y, int w, int h, float sliderPos, const float startAngle, const float endAngle, Slider& slider) override;
 
 	void drawLabel(Graphics& g, Label& label) override;
+	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
+	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;
 
 	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
