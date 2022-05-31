@@ -186,6 +186,8 @@
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
     <ClCompile Include="..\..\Source\voices\1_voices_tree_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\2_voices_comp_VoiceSlots.cpp"/>
+    <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2213,6 +2215,8 @@
     <ClInclude Include="..\..\Source\voices\1_voices_tree_VoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voices\2_voices_comp_VoiceSlots.h"/>
     <ClInclude Include="..\..\Source\voices\3_voices_comp_ButtonsForVoicesBankTab.h"/>
+    <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3025,10 +3029,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
-    <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png"/>
-    <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_CommError_NRPN.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_CommError_SysEx.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Close_Dn.png"/>

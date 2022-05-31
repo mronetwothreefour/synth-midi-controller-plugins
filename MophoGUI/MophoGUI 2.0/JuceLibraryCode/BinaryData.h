@@ -11,17 +11,20 @@ namespace BinaryData
     extern const char*   OverpassBold_ttf;
     const int            OverpassBold_ttfSize = 123228;
 
+    extern const char*   bkgrnd_CommError_NRPN_png;
+    const int            bkgrnd_CommError_NRPN_pngSize = 21636;
+
+    extern const char*   bkgrnd_CommError_SysEx_png;
+    const int            bkgrnd_CommError_SysEx_pngSize = 42563;
+
     extern const char*   bkgrnd_GlobalParams_png;
     const int            bkgrnd_GlobalParams_pngSize = 10458;
 
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 93983;
 
-    extern const char*   bkgrnd_CommError_NRPN_png;
-    const int            bkgrnd_CommError_NRPN_pngSize = 21636;
-
-    extern const char*   bkgrnd_CommError_SysEx_png;
-    const int            bkgrnd_CommError_SysEx_pngSize = 42563;
+    extern const char*   bkgrnd_TabForVoicesBank_png;
+    const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
 
     extern const char*   btn_Clear_Dn_png;
     const int            btn_Clear_Dn_pngSize = 648;
@@ -114,7 +117,7 @@ namespace BinaryData
     const int            btn_Write_Up_pngSize = 597;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 35;
+    const int namedResourceListSize = 36;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

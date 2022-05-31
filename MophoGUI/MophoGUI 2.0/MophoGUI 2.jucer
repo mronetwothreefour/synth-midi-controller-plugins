@@ -11,14 +11,16 @@
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources">
       <FILE id="ukSPA9" name="Overpass-Bold.ttf" compile="0" resource="1"
             file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
-      <FILE id="Pw0ACp" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
-            file="BinaryResources/bkgrnd_GlobalParams.png"/>
-      <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
-            file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="O2i1Kg" name="bkgrnd_CommError_NRPN.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_CommError_NRPN.png"/>
       <FILE id="y0qDxK" name="bkgrnd_CommError_SysEx.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_CommError_SysEx.png"/>
+      <FILE id="Pw0ACp" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_GlobalParams.png"/>
+      <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
         <FILE id="tI3kKm" name="btn_Clear_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Clear_Dn.png"/>
@@ -314,6 +316,14 @@
               file="Source/voices/2_voices_comp_VoiceSlots.h"/>
         <FILE id="R9WUvY" name="3_voices_comp_ButtonsForVoicesBankTab.h" compile="0"
               resource="0" file="Source/voices/3_voices_comp_ButtonsForVoicesBankTab.h"/>
+        <FILE id="xTSOXE" name="4_voices_comp_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/4_voices_comp_TabForCustomVoicesBank.cpp"/>
+        <FILE id="BGM2IA" name="4_voices_comp_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/4_voices_comp_TabForCustomVoicesBank.h"/>
+        <FILE id="QvcVx9" name="4_voices_comp_TabForFactoryVoicesBank.cpp"
+              compile="1" resource="0" file="Source/voices/4_voices_comp_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="lz1FAp" name="4_voices_comp_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/4_voices_comp_TabForFactoryVoicesBank.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
