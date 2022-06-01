@@ -186,6 +186,7 @@
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.cpp"/>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.cpp"/>
+    <ClCompile Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
     <ClCompile Include="..\..\Source\voices\1_voices_tree_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\2_voices_comp_VoiceSlots.cpp"/>
@@ -2221,6 +2222,7 @@
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.h"/>
+    <ClInclude Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.h"/>
     <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\1_voices_tree_VoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voices\2_voices_comp_VoiceSlots.h"/>
@@ -3058,6 +3060,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Clear_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Close_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Create_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Create_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Edit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>

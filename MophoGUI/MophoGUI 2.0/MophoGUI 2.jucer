@@ -44,6 +44,10 @@
               file="BinaryResources/buttons/btn_Close_Dn.png"/>
         <FILE id="T0kpXR" name="btn_Close_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Close_Up.png"/>
+        <FILE id="dMXxkF" name="btn_Create_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Create_Dn.png"/>
+        <FILE id="dR0xsA" name="btn_Create_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Create_Up.png"/>
         <FILE id="lgB8AA" name="btn_Edit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Dn.png"/>
         <FILE id="aoeVFc" name="btn_Edit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Edit_Up.png"/>
         <FILE id="eYaf8v" name="btn_Export_Dn.png" compile="0" resource="1"
@@ -355,6 +359,10 @@
                 resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FolderExistsAlert.cpp"/>
           <FILE id="Yf0bF7" name="0_imEx_gui_layer_FolderExistsAlert.h" compile="0"
                 resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FolderExistsAlert.h"/>
+          <FILE id="aojyiC" name="1_imEx_gui_layer_NewFolderDialog.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/1_imEx_gui_layer_NewFolderDialog.cpp"/>
+          <FILE id="gbZDua" name="1_imEx_gui_layer_NewFolderDialog.h" compile="0"
+                resource="0" file="Source/voices/importExport/1_imEx_gui_layer_NewFolderDialog.h"/>
         </GROUP>
         <FILE id="nYyk31" name="0_voices_singleton_FactoryVoiceDataHexStrings.cpp"
               compile="1" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>

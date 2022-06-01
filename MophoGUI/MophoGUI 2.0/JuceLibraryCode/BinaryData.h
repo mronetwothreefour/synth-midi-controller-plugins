@@ -59,6 +59,12 @@ namespace BinaryData
     extern const char*   btn_Close_Up_png;
     const int            btn_Close_Up_pngSize = 661;
 
+    extern const char*   btn_Create_Dn_png;
+    const int            btn_Create_Dn_pngSize = 707;
+
+    extern const char*   btn_Create_Up_png;
+    const int            btn_Create_Up_pngSize = 676;
+
     extern const char*   btn_Edit_Dn_png;
     const int            btn_Edit_Dn_pngSize = 497;
 
@@ -171,7 +177,7 @@ namespace BinaryData
     const int            lbl_VoiceBankTab_3_pngSize = 295;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 54;
+    const int namedResourceListSize = 56;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

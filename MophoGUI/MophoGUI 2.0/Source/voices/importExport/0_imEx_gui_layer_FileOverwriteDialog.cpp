@@ -51,5 +51,5 @@ void GUI_Layer_FileOverwriteDialog::paint(Graphics& g) {
 void GUI_Layer_FileOverwriteDialog::resized() {
 	const int buttons_y{ 321 };
 	button_Cancel.setBounds(582, buttons_y, GUI::button_Cancel_w, GUI::redButton_h);
-	button_Write.setBounds(582, buttons_y, GUI::button_Write_w, GUI::redButton_h);
+	button_Write.setBounds(639, buttons_y, GUI::button_Write_w, GUI::redButton_h);
 }

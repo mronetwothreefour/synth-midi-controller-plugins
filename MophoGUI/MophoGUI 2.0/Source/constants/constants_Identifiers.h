@@ -19,8 +19,10 @@ namespace MophoConstants
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
 		const Identifier button_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
+		const Identifier button_Cancel_NewFolder{ "button_Cancel_NewFolder" };
 		const Identifier button_Clear{ "button_Clear" };
 		const Identifier button_Close{ "button_Close" };
+		const Identifier button_Create{ "button_Create" };
 		const Identifier button_Global{ "button_Global" };
 		const Identifier button_Edit{ "button_Edit" };
 		const Identifier button_Export_VoiceFromBank_{ "button_Export_VoiceFromBank_" };
@@ -53,6 +55,7 @@ namespace MophoConstants
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_EditLabel{ "label_EditLabel" };
+		const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
 		const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 
 		const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };
