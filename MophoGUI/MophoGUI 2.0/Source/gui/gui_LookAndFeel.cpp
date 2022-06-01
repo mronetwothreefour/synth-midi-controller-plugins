@@ -33,17 +33,17 @@ void MophoLookAndFeel::drawRotarySlider(
 
 
 void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
-	//auto isInImptExptBrowser{ label.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() ||
-	//	label.getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString()
-	//};
-	//if (isInImptExptBrowser) {
-	//	auto textArea{ label.getLocalBounds() };
-	//	textArea.removeFromLeft(5);
-	//	g.setColour(Color::controlText);
-	//	g.setFont(FontsMenu::fontFor_BrowserText);
-	//	g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
-	//}
-	//else {
+	auto isInImptExptBrowser{ label.getParentComponent()->getComponentID() == ID::component_ImportExportBrowser.toString() ||
+		label.getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImportExportBrowser.toString()
+	};
+	if (isInImptExptBrowser) {
+		auto textArea{ label.getLocalBounds() };
+		textArea.removeFromLeft(5);
+		g.setColour(GUI::color_White);
+		g.setFont(GUI::fontFor_BrowserText);
+		g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
+	}
+	else {
 		g.setFont(GUI::fontFor_Labels);
 		g.setColour(GUI::color_White);
 		if (label.getComponentID() != "") {
@@ -64,14 +64,16 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		}
 		else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
-	//}
+	}
 }
 
-void MophoLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
-	//auto editorIsInImptExptComponent{ textEditor.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
-	//auto editorIsInPathComboBoxInImptExptComponent{ textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
-	//if (editorIsInImptExptComponent || editorIsInPathComboBoxInImptExptComponent)
-	//	textEditor.applyFontToAllText(FontsMenu::fontFor_BrowserText);
+void MophoLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& textEditor) {
+	auto editorIsInImportExportBrowser{ textEditor.getParentComponent()->getComponentID() == ID::component_ImportExportBrowser.toString() };
+	auto editorIsInPathComboBoxInImportExportBrowser{ 
+		textEditor.getParentComponent()->getParentComponent()->getParentComponent()->getComponentID() == ID::component_ImportExportBrowser.toString()
+	};
+	if (editorIsInImportExportBrowser || editorIsInPathComboBoxInImportExportBrowser)
+		textEditor.applyFontToAllText(GUI::fontFor_BrowserText);
 	g.fillAll(GUI::color_Black);
 }
 
@@ -142,6 +144,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 
 	if (buttonID == ID::button_Load.toString())
 		mBlock = MemBlock{ isDown ? btn_Load_Dn_png : btn_Load_Up_png, isDown ? (s_t)btn_Load_Dn_pngSize : (s_t)btn_Load_Up_pngSize };
+
+	if (buttonID == ID::button_NewFolder.toString())
+		mBlock = MemBlock{ isDown ? btn_NewFolder_Dn_png : btn_NewFolder_Up_png, isDown ? (s_t)btn_NewFolder_Dn_pngSize : (s_t)btn_NewFolder_Up_pngSize };
 
 	if (buttonID.startsWith("button_Pull"))
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };

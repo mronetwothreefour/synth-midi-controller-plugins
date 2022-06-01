@@ -643,6 +643,9 @@
     <ClCompile Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
@@ -2971,6 +2974,9 @@
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h">
@@ -5514,6 +5520,12 @@
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">

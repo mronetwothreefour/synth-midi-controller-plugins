@@ -64,6 +64,10 @@
               file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="y6Cl3U" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
         <FILE id="UbM9GK" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
+        <FILE id="UuubAj" name="btn_NewFolder_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
+        <FILE id="GzlS6P" name="btn_NewFolder_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFolder_Up.png"/>
         <FILE id="eiZYFv" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="GH8xWM" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="urAMpD" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
@@ -363,6 +367,10 @@
                 resource="0" file="Source/voices/importExport/1_imEx_gui_layer_NewFolderDialog.cpp"/>
           <FILE id="gbZDua" name="1_imEx_gui_layer_NewFolderDialog.h" compile="0"
                 resource="0" file="Source/voices/importExport/1_imEx_gui_layer_NewFolderDialog.h"/>
+          <FILE id="omSeUB" name="2_imEx_gui_layer_ImportExport_Base.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/2_imEx_gui_layer_ImportExport_Base.cpp"/>
+          <FILE id="sAUH5V" name="2_imEx_gui_layer_ImportExport_Base.h" compile="0"
+                resource="0" file="Source/voices/importExport/2_imEx_gui_layer_ImportExport_Base.h"/>
         </GROUP>
         <FILE id="nYyk31" name="0_voices_singleton_FactoryVoiceDataHexStrings.cpp"
               compile="1" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>

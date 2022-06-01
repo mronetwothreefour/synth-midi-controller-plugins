@@ -19,18 +19,22 @@ namespace MophoConstants
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
 		const Identifier button_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
+		const Identifier button_Cancel_ImportExport{ "button_Cancel_ImportExport" };
 		const Identifier button_Cancel_NewFolder{ "button_Cancel_NewFolder" };
 		const Identifier button_Clear{ "button_Clear" };
 		const Identifier button_Close{ "button_Close" };
 		const Identifier button_Create{ "button_Create" };
 		const Identifier button_Global{ "button_Global" };
 		const Identifier button_Edit{ "button_Edit" };
+		const Identifier button_Export_File{ "button_Export_File" };
 		const Identifier button_Export_VoiceFromBank_{ "button_Export_VoiceFromBank_" };
 		const Identifier button_Export_VoicesBank_{ "button_Export_VoicesBank_" };
 		const Identifier button_Hyperlink{ "button_Hyperlink" };
 		const Identifier button_Import_AllVoicesIntoBank_{ "button_Import_AllVoicesIntoBank_" };
+		const Identifier button_Import_File{ "button_Import_File" };
 		const Identifier button_Import_VoiceIntoBank_{ "button_Import_VoiceIntoBank_" };
 		const Identifier button_Load{ "button_Load" };
+		const Identifier button_NewFolder{ "button_NewFolder" };
 		const Identifier button_Pull_SelectedVoice{ "button_Pull_SelectedVoice" };
 		const Identifier button_Pull_VoicesBank_{ "button_Pull_VoicesBank_" };
 		const Identifier button_Push_SelectedVoice{ "button_Push_SelectedVoice" };
@@ -47,6 +51,7 @@ namespace MophoConstants
 		const Identifier choiceNames{ "choiceNames" };
 		const Identifier choiceNames_Verbose{ "choiceNames_Verbose" };
 
+		const Identifier component_ImportExportBrowser{ "component_ImportExportBrowser" };
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
