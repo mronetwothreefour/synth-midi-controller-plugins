@@ -41,6 +41,8 @@ namespace MophoConstants
 
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
+		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
+		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_EditLabel{ "label_EditLabel" };

@@ -131,11 +131,8 @@ void TabForCustomVoicesBank::removeListenerFromButtons(Button::Listener* listene
 	button_ImportBank.removeListener(listener);
 }
 
-VoiceSlots* TabForCustomVoicesBank::getVoiceSlotsComponent() {
+VoiceSlots* TabForCustomVoicesBank::getVoiceSlots() {
 	return &voiceSlots;
-}
-
-void TabForCustomVoicesBank::timerCallback() {
 }
 
 TabForCustomVoicesBank::~TabForCustomVoicesBank() {

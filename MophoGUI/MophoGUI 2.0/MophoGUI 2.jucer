@@ -67,6 +67,30 @@
         <FILE id="JQxfiK" name="btn_Write_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Write_Up.png"/>
       </GROUP>
+      <GROUP id="{41DEC177-C276-CB1C-41B6-36049E9C0156}" name="labels">
+        <FILE id="E7h7ZQ" name="lbl_CustomVoiceBanks.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_CustomVoiceBanks.png"/>
+        <FILE id="XbCUDz" name="lbl_ExportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoice.png"/>
+        <FILE id="EZQEWO" name="lbl_ExportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoicesBank.png"/>
+        <FILE id="pc0z6U" name="lbl_FactoryVoiceBanks.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_FactoryVoiceBanks.png"/>
+        <FILE id="VLxbOM" name="lbl_ImportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoice.png"/>
+        <FILE id="ZpmyyP" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+        <FILE id="Hnknv7" name="lbl_PullingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PullingEntireBank.png"/>
+        <FILE id="lMSioe" name="lbl_PushingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PushingEntireBank.png"/>
+        <FILE id="VisHBy" name="lbl_VoiceBankTab_1.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_VoiceBankTab_1.png"/>
+        <FILE id="pMIRQ0" name="lbl_VoiceBankTab_2.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_VoiceBankTab_2.png"/>
+        <FILE id="TLJSLH" name="lbl_VoiceBankTab_3.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_VoiceBankTab_3.png"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{DA7CF7F1-35A4-9559-7D41-177380A1BF4B}" name="Source">
       <GROUP id="{E7EA50CA-7C6F-0CE9-5192-646520E3C865}" name="_core">
@@ -324,6 +348,14 @@
               compile="1" resource="0" file="Source/voices/4_voices_comp_TabForFactoryVoicesBank.cpp"/>
         <FILE id="lz1FAp" name="4_voices_comp_TabForFactoryVoicesBank.h" compile="0"
               resource="0" file="Source/voices/4_voices_comp_TabForFactoryVoicesBank.h"/>
+        <FILE id="cDmttZ" name="5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp"/>
+        <FILE id="J8cJKu" name="5_voices_comp_TabbedComponentForCustomVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForCustomVoicesBanks.h"/>
+        <FILE id="bkbNJ4" name="5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
+        <FILE id="P0GgE7" name="5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

@@ -98,6 +98,10 @@ void TabForFactoryVoicesBank::removeListenerFromButtons(Button::Listener* listen
 	button_ExportBank.removeListener(listener);
 }
 
+VoiceSlots* TabForFactoryVoicesBank::getVoiceSlots() {
+	return &voiceSlots;
+}
+
 TabForFactoryVoicesBank::~TabForFactoryVoicesBank() {
 	removeKeyListener(commandManager.getKeyMappings());
 }

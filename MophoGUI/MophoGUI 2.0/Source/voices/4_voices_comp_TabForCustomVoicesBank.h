@@ -12,7 +12,6 @@ class UnexposedParameters;
 
 class TabForCustomVoicesBank :
     public Component,
-    private Timer,
     public ApplicationCommandTarget
 {
     VoicesBank bank;
@@ -48,12 +47,7 @@ public:
     bool perform(const InvocationInfo& info) override;
     void addListenerToButtons(Button::Listener* listener);
     void removeListenerFromButtons(Button::Listener* listener);
-    VoiceSlots* getVoiceSlotsComponent();
-
-private:
-    void timerCallback() override;
-
-public:
+    VoiceSlots* getVoiceSlots();
     ~TabForCustomVoicesBank();
 
 private:

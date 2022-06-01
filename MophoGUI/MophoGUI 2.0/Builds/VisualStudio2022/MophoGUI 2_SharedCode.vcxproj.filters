@@ -5,6 +5,9 @@
     <Filter Include="MophoGUI 2\BinaryResources\buttons">
       <UniqueIdentifier>{FA69FA69-D1AA-BC0A-0E34-6489DEDAEC1F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\BinaryResources\labels">
+      <UniqueIdentifier>{1E77279D-83A2-87C6-D175-CD4A9EA3C9B7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\BinaryResources">
       <UniqueIdentifier>{F11A2305-4D25-FC4B-C5E3-BB22DC1CDEE7}</UniqueIdentifier>
     </Filter>
@@ -638,6 +641,12 @@
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2947,6 +2956,12 @@
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5485,6 +5500,39 @@
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_CustomVoiceBanks.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_FactoryVoiceBanks.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_1.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_2.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_3.png">
+      <Filter>MophoGUI 2\BinaryResources\labels</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>

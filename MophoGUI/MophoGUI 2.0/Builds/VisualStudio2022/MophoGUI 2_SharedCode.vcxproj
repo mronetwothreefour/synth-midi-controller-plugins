@@ -188,6 +188,8 @@
     <ClCompile Include="..\..\Source\voices\2_voices_comp_VoiceSlots.cpp"/>
     <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2217,6 +2219,8 @@
     <ClInclude Include="..\..\Source\voices\3_voices_comp_ButtonsForVoicesBankTab.h"/>
     <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3064,6 +3068,17 @@
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_CustomVoiceBanks.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_FactoryVoiceBanks.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_1.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_2.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_VoiceBankTab_3.png"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
