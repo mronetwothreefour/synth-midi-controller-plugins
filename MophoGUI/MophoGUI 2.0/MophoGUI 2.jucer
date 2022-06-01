@@ -15,13 +15,27 @@
             file="BinaryResources/bkgrnd_CommError_NRPN.png"/>
       <FILE id="y0qDxK" name="bkgrnd_CommError_SysEx.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_CommError_SysEx.png"/>
+      <FILE id="SgMlO5" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
+      <FILE id="CEGgND" name="bkgrnd_FolderExistsAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FolderExistsAlert.png"/>
+      <FILE id="AjResv" name="bkgrnd_FolderNameDialog.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FolderNameDialog.png"/>
       <FILE id="Pw0ACp" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_GlobalParams.png"/>
+      <FILE id="yZT2rv" name="bkgrnd_ImportExportWindow.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="tLa951" name="bkgrnd_OverwriteConfirmation.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_OverwriteConfirmation.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
+        <FILE id="ke9mVe" name="btn_Cancel_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Cancel_Dn.png"/>
+        <FILE id="WnA1hC" name="btn_Cancel_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Cancel_Up.png"/>
         <FILE id="tI3kKm" name="btn_Clear_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Clear_Dn.png"/>
         <FILE id="dUe3Jj" name="btn_Clear_Up.png" compile="0" resource="1"
@@ -326,6 +340,18 @@
               resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
       </GROUP>
       <GROUP id="{7888D355-7132-F658-C2E0-43CBE34D07C4}" name="voices">
+        <GROUP id="{576F4339-0D86-4A59-AC65-707E61C2C7A2}" name="importExport">
+          <FILE id="xC0u0B" name="0_imEx_FileFilters.h" compile="0" resource="0"
+                file="Source/voices/importExport/0_imEx_FileFilters.h"/>
+          <FILE id="Vcv2J3" name="0_imEx_gui_layer_FileNotValidAlert.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileNotValidAlert.cpp"/>
+          <FILE id="flVQ43" name="0_imEx_gui_layer_FileNotValidAlert.h" compile="0"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileNotValidAlert.h"/>
+          <FILE id="U9EQpG" name="0_imEx_gui_layer_FolderExistsAlert.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FolderExistsAlert.cpp"/>
+          <FILE id="Yf0bF7" name="0_imEx_gui_layer_FolderExistsAlert.h" compile="0"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FolderExistsAlert.h"/>
+        </GROUP>
         <FILE id="nYyk31" name="0_voices_singleton_FactoryVoiceDataHexStrings.cpp"
               compile="1" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
         <FILE id="arpaK3" name="0_voices_singleton_FactoryVoiceDataHexStrings.h"
@@ -356,6 +382,10 @@
               compile="1" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
         <FILE id="P0GgE7" name="5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"
               compile="0" resource="0" file="Source/voices/5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"/>
+        <FILE id="gZQLq0" name="6_voices_comp_TabbedComponentForAllVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/6_voices_comp_TabbedComponentForAllVoicesBanks.cpp"/>
+        <FILE id="ARn8QR" name="6_voices_comp_TabbedComponentForAllVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/6_voices_comp_TabbedComponentForAllVoicesBanks.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

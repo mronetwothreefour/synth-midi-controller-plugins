@@ -41,6 +41,7 @@ namespace MophoConstants
 
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
+		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 

@@ -17,14 +17,35 @@ namespace BinaryData
     extern const char*   bkgrnd_CommError_SysEx_png;
     const int            bkgrnd_CommError_SysEx_pngSize = 42563;
 
+    extern const char*   bkgrnd_FileNotValidAlert_png;
+    const int            bkgrnd_FileNotValidAlert_pngSize = 1196;
+
+    extern const char*   bkgrnd_FolderExistsAlert_png;
+    const int            bkgrnd_FolderExistsAlert_pngSize = 1626;
+
+    extern const char*   bkgrnd_FolderNameDialog_png;
+    const int            bkgrnd_FolderNameDialog_pngSize = 1587;
+
     extern const char*   bkgrnd_GlobalParams_png;
     const int            bkgrnd_GlobalParams_pngSize = 10458;
+
+    extern const char*   bkgrnd_ImportExportWindow_png;
+    const int            bkgrnd_ImportExportWindow_pngSize = 1951;
 
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 93983;
 
+    extern const char*   bkgrnd_OverwriteConfirmation_png;
+    const int            bkgrnd_OverwriteConfirmation_pngSize = 2827;
+
     extern const char*   bkgrnd_TabForVoicesBank_png;
     const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
+
+    extern const char*   btn_Cancel_Dn_png;
+    const int            btn_Cancel_Dn_pngSize = 741;
+
+    extern const char*   btn_Cancel_Up_png;
+    const int            btn_Cancel_Up_pngSize = 722;
 
     extern const char*   btn_Clear_Dn_png;
     const int            btn_Clear_Dn_pngSize = 648;
@@ -150,7 +171,7 @@ namespace BinaryData
     const int            lbl_VoiceBankTab_3_pngSize = 295;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 47;
+    const int namedResourceListSize = 54;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
