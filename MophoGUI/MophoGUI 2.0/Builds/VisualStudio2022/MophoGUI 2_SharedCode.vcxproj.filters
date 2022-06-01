@@ -634,6 +634,9 @@
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
@@ -2956,6 +2959,9 @@
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.h">
@@ -5429,10 +5435,10 @@
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png">
+    <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_FolderNameDialog.png">
+    <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png">
@@ -5444,7 +5450,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_OverwriteConfirmation.png">
+    <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png">

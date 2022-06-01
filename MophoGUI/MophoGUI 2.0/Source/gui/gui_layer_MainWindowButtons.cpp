@@ -52,7 +52,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
 
     auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 
-    button_WriteEditBuffer.setComponentID(ID::button_Write.toString());
+    button_WriteEditBuffer.setComponentID(ID::button_Write_EditBuffer.toString());
     button_WriteEditBuffer.onClick = [exposedParams, outgoingBuffers] {
         EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingBuffers);
     };

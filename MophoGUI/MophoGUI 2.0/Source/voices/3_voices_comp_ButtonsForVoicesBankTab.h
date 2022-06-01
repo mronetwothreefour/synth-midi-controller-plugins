@@ -18,7 +18,7 @@ public:
 
 	ButtonForExportingEntireBankToFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::button_Export.toString() + "_VoicesBank_" + String((int)bank));
+		setComponentID(ID::button_Export_VoicesBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -45,7 +45,7 @@ public:
 
 	ButtonForExportingSelectedVoiceToFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::button_Export.toString() + "_VoiceFromBank_" + String((int)bank));
+		setComponentID(ID::button_Export_VoiceFromBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -73,7 +73,7 @@ public:
 	ButtonForImportingEntireBankFromFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-		setComponentID(ID::button_Import.toString() + "_AllVoicesIntoBank_" + String((int)bank));
+		setComponentID(ID::button_Import_AllVoicesIntoBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -101,7 +101,7 @@ public:
 	ButtonForImportingVoiceFromFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-		setComponentID(ID::button_Import.toString() + "_VoiceIntoBank_" + String((int)bank));
+		setComponentID(ID::button_Import_VoiceIntoBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -156,7 +156,7 @@ public:
 	ButtonForPullingEntireBankFromHardware(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-		setComponentID(ID::button_Pull.toString() + "_VoicesBank_" + String((int)bank));
+		setComponentID(ID::button_Pull_VoicesBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -183,7 +183,7 @@ public:
 
 	ButtonForPullingSelectedVoiceFromHardware(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::button_Pull.toString() + "_SelectedVoice");
+		setComponentID(ID::button_Pull_SelectedVoice.toString());
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -211,7 +211,7 @@ public:
 	ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-		setComponentID(ID::button_Push.toString() + "_VoicesBank_" + String((int)bank));
+		setComponentID(ID::button_Push_VoicesBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
@@ -238,7 +238,7 @@ public:
 
 	ButtonForPushingSelectedVoiceToHardware(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::button_Push.toString() + "_SelectedVoice");
+		setComponentID(ID::button_Push_SelectedVoice.toString());
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {

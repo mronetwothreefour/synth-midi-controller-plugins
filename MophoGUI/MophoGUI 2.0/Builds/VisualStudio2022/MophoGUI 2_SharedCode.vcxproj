@@ -184,6 +184,7 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.cpp"/>
+    <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.cpp"/>
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>
     <ClCompile Include="..\..\Source\voices\1_voices_tree_VoicesBanks.cpp"/>
@@ -2218,6 +2219,7 @@
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.h"/>
+    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\1_voices_tree_VoicesBanks.h"/>
@@ -3043,12 +3045,12 @@
     <None Include="..\..\BinaryResources\bkgrnd_CommError_NRPN.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_CommError_SysEx.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png"/>
-    <None Include="..\..\BinaryResources\bkgrnd_FolderNameDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
-    <None Include="..\..\BinaryResources\bkgrnd_OverwriteConfirmation.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Up.png"/>

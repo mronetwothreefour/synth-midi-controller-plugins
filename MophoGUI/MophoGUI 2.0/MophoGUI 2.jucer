@@ -17,18 +17,18 @@
             file="BinaryResources/bkgrnd_CommError_SysEx.png"/>
       <FILE id="SgMlO5" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
+      <FILE id="tLa951" name="bkgrnd_FileOverwriteDialog.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
       <FILE id="CEGgND" name="bkgrnd_FolderExistsAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FolderExistsAlert.png"/>
-      <FILE id="AjResv" name="bkgrnd_FolderNameDialog.png" compile="0" resource="1"
-            file="BinaryResources/bkgrnd_FolderNameDialog.png"/>
       <FILE id="Pw0ACp" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_GlobalParams.png"/>
       <FILE id="yZT2rv" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="ScCwTt" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
-      <FILE id="tLa951" name="bkgrnd_OverwriteConfirmation.png" compile="0"
-            resource="1" file="BinaryResources/bkgrnd_OverwriteConfirmation.png"/>
+      <FILE id="AjResv" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
@@ -347,6 +347,10 @@
                 resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileNotValidAlert.cpp"/>
           <FILE id="flVQ43" name="0_imEx_gui_layer_FileNotValidAlert.h" compile="0"
                 resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileNotValidAlert.h"/>
+          <FILE id="P4itMa" name="0_imEx_gui_layer_FileOverwriteDialog.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileOverwriteDialog.cpp"/>
+          <FILE id="C7y3W0" name="0_imEx_gui_layer_FileOverwriteDialog.h" compile="0"
+                resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FileOverwriteDialog.h"/>
           <FILE id="U9EQpG" name="0_imEx_gui_layer_FolderExistsAlert.cpp" compile="1"
                 resource="0" file="Source/voices/importExport/0_imEx_gui_layer_FolderExistsAlert.cpp"/>
           <FILE id="Yf0bF7" name="0_imEx_gui_layer_FolderExistsAlert.h" compile="0"

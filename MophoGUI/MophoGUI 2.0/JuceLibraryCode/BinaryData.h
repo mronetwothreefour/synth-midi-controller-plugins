@@ -20,11 +20,11 @@ namespace BinaryData
     extern const char*   bkgrnd_FileNotValidAlert_png;
     const int            bkgrnd_FileNotValidAlert_pngSize = 1196;
 
+    extern const char*   bkgrnd_FileOverwriteDialog_png;
+    const int            bkgrnd_FileOverwriteDialog_pngSize = 2827;
+
     extern const char*   bkgrnd_FolderExistsAlert_png;
     const int            bkgrnd_FolderExistsAlert_pngSize = 1626;
-
-    extern const char*   bkgrnd_FolderNameDialog_png;
-    const int            bkgrnd_FolderNameDialog_pngSize = 1587;
 
     extern const char*   bkgrnd_GlobalParams_png;
     const int            bkgrnd_GlobalParams_pngSize = 10458;
@@ -35,8 +35,8 @@ namespace BinaryData
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 93983;
 
-    extern const char*   bkgrnd_OverwriteConfirmation_png;
-    const int            bkgrnd_OverwriteConfirmation_pngSize = 2827;
+    extern const char*   bkgrnd_NewFolderDialog_png;
+    const int            bkgrnd_NewFolderDialog_pngSize = 1587;
 
     extern const char*   bkgrnd_TabForVoicesBank_png;
     const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
