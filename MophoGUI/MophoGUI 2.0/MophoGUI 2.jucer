@@ -371,6 +371,22 @@
                 resource="0" file="Source/voices/importExport/2_imEx_gui_layer_ImportExport_Base.cpp"/>
           <FILE id="sAUH5V" name="2_imEx_gui_layer_ImportExport_Base.h" compile="0"
                 resource="0" file="Source/voices/importExport/2_imEx_gui_layer_ImportExport_Base.h"/>
+          <FILE id="Nzn2xU" name="3_imEx_gui_layer_Export_Voice.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Export_Voice.cpp"/>
+          <FILE id="pex2qT" name="3_imEx_gui_layer_Export_Voice.h" compile="0"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Export_Voice.h"/>
+          <FILE id="u5Uv1J" name="3_imEx_gui_layer_Export_VoicesBank.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Export_VoicesBank.cpp"/>
+          <FILE id="imylEX" name="3_imEx_gui_layer_Export_VoicesBank.h" compile="0"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Export_VoicesBank.h"/>
+          <FILE id="CjmmIM" name="3_imEx_gui_layer_Import_Voice.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Import_Voice.cpp"/>
+          <FILE id="tGo2Lf" name="3_imEx_gui_layer_Import_Voice.h" compile="0"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Import_Voice.h"/>
+          <FILE id="qs8Gkn" name="3_imEx_gui_layer_Import_VoicesBank.cpp" compile="1"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Import_VoicesBank.cpp"/>
+          <FILE id="jkUw75" name="3_imEx_gui_layer_Import_VoicesBank.h" compile="0"
+                resource="0" file="Source/voices/importExport/3_imEx_gui_layer_Import_VoicesBank.h"/>
         </GROUP>
         <FILE id="nYyk31" name="0_voices_singleton_FactoryVoiceDataHexStrings.cpp"
               compile="1" resource="0" file="Source/voices/0_voices_singleton_FactoryVoiceDataHexStrings.cpp"/>

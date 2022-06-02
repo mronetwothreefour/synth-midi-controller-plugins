@@ -81,7 +81,7 @@ void GUI_Layer_ImportExport_Base::resized() {
 	const int buttonsRow_y{ 442 };
 	button_NewFolder.setBounds(401, buttonsRow_y, 78, GUI::redButton_h);
 	button_Cancel.setBounds(763, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
-	button_Proceed.setBounds(820	, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
+	button_Proceed.setBounds(820, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
 }
 
 void GUI_Layer_ImportExport_Base::drawBackgroundImage(Graphics& g) {
@@ -91,7 +91,7 @@ void GUI_Layer_ImportExport_Base::drawBackgroundImage(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_ImportExportWindow_png, BinaryData::bkgrnd_ImportExportWindow_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 386, 147);
+	g.drawImageAt(backgroundImage, importExportBackground_x, importExportBackground_y);
 }
 
 void GUI_Layer_ImportExport_Base::selectionChanged() {

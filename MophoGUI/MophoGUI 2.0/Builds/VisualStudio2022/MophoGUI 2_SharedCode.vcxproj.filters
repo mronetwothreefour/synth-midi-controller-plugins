@@ -646,6 +646,18 @@
     <ClCompile Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
@@ -2977,6 +2989,18 @@
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_Voice.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_VoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_Voice.h">
+      <Filter>MophoGUI 2\Source\voices\importExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_VoicesBank.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h">
