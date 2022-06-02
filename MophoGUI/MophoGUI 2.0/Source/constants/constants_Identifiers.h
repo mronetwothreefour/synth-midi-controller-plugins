@@ -43,6 +43,7 @@ namespace MophoConstants
 		const Identifier button_Redo{ "button_Redo" };
 		const Identifier button_Retry{ "button_Retry" };
 		const Identifier button_Save{ "button_Save" };
+		const Identifier button_Stop{ "button_Stop" };
 		const Identifier button_Undo{ "button_Undo" };
 		const Identifier button_VoiceSlotRadioButton{ "button_VoiceSlotRadioButton" };
 		const Identifier button_Write_EditBuffer{ "button_Write_EditBuffer" };

@@ -5,6 +5,14 @@
 
 namespace MophoConstants
 {
+	const enum class BankTransmitType {
+		push = 0,
+		pull
+	};
+
+
+
+
 	const enum class ControlType {
 		nullControl = -1, // needed by ExposedParamControl's default constructor
 		knob,

@@ -82,6 +82,8 @@
               file="BinaryResources/buttons/btn_Retry_Up.png"/>
         <FILE id="unci4D" name="btn_Save_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Dn.png"/>
         <FILE id="yuYe42" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
+        <FILE id="RQ4hIB" name="btn_Stop_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Dn.png"/>
+        <FILE id="pAM5VE" name="btn_Stop_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Up.png"/>
         <FILE id="pcBCtX" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
         <FILE id="CeY3gv" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
         <FILE id="wNrBkc" name="btn_Write_Dn.png" compile="0" resource="1"
@@ -422,6 +424,10 @@
               compile="1" resource="0" file="Source/voices/6_voices_comp_TabbedComponentForAllVoicesBanks.cpp"/>
         <FILE id="ARn8QR" name="6_voices_comp_TabbedComponentForAllVoicesBanks.h"
               compile="0" resource="0" file="Source/voices/6_voices_comp_TabbedComponentForAllVoicesBanks.h"/>
+        <FILE id="ewch7W" name="6_voices_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/voices/6_voices_gui_layer_BankTransmit.cpp"/>
+        <FILE id="OrqWJt" name="6_voices_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/voices/6_voices_gui_layer_BankTransmit.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

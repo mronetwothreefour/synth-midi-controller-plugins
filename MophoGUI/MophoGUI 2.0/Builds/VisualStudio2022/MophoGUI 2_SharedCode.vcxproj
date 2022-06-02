@@ -200,6 +200,7 @@
     <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\6_voices_comp_TabbedComponentForAllVoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2242,6 +2243,7 @@
     <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voices\6_voices_comp_TabbedComponentForAllVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3096,6 +3098,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Retry_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
