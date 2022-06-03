@@ -90,11 +90,13 @@ bool TabForFactoryVoicesBank::perform(const InvocationInfo& info) {
 
 void TabForFactoryVoicesBank::addListenerToButtons(Button::Listener* listener) {
 	button_PushBank.addListener(listener);
+	button_ExportSelected.addListener(listener);
 	button_ExportBank.addListener(listener);
 }
 
 void TabForFactoryVoicesBank::removeListenerFromButtons(Button::Listener* listener) {
 	button_PushBank.removeListener(listener);
+	button_ExportSelected.removeListener(listener);
 	button_ExportBank.removeListener(listener);
 }
 

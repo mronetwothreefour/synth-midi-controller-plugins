@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 

@@ -2,6 +2,10 @@
 
 #include <JuceHeader.h>
 
+using Browser = FileBrowserComponent;
+using DirContents = DirectoryContentsDisplayComponent;
+using Preview = FilePreviewComponent;
+
 
 
 class MophoLookAndFeel :
@@ -29,6 +33,12 @@ public:
 		Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked, 
 		const bool isEnabled, const bool isHighlighted, const bool isDown) override;
 
+	void layoutFileBrowserComponent(
+		Browser& browser, DirContents* dirContents, Preview* preview, ComboBox* currentPath, TextEditor* fileName, Button* goUpButton) override;
+	void drawFileBrowserRow(Graphics& g, int w, int h, const File& file, const String& fileName, Image* icon, const String& fileSizeString,
+		const String& fileTimeString, bool isDirectory, bool isSelected, int itemIndex, DirContents& dirContents) override;
+	Button* createFileBrowserGoUpButton() override;
+
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	void positionComboBoxText(ComboBox& box, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
@@ -38,6 +48,9 @@ public:
 		const Drawable* icon, const Colour* const textColor) override;
 	void getIdealPopupMenuItemSize(const String& text, const bool isSeparator, int itemHeight, int& idealWidth, int& idealHeight) override;
 
+	void drawTabButton(TabBarButton& button, Graphics& g, bool isMouseOver, bool isMouseDown) override;
+
+	void drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) override;
 
 private:
 	//==============================================================================

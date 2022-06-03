@@ -56,6 +56,13 @@ String MainWindowButtonDescription::buildFor_ShowVoiceNameEditor() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildFor_ShowVoicesBanksLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Opens a window where you can manage the\n";
+    descriptionString += "six storage banks for program presets.";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildFor_Undo() {
     String descriptionString{ "" };
     descriptionString += "Click this button (or type Ctrl+Z) to\n";

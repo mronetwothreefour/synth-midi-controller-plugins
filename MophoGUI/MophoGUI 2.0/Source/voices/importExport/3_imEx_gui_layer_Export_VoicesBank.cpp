@@ -47,13 +47,16 @@ void GUI_Layer_Export_VoicesBank::showFileOverwriteDialog() {
 
 void GUI_Layer_Export_VoicesBank::buttonClicked(Button* button) {
 	if (fileOverwriteDialog != nullptr) {
-		if (button->getComponentID() == ID::button_Cancel_FileOverwrite.toString())
-			if (button->getComponentID() == ID::button_Write_OverFile.toString()) {
-				auto selectedFile{ browserComponent->getSelectedFile(0) };
-				writeVoicesBankDataIntoFile(selectedFile);
-			}
-		grabKeyboardFocus();
-		fileOverwriteDialog->setVisible(false);
+		if (button->getComponentID() == ID::button_Cancel_FileOverwrite.toString()) {
+			grabKeyboardFocus();
+			fileOverwriteDialog->setVisible(false);
+		}
+		if (button->getComponentID() == ID::button_Write_OverFile.toString()) {
+			auto selectedFile{ browserComponent->getSelectedFile(0) };
+			writeVoicesBankDataIntoFile(selectedFile);
+			fileOverwriteDialog->setVisible(false);
+			hideThisLayer();
+		}
 	}
 }
 

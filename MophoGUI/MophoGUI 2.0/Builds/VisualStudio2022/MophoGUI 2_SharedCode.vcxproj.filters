@@ -685,6 +685,9 @@
     <ClCompile Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\7_voices_gui_layer_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3034,6 +3037,9 @@
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\7_voices_gui_layer_VoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5497,6 +5503,12 @@
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Banks_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Banks_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>

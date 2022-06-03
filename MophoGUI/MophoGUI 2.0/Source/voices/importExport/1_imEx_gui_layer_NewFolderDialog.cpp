@@ -22,15 +22,15 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	label_FolderNameEditor.onReturnKey = [this] { createNewFolder(); };
 	label_FolderNameEditor.onEscapeKey = [this] { hideThisLayer(); };
 
-	addAndMakeVisible(button_Cancel);
 	button_Cancel.setComponentID(ID::button_Cancel_NewFolder.toString());
 	button_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_Cancel.onClick = [this] { hideThisLayer(); };
+	addAndMakeVisible(button_Cancel);
 
-	addAndMakeVisible(button_Create);
 	button_Create.setComponentID(ID::button_Create.toString());
 	button_Create.addShortcut(KeyPress(KeyPress::returnKey));
 	button_Create.onClick = [this] { createNewFolder(); };
+	addAndMakeVisible(button_Create);
 
 
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
@@ -56,7 +56,7 @@ void GUI_Layer_NewFolderDialog::paint(Graphics& g) {
 void GUI_Layer_NewFolderDialog::resized() {
 	label_FolderNameEditor.setBounds(541, 293, 191, 26);
 	const int buttons_w{ GUI::button_Cancel_w };
-	const int buttonsRow_y{ 442 };
+	const int buttonsRow_y{ 326 };
 	button_Cancel.setBounds(582, buttonsRow_y, buttons_w, GUI::redButton_h);
 	button_Create.setBounds(639, buttonsRow_y, buttons_w, GUI::redButton_h);
 }

@@ -20,8 +20,8 @@ public:
     TabbedComponentForFactoryVoicesBanks() = delete;
 
     TabbedComponentForFactoryVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
-    void addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener);
-    void removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener);
+    void addListenerToButtonsInAllFactoryTabs(Button::Listener* listener);
+    void removeListenerFromButtonsInAllFactoryTabs(Button::Listener* listener);
     VoiceSlots* getVoiceSlotsComponentForFactoryBank(VoicesBank bank);
 
 private:

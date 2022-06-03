@@ -48,6 +48,7 @@ void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
 	slotString = slotString.paddedLeft('0', 3);
 	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
+	MessageManagerLock mmlock;
 	voiceSlotButtons[slot].setName(slotString + " " + voiceName);
 	voiceSlotButtons[slot].repaint();
 }

@@ -32,6 +32,10 @@
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
+        <FILE id="WK34Jn" name="btn_Banks_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Banks_Up.png"/>
+        <FILE id="uC2rHn" name="btn_Banks_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Banks_Dn.png"/>
         <FILE id="ke9mVe" name="btn_Cancel_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Cancel_Dn.png"/>
         <FILE id="WnA1hC" name="btn_Cancel_Up.png" compile="0" resource="1"
@@ -428,6 +432,10 @@
               resource="0" file="Source/voices/6_voices_gui_layer_BankTransmit.cpp"/>
         <FILE id="OrqWJt" name="6_voices_gui_layer_BankTransmit.h" compile="0"
               resource="0" file="Source/voices/6_voices_gui_layer_BankTransmit.h"/>
+        <FILE id="PZxwco" name="7_voices_gui_layer_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/7_voices_gui_layer_VoicesBanks.cpp"/>
+        <FILE id="O6iI6G" name="7_voices_gui_layer_VoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/7_voices_gui_layer_VoicesBanks.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

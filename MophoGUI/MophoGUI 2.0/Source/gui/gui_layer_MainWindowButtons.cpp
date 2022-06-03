@@ -14,6 +14,7 @@
 #include "../midi/1_midi_EditBufferDataMessage.h"
 #include "../midi/1_midi_GlobalParametersDataRequest.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
+#include "../voices/7_voices_gui_layer_VoicesBanks.h"
 
 using namespace MophoConstants;
 using EditBuffer = EditBufferDataMessage;
@@ -64,6 +65,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     };
     addAndMakeVisible(button_ReadEditBuffer);
 
+    button_ShowVoicesBanks.setComponentID(ID::button_Banks.toString());
+    button_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    addAndMakeVisible(button_ShowVoicesBanks);
+
     button_ShowGlobalParams.setComponentID(ID::button_Global.toString());
     button_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
     addAndMakeVisible(button_ShowGlobalParams);
@@ -102,6 +107,7 @@ void GUI_Layer_MainWindowButtons::resized() {
     const int writeReadButtons_w{ 44 };
     button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
+    button_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
     button_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
 
     const int undoRedoButtons_w{ 44 };
@@ -133,6 +139,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_button_Read{ shouldShow ? Description::buildFor_EditBufferRead() : String{ "" } };
     button_ReadEditBuffer.setTooltip(tipFor_button_Read);
+
+    auto tipFor_button_Banks{ shouldShow ? Description::buildFor_ShowVoicesBanksLayer() : String{ "" } };
+    button_ShowVoicesBanks.setTooltip(tipFor_button_Banks);
 
     auto tipFor_button_Global{ shouldShow ? Description::buildFor_ShowGlobalParamsLayer() : String{ "" } };
     button_ShowGlobalParams.setTooltip(tipFor_button_Global);
@@ -236,6 +245,15 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
         param->setValueNotifyingHost(clearedValue);
 }
 
+void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
+    voicesBanks.reset(new GUI_Layer_VoicesBanks(exposedParams, unexposedParams));
+    if (voicesBanks != nullptr) {
+        addAndMakeVisible(voicesBanks.get());
+        voicesBanks->setBounds(getLocalBounds());
+        voicesBanks->grabKeyboardFocus();
+    }
+}
+
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     globalParams = nullptr;
     auto globalOptions{ unexposedParams->getGlobalOptions() };
@@ -289,6 +307,7 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     globalParams = nullptr;
+    voicesBanks = nullptr;
     commError_NRPN = nullptr;
     commError_SysEx = nullptr;
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };

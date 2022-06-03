@@ -24,12 +24,12 @@ TabbedComponentForAllVoicesBanks::TabbedComponentForAllVoicesBanks(
 
 void TabbedComponentForAllVoicesBanks::addListenerToButtonsInAllTabs(Button::Listener* listener) {
 	tabbedComponentForCustomVoicesBanks.addListenerToButtonsInAllCustomTabs(listener);
-	tabbedComponentForFactoryVoicesBanks.addListenerToPushBankButtonInAllFactoryTabs(listener);
+	tabbedComponentForFactoryVoicesBanks.addListenerToButtonsInAllFactoryTabs(listener);
 }
 
 void TabbedComponentForAllVoicesBanks::removeListenerFromButtonsInAllTabs(Button::Listener* listener) {
 	tabbedComponentForCustomVoicesBanks.removeListenerFromButtonsInAllCustomTabs(listener);
-	tabbedComponentForFactoryVoicesBanks.removeListenerFromPushBankButtonInAllFactoryTabs(listener);
+	tabbedComponentForFactoryVoicesBanks.removeListenerFromButtonsInAllFactoryTabs(listener);
 }
 
 VoiceSlots* TabbedComponentForAllVoicesBanks::getVoiceSlotsForBank(VoicesBank bank) {

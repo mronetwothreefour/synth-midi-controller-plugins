@@ -18,6 +18,7 @@ namespace MophoConstants
 		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
+		const Identifier button_Banks{ "button_Banks" };
 		const Identifier button_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
 		const Identifier button_Cancel_ImportExport{ "button_Cancel_ImportExport" };
 		const Identifier button_Cancel_NewFolder{ "button_Cancel_NewFolder" };

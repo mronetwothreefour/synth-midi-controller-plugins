@@ -210,7 +210,6 @@ public:
 
 	ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
-		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::button_Push_VoicesBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };

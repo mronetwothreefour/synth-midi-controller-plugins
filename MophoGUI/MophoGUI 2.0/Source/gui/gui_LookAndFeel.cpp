@@ -4,6 +4,7 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../constants/constants_GUI_PathData.h"
 #include "../constants/constants_Identifiers.h"
 
 using namespace MophoConstants;
@@ -118,6 +119,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	auto buttonID{ button.getComponentID() };
 	MemBlock mBlock{};
 
+	if (buttonID == ID::button_Banks.toString())
+		mBlock = MemBlock{ isDown ? btn_Banks_Dn_png : btn_Banks_Up_png, isDown ? (s_t)btn_Banks_Dn_pngSize : (s_t)btn_Banks_Up_pngSize };
+
 	if (buttonID.startsWith("button_Cancel"))
 		mBlock = MemBlock{ isDown ? btn_Cancel_Dn_png : btn_Cancel_Up_png, isDown ? (s_t)btn_Cancel_Dn_pngSize : (s_t)btn_Cancel_Up_pngSize };
 
@@ -193,13 +197,81 @@ void MophoLookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool 
 }
 
 void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, 
-	const bool isTicked, const bool /*isEnabled*/, const bool /*isHighlighted*/, const bool /*isDown*/)
+	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
 {
 	auto componentID{ component.getComponentID() };
 	if (componentID.startsWith(ID::component_ParamToggle.toString())) {
 		g.setColour(isTicked ? GUI::color_ToggleOn : GUI::color_ToggleOff);
 		g.fillEllipse(x, y, w, h);
 	}
+	if (componentID == ID::button_VoiceSlotRadioButton.toString()) {
+		auto buttonColor{ GUI::color_Device };
+		if (isHighlighted)
+			buttonColor = buttonColor.brighter(0.4f);
+		if (isTicked)
+			buttonColor = buttonColor.brighter(0.7f);
+		g.setColour(buttonColor);
+		g.fillRect(x, y, w, h);
+		g.setColour(GUI::color_Black);
+		g.setFont(GUI::fontFor_VoiceSlotButtons);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+}
+
+
+
+
+void MophoLookAndFeel::layoutFileBrowserComponent(
+	Browser& /*browser*/, DirContents* dirContents, Preview* /*preview*/, ComboBox* currentPath, TextEditor* fileName, Button* goUpButton) 
+{
+	const int browser_w{ 471 };
+	currentPath->setBounds(0, 0, browser_w, 26);
+	currentPath->setJustificationType(Justification::centredLeft);
+	goUpButton->setBounds(450, 0, 20, currentPath->getHeight());
+	setColour(ListBox::backgroundColourId, GUI::color_Black.withAlpha(0.0f));
+	setColour(ListBox::outlineColourId, GUI::color_Black.withAlpha(0.0f));
+	if (auto* listAsComp = dynamic_cast<Component*> (dirContents))
+		listAsComp->setBounds(0, 36, browser_w, 173);
+	fileName->setBounds(86, 219, 385, currentPath->getHeight());
+	fileName->applyFontToAllText(GUI::fontFor_BrowserText, true);
+}
+
+void MophoLookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& fileName, Image* /*icon*/, 
+	const String& fileSizeString, const String& fileTimeString, bool isDirectory, bool isSelected, int /*itemIndex*/, DirContents& /*dirContents*/)
+{
+	if (isSelected)
+		g.fillAll(GUI::color_Black.brighter(0.3f));
+	Path iconPath;
+	if (isDirectory)
+		iconPath.loadPathFromData(GUI::pathDataForFolderIcon.data(), GUI::pathDataForFolderIcon.size());
+	else
+		iconPath.loadPathFromData(GUI::pathDataForFileIcon.data(), GUI::pathDataForFileIcon.size());
+	g.setColour(GUI::color_White);
+	g.fillPath(iconPath);
+	g.setFont(GUI::fontFor_BrowserText);
+	const int browserIcon_w{ 32 };
+	if (w > 450 && !isDirectory) {
+		auto sizeX = roundToInt((float)w * 0.7f);
+		auto dateX = roundToInt((float)w * 0.8f);
+		g.drawFittedText(fileName, browserIcon_w, 0, sizeX - browserIcon_w, h, Justification::centredLeft, 1);
+		g.drawFittedText(fileSizeString, sizeX, 0, dateX - sizeX - 8, h, Justification::centredRight, 1);
+		g.drawFittedText(fileTimeString, dateX, 0, w - 8 - dateX, h, Justification::centredRight, 1);
+	}
+	else {
+		g.drawFittedText(fileName, browserIcon_w, 0, w - browserIcon_w, h, Justification::centredLeft, 1);
+	}
+}
+
+Button* MophoLookAndFeel::createFileBrowserGoUpButton() {
+	auto* goUpButton = new DrawableButton("up", DrawableButton::ImageOnButtonBackgroundOriginalSize);
+	Path arrowPath;
+	arrowPath.addArrow({ 10, 22, 10, 4 }, 7, 15, 10);
+	DrawablePath arrowImage;
+	arrowImage.setFill(GUI::color_Black);
+	arrowImage.setPath(arrowPath);
+	goUpButton->setImages(&arrowImage);
+	return goUpButton;
 }
 
 
@@ -212,9 +284,12 @@ void MophoLookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height
 
 void MophoLookAndFeel::positionComboBoxText(ComboBox& box, Label& label) {
 	auto spaceForArrowIcon{ 11 };
-	//auto isInImptExptFileBrowser{ box.getParentComponent()->getComponentID() == ID::component_ImptExptBrowser.toString() };
-	//if (isInImptExptFileBrowser)
-	//	spaceForArrowIcon = 20;
+	auto parentComponent{ box.getParentComponent() };
+	if (parentComponent != nullptr) {
+		auto isInImptExptFileBrowser{ parentComponent->getComponentID() == ID::component_ImportExportBrowser.toString() };
+		if (isInImptExptFileBrowser)
+			spaceForArrowIcon = 20;
+	}
 	label.setBounds(0, 0, box.getWidth() - spaceForArrowIcon, box.getHeight());
 }
 
@@ -289,4 +364,87 @@ void MophoLookAndFeel::getIdealPopupMenuItemSize(const String& /*text*/, const b
 	if (itemHeight > 0 && font.getHeight() > itemHeight / 1.3f)
 		font.setHeight(itemHeight / 1.3f);
 	idealHeight = itemHeight > 0 ? itemHeight : roundToInt(font.getHeight() * 1.3f);
+}
+
+
+
+
+void MophoLookAndFeel::drawTabButton(TabBarButton& button, Graphics& g, bool /*isMouseOver*/, bool /*isMouseDown*/) {
+	const Rectangle<int> activeArea(button.getActiveArea());
+	const Colour bkg(button.getTabBackgroundColour());
+	if (button.getToggleState())
+		g.setColour(bkg);
+	else {
+		Point<int> tabTopCoordinate{ activeArea.getTopLeft() };
+		Point<int> tabBottomCoordinate{ activeArea.getBottomLeft() };
+		g.setColour(bkg.darker(0.06f));
+	}
+	g.fillRect(activeArea);
+
+	auto buttonIndex{ button.getIndex() };
+	MemBlock mBlock{};
+	if (button.getParentComponent()->getParentComponent()->getComponentID() == ID::component_TabbedComponentForAllBanks.toString()) {
+		if (buttonIndex == 0)
+			mBlock = MemBlock{ BinaryData::lbl_FactoryVoiceBanks_png, BinaryData::lbl_FactoryVoiceBanks_pngSize };
+		else
+			mBlock = MemBlock{ BinaryData::lbl_CustomVoiceBanks_png, BinaryData::lbl_CustomVoiceBanks_pngSize };
+	}
+	else {
+		if (buttonIndex == 0)
+			mBlock = MemBlock{ BinaryData::lbl_VoiceBankTab_1_png, BinaryData::lbl_VoiceBankTab_1_pngSize };
+		if (button.getIndex() == 1)
+			mBlock = MemBlock{ BinaryData::lbl_VoiceBankTab_2_png, BinaryData::lbl_VoiceBankTab_2_pngSize };
+		if (button.getIndex() == 2)
+			mBlock = MemBlock{ BinaryData::lbl_VoiceBankTab_3_png, BinaryData::lbl_VoiceBankTab_3_pngSize };
+	}
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ mBlock, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	auto image_x{ (activeArea.getWidth() - buttonImage.getWidth()) / 2 };
+	auto image_y{ (activeArea.getHeight() - buttonImage.getHeight()) / 2 };
+	g.drawImageAt(buttonImage, image_x, image_y);
+}
+
+
+
+
+void MophoLookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
+	auto background = bar.findColour(ProgressBar::backgroundColourId);
+	auto foreground = bar.findColour(ProgressBar::foregroundColourId);
+	auto barBounds = bar.getLocalBounds().toFloat();
+	g.setColour(background);
+	g.fillRoundedRectangle(barBounds, bar.getHeight() * 0.5f);
+	if (percentDone >= 0.0f && percentDone <= 1.0f) {
+		Path p;
+		p.addRoundedRectangle(barBounds, bar.getHeight() * 0.5f);
+		g.reduceClipRegion(p);
+		barBounds.setWidth(barBounds.getWidth() * (float)percentDone);
+		g.setColour(foreground);
+		g.fillRoundedRectangle(barBounds, bar.getHeight() * 0.5f);
+	}
+	else {
+		// spinning bar..
+		g.setColour(background);
+		auto stripeWidth = h * 2;
+		auto position = static_cast<int> (Time::getMillisecondCounter() / 15) % stripeWidth;
+		Path p;
+		for (auto x = static_cast<float> (-position); x < w + stripeWidth; x += stripeWidth)
+			p.addQuadrilateral(x, 0.0f,
+				x + stripeWidth * 0.5f, 0.0f,
+				x, static_cast<float> (h),
+				x - stripeWidth * 0.5f, static_cast<float> (h));
+		Image im(Image::ARGB, w, h, true);
+		{
+			Graphics g2(im);
+			g2.setColour(foreground);
+			g2.fillRoundedRectangle(barBounds, bar.getHeight() * 0.5f);
+		}
+		g.setTiledImageFill(im, 0, 0, 0.85f);
+		g.fillPath(p);
+	}
+	if (textToShow.isNotEmpty()) {
+		g.setColour(GUI::color_White);
+		g.setFont(GUI::fontFor_ProgressBar);
+		g.drawText(textToShow, 0, 0, w, h, Justification::centred, false);
+	}
 }

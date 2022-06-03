@@ -23,10 +23,10 @@ namespace MophoConstants
 		const int seqSteps_w{ seqSteps_h };
 		const int seqTrackControlsGroup_h{ 83 };
 		const int tabBarDepth{ 30 };
-		const int tabbedComponentForVoicesBanks_w{ tabForVoicesBank_w + tabBarDepth };
-		const int tabbedComponentForVoicesBanks_h{ tabForVoicesBank_h };
 		const int tabForVoicesBank_h{ 370 };
 		const int tabForVoicesBank_w{ 1065 };
+		const int tabbedComponentForVoicesBanks_w{ tabForVoicesBank_w + tabBarDepth };
+		const int tabbedComponentForVoicesBanks_h{ tabForVoicesBank_h };
 		const int voiceNameCharacters_h{ 17 };
 		const int voiceNameCharacters_w{ 12 };
 		const int voicesBanksLayerButtons_w{ 50 };

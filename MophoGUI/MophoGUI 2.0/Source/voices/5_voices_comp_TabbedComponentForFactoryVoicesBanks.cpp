@@ -26,13 +26,13 @@ TabbedComponentForFactoryVoicesBanks::TabbedComponentForFactoryVoicesBanks(
 	setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h);
 }
 
-void TabbedComponentForFactoryVoicesBanks::addListenerToPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+void TabbedComponentForFactoryVoicesBanks::addListenerToButtonsInAllFactoryTabs(Button::Listener* listener) {
 	bank_1.addListenerToButtons(listener);
 	bank_2.addListenerToButtons(listener);
 	bank_3.addListenerToButtons(listener);
 }
 
-void TabbedComponentForFactoryVoicesBanks::removeListenerFromPushBankButtonInAllFactoryTabs(Button::Listener* listener) {
+void TabbedComponentForFactoryVoicesBanks::removeListenerFromButtonsInAllFactoryTabs(Button::Listener* listener) {
 	bank_1.removeListenerFromButtons(listener);
 	bank_2.removeListenerFromButtons(listener);
 	bank_3.removeListenerFromButtons(listener);
