@@ -29,6 +29,8 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="AjResv" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="Qo3G30" name="bkgrnd_RepeatChoicesToggle.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
@@ -150,6 +152,8 @@
               file="Source/constants/constants_Identifiers.h"/>
         <FILE id="Ran6UQ" name="constants_MIDI.h" compile="0" resource="0"
               file="Source/constants/constants_MIDI.h"/>
+        <FILE id="qc9wkh" name="constants_Randomization.h" compile="0" resource="0"
+              file="Source/constants/constants_Randomization.h"/>
         <FILE id="ApRSfD" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
       </GROUP>
@@ -335,7 +339,12 @@
         <FILE id="xqRmKx" name="1_midi_VoiceDataMessage.h" compile="0" resource="0"
               file="Source/midi/1_midi_VoiceDataMessage.h"/>
       </GROUP>
-      <GROUP id="{4956A782-23BA-A1F2-DFDF-C58C83C8C7E5}" name="randomization"/>
+      <GROUP id="{4956A782-23BA-A1F2-DFDF-C58C83C8C7E5}" name="randomization">
+        <FILE id="XMcd9Y" name="0_rndm_comp_AllowRepeatChoicesToggle.cpp" compile="1"
+              resource="0" file="Source/randomization/0_rndm_comp_AllowRepeatChoicesToggle.cpp"/>
+        <FILE id="PfdCPw" name="0_rndm_comp_AllowRepeatChoicesToggle.h" compile="0"
+              resource="0" file="Source/randomization/0_rndm_comp_AllowRepeatChoicesToggle.h"/>
+      </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>

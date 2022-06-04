@@ -66,7 +66,7 @@ void GUI_Layer_Export_VoicesBank::writeVoicesBankDataIntoFile(File& file) {
 		outStream.setPosition(0);
 		outStream.truncate();
 		auto voicesBanks{ unexposedParams->getVoicesBanks() };
-		for (uint8 slot = 0; slot != Voices::numberOfSlotsInVoicesBank; ++slot) {
+		for (uint8 slot = 0; slot != VCS::numberOfSlotsInVoicesBank; ++slot) {
 			auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, slot) };
 			outStream.writeText(voiceDataHexString + "\r\n", false, false, nullptr);
 		}

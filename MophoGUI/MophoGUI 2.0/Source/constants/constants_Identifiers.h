@@ -53,6 +53,7 @@ namespace MophoConstants
 		const Identifier choiceNames{ "choiceNames" };
 		const Identifier choiceNames_Verbose{ "choiceNames_Verbose" };
 
+		const Identifier component_AllowRepeatChoicesToggleFor_{ "component_AllowRepeatChoicesToggleFor_" };
 		const Identifier component_ImportExportBrowser{ "component_ImportExportBrowser" };
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_ParamToggle{ "component_ParamToggle" };
@@ -178,6 +179,7 @@ namespace MophoConstants
 		const Identifier state_CustomVoicesBank_3{ "state_CustomVoicesBank_3" };
 		const Identifier state_ExposedParams{ "state_ExposedParams" };
 		const Identifier state_PluginState{ "state_PluginState" };
+		const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		const Identifier state_VoicesBanks{ "state_VoicesBanks" };

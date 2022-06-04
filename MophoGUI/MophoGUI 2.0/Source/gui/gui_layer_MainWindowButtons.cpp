@@ -164,7 +164,7 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
     voiceNameEditor.setText(getVoiceNameFromExposedParemeters(), dontSendNotification);
     voiceNameEditor.showEditor();
-    voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(Voices::numberOfCharsInVoiceName, basicASCIIcharacters);
+    voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(VCS::numberOfCharsInVoiceName, basicASCIIcharacters);
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
     auto shouldShow{ tooltipsOptions->shouldShowDescriptions() };
     auto tipFor_VoiceNameEditor{ shouldShow ? Description::buildFor_VoiceNameEditor() : String{ "" } };
@@ -174,7 +174,7 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
     auto& info{ InfoForExposedParameters::get() };
-    for (auto charNum = 0; charNum != Voices::numberOfCharsInVoiceName; ++charNum) {
+    for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
         auto paramID{ info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
         auto paramPtr{ exposedParams->getParameter(paramID) };
         if (paramPtr != nullptr)
@@ -186,7 +186,7 @@ String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
 void GUI_Layer_MainWindowButtons::labelTextChanged(Label* labelThatHasChanged) {
     if (labelThatHasChanged == &voiceNameEditor) {
         String newName{ labelThatHasChanged->getText() };
-        newName = newName.paddedRight(' ', Voices::numberOfCharsInVoiceName);
+        newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);
         startUpdatingVoiceName(newName);
     }
 }
@@ -205,7 +205,7 @@ void GUI_Layer_MainWindowButtons::startClearingSeqTrack(int trackNum) {
 void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
     MultiTimer::stopTimer(timerID);
     if (timerID == timerID_VoiceNameEdit) {
-        if (nameCharNum > -1 && nameCharNum < Voices::numberOfCharsInVoiceName) {
+        if (nameCharNum > -1 && nameCharNum < VCS::numberOfCharsInVoiceName) {
             updateExposedParamForNameChar();
         }
     }
@@ -228,7 +228,7 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
     auto paramPtr{ exposedParams->getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));
-    if (nameCharNum < Voices::numberOfCharsInVoiceName - 1) {
+    if (nameCharNum < VCS::numberOfCharsInVoiceName - 1) {
         ++nameCharNum;
         MultiTimer::startTimer(timerID_VoiceNameEdit, 10);
     }

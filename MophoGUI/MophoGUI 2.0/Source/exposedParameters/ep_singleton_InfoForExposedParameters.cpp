@@ -1805,7 +1805,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 
 	const int voiceNameCharacters_y{ 52 };
 
-	for (auto charNum = 0; charNum != Voices::numberOfCharsInVoiceName; ++charNum) {
+	for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
 		auto charNumString{ String(charNum + 1) };
 		auto paramNumString{ String(EP::firstVoiceNameCharParamNumber + charNum) };
 		exposedParamsInfoTree.addChild(

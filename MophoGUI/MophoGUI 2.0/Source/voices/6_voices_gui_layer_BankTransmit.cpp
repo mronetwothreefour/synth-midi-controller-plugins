@@ -20,7 +20,7 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	unexposedParams{ unexposedParams },
 	progressMessage{ "" },
 	transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() },
-	voiceCounter{ Voices::numberOfSlotsInVoicesBank },
+	voiceCounter{ VCS::numberOfSlotsInVoicesBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	button_Stop{ "" },
@@ -95,10 +95,10 @@ void GUI_Layer_BankTransmit::paint(Graphics& g) {
 
 void GUI_Layer_BankTransmit::timerCallback() {
 	stopTimer();
-	if (voiceCounter < Voices::numberOfSlotsInVoicesBank) {
+	if (voiceCounter < VCS::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
 		++voiceCounter;
-		progress = voiceCounter / (double)Voices::numberOfSlotsInVoicesBank;
+		progress = voiceCounter / (double)VCS::numberOfSlotsInVoicesBank;
 		progressMessage = transmitType == BankTransmitType::push ? "Pushing " : "Pulling ";
 		progressMessage += bankName + " Program " + (String)voiceCounter;
 		progressMessage += transmitType == BankTransmitType::push ? " To Hardware" : " From Hardware";

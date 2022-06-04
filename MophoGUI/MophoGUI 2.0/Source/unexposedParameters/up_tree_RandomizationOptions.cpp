@@ -31,12 +31,16 @@ RandomizationOptions::RandomizationOptions()
 
 
 
-void RandomizationOptions::addListener(ValueTree::Listener* listener) {
-	randomizationOptionsTree.addListener(listener);
+void RandomizationOptions::addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
+	paramTree.addListener(listener);
 }
 
-void RandomizationOptions::removeListener(ValueTree::Listener* listener) {
-	randomizationOptionsTree.removeListener(listener);
+void RandomizationOptions::removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
+	paramTree.removeListener(listener);
 }
 
 
@@ -168,4 +172,16 @@ const bool RandomizationOptions::atLeastOneChoiceIsAllowedFor(uint8 paramIndex) 
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	return (paramTree.getNumProperties() > 0);
+}
+
+XmlElement* RandomizationOptions::getStateXml() {
+	auto randomizationOptionsTreeStateXml{ randomizationOptionsTree.createXml() };
+	if (randomizationOptionsTreeStateXml != nullptr)
+		randomizationOptionsTreeStateXml->setTagName(ID::state_RandomizationOptions);
+	return randomizationOptionsTreeStateXml.release();
+}
+
+void RandomizationOptions::replaceState(const ValueTree& newState) {
+	if (newState.isValid())
+		randomizationOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
 }

@@ -9,6 +9,7 @@ using namespace MophoConstants;
 UnexposedParameters::UnexposedParameters() :
 	globalOptions{ new GlobalOptions() },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers() },
+	randomizationOptions{ new RandomizationOptions() },
 	tooltipsOptions{ new TooltipsOptions() },
 	undoManager{ new UndoManager() },
 	voicesBanks{ new VoicesBanks() },
@@ -26,6 +27,10 @@ GlobalOptions* UnexposedParameters::getGlobalOptions() {
 
 OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
 	return outgoingMidiBuffers.get();
+}
+
+RandomizationOptions* UnexposedParameters::getRandomizationOptions() {
+	return randomizationOptions.get();
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
@@ -47,6 +52,10 @@ VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
 XmlElement UnexposedParameters::getStateXml() {
 	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
 
+	auto randomizationOptionsStateXml{ randomizationOptions->getStateXml() };
+	if (randomizationOptionsStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(randomizationOptionsStateXml);
+
 	auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
@@ -63,6 +72,10 @@ XmlElement UnexposedParameters::getStateXml() {
 }
 
 void UnexposedParameters::replaceState(const ValueTree& newState) {
+	auto randomizationOptionsState{ newState.getChildWithName(ID::state_RandomizationOptions) };
+	if (randomizationOptionsState.isValid())
+		randomizationOptions->replaceState(randomizationOptionsState);
+
 	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipsOptions) };
 	if (tooltipOptionsState.isValid())
 		tooltipsOptions->replaceState(tooltipOptionsState);
@@ -81,6 +94,7 @@ UnexposedParameters::~UnexposedParameters() {
 	voicesBanks = nullptr;
 	undoManager = nullptr;
 	tooltipsOptions = nullptr;
+	randomizationOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
 	globalOptions = nullptr;
 }

@@ -24,7 +24,7 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
 
 bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
     auto hexStringStrippedOfNonHexCharacters{ hexString.initialSectionContainingOnly("1234567890ABCDEFabcdef") };
-    auto isNotCorrectLength{ hexStringStrippedOfNonHexCharacters.length() != Voices::lengthOfVoiceDataHexString };
+    auto isNotCorrectLength{ hexStringStrippedOfNonHexCharacters.length() != VCS::lengthOfVoiceDataHexString };
     if (isNotCorrectLength)
         return false;
     else

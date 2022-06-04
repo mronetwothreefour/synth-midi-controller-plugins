@@ -26,17 +26,17 @@ VoicesBanks::VoicesBanks() :
 }
 
 void VoicesBanks::fillAllCustomVoiceDataBanks() {
-	for (uint8 voiceSlot = 0; voiceSlot != Voices::numberOfSlotsInVoicesBank; ++voiceSlot) {
-		customBank_1_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceDataHexString, nullptr);
-		customBank_2_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceDataHexString, nullptr);
-		customBank_3_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceDataHexString, nullptr);
+	for (uint8 voiceSlot = 0; voiceSlot != VCS::numberOfSlotsInVoicesBank; ++voiceSlot) {
+		customBank_1_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceDataHexString, nullptr);
+		customBank_2_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceDataHexString, nullptr);
+		customBank_3_VoiceDataHexStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceDataHexString, nullptr);
 	}
 }
 
 void VoicesBanks::fillAllVoiceNameBanks() {
 	String voiceName;
 	String voiceDataString;
-	for (uint8 voiceSlot = 0; voiceSlot != Voices::numberOfSlotsInVoicesBank; ++voiceSlot) {
+	for (uint8 voiceSlot = 0; voiceSlot != VCS::numberOfSlotsInVoicesBank; ++voiceSlot) {
 		voiceDataString = getVoiceDataHexStringFromBankSlot(VoicesBank::factory_1, voiceSlot);
 		voiceName = extractVoiceNameFromDataVector(RawDataTools::convertHexStringToDataVector(voiceDataString));
 		factoryBank_1_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, voiceName, nullptr);
@@ -46,14 +46,14 @@ void VoicesBanks::fillAllVoiceNameBanks() {
 		voiceDataString = getVoiceDataHexStringFromBankSlot(VoicesBank::factory_3, voiceSlot);
 		voiceName = extractVoiceNameFromDataVector(RawDataTools::convertHexStringToDataVector(voiceDataString));
 		factoryBank_3_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, voiceName, nullptr);
-		customBank_1_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceNameString, nullptr);
-		customBank_2_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceNameString, nullptr);
-		customBank_3_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, Voices::basicVoiceNameString, nullptr);
+		customBank_1_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceNameString, nullptr);
+		customBank_2_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceNameString, nullptr);
+		customBank_3_VoiceNameStrings.setProperty("voice_" + (String)voiceSlot, VCS::basicVoiceNameString, nullptr);
 	}
 }
 
 const String VoicesBanks::nameOfVoiceInBankSlot(VoicesBank bank, uint8 slot) {
-	jassert(slot < Voices::numberOfSlotsInVoicesBank);
+	jassert(slot < VCS::numberOfSlotsInVoicesBank);
 	switch (bank) {
 	case VoicesBank::factory_1:
 		return factoryBank_1_VoiceNameStrings.getProperty("voice_" + (String)slot);
@@ -73,7 +73,7 @@ const String VoicesBanks::nameOfVoiceInBankSlot(VoicesBank bank, uint8 slot) {
 }
 
 const String VoicesBanks::getVoiceDataHexStringFromBankSlot(VoicesBank bank, uint8 slot) const {
-	jassert(slot < Voices::numberOfSlotsInVoicesBank);
+	jassert(slot < VCS::numberOfSlotsInVoicesBank);
 	auto& factoryDataHexStrings{ FactoryVoiceDataHexStrings::get() };
 	switch (bank)
 	{
@@ -97,8 +97,8 @@ const String VoicesBanks::getVoiceDataHexStringFromBankSlot(VoicesBank bank, uin
 const String VoicesBanks::extractVoiceNameFromDataVector(const std::vector<uint8>& dataVector) {
 	String voiceName{ "" };
 	auto data{ dataVector.data() };
-	for (auto byte = Voices::firstVoiceNameCharByte; byte <= Voices::lastVoiceNameCharByte; ++byte) {
-		if (byte != Voices::ignoredVoiceNamePackByte1 && byte != Voices::ignoredVoiceNamePackByte2)
+	for (auto byte = VCS::firstVoiceNameCharByte; byte <= VCS::lastVoiceNameCharByte; ++byte) {
+		if (byte != VCS::ignoredVoiceNamePackByte1 && byte != VCS::ignoredVoiceNamePackByte2)
 			voiceName += (String)std::string(1, (char)*(data + byte));
 	}
 	return voiceName;
@@ -106,7 +106,7 @@ const String VoicesBanks::extractVoiceNameFromDataVector(const std::vector<uint8
 
 void VoicesBanks::storeVoiceDataHexStringInCustomBankSlot(String voiceDataHexString, VoicesBank bank, uint8 slot) {
 	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-	jassert(slot < Voices::numberOfSlotsInVoicesBank);
+	jassert(slot < VCS::numberOfSlotsInVoicesBank);
 	switch (bank)
 	{
 	case VoicesBank::custom_1:

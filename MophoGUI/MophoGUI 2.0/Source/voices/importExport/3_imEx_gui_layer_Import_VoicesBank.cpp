@@ -40,7 +40,7 @@ void GUI_Layer_Import_VoicesBank::proceedButtonClicked() {
 				return;
 			}
 		}
-		if (voicesDataArray.size() == Voices::numberOfSlotsInVoicesBank)
+		if (voicesDataArray.size() == VCS::numberOfSlotsInVoicesBank)
 			importVoiceDataFromStringArray(voicesDataArray);
 		else {
 			showFileIsNotValidAlert();
@@ -54,7 +54,7 @@ void GUI_Layer_Import_VoicesBank::proceedButtonClicked() {
 }
 
 void GUI_Layer_Import_VoicesBank::importVoiceDataFromStringArray(StringArray stringArray) {
-	for (uint8 slot = 0; slot != Voices::numberOfSlotsInVoicesBank; ++slot) {
+	for (uint8 slot = 0; slot != VCS::numberOfSlotsInVoicesBank; ++slot) {
 		auto voicesBanks{ unexposedParams->getVoicesBanks() };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(stringArray[slot], bank, slot);
 	}

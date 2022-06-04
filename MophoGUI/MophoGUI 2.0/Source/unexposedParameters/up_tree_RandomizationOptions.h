@@ -17,8 +17,8 @@ class RandomizationOptions
 public:
 	RandomizationOptions();
 
-	void addListener(ValueTree::Listener* listener);
-	void removeListener(ValueTree::Listener* listener);
+	void addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
+	void removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
 
 	const bool transmitMethodIsNRPN();
 	const bool transmitMethodIsSysEx();
@@ -44,6 +44,9 @@ public:
 	const bool moreThanOneChoiceIsAllowedFor(uint8 paramIndex);
 	const bool noChoiceIsAllowedFor(uint8 paramIndex);
 	const bool atLeastOneChoiceIsAllowedFor(uint8 paramIndex);
+
+	XmlElement* getStateXml();
+	void replaceState(const ValueTree& newState);
 
 private:
 	//==============================================================================

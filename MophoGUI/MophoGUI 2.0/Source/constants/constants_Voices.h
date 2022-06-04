@@ -6,7 +6,7 @@
 
 namespace MophoConstants
 {
-	namespace Voices
+	namespace VCS
 	{
 		const int firstVoiceNameCharByte{ 211 };
 		const int ignoredVoiceNamePackByte1{ 216 };

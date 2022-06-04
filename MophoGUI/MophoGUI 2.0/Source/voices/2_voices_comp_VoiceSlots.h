@@ -15,7 +15,7 @@ class VoiceSlots :
     public ValueTree::Listener,
     private Timer
 {
-    ToggleButton voiceSlotButtons[Voices::numberOfSlotsInVoicesBank];
+    ToggleButton voiceSlotButtons[VCS::numberOfSlotsInVoicesBank];
     const VoicesBank bank;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
