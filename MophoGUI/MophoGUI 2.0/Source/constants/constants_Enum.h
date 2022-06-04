@@ -35,7 +35,7 @@ namespace MophoConstants
 	const enum class GlobalParamComboBoxType {
 		midiClockSource = 0,
 		pedalMode,
-		voiceChange,
+		voiceChanges,
 		paramChangeSendType
 	};
 

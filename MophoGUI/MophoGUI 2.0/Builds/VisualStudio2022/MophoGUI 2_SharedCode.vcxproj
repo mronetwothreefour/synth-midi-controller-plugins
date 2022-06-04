@@ -181,6 +181,7 @@
     <ClCompile Include="..\..\Source\midi\1_midi_VoiceDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.cpp"/>
@@ -2223,6 +2224,7 @@
     <ClInclude Include="..\..\Source\midi\1_midi_VoiceDataMessage.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\voices\importExport\0_imEx_FileFilters.h"/>

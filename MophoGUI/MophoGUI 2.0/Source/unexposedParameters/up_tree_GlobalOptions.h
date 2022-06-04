@@ -11,6 +11,12 @@ using namespace MophoConstants;
 class GlobalOptions
 {
 	ValueTree globalOptionsTree;
+	const bool arpLatchPedalMode{ true };
+	const bool normalPedalMode{ false };
+	const bool enabled{ true };
+	const bool disabled{ false };
+	const bool stereo{ true };
+	const bool mono{ false };
 
 public:
 	GlobalOptions();
@@ -30,23 +36,23 @@ public:
 	const bool pedalModeIsArpLatch();
 	void setPedalModeToArpLatch();
 	void setPedalModeToNormal();
-	const bool voiceChangeIsEnabled();
-	void setVoiceChangeEnabled();
-	void setVoiceChangeDisabled();
+	const bool voiceChangesAreEnabled();
+	void setVoiceChangesAreEnabled();
+	void setVoiceChangesAreDisabled();
 	const ParamChangeSendType paramChangeSendType();
 	void setParamChangeSendType(ParamChangeSendType newSendType);
 	const ParamChangeReceiveType paramChangeReceiveType();
 	void setParamChangeReceiveType(ParamChangeReceiveType newReceiveType);
-	const bool controllersAreOn();
-	const bool controllersAreOff();
-	void setControllersOn();
-	void setControllersOff();
+	const bool controllersAreEnabled();
+	const bool controllersAreDisabled();
+	void setControllersAreEnabled();
+	void setControllersAreDisabled();
 	const bool hardwareIsSetToReceiveNRPNcontrollers();
 	const bool hardwareIsNotSetToReceiveNRPNcontrollers();
-	const bool sysExIsOn();
-	const bool sysExIsOff();
-	void setSysExOn();
-	void setSysExOff();
+	const bool sysExIsEnabled();
+	const bool sysExIsDisabled();
+	void setSysExIsEnabled();
+	void setSysExIsDisabled();
 	bool hardwareOutputIsStereo();
 	void setHardwareOutputToStereo();
 	void setHardwareOutputToMono();

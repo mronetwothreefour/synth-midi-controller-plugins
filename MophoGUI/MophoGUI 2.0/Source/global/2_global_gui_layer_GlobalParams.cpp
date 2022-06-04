@@ -25,7 +25,7 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams },
 	comboBox_MIDI_ClockSource{ ComboBoxType::midiClockSource, unexposedParams },
 	comboBox_PedalMode{ ComboBoxType::pedalMode, unexposedParams },
-	comboBox_VoiceChange{ ComboBoxType::voiceChange, unexposedParams },
+	comboBox_VoiceChange{ ComboBoxType::voiceChanges, unexposedParams },
 	comboBox_ParamChangeSendType{ ComboBoxType::paramChangeSendType, unexposedParams },
 	toggle_CurrentValueTooltip{ ToggleType::currentValueTooltip, unexposedParams },
 	toggle_DescriptionTooltip{ ToggleType::descriptionTooltip, unexposedParams },

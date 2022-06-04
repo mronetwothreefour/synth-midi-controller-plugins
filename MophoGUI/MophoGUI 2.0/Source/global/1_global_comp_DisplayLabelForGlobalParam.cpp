@@ -32,13 +32,13 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 		paramID = ID::global_ParamChangeReceiveType;
 		break;
 	case GlobalParamDisplayLabelType::midiControllersStatus:
-		paramID = ID::global_ControllersAreOn;
+		paramID = ID::global_Controllers;
 		break;
 	case GlobalParamDisplayLabelType::sysExStatus:
-		paramID = ID::global_SysExIsOn;
+		paramID = ID::global_SysEx;
 		break;
 	case GlobalParamDisplayLabelType::audioOutput:
-		paramID = ID::global_HardwareOutputIsStereo;
+		paramID = ID::global_HardwareOutput;
 		break;
 	case GlobalParamDisplayLabelType::hardwareOutputBalance:
 		paramID = ID::global_HardwareOutputBalance;
@@ -65,17 +65,17 @@ void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
 		break;
 	}
 	case GlobalParamDisplayLabelType::midiControllersStatus: {
-		if (globalOptions->controllersAreOff())
+		if (globalOptions->controllersAreDisabled())
 			textShouldBeRed = true;
-		auto controllersAreOn{ globalOptions->controllersAreOn() };
-		setText(ChoiceName::buildFor_MIDI_Controllers(controllersAreOn), dontSendNotification);
+		auto controllersAreEnabled{ globalOptions->controllersAreEnabled() };
+		setText(ChoiceName::buildFor_MIDI_Controllers(controllersAreEnabled), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::sysExStatus: {
-		if (globalOptions->sysExIsOff())
+		if (globalOptions->sysExIsDisabled())
 			textShouldBeRed = true;
-		auto sysExIsOn{ globalOptions->sysExIsOn() };
-		setText(ChoiceName::buildFor_SysEx(sysExIsOn), dontSendNotification);
+		auto sysExIsEnabled{ globalOptions->sysExIsEnabled() };
+		setText(ChoiceName::buildFor_SysEx(sysExIsEnabled), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::audioOutput: {
@@ -129,7 +129,7 @@ void DisplayLabelForGlobalParameter::updateTooltip() {
 void DisplayLabelForGlobalParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == paramID)
 		setTextAccordingToParameterSetting();
-	if (property == ID::tooltips_ShouldShowDescription)
+	if (property == ID::tooltips_Description)
 		updateTooltip();
 }
 

@@ -122,7 +122,7 @@ String GlobalParamDescription::buildFor_TooltipDelay() {
     return descriptionString;
 }
 
-String GlobalParamDescription::buildFor_VoiceChange() {
+String GlobalParamDescription::buildFor_VoiceChanges() {
     String descriptionString{ "" };
     descriptionString += "When enabled, the hardware will respond to incoming\n";
     descriptionString += "MIDI program change and bank change messages.\n";

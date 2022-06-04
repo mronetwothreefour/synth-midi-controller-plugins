@@ -7,6 +7,8 @@
 class TooltipsOptions
 {
 	ValueTree tooltipsOptionsTree;
+	const bool show{ true };
+	const bool dontShow{ false };
 
 public:
 	TooltipsOptions();

@@ -56,7 +56,7 @@ void TooltipUpdaterForExposedParamControl::parameterGestureChanged(int /*paramIn
 }
 
 void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-    if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription)
+    if (property == ID::tooltips_CurrentValue || property == ID::tooltips_Description)
         setTooltip();
 }
 

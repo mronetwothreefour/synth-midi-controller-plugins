@@ -42,7 +42,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		};
 		break;
 	case GlobalParamComboBoxType::pedalMode:
-		paramID = ID::global_PedalModeIsArpLatch;
+		paramID = ID::global_PedalMode;
 		choiceNamesList.add(ChoiceName::buildFor_PedalMode(false));
 		choiceNamesList.add(ChoiceName::buildFor_PedalMode(true));
 		addItemList(choiceNamesList, 1);
@@ -56,19 +56,19 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
 		};
 		break;
-	case GlobalParamComboBoxType::voiceChange:
-		paramID = ID::global_VoiceChangeIsEnabled;
-		choiceNamesList.add(ChoiceName::buildFor_VoiceChange(false));
-		choiceNamesList.add(ChoiceName::buildFor_VoiceChange(true));
+	case GlobalParamComboBoxType::voiceChanges:
+		paramID = ID::global_VoiceChanges;
+		choiceNamesList.add(ChoiceName::buildFor_VoiceChanges(false));
+		choiceNamesList.add(ChoiceName::buildFor_VoiceChanges(true));
 		addItemList(choiceNamesList, 1);
-		setSelectedItemIndex((int)globalOptions->voiceChangeIsEnabled(), dontSendNotification);
+		setSelectedItemIndex((int)globalOptions->voiceChangesAreEnabled(), dontSendNotification);
 		onChange = [this, globalOptions, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
 			if (currentChoice == 0)
-				globalOptions->setVoiceChangeDisabled();
+				globalOptions->setVoiceChangesAreDisabled();
 			else
-				globalOptions->setVoiceChangeEnabled();
-			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
+				globalOptions->setVoiceChangesAreEnabled();
+			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_VoiceChanges, unexposedParams);
 		};
 		break;
 	case GlobalParamComboBoxType::paramChangeSendType:
@@ -117,12 +117,12 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tipString += "Current setting: " + ChoiceName::buildFor_PedalMode(isArpLatch);
 		}
 		break;
-	case GlobalParamComboBoxType::voiceChange:
+	case GlobalParamComboBoxType::voiceChanges:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_VoiceChange();
+			tipString += Description::buildFor_VoiceChanges();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ getSelectedItemIndex() };
-			tipString += "Current setting: " + ChoiceName::buildFor_VoiceChange(currentChoice);
+			tipString += "Current setting: " + ChoiceName::buildFor_VoiceChanges(currentChoice);
 		}
 		break;
 	case GlobalParamComboBoxType::paramChangeSendType:
@@ -145,7 +145,7 @@ void ComboBoxForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const
 		setSelectedItemIndex((int)tree.getProperty(property));
 		updateTooltip();
 	}
-	if (property == ID::tooltips_ShouldShowCurrentValue || property == ID::tooltips_ShouldShowDescription) {
+	if (property == ID::tooltips_CurrentValue || property == ID::tooltips_Description) {
 		MessageManagerLock mmLock;
 		updateTooltip();
 	}

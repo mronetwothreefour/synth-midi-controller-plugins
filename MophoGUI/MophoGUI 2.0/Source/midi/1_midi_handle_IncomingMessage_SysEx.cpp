@@ -78,17 +78,17 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         const int globalFineTuneLSByte{ 6 };
         const int globalFineTuneMSByte{ 7 };
         const int globalHardwareOutputBalanceByte{ 24 };
-        const int globalHardwareOutputMonoByte{ 20 };
+        const int globalHardwareOutputTypeByte{ 20 };
         const int globalHardwareReceiveChannelLSByte{ 8 };
         const int globalHardwareReceiveChannelMSByte{ 9 };
         const int globalMIDI_ClockSourceByte{ 10 };
         const int globalParamChangeSendTypeByte{ 12 };
         const int globalParamChangeReceiveTypeByte{ 14 };
         const int globalPedalModeIsArpByte{ 26 };
-        const int globalSysExOnByte{ 18 };
+        const int globalSysExByte{ 18 };
         const int globalTransposeLSByte{ 4 };
         const int globalTransposeMSByte{ 5 };
-        const int globalVoiceChangeOnByte{ 28 };
+        const int globalVoiceChangesByte{ 28 };
         auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
         voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
         auto globalOptions{ unexposedParams->getGlobalOptions() };
@@ -116,11 +116,11 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         else
             globalOptions->setPedalModeToNormal();
 
-        auto voiceChangeIsEnabled{ (bool)sysExData[globalVoiceChangeOnByte] };
-        if (voiceChangeIsEnabled)
-            globalOptions->setVoiceChangeEnabled();
+        auto voiceChangesAreEnabled{ (bool)sysExData[globalVoiceChangesByte] };
+        if (voiceChangesAreEnabled)
+            globalOptions->setVoiceChangesAreEnabled();
         else
-            globalOptions->setVoiceChangeDisabled();
+            globalOptions->setVoiceChangesAreDisabled();
 
         ParamChangeSendType paramChangeSendType{ sysExData[globalParamChangeSendTypeByte] };
         globalOptions->setParamChangeSendType(paramChangeSendType);
@@ -128,19 +128,19 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         ParamChangeReceiveType paramChangeReceiveType{ sysExData[globalParamChangeReceiveTypeByte] };
         globalOptions->setParamChangeReceiveType(paramChangeReceiveType);
 
-        auto controllersAreOn{ (bool)sysExData[globalControllersOnByte] };
-        if (controllersAreOn)
-            globalOptions->setControllersOn();
+        auto controllersAreEnabled{ (bool)sysExData[globalControllersOnByte] };
+        if (controllersAreEnabled)
+            globalOptions->setControllersAreEnabled();
         else
-            globalOptions->setControllersOff();
+            globalOptions->setControllersAreDisabled();
 
-        auto sysExIsOn{ (bool)sysExData[globalSysExOnByte] };
-        if (sysExIsOn)
-            globalOptions->setSysExOn();
+        auto sysExIsEnabled{ (bool)sysExData[globalSysExByte] };
+        if (sysExIsEnabled)
+            globalOptions->setSysExIsEnabled();
         else
-            globalOptions->setSysExOff();
+            globalOptions->setSysExIsDisabled();
 
-        auto outputIsMono{ (bool)sysExData[globalHardwareOutputMonoByte] };
+        auto outputIsMono{ (bool)sysExData[globalHardwareOutputTypeByte] };
         if (outputIsMono)
             globalOptions->setHardwareOutputToMono();
         else

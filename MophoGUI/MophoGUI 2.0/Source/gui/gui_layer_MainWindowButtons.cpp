@@ -123,7 +123,7 @@ void GUI_Layer_MainWindowButtons::resized() {
 }
 
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-    if (property == ID::tooltips_ShouldShowDescription)
+    if (property == ID::tooltips_Description)
         updateTooltips();
 }
 
@@ -261,7 +261,7 @@ void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
     callAfterDelay(300, [this, globalOptions] {
-            if (globalOptions->sysExIsOn()) {
+            if (globalOptions->sysExIsEnabled()) {
                 if (globalOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
                     showCommError_NRPN_Layer();
                 else

@@ -68,7 +68,7 @@ void ToggleForTooltipParameter::updateTooltip() {
 }
 
 void ToggleForTooltipParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_ShouldShowDescription) {
+	if (property == ID::tooltips_Description) {
 		MessageManagerLock mmLock;
 		updateTooltip();
 	}

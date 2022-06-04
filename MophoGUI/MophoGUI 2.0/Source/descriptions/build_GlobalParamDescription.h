@@ -20,7 +20,7 @@ struct GlobalParamDescription
 	static String buildFor_PedalMode();
 	static String buildFor_SysExStatus();
 	static String buildFor_TooltipDelay();
-	static String buildFor_VoiceChange();
+	static String buildFor_VoiceChanges();
 
 private:
 

@@ -14,15 +14,15 @@ VoiceTransmissionOptions::VoiceTransmissionOptions() :
 }
 
 const bool VoiceTransmissionOptions::paramChangeEchoesAreNotBlocked() {
-	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_ParamChangeEchoesAreNotBlocked);
+	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_ParamChangeEchoes) == notBlocked;
 }
 
 void VoiceTransmissionOptions::setParamChangeEchoesAreBlocked() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoesAreNotBlocked, (bool)false, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoes, blocked, nullptr);
 }
 
 void VoiceTransmissionOptions::setParamChangeEchoesAreNotBlocked() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoesAreNotBlocked, (bool)true, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoes, notBlocked, nullptr);
 }
 
 const int VoiceTransmissionOptions::voiceTransmitTime() {

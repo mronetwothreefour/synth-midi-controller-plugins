@@ -11,7 +11,7 @@ TooltipsOptions::TooltipsOptions() :
 {
 	setShouldShowCurrentValue();
 	setShouldShowDescription();
-	setDelayInMilliseconds(1000);
+	setDelayInMilliseconds(3000);
 }
 
 void TooltipsOptions::addListener(ValueTree::Listener* listener) {
@@ -23,27 +23,27 @@ void TooltipsOptions::removeListener(ValueTree::Listener* listener) {
 }
 
 const bool TooltipsOptions::shouldShowCurrentValue() {
-	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_ShouldShowCurrentValue);
+	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_CurrentValue) == show;
 }
 
 const bool TooltipsOptions::shouldShowDescriptions() {
-	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_ShouldShowDescription);
+	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_Description) == show;
 }
 
 void TooltipsOptions::setShouldShowCurrentValue() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentValue, (bool)true, nullptr);
+	tooltipsOptionsTree.setProperty(ID::tooltips_CurrentValue, show, nullptr);
 }
 
 void TooltipsOptions::setShouldNotShowCurrentValue() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentValue, (bool)false, nullptr);
+	tooltipsOptionsTree.setProperty(ID::tooltips_CurrentValue, dontShow, nullptr);
 }
 
 void TooltipsOptions::setShouldShowDescription() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, (bool)true, nullptr);
+	tooltipsOptionsTree.setProperty(ID::tooltips_Description, show, nullptr);
 }
 
 void TooltipsOptions::setShouldNotShowDescription() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, (bool)false, nullptr);
+	tooltipsOptionsTree.setProperty(ID::tooltips_Description, dontShow, nullptr);
 }
 
 const int TooltipsOptions::delayInMilliseconds() {

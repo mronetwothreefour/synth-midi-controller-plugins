@@ -13,7 +13,7 @@ namespace MophoConstants
         const uint16 nrpnType_HardwareReceiveChannel{ 386 };
         const uint16 nrpnType_MIDI_ClockSource{ 388 };
         const uint16 nrpnType_ParamChangeSendType{ 390 };
-        const uint16 nrpnType_VoiceChange{ 392 };
+        const uint16 nrpnType_VoiceChanges{ 392 };
         const uint16 nrpnType_PedalMode{ 396 };
     }
 }

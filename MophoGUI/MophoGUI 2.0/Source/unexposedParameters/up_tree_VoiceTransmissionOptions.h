@@ -7,6 +7,8 @@
 class VoiceTransmissionOptions
 {
 	ValueTree voiceTransmissionOptionsTree;
+	const bool notBlocked{ true };
+	const bool blocked{ false };
 
 public:
 	VoiceTransmissionOptions();

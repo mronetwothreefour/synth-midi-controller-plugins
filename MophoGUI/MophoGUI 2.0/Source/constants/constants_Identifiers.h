@@ -137,20 +137,20 @@ namespace MophoConstants
 
 		const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
-		const Identifier global_ControllersAreOn{ "global_ControllersAreOn" };
+		const Identifier global_Controllers{ "global_Controllers" };
 		const Identifier global_FineTune{ "global_FineTune" };
 		const Identifier global_HardwareOutputBalance{ "global_HardwareOutputBalance" };
-		const Identifier global_HardwareOutputIsStereo{ "global_HardwareOutputIsStereo" };
+		const Identifier global_HardwareOutput{ "global_HardwareOutput" };
 		const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
 		const Identifier global_MIDI_ClockSource{ "global_MIDI_ClockSource" };
 		const Identifier global_Options{ "global_Options" };
 		const Identifier global_ParamChangeReceiveType{ "global_ParamChangeReceiveType" };
 		const Identifier global_ParamChangeSendType{ "global_ParamChangeSendType" };
-		const Identifier global_PedalModeIsArpLatch{ "global_PedalModeIsArpLatch" };
-		const Identifier global_SysExIsOn{ "global_SysExIsOn" };
+		const Identifier global_PedalMode{ "global_PedalMode" };
+		const Identifier global_SysEx{ "global_SysEx" };
 		const Identifier global_TransmitChannel{ "global_TransmitChannel" };
 		const Identifier global_Transpose{ "global_Transpose" };
-		const Identifier global_VoiceChangeIsEnabled{ "global_VoiceChangeIsEnabled" };
+		const Identifier global_VoiceChanges{ "global_VoiceChanges" };
 
 		const Identifier property_Center_x{ "property_ControlCenter_x" };
 		const Identifier property_Center_y{ "property_ControlCenter_y" };
@@ -166,6 +166,13 @@ namespace MophoConstants
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };
 
+		const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
+		const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
+		const Identifier rndm_ParamLockStatus{ "rndm_ParamLockStatus" };
+		const Identifier rndm_RepeatChoices{ "rndm_RepeatChoices" };
+		const Identifier rndm_TransmitMethod{ "rndm_TransmitMethod" };
+
 		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
 		const Identifier state_CustomVoicesBank_2{ "state_CustomVoicesBank_2" };
 		const Identifier state_CustomVoicesBank_3{ "state_CustomVoicesBank_3" };
@@ -178,11 +185,11 @@ namespace MophoConstants
 
 		const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 		const Identifier tooltips_Options{ "tooltips_Options" };
-		const Identifier tooltips_ShouldShowCurrentValue{ "tooltips_ShouldShowCurrentValue" };
-		const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+		const Identifier tooltips_CurrentValue{ "tooltips_CurrentValue" };
+		const Identifier tooltips_Description{ "tooltips_Description" };
 
 		const Identifier voiceTx_Options{ "voiceTx_Options" };
-		const Identifier voiceTx_ParamChangeEchoesAreNotBlocked{ "voiceTx_ParamChangeEchoesAreNotBlocked" };
+		const Identifier voiceTx_ParamChangeEchoes{ "voiceTx_ParamChangeEchoes" };
 		const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}
 }

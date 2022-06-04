@@ -48,8 +48,8 @@ String GlobalParamChoiceName::buildFor_MIDI_ClockSource(MIDI_ClockSource sourceT
     }
 }
 
-String GlobalParamChoiceName::buildFor_MIDI_Controllers(bool areOn) {
-    if (areOn)
+String GlobalParamChoiceName::buildFor_MIDI_Controllers(bool areEnabled) {
+    if (areEnabled)
         return "MIDI CONTROLLERS : ON";
     else
         return "MIDI CONTROLLERS : OFF ( ! )";
@@ -99,7 +99,7 @@ String GlobalParamChoiceName::buildFor_SysEx(bool isOn) {
         return "SYSTEM EXCLUSIVE : OFF ( ! )";
 }
 
-String GlobalParamChoiceName::buildFor_VoiceChange(bool isEnabled) {
+String GlobalParamChoiceName::buildFor_VoiceChanges(bool isEnabled) {
     if (isEnabled)
         return "Enabled";
     else

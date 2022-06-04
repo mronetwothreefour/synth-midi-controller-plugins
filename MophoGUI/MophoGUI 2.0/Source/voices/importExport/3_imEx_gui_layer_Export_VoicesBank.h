@@ -18,7 +18,7 @@ class GUI_Layer_Export_VoicesBank :
 public:
 	GUI_Layer_Export_VoicesBank() = delete;
 
-	explicit GUI_Layer_Export_VoicesBank(VoicesBank bank, VoiceSlots* slotsComponent, UnexposedParameters* unexposedParams);
+	explicit GUI_Layer_Export_VoicesBank(VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:
