@@ -60,6 +60,7 @@ namespace MophoConstants
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
+		const Identifier component_ToggleAllowChoice_{ "component_ToggleAllowChoice_" };
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_EditLabel{ "label_EditLabel" };
@@ -153,19 +154,25 @@ namespace MophoConstants
 		const Identifier global_Transpose{ "global_Transpose" };
 		const Identifier global_VoiceChanges{ "global_VoiceChanges" };
 
+		const Identifier property_AllowedChoicesLayer_x{ "property_AllowedChoicesLayer_x" };
+		const Identifier property_AllowedChoicesLayer_y{ "property_AllowedChoicesLayer_y" };
 		const Identifier property_Center_x{ "property_ControlCenter_x" };
 		const Identifier property_Center_y{ "property_ControlCenter_y" };
 		const Identifier property_ControlType{ "property_ControlType" };
 		const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		const Identifier property_Description{ "property_Description" };
 		const Identifier property_ExposedName{ "property_ExposedName" };
+		const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
 		const Identifier property_Height{ "property_Height" };
 		const Identifier property_LSByteLocation{ "property_LSByteLocation" };
 		const Identifier property_MSBitMask{ "property_MSBitMask" };
 		const Identifier property_MSBitPackedByteLocation{ "property_MSbitPackedByteLocation" };
+		const Identifier property_NumberOfAllowChoiceToggleColumns{ "property_NumberOfAllowChoiceToggleColumns" };
+		const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
 		const Identifier property_Width{ "property_Width" };
+		const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
 		const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };

@@ -34,6 +34,10 @@
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
+        <FILE id="bKdZ6x" name="btn_AllowAll_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_AllowAll_Dn.png"/>
+        <FILE id="g3dytu" name="btn_AllowAll_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_AllowAll_Up.png"/>
         <FILE id="WK34Jn" name="btn_Banks_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Banks_Up.png"/>
         <FILE id="uC2rHn" name="btn_Banks_Dn.png" compile="0" resource="1"
@@ -78,6 +82,10 @@
         <FILE id="GH8xWM" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="urAMpD" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="N6ZlNf" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
+        <FILE id="Gwlhxy" name="btn_Randomize_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Randomize_Dn.png"/>
+        <FILE id="v0dNPN" name="btn_Randomize_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Randomize_Up.png"/>
         <FILE id="rjf40Q" name="btn_Read_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Dn.png"/>
         <FILE id="GRWojs" name="btn_Read_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Read_Up.png"/>
         <FILE id="ENSK24" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
@@ -340,10 +348,18 @@
               file="Source/midi/1_midi_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{4956A782-23BA-A1F2-DFDF-C58C83C8C7E5}" name="randomization">
+        <FILE id="kOVJt5" name="0_rndm_comp_AllowChoiceToggles.cpp" compile="1"
+              resource="0" file="Source/randomization/0_rndm_comp_AllowChoiceToggles.cpp"/>
+        <FILE id="CBQ5BE" name="0_rndm_comp_AllowChoiceToggles.h" compile="0"
+              resource="0" file="Source/randomization/0_rndm_comp_AllowChoiceToggles.h"/>
         <FILE id="XMcd9Y" name="0_rndm_comp_AllowRepeatChoicesToggle.cpp" compile="1"
               resource="0" file="Source/randomization/0_rndm_comp_AllowRepeatChoicesToggle.cpp"/>
         <FILE id="PfdCPw" name="0_rndm_comp_AllowRepeatChoicesToggle.h" compile="0"
               resource="0" file="Source/randomization/0_rndm_comp_AllowRepeatChoicesToggle.h"/>
+        <FILE id="VU3Sq3" name="0_rndm_ParamRandomizationMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/0_rndm_ParamRandomizationMethods.cpp"/>
+        <FILE id="CWVTZ2" name="0_rndm_ParamRandomizationMethods.h" compile="0"
+              resource="0" file="Source/randomization/0_rndm_ParamRandomizationMethods.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

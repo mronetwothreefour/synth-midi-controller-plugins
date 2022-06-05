@@ -622,7 +622,13 @@
     <ClCompile Include="..\..\Source\midi\1_midi_VoiceDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
@@ -2979,7 +2985,13 @@
     <ClInclude Include="..\..\Source\midi\1_midi_VoiceDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
@@ -5525,6 +5537,12 @@
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Banks_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
@@ -5601,6 +5619,12 @@
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png">

@@ -25,25 +25,25 @@ public:
 	void setTransmitMethodIsNRPN();
 	void setTransmitMethodIsSysEx();
 
-	const bool isLocked(uint8 paramIndex);
-	const bool isUnlocked(uint8 paramIndex);
-	void setLocked(uint8 paramIndex);
-	void setUnlocked(uint8 paramIndex);
+	const bool paramIsLocked(uint8 paramIndex);
+	const bool paramIsUnlocked(uint8 paramIndex);
+	void lockParam(uint8 paramIndex);
+	void unlockParam(uint8 paramIndex);
 
-	const bool choiceIsAllowedFor(uint8 choiceNum, uint8 paramIndex);
-	const bool choiceIsForbiddenFor(uint8 choiceNum, uint8 paramIndex);
-	void allowChoiceFor(uint8 choiceNum, uint8 paramIndex);
-	void forbidChoiceFor(uint8 choiceNum, uint8 paramIndex);
+	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
+	const bool choiceIsForbiddenForParam(uint8 choiceNum, uint8 paramIndex);
+	void allowChoiceForParam(uint8 choiceNum, uint8 paramIndex);
+	void forbidChoiceForParam(uint8 choiceNum, uint8 paramIndex);
 
-	const bool repeatChoicesAreAllowedFor(uint8 paramIndex);
-	const bool repeatChoicesAreForbiddenFor(uint8 paramIndex);
-	void setRepeatChoicesAreAllowedFor(uint8 paramIndex);
-	void setRepeatChoicesAreForbiddenFor(uint8 paramIndex);
+	const bool repeatChoicesAreAllowedForParam(uint8 paramIndex);
+	const bool repeatChoicesAreForbiddenForParam(uint8 paramIndex);
+	void setRepeatChoicesAreAllowedForParam(uint8 paramIndex);
+	void setRepeatChoicesAreForbiddenForParam(uint8 paramIndex);
 
-	const bool onlyOneChoiceIsAllowedFor(uint8 paramIndex);
-	const bool moreThanOneChoiceIsAllowedFor(uint8 paramIndex);
-	const bool noChoiceIsAllowedFor(uint8 paramIndex);
-	const bool atLeastOneChoiceIsAllowedFor(uint8 paramIndex);
+	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
+	const bool moreThanOneChoiceIsAllowedForParam(uint8 paramIndex);
+	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
+	const bool atLeastOneChoiceIsAllowedForParam(uint8 paramIndex);
 
 	XmlElement* getStateXml();
 	void replaceState(const ValueTree& newState);

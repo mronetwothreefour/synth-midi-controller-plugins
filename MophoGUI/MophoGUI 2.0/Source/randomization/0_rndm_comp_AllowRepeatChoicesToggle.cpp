@@ -20,20 +20,20 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	randomizationOptions->addListenerToChildTreeForParam(this, paramIndex);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	toggle_AllowRepeatChoices.setComponentID(ID::component_AllowRepeatChoicesToggleFor_.toString() + paramID);
-	if (randomizationOptions->onlyOneChoiceIsAllowedFor(paramIndex)) {
+	if (randomizationOptions->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
 		toggle_AllowRepeatChoices.setEnabled(false);
 	}
 	else {
-		auto repeatValuesAreAllowed{ randomizationOptions->repeatChoicesAreAllowedFor(paramIndex) };
+		auto repeatValuesAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
 		toggle_AllowRepeatChoices.setToggleState(repeatValuesAreAllowed, dontSendNotification);
 	}
 	toggle_AllowRepeatChoices.onClick = [this, randomizationOptions, paramIndex] {
 		auto allowed{ toggle_AllowRepeatChoices.getToggleState() };
 		if (allowed)
-			randomizationOptions->setRepeatChoicesAreAllowedFor(paramIndex);
+			randomizationOptions->setRepeatChoicesAreAllowedForParam(paramIndex);
 		else
-			randomizationOptions->repeatChoicesAreForbiddenFor(paramIndex);
+			randomizationOptions->repeatChoicesAreForbiddenForParam(paramIndex);
 	};
 	toggle_AllowRepeatChoices.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
@@ -83,7 +83,7 @@ void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& tree, const I
 			}
 			else {
 				auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-				auto allowed{ randomizationOptions->repeatChoicesAreAllowedFor(paramIndex) };
+				auto allowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
 				toggle_AllowRepeatChoices.setToggleState(allowed, dontSendNotification);
 				toggle_AllowRepeatChoices.setEnabled(true);
 			}

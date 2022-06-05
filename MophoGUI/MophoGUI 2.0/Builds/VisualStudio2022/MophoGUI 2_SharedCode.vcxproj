@@ -179,7 +179,9 @@
     <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.cpp"/>
     <ClCompile Include="..\..\Source\midi\1_midi_VoiceDataMessage.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.cpp"/>
     <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp"/>
@@ -2224,7 +2226,9 @@
     <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.h"/>
     <ClInclude Include="..\..\Source\midi\1_midi_ParameterChangeMessage.h"/>
     <ClInclude Include="..\..\Source\midi\1_midi_VoiceDataMessage.h"/>
+    <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.h"/>
     <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.h"/>
+    <ClInclude Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h"/>
@@ -3074,6 +3078,8 @@
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Banks_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Banks_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png"/>
@@ -3100,6 +3106,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Read_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>
