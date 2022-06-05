@@ -631,6 +631,9 @@
     <ClCompile Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -2992,6 +2995,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">

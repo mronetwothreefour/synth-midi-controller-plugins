@@ -63,8 +63,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 38 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 12 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_1_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + GUI::knob_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscPitch(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscPitch(verbose) }
@@ -91,8 +91,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_2_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + GUI::knob_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscFineTune(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscFineTune(verbose) }
@@ -119,8 +119,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_3_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + GUI::knob_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscShape(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscShape(verbose) }
@@ -147,8 +147,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 26 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_4_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + GUI::knob_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
@@ -175,8 +175,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_6_x + GUI::toggle_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Toggles_y : oscRow_2_Toggles_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + GUI::toggle_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Toggles_y : oscRow_2_Toggles_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 							ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -203,8 +203,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 26 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesLayer_x, controlsCol_5_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesLayer_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + GUI::knob_diameter },
+							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
@@ -232,8 +232,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
-						{ ID::property_AllowedChoicesLayer_x, controlsCol_6_x + GUI::toggle_diameter },
-						{ ID::property_AllowedChoicesLayer_y, 11 },
+						{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + GUI::toggle_diameter },
+						{ ID::property_AllowedChoicesBackground_y, 11 },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 						ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -260,8 +260,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 124 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 3 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
-						{ ID::property_AllowedChoicesLayer_x, controlsCol_6_x + 72 },
-						{ ID::property_AllowedChoicesLayer_y, 70 },
+						{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + 72 },
+						{ ID::property_AllowedChoicesBackground_y, 70 },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_GlideMode(concise) },
 						ValueTree{ ChoiceNames::buildFor_GlideMode(verbose) }
@@ -288,8 +288,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 14 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 5 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
-						{ ID::property_AllowedChoicesLayer_x, controlsCol_7_x + GUI::knob_diameter },
-						{ ID::property_AllowedChoicesLayer_y, oscRow_1_Knobs_y },
+						{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + GUI::knob_diameter },
+						{ ID::property_AllowedChoicesBackground_y, oscRow_1_Knobs_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, verbose) }
@@ -316,8 +316,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
-						{ ID::property_AllowedChoicesLayer_x, controlsCol_9_x + GUI::knob_diameter },
-						{ ID::property_AllowedChoicesLayer_y, oscRow_1_Knobs_y },
+						{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + GUI::knob_diameter },
+						{ ID::property_AllowedChoicesBackground_y, oscRow_1_Knobs_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_BendRange(concise) },
 						ValueTree{ ChoiceNames::buildFor_BendRange(verbose) }
@@ -2135,11 +2135,18 @@ int InfoForExposedParameters::firstAllowChoiceToggleRowFor(uint8 paramIndex) con
 	return firstRow;
 }
 
-Point<int> InfoForExposedParameters::allowedChoicesTopLeftPosition_For(uint8 paramIndex) const {
+int InfoForExposedParameters::allowedChoicesBackground_x_For(uint8 paramIndex) const {
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
-	auto layer_x{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesLayer_x) };
-	auto layer_y{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesLayer_y) };
-	return Point<int>{ layer_x, layer_y };
+	auto background_x{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesBackground_x) };
+	return background_x;
+}
+
+int InfoForExposedParameters::allowedChoicesBackground_y_For(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto background_y{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesBackground_y) };
+	return background_y;
 }

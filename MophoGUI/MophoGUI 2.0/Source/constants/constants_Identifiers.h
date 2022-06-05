@@ -18,6 +18,7 @@ namespace MophoConstants
 		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
 		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
 
+		const Identifier button_AllowAll{ "button_AllowAll" };
 		const Identifier button_Banks{ "button_Banks" };
 		const Identifier button_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
 		const Identifier button_Cancel_ImportExport{ "button_Cancel_ImportExport" };
@@ -40,6 +41,7 @@ namespace MophoConstants
 		const Identifier button_Pull_VoicesBank_{ "button_Pull_VoicesBank_" };
 		const Identifier button_Push_SelectedVoice{ "button_Push_SelectedVoice" };
 		const Identifier button_Push_VoicesBank_{ "button_Push_VoicesBank_" };
+		const Identifier button_Randomize{ "button_Randomize" };
 		const Identifier button_Read{ "button_Read" };
 		const Identifier button_Redo{ "button_Redo" };
 		const Identifier button_Retry{ "button_Retry" };
@@ -154,8 +156,8 @@ namespace MophoConstants
 		const Identifier global_Transpose{ "global_Transpose" };
 		const Identifier global_VoiceChanges{ "global_VoiceChanges" };
 
-		const Identifier property_AllowedChoicesLayer_x{ "property_AllowedChoicesLayer_x" };
-		const Identifier property_AllowedChoicesLayer_y{ "property_AllowedChoicesLayer_y" };
+		const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
+		const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
 		const Identifier property_Center_x{ "property_ControlCenter_x" };
 		const Identifier property_Center_y{ "property_ControlCenter_y" };
 		const Identifier property_ControlType{ "property_ControlType" };

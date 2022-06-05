@@ -360,6 +360,10 @@
               resource="0" file="Source/randomization/0_rndm_ParamRandomizationMethods.cpp"/>
         <FILE id="CWVTZ2" name="0_rndm_ParamRandomizationMethods.h" compile="0"
               resource="0" file="Source/randomization/0_rndm_ParamRandomizationMethods.h"/>
+        <FILE id="TdIPAG" name="1_rndm_gui_layer_AllowedChoices.cpp" compile="1"
+              resource="0" file="Source/randomization/1_rndm_gui_layer_AllowedChoices.cpp"/>
+        <FILE id="X3Kl3Z" name="1_rndm_gui_layer_AllowedChoices.h" compile="0"
+              resource="0" file="Source/randomization/1_rndm_gui_layer_AllowedChoices.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

@@ -13,3 +13,7 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters()
 void ParamRandomizationMethods::randomizeParameter(String paramID)
 {
 }
+
+void ParamRandomizationMethods::timerCallback()
+{
+}

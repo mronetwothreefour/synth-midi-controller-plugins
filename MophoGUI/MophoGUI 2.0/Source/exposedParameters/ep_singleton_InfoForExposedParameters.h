@@ -46,7 +46,8 @@ public:
 	int widthOfAllowChoiceToggleColumnFor(uint8 paramIndex) const;
 	int numberOfAllowChoiceToggleRowsFor(uint8 paramIndex) const;
 	int firstAllowChoiceToggleRowFor(uint8 paramIndex) const;
-	Point<int> allowedChoicesTopLeftPosition_For(uint8 paramIndex) const;
+	int allowedChoicesBackground_x_For(uint8 paramIndex) const;
+	int allowedChoicesBackground_y_For(uint8 paramIndex) const;
 
 private:
 	//==============================================================================
