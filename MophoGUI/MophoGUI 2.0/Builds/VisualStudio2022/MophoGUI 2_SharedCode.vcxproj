@@ -183,6 +183,7 @@
     <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.cpp"/>
     <ClCompile Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices_OscShape.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp"/>
@@ -2231,6 +2232,7 @@
     <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.h"/>
     <ClInclude Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.h"/>
+    <ClInclude Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices_OscShape.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h"/>

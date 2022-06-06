@@ -10,6 +10,7 @@ namespace MophoConstants
 	{
 		const float tooltipMaxWidth{ 400.0f };
 
+		const int allowChoiceToggle_h{ 16 };
 		const int allowedChoices_Inset{ 17 };
 		const int allowedChoices_VertGap{ 10 };
 		const int button_AllowAll_w{ 72 };

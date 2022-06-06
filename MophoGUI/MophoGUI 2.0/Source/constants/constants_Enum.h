@@ -5,6 +5,15 @@
 
 namespace MophoConstants
 {
+	const enum class AllowedChoicesType {
+		standard = 0,
+		oscShape,
+		binary,
+		lfoFreq,
+		seqTrackStep
+	};
+
+
 	const enum class BankTransmitType {
 		push = 0,
 		pull

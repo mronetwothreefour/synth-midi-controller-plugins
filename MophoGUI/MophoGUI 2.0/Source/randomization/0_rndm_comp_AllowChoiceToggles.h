@@ -13,11 +13,10 @@ class AllowChoiceToggles :
 {
 	uint8 paramIndex;
 	UnexposedParameters* unexposedParams;
-	std::vector<ToggleButton> allowedChoiceToggles;
+	std::vector<std::unique_ptr<ToggleButton>> allowedChoiceToggles;
 	uint8 numberOfChoices;
 	int numberOfColumns;
 	int numberOfRows;
-	int toggle_h{ 16 };
 	int toggle_w;
 
 public:

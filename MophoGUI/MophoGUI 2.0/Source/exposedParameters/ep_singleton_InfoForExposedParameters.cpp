@@ -59,6 +59,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscPitch(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 11 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 38 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 12 },
@@ -87,6 +88,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscFine(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 11 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
@@ -115,6 +117,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscShape(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::oscShape },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
@@ -143,6 +146,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscGlide(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 13 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 26 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
@@ -171,6 +175,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::toggle_diameter },
 							{ ID::property_Height, GUI::toggle_diameter },
 							{ ID::property_Description, Description::buildFor_OscKeyTrack(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
@@ -199,6 +204,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscSubLevel(oscNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 13 },
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 26 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
@@ -228,6 +234,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_OscSync() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
@@ -256,6 +263,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 124 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_GlideMode() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 124 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 3 },
@@ -284,6 +292,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_OscSlop() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 14 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 5 },
@@ -312,6 +321,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_BendRange() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 2 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
@@ -340,6 +350,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 124 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_NotePriority() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_NotePriority(concise) },
 						ValueTree{ ChoiceNames::buildFor_NotePriority(verbose) }
@@ -362,6 +373,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_OscMix() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -384,6 +396,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_NoiseLevel() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -406,6 +419,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_ExtInLevel() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -434,6 +448,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_Freq() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_LPF_Freq(concise) },
 						ValueTree{ ChoiceNames::buildFor_LPF_Freq(verbose) }
@@ -456,6 +471,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_Reso() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -478,6 +494,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_KeyAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -500,6 +517,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_FM_Amount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -522,6 +540,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_Type() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_LPF_Type(concise) },
 						ValueTree{ ChoiceNames::buildFor_LPF_Type(verbose) }
@@ -544,6 +563,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_LPF_EnvAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -566,6 +586,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -588,6 +609,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -610,6 +632,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -632,6 +655,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -654,6 +678,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -676,6 +701,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::lpf) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -703,6 +729,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_VCA_Level() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -725,6 +752,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_VCA_EnvAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -747,6 +775,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -769,6 +798,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -791,6 +821,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -813,6 +844,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -835,6 +867,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -857,6 +890,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::vca) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -879,6 +913,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_VoiceVolume() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -914,6 +949,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_LFO_Freq(lfoNum + 1) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::lfoFreq },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_LFO_Freq(concise) },
 							ValueTree{ ChoiceNames::buildFor_LFO_Freq(verbose) }
@@ -940,6 +976,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, 134 },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, Description::buildFor_LFO_Shape(lfoNum + 1) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_LFO_Shape(concise) },
 							ValueTree{ ChoiceNames::buildFor_LFO_Shape(verbose) }
@@ -966,6 +1003,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_LFO_Amount(lfoNum + 1) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 							ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -992,6 +1030,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, 134 },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, modDestinationParamDescription + String(" by LFO ") + String(lfoNum + 1) + "." },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 							ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1018,6 +1057,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::toggle_diameter },
 							{ ID::property_Height, GUI::toggle_diameter },
 							{ ID::property_Description, Description::buildFor_LFO_KeySync(lfoNum + 1) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 							ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -1046,6 +1086,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 126 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(" by envelope 3.") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1090,6 +1131,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1112,6 +1154,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1134,6 +1177,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1156,6 +1200,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1178,6 +1223,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1200,6 +1246,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::env_3) },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1222,6 +1269,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_Env_3_Repeat() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 						ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -1256,6 +1304,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, modulatorComboBox_w },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, "Selects the modulation source." },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_ModSource(concise) },
 							ValueTree{ ChoiceNames::buildFor_ModSource(verbose) }
@@ -1282,6 +1331,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_ModAmount() },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 							ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1308,6 +1358,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, modulatorComboBox_w },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, "Selects the target parameter for modulation." },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 							ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1343,6 +1394,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_MIDI_ModWheelAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1365,6 +1417,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, midiControllerComboBox_w },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(".") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1387,6 +1440,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_MIDI_PressureAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1409,6 +1463,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, midiControllerComboBox_w },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(".") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1431,6 +1486,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_MIDI_BreathAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1453,6 +1509,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, midiControllerComboBox_w },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(".") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1475,6 +1532,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_MIDI_VelocityAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1497,6 +1555,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, midiControllerComboBox_w },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(".") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1519,6 +1578,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_MIDI_PedalAmount() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1541,6 +1601,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, midiControllerComboBox_w },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, modDestinationParamDescription + String(".") },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -1567,6 +1628,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_PushItPitch() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OscPitch(concise) },
 						ValueTree{ ChoiceNames::buildFor_OscPitch(verbose) }
@@ -1589,6 +1651,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_PushItVelocity() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
@@ -1611,6 +1674,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 88 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_PushItMode() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PushItMode(concise) },
 						ValueTree{ ChoiceNames::buildFor_PushItMode(verbose) }
@@ -1637,6 +1701,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_ClockTempo() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ClockTempo(concise) },
 						ValueTree{ ChoiceNames::buildFor_ClockTempo(verbose) }
@@ -1659,6 +1724,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 126 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_ClockDivision() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ClockDivision(concise) },
 						ValueTree{ ChoiceNames::buildFor_ClockDivision(verbose) }
@@ -1681,6 +1747,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 124 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_ArpegMode() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ArpegMode(concise) },
 						ValueTree{ ChoiceNames::buildFor_ArpegMode(verbose) }
@@ -1703,6 +1770,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_ArpegOnOff() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 						ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -1727,6 +1795,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, 114 },
 						{ ID::property_Height, GUI::comboBox_h },
 						{ ID::property_Description, Description::buildFor_SeqTrigMode() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_SeqTrigMode(concise) },
 						ValueTree{ ChoiceNames::buildFor_SeqTrigMode(verbose) }
@@ -1749,6 +1818,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_SeqOnOff() },
+						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 						ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -1781,6 +1851,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, seqTrackDestComboBoxes_w },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, Description::buildFor_SeqTrackDestination(trackNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ trackNumIsEven ? 
 								ChoiceNames::buildFor_SeqTracks_2_4_Destination(trackNum, concise) : 
@@ -1819,6 +1890,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, knobAssignComboBoxes_w },
 							{ ID::property_Height, GUI::comboBox_h },
 							{ ID::property_Description, Description::buildFor_KnobAssign(knobNum) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_KnobAssign(concise) },
 							ValueTree{ ChoiceNames::buildFor_KnobAssign(verbose) }
@@ -1854,6 +1926,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 								{ ID::property_Width, GUI::seqSteps_w },
 								{ ID::property_Height, GUI::seqSteps_h },
 								{ ID::property_Description, Description::buildFor_SeqTrackStep(trackNum + 1, stepNum + 1) },
+								{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::seqTrackStep },
 							}, {
 								ValueTree{ ChoiceNames::buildFor_SeqTrackStep(concise) },
 								ValueTree{ ChoiceNames::buildFor_SeqTrackStep(verbose) }
@@ -1885,6 +1958,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Width, GUI::seqSteps_w },
 							{ ID::property_Height, GUI::seqSteps_h },
 							{ ID::property_Description, Description::buildFor_VoiceNameChar(charNum + 1) },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_VoiceNameChar(concise) },
 							ValueTree{ ChoiceNames::buildFor_VoiceNameChar(verbose) }
@@ -1945,26 +2019,8 @@ ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
-	auto controlType{ (int)paramTree.getChild(0).getProperty(ID::property_ControlType) };
-	switch (controlType)
-	{
-	case (int)ControlType::knob:
-		return ControlType::knob;
-	case (int)ControlType::knobForPitch:
-		return ControlType::knobForPitch;
-	case (int)ControlType::knobForOscShape:
-		return ControlType::knobForOscShape;
-	case (int)ControlType::toggleButton:
-		return ControlType::toggleButton;
-	case (int)ControlType::comboBox:
-		return ControlType::comboBox;
-	case (int)ControlType::seqTrackStep:
-		return ControlType::seqTrackStep;
-	case (int)ControlType::voiceNameChar:
-		return ControlType::voiceNameChar;
-	default:
-		return ControlType::nullControl;
-	}
+	auto controlTypeIndex{ (int)paramTree.getChild(0).getProperty(ID::property_ControlType) };
+	return ControlType{ controlTypeIndex };
 }
 
 uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
@@ -2101,6 +2157,14 @@ uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	auto lsByteLocation{ (int)paramTree.getChild(0).getProperty(ID::property_LSByteLocation) };
 	return (uint8)lsByteLocation;
+}
+
+AllowedChoicesType InfoForExposedParameters::allowedChoicesTypeFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto allowedChoicesTypeIndex{ (int)paramTree.getChild(0).getProperty(ID::property_NumberOfAllowChoiceToggleColumns) };
+	return AllowedChoicesType{ allowedChoicesTypeIndex };
 }
 
 int InfoForExposedParameters::numberOfAllowChoiceToggleColumnsFor(uint8 paramIndex) const {

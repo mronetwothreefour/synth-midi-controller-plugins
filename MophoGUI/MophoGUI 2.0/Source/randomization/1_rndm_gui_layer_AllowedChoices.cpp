@@ -17,8 +17,8 @@ GUI_Layer_AllowedChoices::GUI_Layer_AllowedChoices(
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	button_Close{ unexposedParams },
-	allowedValuesToggles{ paramIndex, unexposedParams },
-	repeatValues{ paramIndex, unexposedParams },
+	allowChoiceToggles{ paramIndex, unexposedParams },
+	repeatChoicesToggle{ paramIndex, unexposedParams },
 	childrenShouldBeStackedVertically{ false }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
@@ -27,50 +27,50 @@ GUI_Layer_AllowedChoices::GUI_Layer_AllowedChoices(
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 
-	button_ForAllowingAllValues.setComponentID(ID::button_AllowAll.toString());
-	button_ForAllowingAllValues.onClick = [this] { allowedValuesToggles.allowAllChoices(); };
+	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
+	button_AllowAll.onClick = [this] { allowChoiceToggles.allowAllChoices(); };
 	if (shouldShowDescriptions) {
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all the choices when\n";
 		buttonTooltip += "generating a random setting for\n";
 		buttonTooltip += paramName + ".";
-		button_ForAllowingAllValues.setTooltip(buttonTooltip);
+		button_AllowAll.setTooltip(buttonTooltip);
 	}
-	button_ForAllowingAllValues.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
-	addAndMakeVisible(button_ForAllowingAllValues);
+	button_AllowAll.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
+	addAndMakeVisible(button_AllowAll);
 
-	addAndMakeVisible(repeatValues);
+	addAndMakeVisible(repeatChoicesToggle);
 
 	addAndMakeVisible(button_Close);
 
-	addAndMakeVisible(allowedValuesToggles);
+	addAndMakeVisible(allowChoiceToggles);
 
-	button_ForRandomizingParameter.setComponentID(ID::button_Randomize.toString());
-	button_ForRandomizingParameter.onClick = [exposedParams, unexposedParams, paramIndex] {
+	button_Randomize.setComponentID(ID::button_Randomize.toString());
+	button_Randomize.onClick = [exposedParams, unexposedParams, paramIndex] {
 		auto& info{ InfoForExposedParameters::get() };
 		auto paramID{ info.IDfor(paramIndex).toString() };
 		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
 		paramRandomizationMethods.randomizeParameter(paramID);
 	};
 	if (shouldShowDescriptions)
-		button_ForRandomizingParameter.setTooltip("Click to assign a random setting\nto " + paramName + ".");
-	button_ForRandomizingParameter.setSize(GUI::button_Randomize_w, GUI::redButton_h);
-	addAndMakeVisible(button_ForRandomizingParameter);
+		button_Randomize.setTooltip("Click to assign a random setting\nto " + paramName + ".");
+	button_Randomize.setSize(GUI::button_Randomize_w, GUI::redButton_h);
+	addAndMakeVisible(button_Randomize);
 
 	background_x = info.allowedChoicesBackground_x_For(paramIndex);
 	background_y = info.allowedChoicesBackground_y_For(paramIndex);
 	background_w = 2 * GUI::allowedChoices_Inset;
-	background_h = 2 * GUI::allowedChoices_Inset + allowedValuesToggles.getHeight();
-	if (allowedValuesToggles.getWidth() < (button_ForAllowingAllValues.getWidth() + repeatValues.getWidth() + button_Close.getWidth()))
+	background_h = 2 * GUI::allowedChoices_Inset + allowChoiceToggles.getHeight();
+	if (allowChoiceToggles.getWidth() < (button_AllowAll.getWidth() + repeatChoicesToggle.getWidth() + button_Close.getWidth()))
 		childrenShouldBeStackedVertically = true;
 	if (childrenShouldBeStackedVertically) {
-		background_w += jmax(button_ForRandomizingParameter.getWidth(), allowedValuesToggles.getWidth());
+		background_w += jmax(button_Randomize.getWidth(), allowChoiceToggles.getWidth());
 		background_h += 3 * GUI::redButton_h;
-		background_h += repeatValues.getHeight();
+		background_h += repeatChoicesToggle.getHeight();
 		background_h += 4 * GUI::allowedChoices_VertGap;
 	}
 	else {
-		background_w += allowedValuesToggles.getWidth();
+		background_w += allowChoiceToggles.getWidth();
 		background_h += 2 * GUI::redButton_h;
 		background_h += 2 * GUI::allowedChoices_VertGap;
 	}
@@ -101,24 +101,24 @@ void GUI_Layer_AllowedChoices::resized() {
 	auto center_y{ background_y + GUI::allowedChoices_Inset };
 	if (childrenShouldBeStackedVertically) {
 		center_y += GUI::redButton_h / 2;
-		button_ForAllowingAllValues.setCentrePosition(center_x, center_y);
-		center_y += GUI::redButton_h / 2 + GUI::allowedChoices_VertGap + allowedValuesToggles.getHeight() / 2;
-		allowedValuesToggles.setCentrePosition(center_x, center_y);
-		center_y += allowedValuesToggles.getHeight() / 2 + GUI::allowedChoices_VertGap + repeatValues.getHeight() / 2;
-		repeatValues.setCentrePosition(center_x, center_y);
-		center_y += repeatValues.getHeight() / 2 + GUI::allowedChoices_VertGap + GUI::redButton_h / 2;
-		button_ForRandomizingParameter.setCentrePosition(center_x, center_y);
+		button_AllowAll.setCentrePosition(center_x, center_y);
+		center_y += GUI::redButton_h / 2 + GUI::allowedChoices_VertGap + allowChoiceToggles.getHeight() / 2;
+		allowChoiceToggles.setCentrePosition(center_x, center_y);
+		center_y += allowChoiceToggles.getHeight() / 2 + GUI::allowedChoices_VertGap + repeatChoicesToggle.getHeight() / 2;
+		repeatChoicesToggle.setCentrePosition(center_x, center_y);
+		center_y += repeatChoicesToggle.getHeight() / 2 + GUI::allowedChoices_VertGap + GUI::redButton_h / 2;
+		button_Randomize.setCentrePosition(center_x, center_y);
 		center_y += GUI::redButton_h / 2 + GUI::allowedChoices_VertGap + GUI::redButton_h / 2;
 		button_Close.setCentrePosition(center_x, center_y);
 	}
 	else {
-		button_ForAllowingAllValues.setTopLeftPosition(background_x + GUI::allowedChoices_Inset, background_y + GUI::allowedChoices_Inset);
+		button_AllowAll.setTopLeftPosition(background_x + GUI::allowedChoices_Inset, background_y + GUI::allowedChoices_Inset);
 		center_y += GUI::redButton_h / 2;
-		repeatValues.setCentrePosition(center_x, center_y);
+		repeatChoicesToggle.setCentrePosition(center_x, center_y);
 		button_Close.setTopRightPosition(background_x + background_w - GUI::allowedChoices_Inset, background_y + GUI::allowedChoices_Inset);
-		center_y += GUI::redButton_h / 2 + GUI::allowedChoices_VertGap + allowedValuesToggles.getHeight() / 2;
-		allowedValuesToggles.setCentrePosition(center_x, center_y);
-		center_y += allowedValuesToggles.getHeight() / 2 + GUI::allowedChoices_VertGap + GUI::redButton_h / 2;
-		button_ForRandomizingParameter.setCentrePosition(center_x, center_y);
+		center_y += GUI::redButton_h / 2 + GUI::allowedChoices_VertGap + allowChoiceToggles.getHeight() / 2;
+		allowChoiceToggles.setCentrePosition(center_x, center_y);
+		center_y += allowChoiceToggles.getHeight() / 2 + GUI::allowedChoices_VertGap + GUI::redButton_h / 2;
+		button_Randomize.setCentrePosition(center_x, center_y);
 	}
 }

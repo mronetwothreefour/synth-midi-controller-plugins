@@ -42,6 +42,7 @@ public:
 	uint16 msBitPackedByteLocationFor(uint8 paramIndex) const;
 	uint8 msBitMaskFor(uint8 paramIndex) const;
 	uint16 lsByteLocationFor(uint8 paramIndex) const;
+	AllowedChoicesType allowedChoicesTypeFor(uint8 paramIndex) const;
 	int numberOfAllowChoiceToggleColumnsFor(uint8 paramIndex) const;
 	int widthOfAllowChoiceToggleColumnFor(uint8 paramIndex) const;
 	int numberOfAllowChoiceToggleRowsFor(uint8 paramIndex) const;

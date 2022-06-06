@@ -16,11 +16,11 @@ class GUI_Layer_AllowedChoices :
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	TextButton button_ForAllowingAllValues;
-	AllowRepeatChoicesToggle repeatValues;
+	TextButton button_AllowAll;
+	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;
-	AllowChoiceToggles allowedValuesToggles;
-	TextButton button_ForRandomizingParameter;
+	AllowChoiceToggles allowChoiceToggles;
+	TextButton button_Randomize;
 	bool childrenShouldBeStackedVertically;
 	int background_x;
 	int background_y;

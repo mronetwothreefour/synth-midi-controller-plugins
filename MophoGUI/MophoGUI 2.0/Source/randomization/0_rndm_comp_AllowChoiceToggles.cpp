@@ -24,12 +24,12 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, UnexposedParameters* un
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
-		allowedChoiceToggles.push_back(ToggleButton{ info.choiceNameFor(choiceNum, paramIndex) });
-		allowedChoiceToggles[choiceNum].setComponentID(ID::component_ToggleAllowChoice_.toString() + (String)choiceNum + "_For_" + paramID);
+		allowedChoiceToggles.push_back(std::make_unique<ToggleButton>(info.choiceNameFor(choiceNum, paramIndex)));
+		allowedChoiceToggles[choiceNum]->setComponentID(ID::component_ToggleAllowChoice_.toString() + (String)choiceNum + "_For_" + paramID);
 		auto choiceIsAllowed{ randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) };
-		allowedChoiceToggles[choiceNum].setToggleState(choiceIsAllowed, dontSendNotification);
-		allowedChoiceToggles[choiceNum].addListener(this);
-		addAndMakeVisible(allowedChoiceToggles[choiceNum]);
+		allowedChoiceToggles[choiceNum]->setToggleState(choiceIsAllowed, dontSendNotification);
+		allowedChoiceToggles[choiceNum]->addListener(this);
+		addAndMakeVisible(allowedChoiceToggles[choiceNum].get());
 		if (shouldShowDescriptions) {
 			String buttonTooltip{ "" };
 			buttonTooltip += "Click a choice to toggle whether or not it\n";
@@ -39,13 +39,14 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, UnexposedParameters* un
 			buttonTooltip += "allowed. SHIFT-click to allow a range of\n";
 			buttonTooltip += "choices. ALT-click to allow a range of choices\n";
 			buttonTooltip += "that are all in the same row.";
-			allowedChoiceToggles[choiceNum].setTooltip(buttonTooltip);
+			allowedChoiceToggles[choiceNum]->setTooltip(buttonTooltip);
 		}
 	}
 	numberOfColumns = info.numberOfAllowChoiceToggleColumnsFor(paramIndex);
 	numberOfRows = info.numberOfAllowChoiceToggleRowsFor(paramIndex);
+	toggle_w = info.widthOfAllowChoiceToggleColumnFor(paramIndex);
 	auto component_w{ numberOfColumns * toggle_w };
-	auto component_h{ numberOfRows * toggle_h };
+	auto component_h{ numberOfRows * GUI::allowChoiceToggle_h };
 	setSize(component_w, component_h);
 }
 
@@ -58,7 +59,7 @@ void AllowChoiceToggles::resized() {
 			rowCount = 0;
 			++colCount;
 		}
-		allowedChoiceToggles[choiceNum].setBounds(colCount * toggle_w, rowCount * toggle_h, toggle_w, toggle_h);
+		allowedChoiceToggles[choiceNum]->setBounds(colCount * toggle_w, rowCount * GUI::allowChoiceToggle_h, toggle_w, GUI::allowChoiceToggle_h);
 		++rowCount;
 	}
 }
@@ -73,11 +74,11 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
 			for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum) {
 				if (choiceNum == clickedChoice) {
-					allowedChoiceToggles[clickedChoice].setToggleState(true, dontSendNotification);
+					allowedChoiceToggles[clickedChoice]->setToggleState(true, dontSendNotification);
 					randomizationOptions->allowChoiceForParam(clickedChoice, paramIndex);
 				}
 				else {
-					allowedChoiceToggles[choiceNum].setToggleState(false, dontSendNotification);
+					allowedChoiceToggles[choiceNum]->setToggleState(false, dontSendNotification);
 					randomizationOptions->forbidChoiceForParam(choiceNum, paramIndex);
 				}
 			}
@@ -101,19 +102,19 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 			if (nextAllowedChoice != numberOfChoices) {
 				if (nextAllowedChoice < clickedChoice) {
 					for (auto choice = nextAllowedChoice; choice <= clickedChoice; ++choice) {
-						allowedChoiceToggles[choice].setToggleState(true, dontSendNotification);
+						allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
 						randomizationOptions->allowChoiceForParam(choice, paramIndex);
 					}
 				}
 				else {
 					for (auto choice = clickedChoice; choice <= nextAllowedChoice; ++choice) {
-						allowedChoiceToggles[choice].setToggleState(true, dontSendNotification);
+						allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
 						randomizationOptions->allowChoiceForParam(choice, paramIndex);
 					}
 				}
 			}
 			else {
-				allowedChoiceToggles[clickedChoice].setToggleState(true, dontSendNotification);
+				allowedChoiceToggles[clickedChoice]->setToggleState(true, dontSendNotification);
 				randomizationOptions->allowChoiceForParam(clickedChoice, paramIndex);
 			}
 		}
@@ -136,19 +137,19 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 			if (nextAllowedChoice != numberOfChoices) {
 				if (nextAllowedChoice < clickedChoice) {
 					for (auto choice = nextAllowedChoice; choice <= clickedChoice; choice += (uint8)numberOfRows) {
-						allowedChoiceToggles[choice].setToggleState(true, dontSendNotification);
+						allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
 						randomizationOptions->allowChoiceForParam(choice, paramIndex);
 					}
 				}
 				else {
 					for (auto choice = clickedChoice; choice <= nextAllowedChoice; choice += (uint8)numberOfRows) {
-						allowedChoiceToggles[choice].setToggleState(true, dontSendNotification);
+						allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
 						randomizationOptions->allowChoiceForParam(choice, paramIndex);
 					}
 				}
 			}
 			else {
-				allowedChoiceToggles[clickedChoice].setToggleState(true, dontSendNotification);
+				allowedChoiceToggles[clickedChoice]->setToggleState(true, dontSendNotification);
 				randomizationOptions->allowChoiceForParam(clickedChoice, paramIndex);
 			}
 		}
@@ -160,7 +161,7 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 				randomizationOptions->forbidChoiceForParam(clickedChoice, paramIndex);
 		}
 		if (randomizationOptions->noChoiceIsAllowedForParam(paramIndex)) {
-			allowedChoiceToggles[clickedChoice].setToggleState(true, dontSendNotification);
+			allowedChoiceToggles[clickedChoice]->setToggleState(true, dontSendNotification);
 			randomizationOptions->allowChoiceForParam(clickedChoice, paramIndex);
 		}
 	}
@@ -168,15 +169,15 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 
 void AllowChoiceToggles::allowAllChoices() {
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-	auto& info{ InfoForExposedParameters::get() };
 	for (auto choice = 0; choice < numberOfChoices; ++choice) {
-		allowedChoiceToggles[choice].setToggleState(true, dontSendNotification);
+		allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
 		randomizationOptions->allowChoiceForParam((uint8)choice, paramIndex);
 	}
 }
 
 AllowChoiceToggles::~AllowChoiceToggles() {
 	for (auto choice = 0; choice < numberOfChoices; ++choice) {
-		allowedChoiceToggles[choice].removeListener(this);
+		allowedChoiceToggles[choice]->removeListener(this);
 	}
+	allowedChoiceToggles.clear();
 }

@@ -15,10 +15,9 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	unexposedParams{ unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
+	auto paramID{ info.IDfor(paramIndex).toString()};
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->addListenerToChildTreeForParam(this, paramIndex);
-	auto paramID{ info.IDfor(paramIndex).toString() };
 	toggle_AllowRepeatChoices.setComponentID(ID::component_AllowRepeatChoicesToggleFor_.toString() + paramID);
 	if (randomizationOptions->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
