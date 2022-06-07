@@ -3,7 +3,10 @@
 #include <JuceHeader.h>
 
 #include "0_rndm_comp_AllowRepeatChoicesToggle.h"
+#include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
+
+using namespace MophoConstants;
 
 
 
@@ -16,19 +19,19 @@ class GUI_Layer_AllowedChoices_OscShape :
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
-	TextButton button_ForAllowingAllShapes;
+	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatValues;
 	ButtonForHidingLayer button_Close;
-	ToggleButton toggle_ForAllowingOff;
-	ToggleButton toggle_ForAllowingSawtooth;
-	ToggleButton toggle_ForAllowingTriangle;
-	ToggleButton toggle_ForAllowingSawTriMix;
-	ToggleButton toggle_ForAllowingPulse;
-	ToggleButton allowedPulseWidthsToggles[100];
-	TextButton button_ForRandomizingParameter;
-	const int pulseWidthToggleWidth{ 42 };
-	const int numberOfPulseWidthToggleColumns{ 10 };
-	const int numberOfPulseWidthToggleRows{ 10 };
+	ToggleButton toggle_Off;
+	ToggleButton toggle_Saw;
+	ToggleButton toggle_Tri;
+	ToggleButton toggle_SawTri;
+	ToggleButton toggle_Pulse;
+	static const int numberOfPulseWidths { 100 };
+	ToggleButton allowPulseWidthToggles[numberOfPulseWidths];
+	TextButton button_Randomize;
+	const int numberOfRows { 10 };
+	const int pulseWidthToggle_w{ 42 };
 	int background_x;
 	int background_y;
 	const int background_w{ 454 };
@@ -41,9 +44,11 @@ public:
 	void paint(Graphics& g) override;
 	void resized() override;
 	void buttonClicked(Button* button) override;
+	void makeShapeTheOnlyOneAllowed(OscWaveShape shape);
 	void allowAllShapes();
 	void disablePulseWidthToggles();
 	void restorePulseWidthToggles();
+	~GUI_Layer_AllowedChoices_OscShape();
 
 private:
 	//==============================================================================

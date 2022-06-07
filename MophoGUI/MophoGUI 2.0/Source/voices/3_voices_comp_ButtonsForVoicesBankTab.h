@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "2_voices_comp_VoiceSlots.h"
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
@@ -26,6 +27,7 @@ public:
 			tipString += "file which can be read by other instances of the MophoGUI plugin.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -53,6 +55,7 @@ public:
 			tipString += "which can be read by other instances of the MophoGUI plugin.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -81,6 +84,7 @@ public:
 			tipString += "bank with those stored in a file.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -109,6 +113,7 @@ public:
 			tipString += "a file into the selected storage slot.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -137,6 +142,7 @@ public:
 		}
 		setTooltip(tipString);
 		onClick = [this, voiceSlots] { voiceSlots->loadVoiceFromSelectedSlot(); };
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -164,6 +170,7 @@ public:
 			tipString += "the Mopho hardware into this plugin storage bank.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -192,6 +199,7 @@ public:
 		}
 		setTooltip(tipString);
 		onClick = [this, voiceSlots] { voiceSlots->pullSelectedVoiceFromHardware(); };
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -218,6 +226,7 @@ public:
 			tipString += "corresponding storage bank in the Mopho hardware.";
 		}
 		setTooltip(tipString);
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -246,6 +255,7 @@ public:
 		}
 		setTooltip(tipString);
 		onClick = [this, voiceSlots] { voiceSlots->pushSelectedVoiceToHardware(); };
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:
@@ -274,6 +284,7 @@ public:
 		}
 		setTooltip(tipString);
 		onClick = [this, voiceSlots] { voiceSlots->saveCurrentVoiceSettingsIntoSelectedSlot(); };
+		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
 private:

@@ -87,29 +87,26 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 }
 
 void GUI_Layer_GlobalParameters::resized() {
-	button_Close.setBounds(703, 121, button_Close.getWidth(), button_Close.getWidth());
+	button_Close.setTopLeftPosition(703, 121);
 	const int knobRow_y{ 153 };
-	knob_GlobalTranspose.setBounds(542, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
-	knob_GlobalFineTune.setBounds(617, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
-	knob_HardwareReceiveChannel.setBounds(692, knobRow_y, GUI::knob_diameter, GUI::knob_diameter);
+	knob_GlobalTranspose.setTopLeftPosition(542, knobRow_y);
+	knob_GlobalFineTune.setTopLeftPosition(617, knobRow_y);
+	knob_HardwareReceiveChannel.setTopLeftPosition(692, knobRow_y);
 	const int comboBoxes_x{ 630 };
-	const auto comboBoxes_w{ comboBox_MIDI_ClockSource.getWidth() };
-	comboBox_MIDI_ClockSource.setBounds(comboBoxes_x, 226, comboBoxes_w, GUI::comboBox_h);
-	comboBox_PedalMode.setBounds(comboBoxes_x, 246, comboBoxes_w, GUI::comboBox_h);
-	comboBox_VoiceChange.setBounds(comboBoxes_x, 266, comboBoxes_w, GUI::comboBox_h);
-	comboBox_ParamChangeSendType.setBounds(comboBoxes_x, 286, comboBoxes_w, GUI::comboBox_h);
-	const int displayLabels_h{ label_ParamChangeReceiveType.getHeight() };
-	const int displayLabels_w{ label_ParamChangeReceiveType.getWidth() };
+	comboBox_MIDI_ClockSource.setTopLeftPosition(comboBoxes_x, 226);
+	comboBox_PedalMode.setTopLeftPosition(comboBoxes_x, 246);
+	comboBox_VoiceChange.setTopLeftPosition(comboBoxes_x, 266);
+	comboBox_ParamChangeSendType.setTopLeftPosition(comboBoxes_x, 286);
 	const int displayLabels_x{ 514 };
-	label_ParamChangeReceiveType.setBounds(displayLabels_x, 311, displayLabels_w, displayLabels_h);
-	label_MIDI_ControllersStatus.setBounds(displayLabels_x, 331, displayLabels_w, displayLabels_h);
-	label_SysExStatus.setBounds(displayLabels_x, 351, displayLabels_w, displayLabels_h);
-	label_AudioOutput.setBounds(displayLabels_x, 371, displayLabels_w, displayLabels_h);
-	label_HardwareOutputBalance.setBounds(displayLabels_x, 391, displayLabels_w, displayLabels_h);
+	label_ParamChangeReceiveType.setTopLeftPosition(displayLabels_x, 311);
+	label_MIDI_ControllersStatus.setTopLeftPosition(displayLabels_x, 331);
+	label_SysExStatus.setTopLeftPosition(displayLabels_x, 351);
+	label_AudioOutput.setTopLeftPosition(displayLabels_x, 371);
+	label_HardwareOutputBalance.setTopLeftPosition(displayLabels_x, 391);
 	const int tooltipControls_x{ 678 };
-	toggle_CurrentValueTooltip.setBounds(tooltipControls_x, 441, GUI::toggle_diameter, GUI::toggle_diameter);
-	toggle_DescriptionTooltip.setBounds(tooltipControls_x, 461, GUI::toggle_diameter, GUI::toggle_diameter);
-	editorForTooltipDelay.setBounds(tooltipControls_x, 481, editorForTooltipDelay.getWidth(), GUI::comboBox_h);
+	toggle_CurrentValueTooltip.setTopLeftPosition(tooltipControls_x, 441);
+	toggle_DescriptionTooltip.setTopLeftPosition(tooltipControls_x, 461);
+	editorForTooltipDelay.setTopLeftPosition(tooltipControls_x, 481);
 }
 
 void GUI_Layer_GlobalParameters::timerCallback() {

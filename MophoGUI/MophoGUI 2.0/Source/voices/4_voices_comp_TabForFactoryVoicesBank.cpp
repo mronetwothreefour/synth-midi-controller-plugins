@@ -41,14 +41,13 @@ void TabForFactoryVoicesBank::paint(Graphics& g) {
 }
 
 void TabForFactoryVoicesBank::resized() {
-	voiceSlots.setBounds(15, 14, voiceSlots.getWidth(), voiceSlots.getHeight());
-	auto buttons_w{ GUI::voicesBanksLayerButtons_w };
+	voiceSlots.setTopLeftPosition(15, 14);
 	auto buttonsRow_y{ 334 };
-	button_LoadSelected.setBounds(183, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PushSelected.setBounds(238, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ExportSelected.setBounds(293, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PushBank.setBounds(638, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ExportBank.setBounds(693, buttonsRow_y, buttons_w, GUI::redButton_h);
+	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
+	button_PushSelected.setTopLeftPosition(238, buttonsRow_y);
+	button_ExportSelected.setTopLeftPosition(293, buttonsRow_y);
+	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
+	button_ExportBank.setTopLeftPosition(693, buttonsRow_y);
 }
 
 ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {

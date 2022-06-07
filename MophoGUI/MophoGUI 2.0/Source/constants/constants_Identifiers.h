@@ -58,11 +58,11 @@ namespace MophoConstants
 		const Identifier component_ImportExportBrowser{ "component_ImportExportBrowser" };
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_RedToggle{ "component_RedToggle" };
-		const Identifier component_RedToggle_AllowOscShape_Off_For_{ "component_RedToggle_AllowOscShape_Off_For_" };
-		const Identifier component_RedToggle_AllowOscShape_Pulse_For_{ "component_RedToggle_AllowOscShape_Pulse_For_" };
-		const Identifier component_RedToggle_AllowOscShape_Saw_For_{ "component_RedToggle_AllowOscShape_Saw_For_" };
-		const Identifier component_RedToggle_AllowOscShape_SawTri_For_{ "component_RedToggle_AllowOscShape_SawTri_For_" };
-		const Identifier component_RedToggle_AllowOscShape_Tri_For_{ "component_RedToggle_AllowOscShape_Tri_For_" };
+		const Identifier component_RedToggle_AllowOscShape_Off{ "component_RedToggle_AllowOscShape_Off" };
+		const Identifier component_RedToggle_AllowOscShape_Pulse{ "component_RedToggle_AllowOscShape_Pulse" };
+		const Identifier component_RedToggle_AllowOscShape_Saw{ "component_RedToggle_AllowOscShape_Saw" };
+		const Identifier component_RedToggle_AllowOscShape_SawTri{ "component_RedToggle_AllowOscShape_SawTri" };
+		const Identifier component_RedToggle_AllowOscShape_Tri{ "component_RedToggle_AllowOscShape_Tri" };
 		const Identifier component_RedToggle_AllowRepeatChoices{ "component_RedToggle_AllowRepeatChoices" };
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };

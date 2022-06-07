@@ -13,7 +13,6 @@ RandomizationOptions::RandomizationOptions() :
 {
 	setTransmitMethodIsSysEx();
 
-	auto& info{ InfoForExposedParameters::get() };
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto allowedChoicesType{ info.allowedChoicesTypeFor(paramIndex) };
@@ -33,24 +32,22 @@ RandomizationOptions::RandomizationOptions() :
 			for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
 				allowChoiceForParam(choiceNum, paramIndex);
 		}
-
 		if (allowedChoicesType == AllowedChoicesType::oscShape) {
 			for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape)
 				allowOscShapeForParam(OscWaveShape{ shape }, paramIndex);
 			for (auto width = 0; width < 100; ++width)
 				allowPulseWidthForParam(width, paramIndex);
 		}
-
-		if (allowedChoicesType == AllowedChoicesType::lfoFreq) {
-			for (auto category = (int)LFO_FreqCategory::unsynced; category <= (int)LFO_FreqCategory::synced; ++category)
-				allowCategoryForLFO_FreqParam(LFO_FreqCategory{ category }, paramIndex);
-			for (auto unsyncedFreq = 0; unsyncedFreq < EP::numberOfUnsyncedLFO_Frequencies; ++unsyncedFreq)
-				allowUnsyncedFreqForLFO_FreqParam(unsyncedFreq, paramIndex);
-			for (auto pitchedFreq = 0; pitchedFreq < EP::numberOfPitchedLFO_Frequencies; ++pitchedFreq)
-				allowPitchedFreqForLFO_FreqParam(pitchedFreq, paramIndex);
-			for (auto syncedFreq = 0; syncedFreq < EP::numberOfSyncedLFO_Frequencies; ++syncedFreq)
-				allowUnsyncedFreqForLFO_FreqParam(syncedFreq, paramIndex);
-		}
+		//if (allowedChoicesType == AllowedChoicesType::lfoFreq) {
+		//	for (auto category = (int)LFO_FreqCategory::unsynced; category <= (int)LFO_FreqCategory::synced; ++category)
+		//		allowCategoryForLFO_FreqParam(LFO_FreqCategory{ category }, paramIndex);
+		//	for (auto unsyncedFreq = 0; unsyncedFreq < EP::numberOfUnsyncedLFO_Frequencies; ++unsyncedFreq)
+		//		allowUnsyncedFreqForLFO_FreqParam(unsyncedFreq, paramIndex);
+		//	for (auto pitchedFreq = 0; pitchedFreq < EP::numberOfPitchedLFO_Frequencies; ++pitchedFreq)
+		//		allowPitchedFreqForLFO_FreqParam(pitchedFreq, paramIndex);
+		//	for (auto syncedFreq = 0; syncedFreq < EP::numberOfSyncedLFO_Frequencies; ++syncedFreq)
+		//		allowUnsyncedFreqForLFO_FreqParam(syncedFreq, paramIndex);
+		//}
 	}
 }
 
@@ -257,7 +254,7 @@ const bool RandomizationOptions::noPulseWidthIsAllowedForParam(uint8 paramIndex)
 	return (bool)paramTree.getProperty(ID::rndm_NoPulseWidthIsAllowed);
 }
 
-const bool RandomizationOptions::checkNumberOfChoicesAllowedForOscShapeParam(uint8 paramIndex) {
+void RandomizationOptions::checkNumberOfChoicesAllowedForOscShapeParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
@@ -274,7 +271,7 @@ const bool RandomizationOptions::checkNumberOfChoicesAllowedForOscShapeParam(uin
 			onlyOneChoice = (allowedPulseWidths.getNumChildren() == 1);
 		}
 		else
-			onlyOneChoice == true;
+			onlyOneChoice = true;
 	}
 	paramTree.setProperty(ID::rndm_OnlyOneChoiceIsAllowed, onlyOneChoice ? (bool)true : (bool)false, nullptr);
 }
@@ -302,11 +299,27 @@ const bool RandomizationOptions::noChoiceIsAllowedForParam(uint8 paramIndex) {
 
 
 
-ValueTree& RandomizationOptions::getChildTreeForParam(uint8 paramIndex) {
+void RandomizationOptions::addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	randomizationOptionsTree.getChildWithName(paramID).addListener(listener);
+}
+
+void RandomizationOptions::removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	auto paramID{ info.IDfor(paramIndex) };
+	randomizationOptionsTree.getChildWithName(paramID).removeListener(listener);
+}
+
+
+
+
+ValueTree RandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return paramTree;
+	auto allowedChoicesTree{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
+	return allowedChoicesTree;
 }
 
 

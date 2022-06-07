@@ -17,7 +17,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	auto& info{ InfoForExposedParameters::get() };
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	if (info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
-		randomizationOptions->getChildTreeForParam(paramIndex).getParent().addListener(this);
+		randomizationOptions->addListenerToChildTreeForParam(this, paramIndex);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, randomizationOptions, paramIndex] {
 		auto allowed{ toggle_AllowRepeatChoices.getToggleState() };
@@ -53,8 +53,10 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		auto repeatsAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
 		toggle_AllowRepeatChoices.setToggleState(repeatsAllowed ? true : false, dontSendNotification);
 	}
-	else 
-		valueTreePropertyChanged(randomizationOptions->getChildTreeForParam(paramIndex), ID::rndm_OnlyOneChoiceIsAllowed);
+	else {
+		ValueTree placeholderTree{ info.IDfor(paramIndex) };
+		valueTreePropertyChanged(placeholderTree, ID::rndm_OnlyOneChoiceIsAllowed);
+	}
 
 	setSize(70, 14);
 }
@@ -93,5 +95,5 @@ AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
 	auto& info{ InfoForExposedParameters::get() };
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	if (info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
-		randomizationOptions->getChildTreeForParam(paramIndex).removeListener(this);
+		randomizationOptions->removeListenerFromChildTreeForParam(this, paramIndex);
 }

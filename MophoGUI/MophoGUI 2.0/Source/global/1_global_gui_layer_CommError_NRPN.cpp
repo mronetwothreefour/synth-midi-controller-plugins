@@ -30,6 +30,6 @@ void GUI_Layer_CommError_NRPN::paint(Graphics& g) {
 }
 
 void GUI_Layer_CommError_NRPN::resized() {
-	button_Close.setBounds(820, 212, button_Close.getWidth(), GUI::redButton_h);
-	button_RequestGlobalParamsDump.setBounds(611, 387, GUI::button_Retry_w, GUI::redButton_h);
+	button_Close.setTopLeftPosition(820, 212);
+	button_RequestGlobalParamsDump.setTopLeftPosition(611, 387);
 }

@@ -25,5 +25,5 @@ void GUI_Layer_FileNotValidAlert::paint(Graphics& g) {
 }
 
 void GUI_Layer_FileNotValidAlert::resized() {
-	button_Close.setBounds(612, 310, button_Close.getWidth(), button_Close.getHeight());
+	button_Close.setTopLeftPosition(612, 310);
 }

@@ -50,19 +50,18 @@ void TabForCustomVoicesBank::paint(Graphics& g) {
 }
 
 void TabForCustomVoicesBank::resized() {
-	voiceSlots.setBounds(15, 14, voiceSlots.getWidth(), voiceSlots.getHeight());
-	auto buttons_w{ GUI::voicesBanksLayerButtons_w };
+	voiceSlots.setTopLeftPosition(15, 14);
 	auto buttonsRow_y{ 334 };
-	button_LoadSelected.setBounds(183, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_SaveIntoSelected.setBounds(238, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PushSelected.setBounds(293, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PullSelected.setBounds(348, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ExportSelected.setBounds(403, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ImportSelected.setBounds(458, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PushBank.setBounds(638, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_PullBank.setBounds(693, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ExportBank.setBounds(748, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_ImportBank.setBounds(803, buttonsRow_y, buttons_w, GUI::redButton_h);
+	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
+	button_SaveIntoSelected.setTopLeftPosition(238, buttonsRow_y);
+	button_PushSelected.setTopLeftPosition(293, buttonsRow_y);
+	button_PullSelected.setTopLeftPosition(348, buttonsRow_y);
+	button_ExportSelected.setTopLeftPosition(403, buttonsRow_y);
+	button_ImportSelected.setTopLeftPosition(458, buttonsRow_y);
+	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
+	button_PullBank.setTopLeftPosition(693, buttonsRow_y);
+	button_ExportBank.setTopLeftPosition(748, buttonsRow_y);
+	button_ImportBank.setTopLeftPosition(803, buttonsRow_y);
 }
 
 ApplicationCommandTarget* TabForCustomVoicesBank::getNextCommandTarget() {
