@@ -145,7 +145,7 @@ void ComboBoxForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const
 		setSelectedItemIndex((int)tree.getProperty(property));
 		updateTooltip();
 	}
-	if (property == ID::tooltips_CurrentValue || property == ID::tooltips_Description) {
+	if (property == ID::tooltips_ShowCurrentValue || property == ID::tooltips_ShowDescription) {
 		MessageManagerLock mmLock;
 		updateTooltip();
 	}

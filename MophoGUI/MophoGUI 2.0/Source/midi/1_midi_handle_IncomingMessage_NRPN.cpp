@@ -102,18 +102,18 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(MidiMessage 
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnType, int newValue) {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    voiceTransmissionOptions->dontTransmitParamChanges();
     auto& info{ InfoForExposedParameters::get() };
     auto paramIndex{ info.paramIndexForNRPN((uint8)nrpnType) };
     auto paramID{ info.IDfor(paramIndex) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
-    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+    voiceTransmissionOptions->transmitParamChanges();
 }
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToGlobalOption(int nrpnType, int newValue) {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    voiceTransmissionOptions->dontTransmitParamChanges();
     auto globalOptions{ unexposedParams->getGlobalOptions() };
     const int nrpnTypeForGlobalFineTune{ 385 };
     const int nrpnTypeForGlobalTranspose{ 384 };
@@ -128,5 +128,5 @@ void IncomingMessageHandler_NRPN::applyIncomingValueToGlobalOption(int nrpnType,
     default:
         break;
     }
-    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+    voiceTransmissionOptions->transmitParamChanges();
 }

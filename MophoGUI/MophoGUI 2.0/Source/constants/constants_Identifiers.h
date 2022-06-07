@@ -209,11 +209,11 @@ namespace MophoConstants
 
 		const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 		const Identifier tooltips_Options{ "tooltips_Options" };
-		const Identifier tooltips_CurrentValue{ "tooltips_CurrentValue" };
-		const Identifier tooltips_Description{ "tooltips_Description" };
+		const Identifier tooltips_ShowCurrentValue{ "tooltips_ShowCurrentValue" };
+		const Identifier tooltips_ShowDescription{ "tooltips_ShowDescription" };
 
 		const Identifier voiceTx_Options{ "voiceTx_Options" };
-		const Identifier voiceTx_ParamChangeEchoes{ "voiceTx_ParamChangeEchoes" };
+		const Identifier voiceTx_TransmitParamChanges{ "voiceTx_TransmitParamChanges" };
 		const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}
 }

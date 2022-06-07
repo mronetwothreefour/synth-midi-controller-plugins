@@ -35,7 +35,7 @@ void RawDataTools::applyRawDataToExposedParameters(
     const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) 
 {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+    voiceTransmissionOptions->dontTransmitParamChanges();
     auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
         auto paramID{ info.IDfor(param) };
@@ -53,7 +53,7 @@ void RawDataTools::applyRawDataToExposedParameters(
         auto paramPtr{ exposedParams->getParameter(paramID) };
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newValue));
     }
-    voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+    voiceTransmissionOptions->transmitParamChanges();
 }
 
 const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {

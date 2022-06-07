@@ -124,10 +124,10 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
     auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
     if (exposedParamsStateXml != nullptr) {
         auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+        voiceTransmissionOptions->dontTransmitParamChanges();
         auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
         exposedParams->replaceState(exposedParamsStateTree);
-        voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+        voiceTransmissionOptions->transmitParamChanges();
     }
     auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
     if (unexposedParamsStateXml != nullptr) {

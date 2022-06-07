@@ -7,14 +7,12 @@
 class VoiceTransmissionOptions
 {
 	ValueTree voiceTransmissionOptionsTree;
-	const bool notBlocked{ true };
-	const bool blocked{ false };
 
 public:
 	VoiceTransmissionOptions();
-	const bool paramChangeEchoesAreNotBlocked();
-	void setParamChangeEchoesAreBlocked();
-	void setParamChangeEchoesAreNotBlocked();
+	const bool paramChangesShouldBeTransmitted();
+	void dontTransmitParamChanges();
+	void transmitParamChanges();
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(int timeInMilliseconds);
 	XmlElement* getStateXml();

@@ -90,7 +90,7 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         const int globalTransposeMSByte{ 5 };
         const int globalVoiceChangesByte{ 28 };
         auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        voiceTransmissionOptions->setParamChangeEchoesAreBlocked();
+        voiceTransmissionOptions->dontTransmitParamChanges();
         auto globalOptions{ unexposedParams->getGlobalOptions() };
 
         auto globalTranspose{ sysExData[globalTransposeMSByte] * 16 + sysExData[globalTransposeLSByte] };
@@ -149,6 +149,6 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         auto hardwareOutputBalance{ sysExData[globalHardwareOutputBalanceByte] };
         globalOptions->setHardwareOutputBalance(hardwareOutputBalance);
 
-        voiceTransmissionOptions->setParamChangeEchoesAreNotBlocked();
+        voiceTransmissionOptions->transmitParamChanges();
     }
 }

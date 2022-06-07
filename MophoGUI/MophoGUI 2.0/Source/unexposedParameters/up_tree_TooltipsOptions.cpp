@@ -9,8 +9,8 @@ using namespace MophoConstants;
 TooltipsOptions::TooltipsOptions() :
 	tooltipsOptionsTree{ ID::tooltips_Options }
 {
-	setShouldShowCurrentValue();
-	setShouldShowDescription();
+	setShouldShowCurrentValue(true);
+	setShouldShowDescription(true);
 	setDelayInMilliseconds(3000);
 }
 
@@ -23,27 +23,19 @@ void TooltipsOptions::removeListener(ValueTree::Listener* listener) {
 }
 
 const bool TooltipsOptions::shouldShowCurrentValue() {
-	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_CurrentValue) == show;
+	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_ShowCurrentValue) == true;
+}
+
+void TooltipsOptions::setShouldShowCurrentValue(bool shouldShow) {
+	tooltipsOptionsTree.setProperty(ID::tooltips_ShowCurrentValue, shouldShow, nullptr);
 }
 
 const bool TooltipsOptions::shouldShowDescriptions() {
-	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_Description) == show;
+	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_ShowDescription) == true;
 }
 
-void TooltipsOptions::setShouldShowCurrentValue() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_CurrentValue, show, nullptr);
-}
-
-void TooltipsOptions::setShouldNotShowCurrentValue() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_CurrentValue, dontShow, nullptr);
-}
-
-void TooltipsOptions::setShouldShowDescription() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_Description, show, nullptr);
-}
-
-void TooltipsOptions::setShouldNotShowDescription() {
-	tooltipsOptionsTree.setProperty(ID::tooltips_Description, dontShow, nullptr);
+void TooltipsOptions::setShouldShowDescription(bool shouldShow) {
+	tooltipsOptionsTree.setProperty(ID::tooltips_ShowDescription, shouldShow, nullptr);
 }
 
 const int TooltipsOptions::delayInMilliseconds() {

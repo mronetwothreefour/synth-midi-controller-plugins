@@ -123,7 +123,7 @@ void KnobForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const Ide
 		setValue((double)tree.getProperty(property), sendNotification);
 		updateTooltip();
 	}
-	if (property == ID::tooltips_CurrentValue || property == ID::tooltips_Description)
+	if (property == ID::tooltips_ShowCurrentValue || property == ID::tooltips_ShowDescription)
 		updateTooltip();
 }
 

@@ -123,7 +123,7 @@ void GUI_Layer_MainWindowButtons::resized() {
 }
 
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-    if (property == ID::tooltips_Description)
+    if (property == ID::tooltips_ShowDescription)
         updateTooltips();
 }
 

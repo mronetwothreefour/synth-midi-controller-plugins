@@ -39,7 +39,7 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 	//}
 	//else {
 	auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-		if (voiceTransmissionOptions->paramChangeEchoesAreNotBlocked()) {
+		if (voiceTransmissionOptions->paramChangesShouldBeTransmitted()) {
 			auto paramID{ info.IDfor((uint8)changedParamIndex) };
 			auto nrpn{ info.NRPNfor((uint8)changedParamIndex) };
 			auto paramaterPtr{ exposedParams->getParameter(paramID) };

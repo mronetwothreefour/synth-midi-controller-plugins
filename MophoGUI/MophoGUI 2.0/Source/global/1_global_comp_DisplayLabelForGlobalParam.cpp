@@ -129,7 +129,7 @@ void DisplayLabelForGlobalParameter::updateTooltip() {
 void DisplayLabelForGlobalParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == paramID)
 		setTextAccordingToParameterSetting();
-	if (property == ID::tooltips_Description)
+	if (property == ID::tooltips_ShowDescription)
 		updateTooltip();
 }
 

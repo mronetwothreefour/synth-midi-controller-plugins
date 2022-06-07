@@ -22,23 +22,11 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 	{
 	case GlobalParamToggleType::currentValueTooltip:
 		setToggleState(tooltipOptions->shouldShowCurrentValue(), dontSendNotification);
-		onClick = [this, tooltipOptions] {
-			auto shouldShow{ getToggleState() };
-			if (shouldShow)
-				tooltipOptions->setShouldShowCurrentValue();
-			else
-				tooltipOptions->setShouldNotShowCurrentValue();
-		};
+		onClick = [this, tooltipOptions] { tooltipOptions->setShouldShowCurrentValue(getToggleState()); };
 		break;
 	case GlobalParamToggleType::descriptionTooltip:
 		setToggleState(tooltipOptions->shouldShowDescriptions(), dontSendNotification);
-		onClick = [this, tooltipOptions] {
-			auto shouldShow{ getToggleState() };
-			if (shouldShow)
-				tooltipOptions->setShouldShowDescription();
-			else
-				tooltipOptions->setShouldNotShowDescription();
-		};
+		onClick = [this, tooltipOptions] { tooltipOptions->setShouldShowDescription(getToggleState()); };
 		break;
 	default:
 		break;
@@ -68,7 +56,7 @@ void ToggleForTooltipParameter::updateTooltip() {
 }
 
 void ToggleForTooltipParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_Description) {
+	if (property == ID::tooltips_ShowDescription) {
 		MessageManagerLock mmLock;
 		updateTooltip();
 	}

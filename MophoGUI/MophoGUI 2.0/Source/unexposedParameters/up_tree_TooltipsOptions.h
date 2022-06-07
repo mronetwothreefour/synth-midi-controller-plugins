@@ -7,19 +7,15 @@
 class TooltipsOptions
 {
 	ValueTree tooltipsOptionsTree;
-	const bool show{ true };
-	const bool dontShow{ false };
 
 public:
 	TooltipsOptions();
 	void addListener(ValueTree::Listener* listener);
 	void removeListener(ValueTree::Listener* listener);
 	const bool shouldShowCurrentValue();
+	void setShouldShowCurrentValue(bool shouldShow);
 	const bool shouldShowDescriptions();
-	void setShouldShowCurrentValue();
-	void setShouldNotShowCurrentValue();
-	void setShouldShowDescription();
-	void setShouldNotShowDescription();
+	void setShouldShowDescription(bool shouldShow);
 	const int delayInMilliseconds();
 	void setDelayInMilliseconds(int newDelay);
 	XmlElement* getStateXml();

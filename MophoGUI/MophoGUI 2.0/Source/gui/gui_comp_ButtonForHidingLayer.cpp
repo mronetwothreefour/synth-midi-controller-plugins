@@ -33,7 +33,7 @@ void ButtonForHidingLayer::updateTooltip() {
 }
 
 void ButtonForHidingLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_Description)
+	if (property == ID::tooltips_ShowDescription)
 		updateTooltip();
 }
 

@@ -9,20 +9,20 @@ using namespace MophoConstants;
 VoiceTransmissionOptions::VoiceTransmissionOptions() :
 	voiceTransmissionOptionsTree{ ID::voiceTx_Options }
 {
-	setParamChangeEchoesAreNotBlocked();
+	transmitParamChanges();
 	setVoiceTransmitTime(300);
 }
 
-const bool VoiceTransmissionOptions::paramChangeEchoesAreNotBlocked() {
-	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_ParamChangeEchoes) == notBlocked;
+const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
+	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_TransmitParamChanges) == true;
 }
 
-void VoiceTransmissionOptions::setParamChangeEchoesAreBlocked() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoes, blocked, nullptr);
+void VoiceTransmissionOptions::dontTransmitParamChanges() {
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)true, nullptr);
 }
 
-void VoiceTransmissionOptions::setParamChangeEchoesAreNotBlocked() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_ParamChangeEchoes, notBlocked, nullptr);
+void VoiceTransmissionOptions::transmitParamChanges() {
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)false, nullptr);
 }
 
 const int VoiceTransmissionOptions::voiceTransmitTime() {
