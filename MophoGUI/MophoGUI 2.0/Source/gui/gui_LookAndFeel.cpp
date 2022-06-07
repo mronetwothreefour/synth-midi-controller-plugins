@@ -200,7 +200,7 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
 {
 	auto componentID{ component.getComponentID() };
-	if (componentID.startsWith(ID::component_ParamToggle.toString())) {
+	if (componentID.startsWith(ID::component_RedToggle.toString())) {
 		g.setColour(isTicked ? GUI::color_ToggleOn : GUI::color_ToggleOff);
 		g.fillEllipse(x, y, w, h);
 	}
@@ -214,6 +214,16 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 		g.fillRect(x, y, w, h);
 		g.setColour(GUI::color_Black);
 		g.setFont(GUI::fontFor_VoiceSlotButtons);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+	if (componentID.startsWith(ID::component_ToggleAllow_.toString())) {
+		if (isTicked) {
+			g.setColour(GUI::color_White.withAlpha(0.2f));
+			g.fillRect(x, y, w, h);
+		}
+		g.setColour(GUI::color_Black);
+		g.setFont(GUI::fontFor_Labels);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}

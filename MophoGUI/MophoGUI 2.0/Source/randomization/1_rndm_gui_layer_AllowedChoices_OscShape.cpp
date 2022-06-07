@@ -20,6 +20,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	button_Close{ unexposedParams }
 {
 	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramName{ info.exposedNameFor(paramIndex) };
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
@@ -44,9 +45,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 
-	toggle_ForAllowingOff.setComponentID(ID::component_ToggleAllowOscShape_Off_For_.toString() + paramID);
+	toggle_ForAllowingOff.setComponentID(ID::component_RedToggle_AllowOscShape_Off_For_.toString() + paramID);
 	toggle_ForAllowingOff.addListener(this);
-	toggle_ForAllowingOff.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex), dontSendNotification);
+	auto offIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::off, paramIndex) };
+	toggle_ForAllowingOff.setToggleState(offIsAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingOff);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -56,9 +58,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggle_ForAllowingOff.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingSawtooth.setComponentID(ID::component_ToggleAllowOscShape_Saw_For_.toString() + paramID);
+	toggle_ForAllowingSawtooth.setComponentID(ID::component_RedToggle_AllowOscShape_Saw_For_.toString() + paramID);
 	toggle_ForAllowingSawtooth.addListener(this);
-	toggle_ForAllowingSawtooth.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex), dontSendNotification);
+	auto sawtoothIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawtooth, paramIndex) };
+	toggle_ForAllowingSawtooth.setToggleState(sawtoothIsAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingSawtooth);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -68,9 +71,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggle_ForAllowingSawtooth.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingTriangle.setComponentID(ID::component_ToggleAllowOscShape_Tri_For_.toString() + paramID);
+	toggle_ForAllowingTriangle.setComponentID(ID::component_RedToggle_AllowOscShape_Tri_For_.toString() + paramID);
 	toggle_ForAllowingTriangle.addListener(this);
-	toggle_ForAllowingTriangle.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex), dontSendNotification);
+	auto triangleIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::triangle, paramIndex) };
+	toggle_ForAllowingTriangle.setToggleState(triangleIsAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingTriangle);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -80,9 +84,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggle_ForAllowingTriangle.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingSawTriMix.setComponentID(ID::component_ToggleAllowOscShape_SawTri_For_.toString() + paramID);
+	toggle_ForAllowingSawTriMix.setComponentID(ID::component_RedToggle_AllowOscShape_SawTri_For_.toString() + paramID);
 	toggle_ForAllowingSawTriMix.addListener(this);
-	toggle_ForAllowingSawTriMix.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex), dontSendNotification);
+	auto sawTriMixIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::sawTriMix, paramIndex) };
+	toggle_ForAllowingSawTriMix.setToggleState(sawTriMixIsAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingSawTriMix);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -92,9 +97,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggle_ForAllowingSawTriMix.setTooltip(toggleTooltip);
 	}
 
-	toggle_ForAllowingPulse.setComponentID(ID::component_ToggleAllowOscShape_Pulse_For_.toString() + paramID);
+	toggle_ForAllowingPulse.setComponentID(ID::component_RedToggle_AllowOscShape_Pulse_For_.toString() + paramID);
 	toggle_ForAllowingPulse.addListener(this);
-	toggle_ForAllowingPulse.setToggleState(randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex), dontSendNotification);
+	auto pulseIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(OscWaveShape::pulse, paramIndex) };
+	toggle_ForAllowingPulse.setToggleState(pulseIsAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_ForAllowingPulse);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -105,11 +111,11 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	}
 
 	for (auto pulseWidth = 0; pulseWidth != 100; ++pulseWidth) {
-		allowedPulseWidthsToggles[pulseWidth].setComponentID(ID::component_ToggleAllowPulseWidth_.toString() + (String)pulseWidth + "_For_" + paramID);
+		allowedPulseWidthsToggles[pulseWidth].setComponentID(ID::component_ToggleAllow_PulseWidth_.toString() + (String)pulseWidth + "_For_" + paramID);
 		auto pulseWidthIsAllowed{ randomizationOptions->pulseWidthIsAllowedForParam((uint8)pulseWidth, paramIndex) };
-		allowedPulseWidthsToggles[pulseWidth].setToggleState(pulseWidthIsAllowed, dontSendNotification);
+		allowedPulseWidthsToggles[pulseWidth].setToggleState(pulseWidthIsAllowed ? true : false, dontSendNotification);
 		allowedPulseWidthsToggles[pulseWidth].addListener(this);
-		allowedPulseWidthsToggles[pulseWidth].setHelpText("PW " + (String)pulseWidth);
+		allowedPulseWidthsToggles[pulseWidth].setName("PW " + (String)pulseWidth);
 		addAndMakeVisible(allowedPulseWidthsToggles[pulseWidth]);
 		if (shouldShowDescriptions) {
 			String buttonTooltip{ "" };

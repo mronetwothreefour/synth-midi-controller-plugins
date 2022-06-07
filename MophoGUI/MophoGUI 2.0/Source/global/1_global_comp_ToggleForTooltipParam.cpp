@@ -17,7 +17,7 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	tooltipOptions->addListener(this);
 
-	setComponentID(ID::component_ParamToggle.toString());
+	setComponentID(ID::component_RedToggle.toString());
 	switch (toggleType)
 	{
 	case GlobalParamToggleType::currentValueTooltip:

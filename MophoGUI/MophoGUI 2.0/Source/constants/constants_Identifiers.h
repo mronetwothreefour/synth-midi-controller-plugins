@@ -55,20 +55,21 @@ namespace MophoConstants
 		const Identifier choiceNames{ "choiceNames" };
 		const Identifier choiceNames_Verbose{ "choiceNames_Verbose" };
 
-		const Identifier component_AllowRepeatChoicesToggleFor_{ "component_AllowRepeatChoicesToggleFor_" };
 		const Identifier component_ImportExportBrowser{ "component_ImportExportBrowser" };
 		const Identifier component_Knob{ "component_Knob" };
-		const Identifier component_ParamToggle{ "component_ParamToggle" };
+		const Identifier component_RedToggle{ "component_RedToggle" };
+		const Identifier component_RedToggle_AllowOscShape_Off_For_{ "component_RedToggle_AllowOscShape_Off_For_" };
+		const Identifier component_RedToggle_AllowOscShape_Pulse_For_{ "component_RedToggle_AllowOscShape_Pulse_For_" };
+		const Identifier component_RedToggle_AllowOscShape_Saw_For_{ "component_RedToggle_AllowOscShape_Saw_For_" };
+		const Identifier component_RedToggle_AllowOscShape_SawTri_For_{ "component_RedToggle_AllowOscShape_SawTri_For_" };
+		const Identifier component_RedToggle_AllowOscShape_Tri_For_{ "component_RedToggle_AllowOscShape_Tri_For_" };
+		const Identifier component_RedToggle_AllowRepeatChoices{ "component_RedToggle_AllowRepeatChoices" };
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
-		const Identifier component_ToggleAllowChoice_{ "component_ToggleAllowChoice_" };
-		const Identifier component_ToggleAllowOscShape_Off_For_{ "component_ToggleAllowOscShape_Off_For_" };
-		const Identifier component_ToggleAllowOscShape_Pulse_For_{ "component_ToggleAllowOscShape_Pulse_For_" };
-		const Identifier component_ToggleAllowOscShape_Saw_For_{ "component_ToggleAllowOscShape_Saw_For_" };
-		const Identifier component_ToggleAllowOscShape_SawTri_For_{ "component_ToggleAllowOscShape_SawTri_For_" };
-		const Identifier component_ToggleAllowOscShape_Tri_For_{ "component_ToggleAllowOscShape_Tri_For_" };
-		const Identifier component_ToggleAllowPulseWidth_{ "component_ToggleAllowPulseWidth_" };
+		const Identifier component_ToggleAllow_{ "component_ToggleAllow_" };
+		const Identifier component_ToggleAllow_Choice_{ "component_ToggleAllow_Choice_" };
+		const Identifier component_ToggleAllow_PulseWidth_{ "component_ToggleAllow_PulseWidth_" };
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_EditLabel{ "label_EditLabel" };
@@ -186,6 +187,10 @@ namespace MophoConstants
 		const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
 		const Identifier rndm_AllowedPulseWidths{ "rndm_AllowedPulseWidths" };
 		const Identifier rndm_AllowedShapes{ "rndm_AllowedShapes" };
+		const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		const Identifier rndm_NoOscShapeIsAllowed{ "rndm_NoOscShapeIsAllowed" };
+		const Identifier rndm_NoPulseWidthIsAllowed{ "rndm_NoPulseWidthIsAllowed" };
+		const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		const Identifier rndm_Options{ "rndm_Options" };
 		const Identifier rndm_ParamLockStatus{ "rndm_ParamLockStatus" };
 		const Identifier rndm_RepeatChoices{ "rndm_RepeatChoices" };

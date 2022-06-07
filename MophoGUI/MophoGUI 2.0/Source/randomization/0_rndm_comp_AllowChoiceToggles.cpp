@@ -15,8 +15,8 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, UnexposedParameters* un
 	unexposedParams{ unexposedParams }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-
 	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
 	auto paramID{ info.IDfor(paramIndex).toString() };
 	auto paramName{ info.exposedNameFor(paramIndex) };
 	numberOfChoices = info.numberOfChoicesFor(paramIndex);
@@ -25,9 +25,9 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, UnexposedParameters* un
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles.push_back(std::make_unique<ToggleButton>(info.choiceNameFor(choiceNum, paramIndex)));
-		allowedChoiceToggles[choiceNum]->setComponentID(ID::component_ToggleAllowChoice_.toString() + (String)choiceNum + "_For_" + paramID);
+		allowedChoiceToggles[choiceNum]->setComponentID(ID::component_ToggleAllow_Choice_.toString() + (String)choiceNum + "_For_" + paramID);
 		auto choiceIsAllowed{ randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) };
-		allowedChoiceToggles[choiceNum]->setToggleState(choiceIsAllowed, dontSendNotification);
+		allowedChoiceToggles[choiceNum]->setToggleState(choiceIsAllowed ? true : false, dontSendNotification);
 		allowedChoiceToggles[choiceNum]->addListener(this);
 		addAndMakeVisible(allowedChoiceToggles[choiceNum].get());
 		if (shouldShowDescriptions) {
@@ -68,7 +68,7 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex).toString() };
-	if (buttonID.startsWith(ID::component_ToggleAllowChoice_.toString()) && buttonID.endsWith(paramID)) {
+	if (buttonID.startsWith(ID::component_ToggleAllow_Choice_.toString()) && buttonID.endsWith(paramID)) {
 		auto clickedChoice{ (uint8)buttonID.fromFirstOccurrenceOf("Choice_", false, false).upToFirstOccurrenceOf("_For_", false, false).getIntValue() };
 		auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {

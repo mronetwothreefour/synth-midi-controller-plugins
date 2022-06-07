@@ -15,7 +15,7 @@ ToggleButtonAndAttachment::ToggleButtonAndAttachment(
 	tooltipsUpdater{ paramIndex, toggle, exposedParams, unexposedParams }
 {
 	addAndMakeVisible(toggle);
-	toggle.setComponentID(ID::component_ParamToggle.toString());
+	toggle.setComponentID(ID::component_RedToggle.toString());
 	setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	toggle.setBounds(getLocalBounds());
 }

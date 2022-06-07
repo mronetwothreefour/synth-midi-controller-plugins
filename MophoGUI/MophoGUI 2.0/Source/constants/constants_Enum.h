@@ -70,10 +70,17 @@ namespace MophoConstants
 
 
 	enum class ImportExportType {
-		exportVoice,
+		exportVoice = 0,
 		exportVoicesBank,
 		importVoice,
 		importVoicesBank
+	};
+
+
+	enum class LFO_FreqCategory {
+		unsynced = 0,
+		pitched,
+		synced
 	};
 
 

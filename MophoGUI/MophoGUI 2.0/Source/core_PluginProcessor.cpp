@@ -60,14 +60,14 @@ void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
 
-    if (!midiMessages.isEmpty()) {
+    if (midiMessages.isEmpty() == false) {
         MidiBuffer midiMessagesToPassThrough;
         midiMessagesToPassThrough = incomingMessageHandler_SysEx->pullMessageForMophoOutOfBuffer(midiMessages);
         midiMessagesToPassThrough = incomingMessageHandler_NRPN->pullFullyFormedMessageOutOfBuffer(midiMessagesToPassThrough);
         midiMessages.swapWith(midiMessagesToPassThrough);
     }
 
-    if (!bundledOutgoingBuffers->isEmpty()) {
+    if (bundledOutgoingBuffers->isEmpty() == false) {
         for (auto event : bundledOutgoingBuffers->removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
         }
