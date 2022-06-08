@@ -33,14 +33,15 @@ public:
 	void allowAllChoicesForParam(uint8 paramIndex);
 
 	const bool oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
-	void allowOscShapeForParam(OscWaveShape shape, uint8 paramIndex);
-	void forbidOscShapeForParam(OscWaveShape shape, uint8 paramIndex);
+	void setOscShapeIsAllowedForParam(OscWaveShape shape, bool shouldBeAllowed, uint8 paramIndex);
 	const bool noOscShapeIsAllowedForParam(uint8 paramIndex);
 	const bool pulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex);
-	void allowPulseWidthForParam(int pulseWidth, uint8 paramIndex);
-	void forbidPulseWidthForParam(int pulseWidth, uint8 paramIndex);
+	void setPulseWidthIsAllowedForParam(int pulseWidth, bool shouldBeAllowed, uint8 paramIndex);
 	const bool noPulseWidthIsAllowedForParam(uint8 paramIndex);
 	void checkNumberOfChoicesAllowedForOscShapeParam(uint8 paramIndex);
+	void clearAllowedOscShapesForParam(uint8 paramIndex);
+	void clearAllowedPulseWidthsForParam(uint8 paramIndex);
+	void allowAllChoicesForOscShapeParam(uint8 paramIndex);
 
 	//const bool categoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, uint8 paramIndex);
 	//void setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, bool shouldBeAllowed, uint8 paramIndex);

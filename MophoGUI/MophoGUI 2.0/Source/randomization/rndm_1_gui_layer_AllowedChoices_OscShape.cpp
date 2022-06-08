@@ -27,7 +27,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	auto oscNumString{ paramID.fromFirstOccurrenceOf("Osc_", false, false).upToFirstOccurrenceOf("_Shape", false, false) };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
-	button_AllowAll.onClick = [this] { allowAllShapes(); };
+	button_AllowAll.onClick = [this, paramIndex, unexposedParams] {
+		auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
+		randomizationOptions->allowAllChoicesForOscShapeParam(paramIndex);
+	};
 	if (shouldShowDescriptions) {
 		String buttonTooltip{ "" };
 		buttonTooltip += "Click to allow all the shapes when\n";
@@ -109,10 +112,10 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggle_Pulse.setTooltip(toggleTooltip);
 	}
 
-	for (auto pulseWidth = 0; pulseWidth != numberOfPulseWidths; ++pulseWidth) {
+	for (auto pulseWidth = 0; pulseWidth != EP::numberOfPulseWidths; ++pulseWidth) {
 		allowPulseWidthToggles[pulseWidth].setComponentID(ID::component_ToggleAllow_PulseWidth_.toString() + (String)pulseWidth);
-		auto pulseWidthIsAllowed{ randomizationOptions->pulseWidthIsAllowedForParam((uint8)pulseWidth, paramIndex) };
-		allowPulseWidthToggles[pulseWidth].setToggleState(pulseWidthIsAllowed ? true : false, dontSendNotification);
+		auto isAllowed{ randomizationOptions->pulseWidthIsAllowedForParam((uint8)pulseWidth, paramIndex) };
+		allowPulseWidthToggles[pulseWidth].setToggleState(isAllowed ? true : false, dontSendNotification);
 		allowPulseWidthToggles[pulseWidth].addListener(this);
 		allowPulseWidthToggles[pulseWidth].setName("PW " + (String)pulseWidth);
 		addAndMakeVisible(allowPulseWidthToggles[pulseWidth]);
@@ -181,7 +184,7 @@ void GUI_Layer_AllowedChoices_OscShape::resized() {
 	toggle_Pulse.setTopLeftPosition(background_x + 192, background_y + 73);
 	auto rowCount{ 0 };
 	auto colCount{ 0 };
-	for (auto pulseWidth = 0; pulseWidth < numberOfPulseWidths; ++pulseWidth) {
+	for (auto pulseWidth = 0; pulseWidth < EP::numberOfPulseWidths; ++pulseWidth) {
 		if (rowCount == numberOfRows) {
 			rowCount = 0;
 			++colCount;
@@ -195,101 +198,91 @@ void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	if (buttonID.startsWith(ID::component_ToggleAllow_PulseWidth_.toString())) {
-		auto clickedPulseWidth{ buttonID.fromFirstOccurrenceOf("Width_", false, false).getIntValue() };
+		auto clickedWidth{ (uint8)buttonID.fromFirstOccurrenceOf("Width_", false, false).getIntValue() };
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier) {
-			for (auto pulseWidth = 0; pulseWidth != numberOfPulseWidths; ++pulseWidth) {
-				if (pulseWidth == clickedPulseWidth) {
-					allowPulseWidthToggles[clickedPulseWidth].setToggleState(true, dontSendNotification);
-					randomizationOptions->allowPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
-				}
-				else {
-					allowPulseWidthToggles[pulseWidth].setToggleState(false, dontSendNotification);
-					randomizationOptions->forbidPulseWidthForParam((uint8)pulseWidth, paramIndex);
-				}
-			}
+			for (auto pulseWidth = 0; pulseWidth != EP::numberOfPulseWidths; ++pulseWidth)
+				allowPulseWidthToggles[clickedWidth].setToggleState(pulseWidth == clickedWidth ? true : false, dontSendNotification);
+			randomizationOptions->clearAllowedPulseWidthsForParam(paramIndex);
+			randomizationOptions->setPulseWidthIsAllowedForParam(clickedWidth, true, paramIndex);
 		}
-		else if (ModifierKeys::currentModifiers == ModifierKeys::shiftModifier) {
-			auto nextAllowedPulseWidth{ numberOfPulseWidths };
-			for (auto nextPulseWidth = clickedPulseWidth - 1; nextPulseWidth > -1; --nextPulseWidth) {
-				if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)nextPulseWidth, paramIndex)) {
-					nextAllowedPulseWidth = nextPulseWidth;
+		if (ModifierKeys::currentModifiers == ModifierKeys::shiftModifier) {
+			auto nextAllowedWidth{ EP::numberOfPulseWidths };
+			for (auto previousWidth = clickedWidth - 1; previousWidth > -1; --previousWidth) {
+				if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)previousWidth, paramIndex)) {
+					nextAllowedWidth = (uint8)previousWidth;
 					break;
 				}
 			}
-			if (nextAllowedPulseWidth == numberOfPulseWidths) {
-				for (auto nextPulseWidth = clickedPulseWidth + 1; nextPulseWidth < numberOfPulseWidths; ++nextPulseWidth) {
-					if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)nextPulseWidth, paramIndex)) {
-						nextAllowedPulseWidth = nextPulseWidth;
+			if (nextAllowedWidth == EP::numberOfPulseWidths) {
+				for (auto subsequentWidth = clickedWidth + 1; subsequentWidth < EP::numberOfPulseWidths; ++subsequentWidth) {
+					if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)subsequentWidth, paramIndex)) {
+						nextAllowedWidth = (uint8)subsequentWidth;
 						break;
 					}
 				}
 			}
-			if (nextAllowedPulseWidth != numberOfPulseWidths) {
-				if (nextAllowedPulseWidth < clickedPulseWidth) {
-					for (auto pulseWidth = nextAllowedPulseWidth; pulseWidth <= clickedPulseWidth; ++pulseWidth) {
+			if (nextAllowedWidth < EP::numberOfPulseWidths) {
+				if (nextAllowedWidth < clickedWidth) {
+					for (auto pulseWidth = nextAllowedWidth; pulseWidth <= clickedWidth; ++pulseWidth) {
 						allowPulseWidthToggles[pulseWidth].setToggleState(true, dontSendNotification);
-						randomizationOptions->allowPulseWidthForParam((uint8)pulseWidth, paramIndex);
+						randomizationOptions->setPulseWidthIsAllowedForParam(pulseWidth, true, paramIndex);
 					}
 				}
 				else {
-					for (auto pulseWidth = clickedPulseWidth; pulseWidth <= nextAllowedPulseWidth; ++pulseWidth) {
+					for (auto pulseWidth = clickedWidth; pulseWidth <= nextAllowedWidth; ++pulseWidth) {
 						allowPulseWidthToggles[pulseWidth].setToggleState(true, dontSendNotification);
-						randomizationOptions->allowPulseWidthForParam((uint8)pulseWidth, paramIndex);
+						randomizationOptions->setPulseWidthIsAllowedForParam(pulseWidth, true, paramIndex);
 					}
 				}
 			}
 			else {
-				allowPulseWidthToggles[clickedPulseWidth].setToggleState(true, dontSendNotification);
-				randomizationOptions->allowPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
+				allowPulseWidthToggles[clickedWidth].setToggleState(true, dontSendNotification);
+				randomizationOptions->setPulseWidthIsAllowedForParam(clickedWidth, true, paramIndex);
 			}
 		}
 		else if (ModifierKeys::currentModifiers == ModifierKeys::altModifier) {
-			auto nextAllowedPulseWidth{ numberOfPulseWidths };
-			for (auto nextPulseWidth = clickedPulseWidth - numberOfRows; nextPulseWidth > -1; nextPulseWidth -= numberOfRows) {
-				if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)nextPulseWidth, paramIndex)) {
-					nextAllowedPulseWidth = nextPulseWidth;
+			auto numberOfWidths{ EP::numberOfPulseWidths };
+			auto nextAllowedWidth{ numberOfWidths };
+			for (auto previousWidth = clickedWidth - numberOfRows; previousWidth > -1; previousWidth -= numberOfRows) {
+				if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)previousWidth, paramIndex)) {
+					nextAllowedWidth = (uint8)previousWidth;
 					break;
 				}
 			}
-			if (nextAllowedPulseWidth == numberOfPulseWidths) {
-				for (auto nextPulseWidth = clickedPulseWidth + numberOfRows; nextPulseWidth < numberOfPulseWidths; nextPulseWidth += numberOfRows) {
-					if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)nextPulseWidth, paramIndex)) {
-						nextAllowedPulseWidth = nextPulseWidth;
+			if (nextAllowedWidth == numberOfWidths) {
+				for (auto subsequentWidth = clickedWidth + numberOfRows; subsequentWidth < numberOfWidths; subsequentWidth += numberOfRows) {
+					if (randomizationOptions->pulseWidthIsAllowedForParam((uint8)subsequentWidth, paramIndex)) {
+						nextAllowedWidth = (uint8)subsequentWidth;
 						break;
 					}
 				}
 			}
-			if (nextAllowedPulseWidth != numberOfPulseWidths) {
-				if (nextAllowedPulseWidth < clickedPulseWidth) {
-					for (auto nextPulseWidth = nextAllowedPulseWidth; nextPulseWidth <= clickedPulseWidth; nextPulseWidth += numberOfRows) {
-						allowPulseWidthToggles[nextPulseWidth].setToggleState(true, dontSendNotification);
-						randomizationOptions->allowPulseWidthForParam((uint8)nextPulseWidth, paramIndex);
+			if (nextAllowedWidth != numberOfWidths) {
+				if (nextAllowedWidth < clickedWidth) {
+					for (auto pulseWidth = nextAllowedWidth; pulseWidth <= clickedWidth; pulseWidth += (uint8)numberOfRows) {
+						allowPulseWidthToggles[pulseWidth].setToggleState(true, dontSendNotification);
+						randomizationOptions->setPulseWidthIsAllowedForParam(pulseWidth, true, paramIndex);
 					}
 				}
 				else {
-					for (auto nextPulseWidth = clickedPulseWidth; nextPulseWidth <= nextAllowedPulseWidth; nextPulseWidth += numberOfRows) {
-						allowPulseWidthToggles[nextPulseWidth].setToggleState(true, dontSendNotification);
-						randomizationOptions->allowPulseWidthForParam((uint8)nextPulseWidth, paramIndex);
+					for (auto pulseWidth = clickedWidth; pulseWidth <= nextAllowedWidth; pulseWidth += (uint8)numberOfRows) {
+						allowPulseWidthToggles[pulseWidth].setToggleState(true, dontSendNotification);
+						randomizationOptions->setPulseWidthIsAllowedForParam(pulseWidth, true, paramIndex);
 					}
 				}
 			}
 			else {
-				allowPulseWidthToggles[clickedPulseWidth].setToggleState(true, dontSendNotification);
-				randomizationOptions->allowPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
+				allowPulseWidthToggles[clickedWidth].setToggleState(true, dontSendNotification);
+				randomizationOptions->setPulseWidthIsAllowedForParam(clickedWidth, true, paramIndex);
 			}
 		}
 		else {
 			auto pulseWidthIsAllowed{ button->getToggleState() };
-			if (pulseWidthIsAllowed)
-				randomizationOptions->allowPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
-			else
-				randomizationOptions->forbidPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
+			randomizationOptions->setPulseWidthIsAllowedForParam(clickedWidth, pulseWidthIsAllowed ? true : false, paramIndex);
 		}
 		if (randomizationOptions->noPulseWidthIsAllowedForParam(paramIndex)) {
-			if (clickedPulseWidth > -1 && clickedPulseWidth < numberOfPulseWidths) {
-				allowPulseWidthToggles[clickedPulseWidth].setToggleState(true, dontSendNotification);
-				randomizationOptions->allowPulseWidthForParam((uint8)clickedPulseWidth, paramIndex);
-			}
+				allowPulseWidthToggles[clickedWidth].setToggleState(true, dontSendNotification);
+				randomizationOptions->setPulseWidthIsAllowedForParam(clickedWidth, true, paramIndex);
 		}
 	}
 	else {
@@ -305,60 +298,39 @@ void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
 		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier)
 			makeShapeTheOnlyOneAllowed(clickedShape);
 		else {
-			if (button->getToggleState() == true) {
-				randomizationOptions->allowOscShapeForParam(clickedShape, paramIndex);
-				if (clickedShape == Shape::pulse)
-					restorePulseWidthToggles();
+			auto shapeIsAllowed{ button->getToggleState() };
+			randomizationOptions->setOscShapeIsAllowedForParam(clickedShape, shapeIsAllowed ? true : false, paramIndex);
+			if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
+				button->setToggleState(true, dontSendNotification);
+				randomizationOptions->setOscShapeIsAllowedForParam(clickedShape, true, paramIndex);
 			}
-			else {
-				randomizationOptions->forbidOscShapeForParam(clickedShape, paramIndex);
-				if (clickedShape == Shape::pulse)
+			if (clickedShape == Shape::pulse) {
+				if (shapeIsAllowed)
+					restorePulseWidthToggles();
+				else
 					disablePulseWidthToggles();
 			}
 		}
 	}
 }
 
-void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape shape) {
-	toggle_Off.setToggleState(shape == Shape::off ? true : false, dontSendNotification);
-	toggle_Saw.setToggleState(shape == Shape::sawtooth ? true : false, dontSendNotification);
-	toggle_Tri.setToggleState(shape == Shape::triangle ? true : false, dontSendNotification);
-	toggle_SawTri.setToggleState(shape == Shape::sawTriMix ? true : false, dontSendNotification);
-	toggle_Pulse.setToggleState(shape == Shape::pulse ? true : false, dontSendNotification);
-	for (auto shapeIndex = (int)Shape::off; shapeIndex <= (int)Shape::pulse; ++shapeIndex) {
-		auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-		if (shapeIndex == (int)shape)
-			randomizationOptions->allowOscShapeForParam(shape, paramIndex);
-		else
-			randomizationOptions->forbidOscShapeForParam(Shape{ shapeIndex }, paramIndex);
-	}
-	if (shape == Shape::pulse)
+void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape allowedShape) {
+	toggle_Off.setToggleState(allowedShape == Shape::off ? true : false, dontSendNotification);
+	toggle_Saw.setToggleState(allowedShape == Shape::sawtooth ? true : false, dontSendNotification);
+	toggle_Tri.setToggleState(allowedShape == Shape::triangle ? true : false, dontSendNotification);
+	toggle_SawTri.setToggleState(allowedShape == Shape::sawTriMix ? true : false, dontSendNotification);
+	toggle_Pulse.setToggleState(allowedShape == Shape::pulse ? true : false, dontSendNotification);
+	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
+	for (auto shapeIndex = (int)Shape::off; shapeIndex <= (int)Shape::pulse; ++shapeIndex)
+		randomizationOptions->setOscShapeIsAllowedForParam(allowedShape, shapeIndex == (int)allowedShape ? true : false, paramIndex);
+	if (allowedShape == Shape::pulse)
 		restorePulseWidthToggles();
 	else
 		disablePulseWidthToggles();
 }
 
-void GUI_Layer_AllowedChoices_OscShape::allowAllShapes() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-	toggle_Off.setToggleState(true, dontSendNotification);
-	randomizationOptions->allowOscShapeForParam(Shape::off, paramIndex);
-	toggle_Saw.setToggleState(true, dontSendNotification);
-	randomizationOptions->allowOscShapeForParam(Shape::sawtooth, paramIndex);
-	toggle_Tri.setToggleState(true, dontSendNotification);
-	randomizationOptions->allowOscShapeForParam(Shape::triangle, paramIndex);
-	toggle_SawTri.setToggleState(true, dontSendNotification);
-	randomizationOptions->allowOscShapeForParam(Shape::sawTriMix, paramIndex);
-	toggle_Pulse.setToggleState(true, dontSendNotification);
-	randomizationOptions->allowOscShapeForParam(Shape::pulse, paramIndex);
-	for (auto pulseWidth = (uint8)0; pulseWidth != numberOfPulseWidths; ++pulseWidth) {
-		allowPulseWidthToggles[pulseWidth].setToggleState(true, dontSendNotification);
-		allowPulseWidthToggles[pulseWidth].setEnabled(true);
-		randomizationOptions->allowPulseWidthForParam(pulseWidth, paramIndex);
-	}
-}
-
 void GUI_Layer_AllowedChoices_OscShape::disablePulseWidthToggles() {
-	for (auto pulseWidth = 0; pulseWidth != numberOfPulseWidths; ++pulseWidth) {
+	for (auto pulseWidth = 0; pulseWidth != EP::numberOfPulseWidths; ++pulseWidth) {
 		allowPulseWidthToggles[pulseWidth].setToggleState(false, dontSendNotification);
 		allowPulseWidthToggles[pulseWidth].setEnabled(false);
 	}
@@ -366,9 +338,9 @@ void GUI_Layer_AllowedChoices_OscShape::disablePulseWidthToggles() {
 
 void GUI_Layer_AllowedChoices_OscShape::restorePulseWidthToggles() {
 	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-	for (auto pulseWidth = 0; pulseWidth != numberOfPulseWidths; ++pulseWidth) {
-		auto allowed{ randomizationOptions->pulseWidthIsAllowedForParam(pulseWidth, paramIndex) };
-		allowPulseWidthToggles[pulseWidth].setToggleState(allowed ? true : false, dontSendNotification);
+	for (auto pulseWidth = 0; pulseWidth != EP::numberOfPulseWidths; ++pulseWidth) {
+		auto isAllowed{ randomizationOptions->pulseWidthIsAllowedForParam(pulseWidth, paramIndex) };
+		allowPulseWidthToggles[pulseWidth].setToggleState(isAllowed ? true : false, dontSendNotification);
 		allowPulseWidthToggles[pulseWidth].setEnabled(true);
 	}
 }
@@ -379,6 +351,6 @@ GUI_Layer_AllowedChoices_OscShape::~GUI_Layer_AllowedChoices_OscShape() {
 	toggle_Tri.removeListener(this);
 	toggle_SawTri.removeListener(this);
 	toggle_Pulse.removeListener(this);
-	for (auto pulseWidth = 0; pulseWidth != numberOfPulseWidths; ++pulseWidth)
+	for (auto pulseWidth = 0; pulseWidth != EP::numberOfPulseWidths; ++pulseWidth)
 		allowPulseWidthToggles[pulseWidth].removeListener(this);
 }

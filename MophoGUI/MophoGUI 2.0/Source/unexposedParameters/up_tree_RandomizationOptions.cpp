@@ -28,17 +28,10 @@ RandomizationOptions::RandomizationOptions() :
 
 		setParamIsLocked(paramIndex, false);
 
-		if (allowedChoicesType == AllowedChoicesType::standard) {
-			auto numberOfChoices{ info.numberOfChoicesFor(paramIndex) };
-			for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
-				setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
-		}
-		if (allowedChoicesType == AllowedChoicesType::oscShape) {
-			for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape)
-				allowOscShapeForParam(OscWaveShape{ shape }, paramIndex);
-			for (auto width = 0; width < 100; ++width)
-				allowPulseWidthForParam(width, paramIndex);
-		}
+		if (allowedChoicesType == AllowedChoicesType::standard)
+			allowAllChoicesForParam(paramIndex);
+		if (allowedChoicesType == AllowedChoicesType::oscShape)
+			allowAllChoicesForOscShapeParam(paramIndex);
 		//if (allowedChoicesType == AllowedChoicesType::lfoFreq) {
 		//	for (auto category = (int)LFO_FreqCategory::unsynced; category <= (int)LFO_FreqCategory::synced; ++category)
 		//		allowCategoryForLFO_FreqParam(LFO_FreqCategory{ category }, paramIndex);
@@ -122,12 +115,12 @@ void RandomizationOptions::setChoiceIsAllowedForParam(uint8 choiceNum, bool shou
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	String choiceName{ "choice_" + (String)choiceNum };
+	String propertyID{ "choice_" + (String)choiceNum };
 	if (shouldBeAllowed)
-		allowedChoices.setProperty(choiceName, (bool)true, nullptr);
+		allowedChoices.setProperty(propertyID, (bool)true, nullptr);
 	else
-		if (allowedChoices.hasProperty(choiceName))
-			allowedChoices.removeProperty(choiceName, nullptr);
+		if (allowedChoices.hasProperty(propertyID))
+			allowedChoices.removeProperty(propertyID, nullptr);
 	checkNumberOfChoicesAllowedForParam(paramIndex);
 }
 
@@ -168,29 +161,21 @@ const bool RandomizationOptions::oscShapeIsAllowedForParam(OscWaveShape shape, u
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedShapes{ allowedChoices.getChildWithName(ID::rndm_AllowedShapes) };
 	auto propertyID{ "choice_" + String((int)shape) };
-	return allowedShapes.hasProperty(propertyID);
+	return allowedShapes.hasProperty(propertyID) == true;
 }
 
-void RandomizationOptions::allowOscShapeForParam(OscWaveShape shape, uint8 paramIndex) {
+void RandomizationOptions::setOscShapeIsAllowedForParam(OscWaveShape shape, bool shouldBeAllowed, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedShapes{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedShapes, nullptr) };
 	auto propertyID{ "choice_" + String((int)shape) };
-	allowedShapes.setProperty(propertyID, (bool)true, nullptr);
-	checkNumberOfChoicesAllowedForOscShapeParam(paramIndex);
-}
-
-void RandomizationOptions::forbidOscShapeForParam(OscWaveShape shape, uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	auto allowedShapes{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedShapes, nullptr) };
-	auto propertyID{ "choice_" + String((int)shape) };
-	if (allowedShapes.hasProperty(propertyID))
-		allowedShapes.removeProperty(propertyID, nullptr);
+	if (shouldBeAllowed)
+		allowedShapes.setProperty(propertyID, (bool)true, nullptr);
+	else
+		if (allowedShapes.hasProperty(propertyID))
+			allowedShapes.removeProperty(propertyID, nullptr);
 	checkNumberOfChoicesAllowedForOscShapeParam(paramIndex);
 }
 
@@ -198,37 +183,32 @@ const bool RandomizationOptions::noOscShapeIsAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return (bool)paramTree.getProperty(ID::rndm_NoOscShapeIsAllowed);
+	return (bool)paramTree.getProperty(ID::rndm_NoOscShapeIsAllowed) == true;
 }
 
 const bool RandomizationOptions::pulseWidthIsAllowedForParam(int pulseWidth, uint8 paramIndex) {
+	jassert(pulseWidth < EP::numberOfPulseWidths);
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPulseWidths{ allowedChoices.getChildWithName(ID::rndm_AllowedPulseWidths) };
-	return allowedPulseWidths.hasProperty("choice_" + (String)pulseWidth);
+	return allowedPulseWidths.hasProperty("choice_" + (String)pulseWidth) == true;
 }
 
-void RandomizationOptions::allowPulseWidthForParam(int pulseWidth, uint8 paramIndex) {
+void RandomizationOptions::setPulseWidthIsAllowedForParam(int pulseWidth, bool shouldBeAllowed, uint8 paramIndex) {
+	jassert(pulseWidth < EP::numberOfPulseWidths);
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPulseWidths{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedPulseWidths, nullptr) };
-	allowedPulseWidths.setProperty("choice_" + (String)pulseWidth, (bool)true, nullptr);
-	checkNumberOfChoicesAllowedForOscShapeParam(paramIndex);
-}
-
-void RandomizationOptions::forbidPulseWidthForParam(int pulseWidth, uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	auto allowedPulseWidths{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedPulseWidths, nullptr) };
-	auto propertyID{ "choice_" + String(pulseWidth) };
-	if (allowedPulseWidths.hasProperty(propertyID))
-		allowedPulseWidths.removeProperty(propertyID, nullptr);
+	auto propertyID{ "choice_" + (String)pulseWidth };
+	if (shouldBeAllowed)
+		allowedPulseWidths.setProperty(propertyID, (bool)true, nullptr);
+	else
+		if (allowedPulseWidths.hasProperty(propertyID))
+			allowedPulseWidths.removeProperty(propertyID, nullptr);
 	checkNumberOfChoicesAllowedForOscShapeParam(paramIndex);
 }
 
@@ -236,7 +216,7 @@ const bool RandomizationOptions::noPulseWidthIsAllowedForParam(uint8 paramIndex)
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return (bool)paramTree.getProperty(ID::rndm_NoPulseWidthIsAllowed);
+	return (bool)paramTree.getProperty(ID::rndm_NoPulseWidthIsAllowed) == true;
 }
 
 void RandomizationOptions::checkNumberOfChoicesAllowedForOscShapeParam(uint8 paramIndex) {
@@ -261,6 +241,31 @@ void RandomizationOptions::checkNumberOfChoicesAllowedForOscShapeParam(uint8 par
 	paramTree.setProperty(ID::rndm_OnlyOneChoiceIsAllowed, onlyOneChoice ? (bool)true : (bool)false, nullptr);
 }
 
+void RandomizationOptions::clearAllowedOscShapesForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
+	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
+	auto allowedShapes{ allowedChoices.getChildWithName(ID::rndm_AllowedShapes) };
+	allowedShapes.removeAllProperties(nullptr);
+}
+
+void RandomizationOptions::clearAllowedPulseWidthsForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
+	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
+	auto allowedPulseWidths{ allowedChoices.getChildWithName(ID::rndm_AllowedPulseWidths) };
+	allowedPulseWidths.removeAllProperties(nullptr);
+}
+
+void RandomizationOptions::allowAllChoicesForOscShapeParam(uint8 paramIndex) {
+	for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape)
+		setOscShapeIsAllowedForParam(OscWaveShape{ shape }, true, paramIndex);
+	for (auto width = 0; width < EP::numberOfPulseWidths; ++width)
+		setPulseWidthIsAllowedForParam(width, true, paramIndex);
+}
+
 
 
 
@@ -270,7 +275,7 @@ const bool RandomizationOptions::onlyOneChoiceIsAllowedForParam(uint8 paramIndex
 	jassert(info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	return (bool)allowedChoices.getProperty(ID::rndm_OnlyOneChoiceIsAllowed);
+	return (bool)allowedChoices.getProperty(ID::rndm_OnlyOneChoiceIsAllowed) == true;
 }
 
 const bool RandomizationOptions::noChoiceIsAllowedForParam(uint8 paramIndex) {
@@ -278,7 +283,7 @@ const bool RandomizationOptions::noChoiceIsAllowedForParam(uint8 paramIndex) {
 	jassert(info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	return (bool)allowedChoices.getProperty(ID::rndm_OnlyOneChoiceIsAllowed);
+	return (bool)allowedChoices.getProperty(ID::rndm_OnlyOneChoiceIsAllowed) == true;
 }
 
 
