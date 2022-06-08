@@ -31,7 +31,7 @@ RandomizationOptions::RandomizationOptions() :
 		if (allowedChoicesType == AllowedChoicesType::standard) {
 			auto numberOfChoices{ info.numberOfChoicesFor(paramIndex) };
 			for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
-				allowChoiceForParam(choiceNum, paramIndex);
+				setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
 		}
 		if (allowedChoicesType == AllowedChoicesType::oscShape) {
 			for (auto shape = (int)OscWaveShape::off; shape <= (int)OscWaveShape::pulse; ++shape)
@@ -117,29 +117,17 @@ const bool RandomizationOptions::choiceIsAllowedForParam(uint8 choiceNum, uint8 
 	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == true;
 }
 
-const bool RandomizationOptions::choiceIsForbiddenForParam(uint8 choiceNum, uint8 paramIndex) {
+void RandomizationOptions::setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == false;
-}
-
-void RandomizationOptions::allowChoiceForParam(uint8 choiceNum, uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	allowedChoices.setProperty("choice_" + (String)choiceNum, (bool)true, nullptr);
-	checkNumberOfChoicesAllowedForParam(paramIndex);
-}
-
-void RandomizationOptions::forbidChoiceForParam(uint8 choiceNum, uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
-	allowedChoices.removeProperty("choice_" + (String)choiceNum, nullptr);
+	String choiceName{ "choice_" + (String)choiceNum };
+	if (shouldBeAllowed)
+		allowedChoices.setProperty(choiceName, (bool)true, nullptr);
+	else
+		if (allowedChoices.hasProperty(choiceName))
+			allowedChoices.removeProperty(choiceName, nullptr);
 	checkNumberOfChoicesAllowedForParam(paramIndex);
 }
 
@@ -152,6 +140,22 @@ void RandomizationOptions::checkNumberOfChoicesAllowedForParam(uint8 paramIndex)
 	paramTree.setProperty(ID::rndm_NoChoiceIsAllowed, noChoices ? (bool)true : (bool)false, nullptr);
 	auto onlyOneChoice{ allowedChoices.getNumProperties() == 1 };
 	paramTree.setProperty(ID::rndm_OnlyOneChoiceIsAllowed, onlyOneChoice ? (bool)true : (bool)false, nullptr);
+}
+
+void RandomizationOptions::clearAllowedChoicesForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
+	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
+	allowedChoices.removeAllProperties(nullptr);
+}
+
+void RandomizationOptions::allowAllChoicesForParam(uint8 paramIndex) {
+	auto& info{ InfoForExposedParameters::get() };
+	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	auto numberOfChoices{ info.numberOfChoicesFor(paramIndex) };
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
+		setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
 }
 
 

@@ -27,10 +27,10 @@ public:
 	void setParamIsLocked(uint8 paramIndex, bool shouldBeLocked);
 
 	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
-	const bool choiceIsForbiddenForParam(uint8 choiceNum, uint8 paramIndex);
-	void allowChoiceForParam(uint8 choiceNum, uint8 paramIndex);
-	void forbidChoiceForParam(uint8 choiceNum, uint8 paramIndex);
+	void setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex);
 	void checkNumberOfChoicesAllowedForParam(uint8 paramIndex);
+	void clearAllowedChoicesForParam(uint8 paramIndex);
+	void allowAllChoicesForParam(uint8 paramIndex);
 
 	const bool oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
 	void allowOscShapeForParam(OscWaveShape shape, uint8 paramIndex);
