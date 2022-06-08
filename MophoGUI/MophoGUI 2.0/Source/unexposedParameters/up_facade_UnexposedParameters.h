@@ -6,8 +6,8 @@
 #include "up_tree_RandomizationOptions.h"
 #include "up_tree_TooltipsOptions.h"
 #include "up_tree_VoiceTransmissionOptions.h"
-#include "../midi/0_midi_OutgoingMidiBuffers.h"
-#include "../voices/1_voices_tree_VoicesBanks.h"
+#include "../midi/midi_0_OutgoingMidiBuffers.h"
+#include "../voices/voices_1_tree_VoicesBanks.h"
 
 
 

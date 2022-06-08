@@ -4,7 +4,7 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
-#include "../midi/1_midi_ParameterChangeMessage.h"
+#include "../midi/midi_1_ParameterChangeMessage.h"
 //#include "../randomization/randomization_ParamRandomizationMethods.h" todo: handle randomization triggers
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 

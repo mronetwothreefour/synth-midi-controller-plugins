@@ -8,13 +8,13 @@
 #include "../constants/constants_Voices.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
-#include "../global/1_global_gui_layer_CommError_NRPN.h"
-#include "../global/1_global_gui_layer_CommError_SysEx.h"
-#include "../global/2_global_gui_layer_GlobalParams.h"
-#include "../midi/1_midi_EditBufferDataMessage.h"
-#include "../midi/1_midi_GlobalParametersDataRequest.h"
+#include "../global/global_1_gui_layer_CommError_NRPN.h"
+#include "../global/global_1_gui_layer_CommError_SysEx.h"
+#include "../global/global_2_gui_layer_GlobalParams.h"
+#include "../midi/midi_1_EditBufferDataMessage.h"
+#include "../midi/midi_1_GlobalParametersDataRequest.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
-#include "../voices/7_voices_gui_layer_VoicesBanks.h"
+#include "../voices/voices_7_gui_layer_VoicesBanks.h"
 
 using namespace MophoConstants;
 using EditBuffer = EditBufferDataMessage;

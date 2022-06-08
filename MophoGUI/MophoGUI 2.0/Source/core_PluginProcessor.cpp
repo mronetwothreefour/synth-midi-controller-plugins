@@ -4,8 +4,8 @@
 #include "constants/constants_Identifiers.h"
 #include "exposedParameters/ep_build_ExposedParamsLayout.h"
 #include "exposedParameters/ep_handle_ExposedParamChanges.h"
-#include "midi/1_midi_handle_IncomingMessage_NRPN.h"
-#include "midi/1_midi_handle_IncomingMessage_SysEx.h"
+#include "midi/midi_1_handle_IncomingMessage_NRPN.h"
+#include "midi/midi_1_handle_IncomingMessage_SysEx.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;

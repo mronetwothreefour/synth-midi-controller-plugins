@@ -18,11 +18,11 @@ const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
 }
 
 void VoiceTransmissionOptions::dontTransmitParamChanges() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)true, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)false, nullptr);
 }
 
 void VoiceTransmissionOptions::transmitParamChanges() {
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)false, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_TransmitParamChanges, (bool)true, nullptr);
 }
 
 const int VoiceTransmissionOptions::voiceTransmitTime() {

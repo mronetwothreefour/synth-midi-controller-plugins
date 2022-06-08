@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../exposedParamControls/3_vector_ExposedParamControlsServer.h"
+#include "../exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"
 
 
 

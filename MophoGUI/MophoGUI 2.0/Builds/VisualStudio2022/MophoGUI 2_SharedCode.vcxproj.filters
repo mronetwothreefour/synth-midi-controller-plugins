@@ -514,34 +514,34 @@
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\buttons\epc_1_comp_ToggleButtonAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\comboBoxes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForOscShape.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForSeqStep.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.cpp">
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
@@ -556,34 +556,34 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.cpp">
+    <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\0_global_build_ChoiceName.cpp">
+    <ClCompile Include="..\..\Source\global\global_0_gui_layer_CommError_Base.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_comp_DisplayLabelForGlobalParam.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_comp_ToggleForTooltipParam.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\0_global_gui_layer_CommError_Base.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.cpp">
+    <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\global\2_global_gui_layer_GlobalParams.cpp">
+    <ClCompile Include="..\..\Source\global\global_2_gui_layer_GlobalParams.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.cpp">
@@ -601,40 +601,40 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\0_midi_OutgoingMidiBuffers.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\0_midi_RawDataTools.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_EditBufferDataMessage.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_1_EditBufferDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\midi\1_midi_VoiceDataMessage.cpp">
+    <ClCompile Include="..\..\Source\midi\midi_1_VoiceDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_1_gui_layer_AllowedChoices.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices_OscShape.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_1_gui_layer_AllowedChoices_OscShape.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
@@ -652,61 +652,61 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FileNotValidAlert.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FolderExistsAlert.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_1_gui_layer_NewFolderDialog.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_2_gui_layer_ImportExport_Base.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_Voice.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Export_Voice.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_VoicesBank.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Export_VoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_Voice.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Import_Voice.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_VoicesBank.cpp">
+    <ClCompile Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Import_VoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_0_singleton_FactoryVoiceDataHexStrings.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\1_voices_tree_VoicesBanks.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\2_voices_comp_VoiceSlots.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlots.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_4_comp_TabForCustomVoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_4_comp_TabForFactoryVoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\6_voices_comp_TabbedComponentForAllVoicesBanks.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_6_comp_TabbedComponentForAllVoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\voices\7_voices_gui_layer_VoicesBanks.cpp">
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2871,34 +2871,34 @@
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\buttons\1_comp_ToggleButtonAndAttachment.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\buttons\epc_1_comp_ToggleButtonAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\buttons</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\1_comp_ComboBoxAndAttachment.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\comboBoxes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\0_slider_JuceSlidersWithMouseMods.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForOscShape.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForOscShape.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForSeqStep.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForSeqStep.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\1_comp_KnobAndAttachment_ForVoiceNameChar.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\0_comp_TooltipUpdaterForExposedParamControl.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\2_comp_ExposedParamControl.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.h">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\3_vector_ExposedParamControlsServer.h">
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.h">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h">
@@ -2913,34 +2913,34 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_comp_EditorForTooltipDelay.h">
+    <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\0_global_build_ChoiceName.h">
+    <ClInclude Include="..\..\Source\global\global_0_gui_layer_CommError_Base.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_comp_DisplayLabelForGlobalParam.h">
+    <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_comp_ComboBoxForGlobalParam.h">
+    <ClInclude Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_comp_KnobForGlobalParam.h">
+    <ClInclude Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_comp_ToggleForTooltipParam.h">
+    <ClInclude Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\0_global_gui_layer_CommError_Base.h">
+    <ClInclude Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_NRPN.h">
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\1_global_gui_layer_CommError_SysEx.h">
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\global\2_global_gui_layer_GlobalParams.h">
+    <ClInclude Include="..\..\Source\global\global_2_gui_layer_GlobalParams.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
@@ -2964,46 +2964,46 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\0_midi_NRPNbufferWithLeadingMSBs.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\0_midi_OutgoingMidiBuffers.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\0_midi_RawDataTools.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_EditBufferDataMessage.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_EditBufferDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_GlobalParametersDataRequest.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_NRPN.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_handle_IncomingMessage_SysEx.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_ParameterChangeMessage.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\1_midi_VoiceDataMessage.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowChoiceToggles.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\0_rndm_comp_AllowRepeatChoicesToggle.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\0_rndm_ParamRandomizationMethods.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_1_gui_layer_AllowedChoices.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\1_rndm_gui_layer_AllowedChoices_OscShape.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_1_gui_layer_AllowedChoices_OscShape.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
@@ -3021,67 +3021,67 @@
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_FileFilters.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_0_FileFilters.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileNotValidAlert.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FileNotValidAlert.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FileOverwriteDialog.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FileOverwriteDialog.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\0_imEx_gui_layer_FolderExistsAlert.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_0_gui_layer_FolderExistsAlert.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\1_imEx_gui_layer_NewFolderDialog.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_1_gui_layer_NewFolderDialog.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\2_imEx_gui_layer_ImportExport_Base.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_2_gui_layer_ImportExport_Base.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_Voice.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Export_Voice.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Export_VoicesBank.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Export_VoicesBank.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_Voice.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Import_Voice.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\importExport\3_imEx_gui_layer_Import_VoicesBank.h">
+    <ClInclude Include="..\..\Source\voices\importExport\imEx_3_gui_layer_Import_VoicesBank.h">
       <Filter>MophoGUI 2\Source\voices\importExport</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\0_voices_singleton_FactoryVoiceDataHexStrings.h">
+    <ClInclude Include="..\..\Source\voices\voices_0_singleton_FactoryVoiceDataHexStrings.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\1_voices_tree_VoicesBanks.h">
+    <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\2_voices_comp_VoiceSlots.h">
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlots.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\3_voices_comp_ButtonsForVoicesBankTab.h">
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_ButtonsForVoicesBankTab.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForCustomVoicesBank.h">
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_TabForCustomVoicesBank.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\4_voices_comp_TabForFactoryVoicesBank.h">
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_TabForFactoryVoicesBank.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForCustomVoicesBanks.h">
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabbedComponentForCustomVoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\5_voices_comp_TabbedComponentForFactoryVoicesBanks.h">
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabbedComponentForFactoryVoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\6_voices_comp_TabbedComponentForAllVoicesBanks.h">
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForAllVoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\6_voices_gui_layer_BankTransmit.h">
+    <ClInclude Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\voices\7_voices_gui_layer_VoicesBanks.h">
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
