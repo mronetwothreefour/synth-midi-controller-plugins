@@ -5,27 +5,28 @@
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
+using Tree = ValueTree;
 
 
 
 RandomizationOptions::RandomizationOptions() :
 	randomizationOptionsTree{ID::rndm_Options }
 {
-	setTransmitMethodIsSysEx();
+	setTransmitMethodIsSysEx(true);
 
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto& info{ InfoForExposedParameters::get() };
 		auto allowedChoicesType{ info.allowedChoicesTypeFor(paramIndex) };
 		if (allowedChoicesType == AllowedChoicesType::binary) {
-			randomizationOptionsTree.addChild(ValueTree{ info.IDfor(paramIndex), {}, {} }, paramIndex, nullptr);
-			allowRepeatChoicesForParam(paramIndex);
+			randomizationOptionsTree.addChild(Tree{ info.IDfor(paramIndex), {}, {} }, paramIndex, nullptr);
+			setRepeatChoicesAreAllowedForParam(true, paramIndex);
 		}
 		else {
-			randomizationOptionsTree.addChild(ValueTree{ info.IDfor(paramIndex), {}, { ValueTree{ ID::rndm_AllowedChoices } } }, paramIndex, nullptr);
-			forbidRepeatChoicesForParam(paramIndex);
+			randomizationOptionsTree.addChild(Tree{ info.IDfor(paramIndex), {}, { Tree{ ID::rndm_AllowedChoices } } }, paramIndex, nullptr);
+			setRepeatChoicesAreAllowedForParam(false, paramIndex);
 		}
 
-		unlockParam(paramIndex);
+		setParamIsLocked(paramIndex, false);
 
 		if (allowedChoicesType == AllowedChoicesType::standard) {
 			auto numberOfChoices{ info.numberOfChoicesFor(paramIndex) };
@@ -55,20 +56,12 @@ RandomizationOptions::RandomizationOptions() :
 
 
 
-const bool RandomizationOptions::transmitMethodIsNRPN() {
-	return ((bool)randomizationOptionsTree.getProperty(ID::rndm_TransmitMethod) == transmitNRPN);
-}
-
 const bool RandomizationOptions::transmitMethodIsSysEx() {
-	return ((bool)randomizationOptionsTree.getProperty(ID::rndm_TransmitMethod) == transmitSysEx);
+	return ((bool)randomizationOptionsTree.getProperty(ID::rndm_TransmitMethodIsSysEx) == true);
 }
 
-void RandomizationOptions::setTransmitMethodIsNRPN() {
-	randomizationOptionsTree.setProperty(ID::rndm_TransmitMethod, transmitNRPN, nullptr);
-}
-
-void RandomizationOptions::setTransmitMethodIsSysEx() {
-	randomizationOptionsTree.setProperty(ID::rndm_TransmitMethod, transmitSysEx, nullptr);
+void RandomizationOptions::setTransmitMethodIsSysEx(bool shouldBeSysEx) {
+	randomizationOptionsTree.setProperty(ID::rndm_TransmitMethodIsSysEx, shouldBeSysEx ? true : false, nullptr);
 }
 
 
@@ -77,25 +70,19 @@ void RandomizationOptions::setTransmitMethodIsSysEx() {
 const bool RandomizationOptions::repeatChoicesAreAllowedForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return ((bool)paramTree.getProperty(ID::rndm_RepeatChoices) == allowed);
+	return ((bool)paramTree.getProperty(ID::rndm_RepeatChoicesAreAllowed) == true);
 }
 
 const bool RandomizationOptions::repeatChoicesAreForbiddenForParam(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return ((bool)paramTree.getProperty(ID::rndm_RepeatChoices) == forbidden);
+	return ((bool)paramTree.getProperty(ID::rndm_RepeatChoicesAreAllowed) == false);
 }
 
-void RandomizationOptions::allowRepeatChoicesForParam(uint8 paramIndex) {
+void RandomizationOptions::setRepeatChoicesAreAllowedForParam(bool shouldBeAllowed, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	paramTree.setProperty(ID::rndm_RepeatChoices, allowed, nullptr);
-}
-
-void RandomizationOptions::forbidRepeatChoicesForParam(uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	paramTree.setProperty(ID::rndm_RepeatChoices, forbidden, nullptr);
+	paramTree.setProperty(ID::rndm_RepeatChoicesAreAllowed, shouldBeAllowed ? true : false, nullptr);
 }
 
 
@@ -104,25 +91,19 @@ void RandomizationOptions::forbidRepeatChoicesForParam(uint8 paramIndex) {
 const bool RandomizationOptions::paramIsLocked(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return ((bool)paramTree.getProperty(ID::rndm_ParamLockStatus) == locked);
+	return ((bool)paramTree.getProperty(ID::rndm_ParamIsLocked) == true);
 }
 
 const bool RandomizationOptions::paramIsUnlocked(uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	return ((bool)paramTree.getProperty(ID::rndm_ParamLockStatus) == unlocked);
+	return ((bool)paramTree.getProperty(ID::rndm_ParamIsLocked) == false);
 }
 
-void RandomizationOptions::lockParam(uint8 paramIndex) {
+void RandomizationOptions::setParamIsLocked(uint8 paramIndex, bool shouldBeLocked) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	paramTree.setProperty(ID::rndm_ParamLockStatus, locked, nullptr);
-}
-
-void RandomizationOptions::unlockParam(uint8 paramIndex) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramTree{ randomizationOptionsTree.getChildWithName(info.IDfor(paramIndex)) };
-	paramTree.setProperty(ID::rndm_ParamLockStatus, unlocked, nullptr);
+	paramTree.setProperty(ID::rndm_ParamIsLocked, shouldBeLocked ? true : false, nullptr);
 }
 
 
@@ -299,13 +280,13 @@ const bool RandomizationOptions::noChoiceIsAllowedForParam(uint8 paramIndex) {
 
 
 
-void RandomizationOptions::addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+void RandomizationOptions::addListenerToChildTreeForParam(Tree::Listener* listener, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex) };
 	randomizationOptionsTree.getChildWithName(paramID).addListener(listener);
 }
 
-void RandomizationOptions::removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex) {
+void RandomizationOptions::removeListenerFromChildTreeForParam(Tree::Listener* listener, uint8 paramIndex) {
 	auto& info{ InfoForExposedParameters::get() };
 	auto paramID{ info.IDfor(paramIndex) };
 	randomizationOptionsTree.getChildWithName(paramID).removeListener(listener);

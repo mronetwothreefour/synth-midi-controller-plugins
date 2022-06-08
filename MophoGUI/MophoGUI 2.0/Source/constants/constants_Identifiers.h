@@ -192,9 +192,9 @@ namespace MophoConstants
 		const Identifier rndm_NoPulseWidthIsAllowed{ "rndm_NoPulseWidthIsAllowed" };
 		const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		const Identifier rndm_Options{ "rndm_Options" };
-		const Identifier rndm_ParamLockStatus{ "rndm_ParamLockStatus" };
-		const Identifier rndm_RepeatChoices{ "rndm_RepeatChoices" };
-		const Identifier rndm_TransmitMethod{ "rndm_TransmitMethod" };
+		const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
+		const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
 		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
 		const Identifier state_CustomVoicesBank_2{ "state_CustomVoicesBank_2" };

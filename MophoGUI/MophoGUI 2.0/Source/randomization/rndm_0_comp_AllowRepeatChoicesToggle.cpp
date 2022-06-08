@@ -20,11 +20,8 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		randomizationOptions->addListenerToChildTreeForParam(this, paramIndex);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, randomizationOptions, paramIndex] {
-		auto allowed{ toggle_AllowRepeatChoices.getToggleState() };
-		if (allowed)
-			randomizationOptions->allowRepeatChoicesForParam(paramIndex);
-		else
-			randomizationOptions->forbidRepeatChoicesForParam(paramIndex);
+		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
+		randomizationOptions->setRepeatChoicesAreAllowedForParam(shouldBeAllowed ? true : false, paramIndex);
 	};
 	toggle_AllowRepeatChoices.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
@@ -50,8 +47,8 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	addAndMakeVisible(toggle_AllowRepeatChoices);
 
 	if (info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::binary) {
-		auto repeatsAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
-		toggle_AllowRepeatChoices.setToggleState(repeatsAllowed ? true : false, dontSendNotification);
+		auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
+		toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 	}
 	else {
 		ValueTree placeholderTree{ info.IDfor(paramIndex) };
@@ -83,8 +80,8 @@ void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& tree, const I
 				toggle_AllowRepeatChoices.setEnabled(false);
 			}
 			else {
-				auto repeatsAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
-				toggle_AllowRepeatChoices.setToggleState(repeatsAllowed ? true : false, dontSendNotification);
+				auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
+				toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 				toggle_AllowRepeatChoices.setEnabled(true);
 			}
 		}

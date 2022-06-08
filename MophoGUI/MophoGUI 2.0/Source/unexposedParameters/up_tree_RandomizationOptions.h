@@ -11,30 +11,20 @@ using namespace MophoConstants;
 class RandomizationOptions
 {
 	ValueTree randomizationOptionsTree;
-	const bool transmitSysEx{ true };
-	const bool transmitNRPN{ false };
-	const bool locked{ true };
-	const bool unlocked{ false };
-	const bool allowed{ true };
-	const bool forbidden{ false };
 
 public:
 	RandomizationOptions();
 
-	const bool transmitMethodIsNRPN();
 	const bool transmitMethodIsSysEx();
-	void setTransmitMethodIsNRPN();
-	void setTransmitMethodIsSysEx();
+	void setTransmitMethodIsSysEx(bool shouldBeSysEx);
 
 	const bool repeatChoicesAreAllowedForParam(uint8 paramIndex);
 	const bool repeatChoicesAreForbiddenForParam(uint8 paramIndex);
-	void allowRepeatChoicesForParam(uint8 paramIndex);
-	void forbidRepeatChoicesForParam(uint8 paramIndex);
+	void setRepeatChoicesAreAllowedForParam(bool shouldBeAllowed, uint8 paramIndex);
 
 	const bool paramIsLocked(uint8 paramIndex);
 	const bool paramIsUnlocked(uint8 paramIndex);
-	void lockParam(uint8 paramIndex);
-	void unlockParam(uint8 paramIndex);
+	void setParamIsLocked(uint8 paramIndex, bool shouldBeLocked);
 
 	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
 	const bool choiceIsForbiddenForParam(uint8 choiceNum, uint8 paramIndex);
@@ -53,12 +43,10 @@ public:
 	void checkNumberOfChoicesAllowedForOscShapeParam(uint8 paramIndex);
 
 	//const bool categoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, uint8 paramIndex);
-	//void allowCategoryForLFO_FreqParam(LFO_FreqCategory category, uint8 paramIndex);
-	//void forbidCategoryForLFO_FreqParam(LFO_FreqCategory category, uint8 paramIndex);
+	//void setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, bool shouldBeAllowed, uint8 paramIndex);
 	//const bool noCategoryIsAllowedForLFO_FreqParam(uint8 paramIndex);
 	//const bool unsyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void allowUnsyncedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void forbidUnsyncedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
+	//void setUnsyncedFreqAreAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
 	//const bool noUnsyncedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
 	//const bool pitchedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
 	//void allowPitchedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
