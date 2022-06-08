@@ -9,7 +9,7 @@ using namespace MophoConstants;
 
 
 struct GlobalParamChoiceName {
-	static String buildFor_AudioOutput(bool isStereo);
+	static String buildFor_AudioOutput(bool isMono);
 	static String buildFor_HardwareOutputBalance(int choiceNum);
 	static String buildFor_GlobalFineTune(int choiceNum, bool verbose);
 	static String buildFor_GlobalTranspose(int choiceNum, bool verbose);

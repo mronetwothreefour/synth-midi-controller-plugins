@@ -42,32 +42,28 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		};
 		break;
 	case GlobalParamComboBoxType::pedalMode:
-		paramID = ID::global_PedalMode;
+		paramID = ID::global_PedalModeIsArpLatch;
 		choiceNamesList.add(ChoiceName::buildFor_PedalMode(false));
 		choiceNamesList.add(ChoiceName::buildFor_PedalMode(true));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->pedalModeIsArpLatch(), dontSendNotification);
 		onChange = [this, globalOptions, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
-			if (currentChoice == 0)
-				globalOptions->setPedalModeToNormal();
-			else
-				globalOptions->setPedalModeToArpLatch();
+			auto shouldBeArpLatch{ currentChoice == 1 };
+			globalOptions->setPedalModeIsArpLatch(shouldBeArpLatch ? true : false);
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
 		};
 		break;
 	case GlobalParamComboBoxType::voiceChanges:
-		paramID = ID::global_VoiceChanges;
+		paramID = ID::global_VoiceChangesAreEnabled;
 		choiceNamesList.add(ChoiceName::buildFor_VoiceChanges(false));
 		choiceNamesList.add(ChoiceName::buildFor_VoiceChanges(true));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)globalOptions->voiceChangesAreEnabled(), dontSendNotification);
 		onChange = [this, globalOptions, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
-			if (currentChoice == 0)
-				globalOptions->setVoiceChangesAreDisabled();
-			else
-				globalOptions->setVoiceChangesAreEnabled();
+			auto shouldBeEnabled{ currentChoice == 1 };
+			globalOptions->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_VoiceChanges, unexposedParams);
 		};
 		break;

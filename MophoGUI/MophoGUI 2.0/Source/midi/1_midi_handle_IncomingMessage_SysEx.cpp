@@ -84,7 +84,7 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         const int globalMIDI_ClockSourceByte{ 10 };
         const int globalParamChangeSendTypeByte{ 12 };
         const int globalParamChangeReceiveTypeByte{ 14 };
-        const int globalPedalModeIsArpByte{ 26 };
+        const int globalPedalModeIsArpLatchByte{ 26 };
         const int globalSysExByte{ 18 };
         const int globalTransposeLSByte{ 4 };
         const int globalTransposeMSByte{ 5 };
@@ -110,17 +110,11 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         MIDI_ClockSource midiClockSource{ sysExData[globalMIDI_ClockSourceByte] };
         globalOptions->setMIDI_ClockSource(midiClockSource);
 
-        auto pedalModeIsArpLatch{ (bool)sysExData[globalPedalModeIsArpByte] };
-        if (pedalModeIsArpLatch)
-            globalOptions->setPedalModeToArpLatch();
-        else
-            globalOptions->setPedalModeToNormal();
+        auto shouldBeArpLatch{ (bool)sysExData[globalPedalModeIsArpLatchByte] };
+        globalOptions->setPedalModeIsArpLatch(shouldBeArpLatch ? true : false);
 
-        auto voiceChangesAreEnabled{ (bool)sysExData[globalVoiceChangesByte] };
-        if (voiceChangesAreEnabled)
-            globalOptions->setVoiceChangesAreEnabled();
-        else
-            globalOptions->setVoiceChangesAreDisabled();
+        auto voiceChangesShouldBeEnabled{ (bool)sysExData[globalVoiceChangesByte] };
+        globalOptions->setVoiceChangesAreEnabled(voiceChangesShouldBeEnabled ? true : false);
 
         ParamChangeSendType paramChangeSendType{ sysExData[globalParamChangeSendTypeByte] };
         globalOptions->setParamChangeSendType(paramChangeSendType);
@@ -128,23 +122,14 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         ParamChangeReceiveType paramChangeReceiveType{ sysExData[globalParamChangeReceiveTypeByte] };
         globalOptions->setParamChangeReceiveType(paramChangeReceiveType);
 
-        auto controllersAreEnabled{ (bool)sysExData[globalControllersOnByte] };
-        if (controllersAreEnabled)
-            globalOptions->setControllersAreEnabled();
-        else
-            globalOptions->setControllersAreDisabled();
+        auto controllersShouldBeEnabled{ (bool)sysExData[globalControllersOnByte] };
+        globalOptions->setControllersAreEnabled(controllersShouldBeEnabled ? true : false);
 
-        auto sysExIsEnabled{ (bool)sysExData[globalSysExByte] };
-        if (sysExIsEnabled)
-            globalOptions->setSysExIsEnabled();
-        else
-            globalOptions->setSysExIsDisabled();
+        auto sysExShouldBeEnabled{ (bool)sysExData[globalSysExByte] };
+        globalOptions->setSysExIsEnabled(sysExShouldBeEnabled ? true : false);
 
-        auto outputIsMono{ (bool)sysExData[globalHardwareOutputTypeByte] };
-        if (outputIsMono)
-            globalOptions->setHardwareOutputToMono();
-        else
-            globalOptions->setHardwareOutputToStereo();
+        auto outputShouldBeMono{ (bool)sysExData[globalHardwareOutputTypeByte] };
+        globalOptions->setHardwareOutputIsMono(outputShouldBeMono ? true : false);
 
         auto hardwareOutputBalance{ sysExData[globalHardwareOutputBalanceByte] };
         globalOptions->setHardwareOutputBalance(hardwareOutputBalance);

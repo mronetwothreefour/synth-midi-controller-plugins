@@ -32,13 +32,13 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 		paramID = ID::global_ParamChangeReceiveType;
 		break;
 	case GlobalParamDisplayLabelType::midiControllersStatus:
-		paramID = ID::global_Controllers;
+		paramID = ID::global_ControllersAreEnabled;
 		break;
 	case GlobalParamDisplayLabelType::sysExStatus:
-		paramID = ID::global_SysEx;
+		paramID = ID::global_SysExIsEnabled;
 		break;
 	case GlobalParamDisplayLabelType::audioOutput:
-		paramID = ID::global_HardwareOutput;
+		paramID = ID::global_HardwareOutputIsMono;
 		break;
 	case GlobalParamDisplayLabelType::hardwareOutputBalance:
 		paramID = ID::global_HardwareOutputBalance;
@@ -65,22 +65,22 @@ void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
 		break;
 	}
 	case GlobalParamDisplayLabelType::midiControllersStatus: {
-		if (globalOptions->controllersAreDisabled())
-			textShouldBeRed = true;
 		auto controllersAreEnabled{ globalOptions->controllersAreEnabled() };
-		setText(ChoiceName::buildFor_MIDI_Controllers(controllersAreEnabled), dontSendNotification);
+		if (controllersAreEnabled == false)
+			textShouldBeRed = true;
+		setText(ChoiceName::buildFor_MIDI_Controllers(controllersAreEnabled ? true : false), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::sysExStatus: {
-		if (globalOptions->sysExIsDisabled())
-			textShouldBeRed = true;
 		auto sysExIsEnabled{ globalOptions->sysExIsEnabled() };
-		setText(ChoiceName::buildFor_SysEx(sysExIsEnabled), dontSendNotification);
+		if (sysExIsEnabled == false)
+			textShouldBeRed = true;
+		setText(ChoiceName::buildFor_SysEx(sysExIsEnabled ? true : false), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::audioOutput: {
-		auto isStereo{ globalOptions->hardwareOutputIsStereo() };
-		setText(ChoiceName::buildFor_AudioOutput(isStereo), dontSendNotification);
+		auto outputIsMono{ globalOptions->hardwareOutputIsMono() };
+		setText(ChoiceName::buildFor_AudioOutput(outputIsMono), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::hardwareOutputBalance: {

@@ -16,13 +16,13 @@ void GlobalOptions::resetAllOptionsToDefaults() {
     setTransmitChannel((uint8)0);
     setHardwareReceiveChannel((uint8)0);
     setMIDI_ClockSource(MIDI_ClockSource::internalClock);
-    setPedalModeToNormal();
-    setVoiceChangesAreDisabled();
+    setPedalModeIsArpLatch(false);
+    setVoiceChangesAreEnabled(false);
     setParamChangeSendType(ParamChangeSendType::nrpn);
     setParamChangeReceiveType(ParamChangeReceiveType::all);
-    setControllersAreEnabled();
-    setSysExIsDisabled();
-    setHardwareOutputToStereo();
+    setControllersAreEnabled(true);
+    setSysExIsEnabled(false);
+    setHardwareOutputIsMono(false);
     setHardwareOutputBalance((uint8)7);
 }
 
@@ -77,27 +77,19 @@ void GlobalOptions::setMIDI_ClockSource(MIDI_ClockSource newSource) {
 }
 
 const bool GlobalOptions::pedalModeIsArpLatch() {
-    return (bool)globalOptionsTree.getProperty(ID::global_PedalMode) == arpLatchPedalMode;
+    return (bool)globalOptionsTree.getProperty(ID::global_PedalModeIsArpLatch) == true;
 }
 
-void GlobalOptions::setPedalModeToArpLatch() {
-    globalOptionsTree.setProperty(ID::global_PedalMode, arpLatchPedalMode, nullptr);
-}
-
-void GlobalOptions::setPedalModeToNormal() {
-    globalOptionsTree.setProperty(ID::global_PedalMode, normalPedalMode, nullptr);
+void GlobalOptions::setPedalModeIsArpLatch(bool shouldBeArpLatch) {
+    globalOptionsTree.setProperty(ID::global_PedalModeIsArpLatch, shouldBeArpLatch ? (bool)true : (bool)false, nullptr);
 }
 
 const bool GlobalOptions::voiceChangesAreEnabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_VoiceChanges) == enabled;
+    return (bool)globalOptionsTree.getProperty(ID::global_VoiceChangesAreEnabled) == true;
 }
 
-void GlobalOptions::setVoiceChangesAreEnabled() {
-    globalOptionsTree.setProperty(ID::global_VoiceChanges, enabled, nullptr);
-}
-
-void GlobalOptions::setVoiceChangesAreDisabled() {
-    globalOptionsTree.setProperty(ID::global_VoiceChanges, disabled, nullptr);
+void GlobalOptions::setVoiceChangesAreEnabled(bool shouldBeEnabled) {
+    globalOptionsTree.setProperty(ID::global_VoiceChangesAreEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 const ParamChangeSendType GlobalOptions::paramChangeSendType() {
@@ -121,19 +113,11 @@ void GlobalOptions::setParamChangeReceiveType(ParamChangeReceiveType newReceiveT
 }
 
 const bool GlobalOptions::controllersAreEnabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_Controllers) == enabled;
+    return (bool)globalOptionsTree.getProperty(ID::global_ControllersAreEnabled) == true;
 }
 
-const bool GlobalOptions::controllersAreDisabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_Controllers) == disabled;
-}
-
-void GlobalOptions::setControllersAreEnabled() {
-    globalOptionsTree.setProperty(ID::global_Controllers, enabled, nullptr);
-}
-
-void GlobalOptions::setControllersAreDisabled() {
-    globalOptionsTree.setProperty(ID::global_Controllers, disabled, nullptr);
+void GlobalOptions::setControllersAreEnabled(bool shouldBeEnabled) {
+    globalOptionsTree.setProperty(ID::global_ControllersAreEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 const bool GlobalOptions::hardwareIsSetToReceiveNRPNcontrollers() {
@@ -148,31 +132,19 @@ const bool GlobalOptions::hardwareIsNotSetToReceiveNRPNcontrollers() {
 }
 
 const bool GlobalOptions::sysExIsEnabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_SysEx) == enabled;
+    return (bool)globalOptionsTree.getProperty(ID::global_SysExIsEnabled) == true;
 }
 
-const bool GlobalOptions::sysExIsDisabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_SysEx) == disabled;
+void GlobalOptions::setSysExIsEnabled(bool shouldBeEnabled) {
+    globalOptionsTree.setProperty(ID::global_SysExIsEnabled, shouldBeEnabled ? true : false, nullptr);
 }
 
-void GlobalOptions::setSysExIsEnabled() {
-    globalOptionsTree.setProperty(ID::global_SysEx, enabled, nullptr);
+bool GlobalOptions::hardwareOutputIsMono() {
+    return (bool)globalOptionsTree.getProperty(ID::global_HardwareOutputIsMono) == true;
 }
 
-void GlobalOptions::setSysExIsDisabled() {
-    globalOptionsTree.setProperty(ID::global_SysEx, disabled, nullptr);
-}
-
-bool GlobalOptions::hardwareOutputIsStereo() {
-    return (bool)globalOptionsTree.getProperty(ID::global_HardwareOutput) == stereo;
-}
-
-void GlobalOptions::setHardwareOutputToStereo() {
-    globalOptionsTree.setProperty(ID::global_HardwareOutput, stereo, nullptr);
-}
-
-void GlobalOptions::setHardwareOutputToMono() {
-    globalOptionsTree.setProperty(ID::global_HardwareOutput, mono, nullptr);
+void GlobalOptions::setHardwareOutputIsMono(bool shouldBeMono) {
+    globalOptionsTree.setProperty(ID::global_HardwareOutputIsMono, shouldBeMono ? true : false, nullptr);
 }
 
 const uint8 GlobalOptions::hardwareOutputBalance() {

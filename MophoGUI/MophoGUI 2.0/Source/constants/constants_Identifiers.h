@@ -148,20 +148,20 @@ namespace MophoConstants
 
 		const Identifier exposedParamsInfo{ "exposedParamsInfo" };
 
-		const Identifier global_Controllers{ "global_Controllers" };
+		const Identifier global_ControllersAreEnabled{ "global_ControllersAreEnabled" };
 		const Identifier global_FineTune{ "global_FineTune" };
 		const Identifier global_HardwareOutputBalance{ "global_HardwareOutputBalance" };
-		const Identifier global_HardwareOutput{ "global_HardwareOutput" };
+		const Identifier global_HardwareOutputIsMono{ "global_HardwareOutputIsMono" };
 		const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
 		const Identifier global_MIDI_ClockSource{ "global_MIDI_ClockSource" };
 		const Identifier global_Options{ "global_Options" };
 		const Identifier global_ParamChangeReceiveType{ "global_ParamChangeReceiveType" };
 		const Identifier global_ParamChangeSendType{ "global_ParamChangeSendType" };
-		const Identifier global_PedalMode{ "global_PedalMode" };
-		const Identifier global_SysEx{ "global_SysEx" };
+		const Identifier global_PedalModeIsArpLatch{ "global_PedalModeIsArpLatch" };
+		const Identifier global_SysExIsEnabled{ "global_SysExIsEnabled" };
 		const Identifier global_TransmitChannel{ "global_TransmitChannel" };
 		const Identifier global_Transpose{ "global_Transpose" };
-		const Identifier global_VoiceChanges{ "global_VoiceChanges" };
+		const Identifier global_VoiceChangesAreEnabled{ "global_VoiceChangesAreEnabled" };
 
 		const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };

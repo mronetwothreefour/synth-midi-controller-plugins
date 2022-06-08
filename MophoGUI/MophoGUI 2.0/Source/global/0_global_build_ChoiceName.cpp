@@ -106,11 +106,11 @@ String GlobalParamChoiceName::buildFor_VoiceChanges(bool isEnabled) {
         return "Disabled";
 }
 
-String GlobalParamChoiceName::buildFor_AudioOutput(bool isStereo) {
-    if (isStereo)
-        return "AUDIO OUTPUT : STEREO";
-    else
+String GlobalParamChoiceName::buildFor_AudioOutput(bool isMono) {
+    if (isMono)
         return "AUDIO OUTPUT : MONO";
+    else
+        return "AUDIO OUTPUT : STEREO";
 }
 
 String GlobalParamChoiceName::buildFor_HardwareOutputBalance(int choiceNum) {
