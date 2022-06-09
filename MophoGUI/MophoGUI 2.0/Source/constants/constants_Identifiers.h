@@ -184,12 +184,20 @@ namespace MophoConstants
 		const Identifier property_Width{ "property_Width" };
 		const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
+		const Identifier rndm_AllowedFreqCategories{ "rndm_AllowedFreqCategories" };
 		const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
+		const Identifier rndm_AllowedPitchedFreq{ "rndm_AllowedPitchedFreq" };
 		const Identifier rndm_AllowedPulseWidths{ "rndm_AllowedPulseWidths" };
 		const Identifier rndm_AllowedShapes{ "rndm_AllowedShapes" };
+		const Identifier rndm_AllowedSyncedFreq{ "rndm_AllowedSyncedFreq" };
+		const Identifier rndm_AllowedUnsyncedFreq{ "rndm_AllowedUnsyncedFreq" };
 		const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		const Identifier rndm_NoFreqCategoryIsAllowed{ "rndm_NoFreqCategoryIsAllowed" };
 		const Identifier rndm_NoOscShapeIsAllowed{ "rndm_NoOscShapeIsAllowed" };
+		const Identifier rndm_NoPitchedFreqIsAllowed{ "rndm_NoPitchedFreqIsAllowed" };
 		const Identifier rndm_NoPulseWidthIsAllowed{ "rndm_NoPulseWidthIsAllowed" };
+		const Identifier rndm_NoSyncedFreqIsAllowed{ "rndm_NoSyncedFreqIsAllowed" };
+		const Identifier rndm_NoUnsyncedFreqIsAllowed{ "rndm_NoUnsyncedFreqIsAllowed" };
 		const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		const Identifier rndm_Options{ "rndm_Options" };
 		const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };

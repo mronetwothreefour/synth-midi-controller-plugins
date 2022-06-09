@@ -5,6 +5,7 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
+using Category = LFO_FreqCategory;
 
 
 
@@ -43,21 +44,24 @@ public:
 	void clearAllowedPulseWidthsForParam(uint8 paramIndex);
 	void allowAllChoicesForOscShapeParam(uint8 paramIndex);
 
-	//const bool categoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, uint8 paramIndex);
-	//void setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, bool shouldBeAllowed, uint8 paramIndex);
-	//const bool noCategoryIsAllowedForLFO_FreqParam(uint8 paramIndex);
-	//const bool unsyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void setUnsyncedFreqAreAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//const bool noUnsyncedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
-	//const bool pitchedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void allowPitchedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void forbidPitchedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//const bool noPitchedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
-	//const bool syncedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void allowSyncedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//void forbidSyncedFreqForLFO_FreqParam(uint8 freq, uint8 paramIndex);
-	//const bool noSyncedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
-	//void checkNumberOfChoicesAllowedForLFO_FreqParam(uint8 paramIndex);
+	const bool categoryIsAllowedForLFO_FreqParam(Category category, uint8 paramIndex);
+	void setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, bool shouldBeAllowed, uint8 paramIndex);
+	const bool noCategoryIsAllowedForLFO_FreqParam(uint8 paramIndex);
+	const bool unsyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
+	void setUnsyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, bool shouldBeAllowed, uint8 paramIndex);
+	const bool noUnsyncedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
+	const bool pitchedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
+	void setPitchedFreqIsAllowedForLFO_FreqParam(uint8 freq, bool shouldBeAllowed, uint8 paramIndex);
+	const bool noPitchedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
+	const bool syncedFreqIsAllowedForLFO_FreqParam(uint8 freq, uint8 paramIndex);
+	void setSyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, bool shouldBeAllowed, uint8 paramIndex);
+	const bool noSyncedFreqIsAllowedForLFO_FreqParam(uint8 paramIndex);
+	void checkNumberOfChoicesAllowedForLFO_FreqParam(uint8 paramIndex);
+	void clearAllowedCategoriesForLFO_FreqParam(uint8 paramIndex);
+	void clearAllowedUnsyncedFreqForParam(uint8 paramIndex);
+	void clearAllowedPitchedFreqForParam(uint8 paramIndex);
+	void clearAllowedSyncedFreqForParam(uint8 paramIndex);
+	void allowAllChoicesForLFO_FreqParam(uint8 paramIndex);
 
 	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
 	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
