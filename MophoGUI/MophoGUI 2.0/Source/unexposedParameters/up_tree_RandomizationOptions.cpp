@@ -473,11 +473,11 @@ void RandomizationOptions::allowAllChoicesForLFO_FreqParam(uint8 paramIndex) {
 	jassert(info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	for (auto category = (int)Category::unsynced; category <= (int)Category::synced; ++category)
 		setCategoryIsAllowedForLFO_FreqParam(Category{ category }, true, paramIndex);
-	for (auto unsyncedFreq = 0; unsyncedFreq < EP::numberOfUnsyncedLFO_Frequencies; ++unsyncedFreq)
+	for (auto unsyncedFreq = (uint8)0; unsyncedFreq < EP::numberOfUnsyncedLFO_Frequencies; ++unsyncedFreq)
 		setUnsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, true, paramIndex);
-	for (auto pitchedFreq = 0; pitchedFreq < EP::numberOfPitchedLFO_Frequencies; ++pitchedFreq)
+	for (auto pitchedFreq = (uint8)0; pitchedFreq < EP::numberOfPitchedLFO_Frequencies; ++pitchedFreq)
 		setPitchedFreqIsAllowedForLFO_FreqParam(pitchedFreq, true, paramIndex);
-	for (auto syncedFreq = 0; syncedFreq < EP::numberOfSyncedLFO_Frequencies; ++syncedFreq)
+	for (auto syncedFreq = (uint8)0; syncedFreq < EP::numberOfSyncedLFO_Frequencies; ++syncedFreq)
 		setSyncedFreqIsAllowedForLFO_FreqParam(syncedFreq, true, paramIndex);
 }
 

@@ -2,15 +2,15 @@
 
 #include <JuceHeader.h>
 
-#include "rndm_0_comp_AllowChoiceToggles.h"
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
+#include "rndm_1_comp_AllowChoiceToggles_Standard.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 
 
 class UnexposedParameters;
 
-class GUI_Layer_AllowedChoices :
+class GUI_Layer_AllowedChoices_Standard :
 	public Component
 {
 	uint8 paramIndex;
@@ -19,22 +19,22 @@ class GUI_Layer_AllowedChoices :
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;
-	AllowChoiceToggles allowChoiceToggles;
+	AllowChoiceToggles_Standard allowChoiceToggles;
 	TextButton button_Randomize;
 	bool childrenShouldBeStackedVertically;
-	int background_x;
-	int background_y;
+	const int background_x;
+	const int background_y;
 	int background_w;
 	int background_h;
 
 public:
-	GUI_Layer_AllowedChoices() = delete;
+	GUI_Layer_AllowedChoices_Standard() = delete;
 
-	GUI_Layer_AllowedChoices(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_AllowedChoices)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_AllowedChoices_Standard)
 };

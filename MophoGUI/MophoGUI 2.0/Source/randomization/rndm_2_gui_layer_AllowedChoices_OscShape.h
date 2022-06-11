@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
+#include "rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
@@ -29,12 +30,12 @@ class GUI_Layer_AllowedChoices_OscShape :
 	ToggleButton toggle_Tri;
 	ToggleButton toggle_SawTri;
 	ToggleButton toggle_Pulse;
-	ToggleButton allowPulseWidthToggles[EP::numberOfPulseWidths];
+	AllowChoiceToggles_PulseWidth allowPulseWidthToggles;
 	TextButton button_Randomize;
 	const int numberOfRows { 10 };
 	const int pulseWidthToggle_w{ 42 };
-	int background_x;
-	int background_y;
+	const int background_x;
+	const int background_y;
 	const int background_w{ 454 };
 	const int background_h{ 301 };
 
@@ -46,8 +47,7 @@ public:
 	void resized() override;
 	void buttonClicked(Button* button) override;
 	void makeShapeTheOnlyOneAllowed(Shape shape);
-	void disablePulseWidthToggles();
-	void restorePulseWidthToggles();
+	void allowAllChoices();
 	~GUI_Layer_AllowedChoices_OscShape();
 
 private:

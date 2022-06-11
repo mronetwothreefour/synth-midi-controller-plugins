@@ -58,6 +58,9 @@ namespace MophoConstants
 		const Identifier component_ImportExportBrowser{ "component_ImportExportBrowser" };
 		const Identifier component_Knob{ "component_Knob" };
 		const Identifier component_RedToggle{ "component_RedToggle" };
+		const Identifier component_RedToggle_AllowLFO_Freq_Pitched{ "component_RedToggle_AllowLFO_Freq_Pitched" };
+		const Identifier component_RedToggle_AllowLFO_Freq_Synced{ "component_RedToggle_AllowLFO_Freq_Synced" };
+		const Identifier component_RedToggle_AllowLFO_Freq_Unsynced{ "component_RedToggle_AllowLFO_Freq_Unsynced" };
 		const Identifier component_RedToggle_AllowOscShape_Off{ "component_RedToggle_AllowOscShape_Off" };
 		const Identifier component_RedToggle_AllowOscShape_Pulse{ "component_RedToggle_AllowOscShape_Pulse" };
 		const Identifier component_RedToggle_AllowOscShape_Saw{ "component_RedToggle_AllowOscShape_Saw" };
@@ -69,6 +72,9 @@ namespace MophoConstants
 		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };
 		const Identifier component_ToggleAllow_{ "component_ToggleAllow_" };
 		const Identifier component_ToggleAllow_Choice_{ "component_ToggleAllow_Choice_" };
+		const Identifier component_ToggleAllow_LFO_Freq_Pitched_{ "component_ToggleAllow_LFO_Freq_Pitched_" };
+		const Identifier component_ToggleAllow_LFO_Freq_Synced_{ "component_ToggleAllow_LFO_Freq_Synced_" };
+		const Identifier component_ToggleAllow_LFO_Freq_Unsynced_{ "component_ToggleAllow_LFO_Freq_Unsynced_" };
 		const Identifier component_ToggleAllow_PulseWidth_{ "component_ToggleAllow_PulseWidth_" };
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };

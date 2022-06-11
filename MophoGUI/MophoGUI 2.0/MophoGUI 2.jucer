@@ -348,10 +348,10 @@
               file="Source/midi/midi_1_VoiceDataMessage.h"/>
       </GROUP>
       <GROUP id="{4956A782-23BA-A1F2-DFDF-C58C83C8C7E5}" name="randomization">
-        <FILE id="kOVJt5" name="rndm_0_comp_AllowChoiceToggles.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.cpp"/>
-        <FILE id="CBQ5BE" name="rndm_0_comp_AllowChoiceToggles.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.h"/>
+        <FILE id="Xjp4rb" name="rndm_0_comp_AllowChoiceToggles_Base.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
+        <FILE id="n0p5JC" name="rndm_0_comp_AllowChoiceToggles_Base.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.h"/>
         <FILE id="XMcd9Y" name="rndm_0_comp_AllowRepeatChoicesToggle.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
         <FILE id="PfdCPw" name="rndm_0_comp_AllowRepeatChoicesToggle.h" compile="0"
@@ -360,14 +360,38 @@
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
         <FILE id="CWVTZ2" name="rndm_0_ParamRandomizationMethods.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.h"/>
-        <FILE id="TdIPAG" name="rndm_1_gui_layer_AllowedChoices.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_1_gui_layer_AllowedChoices.cpp"/>
-        <FILE id="X3Kl3Z" name="rndm_1_gui_layer_AllowedChoices.h" compile="0"
-              resource="0" file="Source/randomization/rndm_1_gui_layer_AllowedChoices.h"/>
-        <FILE id="xfZmcf" name="rndm_1_gui_layer_AllowedChoices_OscShape.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_gui_layer_AllowedChoices_OscShape.cpp"/>
-        <FILE id="PvE9on" name="rndm_1_gui_layer_AllowedChoices_OscShape.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_gui_layer_AllowedChoices_OscShape.h"/>
+        <FILE id="BMhxkm" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
+        <FILE id="t6QsAu" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>
+        <FILE id="IJ05RQ" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
+        <FILE id="XzdP0N" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"/>
+        <FILE id="lfuosW" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"/>
+        <FILE id="cRqPA2" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"/>
+        <FILE id="kXzkTo" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
+        <FILE id="vQlbDV" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
+        <FILE id="kOVJt5" name="rndm_1_comp_AllowChoiceToggles_Standard.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
+        <FILE id="CBQ5BE" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+        <FILE id="IfC4EH" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
+        <FILE id="ZqK0vc" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>
+        <FILE id="xfZmcf" name="rndm_2_gui_layer_AllowedChoices_OscShape.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
+        <FILE id="PvE9on" name="rndm_2_gui_layer_AllowedChoices_OscShape.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
+        <FILE id="TdIPAG" name="rndm_2_gui_layer_AllowedChoices_Standard.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
+        <FILE id="X3Kl3Z" name="rndm_2_gui_layer_AllowedChoices_Standard.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

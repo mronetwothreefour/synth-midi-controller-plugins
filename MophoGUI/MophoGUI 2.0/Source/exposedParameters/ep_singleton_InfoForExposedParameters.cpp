@@ -950,6 +950,12 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_LFO_Freq(lfoNum + 1) },
 							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::lfoFreq },
+							{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
+							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
+							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
+							{ ID::property_FirstAllowChoiceToggleRow, 0 },
+							{ ID::property_AllowedChoicesBackground_x, 361 },
+							{ ID::property_AllowedChoicesBackground_y, 160 },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_LFO_Freq(concise) },
 							ValueTree{ ChoiceNames::buildFor_LFO_Freq(verbose) }
