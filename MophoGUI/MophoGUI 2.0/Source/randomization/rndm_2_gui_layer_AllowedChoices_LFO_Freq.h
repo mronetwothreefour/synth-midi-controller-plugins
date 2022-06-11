@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
+#include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"
 #include "rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"
 #include "rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"
@@ -22,7 +23,6 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatValues;
@@ -33,7 +33,7 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 	AllowChoiceToggles_LFO_Freq_Unsynced allowUnsyncedFreqToggles;
 	AllowChoiceToggles_LFO_Freq_Pitched allowPitchedFreqToggles;
 	AllowChoiceToggles_LFO_Freq_Synced allowSyncedFreqToggles;
-	TextButton button_Randomize;
+	RandomizeButtonForAllowedChoicesLayers button_Randomize;
 	const int numberOfUnsyncedRows{ 9 };
 	const int numberOfPitchedRows{ 12 };
 	const int numberOfSyncedRows{ 8 };

@@ -356,6 +356,8 @@
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
         <FILE id="PfdCPw" name="rndm_0_comp_AllowRepeatChoicesToggle.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.h"/>
+        <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
         <FILE id="VU3Sq3" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
         <FILE id="CWVTZ2" name="rndm_0_ParamRandomizationMethods.h" compile="0"
@@ -380,6 +382,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
         <FILE id="CBQ5BE" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+        <FILE id="UqrENJ" name="rndm_2_gui_layer_AllowedChoices_Binary.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
+        <FILE id="BjbYRw" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"
+              resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.h"/>
         <FILE id="IfC4EH" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
         <FILE id="ZqK0vc" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"

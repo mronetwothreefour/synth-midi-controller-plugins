@@ -14,7 +14,6 @@ class InfoForExposedParameters
 	ValueTree exposedParamsInfoTree;
 
 	InfoForExposedParameters();
-	void fillExposedParamsInfoTree();
 	void setDataByteLocationPropertiesForAllParams();
 
 public:

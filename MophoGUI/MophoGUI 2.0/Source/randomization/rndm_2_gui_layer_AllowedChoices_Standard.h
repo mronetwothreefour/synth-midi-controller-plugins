@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
+#include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "rndm_1_comp_AllowChoiceToggles_Standard.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -14,13 +15,12 @@ class GUI_Layer_AllowedChoices_Standard :
 	public Component
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;
 	AllowChoiceToggles_Standard allowChoiceToggles;
-	TextButton button_Randomize;
+	RandomizeButtonForAllowedChoicesLayers button_Randomize;
 	bool childrenShouldBeStackedVertically;
 	const int background_x;
 	const int background_y;

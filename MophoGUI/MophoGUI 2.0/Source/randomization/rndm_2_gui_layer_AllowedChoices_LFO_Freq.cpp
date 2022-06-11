@@ -15,13 +15,13 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	repeatValues{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	allowUnsyncedFreqToggles{ paramIndex, unexposedParams },
 	allowPitchedFreqToggles{ paramIndex, unexposedParams },
 	allowSyncedFreqToggles{ paramIndex, unexposedParams },
+	button_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
 {
@@ -107,16 +107,6 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		allowSyncedFreqToggles.disableToggles();
 	addAndMakeVisible(allowSyncedFreqToggles);
 
-	button_Randomize.setComponentID(ID::button_Randomize.toString());
-	button_Randomize.onClick = [exposedParams, unexposedParams, paramIndex] {
-		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex).toString() };
-		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-		paramRandomizationMethods.randomizeParameter(paramID);
-	};
-	if (shouldShowDescriptions)
-		button_Randomize.setTooltip("Click to generate a random\nfrequency for LFO " + lfoNumString + ".");
-	button_Randomize.setSize(GUI::button_Randomize_w, GUI::redButton_h);
 	addAndMakeVisible(button_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);

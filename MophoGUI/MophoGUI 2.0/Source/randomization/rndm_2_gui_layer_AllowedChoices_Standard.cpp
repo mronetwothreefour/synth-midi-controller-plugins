@@ -15,11 +15,11 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	button_Close{ unexposedParams },
 	allowChoiceToggles{ paramIndex, unexposedParams },
+	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, unexposedParams },
+	button_Randomize{ paramIndex, exposedParams, unexposedParams },
 	childrenShouldBeStackedVertically{ false },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
@@ -53,16 +53,6 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	allowChoiceToggles.restoreToggles();
 	addAndMakeVisible(allowChoiceToggles);
 
-	button_Randomize.setComponentID(ID::button_Randomize.toString());
-	button_Randomize.onClick = [exposedParams, unexposedParams, paramIndex] {
-		auto& info{ InfoForExposedParameters::get() };
-		auto paramID{ info.IDfor(paramIndex).toString() };
-		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-		paramRandomizationMethods.randomizeParameter(paramID);
-	};
-	if (shouldShowDescriptions)
-		button_Randomize.setTooltip("Click to assign a random setting\nto " + paramName + ".");
-	button_Randomize.setSize(GUI::button_Randomize_w, GUI::redButton_h);
 	addAndMakeVisible(button_Randomize);
 
 	background_w = 2 * GUI::allowedChoices_Inset;

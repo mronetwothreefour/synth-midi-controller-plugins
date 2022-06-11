@@ -646,6 +646,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3015,6 +3018,9 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
@@ -3031,6 +3037,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.h">

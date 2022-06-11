@@ -15,11 +15,11 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	repeatValues{ paramIndex, unexposedParams },
 	allowPulseWidthToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
+	button_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
 {
@@ -119,15 +119,6 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		allowPulseWidthToggles.disableToggles();
 	addAndMakeVisible(allowPulseWidthToggles);
 
-	button_Randomize.setComponentID(ID::button_Randomize.toString());
-	button_Randomize.onClick = [exposedParams, unexposedParams, paramIndex] {
-		auto paramID{ Info::get().IDfor(paramIndex).toString() };
-		ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-		paramRandomizationMethods.randomizeParameter(paramID);
-	};
-	if (shouldShowDescriptions)
-		button_Randomize.setTooltip("Click to generate a random\nshape for oscillator " + oscNumString + ".");
-	button_Randomize.setSize(GUI::button_Randomize_w, GUI::redButton_h);
 	addAndMakeVisible(button_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);

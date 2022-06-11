@@ -17,35 +17,32 @@ using ChoiceNames = ExposedParamChoiceNamesValueTree;
 InfoForExposedParameters::InfoForExposedParameters() :
 	exposedParamsInfoTree{ ID::exposedParamsInfo }
 {
-	fillExposedParamsInfoTree();
-}
-
-void InfoForExposedParameters::fillExposedParamsInfoTree() {
-	const int horizGapBtwnControls{ 5 };
+	const int horizDistanceBtwnColumns{ GUI::knob_diameter + 5 };
 	const int controlsCol_1_x{ 48 };
-	const int controlsCol_2_x{ controlsCol_1_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_3_x{ controlsCol_2_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_4_x{ controlsCol_3_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_5_x{ controlsCol_4_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_6_x{ controlsCol_5_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_7_x{ controlsCol_6_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_8_x{ controlsCol_7_x + GUI::knob_diameter + horizGapBtwnControls };
-	const int controlsCol_9_x{ controlsCol_8_x + GUI::knob_diameter + horizGapBtwnControls };
+	const int controlsCol_2_x{ controlsCol_1_x + horizDistanceBtwnColumns };
+	const int controlsCol_3_x{ controlsCol_2_x + horizDistanceBtwnColumns };
+	const int controlsCol_4_x{ controlsCol_3_x + horizDistanceBtwnColumns };
+	const int controlsCol_5_x{ controlsCol_4_x + horizDistanceBtwnColumns };
+	const int controlsCol_6_x{ controlsCol_5_x + horizDistanceBtwnColumns };
+	const int controlsCol_7_x{ controlsCol_6_x + horizDistanceBtwnColumns };
+	const int controlsCol_8_x{ controlsCol_7_x + horizDistanceBtwnColumns };
+	const int controlsCol_9_x{ controlsCol_8_x + horizDistanceBtwnColumns };
 	const int controlsCol_10_x{ 500 };
+	const int vertDistanceBtwnRows{ 60 };
 
-	auto concise{ (bool)false };
-	auto verbose{ (bool)true };
+	auto concise{ false };
+	auto verbose{ true };
 
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 
-	const int oscControlsRow_1_center_y{ 50 };
-	const int oscControlsRow_2_center_y{ 110 };
-	const int oscRow_1_Knobs_y{ oscControlsRow_1_center_y - GUI::knob_diameter / 2 };
-	const int oscRow_2_Knobs_y{ oscControlsRow_2_center_y - GUI::knob_diameter / 2 };
-	const int oscRow_1_Toggles_y{ oscControlsRow_1_center_y - GUI::toggle_diameter / 2 };
-	const int oscRow_2_Toggles_y{ oscControlsRow_2_center_y - GUI::toggle_diameter / 2 };
+	const int oscRow_1_center_y{ 50 };
+	const int oscRow_2_center_y{ oscRow_1_center_y + vertDistanceBtwnRows };
+	const int oscRow_1_knobTop_y{ oscRow_1_center_y - GUI::knob_diameter / 2 };
+	const int oscRow_2_knobTop_y{ oscRow_1_knobTop_y + vertDistanceBtwnRows };
 
 	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
+		auto center_y{ oscNum == 1 ? oscRow_1_center_y : oscRow_2_center_y };
+		auto knobTop_y{ oscNum == 1 ? oscRow_1_knobTop_y : oscRow_2_knobTop_y };
 		exposedParamsInfoTree.addChild(
 			ValueTree{ oscNum == 1 ? "ep_000" : "ep_006", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_000_Osc_1_Pitch : ID::ep_006_Osc_2_Pitch), {
@@ -55,7 +52,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscPitch },
 							{ ID::property_DefaultChoice, 24 },
 							{ ID::property_Center_x, controlsCol_1_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscPitch(oscNum) },
@@ -65,7 +62,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfAllowChoiceToggleRows, 12 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscPitch(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscPitch(verbose) }
@@ -84,7 +81,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscFineTune },
 							{ ID::property_DefaultChoice, oscNum == 1 ? 49 : 51 },
 							{ ID::property_Center_x, controlsCol_2_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscFine(oscNum) },
@@ -94,7 +91,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscFineTune(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscFineTune(verbose) }
@@ -113,7 +110,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, EP::numberOfChoicesForOscWaveShape },
 							{ ID::property_DefaultChoice, 1 },
 							{ ID::property_Center_x, controlsCol_3_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscShape(oscNum) },
@@ -123,7 +120,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OscShape(concise) },
 							ValueTree{ ChoiceNames::buildFor_OscShape(verbose) }
@@ -142,7 +139,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
 							{ ID::property_Center_x, controlsCol_4_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscGlide(oscNum) },
@@ -152,7 +149,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
@@ -162,6 +159,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 			nullptr
 		);
 
+		auto keyTrackAllowedChoices_y{ center_y - GUI::toggleLockButton_diameter / 2 };
 		exposedParamsInfoTree.addChild(
 			ValueTree{ oscNum == 1 ? "ep_004" : "ep_010", {}, {
 				ValueTree{ (oscNum == 1 ? ID::ep_004_Osc_1_KeyTrack : ID::ep_010_Osc_2_KeyTrack), {
@@ -171,7 +169,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, 2 },
 							{ ID::property_DefaultChoice, 1 },
 							{ ID::property_Center_x, controlsCol_6_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::toggle_diameter },
 							{ ID::property_Height, GUI::toggle_diameter },
 							{ ID::property_Description, Description::buildFor_OscKeyTrack(oscNum) },
@@ -180,8 +178,8 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + GUI::toggle_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Toggles_y : oscRow_2_Toggles_y },
+							{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + GUI::toggleLockButton_diameter },
+							{ ID::property_AllowedChoicesBackground_y, keyTrackAllowedChoices_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 							ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
@@ -200,7 +198,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfChoices, 128 },
 							{ ID::property_DefaultChoice, 0 },
 							{ ID::property_Center_x, controlsCol_5_x },
-							{ ID::property_Center_y, oscNum == 1 ? oscControlsRow_1_center_y : oscControlsRow_2_center_y },
+							{ ID::property_Center_y, center_y },
 							{ ID::property_Width, GUI::knob_diameter },
 							{ ID::property_Height, GUI::knob_diameter },
 							{ ID::property_Description, Description::buildFor_OscSubLevel(oscNum) },
@@ -210,7 +208,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 							{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + GUI::knob_diameter },
-							{ ID::property_AllowedChoicesBackground_y, oscNum == 1 ? oscRow_1_Knobs_y : oscRow_2_Knobs_y },
+							{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
 							ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
@@ -288,7 +286,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 6 },
 						{ ID::property_DefaultChoice, 2 },
 						{ ID::property_Center_x, controlsCol_7_x },
-						{ ID::property_Center_y, oscControlsRow_1_center_y },
+						{ ID::property_Center_y, oscRow_1_center_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_OscSlop() },
@@ -298,7 +296,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfAllowChoiceToggleRows, 5 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + GUI::knob_diameter },
-						{ ID::property_AllowedChoicesBackground_y, oscRow_1_Knobs_y },
+						{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, concise) },
 						ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, verbose) }
@@ -317,7 +315,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, EP::numberOfChoicesForBendRange },
 						{ ID::property_DefaultChoice, 4 },
 						{ ID::property_Center_x, controlsCol_9_x },
-						{ ID::property_Center_y, oscControlsRow_1_center_y },
+						{ ID::property_Center_y, oscRow_1_center_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_BendRange() },
@@ -327,7 +325,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfAllowChoiceToggleRows, 10 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + GUI::knob_diameter },
-						{ ID::property_AllowedChoicesBackground_y, oscRow_1_Knobs_y },
+						{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_BendRange(concise) },
 						ValueTree{ ChoiceNames::buildFor_BendRange(verbose) }
@@ -369,7 +367,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 64 },
 						{ ID::property_Center_x, controlsCol_8_x },
-						{ ID::property_Center_y, oscControlsRow_1_center_y },
+						{ ID::property_Center_y, oscRow_1_center_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_OscMix() },
@@ -392,7 +390,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
 						{ ID::property_Center_x, controlsCol_7_x },
-						{ ID::property_Center_y, oscControlsRow_2_center_y },
+						{ ID::property_Center_y, oscRow_2_center_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_NoiseLevel() },
@@ -415,7 +413,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 128 },
 						{ ID::property_DefaultChoice, 0 },
 						{ ID::property_Center_x, controlsCol_8_x },
-						{ ID::property_Center_y, oscControlsRow_2_center_y },
+						{ ID::property_Center_y, oscRow_2_center_y },
 						{ ID::property_Width, GUI::knob_diameter },
 						{ ID::property_Height, GUI::knob_diameter },
 						{ ID::property_Description, Description::buildFor_ExtInLevel() },
@@ -1772,7 +1770,7 @@ void InfoForExposedParameters::fillExposedParamsInfoTree() {
 						{ ID::property_NumberOfChoices, 2 },
 						{ ID::property_DefaultChoice, 0 },
 						{ ID::property_Center_x, controlsCol_9_x },
-						{ ID::property_Center_y, oscControlsRow_2_center_y },
+						{ ID::property_Center_y, oscRow_2_center_y },
 						{ ID::property_Width, GUI::toggle_diameter },
 						{ ID::property_Height, GUI::toggle_diameter },
 						{ ID::property_Description, Description::buildFor_ArpegOnOff() },

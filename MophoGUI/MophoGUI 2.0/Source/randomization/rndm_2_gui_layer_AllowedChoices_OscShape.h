@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
+#include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Enum.h"
@@ -20,7 +21,6 @@ class GUI_Layer_AllowedChoices_OscShape :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatValues;
@@ -31,7 +31,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 	ToggleButton toggle_SawTri;
 	ToggleButton toggle_Pulse;
 	AllowChoiceToggles_PulseWidth allowPulseWidthToggles;
-	TextButton button_Randomize;
+	RandomizeButtonForAllowedChoicesLayers button_Randomize;
 	const int numberOfRows { 10 };
 	const int pulseWidthToggle_w{ 42 };
 	const int background_x;

@@ -24,6 +24,7 @@ namespace MophoConstants
 		const int knob_diameter{ 40 };
 		const int redButton_h{ 22 };
 		const int toggle_diameter{ 14 };
+		const int toggleLockButton_diameter{ 22 };
 		const int seqSteps_h{ 26 };
 		const int seqSteps_w{ seqSteps_h };
 		const int seqTrackControlsGroup_h{ 83 };
