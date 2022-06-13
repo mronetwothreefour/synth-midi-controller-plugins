@@ -63,11 +63,11 @@ String ExposedParamChoiceNamesValueTree::convertIntToSeqStepPitchName(const uint
 
 ValueTree ExposedParamChoiceNamesValueTree::buildFor_ArpegMode(bool verbose) {
 	ValueTree choiceNamesTree{ verbose ? ID::choiceNames_Verbose : ID::choiceNames };
-	choiceNamesTree.setProperty("choice_0", "Up", nullptr);
-	choiceNamesTree.setProperty("choice_1", "Down", nullptr);
-	choiceNamesTree.setProperty("choice_2", "Up & Down", nullptr);
-	choiceNamesTree.setProperty("choice_3", "Assign", nullptr);
-	choiceNamesTree.setProperty("choice_4", "Random", nullptr);
+	choiceNamesTree.setProperty("choice_0", "1 Octave Up", nullptr);
+	choiceNamesTree.setProperty("choice_1", "1 Octave Down", nullptr);
+	choiceNamesTree.setProperty("choice_2", "1 Octave Up & Down", nullptr);
+	choiceNamesTree.setProperty("choice_3", "1 Octave Assign", nullptr);
+	choiceNamesTree.setProperty("choice_4", "1 Octave Random", nullptr);
 	choiceNamesTree.setProperty("choice_5", "2 Octaves Up", nullptr);
 	choiceNamesTree.setProperty("choice_6", "2 Octaves Down", nullptr);
 	choiceNamesTree.setProperty("choice_7", "2 Octaves Up & Down", nullptr);
@@ -275,7 +275,7 @@ ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_Shape(bool verbose) {
 	choiceNamesTree.setProperty("choice_0", "Triangle", nullptr);
 	choiceNamesTree.setProperty("choice_1", "Reverse Sawtooth", nullptr);
 	choiceNamesTree.setProperty("choice_2", "Sawtooth", nullptr);
-	choiceNamesTree.setProperty("choice_3", "Square Wave", nullptr);
+	choiceNamesTree.setProperty("choice_3", "Pulse (Square)", nullptr);
 	choiceNamesTree.setProperty("choice_4", "Random", nullptr);
 	return choiceNamesTree;
 }

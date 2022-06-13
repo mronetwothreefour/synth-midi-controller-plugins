@@ -119,7 +119,7 @@ void GUI_Layer_MainWindowButtons::resized() {
 
     const int clearButton_SeqTrack_1_y{ 160 };
     for (auto trackNum = 0; trackNum != 4; ++trackNum)
-        buttons_ForClearingSeqTracks[trackNum].setBounds(1166, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
+        buttons_ForClearingSeqTracks[trackNum].setBounds(1212, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
 }
 
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
