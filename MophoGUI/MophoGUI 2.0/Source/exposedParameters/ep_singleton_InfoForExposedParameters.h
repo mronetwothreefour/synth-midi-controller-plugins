@@ -48,6 +48,8 @@ public:
 	int firstAllowChoiceToggleRowFor(uint8 paramIndex) const;
 	int allowedChoicesBackground_x_For(uint8 paramIndex) const;
 	int allowedChoicesBackground_y_For(uint8 paramIndex) const;
+	int seqTrackNum_For(uint8 paramIndex) const;
+	int seqTrackStepNum_For(uint8 paramIndex) const;
 
 private:
 	//==============================================================================

@@ -2338,6 +2338,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 								{ ID::property_Height, GUI::seqSteps_h },
 								{ ID::property_Description, Description::buildFor_SeqTrackStep(trackNum + 1, stepNum + 1) },
 								{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::seqTrackStep },
+								{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
+								{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
+								{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
+								{ ID::property_FirstAllowChoiceToggleRow, 0 },
+								{ ID::property_AllowedChoicesBackground_x, 0 },
+								{ ID::property_AllowedChoicesBackground_y, 0 },
+								{ ID::property_AllowedChoicesBackground_y, 0 },
+								{ ID::property_SeqTrackNum, trackNum + 1 },
+								{ ID::property_SeqTrackStepNum, stepNum + 1 },
 							}, {
 								ValueTree{ ChoiceNames::buildFor_SeqTrackStep(concise) },
 								ValueTree{ ChoiceNames::buildFor_SeqTrackStep(verbose) }
@@ -2624,4 +2633,22 @@ int InfoForExposedParameters::allowedChoicesBackground_y_For(uint8 paramIndex) c
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	auto background_y{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesBackground_y) };
 	return background_y;
+}
+
+int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
+	jassert(paramIndex >= EP::firstSeqStepParamNumber && paramIndex < EP::firstVoiceNameCharParamNumber);
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto trackNum{ (int)paramTree.getProperty(ID::property_SeqTrackNum) };
+	return trackNum;
+}
+
+int InfoForExposedParameters::seqTrackStepNum_For(uint8 paramIndex) const {
+	jassert(paramIndex >= EP::firstSeqStepParamNumber && paramIndex < EP::firstVoiceNameCharParamNumber);
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto stepNum{ (int)paramTree.getProperty(ID::property_SeqTrackStepNum) };
+	return stepNum;
 }

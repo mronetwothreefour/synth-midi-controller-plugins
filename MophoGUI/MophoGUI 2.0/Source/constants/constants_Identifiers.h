@@ -187,17 +187,23 @@ namespace MophoConstants
 		const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
+		const Identifier property_SeqTrackNum{ "property_SeqTrackNum" };
+		const Identifier property_SeqTrackStepNum{ "property_SeqTrackStepNum" };
 		const Identifier property_Width{ "property_Width" };
 		const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		const Identifier rndm_AllowedFreqCategories{ "rndm_AllowedFreqCategories" };
 		const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
+		const Identifier rndm_AllowedChoicesForAllSteps{ "rndm_AllowedChoicesForAllSteps" };
+		const Identifier rndm_AllowedChoicesForStep_{ "rndm_AllowedChoicesForStep_" };
 		const Identifier rndm_AllowedPitchedFreq{ "rndm_AllowedPitchedFreq" };
 		const Identifier rndm_AllowedPulseWidths{ "rndm_AllowedPulseWidths" };
 		const Identifier rndm_AllowedShapes{ "rndm_AllowedShapes" };
 		const Identifier rndm_AllowedSyncedFreq{ "rndm_AllowedSyncedFreq" };
 		const Identifier rndm_AllowedUnsyncedFreq{ "rndm_AllowedUnsyncedFreq" };
 		const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		const Identifier rndm_NoChoiceIsAllowedForAllSteps{ "rndm_NoChoiceIsAllowedForAllSteps" };
+		const Identifier rndm_NoChoiceIsAllowedForStep_{ "rndm_NoChoiceIsAllowedForStep_" };
 		const Identifier rndm_NoFreqCategoryIsAllowed{ "rndm_NoFreqCategoryIsAllowed" };
 		const Identifier rndm_NoOscShapeIsAllowed{ "rndm_NoOscShapeIsAllowed" };
 		const Identifier rndm_NoPitchedFreqIsAllowed{ "rndm_NoPitchedFreqIsAllowed" };
@@ -207,7 +213,18 @@ namespace MophoConstants
 		const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		const Identifier rndm_Options{ "rndm_Options" };
 		const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
+		const Identifier rndm_ProbabilityOfDublicateForStep_{ "rndm_ProbabilityOfDublicateForStep_" };
+		const Identifier rndm_ProbabilityOfDublicatesForAllSteps{ "rndm_ProbabilityOfDublicatesForAllSteps" };
+		const Identifier rndm_ProbabilityOfResetForAllSteps{ "rndm_ProbabilityOfResetForAllSteps" };
+		const Identifier rndm_ProbabilityOfResetForStep_{ "rndm_ProbabilityOfResetForStep_" };
+		const Identifier rndm_ProbabilityOfRestForAllSteps{ "rndm_ProbabilityOfRestForAllSteps" };
+		const Identifier rndm_ProbabilityOfRestForStep_{ "rndm_ProbabilityOfRestForStep_" };
 		const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+		const Identifier rndm_RepeatChoicesMustBeAllowedForAllSteps{ "rndm_RepeatChoicesMustBeAllowedForAllSteps" };
+		const Identifier rndm_RepeatChoicesMustBeAllowedForStep_{ "rndm_RepeatChoicesMustBeAllowedForStep_" };
+		const Identifier rndm_SelectedStep{ "rndm_SelectedStep" };
+		const Identifier rndm_SeqTrack_{ "rndm_SeqTrack_" };
+		const Identifier rndm_SeqTrackEditModeIsAllSteps{ "rndm_SeqTrackEditModeIsAllSteps" };
 		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
 		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
