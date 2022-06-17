@@ -22,8 +22,10 @@ RandomizationOptions::RandomizationOptions() :
 			setRepeatChoicesAreAllowedForParam(true, paramIndex);
 		}
 		else {
-			randomizationOptionsTree.addChild(Tree{ Info::get().IDfor(paramIndex), {}, { Tree{ ID::rndm_AllowedChoices } } }, paramIndex, nullptr);
-			setRepeatChoicesAreAllowedForParam(false, paramIndex);
+			if (allowedChoicesType != AllowedChoicesType::seqTrackStep) {
+				randomizationOptionsTree.addChild(Tree{ Info::get().IDfor(paramIndex), {}, { Tree{ ID::rndm_AllowedChoices } } }, paramIndex, nullptr);
+				setRepeatChoicesAreAllowedForParam(false, paramIndex);
+			}
 		}
 
 		setParamIsLocked(paramIndex, false);
@@ -36,20 +38,16 @@ RandomizationOptions::RandomizationOptions() :
 			allowAllChoicesForLFO_FreqParam(paramIndex);
 	}
 
-	for (auto trackNum = 1; trackNum != 5; ++trackNum) {
-		setEditModeIsAllStepsForSeqTrack(true, trackNum);
-		setSelectedStepForSeqTrack(1, trackNum);
-		if (trackNum == 1)
-			setProbabilityOfRestForAllStepsInSeqTrack_1(0.13f);
-		setProbabilityOfDuplicatesForAllStepsInSeqTrack(0.0f, trackNum);
-		setProbabilityOfResetForAllStepsInSeqTrack(0.0f, trackNum);
-		allowAllChoicesForAllStepsInSeqTrack(trackNum);
-		for (auto stepNum = 1; stepNum != 17; ++stepNum) {
-			if (trackNum == 1)
-				setProbabilityOfRestForSeqTrack_1_Step(0.13f, stepNum);
-				setProbabilityOfDuplicateForSeqTrackStep(0.0f, trackNum, stepNum);
-				setProbabilityOfResetForSeqTrackStep(0.0f, trackNum, stepNum);
-				allowAllChoicesForSeqTrackStep(trackNum, stepNum);
+	for (auto trackNum = (int)Track::one; trackNum <= (int)Track::four; ++trackNum) {
+		setEditModeIsAllStepsForSeqTrack(true, Track{ trackNum });
+		setSelectedStepForSeqTrack(Step::one, Track{ trackNum });
+		for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum) {
+			setRepeatChoicesAreAllowedForSeqTrackStep(false, Track{ trackNum }, Step{ stepNum });
+			if (trackNum == (int)Track::one)
+				setProbabilityOfRestForSeqTrack_1_Step(0.13f, Step{ stepNum });
+			setProbabilityOfDuplicateForSeqTrackStep(0.0f, Track{ trackNum }, Step{ stepNum });
+			setProbabilityOfResetForSeqTrackStep(0.0f, Track{ trackNum }, Step{ stepNum });
+			allowAllChoicesForSeqTrackStep(Track{ trackNum }, Step{ stepNum });
 		}
 	}
 }
@@ -545,196 +543,100 @@ ValueTree RandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint8 paramI
 
 
 
-const bool RandomizationOptions::editModeIsAllStepsForSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::editModeIsAllStepsForSeqTrack(Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	return (bool)trackTree.getProperty(ID::rndm_SeqTrackEditModeIsAllSteps) == true;
 }
 
-const bool RandomizationOptions::editModeIsSelectedStepForSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::editModeIsSelectedStepForSeqTrack(Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	return (bool)trackTree.getProperty(ID::rndm_SeqTrackEditModeIsAllSteps) == false;
 }
 
-void RandomizationOptions::setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
+void RandomizationOptions::setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
+	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
 	trackTree.setProperty(ID::rndm_SeqTrackEditModeIsAllSteps, shouldBeAllSteps ? (bool)true : (bool)false, nullptr);
 }
 
-int RandomizationOptions::selectedStepForSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+Step RandomizationOptions::selectedStepForSeqTrack(Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return trackTree.getProperty(ID::rndm_SelectedStep);
+	auto stepNum{ (int)trackTree.getProperty(ID::rndm_SelectedStep) };
+	return Step{ stepNum };
 }
 
-void RandomizationOptions::setSelectedStepForSeqTrack(int stepNum, int trackNum) {
-	jassert(stepNum > 0 && stepNum < 17);
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	trackTree.setProperty(ID::rndm_SelectedStep, stepNum, nullptr);
+void RandomizationOptions::setSelectedStepForSeqTrack(Step step, Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
+	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
+	trackTree.setProperty(ID::rndm_SelectedStep, (int)step, nullptr);
 }
 
-const float RandomizationOptions::probabilityOfRestForAllStepsInSeqTrack_1() {
+const float RandomizationOptions::probabilityOfRestForSeqTrack_1_Step(Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return (float)trackTree.getProperty(ID::rndm_ProbabilityOfRestForAllSteps);
-}
-
-void RandomizationOptions::setProbabilityOfRestForAllStepsInSeqTrack_1(float newProb) {
-	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	trackTree.setProperty(ID::rndm_ProbabilityOfRestForAllSteps, newProb, nullptr);
-}
-
-const float RandomizationOptions::probabilityOfRestForSeqTrack_1_Step(int stepNum) {
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfRestForStep_.toString() + (String)stepNum };
+	Identifier propertyID{ step == Step::all ? ID::rndm_RestProbForAllSteps : ID::rndm_RestProbForStep_.toString() + String((int)step) };
 	return (float)trackTree.getProperty(propertyID);
 }
 
-void RandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(float newProb, int stepNum) {
+void RandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(stepNum > 0 && stepNum < 17);
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfRestForStep_.toString() + (String)stepNum };
+	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
+	Identifier propertyID{ step == Step::all ? ID::rndm_RestProbForAllSteps : ID::rndm_RestProbForStep_.toString() + String((int)step) };
 	trackTree.setProperty(propertyID, newProb, nullptr);
 }
 
-const float RandomizationOptions::probabilityOfDuplicatesForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const float RandomizationOptions::probabilityOfDuplicateForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return (float)trackTree.getProperty(ID::rndm_ProbabilityOfDublicatesForAllSteps);
-}
-
-void RandomizationOptions::setProbabilityOfDuplicatesForAllStepsInSeqTrack(float newProb, int trackNum) {
-	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	randomizationOptionsTree.setProperty(ID::rndm_ProbabilityOfDublicatesForAllSteps, newProb, nullptr);
-}
-
-const float RandomizationOptions::probabilityOfDuplicateForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfDublicateForStep_.toString() + (String)stepNum };
+	Identifier propertyID{ step == Step::all ? ID::rndm_DupeProbForAllSteps : ID::rndm_DupeProbForStep_.toString() + String((int)step) };
 	return (float)trackTree.getProperty(propertyID);
 }
 
-void RandomizationOptions::setProbabilityOfDuplicateForSeqTrackStep(float newProb, int trackNum, int stepNum) {
+void RandomizationOptions::setProbabilityOfDuplicateForSeqTrackStep(float newProb, Track track, Step step) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 1 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfDublicateForStep_.toString() + (String)stepNum };
-	randomizationOptionsTree.setProperty(propertyID, newProb, nullptr);
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
+	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
+	Identifier propertyID{ step == Step::all ? ID::rndm_DupeProbForAllSteps : ID::rndm_DupeProbForStep_.toString() + String((int)step) };
+	trackTree.setProperty(propertyID, newProb, nullptr);
 }
 
-const float RandomizationOptions::probabilityOfResetForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const float RandomizationOptions::probabilityOfResetForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return (float)trackTree.getProperty(ID::rndm_ProbabilityOfResetForAllSteps);
-}
-
-void RandomizationOptions::setProbabilityOfResetForAllStepsInSeqTrack(float newProb, int trackNum) {
-	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	randomizationOptionsTree.setProperty(ID::rndm_ProbabilityOfResetForAllSteps, newProb, nullptr);
-}
-
-const float RandomizationOptions::probabilityOfResetForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfResetForStep_.toString() + (String)stepNum };
+	Identifier propertyID{ step == Step::all ? ID::rndm_ResetProbForAllSteps : ID::rndm_ResetProbForStep_.toString() + String((int)step) };
 	return (float)trackTree.getProperty(propertyID);
 }
 
-void RandomizationOptions::setProbabilityOfResetForSeqTrackStep(float newProb, int trackNum, int stepNum) {
+void RandomizationOptions::setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_ProbabilityOfResetForStep_.toString() + (String)stepNum };
-	randomizationOptionsTree.setProperty(propertyID, newProb, nullptr);
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
+	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
+	Identifier propertyID{ step == Step::all ? ID::rndm_ResetProbForAllSteps : ID::rndm_ResetProbForStep_.toString() + String((int)step) };
+	trackTree.setProperty(propertyID, newProb, nullptr);
 }
 
-const bool RandomizationOptions::choiceIsAllowedForAllStepsInSeqTrack(uint8 choiceNum, int trackNum) {
+const bool RandomizationOptions::choiceIsAllowedForSeqTrackStep(uint8 choiceNum, Track track, Step step) {
 	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoices{ trackTree.getChildWithName(ID::rndm_AllowedChoicesForAllSteps) };
-	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == true;
-}
-
-void RandomizationOptions::setChoiceIsAllowedForAllStepsInSeqTrack(uint8 choiceNum, bool shouldBeAllowed, int trackNum) {
-	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoices{ trackTree.getOrCreateChildWithName(ID::rndm_AllowedChoicesForAllSteps, nullptr) };
-	String propertyID{ "choice_" + (String)choiceNum };
-	if (shouldBeAllowed)
-		allowedChoices.setProperty(propertyID, (bool)true, nullptr);
-	else
-		if (allowedChoices.hasProperty(propertyID))
-			allowedChoices.removeProperty(propertyID, nullptr);
-	checkProbabilitiesAndNumberOfChoicesAllowedForAllStepsInSeqTrack(trackNum);
-}
-
-void RandomizationOptions::clearAllowedChoicesForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoices{ trackTree.getChildWithName(ID::rndm_AllowedChoicesForAllSteps) };
-	allowedChoices.removeAllProperties(nullptr);
-}
-
-void RandomizationOptions::allowAllChoicesForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForSeqTrackSteps; ++choiceNum)
-		setChoiceIsAllowedForAllStepsInSeqTrack(choiceNum, true, trackNum);
-}
-
-const bool RandomizationOptions::choiceIsAllowedForSeqTrackStep(uint8 choiceNum, int trackNum, int stepNum) {
-	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoicesID{ ID::rndm_AllowedChoicesForStep_.toString() + (String)stepNum };
+	Identifier allowedChoicesID{ step == Step::all ? ID::rndm_AllowedChoicesForAllSteps : 
+		ID::rndm_AllowedChoicesForStep_.toString() + String((int)step)
+	};
 	auto allowedChoices{ trackTree.getChildWithName(allowedChoicesID) };
 	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == true;
 }
 
-void RandomizationOptions::setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, int trackNum, int stepNum) {
+void RandomizationOptions::setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, Track track, Step step) {
 	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoicesID{ ID::rndm_AllowedChoicesForStep_.toString() + (String)stepNum };
+	Identifier allowedChoicesID{ step == Step::all ? ID::rndm_AllowedChoicesForAllSteps :
+		ID::rndm_AllowedChoicesForStep_.toString() + String((int)step)
+	};
 	auto allowedChoices{ trackTree.getOrCreateChildWithName(allowedChoicesID, nullptr) };
 	String propertyID{ "choice_" + (String)choiceNum };
 	if (shouldBeAllowed)
@@ -742,172 +644,112 @@ void RandomizationOptions::setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bo
 	else
 		if (allowedChoices.hasProperty(propertyID))
 			allowedChoices.removeProperty(propertyID, nullptr);
-	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(trackNum, stepNum);
+	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
-void RandomizationOptions::clearAllowedChoicesForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+void RandomizationOptions::clearAllowedChoicesForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoicesID{ ID::rndm_AllowedChoicesForStep_.toString() + (String)stepNum };
-	auto allowedChoices{ trackTree.getOrCreateChildWithName(allowedChoicesID, nullptr) };
+	Identifier allowedChoicesID{ step == Step::all ? ID::rndm_AllowedChoicesForAllSteps :
+		ID::rndm_AllowedChoicesForStep_.toString() + String((int)step)
+	};
+	auto allowedChoices{ trackTree.getChildWithName(allowedChoicesID) };
 	allowedChoices.removeAllProperties(nullptr);
 }
 
-void RandomizationOptions::allowAllChoicesForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
+void RandomizationOptions::allowAllChoicesForSeqTrackStep(Track track, Step step) {
 	for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForSeqTrackSteps; ++choiceNum)
-		setChoiceIsAllowedForSeqTrackStep(choiceNum, true, trackNum, stepNum);
+		setChoiceIsAllowedForSeqTrackStep(choiceNum, true, track, step);
 }
 
-void RandomizationOptions::checkProbabilitiesAndNumberOfChoicesAllowedForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+void RandomizationOptions::checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoices{ trackTree.getOrCreateChildWithName(ID::rndm_AllowedChoicesForAllSteps, nullptr) };
-	auto numberOfChoicesAllowed{ allowedChoices.getNumProperties() };
+	Identifier allowedChoicesID{ step == Step::all ? ID::rndm_AllowedChoicesForAllSteps :
+		ID::rndm_AllowedChoicesForStep_.toString() + String((int)step)
+	};
+	auto allowedChoices{ trackTree.getChildWithName(allowedChoicesID) };
 
 	auto repeatsMustBeAllowed{ false };
-	if (trackNum == 1 && probabilityOfRestForAllStepsInSeqTrack_1() >= 0.5f ||
-		probabilityOfDuplicatesForAllStepsInSeqTrack(trackNum) >= 0.5f ||
-		probabilityOfResetForAllStepsInSeqTrack(trackNum) >= 0.5f)
+	if (track == Track::one && probabilityOfRestForSeqTrack_1_Step(step) >= 0.5f ||
+		probabilityOfDuplicateForSeqTrackStep(track, step) >= 0.5f ||
+		probabilityOfResetForSeqTrackStep(track, step) >= 0.5f)
 		repeatsMustBeAllowed = true;
-	if (numberOfChoicesAllowed == 1) {
-		if (trackNum == 1 && probabilityOfRestForAllStepsInSeqTrack_1() == 0.0f &&
-			probabilityOfResetForAllStepsInSeqTrack(trackNum) == 0.0f)
-			repeatsMustBeAllowed = true;
-		if (trackNum != 1 && probabilityOfResetForAllStepsInSeqTrack(trackNum) == 0.0f)
-			repeatsMustBeAllowed = true;
-	}
-	trackTree.setProperty(ID::rndm_RepeatChoicesMustBeAllowedForAllSteps, repeatsMustBeAllowed ? (bool)true : (bool)false, nullptr);
-
-	auto noChoiceIsAllowed{ numberOfChoicesAllowed == 0 };
-	trackTree.setProperty(ID::rndm_NoChoiceIsAllowedForAllSteps, noChoiceIsAllowed ? (bool)true : (bool)false, nullptr);
-}
-
-void RandomizationOptions::checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto allowedChoicesID{ ID::rndm_AllowedChoicesForStep_.toString() + (String)stepNum };
-	auto allowedChoices{ trackTree.getOrCreateChildWithName(allowedChoicesID, nullptr)};
 	auto numberOfChoicesAllowed{ allowedChoices.getNumProperties() };
-
-	auto repeatsMustBeAllowed{ false };
-	if (trackNum == 1 && probabilityOfRestForSeqTrack_1_Step(stepNum) >= 0.5f ||
-		probabilityOfDuplicateForSeqTrackStep(trackNum, stepNum) >= 0.5f ||
-		probabilityOfResetForSeqTrackStep(trackNum, stepNum) >= 0.5f)
-		repeatsMustBeAllowed = true;
 	if (numberOfChoicesAllowed == 1) {
-		if (trackNum == 1 && probabilityOfRestForSeqTrack_1_Step(stepNum) == 0.0f &&
-			probabilityOfResetForSeqTrackStep(trackNum, stepNum) == 0.0f)
+		if (track == Track::one && probabilityOfRestForSeqTrack_1_Step(step) == 0.0f &&
+			probabilityOfResetForSeqTrackStep(track, step) == 0.0f)
 			repeatsMustBeAllowed = true;
-		if (trackNum != 1 && probabilityOfResetForSeqTrackStep(trackNum, stepNum) == 0.0f)
+		if (track != Track::one && probabilityOfResetForSeqTrackStep(track, step) == 0.0f)
 			repeatsMustBeAllowed = true;
 	}
-	auto propertyID{ ID::rndm_RepeatChoicesMustBeAllowedForStep_.toString() + (String)stepNum };
-	trackTree.setProperty(propertyID, repeatsMustBeAllowed ? (bool)true : (bool)false, nullptr);
+	Identifier repeatsMustBeAllowedID{ step == Step::all ? ID::rndm_RepeatChoicesMustBeAllowedForAllSteps :
+		ID::rndm_RepeatChoicesMustBeAllowedForStep_.toString() + String((int)step)
+	};
+	trackTree.setProperty(repeatsMustBeAllowedID, repeatsMustBeAllowed ? (bool)true : (bool)false, nullptr);
 
+	Identifier noChoiceIsAllowedID{ step == Step::all ? ID::rndm_NoChoiceIsAllowedForAllSteps :
+		ID::rndm_NoChoiceIsAllowedForStep_.toString() + String((int)step)
+	};
 	auto noChoiceIsAllowed{ numberOfChoicesAllowed == 0 };
-	propertyID = ID::rndm_NoChoiceIsAllowedForStep_.toString() + (String)stepNum;
-	trackTree.setProperty(propertyID, noChoiceIsAllowed ? (bool)true : (bool)false, nullptr);
+	trackTree.setProperty(noChoiceIsAllowedID, noChoiceIsAllowed ? (bool)true : (bool)false, nullptr);
 }
 
-const bool RandomizationOptions::repeatsMustBeAllowedForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::repeatChoicesMustBeAllowedForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return (bool)trackTree.getProperty(ID::rndm_RepeatChoicesMustBeAllowedForAllSteps) == true;
-}
-
-const bool RandomizationOptions::noChoiceIsAllowedForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return (bool)trackTree.getProperty(ID::rndm_NoChoiceIsAllowedForAllSteps) == true;
-}
-
-const bool RandomizationOptions::repeatsMustBeAllowedForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID{ ID::rndm_RepeatChoicesMustBeAllowedForStep_.toString() + (String)stepNum };
+	Identifier propertyID{ step == Step::all ? ID::rndm_RepeatChoicesMustBeAllowedForAllSteps : 
+		ID::rndm_RepeatChoicesMustBeAllowedForStep_.toString() + String((int)step)
+	};
 	return (bool)trackTree.getProperty(propertyID) == true;
 }
 
-const bool RandomizationOptions::noChoiceIsAllowedForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::noChoiceIsAllowedForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID = ID::rndm_NoChoiceIsAllowedForStep_.toString() + (String)stepNum;
+	Identifier propertyID{ step == Step::all ? ID::rndm_NoChoiceIsAllowedForAllSteps :
+		ID::rndm_NoChoiceIsAllowedForStep_.toString() + String((int)step)
+	};
 	return (bool)trackTree.getProperty(propertyID) == true;
 }
 
-const bool RandomizationOptions::repeatChoicesAreAllowedForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::repeatChoicesAreAllowedForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return ((bool)trackTree.getProperty(ID::rndm_RepeatChoicesAreAllowedForAllSteps) == true);
+	Identifier propertyID{ step == Step::all ? ID::rndm_RepeatChoicesAreAllowedForAllSteps :
+		ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + String((int)step)
+	};
+	return (bool)trackTree.getProperty(propertyID) == true;
 }
 
-const bool RandomizationOptions::repeatChoicesAreForbiddenForAllStepsInSeqTrack(int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+const bool RandomizationOptions::repeatChoicesAreForbiddenForSeqTrackStep(Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	return ((bool)trackTree.getProperty(ID::rndm_RepeatChoicesAreAllowedForAllSteps) == false);
+	Identifier propertyID{ step == Step::all ? ID::rndm_RepeatChoicesAreAllowedForAllSteps :
+		ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + String((int)step)
+	};
+	return (bool)trackTree.getProperty(propertyID) == false;
 }
 
-void RandomizationOptions::setRepeatChoicesAreAllowedForAllStepsInSeqTrack(bool shouldBeAllowed, int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+void RandomizationOptions::setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	trackTree.setProperty(ID::rndm_RepeatChoicesAreAllowedForAllSteps, shouldBeAllowed ? true : false, nullptr);
-}
-
-const bool RandomizationOptions::repeatChoicesAreAllowedForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID = ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + (String)stepNum;
-	return ((bool)trackTree.getProperty(propertyID) == true);
-}
-
-const bool RandomizationOptions::repeatChoicesAreForbiddenForSeqTrackStep(int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID = ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + (String)stepNum;
-	return ((bool)trackTree.getProperty(propertyID) == false);
-}
-
-void RandomizationOptions::setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, int trackNum, int stepNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	jassert(stepNum > 0 && stepNum < 17);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
-	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
-	auto propertyID = ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + (String)stepNum;
+	Identifier propertyID{ step == Step::all ? ID::rndm_RepeatChoicesAreAllowedForAllSteps :
+		ID::rndm_RepeatChoicesAreAllowedForStep_.toString() + String((int)step)
+	};
 	trackTree.setProperty(propertyID, shouldBeAllowed ? true : false, nullptr);
 }
 
 
 
 
-void RandomizationOptions::addListenerToSeqTrackTree(ValueTree::Listener* listener, int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+void RandomizationOptions::addListenerToSeqTrackTree(ValueTree::Listener* listener, Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	randomizationOptionsTree.getChildWithName(trackTreeID).addListener(listener);
 }
 
-void RandomizationOptions::removeListenerFromSeqTrackTree(ValueTree::Listener* listener, int trackNum) {
-	jassert(trackNum > 0 && trackNum < 5);
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + (String)trackNum };
+void RandomizationOptions::removeListenerFromSeqTrackTree(ValueTree::Listener* listener, Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	randomizationOptionsTree.getChildWithName(trackTreeID).removeListener(listener);
 }
 

@@ -2,6 +2,12 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_Enum.h"
+
+using namespace MophoConstants;
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
+
 
 
 class RandomizationOptions;
@@ -11,15 +17,15 @@ class AllowRepeatChoicesToggle_SeqTrackStep :
 	public Component,
 	public ValueTree::Listener
 {
-	int trackNum;
-	int stepNum;
+	Track track;
+	Step step;
 	RandomizationOptions* randomizationOptions;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:
 	AllowRepeatChoicesToggle_SeqTrackStep() = delete;
 
-	AllowRepeatChoicesToggle_SeqTrackStep(int trackNum, int stepNum, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle_SeqTrackStep(Track track, Step step, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;

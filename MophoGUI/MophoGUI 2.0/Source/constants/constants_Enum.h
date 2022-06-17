@@ -116,6 +116,17 @@ namespace MophoConstants
 	};
 
 
+	const enum class SeqTrackNum {
+		one = 1, two, three, four
+	};
+
+
+	const enum class SeqTrackStepNum {
+		all = 0, one, two, three, four, five, six, seven, eight,
+		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen
+	};
+
+
 	const enum class SysExMessageType {
 		voiceData = 2,
 		editBufferData = 3,

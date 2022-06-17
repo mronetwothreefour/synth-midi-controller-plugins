@@ -356,10 +356,6 @@
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
         <FILE id="PfdCPw" name="rndm_0_comp_AllowRepeatChoicesToggle.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.h"/>
-        <FILE id="B1h1Wl" name="rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.cpp"/>
-        <FILE id="rkdqJa" name="rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.h"
-              compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.h"/>
         <FILE id="qaWuWw" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
         <FILE id="usEu1s" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"

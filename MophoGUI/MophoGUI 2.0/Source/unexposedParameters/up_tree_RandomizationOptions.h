@@ -6,6 +6,8 @@
 
 using namespace MophoConstants;
 using Category = LFO_FreqCategory;
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
 
 
 
@@ -80,47 +82,31 @@ public:
 	ValueTree getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex);
 
 
-	const bool editModeIsAllStepsForSeqTrack(int trackNum);
-	const bool editModeIsSelectedStepForSeqTrack(int trackNum);
-	void setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, int trackNum);
-	int selectedStepForSeqTrack(int trackNum);
-	void setSelectedStepForSeqTrack(int stepNum, int trackNum);
-	const float probabilityOfRestForAllStepsInSeqTrack_1();
-	void setProbabilityOfRestForAllStepsInSeqTrack_1(float newProb);
-	const float probabilityOfRestForSeqTrack_1_Step(int stepNum);
-	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, int stepNum);
-	const float probabilityOfDuplicatesForAllStepsInSeqTrack(int trackNum);
-	void setProbabilityOfDuplicatesForAllStepsInSeqTrack(float newProb, int trackNum);
-	const float probabilityOfDuplicateForSeqTrackStep(int trackNum, int stepNum);
-	void setProbabilityOfDuplicateForSeqTrackStep(float newProb, int trackNum, int stepNum);
-	const float probabilityOfResetForAllStepsInSeqTrack(int trackNum);
-	void setProbabilityOfResetForAllStepsInSeqTrack(float newProb, int trackNum);
-	const float probabilityOfResetForSeqTrackStep(int trackNum, int stepNum);
-	void setProbabilityOfResetForSeqTrackStep(float newProb, int trackNum, int stepNum);
-	const bool choiceIsAllowedForAllStepsInSeqTrack(uint8 choiceNum, int trackNum);
-	void setChoiceIsAllowedForAllStepsInSeqTrack(uint8 choiceNum, bool shouldBeAllowed, int trackNum);
-	void clearAllowedChoicesForAllStepsInSeqTrack(int trackNum);
-	void allowAllChoicesForAllStepsInSeqTrack(int trackNum);
-	const bool choiceIsAllowedForSeqTrackStep(uint8 choiceNum, int trackNum, int stepNum);
-	void setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, int trackNum, int stepNum);
-	void clearAllowedChoicesForSeqTrackStep(int trackNum, int stepNum);
-	void allowAllChoicesForSeqTrackStep(int trackNum, int stepNum);
-	void checkProbabilitiesAndNumberOfChoicesAllowedForAllStepsInSeqTrack(int trackNum);
-	void checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(int trackNum, int stepNum);
-	const bool repeatsMustBeAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool noChoiceIsAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool repeatsMustBeAllowedForSeqTrackStep(int trackNum, int stepNum);
-	const bool noChoiceIsAllowedForSeqTrackStep(int trackNum, int stepNum);
-	const bool repeatChoicesAreAllowedForAllStepsInSeqTrack(int trackNum);
-	const bool repeatChoicesAreForbiddenForAllStepsInSeqTrack(int trackNum);
-	void setRepeatChoicesAreAllowedForAllStepsInSeqTrack(bool shouldBeAllowed, int trackNum);
-	const bool repeatChoicesAreAllowedForSeqTrackStep(int trackNum, int stepNum);
-	const bool repeatChoicesAreForbiddenForSeqTrackStep(int trackNum, int stepNum);
-	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, int trackNum, int stepNum);
+	const bool editModeIsAllStepsForSeqTrack(Track track);
+	const bool editModeIsSelectedStepForSeqTrack(Track track);
+	void setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, Track track);
+	Step selectedStepForSeqTrack(Track track);
+	void setSelectedStepForSeqTrack(Step step, Track track);
+	const float probabilityOfRestForSeqTrack_1_Step(Step step);
+	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
+	const float probabilityOfDuplicateForSeqTrackStep(Track track, Step step);
+	void setProbabilityOfDuplicateForSeqTrackStep(float newProb, Track track, Step step);
+	const float probabilityOfResetForSeqTrackStep(Track track, Step step);
+	void setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step);
+	const bool choiceIsAllowedForSeqTrackStep(uint8 choiceNum, Track track, Step step);
+	void setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, Track track, Step step);
+	void clearAllowedChoicesForSeqTrackStep(Track track, Step step);
+	void allowAllChoicesForSeqTrackStep(Track track, Step step);
+	void checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track track, Step step);
+	const bool repeatChoicesMustBeAllowedForSeqTrackStep(Track track, Step step);
+	const bool noChoiceIsAllowedForSeqTrackStep(Track track, Step step);
+	const bool repeatChoicesAreAllowedForSeqTrackStep(Track track, Step step);
+	const bool repeatChoicesAreForbiddenForSeqTrackStep(Track track, Step step);
+	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step);
 
 
-	void addListenerToSeqTrackTree(ValueTree::Listener* listener, int trackNum);
-	void removeListenerFromSeqTrackTree(ValueTree::Listener* listener, int trackNum);
+	void addListenerToSeqTrackTree(ValueTree::Listener* listener, Track track);
+	void removeListenerFromSeqTrackTree(ValueTree::Listener* listener, Track track);
 
 
 	XmlElement* getStateXml();
