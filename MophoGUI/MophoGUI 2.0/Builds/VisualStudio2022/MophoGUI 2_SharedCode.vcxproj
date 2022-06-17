@@ -181,6 +181,8 @@
     <ClCompile Include="..\..\Source\midi\midi_1_VoiceDataMessage.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
@@ -2237,6 +2239,8 @@
     <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_AllSeqTrackSteps.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>

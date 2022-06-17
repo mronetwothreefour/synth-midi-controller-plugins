@@ -7,55 +7,56 @@
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
 AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams }
+	randomizationOptions{ unexposedParams->getRandomizationOptions() }
 {
-	auto& info{ InfoForExposedParameters::get() };
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-	if (info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
+	auto allowedChoicesType{ Info::get().allowedChoicesTypeFor(paramIndex) };
+	jassert(allowedChoicesType != AllowedChoicesType::seqTrackStep);
+	if (allowedChoicesType != AllowedChoicesType::binary)
 		randomizationOptions->addListenerToChildTreeForParam(this, paramIndex);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
-	toggle_AllowRepeatChoices.onClick = [this, randomizationOptions, paramIndex] {
+	toggle_AllowRepeatChoices.onClick = [this, paramIndex] {
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomizationOptions->setRepeatChoicesAreAllowedForParam(shouldBeAllowed ? true : false, paramIndex);
 	};
 	toggle_AllowRepeatChoices.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	if (tooltipOptions->shouldShowDescriptions()) {
-		auto numberOfChoices{ info.numberOfChoicesFor(paramIndex) };
-		String knobTooltip{ "" };
-		knobTooltip += "Toggles whether the current setting is allowed\n";
-		knobTooltip += "when a new setting is randomly generated. If it\n";
-		knobTooltip += "is not, consecutive randomization operations\n";
-		knobTooltip += "can never produce the same setting. ";
+		auto numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) };
+		String toggleTooltip{ "" };
+		toggleTooltip += "Toggles whether the current setting is allowed\n";
+		toggleTooltip += "when a new setting is randomly generated. If it\n";
+		toggleTooltip += "is not, consecutive randomization operations\n";
+		toggleTooltip += "can never produce the same setting. ";
 		if (numberOfChoices > 2) {
-			knobTooltip += "Obviously, if\n";
-			knobTooltip += "there is only one allowed setting then the\n";
-			knobTooltip += "same setting is always going to be produced.";
+			toggleTooltip += "Obviously, if\n";
+			toggleTooltip += "there is only one allowed setting then the\n";
+			toggleTooltip += "same setting is always going to be produced.";
 		}
 		else {
-			knobTooltip += "This means that\n";
-			knobTooltip += "the toggle will simply alternate between\n";
-			knobTooltip += "states with every randomization.";
+			toggleTooltip += "This means that\n";
+			toggleTooltip += "the toggle will simply alternate between\n";
+			toggleTooltip += "states with every randomization.";
 		}
-		toggle_AllowRepeatChoices.setTooltip(knobTooltip);
+		toggle_AllowRepeatChoices.setTooltip(toggleTooltip);
 	}
 	addAndMakeVisible(toggle_AllowRepeatChoices);
 
-	if (info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::binary) {
+	if (allowedChoicesType == AllowedChoicesType::binary) {
 		auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
 		toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 	}
 	else {
-		ValueTree placeholderTree{ info.IDfor(paramIndex) };
+		ValueTree placeholderTree{ Info::get().IDfor(paramIndex) };
 		valueTreePropertyChanged(placeholderTree, ID::rndm_OnlyOneChoiceIsAllowed);
 	}
 
-	setSize(70, 14);
+	setSize(GUI::allowRepeatChoicesToggleComponent_w, GUI::allowRepeatChoicesToggleComponent_h);
 }
 
 void AllowRepeatChoicesToggle::paint(Graphics& g) {
@@ -66,31 +67,24 @@ void AllowRepeatChoicesToggle::paint(Graphics& g) {
 }
 
 void AllowRepeatChoicesToggle::resized() {
-	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::toggle_diameter, GUI::toggle_diameter);
+	toggle_AllowRepeatChoices.setTopLeftPosition(0, 0);
 }
 
-void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex) };
-	if (tree.getType() == paramID) {
-		if (propertyID == ID::rndm_OnlyOneChoiceIsAllowed) {
-			auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-			if (randomizationOptions->onlyOneChoiceIsAllowedForParam(paramIndex)) {
-				toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
-				toggle_AllowRepeatChoices.setEnabled(false);
-			}
-			else {
-				auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
-				toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
-				toggle_AllowRepeatChoices.setEnabled(true);
-			}
+void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	if (propertyID == ID::rndm_OnlyOneChoiceIsAllowed) {
+		if (randomizationOptions->onlyOneChoiceIsAllowedForParam(paramIndex)) {
+			toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
+			toggle_AllowRepeatChoices.setEnabled(false);
+		}
+		else {
+			auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForParam(paramIndex) };
+			toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
+			toggle_AllowRepeatChoices.setEnabled(true);
 		}
 	}
 }
 
 AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-	if (info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
+	if (Info::get().allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
 		randomizationOptions->removeListenerFromChildTreeForParam(this, paramIndex);
 }

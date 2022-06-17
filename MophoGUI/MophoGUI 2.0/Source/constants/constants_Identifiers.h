@@ -220,6 +220,8 @@ namespace MophoConstants
 		const Identifier rndm_ProbabilityOfRestForAllSteps{ "rndm_ProbabilityOfRestForAllSteps" };
 		const Identifier rndm_ProbabilityOfRestForStep_{ "rndm_ProbabilityOfRestForStep_" };
 		const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+		const Identifier rndm_RepeatChoicesAreAllowedForAllSteps{ "rndm_RepeatChoicesAreAllowedForAllSteps" };
+		const Identifier rndm_RepeatChoicesAreAllowedForStep_{ "rndm_RepeatChoicesAreAllowedForStep_" };
 		const Identifier rndm_RepeatChoicesMustBeAllowedForAllSteps{ "rndm_RepeatChoicesMustBeAllowedForAllSteps" };
 		const Identifier rndm_RepeatChoicesMustBeAllowedForStep_{ "rndm_RepeatChoicesMustBeAllowedForStep_" };
 		const Identifier rndm_SelectedStep{ "rndm_SelectedStep" };

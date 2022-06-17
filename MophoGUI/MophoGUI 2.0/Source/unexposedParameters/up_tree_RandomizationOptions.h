@@ -20,11 +20,6 @@ public:
 	void setTransmitMethodIsSysEx(bool shouldBeSysEx);
 
 
-	const bool repeatChoicesAreAllowedForParam(uint8 paramIndex);
-	const bool repeatChoicesAreForbiddenForParam(uint8 paramIndex);
-	void setRepeatChoicesAreAllowedForParam(bool shouldBeAllowed, uint8 paramIndex);
-
-
 	const bool paramIsLocked(uint8 paramIndex);
 	const bool paramIsUnlocked(uint8 paramIndex);
 	void setParamIsLocked(uint8 paramIndex, bool shouldBeLocked);
@@ -35,8 +30,6 @@ public:
 	void checkNumberOfChoicesAllowedForParam(uint8 paramIndex);
 	void clearAllowedChoicesForParam(uint8 paramIndex);
 	void allowAllChoicesForParam(uint8 paramIndex);
-	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
-	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
 
 
 	const bool oscShapeIsAllowedForParam(OscWaveShape shape, uint8 paramIndex);
@@ -71,6 +64,22 @@ public:
 	void allowAllChoicesForLFO_FreqParam(uint8 paramIndex);
 
 
+	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
+	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
+
+
+	const bool repeatChoicesAreAllowedForParam(uint8 paramIndex);
+	const bool repeatChoicesAreForbiddenForParam(uint8 paramIndex);
+	void setRepeatChoicesAreAllowedForParam(bool shouldBeAllowed, uint8 paramIndex);
+
+
+	void addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
+	void removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
+
+
+	ValueTree getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex);
+
+
 	const bool editModeIsAllStepsForSeqTrack(int trackNum);
 	const bool editModeIsSelectedStepForSeqTrack(int trackNum);
 	void setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, int trackNum);
@@ -102,11 +111,16 @@ public:
 	const bool noChoiceIsAllowedForAllStepsInSeqTrack(int trackNum);
 	const bool repeatsMustBeAllowedForSeqTrackStep(int trackNum, int stepNum);
 	const bool noChoiceIsAllowedForSeqTrackStep(int trackNum, int stepNum);
+	const bool repeatChoicesAreAllowedForAllStepsInSeqTrack(int trackNum);
+	const bool repeatChoicesAreForbiddenForAllStepsInSeqTrack(int trackNum);
+	void setRepeatChoicesAreAllowedForAllStepsInSeqTrack(bool shouldBeAllowed, int trackNum);
+	const bool repeatChoicesAreAllowedForSeqTrackStep(int trackNum, int stepNum);
+	const bool repeatChoicesAreForbiddenForSeqTrackStep(int trackNum, int stepNum);
+	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, int trackNum, int stepNum);
 
 
-	void addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
-	void removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
-	ValueTree getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex);
+	void addListenerToSeqTrackTree(ValueTree::Listener* listener, int trackNum);
+	void removeListenerFromSeqTrackTree(ValueTree::Listener* listener, int trackNum);
 
 
 	XmlElement* getStateXml();

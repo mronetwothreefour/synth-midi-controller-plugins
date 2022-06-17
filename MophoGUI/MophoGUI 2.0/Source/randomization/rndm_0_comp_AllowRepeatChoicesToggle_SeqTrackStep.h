@@ -7,24 +7,25 @@
 class RandomizationOptions;
 class UnexposedParameters;
 
-class AllowRepeatChoicesToggle :
+class AllowRepeatChoicesToggle_SeqTrackStep :
 	public Component,
 	public ValueTree::Listener
 {
-	uint8 paramIndex;
+	int trackNum;
+	int stepNum;
 	RandomizationOptions* randomizationOptions;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:
-	AllowRepeatChoicesToggle() = delete;
+	AllowRepeatChoicesToggle_SeqTrackStep() = delete;
 
-	AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle_SeqTrackStep(int trackNum, int stepNum, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	~AllowRepeatChoicesToggle();
+	~AllowRepeatChoicesToggle_SeqTrackStep();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowRepeatChoicesToggle)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowRepeatChoicesToggle_SeqTrackStep)
 };

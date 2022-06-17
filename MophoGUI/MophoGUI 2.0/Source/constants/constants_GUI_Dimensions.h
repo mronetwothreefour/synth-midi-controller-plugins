@@ -13,6 +13,8 @@ namespace MophoConstants
 		const int allowChoiceToggle_h{ 16 };
 		const int allowedChoices_Inset{ 17 };
 		const int allowedChoices_VertGap{ 10 };
+		const int allowRepeatChoicesToggleComponent_h{ 14 };
+		const int allowRepeatChoicesToggleComponent_w{ 70 };
 		const int button_AllowAll_w{ 72 };
 		const int button_Cancel_w{ 52 };
 		const int button_Randomize_w{ 76 };
