@@ -10,7 +10,8 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
+	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfSyncedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 2, 8, 0, 100 }
 {
@@ -77,7 +78,6 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildChoiceName(uint8 syncedFreq) {
 }
 
 String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	String toggleTooltip{ "" };
 	if (shouldShowDescriptions) {
@@ -92,27 +92,22 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Synced::choiceIsAllowed(uint8 syncedFreq) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::setChoiceIsAllowed(uint8 syncedFreq, bool shouldBeAllowed) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->setSyncedFreqIsAllowedForLFO_FreqParam(syncedFreq, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::clearAllowedChoices() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->clearAllowedSyncedFreqForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Synced::noChoiceIsAllowed() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->noSyncedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::restoreToggles() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	for (auto syncedFreq = (uint8)0; syncedFreq < numberOfFreq; ++syncedFreq) {
 		auto isAllowed{ randomizationOptions->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex) };
 		allowedChoiceToggles[syncedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);

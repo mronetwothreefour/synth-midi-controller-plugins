@@ -15,7 +15,6 @@ class GUI_Layer_AllowedChoices_Standard :
 	public Component
 {
 	uint8 paramIndex;
-	UnexposedParameters* unexposedParams;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;

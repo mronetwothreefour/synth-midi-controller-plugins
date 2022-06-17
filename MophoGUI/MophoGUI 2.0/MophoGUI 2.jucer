@@ -382,6 +382,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
         <FILE id="vQlbDV" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
+        <FILE id="q6c2Su" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
+        <FILE id="vTUz39" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
         <FILE id="kOVJt5" name="rndm_1_comp_AllowChoiceToggles_Standard.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
         <FILE id="CBQ5BE" name="rndm_1_comp_AllowChoiceToggles_Standard.h"

@@ -10,7 +10,8 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
+	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) },
 	AllowChoiceToggles_Base{
 		numberOfChoices,
@@ -29,7 +30,6 @@ String AllowChoiceToggles_Standard::buildChoiceName(uint8 choiceNum) {
 }
 
 String AllowChoiceToggles_Standard::buildTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	String toggleTooltip{ "" };
 	if (shouldShowDescriptions) {
@@ -51,27 +51,22 @@ String AllowChoiceToggles_Standard::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_Standard::choiceIsAllowed(uint8 choiceNum) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) == true;
 }
 
 void AllowChoiceToggles_Standard::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->setChoiceIsAllowedForParam(choiceNum, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_Standard::clearAllowedChoices() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->clearAllowedChoicesForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_Standard::noChoiceIsAllowed() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->noChoiceIsAllowedForParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_Standard::restoreToggles() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		auto isAllowed{ randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) };
 		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);

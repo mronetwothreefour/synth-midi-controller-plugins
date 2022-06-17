@@ -14,6 +14,7 @@ using Shape = OscWaveShape;
 
 
 
+class RandomizationOptions;
 class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_OscShape :
@@ -21,7 +22,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	UnexposedParameters* unexposedParams;
+	RandomizationOptions* randomizationOptions;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatValues;
 	ButtonForHidingLayer button_Close;

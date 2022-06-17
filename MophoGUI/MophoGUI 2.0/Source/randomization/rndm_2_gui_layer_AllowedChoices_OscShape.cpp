@@ -15,7 +15,7 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
+	randomizationOptions{ unexposedParams->getRandomizationOptions() },
 	repeatValues{ paramIndex, unexposedParams },
 	allowPulseWidthToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
@@ -45,8 +45,6 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	addAndMakeVisible(repeatValues);
 
 	addAndMakeVisible(button_Close);
-
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 
 	toggle_Off.setComponentID(ID::component_RedToggle_AllowOscShape_Off.toString());
 	toggle_Off.addListener(this);
@@ -153,7 +151,6 @@ void GUI_Layer_AllowedChoices_OscShape::resized() {
 
 void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	auto clickedShape{ Shape::off };
 	if (button == &toggle_Saw)
 		clickedShape = Shape::sawtooth;
@@ -187,7 +184,6 @@ void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape allowed
 	toggle_Tri.setToggleState(allowedShape == Shape::triangle ? true : false, dontSendNotification);
 	toggle_SawTri.setToggleState(allowedShape == Shape::sawTriMix ? true : false, dontSendNotification);
 	toggle_Pulse.setToggleState(allowedShape == Shape::pulse ? true : false, dontSendNotification);
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->clearAllowedOscShapesForParam(paramIndex);
 	randomizationOptions->setOscShapeIsAllowedForParam(allowedShape, true, paramIndex);
 	if (allowedShape == Shape::pulse)
@@ -197,7 +193,6 @@ void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape allowed
 }
 
 void GUI_Layer_AllowedChoices_OscShape::allowAllChoices() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->allowAllChoicesForOscShapeParam(paramIndex);
 	toggle_Off.setToggleState(true, dontSendNotification);
 	toggle_Saw.setToggleState(true, dontSendNotification);

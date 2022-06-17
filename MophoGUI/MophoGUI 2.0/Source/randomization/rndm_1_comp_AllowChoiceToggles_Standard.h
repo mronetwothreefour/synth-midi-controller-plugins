@@ -6,13 +6,16 @@
 
 
 
+class RandomizationOptions;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class AllowChoiceToggles_Standard :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	UnexposedParameters* unexposedParams;
+	RandomizationOptions* randomizationOptions;
+	TooltipsOptions* tooltipOptions;
 	uint8 numberOfChoices;
 
 public:

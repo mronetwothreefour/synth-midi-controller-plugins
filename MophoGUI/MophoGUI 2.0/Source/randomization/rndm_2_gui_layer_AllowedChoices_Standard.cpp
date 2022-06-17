@@ -15,7 +15,6 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
 	allowChoiceToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, unexposedParams },

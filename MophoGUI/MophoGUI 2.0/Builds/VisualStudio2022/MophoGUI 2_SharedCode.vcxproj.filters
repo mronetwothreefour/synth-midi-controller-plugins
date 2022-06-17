@@ -646,6 +646,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3040,6 +3043,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h">

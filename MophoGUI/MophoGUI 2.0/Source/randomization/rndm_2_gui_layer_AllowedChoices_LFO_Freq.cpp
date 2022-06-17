@@ -15,7 +15,7 @@ using Info = InfoForExposedParameters;
 GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
+	randomizationOptions{ unexposedParams->getRandomizationOptions() },
 	repeatValues{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	allowUnsyncedFreqToggles{ paramIndex, unexposedParams },
@@ -47,8 +47,6 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	addAndMakeVisible(repeatValues);
 
 	addAndMakeVisible(button_Close);
-
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 
 	toggle_Unsynced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Unsynced.toString());
 	toggle_Unsynced.addListener(this);
@@ -139,7 +137,6 @@ void GUI_Layer_AllowedChoices_LFO_Freq::resized() {
 
 void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	auto clickedCategory{ Category::unsynced };
 	if (button == &toggle_Pitched)
 		clickedCategory = Category::pitched;
@@ -179,7 +176,6 @@ void GUI_Layer_AllowedChoices_LFO_Freq::makeCategoryTheOnlyOneAllowed(Category a
 	toggle_Unsynced.setToggleState(allowedCategory == Category::unsynced ? true : false, dontSendNotification);
 	toggle_Pitched.setToggleState(allowedCategory == Category::pitched ? true : false, dontSendNotification);
 	toggle_Synced.setToggleState(allowedCategory == Category::synced ? true : false, dontSendNotification);
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->clearAllowedCategoriesForLFO_FreqParam(paramIndex);
 	randomizationOptions->setCategoryIsAllowedForLFO_FreqParam(allowedCategory, true, paramIndex);
 	if (allowedCategory == Category::unsynced) {
@@ -200,7 +196,6 @@ void GUI_Layer_AllowedChoices_LFO_Freq::makeCategoryTheOnlyOneAllowed(Category a
 }
 
 void GUI_Layer_AllowedChoices_LFO_Freq::allowAllChoices() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->allowAllChoicesForLFO_FreqParam(paramIndex);
 	toggle_Unsynced.setToggleState(true, dontSendNotification);
 	toggle_Pitched.setToggleState(true, dontSendNotification);

@@ -11,7 +11,8 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	unexposedParams{ unexposedParams },
+	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfPitchedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 6, 12, 0, 36 }
 {
@@ -23,7 +24,6 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildChoiceName(uint8 pitchedFreq) {
 }
 
 String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
 	String toggleTooltip{ "" };
 	if (shouldShowDescriptions) {
@@ -40,27 +40,22 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Pitched::choiceIsAllowed(uint8 pitchedFreq) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->pitchedFreqIsAllowedForLFO_FreqParam(pitchedFreq, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Pitched::setChoiceIsAllowed(uint8 pitchedFreq, bool shouldBeAllowed) {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->setPitchedFreqIsAllowedForLFO_FreqParam(pitchedFreq, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Pitched::clearAllowedChoices() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	randomizationOptions->clearAllowedPitchedFreqForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Pitched::noChoiceIsAllowed() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	return randomizationOptions->noPitchedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_LFO_Freq_Pitched::restoreToggles() {
-	auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
 	for (auto pitchedFreq = (uint8)0; pitchedFreq < numberOfFreq; ++pitchedFreq) {
 		auto isAllowed{ randomizationOptions->pitchedFreqIsAllowedForLFO_FreqParam(pitchedFreq, paramIndex) };
 		allowedChoiceToggles[pitchedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);

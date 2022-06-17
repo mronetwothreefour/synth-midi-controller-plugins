@@ -6,13 +6,16 @@
 
 
 
+class RandomizationOptions;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class AllowChoiceToggles_LFO_Freq_Unsynced :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	UnexposedParameters* unexposedParams;
+	RandomizationOptions* randomizationOptions;
+	TooltipsOptions* tooltipOptions;
 	const uint8 numberOfFreq;
 
 public:
