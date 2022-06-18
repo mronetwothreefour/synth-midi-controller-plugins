@@ -182,6 +182,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
@@ -2241,6 +2242,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"/>
@@ -3100,6 +3102,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTrackEditMode.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Up.png"/>

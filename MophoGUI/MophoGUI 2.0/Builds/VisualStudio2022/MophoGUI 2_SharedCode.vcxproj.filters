@@ -631,6 +631,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3028,6 +3031,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h">
@@ -5601,6 +5607,9 @@
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png">
+      <Filter>MophoGUI 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTrackEditMode.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png">

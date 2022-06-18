@@ -27,7 +27,6 @@ public:
 
 	AllowRepeatChoicesToggle_SeqTrackStep(Track track, Step step, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowRepeatChoicesToggle_SeqTrackStep();
 

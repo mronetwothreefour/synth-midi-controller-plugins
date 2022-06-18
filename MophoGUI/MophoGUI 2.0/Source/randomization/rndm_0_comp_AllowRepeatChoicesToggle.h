@@ -20,7 +20,6 @@ public:
 
 	AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowRepeatChoicesToggle();
 

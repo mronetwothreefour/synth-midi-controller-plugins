@@ -24,7 +24,6 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomizationOptions->setRepeatChoicesAreAllowedForParam(shouldBeAllowed ? true : false, paramIndex);
 	};
-	toggle_AllowRepeatChoices.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) };
@@ -45,6 +44,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		}
 		toggle_AllowRepeatChoices.setTooltip(toggleTooltip);
 	}
+	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_AllowRepeatChoices);
 
 	if (allowedChoicesType == AllowedChoicesType::binary) {
@@ -64,10 +64,6 @@ void AllowRepeatChoicesToggle::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
-}
-
-void AllowRepeatChoicesToggle::resized() {
-	toggle_AllowRepeatChoices.setTopLeftPosition(0, 0);
 }
 
 void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {

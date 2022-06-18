@@ -31,6 +31,8 @@
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
       <FILE id="Qo3G30" name="bkgrnd_RepeatChoicesToggle.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
+      <FILE id="LMenxw" name="bkgrnd_SeqTrackEditMode.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_SeqTrackEditMode.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
@@ -362,6 +364,10 @@
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
         <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
+        <FILE id="mxWWV7" name="rndm_0_comp_SeqTrackEditMode.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackEditMode.cpp"/>
+        <FILE id="O3DCLM" name="rndm_0_comp_SeqTrackEditMode.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackEditMode.h"/>
         <FILE id="VU3Sq3" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
         <FILE id="CWVTZ2" name="rndm_0_ParamRandomizationMethods.h" compile="0"

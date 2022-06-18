@@ -19,7 +19,6 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(Tra
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomizationOptions->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
 	};
-	toggle_AllowRepeatChoices.setSize(GUI::toggle_diameter, GUI::toggle_diameter);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		String toggleTooltip{ "" };
@@ -31,6 +30,7 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(Tra
 		toggleTooltip += "same setting is always going to be produced.";
 		toggle_AllowRepeatChoices.setTooltip(toggleTooltip);
 	}
+	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_AllowRepeatChoices);
 
 	ValueTree placeholderTree{ ID::rndm_SeqTrack_.toString() + String((int)track)};
@@ -45,10 +45,6 @@ void AllowRepeatChoicesToggle_SeqTrackStep::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
-}
-
-void AllowRepeatChoicesToggle_SeqTrackStep::resized() {
-	toggle_AllowRepeatChoices.setTopLeftPosition(0, 0);
 }
 
 void AllowRepeatChoicesToggle_SeqTrackStep::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {

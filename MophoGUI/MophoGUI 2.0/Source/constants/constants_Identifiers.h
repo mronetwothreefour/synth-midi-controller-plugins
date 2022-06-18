@@ -67,6 +67,9 @@ namespace MophoConstants
 		const Identifier component_RedToggle_AllowOscShape_SawTri{ "component_RedToggle_AllowOscShape_SawTri" };
 		const Identifier component_RedToggle_AllowOscShape_Tri{ "component_RedToggle_AllowOscShape_Tri" };
 		const Identifier component_RedToggle_AllowRepeatChoices{ "component_RedToggle_AllowRepeatChoices" };
+		const Identifier component_RedToggle_AllStepsMode{ "component_RedToggle_AllStepsMode" };
+		const Identifier component_RedToggle_SelectedStepMode{ "component_RedToggle_SelectedStepMode" };
+		const Identifier component_SeqTrackStepSelector{ "component_SeqTrackStepSelector" };
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
 		const Identifier component_TabbedComponentForFactoryBanks{ "component_TabbedComponentForFactoryBanks" };

@@ -41,6 +41,9 @@ namespace BinaryData
     extern const char*   bkgrnd_RepeatChoicesToggle_png;
     const int            bkgrnd_RepeatChoicesToggle_pngSize = 530;
 
+    extern const char*   bkgrnd_SeqTrackEditMode_png;
+    const int            bkgrnd_SeqTrackEditMode_pngSize = 1336;
+
     extern const char*   bkgrnd_TabForVoicesBank_png;
     const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
 
@@ -210,7 +213,7 @@ namespace BinaryData
     const int            lbl_VoiceBankTab_3_pngSize = 295;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 67;
+    const int namedResourceListSize = 68;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
