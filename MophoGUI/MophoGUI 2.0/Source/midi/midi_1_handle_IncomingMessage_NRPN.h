@@ -4,12 +4,15 @@
 
 
 
+class GlobalOptions;
 class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_NRPN
 {
 	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	VoiceTransmissionOptions* voiceTransmit;
 	bool receivedType_MSB{ false };
 	bool receivedType_LSB{ false };
 	bool receivedValue_MSB{ false };

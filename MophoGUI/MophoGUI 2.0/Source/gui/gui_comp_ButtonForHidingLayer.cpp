@@ -9,10 +9,9 @@ using namespace MophoConstants;
 
 
 ButtonForHidingLayer::ButtonForHidingLayer(UnexposedParameters* unexposedParams) :
-	unexposedParams{ unexposedParams }
+	tooltips{ unexposedParams->getTooltipsOptions() }
 {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->addListener(this);
+	tooltips->addListener(this);
 
 	setComponentID(ID::button_Close.toString());
 	onClick = [this] {
@@ -27,8 +26,7 @@ ButtonForHidingLayer::ButtonForHidingLayer(UnexposedParameters* unexposedParams)
 }
 
 void ButtonForHidingLayer::updateTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
 	setTooltip(shouldShowDescription ? "Click to close this window." : "");
 }
 
@@ -38,6 +36,5 @@ void ButtonForHidingLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const I
 }
 
 ButtonForHidingLayer::~ButtonForHidingLayer() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->removeListener(this);
+	tooltips->removeListener(this);
 }

@@ -11,7 +11,8 @@ using namespace MophoConstants;
 
 IncomingMessageHandler_NRPN::IncomingMessageHandler_NRPN(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams }
+	global{ unexposedParams->getGlobalOptions() },
+    voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 
@@ -19,10 +20,9 @@ MidiBuffer IncomingMessageHandler_NRPN::pullFullyFormedMessageOutOfBuffer(const 
     midiMessagesToPassThrough.clear();
     incompleteNRPN.clear();
     for (auto event : midiMessages) {
-        auto globalOptions{ unexposedParams->getGlobalOptions() };
         auto midiMessage{ event.getMessage() };
         auto messageChannel{ midiMessage.getChannel() - 1 };
-        auto pluginChannel{ globalOptions->transmitChannel() };
+        auto pluginChannel{ global->transmitChannel() };
         if (midiMessage.isController() && messageChannel == pluginChannel)
             checkIfControllerTypeIsNRPN(midiMessage);
         else {
@@ -101,32 +101,29 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(MidiMessage 
 }
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnType, int newValue) {
-    auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    voiceTransmissionOptions->dontTransmitParamChanges();
+    voiceTransmit->dontTransmitParamChanges();
     auto& info{ InfoForExposedParameters::get() };
     auto paramIndex{ info.paramIndexForNRPN((uint8)nrpnType) };
     auto paramID{ info.IDfor(paramIndex) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
-    voiceTransmissionOptions->transmitParamChanges();
+    voiceTransmit->transmitParamChanges();
 }
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToGlobalOption(int nrpnType, int newValue) {
-    auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    voiceTransmissionOptions->dontTransmitParamChanges();
-    auto globalOptions{ unexposedParams->getGlobalOptions() };
+    voiceTransmit->dontTransmitParamChanges();
     const int nrpnTypeForGlobalFineTune{ 385 };
     const int nrpnTypeForGlobalTranspose{ 384 };
     switch (nrpnType)
     {
     case nrpnTypeForGlobalTranspose:
-        globalOptions->setGlobalTranspose((uint8)newValue);
+        global->setGlobalTranspose((uint8)newValue);
         break;
     case nrpnTypeForGlobalFineTune:
-        globalOptions->setGlobalFineTune((uint8)newValue);
+        global->setGlobalFineTune((uint8)newValue);
         break;
     default:
         break;
     }
-    voiceTransmissionOptions->transmitParamChanges();
+    voiceTransmit->transmitParamChanges();
 }

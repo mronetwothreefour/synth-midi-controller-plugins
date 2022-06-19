@@ -4,12 +4,18 @@
 
 
 
+class GlobalOptions;
 class UnexposedParameters;
+class VoicesBanks;
+class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_SysEx
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	VoicesBanks* voicesBanks;
+	VoiceTransmissionOptions* voiceTransmit;
 	const int sysExMessageTypeByte{ 3 };
 
 public:

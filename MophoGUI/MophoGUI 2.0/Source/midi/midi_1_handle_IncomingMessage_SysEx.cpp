@@ -10,7 +10,10 @@ using namespace MophoConstants;
 
 IncomingMessageHandler_SysEx::IncomingMessageHandler_SysEx(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams }
+	unexposedParams{ unexposedParams },
+    global{ unexposedParams->getGlobalOptions() },
+    voicesBanks{ unexposedParams->getVoicesBanks() },
+    voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 
@@ -65,7 +68,6 @@ void IncomingMessageHandler_SysEx::handleIncomingVoiceData(const uint8* sysExDat
         for (auto dataByte = firstVoiceDataByte; dataByte != firstUnusedPVoiceDataByte; ++dataByte)
             voiceDataVector.push_back(*(sysExData + dataByte));
         auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
-        auto voicesBanks{ unexposedParams->getVoicesBanks() };
         voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slot);
     }
     else
@@ -89,51 +91,49 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         const int globalTransposeLSByte{ 4 };
         const int globalTransposeMSByte{ 5 };
         const int globalVoiceChangesByte{ 28 };
-        auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        voiceTransmissionOptions->dontTransmitParamChanges();
-        auto globalOptions{ unexposedParams->getGlobalOptions() };
+        voiceTransmit->dontTransmitParamChanges();
 
         auto globalTranspose{ sysExData[globalTransposeMSByte] * 16 + sysExData[globalTransposeLSByte] };
-        globalOptions->setGlobalTranspose((uint8)globalTranspose);
+        global->setGlobalTranspose((uint8)globalTranspose);
 
         auto globalFineTune{ sysExData[globalFineTuneMSByte] * 16 + sysExData[globalFineTuneLSByte] };
-        globalOptions->setGlobalFineTune((uint8)globalFineTune);
+        global->setGlobalFineTune((uint8)globalFineTune);
 
         auto globalHardwareReceiveChannel{ sysExData[globalHardwareReceiveChannelMSByte] * 16 + sysExData[globalHardwareReceiveChannelLSByte] };
-        globalOptions->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
+        global->setHardwareReceiveChannel((uint8)globalHardwareReceiveChannel);
         auto allChannels{ 0 };
         if (globalHardwareReceiveChannel == allChannels)
-            globalOptions->setTransmitChannel((uint8)globalHardwareReceiveChannel);
+            global->setTransmitChannel((uint8)globalHardwareReceiveChannel);
         else
-            globalOptions->setTransmitChannel((uint8)(globalHardwareReceiveChannel - 1));
+            global->setTransmitChannel((uint8)(globalHardwareReceiveChannel - 1));
 
         MIDI_ClockSource midiClockSource{ sysExData[globalMIDI_ClockSourceByte] };
-        globalOptions->setMIDI_ClockSource(midiClockSource);
+        global->setMIDI_ClockSource(midiClockSource);
 
         auto shouldBeArpLatch{ (bool)sysExData[globalPedalModeIsArpLatchByte] };
-        globalOptions->setPedalModeIsArpLatch(shouldBeArpLatch ? true : false);
+        global->setPedalModeIsArpLatch(shouldBeArpLatch ? true : false);
 
         auto voiceChangesShouldBeEnabled{ (bool)sysExData[globalVoiceChangesByte] };
-        globalOptions->setVoiceChangesAreEnabled(voiceChangesShouldBeEnabled ? true : false);
+        global->setVoiceChangesAreEnabled(voiceChangesShouldBeEnabled ? true : false);
 
         ParamChangeSendType paramChangeSendType{ sysExData[globalParamChangeSendTypeByte] };
-        globalOptions->setParamChangeSendType(paramChangeSendType);
+        global->setParamChangeSendType(paramChangeSendType);
 
         ParamChangeReceiveType paramChangeReceiveType{ sysExData[globalParamChangeReceiveTypeByte] };
-        globalOptions->setParamChangeReceiveType(paramChangeReceiveType);
+        global->setParamChangeReceiveType(paramChangeReceiveType);
 
         auto controllersShouldBeEnabled{ (bool)sysExData[globalControllersOnByte] };
-        globalOptions->setControllersAreEnabled(controllersShouldBeEnabled ? true : false);
+        global->setControllersAreEnabled(controllersShouldBeEnabled ? true : false);
 
         auto sysExShouldBeEnabled{ (bool)sysExData[globalSysExByte] };
-        globalOptions->setSysExIsEnabled(sysExShouldBeEnabled ? true : false);
+        global->setSysExIsEnabled(sysExShouldBeEnabled ? true : false);
 
         auto outputShouldBeMono{ (bool)sysExData[globalHardwareOutputTypeByte] };
-        globalOptions->setHardwareOutputIsMono(outputShouldBeMono ? true : false);
+        global->setHardwareOutputIsMono(outputShouldBeMono ? true : false);
 
         auto hardwareOutputBalance{ sysExData[globalHardwareOutputBalanceByte] };
-        globalOptions->setHardwareOutputBalance(hardwareOutputBalance);
+        global->setHardwareOutputBalance(hardwareOutputBalance);
 
-        voiceTransmissionOptions->transmitParamChanges();
+        voiceTransmit->transmitParamChanges();
     }
 }

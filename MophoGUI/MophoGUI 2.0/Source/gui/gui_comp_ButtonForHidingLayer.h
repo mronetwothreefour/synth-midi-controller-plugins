@@ -4,13 +4,14 @@
 
 
 
+class TooltipsOptions;
 class UnexposedParameters;
 
 class ButtonForHidingLayer :
 	public TextButton,
 	public ValueTree::Listener
 {
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 
 public:
 	ButtonForHidingLayer() = delete;

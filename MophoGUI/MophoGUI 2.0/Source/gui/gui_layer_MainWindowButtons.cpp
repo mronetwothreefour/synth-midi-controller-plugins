@@ -25,13 +25,14 @@ using Description = MainWindowButtonDescription;
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
+    global{ unexposedParams->getGlobalOptions() },
+    tooltips{ unexposedParams->getTooltipsOptions() },
     voiceNameEditor{ "voiceNameEditor", "" },
     button_Hyperlink{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
 
-    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
-    tooltipsOptions->addListener(this);
+    tooltips->addListener(this);
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);
     voiceNameEditor.setFont(GUI::fontFor_VoiceNameEditorText);
@@ -128,8 +129,7 @@ void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, 
 }
 
 void GUI_Layer_MainWindowButtons::updateTooltips() {
-    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
-    auto shouldShow{ tooltipsOptions->shouldShowDescriptions() };
+    auto shouldShow{ tooltips->shouldShowDescriptions() };
 
     auto tipFor_button_ShowVoiceNameEditor{ shouldShow ? Description::buildFor_ShowVoiceNameEditor() : String{ "" } };
     button_ShowVoiceNameEditor.setTooltip(tipFor_button_ShowVoiceNameEditor);
@@ -165,8 +165,7 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
     voiceNameEditor.setText(getVoiceNameFromExposedParemeters(), dontSendNotification);
     voiceNameEditor.showEditor();
     voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(VCS::numberOfCharsInVoiceName, basicASCIIcharacters);
-    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
-    auto shouldShow{ tooltipsOptions->shouldShowDescriptions() };
+    auto shouldShow{ tooltips->shouldShowDescriptions() };
     auto tipFor_VoiceNameEditor{ shouldShow ? Description::buildFor_VoiceNameEditor() : String{ "" } };
     voiceNameEditor.getCurrentTextEditor()->setTooltip(tipFor_VoiceNameEditor);
 }
@@ -256,13 +255,12 @@ void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
 
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     globalParams = nullptr;
-    auto globalOptions{ unexposedParams->getGlobalOptions() };
-    globalOptions->resetAllOptionsToDefaults();
+    global->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
-    callAfterDelay(300, [this, globalOptions] {
-            if (globalOptions->sysExIsEnabled()) {
-                if (globalOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+    callAfterDelay(300, [this] {
+            if (global->sysExIsEnabled()) {
+                if (global->hardwareIsNotSetToReceiveNRPNcontrollers())
                     showCommError_NRPN_Layer();
                 else
                     showGlobalParamsLayer();
@@ -310,7 +308,6 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     voicesBanks = nullptr;
     commError_NRPN = nullptr;
     commError_SysEx = nullptr;
-    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
-    tooltipsOptions->removeListener(this);
+    tooltips->removeListener(this);
     voiceNameEditor.removeListener(this);
 }

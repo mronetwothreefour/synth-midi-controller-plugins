@@ -4,10 +4,12 @@
 
 
 
+class GlobalOptions;
 class GUI_Layer_CommError_NRPN;
 class GUI_Layer_CommError_SysEx;
 class GUI_Layer_GlobalParameters;
 class GUI_Layer_VoicesBanks;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class GUI_Layer_MainWindowButtons :
@@ -19,6 +21,8 @@ class GUI_Layer_MainWindowButtons :
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	TooltipsOptions* tooltips;
 	Label voiceNameEditor;
 	TextButton button_ShowVoiceNameEditor;
 	TextButton button_WriteEditBuffer;
