@@ -182,6 +182,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
@@ -190,6 +191,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
@@ -2241,6 +2243,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h"/>
@@ -2250,6 +2253,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
@@ -3102,7 +3106,9 @@
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTrack_1_Probabilities.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrackEditMode.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Up.png"/>

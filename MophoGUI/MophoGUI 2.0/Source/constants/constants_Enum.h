@@ -121,6 +121,13 @@ namespace MophoConstants
 	};
 
 
+	const enum class SeqTrackProbabilityKnobType {
+		rest = 0, 
+		duplicate, 
+		reset
+	};
+
+
 	const enum class SeqTrackStepNum {
 		all = 0, one, two, three, four, five, six, seven, eight,
 		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen

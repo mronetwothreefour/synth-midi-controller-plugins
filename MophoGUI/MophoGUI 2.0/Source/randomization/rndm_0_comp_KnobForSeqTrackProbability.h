@@ -6,35 +6,36 @@
 #include "../exposedParamControls/sliders/epc_0_slider_JuceSlidersWithMouseMods.h"
 
 using namespace MophoConstants;
-using KnobType = GlobalParamKnobType;
+using KnobType = SeqTrackProbabilityKnobType;
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
 
 
 
-class GlobalOptions;
+class RandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
 
-class KnobForGlobalParameter :
+class KnobForSeqTrackProbability :
 	public RotarySliderWithMouseWheelMoveOverride,
 	public ValueTree::Listener
 {
 	KnobType knobType;
-	Identifier paramID;
-	GlobalOptions* global;
+	Track track;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
-	UnexposedParameters* unexposedParams;
 
 public:
-	KnobForGlobalParameter() = delete;
+	KnobForSeqTrackProbability() = delete;
 
-	KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams);
+	KnobForSeqTrackProbability(KnobType knobType, Track track, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueChanged() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
-	~KnobForGlobalParameter();
+	~KnobForSeqTrackProbability();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobForGlobalParameter)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KnobForSeqTrackProbability)
 
 };

@@ -31,8 +31,12 @@
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
       <FILE id="Qo3G30" name="bkgrnd_RepeatChoicesToggle.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
+      <FILE id="QnT8AO" name="bkgrnd_SeqTrack_1_Probabilities.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_SeqTrack_1_Probabilities.png"/>
       <FILE id="LMenxw" name="bkgrnd_SeqTrackEditMode.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_SeqTrackEditMode.png"/>
+      <FILE id="uuXnyt" name="bkgrnd_SeqTracks_2_3_4_Probabilities.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
@@ -362,6 +366,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
         <FILE id="usEu1s" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
+        <FILE id="OyRH5R" name="rndm_0_comp_KnobForSeqTrackProbability.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
+        <FILE id="rsFneO" name="rndm_0_comp_KnobForSeqTrackProbability.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
         <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
         <FILE id="mxWWV7" name="rndm_0_comp_SeqTrackEditMode.cpp" compile="1"
@@ -396,6 +404,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
         <FILE id="CBQ5BE" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+        <FILE id="jrpwCJ" name="rndm_1_comp_SeqTrackProbabilities.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.cpp"/>
+        <FILE id="oVZOpw" name="rndm_1_comp_SeqTrackProbabilities.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.h"/>
         <FILE id="UqrENJ" name="rndm_2_gui_layer_AllowedChoices_Binary.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
         <FILE id="BjbYRw" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"

@@ -65,7 +65,7 @@ void SeqTrackEditMode::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, 0, 0);
 }
 
-void SeqTrackEditMode::buttonClicked(Button* button) {
+void SeqTrackEditMode::buttonClicked(Button* /*button*/) {
 	auto editModeIsAllSteps{ toggle_AllStepsMode.getToggleState() == true };
 	randomizationOptions->setEditModeIsAllStepsForSeqTrack(editModeIsAllSteps ? true : false, track);
 	getParentComponent()->repaint();

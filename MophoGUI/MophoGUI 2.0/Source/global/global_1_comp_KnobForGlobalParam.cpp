@@ -15,38 +15,39 @@ using ParamChange = ParameterChangeMessage;
 
 
 
-KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, UnexposedParameters* unexposedParams) :
+KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMoveOverride{ unexposedParams },
 	knobType{ knobType },
+	global{ unexposedParams->getGlobalOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	unexposedParams{ unexposedParams }
 {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	globalOptions->addListener(this);
+	global->addListener(this);
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	tooltipOptions->addListener(this);
 
 	setComponentID(ID::component_Knob.toString());
 	switch (knobType)
 	{
-	case GlobalParamKnobType::globalTranspose:
+	case KnobType::globalTranspose:
 		paramID = ID::global_Transpose;
 		setRange(0.0, 24.0, 1.0);
 		setDoubleClickReturnValue(true, 12.0);
-		setValue((double)globalOptions->globalTranspose(), dontSendNotification);
+		setValue((double)global->globalTranspose(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
-	case GlobalParamKnobType::globalFineTune:
+	case KnobType::globalFineTune:
 		paramID = ID::global_FineTune;
 		setRange(0.0, 100.0, 1.0);
 		setDoubleClickReturnValue(true, 50.0);
-		setValue((double)globalOptions->globalFineTune(), dontSendNotification);
+		setValue((double)global->globalFineTune(), dontSendNotification);
 		setMouseDragSensitivity(105);
 		break;
-	case GlobalParamKnobType::hardwareReceiveChannel:
+	case KnobType::hardwareReceiveChannel:
 		paramID = ID::global_HardwareReceiveChannel;
 		setRange(0.0, 16.0, 1.0);
 		setDoubleClickReturnValue(true, 0.0);
-		setValue((double)globalOptions->hardwareReceiveChannel(), dontSendNotification);
+		setValue((double)global->hardwareReceiveChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
 	default:
@@ -59,58 +60,56 @@ KnobForGlobalParameter::KnobForGlobalParameter(GlobalParamKnobType knobType, Une
 }
 
 void KnobForGlobalParameter::updateTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
-	auto shouldShowCurrentChoice{ tooltipOptions->shouldShowCurrentValue() };
+	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
+	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentValue() };
 	auto currentChoice{ roundToInt(getValue()) };
 	auto verbose{ (bool)true };
-	String tipString{ "" };
+	String tip{ "" };
 	switch (knobType)
 	{
-	case GlobalParamKnobType::globalTranspose:
+	case KnobType::globalTranspose:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_GlobalTranspose();
+			tip += Description::buildFor_GlobalTranspose();
 		if (shouldShowCurrentChoice)
-			tipString += "Current setting: " + ChoiceName::buildFor_GlobalTranspose(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildFor_GlobalTranspose(currentChoice, verbose);
 		break;
-	case GlobalParamKnobType::globalFineTune:
+	case KnobType::globalFineTune:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_GlobalFineTune();
+			tip += Description::buildFor_GlobalFineTune();
 		if (shouldShowCurrentChoice)
-			tipString += "Current setting: " + ChoiceName::buildFor_GlobalFineTune(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildFor_GlobalFineTune(currentChoice, verbose);
 		break;
-	case GlobalParamKnobType::hardwareReceiveChannel:
+	case KnobType::hardwareReceiveChannel:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_HardwareReceiveChannel();
+			tip += Description::buildFor_HardwareReceiveChannel();
 		if (shouldShowCurrentChoice)
-			tipString += "Current setting: " + ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, verbose);
 		break;
 	default:
 		break;
 	}
-	setTooltip(tipString);
+	setTooltip(tip);
 }
 
 void KnobForGlobalParameter::valueChanged() {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
 	auto currentChoice{ (uint8)roundToInt(getValue()) };
 	switch (knobType)
 	{
-	case GlobalParamKnobType::globalTranspose:
-		globalOptions->setGlobalTranspose(currentChoice);
+	case KnobType::globalTranspose:
+		global->setGlobalTranspose(currentChoice);
 		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_GlobalTranspose, unexposedParams);
 		break;
-	case GlobalParamKnobType::globalFineTune:
-		globalOptions->setGlobalFineTune(currentChoice);
+	case KnobType::globalFineTune:
+		global->setGlobalFineTune(currentChoice);
 		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_GlobalFineTune, unexposedParams);
 		break;
-	case GlobalParamKnobType::hardwareReceiveChannel:
-		globalOptions->setHardwareReceiveChannel(currentChoice);
+	case KnobType::hardwareReceiveChannel:
+		global->setHardwareReceiveChannel(currentChoice);
 		ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling(currentChoice, GP::nrpnType_HardwareReceiveChannel, unexposedParams);
 		if (currentChoice == 0)
-			globalOptions->setTransmitChannel(currentChoice);
+			global->setTransmitChannel(currentChoice);
 		else
-			globalOptions->setTransmitChannel(currentChoice - 1);
+			global->setTransmitChannel(currentChoice - 1);
 		break;
 	default:
 		break;
@@ -128,8 +127,6 @@ void KnobForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const Ide
 }
 
 KnobForGlobalParameter::~KnobForGlobalParameter() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->removeListener(this);
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	globalOptions->removeListener(this);
+	tooltips->removeListener(this);
+	global->removeListener(this);
 }
