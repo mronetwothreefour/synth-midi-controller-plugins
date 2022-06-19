@@ -16,8 +16,7 @@ GUI_Layer_CommError_NRPN::GUI_Layer_CommError_NRPN(UnexposedParameters* unexpose
 }
 
 void GUI_Layer_CommError_NRPN::checkHardwareSettings() {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	if (globalOptions->hardwareIsSetToReceiveNRPNcontrollers())
+	if (global->hardwareIsSetToReceiveNRPNcontrollers())
 		button_Close.triggerClick();
 }
 

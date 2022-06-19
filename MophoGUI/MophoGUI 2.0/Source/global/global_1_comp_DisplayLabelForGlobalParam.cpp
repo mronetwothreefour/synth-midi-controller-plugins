@@ -15,12 +15,11 @@ using Description = GlobalParamDescription;
 
 DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDisplayLabelType labelType, UnexposedParameters* unexposedParams) :
 	labelType{ labelType },
-	unexposedParams{ unexposedParams }
+	global{ unexposedParams->getGlobalOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() }
 {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	globalOptions->addListener(this);
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->addListener(this);
+	global->addListener(this);
+	tooltips->addListener(this);
 	
 	setComponentID(ID::label_DisplayLabel.toString());
 	setEditable(false, false);
@@ -53,38 +52,37 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 }
 
 void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
 	auto textShouldBeRed{ (bool)false };
 	switch (labelType)
 	{
 	case GlobalParamDisplayLabelType::paramChangeReceiveType: {
-		if (globalOptions->hardwareIsNotSetToReceiveNRPNcontrollers())
+		if (global->hardwareIsNotSetToReceiveNRPNcontrollers())
 			textShouldBeRed = true;
-		auto receiveType{ globalOptions->paramChangeReceiveType() };
+		auto receiveType{ global->paramChangeReceiveType() };
 		setText(ChoiceName::buildFor_ParamChangeReceiveType(receiveType), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::midiControllersStatus: {
-		auto controllersAreEnabled{ globalOptions->controllersAreEnabled() };
+		auto controllersAreEnabled{ global->controllersAreEnabled() };
 		if (controllersAreEnabled == false)
 			textShouldBeRed = true;
 		setText(ChoiceName::buildFor_MIDI_Controllers(controllersAreEnabled ? true : false), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::sysExStatus: {
-		auto sysExIsEnabled{ globalOptions->sysExIsEnabled() };
+		auto sysExIsEnabled{ global->sysExIsEnabled() };
 		if (sysExIsEnabled == false)
 			textShouldBeRed = true;
 		setText(ChoiceName::buildFor_SysEx(sysExIsEnabled ? true : false), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::audioOutput: {
-		auto outputIsMono{ globalOptions->hardwareOutputIsMono() };
+		auto outputIsMono{ global->hardwareOutputIsMono() };
 		setText(ChoiceName::buildFor_AudioOutput(outputIsMono), dontSendNotification);
 		break;
 	}
 	case GlobalParamDisplayLabelType::hardwareOutputBalance: {
-		auto currentChoice{ (int)globalOptions->hardwareOutputBalance() };
+		auto currentChoice{ (int)global->hardwareOutputBalance() };
 		setText(ChoiceName::buildFor_HardwareOutputBalance(currentChoice), dontSendNotification);
 		break;
 	}
@@ -95,8 +93,7 @@ void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
 }
 
 void DisplayLabelForGlobalParameter::updateTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
 	String tipString{ "" };
 	switch (labelType)
 	{
@@ -134,8 +131,6 @@ void DisplayLabelForGlobalParameter::valueTreePropertyChanged(ValueTree& /*tree*
 }
 
 DisplayLabelForGlobalParameter::~DisplayLabelForGlobalParameter() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->removeListener(this);
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	globalOptions->removeListener(this);
+	tooltips->removeListener(this);
+	global->removeListener(this);
 }

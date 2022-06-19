@@ -12,21 +12,20 @@ using Description = GlobalParamDescription;
 
 ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggleType, UnexposedParameters* unexposedParams) :
 	toggleType{ toggleType },
-	unexposedParams{ unexposedParams }
+	tooltips{ unexposedParams->getTooltipsOptions() }
 {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->addListener(this);
+	tooltips->addListener(this);
 
 	setComponentID(ID::component_RedToggle.toString());
 	switch (toggleType)
 	{
 	case GlobalParamToggleType::currentValueTooltip:
-		setToggleState(tooltipOptions->shouldShowCurrentValue(), dontSendNotification);
-		onClick = [this, tooltipOptions] { tooltipOptions->setShouldShowCurrentValue(getToggleState()); };
+		setToggleState(tooltips->shouldShowCurrentValue(), dontSendNotification);
+		onClick = [this] { tooltips->setShouldShowCurrentValue(getToggleState()); };
 		break;
 	case GlobalParamToggleType::descriptionTooltip:
-		setToggleState(tooltipOptions->shouldShowDescriptions(), dontSendNotification);
-		onClick = [this, tooltipOptions] { tooltipOptions->setShouldShowDescription(getToggleState()); };
+		setToggleState(tooltips->shouldShowDescriptions(), dontSendNotification);
+		onClick = [this] { tooltips->setShouldShowDescription(getToggleState()); };
 		break;
 	default:
 		break;
@@ -38,8 +37,7 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 }
 
 void ToggleForTooltipParameter::updateTooltip() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescription{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
 	String tipString{ "" };
 	switch (toggleType)
 	{
@@ -63,6 +61,5 @@ void ToggleForTooltipParameter::valueTreePropertyChanged(ValueTree& /*tree*/, co
 }
 
 ToggleForTooltipParameter::~ToggleForTooltipParameter() {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->removeListener(this);
+	tooltips->removeListener(this);
 }

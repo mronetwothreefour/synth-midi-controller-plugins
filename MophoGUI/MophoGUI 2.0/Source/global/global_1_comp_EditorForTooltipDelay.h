@@ -4,13 +4,14 @@
 
 
 
+class TooltipsOptions;
 class UnexposedParameters;
 
 class EditorForTooltipDelay :
 	public Label,
 	public ValueTree::Listener
 {
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	Identifier parameterID;
 
 public:

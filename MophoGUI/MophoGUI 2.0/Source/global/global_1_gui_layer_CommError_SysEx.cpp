@@ -16,8 +16,7 @@ GUI_Layer_CommError_SysEx::GUI_Layer_CommError_SysEx(UnexposedParameters* unexpo
 }
 
 void GUI_Layer_CommError_SysEx::checkHardwareSettings() {
-	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	if (globalOptions->sysExIsEnabled())
+	if (global->sysExIsEnabled())
 		button_Close.triggerClick();
 }
 

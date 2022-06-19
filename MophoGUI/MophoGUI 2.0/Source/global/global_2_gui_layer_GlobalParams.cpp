@@ -18,7 +18,6 @@ using ToggleType = GlobalParamToggleType;
 
 
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
-	unexposedParams{ unexposedParams },
 	button_Close{ unexposedParams },
 	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },
 	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams },

@@ -8,6 +8,8 @@ using namespace MophoConstants;
 
 
 
+class GlobalOptions;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class DisplayLabelForGlobalParameter :
@@ -16,7 +18,8 @@ class DisplayLabelForGlobalParameter :
 {
 	GlobalParamDisplayLabelType labelType;
 	Identifier paramID;
-	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	TooltipsOptions* tooltips;
 
 public:
 	DisplayLabelForGlobalParameter() = delete;

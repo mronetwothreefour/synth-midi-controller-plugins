@@ -10,7 +10,8 @@ using namespace MophoConstants;
 
 
 GUI_Layer_CommError_Base::GUI_Layer_CommError_Base(UnexposedParameters* unexposedParams) :
-	unexposedParams{ unexposedParams },
+	global{ unexposedParams->getGlobalOptions() },
+	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	button_Close{ unexposedParams },
 	button_RequestGlobalParamsDump{ "" }
 {
@@ -25,8 +26,7 @@ GUI_Layer_CommError_Base::GUI_Layer_CommError_Base(UnexposedParameters* unexpose
 }
 
 void GUI_Layer_CommError_Base::requestGlobalParamsDump() {
-	auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-	GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
+	GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMIDI);
 	callAfterDelay(300, [this] { checkHardwareSettings(); });
 }
 

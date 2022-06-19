@@ -8,6 +8,7 @@ using namespace MophoConstants;
 
 
 
+class TooltipsOptions;
 class UnexposedParameters;
 
 class ToggleForTooltipParameter :
@@ -15,7 +16,7 @@ class ToggleForTooltipParameter :
 	public ValueTree::Listener
 {
 	GlobalParamToggleType toggleType;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 
 public:
 	ToggleForTooltipParameter() = delete;

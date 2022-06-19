@@ -17,7 +17,6 @@ class GUI_Layer_GlobalParameters :
     public Component,
     private Timer
 {
-    UnexposedParameters* unexposedParams;
     ButtonForHidingLayer button_Close;
     KnobForGlobalParameter knob_GlobalTranspose;
     KnobForGlobalParameter knob_GlobalFineTune;

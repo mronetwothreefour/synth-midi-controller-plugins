@@ -6,6 +6,8 @@
 
 
 
+class GlobalOptions;
+class OutgoingMidiBuffers;
 class UnexposedParameters;
 
 class GUI_Layer_CommError_Base :
@@ -13,7 +15,8 @@ class GUI_Layer_CommError_Base :
 	private Timer
 {
 protected:
-	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	OutgoingMidiBuffers* outgoingMIDI;
 	ButtonForHidingLayer button_Close;
 	TextButton button_RequestGlobalParamsDump;
 

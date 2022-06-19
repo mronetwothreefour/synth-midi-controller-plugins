@@ -8,6 +8,8 @@ using namespace MophoConstants;
 
 
 
+class GlobalOptions;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class ComboBoxForGlobalParameter :
@@ -16,7 +18,8 @@ class ComboBoxForGlobalParameter :
 {
 	GlobalParamComboBoxType comboBoxType;
 	Identifier paramID;
-	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
+	TooltipsOptions* tooltips;
 
 public:
 	ComboBoxForGlobalParameter() = delete;
