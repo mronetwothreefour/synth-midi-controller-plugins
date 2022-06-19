@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../exposedParamControls/sliders/epc_0_slider_JuceSlidersWithMouseMods.h"
+#include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 
 

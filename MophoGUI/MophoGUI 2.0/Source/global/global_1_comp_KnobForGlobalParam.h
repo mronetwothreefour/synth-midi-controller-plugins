@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "../constants/constants_Enum.h"
-#include "../exposedParamControls/sliders/epc_0_slider_JuceSlidersWithMouseMods.h"
+#include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 using namespace MophoConstants;
 using KnobType = GlobalParamKnobType;

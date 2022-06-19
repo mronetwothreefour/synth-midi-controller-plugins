@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "epc_0_slider_JuceSlidersWithMouseMods.h"
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
+#include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 

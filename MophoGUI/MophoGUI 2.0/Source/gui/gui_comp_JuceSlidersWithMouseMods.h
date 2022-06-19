@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "../../unexposedParameters/up_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 

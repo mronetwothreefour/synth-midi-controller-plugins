@@ -1,4 +1,4 @@
-#include "epc_0_slider_JuceSlidersWithMouseMods.h"
+#include "gui_comp_JuceSlidersWithMouseMods.h"
 
 
 

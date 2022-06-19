@@ -520,9 +520,6 @@
     <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\comboBoxes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.cpp">
-      <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClCompile>
@@ -585,6 +582,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_2_gui_layer_GlobalParams.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -2913,9 +2913,6 @@
     <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\comboBoxes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.h">
-      <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.h">
       <Filter>MophoGUI 2\Source\exposedParamControls\sliders</Filter>
     </ClInclude>
@@ -2978,6 +2975,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_2_gui_layer_GlobalParams.h">
       <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
       <Filter>MophoGUI 2\Source\gui</Filter>

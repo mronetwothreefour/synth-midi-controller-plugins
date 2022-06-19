@@ -199,10 +199,6 @@
                 resource="0" file="Source/exposedParamControls/comboBoxes/epc_1_comp_ComboBoxAndAttachment.h"/>
         </GROUP>
         <GROUP id="{8849AA50-A33A-2263-A871-4B1804655E3A}" name="sliders">
-          <FILE id="pOcF8R" name="epc_0_slider_JuceSlidersWithMouseMods.cpp"
-                compile="1" resource="0" file="Source/exposedParamControls/sliders/epc_0_slider_JuceSlidersWithMouseMods.cpp"/>
-          <FILE id="HvX9Cw" name="epc_0_slider_JuceSlidersWithMouseMods.h" compile="0"
-                resource="0" file="Source/exposedParamControls/sliders/epc_0_slider_JuceSlidersWithMouseMods.h"/>
           <FILE id="ygKJmE" name="epc_1_comp_KnobAndAttachment.cpp" compile="1"
                 resource="0" file="Source/exposedParamControls/sliders/epc_1_comp_KnobAndAttachment.cpp"/>
           <FILE id="LcsbPn" name="epc_1_comp_KnobAndAttachment.h" compile="0"
@@ -294,6 +290,10 @@
               resource="0" file="Source/global/global_2_gui_layer_GlobalParams.h"/>
       </GROUP>
       <GROUP id="{97CC2F36-2C01-C698-2F80-A05335FBDB54}" name="gui">
+        <FILE id="YS0gOV" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
+        <FILE id="uUmDBK" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
         <FILE id="pszZAz" name="gui_comp_ButtonForHidingLayer.cpp" compile="1"
               resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.cpp"/>
         <FILE id="alSsCI" name="gui_comp_ButtonForHidingLayer.h" compile="0"

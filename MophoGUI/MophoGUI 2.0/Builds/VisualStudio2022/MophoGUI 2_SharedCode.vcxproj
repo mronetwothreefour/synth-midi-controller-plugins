@@ -145,7 +145,6 @@
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\buttons\epc_1_comp_ToggleButtonAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.cpp"/>
-    <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForOscShape.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
@@ -167,6 +166,7 @@
     <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.cpp"/>
     <ClCompile Include="..\..\Source\global\global_2_gui_layer_GlobalParams.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
@@ -2202,7 +2202,6 @@
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\buttons\epc_1_comp_ToggleButtonAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\comboBoxes\epc_1_comp_ComboBoxAndAttachment.h"/>
-    <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_0_slider_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForOscShape.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\sliders\epc_1_comp_KnobAndAttachment_ForSeqStep.h"/>
@@ -2224,6 +2223,7 @@
     <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.h"/>
     <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.h"/>
     <ClInclude Include="..\..\Source\global\global_2_gui_layer_GlobalParams.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
