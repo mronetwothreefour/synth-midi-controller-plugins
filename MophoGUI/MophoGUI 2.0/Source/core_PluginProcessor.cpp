@@ -19,7 +19,9 @@ PluginProcessor::PluginProcessor() :
     exposedParamChangesHandler{ new ExposedParamChangesHandler(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx(exposedParams.get(), unexposedParams.get()) },
-    bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() }
+    bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() },
+    undoManager{ unexposedParams->getUndoManager() },
+    voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 
@@ -123,11 +125,10 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
 void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
     auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
     if (exposedParamsStateXml != nullptr) {
-        auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        voiceTransmissionOptions->dontTransmitParamChanges();
+        voiceTransmit->dontTransmitParamChanges();
         auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
         exposedParams->replaceState(exposedParamsStateTree);
-        voiceTransmissionOptions->transmitParamChanges();
+        voiceTransmit->transmitParamChanges();
     }
     auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
     if (unexposedParamsStateXml != nullptr) {
@@ -138,7 +139,7 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
 
 PluginProcessor::~PluginProcessor() {
     pluginStateXml = nullptr;
-    unexposedParams->getUndoManager()->clearUndoHistory();
+    undoManager->clearUndoHistory();
     incomingMessageHandler_SysEx = nullptr;
     incomingMessageHandler_NRPN = nullptr;
     exposedParamChangesHandler = nullptr;

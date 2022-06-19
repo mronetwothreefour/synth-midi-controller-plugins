@@ -17,7 +17,6 @@ class KnobAndAttachment_ForOscShape :
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
 	RotarySliderWithMouseDownModForOscShape knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;

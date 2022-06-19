@@ -9,7 +9,7 @@
 class SliderWithMouseWheelMoveOverride : 
 	public Slider
 {
-	UnexposedParameters* unexposedParams;
+	UndoManager* undoManager;
 
 public:
 	bool isModifyingPitch;

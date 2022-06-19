@@ -15,7 +15,6 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
 	knob{ unexposedParams },
 	tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	charNum{ 0 }

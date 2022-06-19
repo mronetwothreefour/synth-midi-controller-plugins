@@ -18,7 +18,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     AudioProcessorEditor{ &processor },
     processor{ processor },
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams },
+    tooltips{ unexposedParams->getTooltipsOptions() },
     lookAndFeel{ new MophoLookAndFeel() },
     layerForEnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
     layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
@@ -31,7 +31,6 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
     addAndMakeVisible(layerForExposedParamControls.get());
     addAndMakeVisible(layerForButtons.get());
 
-    auto tooltips{ unexposedParams->getTooltipsOptions() };
     tooltips->addListener(this);
     addChildComponent(tooltipWindow.get());
     tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
@@ -56,13 +55,11 @@ void PluginEditor::resized() {
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
     if (property == ID::tooltips_DelayInMilliseconds) {
-        auto tooltips{ unexposedParams->getTooltipsOptions() };
         tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
     }
 }
 
 PluginEditor::~PluginEditor() {
-    auto tooltips{ unexposedParams->getTooltipsOptions() };
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
     layerForButtons = nullptr;

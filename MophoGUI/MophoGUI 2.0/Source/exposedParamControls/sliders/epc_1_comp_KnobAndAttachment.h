@@ -17,7 +17,6 @@ class KnobAndAttachment :
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;

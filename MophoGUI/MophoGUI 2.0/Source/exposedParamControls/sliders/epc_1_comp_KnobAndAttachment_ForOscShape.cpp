@@ -16,7 +16,6 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
-		unexposedParams{ unexposedParams },
 		knob{ unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 },

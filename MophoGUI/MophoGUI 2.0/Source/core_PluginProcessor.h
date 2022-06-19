@@ -35,6 +35,7 @@ class ExposedParamChangesHandler;
 class IncomingMessageHandler_NRPN;
 class IncomingMessageHandler_SysEx;
 class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 
 class PluginProcessor : 
@@ -47,6 +48,8 @@ class PluginProcessor :
     std::unique_ptr<IncomingMessageHandler_NRPN> incomingMessageHandler_NRPN;
     std::unique_ptr<IncomingMessageHandler_SysEx> incomingMessageHandler_SysEx;
     std::unique_ptr<XmlElement> pluginStateXml;
+    UndoManager* undoManager;
+    VoiceTransmissionOptions* voiceTransmit;
 
 public:
     PluginProcessor();

@@ -5,12 +5,12 @@
 SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
 	isModifyingPitch{ false },
 	isModifyingSeqStep{ false },
-	unexposedParams{ unexposedParams }
+	undoManager{ unexposedParams->getUndoManager() }
 {
 }
 
 void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
-	unexposedParams->getUndoManager()->beginNewTransaction();
+	undoManager->beginNewTransaction();
 	auto delta{ wheel.deltaY };
 	auto currentValue{ getValue() };
 	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
@@ -23,7 +23,7 @@ void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, c
 		}
 		setValue(currentValue + interval);
 	}
-	unexposedParams->getUndoManager()->beginNewTransaction();
+	undoManager->beginNewTransaction();
 }
 
 

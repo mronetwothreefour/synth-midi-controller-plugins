@@ -17,7 +17,6 @@ class KnobAndAttachment_ForSeqStep :
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
 	RotarySliderWithMouseDownModForSeqStep knob;
 	std::unique_ptr<SliderAttachment> knobAttachment;
 	Slider trackDestination;

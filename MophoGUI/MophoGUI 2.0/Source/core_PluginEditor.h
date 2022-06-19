@@ -8,6 +8,7 @@ class GUI_Layer_EnvelopePainters;
 class GUI_Layer_ExposedParamControls;
 class GUI_Layer_MainWindowButtons;
 class MophoLookAndFeel;
+class TooltipsOptions;
 class UnexposedParameters;
 
 class PluginEditor :
@@ -16,7 +17,7 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     AudioProcessorValueTreeState* exposedParams;
-    UnexposedParameters* unexposedParams;
+    TooltipsOptions* tooltips;
     std::unique_ptr<MophoLookAndFeel> lookAndFeel;
     std::unique_ptr<GUI_Layer_EnvelopePainters> layerForEnvelopePainters;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layerForExposedParamControls;

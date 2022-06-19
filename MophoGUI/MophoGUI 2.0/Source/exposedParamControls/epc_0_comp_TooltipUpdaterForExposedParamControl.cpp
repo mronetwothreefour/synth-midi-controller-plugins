@@ -13,7 +13,7 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     paramIndex{ paramIndex },
     clientControl{ paramControl },
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams }
+    tooltips{ unexposedParams->getTooltipsOptions() }
 {
     auto& info{ InfoForExposedParameters::get() };
     auto paramID{ info.IDfor(paramIndex) };
@@ -33,7 +33,6 @@ void TooltipUpdaterForExposedParamControl::setTooltip() {
 
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
     String tooltipText{ "" };
-    auto tooltips{ unexposedParams->getTooltipsOptions() };
     auto& info{ InfoForExposedParameters::get() };
     if (tooltips->shouldShowDescriptions())
         tooltipText += info.descriptionFor(paramIndex) + "\n";
@@ -61,8 +60,7 @@ void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /
 }
 
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
-    auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
-    tooltipsOptions->removeListener(this);
+    tooltips->removeListener(this);
 
     auto& info{ InfoForExposedParameters::get() };
     auto paramID{ info.IDfor(paramIndex) };

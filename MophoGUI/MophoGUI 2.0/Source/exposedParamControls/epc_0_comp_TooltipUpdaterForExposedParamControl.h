@@ -4,6 +4,7 @@
 
 
 
+class TooltipsOptions;
 class UnexposedParameters;
 
 class TooltipUpdaterForExposedParamControl : 
@@ -13,7 +14,7 @@ class TooltipUpdaterForExposedParamControl :
 	uint8 paramIndex;
 	SettableTooltipClient& clientControl;
 	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 
 public:
 	TooltipUpdaterForExposedParamControl() = delete;

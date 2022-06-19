@@ -20,8 +20,6 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(KnobType knobType, Track 
 
 	setRange(0.0, 100.0, 1.0);
 
-	auto editModeIsAllSteps{ randomization->editModeIsAllStepsForSeqTrack(track) };
-	auto selectedStep{ randomization->selectedStepForSeqTrack(track) };
 	switch (knobType)
 	{
 	case KnobType::rest:
@@ -46,7 +44,7 @@ void KnobForSeqTrackProbability::valueChanged()
 {
 }
 
-void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& tree, const Identifier& property)
+void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& /*property*/)
 {
 }
 

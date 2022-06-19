@@ -15,7 +15,6 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
     uint8 paramIndex, int trackNum, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
-		unexposedParams{ unexposedParams },
 		knob{ trackNum, unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
