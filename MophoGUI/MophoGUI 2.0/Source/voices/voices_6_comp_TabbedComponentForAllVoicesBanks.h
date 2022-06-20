@@ -12,7 +12,6 @@ class UnexposedParameters;
 class TabbedComponentForAllVoicesBanks :
     public TabbedComponent
 {
-    UnexposedParameters* unexposedParams;
     TabbedComponentForCustomVoicesBanks tabbedComponentForCustomVoicesBanks;
     TabbedComponentForFactoryVoicesBanks tabbedComponentForFactoryVoicesBanks;
     String voiceCopyBuffer;

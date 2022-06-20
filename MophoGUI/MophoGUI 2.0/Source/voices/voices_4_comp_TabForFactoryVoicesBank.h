@@ -9,6 +9,7 @@
 
 
 class UnexposedParameters;
+class VoicesBanks;
 
 class TabForFactoryVoicesBank :
     public Component,
@@ -16,7 +17,7 @@ class TabForFactoryVoicesBank :
 {
     VoicesBank bank;
     VoiceSlots voiceSlots;
-    UnexposedParameters* unexposedParams;
+    VoicesBanks* voicesBanks;
     ButtonForLoadingSelectedVoice button_LoadSelected;
     ButtonForPushingSelectedVoiceToHardware button_PushSelected;
     ButtonForExportingSelectedVoiceToFile button_ExportSelected;

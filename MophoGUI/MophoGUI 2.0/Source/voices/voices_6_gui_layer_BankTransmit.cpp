@@ -18,6 +18,7 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
+	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	progressMessage{ "" },
 	transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() },
 	voiceCounter{ VCS::numberOfSlotsInVoicesBank },
@@ -113,12 +114,11 @@ void GUI_Layer_BankTransmit::timerCallback() {
 }
 
 void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
-	auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 	if (transmitType == BankTransmitType::pull)
-		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingBuffers);
+		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingMIDI);
 	else {
 		auto voiceDataMessageVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, voiceSlot, unexposedParams) };
-		outgoingBuffers->addDataMessage(voiceDataMessageVector);
+		outgoingMIDI->addDataMessage(voiceDataMessageVector);
 	}
 }
 

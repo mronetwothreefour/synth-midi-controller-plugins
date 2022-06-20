@@ -17,6 +17,7 @@
 GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	voicesBanksTabs{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
+	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	button_Close{ unexposedParams }
 {
 	voicesBanksTabs.addListenerToButtonsInAllTabs(this);
@@ -57,23 +58,21 @@ void GUI_Layer_VoicesBanks::paint(Graphics& g) {
 void GUI_Layer_VoicesBanks::editorShown(Label* label, TextEditor& editor) {
 	if (label == &label_txTimeEditor) {
 		editor.setInputRestrictions(4, "0123456789");
-		auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
 		editor.setFont(GUI::fontFor_Labels);
-		editor.setText((String)voiceTransmissionOptions->voiceTransmitTime());
+		editor.setText((String)voiceTransmit->voiceTransmitTime());
 		editor.selectAll();
 	}
 }
 
 void GUI_Layer_VoicesBanks::labelTextChanged(Label* label) {
 	if (label == &label_txTimeEditor) {
-		auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
 		if (label->getText().isNotEmpty())
 		{
 			auto newValue{ label->getText().getIntValue() };
 			if (newValue > 49 && newValue < 5001)
-				voiceTransmissionOptions->setVoiceTransmitTime(newValue);
+				voiceTransmit->setVoiceTransmitTime(newValue);
 		}
-		label->setText((String)voiceTransmissionOptions->voiceTransmitTime() + " ms", dontSendNotification);
+		label->setText((String)voiceTransmit->voiceTransmitTime() + " ms", dontSendNotification);
 	}
 }
 

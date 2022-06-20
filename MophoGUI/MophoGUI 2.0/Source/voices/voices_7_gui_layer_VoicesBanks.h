@@ -14,6 +14,7 @@ class GUI_Layer_Export_VoicesBank;
 class GUI_Layer_Import_Voice;
 class GUI_Layer_Import_VoicesBank;
 class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 class GUI_Layer_VoicesBanks :
     public Component,
@@ -22,6 +23,7 @@ class GUI_Layer_VoicesBanks :
 {
     TabbedComponentForAllVoicesBanks voicesBanksTabs;
     UnexposedParameters* unexposedParams;
+    VoiceTransmissionOptions* voiceTransmit;
     ButtonForHidingLayer button_Close;
     std::unique_ptr<GUI_Layer_Export_Voice> exportVoiceLayer;
     std::unique_ptr<GUI_Layer_Import_Voice> importVoiceLayer;

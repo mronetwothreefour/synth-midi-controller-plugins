@@ -10,6 +10,7 @@ using namespace MophoConstants;
 
 
 
+class OutgoingMidiBuffers;
 class UnexposedParameters;
 
 class GUI_Layer_BankTransmit :
@@ -20,6 +21,7 @@ class GUI_Layer_BankTransmit :
 	String bankName;
 	BankTransmitType transmitType;
 	UnexposedParameters* unexposedParams;
+	OutgoingMidiBuffers* outgoingMIDI;
 	String progressMessage;
 	int transmitTime;
 	uint8 voiceCounter;

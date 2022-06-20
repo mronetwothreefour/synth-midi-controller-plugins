@@ -8,7 +8,10 @@
 
 
 
+class OutgoingMidiBuffers;
 class UnexposedParameters;
+class VoicesBanks;
+class VoiceTransmissionOptions;
 
 class VoiceSlots :
     public Component,
@@ -19,6 +22,9 @@ class VoiceSlots :
     const VoicesBank bank;
     AudioProcessorValueTreeState* exposedParams;
     UnexposedParameters* unexposedParams;
+    OutgoingMidiBuffers* outgoingMIDI;
+    VoicesBanks* voicesBanks;
+    VoiceTransmissionOptions* voiceTransmit;
     const int voiceSlotRadioButtton_w{ 125 };
     const int voiceSlotRadioButtton_h{ 19 };
     const int voiceSlotRadioButtons_HorizGap{ 7 };

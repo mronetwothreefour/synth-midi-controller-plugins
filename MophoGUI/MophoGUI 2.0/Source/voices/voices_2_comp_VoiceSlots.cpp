@@ -15,12 +15,13 @@ VoiceSlots::VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedPar
 	bank{ bank },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
+	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
+	voicesBanks{ unexposedParams->getVoicesBanks() },
+	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
-	auto voicesBanks{ unexposedParams->getVoicesBanks() };
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3) {
+	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
 		voicesBanks->addListenerToNameStringsForCustomBank(this, bank);
-	}
 
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipsOptions->shouldShowDescriptions() };
@@ -46,7 +47,6 @@ VoiceSlots::VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedPar
 void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
 	auto slotString{ String(slot + 1) };
 	slotString = slotString.paddedLeft('0', 3);
-	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
 	MessageManagerLock mmlock;
 	voiceSlotButtons[slot].setName(slotString + " " + voiceName);
@@ -65,7 +65,6 @@ void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
-		auto voicesBanks{ unexposedParams->getVoicesBanks() };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);
 		repaint();
@@ -74,22 +73,19 @@ void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 
 void VoiceSlots::loadVoiceFromSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto voicesBanks{ unexposedParams->getVoicesBanks() };
 		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
 		RawDataTools::applyRawDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { 
-			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams->getOutgoingMidiBuffers()); 
+			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingMIDI); 
 		});
 	}
 }
 
 void VoiceSlots::pullSelectedVoiceFromHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-		auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-		auto transmitTime{ voiceTransmissionOptions->voiceTransmitTime() };
-		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingBuffers);
+		auto transmitTime{ voiceTransmit->voiceTransmitTime() };
+		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingMIDI);
 		callAfterDelay(transmitTime, [this] { setTextForVoiceSlotToggleButton(selectedSlot); });
 		callAfterDelay(transmitTime + 20, [this] { voiceSlotButtons[selectedSlot].repaint(); });
 	}
@@ -98,8 +94,7 @@ void VoiceSlots::pullSelectedVoiceFromHardware() {
 void VoiceSlots::pushSelectedVoiceToHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 		auto dumpDataVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, selectedSlot, unexposedParams) };
-		auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-		outgoingBuffers->addDataMessage(dumpDataVector);
+		outgoingMIDI->addDataMessage(dumpDataVector);
 	}
 }
 
@@ -113,8 +108,6 @@ void VoiceSlots::timerCallback() {
 }
 
 VoiceSlots::~VoiceSlots() {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3) {
-		auto voicesBanks{ unexposedParams->getVoicesBanks() };
+	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
 		voicesBanks->removeListenerFromNameStringsForCustomBank(this, bank);
-	}
 }

@@ -14,7 +14,6 @@ class TabbedComponentForCustomVoicesBanks :
     TabForCustomVoicesBank bank_1;
     TabForCustomVoicesBank bank_2;
     TabForCustomVoicesBank bank_3;
-    UnexposedParameters* unexposedParams;
 
 public:
     TabbedComponentForCustomVoicesBanks() = delete;

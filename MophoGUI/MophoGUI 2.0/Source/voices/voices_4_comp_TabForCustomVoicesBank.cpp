@@ -12,7 +12,7 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 	VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
 	voiceSlots{ bank, exposedParams, unexposedParams },
-	unexposedParams{ unexposedParams },
+	voicesBanks{ unexposedParams->getVoicesBanks() },
 	voiceCopyBuffer{ voiceCopyBuffer },
 	button_LoadSelected{ &voiceSlots, unexposedParams },
 	button_SaveIntoSelected{ &voiceSlots, unexposedParams },
@@ -90,7 +90,6 @@ void TabForCustomVoicesBank::getCommandInfo(CommandID commandID, ApplicationComm
 }
 
 bool TabForCustomVoicesBank::perform(const InvocationInfo& info) {
-	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	auto selectedSlot{ voiceSlots.selectedSlot };
 	switch (info.commandID)
 	{
