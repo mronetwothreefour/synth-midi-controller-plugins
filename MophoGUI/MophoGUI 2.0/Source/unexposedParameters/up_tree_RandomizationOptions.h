@@ -82,11 +82,8 @@ public:
 	ValueTree getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex);
 
 
-	const bool editModeIsAllStepsForSeqTrack(Track track);
-	const bool editModeIsSelectedStepForSeqTrack(Track track);
-	void setEditModeIsAllStepsForSeqTrack(bool shouldBeAllSteps, Track track);
-	Step selectedStepForSeqTrack(Track track);
-	void setSelectedStepForSeqTrack(Step step, Track track);
+	Step targetStepForSeqTrack(Track track);
+	void setTargetStepForSeqTrack(Step step, Track track);
 	const float probabilityOfRestForSeqTrack_1_Step(Step step);
 	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
 	const float probabilityOfDuplicateForSeqTrackStep(Track track, Step step);

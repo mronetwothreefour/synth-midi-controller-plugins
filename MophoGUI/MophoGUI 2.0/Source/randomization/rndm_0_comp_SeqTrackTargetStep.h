@@ -12,27 +12,24 @@ using Track = SeqTrackNum;
 class RandomizationOptions;
 class UnexposedParameters;
 
-class SeqTrackEditMode :
+class SeqTrackTargetStep :
 	public Component,
 	public Button::Listener,
 	public ComboBox::Listener
 {
 	Track track;
 	RandomizationOptions* randomizationOptions;
-	ToggleButton toggle_AllStepsMode;
-	ToggleButton toggle_SelectedStepMode;
 	ComboBox stepSelector;
 
 public:
-	SeqTrackEditMode() = delete;
+	SeqTrackTargetStep() = delete;
 
-	SeqTrackEditMode(Track track, UnexposedParameters* unexposedParams);
+	SeqTrackTargetStep(Track track, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void buttonClicked(Button* button) override;
 	void comboBoxChanged(ComboBox* comboBox) override;
-	~SeqTrackEditMode();
+	~SeqTrackTargetStep();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SeqTrackEditMode)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SeqTrackTargetStep)
 };

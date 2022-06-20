@@ -33,10 +33,10 @@
             resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
       <FILE id="QnT8AO" name="bkgrnd_SeqTrack_1_Probabilities.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_SeqTrack_1_Probabilities.png"/>
-      <FILE id="LMenxw" name="bkgrnd_SeqTrackEditMode.png" compile="0" resource="1"
-            file="BinaryResources/bkgrnd_SeqTrackEditMode.png"/>
       <FILE id="uuXnyt" name="bkgrnd_SeqTracks_2_3_4_Probabilities.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
+      <FILE id="DNZnZ9" name="bkgrnd_SeqTrackTargetStep.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_SeqTrackTargetStep.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
@@ -372,10 +372,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
         <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
-        <FILE id="mxWWV7" name="rndm_0_comp_SeqTrackEditMode.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackEditMode.cpp"/>
-        <FILE id="O3DCLM" name="rndm_0_comp_SeqTrackEditMode.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackEditMode.h"/>
+        <FILE id="sA2mOU" name="rndm_0_comp_SeqTrackTargetStep.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
+        <FILE id="dT0kC8" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
         <FILE id="VU3Sq3" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
         <FILE id="CWVTZ2" name="rndm_0_ParamRandomizationMethods.h" compile="0"

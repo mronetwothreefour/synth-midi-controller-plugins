@@ -67,8 +67,6 @@ namespace MophoConstants
 		const Identifier component_RedToggle_AllowOscShape_SawTri{ "component_RedToggle_AllowOscShape_SawTri" };
 		const Identifier component_RedToggle_AllowOscShape_Tri{ "component_RedToggle_AllowOscShape_Tri" };
 		const Identifier component_RedToggle_AllowRepeatChoices{ "component_RedToggle_AllowRepeatChoices" };
-		const Identifier component_RedToggle_AllStepsMode{ "component_RedToggle_AllStepsMode" };
-		const Identifier component_RedToggle_SelectedStepMode{ "component_RedToggle_SelectedStepMode" };
 		const Identifier component_SeqTrackStepSelector{ "component_SeqTrackStepSelector" };
 		const Identifier component_TabbedComponentForAllBanks{ "component_TabbedComponentForAllBanks" };
 		const Identifier component_TabbedComponentForCustomBanks{ "component_TabbedComponentForCustomBanks" };
@@ -227,9 +225,8 @@ namespace MophoConstants
 		const Identifier rndm_ResetProbForStep_{ "rndm_ResetProbForStep_" };
 		const Identifier rndm_RestProbForAllSteps{ "rndm_RestProbForAllSteps" };
 		const Identifier rndm_RestProbForStep_{ "rndm_RestProbForStep_" };
-		const Identifier rndm_SelectedStep{ "rndm_SelectedStep" };
 		const Identifier rndm_SeqTrack_{ "rndm_SeqTrack_" };
-		const Identifier rndm_SeqTrackEditModeIsAllSteps{ "rndm_SeqTrackEditModeIsAllSteps" };
+		const Identifier rndm_SeqTrackTargetStep{ "rndm_SeqTrackTargetStep" };
 		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
 		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };

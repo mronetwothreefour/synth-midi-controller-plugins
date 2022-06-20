@@ -634,7 +634,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp">
@@ -3042,7 +3042,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackEditMode.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h">
@@ -5624,10 +5624,10 @@
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrack_1_Probabilities.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_SeqTrackEditMode.png">
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png">
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTrackTargetStep.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png">
