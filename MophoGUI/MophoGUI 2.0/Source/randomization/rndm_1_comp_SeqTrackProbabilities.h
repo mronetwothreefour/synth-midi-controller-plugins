@@ -2,34 +2,31 @@
 
 #include <JuceHeader.h>
 
+#include "rndm_0_comp_KnobForSeqTrackProbability.h"
+#include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
+using namespace MophoConstants;
+using KnobType = SeqTrackProbabilityKnobType;
+using Track = SeqTrackNum;
 
 
-class RandomizationOptions;
-class TooltipsOptions;
+
 class UnexposedParameters;
 
 class SeqTrackProbabilities :
-	public Component,
-	public Slider::Listener,
-	public ValueTree::Listener
+	public Component
 {
-	int trackNum;
-	RandomizationOptions* randomizationOptions;
-	TooltipsOptions* tooltips;
-	RotarySliderWithMouseWheelMoveOverride knob_RestProbability;
-	RotarySliderWithMouseWheelMoveOverride knob_DuplicateProbability;
-	RotarySliderWithMouseWheelMoveOverride knob_ResetProbability;
+	Track track;
+	std::unique_ptr<KnobForSeqTrackProbability> knob_RestProbability;
+	KnobForSeqTrackProbability knob_DuplicateProbability;
+	KnobForSeqTrackProbability knob_ResetProbability;
 
 public:
 	SeqTrackProbabilities() = delete;
 
-	SeqTrackProbabilities(int trackNum, UnexposedParameters* unexposedParams);
-	void generateTooltips();
+	SeqTrackProbabilities(Track track, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void sliderValueChanged(Slider* slider) override;
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~SeqTrackProbabilities();
 
 private:
