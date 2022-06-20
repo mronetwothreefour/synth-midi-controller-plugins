@@ -91,45 +91,45 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
 	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentValue() };
 	auto verbose{ (bool)true };
-	String tipString{ "" };
+	String tip{ "" };
 	switch (comboBoxType)
 	{
 	case GlobalParamComboBoxType::midiClockSource:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_MIDI_ClockSource();
+			tip += Description::buildFor_MIDI_ClockSource();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ global->midiClockSource() };
-			tipString += "Current setting: " + ChoiceName::buildFor_MIDI_ClockSource(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildFor_MIDI_ClockSource(currentChoice, verbose);
 		}
 		break;
 	case GlobalParamComboBoxType::pedalMode:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_PedalMode();
+			tip += Description::buildFor_PedalMode();
 		if (shouldShowCurrentChoice) {
 			auto isArpLatch{ global->pedalModeIsArpLatch() };
-			tipString += "Current setting: " + ChoiceName::buildFor_PedalMode(isArpLatch);
+			tip += "Current setting: " + ChoiceName::buildFor_PedalMode(isArpLatch);
 		}
 		break;
 	case GlobalParamComboBoxType::voiceChanges:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_VoiceChanges();
+			tip += Description::buildFor_VoiceChanges();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ getSelectedItemIndex() };
-			tipString += "Current setting: " + ChoiceName::buildFor_VoiceChanges(currentChoice);
+			tip += "Current setting: " + ChoiceName::buildFor_VoiceChanges(currentChoice);
 		}
 		break;
 	case GlobalParamComboBoxType::paramChangeSendType:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_ParamChangeSendType();
+			tip += Description::buildFor_ParamChangeSendType();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ global->paramChangeSendType() };
-			tipString += "Current setting: " + ChoiceName::buildFor_ParamChangeSendType(currentChoice);
+			tip += "Current setting: " + ChoiceName::buildFor_ParamChangeSendType(currentChoice);
 		}
 		break;
 	default:
 		break;
 	}
-	setTooltip(tipString);
+	setTooltip(tip);
 }
 
 void ComboBoxForGlobalParameter::valueTreePropertyChanged(ValueTree& tree, const Identifier& property) {

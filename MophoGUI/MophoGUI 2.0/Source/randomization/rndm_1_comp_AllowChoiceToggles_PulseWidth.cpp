@@ -24,19 +24,19 @@ String AllowChoiceToggles_PulseWidth::buildChoiceName(uint8 pulseWidth) {
 
 String AllowChoiceToggles_PulseWidth::buildTooltip() {
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	String toggleTooltip{ "" };
+	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };
 		auto oscNumString{ paramID.fromFirstOccurrenceOf("Osc_", false, false).upToFirstOccurrenceOf("_Shape", false, false) };
-		toggleTooltip += "Click a pulse width to toggle whether or\n";
-		toggleTooltip += "not it is allowed when generating a random\n";
-		toggleTooltip += "shape for oscillator " + oscNumString + ".\n";
-		toggleTooltip += "CTRL-click a pulse width to make it the only\n";
-		toggleTooltip += "one allowed. SHIFT-click to allow a range of\n";
-		toggleTooltip += "pulse widths. ALT-click to allow a range of\n";
-		toggleTooltip += "pulse widths that are all in the same row.";
+		tip += "Click a pulse width to toggle whether or\n";
+		tip += "not it is allowed when generating a random\n";
+		tip += "shape for oscillator " + oscNumString + ".\n";
+		tip += "CTRL-click a pulse width to make it the only\n";
+		tip += "one allowed. SHIFT-click to allow a range of\n";
+		tip += "pulse widths. ALT-click to allow a range of\n";
+		tip += "pulse widths that are all in the same row.";
 	}
-	return toggleTooltip;
+	return tip;
 }
 
 const bool AllowChoiceToggles_PulseWidth::choiceIsAllowed(uint8 pulseWidth) {

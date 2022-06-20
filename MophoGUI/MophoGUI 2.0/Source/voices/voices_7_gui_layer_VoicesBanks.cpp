@@ -33,14 +33,14 @@ GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(AudioProcessorValueTreeState* expos
 	label_txTimeEditor.setComponentID(ID::label_EditLabel.toString());
 	label_txTimeEditor.setEditable(true);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	String txTimeTooltip{ "" };
+	String tip{ "" };
 	if (tooltips->shouldShowDescriptions()) {
-		txTimeTooltip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
-		txTimeTooltip += "of a single program between the plugin and the Mopho hardware. Increase\n";
-		txTimeTooltip += "this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
-		txTimeTooltip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
+		tip += "The amount of time, in milliseconds, to allow for the complete transmission\n";
+		tip += "of a single program between the plugin and the Mopho hardware. Increase\n";
+		tip += "this value if programs are getting " + GUI::openQuote + "lost" + GUI::closeQuote + " during pushes or pulls.\n";
+		tip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
-	label_txTimeEditor.setTooltip(txTimeTooltip);
+	label_txTimeEditor.setTooltip(tip);
 	addAndMakeVisible(label_txTimeEditor);
 	label_txTimeEditor.setBounds(1119, 477, 50, GUI::redButton_h);
 	labelTextChanged(&label_txTimeEditor);

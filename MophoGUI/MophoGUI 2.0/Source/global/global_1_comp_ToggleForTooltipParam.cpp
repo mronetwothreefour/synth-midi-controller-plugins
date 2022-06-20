@@ -38,19 +38,19 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 
 void ToggleForTooltipParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
-	String tipString{ "" };
+	String tip{ "" };
 	switch (toggleType)
 	{
 	case GlobalParamToggleType::currentValueTooltip:
-		tipString += (shouldShowDescription ? Description::buildFor_CurrentValueTooltip() : "");
+		tip += (shouldShowDescription ? Description::buildFor_CurrentValueTooltip() : "");
 		break;
 	case GlobalParamToggleType::descriptionTooltip:
-		tipString += (shouldShowDescription ? Description::buildFor_DescriptionTooltip() : "");
+		tip += (shouldShowDescription ? Description::buildFor_DescriptionTooltip() : "");
 		break;
 	default:
 		break;
 	}
-	setTooltip(tipString);
+	setTooltip(tip);
 }
 
 void ToggleForTooltipParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

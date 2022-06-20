@@ -25,18 +25,18 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildChoiceName(uint8 pitchedFreq) {
 
 String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	String toggleTooltip{ "" };
+	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };
 		auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
-		toggleTooltip += "Click a pitched frequency to toggle whether or not it\n";
-		toggleTooltip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
-		toggleTooltip += "CTRL-click a pitched frequency to make it the only one\n";
-		toggleTooltip += "allowed. SHIFT-click to allow a range of pitched frequencies.\n";
-		toggleTooltip += "ALT-click to allow a range of pitched frequencies that are";
-		toggleTooltip += "all in the same note row.";
+		tip += "Click a pitched frequency to toggle whether or not it\n";
+		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
+		tip += "CTRL-click a pitched frequency to make it the only one\n";
+		tip += "allowed. SHIFT-click to allow a range of pitched frequencies.\n";
+		tip += "ALT-click to allow a range of pitched frequencies that are";
+		tip += "all in the same note row.";
 	}
-	return toggleTooltip;
+	return tip;
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Pitched::choiceIsAllowed(uint8 pitchedFreq) {

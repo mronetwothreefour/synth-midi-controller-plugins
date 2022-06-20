@@ -27,22 +27,22 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	if (tooltipOptions->shouldShowDescriptions()) {
 		auto numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) };
-		String toggleTooltip{ "" };
-		toggleTooltip += "Toggles whether the current setting is allowed\n";
-		toggleTooltip += "when a new setting is randomly generated. If it\n";
-		toggleTooltip += "is not, consecutive randomization operations\n";
-		toggleTooltip += "can never produce the same setting. ";
+		String tip{ "" };
+		tip += "Toggles whether the current setting is allowed\n";
+		tip += "when a new setting is randomly generated. If it\n";
+		tip += "is not, consecutive randomization operations\n";
+		tip += "can never produce the same setting. ";
 		if (numberOfChoices > 2) {
-			toggleTooltip += "Obviously, if\n";
-			toggleTooltip += "there is only one allowed setting then the\n";
-			toggleTooltip += "same setting is always going to be produced.";
+			tip += "Obviously, if\n";
+			tip += "there is only one allowed setting then the\n";
+			tip += "same setting is always going to be produced.";
 		}
 		else {
-			toggleTooltip += "This means that\n";
-			toggleTooltip += "the toggle will simply alternate between\n";
-			toggleTooltip += "states with every randomization.";
+			tip += "This means that\n";
+			tip += "the toggle will simply alternate between\n";
+			tip += "states with every randomization.";
 		}
-		toggle_AllowRepeatChoices.setTooltip(toggleTooltip);
+		toggle_AllowRepeatChoices.setTooltip(tip);
 	}
 	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_AllowRepeatChoices);

@@ -35,11 +35,11 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this] { allowAllChoices(); };
 	if (shouldShowDescriptions) {
-		String buttonTooltip{ "" };
-		buttonTooltip += "Click to allow all the frequencies\n";
-		buttonTooltip += "when generating a random setting for\n";
-		buttonTooltip += paramName + ".";
-		button_AllowAll.setTooltip(buttonTooltip);
+		String tip{ "" };
+		tip += "Click to allow all the frequencies\n";
+		tip += "when generating a random setting for\n";
+		tip += paramName + ".";
+		button_AllowAll.setTooltip(tip);
 	}
 	button_AllowAll.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);
@@ -54,11 +54,11 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	toggle_Unsynced.setToggleState(unsyncedFreqAreAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_Unsynced);
 	if (shouldShowDescriptions) {
-		String toggleTooltip{ "" };
-		toggleTooltip += "Toggles whether or not un-synced frequencies are allowed\n";
-		toggleTooltip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
-		toggleTooltip += "at least one frequency category must always be allowed.\n";
-		toggle_Unsynced.setTooltip(toggleTooltip);
+		String tip{ "" };
+		tip += "Toggles whether or not un-synced frequencies are allowed\n";
+		tip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
+		tip += "at least one frequency category must always be allowed.\n";
+		toggle_Unsynced.setTooltip(tip);
 	}
 
 	toggle_Pitched.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Pitched.toString());
@@ -67,11 +67,11 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	toggle_Pitched.setToggleState(pitchedFreqAreAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_Pitched);
 	if (shouldShowDescriptions) {
-		String toggleTooltip{ "" };
-		toggleTooltip += "Toggles whether or not pitched frequencies are allowed\n";
-		toggleTooltip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
-		toggleTooltip += "at least one frequency category must always be allowed.\n";
-		toggle_Pitched.setTooltip(toggleTooltip);
+		String tip{ "" };
+		tip += "Toggles whether or not pitched frequencies are allowed\n";
+		tip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
+		tip += "at least one frequency category must always be allowed.\n";
+		toggle_Pitched.setTooltip(tip);
 	}
 
 	toggle_Synced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Synced.toString());
@@ -80,11 +80,11 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	toggle_Synced.setToggleState(syncedFreqAreAllowed ? true : false, dontSendNotification);
 	addAndMakeVisible(toggle_Synced);
 	if (shouldShowDescriptions) {
-		String toggleTooltip{ "" };
-		toggleTooltip += "Toggles whether or not synced frequencies are allowed\n";
-		toggleTooltip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
-		toggleTooltip += "at least one frequency category must always be allowed.\n";
-		toggle_Synced.setTooltip(toggleTooltip);
+		String tip{ "" };
+		tip += "Toggles whether or not synced frequencies are allowed\n";
+		tip += "when a random frequency is generated for LFO " + lfoNumString + ".\n";
+		tip += "at least one frequency category must always be allowed.\n";
+		toggle_Synced.setTooltip(tip);
 	}
 
 	if (unsyncedFreqAreAllowed)

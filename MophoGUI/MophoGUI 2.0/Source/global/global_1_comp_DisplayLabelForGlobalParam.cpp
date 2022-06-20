@@ -94,33 +94,33 @@ void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
 
 void DisplayLabelForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
-	String tipString{ "" };
+	String tip{ "" };
 	switch (labelType)
 	{
 	case GlobalParamDisplayLabelType::paramChangeReceiveType:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_ParamChangeReceiveType();
+			tip += Description::buildFor_ParamChangeReceiveType();
 		break;
 	case GlobalParamDisplayLabelType::midiControllersStatus:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_MIDI_ControllersStatus();
+			tip += Description::buildFor_MIDI_ControllersStatus();
 		break;
 	case GlobalParamDisplayLabelType::sysExStatus:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_SysExStatus();
+			tip += Description::buildFor_SysExStatus();
 		break;
 	case GlobalParamDisplayLabelType::audioOutput:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_AudioOutput();
+			tip += Description::buildFor_AudioOutput();
 		break;
 	case GlobalParamDisplayLabelType::hardwareOutputBalance:
 		if (shouldShowDescription)
-			tipString += Description::buildFor_HardwareOutputBalance();
+			tip += Description::buildFor_HardwareOutputBalance();
 		break;
 	default:
 		break;
 	}
-	setTooltip(tipString);
+	setTooltip(tip);
 }
 
 void DisplayLabelForGlobalParameter::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

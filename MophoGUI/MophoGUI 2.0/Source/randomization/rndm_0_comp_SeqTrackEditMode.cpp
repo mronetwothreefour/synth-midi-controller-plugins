@@ -18,10 +18,10 @@ SeqTrackEditMode::SeqTrackEditMode(Track track, UnexposedParameters* unexposedPa
 	toggle_AllStepsMode.setToggleState(randomizationOptions->editModeIsAllStepsForSeqTrack(track), dontSendNotification);
 	toggle_AllStepsMode.setRadioGroupId(1, dontSendNotification);
 	if (shouldShowDescriptions) {
-		String tooltip{ "" };
-		tooltip += "In this mode, changes to the allowed value settings\n";
-		tooltip += "are applied to all steps in sequencer track " + String((int)track) + ".";
-		toggle_AllStepsMode.setTooltip(tooltip);
+		String tip{ "" };
+		tip += "In this mode, changes to the allowed value settings\n";
+		tip += "are applied to all steps in sequencer track " + String((int)track) + ".";
+		toggle_AllStepsMode.setTooltip(tip);
 	}
 	toggle_AllStepsMode.setBounds(0, 23, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_AllStepsMode);
@@ -31,10 +31,10 @@ SeqTrackEditMode::SeqTrackEditMode(Track track, UnexposedParameters* unexposedPa
 	toggle_SelectedStepMode.setToggleState(randomizationOptions->editModeIsSelectedStepForSeqTrack(track), dontSendNotification);
 	toggle_SelectedStepMode.setRadioGroupId(1, dontSendNotification);
 	if (shouldShowDescriptions) {
-		String tooltip{ "" };
-		tooltip += "In this mode, changes to the allowed value settings are\n";
-		tooltip += "applied only to the selected step in sequencer track " + String((int)track) + ".";
-		toggle_SelectedStepMode.setTooltip(tooltip);
+		String tip{ "" };
+		tip += "In this mode, changes to the allowed value settings are\n";
+		tip += "applied only to the selected step in sequencer track " + String((int)track) + ".";
+		toggle_SelectedStepMode.setTooltip(tip);
 	}
 	toggle_SelectedStepMode.setBounds(0, 48, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_SelectedStepMode);
@@ -47,10 +47,10 @@ SeqTrackEditMode::SeqTrackEditMode(Track track, UnexposedParameters* unexposedPa
 	stepSelector.addItemList(stepList, 1);
 	stepSelector.setSelectedId((int)randomizationOptions->selectedStepForSeqTrack(track), dontSendNotification);
 	if (shouldShowDescriptions) {
-		String tooltip{ "" };
-		tooltip += "Selects which step in sequencer\n";
-		tooltip += "track " + String((int)track) + " is targeted for editing.";
-		stepSelector.setTooltip(tooltip);
+		String tip{ "" };
+		tip += "Selects which step in sequencer\n";
+		tip += "track " + String((int)track) + " is targeted for editing.";
+		stepSelector.setTooltip(tip);
 	}
 	stepSelector.setBounds(52, 47, 38, GUI::comboBox_h);
 	addAndMakeVisible(stepSelector);

@@ -30,14 +30,14 @@ VoiceSlots::VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedPar
 		voiceSlotButtons[slot].setRadioGroupId(1);
 		voiceSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
 		setTextForVoiceSlotToggleButton(slot);
-		String slotTooltip{ "" };
+		String tip{ "" };
 		if (shouldShowDescriptions) {
-			slotTooltip += "Click a program" + GUI::apostrophe + "s name to select it before using the buttons below.\n";
-			slotTooltip += "CTRL+C copies the selected program" + GUI::apostrophe + "s settings into the clipboard.\n";
-			slotTooltip += "CTRL+V overwrites the selected program with the settings in the\n";
-			slotTooltip += "clipboard (only slots in the Custom banks can be overwritten).";
+			tip += "Click a program" + GUI::apostrophe + "s name to select it before using the buttons below.\n";
+			tip += "CTRL+C copies the selected program" + GUI::apostrophe + "s settings into the clipboard.\n";
+			tip += "CTRL+V overwrites the selected program with the settings in the\n";
+			tip += "clipboard (only slots in the Custom banks can be overwritten).";
 		}
-		voiceSlotButtons[slot].setTooltip(slotTooltip);
+		voiceSlotButtons[slot].setTooltip(tip);
 		addAndMakeVisible(voiceSlotButtons[slot]);
 	}
 

@@ -21,12 +21,12 @@ public:
 	{
 		setComponentID(ID::button_Export_VoicesBank_.toString() + String((int)bank));
 		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltipOptions->shouldShowDescriptions()) {
-			tipString += "Exports the data for all the programs in the storage bank to a\n";
-			tipString += "file which can be read by other instances of the MophoGUI plugin.";
+			tip += "Exports the data for all the programs in the storage bank to a\n";
+			tip += "file which can be read by other instances of the MophoGUI plugin.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 

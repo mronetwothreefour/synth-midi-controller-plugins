@@ -39,19 +39,19 @@ String AllowChoiceToggles_SeqTrackStep::buildTooltip() {
 		trackAndStepString = "all steps in sequencer track " + String((int)track);
 	else
 		trackAndStepString = "step " + String((int)step) + " in sequencer track " + String((int)track);
-	String toggleTooltip{ "" };
+	String tip{ "" };
 	if (shouldShowDescriptions) {
-		toggleTooltip += "Click a choice to toggle whether or not it\n";
-		toggleTooltip += "is allowed when generating a random setting\n";
-		toggleTooltip += "for " + trackAndStepString + ".\n";
-		toggleTooltip += "CTRL-click a choice to make it the only one\n";
-		toggleTooltip += "ALT-click to allow a range of choices that\n";
+		tip += "Click a choice to toggle whether or not it\n";
+		tip += "is allowed when generating a random setting\n";
+		tip += "for " + trackAndStepString + ".\n";
+		tip += "CTRL-click a choice to make it the only one\n";
+		tip += "ALT-click to allow a range of choices that\n";
 		if (destIsPitched)
-			toggleTooltip += "are all in the same note row.";
+			tip += "are all in the same note row.";
 		else
-			toggleTooltip += "are all in the same row.";
+			tip += "are all in the same row.";
 	}
-	return toggleTooltip;
+	return tip;
 }
 
 const bool AllowChoiceToggles_SeqTrackStep::choiceIsAllowed(uint8 choiceNum) {

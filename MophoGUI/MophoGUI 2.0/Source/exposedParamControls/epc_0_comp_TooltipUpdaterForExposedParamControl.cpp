@@ -32,18 +32,18 @@ void TooltipUpdaterForExposedParamControl::setTooltip() {
 }
 
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
-    String tooltipText{ "" };
+    String tip{ "" };
     auto& info{ InfoForExposedParameters::get() };
     if (tooltips->shouldShowDescriptions())
-        tooltipText += info.descriptionFor(paramIndex) + "\n";
+        tip += info.descriptionFor(paramIndex) + "\n";
     if (tooltips->shouldShowCurrentValue()) {
         auto paramID{ info.IDfor(paramIndex) };
         auto paramaterPtr{ exposedParams->getParameter(paramID) };
         auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
         auto choiceName{ info.verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
-        tooltipText += "Current Setting: " + choiceName;
+        tip += "Current Setting: " + choiceName;
     }
-    return tooltipText;
+    return tip;
 }
 
 void TooltipUpdaterForExposedParamControl::parameterValueChanged(int changedParamIndex, float /*newValue*/) {

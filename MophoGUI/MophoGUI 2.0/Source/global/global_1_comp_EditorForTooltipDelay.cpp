@@ -45,8 +45,8 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 
 void EditorForTooltipDelay::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescriptions() };
-	String tipString{ shouldShowDescription ? Description::buildFor_TooltipDelay() : ""};
-	setTooltip(tipString);
+	String tip{ shouldShowDescription ? Description::buildFor_TooltipDelay() : ""};
+	setTooltip(tip);
 }
 
 void EditorForTooltipDelay::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

@@ -33,11 +33,11 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this] { allowAllChoices(); };
 	if (shouldShowDescriptions) {
-		String buttonTooltip{ "" };
-		buttonTooltip += "Click to allow all the shapes when\n";
-		buttonTooltip += "generating a random setting for\n";
-		buttonTooltip += paramName + ".";
-		button_AllowAll.setTooltip(buttonTooltip);
+		String tip{ "" };
+		tip += "Click to allow all the shapes when\n";
+		tip += "generating a random setting for\n";
+		tip += paramName + ".";
+		button_AllowAll.setTooltip(tip);
 	}
 	button_AllowAll.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);

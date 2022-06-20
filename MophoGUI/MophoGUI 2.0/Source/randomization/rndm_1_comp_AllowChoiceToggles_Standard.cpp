@@ -31,23 +31,23 @@ String AllowChoiceToggles_Standard::buildChoiceName(uint8 choiceNum) {
 
 String AllowChoiceToggles_Standard::buildTooltip() {
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	String toggleTooltip{ "" };
+	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramName{ Info::get().exposedNameFor(paramIndex) };
-		toggleTooltip += "Click a choice to toggle whether or not it\n";
-		toggleTooltip += "is allowed when generating a random setting\n";
-		toggleTooltip += "for " + paramName + ".\n";
-		toggleTooltip += "CTRL-click a choice to make it the only one\n";
-		toggleTooltip += "allowed. SHIFT-click to allow a range of choices.\n";
+		tip += "Click a choice to toggle whether or not it\n";
+		tip += "is allowed when generating a random setting\n";
+		tip += "for " + paramName + ".\n";
+		tip += "CTRL-click a choice to make it the only one\n";
+		tip += "allowed. SHIFT-click to allow a range of choices.\n";
 		if (Info::get().numberOfAllowChoiceToggleColumnsFor(paramIndex) > 2) {
-			toggleTooltip += "ALT-click to allow a range of choices that\n";
+			tip += "ALT-click to allow a range of choices that\n";
 			if (Info::get().controlTypeFor(paramIndex) == ControlType::knobForPitch)
-				toggleTooltip += "are all in the same note row.";
+				tip += "are all in the same note row.";
 			else
-				toggleTooltip += "are all in the same row.";
+				tip += "are all in the same row.";
 		}
 	}
-	return toggleTooltip;
+	return tip;
 }
 
 const bool AllowChoiceToggles_Standard::choiceIsAllowed(uint8 choiceNum) {

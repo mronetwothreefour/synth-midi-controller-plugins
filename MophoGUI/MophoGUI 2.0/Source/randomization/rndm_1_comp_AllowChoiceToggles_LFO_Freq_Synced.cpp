@@ -79,16 +79,16 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildChoiceName(uint8 syncedFreq) {
 
 String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
 	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
-	String toggleTooltip{ "" };
+	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };
 		auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
-		toggleTooltip += "Click a synced frequency to toggle whether or not it\n";
-		toggleTooltip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
-		toggleTooltip += "CTRL-click a synced frequency to make it the only one\n";
-		toggleTooltip += "allowed. SHIFT-click to allow a range of synced frequencies.\n";
+		tip += "Click a synced frequency to toggle whether or not it\n";
+		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
+		tip += "CTRL-click a synced frequency to make it the only one\n";
+		tip += "allowed. SHIFT-click to allow a range of synced frequencies.\n";
 	}
-	return toggleTooltip;
+	return tip;
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Synced::choiceIsAllowed(uint8 syncedFreq) {
