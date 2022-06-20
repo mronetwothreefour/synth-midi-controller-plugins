@@ -273,7 +273,7 @@ const bool RandomizationOptions::categoryIsAllowedForLFO_FreqParam(Category cate
 
 void RandomizationOptions::setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory category, bool shouldBeAllowed, uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
+	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(Info::get().IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedCategories{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedFreqCategories, nullptr) };
@@ -283,7 +283,7 @@ void RandomizationOptions::setCategoryIsAllowedForLFO_FreqParam(LFO_FreqCategory
 	else
 		if (allowedCategories.hasProperty(propertyID))
 			allowedCategories.removeProperty(propertyID, nullptr);
-	checkNumberOfChoicesAllowedForOscShapeParam(paramIndex);
+	checkNumberOfChoicesAllowedForLFO_FreqParam(paramIndex);
 }
 
 const bool RandomizationOptions::noCategoryIsAllowedForLFO_FreqParam(uint8 paramIndex) {

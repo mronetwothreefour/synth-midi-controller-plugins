@@ -4,6 +4,7 @@
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -23,7 +24,7 @@ ComboBoxAndAttachment::ComboBoxAndAttachment(uint8 paramIndex, AudioProcessorVal
 }
 
 void ComboBoxAndAttachment::attachComboBoxToExposedParameter() {
-	attachment.reset(new ComboBoxAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), comboBox));
+	attachment.reset(new ComboBoxAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), comboBox));
 }
 
 void ComboBoxAndAttachment::deleteAttachmentBeforeComboBoxToPreventMemLeak() {

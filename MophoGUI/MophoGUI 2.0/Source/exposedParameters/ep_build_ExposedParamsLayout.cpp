@@ -5,18 +5,18 @@
 #include "../constants/constants_Identifiers.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
 
 ParameterLayout ExposedParametersLayout::build() {
 	ParameterLayout layout;
-	auto& info{ InfoForExposedParameters::get() };
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		auto paramID{ info.IDfor(paramIndex).toString() };
-		auto exposedName{ info.exposedNameFor(paramIndex) };
-		auto choiceNamesList{ info.verboseChoiceNamesListFor(paramIndex) };
-		auto defaultChoice{ info.defaultChoiceFor(paramIndex) };
+		auto paramID{ Info::get().IDfor(paramIndex).toString() };
+		auto exposedName{ Info::get().exposedNameFor(paramIndex) };
+		auto choiceNamesList{ Info::get().verboseChoiceNamesListFor(paramIndex) };
+		auto defaultChoice{ Info::get().defaultChoiceFor(paramIndex) };
 		layout.add(std::make_unique<AudioParameterChoice>(paramID, exposedName, choiceNamesList, defaultChoice));
 	}
 	return layout;

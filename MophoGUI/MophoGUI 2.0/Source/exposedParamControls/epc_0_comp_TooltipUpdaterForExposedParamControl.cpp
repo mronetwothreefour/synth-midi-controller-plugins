@@ -5,6 +5,7 @@
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -15,8 +16,7 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     exposedParams{ exposedParams },
     tooltips{ unexposedParams->getTooltipsOptions() }
 {
-    auto& info{ InfoForExposedParameters::get() };
-    auto paramID{ info.IDfor(paramIndex) };
+    auto paramID{ Info::get().IDfor(paramIndex) };
     auto paramaterPtr{ exposedParams->getParameter(paramID) };
     paramaterPtr->addListener(this);
 
@@ -33,14 +33,13 @@ void TooltipUpdaterForExposedParamControl::setTooltip() {
 
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
     String tip{ "" };
-    auto& info{ InfoForExposedParameters::get() };
     if (tooltips->shouldShowDescriptions())
-        tip += info.descriptionFor(paramIndex) + "\n";
+        tip += Info::get().descriptionFor(paramIndex) + "\n";
     if (tooltips->shouldShowCurrentValue()) {
-        auto paramID{ info.IDfor(paramIndex) };
+        auto paramID{ Info::get().IDfor(paramIndex) };
         auto paramaterPtr{ exposedParams->getParameter(paramID) };
         auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
-        auto choiceName{ info.verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
+        auto choiceName{ Info::get().verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
         tip += "Current Setting: " + choiceName;
     }
     return tip;
@@ -62,7 +61,6 @@ void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
     tooltips->removeListener(this);
 
-    auto& info{ InfoForExposedParameters::get() };
-    auto paramID{ info.IDfor(paramIndex) };
+    auto paramID{ Info::get().IDfor(paramIndex) };
     exposedParams->getParameter(paramID)->removeListener(this);
 }

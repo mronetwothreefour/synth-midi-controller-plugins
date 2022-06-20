@@ -6,12 +6,14 @@
 
 
 class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 class ExposedParamChangesHandler :
 	private AudioProcessorParameter::Listener
 {
 	AudioProcessorValueTreeState* exposedParams;
 	UnexposedParameters* unexposedParams;
+	VoiceTransmissionOptions* voiceTransmit;
 
 public:
 	ExposedParamChangesHandler() = delete;

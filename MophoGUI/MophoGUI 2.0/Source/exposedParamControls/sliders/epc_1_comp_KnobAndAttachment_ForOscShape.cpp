@@ -9,6 +9,7 @@
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -23,8 +24,7 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	auto& info{ InfoForExposedParameters::get() };
-	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(Info::get().mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
@@ -106,14 +106,12 @@ void KnobAndAttachment_ForOscShape::paintPulse(Graphics& g, Path path, int pulse
 }
 
 void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
+	attachment.reset(new SliderAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), knob));
 }
 
-void KnobAndAttachment_ForOscShape::sliderValueChanged(Slider* slider) {	
-	if (slider == &knob) {
-		choiceNum = roundToInt(knob.getValue());
-		repaint();
-	}
+void KnobAndAttachment_ForOscShape::sliderValueChanged(Slider* /*slider*/) {	
+	choiceNum = roundToInt(knob.getValue());
+	repaint();
 }
 
 void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {

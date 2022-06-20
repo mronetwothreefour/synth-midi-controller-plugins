@@ -8,6 +8,7 @@
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -21,8 +22,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	auto& info{ InfoForExposedParameters::get() };
-	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(Info::get().mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	knob.isModifyingSeqStep = true;
@@ -41,8 +41,7 @@ void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
 		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
-			auto& info{ InfoForExposedParameters::get() };
-			auto choiceNameString{ info.choiceNameFor((uint8)choiceNum, paramIndex) };
+			auto choiceNameString{ Info::get().choiceNameFor((uint8)choiceNum, paramIndex) };
 			if (knob.isModifyingPitch)
 				choiceNameString = choiceNameString.fromFirstOccurrenceOf("(", false, false).upToFirstOccurrenceOf(")", false, false);
 			else
@@ -73,9 +72,8 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 }
 
 void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
-	auto& info{ InfoForExposedParameters::get() };
-	knobAttachment.reset(new SliderAttachment(*exposedParams, info.IDfor(paramIndex).toString(), knob));
-	trackDestinationAttachment.reset(new SliderAttachment(*exposedParams, info.IDfor(trackDestIndex).toString(), trackDestination));
+	knobAttachment.reset(new SliderAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), knob));
+	trackDestinationAttachment.reset(new SliderAttachment(*exposedParams, Info::get().IDfor(trackDestIndex).toString(), trackDestination));
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch() {
@@ -87,20 +85,18 @@ void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
 }
 
 void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* slider) {
-	if (slider == &knob || slider == &trackDestination) {
-		auto currentChoice{ roundToInt(knob.getValue()) };
-		if (slider == &trackDestination) {
-			auto destination{ roundToInt(trackDestination.getValue()) };
-			if (destination > 0 && destination < 4)
-				knob.isModifyingPitch = true;
-			else
-				knob.isModifyingPitch = false;
-		}
-		else {
-			choiceNum = currentChoice;
-		}
-		repaint();
+	auto currentChoice{ roundToInt(knob.getValue()) };
+	if (slider == &trackDestination) {
+		auto destination{ roundToInt(trackDestination.getValue()) };
+		if (destination > 0 && destination < 4)
+			knob.isModifyingPitch = true;
+		else
+			knob.isModifyingPitch = false;
 	}
+	else {
+		choiceNum = currentChoice;
+	}
+	repaint();
 }
 
 void KnobAndAttachment_ForSeqStep::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {

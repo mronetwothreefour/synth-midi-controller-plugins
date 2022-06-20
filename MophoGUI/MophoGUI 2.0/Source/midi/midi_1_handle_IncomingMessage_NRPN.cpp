@@ -6,6 +6,7 @@
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -102,9 +103,8 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(MidiMessage 
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnType, int newValue) {
     voiceTransmit->dontTransmitParamChanges();
-    auto& info{ InfoForExposedParameters::get() };
-    auto paramIndex{ info.paramIndexForNRPN((uint8)nrpnType) };
-    auto paramID{ info.IDfor(paramIndex) };
+    auto paramIndex{ Info::get().paramIndexForNRPN((uint8)nrpnType) };
+    auto paramID{ Info::get().IDfor(paramIndex) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
     voiceTransmit->transmitParamChanges();

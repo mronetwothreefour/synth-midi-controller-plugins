@@ -17,8 +17,9 @@
 #include "../voices/voices_7_gui_layer_VoicesBanks.h"
 
 using namespace MophoConstants;
-using EditBuffer = EditBufferDataMessage;
 using Description = MainWindowButtonDescription;
+using EditBuffer = EditBufferDataMessage;
+using Info = InfoForExposedParameters;
 
 
 
@@ -164,9 +165,8 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
-    auto& info{ InfoForExposedParameters::get() };
     for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
-        auto paramID{ info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
+        auto paramID{ Info::get().IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
         auto paramPtr{ exposedParams->getParameter(paramID) };
         if (paramPtr != nullptr)
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
@@ -175,11 +175,9 @@ String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
 }
 
 void GUI_Layer_MainWindowButtons::labelTextChanged(Label* labelThatHasChanged) {
-    if (labelThatHasChanged == &voiceNameEditor) {
-        String newName{ labelThatHasChanged->getText() };
-        newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);
-        startUpdatingVoiceName(newName);
-    }
+    String newName{ labelThatHasChanged->getText() };
+    newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);
+    startUpdatingVoiceName(newName);
 }
 
 void GUI_Layer_MainWindowButtons::startUpdatingVoiceName(String newName) {
@@ -214,8 +212,7 @@ void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
 }
 
 void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
-    auto& info{ InfoForExposedParameters::get() };
-    auto paramID{ info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
+    auto paramID{ Info::get().IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));
@@ -229,8 +226,7 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
 
 void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
     auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
-    auto& info{ InfoForExposedParameters::get() };
-    auto paramID{ info.IDfor(uint8(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum)) };
+    auto paramID{ Info::get().IDfor(uint8(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum)) };
     auto param{ exposedParams->getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);

@@ -5,6 +5,7 @@
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -21,7 +22,7 @@ ToggleButtonAndAttachment::ToggleButtonAndAttachment(
 }
 
 void ToggleButtonAndAttachment::attachToggleToExposedParameter() {
-	attachment.reset(new ButtonAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), toggle));
+	attachment.reset(new ButtonAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), toggle));
 }
 
 void ToggleButtonAndAttachment::deleteAttachmentBeforeToggleToPreventMemLeak() {

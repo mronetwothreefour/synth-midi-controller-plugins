@@ -69,11 +69,9 @@ EnvelopePainter::EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeSt
 	sliderValueChanged(&delay);
 }
 
-void EnvelopePainter::sliderValueChanged(Slider* slider) {
-	if (slider == &delay || slider == &attack || slider == &decay || slider == &sustain || slider == &release) {
-		setEnvelopeCoordinates();
-		repaint();
-	}
+void EnvelopePainter::sliderValueChanged(Slider* /*slider*/) {
+	setEnvelopeCoordinates();
+	repaint();
 }
 
 void EnvelopePainter::setEnvelopeCoordinates() {

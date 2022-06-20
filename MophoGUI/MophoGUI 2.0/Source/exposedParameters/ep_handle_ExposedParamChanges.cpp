@@ -9,25 +9,26 @@
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
 ExposedParamChangesHandler::ExposedParamChangesHandler(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams }
+	unexposedParams{ unexposedParams },
+	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
-	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		auto paramID{ info.IDfor(paramIndex).toString() };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		paramaterPtr->addListener(this);
+		auto paramID{ Info::get().IDfor(paramIndex) };
+		auto paramPtr{ exposedParams->getParameter(paramID) };
+		paramPtr->addListener(this);
 //		exposedParams->addParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
 //	exposedParams->addParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 }
 
 void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, float newValue) {
-	auto& info{ InfoForExposedParameters::get() };
+	// todo: randomization triggers
 	//if (parameterID.startsWith(ID::rndmTrigFor_.toString())) {
 	//	ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
 	//	if (parameterID == ID::rndmTrigFor_AllUnlocked.toString())
@@ -38,12 +39,11 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 	//	}
 	//}
 	//else {
-	auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
-		if (voiceTransmissionOptions->paramChangesShouldBeTransmitted()) {
-			auto paramID{ info.IDfor((uint8)changedParamIndex) };
-			auto nrpn{ info.NRPNfor((uint8)changedParamIndex) };
-			auto paramaterPtr{ exposedParams->getParameter(paramID) };
-			auto outputValue{ (uint8)roundToInt(paramaterPtr->convertFrom0to1(newValue)) };
+		if (voiceTransmit->paramChangesShouldBeTransmitted()) {
+			auto paramID{ Info::get().IDfor((uint8)changedParamIndex) };
+			auto nrpn{ Info::get().NRPNfor((uint8)changedParamIndex) };
+			auto paramPtr{ exposedParams->getParameter(paramID) };
+			auto outputValue{ (uint8)roundToInt(paramPtr->convertFrom0to1(newValue)) };
 			if (paramID == ID::ep_095_ClockTempo)
 				outputValue += EP::clockTempoOffset;
 			if (paramID.toString().contains("_AssignKnob_") && outputValue >= EP::firstKnobAssignParamNumber)
@@ -71,11 +71,10 @@ void ExposedParamChangesHandler::arpeggiatorAndSequencerCannotBothBeOn(Identifie
 
 ExposedParamChangesHandler::~ExposedParamChangesHandler() {
 	//exposedParams->removeParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
-	auto& info{ InfoForExposedParameters::get() };
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		auto paramID{ info.IDfor(paramIndex).toString() };
-		auto paramaterPtr{ exposedParams->getParameter(paramID) };
-		paramaterPtr->removeListener(this);
+		auto paramID{ Info::get().IDfor(paramIndex) };
+		auto paramPtr{ exposedParams->getParameter(paramID) };
+		paramPtr->removeListener(this);
 		//exposedParams->removeParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
 }

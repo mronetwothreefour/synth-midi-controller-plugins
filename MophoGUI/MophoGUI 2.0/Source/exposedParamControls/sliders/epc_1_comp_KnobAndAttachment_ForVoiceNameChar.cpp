@@ -8,6 +8,7 @@
 #include "../../gui/gui_build_LCD_CharacterPath.h"
 
 using namespace MophoConstants;
+using Info = InfoForExposedParameters;
 
 
 
@@ -21,8 +22,7 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	auto& info{ InfoForExposedParameters::get() };
-	knob.setMouseDragSensitivity(info.mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(Info::get().mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.setAlpha(0.0f);
 	knob.isModifyingPitch = false;
@@ -38,7 +38,7 @@ void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
 }
 
 void KnobAndAttachment_ForVoiceNameChar::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*exposedParams, InfoForExposedParameters::get().IDfor(paramIndex).toString(), knob));
+	attachment.reset(new SliderAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), knob));
 	limitKnobRangeToBasic_ASCII_CharsThatAreVisible();
 }
 
@@ -46,11 +46,9 @@ void KnobAndAttachment_ForVoiceNameChar::limitKnobRangeToBasic_ASCII_CharsThatAr
 	knob.setRange(32.0, 127.0, 1.0);
 }
 
-void KnobAndAttachment_ForVoiceNameChar::sliderValueChanged(Slider* slider) {
-	if (slider == &knob) {
-		charNum = roundToInt(knob.getValue());
-		repaint();
-	}
+void KnobAndAttachment_ForVoiceNameChar::sliderValueChanged(Slider* /*slider*/) {
+	charNum = roundToInt(knob.getValue());
+	repaint();
 }
 
 void KnobAndAttachment_ForVoiceNameChar::deleteAttachmentBeforeKnobToPreventMemLeak() {

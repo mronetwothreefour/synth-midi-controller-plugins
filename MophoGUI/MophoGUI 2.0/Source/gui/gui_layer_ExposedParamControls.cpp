@@ -2,6 +2,8 @@
 
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
+using Info = InfoForExposedParameters;
+
 
 
 GUI_Layer_ExposedParamControls::GUI_Layer_ExposedParamControls(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
@@ -12,8 +14,7 @@ GUI_Layer_ExposedParamControls::GUI_Layer_ExposedParamControls(AudioProcessorVal
         auto controlPtr{ controlPtrFor(paramIndex) };
         addAndMakeVisible(controlPtr);
         controlPtr->attachControlToExposedParameter();
-        auto& info{ InfoForExposedParameters::get() };
-        controlPtr->setCentrePosition(info.centerPointFor(paramIndex));
+        controlPtr->setCentrePosition(Info::get().centerPointFor(paramIndex));
     }
 }
 

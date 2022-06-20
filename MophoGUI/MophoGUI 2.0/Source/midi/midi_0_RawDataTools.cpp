@@ -6,6 +6,8 @@
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
+using Info = InfoForExposedParameters;
+
 
 
 const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
@@ -36,12 +38,11 @@ void RawDataTools::applyRawDataToExposedParameters(
 {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
     voiceTransmissionOptions->dontTransmitParamChanges();
-    auto& info{ InfoForExposedParameters::get() };
     for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
-        auto paramID{ info.IDfor(param) };
-        auto lsByteLocation{ info.lsByteLocationFor(param) };
-        auto msBitLocation{ info.msBitPackedByteLocationFor(param) };
-        auto msBitMask{ info.msBitMaskFor(param) };
+        auto paramID{ Info::get().IDfor(param) };
+        auto lsByteLocation{ Info::get().lsByteLocationFor(param) };
+        auto msBitLocation{ Info::get().msBitPackedByteLocationFor(param) };
+        auto msBitMask{ Info::get().msBitMaskFor(param) };
         auto newValue{ *(dumpData + lsByteLocation) };
         auto msBitIsFlagged{ *(dumpData + msBitLocation) & msBitMask };
         if (msBitIsFlagged)
@@ -61,19 +62,18 @@ const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(Audio
     for (auto i = 0; i != rawVoiceDataSize; ++i) {
         voiceData.push_back((uint8)0);
     }
-    auto& info{ InfoForExposedParameters::get() };
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-        auto paramID{ info.IDfor(paramIndex) };
+        auto paramID{ Info::get().IDfor(paramIndex) };
         auto paramPtr{ exposedParams->getParameter(paramID) };
         auto paramValue{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
         if (paramID == ID::ep_095_ClockTempo)
             paramValue += EP::clockTempoOffset;
         if (paramID.toString().contains("_AssignKnob_") && paramValue >= EP::firstKnobAssignParamNumber)
             paramValue += EP::knobAssignAndUnassignedParamsOffset;
-        auto msbLocation{ info.msBitPackedByteLocationFor(paramIndex) };
-        auto lsbLocation{ info.lsByteLocationFor(paramIndex) };
+        auto msbLocation{ Info::get().msBitPackedByteLocationFor(paramIndex) };
+        auto lsbLocation{ Info::get().lsByteLocationFor(paramIndex) };
         if (paramValue > 127) {
-            voiceData[msbLocation] += info.msBitMaskFor(paramIndex);
+            voiceData[msbLocation] += Info::get().msBitMaskFor(paramIndex);
         }
         voiceData[lsbLocation] = paramValue % 128;
     }

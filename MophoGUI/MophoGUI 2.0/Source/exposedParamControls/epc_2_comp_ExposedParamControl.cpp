@@ -9,6 +9,8 @@
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
+using Info = InfoForExposedParameters;
+
 
 
 ExposedParamControl::ExposedParamControl() :
@@ -24,7 +26,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTr
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	controlType{ InfoForExposedParameters::get().controlTypeFor(paramIndex) }
+	controlType{ Info::get().controlTypeFor(paramIndex) }
 {
 	jassert((int)controlType > -1 && (int)controlType <= (int)ControlType::voiceNameChar);
 	switch (controlType) {
@@ -77,8 +79,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedPa
 }
 
 void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
-	auto& info{ InfoForExposedParameters::get() };
-	auto paramID{ info.IDfor(paramIndex).toString()};
+	auto paramID{ Info::get().IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
 	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, trackNum, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForSeqStep != nullptr) {

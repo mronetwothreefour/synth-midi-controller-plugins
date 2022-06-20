@@ -55,25 +55,20 @@ void GUI_Layer_VoicesBanks::paint(Graphics& g) {
 	g.fillRect(bkgrndBounds);
 }
 
-void GUI_Layer_VoicesBanks::editorShown(Label* label, TextEditor& editor) {
-	if (label == &label_txTimeEditor) {
-		editor.setInputRestrictions(4, "0123456789");
-		editor.setFont(GUI::fontFor_Labels);
-		editor.setText((String)voiceTransmit->voiceTransmitTime());
-		editor.selectAll();
-	}
+void GUI_Layer_VoicesBanks::editorShown(Label* /*label*/, TextEditor& editor) {
+	editor.setInputRestrictions(4, "0123456789");
+	editor.setFont(GUI::fontFor_Labels);
+	editor.setText((String)voiceTransmit->voiceTransmitTime());
+	editor.selectAll();
 }
 
 void GUI_Layer_VoicesBanks::labelTextChanged(Label* label) {
-	if (label == &label_txTimeEditor) {
-		if (label->getText().isNotEmpty())
-		{
-			auto newValue{ label->getText().getIntValue() };
-			if (newValue > 49 && newValue < 5001)
-				voiceTransmit->setVoiceTransmitTime(newValue);
-		}
-		label->setText((String)voiceTransmit->voiceTransmitTime() + " ms", dontSendNotification);
+	if (label->getText().isNotEmpty()) {
+		auto newValue{ label->getText().getIntValue() };
+		if (newValue > 49 && newValue < 5001)
+			voiceTransmit->setVoiceTransmitTime(newValue);
 	}
+	label->setText((String)voiceTransmit->voiceTransmitTime() + " ms", dontSendNotification);
 }
 
 void GUI_Layer_VoicesBanks::buttonClicked(Button* button) {
