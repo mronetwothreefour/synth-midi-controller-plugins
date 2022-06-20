@@ -38,6 +38,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeSt
 
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
+    layerForEnvelopePainters->setBounds(getLocalBounds());
+    layerForExposedParamControls->setBounds(getLocalBounds());
+    layerForButtons->setBounds(getLocalBounds());
 }
 
 void PluginEditor::paint(Graphics& g) {
@@ -45,12 +48,6 @@ void PluginEditor::paint(Graphics& g) {
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
     g.drawImageAt(backgroundImage, 0, 0);
-}
-
-void PluginEditor::resized() {
-    layerForEnvelopePainters->setBounds(getLocalBounds());
-    layerForExposedParamControls->setBounds(getLocalBounds());
-    layerForButtons->setBounds(getLocalBounds());
 }
 
 void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

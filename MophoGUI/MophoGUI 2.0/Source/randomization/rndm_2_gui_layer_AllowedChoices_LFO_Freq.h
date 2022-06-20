@@ -51,7 +51,6 @@ public:
 
 	GUI_Layer_AllowedChoices_LFO_Freq(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 	void buttonClicked(Button* button) override;
 	void makeCategoryTheOnlyOneAllowed(Category allowedCategory);
 	void allowAllChoices();

@@ -20,11 +20,18 @@ TabForFactoryVoicesBank::TabForFactoryVoicesBank(
 	button_PushBank{ bank, unexposedParams },
 	button_ExportBank{ bank, unexposedParams }
 {
+	auto buttonsRow_y{ 334 };
+	voiceSlots.setTopLeftPosition(15, 14);
 	addAndMakeVisible(voiceSlots);
+	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
 	addAndMakeVisible(button_LoadSelected);
+	button_PushSelected.setTopLeftPosition(238, buttonsRow_y);
 	addAndMakeVisible(button_PushSelected);
+	button_ExportSelected.setTopLeftPosition(293, buttonsRow_y);
 	addAndMakeVisible(button_ExportSelected);
+	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
 	addAndMakeVisible(button_PushBank);
+	button_ExportBank.setTopLeftPosition(693, buttonsRow_y);
 	addAndMakeVisible(button_ExportBank);
 
 	commandManager.registerAllCommandsForTarget(this);
@@ -38,16 +45,6 @@ void TabForFactoryVoicesBank::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_TabForVoicesBank_png, BinaryData::bkgrnd_TabForVoicesBank_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
-}
-
-void TabForFactoryVoicesBank::resized() {
-	voiceSlots.setTopLeftPosition(15, 14);
-	auto buttonsRow_y{ 334 };
-	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
-	button_PushSelected.setTopLeftPosition(238, buttonsRow_y);
-	button_ExportSelected.setTopLeftPosition(293, buttonsRow_y);
-	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
-	button_ExportBank.setTopLeftPosition(693, buttonsRow_y);
 }
 
 ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {

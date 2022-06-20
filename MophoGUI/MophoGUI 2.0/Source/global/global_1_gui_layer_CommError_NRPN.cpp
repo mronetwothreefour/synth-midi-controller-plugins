@@ -12,7 +12,8 @@ using namespace MophoConstants;
 GUI_Layer_CommError_NRPN::GUI_Layer_CommError_NRPN(UnexposedParameters* unexposedParams) :
 	GUI_Layer_CommError_Base{ unexposedParams }
 {
-	resized();
+	button_Close.setTopLeftPosition(820, 212);
+	button_RequestGlobalParamsDump.setTopLeftPosition(611, 387);
 }
 
 void GUI_Layer_CommError_NRPN::checkHardwareSettings() {
@@ -26,9 +27,4 @@ void GUI_Layer_CommError_NRPN::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_CommError_NRPN_png, BinaryData::bkgrnd_CommError_NRPN_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 396, 205);
-}
-
-void GUI_Layer_CommError_NRPN::resized() {
-	button_Close.setTopLeftPosition(820, 212);
-	button_RequestGlobalParamsDump.setTopLeftPosition(611, 387);
 }

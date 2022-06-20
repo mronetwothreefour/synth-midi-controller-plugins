@@ -35,25 +35,45 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	label_HardwareOutputBalance{ LabelType::hardwareOutputBalance, unexposedParams },
 	editorForTooltipDelay{ unexposedParams }
 {
+	button_Close.setTopLeftPosition(703, 121);
 	addAndMakeVisible(button_Close);
 
+	const int knobRow_y{ 153 };
+	knob_GlobalTranspose.setTopLeftPosition(542, knobRow_y);
 	addAndMakeVisible(knob_GlobalTranspose);
+	knob_GlobalFineTune.setTopLeftPosition(617, knobRow_y);
 	addAndMakeVisible(knob_GlobalFineTune);
+	knob_HardwareReceiveChannel.setTopLeftPosition(692, knobRow_y);
 	addAndMakeVisible(knob_HardwareReceiveChannel);
 
+	const int comboBoxes_x{ 630 };
+	comboBox_MIDI_ClockSource.setTopLeftPosition(comboBoxes_x, 226);
 	addAndMakeVisible(comboBox_MIDI_ClockSource);
+	comboBox_PedalMode.setTopLeftPosition(comboBoxes_x, 246);
 	addAndMakeVisible(comboBox_PedalMode);
+	comboBox_VoiceChange.setTopLeftPosition(comboBoxes_x, 266);
 	addAndMakeVisible(comboBox_VoiceChange);
+	comboBox_ParamChangeSendType.setTopLeftPosition(comboBoxes_x, 286);
 	addAndMakeVisible(comboBox_ParamChangeSendType);
 
+	const int displayLabels_x{ 514 };
+	label_ParamChangeReceiveType.setTopLeftPosition(displayLabels_x, 311);
 	addAndMakeVisible(label_ParamChangeReceiveType);
+	label_MIDI_ControllersStatus.setTopLeftPosition(displayLabels_x, 331);
 	addAndMakeVisible(label_MIDI_ControllersStatus);
+	label_SysExStatus.setTopLeftPosition(displayLabels_x, 351);
 	addAndMakeVisible(label_SysExStatus);
+	label_AudioOutput.setTopLeftPosition(displayLabels_x, 371);
 	addAndMakeVisible(label_AudioOutput);
+	label_HardwareOutputBalance.setTopLeftPosition(displayLabels_x, 391);
 	addAndMakeVisible(label_HardwareOutputBalance);
 
+	const int tooltipControls_x{ 678 };
+	toggle_CurrentValueTooltip.setTopLeftPosition(tooltipControls_x, 441);
 	addAndMakeVisible(toggle_CurrentValueTooltip);
+	toggle_DescriptionTooltip.setTopLeftPosition(tooltipControls_x, 461);
 	addAndMakeVisible(toggle_DescriptionTooltip);
+	editorForTooltipDelay.setTopLeftPosition(tooltipControls_x, 481);
 	addAndMakeVisible(editorForTooltipDelay);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -83,29 +103,6 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 	currentChoice = roundToInt(knob_HardwareReceiveChannel.getValue());
 	choiceName = ChoiceName::buildFor_HardwareReceiveChannel(currentChoice, concise);
 	g.drawText(choiceName, knob_HardwareReceiveChannel.getBounds(), Justification::centred);
-}
-
-void GUI_Layer_GlobalParameters::resized() {
-	button_Close.setTopLeftPosition(703, 121);
-	const int knobRow_y{ 153 };
-	knob_GlobalTranspose.setTopLeftPosition(542, knobRow_y);
-	knob_GlobalFineTune.setTopLeftPosition(617, knobRow_y);
-	knob_HardwareReceiveChannel.setTopLeftPosition(692, knobRow_y);
-	const int comboBoxes_x{ 630 };
-	comboBox_MIDI_ClockSource.setTopLeftPosition(comboBoxes_x, 226);
-	comboBox_PedalMode.setTopLeftPosition(comboBoxes_x, 246);
-	comboBox_VoiceChange.setTopLeftPosition(comboBoxes_x, 266);
-	comboBox_ParamChangeSendType.setTopLeftPosition(comboBoxes_x, 286);
-	const int displayLabels_x{ 514 };
-	label_ParamChangeReceiveType.setTopLeftPosition(displayLabels_x, 311);
-	label_MIDI_ControllersStatus.setTopLeftPosition(displayLabels_x, 331);
-	label_SysExStatus.setTopLeftPosition(displayLabels_x, 351);
-	label_AudioOutput.setTopLeftPosition(displayLabels_x, 371);
-	label_HardwareOutputBalance.setTopLeftPosition(displayLabels_x, 391);
-	const int tooltipControls_x{ 678 };
-	toggle_CurrentValueTooltip.setTopLeftPosition(tooltipControls_x, 441);
-	toggle_DescriptionTooltip.setTopLeftPosition(tooltipControls_x, 461);
-	editorForTooltipDelay.setTopLeftPosition(tooltipControls_x, 481);
 }
 
 void GUI_Layer_GlobalParameters::timerCallback() {

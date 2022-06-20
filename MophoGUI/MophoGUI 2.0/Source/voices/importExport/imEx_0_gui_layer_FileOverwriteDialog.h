@@ -19,7 +19,6 @@ public:
 	void addListenerToButtons(Button::Listener* listener);
 	void removeListenerFromButtons(Button::Listener* listener);
 	void paint(Graphics& g) override;
-	void resized() override;
 
 private:
 	//==============================================================================

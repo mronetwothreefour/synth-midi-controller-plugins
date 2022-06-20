@@ -13,7 +13,6 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	unexposedParams{ unexposedParams },
 	browserComponent{ browserComponent }
 {
-	addAndMakeVisible(label_FolderNameEditor);
 	label_FolderNameEditor.setComponentID(ID::label_FolderNameEditor.toString());
 	label_FolderNameEditor.applyFontToAllText(GUI::fontFor_BrowserText);
 	label_FolderNameEditor.applyColourToAllText(GUI::color_White);
@@ -21,15 +20,21 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	label_FolderNameEditor.selectAll();
 	label_FolderNameEditor.onReturnKey = [this] { createNewFolder(); };
 	label_FolderNameEditor.onEscapeKey = [this] { hideThisLayer(); };
+	label_FolderNameEditor.setBounds(541, 293, 191, 26);
+	addAndMakeVisible(label_FolderNameEditor);
 
+	const int buttons_w{ GUI::button_Cancel_w };
+	const int buttonsRow_y{ 326 };
 	button_Cancel.setComponentID(ID::button_Cancel_NewFolder.toString());
 	button_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_Cancel.onClick = [this] { hideThisLayer(); };
+	button_Cancel.setBounds(582, buttonsRow_y, buttons_w, GUI::redButton_h);
 	addAndMakeVisible(button_Cancel);
 
 	button_Create.setComponentID(ID::button_Create.toString());
 	button_Create.addShortcut(KeyPress(KeyPress::returnKey));
 	button_Create.onClick = [this] { createNewFolder(); };
+	button_Create.setBounds(639, buttonsRow_y, buttons_w, GUI::redButton_h);
 	addAndMakeVisible(button_Create);
 
 
@@ -51,14 +56,6 @@ void GUI_Layer_NewFolderDialog::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 526, 259);
-}
-
-void GUI_Layer_NewFolderDialog::resized() {
-	label_FolderNameEditor.setBounds(541, 293, 191, 26);
-	const int buttons_w{ GUI::button_Cancel_w };
-	const int buttonsRow_y{ 326 };
-	button_Cancel.setBounds(582, buttonsRow_y, buttons_w, GUI::redButton_h);
-	button_Create.setBounds(639, buttonsRow_y, buttons_w, GUI::redButton_h);
 }
 
 void GUI_Layer_NewFolderDialog::createNewFolder() {

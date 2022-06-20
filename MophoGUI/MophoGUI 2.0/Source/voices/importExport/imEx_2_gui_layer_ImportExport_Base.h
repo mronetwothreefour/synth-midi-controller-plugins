@@ -37,7 +37,6 @@ public:
 	GUI_Layer_ImportExport_Base() = delete;
 
 	GUI_Layer_ImportExport_Base(ImportExportType type, VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams);
-	void resized() override;
 
 protected:
 	void drawBackgroundImage(Graphics& g);

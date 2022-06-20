@@ -47,7 +47,6 @@ public:
 	GUI_Layer_MainWindowButtons() = delete;
 
 	GUI_Layer_MainWindowButtons(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-	void resized() override;
 
 private:
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;

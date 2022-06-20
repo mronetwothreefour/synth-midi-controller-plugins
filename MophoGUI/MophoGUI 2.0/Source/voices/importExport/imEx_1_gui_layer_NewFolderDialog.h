@@ -22,7 +22,6 @@ public:
 
 	GUI_Layer_NewFolderDialog(FileBrowserComponent* browserComponent, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 
 private:
 	void createNewFolder();

@@ -25,6 +25,10 @@ GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters
 		button_Write.setTooltip("Confirm file overwrite.");
 	}
 
+	const int buttons_y{ 321 };
+	button_Cancel.setBounds(582, buttons_y, GUI::button_Cancel_w, GUI::redButton_h);
+	button_Write.setBounds(639, buttons_y, GUI::button_Write_w, GUI::redButton_h);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -46,10 +50,4 @@ void GUI_Layer_FileOverwriteDialog::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 556, 264);
-}
-
-void GUI_Layer_FileOverwriteDialog::resized() {
-	const int buttons_y{ 321 };
-	button_Cancel.setBounds(582, buttons_y, GUI::button_Cancel_w, GUI::redButton_h);
-	button_Write.setBounds(639, buttons_y, GUI::button_Write_w, GUI::redButton_h);
 }

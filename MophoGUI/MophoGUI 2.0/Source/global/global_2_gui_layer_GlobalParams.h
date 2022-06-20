@@ -39,7 +39,6 @@ public:
 
     explicit GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
-    void resized() override;
 
 private:
     void timerCallback() override;

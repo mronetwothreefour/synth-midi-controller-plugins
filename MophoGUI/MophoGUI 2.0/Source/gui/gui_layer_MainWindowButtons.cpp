@@ -46,81 +46,73 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(AudioProcessorValueTree
     voiceNameEditor.setColour(Label::outlineWhenEditingColourId, GUI::color_Black);
     voiceNameEditor.addListener(this);
     voiceNameEditor.setText(getVoiceNameFromExposedParemeters(), dontSendNotification);
+    voiceNameEditor.setBounds(590, 38, 222, 26);
     addAndMakeVisible(voiceNameEditor);
 
     button_ShowVoiceNameEditor.setComponentID(ID::button_Edit.toString());
     button_ShowVoiceNameEditor.onClick = [this] { showVoiceNameEditor(); };
+    button_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
     addAndMakeVisible(button_ShowVoiceNameEditor);
 
     auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 
+    const int rowBeneathProgramName_y{ 83 };
+    const int writeReadButtons_w{ 44 };
     button_WriteEditBuffer.setComponentID(ID::button_Write_EditBuffer.toString());
     button_WriteEditBuffer.onClick = [exposedParams, outgoingBuffers] {
         EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingBuffers);
     };
+    button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_WriteEditBuffer);
 
     button_ReadEditBuffer.setComponentID(ID::button_Read.toString());
     button_ReadEditBuffer.onClick = [outgoingBuffers] {
         EditBuffer::addRequestForEditBufferDataMessageToOutgoingMidiBuffers(outgoingBuffers);
     };
+    button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_ReadEditBuffer);
 
     button_ShowVoicesBanks.setComponentID(ID::button_Banks.toString());
     button_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    button_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
     addAndMakeVisible(button_ShowVoicesBanks);
 
     button_ShowGlobalParams.setComponentID(ID::button_Global.toString());
     button_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
+    button_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
     addAndMakeVisible(button_ShowGlobalParams);
 
+    const int undoRedoButtons_w{ 44 };
+    const int undoRedoButtons_x{ 832 };
     button_Undo.setComponentID(ID::button_Undo.toString());
     button_Undo.onClick = [unexposedParams] {
         unexposedParams->getUndoManager()->undo();
     };
+    button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_Undo);
 
     button_Redo.setComponentID(ID::button_Redo.toString());
     button_Redo.onClick = [unexposedParams] {
         unexposedParams->getUndoManager()->redo();
     };
+    button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_Redo);
 
     button_Hyperlink.setComponentID(ID::button_Hyperlink.toString());
+    button_Hyperlink.setBounds(644, 122, 157, 9);
     addAndMakeVisible(button_Hyperlink);
 
+    const int clearButton_SeqTrack_1_y{ 160 };
     for (auto trackNum = 0; trackNum != 4; ++trackNum) {
         buttons_ForClearingSeqTracks[trackNum].setComponentID(ID::button_Clear.toString());
         buttons_ForClearingSeqTracks[trackNum].onClick = [this, trackNum] { startClearingSeqTrack(trackNum); };
+        buttons_ForClearingSeqTracks[trackNum].setBounds(1212, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
         addAndMakeVisible(buttons_ForClearingSeqTracks[trackNum]);
     }
 
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
-}
-
-void GUI_Layer_MainWindowButtons::resized() {
-    button_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
-    voiceNameEditor.setBounds(590, 38, 222, 26);
-
-    const int rowBeneathProgramName_y{ 83 };
-    const int writeReadButtons_w{ 44 };
-    button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-    button_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-    button_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
-    button_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
-
-    const int undoRedoButtons_w{ 44 };
-    const int undoRedoButtons_x{ 832 };
-    button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
-    button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
-
-    button_Hyperlink.setBounds(644, 122, 157, 9);
-
-    const int clearButton_SeqTrack_1_y{ 160 };
-    for (auto trackNum = 0; trackNum != 4; ++trackNum)
-        buttons_ForClearingSeqTracks[trackNum].setBounds(1212, clearButton_SeqTrack_1_y + trackNum * GUI::seqTrackControlsGroup_h, 46, 18);
 }
 
 void GUI_Layer_MainWindowButtons::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

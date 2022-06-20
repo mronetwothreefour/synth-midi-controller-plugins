@@ -18,8 +18,11 @@ GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::binary);
+	repeatChoicesToggle.setTopLeftPosition(background_x + 19, background_y + GUI::allowedChoices_Inset);
 	addAndMakeVisible(repeatChoicesToggle);
+	button_Randomize.setTopLeftPosition(background_x + GUI::allowedChoices_Inset, background_y + 41);
 	addAndMakeVisible(button_Randomize);
+	button_Close.setTopLeftPosition(background_x + 30, background_y + 73);
 	addAndMakeVisible(button_Close);
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -33,10 +36,4 @@ void GUI_Layer_AllowedChoices_Binary::paint(Graphics& g) {
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
-}
-
-void GUI_Layer_AllowedChoices_Binary::resized() {
-	repeatChoicesToggle.setTopLeftPosition(background_x + 19, background_y + GUI::allowedChoices_Inset);
-	button_Randomize.setTopLeftPosition(background_x + GUI::allowedChoices_Inset, background_y + 41);
-	button_Close.setTopLeftPosition(background_x + 30, background_y + 73);
 }

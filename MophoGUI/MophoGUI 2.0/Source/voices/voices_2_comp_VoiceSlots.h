@@ -38,7 +38,6 @@ public:
 
     VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
     void setTextForVoiceSlotToggleButton(uint8 slot);
-    void resized() override;
     void saveCurrentVoiceSettingsIntoSelectedSlot();
     void loadVoiceFromSelectedSlot();
     void pullSelectedVoiceFromHardware();

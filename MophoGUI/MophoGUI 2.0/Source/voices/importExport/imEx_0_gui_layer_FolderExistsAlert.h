@@ -16,7 +16,6 @@ class GUI_Layer_FolderExistsAlert :
 public:
 	GUI_Layer_FolderExistsAlert(UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 
 private:
 	//==============================================================================

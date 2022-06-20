@@ -25,16 +25,28 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 	button_ExportBank{ bank, unexposedParams },
 	button_ImportBank{ bank, unexposedParams }
 {
+	auto buttonsRow_y{ 334 };
 	addAndMakeVisible(voiceSlots);
+	voiceSlots.setTopLeftPosition(15, 14);
+	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
 	addAndMakeVisible(button_LoadSelected);
+	button_SaveIntoSelected.setTopLeftPosition(238, buttonsRow_y);
 	addAndMakeVisible(button_SaveIntoSelected);
+	button_PushSelected.setTopLeftPosition(293, buttonsRow_y);
 	addAndMakeVisible(button_PushSelected);
+	button_PullSelected.setTopLeftPosition(348, buttonsRow_y);
 	addAndMakeVisible(button_PullSelected);
+	button_ExportSelected.setTopLeftPosition(403, buttonsRow_y);
 	addAndMakeVisible(button_ExportSelected);
+	button_ImportSelected.setTopLeftPosition(458, buttonsRow_y);
 	addAndMakeVisible(button_ImportSelected);
+	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
 	addAndMakeVisible(button_PushBank);
+	button_PullBank.setTopLeftPosition(693, buttonsRow_y);
 	addAndMakeVisible(button_PullBank);
+	button_ExportBank.setTopLeftPosition(748, buttonsRow_y);
 	addAndMakeVisible(button_ExportBank);
+	button_ImportBank.setTopLeftPosition(803, buttonsRow_y);
 	addAndMakeVisible(button_ImportBank);
 
 	commandManager.registerAllCommandsForTarget(this);
@@ -47,21 +59,6 @@ void TabForCustomVoicesBank::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_TabForVoicesBank_png, BinaryData::bkgrnd_TabForVoicesBank_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
-}
-
-void TabForCustomVoicesBank::resized() {
-	voiceSlots.setTopLeftPosition(15, 14);
-	auto buttonsRow_y{ 334 };
-	button_LoadSelected.setTopLeftPosition(183, buttonsRow_y);
-	button_SaveIntoSelected.setTopLeftPosition(238, buttonsRow_y);
-	button_PushSelected.setTopLeftPosition(293, buttonsRow_y);
-	button_PullSelected.setTopLeftPosition(348, buttonsRow_y);
-	button_ExportSelected.setTopLeftPosition(403, buttonsRow_y);
-	button_ImportSelected.setTopLeftPosition(458, buttonsRow_y);
-	button_PushBank.setTopLeftPosition(638, buttonsRow_y);
-	button_PullBank.setTopLeftPosition(693, buttonsRow_y);
-	button_ExportBank.setTopLeftPosition(748, buttonsRow_y);
-	button_ImportBank.setTopLeftPosition(803, buttonsRow_y);
 }
 
 ApplicationCommandTarget* TabForCustomVoicesBank::getNextCommandTarget() {

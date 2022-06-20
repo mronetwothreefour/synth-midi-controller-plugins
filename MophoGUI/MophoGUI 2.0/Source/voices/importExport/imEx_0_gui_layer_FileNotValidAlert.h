@@ -16,7 +16,6 @@ class GUI_Layer_FileNotValidAlert :
 public:
 	GUI_Layer_FileNotValidAlert(UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 
 private:
 	//==============================================================================

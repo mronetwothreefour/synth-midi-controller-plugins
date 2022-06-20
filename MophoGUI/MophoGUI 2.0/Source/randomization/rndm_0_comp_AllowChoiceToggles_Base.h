@@ -34,7 +34,6 @@ protected:
 	virtual const bool noChoiceIsAllowed() = 0;
 
 public:
-	void resized() override;
 	void buttonClicked(Button* button) override;
 	void disableToggles();
 	virtual void restoreToggles() = 0;

@@ -25,11 +25,11 @@ VoiceSlots::VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedPar
 
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipsOptions->shouldShowDescriptions() };
-	for (uint8 slot = 0; slot != VCS::numberOfSlotsInVoicesBank; ++slot) {
-		voiceSlotButtons[slot].setComponentID(ID::button_VoiceSlotRadioButton.toString());
-		voiceSlotButtons[slot].setRadioGroupId(1);
-		voiceSlotButtons[slot].onClick = [this, slot] { selectedSlot = slot; };
-		setTextForVoiceSlotToggleButton(slot);
+	for (uint8 slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {
+		voiceSlotButtons[slotNum].setComponentID(ID::button_VoiceSlotRadioButton.toString());
+		voiceSlotButtons[slotNum].setRadioGroupId(1);
+		voiceSlotButtons[slotNum].onClick = [this, slotNum] { selectedSlot = slotNum; };
+		setTextForVoiceSlotToggleButton(slotNum);
 		String tip{ "" };
 		if (shouldShowDescriptions) {
 			tip += "Click a program" + GUI::apostrophe + "s name to select it before using the buttons below.\n";
@@ -37,8 +37,11 @@ VoiceSlots::VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedPar
 			tip += "CTRL+V overwrites the selected program with the settings in the\n";
 			tip += "clipboard (only slots in the Custom banks can be overwritten).";
 		}
-		voiceSlotButtons[slot].setTooltip(tip);
-		addAndMakeVisible(voiceSlotButtons[slot]);
+		voiceSlotButtons[slotNum].setTooltip(tip);
+		auto col_x{ (slotNum / 16) * (voiceSlotRadioButtton_w + voiceSlotRadioButtons_HorizGap) };
+		auto row_y{ (slotNum % 16) * voiceSlotRadioButtton_h };
+		voiceSlotButtons[slotNum].setBounds(col_x, row_y, voiceSlotRadioButtton_w, voiceSlotRadioButtton_h);
+		addAndMakeVisible(voiceSlotButtons[slotNum]);
 	}
 
 	setSize(voiceSlots_w, voiceSlots_h);
@@ -51,14 +54,6 @@ void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
 	MessageManagerLock mmlock;
 	voiceSlotButtons[slot].setName(slotString + " " + voiceName);
 	voiceSlotButtons[slot].repaint();
-}
-
-void VoiceSlots::resized() {
-	for (auto slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {
-		auto col_x{ (slotNum / 16) * (voiceSlotRadioButtton_w + voiceSlotRadioButtons_HorizGap) };
-		auto row_y{ (slotNum % 16) * voiceSlotRadioButtton_h };
-		voiceSlotButtons[slotNum].setBounds(col_x, row_y, voiceSlotRadioButtton_w, voiceSlotRadioButtton_h);
-	}
 }
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {

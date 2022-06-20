@@ -49,39 +49,35 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 	if (browserComponent != nullptr) {
 		browserComponent->setComponentID(ID::component_ImportExportBrowser.toString());
 		browserComponent->setFilenameBoxLabel("");
-		addAndMakeVisible(browserComponent.get());
 		browserComponent->addListener(this);
+		browserComponent->setBounds(401, 187, 471, 245);
+		addAndMakeVisible(browserComponent.get());
 	}
 
+	const int buttonsRow_y{ 442 };
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank) {
-		addAndMakeVisible(button_NewFolder);
 		button_NewFolder.setComponentID(ID::button_NewFolder.toString());
 		button_NewFolder.onClick = [this] { showNewFolderDialog(); };
+		button_NewFolder.setBounds(401, buttonsRow_y, 78, GUI::redButton_h);
+		addAndMakeVisible(button_NewFolder);
 	}
 
-	addAndMakeVisible(button_Cancel);
 	button_Cancel.setComponentID(ID::button_Cancel_ImportExport.toString());
 	button_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
 	button_Cancel.onClick = [this] { hideThisLayer(); };
+	button_Cancel.setBounds(763, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
+	addAndMakeVisible(button_Cancel);
 
-	addAndMakeVisible(button_Proceed);
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank)
 		button_Proceed.setComponentID(ID::button_Export_File.toString());
 	else
 		button_Proceed.setComponentID(ID::button_Import_File.toString());
 	button_Proceed.addShortcut(KeyPress(KeyPress::returnKey));
 	button_Proceed.onClick = [this] { proceedButtonClicked(); };
+	button_Proceed.setBounds(820, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
+	addAndMakeVisible(button_Proceed);
 
 	setSize(GUI::editor_w, GUI::editor_h);
-}
-
-void GUI_Layer_ImportExport_Base::resized() {
-	if (browserComponent != nullptr)
-		browserComponent->setBounds(401, 187, 471, 245);
-	const int buttonsRow_y{ 442 };
-	button_NewFolder.setBounds(401, buttonsRow_y, 78, GUI::redButton_h);
-	button_Cancel.setBounds(763, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
-	button_Proceed.setBounds(820, buttonsRow_y, GUI::button_Cancel_w, GUI::redButton_h);
 }
 
 void GUI_Layer_ImportExport_Base::drawBackgroundImage(Graphics& g) {

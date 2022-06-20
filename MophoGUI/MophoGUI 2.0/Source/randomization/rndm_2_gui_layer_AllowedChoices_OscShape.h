@@ -45,7 +45,6 @@ public:
 
 	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void resized() override;
 	void buttonClicked(Button* button) override;
 	void makeShapeTheOnlyOneAllowed(Shape shape);
 	void allowAllChoices();

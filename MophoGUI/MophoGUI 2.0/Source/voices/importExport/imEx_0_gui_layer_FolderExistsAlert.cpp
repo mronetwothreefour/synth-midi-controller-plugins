@@ -10,6 +10,7 @@ using namespace MophoConstants;
 GUI_Layer_FolderExistsAlert::GUI_Layer_FolderExistsAlert(UnexposedParameters* unexposedParams) :
 	button_Close{ unexposedParams }
 {
+	button_Close.setTopLeftPosition(612, 310);
 	addAndMakeVisible(button_Close);
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -22,8 +23,4 @@ void GUI_Layer_FolderExistsAlert::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 541, 274);
-}
-
-void GUI_Layer_FolderExistsAlert::resized() {
-	button_Close.setTopLeftPosition(612, 310);
 }

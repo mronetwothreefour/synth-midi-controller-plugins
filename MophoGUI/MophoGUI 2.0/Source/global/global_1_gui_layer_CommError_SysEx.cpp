@@ -12,7 +12,8 @@ using namespace MophoConstants;
 GUI_Layer_CommError_SysEx::GUI_Layer_CommError_SysEx(UnexposedParameters* unexposedParams) :
 	GUI_Layer_CommError_Base{ unexposedParams }
 {
-	resized();
+	button_Close.setTopLeftPosition(830, 150);
+	button_RequestGlobalParamsDump.setTopLeftPosition(611, 449);
 }
 
 void GUI_Layer_CommError_SysEx::checkHardwareSettings() {
@@ -26,9 +27,4 @@ void GUI_Layer_CommError_SysEx::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_CommError_SysEx_png, BinaryData::bkgrnd_CommError_SysEx_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 386, 143);
-}
-
-void GUI_Layer_CommError_SysEx::resized() {
-	button_Close.setTopLeftPosition(830, 150);
-	button_RequestGlobalParamsDump.setTopLeftPosition(611, 449);
 }

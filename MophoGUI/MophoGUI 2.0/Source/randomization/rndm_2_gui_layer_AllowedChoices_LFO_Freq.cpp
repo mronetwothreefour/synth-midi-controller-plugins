@@ -41,18 +41,20 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += paramName + ".";
 		button_AllowAll.setTooltip(tip);
 	}
-	button_AllowAll.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
+	button_AllowAll.setBounds(378, 177, GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);
 
+	repeatValues.setTopLeftPosition(660, 181);
 	addAndMakeVisible(repeatValues);
 
+	button_Close.setTopLeftPosition(962, 177);
 	addAndMakeVisible(button_Close);
 
+	auto categoryToggles_y{ 214 };
 	toggle_Unsynced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Unsynced.toString());
 	toggle_Unsynced.addListener(this);
 	auto unsyncedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::unsynced, paramIndex) };
 	toggle_Unsynced.setToggleState(unsyncedFreqAreAllowed ? true : false, dontSendNotification);
-	addAndMakeVisible(toggle_Unsynced);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Toggles whether or not un-synced frequencies are allowed\n";
@@ -60,12 +62,13 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Unsynced.setTooltip(tip);
 	}
+	toggle_Unsynced.setTopLeftPosition(422, categoryToggles_y);
+	addAndMakeVisible(toggle_Unsynced);
 
 	toggle_Pitched.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Pitched.toString());
 	toggle_Pitched.addListener(this);
 	auto pitchedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::pitched, paramIndex) };
 	toggle_Pitched.setToggleState(pitchedFreqAreAllowed ? true : false, dontSendNotification);
-	addAndMakeVisible(toggle_Pitched);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Toggles whether or not pitched frequencies are allowed\n";
@@ -73,12 +76,13 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Pitched.setTooltip(tip);
 	}
+	toggle_Pitched.setTopLeftPosition(651, categoryToggles_y);
+	addAndMakeVisible(toggle_Pitched);
 
 	toggle_Synced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Synced.toString());
 	toggle_Synced.addListener(this);
 	auto syncedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::synced, paramIndex) };
 	toggle_Synced.setToggleState(syncedFreqAreAllowed ? true : false, dontSendNotification);
-	addAndMakeVisible(toggle_Synced);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Toggles whether or not synced frequencies are allowed\n";
@@ -86,23 +90,29 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Synced.setTooltip(tip);
 	}
+	toggle_Synced.setTopLeftPosition(878, categoryToggles_y);
+	addAndMakeVisible(toggle_Synced);
 
+	auto allowToggles_y{ 234 };
 	if (unsyncedFreqAreAllowed)
 		allowUnsyncedFreqToggles.restoreToggles();
 	else
 		allowUnsyncedFreqToggles.disableToggles();
+	allowUnsyncedFreqToggles.setTopLeftPosition(378, allowToggles_y);
 	addAndMakeVisible(allowUnsyncedFreqToggles);
 
 	if (pitchedFreqAreAllowed)
 		allowPitchedFreqToggles.restoreToggles();
 	else
 		allowPitchedFreqToggles.disableToggles();
+	allowPitchedFreqToggles.setTopLeftPosition(578, allowToggles_y);
 	addAndMakeVisible(allowPitchedFreqToggles);
 
 	if (syncedFreqAreAllowed)
 		allowSyncedFreqToggles.restoreToggles();
 	else
 		allowSyncedFreqToggles.disableToggles();
+	allowSyncedFreqToggles.setTopLeftPosition(812, allowToggles_y);
 	addAndMakeVisible(allowSyncedFreqToggles);
 
 	addAndMakeVisible(button_Randomize);
@@ -119,20 +129,6 @@ void GUI_Layer_AllowedChoices_LFO_Freq::paint(Graphics& g) {
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
-}
-
-void GUI_Layer_AllowedChoices_LFO_Freq::resized() {
-	button_AllowAll.setTopLeftPosition(378, 177);
-	repeatValues.setTopLeftPosition(660, 181);
-	button_Close.setTopLeftPosition(962, 177);
-	auto categoryToggles_y{ 214 };
-	toggle_Unsynced.setTopLeftPosition(422, categoryToggles_y);
-	toggle_Pitched.setTopLeftPosition(651, categoryToggles_y);
-	toggle_Synced.setTopLeftPosition(878, categoryToggles_y);
-	auto allowToggles_y{ 234 };
-	allowUnsyncedFreqToggles.setTopLeftPosition(378, allowToggles_y);
-	allowPitchedFreqToggles.setTopLeftPosition(578, allowToggles_y);
-	allowSyncedFreqToggles.setTopLeftPosition(812, allowToggles_y);
 }
 
 void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {

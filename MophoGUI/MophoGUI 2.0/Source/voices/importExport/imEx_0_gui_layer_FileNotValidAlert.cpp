@@ -10,6 +10,7 @@ using namespace MophoConstants;
 GUI_Layer_FileNotValidAlert::GUI_Layer_FileNotValidAlert(UnexposedParameters* unexposedParams) :
 	button_Close{ unexposedParams }
 {
+	button_Close.setTopLeftPosition(612, 310);
 	addAndMakeVisible(button_Close);
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -24,6 +25,3 @@ void GUI_Layer_FileNotValidAlert::paint(Graphics& g) {
 	g.drawImageAt(backgroundImage, 566, 274);
 }
 
-void GUI_Layer_FileNotValidAlert::resized() {
-	button_Close.setTopLeftPosition(612, 310);
-}
