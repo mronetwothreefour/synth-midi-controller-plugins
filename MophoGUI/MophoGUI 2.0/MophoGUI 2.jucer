@@ -370,15 +370,17 @@
               compile="1" resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
         <FILE id="rsFneO" name="rndm_0_comp_KnobForSeqTrackProbability.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
+        <FILE id="dCfmZN" name="rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
         <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
         <FILE id="sA2mOU" name="rndm_0_comp_SeqTrackTargetStep.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
         <FILE id="dT0kC8" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
-        <FILE id="VU3Sq3" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
+        <FILE id="zzIgGE" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
-        <FILE id="CWVTZ2" name="rndm_0_ParamRandomizationMethods.h" compile="0"
+        <FILE id="p4jDRu" name="rndm_0_ParamRandomizationMethods.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.h"/>
         <FILE id="BMhxkm" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
@@ -420,6 +422,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
         <FILE id="PvE9on" name="rndm_2_gui_layer_AllowedChoices_OscShape.h"
               compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
+        <FILE id="nQIw9T" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"/>
+        <FILE id="kumSvb" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.h"/>
         <FILE id="TdIPAG" name="rndm_2_gui_layer_AllowedChoices_Standard.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
         <FILE id="X3Kl3Z" name="rndm_2_gui_layer_AllowedChoices_Standard.h"

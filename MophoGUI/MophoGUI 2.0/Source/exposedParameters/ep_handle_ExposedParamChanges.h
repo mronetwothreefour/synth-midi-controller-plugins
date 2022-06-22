@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
@@ -11,14 +12,14 @@ class VoiceTransmissionOptions;
 class ExposedParamChangesHandler :
 	private AudioProcessorParameter::Listener
 {
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	VoiceTransmissionOptions* voiceTransmit;
 
 public:
 	ExposedParamChangesHandler() = delete;
 
-	ExposedParamChangesHandler(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	ExposedParamChangesHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	void parameterValueChanged(int changedParamIndex, float newValue);

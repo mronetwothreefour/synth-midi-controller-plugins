@@ -9,6 +9,7 @@
 
 
 
+class ParamRandomizationMethods;
 class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_Standard :
@@ -29,7 +30,7 @@ class GUI_Layer_AllowedChoices_Standard :
 public:
 	GUI_Layer_AllowedChoices_Standard() = delete;
 
-	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 

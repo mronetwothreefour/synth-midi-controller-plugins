@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_ParamRandomizationMethods.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
@@ -10,31 +11,27 @@
 
 using namespace MophoConstants;
 using Info = InfoForExposedParameters;
+using Track = SeqTrackNum;
 
 
 
-class RandomizeButtonForAllowedChoicesLayers :
+class RandomizeButtonForAllowedChoices_SeqTrack :
 	public TextButton
 {
 public:
-	RandomizeButtonForAllowedChoicesLayers() = delete;
+	RandomizeButtonForAllowedChoices_SeqTrack() = delete;
 
-	RandomizeButtonForAllowedChoicesLayers(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
+	RandomizeButtonForAllowedChoices_SeqTrack(Track track, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Randomize.toString());
-		onClick = [paramIndex, randomize] {
-			auto paramID{ Info::get().IDfor(paramIndex).toString()};
-			randomize->randomizeParameter(paramID);
-		};
+		onClick = [track, randomize] { randomize->randomizeSeqTrack(track); };
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		if (tooltips->shouldShowDescriptions()) {
-			auto paramName{ Info::get().exposedNameFor(paramIndex) };
-			setTooltip("Click to generate a random setting\nfor " + paramName + ".");
-		}
+		if (tooltips->shouldShowDescriptions())
+			setTooltip("Click to generate a random setting\nfor the target step in track " + String((int)track) + ".");
 		setSize(GUI::button_Randomize_w, GUI::redButton_h);
 	}
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RandomizeButtonForAllowedChoicesLayers)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RandomizeButtonForAllowedChoices_SeqTrack)
 };

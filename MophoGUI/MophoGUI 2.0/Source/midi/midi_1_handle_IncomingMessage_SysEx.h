@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class GlobalOptions;
@@ -11,7 +13,7 @@ class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_SysEx
 {
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	VoicesBanks* voicesBanks;
@@ -21,7 +23,7 @@ class IncomingMessageHandler_SysEx
 public:
 	IncomingMessageHandler_SysEx() = delete;
 
-	IncomingMessageHandler_SysEx(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	IncomingMessageHandler_SysEx(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	MidiBuffer pullMessageForMophoOutOfBuffer(const MidiBuffer& midiMessages);
 
 private:

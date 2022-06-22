@@ -9,7 +9,7 @@
 
 
 TabForFactoryVoicesBank::TabForFactoryVoicesBank(
-	VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
+	VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
 	voiceSlots{ bank, exposedParams, unexposedParams },
 	voicesBanks{ unexposedParams->getVoicesBanks() },

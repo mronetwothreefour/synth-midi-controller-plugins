@@ -9,7 +9,7 @@
 
 SeqTrackTargetStep::SeqTrackTargetStep(Track track, UnexposedParameters* unexposedParams) :
 	track{ track },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() }
+	randomization{ unexposedParams->getRandomizationOptions() }
 {
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
@@ -21,7 +21,7 @@ SeqTrackTargetStep::SeqTrackTargetStep(Track track, UnexposedParameters* unexpos
 	for (auto step = (int)Step::one; step <= (int)Step::sixteen; ++step)
 		stepList.add((String)step);
 	stepSelector.addItemList(stepList, 1);
-	stepSelector.setSelectedId((int)randomizationOptions->targetStepForSeqTrack(track), dontSendNotification);
+	stepSelector.setSelectedId((int)randomization->targetStepForSeqTrack(track), dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Selects which step in sequencer\n";
@@ -43,7 +43,7 @@ void SeqTrackTargetStep::paint(Graphics& g) {
 
 void SeqTrackTargetStep::comboBoxChanged(ComboBox* /*comboBox*/) {
 	auto selectedStep{ stepSelector.getSelectedId() };
-	randomizationOptions->setTargetStepForSeqTrack(Step{ selectedStep }, track);
+	randomization->setTargetStepForSeqTrack(Step{ selectedStep }, track);
 	getParentComponent()->repaint();
 }
 

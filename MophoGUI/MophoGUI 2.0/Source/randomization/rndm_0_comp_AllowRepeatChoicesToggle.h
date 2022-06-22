@@ -12,7 +12,7 @@ class AllowRepeatChoicesToggle :
 	public ValueTree::Listener
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:

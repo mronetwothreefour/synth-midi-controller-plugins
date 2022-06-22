@@ -6,7 +6,7 @@ using Info = InfoForExposedParameters;
 
 
 
-GUI_Layer_ExposedParamControls::GUI_Layer_ExposedParamControls(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+GUI_Layer_ExposedParamControls::GUI_Layer_ExposedParamControls(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	ExposedParamControlsServer{ exposedParams, unexposedParams }
 {
     rebuildControlsVector();

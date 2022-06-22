@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class TooltipsOptions;
@@ -13,13 +15,13 @@ class TooltipUpdaterForExposedParamControl :
 {
 	uint8 paramIndex;
 	SettableTooltipClient& clientControl;
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	TooltipsOptions* tooltips;
 
 public:
 	TooltipUpdaterForExposedParamControl() = delete;
 	
-	TooltipUpdaterForExposedParamControl(uint8 paramIndex, SettableTooltipClient& paramControl, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	TooltipUpdaterForExposedParamControl(uint8 paramIndex, SettableTooltipClient& paramControl, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	void setTooltip();

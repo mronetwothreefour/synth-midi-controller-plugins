@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 
 TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
-    uint8 paramIndex, SettableTooltipClient& paramControl, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+    uint8 paramIndex, SettableTooltipClient& paramControl, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     paramIndex{ paramIndex },
     clientControl{ paramControl },
     exposedParams{ exposedParams },

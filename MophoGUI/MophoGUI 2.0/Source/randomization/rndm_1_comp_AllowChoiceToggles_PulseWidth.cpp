@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_PulseWidth::AllowChoiceToggles_PulseWidth(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfWidths{ EP::numberOfPulseWidths },
 	AllowChoiceToggles_Base{ numberOfWidths, 10, 10, 0, 42 }
@@ -40,24 +40,24 @@ String AllowChoiceToggles_PulseWidth::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_PulseWidth::choiceIsAllowed(uint8 pulseWidth) {
-	return randomizationOptions->pulseWidthIsAllowedForParam(pulseWidth, paramIndex);
+	return randomization->pulseWidthIsAllowedForParam(pulseWidth, paramIndex);
 }
 
 void AllowChoiceToggles_PulseWidth::setChoiceIsAllowed(uint8 pulseWidth, bool shouldBeAllowed) {
-	randomizationOptions->setPulseWidthIsAllowedForParam(pulseWidth, shouldBeAllowed, paramIndex);
+	randomization->setPulseWidthIsAllowedForParam(pulseWidth, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_PulseWidth::clearAllowedChoices() {
-	randomizationOptions->clearAllowedPulseWidthsForParam(paramIndex);
+	randomization->clearAllowedPulseWidthsForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_PulseWidth::noChoiceIsAllowed() {
-	return randomizationOptions->noPulseWidthIsAllowedForParam(paramIndex) == true;
+	return randomization->noPulseWidthIsAllowedForParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_PulseWidth::restoreToggles() {
 	for (auto pulseWidth = 0; pulseWidth < numberOfWidths; ++pulseWidth) {
-		auto isAllowed{ randomizationOptions->pulseWidthIsAllowedForParam(pulseWidth, paramIndex) };
+		auto isAllowed{ randomization->pulseWidthIsAllowedForParam(pulseWidth, paramIndex) };
 		allowedChoiceToggles[pulseWidth]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

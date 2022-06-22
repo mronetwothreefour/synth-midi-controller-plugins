@@ -19,7 +19,7 @@ class AllowRepeatChoicesToggle_SeqTrackStep :
 {
 	Track track;
 	Step step;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:

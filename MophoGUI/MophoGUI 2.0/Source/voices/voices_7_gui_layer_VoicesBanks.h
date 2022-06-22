@@ -6,6 +6,8 @@
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class GUI_Layer_BankTransmit;
@@ -36,7 +38,7 @@ class GUI_Layer_VoicesBanks :
 public:
     GUI_Layer_VoicesBanks() = delete;
 
-    GUI_Layer_VoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
     void editorShown(Label* label, TextEditor& editor) override;
     void labelTextChanged(Label* label) override;

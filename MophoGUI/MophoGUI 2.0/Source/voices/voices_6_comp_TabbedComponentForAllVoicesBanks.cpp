@@ -7,7 +7,7 @@
 
 
 TabbedComponentForAllVoicesBanks::TabbedComponentForAllVoicesBanks(
-	AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	TabbedComponent(TabbedButtonBar::TabsAtTop),
 	tabbedComponentForCustomVoicesBanks{ exposedParams, unexposedParams, voiceCopyBuffer },
 	tabbedComponentForFactoryVoicesBanks{ exposedParams, unexposedParams, voiceCopyBuffer }

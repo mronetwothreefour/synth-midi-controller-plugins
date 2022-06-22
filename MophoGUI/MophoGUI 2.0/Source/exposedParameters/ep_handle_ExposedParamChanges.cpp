@@ -13,7 +13,7 @@ using Info = InfoForExposedParameters;
 
 
 
-ExposedParamChangesHandler::ExposedParamChangesHandler(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }

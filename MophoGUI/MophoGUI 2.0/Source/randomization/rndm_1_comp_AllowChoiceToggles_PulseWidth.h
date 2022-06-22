@@ -14,7 +14,7 @@ class AllowChoiceToggles_PulseWidth :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltipOptions;
 	const uint8 numberOfWidths;
 

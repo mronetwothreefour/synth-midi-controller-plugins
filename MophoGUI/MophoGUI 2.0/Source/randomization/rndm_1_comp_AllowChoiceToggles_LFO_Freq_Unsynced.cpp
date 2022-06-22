@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_LFO_Freq_Unsynced::AllowChoiceToggles_LFO_Freq_Unsynced(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfUnsyncedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 9, 10, 0, 20 }
@@ -39,24 +39,24 @@ String AllowChoiceToggles_LFO_Freq_Unsynced::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Unsynced::choiceIsAllowed(uint8 unsyncedFreq) {
-	return randomizationOptions->unsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, paramIndex);
+	return randomization->unsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Unsynced::setChoiceIsAllowed(uint8 unsyncedFreq, bool shouldBeAllowed) {
-	randomizationOptions->setUnsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, shouldBeAllowed, paramIndex);
+	randomization->setUnsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Unsynced::clearAllowedChoices() {
-	randomizationOptions->clearAllowedUnsyncedFreqForParam(paramIndex);
+	randomization->clearAllowedUnsyncedFreqForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Unsynced::noChoiceIsAllowed() {
-	return randomizationOptions->noUnsyncedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
+	return randomization->noUnsyncedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_LFO_Freq_Unsynced::restoreToggles() {
 	for (auto unsyncedFreq = (uint8)0; unsyncedFreq < numberOfFreq; ++unsyncedFreq) {
-		auto isAllowed{ randomizationOptions->unsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, paramIndex) };
+		auto isAllowed{ randomization->unsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, paramIndex) };
 		allowedChoiceToggles[unsyncedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

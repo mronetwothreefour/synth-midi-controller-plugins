@@ -8,8 +8,7 @@ using namespace MophoConstants;
 
 
 
-EnvelopePainter::EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeState* exposedParams) :
-	exposedParams{ exposedParams },
+EnvelopePainter::EnvelopePainter(EnvelopeType envType, ExposedParameters* exposedParams) :
 	attackStart_x{ 0.0f },
 	decayStart_x{ 0.0f },
 	sustainStart_x{ 0.0f },

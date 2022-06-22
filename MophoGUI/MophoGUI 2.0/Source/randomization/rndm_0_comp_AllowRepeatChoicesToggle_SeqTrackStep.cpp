@@ -11,13 +11,13 @@ using namespace MophoConstants;
 AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(Track track, Step step, UnexposedParameters* unexposedParams) :
 	track{ track },
 	step{ step },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() }
+	randomization{ unexposedParams->getRandomizationOptions() }
 {
-	randomizationOptions->addListenerToSeqTrackTree(this, track);
+	randomization->addListenerToSeqTrackTree(this, track);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, track, step] {
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
-		randomizationOptions->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
+		randomization->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
 	};
 	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
 	if (tooltipOptions->shouldShowDescriptions()) {
@@ -49,12 +49,12 @@ void AllowRepeatChoicesToggle_SeqTrackStep::paint(Graphics& g) {
 
 void AllowRepeatChoicesToggle_SeqTrackStep::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
 	if (propertyID.toString() == ID::rndm_RepeatChoicesMustBeAllowedForStep_.toString() + String((int)step)) {
-		if (randomizationOptions->repeatChoicesMustBeAllowedForSeqTrackStep(track, step)) {
+		if (randomization->repeatChoicesMustBeAllowedForSeqTrackStep(track, step)) {
 			toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
 			toggle_AllowRepeatChoices.setEnabled(false);
 		}
 		else {
-			auto repeatsAreAllowed{ randomizationOptions->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
+			auto repeatsAreAllowed{ randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
 			toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 			toggle_AllowRepeatChoices.setEnabled(true);
 		}
@@ -62,5 +62,5 @@ void AllowRepeatChoicesToggle_SeqTrackStep::valueTreePropertyChanged(ValueTree& 
 }
 
 AllowRepeatChoicesToggle_SeqTrackStep::~AllowRepeatChoicesToggle_SeqTrackStep() {
-	randomizationOptions->removeListenerFromSeqTrackTree(this, track);
+	randomization->removeListenerFromSeqTrackTree(this, track);
 }

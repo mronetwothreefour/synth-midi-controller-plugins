@@ -14,7 +14,7 @@ class AllowChoiceToggles_Standard :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltipOptions;
 	uint8 numberOfChoices;
 

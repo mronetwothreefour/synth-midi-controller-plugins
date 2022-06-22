@@ -1,8 +1,12 @@
 #include "rndm_0_ParamRandomizationMethods.h"
 
-ParamRandomizationMethods::ParamRandomizationMethods(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
+
+
+
+ParamRandomizationMethods::ParamRandomizationMethods(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams }
+	randomization{ unexposedParams->getRandomizationOptions() }
 {
 }
 
@@ -10,7 +14,11 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters()
 {
 }
 
-void ParamRandomizationMethods::randomizeParameter(String paramID)
+void ParamRandomizationMethods::randomizeParameter(String /*paramID*/)
+{
+}
+
+void ParamRandomizationMethods::randomizeSeqTrack(Track /*track*/)
 {
 }
 

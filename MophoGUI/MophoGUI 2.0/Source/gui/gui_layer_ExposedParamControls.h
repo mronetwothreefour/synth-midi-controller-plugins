@@ -4,6 +4,8 @@
 
 #include "../exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class UnexposedParameters;
@@ -15,7 +17,7 @@ class GUI_Layer_ExposedParamControls :
 public:
 	GUI_Layer_ExposedParamControls() = delete;
 
-	GUI_Layer_ExposedParamControls(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_ExposedParamControls(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	~GUI_Layer_ExposedParamControls() override;
 
 private:

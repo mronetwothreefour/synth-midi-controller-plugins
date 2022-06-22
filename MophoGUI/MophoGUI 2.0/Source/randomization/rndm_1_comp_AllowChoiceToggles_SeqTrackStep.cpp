@@ -13,7 +13,7 @@ AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(Track track, St
 	track{ track },
 	step{ step },
 	destIsPitched{ destIsPitched },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	AllowChoiceToggles_Base{ 
 		EP::numberOfChoicesForSeqTrackSteps, 
@@ -55,24 +55,24 @@ String AllowChoiceToggles_SeqTrackStep::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_SeqTrackStep::choiceIsAllowed(uint8 choiceNum) {
-	return randomizationOptions->choiceIsAllowedForSeqTrackStep(choiceNum, track, step) == true;
+	return randomization->choiceIsAllowedForSeqTrackStep(choiceNum, track, step) == true;
 }
 
 void AllowChoiceToggles_SeqTrackStep::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
-	randomizationOptions->setChoiceIsAllowedForSeqTrackStep(choiceNum, shouldBeAllowed, track, step);
+	randomization->setChoiceIsAllowedForSeqTrackStep(choiceNum, shouldBeAllowed, track, step);
 }
 
 void AllowChoiceToggles_SeqTrackStep::clearAllowedChoices() {
-	randomizationOptions->clearAllowedChoicesForSeqTrackStep(track, step);
+	randomization->clearAllowedChoicesForSeqTrackStep(track, step);
 }
 
 const bool AllowChoiceToggles_SeqTrackStep::noChoiceIsAllowed() {
-	return randomizationOptions->noChoiceIsAllowedForSeqTrackStep(track, step) == true;
+	return randomization->noChoiceIsAllowedForSeqTrackStep(track, step) == true;
 }
 
 void AllowChoiceToggles_SeqTrackStep::restoreToggles() {
 	for (auto choiceNum = (uint8)0; choiceNum < EP::numberOfChoicesForSeqTrackSteps; ++choiceNum) {
-		auto isAllowed{ randomizationOptions->choiceIsAllowedForSeqTrackStep(choiceNum, track, step) };
+		auto isAllowed{ randomization->choiceIsAllowedForSeqTrackStep(choiceNum, track, step) };
 		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

@@ -7,6 +7,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 
 using namespace MophoConstants;
+using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
@@ -20,7 +21,7 @@ class GUI_Layer_EnvelopePainters :
 public:
 	GUI_Layer_EnvelopePainters() = delete;
 
-	GUI_Layer_EnvelopePainters(AudioProcessorValueTreeState* exposedParams) :
+	GUI_Layer_EnvelopePainters(ExposedParameters* exposedParams) :
 		envelopePainter_LPF{ EnvelopeType::lpf, exposedParams, },
 		envelopePainter_VCA{ EnvelopeType::vca, exposedParams, },
 		envelopePainter_Env3{ EnvelopeType::env_3, exposedParams, }

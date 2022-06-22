@@ -8,6 +8,7 @@
 
 
 
+class ParamRandomizationMethods;
 class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_Binary :
@@ -25,7 +26,7 @@ class GUI_Layer_AllowedChoices_Binary :
 public:
 	GUI_Layer_AllowedChoices_Binary() = delete;
 
-	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

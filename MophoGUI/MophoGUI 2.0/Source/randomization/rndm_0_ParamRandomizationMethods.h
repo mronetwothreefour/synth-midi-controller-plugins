@@ -2,22 +2,31 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_Enum.h"
+
+using namespace MophoConstants;
+using ExposedParameters = AudioProcessorValueTreeState;
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
 
 
+
+class RandomizationOptions;
 class UnexposedParameters;
 
 class ParamRandomizationMethods :
 	private Timer
 {
-	AudioProcessorValueTreeState* exposedParams;
-	UnexposedParameters* unexposedParams;
+	ExposedParameters* exposedParams;
+	RandomizationOptions* randomization;
 
 public:
 	ParamRandomizationMethods() = delete;
 
-	ParamRandomizationMethods(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	ParamRandomizationMethods(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void randomizeAllUnlockedParameters();
 	void randomizeParameter(String paramID);
+	void randomizeSeqTrack(Track track);
 
 private:
 	void timerCallback() override;

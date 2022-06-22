@@ -5,6 +5,7 @@
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 #include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
@@ -26,7 +27,7 @@ class KnobAndAttachment_ForOscShape :
 public:
 	KnobAndAttachment_ForOscShape() = delete;
 
-	KnobAndAttachment_ForOscShape(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForOscShape(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void paintText(Graphics& g, String text);
 	void paintSawtooth(Graphics& g, Path path);

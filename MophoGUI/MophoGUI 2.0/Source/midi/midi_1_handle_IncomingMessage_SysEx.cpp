@@ -8,7 +8,7 @@ using namespace MophoConstants;
 
 
 
-IncomingMessageHandler_SysEx::IncomingMessageHandler_SysEx(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+IncomingMessageHandler_SysEx::IncomingMessageHandler_SysEx(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },

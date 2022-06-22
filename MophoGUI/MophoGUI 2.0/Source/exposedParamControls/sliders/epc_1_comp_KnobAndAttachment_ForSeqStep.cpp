@@ -13,7 +13,7 @@ using Info = InfoForExposedParameters;
 
 
 KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
-    uint8 paramIndex, int trackNum, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+    uint8 paramIndex, int trackNum, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
 		knob{ trackNum, unexposedParams },

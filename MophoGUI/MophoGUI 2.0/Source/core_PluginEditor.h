@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class GUI_Layer_EnvelopePainters;
@@ -16,7 +18,6 @@ class PluginEditor :
     public ValueTree::Listener
 {
     PluginProcessor& processor;
-    AudioProcessorValueTreeState* exposedParams;
     TooltipsOptions* tooltips;
     std::unique_ptr<MophoLookAndFeel> lookAndFeel;
     std::unique_ptr<GUI_Layer_EnvelopePainters> layerForEnvelopePainters;
@@ -25,7 +26,7 @@ class PluginEditor :
     std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
-    PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 public:
     void paint(Graphics& g) override;

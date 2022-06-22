@@ -22,7 +22,7 @@ ExposedParamControl::ExposedParamControl() :
 	// this default constructor is needed when initializing the vector in ExposedParamControlsServer
 }
 
-ExposedParamControl::ExposedParamControl(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ExposedParamControl::ExposedParamControl(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },

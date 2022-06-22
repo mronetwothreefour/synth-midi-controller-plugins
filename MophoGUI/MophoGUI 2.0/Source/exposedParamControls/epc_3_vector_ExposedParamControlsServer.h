@@ -4,6 +4,8 @@
 
 #include "epc_2_comp_ExposedParamControl.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class UnexposedParameters;
@@ -17,7 +19,7 @@ class ExposedParamControlsServer
 public:
 	ExposedParamControlsServer() = delete;
 
-	explicit ExposedParamControlsServer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	explicit ExposedParamControlsServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	void fillControlsVector();

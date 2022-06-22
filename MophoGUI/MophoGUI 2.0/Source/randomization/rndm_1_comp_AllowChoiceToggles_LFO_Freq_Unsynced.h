@@ -14,7 +14,7 @@ class AllowChoiceToggles_LFO_Freq_Unsynced :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltipOptions;
 	const uint8 numberOfFreq;
 

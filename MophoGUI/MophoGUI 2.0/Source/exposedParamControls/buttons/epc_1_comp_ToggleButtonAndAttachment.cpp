@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 
 ToggleButtonAndAttachment::ToggleButtonAndAttachment(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	tooltipsUpdater{ paramIndex, toggle, exposedParams, unexposedParams }

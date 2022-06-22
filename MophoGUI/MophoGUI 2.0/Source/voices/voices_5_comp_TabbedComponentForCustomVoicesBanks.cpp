@@ -9,7 +9,7 @@
 
 
 TabbedComponentForCustomVoicesBanks::TabbedComponentForCustomVoicesBanks(
-	AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
+	ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	TabbedComponent(TabbedButtonBar::TabsAtLeft),
 	bank_1{ VoicesBank::custom_1, exposedParams, unexposedParams, voiceCopyBuffer },
 	bank_2{ VoicesBank::custom_2, exposedParams, unexposedParams, voiceCopyBuffer },

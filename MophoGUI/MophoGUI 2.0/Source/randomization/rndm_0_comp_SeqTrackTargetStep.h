@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
@@ -14,11 +15,10 @@ class UnexposedParameters;
 
 class SeqTrackTargetStep :
 	public Component,
-	public Button::Listener,
 	public ComboBox::Listener
 {
 	Track track;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	ComboBox stepSelector;
 
 public:

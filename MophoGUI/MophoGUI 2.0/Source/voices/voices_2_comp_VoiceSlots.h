@@ -6,6 +6,8 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_Voices.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class OutgoingMidiBuffers;
@@ -20,7 +22,7 @@ class VoiceSlots :
 {
     ToggleButton voiceSlotButtons[VCS::numberOfSlotsInVoicesBank];
     const VoicesBank bank;
-    AudioProcessorValueTreeState* exposedParams;
+    ExposedParameters* exposedParams;
     UnexposedParameters* unexposedParams;
     OutgoingMidiBuffers* outgoingMIDI;
     VoicesBanks* voicesBanks;
@@ -36,7 +38,7 @@ public:
 
     VoiceSlots() = delete;
 
-    VoiceSlots(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void setTextForVoiceSlotToggleButton(uint8 slot);
     void saveCurrentVoiceSettingsIntoSelectedSlot();
     void loadVoiceFromSelectedSlot();

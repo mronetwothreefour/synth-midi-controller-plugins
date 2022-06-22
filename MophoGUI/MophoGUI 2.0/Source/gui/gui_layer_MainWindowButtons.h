@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class GlobalOptions;
@@ -19,7 +21,7 @@ class GUI_Layer_MainWindowButtons :
 	private MultiTimer,
 	private Timer
 {
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	TooltipsOptions* tooltips;
@@ -46,7 +48,7 @@ class GUI_Layer_MainWindowButtons :
 public:
 	GUI_Layer_MainWindowButtons() = delete;
 
-	GUI_Layer_MainWindowButtons(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;

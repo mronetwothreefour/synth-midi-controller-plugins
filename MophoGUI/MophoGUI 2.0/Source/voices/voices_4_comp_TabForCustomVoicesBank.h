@@ -6,6 +6,8 @@
 #include "voices_2_comp_VoiceSlots.h"
 #include "voices_3_comp_ButtonsForVoicesBankTab.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class UnexposedParameters;
@@ -39,7 +41,7 @@ public:
 
     TabForCustomVoicesBank() = delete;
 
-    TabForCustomVoicesBank(VoicesBank bank, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
+    TabForCustomVoicesBank(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer);
     void paint(Graphics& g) override;
     ApplicationCommandTarget* getNextCommandTarget() override;
     void getAllCommands(Array<CommandID>& commands) override;

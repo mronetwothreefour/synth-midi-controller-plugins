@@ -14,10 +14,9 @@ using namespace MophoConstants;
 
 
 
-PluginEditor::PluginEditor(PluginProcessor& processor, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    exposedParams{ exposedParams },
     tooltips{ unexposedParams->getTooltipsOptions() },
     lookAndFeel{ new MophoLookAndFeel() },
     layerForEnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },

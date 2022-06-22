@@ -1,9 +1,7 @@
 #include "rndm_2_gui_layer_AllowedChoices_OscShape.h"
 
-#include "rndm_0_ParamRandomizationMethods.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
@@ -13,13 +11,13 @@ using Info = InfoForExposedParameters;
 
 
 GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
-	repeatValues{ paramIndex, unexposedParams },
+	randomization{ unexposedParams->getRandomizationOptions() },
+	repeatChoices{ paramIndex, unexposedParams },
 	allowPulseWidthToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, unexposedParams },
+	button_Randomize{ paramIndex, randomize, unexposedParams },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
 {
@@ -45,8 +43,8 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	button_AllowAll.setBounds(inset_x, inset_y, GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);
 
-	repeatValues.setTopLeftPosition(background_x + 192, background_y + 21);
-	addAndMakeVisible(repeatValues);
+	repeatChoices.setTopLeftPosition(background_x + 192, background_y + 21);
+	addAndMakeVisible(repeatChoices);
 
 	button_Close.setTopRightPosition(background_x + background_w - inset, inset_y);
 	addAndMakeVisible(button_Close);
@@ -54,7 +52,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	auto shapeTogglesRow_y{ background_y + 49 };
 	toggle_Off.setComponentID(ID::component_RedToggle_AllowOscShape_Off.toString());
 	toggle_Off.addListener(this);
-	auto offIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(Shape::off, paramIndex) };
+	auto offIsAllowed{ randomization->oscShapeIsAllowedForParam(Shape::off, paramIndex) };
 	toggle_Off.setToggleState(offIsAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -68,7 +66,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 	toggle_Saw.setComponentID(ID::component_RedToggle_AllowOscShape_Saw.toString());
 	toggle_Saw.addListener(this);
-	auto sawtoothIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(Shape::sawtooth, paramIndex) };
+	auto sawtoothIsAllowed{ randomization->oscShapeIsAllowedForParam(Shape::sawtooth, paramIndex) };
 	toggle_Saw.setToggleState(sawtoothIsAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -82,7 +80,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 	toggle_Tri.setComponentID(ID::component_RedToggle_AllowOscShape_Tri.toString());
 	toggle_Tri.addListener(this);
-	auto triangleIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(Shape::triangle, paramIndex) };
+	auto triangleIsAllowed{ randomization->oscShapeIsAllowedForParam(Shape::triangle, paramIndex) };
 	toggle_Tri.setToggleState(triangleIsAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -96,7 +94,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 	toggle_SawTri.setComponentID(ID::component_RedToggle_AllowOscShape_SawTri.toString());
 	toggle_SawTri.addListener(this);
-	auto sawTriMixIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(Shape::sawTriMix, paramIndex) };
+	auto sawTriMixIsAllowed{ randomization->oscShapeIsAllowedForParam(Shape::sawTriMix, paramIndex) };
 	toggle_SawTri.setToggleState(sawTriMixIsAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -110,7 +108,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 	toggle_Pulse.setComponentID(ID::component_RedToggle_AllowOscShape_Pulse.toString());
 	toggle_Pulse.addListener(this);
-	auto pulseIsAllowed{ randomizationOptions->oscShapeIsAllowedForParam(Shape::pulse, paramIndex) };
+	auto pulseIsAllowed{ randomization->oscShapeIsAllowedForParam(Shape::pulse, paramIndex) };
 	toggle_Pulse.setToggleState(pulseIsAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String toggleTooltip{ "" };
@@ -161,10 +159,10 @@ void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
 		makeShapeTheOnlyOneAllowed(clickedShape);
 	else {
 		auto shapeIsAllowed{ button->getToggleState() };
-		randomizationOptions->setOscShapeIsAllowedForParam(clickedShape, shapeIsAllowed ? true : false, paramIndex);
-		if (randomizationOptions->noOscShapeIsAllowedForParam(paramIndex)) {
+		randomization->setOscShapeIsAllowedForParam(clickedShape, shapeIsAllowed ? true : false, paramIndex);
+		if (randomization->noOscShapeIsAllowedForParam(paramIndex)) {
 			button->setToggleState(true, dontSendNotification);
-			randomizationOptions->setOscShapeIsAllowedForParam(clickedShape, true, paramIndex);
+			randomization->setOscShapeIsAllowedForParam(clickedShape, true, paramIndex);
 		}
 		if (clickedShape == Shape::pulse) {
 			if (shapeIsAllowed)
@@ -181,8 +179,8 @@ void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape allowed
 	toggle_Tri.setToggleState(allowedShape == Shape::triangle ? true : false, dontSendNotification);
 	toggle_SawTri.setToggleState(allowedShape == Shape::sawTriMix ? true : false, dontSendNotification);
 	toggle_Pulse.setToggleState(allowedShape == Shape::pulse ? true : false, dontSendNotification);
-	randomizationOptions->clearAllowedOscShapesForParam(paramIndex);
-	randomizationOptions->setOscShapeIsAllowedForParam(allowedShape, true, paramIndex);
+	randomization->clearAllowedOscShapesForParam(paramIndex);
+	randomization->setOscShapeIsAllowedForParam(allowedShape, true, paramIndex);
 	if (allowedShape == Shape::pulse)
 		allowPulseWidthToggles.restoreToggles();
 	else
@@ -190,7 +188,7 @@ void GUI_Layer_AllowedChoices_OscShape::makeShapeTheOnlyOneAllowed(Shape allowed
 }
 
 void GUI_Layer_AllowedChoices_OscShape::allowAllChoices() {
-	randomizationOptions->allowAllChoicesForOscShapeParam(paramIndex);
+	randomization->allowAllChoicesForOscShapeParam(paramIndex);
 	toggle_Off.setToggleState(true, dontSendNotification);
 	toggle_Saw.setToggleState(true, dontSendNotification);
 	toggle_Tri.setToggleState(true, dontSendNotification);

@@ -5,6 +5,7 @@
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 #include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
@@ -16,7 +17,7 @@ class KnobAndAttachment :
 	// much, much faster than listening directly to an exposed parameter
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
@@ -25,7 +26,7 @@ class KnobAndAttachment :
 public:
 	KnobAndAttachment() = delete;
 
-	KnobAndAttachment(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void attachKnobToExposedParameter();
 	void setKnobIsModifyingPitch();

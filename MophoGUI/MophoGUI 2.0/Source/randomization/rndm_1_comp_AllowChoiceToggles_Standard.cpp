@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) },
 	AllowChoiceToggles_Base{
@@ -51,24 +51,24 @@ String AllowChoiceToggles_Standard::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_Standard::choiceIsAllowed(uint8 choiceNum) {
-	return randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) == true;
+	return randomization->choiceIsAllowedForParam(choiceNum, paramIndex) == true;
 }
 
 void AllowChoiceToggles_Standard::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
-	randomizationOptions->setChoiceIsAllowedForParam(choiceNum, shouldBeAllowed, paramIndex);
+	randomization->setChoiceIsAllowedForParam(choiceNum, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_Standard::clearAllowedChoices() {
-	randomizationOptions->clearAllowedChoicesForParam(paramIndex);
+	randomization->clearAllowedChoicesForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_Standard::noChoiceIsAllowed() {
-	return randomizationOptions->noChoiceIsAllowedForParam(paramIndex) == true;
+	return randomization->noChoiceIsAllowedForParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_Standard::restoreToggles() {
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
-		auto isAllowed{ randomizationOptions->choiceIsAllowedForParam(choiceNum, paramIndex) };
+		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
 		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

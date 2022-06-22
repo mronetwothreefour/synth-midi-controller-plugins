@@ -14,7 +14,7 @@ using Info = InfoForExposedParameters;
 
 
 KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
 		knob{ unexposedParams },

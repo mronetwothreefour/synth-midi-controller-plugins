@@ -1,9 +1,7 @@
 #include "rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"
 
-#include "rndm_0_ParamRandomizationMethods.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
@@ -13,15 +11,15 @@ using Info = InfoForExposedParameters;
 
 
 GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
-	repeatValues{ paramIndex, unexposedParams },
+	randomization{ unexposedParams->getRandomizationOptions() },
+	repeatChoices{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	allowUnsyncedFreqToggles{ paramIndex, unexposedParams },
 	allowPitchedFreqToggles{ paramIndex, unexposedParams },
 	allowSyncedFreqToggles{ paramIndex, unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, unexposedParams },
+	button_Randomize{ paramIndex, randomize, unexposedParams },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
 {
@@ -44,8 +42,8 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	button_AllowAll.setBounds(378, 177, GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);
 
-	repeatValues.setTopLeftPosition(660, 181);
-	addAndMakeVisible(repeatValues);
+	repeatChoices.setTopLeftPosition(660, 181);
+	addAndMakeVisible(repeatChoices);
 
 	button_Close.setTopLeftPosition(962, 177);
 	addAndMakeVisible(button_Close);
@@ -53,7 +51,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	auto categoryToggles_y{ 214 };
 	toggle_Unsynced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Unsynced.toString());
 	toggle_Unsynced.addListener(this);
-	auto unsyncedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::unsynced, paramIndex) };
+	auto unsyncedFreqAreAllowed{ randomization->categoryIsAllowedForLFO_FreqParam(Category::unsynced, paramIndex) };
 	toggle_Unsynced.setToggleState(unsyncedFreqAreAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
@@ -67,7 +65,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 
 	toggle_Pitched.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Pitched.toString());
 	toggle_Pitched.addListener(this);
-	auto pitchedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::pitched, paramIndex) };
+	auto pitchedFreqAreAllowed{ randomization->categoryIsAllowedForLFO_FreqParam(Category::pitched, paramIndex) };
 	toggle_Pitched.setToggleState(pitchedFreqAreAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
@@ -81,7 +79,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 
 	toggle_Synced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Synced.toString());
 	toggle_Synced.addListener(this);
-	auto syncedFreqAreAllowed{ randomizationOptions->categoryIsAllowedForLFO_FreqParam(Category::synced, paramIndex) };
+	auto syncedFreqAreAllowed{ randomization->categoryIsAllowedForLFO_FreqParam(Category::synced, paramIndex) };
 	toggle_Synced.setToggleState(syncedFreqAreAllowed ? true : false, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
@@ -142,10 +140,10 @@ void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {
 		makeCategoryTheOnlyOneAllowed(clickedCategory);
 	else {
 		auto categoryIsAllowed{ button->getToggleState() };
-		randomizationOptions->setCategoryIsAllowedForLFO_FreqParam(clickedCategory, categoryIsAllowed ? true : false, paramIndex);
-		if (randomizationOptions->noCategoryIsAllowedForLFO_FreqParam(paramIndex)) {
+		randomization->setCategoryIsAllowedForLFO_FreqParam(clickedCategory, categoryIsAllowed ? true : false, paramIndex);
+		if (randomization->noCategoryIsAllowedForLFO_FreqParam(paramIndex)) {
 			button->setToggleState(true, dontSendNotification);
-			randomizationOptions->setCategoryIsAllowedForLFO_FreqParam(clickedCategory, true, paramIndex);
+			randomization->setCategoryIsAllowedForLFO_FreqParam(clickedCategory, true, paramIndex);
 		}
 		if (clickedCategory == Category::unsynced) {
 			if (categoryIsAllowed)
@@ -172,8 +170,8 @@ void GUI_Layer_AllowedChoices_LFO_Freq::makeCategoryTheOnlyOneAllowed(Category a
 	toggle_Unsynced.setToggleState(allowedCategory == Category::unsynced ? true : false, dontSendNotification);
 	toggle_Pitched.setToggleState(allowedCategory == Category::pitched ? true : false, dontSendNotification);
 	toggle_Synced.setToggleState(allowedCategory == Category::synced ? true : false, dontSendNotification);
-	randomizationOptions->clearAllowedCategoriesForLFO_FreqParam(paramIndex);
-	randomizationOptions->setCategoryIsAllowedForLFO_FreqParam(allowedCategory, true, paramIndex);
+	randomization->clearAllowedCategoriesForLFO_FreqParam(paramIndex);
+	randomization->setCategoryIsAllowedForLFO_FreqParam(allowedCategory, true, paramIndex);
 	if (allowedCategory == Category::unsynced) {
 		allowUnsyncedFreqToggles.restoreToggles();
 		allowPitchedFreqToggles.disableToggles();
@@ -192,7 +190,7 @@ void GUI_Layer_AllowedChoices_LFO_Freq::makeCategoryTheOnlyOneAllowed(Category a
 }
 
 void GUI_Layer_AllowedChoices_LFO_Freq::allowAllChoices() {
-	randomizationOptions->allowAllChoicesForLFO_FreqParam(paramIndex);
+	randomization->allowAllChoicesForLFO_FreqParam(paramIndex);
 	toggle_Unsynced.setToggleState(true, dontSendNotification);
 	toggle_Pitched.setToggleState(true, dontSendNotification);
 	toggle_Synced.setToggleState(true, dontSendNotification);

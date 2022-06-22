@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomizationOptions{ unexposedParams->getRandomizationOptions() },
+	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltipOptions{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfSyncedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 2, 8, 0, 100 }
@@ -92,24 +92,24 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Synced::choiceIsAllowed(uint8 syncedFreq) {
-	return randomizationOptions->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex);
+	return randomization->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::setChoiceIsAllowed(uint8 syncedFreq, bool shouldBeAllowed) {
-	randomizationOptions->setSyncedFreqIsAllowedForLFO_FreqParam(syncedFreq, shouldBeAllowed, paramIndex);
+	randomization->setSyncedFreqIsAllowedForLFO_FreqParam(syncedFreq, shouldBeAllowed, paramIndex);
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::clearAllowedChoices() {
-	randomizationOptions->clearAllowedSyncedFreqForParam(paramIndex);
+	randomization->clearAllowedSyncedFreqForParam(paramIndex);
 }
 
 const bool AllowChoiceToggles_LFO_Freq_Synced::noChoiceIsAllowed() {
-	return randomizationOptions->noSyncedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
+	return randomization->noSyncedFreqIsAllowedForLFO_FreqParam(paramIndex) == true;
 }
 
 void AllowChoiceToggles_LFO_Freq_Synced::restoreToggles() {
 	for (auto syncedFreq = (uint8)0; syncedFreq < numberOfFreq; ++syncedFreq) {
-		auto isAllowed{ randomizationOptions->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex) };
+		auto isAllowed{ randomization->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex) };
 		allowedChoiceToggles[syncedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

@@ -34,7 +34,7 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
 }
 
 void RawDataTools::applyRawDataToExposedParameters(
-    const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) 
+    const uint8* dumpData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
 {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
     voiceTransmissionOptions->dontTransmitParamChanges();
@@ -57,7 +57,7 @@ void RawDataTools::applyRawDataToExposedParameters(
     voiceTransmissionOptions->transmitParamChanges();
 }
 
-const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(AudioProcessorValueTreeState* exposedParams) {
+const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(ExposedParameters* exposedParams) {
     std::vector<uint8> voiceData;
     for (auto i = 0; i != rawVoiceDataSize; ++i) {
         voiceData.push_back((uint8)0);

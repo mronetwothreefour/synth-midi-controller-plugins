@@ -15,7 +15,7 @@ using namespace MophoConstants;
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties() },
     unexposedParams{ new UnexposedParameters() },
-    exposedParams{ new AudioProcessorValueTreeState(*this, unexposedParams->getUndoManager(), "exposedParams", ExposedParametersLayout::build()) },
+    exposedParams{ new ExposedParameters(*this, unexposedParams->getUndoManager(), "exposedParams", ExposedParametersLayout::build()) },
     exposedParamChangesHandler{ new ExposedParamChangesHandler(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx(exposedParams.get(), unexposedParams.get()) },

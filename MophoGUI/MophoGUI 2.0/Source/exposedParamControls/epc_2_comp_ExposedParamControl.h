@@ -5,6 +5,8 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class ComboBoxAndAttachment;
@@ -19,7 +21,7 @@ class ExposedParamControl :
 	public Component
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	ControlType controlType;
 	std::unique_ptr<KnobAndAttachment> knobAndAttachment;
@@ -32,7 +34,7 @@ class ExposedParamControl :
 	ExposedParamControl(); 
 
 public:
-	ExposedParamControl(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	ExposedParamControl(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	void buildKnobAndAttachmentControlForExposedParam();

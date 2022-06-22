@@ -21,7 +21,7 @@ class AllowChoiceToggles_SeqTrackStep :
 	Track track;
 	Step step;
 	bool destIsPitched;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltipOptions;
 
 public:

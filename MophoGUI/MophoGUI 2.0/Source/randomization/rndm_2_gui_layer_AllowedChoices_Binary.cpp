@@ -9,10 +9,10 @@ using Info = InfoForExposedParameters;
 
 
 GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	repeatChoicesToggle{ paramIndex, unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, unexposedParams },
+	button_Randomize{ paramIndex, randomize, unexposedParams },
 	button_Close{ unexposedParams },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }

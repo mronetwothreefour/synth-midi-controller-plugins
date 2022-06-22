@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class GlobalOptions;
@@ -10,7 +12,7 @@ class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_NRPN
 {
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	GlobalOptions* global;
 	VoiceTransmissionOptions* voiceTransmit;
 	bool receivedType_MSB{ false };
@@ -27,7 +29,7 @@ class IncomingMessageHandler_NRPN
 public:
 	IncomingMessageHandler_NRPN() = delete;
 
-	IncomingMessageHandler_NRPN(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	IncomingMessageHandler_NRPN(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	MidiBuffer pullFullyFormedMessageOutOfBuffer(const MidiBuffer& midiMessages);
 
 private:

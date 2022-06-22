@@ -14,7 +14,7 @@ class AllowChoiceToggles_LFO_Freq_Synced :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TooltipsOptions* tooltipOptions;
 	const uint8 numberOfFreq;
 

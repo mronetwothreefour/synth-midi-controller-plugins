@@ -10,7 +10,7 @@ using Info = InfoForExposedParameters;
 
 
 
-IncomingMessageHandler_NRPN::IncomingMessageHandler_NRPN(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+IncomingMessageHandler_NRPN::IncomingMessageHandler_NRPN(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	global{ unexposedParams->getGlobalOptions() },
     voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }

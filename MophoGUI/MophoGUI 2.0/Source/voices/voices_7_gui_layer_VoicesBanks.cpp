@@ -14,7 +14,7 @@
 
 
 
-GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	voicesBanksTabs{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },

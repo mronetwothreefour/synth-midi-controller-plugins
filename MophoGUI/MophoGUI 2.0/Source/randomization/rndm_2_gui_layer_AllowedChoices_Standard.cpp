@@ -1,6 +1,5 @@
 #include "rndm_2_gui_layer_AllowedChoices_Standard.h"
 
-#include "rndm_0_ParamRandomizationMethods.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_ExposedParameters.h"
@@ -13,12 +12,12 @@ using Info = InfoForExposedParameters;
 
 
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
-	uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	allowChoiceToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, unexposedParams },
+	button_Randomize{ paramIndex, randomize, unexposedParams },
 	childrenShouldBeStackedVertically{ false },
 	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
@@ -31,8 +30,8 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this, unexposedParams, paramIndex] {
-		auto randomizationOptions{ unexposedParams->getRandomizationOptions() };
-		randomizationOptions->allowAllChoicesForParam(paramIndex);
+		auto randomization{ unexposedParams->getRandomizationOptions() };
+		randomization->allowAllChoicesForParam(paramIndex);
 		allowChoiceToggles.restoreToggles(); 
 	};
 	if (shouldShowDescriptions) {

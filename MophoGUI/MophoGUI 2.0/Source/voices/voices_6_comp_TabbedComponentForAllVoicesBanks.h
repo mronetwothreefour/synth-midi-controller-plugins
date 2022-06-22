@@ -5,6 +5,8 @@
 #include "voices_5_comp_TabbedComponentForCustomVoicesBanks.h"
 #include "voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class UnexposedParameters;
@@ -19,7 +21,7 @@ class TabbedComponentForAllVoicesBanks :
 public:
     TabbedComponentForAllVoicesBanks() = delete;
 
-    TabbedComponentForAllVoicesBanks(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+    TabbedComponentForAllVoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void addListenerToButtonsInAllTabs(Button::Listener* listener);
     void removeListenerFromButtonsInAllTabs(Button::Listener* listener);
     VoiceSlots* getVoiceSlotsForBank(VoicesBank bank);

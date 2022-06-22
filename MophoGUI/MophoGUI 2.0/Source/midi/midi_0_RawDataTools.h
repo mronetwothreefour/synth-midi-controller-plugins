@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+using ExposedParameters = AudioProcessorValueTreeState;
+
 
 
 class UnexposedParameters;
@@ -15,8 +17,8 @@ struct RawDataTools {
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
     static bool isValidVoiceDataHexString(const String& hexString);
-    static void applyRawDataToExposedParameters(const uint8* dumpData, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
-    static const std::vector<uint8> extractRawDataFromExposedParameters(AudioProcessorValueTreeState* exposedParams);
+    static void applyRawDataToExposedParameters(const uint8* dumpData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+    static const std::vector<uint8> extractRawDataFromExposedParameters(ExposedParameters* exposedParams);
     static bool midiMessageIsSysExForMopho(const MidiMessage& midiMessage);
     static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytesForMopho();
 };

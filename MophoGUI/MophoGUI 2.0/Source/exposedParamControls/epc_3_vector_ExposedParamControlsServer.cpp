@@ -6,7 +6,7 @@ using namespace MophoConstants;
 
 
 
-ExposedParamControlsServer::ExposedParamControlsServer(AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams) :
+ExposedParamControlsServer::ExposedParamControlsServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams }
 {

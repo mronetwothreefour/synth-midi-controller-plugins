@@ -5,6 +5,7 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
+using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
@@ -15,7 +16,6 @@ class EnvelopePainter :
 	// Note: listening to a slider with an exposed parameter attachment is
 	// much, much faster than listening directly to an exposed parameter
 {
-	AudioProcessorValueTreeState* exposedParams;
 	Slider delay;
 	Slider attack;
 	Slider decay;
@@ -43,7 +43,7 @@ class EnvelopePainter :
 public:
 	EnvelopePainter() = delete;
 
-	EnvelopePainter(EnvelopeType envType, AudioProcessorValueTreeState* exposedParams);
+	EnvelopePainter(EnvelopeType envType, ExposedParameters* exposedParams);
 	void sliderValueChanged(Slider* slider) override;
 
 private:

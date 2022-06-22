@@ -5,7 +5,6 @@
 #include "rndm_0_comp_AllowRepeatChoicesToggle.h"
 #include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
-#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -14,6 +13,7 @@ using Shape = OscWaveShape;
 
 
 
+class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
 
@@ -22,9 +22,9 @@ class GUI_Layer_AllowedChoices_OscShape :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomizationOptions;
+	RandomizationOptions* randomization;
 	TextButton button_AllowAll;
-	AllowRepeatChoicesToggle repeatValues;
+	AllowRepeatChoicesToggle repeatChoices;
 	ButtonForHidingLayer button_Close;
 	ToggleButton toggle_Off;
 	ToggleButton toggle_Saw;
@@ -33,8 +33,6 @@ class GUI_Layer_AllowedChoices_OscShape :
 	ToggleButton toggle_Pulse;
 	AllowChoiceToggles_PulseWidth allowPulseWidthToggles;
 	RandomizeButtonForAllowedChoicesLayers button_Randomize;
-	const int numberOfRows { 10 };
-	const int pulseWidthToggle_w{ 42 };
 	const int background_x;
 	const int background_y;
 	const int background_w{ 454 };
@@ -43,7 +41,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 public:
 	GUI_Layer_AllowedChoices_OscShape() = delete;
 
-	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, AudioProcessorValueTreeState* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void buttonClicked(Button* button) override;
 	void makeShapeTheOnlyOneAllowed(Shape shape);
