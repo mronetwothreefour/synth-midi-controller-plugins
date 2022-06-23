@@ -1,6 +1,7 @@
 #include "ep_build_ChoiceNamesValueTree.h"
 
 #include "../constants/constants_ExposedParameters.h"
+#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 
 using namespace MophoConstants;
@@ -510,11 +511,11 @@ ValueTree ExposedParamChoiceNamesValueTree::buildFor_VoiceNameChar(bool verbose)
 	for (auto choiceNum = 33; choiceNum != EP::numberOfChoicesForVoiceNameChar; ++choiceNum) {
 		auto choiceName{ String(std::string(1, (char)choiceNum)) };
 		if (choiceNum == 92)
-			choiceName = "Yen Symbol";
+			choiceName = verbose ? "Yen Symbol" : GUI::yen;
 		if (choiceNum == 126)
-			choiceName = "Right Arrow";
+			choiceName = verbose ? "Right Arrow" : "->";
 		if (choiceNum == 127)
-			choiceName = "Left Arrow";
+			choiceName = verbose ? "Left Arrow" : "<-";
 		choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
 	}
 	return choiceNamesTree;

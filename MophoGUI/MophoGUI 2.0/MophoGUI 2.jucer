@@ -406,6 +406,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
         <FILE id="CBQ5BE" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+        <FILE id="iy8GrY" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
+        <FILE id="aeGf38" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
         <FILE id="jrpwCJ" name="rndm_1_comp_SeqTrackProbabilities.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.cpp"/>
         <FILE id="oVZOpw" name="rndm_1_comp_SeqTrackProbabilities.h" compile="0"
