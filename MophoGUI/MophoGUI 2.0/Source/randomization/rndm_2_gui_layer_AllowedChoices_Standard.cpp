@@ -5,7 +5,6 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
-#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using Info = InfoForExposedParameters;
 

@@ -1,37 +1,62 @@
 #include "rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
 
-AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIndex, UnexposedParameters* unexposedParams)
+#include "../constants/constants_ExposedParameters.h"
+#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
+
+using Info = InfoForExposedParameters;
+
+
+
+AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+	paramIndex{ paramIndex },
+	randomization{ unexposedParams->getRandomizationOptions() },
+	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	numberOfChoices{ 96 },
+	AllowChoiceToggles_Base{ numberOfChoices, 10, 10, 0, 20 }
 {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 }
 
-String AllowChoiceToggles_VoiceNameChar::buildChoiceName(uint8 choiceNum)
-{
-	return String();
+String AllowChoiceToggles_VoiceNameChar::buildChoiceName(uint8 choiceNum) {
+	choiceNum += EP::firstVisibleVoiceNameCharNumber;
+	return Info::get().choiceNameFor(choiceNum, paramIndex);
 }
 
-String AllowChoiceToggles_VoiceNameChar::buildTooltip()
-{
-	return String();
+String AllowChoiceToggles_VoiceNameChar::buildTooltip() {
+	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	String tip{ "" };
+	if (shouldShowDescriptions) {
+		auto paramName{ Info::get().exposedNameFor(paramIndex) };
+		tip += "Click a character to toggle whether or not it\n";
+		tip += "is allowed when generating a random setting\n";
+		tip += "for " + paramName + ".\n";
+		tip += "CTRL-click a choice to make it the only one\n";
+		tip += "allowed. SHIFT-click to allow a range of choices.\n";
+	}
+	return tip;
 }
 
-const bool AllowChoiceToggles_VoiceNameChar::choiceIsAllowed(uint8 choiceNum)
-{
-	return false;
+const bool AllowChoiceToggles_VoiceNameChar::choiceIsAllowed(uint8 choiceNum) {
+	return randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex) == true;
 }
 
-void AllowChoiceToggles_VoiceNameChar::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed)
-{
+void AllowChoiceToggles_VoiceNameChar::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
+	randomization->setChoiceIsAllowedForVoiceNameCharParam(choiceNum, shouldBeAllowed, paramIndex);
 }
 
-void AllowChoiceToggles_VoiceNameChar::clearAllowedChoices()
-{
+void AllowChoiceToggles_VoiceNameChar::clearAllowedChoices() {
+	randomization->clearAllowedChoicesForVoiceNameCharParam(paramIndex);
 }
 
-const bool AllowChoiceToggles_VoiceNameChar::noChoiceIsAllowed()
-{
-	return false;
+const bool AllowChoiceToggles_VoiceNameChar::noChoiceIsAllowed() {
+	return randomization->noChoiceIsAllowedForParam(paramIndex) == true;
 }
 
-void AllowChoiceToggles_VoiceNameChar::restoreToggles()
-{
+void AllowChoiceToggles_VoiceNameChar::restoreToggles() {
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
+		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
+		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
+	}
 }

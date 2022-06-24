@@ -2344,7 +2344,6 @@ InfoForExposedParameters::InfoForExposedParameters() :
 								{ ID::property_FirstAllowChoiceToggleRow, 0 },
 								{ ID::property_AllowedChoicesBackground_x, 0 },
 								{ ID::property_AllowedChoicesBackground_y, 0 },
-								{ ID::property_AllowedChoicesBackground_y, 0 },
 								{ ID::property_SeqTrackNum, trackNum + 1 },
 								{ ID::property_SeqTrackStepNum, stepNum + 1 },
 							}, {
@@ -2378,7 +2377,13 @@ InfoForExposedParameters::InfoForExposedParameters() :
 							{ ID::property_Width, GUI::seqSteps_w },
 							{ ID::property_Height, GUI::seqSteps_h },
 							{ ID::property_Description, Description::buildFor_VoiceNameChar(charNum + 1) },
-							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
+							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::voiceNameChar },
+							{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
+							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
+							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
+							{ ID::property_FirstAllowChoiceToggleRow, 0 },
+							{ ID::property_AllowedChoicesBackground_x, 590 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
+							{ ID::property_AllowedChoicesBackground_y, 71 },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_VoiceNameChar(concise) },
 							ValueTree{ ChoiceNames::buildFor_VoiceNameChar(verbose) }

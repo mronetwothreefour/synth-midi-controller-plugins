@@ -2,10 +2,7 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_build_ChoiceNamesValueTree.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
-
-using Info = InfoForExposedParameters;
 
 
 

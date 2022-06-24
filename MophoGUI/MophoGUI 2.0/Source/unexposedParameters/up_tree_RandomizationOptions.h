@@ -66,6 +66,13 @@ public:
 	void allowAllChoicesForLFO_FreqParam(uint8 paramIndex);
 
 
+	const bool choiceIsAllowedForVoiceNameCharParam(uint8 choiceNum, uint8 paramIndex);
+	void setChoiceIsAllowedForVoiceNameCharParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex);
+	void checkNumberOfChoicesAllowedForVoiceNameCharParam(uint8 paramIndex);
+	void clearAllowedChoicesForVoiceNameCharParam(uint8 paramIndex);
+	void allowAllChoicesForVoiceNameCharParam(uint8 paramIndex);
+
+
 	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
 	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
 

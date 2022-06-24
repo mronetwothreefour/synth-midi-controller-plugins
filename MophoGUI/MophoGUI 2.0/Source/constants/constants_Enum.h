@@ -10,7 +10,8 @@ namespace MophoConstants
 		oscShape,
 		binary,
 		lfoFreq,
-		seqTrackStep
+		seqTrackStep,
+		voiceNameChar
 	};
 
 

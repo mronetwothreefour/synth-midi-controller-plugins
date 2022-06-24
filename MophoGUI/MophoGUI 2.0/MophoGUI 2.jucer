@@ -9,8 +9,8 @@
               pluginCode="Ygwg">
   <MAINGROUP id="bESqsD" name="MophoGUI 2">
     <GROUP id="{C94A070E-5D9D-67D8-91A1-9DE3DFD9C9DF}" name="BinaryResources">
-      <FILE id="ukSPA9" name="Overpass-Bold.ttf" compile="0" resource="1"
-            file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
+      <FILE id="YhFBxr" name="Overpass-Bold.ttf" compile="0" resource="1"
+            file="BinaryResources/Overpass-Bold.ttf"/>
       <FILE id="O2i1Kg" name="bkgrnd_CommError_NRPN.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_CommError_NRPN.png"/>
       <FILE id="y0qDxK" name="bkgrnd_CommError_SysEx.png" compile="0" resource="1"
@@ -434,6 +434,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
         <FILE id="X3Kl3Z" name="rndm_2_gui_layer_AllowedChoices_Standard.h"
               compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.h"/>
+        <FILE id="NFVmOi" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
+        <FILE id="t18TzF" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"
