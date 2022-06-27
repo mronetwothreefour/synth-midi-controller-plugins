@@ -22,7 +22,7 @@ class AllowChoiceToggles_SeqTrackStep :
 	Step step;
 	bool destIsPitched;
 	RandomizationOptions* randomization;
-	TooltipsOptions* tooltipOptions;
+	TooltipsOptions* tooltips;
 
 public:
 	AllowChoiceToggles_SeqTrackStep() = delete;

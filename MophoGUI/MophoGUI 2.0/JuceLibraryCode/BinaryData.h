@@ -38,6 +38,9 @@ namespace BinaryData
     extern const char*   bkgrnd_NewFolderDialog_png;
     const int            bkgrnd_NewFolderDialog_pngSize = 1587;
 
+    extern const char*   bkgrnd_Randomization_png;
+    const int            bkgrnd_Randomization_pngSize = 15511;
+
     extern const char*   bkgrnd_RepeatChoicesToggle_png;
     const int            bkgrnd_RepeatChoicesToggle_pngSize = 530;
 
@@ -52,6 +55,9 @@ namespace BinaryData
 
     extern const char*   bkgrnd_TabForVoicesBank_png;
     const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
+
+    extern const char*   icon_Locked_png;
+    const int            icon_Locked_pngSize = 326;
 
     extern const char*   btn_AllowAll_Dn_png;
     const int            btn_AllowAll_Dn_pngSize = 863;
@@ -118,6 +124,12 @@ namespace BinaryData
 
     extern const char*   btn_Load_Up_png;
     const int            btn_Load_Up_pngSize = 598;
+
+    extern const char*   btn_LockAll_Dn_png;
+    const int            btn_LockAll_Dn_pngSize = 373;
+
+    extern const char*   btn_LockAll_Up_png;
+    const int            btn_LockAll_Up_pngSize = 359;
 
     extern const char*   btn_NewFolder_Dn_png;
     const int            btn_NewFolder_Dn_pngSize = 930;
@@ -219,7 +231,7 @@ namespace BinaryData
     const int            lbl_VoiceBankTab_3_pngSize = 295;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 70;
+    const int namedResourceListSize = 74;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

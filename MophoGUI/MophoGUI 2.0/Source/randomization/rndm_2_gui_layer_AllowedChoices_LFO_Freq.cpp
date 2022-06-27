@@ -26,8 +26,8 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	auto paramID{ Info::get().IDfor(paramIndex).toString() };
 	auto paramName{ Info::get().exposedNameFor(paramIndex) };
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());

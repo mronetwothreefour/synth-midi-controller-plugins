@@ -53,8 +53,8 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 		if (allowChoiceToggles != nullptr)
 			allowChoiceToggles->restoreToggles();
 	};
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all the choices\n";

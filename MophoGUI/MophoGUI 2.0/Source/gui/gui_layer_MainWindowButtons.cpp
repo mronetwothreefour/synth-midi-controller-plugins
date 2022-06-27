@@ -13,6 +13,8 @@
 #include "../global/global_2_gui_layer_GlobalParams.h"
 #include "../midi/midi_1_EditBufferDataMessage.h"
 #include "../midi/midi_1_GlobalParametersDataRequest.h"
+#include "../randomization/rndm_0_ParamRandomizationMethods.h"
+#include "../randomization//rndm_3_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 #include "../voices/voices_7_gui_layer_VoicesBanks.h"
 
@@ -27,6 +29,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
+    randomize{ new ParamRandomizationMethods(exposedParams, unexposedParams) },
     tooltips{ unexposedParams->getTooltipsOptions() },
     voiceNameEditor{ "voiceNameEditor", "" },
     button_Hyperlink{ "", URL("https://programming.mr1234.com/") }
@@ -83,6 +86,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     button_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
     addAndMakeVisible(button_ShowGlobalParams);
 
+    button_Randomize.setComponentID(ID::button_Randomize.toString());
+    button_Randomize.addMouseListener(this, false);
+    button_Randomize.setBounds(800, rowBeneathProgramName_y, GUI::button_Randomize_w, GUI::redButton_h);
+    addAndMakeVisible(button_Randomize);
+
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
     button_Undo.setComponentID(ID::button_Undo.toString());
@@ -138,6 +146,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_button_Global{ shouldShow ? Description::buildFor_ShowGlobalParamsLayer() : String{ "" } };
     button_ShowGlobalParams.setTooltip(tipFor_button_Global);
+
+    auto tipFor_button_Randomize{ shouldShow ? Description::buildFor_ShowRandomizationLayer() : String{ "" } };
+    button_Randomize.setTooltip(tipFor_button_Global);
 
     auto tipFor_button_Undo{ shouldShow ? Description::buildFor_Undo() : String{ "" } };
     button_Undo.setTooltip(tipFor_button_Undo);
@@ -233,16 +244,16 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
 }
 
 void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
-    voicesBanks.reset(new GUI_Layer_VoicesBanks(exposedParams, unexposedParams));
-    if (voicesBanks != nullptr) {
-        addAndMakeVisible(voicesBanks.get());
-        voicesBanks->setBounds(getLocalBounds());
-        voicesBanks->grabKeyboardFocus();
+    layer_VoicesBanks.reset(new GUI_Layer_VoicesBanks{ exposedParams, unexposedParams });
+    if (layer_VoicesBanks != nullptr) {
+        addAndMakeVisible(layer_VoicesBanks.get());
+        layer_VoicesBanks->setBounds(getLocalBounds());
+        layer_VoicesBanks->grabKeyboardFocus();
     }
 }
 
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
-    globalParams = nullptr;
+    layer_GlobalParams = nullptr;
     global->resetAllOptionsToDefaults();
     auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
@@ -258,44 +269,59 @@ void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
 }
 
 void GUI_Layer_MainWindowButtons::showCommError_SysExLayer() {
-    commError_SysEx.reset(new GUI_Layer_CommError_SysEx(unexposedParams));
-    if (commError_SysEx != nullptr) {
-        addAndMakeVisible(commError_SysEx.get());
-        commError_SysEx->setBounds(getLocalBounds());
-        commError_SysEx->grabKeyboardFocus();
+    layer_CommError_SysEx.reset(new GUI_Layer_CommError_SysEx{ unexposedParams });
+    if (layer_CommError_SysEx != nullptr) {
+        addAndMakeVisible(layer_CommError_SysEx.get());
+        layer_CommError_SysEx->setBounds(getLocalBounds());
+        layer_CommError_SysEx->grabKeyboardFocus();
     }
 }
 
 void GUI_Layer_MainWindowButtons::showCommError_NRPN_Layer() {
-    commError_NRPN.reset(new GUI_Layer_CommError_NRPN(unexposedParams));
-    if (commError_NRPN != nullptr) {
-        addAndMakeVisible(commError_NRPN.get());
-        commError_NRPN->setBounds(getLocalBounds());
-        commError_NRPN->grabKeyboardFocus();
+    layer_CommError_NRPN.reset(new GUI_Layer_CommError_NRPN{ unexposedParams });
+    if (layer_CommError_NRPN != nullptr) {
+        addAndMakeVisible(layer_CommError_NRPN.get());
+        layer_CommError_NRPN->setBounds(getLocalBounds());
+        layer_CommError_NRPN->grabKeyboardFocus();
     }
 }
 
 void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
-    globalParams.reset(new GUI_Layer_GlobalParameters(unexposedParams));
-    if (globalParams != nullptr) {
-        addAndMakeVisible(globalParams.get());
-        globalParams->setBounds(getLocalBounds());
-        globalParams->grabKeyboardFocus();
+    layer_GlobalParams.reset(new GUI_Layer_GlobalParameters{ unexposedParams });
+    if (layer_GlobalParams != nullptr) {
+        addAndMakeVisible(layer_GlobalParams.get());
+        layer_GlobalParams->setBounds(getLocalBounds());
+        layer_GlobalParams->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams, randomize.get() });
+    if (layer_Randomization != nullptr) {
+        addAndMakeVisible(layer_Randomization.get());
+        layer_Randomization->setBounds(getLocalBounds());
+        layer_Randomization->grabKeyboardFocus();
     }
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
 }
 
-void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
-    // todo: use for opening randomization layer with right-click
+void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
+    if (event.mods == ModifierKeys::rightButtonModifier)
+        showRandomizationLayer();
+    else
+        randomize->randomizeAllUnlockedParameters();
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
-    globalParams = nullptr;
-    voicesBanks = nullptr;
-    commError_NRPN = nullptr;
-    commError_SysEx = nullptr;
+    layer_GlobalParams = nullptr;
+    layer_VoicesBanks = nullptr;
+    layer_CommError_NRPN = nullptr;
+    layer_CommError_SysEx = nullptr;
+    layer_Randomization = nullptr;
+    randomize = nullptr;
     tooltips->removeListener(this);
+    button_Randomize.removeMouseListener(this);
     voiceNameEditor.removeListener(this);
 }

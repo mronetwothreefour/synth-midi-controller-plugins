@@ -24,8 +24,8 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
 	auto paramName{ Info::get().exposedNameFor(paramIndex) };
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this, unexposedParams, paramIndex] {

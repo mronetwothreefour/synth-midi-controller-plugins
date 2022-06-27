@@ -11,7 +11,7 @@ AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(Track track, St
 	step{ step },
 	destIsPitched{ destIsPitched },
 	randomization{ unexposedParams->getRandomizationOptions() },
-	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	AllowChoiceToggles_Base{ 
 		EP::numberOfChoicesForSeqTrackSteps, 
 		destIsPitched ? 6 : 13, 
@@ -30,7 +30,7 @@ String AllowChoiceToggles_SeqTrackStep::buildChoiceName(uint8 choiceNum) {
 }
 
 String AllowChoiceToggles_SeqTrackStep::buildTooltip() {
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String trackAndStepString{ "" };
 	if (step == Step::all)
 		trackAndStepString = "all steps in sequencer track " + String((int)track);

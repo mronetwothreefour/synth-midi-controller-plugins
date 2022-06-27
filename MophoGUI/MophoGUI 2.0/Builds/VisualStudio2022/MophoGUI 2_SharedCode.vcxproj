@@ -201,6 +201,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_3_gui_layer_Randomization.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp"/>
@@ -2455,6 +2456,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_SeqTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Standard.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_3_gui_layer_Randomization.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h"/>
@@ -3390,11 +3392,13 @@
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_Randomization.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrack_1_Probabilities.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrackTargetStep.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\icon_Locked.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_AllowAll_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Banks_Up.png"/>
@@ -3417,6 +3421,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>

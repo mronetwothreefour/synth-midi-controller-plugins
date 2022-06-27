@@ -23,8 +23,7 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	unexposedParams{ unexposedParams }
 {
 	global->addListener(this);
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	tooltipOptions->addListener(this);
+	tooltips->addListener(this);
 
 	setComponentID(ID::component_Knob.toString());
 	switch (knobType)

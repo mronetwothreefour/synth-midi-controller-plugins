@@ -11,8 +11,8 @@ GUI_Layer_Import_VoicesBank::GUI_Layer_Import_VoicesBank(VoicesBank bank, VoiceS
 	GUI_Layer_ImportExport_Base{ ImportExportType::importVoicesBank, bank, voiceSlots, unexposedParams }
 {
 	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		button_Cancel.setTooltip("Click to cancel the data import.");
 		button_Proceed.setTooltip("Click to import the program data\nbank from the selected file.");
 	}

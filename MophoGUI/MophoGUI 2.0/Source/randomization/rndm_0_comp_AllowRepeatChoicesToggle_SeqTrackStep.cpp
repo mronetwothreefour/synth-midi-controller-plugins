@@ -19,8 +19,8 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(Tra
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomization->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
 	};
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";
 		tip += "when a new setting is randomly generated. If it\n";

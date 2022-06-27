@@ -10,7 +10,9 @@ class GlobalOptions;
 class GUI_Layer_CommError_NRPN;
 class GUI_Layer_CommError_SysEx;
 class GUI_Layer_GlobalParameters;
+class GUI_Layer_Randomization;
 class GUI_Layer_VoicesBanks;
+class ParamRandomizationMethods;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -31,14 +33,17 @@ class GUI_Layer_MainWindowButtons :
 	TextButton button_ReadEditBuffer;
 	TextButton button_ShowVoicesBanks;
 	TextButton button_ShowGlobalParams;
+	TextButton button_Randomize;
 	TextButton button_Undo;
 	TextButton button_Redo;
 	HyperlinkButton button_Hyperlink;
 	TextButton buttons_ForClearingSeqTracks[4];
-	std::unique_ptr<GUI_Layer_VoicesBanks> voicesBanks;
-	std::unique_ptr<GUI_Layer_GlobalParameters> globalParams;
-	std::unique_ptr<GUI_Layer_CommError_NRPN> commError_NRPN;
-	std::unique_ptr<GUI_Layer_CommError_SysEx> commError_SysEx;
+	std::unique_ptr<ParamRandomizationMethods> randomize;
+	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
+	std::unique_ptr<GUI_Layer_GlobalParameters> layer_GlobalParams;
+	std::unique_ptr<GUI_Layer_CommError_NRPN> layer_CommError_NRPN;
+	std::unique_ptr<GUI_Layer_CommError_SysEx> layer_CommError_SysEx;
+	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
 	int sequencerStep{ -1 };
 	int nameCharNum{ -1 };
 	const int timerID_VoiceNameEdit{ 4 };
@@ -66,6 +71,7 @@ private:
 	void showCommError_SysExLayer();
 	void showCommError_NRPN_Layer();
 	void showGlobalParamsLayer();
+	void showRandomizationLayer();
 	void timerCallback() override;
 
 public:

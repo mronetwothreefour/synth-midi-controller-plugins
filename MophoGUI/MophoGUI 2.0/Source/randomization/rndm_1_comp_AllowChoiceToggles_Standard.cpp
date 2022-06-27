@@ -11,7 +11,7 @@ using Info = InfoForExposedParameters;
 AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	randomization{ unexposedParams->getRandomizationOptions() },
-	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) },
 	AllowChoiceToggles_Base{
 		numberOfChoices,
@@ -30,7 +30,7 @@ String AllowChoiceToggles_Standard::buildChoiceName(uint8 choiceNum) {
 }
 
 String AllowChoiceToggles_Standard::buildTooltip() {
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramName{ Info::get().exposedNameFor(paramIndex) };

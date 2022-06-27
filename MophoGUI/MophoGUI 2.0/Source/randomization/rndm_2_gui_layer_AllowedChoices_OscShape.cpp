@@ -24,8 +24,8 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramID{ Info::get().IDfor(paramIndex).toString() };
 	auto paramName{ Info::get().exposedNameFor(paramIndex) };
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	auto oscNumString{ paramID.fromFirstOccurrenceOf("Osc_", false, false).upToFirstOccurrenceOf("_Shape", false, false) };
 
 	auto inset{ GUI::allowedChoices_Inset };

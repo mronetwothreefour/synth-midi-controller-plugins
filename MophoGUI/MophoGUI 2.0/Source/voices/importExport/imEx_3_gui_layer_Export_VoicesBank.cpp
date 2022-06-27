@@ -10,8 +10,8 @@
 GUI_Layer_Export_VoicesBank::GUI_Layer_Export_VoicesBank(VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
 	GUI_Layer_ImportExport_Base{ ImportExportType::exportVoicesBank, bank, voiceSlots, unexposedParams }
 {
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		button_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
 		button_Cancel.setTooltip("Click to cancel the file export.");
 		button_Proceed.setTooltip("Click to export the program data\nbank to the specified file.");

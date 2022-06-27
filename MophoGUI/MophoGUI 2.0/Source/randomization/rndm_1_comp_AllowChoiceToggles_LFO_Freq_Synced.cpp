@@ -11,7 +11,7 @@ using Info = InfoForExposedParameters;
 AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	randomization{ unexposedParams->getRandomizationOptions() },
-	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfSyncedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 2, 8, 0, 100 }
 {
@@ -78,7 +78,7 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildChoiceName(uint8 syncedFreq) {
 }
 
 String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };

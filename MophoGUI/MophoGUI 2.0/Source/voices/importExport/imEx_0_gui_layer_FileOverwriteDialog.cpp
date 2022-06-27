@@ -19,8 +19,8 @@ GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters
 	button_Write.setComponentID(ID::button_Write_OverFile.toString());
 	button_Write.addShortcut(KeyPress(KeyPress::returnKey));
 
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		button_Cancel.setTooltip("Cancel file overwrite.");
 		button_Write.setTooltip("Confirm file overwrite.");
 	}

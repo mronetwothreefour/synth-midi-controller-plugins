@@ -15,7 +15,7 @@ class AllowChoiceToggles_VoiceNameChar :
 {
 	uint8 paramIndex;
 	RandomizationOptions* randomization;
-	TooltipsOptions* tooltipOptions;
+	TooltipsOptions* tooltips;
 	uint8 numberOfChoices;
 
 public:

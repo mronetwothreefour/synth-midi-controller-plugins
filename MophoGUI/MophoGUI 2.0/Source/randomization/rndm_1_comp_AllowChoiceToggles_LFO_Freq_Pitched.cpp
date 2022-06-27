@@ -12,7 +12,7 @@ using Info = InfoForExposedParameters;
 AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	randomization{ unexposedParams->getRandomizationOptions() },
-	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfPitchedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 6, 12, 0, 36 }
 {
@@ -24,7 +24,7 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildChoiceName(uint8 pitchedFreq) {
 }
 
 String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };

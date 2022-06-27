@@ -29,6 +29,8 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="AjResv" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="iwnnpl" name="bkgrnd_Randomization.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_Randomization.png"/>
       <FILE id="Qo3G30" name="bkgrnd_RepeatChoicesToggle.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
       <FILE id="QnT8AO" name="bkgrnd_SeqTrack_1_Probabilities.png" compile="0"
@@ -39,6 +41,7 @@
             resource="1" file="BinaryResources/bkgrnd_SeqTrackTargetStep.png"/>
       <FILE id="lEm51m" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TabForVoicesBank.png"/>
+      <FILE id="DCbRcv" name="icon_Locked.png" compile="0" resource="1" file="BinaryResources/icon_Locked.png"/>
       <GROUP id="{46098CD3-7E7E-0E63-8B06-6B193DF40DB8}" name="buttons">
         <FILE id="bKdZ6x" name="btn_AllowAll_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_AllowAll_Dn.png"/>
@@ -80,6 +83,10 @@
               file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="y6Cl3U" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
         <FILE id="UbM9GK" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
+        <FILE id="hyRnB5" name="btn_LockAll_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockAll_Dn.png"/>
+        <FILE id="QKZnKB" name="btn_LockAll_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockAll_Up.png"/>
         <FILE id="UuubAj" name="btn_NewFolder_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="GzlS6P" name="btn_NewFolder_Up.png" compile="0" resource="1"
@@ -438,6 +445,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
         <FILE id="t18TzF" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
               compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
+        <FILE id="OsHEan" name="rndm_3_gui_layer_Randomization.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_3_gui_layer_Randomization.cpp"/>
+        <FILE id="gwrG2N" name="rndm_3_gui_layer_Randomization.h" compile="0"
+              resource="0" file="Source/randomization/rndm_3_gui_layer_Randomization.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

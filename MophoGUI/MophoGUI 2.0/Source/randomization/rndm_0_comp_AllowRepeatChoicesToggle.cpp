@@ -24,8 +24,8 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomization->setRepeatChoicesAreAllowedForParam(shouldBeAllowed ? true : false, paramIndex);
 	};
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		auto numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) };
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";

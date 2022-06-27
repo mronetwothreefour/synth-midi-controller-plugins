@@ -49,6 +49,16 @@ String MainWindowButtonDescription::buildFor_ShowGlobalParamsLayer() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildFor_ShowRandomizationLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Click to randomize the program settings. Right-click\n";
+    descriptionString += "to open a dialog where you can define which parameters\n";
+    descriptionString += "get randomized and what choices are allowed for each\n";
+    descriptionString += "of them. Right-click any program parameter control to\n";
+    descriptionString += "generate a random setting for that parameter.";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildFor_ShowVoiceNameEditor() {
     String descriptionString{ "" };
     descriptionString += "Opens an editor where you can\n";

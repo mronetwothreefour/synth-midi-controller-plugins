@@ -25,8 +25,9 @@ GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	auto paramName{ Info::get().exposedNameFor(paramIndex) };
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
+	auto allowAllAndCloseButtons_y{ 88 };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this, unexposedParams, paramIndex] {
@@ -41,16 +42,20 @@ GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 		tip += paramName + ".";
 		button_AllowAll.setTooltip(tip);
 	}
-	button_AllowAll.setSize(GUI::button_AllowAll_w, GUI::redButton_h);
+	button_AllowAll.setBounds(background_x + GUI::allowedChoices_Inset, allowAllAndCloseButtons_y, GUI::button_AllowAll_w, GUI::redButton_h);
 	addAndMakeVisible(button_AllowAll);
 
+	repeatChoicesToggle.setTopLeftPosition(background_x + 99, 92);
 	addAndMakeVisible(repeatChoicesToggle);
 
+	button_Close.setTopRightPosition(background_x + background_w - GUI::allowedChoices_Inset, allowAllAndCloseButtons_y);
 	addAndMakeVisible(button_Close);
 
 	allowChoiceToggles.restoreToggles();
+	allowChoiceToggles.setTopLeftPosition(background_x + 23, 120);
 	addAndMakeVisible(allowChoiceToggles);
 
+	button_Randomize.setTopLeftPosition(background_x + 85, 290);
 	addAndMakeVisible(button_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);

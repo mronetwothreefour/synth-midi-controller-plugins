@@ -20,9 +20,9 @@ public:
 	ButtonForExportingEntireBankToFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Export_VoicesBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tip{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tip += "Exports the data for all the programs in the storage bank to a\n";
 			tip += "file which can be read by other instances of the MophoGUI plugin.";
 		}
@@ -48,9 +48,9 @@ public:
 	ButtonForExportingSelectedVoiceToFile(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Export_VoiceFromBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Exports the program data stored in the selected slot to a file\n";
 			tipString += "which can be read by other instances of the MophoGUI plugin.";
 		}
@@ -77,9 +77,9 @@ public:
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::button_Import_AllVoicesIntoBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Replace all the programs in the storage\n";
 			tipString += "bank with those stored in a file.";
 		}
@@ -106,9 +106,9 @@ public:
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::button_Import_VoiceIntoBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Imports the program data stored in\n";
 			tipString += "a file into the selected storage slot.";
 		}
@@ -134,9 +134,9 @@ public:
 	ButtonForLoadingSelectedVoice(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Load.toString());
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Applies the program settings stored in the selected slot to the\n";
 			tipString += "plugin GUI and to the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
 		}
@@ -163,9 +163,9 @@ public:
 	{
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::button_Pull_VoicesBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Pull all the programs stored in the storage bank in\n";
 			tipString += "the Mopho hardware into this plugin storage bank.";
 		}
@@ -191,9 +191,9 @@ public:
 	ButtonForPullingSelectedVoiceFromHardware(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Pull_SelectedVoice.toString());
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Pull the data from the selected program storage slot in the Mopho\n";
 			tipString += "hardware and save it in the corresponding storage slot in the plugin.";
 		}
@@ -219,9 +219,9 @@ public:
 	ButtonForPushingEntireBankToHardware(VoicesBank bank, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Push_VoicesBank_.toString() + String((int)bank));
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Push all the programs stored in this bank to the\n";
 			tipString += "corresponding storage bank in the Mopho hardware.";
 		}
@@ -247,9 +247,9 @@ public:
 	ButtonForPushingSelectedVoiceToHardware(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Push_SelectedVoice.toString());
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Push the data in the selected program storage slot\n";
 			tipString += "to the corresponding storage slot in the Mopho hardware.";
 		}
@@ -276,9 +276,9 @@ public:
 	ButtonForSavingVoiceIntoSelectedSlot(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Save.toString());
-		auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tipString{ "" };
-		if (tooltipOptions->shouldShowDescriptions()) {
+		if (tooltips->shouldShowDescriptions()) {
 			tipString += "Saves the plugin GUI" + GUI::apostrophe + "s current settings\n";
 			tipString += "into the selected program storage slot.";
 		}

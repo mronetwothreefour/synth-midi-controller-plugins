@@ -11,7 +11,7 @@ using Info = InfoForExposedParameters;
 AllowChoiceToggles_PulseWidth::AllowChoiceToggles_PulseWidth(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	randomization{ unexposedParams->getRandomizationOptions() },
-	tooltipOptions{ unexposedParams->getTooltipsOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfWidths{ EP::numberOfPulseWidths },
 	AllowChoiceToggles_Base{ numberOfWidths, 10, 10, 0, 42 }
 {
@@ -23,7 +23,7 @@ String AllowChoiceToggles_PulseWidth::buildChoiceName(uint8 pulseWidth) {
 }
 
 String AllowChoiceToggles_PulseWidth::buildTooltip() {
-	auto shouldShowDescriptions{ tooltipOptions->shouldShowDescriptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
 		auto paramID{ Info::get().IDfor(paramIndex).toString() };

@@ -38,8 +38,8 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	addAndMakeVisible(button_Create);
 
 
-	auto tooltipOptions{ unexposedParams->getTooltipsOptions() };
-	if (tooltipOptions->shouldShowDescriptions()) {
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	if (tooltips->shouldShowDescriptions()) {
 		label_FolderNameEditor.setTooltip("Type in the name of the new folder.");
 		button_Cancel.setTooltip("Cancel new folder creation.");
 		button_Create.setTooltip("Create new folder.");
