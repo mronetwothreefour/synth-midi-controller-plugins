@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "rndm_0_comp_LockToggleForParam.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -21,12 +22,14 @@ class GUI_Layer_Randomization :
 	RandomizationOptions* randomization;
 	ParamRandomizationMethods* randomize;
 	ButtonForHidingLayer button_Close;
+	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
 
 public:
 	GUI_Layer_Randomization() = delete;
 
 	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, ParamRandomizationMethods* randomize);
 	void paint(Graphics& g) override;
+	void mouseDown(const MouseEvent& event) override;
 	~GUI_Layer_Randomization();
 
 private:

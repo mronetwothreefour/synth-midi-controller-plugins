@@ -77,6 +77,11 @@ namespace MophoConstants
 		const Identifier component_ToggleAllow_LFO_Freq_Synced_{ "component_ToggleAllow_LFO_Freq_Synced_" };
 		const Identifier component_ToggleAllow_LFO_Freq_Unsynced_{ "component_ToggleAllow_LFO_Freq_Unsynced_" };
 		const Identifier component_ToggleAllow_PulseWidth_{ "component_ToggleAllow_PulseWidth_" };
+		const Identifier component_ToggleLock_ComboBox_Param_{ "component_ToggleLock_ComboBox_Param_" };
+		const Identifier component_ToggleLock_Knob_Param_{ "component_ToggleLock_Knob_Param_" };
+		const Identifier component_ToggleLock_SeqStep_Param_{ "component_ToggleLock_SeqStep_Param_" };
+		const Identifier component_ToggleLock_Toggle_Param_{ "component_ToggleLock_Toggle_Param_" };
+		const Identifier component_ToggleLock_VoiceNameChar_Param_{ "component_ToggleLock_VoiceNameChar_Param_" };
 
 		const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		const Identifier label_EditLabel{ "label_EditLabel" };

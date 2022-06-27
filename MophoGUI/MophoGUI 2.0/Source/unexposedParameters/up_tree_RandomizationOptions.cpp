@@ -36,7 +36,7 @@ RandomizationOptions::RandomizationOptions() :
 			allowAllChoicesForOscShapeParam(paramIndex);
 		if (allowedChoicesType == AllowedChoicesType::lfoFreq)
 			allowAllChoicesForLFO_FreqParam(paramIndex);
-		if (allowedChoicesType == AllowedChoicesType::lfoFreq)
+		if (allowedChoicesType == AllowedChoicesType::voiceNameChar)
 			allowAllChoicesForVoiceNameCharParam(paramIndex);
 	}
 

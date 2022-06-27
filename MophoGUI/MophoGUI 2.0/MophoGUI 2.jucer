@@ -377,6 +377,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
         <FILE id="rsFneO" name="rndm_0_comp_KnobForSeqTrackProbability.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
+        <FILE id="KwH8N8" name="rndm_0_comp_LockToggleForParam.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
+        <FILE id="MyRUxh" name="rndm_0_comp_LockToggleForParam.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
         <FILE id="dCfmZN" name="rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
         <FILE id="WtHmv4" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
@@ -385,6 +389,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
         <FILE id="dT0kC8" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
+        <FILE id="b21A0x" name="rndm_0_GroupLockStateMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_GroupLockStateMethods.cpp"/>
+        <FILE id="ntg7li" name="rndm_0_GroupLockStateMethods.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_GroupLockStateMethods.h"/>
         <FILE id="zzIgGE" name="rndm_0_ParamRandomizationMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_ParamRandomizationMethods.cpp"/>
         <FILE id="p4jDRu" name="rndm_0_ParamRandomizationMethods.h" compile="0"

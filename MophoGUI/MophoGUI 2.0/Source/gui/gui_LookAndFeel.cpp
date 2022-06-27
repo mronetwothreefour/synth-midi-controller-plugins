@@ -230,6 +230,61 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
+	if (componentID.startsWith("component_ToggleLock")) {
+		PNGImageFormat imageFormat;
+		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };
+		auto lockedIcon{ imageFormat.decodeImage(memInputStream) };
+		g.setColour(isTicked ? GUI::color_Black.withAlpha(0.3f) : GUI::color_ToggleOn.withAlpha(0.2f));
+		if (componentID.contains("ComboBox")) {
+			if (isTicked) {
+				g.fillRect(x, y + 2, w, h - 4);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, int(w / 2) - (GUI::lockAndUnlockIcons_w / 2), 0);
+			}
+			else
+				g.fillRect(x, y + 2, w, h - 4);
+		}
+		if (componentID.contains("Knob")) {
+			if (isTicked) {
+				g.fillEllipse(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, 8, 5);
+			}
+			else
+				g.fillEllipse(x, y, w, h);
+		}
+		if (componentID.contains("SeqStep")) {
+			if (isTicked) {
+				g.fillRect(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, 6, 3);
+			}
+			else
+				g.fillRect(x, y, w, h);
+		}
+		if (componentID.contains("_Toggle_")) {
+			if (isTicked) {
+				g.fillEllipse(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, 4, 1);
+			}
+			else
+				g.fillEllipse(x, y, w, h);
+		}
+		if (componentID.contains("VoiceNameChar")) {
+			if (isTicked) {
+				g.fillRect(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, (int)x - 1, (int)y - 1);
+			}
+			else
+				g.fillRect(x, y, w, h);
+		}
+		g.setColour(GUI::color_Black);
+		g.setFont(GUI::fontFor_Labels);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
 }
 
 
