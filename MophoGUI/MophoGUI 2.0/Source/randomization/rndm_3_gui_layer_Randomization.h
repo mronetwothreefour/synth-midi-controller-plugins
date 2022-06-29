@@ -16,13 +16,15 @@ class RandomizationOptions;
 class UnexposedParameters;
 
 class GUI_Layer_Randomization :
-	public Component
+	public Component,
+	public Button::Listener
 {
 	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	ParamRandomizationMethods* randomize;
 	ButtonForHidingLayer button_Close;
 	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
+	bool toggleWasRightClicked{ false };
 
 public:
 	GUI_Layer_Randomization() = delete;
@@ -30,6 +32,7 @@ public:
 	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, ParamRandomizationMethods* randomize);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
+	void buttonClicked(Button* button) override;
 	~GUI_Layer_Randomization();
 
 private:

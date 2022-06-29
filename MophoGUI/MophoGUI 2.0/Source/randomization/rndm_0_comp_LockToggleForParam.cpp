@@ -18,8 +18,6 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* un
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 
-	randomization->addListenerToChildTreeForParam(this, paramIndex);
-
 	auto controlType{ Info::get().controlTypeFor(paramIndex) };
 	switch (controlType)
 	{
@@ -57,11 +55,3 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* un
 	setToggleState(randomization->paramIsLocked(paramIndex), dontSendNotification);
 }
 
-void LockToggleForParam::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::rndm_ParamIsLocked)
-		setToggleState(randomization->paramIsLocked(paramIndex), dontSendNotification);
-}
-
-LockToggleForParam::~LockToggleForParam() {
-	randomization->removeListenerFromChildTreeForParam(this, paramIndex);
-}

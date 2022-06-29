@@ -105,6 +105,3 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 	g.drawText(choiceName, knob_HardwareReceiveChannel.getBounds(), Justification::centred);
 }
 
-void GUI_Layer_GlobalParameters::timerCallback() {
-}
-

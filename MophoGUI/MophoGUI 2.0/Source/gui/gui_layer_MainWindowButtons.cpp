@@ -148,7 +148,7 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     button_ShowGlobalParams.setTooltip(tipFor_button_Global);
 
     auto tipFor_button_Randomize{ shouldShow ? Description::buildFor_ShowRandomizationLayer() : String{ "" } };
-    button_Randomize.setTooltip(tipFor_button_Global);
+    button_Randomize.setTooltip(tipFor_button_Randomize);
 
     auto tipFor_button_Undo{ shouldShow ? Description::buildFor_Undo() : String{ "" } };
     button_Undo.setTooltip(tipFor_button_Undo);
@@ -296,6 +296,7 @@ void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
 }
 
 void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
+    layer_Randomization = nullptr;
     layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams, randomize.get() });
     if (layer_Randomization != nullptr) {
         addAndMakeVisible(layer_Randomization.get());

@@ -575,7 +575,7 @@ void RandomizationOptions::removeListenerFromChildTreeForParam(Tree::Listener* l
 
 
 
-ValueTree RandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex) {
+Tree RandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(Info::get().IDfor(paramIndex)) };
@@ -769,12 +769,12 @@ void RandomizationOptions::setRepeatChoicesAreAllowedForSeqTrackStep(bool should
 
 
 
-void RandomizationOptions::addListenerToSeqTrackTree(ValueTree::Listener* listener, Track track) {
+void RandomizationOptions::addListenerToSeqTrackTree(Tree::Listener* listener, Track track) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	randomizationOptionsTree.getChildWithName(trackTreeID).addListener(listener);
 }
 
-void RandomizationOptions::removeListenerFromSeqTrackTree(ValueTree::Listener* listener, Track track) {
+void RandomizationOptions::removeListenerFromSeqTrackTree(Tree::Listener* listener, Track track) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	randomizationOptionsTree.getChildWithName(trackTreeID).removeListener(listener);
 }
@@ -789,7 +789,7 @@ XmlElement* RandomizationOptions::getStateXml() {
 	return randomizationOptionsTreeStateXml.release();
 }
 
-void RandomizationOptions::replaceState(const ValueTree& newState) {
+void RandomizationOptions::replaceState(const Tree& newState) {
 	if (newState.isValid())
 		randomizationOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
 }

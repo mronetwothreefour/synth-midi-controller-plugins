@@ -14,8 +14,7 @@
 class UnexposedParameters;
 
 class GUI_Layer_GlobalParameters :
-    public Component,
-    private Timer
+    public Component
 {
     ButtonForHidingLayer button_Close;
     KnobForGlobalParameter knob_GlobalTranspose;
@@ -41,7 +40,6 @@ public:
     void paint(Graphics& g) override;
 
 private:
-    void timerCallback() override;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_GlobalParameters)
