@@ -185,6 +185,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_GroupLockStateMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
@@ -2254,6 +2255,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_GroupLockStateMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_ParamRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>

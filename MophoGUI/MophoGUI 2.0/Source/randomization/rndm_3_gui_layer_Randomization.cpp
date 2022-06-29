@@ -15,10 +15,14 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 	exposedParams{ exposedParams },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	randomize{ randomize },
-	button_Close{ unexposedParams }
+	button_Close{ unexposedParams },
+	transmitType{ unexposedParams }
 {
 	button_Close.setTopLeftPosition(1208, 16);
 	addAndMakeVisible(button_Close);
+
+	transmitType.setTopLeftPosition(1138, 81);
+	addAndMakeVisible(transmitType);
 
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, unexposedParams });

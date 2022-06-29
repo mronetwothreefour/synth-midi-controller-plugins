@@ -389,6 +389,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
         <FILE id="dT0kC8" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
+        <FILE id="bJ7AIF" name="rndm_0_comp_TransmitTypeToggles.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.cpp"/>
+        <FILE id="PBFzTd" name="rndm_0_comp_TransmitTypeToggles.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.h"/>
         <FILE id="b21A0x" name="rndm_0_GroupLockStateMethods.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_0_GroupLockStateMethods.cpp"/>
         <FILE id="ntg7li" name="rndm_0_GroupLockStateMethods.h" compile="0"

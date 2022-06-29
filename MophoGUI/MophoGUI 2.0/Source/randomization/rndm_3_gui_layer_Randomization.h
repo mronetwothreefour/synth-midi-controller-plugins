@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "rndm_0_comp_LockToggleForParam.h"
+#include "rndm_0_comp_TransmitTypeToggles.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -23,6 +24,7 @@ class GUI_Layer_Randomization :
 	RandomizationOptions* randomization;
 	ParamRandomizationMethods* randomize;
 	ButtonForHidingLayer button_Close;
+	TransmitTypeToggles transmitType;
 	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
 	bool toggleWasRightClicked{ false };
 
