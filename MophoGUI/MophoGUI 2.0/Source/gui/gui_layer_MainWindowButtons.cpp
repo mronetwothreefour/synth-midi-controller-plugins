@@ -14,7 +14,7 @@
 #include "../midi/midi_1_EditBufferDataMessage.h"
 #include "../midi/midi_1_GlobalParametersDataRequest.h"
 #include "../randomization/rndm_0_ParamRandomizationMethods.h"
-#include "../randomization//rndm_3_gui_layer_Randomization.h"
+#include "../randomization//rndm_4_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 #include "../voices/voices_7_gui_layer_VoicesBanks.h"
 
@@ -237,7 +237,7 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
 
 void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
     auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
-    auto paramID{ Info::get().IDfor(uint8(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum)) };
+    auto paramID{ Info::get().IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
     auto param{ exposedParams->getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);

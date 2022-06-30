@@ -17,6 +17,10 @@ AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 p
 	AllowChoiceToggles_Base{ numberOfFreq, 6, 12, 0, 36 }
 {
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
+	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
+		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
+		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
+	}
 }
 
 String AllowChoiceToggles_LFO_Freq_Pitched::buildChoiceName(uint8 pitchedFreq) {

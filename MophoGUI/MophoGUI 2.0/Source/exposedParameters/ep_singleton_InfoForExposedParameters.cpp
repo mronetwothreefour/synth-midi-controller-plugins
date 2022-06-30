@@ -2320,7 +2320,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 		auto trackString{ String(trackNum + 1) };
 		for (auto stepNum = 0; stepNum != 16; ++stepNum) {
 			auto stepString{ String(stepNum + 1) };
-			auto paramNumString{ "ep_" + String(EP::firstSeqStepParamNumber + trackNum * 16 + stepNum) };
+			auto paramNumString{ "ep_" + String(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum) };
 			auto paramNameString{ paramNumString + "_SeqTrack_" + trackString + "_Step_" + stepString };
 			auto exposedNameString{ "Sequencer Track " + trackString + " Step " + stepString };
 			auto nrpn{ 120 + trackNum * 16 + stepNum };
@@ -2588,7 +2588,7 @@ AllowedChoicesType InfoForExposedParameters::allowedChoicesTypeFor(uint8 paramIn
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
-	auto allowedChoicesTypeIndex{ (int)paramTree.getChild(0).getProperty(ID::property_NumberOfAllowChoiceToggleColumns) };
+	auto allowedChoicesTypeIndex{ (int)paramTree.getChild(0).getProperty(ID::property_AllowedChoicesType) };
 	return AllowedChoicesType{ allowedChoicesTypeIndex };
 }
 
@@ -2641,7 +2641,7 @@ int InfoForExposedParameters::allowedChoicesBackground_y_For(uint8 paramIndex) c
 }
 
 int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
-	jassert(paramIndex >= EP::firstSeqStepParamNumber && paramIndex < EP::firstVoiceNameCharParamNumber);
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamNumber);
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
@@ -2650,7 +2650,7 @@ int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
 }
 
 int InfoForExposedParameters::seqTrackStepNum_For(uint8 paramIndex) const {
-	jassert(paramIndex >= EP::firstSeqStepParamNumber && paramIndex < EP::firstVoiceNameCharParamNumber);
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamNumber);
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };

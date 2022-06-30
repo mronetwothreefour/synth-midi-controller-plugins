@@ -3,10 +3,13 @@
 #include <JuceHeader.h>
 
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
+#include "../../constants/constants_Enum.h"
 #include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
+using namespace MophoConstants;
 using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
+using Track = SeqTrackNum;
 
 
 
@@ -29,7 +32,7 @@ class KnobAndAttachment_ForSeqStep :
 public:
 	KnobAndAttachment_ForSeqStep() = delete;
 
-	KnobAndAttachment_ForSeqStep(uint8 paramIndex, int trackNum, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForSeqStep(uint8 paramIndex, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);

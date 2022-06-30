@@ -16,6 +16,10 @@ AllowChoiceToggles_LFO_Freq_Unsynced::AllowChoiceToggles_LFO_Freq_Unsynced(uint8
 	AllowChoiceToggles_Base{ numberOfFreq, 9, 10, 0, 20 }
 {
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
+	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
+		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
+		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
+	}
 }
 
 String AllowChoiceToggles_LFO_Freq_Unsynced::buildChoiceName(uint8 unsyncedFreq) {

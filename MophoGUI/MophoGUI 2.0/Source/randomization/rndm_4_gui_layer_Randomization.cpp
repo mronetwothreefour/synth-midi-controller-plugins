@@ -1,12 +1,16 @@
-#include "rndm_3_gui_layer_Randomization.h"
+#include "rndm_4_gui_layer_Randomization.h"
 
 #include "../constants/constants_GUI_Colors.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using Info = InfoForExposedParameters;
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
+using Type = AllowedChoicesType;
 
 
 
@@ -16,7 +20,8 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 	randomization{ unexposedParams->getRandomizationOptions() },
 	randomize{ randomize },
 	button_Close{ unexposedParams },
-	transmitType{ unexposedParams }
+	transmitType{ unexposedParams },
+	allowedChoicesLayers{ randomize, unexposedParams }
 {
 	button_Close.setTopLeftPosition(1208, 16);
 	addAndMakeVisible(button_Close);
@@ -32,6 +37,9 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 		addAndMakeVisible(paramLockToggles[paramIndex].get());
 	}
 
+	allowedChoicesLayers.setTopLeftPosition(0, 0);
+	addAndMakeVisible(allowedChoicesLayers);
+
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
@@ -45,12 +53,36 @@ void GUI_Layer_Randomization::paint(Graphics& g) {
 void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 	if (event.mods == ModifierKeys::rightButtonModifier) {
 		toggleWasRightClicked = true;
-		// todo: show allowed choices layer
+		auto toggleID{ event.eventComponent->getComponentID() };
+		auto paramIndex{ (uint8)toggleID.fromFirstOccurrenceOf("Param_", false, false).getIntValue() };
+		auto allowedChoicesType{ Info::get().allowedChoicesTypeFor(paramIndex) };
+		switch (allowedChoicesType)
+		{
+		case MophoConstants::AllowedChoicesType::standard:
+			allowedChoicesLayers.showAllowedChoicesLayerForStandardParam(paramIndex);
+			break;
+		case MophoConstants::AllowedChoicesType::oscShape:
+			allowedChoicesLayers.showAllowedChoicesLayerForOscShapeParam(paramIndex);
+			break;
+		case MophoConstants::AllowedChoicesType::binary:
+			allowedChoicesLayers.showAllowedChoicesLayerForBinaryParam(paramIndex);
+			break;
+		case MophoConstants::AllowedChoicesType::lfoFreq:
+			allowedChoicesLayers.showAllowedChoicesLayerForLFO_FreqParam(paramIndex);
+			break;
+		case MophoConstants::AllowedChoicesType::seqTrackStep:
+			break;
+		case MophoConstants::AllowedChoicesType::voiceNameChar:
+			allowedChoicesLayers.showAllowedChoicesLayerForVoiceNameCharParam(paramIndex);
+			break;
+		default:
+			break;
+		}
 	}
 }
 
 void GUI_Layer_Randomization::buttonClicked(Button* button) {
-	auto paramIndex{ (uint8)button->getComponentID().fromFirstOccurrenceOf("Param_", false, false).getIntValue()};
+	auto paramIndex{ (uint8)button->getComponentID().fromFirstOccurrenceOf("Param_", false, false).getIntValue() };
 	if (toggleWasRightClicked) {
 		randomization->setParamIsLocked(paramIndex, false);
 		paramLockToggles[paramIndex]->setToggleState(false, dontSendNotification);

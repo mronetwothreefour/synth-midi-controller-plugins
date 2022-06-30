@@ -17,6 +17,10 @@ AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIn
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
+		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
+		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
+	}
 }
 
 String AllowChoiceToggles_VoiceNameChar::buildChoiceName(uint8 choiceNum) {

@@ -20,6 +20,10 @@ AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(Track track, St
 		destIsPitched ? 38 : 26
 	}
 {
+	for (auto choiceNum = (uint8)0; choiceNum < EP::numberOfChoicesForSeqTrackSteps; ++choiceNum) {
+		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
+		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
+	}
 }
 
 String AllowChoiceToggles_SeqTrackStep::buildChoiceName(uint8 choiceNum) {

@@ -10,6 +10,7 @@
 #include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using Info = InfoForExposedParameters;
+using Track = SeqTrackNum;
 
 
 
@@ -81,7 +82,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedPa
 void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
 	auto paramID{ Info::get().IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
-	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, trackNum, exposedParams, unexposedParams));
+	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, Track{ trackNum }, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForSeqStep != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForSeqStep.get());
 		setSize(knobAndAttachment_ForSeqStep->getWidth(), knobAndAttachment_ForSeqStep->getHeight());

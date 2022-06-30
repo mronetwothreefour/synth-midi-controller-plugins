@@ -4,6 +4,7 @@
 
 #include "rndm_0_comp_LockToggleForParam.h"
 #include "rndm_0_comp_TransmitTypeToggles.h"
+#include "rndm_3_gui_layer_AllowedChoicesServer.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -26,6 +27,7 @@ class GUI_Layer_Randomization :
 	ButtonForHidingLayer button_Close;
 	TransmitTypeToggles transmitType;
 	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
+	GUI_Layer_AllowedChoicesServer allowedChoicesLayers;
 	bool toggleWasRightClicked{ false };
 
 public:

@@ -16,6 +16,10 @@ AllowChoiceToggles_PulseWidth::AllowChoiceToggles_PulseWidth(uint8 paramIndex, U
 	AllowChoiceToggles_Base{ numberOfWidths, 10, 10, 0, 42 }
 {
 	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
+	for (auto width = (uint8)0; width < numberOfWidths; ++width) {
+		allowedChoiceToggles[width]->setName(buildChoiceName(width));
+		allowedChoiceToggles[width]->setTooltip(buildTooltip());
+	}
 }
 
 String AllowChoiceToggles_PulseWidth::buildChoiceName(uint8 pulseWidth) {

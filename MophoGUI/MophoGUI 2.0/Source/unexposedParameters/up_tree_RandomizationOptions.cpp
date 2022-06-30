@@ -99,7 +99,8 @@ const bool RandomizationOptions::choiceIsAllowedForParam(uint8 choiceNum, uint8 
 
 void RandomizationOptions::setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard ||
+		    Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(Info::get().IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getOrCreateChildWithName(ID::rndm_AllowedChoices, nullptr) };
 	String propertyID{ "choice_" + (String)choiceNum };

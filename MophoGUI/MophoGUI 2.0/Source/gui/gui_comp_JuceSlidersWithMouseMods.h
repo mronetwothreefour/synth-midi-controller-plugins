@@ -2,7 +2,11 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_Enum.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
+
+using namespace MophoConstants;
+using Track = SeqTrackNum;
 
 
 
@@ -64,12 +68,12 @@ private:
 class RotarySliderWithMouseDownModForSeqStep :
 	public RotarySliderWithMouseWheelMoveOverride
 {
-	const int trackNum;
+	const Track track;
 
 public:
 	RotarySliderWithMouseDownModForSeqStep() = delete;
 
-	RotarySliderWithMouseDownModForSeqStep(int trackNum, UnexposedParameters* unexposedParams);
+	RotarySliderWithMouseDownModForSeqStep(Track track, UnexposedParameters* unexposedParams);
 	void mouseDown(const MouseEvent& event) override;
 
 private:

@@ -79,9 +79,9 @@ void RotarySliderWithMouseDownModForOscShape::mouseDown(const MouseEvent& event)
 
 
 
-RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(int trackNum, UnexposedParameters* unexposedParams) :
+RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(Track track, UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMoveOverride{ unexposedParams },
-	trackNum{ trackNum }
+	track{ track }
 {
 }
 
@@ -91,7 +91,7 @@ void RotarySliderWithMouseDownModForSeqStep::mouseDown(const MouseEvent& event) 
 		return;
 	}
 	if (event.mods.isAltDown()) {
-		if (trackNum == 1)
+		if (track == Track::one)
 			setValue(127.0, sendNotification);
 		return;
 	}

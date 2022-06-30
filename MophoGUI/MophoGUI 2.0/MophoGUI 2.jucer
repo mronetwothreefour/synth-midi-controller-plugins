@@ -457,10 +457,14 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
         <FILE id="t18TzF" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
               compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
-        <FILE id="OsHEan" name="rndm_3_gui_layer_Randomization.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_3_gui_layer_Randomization.cpp"/>
-        <FILE id="gwrG2N" name="rndm_3_gui_layer_Randomization.h" compile="0"
-              resource="0" file="Source/randomization/rndm_3_gui_layer_Randomization.h"/>
+        <FILE id="czcUSy" name="rndm_3_gui_layer_AllowedChoicesServer.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.cpp"/>
+        <FILE id="ZfuzZ7" name="rndm_3_gui_layer_AllowedChoicesServer.h" compile="0"
+              resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.h"/>
+        <FILE id="OsHEan" name="rndm_4_gui_layer_Randomization.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.cpp"/>
+        <FILE id="gwrG2N" name="rndm_4_gui_layer_Randomization.h" compile="0"
+              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.h"/>
       </GROUP>
       <GROUP id="{2E56EB72-F380-5591-7BF1-6B3B194DE28F}" name="unexposedParameters">
         <FILE id="NGjZwu" name="up_facade_UnexposedParameters.cpp" compile="1"

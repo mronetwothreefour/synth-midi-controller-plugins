@@ -46,7 +46,7 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 			auto outputValue{ (uint8)roundToInt(paramPtr->convertFrom0to1(newValue)) };
 			if (paramID == ID::ep_095_ClockTempo)
 				outputValue += EP::clockTempoOffset;
-			if (paramID.toString().contains("_AssignKnob_") && outputValue >= EP::firstKnobAssignParamNumber)
+			if (paramID.toString().contains("_AssignKnob_") && outputValue >= EP::firstKnobAssignParamIndex)
 				outputValue += EP::knobAssignAndUnassignedParamsOffset;
 			ParameterChangeMessage::sendNewValueForNRPNtypeToUnexposedParamsForHandling(outputValue, nrpn, unexposedParams);
 			if ((paramID == ID::ep_098_ArpegOnOff || paramID == ID::ep_100_SeqOnOff) && outputValue == 1)

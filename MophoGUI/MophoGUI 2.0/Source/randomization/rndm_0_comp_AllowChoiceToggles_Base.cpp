@@ -21,10 +21,9 @@ AllowChoiceToggles_Base::AllowChoiceToggles_Base(uint8 numberOfChoices, int numb
 			rowCount = 0;
 			++colCount;
 		}
-		allowedChoiceToggles.push_back(std::make_unique<ToggleButton>(buildChoiceName(choiceNum)));
+		allowedChoiceToggles.push_back(std::make_unique<ToggleButton>());
 		allowedChoiceToggles[choiceNum]->setComponentID(ID::component_ToggleAllow_Choice_.toString() + (String)choiceNum);
 		allowedChoiceToggles[choiceNum]->addListener(this);
-		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
 		allowedChoiceToggles[choiceNum]->setSize(toggle_w, GUI::allowChoiceToggle_h);
 		allowedChoiceToggles[choiceNum]->setTopLeftPosition(colCount * toggle_w, rowCount * GUI::allowChoiceToggle_h);
 		addAndMakeVisible(allowedChoiceToggles[choiceNum].get());

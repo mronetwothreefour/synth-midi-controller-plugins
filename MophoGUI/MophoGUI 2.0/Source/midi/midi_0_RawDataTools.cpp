@@ -68,7 +68,7 @@ const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(Expos
         auto paramValue{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
         if (paramID == ID::ep_095_ClockTempo)
             paramValue += EP::clockTempoOffset;
-        if (paramID.toString().contains("_AssignKnob_") && paramValue >= EP::firstKnobAssignParamNumber)
+        if (paramID.toString().contains("_AssignKnob_") && paramValue >= EP::firstKnobAssignParamIndex)
             paramValue += EP::knobAssignAndUnassignedParamsOffset;
         auto msbLocation{ Info::get().msBitPackedByteLocationFor(paramIndex) };
         auto lsbLocation{ Info::get().lsByteLocationFor(paramIndex) };

@@ -7,16 +7,15 @@
 #include "../../constants/constants_Identifiers.h"
 #include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
-using namespace MophoConstants;
 using Info = InfoForExposedParameters;
 
 
 
 KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
-    uint8 paramIndex, int trackNum, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+    uint8 paramIndex, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
-		knob{ trackNum, unexposedParams },
+		knob{ track, unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
 {
@@ -29,8 +28,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	knob.setAlpha(0.0f);
 	knob.setBounds(getLocalBounds());
-
-	trackDestIndex = uint8(100 + trackNum);
+	trackDestIndex = uint8(EP::firstSeqTrackDestParamIndex + ((int)track - 1));
 	trackDestination.addListener(this);
 
 	sliderValueChanged(&trackDestination);
