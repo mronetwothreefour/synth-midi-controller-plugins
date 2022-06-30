@@ -19,6 +19,7 @@ AllowChoiceToggles_PulseWidth::AllowChoiceToggles_PulseWidth(uint8 paramIndex, U
 	for (auto width = (uint8)0; width < numberOfWidths; ++width) {
 		allowedChoiceToggles[width]->setName(buildChoiceName(width));
 		allowedChoiceToggles[width]->setTooltip(buildTooltip());
+		allowedChoiceToggles[width]->setToggleState(randomization->pulseWidthIsAllowedForParam(width, paramIndex), dontSendNotification);
 	}
 }
 

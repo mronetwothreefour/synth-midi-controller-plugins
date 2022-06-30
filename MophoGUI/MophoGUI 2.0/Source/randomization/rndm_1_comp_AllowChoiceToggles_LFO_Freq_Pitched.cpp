@@ -20,6 +20,7 @@ AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 p
 	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
 		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
 		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
+		allowedChoiceToggles[freq]->setToggleState(randomization->pitchedFreqIsAllowedForLFO_FreqParam(freq, paramIndex), dontSendNotification);
 	}
 }
 

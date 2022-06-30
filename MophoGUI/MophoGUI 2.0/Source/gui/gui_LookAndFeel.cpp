@@ -119,6 +119,9 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	auto buttonID{ button.getComponentID() };
 	MemBlock mBlock{};
 
+	if (buttonID == ID::button_AllowAll.toString())
+		mBlock = MemBlock{ isDown ? btn_AllowAll_Dn_png : btn_AllowAll_Up_png, isDown ? (s_t)btn_AllowAll_Dn_pngSize : (s_t)btn_AllowAll_Up_pngSize };
+
 	if (buttonID == ID::button_Banks.toString())
 		mBlock = MemBlock{ isDown ? btn_Banks_Dn_png : btn_Banks_Up_png, isDown ? (s_t)btn_Banks_Dn_pngSize : (s_t)btn_Banks_Up_pngSize };
 

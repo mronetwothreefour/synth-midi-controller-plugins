@@ -19,6 +19,7 @@ AllowChoiceToggles_LFO_Freq_Unsynced::AllowChoiceToggles_LFO_Freq_Unsynced(uint8
 	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
 		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
 		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
+		allowedChoiceToggles[freq]->setToggleState(randomization->unsyncedFreqIsAllowedForLFO_FreqParam(freq, paramIndex), dontSendNotification);
 	}
 }
 

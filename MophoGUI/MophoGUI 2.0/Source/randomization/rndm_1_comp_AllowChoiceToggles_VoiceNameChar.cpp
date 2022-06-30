@@ -20,6 +20,7 @@ AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIn
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
+		allowedChoiceToggles[choiceNum]->setToggleState(randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex), dontSendNotification);
 	}
 }
 

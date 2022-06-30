@@ -23,6 +23,7 @@ AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(Track track, St
 	for (auto choiceNum = (uint8)0; choiceNum < EP::numberOfChoicesForSeqTrackSteps; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
+		allowedChoiceToggles[choiceNum]->setToggleState(randomization->choiceIsAllowedForSeqTrackStep(choiceNum, track, step), dontSendNotification);
 	}
 }
 
