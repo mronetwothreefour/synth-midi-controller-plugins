@@ -344,7 +344,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_Description, Description::buildFor_BendRange() },
 						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
-						{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
+						{ ID::property_WidthOfAllowChoiceToggleColumn, 34 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, 13 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Knobs },
