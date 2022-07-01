@@ -131,6 +131,8 @@
               file="BinaryResources/labels/lbl_ImportVoice.png"/>
         <FILE id="ZpmyyP" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+        <FILE id="zhQmIW" name="lbl_OscShapeCategories.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_OscShapeCategories.png"/>
         <FILE id="Hnknv7" name="lbl_PullingEntireBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_PullingEntireBank.png"/>
         <FILE id="lMSioe" name="lbl_PushingEntireBank.png" compile="0" resource="1"

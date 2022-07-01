@@ -215,6 +215,9 @@ namespace BinaryData
     extern const char*   lbl_ImportVoicesBank_png;
     const int            lbl_ImportVoicesBank_pngSize = 2735;
 
+    extern const char*   lbl_OscShapeCategories_png;
+    const int            lbl_OscShapeCategories_pngSize = 1952;
+
     extern const char*   lbl_PullingEntireBank_png;
     const int            lbl_PullingEntireBank_pngSize = 2094;
 
@@ -231,7 +234,7 @@ namespace BinaryData
     const int            lbl_VoiceBankTab_3_pngSize = 295;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 74;
+    const int namedResourceListSize = 75;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

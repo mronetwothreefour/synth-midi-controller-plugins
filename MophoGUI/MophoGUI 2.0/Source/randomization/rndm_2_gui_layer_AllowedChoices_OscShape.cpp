@@ -61,7 +61,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggleTooltip += "at least one shape must always be allowed.\n";
 		toggle_Off.setTooltip(toggleTooltip);
 	}
-	toggle_Off.setTopLeftPosition(inset_x, shapeTogglesRow_y);
+	toggle_Off.setBounds(inset_x, shapeTogglesRow_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Off);
 
 	toggle_Saw.setComponentID(ID::component_RedToggle_AllowOscShape_Saw.toString());
@@ -75,7 +75,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggleTooltip += "at least one shape must always be allowed.\n";
 		toggle_Saw.setTooltip(toggleTooltip);
 	}
-	toggle_Saw.setTopLeftPosition(background_x + 93, shapeTogglesRow_y);
+	toggle_Saw.setBounds(background_x + 93, shapeTogglesRow_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Saw);
 
 	toggle_Tri.setComponentID(ID::component_RedToggle_AllowOscShape_Tri.toString());
@@ -89,7 +89,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggleTooltip += "at least one shape must always be allowed.\n";
 		toggle_Tri.setTooltip(toggleTooltip);
 	}
-	toggle_Tri.setTopLeftPosition(background_x + 219, shapeTogglesRow_y);
+	toggle_Tri.setBounds(background_x + 219, shapeTogglesRow_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Tri);
 
 	toggle_SawTri.setComponentID(ID::component_RedToggle_AllowOscShape_SawTri.toString());
@@ -103,7 +103,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggleTooltip += "at least one shape must always be allowed.\n";
 		toggle_SawTri.setTooltip(toggleTooltip);
 	}
-	toggle_SawTri.setTopLeftPosition(background_x + 333, shapeTogglesRow_y);
+	toggle_SawTri.setBounds(background_x + 333, shapeTogglesRow_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_SawTri);
 
 	toggle_Pulse.setComponentID(ID::component_RedToggle_AllowOscShape_Pulse.toString());
@@ -117,7 +117,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 		toggleTooltip += "at least one shape must always be allowed.\n";
 		toggle_Pulse.setTooltip(toggleTooltip);
 	}
-	toggle_Pulse.setTopLeftPosition(background_x + 192, background_y + 73);
+	toggle_Pulse.setBounds(background_x + 192, background_y + 73, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Pulse);
 
 	if (pulseIsAllowed)
@@ -142,6 +142,10 @@ void GUI_Layer_AllowedChoices_OscShape::paint(Graphics& g) {
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
+	MemoryInputStream memInputStream{ BinaryData::lbl_OscShapeCategories_png, BinaryData::lbl_OscShapeCategories_pngSize, false };
+	PNGImageFormat imageFormat;
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, background_x + GUI::allowedChoices_Inset, background_y + 49);
 }
 
 void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {

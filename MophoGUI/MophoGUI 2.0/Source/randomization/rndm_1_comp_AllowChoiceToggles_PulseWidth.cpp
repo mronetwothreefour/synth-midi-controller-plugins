@@ -64,5 +64,6 @@ void AllowChoiceToggles_PulseWidth::restoreToggles() {
 	for (auto pulseWidth = 0; pulseWidth < numberOfWidths; ++pulseWidth) {
 		auto isAllowed{ randomization->pulseWidthIsAllowedForParam(pulseWidth, paramIndex) };
 		allowedChoiceToggles[pulseWidth]->setToggleState(isAllowed ? true : false, dontSendNotification);
+		allowedChoiceToggles[pulseWidth]->setEnabled(true);
 	}
 }
