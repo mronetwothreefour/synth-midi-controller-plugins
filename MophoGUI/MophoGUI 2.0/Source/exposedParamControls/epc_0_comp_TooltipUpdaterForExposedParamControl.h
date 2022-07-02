@@ -6,6 +6,7 @@ using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
+class InfoForExposedParameters;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -16,6 +17,7 @@ class TooltipUpdaterForExposedParamControl :
 	uint8 paramIndex;
 	SettableTooltipClient& clientControl;
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	TooltipsOptions* tooltips;
 
 public:

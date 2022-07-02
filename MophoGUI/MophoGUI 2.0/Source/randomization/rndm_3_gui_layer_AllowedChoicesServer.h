@@ -15,6 +15,7 @@ class GUI_Layer_AllowedChoices_OscShape;
 class GUI_Layer_AllowedChoices_SeqTrack;
 class GUI_Layer_AllowedChoices_Standard;
 class GUI_Layer_AllowedChoices_VoiceNameChar;
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class UnexposedParameters;
 
@@ -23,6 +24,7 @@ class GUI_Layer_AllowedChoicesServer :
 {
 	ParamRandomizationMethods* randomize;
 	UnexposedParameters* unexposedParams;
+	InfoForExposedParameters* info;
 	std::unique_ptr<GUI_Layer_AllowedChoices_Binary> allowedChoices_Binary;
 	std::unique_ptr<GUI_Layer_AllowedChoices_LFO_Freq> allowedChoices_LFO_Freq;
 	std::unique_ptr<GUI_Layer_AllowedChoices_OscShape> allowedChoices_OscShape;

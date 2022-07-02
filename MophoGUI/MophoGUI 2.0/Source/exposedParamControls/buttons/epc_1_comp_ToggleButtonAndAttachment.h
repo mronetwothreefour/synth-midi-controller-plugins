@@ -9,6 +9,7 @@ using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
+class InfoForExposedParameters;
 
 class ToggleButtonAndAttachment : 
 	public Component
@@ -17,6 +18,7 @@ protected:
 	uint8 paramIndex;
 	ToggleButton toggle;
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	std::unique_ptr<ButtonAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 

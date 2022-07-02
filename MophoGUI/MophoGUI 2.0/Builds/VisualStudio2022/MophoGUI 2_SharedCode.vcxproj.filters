@@ -676,13 +676,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.cpp">
-      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp">
-      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
@@ -833,6 +827,9 @@
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp">
@@ -3291,9 +3288,6 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_singleton_InfoForExposedParameters.h">
-      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
@@ -3460,6 +3454,9 @@
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h">

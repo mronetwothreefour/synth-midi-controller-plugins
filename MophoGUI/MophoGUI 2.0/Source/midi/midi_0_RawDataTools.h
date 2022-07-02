@@ -18,7 +18,7 @@ struct RawDataTools {
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
     static bool isValidVoiceDataHexString(const String& hexString);
     static void applyRawDataToExposedParameters(const uint8* dumpData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
-    static const std::vector<uint8> extractRawDataFromExposedParameters(ExposedParameters* exposedParams);
+    static const std::vector<uint8> extractRawDataFromExposedParameters(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     static bool midiMessageIsSysExForMopho(const MidiMessage& midiMessage);
     static std::vector<uint8> createRawDataVectorWithSysExIDheaderBytesForMopho();
 };

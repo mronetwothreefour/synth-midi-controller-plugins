@@ -3,27 +3,25 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
-
-using Info = InfoForExposedParameters;
 
 
 
 GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	repeatChoices{ paramIndex, unexposedParams },
 	allowPulseWidthToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	button_Randomize{ paramIndex, randomize, unexposedParams },
-	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
-	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
+	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
+	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
-	auto paramID{ Info::get().IDfor(paramIndex).toString() };
-	auto paramName{ Info::get().exposedNameFor(paramIndex) };
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
+	auto paramID{ info->IDfor(paramIndex).toString() };
+	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	auto oscNumString{ paramID.fromFirstOccurrenceOf("Osc_", false, false).upToFirstOccurrenceOf("_Shape", false, false) };
@@ -135,7 +133,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 
 void GUI_Layer_AllowedChoices_OscShape::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
-	auto controlCenter{ Info::get().centerPointFor(paramIndex) };
+	auto controlCenter{ info->centerPointFor(paramIndex) };
 	g.setColour(GUI::color_ToggleOn);
 	g.drawEllipse((float)controlCenter.x - 20.0f, (float)controlCenter.y - 20.0f, GUI::knob_diameter, GUI::knob_diameter, 2);
 	g.setColour(GUI::color_Black);

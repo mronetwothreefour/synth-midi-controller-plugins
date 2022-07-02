@@ -10,6 +10,8 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
+class InfoForExposedParameters;
+
 class KnobAndAttachment_ForVoiceNameChar :
 	public Component,
 	public Slider::Listener
@@ -18,6 +20,7 @@ class KnobAndAttachment_ForVoiceNameChar :
 {
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;

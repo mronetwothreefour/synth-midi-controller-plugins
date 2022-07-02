@@ -1,11 +1,9 @@
 #include "epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
-using Info = InfoForExposedParameters;
 
 
 
@@ -14,9 +12,10 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     paramIndex{ paramIndex },
     clientControl{ paramControl },
     exposedParams{ exposedParams },
+    info{ unexposedParams->getInfoForExposedParameters() },
     tooltips{ unexposedParams->getTooltipsOptions() }
 {
-    auto paramID{ Info::get().IDfor(paramIndex) };
+    auto paramID{ info->IDfor(paramIndex) };
     auto paramaterPtr{ exposedParams->getParameter(paramID) };
     paramaterPtr->addListener(this);
 
@@ -34,12 +33,12 @@ void TooltipUpdaterForExposedParamControl::setTooltip() {
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
     String tip{ "" };
     if (tooltips->shouldShowDescriptions())
-        tip += Info::get().descriptionFor(paramIndex) + "\n";
+        tip += info->descriptionFor(paramIndex) + "\n";
     if (tooltips->shouldShowCurrentValue()) {
-        auto paramID{ Info::get().IDfor(paramIndex) };
+        auto paramID{ info->IDfor(paramIndex) };
         auto paramaterPtr{ exposedParams->getParameter(paramID) };
         auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
-        auto choiceName{ Info::get().verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
+        auto choiceName{ info->verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
         tip += "Current Setting: " + choiceName;
     }
     return tip;
@@ -61,6 +60,6 @@ void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
     tooltips->removeListener(this);
 
-    auto paramID{ Info::get().IDfor(paramIndex) };
+    auto paramID{ info->IDfor(paramIndex) };
     exposedParams->getParameter(paramID)->removeListener(this);
 }

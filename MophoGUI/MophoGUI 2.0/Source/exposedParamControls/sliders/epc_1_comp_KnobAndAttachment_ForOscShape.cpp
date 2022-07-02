@@ -6,10 +6,8 @@
 #include "../../constants/constants_GUI_Colors.h"
 #include "../../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../../constants/constants_Identifiers.h"
-#include "../../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 
 using namespace MophoConstants;
-using Info = InfoForExposedParameters;
 
 
 
@@ -17,6 +15,7 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
+		info{ unexposedParams->getInfoForExposedParameters() },
 		knob{ unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 },
@@ -24,7 +23,7 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	knob.setMouseDragSensitivity(Info::get().mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
@@ -106,7 +105,7 @@ void KnobAndAttachment_ForOscShape::paintPulse(Graphics& g, Path path, int pulse
 }
 
 void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*exposedParams, Info::get().IDfor(paramIndex).toString(), knob));
+	attachment.reset(new SliderAttachment(*exposedParams, info->IDfor(paramIndex).toString(), knob));
 }
 
 void KnobAndAttachment_ForOscShape::sliderValueChanged(Slider* /*slider*/) {	

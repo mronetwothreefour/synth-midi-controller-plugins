@@ -7,7 +7,6 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Voices.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../global/global_1_gui_layer_CommError_NRPN.h"
 #include "../global/global_1_gui_layer_CommError_SysEx.h"
 #include "../global/global_2_gui_layer_GlobalParams.h"
@@ -21,13 +20,13 @@
 using namespace MophoConstants;
 using Description = MainWindowButtonDescription;
 using EditBuffer = EditBufferDataMessage;
-using Info = InfoForExposedParameters;
 
 
 
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
+    info{ unexposedParams->getInfoForExposedParameters() },
     global{ unexposedParams->getGlobalOptions() },
     randomize{ new ParamRandomizationMethods(exposedParams, unexposedParams) },
     tooltips{ unexposedParams->getTooltipsOptions() },
@@ -58,16 +57,16 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     button_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
     addAndMakeVisible(button_ShowVoiceNameEditor);
 
-    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-
     const int rowBeneathProgramName_y{ 83 };
     const int writeReadButtons_w{ 44 };
     button_WriteEditBuffer.setComponentID(ID::button_Write_EditBuffer.toString());
-    button_WriteEditBuffer.onClick = [exposedParams, outgoingBuffers] {
-        EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingBuffers);
+    button_WriteEditBuffer.onClick = [exposedParams, unexposedParams] {
+        EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams);
     };
     button_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_WriteEditBuffer);
+
+    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 
     button_ReadEditBuffer.setComponentID(ID::button_Read.toString());
     button_ReadEditBuffer.onClick = [outgoingBuffers] {
@@ -177,7 +176,7 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
     for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
-        auto paramID{ Info::get().IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
+        auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
         auto paramPtr{ exposedParams->getParameter(paramID) };
         if (paramPtr != nullptr)
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
@@ -223,7 +222,7 @@ void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
 }
 
 void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
-    auto paramID{ Info::get().IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
+    auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));
@@ -237,7 +236,7 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
 
 void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
     auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
-    auto paramID{ Info::get().IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
+    auto paramID{ info->IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
     auto param{ exposedParams->getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);
@@ -258,14 +257,14 @@ void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
     callAfterDelay(300, [this] {
-            if (global->sysExIsEnabled()) {
-                if (global->hardwareIsNotSetToReceiveNRPNcontrollers())
-                    showCommError_NRPN_Layer();
-                else
-                    showGlobalParamsLayer();
-            }
-            else showCommError_SysExLayer();
-        });
+        if (global->sysExIsEnabled()) {
+            if (global->hardwareIsNotSetToReceiveNRPNcontrollers())
+                showCommError_NRPN_Layer();
+            else
+                showGlobalParamsLayer();
+        }
+        else showCommError_SysExLayer();
+    });
 }
 
 void GUI_Layer_MainWindowButtons::showCommError_SysExLayer() {

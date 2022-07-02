@@ -4,26 +4,25 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
-
-using Info = InfoForExposedParameters;
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	allowChoiceToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, unexposedParams },
 	button_Randomize{ paramIndex, randomize, unexposedParams },
 	childrenShouldBeStackedVertically{ false },
-	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
-	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) }
+	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
+	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
-	auto paramName{ Info::get().exposedNameFor(paramIndex) };
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 
@@ -73,10 +72,10 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 
 void GUI_Layer_AllowedChoices_Standard::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
-	auto controlCenter{ Info::get().centerPointFor(paramIndex) };
-	auto control_w{ Info::get().widthFor(paramIndex) };
+	auto controlCenter{ info->centerPointFor(paramIndex) };
+	auto control_w{ info->widthFor(paramIndex) };
 	g.setColour(GUI::color_ToggleOn);
-	auto controlType{ Info::get().controlTypeFor(paramIndex) };
+	auto controlType{ info->controlTypeFor(paramIndex) };
 	if (controlType == ControlType::knob ||
 		controlType == ControlType::knobForPitch)
 		g.drawEllipse((float)controlCenter.x - 20.0f, (float)controlCenter.y - 20.0f, GUI::knob_diameter, GUI::knob_diameter, 2);

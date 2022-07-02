@@ -4,11 +4,9 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
-using Info = InfoForExposedParameters;
 
 
 
@@ -18,7 +16,8 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* un
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 
-	auto controlType{ Info::get().controlTypeFor(paramIndex) };
+	auto info{ unexposedParams->getInfoForExposedParameters() };
+	auto controlType{ info->controlTypeFor(paramIndex) };
 	switch (controlType)
 	{
 	case MophoConstants::ControlType::knob:
@@ -39,7 +38,7 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* un
 		break;
 	case MophoConstants::ControlType::comboBox:
 		setComponentID(ID::component_ToggleLock_ComboBox_Param_.toString() + (String)paramIndex);
-		setSize(Info::get().widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
+		setSize(info->widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
 		break;
 	case MophoConstants::ControlType::seqTrackStep:
 		setComponentID(ID::component_ToggleLock_SeqStep_Param_.toString() + (String)paramIndex);

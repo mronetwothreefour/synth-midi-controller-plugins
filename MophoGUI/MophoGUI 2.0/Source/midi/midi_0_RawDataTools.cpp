@@ -3,10 +3,7 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
-
-using Info = InfoForExposedParameters;
 
 
 
@@ -38,11 +35,12 @@ void RawDataTools::applyRawDataToExposedParameters(
 {
     auto voiceTransmissionOptions{ unexposedParams->getVoiceTransmissionOptions() };
     voiceTransmissionOptions->dontTransmitParamChanges();
+    auto info{ unexposedParams->getInfoForExposedParameters() };
     for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
-        auto paramID{ Info::get().IDfor(param) };
-        auto lsByteLocation{ Info::get().lsByteLocationFor(param) };
-        auto msBitLocation{ Info::get().msBitPackedByteLocationFor(param) };
-        auto msBitMask{ Info::get().msBitMaskFor(param) };
+        auto paramID{ info->IDfor(param) };
+        auto lsByteLocation{ info->lsByteLocationFor(param) };
+        auto msBitLocation{ info->msBitPackedByteLocationFor(param) };
+        auto msBitMask{ info->msBitMaskFor(param) };
         auto newValue{ *(dumpData + lsByteLocation) };
         auto msBitIsFlagged{ *(dumpData + msBitLocation) & msBitMask };
         if (msBitIsFlagged)
@@ -57,23 +55,24 @@ void RawDataTools::applyRawDataToExposedParameters(
     voiceTransmissionOptions->transmitParamChanges();
 }
 
-const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(ExposedParameters* exposedParams) {
+const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
     std::vector<uint8> voiceData;
     for (auto i = 0; i != rawVoiceDataSize; ++i) {
         voiceData.push_back((uint8)0);
     }
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-        auto paramID{ Info::get().IDfor(paramIndex) };
+        auto info{ unexposedParams->getInfoForExposedParameters() };
+        auto paramID{ info->IDfor(paramIndex) };
         auto paramPtr{ exposedParams->getParameter(paramID) };
         auto paramValue{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
         if (paramID == ID::ep_095_ClockTempo)
             paramValue += EP::clockTempoOffset;
         if (paramID.toString().contains("_AssignKnob_") && paramValue >= EP::firstKnobAssignParamIndex)
             paramValue += EP::knobAssignAndUnassignedParamsOffset;
-        auto msbLocation{ Info::get().msBitPackedByteLocationFor(paramIndex) };
-        auto lsbLocation{ Info::get().lsByteLocationFor(paramIndex) };
+        auto msbLocation{ info->msBitPackedByteLocationFor(paramIndex) };
+        auto lsbLocation{ info->lsByteLocationFor(paramIndex) };
         if (paramValue > 127) {
-            voiceData[msbLocation] += Info::get().msBitMaskFor(paramIndex);
+            voiceData[msbLocation] += info->msBitMaskFor(paramIndex);
         }
         voiceData[lsbLocation] = paramValue % 128;
     }

@@ -4,27 +4,26 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
-
-using Info = InfoForExposedParameters;
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
 GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 	uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	allowChoiceToggles{ paramIndex, unexposedParams },
 	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, unexposedParams },
 	button_Randomize{ paramIndex, randomize, unexposedParams },
-	background_x{ Info::get().allowedChoicesBackground_x_For(paramIndex) },
-	background_y{ Info::get().allowedChoicesBackground_y_For(paramIndex) },
+	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
+	background_y{ info->allowedChoicesBackground_y_For(paramIndex) },
 	background_w{ 246 },
 	background_h{ 258 }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
-	auto paramName{ Info::get().exposedNameFor(paramIndex) };
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
+	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	auto allowAllAndCloseButtons_y{ 88 };
@@ -63,9 +62,9 @@ GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 
 void GUI_Layer_AllowedChoices_VoiceNameChar::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
-	auto controlCenter{ Info::get().centerPointFor(paramIndex) };
-	auto char_w{ Info::get().widthFor(paramIndex) };
-	auto char_h{ Info::get().heightFor(paramIndex) };
+	auto controlCenter{ info->centerPointFor(paramIndex) };
+	auto char_w{ info->widthFor(paramIndex) };
+	auto char_h{ info->heightFor(paramIndex) };
 	g.setColour(GUI::color_ToggleOn);
 	g.drawRect(controlCenter.x - char_w / 2 - 2, controlCenter.y - char_h / 2 - 2, char_w + 4, char_h + 4, 2);
 	g.setColour(GUI::color_Black);

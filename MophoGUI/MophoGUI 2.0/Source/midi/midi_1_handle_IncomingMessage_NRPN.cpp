@@ -2,17 +2,16 @@
 
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
-using Info = InfoForExposedParameters;
 
 
 
 IncomingMessageHandler_NRPN::IncomingMessageHandler_NRPN(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	global{ unexposedParams->getGlobalOptions() },
+    info{ unexposedParams->getInfoForExposedParameters() },
+    global{ unexposedParams->getGlobalOptions() },
     voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -103,8 +102,8 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(MidiMessage 
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnType, int newValue) {
     voiceTransmit->dontTransmitParamChanges();
-    auto paramIndex{ Info::get().paramIndexForNRPN((uint8)nrpnType) };
-    auto paramID{ Info::get().IDfor(paramIndex) };
+    auto paramIndex{ info->paramIndexForNRPN((uint8)nrpnType) };
+    auto paramID{ info->IDfor(paramIndex) };
     auto paramPtr{ exposedParams->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
     voiceTransmit->transmitParamChanges();

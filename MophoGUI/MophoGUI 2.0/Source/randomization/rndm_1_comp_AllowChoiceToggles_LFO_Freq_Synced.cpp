@@ -1,21 +1,19 @@
 #include "rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"
 
 #include "../constants/constants_ExposedParameters.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
-
-using Info = InfoForExposedParameters;
 
 
 
 AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfSyncedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 2, 8, 0, 100 }
 {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
 		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
 		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
@@ -86,7 +84,7 @@ String AllowChoiceToggles_LFO_Freq_Synced::buildTooltip() {
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
-		auto paramID{ Info::get().IDfor(paramIndex).toString() };
+		auto paramID{ info->IDfor(paramIndex).toString() };
 		auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
 		tip += "Click a synced frequency to toggle whether or not it\n";
 		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";

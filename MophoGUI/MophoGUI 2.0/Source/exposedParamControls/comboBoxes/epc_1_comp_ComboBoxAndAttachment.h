@@ -10,13 +10,16 @@ using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
-class ComboBoxAndAttachment : 
+class InfoForExposedParameters;
+
+class ComboBoxAndAttachment :
 	public Component
 {
 protected:
 	uint8 paramIndex;
 	ComboBox comboBox;
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	std::unique_ptr<ComboBoxAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 

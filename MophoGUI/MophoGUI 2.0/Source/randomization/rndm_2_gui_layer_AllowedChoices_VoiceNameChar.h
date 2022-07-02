@@ -9,6 +9,7 @@
 
 
 
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class UnexposedParameters;
 
@@ -16,6 +17,7 @@ class GUI_Layer_AllowedChoices_VoiceNameChar :
 	public Component
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;

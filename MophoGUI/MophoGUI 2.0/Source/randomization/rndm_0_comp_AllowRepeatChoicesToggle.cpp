@@ -3,19 +3,18 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
-using Info = InfoForExposedParameters;
 
 
 
 AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	randomization{ unexposedParams->getRandomizationOptions() }
 {
-	auto allowedChoicesType{ Info::get().allowedChoicesTypeFor(paramIndex) };
+	auto allowedChoicesType{ info->allowedChoicesTypeFor(paramIndex) };
 	jassert(allowedChoicesType != AllowedChoicesType::seqTrackStep);
 	if (allowedChoicesType != AllowedChoicesType::binary)
 		randomization->addListenerToChildTreeForParam(this, paramIndex);
@@ -26,7 +25,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 	};
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescriptions()) {
-		auto numberOfChoices{ Info::get().numberOfChoicesFor(paramIndex) };
+		auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";
 		tip += "when a new setting is randomly generated. If it\n";
@@ -52,7 +51,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedPa
 		toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 	}
 	else {
-		ValueTree placeholderTree{ Info::get().IDfor(paramIndex) };
+		ValueTree placeholderTree{ info->IDfor(paramIndex) };
 		valueTreePropertyChanged(placeholderTree, ID::rndm_OnlyOneChoiceIsAllowed);
 	}
 
@@ -81,6 +80,6 @@ void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& /*tree*/, con
 }
 
 AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
-	if (Info::get().allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
+	if (info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
 		randomization->removeListenerFromChildTreeForParam(this, paramIndex);
 }

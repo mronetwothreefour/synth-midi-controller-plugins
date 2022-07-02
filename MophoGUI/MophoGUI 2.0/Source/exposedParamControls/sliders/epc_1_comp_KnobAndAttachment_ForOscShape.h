@@ -10,6 +10,8 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
+class InfoForExposedParameters;
+
 class KnobAndAttachment_ForOscShape :
 	public Component,
 	public Slider::Listener
@@ -17,7 +19,8 @@ class KnobAndAttachment_ForOscShape :
 	// much, much faster than listening directly to an exposed parameter
 {
 	uint8 paramIndex;
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	RotarySliderWithMouseDownModForOscShape knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;

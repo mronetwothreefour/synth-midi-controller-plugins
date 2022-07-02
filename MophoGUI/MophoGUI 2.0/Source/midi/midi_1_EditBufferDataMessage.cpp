@@ -1,8 +1,8 @@
 #include "midi_1_EditBufferDataMessage.h"
 
-#include "midi_0_OutgoingMidiBuffers.h"
 #include "midi_0_RawDataTools.h"
 #include "../constants/constants_Enum.h"
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
@@ -15,16 +15,17 @@ void EditBufferDataMessage::addRequestForEditBufferDataMessageToOutgoingMidiBuff
 }
 
 void EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(
-    ExposedParameters* exposedParams, OutgoingMidiBuffers* outgoingBuffers)
+    ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
 {
-    auto dumpDataVector{ createEditBufferDataMessage(exposedParams) };
+    auto dumpDataVector{ createEditBufferDataMessage(exposedParams, unexposedParams) };
+    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     outgoingBuffers->addDataMessage(dumpDataVector);
 }
 
-std::vector<uint8> EditBufferDataMessage::createEditBufferDataMessage(ExposedParameters* exposedParams) {
+std::vector<uint8> EditBufferDataMessage::createEditBufferDataMessage(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
     auto editBufferDataVector{ RawDataTools::createRawDataVectorWithSysExIDheaderBytesForMopho() };
     editBufferDataVector.push_back((uint8)SysExMessageType::editBufferData);
-    auto rawVoiceData{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
+    auto rawVoiceData{ RawDataTools::extractRawDataFromExposedParameters(exposedParams, unexposedParams) };
     for (auto dataByte : rawVoiceData)
         editBufferDataVector.push_back(dataByte);
     return editBufferDataVector;

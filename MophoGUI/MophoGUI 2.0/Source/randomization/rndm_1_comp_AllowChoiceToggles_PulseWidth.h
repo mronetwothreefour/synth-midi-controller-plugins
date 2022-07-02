@@ -6,6 +6,7 @@
 
 
 
+class InfoForExposedParameters;
 class RandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -14,6 +15,7 @@ class AllowChoiceToggles_PulseWidth :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 	const uint8 numberOfWidths;

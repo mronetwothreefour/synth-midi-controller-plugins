@@ -13,6 +13,7 @@ using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -22,6 +23,7 @@ class GUI_Layer_Randomization :
 	public Button::Listener
 {
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	ParamRandomizationMethods* randomize;
 	ButtonForHidingLayer button_Close;

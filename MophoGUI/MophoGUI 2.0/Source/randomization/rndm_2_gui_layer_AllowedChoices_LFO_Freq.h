@@ -15,6 +15,7 @@ using Category = LFO_FreqCategory;
 
 
 
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -24,6 +25,7 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 	public Button::Listener
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoices;

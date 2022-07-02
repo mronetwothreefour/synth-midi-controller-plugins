@@ -13,6 +13,7 @@ using Shape = OscWaveShape;
 
 
 
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -22,6 +23,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 	public Button::Listener
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoices;

@@ -10,6 +10,7 @@ using ExposedParameters = AudioProcessorValueTreeState;
 
 
 class ComboBoxAndAttachment;
+class InfoForExposedParameters;
 class KnobAndAttachment;
 class KnobAndAttachment_ForOscShape;
 class KnobAndAttachment_ForSeqStep;
@@ -23,6 +24,7 @@ class ExposedParamControl :
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
+	InfoForExposedParameters* info;
 	ControlType controlType;
 	std::unique_ptr<KnobAndAttachment> knobAndAttachment;
 	std::unique_ptr<KnobAndAttachment_ForOscShape> knobAndAttachment_ForOscShape;

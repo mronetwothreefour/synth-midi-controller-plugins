@@ -243,18 +243,12 @@
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.cpp"/>
         <FILE id="VLGOge" name="ep_build_ChoiceNamesValueTree.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.h"/>
-        <FILE id="DzOFbx" name="ep_build_ExposedParamsLayout.cpp" compile="1"
-              resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.cpp"/>
         <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.h"/>
         <FILE id="GyhbY4" name="ep_handle_ExposedParamChanges.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.cpp"/>
         <FILE id="UIQ6QK" name="ep_handle_ExposedParamChanges.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.h"/>
-        <FILE id="ltHhZw" name="ep_singleton_InfoForExposedParameters.cpp"
-              compile="1" resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.cpp"/>
-        <FILE id="MYC3I4" name="ep_singleton_InfoForExposedParameters.h" compile="0"
-              resource="0" file="Source/exposedParameters/ep_singleton_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
         <FILE id="znUCo4" name="global_0_build_ChoiceName.cpp" compile="1"
@@ -477,6 +471,10 @@
               file="Source/unexposedParameters/up_tree_GlobalOptions.cpp"/>
         <FILE id="wcM1nu" name="up_tree_GlobalOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_tree_GlobalOptions.h"/>
+        <FILE id="FbdhVV" name="up_tree_InfoForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_tree_InfoForExposedParameters.cpp"/>
+        <FILE id="OXq5B1" name="up_tree_InfoForExposedParameters.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_tree_InfoForExposedParameters.h"/>
         <FILE id="GpQvpK" name="up_tree_RandomizationOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_tree_RandomizationOptions.cpp"/>
         <FILE id="BwxeLt" name="up_tree_RandomizationOptions.h" compile="0"

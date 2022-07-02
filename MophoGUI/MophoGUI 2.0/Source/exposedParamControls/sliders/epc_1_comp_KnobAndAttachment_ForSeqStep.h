@@ -13,6 +13,8 @@ using Track = SeqTrackNum;
 
 
 
+class InfoForExposedParameters;
+
 class KnobAndAttachment_ForSeqStep :
 	public Component,
 	public Slider::Listener
@@ -21,6 +23,7 @@ class KnobAndAttachment_ForSeqStep :
 {
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	RotarySliderWithMouseDownModForSeqStep knob;
 	std::unique_ptr<SliderAttachment> knobAttachment;
 	Slider trackDestination;

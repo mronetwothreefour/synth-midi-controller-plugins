@@ -58,7 +58,7 @@ void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
+		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams, unexposedParams) };
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);
@@ -72,7 +72,7 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
 		RawDataTools::applyRawDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { 
-			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingMIDI); 
+			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams); 
 		});
 	}
 }

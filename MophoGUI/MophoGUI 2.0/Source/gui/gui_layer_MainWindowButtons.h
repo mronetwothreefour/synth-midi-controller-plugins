@@ -12,6 +12,7 @@ class GUI_Layer_CommError_SysEx;
 class GUI_Layer_GlobalParameters;
 class GUI_Layer_Randomization;
 class GUI_Layer_VoicesBanks;
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -25,6 +26,7 @@ class GUI_Layer_MainWindowButtons :
 {
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
+	InfoForExposedParameters* info;
 	GlobalOptions* global;
 	TooltipsOptions* tooltips;
 	Label voiceNameEditor;

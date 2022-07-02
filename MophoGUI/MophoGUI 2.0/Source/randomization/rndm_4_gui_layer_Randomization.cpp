@@ -4,10 +4,8 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
-using Info = InfoForExposedParameters;
 using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 using Type = AllowedChoicesType;
@@ -17,6 +15,7 @@ using Type = AllowedChoicesType;
 GUI_Layer_Randomization::GUI_Layer_Randomization(
 	ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, ParamRandomizationMethods* randomize) :
 	exposedParams{ exposedParams },
+	info{ unexposedParams->getInfoForExposedParameters() },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	randomize{ randomize },
 	button_Close{ unexposedParams },
@@ -33,7 +32,7 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, unexposedParams });
 		paramLockToggles[paramIndex]->addListener(this);
 		paramLockToggles[paramIndex]->addMouseListener(this, false);
-		paramLockToggles[paramIndex]->setCentrePosition(Info::get().centerPointFor(paramIndex));
+		paramLockToggles[paramIndex]->setCentrePosition(info->centerPointFor(paramIndex));
 		addAndMakeVisible(paramLockToggles[paramIndex].get());
 	}
 
@@ -55,7 +54,7 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 		toggleWasRightClicked = true;
 		auto toggleID{ event.eventComponent->getComponentID() };
 		auto paramIndex{ (uint8)toggleID.fromFirstOccurrenceOf("Param_", false, false).getIntValue() };
-		auto allowedChoicesType{ Info::get().allowedChoicesTypeFor(paramIndex) };
+		auto allowedChoicesType{ info->allowedChoicesTypeFor(paramIndex) };
 		switch (allowedChoicesType)
 		{
 		case MophoConstants::AllowedChoicesType::standard:
@@ -101,7 +100,7 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 		toggleWasRightClicked = false;
 	}
 	else {
-		auto paramID{ Info::get().IDfor(paramIndex) };
+		auto paramID{ info->IDfor(paramIndex) };
 		auto shouldBeLocked{ button->getToggleState() };
 		if (paramID == ID::ep_098_ArpegOnOff || paramID == ID::ep_100_SeqOnOff) {
 			if (shouldBeLocked) {

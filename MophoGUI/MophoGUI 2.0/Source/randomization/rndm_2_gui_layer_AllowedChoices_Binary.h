@@ -8,6 +8,7 @@
 
 
 
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class UnexposedParameters;
 
@@ -15,6 +16,7 @@ class GUI_Layer_AllowedChoices_Binary :
 	public Component
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	RandomizeButtonForAllowedChoicesLayers button_Randomize;
 	ButtonForHidingLayer button_Close;

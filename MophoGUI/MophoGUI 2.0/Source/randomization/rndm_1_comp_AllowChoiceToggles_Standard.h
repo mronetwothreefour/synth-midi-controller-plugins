@@ -6,6 +6,7 @@
 
 
 
+class InfoForExposedParameters;
 class RandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -14,6 +15,7 @@ class AllowChoiceToggles_Standard :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
+	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 	uint8 numberOfChoices;

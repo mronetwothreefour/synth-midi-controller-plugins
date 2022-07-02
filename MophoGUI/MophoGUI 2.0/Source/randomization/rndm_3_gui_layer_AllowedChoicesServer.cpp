@@ -8,23 +8,23 @@
 #include "rndm_2_gui_layer_AllowedChoices_Standard.h"
 #include "rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../exposedParameters/ep_singleton_InfoForExposedParameters.h"
+#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
-using Info = InfoForExposedParameters;
 using Type = AllowedChoicesType;
 
 
 
 GUI_Layer_AllowedChoicesServer::GUI_Layer_AllowedChoicesServer(ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
 	randomize{ randomize },
-	unexposedParams{ unexposedParams }
+	unexposedParams{ unexposedParams },
+	info{ unexposedParams->getInfoForExposedParameters() }
 {
 	setInterceptsMouseClicks(false, true);
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForBinaryParam(uint8 paramIndex) {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == Type::binary);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == Type::binary);
 	allowedChoices_LFO_Freq = nullptr;
 	allowedChoices_OscShape = nullptr;
 	allowedChoices_SeqTrack = nullptr;
@@ -36,7 +36,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForBinaryParam(uint8
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForLFO_FreqParam(uint8 paramIndex) {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == Type::lfoFreq);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == Type::lfoFreq);
 	allowedChoices_Binary = nullptr;
 	allowedChoices_OscShape = nullptr;
 	allowedChoices_SeqTrack = nullptr;
@@ -48,7 +48,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForLFO_FreqParam(uin
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForOscShapeParam(uint8 paramIndex) {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == Type::oscShape);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == Type::oscShape);
 	allowedChoices_Binary = nullptr;
 	allowedChoices_LFO_Freq = nullptr;
 	allowedChoices_SeqTrack = nullptr;
@@ -69,7 +69,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForSeqTrack(Track tr
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uint8 paramIndex) {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == Type::standard);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == Type::standard);
 	allowedChoices_Binary = nullptr;
 	allowedChoices_LFO_Freq = nullptr;
 	allowedChoices_OscShape = nullptr;
@@ -81,7 +81,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uin
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForVoiceNameCharParam(uint8 paramIndex) {
-	jassert(Info::get().allowedChoicesTypeFor(paramIndex) == Type::voiceNameChar);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == Type::voiceNameChar);
 	allowedChoices_Binary = nullptr;
 	allowedChoices_LFO_Freq = nullptr;
 	allowedChoices_OscShape = nullptr;
