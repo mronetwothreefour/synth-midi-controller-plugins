@@ -6,7 +6,7 @@
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class RandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -15,7 +15,7 @@ class AllowChoiceToggles_PulseWidth :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 	const uint8 numberOfWidths;
@@ -23,7 +23,7 @@ class AllowChoiceToggles_PulseWidth :
 public:
 	AllowChoiceToggles_PulseWidth() = delete;
 
-	AllowChoiceToggles_PulseWidth(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_PulseWidth(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	String buildChoiceName(uint8 choiceNum) override;

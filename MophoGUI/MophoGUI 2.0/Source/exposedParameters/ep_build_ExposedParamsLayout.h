@@ -2,9 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "ep_tree_InfoForExposedParameters.h"
 #include "../constants/constants_ExposedParameters.h"
-#include "../constants/constants_Identifiers.h"
-#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 using ParameterLayout = AudioProcessorValueTreeState::ParameterLayout;
@@ -13,8 +12,7 @@ using ParameterLayout = AudioProcessorValueTreeState::ParameterLayout;
 
 struct ExposedParametersLayout
 {
-	static ParameterLayout build(UnexposedParameters* unexposedParams) {
-		auto info{ unexposedParams->getInfoForExposedParameters() };
+	static ParameterLayout build(InfoForExposedParameters* info) {
 		ParameterLayout layout;
 		for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 			auto paramID{ info->IDfor(paramIndex).toString() };

@@ -6,10 +6,9 @@
 #include "voices_2_comp_VoiceSlots.h"
 #include "voices_3_comp_ButtonsForVoicesBankTab.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class UnexposedParameters;
 class VoicesBanks;
 

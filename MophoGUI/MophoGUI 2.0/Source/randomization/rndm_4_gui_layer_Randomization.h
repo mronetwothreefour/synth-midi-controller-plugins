@@ -9,11 +9,10 @@
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 using namespace MophoConstants;
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -23,7 +22,6 @@ class GUI_Layer_Randomization :
 	public Button::Listener
 {
 	ExposedParameters* exposedParams;
-	InfoForExposedParameters* info;
 	RandomizationOptions* randomization;
 	ParamRandomizationMethods* randomize;
 	ButtonForHidingLayer button_Close;

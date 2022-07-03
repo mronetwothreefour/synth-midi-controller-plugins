@@ -11,18 +11,18 @@ using Track = SeqTrackNum;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class UnexposedParameters;
 
 class RandomizationOptions
 {
 	ValueTree randomizationOptionsTree;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 
 public:
 	RandomizationOptions() = delete;
 
-	explicit RandomizationOptions(UnexposedParameters* unexposedParams);
+	explicit RandomizationOptions(ExposedParameters* exposedParams);
 
 	const bool transmitMethodIsSysEx();
 	void setTransmitMethodIsSysEx(bool shouldBeSysEx);

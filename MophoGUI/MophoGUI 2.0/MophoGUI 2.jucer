@@ -147,14 +147,14 @@
     </GROUP>
     <GROUP id="{DA7CF7F1-35A4-9559-7D41-177380A1BF4B}" name="Source">
       <GROUP id="{E7EA50CA-7C6F-0CE9-5192-646520E3C865}" name="_core">
-        <FILE id="lKjLEq" name="core_PluginProcessor.cpp" compile="1" resource="0"
-              file="Source/core_PluginProcessor.cpp"/>
-        <FILE id="mz0fVN" name="core_PluginProcessor.h" compile="0" resource="0"
-              file="Source/core_PluginProcessor.h"/>
-        <FILE id="mcOZZS" name="core_PluginEditor.cpp" compile="1" resource="0"
-              file="Source/core_PluginEditor.cpp"/>
-        <FILE id="K91Aty" name="core_PluginEditor.h" compile="0" resource="0"
-              file="Source/core_PluginEditor.h"/>
+        <FILE id="ebdxH0" name="core_0_PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/core_0_PluginProcessor.cpp"/>
+        <FILE id="KGQeiX" name="core_0_PluginProcessor.h" compile="0" resource="0"
+              file="Source/core_0_PluginProcessor.h"/>
+        <FILE id="BH5MH1" name="core_1_PluginEditor.cpp" compile="1" resource="0"
+              file="Source/core_1_PluginEditor.cpp"/>
+        <FILE id="lHH5tP" name="core_1_PluginEditor.h" compile="0" resource="0"
+              file="Source/core_1_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{62E13D27-6659-B7FB-13E2-73B203E87421}" name="constants">
         <FILE id="GLI1BD" name="constants_Enum.h" compile="0" resource="0"
@@ -245,10 +245,18 @@
               resource="0" file="Source/exposedParameters/ep_build_ChoiceNamesValueTree.h"/>
         <FILE id="oHlPE1" name="ep_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_build_ExposedParamsLayout.h"/>
+        <FILE id="mdtO9D" name="ep_facade_ExposedParameters.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_facade_ExposedParameters.cpp"/>
+        <FILE id="yheQEo" name="ep_facade_ExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_facade_ExposedParameters.h"/>
         <FILE id="GyhbY4" name="ep_handle_ExposedParamChanges.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.cpp"/>
         <FILE id="UIQ6QK" name="ep_handle_ExposedParamChanges.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_handle_ExposedParamChanges.h"/>
+        <FILE id="waDNES" name="ep_tree_InfoForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_tree_InfoForExposedParameters.cpp"/>
+        <FILE id="zCPksL" name="ep_tree_InfoForExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_tree_InfoForExposedParameters.h"/>
       </GROUP>
       <GROUP id="{EAFA550F-9B0A-1384-69F1-BC5A67281DE4}" name="global">
         <FILE id="znUCo4" name="global_0_build_ChoiceName.cpp" compile="1"
@@ -471,10 +479,6 @@
               file="Source/unexposedParameters/up_tree_GlobalOptions.cpp"/>
         <FILE id="wcM1nu" name="up_tree_GlobalOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_tree_GlobalOptions.h"/>
-        <FILE id="FbdhVV" name="up_tree_InfoForExposedParameters.cpp" compile="1"
-              resource="0" file="Source/unexposedParameters/up_tree_InfoForExposedParameters.cpp"/>
-        <FILE id="OXq5B1" name="up_tree_InfoForExposedParameters.h" compile="0"
-              resource="0" file="Source/unexposedParameters/up_tree_InfoForExposedParameters.h"/>
         <FILE id="GpQvpK" name="up_tree_RandomizationOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_tree_RandomizationOptions.cpp"/>
         <FILE id="BwxeLt" name="up_tree_RandomizationOptions.h" compile="0"

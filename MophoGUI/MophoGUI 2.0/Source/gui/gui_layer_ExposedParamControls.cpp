@@ -1,5 +1,6 @@
 #include "gui_layer_ExposedParamControls.h"
 
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
@@ -12,8 +13,7 @@ GUI_Layer_ExposedParamControls::GUI_Layer_ExposedParamControls(ExposedParameters
         auto controlPtr{ controlPtrFor(paramIndex) };
         addAndMakeVisible(controlPtr);
         controlPtr->attachControlToExposedParameter();
-        auto info{ unexposedParams->getInfoForExposedParameters() };
-        controlPtr->setCentrePosition(info->centerPointFor(paramIndex));
+        controlPtr->setCentrePosition(exposedParams->info.centerPointFor(paramIndex));
     }
 }
 

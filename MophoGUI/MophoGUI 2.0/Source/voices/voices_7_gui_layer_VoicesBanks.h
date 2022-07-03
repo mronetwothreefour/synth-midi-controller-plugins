@@ -6,10 +6,9 @@
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class GUI_Layer_BankTransmit;
 class GUI_Layer_Export_Voice;
 class GUI_Layer_Export_VoicesBank;

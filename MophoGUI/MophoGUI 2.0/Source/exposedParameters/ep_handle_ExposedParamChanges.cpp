@@ -5,6 +5,7 @@
 #include "../constants/constants_MIDI.h"
 #include "../midi/midi_1_ParameterChangeMessage.h"
 //#include "../randomization/randomization_ParamRandomizationMethods.h" todo: handle randomization triggers
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -14,12 +15,11 @@ using namespace MophoConstants;
 ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	info{ unexposedParams->getInfoForExposedParameters() },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		auto paramID{ info->IDfor(paramIndex) };
-		auto paramPtr{ exposedParams->getParameter(paramID) };
+		auto paramID{ exposedParams->info.IDfor(paramIndex) };
+		auto paramPtr{ exposedParams->state.getParameter(paramID) };
 		paramPtr->addListener(this);
 //		exposedParams->addParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}
@@ -39,9 +39,9 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 	//}
 	//else {
 		if (voiceTransmit->paramChangesShouldBeTransmitted()) {
-			auto paramID{ info->IDfor((uint8)changedParamIndex) };
-			auto nrpn{ info->NRPNfor((uint8)changedParamIndex) };
-			auto paramPtr{ exposedParams->getParameter(paramID) };
+			auto paramID{ exposedParams->info.IDfor((uint8)changedParamIndex) };
+			auto nrpn{ exposedParams->info.NRPNfor((uint8)changedParamIndex) };
+			auto paramPtr{ exposedParams->state.getParameter(paramID) };
 			auto outputValue{ (uint8)roundToInt(paramPtr->convertFrom0to1(newValue)) };
 			if (paramID == ID::ep_095_ClockTempo)
 				outputValue += EP::clockTempoOffset;
@@ -58,8 +58,8 @@ void ExposedParamChangesHandler::parameterGestureChanged(int /*paramIndex*/, boo
 }
 
 void ExposedParamChangesHandler::arpeggiatorAndSequencerCannotBothBeOn(Identifier turnedOnParamID) {
-	auto arpegParamPtr{ exposedParams->getParameter(ID::ep_098_ArpegOnOff) };
-	auto sequencerParamPtr{ exposedParams->getParameter(ID::ep_100_SeqOnOff) };
+	auto arpegParamPtr{ exposedParams->state.getParameter(ID::ep_098_ArpegOnOff) };
+	auto sequencerParamPtr{ exposedParams->state.getParameter(ID::ep_100_SeqOnOff) };
 	if (turnedOnParamID == ID::ep_098_ArpegOnOff && sequencerParamPtr != nullptr)
 		if (sequencerParamPtr->getValue() != 0.0f)
 			sequencerParamPtr->setValueNotifyingHost(0.0f);
@@ -71,8 +71,8 @@ void ExposedParamChangesHandler::arpeggiatorAndSequencerCannotBothBeOn(Identifie
 ExposedParamChangesHandler::~ExposedParamChangesHandler() {
 	//exposedParams->removeParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		auto paramID{ info->IDfor(paramIndex) };
-		auto paramPtr{ exposedParams->getParameter(paramID) };
+		auto paramID{ exposedParams->info.IDfor(paramIndex) };
+		auto paramPtr{ exposedParams->state.getParameter(paramID) };
 		paramPtr->removeListener(this);
 		//exposedParams->removeParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
 	}

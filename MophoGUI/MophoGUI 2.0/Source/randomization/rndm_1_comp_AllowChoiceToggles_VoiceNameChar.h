@@ -6,7 +6,7 @@
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class RandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -15,7 +15,7 @@ class AllowChoiceToggles_VoiceNameChar :
 	public AllowChoiceToggles_Base
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 	uint8 numberOfChoices;
@@ -23,7 +23,7 @@ class AllowChoiceToggles_VoiceNameChar :
 public:
 	AllowChoiceToggles_VoiceNameChar() = delete;
 
-	AllowChoiceToggles_VoiceNameChar(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_VoiceNameChar(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	String buildChoiceName(uint8 choiceNum) override;

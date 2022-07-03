@@ -2,11 +2,11 @@
 
 #include <JuceHeader.h>
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
-class InfoForExposedParameters;
+
+class ExposedParameters;
 class UnexposedParameters;
 class VoiceTransmissionOptions;
 
@@ -15,7 +15,6 @@ class ExposedParamChangesHandler :
 {
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
-	InfoForExposedParameters* info;
 	VoiceTransmissionOptions* voiceTransmit;
 
 public:

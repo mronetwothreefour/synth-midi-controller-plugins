@@ -14,8 +14,8 @@ using namespace MophoConstants;
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties{} },
-    exposedParams{new ExposedParameters{ this } },
-    unexposedParams{ new UnexposedParameters{} },
+    exposedParams{ new ExposedParameters{ this } },
+    unexposedParams{ new UnexposedParameters{}, },
     exposedParamChangesHandler{ new ExposedParamChangesHandler(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN(exposedParams.get(), unexposedParams.get()) },
     incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx(exposedParams.get(), unexposedParams.get()) },
@@ -105,7 +105,7 @@ void PluginProcessor::getStateInformation(MemoryBlock& destData) {
 }
 
 void PluginProcessor::createPluginStateXml() {
-    auto exposedParamsStateTree{ exposedParams->copyState() };
+    auto exposedParamsStateTree{ exposedParams->state.copyState() };
     auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
     exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
     auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
@@ -127,7 +127,7 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
     if (exposedParamsStateXml != nullptr) {
         voiceTransmit->dontTransmitParamChanges();
         auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
-        exposedParams->replaceState(exposedParamsStateTree);
+        exposedParams->state.replaceState(exposedParamsStateTree);
         voiceTransmit->transmitParamChanges();
     }
     auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
@@ -139,7 +139,7 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
 
 PluginProcessor::~PluginProcessor() {
     pluginStateXml = nullptr;
-    exposedParams->undoManager->clearUndoHistory();
+    exposedParams->undoManager.clearUndoHistory();
     incomingMessageHandler_SysEx = nullptr;
     incomingMessageHandler_NRPN = nullptr;
     exposedParamChangesHandler = nullptr;

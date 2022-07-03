@@ -7,6 +7,7 @@
 #include "sliders/epc_1_comp_KnobAndAttachment_ForSeqStep.h"
 #include "sliders/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 
 using Track = SeqTrackNum;
 
@@ -16,7 +17,6 @@ ExposedParamControl::ExposedParamControl() :
 	paramIndex{ (uint8)255 },
 	exposedParams{ nullptr },
 	unexposedParams{ nullptr },
-	info{ unexposedParams->getInfoForExposedParameters() },
 	controlType{ ControlType::nullControl }
 {
 	// this default constructor is needed when initializing the vector in ExposedParamControlsServer
@@ -26,8 +26,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, ExposedParameters* ex
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	info{ unexposedParams->getInfoForExposedParameters() },
-	controlType{ info->controlTypeFor(paramIndex) }
+	controlType{ exposedParams->info.controlTypeFor(paramIndex) }
 {
 	jassert((int)controlType > -1 && (int)controlType <= (int)ControlType::voiceNameChar);
 	switch (controlType) {
@@ -80,7 +79,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedPa
 }
 
 void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
-	auto paramID{ info->IDfor(paramIndex).toString()};
+	auto paramID{ exposedParams->info.IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
 	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, Track{ trackNum }, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForSeqStep != nullptr) {

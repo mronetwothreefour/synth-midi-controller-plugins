@@ -7,6 +7,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Voices.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../global/global_1_gui_layer_CommError_NRPN.h"
 #include "../global/global_1_gui_layer_CommError_SysEx.h"
 #include "../global/global_2_gui_layer_GlobalParams.h"
@@ -26,7 +27,6 @@ using EditBuffer = EditBufferDataMessage;
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
-    info{ unexposedParams->getInfoForExposedParameters() },
     global{ unexposedParams->getGlobalOptions() },
     randomize{ new ParamRandomizationMethods(exposedParams, unexposedParams) },
     tooltips{ unexposedParams->getTooltipsOptions() },
@@ -93,15 +93,15 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
     button_Undo.setComponentID(ID::button_Undo.toString());
-    button_Undo.onClick = [unexposedParams] {
-        unexposedParams->getUndoManager()->undo();
+    button_Undo.onClick = [exposedParams] {
+        exposedParams->undoManager.undo();
     };
     button_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_Undo);
 
     button_Redo.setComponentID(ID::button_Redo.toString());
-    button_Redo.onClick = [unexposedParams] {
-        unexposedParams->getUndoManager()->redo();
+    button_Redo.onClick = [exposedParams] {
+        exposedParams->undoManager.redo();
     };
     button_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
     addAndMakeVisible(button_Redo);
@@ -176,8 +176,8 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
     for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
-        auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
-        auto paramPtr{ exposedParams->getParameter(paramID) };
+        auto paramID{ exposedParams->info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
+        auto paramPtr{ exposedParams->state.getParameter(paramID) };
         if (paramPtr != nullptr)
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
     }
@@ -222,8 +222,8 @@ void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
 }
 
 void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
-    auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
-    auto paramPtr{ exposedParams->getParameter(paramID) };
+    auto paramID{ exposedParams->info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
+    auto paramPtr{ exposedParams->state.getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));
     if (nameCharNum < VCS::numberOfCharsInVoiceName - 1) {
@@ -236,8 +236,8 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
 
 void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
     auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
-    auto paramID{ info->IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
-    auto param{ exposedParams->getParameter(paramID) };
+    auto paramID{ exposedParams->info.IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
+    auto param{ exposedParams->state.getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);
 }

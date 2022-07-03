@@ -4,20 +4,20 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
 
 
-LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	randomization{ unexposedParams->getRandomizationOptions() }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 
-	auto info{ unexposedParams->getInfoForExposedParameters() };
-	auto controlType{ info->controlTypeFor(paramIndex) };
+	auto controlType{ exposedParams->info.controlTypeFor(paramIndex) };
 	switch (controlType)
 	{
 	case MophoConstants::ControlType::knob:
@@ -38,7 +38,7 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, UnexposedParameters* un
 		break;
 	case MophoConstants::ControlType::comboBox:
 		setComponentID(ID::component_ToggleLock_ComboBox_Param_.toString() + (String)paramIndex);
-		setSize(info->widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
+		setSize(exposedParams->info.widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
 		break;
 	case MophoConstants::ControlType::seqTrackStep:
 		setComponentID(ID::component_ToggleLock_SeqStep_Param_.toString() + (String)paramIndex);

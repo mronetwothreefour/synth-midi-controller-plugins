@@ -2,19 +2,20 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_build_ChoiceNamesValueTree.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
-AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	info{ unexposedParams->getInfoForExposedParameters() },
+	exposedParams{ exposedParams },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfFreq{ EP::numberOfPitchedLFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 6, 12, 0, 36 }
 {
-	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
+	jassert(exposedParams->info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	for (auto freq = (uint8)0; freq < numberOfFreq; ++freq) {
 		allowedChoiceToggles[freq]->setName(buildChoiceName(freq));
 		allowedChoiceToggles[freq]->setTooltip(buildTooltip());
@@ -30,7 +31,7 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
-		auto paramID{ info->IDfor(paramIndex).toString() };
+		auto paramID{ exposedParams->info.IDfor(paramIndex).toString() };
 		auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
 		tip += "Click a pitched frequency to toggle whether or not it\n";
 		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";

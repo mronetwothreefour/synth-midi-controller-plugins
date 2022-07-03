@@ -4,10 +4,9 @@
 
 #include "../exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class UnexposedParameters;
 
 class GUI_Layer_ExposedParamControls :

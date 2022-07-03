@@ -1,20 +1,21 @@
 #include "rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
 
 #include "../constants/constants_ExposedParameters.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
-AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIndex, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	info{ unexposedParams->getInfoForExposedParameters() },
 	randomization{ unexposedParams->getRandomizationOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfChoices{ 96 },
 	AllowChoiceToggles_Base{ numberOfChoices, 10, 10, 0, 20 }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
+	jassert(exposedParams->info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
@@ -24,14 +25,14 @@ AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(uint8 paramIn
 
 String AllowChoiceToggles_VoiceNameChar::buildChoiceName(uint8 choiceNum) {
 	choiceNum += EP::firstVisibleVoiceNameCharNumber;
-	return info->choiceNameFor(choiceNum, paramIndex);
+	return exposedParams->info.choiceNameFor(choiceNum, paramIndex);
 }
 
 String AllowChoiceToggles_VoiceNameChar::buildTooltip() {
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String tip{ "" };
 	if (shouldShowDescriptions) {
-		auto paramName{ info->exposedNameFor(paramIndex) };
+		auto paramName{ exposedParams->info.exposedNameFor(paramIndex) };
 		tip += "Click a character to toggle whether or not it\n";
 		tip += "is allowed when generating a random setting\n";
 		tip += "for " + paramName + ".\n";

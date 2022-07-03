@@ -5,12 +5,13 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
-using ExposedParameters = AudioProcessorValueTreeState;
+
 using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 
 
 
+class ExposedParameters;
 class RandomizationOptions;
 class UnexposedParameters;
 

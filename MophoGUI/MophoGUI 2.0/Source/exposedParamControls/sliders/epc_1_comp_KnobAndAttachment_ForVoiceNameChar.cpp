@@ -4,6 +4,7 @@
 #include "../../constants/constants_ExposedParameters.h"
 #include "../../constants/constants_GUI_Colors.h"
 #include "../../constants/constants_Identifiers.h"
+#include "../../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../../gui/gui_build_LCD_CharacterPath.h"
 
 using namespace MophoConstants;
@@ -14,14 +15,13 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
-	info{ unexposedParams->getInfoForExposedParameters() },
 	knob{ unexposedParams },
 	tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	charNum{ 0 }
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(exposedParams->info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.setAlpha(0.0f);
 	knob.isModifyingPitch = false;
@@ -37,7 +37,7 @@ void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
 }
 
 void KnobAndAttachment_ForVoiceNameChar::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*exposedParams, info->IDfor(paramIndex).toString(), knob));
+	attachment.reset(new SliderAttachment(exposedParams->state, exposedParams->info.IDfor(paramIndex).toString(), knob));
 	limitKnobRangeToBasic_ASCII_CharsThatAreVisible();
 }
 

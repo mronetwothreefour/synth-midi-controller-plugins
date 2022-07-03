@@ -5,12 +5,11 @@
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 #include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 
 class KnobAndAttachment_ForVoiceNameChar :
 	public Component,
@@ -20,7 +19,6 @@ class KnobAndAttachment_ForVoiceNameChar :
 {
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
-	InfoForExposedParameters* info;
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;

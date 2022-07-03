@@ -2,6 +2,7 @@
 
 #include "../../constants/constants_GUI_Dimensions.h"
 #include "../../constants/constants_Identifiers.h"
+#include "../../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -12,7 +13,6 @@ ToggleButtonAndAttachment::ToggleButtonAndAttachment(
 	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
-	info{ unexposedParams->getInfoForExposedParameters() },
 	tooltipsUpdater{ paramIndex, toggle, exposedParams, unexposedParams }
 {
 	addAndMakeVisible(toggle);
@@ -22,7 +22,7 @@ ToggleButtonAndAttachment::ToggleButtonAndAttachment(
 }
 
 void ToggleButtonAndAttachment::attachToggleToExposedParameter() {
-	attachment.reset(new ButtonAttachment(*exposedParams, info->IDfor(paramIndex).toString(), toggle));
+	attachment.reset(new ButtonAttachment(exposedParams->state, exposedParams->info.IDfor(paramIndex).toString(), toggle));
 }
 
 void ToggleButtonAndAttachment::deleteAttachmentBeforeToggleToPreventMemLeak() {

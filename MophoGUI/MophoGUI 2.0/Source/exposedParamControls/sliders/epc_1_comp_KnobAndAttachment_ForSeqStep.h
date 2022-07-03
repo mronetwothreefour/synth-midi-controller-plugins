@@ -7,13 +7,12 @@
 #include "../../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 using namespace MophoConstants;
-using ExposedParameters = AudioProcessorValueTreeState;
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 using Track = SeqTrackNum;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 
 class KnobAndAttachment_ForSeqStep :
 	public Component,
@@ -23,7 +22,6 @@ class KnobAndAttachment_ForSeqStep :
 {
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
-	InfoForExposedParameters* info;
 	RotarySliderWithMouseDownModForSeqStep knob;
 	std::unique_ptr<SliderAttachment> knobAttachment;
 	Slider trackDestination;

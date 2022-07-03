@@ -2,10 +2,9 @@
 
 #include <JuceHeader.h>
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class GlobalOptions;
 class UnexposedParameters;
 class VoicesBanks;

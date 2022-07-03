@@ -631,10 +631,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\core_PluginProcessor.cpp">
+    <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\core_PluginEditor.cpp">
+    <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
@@ -676,7 +676,13 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_facade_ExposedParameters.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
@@ -827,9 +833,6 @@
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp">
-      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp">
@@ -3204,10 +3207,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\core_PluginProcessor.h">
+    <ClInclude Include="..\..\Source\core_0_PluginProcessor.h">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\core_PluginEditor.h">
+    <ClInclude Include="..\..\Source\core_1_PluginEditor.h">
       <Filter>MophoGUI 2\Source\_core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Enum.h">
@@ -3285,7 +3288,13 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_facade_ExposedParameters.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_tree_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
@@ -3454,9 +3463,6 @@
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h">
-      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h">

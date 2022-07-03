@@ -4,7 +4,7 @@
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class RandomizationOptions;
 class UnexposedParameters;
 
@@ -13,14 +13,14 @@ class AllowRepeatChoicesToggle :
 	public ValueTree::Listener
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:
 	AllowRepeatChoicesToggle() = delete;
 
-	AllowRepeatChoicesToggle(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowRepeatChoicesToggle();

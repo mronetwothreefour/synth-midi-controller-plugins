@@ -38,7 +38,7 @@ class IncomingMessageHandler_SysEx;
 class UnexposedParameters;
 class VoiceTransmissionOptions;
 
-class PluginProcessor : 
+class PluginProcessor :
     public AudioProcessor
 {
     std::unique_ptr<ExposedParameters> exposedParams;

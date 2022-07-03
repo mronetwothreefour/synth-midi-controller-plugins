@@ -5,6 +5,7 @@
 #include "../../constants/constants_GUI_Colors.h"
 #include "../../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../../constants/constants_Identifiers.h"
+#include "../../exposedParameters/ep_facade_ExposedParameters.h"
 
 
 
@@ -12,14 +13,13 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
     uint8 paramIndex, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 		paramIndex{ paramIndex },
 		exposedParams{ exposedParams },
-		info{ unexposedParams->getInfoForExposedParameters() },
 		knob{ track, unexposedParams },
 		tooltipsUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 		choiceNum{ 0 }
 {
 	knob.addListener(this);
 	addAndMakeVisible(knob);
-	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
+	knob.setMouseDragSensitivity(exposedParams->info.mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	knob.isModifyingSeqStep = true;
@@ -37,7 +37,7 @@ void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
 		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
-			auto choiceNameString{ info->choiceNameFor((uint8)choiceNum, paramIndex) };
+			auto choiceNameString{ exposedParams->info.choiceNameFor((uint8)choiceNum, paramIndex) };
 			if (knob.isModifyingPitch)
 				choiceNameString = choiceNameString.fromFirstOccurrenceOf("(", false, false).upToFirstOccurrenceOf(")", false, false);
 			else
@@ -68,8 +68,8 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 }
 
 void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
-	knobAttachment.reset(new SliderAttachment(*exposedParams, info->IDfor(paramIndex).toString(), knob));
-	trackDestinationAttachment.reset(new SliderAttachment(*exposedParams, info->IDfor(trackDestIndex).toString(), trackDestination));
+	knobAttachment.reset(new SliderAttachment(exposedParams->state, exposedParams->info.IDfor(paramIndex).toString(), knob));
+	trackDestinationAttachment.reset(new SliderAttachment(exposedParams->state, exposedParams->info.IDfor(trackDestIndex).toString(), trackDestination));
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch() {

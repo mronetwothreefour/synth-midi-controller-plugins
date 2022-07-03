@@ -13,7 +13,7 @@ using Shape = OscWaveShape;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -23,7 +23,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoices;
@@ -43,7 +43,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 public:
 	GUI_Layer_AllowedChoices_OscShape() = delete;
 
-	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void buttonClicked(Button* button) override;
 	void makeShapeTheOnlyOneAllowed(Shape shape);

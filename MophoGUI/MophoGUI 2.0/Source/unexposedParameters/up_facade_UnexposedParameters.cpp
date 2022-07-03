@@ -8,14 +8,16 @@ using namespace MophoConstants;
 
 UnexposedParameters::UnexposedParameters() :
 	globalOptions{ new GlobalOptions{} },
-	infoForExposedParameters{ new InfoForExposedParameters{} },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
-	randomizationOptions{ new RandomizationOptions{ this } },
 	tooltipsOptions{ new TooltipsOptions{} },
 	undoManager{ new UndoManager{} },
 	voicesBanks{ new VoicesBanks{} },
 	voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
+}
+
+void UnexposedParameters::createRandomizationOptions(ExposedParameters* exposedParams) {
+	randomizationOptions.reset(new RandomizationOptions{ exposedParams });
 }
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
@@ -24,10 +26,6 @@ Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffe
 
 GlobalOptions* UnexposedParameters::getGlobalOptions() {
 	return globalOptions.get();
-}
-
-InfoForExposedParameters* UnexposedParameters::getInfoForExposedParameters() {
-	return infoForExposedParameters.get();
 }
 
 OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
@@ -101,6 +99,5 @@ UnexposedParameters::~UnexposedParameters() {
 	tooltipsOptions = nullptr;
 	randomizationOptions = nullptr;
 	outgoingMidiBuffers = nullptr;
-	infoForExposedParameters = nullptr;
 	globalOptions = nullptr;
 }

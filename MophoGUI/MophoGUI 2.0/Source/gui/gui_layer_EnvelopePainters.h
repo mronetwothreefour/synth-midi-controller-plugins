@@ -7,9 +7,10 @@
 #include "../constants/constants_GUI_Dimensions.h"
 
 using namespace MophoConstants;
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
+
+class ExposedParameters;
 
 class GUI_Layer_EnvelopePainters :
 	public Component

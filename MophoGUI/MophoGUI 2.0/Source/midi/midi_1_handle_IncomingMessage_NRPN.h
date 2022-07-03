@@ -2,19 +2,16 @@
 
 #include <JuceHeader.h>
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class GlobalOptions;
-class InfoForExposedParameters;
 class UnexposedParameters;
 class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_NRPN
 {
 	ExposedParameters* exposedParams;
-	InfoForExposedParameters* info;
 	GlobalOptions* global;
 	VoiceTransmissionOptions* voiceTransmit;
 	bool receivedType_MSB{ false };

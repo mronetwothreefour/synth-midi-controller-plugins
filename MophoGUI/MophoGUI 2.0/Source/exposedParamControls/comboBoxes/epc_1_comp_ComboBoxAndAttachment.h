@@ -5,12 +5,10 @@
 #include "../epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 
 using ComboBoxAttachment = AudioProcessorValueTreeState::ComboBoxAttachment;
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
 
-
-class InfoForExposedParameters;
+class ExposedParameters;
 
 class ComboBoxAndAttachment :
 	public Component
@@ -19,7 +17,6 @@ protected:
 	uint8 paramIndex;
 	ComboBox comboBox;
 	ExposedParameters* exposedParams;
-	InfoForExposedParameters* info;
 	std::unique_ptr<ComboBoxAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipsUpdater;
 

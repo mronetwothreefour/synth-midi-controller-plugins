@@ -15,7 +15,7 @@ using Category = LFO_FreqCategory;
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class ParamRandomizationMethods;
 class RandomizationOptions;
 class UnexposedParameters;
@@ -25,7 +25,7 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 	public Button::Listener
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	RandomizationOptions* randomization;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoices;
@@ -45,7 +45,7 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 public:
 	GUI_Layer_AllowedChoices_LFO_Freq() = delete;
 
-	GUI_Layer_AllowedChoices_LFO_Freq(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_LFO_Freq(uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void buttonClicked(Button* button) override;
 	void makeCategoryTheOnlyOneAllowed(Category allowedCategory);

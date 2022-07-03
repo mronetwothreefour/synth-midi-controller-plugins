@@ -6,10 +6,9 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_Voices.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class OutgoingMidiBuffers;
 class UnexposedParameters;
 class VoicesBanks;

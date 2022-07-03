@@ -58,7 +58,7 @@ void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams, unexposedParams) };
+		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);

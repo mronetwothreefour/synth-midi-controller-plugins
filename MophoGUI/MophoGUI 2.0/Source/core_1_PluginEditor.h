@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-using ExposedParameters = AudioProcessorValueTreeState;
-
 
 
 class GUI_Layer_EnvelopePainters;

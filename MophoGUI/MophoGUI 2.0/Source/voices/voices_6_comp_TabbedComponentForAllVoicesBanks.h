@@ -5,10 +5,9 @@
 #include "voices_5_comp_TabbedComponentForCustomVoicesBanks.h"
 #include "voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class UnexposedParameters;
 
 class TabbedComponentForAllVoicesBanks :

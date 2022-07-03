@@ -9,7 +9,7 @@
 
 
 
-class InfoForExposedParameters;
+class ExposedParameters;
 class ParamRandomizationMethods;
 class UnexposedParameters;
 
@@ -17,7 +17,7 @@ class GUI_Layer_AllowedChoices_Standard :
 	public Component
 {
 	uint8 paramIndex;
-	InfoForExposedParameters* info;
+	ExposedParameters* exposedParams;
 	TextButton button_AllowAll;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	ButtonForHidingLayer button_Close;
@@ -32,7 +32,7 @@ class GUI_Layer_AllowedChoices_Standard :
 public:
 	GUI_Layer_AllowedChoices_Standard() = delete;
 
-	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void resized() override;
 

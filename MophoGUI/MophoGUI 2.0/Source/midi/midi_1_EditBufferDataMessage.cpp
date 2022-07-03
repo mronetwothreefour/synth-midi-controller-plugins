@@ -17,15 +17,15 @@ void EditBufferDataMessage::addRequestForEditBufferDataMessageToOutgoingMidiBuff
 void EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(
     ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
 {
-    auto dumpDataVector{ createEditBufferDataMessage(exposedParams, unexposedParams) };
+    auto dumpDataVector{ createEditBufferDataMessage(exposedParams) };
     auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
     outgoingBuffers->addDataMessage(dumpDataVector);
 }
 
-std::vector<uint8> EditBufferDataMessage::createEditBufferDataMessage(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
+std::vector<uint8> EditBufferDataMessage::createEditBufferDataMessage(ExposedParameters* exposedParams) {
     auto editBufferDataVector{ RawDataTools::createRawDataVectorWithSysExIDheaderBytesForMopho() };
     editBufferDataVector.push_back((uint8)SysExMessageType::editBufferData);
-    auto rawVoiceData{ RawDataTools::extractRawDataFromExposedParameters(exposedParams, unexposedParams) };
+    auto rawVoiceData{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
     for (auto dataByte : rawVoiceData)
         editBufferDataVector.push_back(dataByte);
     return editBufferDataVector;

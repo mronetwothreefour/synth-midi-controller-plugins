@@ -4,6 +4,7 @@
 
 
 
+class ExposedParameters;
 class RandomizationOptions;
 class UnexposedParameters;
 
@@ -16,7 +17,7 @@ class LockToggleForParam :
 public:
 	LockToggleForParam() = delete;
 
-	LockToggleForParam(uint8 paramIndex, UnexposedParameters* unexposedParams);
+	LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
 	//==============================================================================

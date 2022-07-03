@@ -4,15 +4,14 @@
 
 #include "epc_2_comp_ExposedParamControl.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class UnexposedParameters;
 
 class ExposedParamControlsServer
 {
-	AudioProcessorValueTreeState* exposedParams;
+	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	std::vector<std::unique_ptr<ExposedParamControl>> controlsVector;
 

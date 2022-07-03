@@ -5,6 +5,7 @@
 #include "rndm_0_ParamRandomizationMethods.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -19,17 +20,16 @@ class RandomizeButtonForAllowedChoicesLayers :
 public:
 	RandomizeButtonForAllowedChoicesLayers() = delete;
 
-	RandomizeButtonForAllowedChoicesLayers(uint8 paramIndex, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
+	RandomizeButtonForAllowedChoicesLayers(uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
 	{
-		auto info{ unexposedParams->getInfoForExposedParameters() };
 		setComponentID(ID::button_Randomize.toString());
-		onClick = [paramIndex, info, randomize] {
-			auto paramID{ info->IDfor(paramIndex).toString()};
+		onClick = [paramIndex, exposedParams, randomize] {
+			auto paramID{ exposedParams->info.IDfor(paramIndex).toString()};
 			randomize->randomizeParameter(paramID);
 		};
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescriptions()) {
-			auto paramName{ info->exposedNameFor(paramIndex) };
+			auto paramName{ exposedParams->info.exposedNameFor(paramIndex) };
 			setTooltip("Click to generate a random setting\nfor " + paramName + ".");
 		}
 		setSize(GUI::button_Randomize_w, GUI::redButton_h);

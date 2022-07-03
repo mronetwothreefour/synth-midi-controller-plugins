@@ -1,5 +1,5 @@
-#include "core_PluginProcessor.h"
-#include "core_PluginEditor.h"
+#include "core_0_PluginProcessor.h"
+#include "core_1_PluginEditor.h"
 
 #include "constants/constants_GUI_Dimensions.h"
 #include "constants/constants_Identifiers.h"

@@ -140,8 +140,8 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\core_PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\core_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
+    <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
@@ -155,7 +155,9 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_facade_ExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_gui_layer_CommError_Base.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp"/>
@@ -206,7 +208,6 @@
     <ClCompile Include="..\..\Source\randomization\rndm_4_gui_layer_Randomization.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
-    <ClCompile Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp"/>
@@ -2381,8 +2382,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\core_PluginProcessor.h"/>
-    <ClInclude Include="..\..\Source\core_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\core_0_PluginProcessor.h"/>
+    <ClInclude Include="..\..\Source\core_1_PluginEditor.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GlobalParameters.h"/>
@@ -2408,7 +2409,9 @@
     <ClInclude Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ChoiceNamesValueTree.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_build_ExposedParamsLayout.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_handle_ExposedParamChanges.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\global\global_0_gui_layer_CommError_Base.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h"/>
@@ -2465,7 +2468,6 @@
     <ClInclude Include="..\..\Source\randomization\rndm_4_gui_layer_Randomization.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
-    <ClInclude Include="..\..\Source\unexposedParameters\up_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_RandomizationOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h"/>

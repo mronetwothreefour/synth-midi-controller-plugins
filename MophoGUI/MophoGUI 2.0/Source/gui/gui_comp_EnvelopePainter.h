@@ -5,10 +5,12 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
-using ExposedParameters = AudioProcessorValueTreeState;
+
 using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
+
+class ExposedParameters;
 
 class EnvelopePainter :
 	public Component,

@@ -4,10 +4,9 @@
 
 #include "voices_4_comp_TabForCustomVoicesBank.h"
 
-using ExposedParameters = AudioProcessorValueTreeState;
 
 
-
+class ExposedParameters;
 class UnexposedParameters;
 
 class TabbedComponentForCustomVoicesBanks :
