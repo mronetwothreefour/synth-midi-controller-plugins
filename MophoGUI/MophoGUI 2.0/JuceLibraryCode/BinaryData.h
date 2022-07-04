@@ -8,68 +8,17 @@
 
 namespace BinaryData
 {
-    extern const char*   OverpassBold_ttf;
-    const int            OverpassBold_ttfSize = 123228;
-
-    extern const char*   bkgrnd_CommError_NRPN_png;
-    const int            bkgrnd_CommError_NRPN_pngSize = 21636;
-
-    extern const char*   bkgrnd_CommError_SysEx_png;
-    const int            bkgrnd_CommError_SysEx_pngSize = 42563;
-
-    extern const char*   bkgrnd_FileNotValidAlert_png;
-    const int            bkgrnd_FileNotValidAlert_pngSize = 1196;
-
-    extern const char*   bkgrnd_FileOverwriteDialog_png;
-    const int            bkgrnd_FileOverwriteDialog_pngSize = 2827;
-
-    extern const char*   bkgrnd_FolderExistsAlert_png;
-    const int            bkgrnd_FolderExistsAlert_pngSize = 1626;
-
-    extern const char*   bkgrnd_GlobalParams_png;
-    const int            bkgrnd_GlobalParams_pngSize = 10458;
-
-    extern const char*   bkgrnd_ImportExportWindow_png;
-    const int            bkgrnd_ImportExportWindow_pngSize = 1951;
-
-    extern const char*   bkgrnd_MainWindow_png;
-    const int            bkgrnd_MainWindow_pngSize = 93983;
-
-    extern const char*   bkgrnd_NewFolderDialog_png;
-    const int            bkgrnd_NewFolderDialog_pngSize = 1587;
-
-    extern const char*   bkgrnd_Randomization_png;
-    const int            bkgrnd_Randomization_pngSize = 15511;
-
-    extern const char*   bkgrnd_RepeatChoicesToggle_png;
-    const int            bkgrnd_RepeatChoicesToggle_pngSize = 530;
-
-    extern const char*   bkgrnd_SeqTrack_1_Probabilities_png;
-    const int            bkgrnd_SeqTrack_1_Probabilities_pngSize = 2173;
-
-    extern const char*   bkgrnd_SeqTracks_2_3_4_Probabilities_png;
-    const int            bkgrnd_SeqTracks_2_3_4_Probabilities_pngSize = 1938;
-
-    extern const char*   bkgrnd_SeqTrackTargetStep_png;
-    const int            bkgrnd_SeqTrackTargetStep_pngSize = 776;
-
-    extern const char*   bkgrnd_TabForVoicesBank_png;
-    const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
-
-    extern const char*   icon_Locked_png;
-    const int            icon_Locked_pngSize = 326;
-
     extern const char*   btn_AllowAll_Dn_png;
     const int            btn_AllowAll_Dn_pngSize = 863;
 
     extern const char*   btn_AllowAll_Up_png;
     const int            btn_AllowAll_Up_pngSize = 844;
 
-    extern const char*   btn_Banks_Up_png;
-    const int            btn_Banks_Up_pngSize = 710;
-
     extern const char*   btn_Banks_Dn_png;
     const int            btn_Banks_Dn_pngSize = 718;
+
+    extern const char*   btn_Banks_Up_png;
+    const int            btn_Banks_Up_pngSize = 710;
 
     extern const char*   btn_Cancel_Dn_png;
     const int            btn_Cancel_Dn_pngSize = 741;
@@ -232,6 +181,57 @@ namespace BinaryData
 
     extern const char*   lbl_VoiceBankTab_3_png;
     const int            lbl_VoiceBankTab_3_pngSize = 295;
+
+    extern const char*   bkgrnd_CommError_NRPN_png;
+    const int            bkgrnd_CommError_NRPN_pngSize = 21636;
+
+    extern const char*   bkgrnd_CommError_SysEx_png;
+    const int            bkgrnd_CommError_SysEx_pngSize = 42563;
+
+    extern const char*   bkgrnd_FileNotValidAlert_png;
+    const int            bkgrnd_FileNotValidAlert_pngSize = 1196;
+
+    extern const char*   bkgrnd_FileOverwriteDialog_png;
+    const int            bkgrnd_FileOverwriteDialog_pngSize = 2827;
+
+    extern const char*   bkgrnd_FolderExistsAlert_png;
+    const int            bkgrnd_FolderExistsAlert_pngSize = 1626;
+
+    extern const char*   bkgrnd_GlobalParams_png;
+    const int            bkgrnd_GlobalParams_pngSize = 10458;
+
+    extern const char*   bkgrnd_ImportExportWindow_png;
+    const int            bkgrnd_ImportExportWindow_pngSize = 1951;
+
+    extern const char*   bkgrnd_MainWindow_png;
+    const int            bkgrnd_MainWindow_pngSize = 93983;
+
+    extern const char*   bkgrnd_NewFolderDialog_png;
+    const int            bkgrnd_NewFolderDialog_pngSize = 1587;
+
+    extern const char*   bkgrnd_Randomization_png;
+    const int            bkgrnd_Randomization_pngSize = 15511;
+
+    extern const char*   bkgrnd_RepeatChoicesToggle_png;
+    const int            bkgrnd_RepeatChoicesToggle_pngSize = 530;
+
+    extern const char*   bkgrnd_SeqTrack_1_Probabilities_png;
+    const int            bkgrnd_SeqTrack_1_Probabilities_pngSize = 2173;
+
+    extern const char*   bkgrnd_SeqTracks_2_3_4_Probabilities_png;
+    const int            bkgrnd_SeqTracks_2_3_4_Probabilities_pngSize = 1938;
+
+    extern const char*   bkgrnd_SeqTrackTargetStep_png;
+    const int            bkgrnd_SeqTrackTargetStep_pngSize = 776;
+
+    extern const char*   bkgrnd_TabForVoicesBank_png;
+    const int            bkgrnd_TabForVoicesBank_pngSize = 4287;
+
+    extern const char*   icon_Locked_png;
+    const int            icon_Locked_pngSize = 326;
+
+    extern const char*   OverpassBold_ttf;
+    const int            OverpassBold_ttfSize = 123228;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 75;

@@ -44,13 +44,13 @@
  #define JucePlugin_Name                   "MophoGUI 2"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Sound editor/librarian plugin for use with the DSI Mopho synthesizer"
+ #define JucePlugin_Desc                   "Sound editor/librarian for use with the DSI Mopho desktop synthesizer module"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Mister 1-2-3-4 Programming"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "http://programming.mr1234.com/"
+ #define JucePlugin_ManufacturerWebsite    "http://programming.mr1234.com"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
  #define JucePlugin_ManufacturerEmail      "programming@mr1234.com"
@@ -59,7 +59,7 @@
  #define JucePlugin_ManufacturerCode       0x54696d44
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x59677767
+ #define JucePlugin_PluginCode             0x5361666d
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
