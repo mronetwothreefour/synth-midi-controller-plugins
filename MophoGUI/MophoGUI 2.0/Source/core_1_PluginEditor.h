@@ -10,18 +10,20 @@
 //class GUI_Layer_ExposedParamControls;
 //class GUI_Layer_MainWindowButtons;
 class MophoLookAndFeel;
-//class TooltipsOptions;
-//class UnexposedParameters;
+class TooltipsOptions;
+class UnexposedParameters;
 
 class PluginEditor :
     public AudioProcessorEditor,
     public ValueTree::Listener
 {
     PluginProcessor& processor;
+    TooltipsOptions* tooltips;
     std::unique_ptr<MophoLookAndFeel> lookAndFeel;
+    std::unique_ptr<TooltipWindow> tooltipWindow;
 
 public:
-    PluginEditor (PluginProcessor& processor);
+    PluginEditor (PluginProcessor& processor, UnexposedParameters* unexposedParams);
     void paint (Graphics&) override;
     void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
     ~PluginEditor() override;

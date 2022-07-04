@@ -223,9 +223,59 @@
         <FILE id="tIbqxV" name="gui_LookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_LookAndFeel.h"/>
       </GROUP>
-      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi"/>
+      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi">
+        <FILE id="dxhIqw" name="midi_0_NRPNbufferWithLeadingMSBs.cpp" compile="1"
+              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.cpp"/>
+        <FILE id="UfwBsb" name="midi_0_NRPNbufferWithLeadingMSBs.h" compile="0"
+              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.h"/>
+        <FILE id="ddpLSO" name="midi_0_OutgoingMidiBuffers.cpp" compile="1"
+              resource="0" file="Source/midi/midi_0_OutgoingMidiBuffers.cpp"/>
+        <FILE id="ktqZtL" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="e0Ulxy" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_0_RawDataTools.cpp"/>
+        <FILE id="d1FvVk" name="midi_0_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_0_RawDataTools.h"/>
+        <FILE id="cqp9Zh" name="midi_1_EditBufferDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.cpp"/>
+        <FILE id="m2dldM" name="midi_1_EditBufferDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.h"/>
+        <FILE id="FqX8ke" name="midi_1_GlobalParametersDataRequest.h" compile="0"
+              resource="0" file="Source/midi/midi_1_GlobalParametersDataRequest.h"/>
+        <FILE id="RcEiNh" name="midi_1_handle_IncomingMessage_NRPN.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.cpp"/>
+        <FILE id="leSPH6" name="midi_1_handle_IncomingMessage_NRPN.h" compile="0"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.h"/>
+        <FILE id="lmVhgI" name="midi_1_handle_IncomingMessage_SysEx.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.cpp"/>
+        <FILE id="ANLKoN" name="midi_1_handle_IncomingMessage_SysEx.h" compile="0"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.h"/>
+        <FILE id="A3Eg3v" name="midi_1_ParameterChangeMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_1_ParameterChangeMessage.h"/>
+        <FILE id="VE33jx" name="midi_1_VoiceDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_1_VoiceDataMessage.cpp"/>
+        <FILE id="ityJhG" name="midi_1_VoiceDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_1_VoiceDataMessage.h"/>
+      </GROUP>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
-      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters"/>
+      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
+        <FILE id="ASgyCX" name="up_facade_UnexposedParameters.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>
+        <FILE id="rVEI3v" name="up_facade_UnexposedParameters.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.h"/>
+        <FILE id="e6qWpm" name="up_tree_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_tree_GlobalOptions.cpp"/>
+        <FILE id="hjtW0N" name="up_tree_GlobalOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_tree_GlobalOptions.h"/>
+        <FILE id="iQ29K4" name="up_tree_TooltipsOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_tree_TooltipsOptions.cpp"/>
+        <FILE id="tVxWoy" name="up_tree_TooltipsOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_tree_TooltipsOptions.h"/>
+        <FILE id="mfU1gD" name="up_tree_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.cpp"/>
+        <FILE id="w8QMhp" name="up_tree_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
+      </GROUP>
       <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices"/>
       <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport"/>
     </GROUP>
