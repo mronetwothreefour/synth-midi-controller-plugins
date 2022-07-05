@@ -75,7 +75,7 @@ bool PluginProcessor::hasEditor() const {
 }
 
 AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this, unexposedParams.get());
+    return new PluginEditor (*this, exposedParams.get(), unexposedParams.get());
 }
 
 void PluginProcessor::getStateInformation (MemoryBlock& /*destData*/) {

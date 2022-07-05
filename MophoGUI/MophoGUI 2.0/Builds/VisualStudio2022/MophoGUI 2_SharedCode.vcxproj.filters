@@ -20,6 +20,9 @@
     <Filter Include="MophoGUI 2\Source\descriptions">
       <UniqueIdentifier>{7368E3A3-480A-3977-BF1D-583E81118667}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\exposedParamControls">
+      <UniqueIdentifier>{0D331890-2509-385B-F040-931CA66D412D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
@@ -622,6 +625,33 @@
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForOscShape.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForSeqStep.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ToggleButtonAndAttachment.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -633,6 +663,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -3024,6 +3063,33 @@
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForOscShape.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForSeqStep.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ToggleButtonAndAttachment.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -3041,6 +3107,21 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
