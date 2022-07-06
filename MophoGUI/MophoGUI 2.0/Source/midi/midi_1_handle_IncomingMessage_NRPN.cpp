@@ -3,6 +3,7 @@
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;

@@ -13,6 +13,6 @@ using OutgoingBuffers = OutgoingMidiBuffers;
 class UnexposedParameters;
 
 struct VoiceDataMessage {
-    static void addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(VoicesBank bank, uint8 slot, OutgoingBuffers* outgoingBuffers);
-    //static std::vector<uint8> createDataMessageForVoiceStoredInBankAndSlot(VoicesBank bank, uint8 slot, UnexposedParameters* unexposedParams);
+    static void addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(VoicesBank bank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
+    static std::vector<uint8> createDataMessageForVoiceStoredInBankAndSlot(VoicesBank bank, uint8 slotNum, UnexposedParameters* unexposedParams);
 };

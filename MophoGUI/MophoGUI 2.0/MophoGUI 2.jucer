@@ -252,11 +252,19 @@
               compile="0" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"/>
         <FILE id="ItpDuM" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
+        <FILE id="G1xRrs" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.cpp"/>
+        <FILE id="BvvtI8" name="ep_4_handle_ExposedParamChanges.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
       <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global"/>
       <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
         <FILE id="rAnI7N" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
+        <FILE id="gSQUZC" name="gui_comp_ButtonForHidingLayer.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.cpp"/>
+        <FILE id="JotY3q" name="gui_comp_ButtonForHidingLayer.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.h"/>
         <FILE id="LI4K5k" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
               file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
         <FILE id="kyV4ri" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
@@ -329,8 +337,88 @@
         <FILE id="w8QMhp" name="up_tree_VoiceTransmissionOptions.h" compile="0"
               resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
       </GROUP>
-      <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices"/>
-      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport"/>
+      <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices">
+        <FILE id="ezLqgv" name="voices_0_tree_FactoryVoiceDataHexStrings.h"
+              compile="0" resource="0" file="Source/voices/voices_0_tree_FactoryVoiceDataHexStrings.h"/>
+        <FILE id="nOhhs5" name="voices_1_tree_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_1_tree_VoicesBanks.cpp"/>
+        <FILE id="DGCjxb" name="voices_1_tree_VoicesBanks.h" compile="0" resource="0"
+              file="Source/voices/voices_1_tree_VoicesBanks.h"/>
+        <FILE id="NquZJU" name="voices_2_comp_VoiceSlots.cpp" compile="1" resource="0"
+              file="Source/voices/voices_2_comp_VoiceSlots.cpp"/>
+        <FILE id="eEGAdt" name="voices_2_comp_VoiceSlots.h" compile="0" resource="0"
+              file="Source/voices/voices_2_comp_VoiceSlots.h"/>
+        <FILE id="gCN9bh" name="voices_3_comp_ButtonsForVoicesBankTab.h" compile="0"
+              resource="0" file="Source/voices/voices_3_comp_ButtonsForVoicesBankTab.h"/>
+        <FILE id="jDF7A8" name="voices_4_comp_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_4_comp_TabForCustomVoicesBank.cpp"/>
+        <FILE id="qSIDSX" name="voices_4_comp_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_4_comp_TabForCustomVoicesBank.h"/>
+        <FILE id="WUNTtl" name="voices_4_comp_TabForFactoryVoicesBank.cpp"
+              compile="1" resource="0" file="Source/voices/voices_4_comp_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="U1KY6a" name="voices_4_comp_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_4_comp_TabForFactoryVoicesBank.h"/>
+        <FILE id="ZFMS32" name="voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp"/>
+        <FILE id="VCYsyK" name="voices_5_comp_TabbedComponentForCustomVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForCustomVoicesBanks.h"/>
+        <FILE id="zwPwrS" name="voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
+        <FILE id="IWwiLb" name="voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"/>
+        <FILE id="SrkTlL" name="voices_6_comp_TabbedComponentForAllVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForAllVoicesBanks.cpp"/>
+        <FILE id="ff9wCb" name="voices_6_comp_TabbedComponentForAllVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForAllVoicesBanks.h"/>
+        <FILE id="JS9iAT" name="voices_6_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.cpp"/>
+        <FILE id="eaRkCz" name="voices_6_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.h"/>
+        <FILE id="Tcm3qb" name="voices_7_gui_layer_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.cpp"/>
+        <FILE id="Ncnbjk" name="voices_7_gui_layer_VoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.h"/>
+      </GROUP>
+      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport">
+        <FILE id="Af9tcY" name="imEx_0_FileFilters.h" compile="0" resource="0"
+              file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
+        <FILE id="J4WIVM" name="imEx_0_gui_layer_FileNotValidAlert.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.cpp"/>
+        <FILE id="QxPneU" name="imEx_0_gui_layer_FileNotValidAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.h"/>
+        <FILE id="ZvoXFB" name="imEx_0_gui_layer_FileOverwriteDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+        <FILE id="DELqkQ" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
+        <FILE id="E5sIYX" name="imEx_0_gui_layer_FolderExistsAlert.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.cpp"/>
+        <FILE id="HrzmNq" name="imEx_0_gui_layer_FolderExistsAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.h"/>
+        <FILE id="ETk9SM" name="imEx_1_gui_layer_NewFolderDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
+        <FILE id="LYHmjp" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
+        <FILE id="BC9TqD" name="imEx_2_gui_layer_ImportExport_Base.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
+        <FILE id="IKP7Sj" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
+        <FILE id="qA3oI2" name="imEx_3_gui_layer_Export_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.cpp"/>
+        <FILE id="QJfYSY" name="imEx_3_gui_layer_Export_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.h"/>
+        <FILE id="A28V4Q" name="imEx_3_gui_layer_Export_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.cpp"/>
+        <FILE id="sDomFJ" name="imEx_3_gui_layer_Export_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"/>
+        <FILE id="HT6ElY" name="imEx_3_gui_layer_Import_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.cpp"/>
+        <FILE id="j5hbcs" name="imEx_3_gui_layer_Import_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.h"/>
+        <FILE id="eJSp1D" name="imEx_3_gui_layer_Import_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.cpp"/>
+        <FILE id="mEuWdr" name="imEx_3_gui_layer_Import_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

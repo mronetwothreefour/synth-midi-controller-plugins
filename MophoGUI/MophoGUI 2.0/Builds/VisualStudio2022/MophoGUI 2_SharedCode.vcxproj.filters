@@ -35,6 +35,12 @@
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\voices">
+      <UniqueIdentifier>{5FA9AFF4-B31B-2EC4-32E2-B3AEBE861D82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI 2\Source\voicesImportExport">
+      <UniqueIdentifier>{C5EC5830-FDFB-E180-A88D-C062A397131A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source">
       <UniqueIdentifier>{C21000ED-D9E9-3422-1FB1-C8D13F6A1FC6}</UniqueIdentifier>
     </Filter>
@@ -664,6 +670,12 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
@@ -708,6 +720,60 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlots.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_4_comp_TabForCustomVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_4_comp_TabForFactoryVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_6_comp_TabbedComponentForAllVoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -3108,7 +3174,13 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
@@ -3164,6 +3236,69 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_VoiceTransmissionOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlots.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_ButtonsForVoicesBankTab.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_TabForCustomVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_TabForFactoryVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabbedComponentForCustomVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabbedComponentForFactoryVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForAllVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

@@ -8,15 +8,8 @@ namespace MophoConstants
 {
 	namespace ID 
 	{
-		const Identifier bank_factory_1_VoiceNameStrings{ "bank_factory_1_VoiceNameStrings" };
-		const Identifier bank_factory_2_VoiceNameStrings{ "bank_factory_2_VoiceNameStrings" };
-		const Identifier bank_factory_3_VoiceNameStrings{ "bank_factory_3_VoiceNameStrings" };
-		const Identifier bank_custom_1_VoiceDataHexStrings{ "bank_custom_1_VoiceDataHexStrings" };
-		const Identifier bank_custom_2_VoiceDataHexStrings{ "bank_custom_2_VoiceDataHexStrings" };
-		const Identifier bank_custom_3_VoiceDataHexStrings{ "bank_custom_3_VoiceDataHexStrings" };
-		const Identifier bank_custom_1_VoiceNameStrings{ "bank_custom_1_VoiceNameStrings" };
-		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
-		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
+		const Identifier banks_VoiceDataHexStrings{ "banks_VoiceDataHexStrings" };
+		const Identifier banks_VoiceNameStrings{ "banks_VoiceNameStrings" };
 
 		const Identifier button_AllowAll{ "button_AllowAll" };
 		const Identifier button_Banks{ "button_Banks" };
@@ -234,9 +227,7 @@ namespace MophoConstants
 		const Identifier rndm_SeqTrackTargetStep{ "rndm_SeqTrackTargetStep" };
 		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
-		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
-		const Identifier state_CustomVoicesBank_2{ "state_CustomVoicesBank_2" };
-		const Identifier state_CustomVoicesBank_3{ "state_CustomVoicesBank_3" };
+		const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
 		const Identifier state_ExposedParams{ "state_ExposedParams" };
 		const Identifier state_PluginState{ "state_PluginState" };
 		const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };

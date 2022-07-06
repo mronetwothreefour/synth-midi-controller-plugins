@@ -10,7 +10,7 @@ UnexposedParameters::UnexposedParameters() :
 	globalOptions{ new GlobalOptions{} },
 	outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
 	tooltipsOptions{ new TooltipsOptions{} },
-	//voicesBanks{ new VoicesBanks{} },
+	voicesBanks{ new VoicesBanks{} },
 	voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
 }
@@ -31,9 +31,9 @@ TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
 	return tooltipsOptions.get();
 }
 
-//VoicesBanks* UnexposedParameters::getVoicesBanks() {
-//	return voicesBanks.get();
-//}
+VoicesBanks* UnexposedParameters::getVoicesBanks() {
+	return voicesBanks.get();
+}
 
 VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
 	return voiceTransmissionOptions.get();
@@ -46,9 +46,9 @@ XmlElement UnexposedParameters::getStateXml() {
 	if (tooltipOptionsStateXml != nullptr)
 		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
 
-	//auto voicesBanksStateXml{ voicesBanks->getStateXml() };
-	//if (voicesBanksStateXml != nullptr)
-	//	unexposedParamsStateXml.addChildElement(voicesBanksStateXml);
+	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
+	if (voicesBanksStateXml != nullptr)
+		unexposedParamsStateXml.addChildElement(voicesBanksStateXml);
 
 	auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTxOptionsStateXml != nullptr)
@@ -62,9 +62,9 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 	if (tooltipOptionsState.isValid())
 		tooltipsOptions->replaceState(tooltipOptionsState);
 
-	//auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
-	//if (voicesBanksState.isValid())
-	//	voicesBanks->replaceState(voicesBanksState);
+	auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
+	if (voicesBanksState.isValid())
+		voicesBanks->replaceState(voicesBanksState);
 
 	auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
 	if (voiceTxOptionsState.isValid())
@@ -72,9 +72,9 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 }
 
 UnexposedParameters::~UnexposedParameters() {
-	voiceTransmissionOptions = nullptr;
-	//voicesBanks = nullptr;
-	tooltipsOptions = nullptr;
-	outgoingMidiBuffers = nullptr;
 	globalOptions = nullptr;
+	outgoingMidiBuffers = nullptr;
+	tooltipsOptions = nullptr;
+	voicesBanks = nullptr;
+	voiceTransmissionOptions = nullptr;
 }

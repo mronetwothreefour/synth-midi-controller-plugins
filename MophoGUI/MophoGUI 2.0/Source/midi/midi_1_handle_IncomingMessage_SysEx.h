@@ -15,7 +15,7 @@ class IncomingMessageHandler_SysEx
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
-	//VoicesBanks* voicesBanks;
+	VoicesBanks* voicesBanks;
 	VoiceTransmissionOptions* voiceTransmit;
 	const int sysExMessageTypeByte{ 3 };
 

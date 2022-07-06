@@ -3,6 +3,9 @@
 #include "core_1_PluginEditor.h"
 #include "constants/constants_Identifiers.h"
 #include "exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "exposedParameters/ep_4_handle_ExposedParamChanges.h"
+#include "midi/midi_1_handle_IncomingMessage_NRPN.h"
+#include "midi/midi_1_handle_IncomingMessage_SysEx.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -14,6 +17,9 @@ PluginProcessor::PluginProcessor() :
     exposedParams{ new ExposedParameters{ this } },
     unexposedParams{ new UnexposedParameters{}, },
     bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() },
+    exposedParamChangesHandler{ new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() } },
+    incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN(exposedParams.get(), unexposedParams.get()) },
+    incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx(exposedParams.get(), unexposedParams.get()) },
     voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -52,8 +58,21 @@ const String PluginProcessor::getProgramName (int /*index*/) {
 void PluginProcessor::changeProgramName (int /*index*/, const String& /*newName*/) {
 }
 
-void PluginProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& /*midiMessages*/) {
+void PluginProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
+
+    if (midiMessages.isEmpty() == false) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingMessageHandler_SysEx->pullMessageForMophoOutOfBuffer(midiMessages);
+        midiMessagesToPassThrough = incomingMessageHandler_NRPN->pullFullyFormedMessageOutOfBuffer(midiMessagesToPassThrough);
+        midiMessages.swapWith(midiMessagesToPassThrough);
+    }
+
+    if (bundledOutgoingBuffers->isEmpty() == false) {
+        for (auto event : bundledOutgoingBuffers->removeAndReturn(0)) {
+            midiMessages.addEvent(event.getMessage(), event.samplePosition);
+        }
+    }
 }
 
 bool PluginProcessor::isBusesLayoutSupported (const BusesLayout& /*layouts*/) const {
@@ -131,6 +150,9 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* /*sourceXml*/) {
 }
 
 PluginProcessor::~PluginProcessor() {
+    exposedParamChangesHandler = nullptr;
+    incomingMessageHandler_SysEx = nullptr;
+    incomingMessageHandler_NRPN = nullptr;
     exposedParams->undoManager.clearUndoHistory();
     exposedParams = nullptr;
     pluginStateXml = nullptr;
