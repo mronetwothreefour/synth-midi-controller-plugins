@@ -136,7 +136,7 @@ void PluginProcessor::restorePluginStateFromXml(XmlElement* /*sourceXml*/) {
     //    voiceTransmit->transmitParamChanges();
     //}
 
-    //auto randomizationStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    //auto randomizationStateXml{ sourceXml->getChildByName(ID::state_RandomizationOptions.toString()) };
     //if (randomizationStateXml != nullptr) {
     //    auto randomizationStateTree{ ValueTree::fromXml(*randomizationStateXml) };
     //    exposedParams->randomization->replaceState(randomizationStateTree);

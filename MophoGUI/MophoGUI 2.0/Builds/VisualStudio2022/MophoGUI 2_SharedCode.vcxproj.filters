@@ -26,11 +26,17 @@
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\global">
+      <UniqueIdentifier>{FEE37698-8F20-C630-FD7F-6F8727A0C4D6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\gui">
       <UniqueIdentifier>{F3565732-B8AC-B941-FD8B-18C0D7E20F25}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2\Source\midi">
       <UniqueIdentifier>{34FF079E-7720-B807-9AC9-E9F8E37BDAB2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI 2\Source\randomization">
+      <UniqueIdentifier>{87F8AAED-5510-D984-A670-B62A343D926E}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
@@ -673,6 +679,36 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_gui_layer_CommError_Base.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_2_gui_layer_GlobalParams.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
@@ -708,6 +744,51 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_VoiceDataMessage.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
@@ -3177,6 +3258,36 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_gui_layer_CommError_Base.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_2_gui_layer_GlobalParams.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
@@ -3224,6 +3335,57 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
