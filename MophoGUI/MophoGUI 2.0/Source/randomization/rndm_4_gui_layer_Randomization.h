@@ -13,17 +13,17 @@ using namespace MophoConstants;
 
 
 class ExposedParameters;
-class ParamRandomizationMethods;
-class RandomizationOptions;
+class ExposedParamsRandomizationOptions;
+class InfoForExposedParameters;
 class UnexposedParameters;
 
 class GUI_Layer_Randomization :
 	public Component,
 	public Button::Listener
 {
-	ExposedParameters* exposedParams;
-	RandomizationOptions* randomization;
-	ParamRandomizationMethods* randomize;
+	AudioProcessorValueTreeState* state;
+	InfoForExposedParameters* info;
+	ExposedParamsRandomizationOptions* randomization;
 	ButtonForHidingLayer button_Close;
 	TransmitTypeToggles transmitType;
 	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
@@ -33,7 +33,7 @@ class GUI_Layer_Randomization :
 public:
 	GUI_Layer_Randomization() = delete;
 
-	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, ParamRandomizationMethods* randomize);
+	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;

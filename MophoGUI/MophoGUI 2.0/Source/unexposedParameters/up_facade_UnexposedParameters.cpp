@@ -44,15 +44,15 @@ XmlElement UnexposedParameters::getStateXml() {
 
 	auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml);
+		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml.release());
 
 	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
 	if (voicesBanksStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(voicesBanksStateXml);
+		unexposedParamsStateXml.addChildElement(voicesBanksStateXml.release());
 
 	auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTxOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(voiceTxOptionsStateXml);
+		unexposedParamsStateXml.addChildElement(voiceTxOptionsStateXml.release());
 
 	return unexposedParamsStateXml;
 }

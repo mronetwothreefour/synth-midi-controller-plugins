@@ -97,56 +97,56 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor (*this, exposedParams.get(), unexposedParams.get());
 }
 
-void PluginProcessor::getStateInformation (MemoryBlock& /*destData*/) {
-    //createPluginStateXml();
-    //if (pluginStateXml != nullptr)
-    //    copyXmlToBinary(*pluginStateXml, destData);
+void PluginProcessor::getStateInformation (MemoryBlock& destData) {
+    createPluginStateXml();
+    if (pluginStateXml != nullptr)
+        copyXmlToBinary(*pluginStateXml, destData);
 }
 
 void PluginProcessor::createPluginStateXml() {
-    //pluginStateXml.reset(new XmlElement(ID::state_PluginState));
+    pluginStateXml.reset(new XmlElement(ID::state_PluginState));
 
-    //auto exposedParamsStateTree{ exposedParams->state->copyState() };
-    //auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
-    //exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
-    //if (exposedParamsStateXml != nullptr)
-    //    pluginStateXml->addChildElement(exposedParamsStateXml.release());
+    auto exposedParamsStateTree{ exposedParams->state->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(exposedParamsStateXml.release());
 
-    //auto randomizationStateXml{ std::make_unique<XmlElement>(exposedParams->randomization->getStateXml()) };
-    //if (randomizationStateXml != nullptr)
-    //    pluginStateXml->addChildElement(randomizationStateXml.release());
+    auto randomizationStateXml{ exposedParams->randomization->getStateXml() };
+    if (randomizationStateXml != nullptr)
+        pluginStateXml->addChildElement(randomizationStateXml.release());
 
-    //auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
-    //if (unexposedParamsStateXml != nullptr)
-    //    pluginStateXml->addChildElement(unexposedParamsStateXml.release());
+    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml->addChildElement(unexposedParamsStateXml.release());
 }
 
-void PluginProcessor::setStateInformation (const void* /*data*/, int /*sizeInBytes*/) {
-    //pluginStateXml = getXmlFromBinary(data, sizeInBytes);
-    //if (pluginStateXml != nullptr)
-    //    restorePluginStateFromXml(pluginStateXml.get());
+void PluginProcessor::setStateInformation (const void* data, int sizeInBytes) {
+    pluginStateXml = getXmlFromBinary(data, sizeInBytes);
+    if (pluginStateXml != nullptr)
+        restorePluginStateFromXml(pluginStateXml.get());
 }
 
-void PluginProcessor::restorePluginStateFromXml(XmlElement* /*sourceXml*/) {
-    //auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
-    //if (exposedParamsStateXml != nullptr) {
-    //    voiceTransmit->dontTransmitParamChanges();
-    //    auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
-    //    exposedParams->state->replaceState(exposedParamsStateTree);
-    //    voiceTransmit->transmitParamChanges();
-    //}
+void PluginProcessor::restorePluginStateFromXml(XmlElement* sourceXml) {
+    auto exposedParamsStateXml{ sourceXml->getChildByName(ID::state_ExposedParams.toString()) };
+    if (exposedParamsStateXml != nullptr) {
+        voiceTransmit->dontTransmitParamChanges();
+        auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
+        exposedParams->state->replaceState(exposedParamsStateTree);
+        voiceTransmit->transmitParamChanges();
+    }
 
-    //auto randomizationStateXml{ sourceXml->getChildByName(ID::state_RandomizationOptions.toString()) };
-    //if (randomizationStateXml != nullptr) {
-    //    auto randomizationStateTree{ ValueTree::fromXml(*randomizationStateXml) };
-    //    exposedParams->randomization->replaceState(randomizationStateTree);
-    //}
+    auto randomizationStateXml{ sourceXml->getChildByName(ID::state_RandomizationOptions.toString()) };
+    if (randomizationStateXml != nullptr) {
+        auto randomizationStateTree{ ValueTree::fromXml(*randomizationStateXml) };
+        exposedParams->randomization->replaceState(randomizationStateTree);
+    }
 
-    //auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
-    //if (unexposedParamsStateXml != nullptr) {
-    //    auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
-    //    unexposedParams->replaceState(unexposedParamsStateTree);
-    //}
+    auto unexposedParamsStateXml{ sourceXml->getChildByName(ID::state_UnexposedParams.toString()) };
+    if (unexposedParamsStateXml != nullptr) {
+        auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+        unexposedParams->replaceState(unexposedParamsStateTree);
+    }
 }
 
 PluginProcessor::~PluginProcessor() {

@@ -118,7 +118,7 @@ public:
 	void removeListenerFromSeqTrackTree(ValueTree::Listener* listener, Track track);
 
 
-	XmlElement* getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 
 private:

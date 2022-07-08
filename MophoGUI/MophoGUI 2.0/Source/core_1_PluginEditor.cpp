@@ -5,6 +5,7 @@
 #include "constants/constants_Identifiers.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
+#include "gui/gui_layer_MainWindowButtons.h"
 #include "gui/gui_LookAndFeel.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
@@ -19,6 +20,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     lookAndFeel{ new MophoLookAndFeel() },
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
+    layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -28,6 +30,9 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
 
     layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_ExposedParamControls.get());
+
+    layer_Buttons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_Buttons.get());
 
     tooltips->addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -54,6 +59,7 @@ void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifie
 PluginEditor::~PluginEditor() {
     layer_EnvelopePainters = nullptr;
     layer_ExposedParamControls = nullptr;
+    layer_Buttons = nullptr;
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
 }

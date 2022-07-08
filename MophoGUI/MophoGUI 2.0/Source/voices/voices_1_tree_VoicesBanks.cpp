@@ -109,11 +109,11 @@ void VoicesBanks::valueTreePropertyChanged(ValueTree& tree, const Identifier& pr
 	}
 }
 
-XmlElement* VoicesBanks::getStateXml() {
+std::unique_ptr<XmlElement> VoicesBanks::getStateXml() {
 	auto customVoiceDataHexStringsXml{ customVoiceDataHexStrings.createXml() };
 	if (customVoiceDataHexStringsXml != nullptr)
 		customVoiceDataHexStringsXml->setTagName(ID::state_CustomVoiceDataHexStrings);
-	return customVoiceDataHexStringsXml.release();
+	return customVoiceDataHexStringsXml;
 }
 
 void VoicesBanks::replaceState(const ValueTree& newState) {

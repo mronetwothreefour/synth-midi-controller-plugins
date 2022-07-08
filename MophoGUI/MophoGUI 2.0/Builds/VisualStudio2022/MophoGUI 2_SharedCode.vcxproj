@@ -173,6 +173,7 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_ExposedParamControls.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.cpp"/>
@@ -196,6 +197,14 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_3_gui_layer_AllowedChoicesServer.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_4_gui_layer_Randomization.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.cpp"/>
@@ -2418,6 +2427,7 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>
@@ -2445,6 +2455,14 @@
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_SeqTrack.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Standard.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_3_gui_layer_AllowedChoicesServer.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_4_gui_layer_Randomization.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_tree_TooltipsOptions.h"/>

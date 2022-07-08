@@ -30,7 +30,7 @@ public:
 	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
 	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
-	XmlElement* getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 	~VoicesBanks();
 

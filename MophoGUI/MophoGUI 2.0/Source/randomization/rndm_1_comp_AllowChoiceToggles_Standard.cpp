@@ -14,10 +14,10 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 	numberOfChoices{ info->numberOfChoicesFor(paramIndex) },
 	AllowChoiceToggles_Base{
 		numberOfChoices,
-		info->numberOfAllowChoiceToggleColumnsFor(paramIndex),
-		info->numberOfAllowChoiceToggleRowsFor(paramIndex),
-		info->firstAllowChoiceToggleRowFor(paramIndex),
-		info->widthOfAllowChoiceToggleColumnFor(paramIndex)
+		exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex),
+		exposedParams->info->numberOfAllowChoiceToggleRowsFor(paramIndex),
+		exposedParams->info->firstAllowChoiceToggleRowFor(paramIndex),
+		exposedParams->info->widthOfAllowChoiceToggleColumnFor(paramIndex)
 	}
 {
 	jassert(paramIndex < EP::numberOfExposedParams);

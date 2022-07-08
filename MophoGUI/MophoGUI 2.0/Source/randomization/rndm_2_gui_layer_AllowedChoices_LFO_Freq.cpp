@@ -3,28 +3,28 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
 GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
-	uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	exposedParams{ exposedParams },
-	randomization{ unexposedParams->getRandomizationOptions() },
+	info{ exposedParams->info.get() },
+	randomization{ exposedParams->randomization.get() },
 	repeatChoices{ paramIndex, exposedParams, unexposedParams },
 	button_Close{ unexposedParams },
 	allowUnsyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },
 	allowPitchedFreqToggles{ paramIndex, exposedParams, unexposedParams },
 	allowSyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, randomize, unexposedParams },
-	background_x{ exposedParams->info.allowedChoicesBackground_x_For(paramIndex) },
-	background_y{ exposedParams->info.allowedChoicesBackground_y_For(paramIndex) }
+	button_Randomize{ paramIndex, exposedParams, unexposedParams },
+	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
+	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
-	jassert(exposedParams->info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
-	auto paramID{ exposedParams->info.IDfor(paramIndex).toString() };
-	auto paramName{ exposedParams->info.exposedNameFor(paramIndex) };
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
+	auto paramID{ info->IDfor(paramIndex).toString() };
+	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
@@ -119,7 +119,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 
 void GUI_Layer_AllowedChoices_LFO_Freq::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
-	auto controlCenter{ exposedParams->info.centerPointFor(paramIndex)};
+	auto controlCenter{ info->centerPointFor(paramIndex)};
 	g.setColour(GUI::color_ToggleOn);
 	g.drawEllipse((float)controlCenter.x - 20.0f, (float)controlCenter.y - 20.0f, GUI::knob_diameter, GUI::knob_diameter, 2);
 	g.setColour(GUI::color_Black);

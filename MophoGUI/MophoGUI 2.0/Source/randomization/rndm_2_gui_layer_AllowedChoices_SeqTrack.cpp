@@ -3,20 +3,21 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
 GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
-	Track track, bool destIsPitched, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
+	Track track, bool destIsPitched, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	track{ track },
 	destIsPitched{ destIsPitched },
 	unexposedParams{ unexposedParams },
-	randomization{ unexposedParams->getRandomizationOptions() },
+	randomization{ exposedParams->randomization.get() },
 	button_Close{ unexposedParams },
-	targetStepSelector{ track, unexposedParams },
-	probabilities{ track, unexposedParams },
-	button_Randomize{ track, randomize, unexposedParams }
+	targetStepSelector{ track, randomization, unexposedParams },
+	probabilities{ track, exposedParams, unexposedParams },
+	button_Randomize{ track, exposedParams->randomize.get(), unexposedParams}
 {
 	randomization->addListenerToSeqTrackTree(this, track);
 
@@ -85,12 +86,12 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 
 void GUI_Layer_AllowedChoices_SeqTrack::resetToggles() {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, targetStep, unexposedParams });
+	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, targetStep, randomization, unexposedParams });
 	if (repeatChoices != nullptr) {
 		repeatChoices->setCentrePosition(center_x, destIsPitched ? 57 : 169);
 		addAndMakeVisible(repeatChoices.get());
 	}
-	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, targetStep, destIsPitched, unexposedParams });
+	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, targetStep, destIsPitched, randomization, unexposedParams });
 	if (allowChoiceToggles != nullptr) {
 		allowChoiceToggles->setCentrePosition(center_x, 360);
 		addAndMakeVisible(allowChoiceToggles.get());

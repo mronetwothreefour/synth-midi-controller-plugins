@@ -783,14 +783,15 @@ void ExposedParamsRandomizationOptions::removeListenerFromSeqTrackTree(Tree::Lis
 
 
 
-XmlElement* ExposedParamsRandomizationOptions::getStateXml() {
+std::unique_ptr<XmlElement> ExposedParamsRandomizationOptions::getStateXml() {
 	auto randomizationOptionsTreeStateXml{ randomizationOptionsTree.createXml() };
 	if (randomizationOptionsTreeStateXml != nullptr)
 		randomizationOptionsTreeStateXml->setTagName(ID::state_RandomizationOptions);
-	return randomizationOptionsTreeStateXml.release();
+	return randomizationOptionsTreeStateXml;
 }
 
-void ExposedParamsRandomizationOptions::replaceState(const Tree& newState) {
+void ExposedParamsRandomizationOptions::replaceState(const ValueTree& newState) {
 	if (newState.isValid())
 		randomizationOptionsTree.copyPropertiesAndChildrenFrom(newState, nullptr);
 }
+
