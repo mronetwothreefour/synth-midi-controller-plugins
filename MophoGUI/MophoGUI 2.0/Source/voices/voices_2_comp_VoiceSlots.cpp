@@ -20,8 +20,8 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
-		voicesBanks->addListenerToNameStringsForCustomBank(this, bank);
+	if (bank >= VoicesBank::custom_1)
+		voicesBanks->addListenerToCustomVoiceNameStringsTree(this);
 
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipsOptions->shouldShowDescriptions() };
@@ -54,6 +54,7 @@ void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slotNum) {
 	MessageManagerLock mmlock;
 	voiceSlotButtons[slotNum].setName(slotNumString + " " + voiceName);
 	voiceSlotButtons[slotNum].repaint();
+	repaint();
 }
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
@@ -62,7 +63,6 @@ void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);
-		repaint();
 	}
 }
 
@@ -93,16 +93,19 @@ void VoiceSlots::pushSelectedVoiceToHardware() {
 	}
 }
 
-void VoiceSlots::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	auto propertyName{ property.toString() };
-	auto slotString{ propertyName.fromLastOccurrenceOf("voice_", false, true) };
-	setTextForVoiceSlotToggleButton((uint8)slotString.getIntValue());
+void VoiceSlots::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
+	if (tree.getType().toString() == "bank_" + String((int)bank % 3)) {
+		auto propertyName{ propertyID.toString() };
+		auto slotString{ propertyName.fromLastOccurrenceOf("slot_", false, true) };
+		auto slotNum{ slotString.getIntValue() };
+		setTextForVoiceSlotToggleButton((uint8)slotNum);
+	}
 }
 
 void VoiceSlots::timerCallback() {
 }
 
 VoiceSlots::~VoiceSlots() {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
-		voicesBanks->removeListenerFromNameStringsForCustomBank(this, bank);
+	if (bank >= VoicesBank::custom_1)
+		voicesBanks->removeListenerFromCustomVoiceNameStringsTree(this);
 }

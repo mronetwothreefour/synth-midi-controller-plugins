@@ -27,8 +27,8 @@ private:
 
 public:
 	void storeVoiceDataHexStringInCustomBankSlot(String voiceDataHexString, VoicesBank bank, uint8 slotNum);
-	void addListenerToNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
-	void removeListenerFromNameStringsForCustomBank(ValueTree::Listener* listener, VoicesBank bank);
+	void addListenerToCustomVoiceNameStringsTree(ValueTree::Listener* listener);
+	void removeListenerFromCustomVoiceNameStringsTree(ValueTree::Listener* listener);
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);

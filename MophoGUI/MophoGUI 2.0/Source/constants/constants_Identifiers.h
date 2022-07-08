@@ -8,8 +8,10 @@ namespace MophoConstants
 {
 	namespace ID 
 	{
-		const Identifier banks_VoiceDataHexStrings{ "banks_VoiceDataHexStrings" };
-		const Identifier banks_VoiceNameStrings{ "banks_VoiceNameStrings" };
+		const Identifier banks_CustomVoiceDataHexStrings{ "banks_CustomVoiceDataHexStrings" };
+		const Identifier banks_CustomVoiceNameStrings{ "banks_CustomVoiceNameStrings" };
+		const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+		const Identifier banks_FactoryVoiceNameStrings{ "banks_FactoryVoiceNameStrings" };
 
 		const Identifier button_AllowAll{ "button_AllowAll" };
 		const Identifier button_Banks{ "button_Banks" };
@@ -228,6 +230,7 @@ namespace MophoConstants
 		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
 		const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
+		const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
 		const Identifier state_ExposedParams{ "state_ExposedParams" };
 		const Identifier state_PluginState{ "state_PluginState" };
 		const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };

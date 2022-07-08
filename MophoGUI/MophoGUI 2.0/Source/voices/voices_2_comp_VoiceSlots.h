@@ -43,7 +43,7 @@ public:
     void loadVoiceFromSelectedSlot();
     void pullSelectedVoiceFromHardware();
     void pushSelectedVoiceToHardware();
-    void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+    void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 
 private:
     void timerCallback() override;

@@ -32,7 +32,7 @@ void TabbedComponentForAllVoicesBanks::removeListenerFromButtonsInAllTabs(Button
 }
 
 VoiceSlots* TabbedComponentForAllVoicesBanks::getVoiceSlotsForBank(VoicesBank bank) {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
+	if (bank >= VoicesBank::custom_1)
 		return tabbedComponentForCustomVoicesBanks.getVoiceSlotsComponentForCustomBank(bank);
 	else
 		return tabbedComponentForFactoryVoicesBanks.getVoiceSlotsComponentForFactoryBank(bank);

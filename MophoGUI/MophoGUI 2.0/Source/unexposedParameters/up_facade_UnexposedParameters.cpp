@@ -58,17 +58,19 @@ XmlElement UnexposedParameters::getStateXml() {
 }
 
 void UnexposedParameters::replaceState(const ValueTree& newState) {
-	auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipsOptions) };
-	if (tooltipOptionsState.isValid())
-		tooltipsOptions->replaceState(tooltipOptionsState);
+	if (newState.isValid()) {
+		auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipsOptions) };
+		if (tooltipOptionsState.isValid())
+			tooltipsOptions->replaceState(tooltipOptionsState);
 
-	auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
-	if (voicesBanksState.isValid())
-		voicesBanks->replaceState(voicesBanksState);
+		auto voicesBanksState{ newState.getChildWithName(ID::state_VoicesBanks) };
+		if (voicesBanksState.isValid())
+			voicesBanks->replaceState(voicesBanksState);
 
-	auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
-	if (voiceTxOptionsState.isValid())
-		voiceTransmissionOptions->replaceState(voiceTxOptionsState);
+		auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
+		if (voiceTxOptionsState.isValid())
+			voiceTransmissionOptions->replaceState(voiceTxOptionsState);
+	}
 }
 
 UnexposedParameters::~UnexposedParameters() {
