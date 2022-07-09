@@ -8,7 +8,6 @@ class ExposedParameters;
 class UnexposedParameters;
 
 struct RawDataTools {
-    static const int rawVoiceDataSize{ 293 };
     static const uint8 daveSmithInstrumentsID = 1;
     static const uint8 mophoID = 37;
 

@@ -39,20 +39,20 @@ VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
 	return voiceTransmissionOptions.get();
 }
 
-XmlElement UnexposedParameters::getStateXml() {
-	XmlElement unexposedParamsStateXml{ ID::state_UnexposedParams };
+std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
+	auto unexposedParamsStateXml{ std::make_unique<XmlElement>(ID::state_UnexposedParams) };
 
 	auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
 	if (tooltipOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(tooltipOptionsStateXml.release());
+		unexposedParamsStateXml->addChildElement(tooltipOptionsStateXml.release());
 
 	auto voicesBanksStateXml{ voicesBanks->getStateXml() };
 	if (voicesBanksStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(voicesBanksStateXml.release());
+		unexposedParamsStateXml->addChildElement(voicesBanksStateXml.release());
 
 	auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
 	if (voiceTxOptionsStateXml != nullptr)
-		unexposedParamsStateXml.addChildElement(voiceTxOptionsStateXml.release());
+		unexposedParamsStateXml->addChildElement(voiceTxOptionsStateXml.release());
 
 	return unexposedParamsStateXml;
 }

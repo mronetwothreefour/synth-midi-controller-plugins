@@ -116,7 +116,7 @@ void PluginProcessor::createPluginStateXml() {
     if (randomizationStateXml != nullptr)
         pluginStateXml->addChildElement(randomizationStateXml.release());
 
-    auto unexposedParamsStateXml{ std::make_unique<XmlElement>(unexposedParams->getStateXml()) };
+    auto unexposedParamsStateXml{ unexposedParams->getStateXml() };
     if (unexposedParamsStateXml != nullptr)
         pluginStateXml->addChildElement(unexposedParamsStateXml.release());
 }

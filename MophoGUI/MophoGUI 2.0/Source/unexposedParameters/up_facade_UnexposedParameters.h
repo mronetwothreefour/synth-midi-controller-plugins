@@ -26,7 +26,7 @@ public:
 	TooltipsOptions* getTooltipsOptions();
 	VoicesBanks* getVoicesBanks();
 	VoiceTransmissionOptions* getVoiceTransmissionOptions();
-	XmlElement getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 	~UnexposedParameters();
 

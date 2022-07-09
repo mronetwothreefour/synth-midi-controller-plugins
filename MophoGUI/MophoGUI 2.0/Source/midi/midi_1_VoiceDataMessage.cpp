@@ -24,7 +24,7 @@ std::vector<uint8> VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlo
     auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
     for (auto dataByte : voiceDataVector)
         voiceDataMessageVector.push_back(dataByte);
-    for (auto emptyByte = voiceDataVector.size(); emptyByte != 298; ++emptyByte)
+    for (auto emptyByte = voiceDataVector.size(); emptyByte != voiceDataMessageSize; ++emptyByte)
         voiceDataMessageVector.push_back((uint8)0);
     return voiceDataMessageVector;
 }

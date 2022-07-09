@@ -46,7 +46,7 @@ void IncomingMessageHandler_SysEx::handleIncomingVoiceData(const uint8* sysExDat
         const int voiceDataMessageBankByte{ 4 };
         const int voiceDataMessageSlotByte{ 5 };
         const int firstVoiceDataByte{ 6 };
-        const int firstUnusedPVoiceDataByte{ 236 };
+        const int firstUnusedPVoiceDataByte{ 235 };
         auto bankNum{ sysExData[voiceDataMessageBankByte] };
         auto bank{ VoicesBank{ bankNum + 3 } };
         auto slotNum{ sysExData[voiceDataMessageSlotByte] };
