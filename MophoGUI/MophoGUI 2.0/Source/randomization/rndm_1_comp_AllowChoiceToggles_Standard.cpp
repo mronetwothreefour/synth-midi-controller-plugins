@@ -11,9 +11,9 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
-	numberOfChoices{ info->numberOfChoicesFor(paramIndex) },
+	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) },
 	AllowChoiceToggles_Base{
-		numberOfChoices,
+		exposedParams->info->numberOfChoicesFor(paramIndex),
 		exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex),
 		exposedParams->info->numberOfAllowChoiceToggleRowsFor(paramIndex),
 		exposedParams->info->firstAllowChoiceToggleRowFor(paramIndex),

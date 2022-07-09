@@ -316,7 +316,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 14 },
-						{ ID::property_NumberOfAllowChoiceToggleRows, 5 },
+						{ ID::property_NumberOfAllowChoiceToggleRows, 6 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 						{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
@@ -405,7 +405,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
 						{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
-						{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Knobs },
+						{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 						{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
@@ -646,7 +646,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
 						{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
-						{ ID::property_AllowedChoicesBackground_y, 267 },
+						{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1297,7 +1297,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_ModDestination },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, 30 },
-						{ ID::property_AllowedChoicesBackground_y, 339 },
+						{ ID::property_AllowedChoicesBackground_y, 211 },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
 						ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
@@ -2156,7 +2156,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Toggles },
-						{ ID::property_AllowedChoicesBackground_y, oscRow_2_center_y - GUI::toggle_diameter / 2 },
+						{ ID::property_AllowedChoicesBackground_y, oscRow_2_center_y - GUI::toggleLockButton_diameter / 2 },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
 						ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
