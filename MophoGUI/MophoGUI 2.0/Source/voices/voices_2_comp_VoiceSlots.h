@@ -28,7 +28,7 @@ class VoiceSlots :
     VoiceTransmissionOptions* voiceTransmit;
     const int voiceSlotRadioButtton_w{ 125 };
     const int voiceSlotRadioButtton_h{ 19 };
-    const int voiceSlotRadioButtons_HorizGap{ 7 };
+    const int voiceSlotRadioButtons_HorizGap{ 5 };
     const int voiceSlots_w{ (8 * voiceSlotRadioButtton_w) + (7 * voiceSlotRadioButtons_HorizGap) };
     const int voiceSlots_h{ 16 * voiceSlotRadioButtton_h };
 

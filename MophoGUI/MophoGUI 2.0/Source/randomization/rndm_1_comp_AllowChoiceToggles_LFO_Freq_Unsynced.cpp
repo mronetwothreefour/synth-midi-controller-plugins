@@ -61,5 +61,6 @@ void AllowChoiceToggles_LFO_Freq_Unsynced::restoreToggles() {
 	for (auto unsyncedFreq = (uint8)0; unsyncedFreq < numberOfFreq; ++unsyncedFreq) {
 		auto isAllowed{ randomization->unsyncedFreqIsAllowedForLFO_FreqParam(unsyncedFreq, paramIndex) };
 		allowedChoiceToggles[unsyncedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);
+		allowedChoiceToggles[unsyncedFreq]->setEnabled(true);
 	}
 }

@@ -115,5 +115,6 @@ void AllowChoiceToggles_LFO_Freq_Synced::restoreToggles() {
 	for (auto syncedFreq = (uint8)0; syncedFreq < numberOfFreq; ++syncedFreq) {
 		auto isAllowed{ randomization->syncedFreqIsAllowedForLFO_FreqParam(syncedFreq, paramIndex) };
 		allowedChoiceToggles[syncedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);
+		allowedChoiceToggles[syncedFreq]->setEnabled(true);
 	}
 }

@@ -59,7 +59,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Unsynced.setTooltip(tip);
 	}
-	toggle_Unsynced.setTopLeftPosition(422, categoryToggles_y);
+	toggle_Unsynced.setBounds(422, categoryToggles_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Unsynced);
 
 	toggle_Pitched.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Pitched.toString());
@@ -73,7 +73,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Pitched.setTooltip(tip);
 	}
-	toggle_Pitched.setTopLeftPosition(651, categoryToggles_y);
+	toggle_Pitched.setBounds(651, categoryToggles_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Pitched);
 
 	toggle_Synced.setComponentID(ID::component_RedToggle_AllowLFO_Freq_Synced.toString());
@@ -87,7 +87,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 		tip += "at least one frequency category must always be allowed.\n";
 		toggle_Synced.setTooltip(tip);
 	}
-	toggle_Synced.setTopLeftPosition(878, categoryToggles_y);
+	toggle_Synced.setBounds(878, categoryToggles_y, GUI::toggle_diameter, GUI::toggle_diameter);
 	addAndMakeVisible(toggle_Synced);
 
 	auto allowToggles_y{ 234 };
@@ -112,6 +112,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	allowSyncedFreqToggles.setTopLeftPosition(812, allowToggles_y);
 	addAndMakeVisible(allowSyncedFreqToggles);
 
+	button_Randomize.setTopLeftPosition(656, 436);
 	addAndMakeVisible(button_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -126,6 +127,10 @@ void GUI_Layer_AllowedChoices_LFO_Freq::paint(Graphics& g) {
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
+	MemoryInputStream memInputStream{ BinaryData::lbl_LFO_FreqCategories_png, BinaryData::lbl_LFO_FreqCategories_pngSize, false };
+	PNGImageFormat imageFormat;
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, background_x, 214);
 }
 
 void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {

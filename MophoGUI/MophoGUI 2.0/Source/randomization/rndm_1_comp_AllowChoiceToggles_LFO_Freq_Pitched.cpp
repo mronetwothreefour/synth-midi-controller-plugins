@@ -62,5 +62,6 @@ void AllowChoiceToggles_LFO_Freq_Pitched::restoreToggles() {
 	for (auto pitchedFreq = (uint8)0; pitchedFreq < numberOfFreq; ++pitchedFreq) {
 		auto isAllowed{ randomization->pitchedFreqIsAllowedForLFO_FreqParam(pitchedFreq, paramIndex) };
 		allowedChoiceToggles[pitchedFreq]->setToggleState(isAllowed ? true : false, dontSendNotification);
+		allowedChoiceToggles[pitchedFreq]->setEnabled(true);
 	}
 }

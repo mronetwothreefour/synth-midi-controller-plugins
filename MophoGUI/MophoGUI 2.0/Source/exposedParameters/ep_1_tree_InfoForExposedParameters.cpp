@@ -497,7 +497,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_Description, Description::buildFor_LPF_Freq() },
 						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 14 },
-						{ ID::property_WidthOfAllowChoiceToggleColumn, 64 },
+						{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_OscPitch },
 						{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_Pitch },
 						{ ID::property_FirstAllowChoiceToggleRow, 0 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
@@ -646,7 +646,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
 						{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 						{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
-						{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
+						{ ID::property_AllowedChoicesBackground_y, 187 },
 					}, {
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
 						ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
@@ -1129,7 +1129,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 							{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 							{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
-							{ ID::property_AllowedChoicesBackground_x, 82 + lfoNum * lfoControlsGroup_w },
+							{ ID::property_AllowedChoicesBackground_x, 361 },
 							{ ID::property_AllowedChoicesBackground_y, 160 },
 						}, {
 							ValueTree{ ChoiceNames::buildFor_LFO_Freq(concise) },
@@ -2256,7 +2256,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 							{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_ModDestination },
 							{ ID::property_FirstAllowChoiceToggleRow, 0 },
 							{ ID::property_AllowedChoicesBackground_x, 498 },
-							{ ID::property_AllowedChoicesBackground_y, 315 },
+							{ ID::property_AllowedChoicesBackground_y, 138 },
 						}, {
 							ValueTree{ trackNumIsEven ?
 								ChoiceNames::buildFor_SeqTracks_2_4_Destination(trackNum, concise) :

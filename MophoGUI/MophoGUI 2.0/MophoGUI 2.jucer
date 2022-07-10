@@ -97,6 +97,8 @@
               file="BinaryResources/labels/lbl_ImportVoice.png"/>
         <FILE id="NPbTVR" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+        <FILE id="zSYEQr" name="lbl_LFO_FreqCategories.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_LFO_FreqCategories.png"/>
         <FILE id="OgHctI" name="lbl_OscShapeCategories.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_OscShapeCategories.png"/>
         <FILE id="GEj1Pi" name="lbl_PullingEntireBank.png" compile="0" resource="1"

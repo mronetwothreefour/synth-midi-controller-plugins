@@ -21,6 +21,8 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	transmitType{ randomization, unexposedParams },
 	allowedChoicesLayers{ exposedParams, unexposedParams }
 {
+	setInterceptsMouseClicks(false, true);
+
 	button_Close.setTopLeftPosition(1208, 16);
 	addAndMakeVisible(button_Close);
 

@@ -229,7 +229,7 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 			g.fillRect(x, y, w, h);
 		}
 		g.setColour(GUI::color_Black);
-		g.setFont(GUI::fontFor_Labels);
+		g.setFont(GUI::fontFor_VoiceSlotButtons);
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
