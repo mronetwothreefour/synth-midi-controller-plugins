@@ -15,10 +15,8 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 		state{ exposedParams->state.get() },
 		info{ exposedParams->info.get() },
 		knob{ track, &exposedParams->undoManager },
-		tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
-		choiceNum{ 0 }
+		tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
-	knob.addListener(this);
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
@@ -31,10 +29,10 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	trackDestination.addListener(this);
 
 	sliderValueChanged(&trackDestination);
-	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
+	auto choiceNum{ roundToInt(knob.getValue()) };
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
 		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
@@ -81,18 +79,12 @@ void KnobAndAttachment_ForSeqStep::setKnobIsNotModifyingPitch() {
 	knob.isModifyingPitch = false;
 }
 
-void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* slider) {
-	auto currentChoice{ roundToInt(knob.getValue()) };
-	if (slider == &trackDestination) {
-		auto destination{ roundToInt(trackDestination.getValue()) };
-		if (destination > 0 && destination < 4)
-			knob.isModifyingPitch = true;
-		else
-			knob.isModifyingPitch = false;
-	}
-	else {
-		choiceNum = currentChoice;
-	}
+void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* /*slider*/) {
+	auto destination{ roundToInt(trackDestination.getValue()) };
+	if (destination > 0 && destination < 4)
+		knob.isModifyingPitch = true;
+	else
+		knob.isModifyingPitch = false;
 	repaint();
 }
 
@@ -103,5 +95,4 @@ void KnobAndAttachment_ForSeqStep::deleteAttachmentsBeforeKnobsToPreventMemLeaks
 
 KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
 	trackDestination.removeListener(this);
-	knob.addListener(this);
 }

@@ -1,5 +1,9 @@
 #include "rndm_1_comp_SeqTrackProbabilities.h"
 
+#include "../constants/constants_GUI_Colors.h"
+#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+
+using namespace MophoConstants;
 using KnobType = SeqTrackProbabilityKnobType;
 
 
@@ -39,6 +43,22 @@ void SeqTrackProbabilities::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ mBlock, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
+
+	g.setFont(GUI::fontFor_KnobValueDisplays);
+	g.setColour(GUI::color_White);
+	auto concise{ (bool)false };
+	auto currentValue{ 0 };
+
+	if (track == Track::one) {
+		currentValue = roundToInt(knob_RestProbability->getValue());
+		g.drawText((String)currentValue + "%", knob_RestProbability->getBounds(), Justification::centred);
+	}
+
+	currentValue = roundToInt(knob_DuplicateProbability.getValue());
+	g.drawText((String)currentValue + "%", knob_DuplicateProbability.getBounds(), Justification::centred);
+
+	currentValue = roundToInt(knob_ResetProbability.getValue());
+	g.drawText((String)currentValue + "%", knob_ResetProbability.getBounds(), Justification::centred);
 }
 
 SeqTrackProbabilities::~SeqTrackProbabilities() {

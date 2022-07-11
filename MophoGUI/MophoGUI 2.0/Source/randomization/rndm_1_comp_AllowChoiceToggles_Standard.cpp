@@ -25,8 +25,8 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
-		allowedChoiceToggles[choiceNum]->setToggleState(randomization->choiceIsAllowedForParam(choiceNum, paramIndex), dontSendNotification);
 	}
+	restoreToggles();
 }
 
 String AllowChoiceToggles_Standard::buildChoiceName(uint8 choiceNum) {

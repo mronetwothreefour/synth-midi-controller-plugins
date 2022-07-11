@@ -13,15 +13,15 @@ AllowChoiceToggles_VoiceNameChar::AllowChoiceToggles_VoiceNameChar(
 	randomization{ exposedParams->randomization.get() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	numberOfChoices{ 96 },
-	AllowChoiceToggles_Base{ numberOfChoices, 10, 10, 0, 20 }
+	AllowChoiceToggles_Base{ numberOfChoices, 10, 10, 4, 20 }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
-		allowedChoiceToggles[choiceNum]->setToggleState(randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex), dontSendNotification);
 	}
+	restoreToggles();
 }
 
 String AllowChoiceToggles_VoiceNameChar::buildChoiceName(uint8 choiceNum) {
@@ -43,10 +43,12 @@ String AllowChoiceToggles_VoiceNameChar::buildTooltip() {
 }
 
 const bool AllowChoiceToggles_VoiceNameChar::choiceIsAllowed(uint8 choiceNum) {
+	jassert(choiceNum < numberOfChoices);
 	return randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex) == true;
 }
 
 void AllowChoiceToggles_VoiceNameChar::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
+	jassert(choiceNum < numberOfChoices);
 	randomization->setChoiceIsAllowedForVoiceNameCharParam(choiceNum, shouldBeAllowed, paramIndex);
 }
 
@@ -59,8 +61,8 @@ const bool AllowChoiceToggles_VoiceNameChar::noChoiceIsAllowed() {
 }
 
 void AllowChoiceToggles_VoiceNameChar::restoreToggles() {
-	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
-		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
+	for (auto choiceNum = 0; choiceNum < numberOfChoices; ++choiceNum) {
+		auto isAllowed{ randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex) };
 		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }

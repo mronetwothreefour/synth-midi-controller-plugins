@@ -15,6 +15,7 @@ using Type = AllowedChoicesType;
 
 GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	state{ exposedParams->state.get() },
+	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
 	button_Close{ unexposedParams },
@@ -70,7 +71,20 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 		case MophoConstants::AllowedChoicesType::lfoFreq:
 			allowedChoicesLayers.showAllowedChoicesLayerForLFO_FreqParam(paramIndex);
 			break;
-		case MophoConstants::AllowedChoicesType::seqTrackStep:
+		case MophoConstants::AllowedChoicesType::seqTrackStep: {
+				auto trackNum{ info->seqTrackNum_For(paramIndex) };
+				if (randomization->targetStepForSeqTrack(Track{ trackNum }) != Step::all) {
+					auto clickedStep{ info->seqTrackStepNum_For(paramIndex) };
+					randomization->setTargetStepForSeqTrack(Step{ clickedStep }, Track{ trackNum });
+				}
+				auto trackDestParamID{ info->IDfor(uint8(100 + trackNum)) };
+				auto paramPtr{ exposedParams->state->getParameter(trackDestParamID) };
+				if (paramPtr != nullptr) {
+					auto trackDest{ paramPtr->convertFrom0to1(paramPtr->getValue()) };
+					auto destIsPitched{ trackDest > 0.0f && trackDest < 4.0f };
+					allowedChoicesLayers.showAllowedChoicesLayerForSeqTrack(Track{ trackNum }, destIsPitched);
+				}
+			}
 			break;
 		case MophoConstants::AllowedChoicesType::voiceNameChar:
 			allowedChoicesLayers.showAllowedChoicesLayerForVoiceNameCharParam(paramIndex);

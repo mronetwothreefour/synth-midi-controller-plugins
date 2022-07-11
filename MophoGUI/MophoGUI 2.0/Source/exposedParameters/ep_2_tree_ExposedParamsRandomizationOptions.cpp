@@ -91,7 +91,8 @@ void ExposedParamsRandomizationOptions::setParamIsLocked(uint8 paramIndex, bool 
 
 const bool ExposedParamsRandomizationOptions::choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard ||
+		info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == true;
@@ -480,7 +481,7 @@ void ExposedParamsRandomizationOptions::allowAllChoicesForLFO_FreqParam(uint8 pa
 }
 
 const bool ExposedParamsRandomizationOptions::choiceIsAllowedForVoiceNameCharParam(uint8 choiceNum, uint8 paramIndex) {
-	jassert(choiceNum < EP::numberOfChoicesForVoiceNameChar - EP::firstVisibleVoiceNameCharNumber);
+	jassert(choiceNum < EP::numberOfChoicesForVoiceNameChar);
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
@@ -490,7 +491,7 @@ const bool ExposedParamsRandomizationOptions::choiceIsAllowedForVoiceNameCharPar
 }
 
 void ExposedParamsRandomizationOptions::setChoiceIsAllowedForVoiceNameCharParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex) {
-	jassert(choiceNum < EP::numberOfChoicesForVoiceNameChar - EP::firstVisibleVoiceNameCharNumber);
+	jassert(choiceNum < EP::numberOfChoicesForVoiceNameChar);
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::voiceNameChar);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };

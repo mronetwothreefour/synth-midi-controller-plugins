@@ -31,7 +31,7 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 		background_h = 572;
 		center_x = track == Track::one ? 635 : 662;
 		targetStep_x = background_x + GUI::allowedChoices_Inset;
-		probabilities_x = background_x + 51;
+		probabilities_x = background_x + (track == Track::one ? 149 : 141);
 		button_Randomize_center_y = 573;
 	}
 	else {
@@ -112,6 +112,17 @@ void GUI_Layer_AllowedChoices_SeqTrack::paint(Graphics& g) {
 		auto targetStepBorder_x{ targetStep_1_Border_x + (28 * ((int)targetStep - 1)) };
 		g.drawRect(targetStepBorder_x, targetStepBorder_y, GUI::seqSteps_w + 4, targetStepBorder_h, 2);
 	}
+	g.setColour(GUI::color_Black);
+	g.fillRect(background_x, background_y, background_w, background_h);
+	g.setColour(GUI::color_Device);
+	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
+	g.setColour(GUI::color_Black);
+	float divider_x;
+	if (destIsPitched)
+		divider_x = background_x + (track == Track::one ? 129.0f : 122.0f);
+	else 
+		divider_x = background_x + (track == Track::one ? 150.0f : 171.0f);
+	g.drawLine(divider_x, background_y + 49.0f, divider_x, background_y + 129.0f, 1.0f);
 }
 
 void GUI_Layer_AllowedChoices_SeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {

@@ -2231,7 +2231,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const int seqTrackDestComboBoxes_x{ 1065 };
 
 	for (uint8 trackNum = 1; trackNum != 5; ++trackNum) {
-		auto paramNumString{ "ep_" + String(100 + trackNum) };
+		auto paramNumString{ "ep_10" + String(trackNum) };
 		auto paramNameString{ paramNumString + "_SeqTrack_" + (String)trackNum + "_Dest" };
 		auto exposedNameString{ "Sequencer Track " + (String)trackNum + " Destination" };
 		auto nrpn{ 76 + trackNum };
@@ -2374,8 +2374,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 							{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
 							{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
 							{ ID::property_Center_y, voiceNameCharacters_y },
-							{ ID::property_Width, GUI::seqSteps_w },
-							{ ID::property_Height, GUI::seqSteps_h },
+							{ ID::property_Width, GUI::voiceNameCharacters_w },
+							{ ID::property_Height, GUI::voiceNameCharacters_h },
 							{ ID::property_Description, Description::buildFor_VoiceNameChar(charNum + 1) },
 							{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::voiceNameChar },
 							{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -2640,7 +2640,7 @@ int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
-	auto trackNum{ (int)paramTree.getProperty(ID::property_SeqTrackNum) };
+	auto trackNum{ (int)paramTree.getChild(0).getProperty(ID::property_SeqTrackNum) };
 	return trackNum;
 }
 

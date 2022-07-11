@@ -16,20 +16,25 @@ KnobAndAttachment::KnobAndAttachment(uint8 paramIndex, ExposedParameters* expose
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
-	choiceNameString{""}
+	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
-	knob.addListener(this);
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
-
-	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment::paint(Graphics& g) {
+	auto currentChoice{ roundToInt(knob.getValue()) };
+	auto choiceNameString{ info->choiceNameFor((uint8)currentChoice, paramIndex) };
+	auto paramID{ info->IDfor(paramIndex).toString() };
+	if (paramID.contains("_LFO_") && paramID.endsWith("_Freq")) {
+		if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
+			knob.isModifyingPitch = true;
+		else
+			knob.isModifyingPitch = false;
+	}
 	g.setFont(GUI::fontFor_KnobValueDisplays);
 	g.setColour(GUI::color_White);
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
@@ -47,25 +52,7 @@ void KnobAndAttachment::setKnobIsNotModifyingPitch() {
 	knob.isModifyingPitch = false;
 }
 
-void KnobAndAttachment::sliderValueChanged(Slider* /*slider*/) {
-	auto currentChoice{ roundToInt(knob.getValue()) };
-	choiceNameString = info->choiceNameFor((uint8)currentChoice, paramIndex);
-	auto paramID{ info->IDfor(paramIndex).toString() };
-	if (paramID.contains("_LFO_") && paramID.endsWith("_Freq")) {
-		if (currentChoice >= EP::firstLFO_PitchedFreqChoice && currentChoice < EP::firstLFO_SyncedFreqChoice)
-			knob.isModifyingPitch = true;
-		else
-			knob.isModifyingPitch = false;
-	}
-	MessageManagerLock mmLock;
-	repaint();
-}
-
 void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
-}
-
-KnobAndAttachment::~KnobAndAttachment() {
-	knob.removeListener(this);
 }
 

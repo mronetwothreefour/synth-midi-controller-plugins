@@ -17,10 +17,8 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
-	charNum{ 0 }
+	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
-	knob.addListener(this);
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
@@ -28,11 +26,10 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 	knob.isModifyingPitch = false;
 	setSize(GUI::voiceNameCharacters_w, GUI::voiceNameCharacters_h);
 	knob.setBounds(getLocalBounds());
-
-	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
+	auto charNum{ roundToInt(knob.getValue()) };
 	g.setColour(GUI::color_White);
 	g.fillPath(LCD_CharacterPath::buildForChar((uint8)charNum));
 }
@@ -46,15 +43,6 @@ void KnobAndAttachment_ForVoiceNameChar::limitKnobRangeToBasic_ASCII_CharsThatAr
 	knob.setRange(32.0, 127.0, 1.0);
 }
 
-void KnobAndAttachment_ForVoiceNameChar::sliderValueChanged(Slider* /*slider*/) {
-	charNum = roundToInt(knob.getValue());
-	repaint();
-}
-
 void KnobAndAttachment_ForVoiceNameChar::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
-}
-
-KnobAndAttachment_ForVoiceNameChar::~KnobAndAttachment_ForVoiceNameChar() {
-	knob.removeListener(this);
 }

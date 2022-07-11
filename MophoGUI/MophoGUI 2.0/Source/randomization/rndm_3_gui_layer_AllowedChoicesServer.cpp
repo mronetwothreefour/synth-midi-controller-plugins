@@ -65,6 +65,8 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForSeqTrack(Track tr
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_SeqTrack.reset(new GUI_Layer_AllowedChoices_SeqTrack{ track, destIsPitched, exposedParams, unexposedParams });
+	addAndMakeVisible(allowedChoices_SeqTrack.get());
+	allowedChoices_SeqTrack->setTopLeftPosition(0, 0);
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uint8 paramIndex) {

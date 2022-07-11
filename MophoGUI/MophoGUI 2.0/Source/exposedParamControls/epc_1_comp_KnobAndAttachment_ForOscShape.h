@@ -10,10 +10,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 class KnobAndAttachment_ForOscShape :
-	public Component,
-	public Slider::Listener
-	// Note: listening to a slider with an exposed parameter attachment is
-	// much, much faster than listening directly to an exposed parameter
+	public Component
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* state;
@@ -35,9 +32,7 @@ public:
 	void paintSawTriMix(Graphics& g, Path path);
 	void paintPulse(Graphics& g, Path path, int pulseWidth);
 	void attachKnobToExposedParameter();
-	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
-	~KnobAndAttachment_ForOscShape();
 
 private:
 	//==============================================================================

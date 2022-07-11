@@ -22,6 +22,7 @@ class GUI_Layer_Randomization :
 	public Button::Listener
 {
 	AudioProcessorValueTreeState* state;
+	ExposedParameters* exposedParams;
 	InfoForExposedParameters* info;
 	ExposedParamsRandomizationOptions* randomization;
 	ButtonForHidingLayer button_Close;

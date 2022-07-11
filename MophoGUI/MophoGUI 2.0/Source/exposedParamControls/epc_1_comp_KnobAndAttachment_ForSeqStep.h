@@ -15,8 +15,6 @@ using Track = SeqTrackNum;
 class KnobAndAttachment_ForSeqStep :
 	public Component,
 	public Slider::Listener
-	// Note: listening to a slider with an exposed parameter attachment is
-	// much, much faster than listening directly to an exposed parameter
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* state;
@@ -26,7 +24,6 @@ class KnobAndAttachment_ForSeqStep :
 	Slider trackDestination;
 	std::unique_ptr<SliderAttachment> trackDestinationAttachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
-	int choiceNum;
 	uint8 trackDestIndex;
 
 public:

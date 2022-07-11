@@ -10,10 +10,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 
 
 class KnobAndAttachment :
-	public Component,
-	public Slider::Listener
-	// Note: listening to a slider with an exposed parameter attachment is
-	// much, much faster than listening directly to an exposed parameter
+	public Component
 {
 	uint8 paramIndex;
 	AudioProcessorValueTreeState* state;
@@ -21,7 +18,6 @@ class KnobAndAttachment :
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
-	String choiceNameString;
 
 public:
 	KnobAndAttachment() = delete;
@@ -31,9 +27,7 @@ public:
 	void attachKnobToExposedParameter();
 	void setKnobIsModifyingPitch();
 	void setKnobIsNotModifyingPitch();
-	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
-	~KnobAndAttachment();
 
 private:
 	//==============================================================================

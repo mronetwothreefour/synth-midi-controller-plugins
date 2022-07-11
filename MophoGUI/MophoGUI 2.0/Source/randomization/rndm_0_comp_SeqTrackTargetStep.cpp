@@ -22,7 +22,7 @@ SeqTrackTargetStep::SeqTrackTargetStep(Track track, ExposedParamsRandomizationOp
 	for (auto step = (int)Step::one; step <= (int)Step::sixteen; ++step)
 		stepList.add((String)step);
 	stepSelector.addItemList(stepList, 1);
-	stepSelector.setSelectedId((int)randomization->targetStepForSeqTrack(track), dontSendNotification);
+	stepSelector.setSelectedId((int)randomization->targetStepForSeqTrack(track) + 1, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Selects which step in sequencer\n";
@@ -43,7 +43,7 @@ void SeqTrackTargetStep::paint(Graphics& g) {
 }
 
 void SeqTrackTargetStep::comboBoxChanged(ComboBox* /*comboBox*/) {
-	auto selectedStep{ stepSelector.getSelectedId() };
+	auto selectedStep{ stepSelector.getSelectedId() - 1 };
 	randomization->setTargetStepForSeqTrack(Step{ selectedStep }, track);
 	getParentComponent()->repaint();
 }

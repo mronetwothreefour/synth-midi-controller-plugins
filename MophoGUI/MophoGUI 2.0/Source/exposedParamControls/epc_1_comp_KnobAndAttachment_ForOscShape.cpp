@@ -19,21 +19,18 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 		info{ exposedParams->info.get() },
 		knob{ &exposedParams->undoManager },
 		tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
-		choiceNum{ 0 },
 		strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded }
 {
-	knob.addListener(this);
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::component_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
-
-	sliderValueChanged(&knob);
 }
 
 void KnobAndAttachment_ForOscShape::paint(Graphics& g) {
+		choiceNum = roundToInt(knob.getValue());
 	Path path;
 	g.setColour(GUI::color_White);
 	if (choiceNum > -1 && choiceNum < EP::numberOfChoicesForOscWaveShape) {
@@ -109,15 +106,7 @@ void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment(*state, info->IDfor(paramIndex).toString(), knob));
 }
 
-void KnobAndAttachment_ForOscShape::sliderValueChanged(Slider* /*slider*/) {	
-	choiceNum = roundToInt(knob.getValue());
-	repaint();
-}
-
 void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }
 
-KnobAndAttachment_ForOscShape::~KnobAndAttachment_ForOscShape() {
-	knob.removeListener(this);
-}
