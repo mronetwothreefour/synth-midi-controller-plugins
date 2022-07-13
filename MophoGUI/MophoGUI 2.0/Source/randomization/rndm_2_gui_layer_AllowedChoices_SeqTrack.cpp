@@ -14,12 +14,13 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	destIsPitched{ destIsPitched },
 	unexposedParams{ unexposedParams },
 	randomization{ exposedParams->randomization.get() },
+	trackTree{ exposedParams->randomization->getChildTreeForSeqTrack(track) },
 	button_Close{ unexposedParams },
 	targetStepSelector{ track, randomization, unexposedParams },
 	probabilities{ track, exposedParams, unexposedParams },
 	button_Randomize{ track, exposedParams->randomize.get(), unexposedParams}
 {
-	randomization->addListenerToSeqTrackTree(this, track);
+	trackTree.addListener(this);
 
 	auto targetStep_x{ 0 };
 	auto probabilities_x{ 0 };
@@ -131,7 +132,7 @@ void GUI_Layer_AllowedChoices_SeqTrack::valueTreePropertyChanged(ValueTree& /*tr
 }
 
 GUI_Layer_AllowedChoices_SeqTrack::~GUI_Layer_AllowedChoices_SeqTrack() {
-	randomization->removeListenerFromSeqTrackTree(this, track);
+	trackTree.removeListener(this);
 	repeatChoices = nullptr;
 	allowChoiceToggles = nullptr;
 }

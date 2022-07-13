@@ -9,6 +9,8 @@
 #include "../midi/midi_1_VoiceDataMessage.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
+using Bank = VoicesBank;
+
 
 
 VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
@@ -17,11 +19,12 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 	unexposedParams{ unexposedParams },
 	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	voicesBanks{ unexposedParams->getVoicesBanks() },
+	customVoiceNamesTree{ bank >= Bank::custom_1 ? unexposedParams->getVoicesBanks()->getVoiceNamesChildTreeForCustomBank(bank) : ValueTree{ " " } },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
-	if (bank >= VoicesBank::custom_1)
-		voicesBanks->addListenerToCustomVoiceNameStringsTree(this);
+	if (bank >= Bank::custom_1)
+		customVoiceNamesTree.addListener(this);
 
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipsOptions->shouldShowDescriptions() };
@@ -93,19 +96,17 @@ void VoiceSlots::pushSelectedVoiceToHardware() {
 	}
 }
 
-void VoiceSlots::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
-	if (tree.getType().toString() == "bank_" + String((int)bank % 3)) {
-		auto propertyName{ propertyID.toString() };
-		auto slotString{ propertyName.fromLastOccurrenceOf("slot_", false, true) };
-		auto slotNum{ slotString.getIntValue() };
-		setTextForVoiceSlotToggleButton((uint8)slotNum);
-	}
+void VoiceSlots::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	auto propertyName{ propertyID.toString() };
+	auto slotString{ propertyName.fromLastOccurrenceOf("slot_", false, true) };
+	auto slotNum{ slotString.getIntValue() };
+	setTextForVoiceSlotToggleButton((uint8)slotNum);
 }
 
 void VoiceSlots::timerCallback() {
 }
 
 VoiceSlots::~VoiceSlots() {
-	if (bank >= VoicesBank::custom_1)
-		voicesBanks->removeListenerFromCustomVoiceNameStringsTree(this);
+	if (bank >= Bank::custom_1)
+		customVoiceNamesTree.addListener(this);
 }

@@ -28,6 +28,7 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 	bool destIsPitched;
 	UnexposedParameters* unexposedParams;
 	ExposedParamsRandomizationOptions* randomization;
+	ValueTree trackTree;
 	TextButton button_AllowAll;
 	std::unique_ptr<AllowRepeatChoicesToggle_SeqTrackStep> repeatChoices;
 	ButtonForHidingLayer button_Close;

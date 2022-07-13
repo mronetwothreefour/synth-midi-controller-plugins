@@ -24,6 +24,7 @@ class KnobForSeqTrackProbability :
 	KnobType knobType;
 	Track track;
 	ExposedParamsRandomizationOptions* randomization;
+	ValueTree trackTree;
 	TooltipsOptions* tooltips;
 
 public:

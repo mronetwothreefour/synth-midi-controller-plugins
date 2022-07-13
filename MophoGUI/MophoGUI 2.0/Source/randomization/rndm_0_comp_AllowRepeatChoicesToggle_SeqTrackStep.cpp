@@ -13,9 +13,10 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 	Track track, Step step, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
 	track{ track },
 	step{ step },
-	randomization{ randomization }
+	randomization{ randomization },
+	trackTree{ randomization->getChildTreeForSeqTrack(track) }
 {
-	randomization->addListenerToSeqTrackTree(this, track);
+	trackTree.addListener(this);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, randomization, track, step] {
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
@@ -64,5 +65,5 @@ void AllowRepeatChoicesToggle_SeqTrackStep::valueTreePropertyChanged(ValueTree& 
 }
 
 AllowRepeatChoicesToggle_SeqTrackStep::~AllowRepeatChoicesToggle_SeqTrackStep() {
-	randomization->removeListenerFromSeqTrackTree(this, track);
+	trackTree.removeListener(this);
 }

@@ -25,6 +25,7 @@ class VoiceSlots :
     UnexposedParameters* unexposedParams;
     OutgoingMidiBuffers* outgoingMIDI;
     VoicesBanks* voicesBanks;
+    ValueTree customVoiceNamesTree;
     VoiceTransmissionOptions* voiceTransmit;
     const int voiceSlotRadioButtton_w{ 125 };
     const int voiceSlotRadioButtton_h{ 19 };

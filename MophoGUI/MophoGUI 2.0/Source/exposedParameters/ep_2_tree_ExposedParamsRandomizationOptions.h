@@ -87,10 +87,7 @@ public:
 	void setRepeatChoicesAreAllowedForParam(bool shouldBeAllowed, uint8 paramIndex);
 
 
-	void addListenerToChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
-	void removeListenerFromChildTreeForParam(ValueTree::Listener* listener, uint8 paramIndex);
-
-
+	ValueTree getChildTreeForParam(uint8 paramIndex);
 	ValueTree getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex);
 
 
@@ -114,8 +111,7 @@ public:
 	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step);
 
 
-	void addListenerToSeqTrackTree(ValueTree::Listener* listener, Track track);
-	void removeListenerFromSeqTrackTree(ValueTree::Listener* listener, Track track);
+	ValueTree getChildTreeForSeqTrack(Track track);
 
 
 	std::unique_ptr<XmlElement> getStateXml();

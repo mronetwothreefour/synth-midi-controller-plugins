@@ -562,20 +562,11 @@ void ExposedParamsRandomizationOptions::setRepeatChoicesAreAllowedForParam(bool 
 
 
 
-void ExposedParamsRandomizationOptions::addListenerToChildTreeForParam(Tree::Listener* listener, uint8 paramIndex) {
+ValueTree ExposedParamsRandomizationOptions::getChildTreeForParam(uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramID{ info->IDfor(paramIndex) };
-	randomizationOptionsTree.getChildWithName(paramID).addListener(listener);
+	return randomizationOptionsTree.getChildWithName(paramID);
 }
-
-void ExposedParamsRandomizationOptions::removeListenerFromChildTreeForParam(Tree::Listener* listener, uint8 paramIndex) {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramID{ info->IDfor(paramIndex) };
-	randomizationOptionsTree.getChildWithName(paramID).removeListener(listener);
-}
-
-
-
 
 Tree ExposedParamsRandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
@@ -771,14 +762,9 @@ void ExposedParamsRandomizationOptions::setRepeatChoicesAreAllowedForSeqTrackSte
 
 
 
-void ExposedParamsRandomizationOptions::addListenerToSeqTrackTree(Tree::Listener* listener, Track track) {
+ValueTree ExposedParamsRandomizationOptions::getChildTreeForSeqTrack(Track track) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
-	randomizationOptionsTree.getChildWithName(trackTreeID).addListener(listener);
-}
-
-void ExposedParamsRandomizationOptions::removeListenerFromSeqTrackTree(Tree::Listener* listener, Track track) {
-	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
-	randomizationOptionsTree.getChildWithName(trackTreeID).removeListener(listener);
+	return randomizationOptionsTree.getChildWithName(trackTreeID);
 }
 
 

@@ -27,6 +27,7 @@ private:
 
 public:
 	void storeVoiceDataHexStringInCustomBankSlot(String voiceDataHexString, VoicesBank bank, uint8 slotNum);
+	ValueTree getVoiceNamesChildTreeForCustomBank(VoicesBank bank);
 	void addListenerToCustomVoiceNameStringsTree(ValueTree::Listener* listener);
 	void removeListenerFromCustomVoiceNameStringsTree(ValueTree::Listener* listener);
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;

@@ -13,12 +13,13 @@ using namespace MophoConstants;
 AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
-	randomization{ exposedParams->randomization.get() }
+	randomization{ exposedParams->randomization.get() },
+	paramTree{ exposedParams->randomization->getChildTreeForParam(paramIndex) }
 {
 	auto allowedChoicesType{ info->allowedChoicesTypeFor(paramIndex) };
 	jassert(allowedChoicesType != AllowedChoicesType::seqTrackStep);
 	if (allowedChoicesType != AllowedChoicesType::binary)
-		randomization->addListenerToChildTreeForParam(this, paramIndex);
+		paramTree.addListener(this);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, paramIndex] {
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
@@ -82,5 +83,5 @@ void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& /*tree*/, con
 
 AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
 	if (info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
-		randomization->removeListenerFromChildTreeForParam(this, paramIndex);
+		paramTree.removeListener(this);
 }

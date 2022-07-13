@@ -74,6 +74,12 @@ void VoicesBanks::storeVoiceDataHexStringInCustomBankSlot(String voiceDataHexStr
 	}
 }
 
+ValueTree VoicesBanks::getVoiceNamesChildTreeForCustomBank(VoicesBank bank) {
+	jassert(bank >= VoicesBank::custom_1);
+	auto bankNum{ (int)bank % 3 };
+	return customVoiceNameStrings.getChild(bankNum);
+}
+
 void VoicesBanks::addListenerToCustomVoiceNameStringsTree(ValueTree::Listener* listener) {
 	customVoiceNameStrings.addListener(listener);
 }

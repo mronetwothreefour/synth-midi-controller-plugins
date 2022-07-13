@@ -14,11 +14,12 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 	knobType{ knobType },
 	track{ track },
 	randomization{ exposedParams->randomization.get() },
+	trackTree{ exposedParams->randomization->getChildTreeForSeqTrack(track) },
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	if (knobType == KnobType::rest)
 		jassert(track == Track::one);
-	randomization->addListenerToSeqTrackTree(this, track);
+	trackTree.addListener(this);
 
 	setRange(0.0, 100.0, 1.0);
 	setMouseDragSensitivity(130);
@@ -148,5 +149,5 @@ void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, c
 }
 
 KnobForSeqTrackProbability::~KnobForSeqTrackProbability() {
-	randomization->removeListenerFromSeqTrackTree(this, track);
+	trackTree.removeListener(this);
 }

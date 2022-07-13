@@ -61,7 +61,7 @@ const bool AllowChoiceToggles_VoiceNameChar::noChoiceIsAllowed() {
 }
 
 void AllowChoiceToggles_VoiceNameChar::restoreToggles() {
-	for (auto choiceNum = 0; choiceNum < numberOfChoices; ++choiceNum) {
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		auto isAllowed{ randomization->choiceIsAllowedForVoiceNameCharParam(choiceNum, paramIndex) };
 		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
