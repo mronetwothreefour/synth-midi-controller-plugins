@@ -2649,6 +2649,6 @@ int InfoForExposedParameters::seqTrackStepNum_For(uint8 paramIndex) const {
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
-	auto stepNum{ (int)paramTree.getProperty(ID::property_SeqTrackStepNum) };
+	auto stepNum{ (int)paramTree.getChild(0).getProperty(ID::property_SeqTrackStepNum) };
 	return stepNum;
 }
