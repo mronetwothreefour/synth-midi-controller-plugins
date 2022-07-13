@@ -188,6 +188,7 @@ namespace MophoConstants
 		const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
+		const Identifier property_ParamID{ "property_ParamID" };
 		const Identifier property_SeqTrackNum{ "property_SeqTrackNum" };
 		const Identifier property_SeqTrackStepNum{ "property_SeqTrackStepNum" };
 		const Identifier property_Width{ "property_Width" };
