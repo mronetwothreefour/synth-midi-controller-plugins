@@ -36,7 +36,7 @@ class GUI_Layer_GlobalParameters :
 public:
     GUI_Layer_GlobalParameters() = delete;
 
-    explicit GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams, UndoManager* undoManager);
+    explicit GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
 
 private:

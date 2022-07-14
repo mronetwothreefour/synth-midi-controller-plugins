@@ -287,7 +287,7 @@ void GUI_Layer_MainWindowButtons::showCommError_NRPN_Layer() {
 }
 
 void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
-    layer_GlobalParams.reset(new GUI_Layer_GlobalParameters{ unexposedParams, &exposedParams->undoManager });
+    layer_GlobalParams.reset(new GUI_Layer_GlobalParameters{ unexposedParams });
     if (layer_GlobalParams != nullptr) {
         addAndMakeVisible(layer_GlobalParams.get());
         layer_GlobalParams->setBounds(getLocalBounds());

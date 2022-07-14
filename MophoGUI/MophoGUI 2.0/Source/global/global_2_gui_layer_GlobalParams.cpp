@@ -17,11 +17,11 @@ using LabelType = GlobalParamDisplayLabelType;
 using ToggleType = GlobalParamToggleType;
 
 
-GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams, UndoManager* undoManager) :
+GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
 	button_Close{ unexposedParams },
-	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams, undoManager },
-	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams, undoManager },
-	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams, undoManager },
+	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },
+	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams },
+	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams },
 	comboBox_MIDI_ClockSource{ ComboBoxType::midiClockSource, unexposedParams },
 	comboBox_PedalMode{ ComboBoxType::pedalMode, unexposedParams },
 	comboBox_VoiceChange{ ComboBoxType::voiceChanges, unexposedParams },

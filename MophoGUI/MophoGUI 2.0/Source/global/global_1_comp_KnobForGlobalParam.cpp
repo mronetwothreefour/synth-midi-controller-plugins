@@ -15,8 +15,8 @@ using ParamChange = ParameterChangeMessage;
 
 
 
-KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
-	RotarySliderWithMouseWheelMoveOverride{ undoManager },
+KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams) :
+	RotarySliderWithMouseWheelMoveOverride{ nullptr },
 	knobType{ knobType },
 	global{ unexposedParams->getGlobalOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },

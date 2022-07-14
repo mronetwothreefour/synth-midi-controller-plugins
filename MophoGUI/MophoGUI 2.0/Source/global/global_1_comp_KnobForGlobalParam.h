@@ -27,7 +27,7 @@ class KnobForGlobalParameter :
 public:
 	KnobForGlobalParameter() = delete;
 
-	KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams, UndoManager* undoManager);
+	KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueChanged() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
