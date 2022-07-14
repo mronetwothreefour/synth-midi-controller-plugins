@@ -606,6 +606,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(f
 	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
 	Identifier propertyID{ step == Step::all ? ID::rndm_RestProbForAllSteps : ID::rndm_RestProbForStep_.toString() + String((int)step) };
 	trackTree.setProperty(propertyID, newProb, nullptr);
+	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track::one, step);
 }
 
 const float ExposedParamsRandomizationOptions::probabilityOfDuplicateForSeqTrackStep(Track track, Step step) {
@@ -621,6 +622,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfDuplicateForSeqTrackStep
 	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
 	Identifier propertyID{ step == Step::all ? ID::rndm_DupeProbForAllSteps : ID::rndm_DupeProbForStep_.toString() + String((int)step) };
 	trackTree.setProperty(propertyID, newProb, nullptr);
+	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
 const float ExposedParamsRandomizationOptions::probabilityOfResetForSeqTrackStep(Track track, Step step) {
@@ -636,6 +638,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfResetForSeqTrackStep(flo
 	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
 	Identifier propertyID{ step == Step::all ? ID::rndm_ResetProbForAllSteps : ID::rndm_ResetProbForStep_.toString() + String((int)step) };
 	trackTree.setProperty(propertyID, newProb, nullptr);
+	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
 const bool ExposedParamsRandomizationOptions::choiceIsAllowedForSeqTrackStep(uint8 choiceNum, Track track, Step step) {

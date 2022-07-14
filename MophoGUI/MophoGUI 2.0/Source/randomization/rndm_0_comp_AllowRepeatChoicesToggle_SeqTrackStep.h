@@ -26,7 +26,7 @@ class AllowRepeatChoicesToggle_SeqTrackStep :
 public:
 	AllowRepeatChoicesToggle_SeqTrackStep() = delete;
 
-	AllowRepeatChoicesToggle_SeqTrackStep(Track track, Step step, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle_SeqTrackStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowRepeatChoicesToggle_SeqTrackStep();

@@ -27,7 +27,7 @@ class AllowChoiceToggles_SeqTrackStep :
 public:
 	AllowChoiceToggles_SeqTrackStep() = delete;
 
-	AllowChoiceToggles_SeqTrackStep(Track track, Step step, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_SeqTrackStep(Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 
 private:
 	String buildChoiceName(uint8 choiceNum) override;

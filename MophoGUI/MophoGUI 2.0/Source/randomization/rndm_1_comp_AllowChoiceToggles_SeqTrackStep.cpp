@@ -8,9 +8,9 @@
 
 
 AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(
-	Track track, Step step, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+	Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
 	track{ track },
-	step{ step },
+	step{ randomization->targetStepForSeqTrack(track) },
 	destIsPitched{ destIsPitched },
 	randomization{ randomization },
 	tooltips{ unexposedParams->getTooltipsOptions() },

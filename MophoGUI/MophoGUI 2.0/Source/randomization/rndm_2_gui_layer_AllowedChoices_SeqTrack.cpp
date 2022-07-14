@@ -17,13 +17,11 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	trackTree{ exposedParams->randomization->getChildTreeForSeqTrack(track) },
 	button_Close{ unexposedParams },
 	targetStepSelector{ track, randomization, unexposedParams },
-	probabilities{ track, exposedParams, unexposedParams },
 	button_Randomize{ track, exposedParams->randomize.get(), unexposedParams}
 {
 	trackTree.addListener(this);
 
 	auto targetStep_x{ 0 };
-	auto probabilities_x{ 0 };
 	auto button_Randomize_center_y{ 0 };
 	if (destIsPitched) {
 		background_x = track == Track::one ? 468 : 522;
@@ -32,7 +30,6 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 		background_h = 572;
 		center_x = track == Track::one ? 635 : 662;
 		targetStep_x = background_x + GUI::allowedChoices_Inset;
-		probabilities_x = background_x + (track == Track::one ? 149 : 141);
 		button_Randomize_center_y = 573;
 	}
 	else {
@@ -42,11 +39,9 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 		background_h = 348;
 		center_x = 616;
 		targetStep_x = track == Track::one ? 463 : 485;
-		probabilities_x = track == Track::one ? 601 : 625;
 		button_Randomize_center_y = 461;
 	}
 	auto allowAllAndCloseButtons_y{ background_y + GUI::allowedChoices_Inset };
-	auto targetStepAndProbabilities_y{ background_y + 51 };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
 	button_AllowAll.onClick = [this, track] {
@@ -71,32 +66,39 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	button_Close.setTopRightPosition(background_x + background_w - GUI::allowedChoices_Inset, allowAllAndCloseButtons_y);
 	addAndMakeVisible(button_Close);
 
-	targetStepSelector.setTopLeftPosition(targetStep_x, targetStepAndProbabilities_y);
+	targetStepSelector.setTopLeftPosition(targetStep_x, background_y + 51);
 	addAndMakeVisible(targetStepSelector);
-
-	probabilities.setTopLeftPosition(probabilities_x, targetStepAndProbabilities_y);
-	addAndMakeVisible(probabilities);
 
 	button_Randomize.setCentrePosition(center_x, button_Randomize_center_y);
 	addAndMakeVisible(button_Randomize);
 
-	resetToggles();
+	resetKnobsAndToggles();
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void GUI_Layer_AllowedChoices_SeqTrack::resetToggles() {
-	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, targetStep, randomization, unexposedParams });
+void GUI_Layer_AllowedChoices_SeqTrack::resetKnobsAndToggles() {
+	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, randomization, unexposedParams });
 	if (repeatChoices != nullptr) {
 		repeatChoices->setCentrePosition(center_x, destIsPitched ? 57 : 169);
 		addAndMakeVisible(repeatChoices.get());
 	}
-	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, targetStep, destIsPitched, randomization, unexposedParams });
+
+	probabilities.reset(new SeqTrackProbabilities{ track, randomization, unexposedParams });
+	if (probabilities != nullptr) {
+		auto probabilities_x{ track == Track::one ? 601 : 625 };
+		if (destIsPitched)
+			probabilities_x = background_x + (track == Track::one ? 149 : 141);
+		probabilities->setTopLeftPosition(probabilities_x, background_y + 51);
+		addAndMakeVisible(probabilities.get());
+	}
+
+	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, destIsPitched, randomization, unexposedParams });
 	if (allowChoiceToggles != nullptr) {
 		allowChoiceToggles->setCentrePosition(center_x, 360);
 		addAndMakeVisible(allowChoiceToggles.get());
 	}
+
 	repaint();
 }
 
@@ -128,11 +130,12 @@ void GUI_Layer_AllowedChoices_SeqTrack::paint(Graphics& g) {
 
 void GUI_Layer_AllowedChoices_SeqTrack::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
 	if (property == ID::rndm_SeqTrackTargetStep)
-		resetToggles();
+		resetKnobsAndToggles();
 }
 
 GUI_Layer_AllowedChoices_SeqTrack::~GUI_Layer_AllowedChoices_SeqTrack() {
 	trackTree.removeListener(this);
 	repeatChoices = nullptr;
+	probabilities = nullptr;
 	allowChoiceToggles = nullptr;
 }

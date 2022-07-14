@@ -26,7 +26,7 @@ class SeqTrackProbabilities :
 public:
 	SeqTrackProbabilities() = delete;
 
-	SeqTrackProbabilities(Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	~SeqTrackProbabilities();
 

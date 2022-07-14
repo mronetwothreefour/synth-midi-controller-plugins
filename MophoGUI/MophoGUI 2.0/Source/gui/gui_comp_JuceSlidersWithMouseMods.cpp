@@ -10,20 +10,24 @@ SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UndoManager* 
 }
 
 void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
-	undoManager->beginNewTransaction();
-	auto delta{ wheel.deltaY };
-	auto currentValue{ getValue() };
-	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
-	if (delta != 0.0f) {
-		if (event.mods == ModifierKeys::shiftModifier) {
-			if (isModifyingPitch)
-				interval *= isModifyingSeqStep ? 24.0 : 12.0;
-			else
-				interval *= 10.0;
+	if (isEnabled() == true) {
+		if (undoManager != nullptr)
+			undoManager->beginNewTransaction();
+		auto delta{ wheel.deltaY };
+		auto currentValue{ getValue() };
+		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
+		if (delta != 0.0f) {
+			if (event.mods == ModifierKeys::shiftModifier) {
+				if (isModifyingPitch)
+					interval *= isModifyingSeqStep ? 24.0 : 12.0;
+				else
+					interval *= 10.0;
+			}
+			setValue(currentValue + interval);
 		}
-		setValue(currentValue + interval);
+		if (undoManager != nullptr)
+			undoManager->beginNewTransaction();
 	}
-	undoManager->beginNewTransaction();
 }
 
 

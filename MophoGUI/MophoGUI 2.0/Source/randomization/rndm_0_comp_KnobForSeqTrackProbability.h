@@ -30,7 +30,7 @@ class KnobForSeqTrackProbability :
 public:
 	KnobForSeqTrackProbability() = delete;
 
-	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueChanged() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
