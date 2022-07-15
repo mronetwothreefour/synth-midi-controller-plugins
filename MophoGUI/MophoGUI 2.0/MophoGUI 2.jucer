@@ -434,6 +434,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
         <FILE id="HZEASt" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
+        <FILE id="A51nGL" name="rndm_1_comp_GroupLockStateButtons.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
+        <FILE id="uV3nfr" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
         <FILE id="IErX2f" name="rndm_1_comp_SeqTrackProbabilities.cpp" compile="1"
               resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.cpp"/>
         <FILE id="M6SKPX" name="rndm_1_comp_SeqTrackProbabilities.h" compile="0"

@@ -146,6 +146,12 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::button_Global.toString())
 		mBlock = MemBlock{ isDown ? btn_Global_Dn_png : btn_Global_Up_png, isDown ? (s_t)btn_Global_Dn_pngSize : (s_t)btn_Global_Up_pngSize };
 
+	if (buttonID == ID::button_GroupLock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupLock_Dn_png : btn_GroupLock_Up_png, isDown ? (s_t)btn_GroupLock_Dn_pngSize : (s_t)btn_GroupLock_Up_pngSize };
+
+	if (buttonID == ID::button_GroupUnlock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupUnlock_Dn_png : btn_GroupUnlock_Up_png, isDown ? (s_t)btn_GroupUnlock_Dn_pngSize : (s_t)btn_GroupUnlock_Up_pngSize };
+
 	if (buttonID.startsWith("button_Import"))
 		mBlock = MemBlock{ isDown ? btn_Import_Dn_png : btn_Import_Up_png, isDown ? (s_t)btn_Import_Dn_pngSize : (s_t)btn_Import_Up_pngSize };
 

@@ -53,6 +53,14 @@ ExposedParamsRandomizationOptions::ExposedParamsRandomizationOptions(InfoForExpo
 	}
 }
 
+void ExposedParamsRandomizationOptions::addListener(ValueTree::Listener* listener) {
+	randomizationOptionsTree.addListener(listener);
+}
+
+void ExposedParamsRandomizationOptions::removeListener(ValueTree::Listener* listener) {
+	randomizationOptionsTree.addListener(listener);
+}
+
 
 
 

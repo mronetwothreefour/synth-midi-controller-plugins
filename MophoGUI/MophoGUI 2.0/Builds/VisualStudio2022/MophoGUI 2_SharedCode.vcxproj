@@ -197,6 +197,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
@@ -2456,6 +2457,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>

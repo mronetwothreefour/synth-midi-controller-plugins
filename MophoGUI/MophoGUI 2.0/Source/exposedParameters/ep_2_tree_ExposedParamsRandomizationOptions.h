@@ -23,6 +23,9 @@ public:
 
 	explicit ExposedParamsRandomizationOptions(InfoForExposedParameters* info);
 
+	void addListener(ValueTree::Listener* listener);
+	void removeListener(ValueTree::Listener* listener);
+
 	const bool transmitMethodIsSysEx();
 	void setTransmitMethodIsSysEx(bool shouldBeSysEx);
 

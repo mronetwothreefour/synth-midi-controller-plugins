@@ -793,6 +793,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3418,6 +3421,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_SeqTrackProbabilities.h">

@@ -22,6 +22,8 @@ namespace MophoConstants
 		const Identifier button_Close{ "button_Close" };
 		const Identifier button_Create{ "button_Create" };
 		const Identifier button_Global{ "button_Global" };
+		const Identifier button_GroupLock{ "button_GroupLock" };
+		const Identifier button_GroupUnlock{ "button_GroupUnlock" };
 		const Identifier button_Edit{ "button_Edit" };
 		const Identifier button_Export_File{ "button_Export_File" };
 		const Identifier button_Export_VoiceFromBank_{ "button_Export_VoiceFromBank_" };
@@ -128,7 +130,7 @@ namespace MophoConstants
 		const Identifier ep_062_Env_3_Amount{ "ep_062_Env_3_Amount" };
 		const Identifier ep_063_Env_3_VelAmount{ "ep_063_Env_3_VelAmount" };
 		const Identifier ep_064_Env_3_Delay{ "ep_064_Env_3_Delay" };
-		const Identifier ep_065_Env_3_Attack{ "ep_064_Env_3_Attack" };
+		const Identifier ep_065_Env_3_Attack{ "ep_065_Env_3_Attack" };
 		const Identifier ep_066_Env_3_Decay{ "ep_066_Env_3_Decay" };
 		const Identifier ep_067_Env_3_Sustain{ "ep_067_Env_3_Sustain" };
 		const Identifier ep_068_Env_3_Release{ "ep_068_Env_3_Release" };
