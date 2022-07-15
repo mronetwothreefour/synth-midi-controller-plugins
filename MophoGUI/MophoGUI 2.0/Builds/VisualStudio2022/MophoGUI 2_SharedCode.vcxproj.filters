@@ -769,6 +769,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3391,6 +3394,9 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h">
@@ -6263,6 +6269,18 @@
     <None Include="..\..\BinaryResources\buttons\btn_Global_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Dn.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Up.png">
+      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
@@ -6273,12 +6291,6 @@
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png">
-      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
-    </None>
-    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Dn.png">
-      <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
-    </None>
-    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Up.png">
       <Filter>MophoGUI 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">

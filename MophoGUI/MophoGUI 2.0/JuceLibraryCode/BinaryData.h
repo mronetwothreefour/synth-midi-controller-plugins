@@ -62,6 +62,18 @@ namespace BinaryData
     extern const char*   btn_Global_Up_png;
     const int            btn_Global_Up_pngSize = 702;
 
+    extern const char*   btn_GroupLock_Dn_png;
+    const int            btn_GroupLock_Dn_pngSize = 378;
+
+    extern const char*   btn_GroupLock_Up_png;
+    const int            btn_GroupLock_Up_pngSize = 373;
+
+    extern const char*   btn_GroupUnlock_Dn_png;
+    const int            btn_GroupUnlock_Dn_pngSize = 369;
+
+    extern const char*   btn_GroupUnlock_Up_png;
+    const int            btn_GroupUnlock_Up_pngSize = 359;
+
     extern const char*   btn_Import_Dn_png;
     const int            btn_Import_Dn_pngSize = 755;
 
@@ -73,12 +85,6 @@ namespace BinaryData
 
     extern const char*   btn_Load_Up_png;
     const int            btn_Load_Up_pngSize = 598;
-
-    extern const char*   btn_LockAll_Dn_png;
-    const int            btn_LockAll_Dn_pngSize = 373;
-
-    extern const char*   btn_LockAll_Up_png;
-    const int            btn_LockAll_Up_pngSize = 359;
 
     extern const char*   btn_NewFolder_Dn_png;
     const int            btn_NewFolder_Dn_pngSize = 930;
@@ -237,7 +243,7 @@ namespace BinaryData
     const int            OverpassBold_ttfSize = 123228;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 76;
+    const int namedResourceListSize = 78;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

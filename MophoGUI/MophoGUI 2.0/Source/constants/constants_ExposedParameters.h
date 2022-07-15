@@ -17,7 +17,7 @@ namespace MophoConstants
 		const uint8 firstLFO_PitchedFreqChoice{ 90 };
 		const uint8 firstLFO_SyncedFreqChoice{ 151 };
 		const uint8 firstVisibleVoiceNameCharNumber{ 32 };
-		const uint8 firstVoiceNameCharParamNumber{ 173 };
+		const uint8 firstVoiceNameCharParamIndex{ 173 };
 		const uint8 indexForArpegOnOff{ 98 };
 		const uint8 indexForSeqOnOff{ 100 };
 		const uint8 knobAssignAndUnassignedParamsOffset{ 15 };

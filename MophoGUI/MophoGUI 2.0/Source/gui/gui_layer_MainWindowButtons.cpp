@@ -177,7 +177,7 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
     for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
-        auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
+        auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamIndex + charNum)) };
         auto paramPtr{ state->getParameter(paramID) };
         if (paramPtr != nullptr)
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
@@ -223,7 +223,7 @@ void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
 }
 
 void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
-    auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
+    auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamIndex + nameCharNum)) };
     auto paramPtr{ state->getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));

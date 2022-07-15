@@ -2140,7 +2140,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 
 	for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
 		auto charNumString{ String(charNum + 1) };
-		auto paramNumString{ String(EP::firstVoiceNameCharParamNumber + charNum) };
+		auto paramNumString{ String(EP::firstVoiceNameCharParamIndex + charNum) };
 		exposedParamsInfoTree.addChild(
 			ValueTree{ "ep_" + paramNumString, {
 					{ ID::property_ParamID, "ep_" + paramNumString + "_VoiceNameChar_" + charNumString },
@@ -2410,7 +2410,7 @@ int InfoForExposedParameters::allowedChoicesBackground_y_For(uint8 paramIndex) c
 }
 
 int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
-	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamNumber);
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamIndex);
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
@@ -2419,7 +2419,7 @@ int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
 }
 
 int InfoForExposedParameters::seqTrackStepNum_For(uint8 paramIndex) const {
-	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamNumber);
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamIndex);
 	auto paramNumString{ (String)paramIndex };
 	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
 	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };

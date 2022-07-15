@@ -43,16 +43,20 @@
               file="BinaryResources/buttons/btn_Global_Dn.png"/>
         <FILE id="TGRiiG" name="btn_Global_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Global_Up.png"/>
+        <FILE id="d7SZSX" name="btn_GroupLock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Dn.png"/>
+        <FILE id="rDI1lH" name="btn_GroupLock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Up.png"/>
+        <FILE id="CtvYbm" name="btn_GroupUnlock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Dn.png"/>
+        <FILE id="nr78qb" name="btn_GroupUnlock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Up.png"/>
         <FILE id="FtSrQV" name="btn_Import_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Import_Dn.png"/>
         <FILE id="NZWYGT" name="btn_Import_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="TaiPAX" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
         <FILE id="b71mss" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
-        <FILE id="z253SD" name="btn_LockAll_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_LockAll_Dn.png"/>
-        <FILE id="OE0NaR" name="btn_LockAll_Up.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_LockAll_Up.png"/>
         <FILE id="uroZzB" name="btn_NewFolder_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="vf4XfA" name="btn_NewFolder_Up.png" compile="0" resource="1"
@@ -398,6 +402,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.cpp"/>
         <FILE id="P8pXeq" name="rndm_0_comp_TransmitTypeToggles.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.h"/>
+        <FILE id="fTtOi1" name="rndm_0_func_GroupLockStateMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
+        <FILE id="PWLXBU" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
         <FILE id="EKXOXY" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
         <FILE id="NhQfsH" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"
