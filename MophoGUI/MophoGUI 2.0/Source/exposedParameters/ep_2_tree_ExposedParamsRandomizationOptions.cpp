@@ -580,7 +580,7 @@ Tree ExposedParamsRandomizationOptions::getCopyOfAllowedChoicesTreeForParam(uint
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
-	auto allowedChoicesTree{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
+	auto allowedChoicesTree{ paramTree.getChildWithName(ID::rndm_AllowedChoices).createCopy() };
 	return allowedChoicesTree;
 }
 

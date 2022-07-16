@@ -27,10 +27,12 @@ public:
 
 	explicit ExposedParamsRandomizationMethods(ExposedParameters* exposedParams);
 	void randomizeAllUnlockedParameters();
-	void randomizeParameter(String paramID);
+	void randomizeParameter(uint8 paramIndex);
 	void randomizeSeqTrack(Track track);
 
 private:
+	uint8 randomlyChooseNewSettingForParam(uint8 paramIndex);
+	uint8 randomlyChooseNewSettingForStandardOrVoiceNameCharParam(uint8 paramIndex);
 	void timerCallback() override;
 
 	//==============================================================================

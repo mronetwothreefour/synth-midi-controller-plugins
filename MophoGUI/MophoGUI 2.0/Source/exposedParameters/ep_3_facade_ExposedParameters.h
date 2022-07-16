@@ -28,8 +28,8 @@ public:
 		info{ new InfoForExposedParameters }
 	{
 		state.reset(new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) });
-		randomize.reset(new Randomize{ this });
 		randomization.reset(new Randomization{ info.get() });
+		randomize.reset(new Randomize{ this });
 	}
 
 private:

@@ -16,16 +16,16 @@ class InfoForExposedParameters;
 class RandomizeButtonForAllowedChoicesLayers :
 	public TextButton
 {
+	ExposedParamsRandomizationMethods* randomize;
+
 public:
 	RandomizeButtonForAllowedChoicesLayers() = delete;
 
-	RandomizeButtonForAllowedChoicesLayers(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
+	RandomizeButtonForAllowedChoicesLayers(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+		randomize{ exposedParams->randomize.get() }
 	{
 		setComponentID(ID::button_Randomize.toString());
-		onClick = [paramIndex, exposedParams] {
-			auto paramID{ exposedParams->info->IDfor(paramIndex).toString()};
-			exposedParams->randomize->randomizeParameter(paramID);
-		};
+		onClick = [this, paramIndex] { randomize->randomizeParameter(paramIndex); };
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescriptions()) {
 			auto paramName{ exposedParams->info->exposedNameFor(paramIndex) };
