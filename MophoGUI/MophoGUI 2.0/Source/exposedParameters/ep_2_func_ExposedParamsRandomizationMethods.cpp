@@ -3,6 +3,9 @@
 #include "ep_1_tree_InfoForExposedParameters.h"
 #include "ep_2_tree_ExposedParamsRandomizationOptions.h"
 #include "ep_3_facade_ExposedParameters.h"
+#include "../constants/constants_Identifiers.h"
+
+using Shape = OscWaveShape;
 
 
 
@@ -38,6 +41,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 
 		newSetting = randomlyChooseNewSettingForStandardOrVoiceNameCharParam(paramIndex);
 		break;
 	case MophoConstants::AllowedChoicesType::oscShape:
+		newSetting = randomlyChooseNewSettingForOscShapeParam(paramIndex);
 		break;
 	case MophoConstants::AllowedChoicesType::binary:
 		break;
@@ -57,7 +61,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 
 
 uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVoiceNameCharParam(uint8 paramIndex) {
 	auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForParam(paramIndex) };
-	if (allowedChoices.getNumProperties() == 1) {
+	if (randomization->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		auto allowedChoiceName{ allowedChoices.getPropertyName(0).toString() };
 		auto allowedChoiceNum{ allowedChoiceName.fromFirstOccurrenceOf("choice_", false, false).getIntValue() };
 		return (uint8)allowedChoiceNum;
@@ -77,6 +81,54 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVo
 		auto newSettingIndex{ (int)floor(rndmNumGenerator.nextFloat() * numberOfChoices) };
 		auto newSettingName{ allowedChoices.getPropertyName(newSettingIndex).toString() };
 		return uint8(newSettingName.fromFirstOccurrenceOf("choice_", false, false).getIntValue());
+	}
+}
+
+uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapeParam(uint8 paramIndex) {
+	auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForParam(paramIndex) };
+	auto allowedShapes{ allowedChoices.getChildWithName(ID::rndm_AllowedShapes) };
+	auto allowedWidths{ allowedChoices.getChildWithName(ID::rndm_AllowedPulseWidths) };
+	if (randomization->onlyOneChoiceIsAllowedForParam(paramIndex)) {
+		auto allowedShapeName{ allowedShapes.getPropertyName(0).toString() };
+		auto allowedShape{ Shape{ allowedShapeName.fromFirstOccurrenceOf("_", false, false).getIntValue() } };
+		if (allowedShape == Shape::pulse) {
+			auto allowedWidthName{ allowedWidths.getPropertyName(0).toString() };
+			auto allowedWidth{ allowedWidthName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
+			return uint8((int)Shape::pulse + allowedWidth);
+		}
+		else
+			return (uint8)allowedShape;
+	}
+	else {
+		auto paramID{ info->IDfor(paramIndex).toString() };
+		auto paramPtr{ state->getParameter(paramID) };
+		auto currentSetting{ paramPtr->getValue() };
+		auto currentSettingNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
+		auto repeatsAreForbidden{ randomization->repeatChoicesAreForbiddenForParam(paramIndex) };
+		if (repeatsAreForbidden && currentSettingNum < (int)Shape::pulse) {
+			auto currentSettingPropertyID{ "choice_" + (String)currentSettingNum };
+			if (allowedShapes.hasProperty(currentSettingPropertyID))
+				allowedShapes.removeProperty(currentSettingPropertyID, nullptr);
+		}
+		auto numberOfShapes{ allowedShapes.getNumProperties() };
+		Random rndmNumGeneratorForShape{};
+		auto newShapeIndex{ (int)floor(rndmNumGeneratorForShape.nextFloat() * numberOfShapes) };
+		auto newShapeName{ allowedShapes.getPropertyName(newShapeIndex).toString() };
+		if (newShapeName != "choice_" + String((int)Shape::pulse))
+			return uint8(newShapeName.fromFirstOccurrenceOf("choice_", false, false).getIntValue());
+		else {
+			if (repeatsAreForbidden && currentSettingNum >= (int)Shape::pulse) {
+				auto currentWidthPropertyID{ "choice_" + String(currentSettingNum - (int)Shape::pulse) };
+				if (allowedWidths.hasProperty(currentWidthPropertyID))
+					allowedWidths.removeProperty(currentWidthPropertyID, nullptr);
+			}
+			auto numberOfWidths{ allowedWidths.getNumProperties() };
+			Random rndmNumGeneratorForWidth{};
+			auto newWidthIndex{ (int)floor(rndmNumGeneratorForWidth.nextFloat() * numberOfWidths) };
+			auto newWidthName{ allowedWidths.getPropertyName(newWidthIndex).toString() };
+			auto newWidthNum{ newWidthName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
+			return uint8(newWidthNum + (int)Shape::pulse);
+		}
 	}
 }
 
