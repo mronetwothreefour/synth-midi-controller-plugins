@@ -44,6 +44,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 
 		newSetting = randomlyChooseNewSettingForOscShapeParam(paramIndex);
 		break;
 	case MophoConstants::AllowedChoicesType::binary:
+		newSetting = randomlyChooseNewSettingForBinaryParam(paramIndex);
 		break;
 	case MophoConstants::AllowedChoicesType::lfoFreq:
 		break;
@@ -129,6 +130,21 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 			auto newWidthNum{ newWidthName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
 			return uint8(newWidthNum + (int)Shape::pulse);
 		}
+	}
+}
+
+uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForBinaryParam(uint8 paramIndex) {
+	if (randomization->repeatChoicesAreForbiddenForParam(paramIndex)) {
+		auto paramID{ info->IDfor(paramIndex).toString() };
+		auto paramPtr{ state->getParameter(paramID) };
+		auto currentSetting{ roundToInt(paramPtr->getValue()) };
+		auto newSetting{ 1 - currentSetting };
+		return (uint8)newSetting;
+	}
+	else {
+		Random rndmNumGenerator{};
+		auto newSetting{ roundToInt(rndmNumGenerator.nextFloat()) };
+		return (uint8)newSetting;
 	}
 }
 
