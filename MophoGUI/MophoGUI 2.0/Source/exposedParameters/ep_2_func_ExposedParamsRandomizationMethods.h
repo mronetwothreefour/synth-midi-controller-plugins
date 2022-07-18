@@ -35,6 +35,7 @@ private:
 	uint8 randomlyChooseNewSettingForStandardOrVoiceNameCharParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingForOscShapeParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingForBinaryParam(uint8 paramIndex);
+	uint8 randomlyChooseNewSettingFor_LFO_FreqParam(uint8 paramIndex);
 	void timerCallback() override;
 
 	//==============================================================================
