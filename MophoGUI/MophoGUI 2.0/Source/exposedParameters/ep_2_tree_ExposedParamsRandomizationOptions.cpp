@@ -114,7 +114,7 @@ void ExposedParamsRandomizationOptions::setChoiceIsAllowedForParam(uint8 choiceN
 	auto allowedChoices{ paramTree.getOrCreateChildWithName(ID::rndm_AllowedChoices, nullptr) };
 	String propertyID{ "choice_" + (String)choiceNum };
 	if (shouldBeAllowed)
-		allowedChoices.setProperty(propertyID, (bool)true, nullptr);
+		allowedChoices.setProperty(propertyID, choiceNum, nullptr);
 	else
 		if (allowedChoices.hasProperty(propertyID))
 			allowedChoices.removeProperty(propertyID, nullptr);
@@ -173,7 +173,7 @@ void ExposedParamsRandomizationOptions::setOscShapeIsAllowedForParam(OscWaveShap
 	auto allowedShapes{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedShapes, nullptr) };
 	auto propertyID{ "choice_" + String((int)shape) };
 	if (shouldBeAllowed)
-		allowedShapes.setProperty(propertyID, (bool)true, nullptr);
+		allowedShapes.setProperty(propertyID, (int)shape, nullptr);
 	else
 		if (allowedShapes.hasProperty(propertyID))
 			allowedShapes.removeProperty(propertyID, nullptr);
@@ -194,7 +194,7 @@ const bool ExposedParamsRandomizationOptions::pulseWidthIsAllowedForParam(int pu
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPulseWidths{ allowedChoices.getChildWithName(ID::rndm_AllowedPulseWidths) };
-	return allowedPulseWidths.hasProperty("choice_" + (String)pulseWidth) == true;
+	return allowedPulseWidths.hasProperty("choice_" + String(pulseWidth + (int)OscWaveShape::pulse)) == true;
 }
 
 void ExposedParamsRandomizationOptions::setPulseWidthIsAllowedForParam(int pulseWidth, bool shouldBeAllowed, uint8 paramIndex) {
@@ -204,9 +204,9 @@ void ExposedParamsRandomizationOptions::setPulseWidthIsAllowedForParam(int pulse
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPulseWidths{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedPulseWidths, nullptr) };
-	auto propertyID{ "choice_" + (String)pulseWidth };
+	auto propertyID{ "choice_" + String(pulseWidth + (int)OscWaveShape::pulse) };
 	if (shouldBeAllowed)
-		allowedPulseWidths.setProperty(propertyID, (bool)true, nullptr);
+		allowedPulseWidths.setProperty(propertyID, pulseWidth + (int)OscWaveShape::pulse, nullptr);
 	else
 		if (allowedPulseWidths.hasProperty(propertyID))
 			allowedPulseWidths.removeProperty(propertyID, nullptr);
@@ -292,7 +292,7 @@ void ExposedParamsRandomizationOptions::setCategoryIsAllowedForLFO_FreqParam(LFO
 	auto allowedCategories{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedFreqCategories, nullptr) };
 	auto propertyID{ "choice_" + String((int)category) };
 	if (shouldBeAllowed)
-		allowedCategories.setProperty(propertyID, (bool)true, nullptr);
+		allowedCategories.setProperty(propertyID, (int)category, nullptr);
 	else
 		if (allowedCategories.hasProperty(propertyID))
 			allowedCategories.removeProperty(propertyID, nullptr);
@@ -325,7 +325,7 @@ void ExposedParamsRandomizationOptions::setUnsyncedFreqIsAllowedForLFO_FreqParam
 	auto allowedUnsyncedFreq{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedUnsyncedFreq, nullptr) };
 	auto propertyID{ "choice_" + (String)freq };
 	if (shouldBeAllowed)
-		allowedUnsyncedFreq.setProperty(propertyID, (bool)true, nullptr);
+		allowedUnsyncedFreq.setProperty(propertyID, (String)freq, nullptr);
 	else
 		if (allowedUnsyncedFreq.hasProperty(propertyID))
 			allowedUnsyncedFreq.removeProperty(propertyID, nullptr);
@@ -346,7 +346,7 @@ const bool ExposedParamsRandomizationOptions::pitchedFreqIsAllowedForLFO_FreqPar
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPitchedFreq{ allowedChoices.getChildWithName(ID::rndm_AllowedPitchedFreq) };
-	return allowedPitchedFreq.hasProperty("choice_" + (String)freq) == true;
+	return allowedPitchedFreq.hasProperty("choice_" + String(freq + EP::firstLFO_PitchedFreqChoice)) == true;
 }
 
 void ExposedParamsRandomizationOptions::setPitchedFreqIsAllowedForLFO_FreqParam(uint8 freq, bool shouldBeAllowed, uint8 paramIndex) {
@@ -356,9 +356,9 @@ void ExposedParamsRandomizationOptions::setPitchedFreqIsAllowedForLFO_FreqParam(
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedPitchedFreq{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedPitchedFreq, nullptr) };
-	auto propertyID{ "choice_" + (String)freq };
+	auto propertyID{ "choice_" + String(freq + EP::firstLFO_PitchedFreqChoice) };
 	if (shouldBeAllowed)
-		allowedPitchedFreq.setProperty(propertyID, (bool)true, nullptr);
+		allowedPitchedFreq.setProperty(propertyID, freq + EP::firstLFO_PitchedFreqChoice, nullptr);
 	else
 		if (allowedPitchedFreq.hasProperty(propertyID))
 			allowedPitchedFreq.removeProperty(propertyID, nullptr);
@@ -379,7 +379,7 @@ const bool ExposedParamsRandomizationOptions::syncedFreqIsAllowedForLFO_FreqPara
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedSyncedFreq{ allowedChoices.getChildWithName(ID::rndm_AllowedSyncedFreq) };
-	return allowedSyncedFreq.hasProperty("choice_" + (String)freq) == true;
+	return allowedSyncedFreq.hasProperty("choice_" + String(freq + EP::firstLFO_SyncedFreqChoice)) == true;
 }
 
 void ExposedParamsRandomizationOptions::setSyncedFreqIsAllowedForLFO_FreqParam(uint8 freq, bool shouldBeAllowed, uint8 paramIndex) {
@@ -389,9 +389,9 @@ void ExposedParamsRandomizationOptions::setSyncedFreqIsAllowedForLFO_FreqParam(u
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	auto allowedChoices{ paramTree.getChildWithName(ID::rndm_AllowedChoices) };
 	auto allowedSyncedFreq{ allowedChoices.getOrCreateChildWithName(ID::rndm_AllowedSyncedFreq, nullptr) };
-	auto propertyID{ "choice_" + (String)freq };
+	auto propertyID{ "choice_" + String(freq + EP::firstLFO_SyncedFreqChoice) };
 	if (shouldBeAllowed)
-		allowedSyncedFreq.setProperty(propertyID, (bool)true, nullptr);
+		allowedSyncedFreq.setProperty(propertyID, freq + EP::firstLFO_SyncedFreqChoice, nullptr);
 	else
 		if (allowedSyncedFreq.hasProperty(propertyID))
 			allowedSyncedFreq.removeProperty(propertyID, nullptr);
@@ -507,7 +507,7 @@ void ExposedParamsRandomizationOptions::setChoiceIsAllowedForVoiceNameCharParam(
 	choiceNum += EP::firstVisibleVoiceNameCharNumber;
 	String propertyID{ "choice_" + (String)choiceNum };
 	if (shouldBeAllowed)
-		allowedChoices.setProperty(propertyID, (bool)true, nullptr);
+		allowedChoices.setProperty(propertyID, choiceNum, nullptr);
 	else
 		if (allowedChoices.hasProperty(propertyID))
 			allowedChoices.removeProperty(propertyID, nullptr);

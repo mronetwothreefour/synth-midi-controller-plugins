@@ -67,8 +67,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVo
 	auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForParam(paramIndex) };
 	if (randomization->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		auto allowedChoiceName{ allowedChoices.getPropertyName(0).toString() };
-		auto allowedChoiceNum{ allowedChoiceName.fromFirstOccurrenceOf("choice_", false, false).getIntValue() };
-		return (uint8)allowedChoiceNum;
+		return uint8((int)allowedChoices[allowedChoiceName]);
 	}
 	else {
 		if (randomization->repeatChoicesAreForbiddenForParam(paramIndex)) {
@@ -76,15 +75,15 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVo
 			auto paramPtr{ state->getParameter(paramID) };
 			auto currentSetting{ paramPtr->getValue() };
 			auto choiceToRemove{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
-			auto propertyID{ "choice_" + (String)choiceToRemove };
-			if (allowedChoices.hasProperty(propertyID))
-				allowedChoices.removeProperty(propertyID, nullptr);
+			auto nameOfPropertyToRemove{ "choice_" + (String)choiceToRemove };
+			if (allowedChoices.hasProperty(nameOfPropertyToRemove))
+				allowedChoices.removeProperty(nameOfPropertyToRemove, nullptr);
 		}
 		auto numberOfChoices{ allowedChoices.getNumProperties() };
 		Random rndmNumGenerator{};
 		auto newSettingIndex{ (int)floor(rndmNumGenerator.nextFloat() * numberOfChoices) };
 		auto newSettingName{ allowedChoices.getPropertyName(newSettingIndex).toString() };
-		return uint8(newSettingName.fromFirstOccurrenceOf("choice_", false, false).getIntValue());
+		return uint8((int)allowedChoices[newSettingName]);
 	}
 }
 
@@ -94,11 +93,11 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 	auto allowedWidths{ allowedChoices.getChildWithName(ID::rndm_AllowedPulseWidths) };
 	if (randomization->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		auto allowedShapeName{ allowedShapes.getPropertyName(0).toString() };
-		auto allowedShape{ Shape{ allowedShapeName.fromFirstOccurrenceOf("_", false, false).getIntValue() } };
+		auto allowedShape{ Shape{ (int)allowedShapes[allowedShapeName] } };
 		if (allowedShape == Shape::pulse) {
 			auto allowedWidthName{ allowedWidths.getPropertyName(0).toString() };
-			auto allowedWidth{ allowedWidthName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
-			return uint8((int)Shape::pulse + allowedWidth);
+			auto allowedWidth{ (int)allowedWidths[allowedWidthName] };
+			return uint8(allowedWidth);
 		}
 		else
 			return (uint8)allowedShape;
@@ -108,21 +107,32 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 		auto paramPtr{ state->getParameter(paramID) };
 		auto currentSetting{ paramPtr->getValue() };
 		auto currentSettingNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
+		auto currentShape{ currentSettingNum < (int)Shape::pulse ? Shape{ currentSettingNum } : Shape::pulse };
 		auto repeatsAreForbidden{ randomization->repeatChoicesAreForbiddenForParam(paramIndex) };
-		if (repeatsAreForbidden && currentSettingNum < (int)Shape::pulse) {
-			auto currentSettingPropertyID{ "choice_" + (String)currentSettingNum };
-			if (allowedShapes.hasProperty(currentSettingPropertyID))
-				allowedShapes.removeProperty(currentSettingPropertyID, nullptr);
+		if (repeatsAreForbidden) {
+			String shapeToRemovePropertyID{ " " };
+			if (currentShape != Shape::pulse) {
+				shapeToRemovePropertyID = "choice_" + String((int)currentShape);
+			}
+			else {
+				if (allowedWidths.getNumProperties() == 1) {
+					if (allowedWidths.hasProperty("choice_" + (String)currentSettingNum))
+						shapeToRemovePropertyID = "choice_" + String((int)Shape::pulse);
+				}
+			}
+			if (allowedShapes.hasProperty(shapeToRemovePropertyID))
+				allowedShapes.removeProperty(shapeToRemovePropertyID, nullptr);
 		}
 		auto numberOfShapes{ allowedShapes.getNumProperties() };
 		Random rndmNumGeneratorForShape{};
 		auto newShapeIndex{ (int)floor(rndmNumGeneratorForShape.nextFloat() * numberOfShapes) };
 		auto newShapeName{ allowedShapes.getPropertyName(newShapeIndex).toString() };
-		if (newShapeName != "choice_" + String((int)Shape::pulse))
-			return uint8(newShapeName.fromFirstOccurrenceOf("choice_", false, false).getIntValue());
+		auto newShape{ Shape{ (int)allowedShapes[newShapeName] } };
+		if (newShape != Shape::pulse)
+			return uint8((int)allowedShapes[newShapeName]);
 		else {
-			if (repeatsAreForbidden && currentSettingNum >= (int)Shape::pulse) {
-				auto currentWidthPropertyID{ "choice_" + String(currentSettingNum - (int)Shape::pulse) };
+			if (repeatsAreForbidden && currentShape == Shape::pulse) {
+				auto currentWidthPropertyID{ "choice_" + (String)currentSettingNum };
 				if (allowedWidths.hasProperty(currentWidthPropertyID))
 					allowedWidths.removeProperty(currentWidthPropertyID, nullptr);
 			}
@@ -130,8 +140,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 			Random rndmNumGeneratorForWidth{};
 			auto newWidthIndex{ (int)floor(rndmNumGeneratorForWidth.nextFloat() * numberOfWidths) };
 			auto newWidthName{ allowedWidths.getPropertyName(newWidthIndex).toString() };
-			auto newWidthNum{ newWidthName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
-			return uint8(newWidthNum + (int)Shape::pulse);
+			return uint8((int)allowedWidths[newWidthName]);
 		}
 	}
 }
@@ -164,18 +173,15 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 		{
 		case Category::unsynced: {
 			auto allowedFreqName{ allowedUnsyncedFreq.getPropertyName(0).toString() };
-			auto allowedFreqNum{ allowedFreqName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
-			return (uint8)allowedFreqNum;
+			return uint8((int)allowedUnsyncedFreq[allowedFreqName]);
 		}
 		case Category::pitched: {
 			auto allowedFreqName{ allowedPitchedFreq.getPropertyName(0).toString() };
-			auto allowedFreqNum{ allowedFreqName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
-			return uint8(allowedFreqNum + EP::firstLFO_PitchedFreqChoice);
+			return uint8((int)allowedPitchedFreq[allowedFreqName]);
 		}
 		case Category::synced: {
 			auto allowedFreqName{ allowedSyncedFreq.getPropertyName(0).toString() };
-			auto allowedFreqNum{ allowedFreqName.fromFirstOccurrenceOf("_", false, false).getIntValue() };
-			return uint8(allowedFreqNum + EP::firstLFO_SyncedFreqChoice);
+			return uint8((int)allowedSyncedFreq[allowedFreqName]);
 		}
 		default:
 			return (uint8)255;
@@ -204,7 +210,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				}
 				break;
 			case Category::pitched: {
-				auto currentFreqPropertyID{ "choice_" + String(currentSettingNum - EP::firstLFO_PitchedFreqChoice) };
+				auto currentFreqPropertyID{ "choice_" + (String)currentSettingNum };
 				if (allowedPitchedFreq.hasProperty(currentFreqPropertyID))
 					allowedPitchedFreq.removeProperty(currentFreqPropertyID, nullptr);
 				}
@@ -215,7 +221,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				}
 				break;
 			case Category::synced: {
-				auto currentFreqPropertyID{ "choice_" + String(currentSettingNum - EP::firstLFO_SyncedFreqChoice) };
+				auto currentFreqPropertyID{ "choice_" + (String)currentSettingNum };
 				if (allowedSyncedFreq.hasProperty(currentFreqPropertyID))
 					allowedSyncedFreq.removeProperty(currentFreqPropertyID, nullptr);
 				}
@@ -234,7 +240,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 			Random rndmNumGeneratorForCategory{};
 			auto newCategoryIndex{ (int)floor(rndmNumGeneratorForCategory.nextFloat() * numberOfCategories) };
 			auto newCategoryChoiceName{ allowedCategories.getPropertyName(newCategoryIndex).toString() };
-			auto newCategory{ Category{ newCategoryChoiceName.fromFirstOccurrenceOf("_", false, false).getIntValue() } };
+			auto newCategory{ Category{ (int)allowedCategories[newCategoryChoiceName] }};
 			Random rndmNumGeneratorForFreq{};
 			switch (newCategory)
 			{
@@ -242,19 +248,19 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				auto numberOfAllowedFreq{ allowedUnsyncedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedUnsyncedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8(newFreqChoiceName.fromFirstOccurrenceOf("_", false, false).getIntValue());
+				return uint8((int)allowedUnsyncedFreq[newFreqChoiceName]);
 			}
 			case Category::pitched: {
 				auto numberOfAllowedFreq{ allowedPitchedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedPitchedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8(newFreqChoiceName.fromFirstOccurrenceOf("_", false, false).getIntValue() + EP::firstLFO_PitchedFreqChoice);
+				return uint8((int)allowedPitchedFreq[newFreqChoiceName]);
 			}
 			case Category::synced: {
 				auto numberOfAllowedFreq{ allowedSyncedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedSyncedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8(newFreqChoiceName.fromFirstOccurrenceOf("_", false, false).getIntValue() + EP::firstLFO_SyncedFreqChoice);
+				return uint8((int)allowedSyncedFreq[newFreqChoiceName]);
 			}
 			default:
 				return (uint8)255;
