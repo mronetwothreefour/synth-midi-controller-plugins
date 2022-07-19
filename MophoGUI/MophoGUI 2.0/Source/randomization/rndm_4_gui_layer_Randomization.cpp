@@ -40,8 +40,6 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	lockStateButtons_SeqTrack_4{ LockStateGroup::seqTrack_4, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
 	lockStateButtons_VoiceNamerChars{ LockStateGroup::voiceNameChars, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() }
 {
-	randomization->addListener(this);
-
 	setInterceptsMouseClicks(false, true);
 
 	button_Close.setTopLeftPosition(1208, 16);
@@ -214,20 +212,10 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 	}
 }
 
-void GUI_Layer_Randomization::valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) {
-	if (propertyID == ID::rndm_ParamIsLocked) {
-		auto paramName{ tree.getType().toString().fromFirstOccurrenceOf("_", false, false) };
-		auto paramIndex{ uint8(paramName.upToFirstOccurrenceOf("_", false, false).getIntValue()) };
-		auto isLocked{ randomization->paramIsLocked(paramIndex) };
-		paramLockToggles[paramIndex]->setToggleState(isLocked ? true : false, dontSendNotification);
-	}
-}
-
 GUI_Layer_Randomization::~GUI_Layer_Randomization() {
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		paramLockToggles[paramIndex]->removeListener(this);
 		paramLockToggles[paramIndex]->removeMouseListener(this);
 		paramLockToggles[paramIndex] = nullptr;
 	}
-	randomization->removeListener(this);
 }

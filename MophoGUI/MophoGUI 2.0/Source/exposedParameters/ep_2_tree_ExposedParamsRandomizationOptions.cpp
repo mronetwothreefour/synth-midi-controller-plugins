@@ -53,15 +53,6 @@ ExposedParamsRandomizationOptions::ExposedParamsRandomizationOptions(InfoForExpo
 	}
 }
 
-void ExposedParamsRandomizationOptions::addListener(ValueTree::Listener* listener) {
-	randomizationOptionsTree.addListener(listener);
-}
-
-void ExposedParamsRandomizationOptions::removeListener(ValueTree::Listener* listener) {
-	randomizationOptionsTree.addListener(listener);
-}
-
-
 
 
 
@@ -92,6 +83,12 @@ void ExposedParamsRandomizationOptions::setParamIsLocked(uint8 paramIndex, bool 
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ randomizationOptionsTree.getOrCreateChildWithName(info->IDfor(paramIndex), nullptr) };
 	paramTree.setProperty(ID::rndm_ParamIsLocked, shouldBeLocked ? true : false, nullptr);
+}
+
+Value ExposedParamsRandomizationOptions::getLockStateValueForParam(uint8 paramIndex) {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
+	return paramTree.getPropertyAsValue(ID::rndm_ParamIsLocked, nullptr);
 }
 
 

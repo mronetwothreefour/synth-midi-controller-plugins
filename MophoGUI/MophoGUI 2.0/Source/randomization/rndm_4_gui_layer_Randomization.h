@@ -20,8 +20,7 @@ class UnexposedParameters;
 
 class GUI_Layer_Randomization :
 	public Component,
-	public Button::Listener,
-	public ValueTree::Listener
+	public Button::Listener
 {
 	AudioProcessorValueTreeState* state;
 	ExposedParameters* exposedParams;
@@ -58,7 +57,6 @@ public:
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~GUI_Layer_Randomization();
 
 private:

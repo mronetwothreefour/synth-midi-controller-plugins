@@ -11,9 +11,12 @@ using namespace MophoConstants;
 
 
 LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams) :
-	paramIndex{ paramIndex }
+	paramIndex{ paramIndex },
+	lockStateValue{ exposedParams->randomization->getLockStateValueForParam(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
+
+	lockStateValue.addListener(this);
 
 	auto controlType{ exposedParams->info->controlTypeFor(paramIndex) };
 	switch (controlType)
@@ -50,5 +53,13 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* expo
 		break;
 	}
 	setToggleState(exposedParams->randomization->paramIsLocked(paramIndex), dontSendNotification);
+}
+
+void LockToggleForParam::valueChanged(Value& /*value*/) {
+	setToggleState((bool)lockStateValue.getValue(), dontSendNotification);
+}
+
+LockToggleForParam::~LockToggleForParam() {
+	lockStateValue.removeListener(this);
 }
 

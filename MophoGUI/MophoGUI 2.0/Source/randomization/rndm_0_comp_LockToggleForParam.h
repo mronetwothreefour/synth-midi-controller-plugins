@@ -7,14 +7,18 @@
 class ExposedParameters;
 
 class LockToggleForParam :
-	public ToggleButton
+	public ToggleButton,
+	public Value::Listener
 {
 	uint8 paramIndex;
+	Value lockStateValue;
 
 public:
 	LockToggleForParam() = delete;
 
 	LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams);
+	void valueChanged(Value& value) override;
+	~LockToggleForParam();
 
 private:
 	//==============================================================================

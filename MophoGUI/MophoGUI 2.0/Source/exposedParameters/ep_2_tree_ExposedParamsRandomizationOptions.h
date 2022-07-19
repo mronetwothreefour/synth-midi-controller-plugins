@@ -23,8 +23,6 @@ public:
 
 	explicit ExposedParamsRandomizationOptions(InfoForExposedParameters* info);
 
-	void addListener(ValueTree::Listener* listener);
-	void removeListener(ValueTree::Listener* listener);
 
 	const bool transmitMethodIsSysEx();
 	void setTransmitMethodIsSysEx(bool shouldBeSysEx);
@@ -33,6 +31,7 @@ public:
 	const bool paramIsLocked(uint8 paramIndex);
 	const bool paramIsUnlocked(uint8 paramIndex);
 	void setParamIsLocked(uint8 paramIndex, bool shouldBeLocked);
+	Value getLockStateValueForParam(uint8 paramIndex);
 
 
 	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
