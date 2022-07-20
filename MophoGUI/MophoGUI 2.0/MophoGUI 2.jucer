@@ -181,7 +181,12 @@
         <FILE id="hqpwOG" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
       </GROUP>
-      <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls"/>
+      <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls">
+        <FILE id="ak6MuF" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
+        <FILE id="ne96UT" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
+      </GROUP>
       <GROUP id="{AA423D14-7BDF-BD44-6AA7-E91CC0E61BBB}" name="exposedParameters">
         <FILE id="HJ1mfe" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.cpp"/>

@@ -20,6 +20,9 @@
     <Filter Include="MophoGUI 2\Source\descriptions">
       <UniqueIdentifier>{7368E3A3-480A-3977-BF1D-583E81118667}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\exposedParamControls">
+      <UniqueIdentifier>{0D331890-2509-385B-F040-931CA66D412D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
@@ -609,6 +612,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
@@ -2954,6 +2960,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
