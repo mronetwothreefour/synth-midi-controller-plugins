@@ -30,11 +30,13 @@ are the only hosts known to be compatible with MophoGUI.vst3 at this time.
 #include <JuceHeader.h>
 
 class ExposedParameters;
+class UnexposedParameters;
 
 class PluginProcessor :
     public AudioProcessor
 {
     std::unique_ptr<ExposedParameters> exposedParams;
+    std::unique_ptr<UnexposedParameters> unexposedParams;
 
 public:
     PluginProcessor();

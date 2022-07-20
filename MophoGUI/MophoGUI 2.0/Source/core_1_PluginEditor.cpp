@@ -2,13 +2,21 @@
 
 #include "core_0_PluginProcessor.h"
 #include "constants/constants_GUI_Dimensions.h"
+#include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
-PluginEditor::PluginEditor (PluginProcessor& processor) :
+PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* /*exposedParams*/, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor (&processor), 
-    processor (processor)
+    processor (processor),
+    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getDelayInMillisecondsValue() },
+    tooltipWindow{ new TooltipWindow() }
 {
+    tooltipsDelayInMillisecondsValue.addListener(this);
+    addChildComponent(tooltipWindow.get());
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+    tooltipWindow->setComponentEffect(nullptr);
+
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
 }
@@ -20,5 +28,11 @@ void PluginEditor::paint (Graphics& g) {
     g.drawImageAt(backgroundImage, 0, 0);
 }
 
+void PluginEditor::valueChanged(Value& /*value*/) {
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+}
+
 PluginEditor::~PluginEditor() {
+    tooltipsDelayInMillisecondsValue.removeListener(this);
+    tooltipWindow = nullptr;
 }

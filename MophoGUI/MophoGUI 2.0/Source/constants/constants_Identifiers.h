@@ -100,8 +100,16 @@ namespace MophoConstants
 		static const Identifier property_Width{ "property_Width" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
+		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
+		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+
+		static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
+		static const Identifier tooltips_ShouldShowCurrentChoice{ "tooltips_ShouldShowCurrentChoice" };
+		static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
 		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
+		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 	}
 }

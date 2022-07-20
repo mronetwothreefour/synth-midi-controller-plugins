@@ -145,6 +145,8 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2310,6 +2312,8 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

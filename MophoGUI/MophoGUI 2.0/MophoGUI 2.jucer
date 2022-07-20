@@ -200,7 +200,16 @@
       <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui"/>
       <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi"/>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
-      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters"/>
+      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
+        <FILE id="euLH2U" name="up_0_tree_TooltipsOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
+        <FILE id="JUU1ou" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_TooltipsOptions.h"/>
+        <FILE id="ivaGZB" name="up_1_facade_UnexposedParameters.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_1_facade_UnexposedParameters.cpp"/>
+        <FILE id="JkLqCg" name="up_1_facade_UnexposedParameters.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_1_facade_UnexposedParameters.h"/>
+      </GROUP>
       <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices"/>
       <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport"/>
     </GROUP>
