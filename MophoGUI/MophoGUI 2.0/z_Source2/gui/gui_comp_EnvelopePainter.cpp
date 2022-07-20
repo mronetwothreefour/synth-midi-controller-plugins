@@ -2,7 +2,7 @@
 
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
 using namespace MophoConstants;
 
@@ -55,11 +55,12 @@ EnvelopePainter::EnvelopePainter(EnvelopeType envType, ExposedParameters* expose
 	sustain.addListener(this);
 	release.addListener(this);
 
-	delayAttachment.reset( new SliderAttachment{ exposedParams->state, delayParamID, delay } );
-	attackAttachment.reset( new SliderAttachment{ exposedParams->state, attackParamID, attack } );
-	decayAttachment.reset( new SliderAttachment{ exposedParams->state, decayParamID, decay } );
-	sustainAttachment.reset( new SliderAttachment{ exposedParams->state, sustainParamID, sustain } );
-	releaseAttachment.reset( new SliderAttachment{ exposedParams->state, releaseParamID, release } );
+	auto state{ exposedParams->state.get() };
+	delayAttachment.reset( new SliderAttachment{ *state, delayParamID, delay } );
+	attackAttachment.reset( new SliderAttachment{ *state, attackParamID, attack } );
+	decayAttachment.reset( new SliderAttachment{ *state, decayParamID, decay } );
+	sustainAttachment.reset( new SliderAttachment{ *state, sustainParamID, sustain } );
+	releaseAttachment.reset( new SliderAttachment{ *state, releaseParamID, release } );
 
 	const int envelopePainters_w{ 210 };
 	const int envelopePainters_h{ 90 };

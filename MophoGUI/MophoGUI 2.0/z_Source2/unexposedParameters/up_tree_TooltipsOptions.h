@@ -18,7 +18,7 @@ public:
 	void setShouldShowDescription(bool shouldShow);
 	const int delayInMilliseconds();
 	void setDelayInMilliseconds(int newDelay);
-	XmlElement* getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 
 private:

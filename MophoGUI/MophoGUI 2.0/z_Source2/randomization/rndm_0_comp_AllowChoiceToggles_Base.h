@@ -4,8 +4,6 @@
 
 
 
-class UnexposedParameters;
-
 class AllowChoiceToggles_Base :
 	public Component,
 	public Button::Listener

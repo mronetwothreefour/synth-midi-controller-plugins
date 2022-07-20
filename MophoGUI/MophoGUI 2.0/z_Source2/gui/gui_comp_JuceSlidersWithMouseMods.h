@@ -3,7 +3,6 @@
 #include <JuceHeader.h>
 
 #include "../constants/constants_Enum.h"
-#include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 using Track = SeqTrackNum;
@@ -21,7 +20,7 @@ public:
 
 	SliderWithMouseWheelMoveOverride() = delete;
 
-	SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams);
+	SliderWithMouseWheelMoveOverride(UndoManager* undoManager);
 	void mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) override;
 
 private:
@@ -38,7 +37,7 @@ class RotarySliderWithMouseWheelMoveOverride :
 public:
 	RotarySliderWithMouseWheelMoveOverride() = delete;
 
-	explicit RotarySliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams);
+	explicit RotarySliderWithMouseWheelMoveOverride(UndoManager* undoManager);
 
 private:
 	//==============================================================================
@@ -54,7 +53,7 @@ class RotarySliderWithMouseDownModForOscShape :
 public:
 	RotarySliderWithMouseDownModForOscShape() = delete;
 
-	explicit RotarySliderWithMouseDownModForOscShape(UnexposedParameters* unexposedParams);
+	explicit RotarySliderWithMouseDownModForOscShape(UndoManager* undoManager);
 	void mouseDown(const MouseEvent& event) override;
 
 private:
@@ -73,7 +72,7 @@ class RotarySliderWithMouseDownModForSeqStep :
 public:
 	RotarySliderWithMouseDownModForSeqStep() = delete;
 
-	RotarySliderWithMouseDownModForSeqStep(Track track, UnexposedParameters* unexposedParams);
+	RotarySliderWithMouseDownModForSeqStep(Track track, UndoManager* undoManager);
 	void mouseDown(const MouseEvent& event) override;
 
 private:

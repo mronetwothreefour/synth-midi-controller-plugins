@@ -2,36 +2,34 @@
 
 #include <JuceHeader.h>
 
-
-
 struct ExposedParamChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
 	static String convertIntToSeqStepPitchName(const uint8& i) noexcept;
 
-	static ValueTree buildFor_ArpegMode(bool verbose);
-	static ValueTree buildFor_BendRange(bool verbose);
-	static ValueTree buildFor_ClockDivision(bool verbose);
-	static ValueTree buildFor_ClockTempo(bool verbose);
-	static ValueTree buildFor_GlideMode(bool verbose);
-	static ValueTree buildFor_KnobAssign(bool verbose);
-	static ValueTree buildFor_LFO_Freq(bool verbose);
-	static ValueTree buildFor_LFO_Shape(bool verbose);
-	static ValueTree buildFor_LPF_Freq(bool verbose);
-	static ValueTree buildFor_LPF_Type(bool verbose);
-	static ValueTree buildFor_ModDestination(bool verbose);
-	static ValueTree buildFor_ModSource(bool verbose);
-	static ValueTree buildFor_NotePriority(bool verbose);
-	static ValueTree buildFor_OffOn(bool verbose);
-	static ValueTree buildFor_OscFineTune(bool verbose);
-	static ValueTree buildFor_OscPitch(bool verbose);
-	static ValueTree buildFor_OscShape(bool verbose);
-	static ValueTree buildFor_PlainValue(uint8 numberOfChoices, bool verbose);
-	static ValueTree buildFor_PlusMinus127(bool verbose);
-	static ValueTree buildFor_PushItMode(bool verbose);
-	static ValueTree buildFor_SeqTrackStep(bool verbose);
-	static ValueTree buildFor_SeqTracks_2_4_Destination(int trackNum, bool verbose);
-	static ValueTree buildFor_SeqTrigMode(bool verbose);
-	static ValueTree buildFor_VoiceNameChar(bool verbose);
+	static ValueTree buildForArpegMode(const bool verbose);
+	static ValueTree buildForBendRange(const bool verbose);
+	static ValueTree buildForClockDivision(const bool verbose);
+	static ValueTree buildForClockTempo(const bool verbose);
+	static ValueTree buildForGlideMode(const bool verbose);
+	static ValueTree buildForKnobAssign(const bool verbose);
+	static ValueTree buildForModDestination(const bool verbose);
+	static ValueTree buildForModSource(const bool verbose);
+	static ValueTree buildForNotePriority(const bool verbose);
+	static ValueTree buildForOffOn(const bool verbose);
+	static ValueTree buildForOscFineTune(const bool verbose);
+	static ValueTree buildForOscPitch(const bool verbose);
+	static ValueTree buildForOscShape(const bool verbose);
+	static ValueTree buildForPlainValue(const uint8 numberOfChoices, bool verbose);
+	static ValueTree buildForPosNeg_127(const bool verbose);
+	static ValueTree buildForPushItMode(const bool verbose);
+	static ValueTree buildForSeqTrackStep(const bool verbose);
+	static ValueTree buildForSeqTracks_2_4_Destination(const int trackNum, bool verbose);
+	static ValueTree buildForSeqTrigMode(const bool verbose);
+	static ValueTree buildForVoiceNameChar(const bool verbose);
+	static ValueTree buildFor_LFO_Freq(const bool verbose);
+	static ValueTree buildFor_LFO_Shape(const bool verbose);
+	static ValueTree buildFor_LPF_Freq(const bool verbose);
+	static ValueTree buildFor_LPF_Type(const bool verbose);
 
 private:
 	//==============================================================================

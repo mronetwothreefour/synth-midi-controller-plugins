@@ -4,6 +4,7 @@
 
 
 
+class ExposedParamsRandomizationOptions;
 class UnexposedParameters;
 
 class TransmitTypeToggles :
@@ -15,7 +16,7 @@ class TransmitTypeToggles :
 public:
 	TransmitTypeToggles() = delete;
 
-	explicit TransmitTypeToggles(UnexposedParameters* unexposedParams);
+	explicit TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization,UnexposedParameters* unexposedParams);
 
 private:
 	//==============================================================================

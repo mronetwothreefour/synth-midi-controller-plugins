@@ -38,7 +38,7 @@ void TabbedComponentForFactoryVoicesBanks::removeListenerFromButtonsInAllFactory
 }
 
 VoiceSlots* TabbedComponentForFactoryVoicesBanks::getVoiceSlotsComponentForFactoryBank(VoicesBank bank) {
-	jassert(bank == VoicesBank::factory_1 || bank == VoicesBank::factory_2 || bank == VoicesBank::factory_3);
+	jassert(bank <= VoicesBank::factory_1);
 	switch (bank) {
 	case VoicesBank::factory_1:
 		return bank_1.getVoiceSlots();

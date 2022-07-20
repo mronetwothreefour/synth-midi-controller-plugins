@@ -1,9 +1,9 @@
 #include "voices_4_comp_TabForFactoryVoicesBank.h"
 
-#include "../constants/constants_Voices.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../constants/constants_Voices.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
@@ -20,6 +20,7 @@ TabForFactoryVoicesBank::TabForFactoryVoicesBank(
 	button_PushBank{ bank, unexposedParams },
 	button_ExportBank{ bank, unexposedParams }
 {
+	jassert(bank <= VoicesBank::factory_3);
 	auto buttonsRow_y{ 334 };
 	voiceSlots.setTopLeftPosition(15, 14);
 	addAndMakeVisible(voiceSlots);

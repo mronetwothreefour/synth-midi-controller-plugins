@@ -30,8 +30,8 @@ void ButtonForHidingLayer::updateTooltip() {
 	setTooltip(shouldShowDescription ? "Click to close this window." : "");
 }
 
-void ButtonForHidingLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	if (property == ID::tooltips_ShowDescription)
+void ButtonForHidingLayer::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	if (propertyID == ID::tooltips_ShowDescription)
 		updateTooltip();
 }
 

@@ -12,6 +12,7 @@ using Track = SeqTrackNum;
 
 
 
+class ExposedParameters;
 class UnexposedParameters;
 
 class SeqTrackProbabilities :
@@ -25,7 +26,7 @@ class SeqTrackProbabilities :
 public:
 	SeqTrackProbabilities() = delete;
 
-	SeqTrackProbabilities(Track track, UnexposedParameters* unexposedParams);
+	SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	~SeqTrackProbabilities();
 

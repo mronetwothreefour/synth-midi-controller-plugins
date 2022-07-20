@@ -11,7 +11,7 @@ using Track = SeqTrackNum;
 
 
 
-class RandomizationOptions;
+class ExposedParamsRandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -21,13 +21,13 @@ class AllowChoiceToggles_SeqTrackStep :
 	Track track;
 	Step step;
 	bool destIsPitched;
-	RandomizationOptions* randomization;
+	ExposedParamsRandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 
 public:
 	AllowChoiceToggles_SeqTrackStep() = delete;
 
-	AllowChoiceToggles_SeqTrackStep(Track track, Step step, bool destIsPitched, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_SeqTrackStep(Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 
 private:
 	String buildChoiceName(uint8 choiceNum) override;

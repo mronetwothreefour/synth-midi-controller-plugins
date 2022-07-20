@@ -46,11 +46,11 @@ void TooltipsOptions::setDelayInMilliseconds(int newDelay) {
 	tooltipsOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, newDelay, nullptr);
 }
 
-XmlElement* TooltipsOptions::getStateXml() {
+std::unique_ptr<XmlElement> TooltipsOptions::getStateXml() {
 	auto tooltipsOptionsTreeStateXml{ tooltipsOptionsTree.createXml() };
 	if (tooltipsOptionsTreeStateXml != nullptr)
 		tooltipsOptionsTreeStateXml->setTagName(ID::state_TooltipsOptions);
-	return tooltipsOptionsTreeStateXml.release();
+	return tooltipsOptionsTreeStateXml;
 }
 
 void TooltipsOptions::replaceState(const ValueTree& newState) {

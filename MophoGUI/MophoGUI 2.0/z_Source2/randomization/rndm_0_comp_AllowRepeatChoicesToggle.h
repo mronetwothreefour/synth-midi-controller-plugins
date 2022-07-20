@@ -5,7 +5,8 @@
 
 
 class ExposedParameters;
-class RandomizationOptions;
+class ExposedParamsRandomizationOptions;
+class InfoForExposedParameters;
 class UnexposedParameters;
 
 class AllowRepeatChoicesToggle :
@@ -13,8 +14,9 @@ class AllowRepeatChoicesToggle :
 	public ValueTree::Listener
 {
 	uint8 paramIndex;
-	ExposedParameters* exposedParams;
-	RandomizationOptions* randomization;
+	InfoForExposedParameters* info;
+	ExposedParamsRandomizationOptions* randomization;
+	ValueTree paramTree;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:

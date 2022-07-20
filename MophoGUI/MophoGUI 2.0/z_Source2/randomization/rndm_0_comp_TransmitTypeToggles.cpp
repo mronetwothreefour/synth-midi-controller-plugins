@@ -2,15 +2,15 @@
 
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
 
 
-TransmitTypeToggles::TransmitTypeToggles(UnexposedParameters* unexposedParams)
+TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams)
 {
-	auto randomization{ unexposedParams->getRandomizationOptions() };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	toggle_TransmitViaNRPN.setComponentID(ID::component_RedToggle.toString());

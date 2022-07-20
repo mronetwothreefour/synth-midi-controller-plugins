@@ -10,7 +10,7 @@ using Track = SeqTrackNum;
 
 
 
-class RandomizationOptions;
+class ExposedParamsRandomizationOptions;
 class UnexposedParameters;
 
 class SeqTrackTargetStep :
@@ -18,13 +18,13 @@ class SeqTrackTargetStep :
 	public ComboBox::Listener
 {
 	Track track;
-	RandomizationOptions* randomization;
+	ExposedParamsRandomizationOptions* randomization;
 	ComboBox stepSelector;
 
 public:
 	SeqTrackTargetStep() = delete;
 
-	SeqTrackTargetStep(Track track, UnexposedParameters* unexposedParams);
+	SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void comboBoxChanged(ComboBox* comboBox) override;
 	~SeqTrackTargetStep();

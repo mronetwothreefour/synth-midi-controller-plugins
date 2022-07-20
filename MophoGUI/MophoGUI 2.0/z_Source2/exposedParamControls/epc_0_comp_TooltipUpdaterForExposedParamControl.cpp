@@ -1,7 +1,8 @@
 #include "epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_1_tree_InfoForExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -12,11 +13,12 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     uint8 paramIndex, SettableTooltipClient& paramControl, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     paramIndex{ paramIndex },
     clientControl{ paramControl },
-    exposedParams{ exposedParams },
+    state{ exposedParams->state.get() },
+    info{ exposedParams->info.get() },
     tooltips{ unexposedParams->getTooltipsOptions() }
 {
-    auto paramID{ exposedParams->info.IDfor(paramIndex) };
-    auto paramaterPtr{ exposedParams->state.getParameter(paramID) };
+    auto paramID{ info->IDfor(paramIndex) };
+    auto paramaterPtr{ state->getParameter(paramID) };
     paramaterPtr->addListener(this);
 
     auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
@@ -33,12 +35,12 @@ void TooltipUpdaterForExposedParamControl::setTooltip() {
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
     String tip{ "" };
     if (tooltips->shouldShowDescriptions())
-        tip += exposedParams->info.descriptionFor(paramIndex) + "\n";
+        tip += info->descriptionFor(paramIndex) + "\n";
     if (tooltips->shouldShowCurrentValue()) {
-        auto paramID{ exposedParams->info.IDfor(paramIndex) };
-        auto paramaterPtr{ exposedParams->state.getParameter(paramID) };
+        auto paramID{ info->IDfor(paramIndex) };
+        auto paramaterPtr{ state->getParameter(paramID) };
         auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
-        auto choiceName{ exposedParams->info.verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
+        auto choiceName{ info->verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
         tip += "Current Setting: " + choiceName;
     }
     return tip;
@@ -52,14 +54,14 @@ void TooltipUpdaterForExposedParamControl::parameterValueChanged(int changedPara
 void TooltipUpdaterForExposedParamControl::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
 }
 
-void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-    if (property == ID::tooltips_ShowCurrentValue || property == ID::tooltips_ShowDescription)
+void TooltipUpdaterForExposedParamControl::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+    if (propertyID == ID::tooltips_ShowCurrentValue || propertyID == ID::tooltips_ShowDescription)
         setTooltip();
 }
 
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
     tooltips->removeListener(this);
 
-    auto paramID{ exposedParams->info.IDfor(paramIndex) };
-    exposedParams->state.getParameter(paramID)->removeListener(this);
+    auto paramID{ info->IDfor(paramIndex) };
+    state->getParameter(paramID)->removeListener(this);
 }

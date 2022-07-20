@@ -9,6 +9,7 @@
 
 
 class ExposedParameters;
+class InfoForExposedParameters;
 class ParamRandomizationMethods;
 class UnexposedParameters;
 
@@ -16,7 +17,7 @@ class GUI_Layer_AllowedChoices_Binary :
 	public Component
 {
 	uint8 paramIndex;
-	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
 	AllowRepeatChoicesToggle repeatChoicesToggle;
 	RandomizeButtonForAllowedChoicesLayers button_Randomize;
 	ButtonForHidingLayer button_Close;
@@ -28,7 +29,7 @@ class GUI_Layer_AllowedChoices_Binary :
 public:
 	GUI_Layer_AllowedChoices_Binary() = delete;
 
-	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

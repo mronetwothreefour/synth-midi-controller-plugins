@@ -4,32 +4,33 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
-	uint8 paramIndex, ExposedParameters* exposedParams, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
+	info{ exposedParams->info.get() },
 	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams },
 	button_Close{ unexposedParams },
 	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
-	button_Randomize{ paramIndex, exposedParams, randomize, unexposedParams },
+	button_Randomize{ paramIndex, exposedParams, unexposedParams },
 	childrenShouldBeStackedVertically{ false },
-	background_x{ exposedParams->info.allowedChoicesBackground_x_For(paramIndex) },
-	background_y{ exposedParams->info.allowedChoicesBackground_y_For(paramIndex) }
+	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
+	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(exposedParams->info.allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
-	auto paramName{ exposedParams->info.exposedNameFor(paramIndex) };
+	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 
 	button_AllowAll.setComponentID(ID::button_AllowAll.toString());
-	button_AllowAll.onClick = [this, unexposedParams, paramIndex] {
-		auto randomization{ unexposedParams->getRandomizationOptions() };
+	button_AllowAll.onClick = [this, exposedParams, paramIndex] {
+		auto randomization{ exposedParams->randomization.get() };
 		randomization->allowAllChoicesForParam(paramIndex);
 		allowChoiceToggles.restoreToggles(); 
 	};
@@ -73,10 +74,10 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 
 void GUI_Layer_AllowedChoices_Standard::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
-	auto controlCenter{ exposedParams->info.centerPointFor(paramIndex) };
-	auto control_w{ exposedParams->info.widthFor(paramIndex) };
+	auto controlCenter{ info->centerPointFor(paramIndex) };
+	auto control_w{ info->widthFor(paramIndex) };
 	g.setColour(GUI::color_ToggleOn);
-	auto controlType{ exposedParams->info.controlTypeFor(paramIndex) };
+	auto controlType{ info->controlTypeFor(paramIndex) };
 	if (controlType == ControlType::knob ||
 		controlType == ControlType::knobForPitch)
 		g.drawEllipse((float)controlCenter.x - 20.0f, (float)controlCenter.y - 20.0f, GUI::knob_diameter, GUI::knob_diameter, 2);

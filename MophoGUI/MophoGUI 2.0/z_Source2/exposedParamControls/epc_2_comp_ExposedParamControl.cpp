@@ -1,13 +1,13 @@
 #include "epc_2_comp_ExposedParamControl.h"
 
-#include "buttons/epc_1_comp_ToggleButtonAndAttachment.h"
-#include "comboBoxes/epc_1_comp_ComboBoxAndAttachment.h"
-#include "sliders/epc_1_comp_KnobAndAttachment.h"
-#include "sliders/epc_1_comp_KnobAndAttachment_ForOscShape.h"
-#include "sliders/epc_1_comp_KnobAndAttachment_ForSeqStep.h"
-#include "sliders/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
+#include "epc_1_comp_ToggleButtonAndAttachment.h"
+#include "epc_1_comp_ComboBoxAndAttachment.h"
+#include "epc_1_comp_KnobAndAttachment.h"
+#include "epc_1_comp_KnobAndAttachment_ForOscShape.h"
+#include "epc_1_comp_KnobAndAttachment_ForSeqStep.h"
+#include "epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
 using Track = SeqTrackNum;
 
@@ -26,7 +26,7 @@ ExposedParamControl::ExposedParamControl(uint8 paramIndex, ExposedParameters* ex
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
-	controlType{ exposedParams->info.controlTypeFor(paramIndex) }
+	controlType{ exposedParams->info->controlTypeFor(paramIndex) }
 {
 	jassert((int)controlType > -1 && (int)controlType <= (int)ControlType::voiceNameChar);
 	switch (controlType) {
@@ -79,7 +79,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedPa
 }
 
 void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
-	auto paramID{ exposedParams->info.IDfor(paramIndex).toString()};
+	auto paramID{ exposedParams->info->IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
 	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, Track{ trackNum }, exposedParams, unexposedParams));
 	if (knobAndAttachment_ForSeqStep != nullptr) {

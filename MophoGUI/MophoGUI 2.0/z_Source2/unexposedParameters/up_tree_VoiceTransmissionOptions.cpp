@@ -33,12 +33,12 @@ void VoiceTransmissionOptions::setVoiceTransmitTime(int timeInMilliseconds) {
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, timeInMilliseconds, nullptr);
 }
 
-XmlElement* VoiceTransmissionOptions::getStateXml() {
+std::unique_ptr<XmlElement> VoiceTransmissionOptions::getStateXml() {
 	std::unique_ptr<XmlElement> voiceTransmissionOptionsTreeStateXml{ new XmlElement(ID::state_VoiceTxOptions) };
 	if (voiceTransmissionOptionsTreeStateXml != nullptr) {
 		voiceTransmissionOptionsTreeStateXml->setAttribute(ID::voiceTx_Time, voiceTransmitTime());
 	}
-	return voiceTransmissionOptionsTreeStateXml.release();
+	return voiceTransmissionOptionsTreeStateXml;
 }
 
 void VoiceTransmissionOptions::replaceState(const ValueTree& newState) {

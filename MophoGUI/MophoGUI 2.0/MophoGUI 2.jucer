@@ -162,419 +162,47 @@
               file="Source/core_1_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{07A0444B-2CCA-7162-5AE6-442ACF85CF2E}" name="constants">
-        <FILE id="zvvzsb" name="constants_Enum.h" compile="0" resource="0"
+        <FILE id="nJv8vC" name="constants_Enum.h" compile="0" resource="0"
               file="Source/constants/constants_Enum.h"/>
-        <FILE id="zWoVeP" name="constants_ExposedParameters.h" compile="0"
+        <FILE id="UqG181" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
-        <FILE id="AKkzaP" name="constants_GlobalParameters.h" compile="0" resource="0"
-              file="Source/constants/constants_GlobalParameters.h"/>
-        <FILE id="hF4tyV" name="constants_GUI_Colors.h" compile="0" resource="0"
-              file="Source/constants/constants_GUI_Colors.h"/>
-        <FILE id="bRhfNi" name="constants_GUI_Dimensions.h" compile="0" resource="0"
+        <FILE id="DjjVZZ" name="constants_GUI_Dimensions.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Dimensions.h"/>
-        <FILE id="K8xIX6" name="constants_GUI_FontsAndSpecialCharacters.h"
+        <FILE id="K6KyBx" name="constants_GUI_FontsAndSpecialCharacters.h"
               compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
-        <FILE id="nZmCOx" name="constants_GUI_PathData.h" compile="0" resource="0"
-              file="Source/constants/constants_GUI_PathData.h"/>
-        <FILE id="UNmpwX" name="constants_Identifiers.h" compile="0" resource="0"
+        <FILE id="YrbwNS" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
-        <FILE id="Qd5yW4" name="constants_MIDI.h" compile="0" resource="0"
-              file="Source/constants/constants_MIDI.h"/>
-        <FILE id="efFp2z" name="constants_Randomization.h" compile="0" resource="0"
-              file="Source/constants/constants_Randomization.h"/>
-        <FILE id="Hi0uha" name="constants_Voices.h" compile="0" resource="0"
+        <FILE id="IrSggX" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
       </GROUP>
       <GROUP id="{63DB4364-9BAD-F125-7A8C-F1812A1E87E5}" name="descriptions">
-        <FILE id="epe5h7" name="build_ExposedParamDescription.cpp" compile="1"
+        <FILE id="t04QaM" name="build_ExposedParamDescription.cpp" compile="1"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
-        <FILE id="HnHODj" name="build_ExposedParamDescription.h" compile="0"
+        <FILE id="hqpwOG" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
-        <FILE id="aVChVT" name="build_GlobalParamDescription.cpp" compile="1"
-              resource="0" file="Source/descriptions/build_GlobalParamDescription.cpp"/>
-        <FILE id="PD88Yz" name="build_GlobalParamDescription.h" compile="0"
-              resource="0" file="Source/descriptions/build_GlobalParamDescription.h"/>
-        <FILE id="H87K0z" name="build_MainWindowButtonDescription.cpp" compile="1"
-              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
-        <FILE id="Mh0GfH" name="build_MainWindowButtonDescription.h" compile="0"
-              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
-      <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls">
-        <FILE id="f6xmlr" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
-              compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
-        <FILE id="yHTVZV" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
-        <FILE id="p0SlyS" name="epc_1_comp_ComboBoxAndAttachment.cpp" compile="1"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.cpp"/>
-        <FILE id="U8wCHH" name="epc_1_comp_ComboBoxAndAttachment.h" compile="0"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.h"/>
-        <FILE id="QuJ4Gh" name="epc_1_comp_KnobAndAttachment.cpp" compile="1"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.cpp"/>
-        <FILE id="rWwx0o" name="epc_1_comp_KnobAndAttachment.h" compile="0"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.h"/>
-        <FILE id="f2tcmy" name="epc_1_comp_KnobAndAttachment_ForOscShape.cpp"
-              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForOscShape.cpp"/>
-        <FILE id="ezwv5Y" name="epc_1_comp_KnobAndAttachment_ForOscShape.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForOscShape.h"/>
-        <FILE id="Gskj1B" name="epc_1_comp_KnobAndAttachment_ForSeqStep.cpp"
-              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
-        <FILE id="Z4r3A5" name="epc_1_comp_KnobAndAttachment_ForSeqStep.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForSeqStep.h"/>
-        <FILE id="W0bFC4" name="epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"
-              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"/>
-        <FILE id="IlW5B0" name="epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"/>
-        <FILE id="aIgcuT" name="epc_1_comp_ToggleButtonAndAttachment.cpp" compile="1"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_ToggleButtonAndAttachment.cpp"/>
-        <FILE id="XiHDn0" name="epc_1_comp_ToggleButtonAndAttachment.h" compile="0"
-              resource="0" file="Source/exposedParamControls/epc_1_comp_ToggleButtonAndAttachment.h"/>
-        <FILE id="OIcH6W" name="epc_2_comp_ExposedParamControl.cpp" compile="1"
-              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.cpp"/>
-        <FILE id="RkUlyP" name="epc_2_comp_ExposedParamControl.h" compile="0"
-              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.h"/>
-        <FILE id="ocd6QR" name="epc_3_vector_ExposedParamControlsServer.cpp"
-              compile="1" resource="0" file="Source/exposedParamControls/epc_3_vector_ExposedParamControlsServer.cpp"/>
-        <FILE id="Hu7JHe" name="epc_3_vector_ExposedParamControlsServer.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"/>
-      </GROUP>
+      <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls"/>
       <GROUP id="{AA423D14-7BDF-BD44-6AA7-E91CC0E61BBB}" name="exposedParameters">
-        <FILE id="hAVGGx" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
+        <FILE id="HJ1mfe" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.cpp"/>
-        <FILE id="oChwud" name="ep_0_build_ChoiceNamesValueTree.h" compile="0"
+        <FILE id="WXvjXh" name="ep_0_build_ChoiceNamesValueTree.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.h"/>
-        <FILE id="a3N0iQ" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
+        <FILE id="bz8CKQ" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
-        <FILE id="zV9yGR" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
+        <FILE id="QZrIUg" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
-        <FILE id="uqhnp0" name="ep_2_build_ExposedParamsLayout.h" compile="0"
+        <FILE id="SLNA99" name="ep_2_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
-        <FILE id="pGZkbb" name="ep_2_func_ExposedParamsRandomizationMethods.cpp"
-              compile="1" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.cpp"/>
-        <FILE id="xfNjbv" name="ep_2_func_ExposedParamsRandomizationMethods.h"
-              compile="0" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.h"/>
-        <FILE id="zY1XjV" name="ep_2_tree_ExposedParamsRandomizationOptions.cpp"
-              compile="1" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
-        <FILE id="KfY7MD" name="ep_2_tree_ExposedParamsRandomizationOptions.h"
-              compile="0" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"/>
-        <FILE id="ItpDuM" name="ep_3_facade_ExposedParameters.h" compile="0"
+        <FILE id="utlq3F" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
-        <FILE id="G1xRrs" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
-              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.cpp"/>
-        <FILE id="BvvtI8" name="ep_4_handle_ExposedParamChanges.h" compile="0"
-              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
-      <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global">
-        <FILE id="wy5GRd" name="global_0_build_ChoiceName.cpp" compile="1"
-              resource="0" file="Source/global/global_0_build_ChoiceName.cpp"/>
-        <FILE id="sxUlA1" name="global_0_build_ChoiceName.h" compile="0" resource="0"
-              file="Source/global/global_0_build_ChoiceName.h"/>
-        <FILE id="bemSMe" name="global_0_gui_layer_CommError_Base.cpp" compile="1"
-              resource="0" file="Source/global/global_0_gui_layer_CommError_Base.cpp"/>
-        <FILE id="gLCvN1" name="global_0_gui_layer_CommError_Base.h" compile="0"
-              resource="0" file="Source/global/global_0_gui_layer_CommError_Base.h"/>
-        <FILE id="UErqJp" name="global_1_comp_ComboBoxForGlobalParam.cpp" compile="1"
-              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.cpp"/>
-        <FILE id="PzBQ9S" name="global_1_comp_ComboBoxForGlobalParam.h" compile="0"
-              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.h"/>
-        <FILE id="lyU3cm" name="global_1_comp_DisplayLabelForGlobalParam.cpp"
-              compile="1" resource="0" file="Source/global/global_1_comp_DisplayLabelForGlobalParam.cpp"/>
-        <FILE id="XaXrVm" name="global_1_comp_DisplayLabelForGlobalParam.h"
-              compile="0" resource="0" file="Source/global/global_1_comp_DisplayLabelForGlobalParam.h"/>
-        <FILE id="gCcLua" name="global_1_comp_EditorForTooltipDelay.cpp" compile="1"
-              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.cpp"/>
-        <FILE id="esrMLX" name="global_1_comp_EditorForTooltipDelay.h" compile="0"
-              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.h"/>
-        <FILE id="eezNpE" name="global_1_comp_KnobForGlobalParam.cpp" compile="1"
-              resource="0" file="Source/global/global_1_comp_KnobForGlobalParam.cpp"/>
-        <FILE id="t3CWMf" name="global_1_comp_KnobForGlobalParam.h" compile="0"
-              resource="0" file="Source/global/global_1_comp_KnobForGlobalParam.h"/>
-        <FILE id="dse7wK" name="global_1_comp_ToggleForTooltipParam.cpp" compile="1"
-              resource="0" file="Source/global/global_1_comp_ToggleForTooltipParam.cpp"/>
-        <FILE id="Nbq9L9" name="global_1_comp_ToggleForTooltipParam.h" compile="0"
-              resource="0" file="Source/global/global_1_comp_ToggleForTooltipParam.h"/>
-        <FILE id="Gd6VsA" name="global_1_gui_layer_CommError_NRPN.cpp" compile="1"
-              resource="0" file="Source/global/global_1_gui_layer_CommError_NRPN.cpp"/>
-        <FILE id="uZivkx" name="global_1_gui_layer_CommError_NRPN.h" compile="0"
-              resource="0" file="Source/global/global_1_gui_layer_CommError_NRPN.h"/>
-        <FILE id="k4eEJK" name="global_1_gui_layer_CommError_SysEx.cpp" compile="1"
-              resource="0" file="Source/global/global_1_gui_layer_CommError_SysEx.cpp"/>
-        <FILE id="IPVbFO" name="global_1_gui_layer_CommError_SysEx.h" compile="0"
-              resource="0" file="Source/global/global_1_gui_layer_CommError_SysEx.h"/>
-        <FILE id="XYwH7p" name="global_2_gui_layer_GlobalParams.cpp" compile="1"
-              resource="0" file="Source/global/global_2_gui_layer_GlobalParams.cpp"/>
-        <FILE id="tStma0" name="global_2_gui_layer_GlobalParams.h" compile="0"
-              resource="0" file="Source/global/global_2_gui_layer_GlobalParams.h"/>
-      </GROUP>
-      <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
-        <FILE id="rAnI7N" name="gui_build_LCD_CharacterPath.h" compile="0"
-              resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
-        <FILE id="gSQUZC" name="gui_comp_ButtonForHidingLayer.cpp" compile="1"
-              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.cpp"/>
-        <FILE id="JotY3q" name="gui_comp_ButtonForHidingLayer.h" compile="0"
-              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.h"/>
-        <FILE id="LI4K5k" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
-              file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
-        <FILE id="kyV4ri" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
-              file="Source/gui/gui_comp_EnvelopePainter.h"/>
-        <FILE id="aec4HW" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
-              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
-        <FILE id="fjioA5" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
-              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
-        <FILE id="Yk1IZW" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
-              file="Source/gui/gui_layer_EnvelopePainters.h"/>
-        <FILE id="YRRIeF" name="gui_layer_ExposedParamControls.cpp" compile="1"
-              resource="0" file="Source/gui/gui_layer_ExposedParamControls.cpp"/>
-        <FILE id="dxDmfb" name="gui_layer_ExposedParamControls.h" compile="0"
-              resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
-        <FILE id="yCtMFG" name="gui_layer_MainWindowButtons.cpp" compile="1"
-              resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
-        <FILE id="G3fc4O" name="gui_layer_MainWindowButtons.h" compile="0"
-              resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
-        <FILE id="tk0NYz" name="gui_LookAndFeel.cpp" compile="1" resource="0"
-              file="Source/gui/gui_LookAndFeel.cpp"/>
-        <FILE id="tIbqxV" name="gui_LookAndFeel.h" compile="0" resource="0"
-              file="Source/gui/gui_LookAndFeel.h"/>
-      </GROUP>
-      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi">
-        <FILE id="dxhIqw" name="midi_0_NRPNbufferWithLeadingMSBs.cpp" compile="1"
-              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.cpp"/>
-        <FILE id="UfwBsb" name="midi_0_NRPNbufferWithLeadingMSBs.h" compile="0"
-              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.h"/>
-        <FILE id="ddpLSO" name="midi_0_OutgoingMidiBuffers.cpp" compile="1"
-              resource="0" file="Source/midi/midi_0_OutgoingMidiBuffers.cpp"/>
-        <FILE id="ktqZtL" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
-              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
-        <FILE id="e0Ulxy" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
-              file="Source/midi/midi_0_RawDataTools.cpp"/>
-        <FILE id="d1FvVk" name="midi_0_RawDataTools.h" compile="0" resource="0"
-              file="Source/midi/midi_0_RawDataTools.h"/>
-        <FILE id="cqp9Zh" name="midi_1_EditBufferDataMessage.cpp" compile="1"
-              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.cpp"/>
-        <FILE id="m2dldM" name="midi_1_EditBufferDataMessage.h" compile="0"
-              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.h"/>
-        <FILE id="FqX8ke" name="midi_1_GlobalParametersDataRequest.h" compile="0"
-              resource="0" file="Source/midi/midi_1_GlobalParametersDataRequest.h"/>
-        <FILE id="RcEiNh" name="midi_1_handle_IncomingMessage_NRPN.cpp" compile="1"
-              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.cpp"/>
-        <FILE id="leSPH6" name="midi_1_handle_IncomingMessage_NRPN.h" compile="0"
-              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.h"/>
-        <FILE id="lmVhgI" name="midi_1_handle_IncomingMessage_SysEx.cpp" compile="1"
-              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.cpp"/>
-        <FILE id="ANLKoN" name="midi_1_handle_IncomingMessage_SysEx.h" compile="0"
-              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.h"/>
-        <FILE id="A3Eg3v" name="midi_1_ParameterChangeMessage.h" compile="0"
-              resource="0" file="Source/midi/midi_1_ParameterChangeMessage.h"/>
-        <FILE id="VE33jx" name="midi_1_VoiceDataMessage.cpp" compile="1" resource="0"
-              file="Source/midi/midi_1_VoiceDataMessage.cpp"/>
-        <FILE id="ityJhG" name="midi_1_VoiceDataMessage.h" compile="0" resource="0"
-              file="Source/midi/midi_1_VoiceDataMessage.h"/>
-      </GROUP>
-      <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization">
-        <FILE id="Rq1N4l" name="rndm_0_comp_AllowChoiceToggles_Base.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
-        <FILE id="gZhLty" name="rndm_0_comp_AllowChoiceToggles_Base.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.h"/>
-        <FILE id="D9LN6U" name="rndm_0_comp_AllowRepeatChoicesToggle.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
-        <FILE id="pbPBOZ" name="rndm_0_comp_AllowRepeatChoicesToggle.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle.h"/>
-        <FILE id="FW8DNo" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
-        <FILE id="allshr" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"
-              compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
-        <FILE id="sEz3Sf" name="rndm_0_comp_KnobForSeqTrackProbability.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
-        <FILE id="D8NI6J" name="rndm_0_comp_KnobForSeqTrackProbability.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
-        <FILE id="yQ2GoM" name="rndm_0_comp_LockToggleForParam.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
-        <FILE id="i2pvRt" name="rndm_0_comp_LockToggleForParam.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
-        <FILE id="MM2X2P" name="rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"
-              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
-        <FILE id="HScEwT" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
-              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
-        <FILE id="pd9HrC" name="rndm_0_comp_SeqTrackTargetStep.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
-        <FILE id="vJefHF" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
-        <FILE id="tFO25t" name="rndm_0_comp_TransmitTypeToggles.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.cpp"/>
-        <FILE id="P8pXeq" name="rndm_0_comp_TransmitTypeToggles.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.h"/>
-        <FILE id="fTtOi1" name="rndm_0_func_GroupLockStateMethods.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
-        <FILE id="PWLXBU" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
-              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
-        <FILE id="EKXOXY" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
-        <FILE id="NhQfsH" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>
-        <FILE id="IpqWHM" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
-        <FILE id="g2PjYp" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"/>
-        <FILE id="ylDeMc" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"/>
-        <FILE id="TW9JP2" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"/>
-        <FILE id="Nj678T" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
-        <FILE id="Ppdowu" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
-        <FILE id="LYDxOR" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
-        <FILE id="m6Q4Jq" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
-        <FILE id="v2yVQc" name="rndm_1_comp_AllowChoiceToggles_Standard.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
-        <FILE id="I8JQAb" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
-        <FILE id="UnglTe" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
-        <FILE id="HZEASt" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
-              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
-        <FILE id="A51nGL" name="rndm_1_comp_GroupLockStateButtons.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
-        <FILE id="uV3nfr" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
-              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
-        <FILE id="IErX2f" name="rndm_1_comp_SeqTrackProbabilities.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.cpp"/>
-        <FILE id="M6SKPX" name="rndm_1_comp_SeqTrackProbabilities.h" compile="0"
-              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.h"/>
-        <FILE id="mUqFTQ" name="rndm_2_gui_layer_AllowedChoices_Binary.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
-        <FILE id="GTbWDR" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"
-              resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.h"/>
-        <FILE id="di62ar" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
-        <FILE id="JUnBTq" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"
-              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>
-        <FILE id="cksY0Y" name="rndm_2_gui_layer_AllowedChoices_OscShape.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
-        <FILE id="hIvlJl" name="rndm_2_gui_layer_AllowedChoices_OscShape.h"
-              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
-        <FILE id="Ohqczj" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"/>
-        <FILE id="TF149J" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.h"
-              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.h"/>
-        <FILE id="CocWqT" name="rndm_2_gui_layer_AllowedChoices_Standard.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
-        <FILE id="UWLv42" name="rndm_2_gui_layer_AllowedChoices_Standard.h"
-              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.h"/>
-        <FILE id="tXYlhe" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
-        <FILE id="ADDwtW" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
-              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
-        <FILE id="WQ1dFK" name="rndm_3_gui_layer_AllowedChoicesServer.cpp"
-              compile="1" resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.cpp"/>
-        <FILE id="XB1Wss" name="rndm_3_gui_layer_AllowedChoicesServer.h" compile="0"
-              resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.h"/>
-        <FILE id="wvfJXg" name="rndm_4_gui_layer_Randomization.cpp" compile="1"
-              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.cpp"/>
-        <FILE id="KiEY65" name="rndm_4_gui_layer_Randomization.h" compile="0"
-              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.h"/>
-      </GROUP>
-      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
-        <FILE id="ASgyCX" name="up_facade_UnexposedParameters.cpp" compile="1"
-              resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.cpp"/>
-        <FILE id="rVEI3v" name="up_facade_UnexposedParameters.h" compile="0"
-              resource="0" file="Source/unexposedParameters/up_facade_UnexposedParameters.h"/>
-        <FILE id="e6qWpm" name="up_tree_GlobalOptions.cpp" compile="1" resource="0"
-              file="Source/unexposedParameters/up_tree_GlobalOptions.cpp"/>
-        <FILE id="hjtW0N" name="up_tree_GlobalOptions.h" compile="0" resource="0"
-              file="Source/unexposedParameters/up_tree_GlobalOptions.h"/>
-        <FILE id="iQ29K4" name="up_tree_TooltipsOptions.cpp" compile="1" resource="0"
-              file="Source/unexposedParameters/up_tree_TooltipsOptions.cpp"/>
-        <FILE id="tVxWoy" name="up_tree_TooltipsOptions.h" compile="0" resource="0"
-              file="Source/unexposedParameters/up_tree_TooltipsOptions.h"/>
-        <FILE id="mfU1gD" name="up_tree_VoiceTransmissionOptions.cpp" compile="1"
-              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.cpp"/>
-        <FILE id="w8QMhp" name="up_tree_VoiceTransmissionOptions.h" compile="0"
-              resource="0" file="Source/unexposedParameters/up_tree_VoiceTransmissionOptions.h"/>
-      </GROUP>
-      <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices">
-        <FILE id="ezLqgv" name="voices_0_tree_FactoryVoiceDataHexStrings.h"
-              compile="0" resource="0" file="Source/voices/voices_0_tree_FactoryVoiceDataHexStrings.h"/>
-        <FILE id="nOhhs5" name="voices_1_tree_VoicesBanks.cpp" compile="1"
-              resource="0" file="Source/voices/voices_1_tree_VoicesBanks.cpp"/>
-        <FILE id="DGCjxb" name="voices_1_tree_VoicesBanks.h" compile="0" resource="0"
-              file="Source/voices/voices_1_tree_VoicesBanks.h"/>
-        <FILE id="NquZJU" name="voices_2_comp_VoiceSlots.cpp" compile="1" resource="0"
-              file="Source/voices/voices_2_comp_VoiceSlots.cpp"/>
-        <FILE id="eEGAdt" name="voices_2_comp_VoiceSlots.h" compile="0" resource="0"
-              file="Source/voices/voices_2_comp_VoiceSlots.h"/>
-        <FILE id="gCN9bh" name="voices_3_comp_ButtonsForVoicesBankTab.h" compile="0"
-              resource="0" file="Source/voices/voices_3_comp_ButtonsForVoicesBankTab.h"/>
-        <FILE id="jDF7A8" name="voices_4_comp_TabForCustomVoicesBank.cpp" compile="1"
-              resource="0" file="Source/voices/voices_4_comp_TabForCustomVoicesBank.cpp"/>
-        <FILE id="qSIDSX" name="voices_4_comp_TabForCustomVoicesBank.h" compile="0"
-              resource="0" file="Source/voices/voices_4_comp_TabForCustomVoicesBank.h"/>
-        <FILE id="WUNTtl" name="voices_4_comp_TabForFactoryVoicesBank.cpp"
-              compile="1" resource="0" file="Source/voices/voices_4_comp_TabForFactoryVoicesBank.cpp"/>
-        <FILE id="U1KY6a" name="voices_4_comp_TabForFactoryVoicesBank.h" compile="0"
-              resource="0" file="Source/voices/voices_4_comp_TabForFactoryVoicesBank.h"/>
-        <FILE id="ZFMS32" name="voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp"
-              compile="1" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForCustomVoicesBanks.cpp"/>
-        <FILE id="VCYsyK" name="voices_5_comp_TabbedComponentForCustomVoicesBanks.h"
-              compile="0" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForCustomVoicesBanks.h"/>
-        <FILE id="zwPwrS" name="voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp"
-              compile="1" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForFactoryVoicesBanks.cpp"/>
-        <FILE id="IWwiLb" name="voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"
-              compile="0" resource="0" file="Source/voices/voices_5_comp_TabbedComponentForFactoryVoicesBanks.h"/>
-        <FILE id="SrkTlL" name="voices_6_comp_TabbedComponentForAllVoicesBanks.cpp"
-              compile="1" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForAllVoicesBanks.cpp"/>
-        <FILE id="ff9wCb" name="voices_6_comp_TabbedComponentForAllVoicesBanks.h"
-              compile="0" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForAllVoicesBanks.h"/>
-        <FILE id="JS9iAT" name="voices_6_gui_layer_BankTransmit.cpp" compile="1"
-              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.cpp"/>
-        <FILE id="eaRkCz" name="voices_6_gui_layer_BankTransmit.h" compile="0"
-              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.h"/>
-        <FILE id="Tcm3qb" name="voices_7_gui_layer_VoicesBanks.cpp" compile="1"
-              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.cpp"/>
-        <FILE id="Ncnbjk" name="voices_7_gui_layer_VoicesBanks.h" compile="0"
-              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.h"/>
-      </GROUP>
-      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport">
-        <FILE id="Af9tcY" name="imEx_0_FileFilters.h" compile="0" resource="0"
-              file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
-        <FILE id="J4WIVM" name="imEx_0_gui_layer_FileNotValidAlert.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.cpp"/>
-        <FILE id="QxPneU" name="imEx_0_gui_layer_FileNotValidAlert.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.h"/>
-        <FILE id="ZvoXFB" name="imEx_0_gui_layer_FileOverwriteDialog.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
-        <FILE id="DELqkQ" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
-        <FILE id="E5sIYX" name="imEx_0_gui_layer_FolderExistsAlert.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.cpp"/>
-        <FILE id="HrzmNq" name="imEx_0_gui_layer_FolderExistsAlert.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.h"/>
-        <FILE id="ETk9SM" name="imEx_1_gui_layer_NewFolderDialog.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
-        <FILE id="LYHmjp" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
-        <FILE id="BC9TqD" name="imEx_2_gui_layer_ImportExport_Base.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
-        <FILE id="IKP7Sj" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
-        <FILE id="qA3oI2" name="imEx_3_gui_layer_Export_Voice.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.cpp"/>
-        <FILE id="QJfYSY" name="imEx_3_gui_layer_Export_Voice.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.h"/>
-        <FILE id="A28V4Q" name="imEx_3_gui_layer_Export_VoicesBank.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.cpp"/>
-        <FILE id="sDomFJ" name="imEx_3_gui_layer_Export_VoicesBank.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"/>
-        <FILE id="HT6ElY" name="imEx_3_gui_layer_Import_Voice.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.cpp"/>
-        <FILE id="j5hbcs" name="imEx_3_gui_layer_Import_Voice.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.h"/>
-        <FILE id="eJSp1D" name="imEx_3_gui_layer_Import_VoicesBank.cpp" compile="1"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.cpp"/>
-        <FILE id="mEuWdr" name="imEx_3_gui_layer_Import_VoicesBank.h" compile="0"
-              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"/>
-      </GROUP>
+      <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global"/>
+      <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui"/>
+      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi"/>
+      <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
+      <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters"/>
+      <GROUP id="{DA0BA51E-F345-DC2C-92A1-500EFBC4BFA5}" name="voices"/>
+      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

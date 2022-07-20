@@ -25,6 +25,7 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 	button_ExportBank{ bank, unexposedParams },
 	button_ImportBank{ bank, unexposedParams }
 {
+	jassert(bank >= VoicesBank::custom_1);
 	auto buttonsRow_y{ 334 };
 	addAndMakeVisible(voiceSlots);
 	voiceSlots.setTopLeftPosition(15, 14);

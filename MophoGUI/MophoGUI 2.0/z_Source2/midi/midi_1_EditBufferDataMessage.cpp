@@ -23,10 +23,13 @@ void EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(
 }
 
 std::vector<uint8> EditBufferDataMessage::createEditBufferDataMessage(ExposedParameters* exposedParams) {
+    const int editBufferDataVectorSize{ 293 };
     auto editBufferDataVector{ RawDataTools::createRawDataVectorWithSysExIDheaderBytesForMopho() };
     editBufferDataVector.push_back((uint8)SysExMessageType::editBufferData);
     auto rawVoiceData{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
     for (auto dataByte : rawVoiceData)
         editBufferDataVector.push_back(dataByte);
+    for (auto emptyByte = rawVoiceData.size(); emptyByte != editBufferDataVectorSize; ++emptyByte)
+        editBufferDataVector.push_back((uint8)0);
     return editBufferDataVector;
 }

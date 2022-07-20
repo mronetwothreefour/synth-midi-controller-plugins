@@ -4,20 +4,21 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_facade_UnexposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
 using namespace MophoConstants;
 
 
 
-LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams) :
 	paramIndex{ paramIndex },
-	randomization{ unexposedParams->getRandomizationOptions() }
+	lockStateValue{ exposedParams->randomization->getLockStateValueForParam(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 
-	auto controlType{ exposedParams->info.controlTypeFor(paramIndex) };
+	lockStateValue.addListener(this);
+
+	auto controlType{ exposedParams->info->controlTypeFor(paramIndex) };
 	switch (controlType)
 	{
 	case MophoConstants::ControlType::knob:
@@ -38,7 +39,7 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* expo
 		break;
 	case MophoConstants::ControlType::comboBox:
 		setComponentID(ID::component_ToggleLock_ComboBox_Param_.toString() + (String)paramIndex);
-		setSize(exposedParams->info.widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
+		setSize(exposedParams->info->widthFor(paramIndex), GUI::lockAndUnlockIcons_h);
 		break;
 	case MophoConstants::ControlType::seqTrackStep:
 		setComponentID(ID::component_ToggleLock_SeqStep_Param_.toString() + (String)paramIndex);
@@ -51,6 +52,14 @@ LockToggleForParam::LockToggleForParam(uint8 paramIndex, ExposedParameters* expo
 	default:
 		break;
 	}
-	setToggleState(randomization->paramIsLocked(paramIndex), dontSendNotification);
+	setToggleState(exposedParams->randomization->paramIsLocked(paramIndex), dontSendNotification);
+}
+
+void LockToggleForParam::valueChanged(Value& /*value*/) {
+	setToggleState((bool)lockStateValue.getValue(), dontSendNotification);
+}
+
+LockToggleForParam::~LockToggleForParam() {
+	lockStateValue.removeListener(this);
 }
 

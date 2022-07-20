@@ -12,7 +12,8 @@ using Track = SeqTrackNum;
 
 
 
-class RandomizationOptions;
+class ExposedParameters;
+class ExposedParamsRandomizationOptions;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -22,13 +23,14 @@ class KnobForSeqTrackProbability :
 {
 	KnobType knobType;
 	Track track;
-	RandomizationOptions* randomization;
+	ExposedParamsRandomizationOptions* randomization;
+	ValueTree trackTree;
 	TooltipsOptions* tooltips;
 
 public:
 	KnobForSeqTrackProbability() = delete;
 
-	KnobForSeqTrackProbability(KnobType knobType, Track track, UnexposedParameters* unexposedParams);
+	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueChanged() override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;

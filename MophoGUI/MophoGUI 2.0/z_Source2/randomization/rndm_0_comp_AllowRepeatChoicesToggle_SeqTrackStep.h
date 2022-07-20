@@ -10,7 +10,7 @@ using Track = SeqTrackNum;
 
 
 
-class RandomizationOptions;
+class ExposedParamsRandomizationOptions;
 class UnexposedParameters;
 
 class AllowRepeatChoicesToggle_SeqTrackStep :
@@ -19,13 +19,14 @@ class AllowRepeatChoicesToggle_SeqTrackStep :
 {
 	Track track;
 	Step step;
-	RandomizationOptions* randomization;
+	ExposedParamsRandomizationOptions* randomization;
+	ValueTree trackTree;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:
 	AllowRepeatChoicesToggle_SeqTrackStep() = delete;
 
-	AllowRepeatChoicesToggle_SeqTrackStep(Track track, Step step, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle_SeqTrackStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~AllowRepeatChoicesToggle_SeqTrackStep();

@@ -5,13 +5,14 @@
 
 
 class ExposedParameters;
+class ExposedParamsRandomizationMethods;
 class GlobalOptions;
 class GUI_Layer_CommError_NRPN;
 class GUI_Layer_CommError_SysEx;
 class GUI_Layer_GlobalParameters;
 class GUI_Layer_Randomization;
 class GUI_Layer_VoicesBanks;
-class ParamRandomizationMethods;
+class InfoForExposedParameters;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -23,6 +24,9 @@ class GUI_Layer_MainWindowButtons :
 	private Timer
 {
 	ExposedParameters* exposedParams;
+	AudioProcessorValueTreeState* state;
+	InfoForExposedParameters* info;
+	ExposedParamsRandomizationMethods* randomize;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	TooltipsOptions* tooltips;
@@ -37,7 +41,6 @@ class GUI_Layer_MainWindowButtons :
 	TextButton button_Redo;
 	HyperlinkButton button_Hyperlink;
 	TextButton buttons_ForClearingSeqTracks[4];
-	std::unique_ptr<ParamRandomizationMethods> randomize;
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	std::unique_ptr<GUI_Layer_GlobalParameters> layer_GlobalParams;
 	std::unique_ptr<GUI_Layer_CommError_NRPN> layer_CommError_NRPN;

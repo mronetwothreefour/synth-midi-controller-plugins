@@ -16,8 +16,8 @@ using Track = SeqTrackNum;
 
 
 
-class ParamRandomizationMethods;
-class RandomizationOptions;
+class ExposedParameters;
+class ExposedParamsRandomizationOptions;
 class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_SeqTrack :
@@ -27,13 +27,14 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 	Track track;
 	bool destIsPitched;
 	UnexposedParameters* unexposedParams;
-	RandomizationOptions* randomization;
+	ExposedParamsRandomizationOptions* randomization;
+	ValueTree trackTree;
 	TextButton button_AllowAll;
 	std::unique_ptr<AllowRepeatChoicesToggle_SeqTrackStep> repeatChoices;
 	ButtonForHidingLayer button_Close;
 	SeqTrackTargetStep targetStepSelector;
-	SeqTrackProbabilities probabilities;
-	std::unique_ptr <AllowChoiceToggles_SeqTrackStep> allowChoiceToggles;
+	std::unique_ptr<SeqTrackProbabilities> probabilities;
+	std::unique_ptr<AllowChoiceToggles_SeqTrackStep> allowChoiceToggles;
 	RandomizeButtonForAllowedChoices_SeqTrack button_Randomize;
 	int background_x;
 	int background_y;
@@ -44,10 +45,10 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 public:
 	GUI_Layer_AllowedChoices_SeqTrack() = delete;
 
-	GUI_Layer_AllowedChoices_SeqTrack(Track track, bool destIsPitched, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_SeqTrack(Track track, bool destIsPitched, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 
 private:
-	void resetToggles();
+	void resetKnobsAndToggles();
 
 public:
 	void paint(Graphics& g) override;

@@ -1,34 +1,38 @@
-#include "core_0_PluginProcessor.h"
 #include "core_1_PluginEditor.h"
 
+#include "core_0_PluginProcessor.h"
 #include "constants/constants_GUI_Dimensions.h"
 #include "constants/constants_Identifiers.h"
-#include "gui/gui_LookAndFeel.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
 #include "gui/gui_layer_MainWindowButtons.h"
+#include "gui/gui_LookAndFeel.h"
 #include "unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
 
 
-
-PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
-    AudioProcessorEditor{ &processor },
-    processor{ processor },
+PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+    AudioProcessorEditor (&processor), 
+    processor (processor),
     tooltips{ unexposedParams->getTooltipsOptions() },
     lookAndFeel{ new MophoLookAndFeel() },
-    layerForEnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
-    layerForExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
-    layerForButtons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
+    layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters(exposedParams) },
+    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls(exposedParams, unexposedParams) },
+    layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     tooltipWindow{ new TooltipWindow() }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
 
-    addAndMakeVisible(layerForEnvelopePainters.get());
-    addAndMakeVisible(layerForExposedParamControls.get());
-    addAndMakeVisible(layerForButtons.get());
+    layer_EnvelopePainters->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_EnvelopePainters.get());
+
+    layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_ExposedParamControls.get());
+
+    layer_Buttons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_Buttons.get());
 
     tooltips->addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -37,28 +41,25 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
 
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
-    layerForEnvelopePainters->setBounds(getLocalBounds());
-    layerForExposedParamControls->setBounds(getLocalBounds());
-    layerForButtons->setBounds(getLocalBounds());
 }
 
-void PluginEditor::paint(Graphics& g) {
+void PluginEditor::paint (Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::bkgrnd_MainWindow_png, BinaryData::bkgrnd_MainWindow_pngSize, false };
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
     g.drawImageAt(backgroundImage, 0, 0);
 }
 
-void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-    if (property == ID::tooltips_DelayInMilliseconds) {
+void PluginEditor::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+    if (propertyID == ID::tooltips_DelayInMilliseconds) {
         tooltipWindow->setMillisecondsBeforeTipAppears(tooltips->delayInMilliseconds());
     }
 }
 
 PluginEditor::~PluginEditor() {
+    layer_EnvelopePainters = nullptr;
+    layer_ExposedParamControls = nullptr;
+    layer_Buttons = nullptr;
     tooltips->removeListener(this);
     tooltipWindow = nullptr;
-    layerForButtons = nullptr;
-    layerForExposedParamControls = nullptr;
-    layerForEnvelopePainters = nullptr;
 }

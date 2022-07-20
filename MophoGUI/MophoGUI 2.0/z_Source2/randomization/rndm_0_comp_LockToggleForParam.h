@@ -5,19 +5,20 @@
 
 
 class ExposedParameters;
-class RandomizationOptions;
-class UnexposedParameters;
 
 class LockToggleForParam :
-	public ToggleButton
+	public ToggleButton,
+	public Value::Listener
 {
 	uint8 paramIndex;
-	RandomizationOptions* randomization;
+	Value lockStateValue;
 
 public:
 	LockToggleForParam() = delete;
 
-	LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	LockToggleForParam(uint8 paramIndex, ExposedParameters* exposedParams);
+	void valueChanged(Value& value) override;
+	~LockToggleForParam();
 
 private:
 	//==============================================================================

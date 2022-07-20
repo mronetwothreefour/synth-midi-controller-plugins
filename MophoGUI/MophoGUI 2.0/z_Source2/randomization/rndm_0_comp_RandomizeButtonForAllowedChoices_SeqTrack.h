@@ -2,10 +2,10 @@
 
 #include <JuceHeader.h>
 
-#include "rndm_0_ParamRandomizationMethods.h"
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -19,7 +19,7 @@ class RandomizeButtonForAllowedChoices_SeqTrack :
 public:
 	RandomizeButtonForAllowedChoices_SeqTrack() = delete;
 
-	RandomizeButtonForAllowedChoices_SeqTrack(Track track, ParamRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
+	RandomizeButtonForAllowedChoices_SeqTrack(Track track, ExposedParamsRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::button_Randomize.toString());
 		onClick = [track, randomize] { randomize->randomizeSeqTrack(track); };

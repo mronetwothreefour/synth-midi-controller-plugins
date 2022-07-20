@@ -1,19 +1,23 @@
 #include "rndm_1_comp_SeqTrackProbabilities.h"
 
+#include "../constants/constants_GUI_Colors.h"
+#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+
+using namespace MophoConstants;
 using KnobType = SeqTrackProbabilityKnobType;
 
 
 
-SeqTrackProbabilities::SeqTrackProbabilities(Track track, UnexposedParameters* unexposedParams) :
+SeqTrackProbabilities::SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
 	track{ track },
-	knob_DuplicateProbability{ KnobType::duplicate, track, unexposedParams },
-	knob_ResetProbability{ KnobType::reset, track, unexposedParams }
+	knob_DuplicateProbability{ KnobType::duplicate, track, randomization, unexposedParams },
+	knob_ResetProbability{ KnobType::reset, track, randomization, unexposedParams }
 {
 	auto isTrackOne{ track == Track::one };
 	auto knobRow_y{ 19 };
 
 	if (isTrackOne) {
-		knob_RestProbability.reset(new KnobForSeqTrackProbability{ KnobType::rest, track, unexposedParams });
+		knob_RestProbability.reset(new KnobForSeqTrackProbability{ KnobType::rest, track, randomization, unexposedParams });
 		if (knob_RestProbability != nullptr) {
 			knob_RestProbability->setTopLeftPosition(0, knobRow_y);
 			addAndMakeVisible(knob_RestProbability.get());
@@ -39,6 +43,21 @@ void SeqTrackProbabilities::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ mBlock, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 0, 0);
+
+	g.setFont(GUI::fontFor_KnobValueDisplays);
+	g.setColour(GUI::color_White);
+	auto currentValue{ 0 };
+
+	if (track == Track::one) {
+		currentValue = roundToInt(knob_RestProbability->getValue() * 100.0);
+		g.drawText((String)currentValue + "%", knob_RestProbability->getBounds(), Justification::centred);
+	}
+
+	currentValue = roundToInt(knob_DuplicateProbability.getValue() * 100.0);
+	g.drawText((String)currentValue + "%", knob_DuplicateProbability.getBounds(), Justification::centred);
+
+	currentValue = roundToInt(knob_ResetProbability.getValue() * 100.0);
+	g.drawText((String)currentValue + "%", knob_ResetProbability.getBounds(), Justification::centred);
 }
 
 SeqTrackProbabilities::~SeqTrackProbabilities() {

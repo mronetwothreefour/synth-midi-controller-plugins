@@ -6,9 +6,6 @@
 
 
 
-class ExposedParameters;
-class UnexposedParameters;
-
 class ExposedParamControlsServer
 {
 	ExposedParameters* exposedParams;

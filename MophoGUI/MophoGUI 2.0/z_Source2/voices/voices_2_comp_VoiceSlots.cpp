@@ -9,6 +9,8 @@
 #include "../midi/midi_1_VoiceDataMessage.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
+using Bank = VoicesBank;
+
 
 
 VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
@@ -17,11 +19,12 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 	unexposedParams{ unexposedParams },
 	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	voicesBanks{ unexposedParams->getVoicesBanks() },
+	customVoiceNamesTree{ bank >= Bank::custom_1 ? unexposedParams->getVoicesBanks()->getVoiceNamesChildTreeForCustomBank(bank) : ValueTree{ " " } },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
-		voicesBanks->addListenerToNameStringsForCustomBank(this, bank);
+	if (bank >= Bank::custom_1)
+		customVoiceNamesTree.addListener(this);
 
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltipsOptions->shouldShowDescriptions() };
@@ -47,13 +50,14 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 	setSize(voiceSlots_w, voiceSlots_h);
 }
 
-void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slot) {
-	auto slotString{ String(slot + 1) };
-	slotString = slotString.paddedLeft('0', 3);
-	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
+void VoiceSlots::setTextForVoiceSlotToggleButton(uint8 slotNum) {
+	auto slotNumString{ String(slotNum + 1) };
+	slotNumString = slotNumString.paddedLeft('0', 3);
+	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slotNum) };
 	MessageManagerLock mmlock;
-	voiceSlotButtons[slot].setName(slotString + " " + voiceName);
-	voiceSlotButtons[slot].repaint();
+	voiceSlotButtons[slotNum].setName(slotNumString + " " + voiceName);
+	voiceSlotButtons[slotNum].repaint();
+	repaint();
 }
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
@@ -62,7 +66,6 @@ void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 		setTextForVoiceSlotToggleButton(selectedSlot);
-		repaint();
 	}
 }
 
@@ -93,16 +96,17 @@ void VoiceSlots::pushSelectedVoiceToHardware() {
 	}
 }
 
-void VoiceSlots::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& property) {
-	auto propertyName{ property.toString() };
-	auto slotString{ propertyName.fromLastOccurrenceOf("voice_", false, true) };
-	setTextForVoiceSlotToggleButton((uint8)slotString.getIntValue());
+void VoiceSlots::valueTreePropertyChanged(ValueTree& /*tree*/, const Identifier& propertyID) {
+	auto propertyName{ propertyID.toString() };
+	auto slotString{ propertyName.fromLastOccurrenceOf("slot_", false, true) };
+	auto slotNum{ slotString.getIntValue() };
+	setTextForVoiceSlotToggleButton((uint8)slotNum);
 }
 
 void VoiceSlots::timerCallback() {
 }
 
 VoiceSlots::~VoiceSlots() {
-	if (bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3)
-		voicesBanks->removeListenerFromNameStringsForCustomBank(this, bank);
+	if (bank >= Bank::custom_1)
+		customVoiceNamesTree.addListener(this);
 }

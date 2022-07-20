@@ -3,22 +3,25 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
-KnobForSeqTrackProbability::KnobForSeqTrackProbability(KnobType knobType, Track track, UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMoveOverride{ unexposedParams },
+KnobForSeqTrackProbability::KnobForSeqTrackProbability(
+	KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+	RotarySliderWithMouseWheelMoveOverride{ nullptr },
 	knobType{ knobType },
 	track{ track },
-	randomization{ unexposedParams->getRandomizationOptions() },
+	randomization{ randomization },
+	trackTree{ randomization->getChildTreeForSeqTrack(track) },
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	if (knobType == KnobType::rest)
 		jassert(track == Track::one);
-	randomization->addListenerToSeqTrackTree(this, track);
+	trackTree.addListener(this);
 
-	setRange(0.0, 100.0, 1.0);
+	setRange(0.0, 1.0, 0.01);
 	setMouseDragSensitivity(130);
 
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
@@ -29,12 +32,24 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(KnobType knobType, Track 
 		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep));
 		break;
 	case KnobType::duplicate:
-		setValue((double)randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep));
-		setDoubleClickReturnValue(true, 0.0);
+		if (targetStep == Step::one) {
+			setValue(0.0);
+			setEnabled(false);
+		}
+		else {
+			setValue((double)randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep));
+			setDoubleClickReturnValue(true, 0.0);
+		}
 		break;
 	case KnobType::reset:
-		setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep));
-		setDoubleClickReturnValue(true, 0.0);
+		if (targetStep == Step::one) {
+			setValue(0.0);
+			setEnabled(false);
+		}
+		else {
+			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep));
+			setDoubleClickReturnValue(true, 0.0);
+		}
 		break;
 	default:
 		break;
@@ -89,11 +104,12 @@ void KnobForSeqTrackProbability::updateTooltip() {
 	default:
 		break;
 	}
+	setTooltip(tip);
 }
 
 void KnobForSeqTrackProbability::valueChanged() {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	auto newValue{ (float)getValue() / 100.0f };
+	auto newValue{ (float)getValue() };
 	switch (knobType)
 	{
 	case KnobType::rest:
@@ -116,7 +132,7 @@ void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, c
 		switch (knobType)
 		{
 		case KnobType::rest:
-			setValue(randomization->probabilityOfRestForSeqTrack_1_Step(targetStep) * 100.0, sendNotification);
+			setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), sendNotification);
 			break;
 		case KnobType::duplicate:
 			if (targetStep == Step::one) {
@@ -125,7 +141,7 @@ void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, c
 			}
 			else {
 				setEnabled(true);
-				setValue(randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep) * 100.0, sendNotification);
+				setValue((double)randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep), sendNotification);
 			}
 			break;
 		case KnobType::reset:
@@ -135,7 +151,7 @@ void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, c
 			}
 			else {
 				setEnabled(true);
-				setValue(randomization->probabilityOfResetForSeqTrackStep(track, targetStep) * 100.0, sendNotification);
+				setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), sendNotification);
 			}
 			break;
 		default:
@@ -146,5 +162,5 @@ void KnobForSeqTrackProbability::valueTreePropertyChanged(ValueTree& /*tree*/, c
 }
 
 KnobForSeqTrackProbability::~KnobForSeqTrackProbability() {
-	randomization->removeListenerFromSeqTrackTree(this, track);
+	trackTree.removeListener(this);
 }

@@ -3,7 +3,7 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -12,12 +12,14 @@ using namespace MophoConstants;
 
 AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
-	randomization{ unexposedParams->getRandomizationOptions() }
+	info{ exposedParams->info.get() },
+	randomization{ exposedParams->randomization.get() },
+	paramTree{ exposedParams->randomization->getChildTreeForParam(paramIndex) }
 {
-	auto allowedChoicesType{ exposedParams->info.allowedChoicesTypeFor(paramIndex) };
+	auto allowedChoicesType{ info->allowedChoicesTypeFor(paramIndex) };
 	jassert(allowedChoicesType != AllowedChoicesType::seqTrackStep);
 	if (allowedChoicesType != AllowedChoicesType::binary)
-		randomization->addListenerToChildTreeForParam(this, paramIndex);
+		paramTree.addListener(this);
 	toggle_AllowRepeatChoices.setComponentID(ID::component_RedToggle_AllowRepeatChoices.toString());
 	toggle_AllowRepeatChoices.onClick = [this, paramIndex] {
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
@@ -25,7 +27,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 	};
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescriptions()) {
-		auto numberOfChoices{ exposedParams->info.numberOfChoicesFor(paramIndex) };
+		auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";
 		tip += "when a new setting is randomly generated. If it\n";
@@ -51,7 +53,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 		toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 	}
 	else {
-		ValueTree placeholderTree{ exposedParams->info.IDfor(paramIndex) };
+		ValueTree placeholderTree{ info->IDfor(paramIndex) };
 		valueTreePropertyChanged(placeholderTree, ID::rndm_OnlyOneChoiceIsAllowed);
 	}
 
@@ -80,6 +82,6 @@ void AllowRepeatChoicesToggle::valueTreePropertyChanged(ValueTree& /*tree*/, con
 }
 
 AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
-	if (exposedParams->info.allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
-		randomization->removeListenerFromChildTreeForParam(this, paramIndex);
+	if (info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
+		paramTree.removeListener(this);
 }

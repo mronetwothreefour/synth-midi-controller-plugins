@@ -3,13 +3,14 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
-SeqTrackTargetStep::SeqTrackTargetStep(Track track, UnexposedParameters* unexposedParams) :
+SeqTrackTargetStep::SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
 	track{ track },
-	randomization{ unexposedParams->getRandomizationOptions() }
+	randomization{ randomization }
 {
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
@@ -21,7 +22,7 @@ SeqTrackTargetStep::SeqTrackTargetStep(Track track, UnexposedParameters* unexpos
 	for (auto step = (int)Step::one; step <= (int)Step::sixteen; ++step)
 		stepList.add((String)step);
 	stepSelector.addItemList(stepList, 1);
-	stepSelector.setSelectedId((int)randomization->targetStepForSeqTrack(track), dontSendNotification);
+	stepSelector.setSelectedId((int)randomization->targetStepForSeqTrack(track) + 1, dontSendNotification);
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Selects which step in sequencer\n";
@@ -42,7 +43,7 @@ void SeqTrackTargetStep::paint(Graphics& g) {
 }
 
 void SeqTrackTargetStep::comboBoxChanged(ComboBox* /*comboBox*/) {
-	auto selectedStep{ stepSelector.getSelectedId() };
+	auto selectedStep{ stepSelector.getSelectedId() - 1 };
 	randomization->setTargetStepForSeqTrack(Step{ selectedStep }, track);
 	getParentComponent()->repaint();
 }

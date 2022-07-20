@@ -1,16 +1,18 @@
 #include "rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"
 
 #include "../constants/constants_ExposedParameters.h"
-#include "../exposedParameters/ep_build_ChoiceNamesValueTree.h"
+#include "../exposedParameters/ep_0_build_ChoiceNamesValueTree.h"
+#include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 
 
-AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(Track track, Step step, bool destIsPitched, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(
+	Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
 	track{ track },
-	step{ step },
+	step{ randomization->targetStepForSeqTrack(track) },
 	destIsPitched{ destIsPitched },
-	randomization{ unexposedParams->getRandomizationOptions() },
+	randomization{ randomization },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	AllowChoiceToggles_Base{ 
 		EP::numberOfChoicesForSeqTrackSteps, 
@@ -35,14 +37,13 @@ String AllowChoiceToggles_SeqTrackStep::buildChoiceName(uint8 choiceNum) {
 }
 
 String AllowChoiceToggles_SeqTrackStep::buildTooltip() {
-	auto shouldShowDescriptions{ tooltips->shouldShowDescriptions() };
 	String trackAndStepString{ "" };
 	if (step == Step::all)
 		trackAndStepString = "all steps in sequencer track " + String((int)track);
 	else
 		trackAndStepString = "step " + String((int)step) + " in sequencer track " + String((int)track);
 	String tip{ "" };
-	if (shouldShowDescriptions) {
+	if (tooltips->shouldShowDescriptions()) {
 		tip += "Click a choice to toggle whether or not it\n";
 		tip += "is allowed when generating a random setting\n";
 		tip += "for " + trackAndStepString + ".\n";

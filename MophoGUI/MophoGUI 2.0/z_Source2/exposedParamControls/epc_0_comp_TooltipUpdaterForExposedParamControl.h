@@ -5,6 +5,7 @@
 
 
 class ExposedParameters;
+class InfoForExposedParameters;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -14,7 +15,8 @@ class TooltipUpdaterForExposedParamControl :
 {
 	uint8 paramIndex;
 	SettableTooltipClient& clientControl;
-	ExposedParameters* exposedParams;
+	AudioProcessorValueTreeState* state;
+	InfoForExposedParameters* info;
 	TooltipsOptions* tooltips;
 
 public:
@@ -29,7 +31,7 @@ private:
 public:
 	void parameterValueChanged(int changedParamIndex, float newValue);
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting);
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~TooltipUpdaterForExposedParamControl();
 
 private:

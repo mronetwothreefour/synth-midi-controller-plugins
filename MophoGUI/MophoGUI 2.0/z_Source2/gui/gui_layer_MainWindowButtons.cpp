@@ -7,13 +7,12 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Voices.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../global/global_1_gui_layer_CommError_NRPN.h"
 #include "../global/global_1_gui_layer_CommError_SysEx.h"
 #include "../global/global_2_gui_layer_GlobalParams.h"
 #include "../midi/midi_1_EditBufferDataMessage.h"
 #include "../midi/midi_1_GlobalParametersDataRequest.h"
-#include "../randomization/rndm_0_ParamRandomizationMethods.h"
 #include "../randomization//rndm_4_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 #include "../voices/voices_7_gui_layer_VoicesBanks.h"
@@ -26,9 +25,11 @@ using EditBuffer = EditBufferDataMessage;
 
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
+    state{ exposedParams->state.get() },
+    info{ exposedParams->info.get() },
+    randomize{ exposedParams->randomize.get() },
     unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
-    randomize{ new ParamRandomizationMethods(exposedParams, unexposedParams) },
     tooltips{ unexposedParams->getTooltipsOptions() },
     voiceNameEditor{ "voiceNameEditor", "" },
     button_Hyperlink{ "", URL("https://programming.mr1234.com/") }
@@ -176,8 +177,8 @@ void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
 String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
     std::string currentVoiceName{ "" };
     for (auto charNum = 0; charNum != VCS::numberOfCharsInVoiceName; ++charNum) {
-        auto paramID{ exposedParams->info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + charNum)) };
-        auto paramPtr{ exposedParams->state.getParameter(paramID) };
+        auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamIndex + charNum)) };
+        auto paramPtr{ state->getParameter(paramID) };
         if (paramPtr != nullptr)
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
     }
@@ -222,8 +223,8 @@ void GUI_Layer_MainWindowButtons::timerCallback(int timerID) {
 }
 
 void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
-    auto paramID{ exposedParams->info.IDfor(uint8(EP::firstVoiceNameCharParamNumber + nameCharNum)) };
-    auto paramPtr{ exposedParams->state.getParameter(paramID) };
+    auto paramID{ info->IDfor(uint8(EP::firstVoiceNameCharParamIndex + nameCharNum)) };
+    auto paramPtr{ state->getParameter(paramID) };
     if (paramPtr != nullptr)
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)voiceName[nameCharNum]));
     if (nameCharNum < VCS::numberOfCharsInVoiceName - 1) {
@@ -236,8 +237,8 @@ void GUI_Layer_MainWindowButtons::updateExposedParamForNameChar() {
 
 void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) {
     auto clearedValue{ trackNum == 0 ? 1.0f : 0.0f };
-    auto paramID{ exposedParams->info.IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
-    auto param{ exposedParams->state.getParameter(paramID) };
+    auto paramID{ info->IDfor(uint8(EP::firstSeqStepParamIndex + trackNum * 16 + stepNum)) };
+    auto param{ state->getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);
 }
@@ -296,7 +297,7 @@ void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
 
 void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
     layer_Randomization = nullptr;
-    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams, randomize.get() });
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams });
     if (layer_Randomization != nullptr) {
         addAndMakeVisible(layer_Randomization.get());
         layer_Randomization->setBounds(getLocalBounds());
@@ -320,7 +321,6 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_CommError_NRPN = nullptr;
     layer_CommError_SysEx = nullptr;
     layer_Randomization = nullptr;
-    randomize = nullptr;
     tooltips->removeListener(this);
     button_Randomize.removeMouseListener(this);
     voiceNameEditor.removeListener(this);

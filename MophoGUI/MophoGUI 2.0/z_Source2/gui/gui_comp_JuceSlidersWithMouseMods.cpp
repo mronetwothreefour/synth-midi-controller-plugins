@@ -2,36 +2,40 @@
 
 
 
-SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
+SliderWithMouseWheelMoveOverride::SliderWithMouseWheelMoveOverride(UndoManager* undoManager) :
 	isModifyingPitch{ false },
 	isModifyingSeqStep{ false },
-	undoManager{ unexposedParams->getUndoManager() }
+	undoManager{ undoManager }
 {
 }
 
 void SliderWithMouseWheelMoveOverride::mouseWheelMove(const MouseEvent& event, const MouseWheelDetails& wheel) {
-	undoManager->beginNewTransaction();
-	auto delta{ wheel.deltaY };
-	auto currentValue{ getValue() };
-	auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
-	if (delta != 0.0f) {
-		if (event.mods == ModifierKeys::shiftModifier) {
-			if (isModifyingPitch)
-				interval *= isModifyingSeqStep ? 24.0 : 12.0;
-			else
-				interval *= 10.0;
+	if (isEnabled() == true) {
+		if (undoManager != nullptr)
+			undoManager->beginNewTransaction();
+		auto delta{ wheel.deltaY };
+		auto currentValue{ getValue() };
+		auto interval{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
+		if (delta != 0.0f) {
+			if (event.mods == ModifierKeys::shiftModifier) {
+				if (isModifyingPitch)
+					interval *= isModifyingSeqStep ? 24.0 : 12.0;
+				else
+					interval *= 10.0;
+			}
+			setValue(currentValue + interval);
 		}
-		setValue(currentValue + interval);
+		if (undoManager != nullptr)
+			undoManager->beginNewTransaction();
 	}
-	undoManager->beginNewTransaction();
 }
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 
-RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(UnexposedParameters* unexposedParams) :
-	SliderWithMouseWheelMoveOverride{ unexposedParams }
+RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(UndoManager* undoManager) :
+	SliderWithMouseWheelMoveOverride{ undoManager }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
@@ -45,8 +49,8 @@ RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(U
 
 
 
-RotarySliderWithMouseDownModForOscShape::RotarySliderWithMouseDownModForOscShape(UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMoveOverride{ unexposedParams }
+RotarySliderWithMouseDownModForOscShape::RotarySliderWithMouseDownModForOscShape(UndoManager* undoManager) :
+	RotarySliderWithMouseWheelMoveOverride{ undoManager }
 {
 }
 
@@ -79,8 +83,8 @@ void RotarySliderWithMouseDownModForOscShape::mouseDown(const MouseEvent& event)
 
 
 
-RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(Track track, UnexposedParameters* unexposedParams) :
-	RotarySliderWithMouseWheelMoveOverride{ unexposedParams },
+RotarySliderWithMouseDownModForSeqStep::RotarySliderWithMouseDownModForSeqStep(Track track, UndoManager* undoManager) :
+	RotarySliderWithMouseWheelMoveOverride{ undoManager },
 	track{ track }
 {
 }

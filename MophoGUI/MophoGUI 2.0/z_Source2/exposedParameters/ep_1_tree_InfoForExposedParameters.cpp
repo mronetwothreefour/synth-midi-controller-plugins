@@ -1,17 +1,21 @@
 #include "ep_1_tree_InfoForExposedParameters.h"
 
 #include "ep_0_build_ChoiceNamesValueTree.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../descriptions/build_ExposedParamDescription.h"
 
+using namespace MophoConstants;
 using Description = ExposedParamDescription;
 using ChoiceNames = ExposedParamChoiceNamesValueTree;
 
+
+
 InfoForExposedParameters::InfoForExposedParameters() :
-	exposedParamsInfoTree{ ID::tree_ExposedParamsInfo }
+	exposedParamsInfoTree{ ID::exposedParamsInfo }
 {
 	const int horizDistanceBtwnColumns{ GUI::knob_diameter + 5 };
 	const int controlsCol_1_x{ 48 };
@@ -28,24 +32,24 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const int allowedChoicesOffset_Knobs{ GUI::knob_diameter / 2 + 10 };
 	const int allowedChoicesOffset_Toggles{ GUI::toggleLockButton_diameter / 2 + 10 };
 
-	const int firstAllowChoiceRow_PosNeg_127{ 14 };
+	const int firstAllowChoiceRow_PlusMinus127{ 14 };
 
-	const int numberOfAllowChoiceColumns_0_To_127{ 16 };
+	const int numberOfAllowChoiceColumns_0to127{ 16 };
 	const int numberOfAllowChoiceColumns_ModDestination{ 3 };
 	const int numberOfAllowChoiceColumns_ModSource{ 2 };
 	const int numberOfAllowChoiceColumns_OscPitch{ 11 };
-	const int numberOfAllowChoiceColumns_PosNeg_127{ 14 };
+	const int numberOfAllowChoiceColumns_PlusMinus127{ 14 };
 
-	const int numberOfAllowChoiceRows_0_To_127{ 8 };
+	const int numberOfAllowChoiceRows_0to127{ 8 };
 	const int numberOfAllowChoiceRows_ModDestination{ 16 };
 	const int numberOfAllowChoiceRows_ModSource{ 12 };
-	const int numberOfAllowChoiceRows_PosNeg_127{ 20 };
+	const int numberOfAllowChoiceRows_PlusMinus127{ 20 };
 	const int numberOfAllowChoiceRows_Pitch{ 12 };
 
-	const int widthOfAllowChoiceColumns_0_To_127{ 26 };
+	const int widthOfAllowChoiceColumns_0to127{ 26 };
 	const int widthOfAllowChoiceColumns_ModSourceAndDestination{ 130 };
 	const int widthOfAllowChoiceColumns_OscPitch{ 38 };
-	const int widthOfAllowChoiceColumns_PosNeg_127{ 32 };
+	const int widthOfAllowChoiceColumns_PlusMinus127{ 32 };
 
 	auto concise{ false };
 	auto verbose{ true };
@@ -73,7 +77,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForOscPitch(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscPitch(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_OscPitch },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_OscPitch },
@@ -82,10 +86,10 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscPitch(concise) },
-					ValueTree{ ChoiceNames::buildForOscPitch(verbose) }
-				}
-			}, -1, nullptr);
+					ValueTree{ ChoiceNames::buildFor_OscPitch(concise) },
+					ValueTree{ ChoiceNames::buildFor_OscPitch(verbose) }
+				} 
+			}, - 1, nullptr);
 
 		exposedParamsInfoTree.addChild(
 			ValueTree{ oscNum == 1 ? "ep_001" : "ep_007", {
@@ -99,7 +103,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForOscFine(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscFine(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 11 },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, 28 },
@@ -108,8 +112,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscFineTune(concise) },
-					ValueTree{ ChoiceNames::buildForOscFineTune(verbose) }
+					ValueTree{ ChoiceNames::buildFor_OscFineTune(concise) },
+					ValueTree{ ChoiceNames::buildFor_OscFineTune(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -125,7 +129,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForOscShape(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscShape(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::oscShape },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -134,8 +138,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscShape(concise) },
-					ValueTree{ ChoiceNames::buildForOscShape(verbose) }
+					ValueTree{ ChoiceNames::buildFor_OscShape(concise) },
+					ValueTree{ ChoiceNames::buildFor_OscShape(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -151,17 +155,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForOscGlide(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscGlide(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 					{ ID::property_FirstAllowChoiceToggleRow, 0 },
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, verbose) }
+					ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
+					ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
 				}
 			}, -1, nullptr);
 
@@ -178,7 +182,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::toggle_diameter },
 					{ ID::property_Height, GUI::toggle_diameter },
-					{ ID::property_Description, Description::buildForOscKeyTrack(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscKeyTrack(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -187,8 +191,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Toggles },
 					{ ID::property_AllowedChoicesBackground_y, keyTrackAllowedChoices_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+					ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -204,17 +208,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForOscSubLevel(oscNum) },
+					{ ID::property_Description, Description::buildFor_OscSubLevel(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 					{ ID::property_FirstAllowChoiceToggleRow, 0 },
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, verbose) }
+					ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, concise) },
+					ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)128, verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -231,7 +235,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 22 },
 				{ ID::property_Width, GUI::toggle_diameter },
 				{ ID::property_Height, GUI::toggle_diameter },
-				{ ID::property_Description, Description::buildForOscSync() },
+				{ ID::property_Description, Description::buildFor_OscSync() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -240,8 +244,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Toggles },
 				{ ID::property_AllowedChoicesBackground_y, 11 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+				ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -258,7 +262,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 78 },
 				{ ID::property_Width, 124 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForGlideMode() },
+				{ ID::property_Description, Description::buildFor_GlideMode() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 124 },
@@ -267,8 +271,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 70 },
 			}, {
-				ValueTree{ ChoiceNames::buildForGlideMode(concise) },
-				ValueTree{ ChoiceNames::buildForGlideMode(verbose) }
+				ValueTree{ ChoiceNames::buildFor_GlideMode(concise) },
+				ValueTree{ ChoiceNames::buildFor_GlideMode(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -284,7 +288,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_1_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForOscSlop() },
+				{ ID::property_Description, Description::buildFor_OscSlop() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 14 },
@@ -293,8 +297,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue((uint8)6, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -310,7 +314,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_1_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForBendRange() },
+				{ ID::property_Description, Description::buildFor_BendRange() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 34 },
@@ -319,8 +323,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForBendRange(concise) },
-				ValueTree{ ChoiceNames::buildForBendRange(verbose) }
+				ValueTree{ ChoiceNames::buildFor_BendRange(concise) },
+				ValueTree{ ChoiceNames::buildFor_BendRange(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -336,7 +340,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 38 },
 				{ ID::property_Width, 124 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForNotePriority() },
+				{ ID::property_Description, Description::buildFor_NotePriority() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 124 },
@@ -345,8 +349,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 30 },
 			}, {
-				ValueTree{ ChoiceNames::buildForNotePriority(concise) },
-				ValueTree{ ChoiceNames::buildForNotePriority(verbose) }
+				ValueTree{ ChoiceNames::buildFor_NotePriority(concise) },
+				ValueTree{ ChoiceNames::buildFor_NotePriority(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -362,17 +366,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_1_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForOscMix() },
+				{ ID::property_Description, Description::buildFor_OscMix() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -388,17 +392,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForNoiseLevel() },
+				{ ID::property_Description, Description::buildFor_NoiseLevel() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -414,17 +418,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForExtInLevel() },
+				{ ID::property_Description, Description::buildFor_ExtInLevel() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -441,7 +445,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_ExposedName, "LPF Cutoff Frequency" },
 				{ ID::property_ControlType, (int)ControlType::knobForPitch },
 				{ ID::property_NRPN, 15 },
-				{ ID::property_NumberOfChoices, EP::numberOfChoicesFor_LPF_Freq },
+				{ ID::property_NumberOfChoices, EP::numberOfChoicesForLPF_Freq },
 				{ ID::property_DefaultChoice, 148 },
 				{ ID::property_Center_x, controlsCol_1_x },
 				{ ID::property_Center_y, lpfRow_2_center_y },
@@ -475,15 +479,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_LPF_Reso() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -501,15 +505,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_LPF_KeyAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -527,15 +531,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_LPF_FM_Amount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -579,15 +583,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_LPF_EnvAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, 187 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -603,17 +607,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvVelAmount(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs},
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -629,17 +633,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDelay(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -655,17 +659,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvAttack(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -681,17 +685,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDecay(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -707,17 +711,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvSustain(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -733,17 +737,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_3_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvRelease(EnvelopeType::lpf) },
+				{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::lpf) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -768,15 +772,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_VCA_Level() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -794,15 +798,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_VCA_EnvAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -818,17 +822,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_1_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvVelAmount(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -844,17 +848,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDelay(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -870,17 +874,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvAttack(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -896,17 +900,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDecay(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -922,17 +926,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvSustain(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -948,17 +952,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvRelease(EnvelopeType::vca) },
+				{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::vca) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -974,17 +978,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, vcaRow_2_center_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForVoiceVolume() },
+				{ ID::property_Description, Description::buildFor_VoiceVolume() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1075,15 +1079,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::knob_diameter },
 					{ ID::property_Description, Description::buildFor_LFO_Amount(lfoNum + 1) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 					{ ID::property_FirstAllowChoiceToggleRow, 0 },
 					{ ID::property_AllowedChoicesBackground_x, 236 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 249 },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+					ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+					ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1112,8 +1116,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 251 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 222 },
 				}, {
-					ValueTree{ ChoiceNames::buildForModDestination(concise) },
-					ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+					ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+					ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1142,16 +1146,16 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 452 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 381 },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+					ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 				}
 			}, -1, nullptr);
 	}
 
 	//--------------------------------------------------------------------------------------------------------------- Envelope 3
 
-	const int env_3_ControlsRow_1_y{ 531 };
-	const int env_3_ControlsRow_2_y{ 583 };
+	const int env3ControlsRow1_y{ 531 };
+	const int env3ControlsRow2_y{ 583 };
 
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_061", {
@@ -1162,7 +1166,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_2_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, 126 },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(" by envelope 3.") },
@@ -1174,8 +1178,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 30 },
 				{ ID::property_AllowedChoicesBackground_y, 211 },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1188,20 +1192,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
 				{ ID::property_Center_x, controlsCol_2_x },
-				{ ID::property_Center_y, env_3_ControlsRow_1_y },
+				{ ID::property_Center_y, env3ControlsRow1_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnv_3_Amount() },
+				{ ID::property_Description, Description::buildFor_Env_3_Amount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 83 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1214,20 +1218,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_3_x },
-				{ ID::property_Center_y, env_3_ControlsRow_1_y },
+				{ ID::property_Center_y, env3ControlsRow1_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvVelAmount(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvVelAmount(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 275 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1241,20 +1245,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_4_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDelay(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvDelay(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1267,20 +1271,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_5_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvAttack(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvAttack(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1293,20 +1297,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_6_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvDecay(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvDecay(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1319,20 +1323,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_7_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvSustain(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvSustain(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1345,20 +1349,20 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 128 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_8_x },
-				{ ID::property_Center_y, env_3_ControlsRow_2_y },
+				{ ID::property_Center_y, env3ControlsRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForEnvRelease(EnvelopeType::env_3) },
+				{ ID::property_Description, Description::buildFor_EnvRelease(EnvelopeType::env_3) },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1371,10 +1375,10 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NumberOfChoices, 2 },
 				{ ID::property_DefaultChoice, 0 },
 				{ ID::property_Center_x, controlsCol_1_x },
-				{ ID::property_Center_y, env_3_ControlsRow_1_y },
+				{ ID::property_Center_y, env3ControlsRow1_y },
 				{ ID::property_Width, GUI::toggle_diameter },
 				{ ID::property_Height, GUI::toggle_diameter },
-				{ ID::property_Description, Description::buildForEnv_3_Repeat() },
+				{ ID::property_Description, Description::buildFor_Env_3_Repeat() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -1383,16 +1387,16 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x - GUI::toggleLockButton_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 398 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+				ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 			}
 		}, -1, nullptr);
 
 	//--------------------------------------------------------------------------------------------------------------- modulators
 
 	const int modulatorComboBox_w{ 126 };
-	const int modulatorControlsCol_1_x{ 486 };
-	const int modulatorControlsCol_2_x{ 575 };
+	const int modulatorControlsCol1_x{ 486 };
+	const int modulatorControlsCol2_x{ 575 };
 	const int modulatorControlsGroup_h{ 78 };
 	const int modulatorComboBoxes_AllowedChoices_x{ 559 };
 
@@ -1409,7 +1413,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_NRPN, nrpn },
 					{ ID::property_NumberOfChoices, EP::numberOfChoicesForModSource },
 					{ ID::property_DefaultChoice, 0 },
-					{ ID::property_Center_x, modulatorControlsCol_1_x },
+					{ ID::property_Center_x, modulatorControlsCol1_x },
 					{ ID::property_Center_y, 184 + modNum * modulatorControlsGroup_h },
 					{ ID::property_Width, modulatorComboBox_w },
 					{ ID::property_Height, GUI::comboBox_h },
@@ -1422,8 +1426,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, modulatorComboBoxes_AllowedChoices_x },
 					{ ID::property_AllowedChoicesBackground_y, 39 + modNum * modulatorControlsGroup_h },
 				}, {
-					ValueTree{ ChoiceNames::buildForModSource(concise) },
-					ValueTree{ ChoiceNames::buildForModSource(verbose) }
+					ValueTree{ ChoiceNames::buildFor_ModSource(concise) },
+					ValueTree{ ChoiceNames::buildFor_ModSource(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1439,21 +1443,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_NRPN, nrpn },
 					{ ID::property_NumberOfChoices, 255 },
 					{ ID::property_DefaultChoice, 127 },
-					{ ID::property_Center_x, modulatorControlsCol_2_x },
+					{ ID::property_Center_x, modulatorControlsCol2_x },
 					{ ID::property_Center_y, 201 + modNum * modulatorControlsGroup_h },
 					{ ID::property_Width, GUI::knob_diameter },
 					{ ID::property_Height, GUI::knob_diameter },
-					{ ID::property_Description, Description::buildForModAmount() },
+					{ ID::property_Description, Description::buildFor_ModAmount() },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-					{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
-					{ ID::property_AllowedChoicesBackground_x, modulatorControlsCol_2_x + allowedChoicesOffset_Knobs },
+					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+					{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+					{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
+					{ ID::property_AllowedChoicesBackground_x, modulatorControlsCol2_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, 109 },
 				}, {
-					ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-					ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+					ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+					ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1469,7 +1473,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_NRPN, nrpn },
 					{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 					{ ID::property_DefaultChoice, 0 },
-					{ ID::property_Center_x, modulatorControlsCol_1_x },
+					{ ID::property_Center_x, modulatorControlsCol1_x },
 					{ ID::property_Center_y, 218 + modNum * modulatorControlsGroup_h },
 					{ ID::property_Width, modulatorComboBox_w },
 					{ ID::property_Height, GUI::comboBox_h },
@@ -1482,8 +1486,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, modulatorComboBoxes_AllowedChoices_x },
 					{ ID::property_AllowedChoicesBackground_y, 141 },
 				}, {
-					ValueTree{ ChoiceNames::buildForModDestination(concise) },
-					ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+					ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+					ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -1491,14 +1495,14 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	//---------------------------------------------------------------------------------------------------------- MIDI modulators
 
 	const int midiControllerComboBox_w{ 136 };
-	const int midiControllersCol_1_x{ 680 };
-	const int midiControllersCol_2_x{ 776 };
+	const int midiControllersCol1_x{ 680 };
+	const int midiControllersCol2_x{ 776 };
 	const int midiControllersGroup_h{ 62 };
-	const int midiControllersRow_1_y{ 191 };
-	const int midiControllersRow_2_y{ midiControllersRow_1_y + midiControllersGroup_h };
-	const int midiControllersRow_3_y{ midiControllersRow_2_y + midiControllersGroup_h };
-	const int midiControllersRow_4_y{ midiControllersRow_3_y + midiControllersGroup_h };
-	const int midiControllersRow_5_y{ midiControllersRow_4_y + midiControllersGroup_h };
+	const int midiControllersRow1_y{ 191 };
+	const int midiControllersRow2_y{ midiControllersRow1_y + midiControllersGroup_h };
+	const int midiControllersRow3_y{ midiControllersRow2_y + midiControllersGroup_h };
+	const int midiControllersRow4_y{ midiControllersRow3_y + midiControllersGroup_h };
+	const int midiControllersRow5_y{ midiControllersRow4_y + midiControllersGroup_h };
 
 	auto midiModAmountsAllowedChoices_x{ 264 };
 	auto midiModAmountsAllowedChoices_y{ 106 };
@@ -1512,21 +1516,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 81 },
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
-				{ ID::property_Center_x, midiControllersCol_2_x },
-				{ ID::property_Center_y, midiControllersRow_1_y },
+				{ ID::property_Center_x, midiControllersCol2_x },
+				{ ID::property_Center_y, midiControllersRow1_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_MIDI_ModWheelAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1538,8 +1542,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 82 },
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
-				{ ID::property_Center_x, midiControllersCol_1_x },
-				{ ID::property_Center_y, midiControllersRow_1_y },
+				{ ID::property_Center_x, midiControllersCol1_x },
+				{ ID::property_Center_y, midiControllersRow1_y },
 				{ ID::property_Width, midiControllerComboBox_w },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(".") },
@@ -1551,8 +1555,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1564,21 +1568,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 83 },
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
-				{ ID::property_Center_x, midiControllersCol_2_x },
-				{ ID::property_Center_y, midiControllersRow_2_y },
+				{ ID::property_Center_x, midiControllersCol2_x },
+				{ ID::property_Center_y, midiControllersRow2_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_MIDI_PressureAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1590,8 +1594,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 84 },
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
-				{ ID::property_Center_x, midiControllersCol_1_x },
-				{ ID::property_Center_y, midiControllersRow_2_y },
+				{ ID::property_Center_x, midiControllersCol1_x },
+				{ ID::property_Center_y, midiControllersRow2_y },
 				{ ID::property_Width, midiControllerComboBox_w },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(".") },
@@ -1603,8 +1607,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1616,21 +1620,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 85 },
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
-				{ ID::property_Center_x, midiControllersCol_2_x },
-				{ ID::property_Center_y, midiControllersRow_3_y },
+				{ ID::property_Center_x, midiControllersCol2_x },
+				{ ID::property_Center_y, midiControllersRow3_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_MIDI_BreathAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1642,8 +1646,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 86 },
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
-				{ ID::property_Center_x, midiControllersCol_1_x },
-				{ ID::property_Center_y, midiControllersRow_3_y },
+				{ ID::property_Center_x, midiControllersCol1_x },
+				{ ID::property_Center_y, midiControllersRow3_y },
 				{ ID::property_Width, midiControllerComboBox_w },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(".") },
@@ -1655,8 +1659,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1668,21 +1672,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 87 },
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
-				{ ID::property_Center_x, midiControllersCol_2_x },
-				{ ID::property_Center_y, midiControllersRow_4_y },
+				{ ID::property_Center_x, midiControllersCol2_x },
+				{ ID::property_Center_y, midiControllersRow4_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_MIDI_VelocityAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1694,8 +1698,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 88 },
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
-				{ ID::property_Center_x, midiControllersCol_1_x },
-				{ ID::property_Center_y, midiControllersRow_4_y },
+				{ ID::property_Center_x, midiControllersCol1_x },
+				{ ID::property_Center_y, midiControllersRow4_y },
 				{ ID::property_Width, midiControllerComboBox_w },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(".") },
@@ -1707,8 +1711,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1720,21 +1724,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 89 },
 				{ ID::property_NumberOfChoices, 255 },
 				{ ID::property_DefaultChoice, 127 },
-				{ ID::property_Center_x, midiControllersCol_2_x },
-				{ ID::property_Center_y, midiControllersRow_5_y },
+				{ ID::property_Center_x, midiControllersCol2_x },
+				{ ID::property_Center_y, midiControllersRow5_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description, Description::buildFor_MIDI_PedalAmount() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PosNeg_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PosNeg_127 },
-				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PosNeg_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_PlusMinus127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_PlusMinus127 },
+				{ ID::property_FirstAllowChoiceToggleRow, firstAllowChoiceRow_PlusMinus127 },
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(concise) },
+				ValueTree{ ChoiceNames::buildFor_PlusMinus127(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1746,8 +1750,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_NRPN, 90 },
 				{ ID::property_NumberOfChoices, EP::numberOfChoicesForModDest },
 				{ ID::property_DefaultChoice, 0 },
-				{ ID::property_Center_x, midiControllersCol_1_x },
-				{ ID::property_Center_y, midiControllersRow_5_y },
+				{ ID::property_Center_x, midiControllersCol1_x },
+				{ ID::property_Center_y, midiControllersRow5_y },
 				{ ID::property_Width, midiControllerComboBox_w },
 				{ ID::property_Height, GUI::comboBox_h },
 				{ ID::property_Description, modDestinationParamDescription + String(".") },
@@ -1759,8 +1763,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ModDestination(concise) },
+				ValueTree{ ChoiceNames::buildFor_ModDestination(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1780,7 +1784,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, pushiItKnobsRow_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForPushItPitch() },
+				{ ID::property_Description, Description::buildFor_PushItPitch() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_OscPitch },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_OscPitch },
@@ -1789,8 +1793,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 759 },
 				{ ID::property_AllowedChoicesBackground_y, 207 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOscPitch(concise) },
-				ValueTree{ ChoiceNames::buildForOscPitch(verbose) }
+				ValueTree{ ChoiceNames::buildFor_OscPitch(concise) },
+				ValueTree{ ChoiceNames::buildFor_OscPitch(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1806,17 +1810,17 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, pushiItKnobsRow_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForPushItVelocity() },
+				{ ID::property_Description, Description::buildFor_PushItVelocity() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
-				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0_To_127 },
-				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0_To_127 },
+				{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_0to127 },
+				{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_0to127 },
+				{ ID::property_NumberOfAllowChoiceToggleRows, numberOfAllowChoiceRows_0to127 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
 				{ ID::property_AllowedChoicesBackground_x, 807 },
 				{ ID::property_AllowedChoicesBackground_y, 271 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, concise) },
+				ValueTree{ ChoiceNames::buildFor_PlainValue(128, verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1832,7 +1836,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 577 },
 				{ ID::property_Width, 88 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForPushItMode() },
+				{ ID::property_Description, Description::buildFor_PushItMode() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 72 },
@@ -1841,8 +1845,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 1153 },
 				{ ID::property_AllowedChoicesBackground_y, 359 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPushItMode(concise) },
-				ValueTree{ ChoiceNames::buildForPushItMode(verbose) }
+				ValueTree{ ChoiceNames::buildFor_PushItMode(concise) },
+				ValueTree{ ChoiceNames::buildFor_PushItMode(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1862,7 +1866,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Width, GUI::knob_diameter },
 				{ ID::property_Height, GUI::knob_diameter },
-				{ ID::property_Description, Description::buildForClockTempo() },
+				{ ID::property_Description, Description::buildFor_ClockTempo() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 12 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 26 },
@@ -1871,8 +1875,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 860 },
 				{ ID::property_AllowedChoicesBackground_y, 106 },
 			}, {
-				ValueTree{ ChoiceNames::buildForClockTempo(concise) },
-				ValueTree{ ChoiceNames::buildForClockTempo(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ClockTempo(concise) },
+				ValueTree{ ChoiceNames::buildFor_ClockTempo(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1888,7 +1892,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Width, 126 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForClockDivision() },
+				{ ID::property_Description, Description::buildFor_ClockDivision() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 2 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 118 },
@@ -1897,8 +1901,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 797 },
 				{ ID::property_AllowedChoicesBackground_y, 118 },
 			}, {
-				ValueTree{ ChoiceNames::buildForClockDivision(concise) },
-				ValueTree{ ChoiceNames::buildForClockDivision(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ClockDivision(concise) },
+				ValueTree{ ChoiceNames::buildFor_ClockDivision(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1914,7 +1918,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 118 },
 				{ ID::property_Width, 124 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForArpegMode() },
+				{ ID::property_Description, Description::buildFor_ArpegMode() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 3 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 120 },
@@ -1923,8 +1927,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 572 },
 				{ ID::property_AllowedChoicesBackground_y, 110 },
 			}, {
-				ValueTree{ ChoiceNames::buildForArpegMode(concise) },
-				ValueTree{ ChoiceNames::buildForArpegMode(verbose) }
+				ValueTree{ ChoiceNames::buildFor_ArpegMode(concise) },
+				ValueTree{ ChoiceNames::buildFor_ArpegMode(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1940,7 +1944,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, oscRow_2_center_y },
 				{ ID::property_Width, GUI::toggle_diameter },
 				{ ID::property_Height, GUI::toggle_diameter },
-				{ ID::property_Description, Description::buildForArpegOnOff() },
+				{ ID::property_Description, Description::buildFor_ArpegOnOff() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -1949,8 +1953,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Toggles },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_center_y - GUI::toggleLockButton_diameter / 2 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+				ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1968,7 +1972,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Width, 114 },
 				{ ID::property_Height, GUI::comboBox_h },
-				{ ID::property_Description, Description::buildForSeqTrigMode() },
+				{ ID::property_Description, Description::buildFor_SeqTrigMode() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 1 },
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 104 },
@@ -1977,8 +1981,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 1065 },
 				{ ID::property_AllowedChoicesBackground_y, 118 },
 			}, {
-				ValueTree{ ChoiceNames::buildForSeqTrigMode(concise) },
-				ValueTree{ ChoiceNames::buildForSeqTrigMode(verbose) }
+				ValueTree{ ChoiceNames::buildFor_SeqTrigMode(concise) },
+				ValueTree{ ChoiceNames::buildFor_SeqTrigMode(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1994,7 +1998,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Width, GUI::toggle_diameter },
 				{ ID::property_Height, GUI::toggle_diameter },
-				{ ID::property_Description, Description::buildForSeqOnOff() },
+				{ ID::property_Description, Description::buildFor_SeqOnOff() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -2004,8 +2008,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 819 - GUI::toggle_diameter / 2},
 				{ ID::property_AllowedChoicesBackground_y, clockAndSequencerControlsRow_y + allowedChoicesOffset_Toggles  },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildFor_OffOn(concise) },
+				ValueTree{ ChoiceNames::buildFor_OffOn(verbose) }
 			}
 		}, -1, nullptr);
 
@@ -2031,7 +2035,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, 169 + ((trackNum - 1) * GUI::seqTrackControlsGroup_h) },
 					{ ID::property_Width, seqTrackDestComboBoxes_w },
 					{ ID::property_Height, GUI::comboBox_h },
-					{ ID::property_Description, Description::buildForSeqTrackDestination(trackNum) },
+					{ ID::property_Description, Description::buildFor_SeqTrackDestination(trackNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, numberOfAllowChoiceColumns_ModDestination },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, widthOfAllowChoiceColumns_ModSourceAndDestination },
@@ -2041,11 +2045,11 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_y, 138 },
 				}, {
 					ValueTree{ trackNumIsEven ?
-						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, concise) :
-						ChoiceNames::buildForModDestination(concise) },
+						ChoiceNames::buildFor_SeqTracks_2_4_Destination(trackNum, concise) :
+						ChoiceNames::buildFor_ModDestination(concise) },
 					ValueTree{ trackNumIsEven ?
-						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, verbose) :
-						ChoiceNames::buildForModDestination(verbose) }
+						ChoiceNames::buildFor_SeqTracks_2_4_Destination(trackNum, verbose) :
+						ChoiceNames::buildFor_ModDestination(verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -2073,7 +2077,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, 521 + (knobNum - 1) * knobAssignComboBoxesVertSpacing },
 					{ ID::property_Width, knobAssignComboBoxes_w },
 					{ ID::property_Height, GUI::comboBox_h },
-					{ ID::property_Description, Description::buildForKnobAssign(knobNum) },
+					{ ID::property_Description, Description::buildFor_KnobAssign(knobNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::standard },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 9 },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, 134 },
@@ -2082,15 +2086,15 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 17 },
 					{ ID::property_AllowedChoicesBackground_y, 85 + (knobNum - 1) * knobAssignComboBoxesVertSpacing },
 				}, {
-					ValueTree{ ChoiceNames::buildForKnobAssign(concise) },
-					ValueTree{ ChoiceNames::buildForKnobAssign(verbose) }
+					ValueTree{ ChoiceNames::buildFor_KnobAssign(concise) },
+					ValueTree{ ChoiceNames::buildFor_KnobAssign(verbose) }
 				}
 			}, -1, nullptr);
 	}
 
 	//---------------------------------------------------------------------------------------------------------- sequencer steps
 
-	const int gapBetweenSeqStepsAndVoiceNameChars{ 2 };
+	const int gapBetweenSeqStepsAndVoiceNameCharacters{ 2 };
 
 	for (auto trackNum = 0; trackNum != 4; ++trackNum) {
 		auto trackString{ String(trackNum + 1) };
@@ -2108,11 +2112,11 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_NRPN, nrpn },
 						{ ID::property_NumberOfChoices, trackNum == 0 ? 128 : 127 },
 						{ ID::property_DefaultChoice, 0 },
-						{ ID::property_Center_x, 825 + stepNum * (GUI::seqSteps_w + gapBetweenSeqStepsAndVoiceNameChars) },
+						{ ID::property_Center_x, 825 + stepNum * (GUI::seqSteps_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
 						{ ID::property_Center_y, 196 + trackNum * GUI::seqTrackControlsGroup_h },
 						{ ID::property_Width, GUI::seqSteps_w },
 						{ ID::property_Height, GUI::seqSteps_h },
-						{ ID::property_Description, Description::buildForSeqTrackStep(trackNum + 1, stepNum + 1) },
+						{ ID::property_Description, Description::buildFor_SeqTrackStep(trackNum + 1, stepNum + 1) },
 						{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::seqTrackStep },
 						{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 						{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
@@ -2123,8 +2127,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_SeqTrackNum, trackNum + 1 },
 						{ ID::property_SeqTrackStepNum, stepNum + 1 },
 					}, {
-						ValueTree{ ChoiceNames::buildForSeqTrackStep(concise) },
-						ValueTree{ ChoiceNames::buildForSeqTrackStep(verbose) }
+						ValueTree{ ChoiceNames::buildFor_SeqTrackStep(concise) },
+						ValueTree{ ChoiceNames::buildFor_SeqTrackStep(verbose) }
 					}
 				}, -1, nullptr);
 		}
@@ -2145,21 +2149,21 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_NRPN, 184 + charNum },
 					{ ID::property_NumberOfChoices, EP::numberOfChoicesForVoiceNameChar },
 					{ ID::property_DefaultChoice, int(String("Basic Program   ")[charNum]) },
-					{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameChars_w + gapBetweenSeqStepsAndVoiceNameChars) },
+					{ ID::property_Center_x, 596 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
 					{ ID::property_Center_y, voiceNameCharacters_y },
-					{ ID::property_Width, GUI::voiceNameChars_w },
-					{ ID::property_Height, GUI::voiceNameChars_h },
-					{ ID::property_Description, Description::buildForVoiceNameChar(charNum + 1) },
+					{ ID::property_Width, GUI::voiceNameCharacters_w },
+					{ ID::property_Height, GUI::voiceNameCharacters_h },
+					{ ID::property_Description, Description::buildFor_VoiceNameChar(charNum + 1) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::voiceNameChar },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
 					{ ID::property_WidthOfAllowChoiceToggleColumn, 0 },
 					{ ID::property_NumberOfAllowChoiceToggleRows, 0 },
 					{ ID::property_FirstAllowChoiceToggleRow, 0 },
-					{ ID::property_AllowedChoicesBackground_x, 590 + charNum * (GUI::voiceNameChars_w + gapBetweenSeqStepsAndVoiceNameChars) },
+					{ ID::property_AllowedChoicesBackground_x, 590 + charNum * (GUI::voiceNameCharacters_w + gapBetweenSeqStepsAndVoiceNameCharacters) },
 					{ ID::property_AllowedChoicesBackground_y, 71 },
 				}, {
-					ValueTree{ ChoiceNames::buildForVoiceNameChar(concise) },
-					ValueTree{ ChoiceNames::buildForVoiceNameChar(verbose) }
+					ValueTree{ ChoiceNames::buildFor_VoiceNameChar(concise) },
+					ValueTree{ ChoiceNames::buildFor_VoiceNameChar(verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -2186,31 +2190,43 @@ void InfoForExposedParameters::setDataByteLocationPropertiesForAllParams() {
 	}
 }
 
-Identifier InfoForExposedParameters::IDfor(const uint8 paramIndex) const {
+//==============================================================================================================================
+
+Identifier InfoForExposedParameters::IDfor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return Identifier{ paramTree.getProperty(ID::property_ParamID).toString() };
 }
 
-String InfoForExposedParameters::exposedNameFor(const uint8 paramIndex) const {
+String InfoForExposedParameters::exposedNameFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return paramTree.getProperty(ID::property_ExposedName).toString();
 }
 
-ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) const {
+ControlType InfoForExposedParameters::controlTypeFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return ControlType{ (int)paramTree.getProperty(ID::property_ControlType) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto controlTypeIndex{ (int)paramTree.getProperty(ID::property_ControlType) };
+	return ControlType{ controlTypeIndex };
 }
 
-uint8 InfoForExposedParameters::NRPNfor(const uint8 paramIndex) const {
+uint8 InfoForExposedParameters::NRPNfor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_NRPN));
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto NRPN{ (int)paramTree.getProperty(ID::property_NRPN) };
+	return (uint8)NRPN;
 }
 
-const uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
+uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		if (NRPNfor(paramIndex) == NRPN)
 			return paramIndex;
@@ -2218,57 +2234,74 @@ const uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const 
 	return (uint8)255;
 }
 
-uint8 InfoForExposedParameters::numberOfChoicesFor(const uint8 paramIndex) const {
+uint8 InfoForExposedParameters::numberOfChoicesFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_NumberOfChoices));
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto numberOfChoices{ (int)paramTree.getProperty(ID::property_NumberOfChoices) };
+	return (uint8)numberOfChoices;
 }
 
-uint8 InfoForExposedParameters::defaultChoiceFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_DefaultChoice));
+uint8 InfoForExposedParameters::lastChoiceFor(uint8 paramIndex) const {
+	return uint8(numberOfChoicesFor(paramIndex) - 1);
 }
 
-Point<int> InfoForExposedParameters::centerPointFor(const uint8 paramIndex) const {
+uint8 InfoForExposedParameters::defaultChoiceFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto defaultChoice{ (int)paramTree.getProperty(ID::property_DefaultChoice) };
+	return (uint8)defaultChoice;
+}
+
+Point<int> InfoForExposedParameters::centerPointFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	auto center_x{ (int)paramTree.getProperty(ID::property_Center_x) };
 	auto center_y{ (int)paramTree.getProperty(ID::property_Center_y) };
-	return Point<int>{ center_x, center_y };
+	return Point<int>(center_x, center_y);
 }
 
-int InfoForExposedParameters::widthFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+int InfoForExposedParameters::widthFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return (int)paramTree.getProperty(ID::property_Width);
 }
 
-int InfoForExposedParameters::heightFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+int InfoForExposedParameters::heightFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return (int)paramTree.getProperty(ID::property_Height);
 }
 
-String InfoForExposedParameters::choiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const {
+String InfoForExposedParameters::choiceNameFor(uint8 choiceNum, uint8 paramIndex) const {
 	jassert(choiceNum < numberOfChoicesFor(paramIndex));
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames) };
-	auto choiceName{ choiceNamesTree.getProperty((String)choiceNum).toString() };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto choiceNamesTree{ paramTree.getChildWithName(ID::choiceNames) };
+	auto choiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return choiceName;
 }
 
-String InfoForExposedParameters::verboseChoiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const {
+String InfoForExposedParameters::verboseChoiceNameFor(uint8 choiceNum, uint8 paramIndex) const {
 	jassert(choiceNum < numberOfChoicesFor(paramIndex));
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames_Verbose) };
-	auto verboseChoiceName{ choiceNamesTree.getProperty((String)choiceNum).toString() };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto verboseChoiceNamesTree{ paramTree.getChildWithName(ID::choiceNames_Verbose) };
+	auto verboseChoiceName{ verboseChoiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return verboseChoiceName;
 }
 
-StringArray InfoForExposedParameters::choiceNamesListFor(const uint8 paramIndex) const {
+StringArray InfoForExposedParameters::choiceNamesListFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	StringArray choiceNamesList;
 	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
@@ -2276,7 +2309,7 @@ StringArray InfoForExposedParameters::choiceNamesListFor(const uint8 paramIndex)
 	return choiceNamesList;
 }
 
-StringArray InfoForExposedParameters::verboseChoiceNamesListFor(const uint8 paramIndex) const {
+StringArray InfoForExposedParameters::verboseChoiceNamesListFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	StringArray verboseChoiceNamesList;
 	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
@@ -2284,85 +2317,112 @@ StringArray InfoForExposedParameters::verboseChoiceNamesListFor(const uint8 para
 	return verboseChoiceNamesList;
 }
 
-String InfoForExposedParameters::descriptionFor(const uint8 paramIndex) const {
+String InfoForExposedParameters::descriptionFor(uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
 	return paramTree.getProperty(ID::property_Description).toString();
 }
 
-int InfoForExposedParameters::mouseDragSensitivityFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
+int InfoForExposedParameters::mouseDragSensitivityFor(uint8 paramIndex) const {
 	return 80 + roundToInt(numberOfChoicesFor(paramIndex) / 2);
 }
 
-uint16 InfoForExposedParameters::msBitPackedByteLocationFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint16((int)paramTree.getProperty(ID::property_MSBitPackedByteLocation));
+uint16 InfoForExposedParameters::msBitPackedByteLocationFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto msBitLocation((int)paramTree.getProperty(ID::property_MSBitPackedByteLocation));
+	return (uint16)msBitLocation;
 }
 
-uint8 InfoForExposedParameters::msBitMaskFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_MSBitMask));
+uint8 InfoForExposedParameters::msBitMaskFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto msBitMask{ (int)paramTree.getProperty(ID::property_MSBitMask) };
+	return (uint8)msBitMask;
 }
 
-uint16 InfoForExposedParameters::lsByteLocationFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint16((int)paramTree.getProperty(ID::property_LSByteLocation));
+uint16 InfoForExposedParameters::lsByteLocationFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto lsByteLocation{ (int)paramTree.getProperty(ID::property_LSByteLocation) };
+	return (uint8)lsByteLocation;
 }
 
-AllowedChoicesType InfoForExposedParameters::allowedChoicesTypeFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return AllowedChoicesType{ (int)paramTree.getProperty(ID::property_AllowedChoicesType) };
+AllowedChoicesType InfoForExposedParameters::allowedChoicesTypeFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto allowedChoicesTypeIndex{ (int)paramTree.getProperty(ID::property_AllowedChoicesType) };
+	return AllowedChoicesType{ allowedChoicesTypeIndex };
 }
 
-int InfoForExposedParameters::numberOfAllowChoiceToggleColumnsFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleColumns);
+int InfoForExposedParameters::numberOfAllowChoiceToggleColumnsFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto numberOfColumns{ (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleColumns) };
+	return numberOfColumns;
 }
 
-int InfoForExposedParameters::widthOfAllowChoiceToggleColumnFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_WidthOfAllowChoiceToggleColumn);
+int InfoForExposedParameters::widthOfAllowChoiceToggleColumnFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto columnWidth{ (int)paramTree.getProperty(ID::property_WidthOfAllowChoiceToggleColumn) };
+	return columnWidth;
 }
 
-int InfoForExposedParameters::numberOfAllowChoiceToggleRowsFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleRows);
+int InfoForExposedParameters::numberOfAllowChoiceToggleRowsFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto numberOfRows{ (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleRows) };
+	return numberOfRows;
 }
 
-int InfoForExposedParameters::firstAllowChoiceToggleRowFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_FirstAllowChoiceToggleRow);
+int InfoForExposedParameters::firstAllowChoiceToggleRowFor(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto firstRow{ (int)paramTree.getProperty(ID::property_FirstAllowChoiceToggleRow) };
+	return firstRow;
 }
 
-int InfoForExposedParameters::allowedChoicesBackground_x_For(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_x);
+int InfoForExposedParameters::allowedChoicesBackground_x_For(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto background_x{ (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_x) };
+	return background_x;
 }
 
-int InfoForExposedParameters::allowedChoicesBackground_y_For(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_y);
+int InfoForExposedParameters::allowedChoicesBackground_y_For(uint8 paramIndex) const {
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto background_y{ (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_y) };
+	return background_y;
 }
 
-int InfoForExposedParameters::seqTrackNum_For(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_SeqTrackNum);
+int InfoForExposedParameters::seqTrackNum_For(uint8 paramIndex) const {
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamIndex);
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto trackNum{ (int)paramTree.getProperty(ID::property_SeqTrackNum) };
+	return trackNum;
 }
 
-int InfoForExposedParameters::seqTrackStepNum_For(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_SeqTrackStepNum);
+int InfoForExposedParameters::seqTrackStepNum_For(uint8 paramIndex) const {
+	jassert(paramIndex >= EP::firstSeqStepParamIndex && paramIndex < EP::firstVoiceNameCharParamIndex);
+	auto paramNumString{ (String)paramIndex };
+	auto paramTreeName = "ep_" + paramNumString.paddedLeft('0', 3);
+	auto paramTree{ exposedParamsInfoTree.getChildWithName(paramTreeName) };
+	auto stepNum{ (int)paramTree.getProperty(ID::property_SeqTrackStepNum) };
+	return stepNum;
 }

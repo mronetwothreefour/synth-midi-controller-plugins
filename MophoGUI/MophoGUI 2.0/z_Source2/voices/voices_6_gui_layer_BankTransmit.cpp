@@ -27,30 +27,7 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	button_Stop{ "" },
 	button_Close{ unexposedParams }
 {
-	switch (bank)
-	{
-	case VoicesBank::factory_1:
-		bankName = "Factory Bank 1";
-		break;
-	case VoicesBank::factory_2:
-		bankName = "Factory Bank 2";
-		break;
-	case VoicesBank::factory_3:
-		bankName = "Factory Bank 3";
-		break;
-	case VoicesBank::custom_1:
-		bankName = "Custom Bank 1";
-		break;
-	case VoicesBank::custom_2:
-		bankName = "Custom Bank 2";
-		break;
-	case VoicesBank::custom_3:
-		bankName = "Custom Bank 3";
-		break;
-	default:
-		bankName = "error";
-		break;
-	}
+	bankName = (bank < VoicesBank::custom_1 ? "Factory " : "Custom ") + String((int)bank % 3 + 1);
 
 	addAndMakeVisible(progressBar);
 	progressBar.setBounds(461, 319, 351, 18);

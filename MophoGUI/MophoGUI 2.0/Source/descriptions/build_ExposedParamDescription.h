@@ -6,30 +6,49 @@
 
 using namespace MophoConstants;
 
-
-
 struct ExposedParamDescription
 {
-	static String buildFor_ArpegMode();
-	static String buildFor_ArpegOnOff();
-	static String buildFor_BendRange();
-	static String buildFor_ClockDivision();
-	static String buildFor_ClockTempo();
-	static String buildFor_EnvAttack(EnvelopeType envType);
-	static String buildFor_EnvDecay(EnvelopeType envType);
-	static String buildFor_EnvDelay(EnvelopeType envType);
-	static String buildFor_EnvRelease(EnvelopeType envType);
-	static String buildFor_EnvSustain(EnvelopeType envType);
-	static String buildFor_EnvVelAmount(EnvelopeType envType);
-	static String buildFor_Env_3_Amount();
-	static String buildFor_Env_3_Repeat();
-	static String buildFor_ExtInLevel();
-	static String buildFor_GlideMode();
-	static String buildFor_KnobAssign(int knobNum);
-	static String buildFor_LFO_Amount(int lfoNum);
-	static String buildFor_LFO_Freq(int lfoNum);
-	static String buildFor_LFO_KeySync(int lfoNum);
-	static String buildFor_LFO_Shape(int lfoNum);
+	static String buildForArpegMode();
+	static String buildForArpegOnOff();
+	static String buildForBendRange();
+	static String buildForClockDivision();
+	static String buildForClockTempo();
+	static String buildForEnvAttack(const EnvelopeType envType);
+	static String buildForEnvDecay(const EnvelopeType envType);
+	static String buildForEnvDelay(const EnvelopeType envType);
+	static String buildForEnvRelease(const EnvelopeType envType);
+	static String buildForEnvSustain(const EnvelopeType envType);
+	static String buildForEnvVelAmount(const EnvelopeType envType);
+	static String buildForEnv_3_Amount();
+	static String buildForEnv_3_Repeat();
+	static String buildForExtInLevel();
+	static String buildForGlideMode();
+	static String buildForKnobAssign(const int knobNum);
+	static String buildForModAmount();
+	static String buildForNoiseLevel();
+	static String buildForNotePriority();
+	static String buildForOscFine(const int oscNum);
+	static String buildForOscGlide(const int oscNum);
+	static String buildForOscKeyTrack(const int oscNum);
+	static String buildForOscMix();
+	static String buildForOscPitch(const int oscNum);
+	static String buildForOscShape(const int oscNum);
+	static String buildForOscSlop();
+	static String buildForOscSubLevel(const int oscNum);
+	static String buildForOscSync();
+	static String buildForPushItMode();
+	static String buildForPushItPitch();
+	static String buildForPushItVelocity();
+	static String buildForSeqOnOff();
+	static String buildForSeqTrackDestination(const int trackNum);
+	static String buildForSeqTrackStep(const int trackNum, int stepNum);
+	static String buildForSeqTrigMode();
+	static String buildForVoiceNameChar(const int charNum);
+	static String buildForVoiceVolume();
+	static String buildFor_LFO_Amount(const int lfoNum);
+	static String buildFor_LFO_Freq(const int lfoNum);
+	static String buildFor_LFO_KeySync(const int lfoNum);
+	static String buildFor_LFO_Shape(const int lfoNum);
 	static String buildFor_LPF_EnvAmount();
 	static String buildFor_LPF_FM_Amount();
 	static String buildFor_LPF_Freq();
@@ -41,32 +60,11 @@ struct ExposedParamDescription
 	static String buildFor_MIDI_PedalAmount();
 	static String buildFor_MIDI_PressureAmount();
 	static String buildFor_MIDI_VelocityAmount();
-	static String buildFor_ModAmount();
-	static String buildFor_NoiseLevel();
-	static String buildFor_NotePriority();
-	static String buildFor_OscFine(int oscNum);
-	static String buildFor_OscGlide(int oscNum);
-	static String buildFor_OscKeyTrack(int oscNum);
-	static String buildFor_OscMix();
-	static String buildFor_OscPitch(int oscNum);
-	static String buildFor_OscShape(int oscNum);
-	static String buildFor_OscSlop();
-	static String buildFor_OscSubLevel(int oscNum);
-	static String buildFor_OscSync();
-	static String buildFor_PushItMode();
-	static String buildFor_PushItPitch();
-	static String buildFor_PushItVelocity();
-	static String buildFor_SeqOnOff();
-	static String buildFor_SeqTrackDestination(int trackNum);
-	static String buildFor_SeqTrackStep(int trackNum, int stepNum);
-	static String buildFor_SeqTrigMode();
 	static String buildFor_VCA_EnvAmount();
 	static String buildFor_VCA_Level();
-	static String buildFor_VoiceNameChar(int charNum);
-	static String buildFor_VoiceVolume();
 
 private:
-	static String buildEnvNameString(EnvelopeType envType);
+	static String buildEnvNameString(const EnvelopeType envType);
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ExposedParamDescription)

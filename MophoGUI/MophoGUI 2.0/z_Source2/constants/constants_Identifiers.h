@@ -8,15 +8,10 @@ namespace MophoConstants
 {
 	namespace ID 
 	{
-		const Identifier bank_factory_1_VoiceNameStrings{ "bank_factory_1_VoiceNameStrings" };
-		const Identifier bank_factory_2_VoiceNameStrings{ "bank_factory_2_VoiceNameStrings" };
-		const Identifier bank_factory_3_VoiceNameStrings{ "bank_factory_3_VoiceNameStrings" };
-		const Identifier bank_custom_1_VoiceDataHexStrings{ "bank_custom_1_VoiceDataHexStrings" };
-		const Identifier bank_custom_2_VoiceDataHexStrings{ "bank_custom_2_VoiceDataHexStrings" };
-		const Identifier bank_custom_3_VoiceDataHexStrings{ "bank_custom_3_VoiceDataHexStrings" };
-		const Identifier bank_custom_1_VoiceNameStrings{ "bank_custom_1_VoiceNameStrings" };
-		const Identifier bank_custom_2_VoiceNameStrings{ "bank_custom_2_VoiceNameStrings" };
-		const Identifier bank_custom_3_VoiceNameStrings{ "bank_custom_3_VoiceNameStrings" };
+		const Identifier banks_CustomVoiceDataHexStrings{ "banks_CustomVoiceDataHexStrings" };
+		const Identifier banks_CustomVoiceNameStrings{ "banks_CustomVoiceNameStrings" };
+		const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+		const Identifier banks_FactoryVoiceNameStrings{ "banks_FactoryVoiceNameStrings" };
 
 		const Identifier button_AllowAll{ "button_AllowAll" };
 		const Identifier button_Banks{ "button_Banks" };
@@ -27,6 +22,8 @@ namespace MophoConstants
 		const Identifier button_Close{ "button_Close" };
 		const Identifier button_Create{ "button_Create" };
 		const Identifier button_Global{ "button_Global" };
+		const Identifier button_GroupLock{ "button_GroupLock" };
+		const Identifier button_GroupUnlock{ "button_GroupUnlock" };
 		const Identifier button_Edit{ "button_Edit" };
 		const Identifier button_Export_File{ "button_Export_File" };
 		const Identifier button_Export_VoiceFromBank_{ "button_Export_VoiceFromBank_" };
@@ -133,7 +130,7 @@ namespace MophoConstants
 		const Identifier ep_062_Env_3_Amount{ "ep_062_Env_3_Amount" };
 		const Identifier ep_063_Env_3_VelAmount{ "ep_063_Env_3_VelAmount" };
 		const Identifier ep_064_Env_3_Delay{ "ep_064_Env_3_Delay" };
-		const Identifier ep_065_Env_3_Attack{ "ep_064_Env_3_Attack" };
+		const Identifier ep_065_Env_3_Attack{ "ep_065_Env_3_Attack" };
 		const Identifier ep_066_Env_3_Decay{ "ep_066_Env_3_Decay" };
 		const Identifier ep_067_Env_3_Sustain{ "ep_067_Env_3_Sustain" };
 		const Identifier ep_068_Env_3_Release{ "ep_068_Env_3_Release" };
@@ -193,6 +190,7 @@ namespace MophoConstants
 		const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		const Identifier property_NRPN{ "property_NRPN" };
+		const Identifier property_ParamID{ "property_ParamID" };
 		const Identifier property_SeqTrackNum{ "property_SeqTrackNum" };
 		const Identifier property_SeqTrackStepNum{ "property_SeqTrackStepNum" };
 		const Identifier property_Width{ "property_Width" };
@@ -234,9 +232,8 @@ namespace MophoConstants
 		const Identifier rndm_SeqTrackTargetStep{ "rndm_SeqTrackTargetStep" };
 		const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };
 
-		const Identifier state_CustomVoicesBank_1{ "state_CustomVoicesBank_1" };
-		const Identifier state_CustomVoicesBank_2{ "state_CustomVoicesBank_2" };
-		const Identifier state_CustomVoicesBank_3{ "state_CustomVoicesBank_3" };
+		const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
+		const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
 		const Identifier state_ExposedParams{ "state_ExposedParams" };
 		const Identifier state_PluginState{ "state_PluginState" };
 		const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };

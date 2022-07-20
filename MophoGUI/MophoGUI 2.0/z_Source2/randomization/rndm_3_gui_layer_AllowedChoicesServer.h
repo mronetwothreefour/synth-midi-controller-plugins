@@ -16,13 +16,11 @@ class GUI_Layer_AllowedChoices_SeqTrack;
 class GUI_Layer_AllowedChoices_Standard;
 class GUI_Layer_AllowedChoices_VoiceNameChar;
 class ExposedParameters;
-class ParamRandomizationMethods;
 class UnexposedParameters;
 
 class GUI_Layer_AllowedChoicesServer :
 	public Component
 {
-	ParamRandomizationMethods* randomize;
 	UnexposedParameters* unexposedParams;
 	ExposedParameters* exposedParams;
 	std::unique_ptr<GUI_Layer_AllowedChoices_Binary> allowedChoices_Binary;
@@ -35,7 +33,7 @@ class GUI_Layer_AllowedChoicesServer :
 public:
 	GUI_Layer_AllowedChoicesServer() = delete;
 
-	GUI_Layer_AllowedChoicesServer(ParamRandomizationMethods* randomize, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoicesServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void showAllowedChoicesLayerForBinaryParam(uint8 paramIndex);
 	void showAllowedChoicesLayerForLFO_FreqParam(uint8 paramIndex);
 	void showAllowedChoicesLayerForOscShapeParam(uint8 paramIndex);

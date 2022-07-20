@@ -6,9 +6,6 @@
 
 
 
-class ExposedParameters;
-class UnexposedParameters;
-
 class GUI_Layer_ExposedParamControls :
 	public Component,
 	private ExposedParamControlsServer

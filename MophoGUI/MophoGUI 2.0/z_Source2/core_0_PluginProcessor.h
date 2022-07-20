@@ -30,7 +30,6 @@ are the only hosts known to be compatible with MophoGUI.vst3 at this time.
 #include <JuceHeader.h>
 
 
-
 class ExposedParamChangesHandler;
 class ExposedParameters;
 class IncomingMessageHandler_NRPN;
@@ -48,7 +47,6 @@ class PluginProcessor :
     std::unique_ptr<IncomingMessageHandler_NRPN> incomingMessageHandler_NRPN;
     std::unique_ptr<IncomingMessageHandler_SysEx> incomingMessageHandler_SysEx;
     std::unique_ptr<XmlElement> pluginStateXml;
-    UndoManager* undoManager;
     VoiceTransmissionOptions* voiceTransmit;
 
 public:
@@ -62,26 +60,26 @@ public:
 
     int getNumPrograms() override;
     int getCurrentProgram() override;
-    void setCurrentProgram(int index) override;
-    const String getProgramName(int index) override;
-    void changeProgramName(int index, const String& newName) override;
+    void setCurrentProgram (int index) override;
+    const String getProgramName (int index) override;
+    void changeProgramName (int index, const String& newName) override;
 
-    void processBlock(AudioBuffer<float>&, MidiBuffer&) override;
-    bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
-    void prepareToPlay(double sampleRate, int samplesPerBlock) override;
+    void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
+    bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
+    void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
     double getTailLengthSeconds() const override;
 
     bool hasEditor() const override;
     AudioProcessorEditor* createEditor() override;
 
-    void getStateInformation(MemoryBlock& destData) override;
+    void getStateInformation (MemoryBlock& destData) override;
 
 private:
     void createPluginStateXml();
 
 public:
-    void setStateInformation(const void* data, int sizeInBytes) override;
+    void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
     void restorePluginStateFromXml(XmlElement* sourceXml);
@@ -91,5 +89,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginProcessor)
 };

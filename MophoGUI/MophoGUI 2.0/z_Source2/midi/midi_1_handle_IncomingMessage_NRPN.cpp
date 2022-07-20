@@ -2,7 +2,8 @@
 
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
-#include "../exposedParameters/ep_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -102,9 +103,9 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(MidiMessage 
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(int nrpnType, int newValue) {
     voiceTransmit->dontTransmitParamChanges();
-    auto paramIndex{ exposedParams->info.paramIndexForNRPN((uint8)nrpnType) };
-    auto paramID{ exposedParams->info.IDfor(paramIndex) };
-    auto paramPtr{ exposedParams->state.getParameter(paramID) };
+    auto paramIndex{ exposedParams->info->paramIndexForNRPN((uint8)nrpnType) };
+    auto paramID{ exposedParams->info->IDfor(paramIndex) };
+    auto paramPtr{ exposedParams->state->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
     voiceTransmit->transmitParamChanges();
 }

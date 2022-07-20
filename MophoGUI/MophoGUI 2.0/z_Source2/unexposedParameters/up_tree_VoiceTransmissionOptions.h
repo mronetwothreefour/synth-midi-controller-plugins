@@ -15,7 +15,7 @@ public:
 	void transmitParamChanges();
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(int timeInMilliseconds);
-	XmlElement* getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 
 private:

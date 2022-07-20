@@ -38,7 +38,7 @@ void TabbedComponentForCustomVoicesBanks::removeListenerFromButtonsInAllCustomTa
 }
 
 VoiceSlots* TabbedComponentForCustomVoicesBanks::getVoiceSlotsComponentForCustomBank(VoicesBank bank) {
-	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
+	jassert(bank >= VoicesBank::custom_1);
 	switch (bank) {
 	case VoicesBank::custom_1:
 		return bank_1.getVoiceSlots();

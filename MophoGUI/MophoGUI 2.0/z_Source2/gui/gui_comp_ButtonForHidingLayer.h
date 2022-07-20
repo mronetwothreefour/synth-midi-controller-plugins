@@ -18,7 +18,7 @@ public:
 
 	explicit ButtonForHidingLayer(UnexposedParameters* unexposedParams);
 	void updateTooltip();
-	void valueTreePropertyChanged(ValueTree& tree, const Identifier& property) override;
+	void valueTreePropertyChanged(ValueTree& tree, const Identifier& propertyID) override;
 	~ButtonForHidingLayer();
 
 private:

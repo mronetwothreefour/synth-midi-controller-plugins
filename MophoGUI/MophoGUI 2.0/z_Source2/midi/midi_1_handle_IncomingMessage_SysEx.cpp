@@ -2,6 +2,7 @@
 
 #include "midi_0_RawDataTools.h"
 #include "../constants/constants_MIDI.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -45,30 +46,15 @@ void IncomingMessageHandler_SysEx::handleIncomingVoiceData(const uint8* sysExDat
         const int voiceDataMessageBankByte{ 4 };
         const int voiceDataMessageSlotByte{ 5 };
         const int firstVoiceDataByte{ 6 };
-        const int firstUnusedPVoiceDataByte{ 236 };
+        const int firstUnusedPVoiceDataByte{ 235 };
         auto bankNum{ sysExData[voiceDataMessageBankByte] };
-        VoicesBank bank;
-        switch (bankNum)
-        {
-        case 0:
-            bank = VoicesBank::custom_1;
-            break;
-        case 1:
-            bank = VoicesBank::custom_2;
-            break;
-        case 2:
-            bank = VoicesBank::custom_3;
-            break;
-        default:
-            bank = VoicesBank::custom_1;
-            break;
-        }
-        auto slot{ sysExData[voiceDataMessageSlotByte] };
+        auto bank{ VoicesBank{ bankNum + 3 } };
+        auto slotNum{ sysExData[voiceDataMessageSlotByte] };
         std::vector<uint8> voiceDataVector;
         for (auto dataByte = firstVoiceDataByte; dataByte != firstUnusedPVoiceDataByte; ++dataByte)
             voiceDataVector.push_back(*(sysExData + dataByte));
         auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
-        voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slot);
+        voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slotNum);
     }
     else
         handleIncomingGlobalData(sysExData);
