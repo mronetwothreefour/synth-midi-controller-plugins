@@ -166,10 +166,14 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="UqG181" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="V7jD8m" name="constants_GUI_Colors.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="DjjVZZ" name="constants_GUI_Dimensions.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="K6KyBx" name="constants_GUI_FontsAndSpecialCharacters.h"
               compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
+        <FILE id="kpsxpr" name="constants_GUI_PathData.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="YrbwNS" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
         <FILE id="IrSggX" name="constants_Voices.h" compile="0" resource="0"
@@ -186,6 +190,36 @@
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="ne96UT" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
               compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
+        <FILE id="mW8khB" name="epc_1_comp_ComboBoxAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.cpp"/>
+        <FILE id="vOA2TL" name="epc_1_comp_ComboBoxAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.h"/>
+        <FILE id="N7TdSv" name="epc_1_comp_KnobAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.cpp"/>
+        <FILE id="dt0w5j" name="epc_1_comp_KnobAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.h"/>
+        <FILE id="TsgKT9" name="epc_1_comp_KnobAndAttachment_ForOscShape.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForOscShape.cpp"/>
+        <FILE id="fsyJuL" name="epc_1_comp_KnobAndAttachment_ForOscShape.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForOscShape.h"/>
+        <FILE id="HaeV9F" name="epc_1_comp_KnobAndAttachment_ForSeqStep.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForSeqStep.cpp"/>
+        <FILE id="ZnDtuQ" name="epc_1_comp_KnobAndAttachment_ForSeqStep.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForSeqStep.h"/>
+        <FILE id="xtuYOV" name="epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.cpp"/>
+        <FILE id="d7CNe7" name="epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"/>
+        <FILE id="vqnefl" name="epc_1_comp_ToggleButtonAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ToggleButtonAndAttachment.cpp"/>
+        <FILE id="PWcWB6" name="epc_1_comp_ToggleButtonAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ToggleButtonAndAttachment.h"/>
+        <FILE id="okdN6I" name="epc_2_comp_ExposedParamControl.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.cpp"/>
+        <FILE id="WVpF6s" name="epc_2_comp_ExposedParamControl.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.h"/>
+        <FILE id="q0lv13" name="epc_3_vector_ExposedParamControlsServer.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"/>
       </GROUP>
       <GROUP id="{AA423D14-7BDF-BD44-6AA7-E91CC0E61BBB}" name="exposedParameters">
         <FILE id="HJ1mfe" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
@@ -202,7 +236,20 @@
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
       </GROUP>
       <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global"/>
-      <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui"/>
+      <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
+        <FILE id="O7T6qg" name="gui_build_LCD_CharacterPath.h" compile="0"
+              resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
+        <FILE id="Kx2XBL" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
+        <FILE id="VfjDbm" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="vmTb5V" name="gui_layer_ExposedParamControls.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="pvaZSg" name="gui_MophoLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_MophoLookAndFeel.cpp"/>
+        <FILE id="H7Xx5z" name="gui_MophoLookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_MophoLookAndFeel.h"/>
+      </GROUP>
       <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi"/>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">

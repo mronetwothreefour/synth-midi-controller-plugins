@@ -6,7 +6,10 @@ namespace MophoConstants
 {
 	namespace EP
 	{
+		const uint8 choiceNumForSeqStep_Reset{ 126 };
+		const uint8 choiceNumForSeqTrack1Step_Rest{ 127 };
 		const uint8 firstSeqStepParamIndex{ 109 };
+		const uint8 firstSeqTrackDestParamIndex{ 101 };
 		const uint8 firstVoiceNameCharParamIndex{ 173 };
 		const uint8 first_LFO_PitchedFreqChoice{ 90 };
 		const uint8 first_LFO_SyncedFreqChoice{ 151 };

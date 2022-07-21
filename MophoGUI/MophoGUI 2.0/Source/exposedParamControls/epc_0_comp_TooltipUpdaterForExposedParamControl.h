@@ -10,7 +10,7 @@ class UnexposedParameters;
 class TooltipUpdaterForExposedParamControl :
 	public Value::Listener
 {
-	uint8 paramIndex;
+	const uint8 paramIndex;
 	SettableTooltipClient& clientComponent;
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;

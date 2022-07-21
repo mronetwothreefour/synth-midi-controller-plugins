@@ -10,6 +10,8 @@ namespace MophoConstants
 		const int editor_h{ 626 };
 		const int editor_w{ 1273 };
 		const int knob_diameter{ 40 };
+		const int lockAndUnlockIcons_h{ 20 };
+		const int lockAndUnlockIcons_w{ 14 };
 		const int seqSteps_h{ 26 };
 		const int seqSteps_w{ seqSteps_h };
 		const int seqTrackControlsGroup_h{ 83 };

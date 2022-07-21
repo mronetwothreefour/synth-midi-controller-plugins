@@ -6,6 +6,48 @@ namespace MophoConstants
 {
 	namespace ID
 	{
+		static const Identifier btn_AllowAll{ "button_AllowAll" };
+		static const Identifier btn_Banks{ "button_Banks" };
+		static const Identifier btn_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
+		static const Identifier btn_Cancel_ImportExport{ "button_Cancel_ImportExport" };
+		static const Identifier btn_Cancel_NewFolder{ "button_Cancel_NewFolder" };
+		static const Identifier btn_Clear{ "button_Clear" };
+		static const Identifier btn_Close{ "button_Close" };
+		static const Identifier btn_Create{ "button_Create" };
+		static const Identifier btn_Edit{ "button_Edit" };
+		static const Identifier btn_Export_File{ "button_Export_File" };
+		static const Identifier btn_Export_VoiceFromBank_{ "button_Export_VoiceFromBank_" };
+		static const Identifier btn_Export_VoicesBank_{ "button_Export_VoicesBank_" };
+		static const Identifier btn_Global{ "button_Global" };
+		static const Identifier btn_GroupLock{ "button_GroupLock" };
+		static const Identifier btn_GroupUnlock{ "button_GroupUnlock" };
+		static const Identifier btn_Hyperlink{ "button_Hyperlink" };
+		static const Identifier btn_Import_AllVoicesIntoBank_{ "button_Import_AllVoicesIntoBank_" };
+		static const Identifier btn_Import_File{ "button_Import_File" };
+		static const Identifier btn_Import_VoiceIntoBank_{ "button_Import_VoiceIntoBank_" };
+		static const Identifier btn_Load{ "button_Load" };
+		static const Identifier btn_NewFolder{ "button_NewFolder" };
+		static const Identifier btn_Pull_SelectedVoice{ "button_Pull_SelectedVoice" };
+		static const Identifier btn_Pull_VoicesBank_{ "button_Pull_VoicesBank_" };
+		static const Identifier btn_Push_SelectedVoice{ "button_Push_SelectedVoice" };
+		static const Identifier btn_Push_VoicesBank_{ "button_Push_VoicesBank_" };
+		static const Identifier btn_Randomize{ "button_Randomize" };
+		static const Identifier btn_Read{ "button_Read" };
+		static const Identifier btn_Redo{ "button_Redo" };
+		static const Identifier btn_Retry{ "button_Retry" };
+		static const Identifier btn_Save{ "button_Save" };
+		static const Identifier btn_Stop{ "button_Stop" };
+		static const Identifier btn_Undo{ "button_Undo" };
+		static const Identifier btn_VoiceSlotRadioButton{ "button_VoiceSlotRadioButton" };
+		static const Identifier btn_Write_EditBuffer{ "button_Write_EditBuffer" };
+		static const Identifier btn_Write_OverFile{ "button_Write_OverFile" };
+
+		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
+		static const Identifier comp_Knob{ "comp_Knob" };
+		static const Identifier comp_RedToggle{ "comp_RedToggle" };
+		static const Identifier comp_TabbedComponentForAllBanks{ "comp_TabbedComponentForAllBanks" };
+		static const Identifier comp_ToggleAllow_{ "comp_ToggleAllow_" };
+
 		static const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };
 		static const Identifier ep_001_Osc_1_FineTune{ "ep_001_Osc_1_FineTune" };
 		static const Identifier ep_002_Osc_1_Shape{ "ep_002_Osc_1_Shape" };
@@ -75,6 +117,11 @@ namespace MophoConstants
 		static const Identifier ep_098_ArpegOnOff{ "ep_098_ArpegOnOff" };
 		static const Identifier ep_099_SeqTrigMode{ "ep_099_SeqTrigMode" };
 		static const Identifier ep_100_SeqOnOff{ "ep_100_SeqOnOff" };
+
+		static const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
+		static const Identifier label_EditLabel{ "label_EditLabel" };
+		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
+		static const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
 
 		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };

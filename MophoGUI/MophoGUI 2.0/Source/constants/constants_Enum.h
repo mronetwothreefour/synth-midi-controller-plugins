@@ -31,4 +31,31 @@ namespace MophoConstants
 		lpf,
 		vca
 	};
+
+
+	const enum class OscWaveShape {
+		off = 0,
+		sawtooth,
+		triangle,
+		sawTriMix,
+		pulse
+	};
+
+
+	const enum class SeqTrackNum {
+		one = 1, two, three, four
+	};
+
+
+	const enum class SeqTrackProbabilityKnobType {
+		rest = 0,
+		duplicate,
+		reset
+	};
+
+
+	const enum class SeqTrackStepNum {
+		all = 0, one, two, three, four, five, six, seven, eight,
+		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen
+	};
 }
