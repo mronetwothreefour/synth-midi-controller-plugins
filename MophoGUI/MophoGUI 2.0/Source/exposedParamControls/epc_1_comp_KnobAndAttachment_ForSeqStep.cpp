@@ -66,8 +66,8 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 }
 
 void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
-	knobAttachment.reset(new SliderAttachment(*state, info->IDfor(paramIndex).toString(), knob));
-	trackDestinationAttachment.reset(new SliderAttachment(*state, trackDestID.toString(), trackDestination));
+	knobAttachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
+	trackDestinationAttachment.reset(new SliderAttachment{ *state, trackDestID.toString(), trackDestination });
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch(bool isModifyingPitch) {

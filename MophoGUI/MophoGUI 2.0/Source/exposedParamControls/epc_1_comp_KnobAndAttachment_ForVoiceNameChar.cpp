@@ -33,7 +33,7 @@ void KnobAndAttachment_ForVoiceNameChar::paint(Graphics& g) {
 }
 
 void KnobAndAttachment_ForVoiceNameChar::attachKnobToExposedParameter() {
-	attachment.reset(new SliderAttachment(*state, info->IDfor(paramIndex).toString(), knob));
+	attachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
 	limitKnobRangeToBasic_ASCII_CharsThatAreVisible();
 }
 
