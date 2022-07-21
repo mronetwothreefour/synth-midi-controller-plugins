@@ -3078,6 +3078,12 @@
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_EditBufferDataMessage.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>

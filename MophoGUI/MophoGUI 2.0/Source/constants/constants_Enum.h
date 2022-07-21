@@ -58,4 +58,13 @@ namespace MophoConstants
 		all = 0, one, two, three, four, five, six, seven, eight,
 		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen
 	};
+
+	const enum class SysExMessageType {
+		voiceData = 2,
+		editBufferData = 3,
+		voiceDataRequest = 5,
+		editBufferDataRequest = 6,
+		globalParametersDataRequest = 14,
+		globalParametersData = 15
+	};
 }

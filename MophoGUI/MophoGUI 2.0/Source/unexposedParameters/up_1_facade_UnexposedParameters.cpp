@@ -10,6 +10,10 @@ UnexposedParameters::UnexposedParameters() :
 {
 }
 
+OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
+    return outgoingMidiBuffers.get();
+}
+
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
     return tooltipsOptions.get();
 }
@@ -45,6 +49,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 }
 
 UnexposedParameters::~UnexposedParameters() {
+    outgoingMidiBuffers = nullptr;
     tooltipsOptions = nullptr;
     voiceTransmissionOptions = nullptr;
 }

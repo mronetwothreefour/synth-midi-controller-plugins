@@ -267,6 +267,10 @@
               file="Source/midi/midi_0_RawDataTools.cpp"/>
         <FILE id="dLCdHc" name="midi_0_RawDataTools.h" compile="0" resource="0"
               file="Source/midi/midi_0_RawDataTools.h"/>
+        <FILE id="xZtNMl" name="midi_1_EditBufferDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.h"/>
+        <FILE id="mp1tH7" name="midi_1_GlobalParametersDataRequest.h" compile="0"
+              resource="0" file="Source/midi/midi_1_GlobalParametersDataRequest.h"/>
       </GROUP>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
