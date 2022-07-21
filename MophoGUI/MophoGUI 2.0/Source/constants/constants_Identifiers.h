@@ -149,6 +149,7 @@ namespace MophoConstants
 
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
 
 		static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
 		static const Identifier tooltips_ShouldShowCurrentChoice{ "tooltips_ShouldShowCurrentChoice" };
@@ -158,5 +159,9 @@ namespace MophoConstants
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
+
+		static const Identifier voiceTx_Options{ "voiceTx_Options" };
+		static const Identifier voiceTx_TransmitParamChanges{ "voiceTx_TransmitParamChanges" };
+		static const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}
 }

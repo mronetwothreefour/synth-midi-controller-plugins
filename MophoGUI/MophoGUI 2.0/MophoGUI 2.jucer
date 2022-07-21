@@ -176,6 +176,8 @@
               file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="YrbwNS" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
+        <FILE id="Eq28CS" name="constants_MIDI.h" compile="0" resource="0"
+              file="Source/constants/constants_MIDI.h"/>
         <FILE id="IrSggX" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
       </GROUP>
@@ -256,13 +258,26 @@
         <FILE id="H7Xx5z" name="gui_MophoLookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_MophoLookAndFeel.h"/>
       </GROUP>
-      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi"/>
+      <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi">
+        <FILE id="KFqR8H" name="midi_0_NRPNbufferWithLeadingMSBs.h" compile="0"
+              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.h"/>
+        <FILE id="Zma69k" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="TQMXPM" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_0_RawDataTools.cpp"/>
+        <FILE id="dLCdHc" name="midi_0_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_0_RawDataTools.h"/>
+      </GROUP>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
         <FILE id="euLH2U" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="JUU1ou" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_0_tree_TooltipsOptions.h"/>
+        <FILE id="AdP7J7" name="up_0_tree_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_0_tree_VoiceTransmissionOptions.cpp"/>
+        <FILE id="XIYBvp" name="up_0_tree_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"/>
         <FILE id="ivaGZB" name="up_1_facade_UnexposedParameters.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_1_facade_UnexposedParameters.cpp"/>
         <FILE id="JkLqCg" name="up_1_facade_UnexposedParameters.h" compile="0"

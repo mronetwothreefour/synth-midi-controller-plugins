@@ -5,12 +5,17 @@
 using namespace MophoConstants;
 
 UnexposedParameters::UnexposedParameters() :
-    tooltipsOptions{ new TooltipsOptions{} }
+    tooltipsOptions{ new TooltipsOptions{} },
+    voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
     return tooltipsOptions.get();
+}
+
+VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
+    return voiceTransmissionOptions.get();
 }
 
 std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
@@ -19,6 +24,10 @@ std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
     auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
     if (tooltipOptionsStateXml != nullptr)
         unexposedParamsStateXml->addChildElement(tooltipOptionsStateXml.release());
+
+    auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
+    if (voiceTxOptionsStateXml != nullptr)
+        unexposedParamsStateXml->addChildElement(voiceTxOptionsStateXml.release());
 
     return unexposedParamsStateXml;
 }
@@ -29,8 +38,13 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
         if (tooltipOptionsState.isValid())
             tooltipsOptions->replaceState(tooltipOptionsState);
     }
+
+    auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
+    if (voiceTxOptionsState.isValid())
+        voiceTransmissionOptions->replaceState(voiceTxOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {
     tooltipsOptions = nullptr;
+    voiceTransmissionOptions = nullptr;
 }
