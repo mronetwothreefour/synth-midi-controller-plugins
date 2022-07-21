@@ -143,7 +143,7 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 		break;
 	case ControlType::seqTrackStep:
 		if (knobAndAttachment_ForSeqStep != nullptr)
-			knobAndAttachment_ForSeqStep->attachKnobToExposedParameter();
+			knobAndAttachment_ForSeqStep->attachKnobsToExposedParameters();
 		break;
 	case ControlType::voiceNameChar:
 		if (knobAndAttachment_ForVoiceNameChar != nullptr)
@@ -163,7 +163,7 @@ void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const 
 	if (knobAndAttachment_ForOscShape != nullptr)
 		knobAndAttachment_ForOscShape->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (knobAndAttachment_ForSeqStep != nullptr)
-		knobAndAttachment_ForSeqStep->deleteAttachmentBeforeKnobToPreventMemLeak();
+		knobAndAttachment_ForSeqStep->deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 	if (knobAndAttachment_ForVoiceNameChar != nullptr)
 		knobAndAttachment_ForVoiceNameChar->deleteAttachmentBeforeKnobToPreventMemLeak();
 	if (toggleButtonAndAttachment != nullptr)

@@ -12,29 +12,30 @@ using Track = SeqTrackNum;
 
 class KnobAndAttachment_ForSeqStep :
 	public Component,
-	public Value::Listener
+	public Slider::Listener
 {
 	const uint8 paramIndex;
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
 	RotarySliderWithMouseDownModForSeqStep knob;
 	std::unique_ptr<SliderAttachment> knobAttachment;
+	Slider trackDestination;
+	std::unique_ptr<SliderAttachment> trackDestinationAttachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
 	const Identifier trackDestID;
-	Value trackDestValue;
 
 public:
 	KnobAndAttachment_ForSeqStep() = delete;
 
-	KnobAndAttachment_ForSeqStep(uint8 paramIndex, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForSeqStep(const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
-	void attachKnobToExposedParameter();
+	void attachKnobsToExposedParameters();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
-	void valueChanged(Value& value) override;
-	void deleteAttachmentBeforeKnobToPreventMemLeak();
+	void sliderValueChanged(Slider* slider) override;
+	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 	~KnobAndAttachment_ForSeqStep();
 
 private:

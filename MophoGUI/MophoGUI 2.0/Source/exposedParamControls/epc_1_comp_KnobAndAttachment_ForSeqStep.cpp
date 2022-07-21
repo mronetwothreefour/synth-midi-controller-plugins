@@ -8,7 +8,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
 KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
-	uint8 paramIndex, Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
@@ -16,9 +16,6 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	trackDestID{ info->IDfor(uint8(EP::firstSeqTrackDestParamIndex + ((int)track - 1))) }
 {
-	trackDestValue = state->getParameterAsValue(trackDestID);
-	trackDestValue.addListener(this);
-
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.setComponentID(ID::comp_Knob.toString());
@@ -28,7 +25,9 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	knob.setAlpha(0.0f);
 	knob.setBounds(getLocalBounds());
 
-	valueChanged(trackDestValue);
+	trackDestination.addListener(this);
+
+	sliderValueChanged(&trackDestination);
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
@@ -66,25 +65,26 @@ void KnobAndAttachment_ForSeqStep::paintChoiceNameString(Graphics& g, String ste
 	g.drawText(stepChoiceName, getLocalBounds(), Justification::centred, false);
 }
 
-void KnobAndAttachment_ForSeqStep::attachKnobToExposedParameter() {
+void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
 	knobAttachment.reset(new SliderAttachment(*state, info->IDfor(paramIndex).toString(), knob));
+	trackDestinationAttachment.reset(new SliderAttachment(*state, trackDestID.toString(), trackDestination));
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch(bool isModifyingPitch) {
 	knob.isModifyingPitch = isModifyingPitch;
 }
 
-void KnobAndAttachment_ForSeqStep::valueChanged(Value& /*value*/) {
-	auto paramPtr{ state->getParameter(trackDestID) };
-	auto destination{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
+void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* /*slider*/) {
+	auto destination{ roundToInt(trackDestination.getValue()) };
 	knob.isModifyingPitch = destination > 0 && destination < 4 ? true : false;
 	repaint();
 }
 
-void KnobAndAttachment_ForSeqStep::deleteAttachmentBeforeKnobToPreventMemLeak() {
+void KnobAndAttachment_ForSeqStep::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
 	knobAttachment = nullptr;
+	trackDestinationAttachment = nullptr;
 }
 
 KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
-	trackDestValue.removeListener(this);
+	trackDestination.removeListener(this);
 }
