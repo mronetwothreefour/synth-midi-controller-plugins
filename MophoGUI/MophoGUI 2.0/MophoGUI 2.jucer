@@ -239,10 +239,16 @@
       <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
         <FILE id="O7T6qg" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>
+        <FILE id="ZuxKxC" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
+        <FILE id="rRQQ8L" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.h"/>
         <FILE id="Kx2XBL" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="VfjDbm" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="uHk99i" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
+              file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="vmTb5V" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
         <FILE id="pvaZSg" name="gui_MophoLookAndFeel.cpp" compile="1" resource="0"

@@ -646,6 +646,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
@@ -3039,7 +3042,13 @@
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
