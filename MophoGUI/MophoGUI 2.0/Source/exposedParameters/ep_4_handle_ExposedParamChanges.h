@@ -13,7 +13,7 @@ class ExposedParamChangesHandler :
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
 	UnexposedParameters* unexposedParams;
-	VoiceTransmissionOptions* voiceTransmit;
+	VoiceTransmissionOptions* transmitOptions;
 
 public:
 	ExposedParamChangesHandler() = delete;

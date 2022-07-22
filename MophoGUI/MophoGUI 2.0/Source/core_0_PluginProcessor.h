@@ -45,7 +45,7 @@ class PluginProcessor :
     std::unique_ptr<ExposedParamChangesHandler> exposedParamChangesHandler;
     std::unique_ptr<IncomingMessageHandler_NRPN> incomingMessageHandler_NRPN;
     std::unique_ptr<IncomingMessageHandler_SysEx> incomingMessageHandler_SysEx;
-    VoiceTransmissionOptions* voiceTransmit;
+    VoiceTransmissionOptions* transmitOptions;
 
 public:
     PluginProcessor();

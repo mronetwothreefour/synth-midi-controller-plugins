@@ -15,7 +15,7 @@ PluginProcessor::PluginProcessor() :
     exposedParamChangesHandler{ new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() } },
     incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN{ exposedParams.get(), unexposedParams.get() } },
     incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx{ exposedParams.get(), unexposedParams.get() } },
-    voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
+    transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 

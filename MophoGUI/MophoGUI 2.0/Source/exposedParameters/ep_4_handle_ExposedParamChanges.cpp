@@ -14,7 +14,7 @@ ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* expose
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	unexposedParams{ unexposedParams },
-	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
+	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto paramID{ info->IDfor(paramIndex) };
@@ -37,7 +37,7 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 	//	}
 	//}
 	//else {
-		if (voiceTransmit->paramChangesShouldBeTransmitted()) {
+		if (transmitOptions->paramChangesShouldBeTransmitted()) {
 			auto paramID{ info->IDfor((uint8)changedParamIndex) };
 			auto nrpn{ info->NRPNfor((uint8)changedParamIndex) };
 			auto paramPtr{ state->getParameter(paramID) };

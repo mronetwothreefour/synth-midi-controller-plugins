@@ -11,16 +11,16 @@ using State = AudioProcessorValueTreeState;
 class ExposedParameters
 {
 public:
-	std::unique_ptr<AudioProcessorValueTreeState> state;
 	std::unique_ptr <InfoForExposedParameters> info;
+	std::unique_ptr<AudioProcessorValueTreeState> state;
 	UndoManager undoManager;
 
 	ExposedParameters() = delete;
 
 	explicit ExposedParameters(AudioProcessor* processor) :
-		info{ new InfoForExposedParameters }
+		info{ new InfoForExposedParameters },
+		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } }
 	{
-		state.reset(new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) });
 	}
 
 private:
