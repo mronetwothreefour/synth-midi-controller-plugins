@@ -38,6 +38,8 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
 
     setSize(GUI::editor_w, GUI::editor_h);
     setResizable(false, false);
+
+    callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void PluginEditor::paint(Graphics& g) {
@@ -45,6 +47,9 @@ void PluginEditor::paint(Graphics& g) {
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
     g.drawImageAt(backgroundImage, 0, 0);
+}
+
+void PluginEditor::timerCallback() {
 }
 
 void PluginEditor::valueChanged(Value& /*value*/) {

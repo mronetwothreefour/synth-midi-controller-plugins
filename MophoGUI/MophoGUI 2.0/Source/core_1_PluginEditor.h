@@ -11,7 +11,8 @@ class MophoLookAndFeel;
 
 class PluginEditor :
     public AudioProcessorEditor,
-    public Value::Listener
+    public Value::Listener,
+	private Timer
 {
     PluginProcessor& processor;
     std::unique_ptr<GUI_Layer_EnvelopePainters> layer_EnvelopePainters;
@@ -24,6 +25,11 @@ class PluginEditor :
 public:
     PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics&) override;
+
+private:
+    void timerCallback() override;
+
+public:
     void valueChanged(Value& value) override;
     ~PluginEditor() override;
 

@@ -19,15 +19,17 @@ String MainWindowButtonDescription::buildForClearSeqTrack(int trackNum) {
 
 String MainWindowButtonDescription::buildForEditBufferRead() {
     String descriptionString{ "" };
-    descriptionString += "Requests a program edit buffer dump from the Mopho\n";
-    descriptionString += "hardware and applies it to the plugin GUI.";
+    descriptionString += "Requests a program edit buffer dump\n";
+    descriptionString += "from the Mopho hardware and applies it\n";
+    descriptionString += "to the plugin GUI. Shortcut key: CTRL+R";
     return descriptionString;
 }
 
 String MainWindowButtonDescription::buildForEditBufferWrite() {
     String descriptionString{ "" };
-    descriptionString += "Writes the plugin" + GUI::apostrophe + "s current program settings\n";
-    descriptionString += "into the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
+    descriptionString += "Writes the plugin" + GUI::apostrophe + "s current program\n";
+    descriptionString += "settings into the Mopho hardware" + GUI::apostrophe + "s program\n";
+    descriptionString += "edit buffer. Shortcut key: CTRL+W";
     return descriptionString;
 }
 
@@ -37,8 +39,9 @@ String MainWindowButtonDescription::buildForHyperlink() {
 
 String MainWindowButtonDescription::buildForRedo() {
     String descriptionString{ "" };
-    descriptionString += "Click this button (or type CTRL+SHIFT+z) to\n";
-    descriptionString += "redo a previously undone parameter change.";
+    descriptionString += "Click this button to redo a pre-\n";
+    descriptionString += "viously undone parameter change.\n";
+    descriptionString += "Shortcut key: CTRL+SHIFT+Z";
     return descriptionString;
 }
 
@@ -75,8 +78,8 @@ String MainWindowButtonDescription::buildForShowVoicesBanksLayer() {
 
 String MainWindowButtonDescription::buildForUndo() {
     String descriptionString{ "" };
-    descriptionString += "Click this button (or type CTRL+z) to\n";
-    descriptionString += "undo the previous parameter change.";
+    descriptionString += "Click this button to undo the previous\n";
+    descriptionString += "parameter change. Shortcut key: CTRL+Z";
     return descriptionString;
 }
 
