@@ -186,6 +186,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
         <FILE id="hqpwOG" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="vobU3J" name="build_MainWindowButtonDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
+        <FILE id="Rom6PC" name="build_MainWindowButtonDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
       <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls">
         <FILE id="ak6MuF" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
@@ -257,6 +261,10 @@
               file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="vmTb5V" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="WlZzdY" name="gui_layer_MainWindowButtons.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
+        <FILE id="wmBngx" name="gui_layer_MainWindowButtons.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
         <FILE id="pvaZSg" name="gui_MophoLookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_MophoLookAndFeel.cpp"/>
         <FILE id="H7Xx5z" name="gui_MophoLookAndFeel.h" compile="0" resource="0"

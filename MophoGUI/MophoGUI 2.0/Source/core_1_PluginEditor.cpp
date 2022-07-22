@@ -4,6 +4,7 @@
 #include "constants/constants_GUI_Dimensions.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
+#include "gui/gui_layer_MainWindowButtons.h"
 #include "gui/gui_MophoLookAndFeel.h"
 #include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
@@ -14,6 +15,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     processor (processor),
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters{ exposedParams } },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
+    layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     lookAndFeel{ new MophoLookAndFeel{} },
     tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getDelayInMillisecondsValue() },
     tooltipWindow{ new TooltipWindow{} }
@@ -25,6 +27,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
 
     layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_ExposedParamControls.get());
+
+    layer_Buttons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_Buttons.get());
 
     tooltipsDelayInMillisecondsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -49,6 +54,7 @@ void PluginEditor::valueChanged(Value& /*value*/) {
 PluginEditor::~PluginEditor() {
     layer_EnvelopePainters = nullptr;
     layer_ExposedParamControls = nullptr;
+    layer_Buttons = nullptr;
     tooltipsDelayInMillisecondsValue.removeListener(this);
     tooltipWindow = nullptr;
 }

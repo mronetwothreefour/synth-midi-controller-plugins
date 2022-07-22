@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.cpp"/>
@@ -156,6 +157,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_MophoLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp"/>
@@ -2328,6 +2330,7 @@
     <ClInclude Include="..\..\Source\constants\constants_MIDI.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.h"/>
@@ -2347,6 +2350,7 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MophoLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>

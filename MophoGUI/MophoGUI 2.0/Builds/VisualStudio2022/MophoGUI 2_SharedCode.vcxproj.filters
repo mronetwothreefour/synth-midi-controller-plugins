@@ -619,6 +619,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -656,6 +659,9 @@
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_MophoLookAndFeel.cpp">
@@ -3024,6 +3030,9 @@
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
       <Filter>MophoGUI 2\Source\exposedParamControls</Filter>
     </ClInclude>
@@ -3079,6 +3088,9 @@
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_MophoLookAndFeel.h">
