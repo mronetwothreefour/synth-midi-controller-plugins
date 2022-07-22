@@ -9,7 +9,7 @@
 
 using namespace MophoConstants;
 
-PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor (&processor), 
     processor (processor),
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters{ exposedParams } },
@@ -35,7 +35,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     setResizable(false, false);
 }
 
-void PluginEditor::paint (Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::bkgrnd_MainWindow_png, BinaryData::bkgrnd_MainWindow_pngSize, false };
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };

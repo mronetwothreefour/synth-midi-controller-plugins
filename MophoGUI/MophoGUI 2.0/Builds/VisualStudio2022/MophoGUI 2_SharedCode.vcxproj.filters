@@ -649,6 +649,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClCompile>
@@ -660,6 +663,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
@@ -3051,6 +3063,9 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
@@ -3083,6 +3098,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
+      <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>

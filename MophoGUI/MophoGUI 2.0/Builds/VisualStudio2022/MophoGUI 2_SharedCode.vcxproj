@@ -153,10 +153,14 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_MophoLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2337,6 +2341,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
@@ -2348,6 +2353,10 @@
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_EditBufferDataMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>

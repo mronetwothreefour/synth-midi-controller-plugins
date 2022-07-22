@@ -118,6 +118,20 @@ namespace MophoConstants
 		static const Identifier ep_099_SeqTrigMode{ "ep_099_SeqTrigMode" };
 		static const Identifier ep_100_SeqOnOff{ "ep_100_SeqOnOff" };
 
+		static const Identifier global_ControllersAreEnabled{ "global_ControllersAreEnabled" };
+		static const Identifier global_FineTune{ "global_FineTune" };
+		static const Identifier global_HardwareOutputBalance{ "global_HardwareOutputBalance" };
+		static const Identifier global_HardwareOutputIsMono{ "global_HardwareOutputIsMono" };
+		static const Identifier global_HardwareReceiveChannel{ "global_HardwareReceiveChannel" };
+		static const Identifier global_MIDI_ClockSource{ "global_MIDI_ClockSource" };
+		static const Identifier global_ParamChangeReceiveType{ "global_ParamChangeReceiveType" };
+		static const Identifier global_ParamChangeSendType{ "global_ParamChangeSendType" };
+		static const Identifier global_PedalModeIsArpLatch{ "global_PedalModeIsArpLatch" };
+		static const Identifier global_SysExIsEnabled{ "global_SysExIsEnabled" };
+		static const Identifier global_TransmitChannel{ "global_TransmitChannel" };
+		static const Identifier global_Transpose{ "global_Transpose" };
+		static const Identifier global_VoiceChangesAreEnabled{ "global_VoiceChangesAreEnabled" };
+
 		static const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
 		static const Identifier label_EditLabel{ "label_EditLabel" };
 		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
@@ -158,6 +172,7 @@ namespace MophoConstants
 		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
+		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 
 		static const Identifier voiceTx_Options{ "voiceTx_Options" };

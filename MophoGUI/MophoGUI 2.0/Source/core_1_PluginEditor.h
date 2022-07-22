@@ -20,8 +20,8 @@ class PluginEditor :
     Value tooltipsDelayInMillisecondsValue;
 
 public:
-    PluginEditor (PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
-    void paint (Graphics&) override;
+    PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+    void paint(Graphics&) override;
     void valueChanged(Value& value) override;
     ~PluginEditor() override;
 

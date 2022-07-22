@@ -33,12 +33,35 @@ namespace MophoConstants
 	};
 
 
+	const enum class MIDI_ClockSource {
+		internalClock = 0,
+		internalClock_Send,
+		externalClock,
+		externalClock_Resend
+	};
+
+
 	const enum class OscWaveShape {
 		off = 0,
 		sawtooth,
 		triangle,
 		sawTriMix,
 		pulse
+	};
+
+
+	const enum class ParamChangeReceiveType {
+		all = 0,
+		nrpnOnly,
+		ccOnly,
+		off
+	};
+
+
+	const enum class ParamChangeSendType {
+		nrpn = 0,
+		cc,
+		off
 	};
 
 

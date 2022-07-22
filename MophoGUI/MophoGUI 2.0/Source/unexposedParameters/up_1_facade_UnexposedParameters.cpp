@@ -5,9 +5,19 @@
 using namespace MophoConstants;
 
 UnexposedParameters::UnexposedParameters() :
+    globalOptions{ new GlobalOptions{} },
+    outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
     tooltipsOptions{ new TooltipsOptions{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
+}
+
+Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
+    return outgoingMidiBuffers->getBundledOutgoingBuffers();
+}
+
+GlobalOptions* UnexposedParameters::getGlobalOptions() {
+    return globalOptions.get();
 }
 
 OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
@@ -49,6 +59,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 }
 
 UnexposedParameters::~UnexposedParameters() {
+    globalOptions = nullptr;
     outgoingMidiBuffers = nullptr;
     tooltipsOptions = nullptr;
     voiceTransmissionOptions = nullptr;

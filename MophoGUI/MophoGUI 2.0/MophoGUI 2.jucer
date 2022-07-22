@@ -236,6 +236,10 @@
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
         <FILE id="utlq3F" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
+        <FILE id="hhxi8P" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.cpp"/>
+        <FILE id="au0Ix2" name="ep_4_handle_ExposedParamChanges.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
       <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global"/>
       <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
@@ -261,7 +265,7 @@
       <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi">
         <FILE id="KFqR8H" name="midi_0_NRPNbufferWithLeadingMSBs.h" compile="0"
               resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.h"/>
-        <FILE id="Zma69k" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
+        <FILE id="Nr4AlN" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
         <FILE id="TQMXPM" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
               file="Source/midi/midi_0_RawDataTools.cpp"/>
@@ -271,9 +275,23 @@
               resource="0" file="Source/midi/midi_1_EditBufferDataMessage.h"/>
         <FILE id="mp1tH7" name="midi_1_GlobalParametersDataRequest.h" compile="0"
               resource="0" file="Source/midi/midi_1_GlobalParametersDataRequest.h"/>
+        <FILE id="Z4Tsem" name="midi_1_handle_IncomingMessage_NRPN.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.cpp"/>
+        <FILE id="hAXKNW" name="midi_1_handle_IncomingMessage_NRPN.h" compile="0"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.h"/>
+        <FILE id="FK7glC" name="midi_1_handle_IncomingMessage_SysEx.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.cpp"/>
+        <FILE id="pDJYn3" name="midi_1_handle_IncomingMessage_SysEx.h" compile="0"
+              resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.h"/>
+        <FILE id="jeYPQ9" name="midi_1_ParameterChangeMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_1_ParameterChangeMessage.h"/>
       </GROUP>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization"/>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
+        <FILE id="ESWckI" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>
+        <FILE id="GKS4gm" name="up_0_tree_GlobalOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_GlobalOptions.h"/>
         <FILE id="euLH2U" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="JUU1ou" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"
