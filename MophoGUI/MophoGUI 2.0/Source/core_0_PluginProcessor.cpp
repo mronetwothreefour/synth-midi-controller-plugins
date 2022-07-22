@@ -10,13 +10,13 @@
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties{} },
     exposedParams{ new ExposedParameters{ this } },
-    unexposedParams{ new UnexposedParameters{} }
+    unexposedParams{ new UnexposedParameters{} },
+    bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() },
+    exposedParamChangesHandler{ new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() } },
+    incomingMessageHandler_NRPN{ new IncomingMessageHandler_NRPN{ exposedParams.get(), unexposedParams.get() } },
+    incomingMessageHandler_SysEx{ new IncomingMessageHandler_SysEx{ exposedParams.get(), unexposedParams.get() } },
+    voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() }
 {
-    bundledOutgoingBuffers = unexposedParams->getBundledOutgoingBuffers();
-    exposedParamChangesHandler.reset(new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() });
-    incomingMessageHandler_NRPN.reset(new IncomingMessageHandler_NRPN{ exposedParams.get(), unexposedParams.get() });
-    incomingMessageHandler_SysEx.reset(new IncomingMessageHandler_SysEx{ exposedParams.get(), unexposedParams.get() });
-    voiceTransmit = unexposedParams->getVoiceTransmissionOptions();
 }
 
 const String PluginProcessor::getName() const {
