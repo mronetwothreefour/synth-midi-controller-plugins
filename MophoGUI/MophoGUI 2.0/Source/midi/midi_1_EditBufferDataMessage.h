@@ -8,10 +8,6 @@
 
 using namespace MophoConstants;
 
-class ExposedParameters;
-class OutgoingMidiBuffers;
-class UnexposedParameters;
-
 struct EditBufferDataMessage {
     static void addRequestForEditBufferDataMessageToOutgoingMidiBuffers(OutgoingMidiBuffers* outgoingBuffers) {
         auto requestVector{ RawDataTools::createRawDataVectorWithSysExIDheaderBytesForMopho() };

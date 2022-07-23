@@ -82,6 +82,7 @@ namespace MophoConstants
 		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen
 	};
 
+
 	const enum class SysExMessageType {
 		voiceData = 2,
 		editBufferData = 3,
@@ -89,5 +90,15 @@ namespace MophoConstants
 		editBufferDataRequest = 6,
 		globalParametersDataRequest = 14,
 		globalParametersData = 15
+	};
+
+
+	const enum class VoicesBank {
+		factory_1 = 0,
+		factory_2,
+		factory_3,
+		custom_1,
+		custom_2,
+		custom_3
 	};
 }

@@ -8,8 +8,6 @@
 
 using namespace MophoConstants;
 
-class ExposedParameters;
-
 class GUI_Layer_EnvelopePainters :
 	public Component
 {

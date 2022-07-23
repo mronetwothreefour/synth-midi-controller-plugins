@@ -6,6 +6,11 @@ namespace MophoConstants
 {
 	namespace ID
 	{
+		static const Identifier banks_CustomVoiceDataHexStrings{ "banks_CustomVoiceDataHexStrings" };
+		static const Identifier banks_CustomVoiceNameStrings{ "banks_CustomVoiceNameStrings" };
+		static const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+		static const Identifier banks_FactoryVoiceNameStrings{ "banks_FactoryVoiceNameStrings" };
+
 		static const Identifier btn_AllowAll{ "button_AllowAll" };
 		static const Identifier btn_Banks{ "button_Banks" };
 		static const Identifier btn_Cancel_FileOverwrite{ "button_Cancel_FileOverwrite" };
@@ -161,6 +166,9 @@ namespace MophoConstants
 		static const Identifier property_Width{ "property_Width" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
+		static const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
+		static const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
+		static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };

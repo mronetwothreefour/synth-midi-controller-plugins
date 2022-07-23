@@ -35,6 +35,9 @@
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\voices">
+      <UniqueIdentifier>{5FA9AFF4-B31B-2EC4-32E2-B3AEBE861D82}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source">
       <UniqueIdentifier>{C21000ED-D9E9-3422-1FB1-C8D13F6A1FC6}</UniqueIdentifier>
     </Filter>
@@ -687,6 +690,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -3078,6 +3084,9 @@
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
+      <Filter>MophoGUI 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
@@ -3131,6 +3140,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

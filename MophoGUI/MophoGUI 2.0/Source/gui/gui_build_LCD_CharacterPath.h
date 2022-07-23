@@ -7,8 +7,6 @@
 
 using namespace MophoConstants;
 
-
-
 struct LCD_CharacterPath
 {
 	static Path buildForChar(uint8 charNum) {
