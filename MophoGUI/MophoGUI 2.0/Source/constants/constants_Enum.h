@@ -94,7 +94,8 @@ namespace MophoConstants
 
 
 	const enum class VoicesBank {
-		factory_1 = 0,
+		nullBank = -1, // needed by VoiceSlotRadioButton's default constructor
+		factory_1,
 		factory_2,
 		factory_3,
 		custom_1,

@@ -23,7 +23,6 @@ class KnobAndAttachment_ForSeqStep :
 	std::unique_ptr<SliderAttachment> trackDestinationAttachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
 	const Identifier trackDestID;
-	std::unique_ptr<ParameterAttachment> dingle;
 
 public:
 	KnobAndAttachment_ForSeqStep() = delete;

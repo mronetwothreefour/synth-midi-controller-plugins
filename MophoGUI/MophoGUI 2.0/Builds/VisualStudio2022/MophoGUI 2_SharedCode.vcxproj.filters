@@ -694,6 +694,18 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3129,6 +3141,9 @@
     <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
     </ClInclude>
@@ -3145,6 +3160,21 @@
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
