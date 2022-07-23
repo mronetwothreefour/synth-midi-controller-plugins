@@ -343,7 +343,42 @@
         <FILE id="qVH5XH" name="voices_5_comp_TabForFactoryVoicesBank.h" compile="0"
               resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.h"/>
       </GROUP>
-      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport"/>
+      <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport">
+        <FILE id="EXKr36" name="imEx_0_FileFilters.h" compile="0" resource="0"
+              file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
+        <FILE id="xnrsZl" name="imEx_0_gui_layer_FileNotValidAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.h"/>
+        <FILE id="vfHBk1" name="imEx_0_gui_layer_FileOverwriteDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+        <FILE id="c4RRDg" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
+        <FILE id="tvYqwb" name="imEx_0_gui_layer_FolderExistsAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.h"/>
+        <FILE id="bynCYB" name="imEx_1_gui_layer_NewFolderDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
+        <FILE id="D3yCwk" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
+        <FILE id="JW5T77" name="imEx_2_gui_layer_ImportExport_Base.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
+        <FILE id="T56Tbz" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
+        <FILE id="QhqMjQ" name="imEx_3_gui_layer_Export_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.cpp"/>
+        <FILE id="NtXsWq" name="imEx_3_gui_layer_Export_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.h"/>
+        <FILE id="VIJoly" name="imEx_3_gui_layer_Export_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.cpp"/>
+        <FILE id="E9vQRd" name="imEx_3_gui_layer_Export_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"/>
+        <FILE id="Q2JSe0" name="imEx_3_gui_layer_Import_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.cpp"/>
+        <FILE id="IUgV6x" name="imEx_3_gui_layer_Import_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.h"/>
+        <FILE id="ysfeFn" name="imEx_3_gui_layer_Import_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.cpp"/>
+        <FILE id="edT8tV" name="imEx_3_gui_layer_Import_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

@@ -38,6 +38,9 @@
     <Filter Include="MophoGUI 2\Source\voices">
       <UniqueIdentifier>{5FA9AFF4-B31B-2EC4-32E2-B3AEBE861D82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\voicesImportExport">
+      <UniqueIdentifier>{C5EC5830-FDFB-E180-A88D-C062A397131A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source">
       <UniqueIdentifier>{C21000ED-D9E9-3422-1FB1-C8D13F6A1FC6}</UniqueIdentifier>
     </Filter>
@@ -705,6 +708,27 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.cpp">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -3176,6 +3200,36 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.h">
+      <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

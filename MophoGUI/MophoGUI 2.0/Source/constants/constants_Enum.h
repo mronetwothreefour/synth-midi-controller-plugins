@@ -33,6 +33,14 @@ namespace MophoConstants
 	};
 
 
+	enum class ImportExportType {
+		exportVoice = 0,
+		exportVoicesBank,
+		importVoice,
+		importVoicesBank
+	};
+
+
 	const enum class MIDI_ClockSource {
 		internalClock = 0,
 		internalClock_Send,

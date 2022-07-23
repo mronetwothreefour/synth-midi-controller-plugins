@@ -12,7 +12,6 @@ class ExposedParameters;
 class OutgoingMidiBuffers;
 class UnexposedParameters;
 class VoicesBanks;
-class VoiceTransmissionOptions;
 
 class VoiceSlots :
     public Component,
@@ -23,7 +22,6 @@ class VoiceSlots :
     UnexposedParameters* unexposedParams;
     OutgoingMidiBuffers* outgoingMIDI;
     VoicesBanks* voicesBanks;
-    VoiceTransmissionOptions* transmitOptions;
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
     const int voiceSlotRadioButtons_HorizGap{ 5 };
     const int voiceSlots_w{ (8 * GUI::voiceSlotRadioButtton_w) + (7 * voiceSlotRadioButtons_HorizGap) };

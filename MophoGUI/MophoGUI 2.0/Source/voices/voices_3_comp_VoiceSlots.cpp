@@ -16,7 +16,6 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 	unexposedParams{ unexposedParams },
 	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	voicesBanks{ unexposedParams->getVoicesBanks() },
-	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
 	for (uint8 slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {
@@ -51,10 +50,8 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 }
 
 void VoiceSlots::pullSelectedVoiceFromHardware() {
-	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto transmitTime{ transmitOptions->voiceTransmitTime() };
+	if (selectedSlot < VCS::numberOfSlotsInVoicesBank)
 		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingMIDI);
-	}
 }
 
 void VoiceSlots::pushSelectedVoiceToHardware() {

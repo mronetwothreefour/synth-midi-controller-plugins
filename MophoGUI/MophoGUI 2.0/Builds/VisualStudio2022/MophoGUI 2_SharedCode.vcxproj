@@ -171,6 +171,13 @@
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2378,6 +2385,16 @@
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h"/>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

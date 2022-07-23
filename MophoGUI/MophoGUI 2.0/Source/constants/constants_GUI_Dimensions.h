@@ -6,6 +6,11 @@ namespace MophoConstants
 {
 	namespace GUI
 	{
+		const int btn_AllowAll_w{ 72 };
+		const int btn_Cancel_w{ 52 };
+		const int btn_Randomize_w{ 76 };
+		const int btn_Retry_w{ 50 };
+		const int btn_Write_w{ 52 };
 		const int comboBox_h{ 16 };
 		const int editor_h{ 626 };
 		const int editor_w{ 1273 };

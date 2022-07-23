@@ -44,7 +44,7 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 	valueChanged(voiceNameValue);
 }
 
-void VoiceSlotRadioButton::valueChanged(Value& value) {
+void VoiceSlotRadioButton::valueChanged(Value& /*value*/) {
 	auto voiceName{ voiceNameValue.getValue().toString() };
 	setName(slotNumString + " " + voiceName);
 	repaint();
