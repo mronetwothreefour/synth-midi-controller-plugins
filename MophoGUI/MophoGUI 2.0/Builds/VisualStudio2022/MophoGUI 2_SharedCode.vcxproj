@@ -171,6 +171,8 @@
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_BankTransmit.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_8_gui_layer_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
@@ -2385,6 +2387,11 @@
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h"/>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForCustomVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForFactoryVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_7_comp_TabbedComponentForAllVoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_BankTransmit.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_8_gui_layer_VoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>

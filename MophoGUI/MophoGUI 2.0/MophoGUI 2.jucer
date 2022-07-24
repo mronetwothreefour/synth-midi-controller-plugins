@@ -342,6 +342,20 @@
               compile="1" resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.cpp"/>
         <FILE id="qVH5XH" name="voices_5_comp_TabForFactoryVoicesBank.h" compile="0"
               resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.h"/>
+        <FILE id="IBREsU" name="voices_6_comp_TabbedComponentForCustomVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForCustomVoicesBanks.h"/>
+        <FILE id="LxgGaS" name="voices_6_comp_TabbedComponentForFactoryVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForFactoryVoicesBanks.h"/>
+        <FILE id="nlkV3G" name="voices_7_comp_TabbedComponentForAllVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_7_comp_TabbedComponentForAllVoicesBanks.h"/>
+        <FILE id="u41hxJ" name="voices_7_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/voices/voices_7_gui_layer_BankTransmit.cpp"/>
+        <FILE id="ymOFXQ" name="voices_7_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/voices/voices_7_gui_layer_BankTransmit.h"/>
+        <FILE id="h4PORy" name="voices_8_gui_layer_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_8_gui_layer_VoicesBanks.cpp"/>
+        <FILE id="GuzGbe" name="voices_8_gui_layer_VoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/voices_8_gui_layer_VoicesBanks.h"/>
       </GROUP>
       <GROUP id="{F560E07F-1BD1-7C31-4E8D-A9F7C3B05FB1}" name="voicesImportExport">
         <FILE id="EXKr36" name="imEx_0_FileFilters.h" compile="0" resource="0"

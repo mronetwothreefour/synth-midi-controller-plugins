@@ -10,6 +10,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../midi/midi_1_EditBufferDataMessage.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../voices/voices_8_gui_layer_VoicesBanks.h"
 
 using namespace MophoConstants;
 using Description = MainWindowButtonDescription;
@@ -67,6 +68,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     btn_ReadEditBuffer.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ReadEditBuffer);
+
+    btn_ShowVoicesBanks.setComponentID(ID::btn_Banks.toString());
+    btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    btn_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
+    addAndMakeVisible(btn_ShowVoicesBanks);
 
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
@@ -201,6 +207,15 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
     auto param{ state->getParameter(paramID) };
     if (param != nullptr)
         param->setValueNotifyingHost(clearedValue);
+}
+
+void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
+    layer_VoicesBanks.reset(new GUI_Layer_VoicesBanks{ exposedParams, unexposedParams });
+    if (layer_VoicesBanks != nullptr) {
+        addAndMakeVisible(layer_VoicesBanks.get());
+        layer_VoicesBanks->setBounds(getLocalBounds());
+        layer_VoicesBanks->grabKeyboardFocus();
+    }
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {

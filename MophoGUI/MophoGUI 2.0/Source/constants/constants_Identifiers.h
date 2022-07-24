@@ -51,6 +51,8 @@ namespace MophoConstants
 		static const Identifier comp_Knob{ "comp_Knob" };
 		static const Identifier comp_RedToggle{ "comp_RedToggle" };
 		static const Identifier comp_TabbedComponentForAllBanks{ "comp_TabbedComponentForAllBanks" };
+		static const Identifier comp_TabbedComponentForCustomBanks{ "comp_TabbedComponentForCustomBanks" };
+		static const Identifier comp_TabbedComponentForFactoryBanks{ "comp_TabbedComponentForFactoryBanks" };
 		static const Identifier comp_ToggleAllow_{ "comp_ToggleAllow_" };
 
 		static const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };

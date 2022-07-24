@@ -709,6 +709,12 @@
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_BankTransmit.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_8_gui_layer_VoicesBanks.cpp">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>MophoGUI 2\Source\voicesImportExport</Filter>
     </ClCompile>
@@ -3199,6 +3205,21 @@
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForCustomVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForFactoryVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_7_comp_TabbedComponentForAllVoicesBanks.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_BankTransmit.h">
+      <Filter>MophoGUI 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_8_gui_layer_VoicesBanks.h">
       <Filter>MophoGUI 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">

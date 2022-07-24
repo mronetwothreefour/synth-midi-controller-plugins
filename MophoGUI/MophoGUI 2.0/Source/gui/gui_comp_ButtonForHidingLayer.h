@@ -37,7 +37,7 @@ public:
 		setTooltip(tooltips->shouldShowDescription() ? "Click to close this window." : "");
 	}
 
-	void valueChanged(Value& value) override {
+	void valueChanged(Value& /*value*/) override {
 		updateTooltip();
 	}
 

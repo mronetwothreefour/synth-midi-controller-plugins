@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 class ExposedParameters;
+class GUI_Layer_VoicesBanks;
 class InfoForExposedParameters;
 class TooltipsOptions;
 class UnexposedParameters;
@@ -21,12 +22,14 @@ class GUI_Layer_MainWindowButtons :
 	TooltipsOptions* tooltips;
 	Label voiceNameEditor;
 	TextButton btn_ShowVoiceNameEditor;
+	TextButton btn_ShowVoicesBanks;
 	TextButton btn_WriteEditBuffer;
 	TextButton btn_ReadEditBuffer;
 	TextButton btn_Undo;
 	TextButton btn_Redo;
 	HyperlinkButton btn_Hyperlink;
 	TextButton btns_ClearSeqTracks[4];
+	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	Value shouldShowDescriptionValue;
 	int nameCharNum{ -1 };
 	int sequencerStep{ -1 };
@@ -49,6 +52,7 @@ private:
 	void timerCallback(int timerID) override;
 	void updateExposedParamForNameChar();
 	void clearSequencerStep(int trackNum, int stepNum);
+	void showVoicesBanksLayer();
 	void timerCallback() override;
 
 public:
