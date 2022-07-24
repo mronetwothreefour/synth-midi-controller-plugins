@@ -17,7 +17,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     lookAndFeel{ new MophoLookAndFeel{} },
-    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getDelayInMillisecondsValue() },
+    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());

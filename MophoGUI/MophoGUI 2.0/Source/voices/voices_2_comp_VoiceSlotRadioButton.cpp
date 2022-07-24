@@ -22,10 +22,9 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 {
 	if (bank >= VoicesBank::custom_1) {
 		voiceNameValue = unexposedParams->getVoicesBanks()->getVoiceNameValueForCustomBankSlot(bank, slotNum);
-		setRadioGroupId((int)bank);
 		voiceNameValue.addListener(this);
 	}
-
+	setRadioGroupId((int)bank + 1);
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescription{ tooltipsOptions->shouldShowDescription() };
 	setComponentID(ID::btn_VoiceSlotRadioButton.toString());

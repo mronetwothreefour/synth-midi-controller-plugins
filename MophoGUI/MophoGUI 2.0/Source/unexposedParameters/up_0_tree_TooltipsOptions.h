@@ -8,15 +8,18 @@ class TooltipsOptions
 
 public:
 	TooltipsOptions();
+
 	const bool shouldShowCurrentChoice();
 	void setShouldShowCurrentChoice(const bool shouldShow);
-	Value getShouldShowCurrentChoiceValue();
+
 	const bool shouldShowDescription();
 	void setShouldShowDescription(const bool shouldShow);
-	Value getShouldShowDescriptionValue();
+
 	const int delayInMilliseconds();
 	void setDelayInMilliseconds(const int newDelay);
-	Value getDelayInMillisecondsValue();
+
+	Value getTooltipsPropertyValue(const Identifier propertyID);
+
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 

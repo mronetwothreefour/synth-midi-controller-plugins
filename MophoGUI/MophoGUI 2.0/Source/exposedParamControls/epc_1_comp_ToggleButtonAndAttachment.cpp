@@ -11,27 +11,27 @@ ToggleButtonAndAttachment::ToggleButtonAndAttachment(
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
-	tooltipUpdater{ paramIndex, toggle, exposedParams, unexposedParams }
+	tooltipUpdater{ paramIndex, redToggle, exposedParams, unexposedParams }
 {
 	setInterceptsMouseClicks(true, false);
 
 	auto width{ info->widthFor(paramIndex) };
-	toggle.setComponentID(ID::comp_RedToggle.toString());
-	toggle.setSize(GUI::redToggle_diameter, GUI::redToggle_diameter);
+	redToggle.setComponentID(ID::comp_RedToggle.toString());
+	redToggle.setSize(GUI::redToggle_diameter, GUI::redToggle_diameter);
 	auto paramID{ info->IDfor(paramIndex) };
 	if (paramID == ID::ep_012_OscSync)
-		toggle.setTopRightPosition(width, 0);
+		redToggle.setTopRightPosition(width, 0);
 	else if (paramID == ID::ep_100_SeqOnOff)
-		toggle.setTopLeftPosition(0, 0);
+		redToggle.setTopLeftPosition(0, 0);
 	else
-		toggle.setCentrePosition(width / 2, GUI::redToggle_diameter / 2);
-	addAndMakeVisible(toggle);
+		redToggle.setCentrePosition(width / 2, GUI::redToggle_diameter / 2);
+	addAndMakeVisible(redToggle);
 
 	setSize(width, info->heightFor(paramIndex));
 }
 
 void ToggleButtonAndAttachment::attachToggleToExposedParameter() {
-	attachment.reset(new ButtonAttachment(*state, info->IDfor(paramIndex).toString(), toggle));
+	attachment.reset(new ButtonAttachment(*state, info->IDfor(paramIndex).toString(), redToggle));
 }
 
 void ToggleButtonAndAttachment::deleteAttachmentBeforeToggleToPreventMemLeak() {
@@ -39,8 +39,7 @@ void ToggleButtonAndAttachment::deleteAttachmentBeforeToggleToPreventMemLeak() {
 }
 
 void ToggleButtonAndAttachment::mouseDown(const MouseEvent& /*event*/) {
-	auto isToggled{ toggle.getToggleState() };
-	toggle.setToggleState(isToggled ? false : true, sendNotification);
+	redToggle.triggerClick();
 }
 
 

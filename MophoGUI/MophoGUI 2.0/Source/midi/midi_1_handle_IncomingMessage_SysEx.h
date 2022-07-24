@@ -5,7 +5,7 @@
 class ExposedParameters;
 class GlobalOptions;
 class UnexposedParameters;
-//class VoicesBanks; TODO
+class VoicesBanks;
 class VoiceTransmissionOptions;
 
 class IncomingMessageHandler_SysEx
@@ -13,7 +13,7 @@ class IncomingMessageHandler_SysEx
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
-	//VoicesBanks* voicesBanks;
+	VoicesBanks* voicesBanks;
 	VoiceTransmissionOptions* transmitOptions;
 	const int sysExMessageTypeByte{ 3 };
 

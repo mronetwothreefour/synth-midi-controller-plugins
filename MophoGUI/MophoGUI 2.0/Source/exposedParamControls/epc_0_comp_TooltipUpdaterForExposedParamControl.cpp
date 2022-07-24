@@ -14,10 +14,10 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     parameterValue = state->getParameterAsValue(paramID);
     parameterValue.addListener(this);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getShouldShowDescriptionValue();
+    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionValue.addListener(this);
 
-    shouldShowCurrentChoiceValue = unexposedParams->getTooltipsOptions()->getShouldShowCurrentChoiceValue();
+    shouldShowCurrentChoiceValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowCurrentChoice);
     shouldShowCurrentChoiceValue.addListener(this);
 
     updateTooltip();
@@ -50,6 +50,6 @@ void TooltipUpdaterForExposedParamControl::valueChanged(Value& /*value*/) {
 
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
     parameterValue.removeListener(this);
-    shouldShowDescriptionValue.removeListener   (this);
+    shouldShowDescriptionValue.removeListener(this);
     shouldShowCurrentChoiceValue.removeListener(this);
 }

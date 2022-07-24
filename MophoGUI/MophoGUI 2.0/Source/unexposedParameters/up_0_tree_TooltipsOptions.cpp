@@ -20,20 +20,12 @@ void TooltipsOptions::setShouldShowCurrentChoice(const bool shouldShow) {
 	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowCurrentChoice, shouldShow ? (bool)true : (bool)false, nullptr);
 }
 
-Value TooltipsOptions::getShouldShowCurrentChoiceValue() {
-	return tooltipsOptionsTree.getPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice, nullptr);
-}
-
 const bool TooltipsOptions::shouldShowDescription() {
 	return (bool)tooltipsOptionsTree.getProperty(ID::tooltips_ShouldShowDescription) == true;
 }
 
 void TooltipsOptions::setShouldShowDescription(const bool shouldShow) {
 	tooltipsOptionsTree.setProperty(ID::tooltips_ShouldShowDescription, shouldShow ? (bool)true : (bool)false, nullptr);
-}
-
-Value TooltipsOptions::getShouldShowDescriptionValue() {
-	return tooltipsOptionsTree.getPropertyAsValue(ID::tooltips_ShouldShowDescription, nullptr);
 }
 
 const int TooltipsOptions::delayInMilliseconds() {
@@ -44,8 +36,8 @@ void TooltipsOptions::setDelayInMilliseconds(const int newDelay) {
 	tooltipsOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, newDelay, nullptr);
 }
 
-Value TooltipsOptions::getDelayInMillisecondsValue() {
-	return tooltipsOptionsTree.getPropertyAsValue(ID::tooltips_DelayInMilliseconds, nullptr);
+Value TooltipsOptions::getTooltipsPropertyValue(const Identifier propertyID) {
+	return tooltipsOptionsTree.getPropertyAsValue(propertyID, nullptr);
 }
 
 std::unique_ptr<XmlElement> TooltipsOptions::getStateXml() {

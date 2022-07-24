@@ -3,6 +3,10 @@
 #include <JuceHeader.h>
 
 class ExposedParameters;
+class GlobalOptions;
+class GUI_Layer_CommError_NRPN;
+class GUI_Layer_CommError_SysEx;
+class GUI_Layer_GlobalParameters;
 class GUI_Layer_VoicesBanks;
 class InfoForExposedParameters;
 class TooltipsOptions;
@@ -19,17 +23,22 @@ class GUI_Layer_MainWindowButtons :
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
 	UnexposedParameters* unexposedParams;
+	GlobalOptions* global;
 	TooltipsOptions* tooltips;
 	Label voiceNameEditor;
 	TextButton btn_ShowVoiceNameEditor;
-	TextButton btn_ShowVoicesBanks;
 	TextButton btn_WriteEditBuffer;
 	TextButton btn_ReadEditBuffer;
+	TextButton btn_ShowVoicesBanks;
+	TextButton btn_ShowGlobalParams;
 	TextButton btn_Undo;
 	TextButton btn_Redo;
 	HyperlinkButton btn_Hyperlink;
 	TextButton btns_ClearSeqTracks[4];
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
+	std::unique_ptr<GUI_Layer_GlobalParameters> layer_GlobalParams;
+	std::unique_ptr<GUI_Layer_CommError_NRPN> layer_CommError_NRPN;
+	std::unique_ptr<GUI_Layer_CommError_SysEx> layer_CommError_SysEx;
 	Value shouldShowDescriptionValue;
 	int nameCharNum{ -1 };
 	int sequencerStep{ -1 };
@@ -53,6 +62,10 @@ private:
 	void updateExposedParamForNameChar();
 	void clearSequencerStep(int trackNum, int stepNum);
 	void showVoicesBanksLayer();
+	void prepareToShowGlobalParamsLayer();
+	void showCommError_SysExLayer();
+	void showCommError_NRPN_Layer();
+	void showGlobalParamsLayer();
 	void timerCallback() override;
 
 public:

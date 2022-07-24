@@ -8,6 +8,9 @@
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../global/global_1_gui_layer_CommError_NRPN.h"
+#include "../global/global_1_gui_layer_CommError_SysEx.h"
+#include "../global/global_2_gui_layer_GlobalParams.h"
 #include "../midi/midi_1_EditBufferDataMessage.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_8_gui_layer_VoicesBanks.h"
@@ -21,12 +24,13 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     state{ exposedParams->state.get() },
     info{ exposedParams->info.get() },
     unexposedParams{ unexposedParams },
+    global{ unexposedParams->getGlobalOptions() },
     tooltips{ unexposedParams->getTooltipsOptions() },
     btn_Hyperlink{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getShouldShowDescriptionValue();
+    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionValue.addListener(this);
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);
@@ -73,6 +77,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
     btn_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
     addAndMakeVisible(btn_ShowVoicesBanks);
+
+    btn_ShowGlobalParams.setComponentID(ID::btn_Global.toString());
+    btn_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
+    btn_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
+    addAndMakeVisible(btn_ShowGlobalParams);
 
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
@@ -218,6 +227,49 @@ void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
     }
 }
 
+void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
+    layer_GlobalParams = nullptr;
+    global->resetAllOptionsToDefaults();
+    auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+    GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
+    callAfterDelay(300, [this] {
+        if (global->sysExIsEnabled()) {
+            if (global->hardwareIsNotSetToReceiveNRPNcontrollers())
+                showCommError_NRPN_Layer();
+            else
+                showGlobalParamsLayer();
+        }
+        else showCommError_SysExLayer();
+    });
+}
+
+void GUI_Layer_MainWindowButtons::showCommError_SysExLayer() {
+    layer_CommError_SysEx.reset(new GUI_Layer_CommError_SysEx{ unexposedParams });
+    if (layer_CommError_SysEx != nullptr) {
+        addAndMakeVisible(layer_CommError_SysEx.get());
+        layer_CommError_SysEx->setBounds(getLocalBounds());
+        layer_CommError_SysEx->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::showCommError_NRPN_Layer() {
+    layer_CommError_NRPN.reset(new GUI_Layer_CommError_NRPN{ unexposedParams });
+    if (layer_CommError_NRPN != nullptr) {
+        addAndMakeVisible(layer_CommError_NRPN.get());
+        layer_CommError_NRPN->setBounds(getLocalBounds());
+        layer_CommError_NRPN->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
+    layer_GlobalParams.reset(new GUI_Layer_GlobalParameters{ unexposedParams });
+    if (layer_GlobalParams != nullptr) {
+        addAndMakeVisible(layer_GlobalParams.get());
+        layer_GlobalParams->setBounds(getLocalBounds());
+        layer_GlobalParams->grabKeyboardFocus();
+    }
+}
+
 void GUI_Layer_MainWindowButtons::timerCallback() {
 }
 
@@ -226,6 +278,10 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
+    layer_VoicesBanks = nullptr;
+    layer_CommError_NRPN = nullptr;
+    layer_CommError_SysEx = nullptr;
+    layer_GlobalParams = nullptr;
     shouldShowDescriptionValue.removeListener(this);
     voiceNameEditor.removeListener(this);
 }

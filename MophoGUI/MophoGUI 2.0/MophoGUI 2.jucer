@@ -166,6 +166,8 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="UqG181" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="Cc9mfr" name="constants_GlobalParameters.h" compile="0" resource="0"
+              file="Source/constants/constants_GlobalParameters.h"/>
         <FILE id="V7jD8m" name="constants_GUI_Colors.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="DjjVZZ" name="constants_GUI_Dimensions.h" compile="0" resource="0"
@@ -186,6 +188,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
         <FILE id="hqpwOG" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="dyEkVI" name="build_GlobalParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.cpp"/>
+        <FILE id="skXjVA" name="build_GlobalParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.h"/>
         <FILE id="vobU3J" name="build_MainWindowButtonDescription.cpp" compile="1"
               resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
         <FILE id="Rom6PC" name="build_MainWindowButtonDescription.h" compile="0"
@@ -245,7 +251,42 @@
         <FILE id="au0Ix2" name="ep_4_handle_ExposedParamChanges.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
-      <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global"/>
+      <GROUP id="{E4B69C07-DD7C-A67E-E3BC-3EDF3E24C874}" name="global">
+        <FILE id="u5VhqA" name="global_0_build_ChoiceName.cpp" compile="1"
+              resource="0" file="Source/global/global_0_build_ChoiceName.cpp"/>
+        <FILE id="vT0bix" name="global_0_build_ChoiceName.h" compile="0" resource="0"
+              file="Source/global/global_0_build_ChoiceName.h"/>
+        <FILE id="h1y8vi" name="global_0_gui_layer_CommError_Base.h" compile="0"
+              resource="0" file="Source/global/global_0_gui_layer_CommError_Base.h"/>
+        <FILE id="VgUHVJ" name="global_1_comp_ComboBoxForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.cpp"/>
+        <FILE id="VviAlE" name="global_1_comp_ComboBoxForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.h"/>
+        <FILE id="OgrroJ" name="global_1_comp_DisplayLabelForGlobalParam.cpp"
+              compile="1" resource="0" file="Source/global/global_1_comp_DisplayLabelForGlobalParam.cpp"/>
+        <FILE id="hXRIJv" name="global_1_comp_DisplayLabelForGlobalParam.h"
+              compile="0" resource="0" file="Source/global/global_1_comp_DisplayLabelForGlobalParam.h"/>
+        <FILE id="rJuA4b" name="global_1_comp_EditorForTooltipDelay.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.cpp"/>
+        <FILE id="DKdsle" name="global_1_comp_EditorForTooltipDelay.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.h"/>
+        <FILE id="gWtNUN" name="global_1_comp_KnobForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_KnobForGlobalParam.cpp"/>
+        <FILE id="fSMZc4" name="global_1_comp_KnobForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_KnobForGlobalParam.h"/>
+        <FILE id="fiQxsc" name="global_1_comp_ToggleForTooltipParam.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_ToggleForTooltipParam.cpp"/>
+        <FILE id="wXFrkm" name="global_1_comp_ToggleForTooltipParam.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_ToggleForTooltipParam.h"/>
+        <FILE id="Ebofkl" name="global_1_gui_layer_CommError_NRPN.h" compile="0"
+              resource="0" file="Source/global/global_1_gui_layer_CommError_NRPN.h"/>
+        <FILE id="NFqb4j" name="global_1_gui_layer_CommError_SysEx.h" compile="0"
+              resource="0" file="Source/global/global_1_gui_layer_CommError_SysEx.h"/>
+        <FILE id="zy8PAO" name="global_2_gui_layer_GlobalParams.cpp" compile="1"
+              resource="0" file="Source/global/global_2_gui_layer_GlobalParams.cpp"/>
+        <FILE id="RqAOkN" name="global_2_gui_layer_GlobalParams.h" compile="0"
+              resource="0" file="Source/global/global_2_gui_layer_GlobalParams.h"/>
+      </GROUP>
       <GROUP id="{565E3157-1050-059D-4E09-C931F7669303}" name="gui">
         <FILE id="O7T6qg" name="gui_build_LCD_CharacterPath.h" compile="0"
               resource="0" file="Source/gui/gui_build_LCD_CharacterPath.h"/>

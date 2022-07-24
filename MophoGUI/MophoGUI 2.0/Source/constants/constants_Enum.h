@@ -39,6 +39,36 @@ namespace MophoConstants
 	};
 
 
+	const enum class GlobalParamComboBoxType {
+		midiClockSource = 0,
+		pedalMode,
+		voiceChanges,
+		paramChangeSendType
+	};
+
+
+	const enum class GlobalParamDisplayLabelType {
+		paramChangeReceiveType = 0,
+		midiControllersStatus,
+		sysExStatus,
+		audioOutput,
+		hardwareOutputBalance
+	};
+
+
+	const enum class GlobalParamKnobType {
+		globalTranspose = 0,
+		globalFineTune,
+		hardwareReceiveChannel
+	};
+
+
+	const enum class GlobalParamToggleType {
+		currentChoiceTooltip = 0,
+		descriptionTooltip,
+	};
+
+
 	enum class ImportExportType {
 		exportVoice = 0,
 		exportVoicesBank,

@@ -56,6 +56,8 @@ public:
 	const uint8 hardwareOutputBalance();
 	void setHardwareOutputBalance(const uint8 newBalance);
 
+	Value getGobalParamValue(const Identifier paramID);
+
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalOptions)

@@ -11,7 +11,7 @@ IncomingMessageHandler_SysEx::IncomingMessageHandler_SysEx(ExposedParameters* ex
 	exposedParams{ exposedParams },
 	unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
-    //voicesBanks{ unexposedParams->getVoicesBanks() },
+    voicesBanks{ unexposedParams->getVoicesBanks() },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -41,18 +41,18 @@ void IncomingMessageHandler_SysEx::handleIncomingEditBufferData(const uint8* sys
 
 void IncomingMessageHandler_SysEx::handleIncomingVoiceData(const uint8* sysExData) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::voiceData) {
-        //const int voiceDataMessageBankByte{ 4 };
-        //const int voiceDataMessageSlotByte{ 5 };
-        //const int firstVoiceDataByte{ 6 };
-        //const int firstUnusedPVoiceDataByte{ 235 };
-        //auto bankNum{ sysExData[voiceDataMessageBankByte] };
-        //auto bank{ VoicesBank{ bankNum + 3 } };
-        //auto slotNum{ sysExData[voiceDataMessageSlotByte] };
-        //std::vector<uint8> voiceDataVector;
-        //for (auto dataByte = firstVoiceDataByte; dataByte != firstUnusedPVoiceDataByte; ++dataByte)
-        //    voiceDataVector.push_back(*(sysExData + dataByte));
-        //auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
-        //voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slotNum);
+        const int voiceDataMessageBankByte{ 4 };
+        const int voiceDataMessageSlotByte{ 5 };
+        const int firstVoiceDataByte{ 6 };
+        const int firstUnusedPVoiceDataByte{ 235 };
+        auto bankNum{ sysExData[voiceDataMessageBankByte] };
+        auto bank{ VoicesBank{ bankNum + 3 } };
+        auto slotNum{ sysExData[voiceDataMessageSlotByte] };
+        std::vector<uint8> voiceDataVector;
+        for (auto dataByte = firstVoiceDataByte; dataByte != firstUnusedPVoiceDataByte; ++dataByte)
+            voiceDataVector.push_back(*(sysExData + dataByte));
+        auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
+        voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, slotNum);
     }
     else
         handleIncomingGlobalData(sysExData);

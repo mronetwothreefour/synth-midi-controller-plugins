@@ -26,6 +26,9 @@
     <Filter Include="MophoGUI 2\Source\exposedParameters">
       <UniqueIdentifier>{2BD29E61-8E1C-241F-A11A-5C221855B830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\global">
+      <UniqueIdentifier>{FEE37698-8F20-C630-FD7F-6F8727A0C4D6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\gui">
       <UniqueIdentifier>{F3565732-B8AC-B941-FD8B-18C0D7E20F25}</UniqueIdentifier>
     </Filter>
@@ -625,6 +628,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClCompile>
@@ -660,6 +666,27 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_2_gui_layer_GlobalParams.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
       <Filter>MophoGUI 2\Source\gui</Filter>
@@ -3054,6 +3081,9 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GlobalParameters.h">
+      <Filter>MophoGUI 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
@@ -3076,6 +3106,9 @@
       <Filter>MophoGUI 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
+      <Filter>MophoGUI 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_GlobalParamDescription.h">
       <Filter>MophoGUI 2\Source\descriptions</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
@@ -3122,6 +3155,36 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_gui_layer_CommError_Base.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_DisplayLabelForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_KnobForGlobalParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_ToggleForTooltipParam.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_NRPN.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_gui_layer_CommError_SysEx.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_2_gui_layer_GlobalParams.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LCD_CharacterPath.h">
       <Filter>MophoGUI 2\Source\gui</Filter>

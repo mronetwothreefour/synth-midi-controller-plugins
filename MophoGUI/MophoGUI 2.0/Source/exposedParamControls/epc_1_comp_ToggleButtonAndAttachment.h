@@ -11,7 +11,7 @@ class ToggleButtonAndAttachment :
 {
 protected:
 	const uint8 paramIndex;
-	ToggleButton toggle;
+	ToggleButton redToggle;
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
 	std::unique_ptr<ButtonAttachment> attachment;
