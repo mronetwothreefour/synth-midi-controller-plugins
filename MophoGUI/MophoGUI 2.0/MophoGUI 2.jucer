@@ -356,6 +356,14 @@
               compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
         <FILE id="v8EwoZ" name="rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
+        <FILE id="uF3RXl" name="rndm_0_comp_KnobForSeqTrackProbability.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
+        <FILE id="LAheJX" name="rndm_0_comp_KnobForSeqTrackProbability.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_KnobForSeqTrackProbability.h"/>
+        <FILE id="MIjTIj" name="rndm_0_comp_LockToggleForParam.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
+        <FILE id="kmI9A0" name="rndm_0_comp_LockToggleForParam.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
       </GROUP>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
         <FILE id="ESWckI" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

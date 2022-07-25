@@ -598,6 +598,12 @@ void ExposedParamsRandomizationOptions::setTargetStepForSeqTrack(Step step, Trac
 	trackTree.setProperty(ID::rndm_SeqTrackTargetStep, (int)step, nullptr);
 }
 
+Value ExposedParamsRandomizationOptions::getTargetStepForSeqTrackValue(Track track) {
+	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
+	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
+	return trackTree.getPropertyAsValue(ID::rndm_SeqTrackTargetStep, nullptr);
+}
+
 const float ExposedParamsRandomizationOptions::probabilityOfRestForSeqTrack_1_Step(Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };

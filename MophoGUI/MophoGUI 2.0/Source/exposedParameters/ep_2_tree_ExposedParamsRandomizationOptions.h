@@ -100,6 +100,7 @@ public:
 
 	Step targetStepForSeqTrack(Track track);
 	void setTargetStepForSeqTrack(Step step, Track track);
+	Value getTargetStepForSeqTrackValue(Track track);
 	const float probabilityOfRestForSeqTrack_1_Step(Step step);
 	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
 	const float probabilityOfDuplicateForSeqTrackStep(Track track, Step step);

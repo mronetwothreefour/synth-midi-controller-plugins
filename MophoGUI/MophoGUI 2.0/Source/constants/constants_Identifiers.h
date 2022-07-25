@@ -55,6 +55,11 @@ namespace MophoConstants
 		static const Identifier comp_TabbedComponentForFactoryBanks{ "comp_TabbedComponentForFactoryBanks" };
 		static const Identifier comp_ToggleAllow_{ "comp_ToggleAllow_" };
 		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
+		static const Identifier comp_ToggleLock_ComboBox_Param_{ "comp_ToggleLock_ComboBox_Param_" };
+		static const Identifier comp_ToggleLock_Knob_Param_{ "comp_ToggleLock_Knob_Param_" };
+		static const Identifier comp_ToggleLock_SeqStep_Param_{ "comp_ToggleLock_SeqStep_Param_" };
+		static const Identifier comp_ToggleLock_Toggle_Param_{ "comp_ToggleLock_Toggle_Param_" };
+		static const Identifier comp_ToggleLock_VoiceNameChar_Param_{ "comp_ToggleLock_VoiceNameChar_Param_" };
 
 		static const Identifier ep_000_Osc_1_Pitch{ "ep_000_Osc_1_Pitch" };
 		static const Identifier ep_001_Osc_1_FineTune{ "ep_001_Osc_1_FineTune" };
