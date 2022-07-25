@@ -77,6 +77,13 @@ namespace MophoConstants
 	};
 
 
+	enum class LFO_FreqCategory {
+		unsynced = 0,
+		pitched,
+		synced
+	};
+
+
 	const enum class MIDI_ClockSource {
 		internalClock = 0,
 		internalClock_Send,

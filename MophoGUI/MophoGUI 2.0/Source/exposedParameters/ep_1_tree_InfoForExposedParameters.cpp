@@ -2255,7 +2255,7 @@ String InfoForExposedParameters::choiceNameFor(const uint8 choiceNum, const uint
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
 	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames) };
-	auto choiceName{ choiceNamesTree.getProperty((String)choiceNum).toString() };
+	auto choiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return choiceName;
 }
 
@@ -2264,7 +2264,7 @@ String InfoForExposedParameters::verboseChoiceNameFor(const uint8 choiceNum, con
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
 	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames_Verbose) };
-	auto verboseChoiceName{ choiceNamesTree.getProperty((String)choiceNum).toString() };
+	auto verboseChoiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
 	return verboseChoiceName;
 }
 
