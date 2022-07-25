@@ -35,6 +35,9 @@
     <Filter Include="MophoGUI 2\Source\midi">
       <UniqueIdentifier>{34FF079E-7720-B807-9AC9-E9F8E37BDAB2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2\Source\randomization">
+      <UniqueIdentifier>{87F8AAED-5510-D984-A670-B62A343D926E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2\Source\unexposedParameters">
       <UniqueIdentifier>{DD60B387-99F4-1E5F-80AF-F5986A26C1AC}</UniqueIdentifier>
     </Filter>
@@ -711,6 +714,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>
@@ -3242,6 +3254,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
       <Filter>MophoGUI 2\Source\unexposedParameters</Filter>

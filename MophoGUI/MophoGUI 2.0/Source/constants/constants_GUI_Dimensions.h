@@ -6,6 +6,9 @@ namespace MophoConstants
 {
 	namespace GUI
 	{
+		const int allowChoiceToggle_h{ 16 };
+		const int allowRepeatChoicesToggleComponent_h{ 14 };
+		const int allowRepeatChoicesToggleComponent_w{ 70 };
 		const int btn_AllowAll_w{ 72 };
 		const int btn_Cancel_w{ 52 };
 		const int btn_Randomize_w{ 76 };

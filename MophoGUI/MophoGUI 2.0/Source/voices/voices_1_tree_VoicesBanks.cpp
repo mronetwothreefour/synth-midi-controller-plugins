@@ -67,7 +67,7 @@ Value VoicesBanks::getVoiceNameValueForCustomBankSlot(const VoicesBank bank, con
 	jassert(bank >= VoicesBank::custom_1);
 	jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
 	auto bankTree{ customVoiceNameStrings.getChild((int)bank % 3) };
-	auto slotName{ String(slotNum).paddedLeft('0', 3) };
+	auto slotName{ "slot_" + String(slotNum).paddedLeft('0', 3) };
 	return bankTree.getPropertyAsValue(slotName, nullptr);
 }
 

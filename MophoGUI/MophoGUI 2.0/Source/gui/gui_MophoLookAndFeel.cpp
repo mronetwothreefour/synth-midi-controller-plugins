@@ -211,7 +211,7 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
 {
 	auto componentID{ component.getComponentID() };
-	if (componentID.startsWith(ID::comp_RedToggle.toString())) {
+	if (componentID == ID::comp_RedToggle.toString()) {
 		g.setColour(isTicked ? GUI::color_ToggleOn : GUI::color_ToggleOff);
 		g.fillEllipse(x, y, w, h);
 	}

@@ -171,6 +171,9 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
@@ -2398,6 +2401,9 @@
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
