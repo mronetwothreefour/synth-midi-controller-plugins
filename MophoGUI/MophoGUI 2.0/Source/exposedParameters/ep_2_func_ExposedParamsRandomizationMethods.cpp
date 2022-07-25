@@ -9,8 +9,6 @@
 using Category = LFO_FreqCategory;
 using Shape = OscWaveShape;
 
-
-
 ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedParameters* exposedParams) :
 	state{ exposedParams->state.get() },
 	randomization{ exposedParams->randomization.get() },
@@ -192,8 +190,8 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 		auto paramPtr{ state->getParameter(paramID) };
 		auto currentSetting{ paramPtr->getValue() };
 		auto currentSettingNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
-		auto currentCategory{ currentSettingNum < EP::firstLFO_PitchedFreqChoice ? Category::unsynced :
-								currentSettingNum >= EP::firstLFO_SyncedFreqChoice ? Category::synced : Category::pitched };
+		auto currentCategory{ currentSettingNum < EP::first_LFO_PitchedFreqChoice ? Category::unsynced :
+								currentSettingNum >= EP::first_LFO_SyncedFreqChoice ? Category::synced : Category::pitched };
 		auto repeatsAreForbidden{ randomization->repeatChoicesAreForbiddenForParam(paramIndex) };
 		if (repeatsAreForbidden) {
 			switch (currentCategory)

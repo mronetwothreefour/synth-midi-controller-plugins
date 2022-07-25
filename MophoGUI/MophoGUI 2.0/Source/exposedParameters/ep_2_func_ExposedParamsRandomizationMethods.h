@@ -9,8 +9,6 @@ using namespace MophoConstants;
 using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 
-
-
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;

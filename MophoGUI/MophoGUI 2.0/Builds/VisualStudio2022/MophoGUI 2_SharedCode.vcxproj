@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp"/>
@@ -176,6 +177,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
@@ -2373,6 +2377,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
@@ -2408,6 +2413,11 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_KnobForSeqTrackProbability.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>

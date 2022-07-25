@@ -50,6 +50,7 @@ namespace MophoConstants
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
 		static const Identifier comp_Knob{ "comp_Knob" };
 		static const Identifier comp_RedToggle{ "comp_RedToggle" };
+		static const Identifier comp_SeqTrackStepSelector{ "comp_SeqTrackStepSelector" };
 		static const Identifier comp_TabbedComponentForAllBanks{ "comp_TabbedComponentForAllBanks" };
 		static const Identifier comp_TabbedComponentForCustomBanks{ "comp_TabbedComponentForCustomBanks" };
 		static const Identifier comp_TabbedComponentForFactoryBanks{ "comp_TabbedComponentForFactoryBanks" };

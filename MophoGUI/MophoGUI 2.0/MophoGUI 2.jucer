@@ -244,6 +244,10 @@
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
         <FILE id="SLNA99" name="ep_2_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
+        <FILE id="vcmPOq" name="ep_2_func_ExposedParamsRandomizationMethods.cpp"
+              compile="1" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.cpp"/>
+        <FILE id="dTE13W" name="ep_2_func_ExposedParamsRandomizationMethods.h"
+              compile="0" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.h"/>
         <FILE id="YQVkYK" name="ep_2_tree_ExposedParamsRandomizationOptions.cpp"
               compile="1" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
         <FILE id="Fvn94v" name="ep_2_tree_ExposedParamsRandomizationOptions.h"
@@ -364,6 +368,22 @@
               resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
         <FILE id="kmI9A0" name="rndm_0_comp_LockToggleForParam.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
+        <FILE id="lKBsoG" name="rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h"/>
+        <FILE id="a6esda" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
+        <FILE id="Pr3N1r" name="rndm_0_comp_SeqTrackTargetStep.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
+        <FILE id="ThciwA" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
+        <FILE id="xE7hlO" name="rndm_0_comp_TransmitTypeToggles.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.h"/>
+        <FILE id="xSoGUU" name="rndm_0_comp_TransmitTypeToggles.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.cpp"/>
+        <FILE id="wGuuvc" name="rndm_0_func_GroupLockStateMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
+        <FILE id="Uh1icm" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
       </GROUP>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
         <FILE id="ESWckI" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

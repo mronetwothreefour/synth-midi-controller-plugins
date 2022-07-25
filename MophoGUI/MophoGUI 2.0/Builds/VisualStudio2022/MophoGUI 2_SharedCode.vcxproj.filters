@@ -667,6 +667,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.cpp">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -728,6 +731,15 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
@@ -3171,6 +3183,9 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.h">
+      <Filter>MophoGUI 2\Source\exposedParameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h">
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -3274,6 +3289,21 @@
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoices_SeqTrack.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h">
+      <Filter>MophoGUI 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">

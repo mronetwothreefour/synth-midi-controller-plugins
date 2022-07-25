@@ -4,9 +4,11 @@
 
 #include "ep_1_tree_InfoForExposedParameters.h"
 #include "ep_2_build_ExposedParamsLayout.h"
+#include "ep_2_func_ExposedParamsRandomizationMethods.h"
 #include "ep_2_tree_ExposedParamsRandomizationOptions.h"
 
 using Layout = ExposedParametersLayout;
+using Randomize = ExposedParamsRandomizationMethods;
 using Randomization = ExposedParamsRandomizationOptions;
 using State = AudioProcessorValueTreeState;
 
@@ -16,6 +18,7 @@ public:
 	std::unique_ptr <InfoForExposedParameters> info;
 	std::unique_ptr<State> state;
 	std::unique_ptr <Randomization> randomization;
+	std::unique_ptr<Randomize> randomize;
 	UndoManager undoManager;
 
 	ExposedParameters() = delete;
@@ -23,7 +26,8 @@ public:
 	explicit ExposedParameters(AudioProcessor* processor) :
 		info{ new InfoForExposedParameters },
 		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } },
-		randomization{ new Randomization{ info.get() } }
+		randomization{ new Randomization{ info.get() } },
+		randomize{ new Randomize{ this } }
 	{
 	}
 
