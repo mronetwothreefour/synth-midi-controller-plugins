@@ -180,6 +180,13 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
@@ -2418,6 +2425,13 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_SeqTrackTargetStep.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitTypeToggles.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>

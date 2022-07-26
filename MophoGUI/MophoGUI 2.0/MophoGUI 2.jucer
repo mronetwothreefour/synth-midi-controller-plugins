@@ -384,6 +384,34 @@
               resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
         <FILE id="Uh1icm" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
+        <FILE id="S2h7ZK" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.cpp"/>
+        <FILE id="zkELcm" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Pitched.h"/>
+        <FILE id="sMwsoS" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.cpp"/>
+        <FILE id="l4Pf9a" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Synced.h"/>
+        <FILE id="KX2SaE" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.cpp"/>
+        <FILE id="GGCnLh" name="rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_LFO_Freq_Unsynced.h"/>
+        <FILE id="W0tvCK" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.cpp"/>
+        <FILE id="GaRdaY" name="rndm_1_comp_AllowChoiceToggles_PulseWidth.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_PulseWidth.h"/>
+        <FILE id="QDsf9Q" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.cpp"/>
+        <FILE id="k4xDEM" name="rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_SeqTrackStep.h"/>
+        <FILE id="rBvm1O" name="rndm_1_comp_AllowChoiceToggles_Standard.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.cpp"/>
+        <FILE id="jAziWu" name="rndm_1_comp_AllowChoiceToggles_Standard.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_Standard.h"/>
+        <FILE id="CKyfqq" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
+        <FILE id="CXIb6R" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
       </GROUP>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
         <FILE id="ESWckI" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"
