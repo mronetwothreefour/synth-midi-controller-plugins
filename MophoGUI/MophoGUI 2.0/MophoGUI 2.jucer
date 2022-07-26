@@ -412,6 +412,46 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.cpp"/>
         <FILE id="CXIb6R" name="rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_VoiceNameChar.h"/>
+        <FILE id="ZX7QvH" name="rndm_1_comp_GroupLockStateButtons.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
+        <FILE id="Td4DP2" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
+        <FILE id="X6lsUf" name="rndm_1_comp_SeqTrackProbabilities.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.cpp"/>
+        <FILE id="tZzbWn" name="rndm_1_comp_SeqTrackProbabilities.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_SeqTrackProbabilities.h"/>
+        <FILE id="t4PXkT" name="rndm_2_gui_layer_AllowedChoices_Binary.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
+        <FILE id="O0m4yU" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"
+              resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.h"/>
+        <FILE id="QGJ25r" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.cpp"/>
+        <FILE id="pladwy" name="rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_LFO_Freq.h"/>
+        <FILE id="iMNOJl" name="rndm_2_gui_layer_AllowedChoices_OscShape.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.cpp"/>
+        <FILE id="Twmfhu" name="rndm_2_gui_layer_AllowedChoices_OscShape.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscShape.h"/>
+        <FILE id="fxPkHm" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.cpp"/>
+        <FILE id="MpB7XM" name="rndm_2_gui_layer_AllowedChoices_SeqTrack.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_SeqTrack.h"/>
+        <FILE id="rS4tAi" name="rndm_2_gui_layer_AllowedChoices_Standard.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.cpp"/>
+        <FILE id="RG9bF8" name="rndm_2_gui_layer_AllowedChoices_Standard.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Standard.h"/>
+        <FILE id="NfFLZz" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.cpp"/>
+        <FILE id="XvC58x" name="rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"/>
+        <FILE id="ubNzx7" name="rndm_3_gui_layer_AllowedChoicesServer.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.cpp"/>
+        <FILE id="BfLimz" name="rndm_3_gui_layer_AllowedChoicesServer.h" compile="0"
+              resource="0" file="Source/randomization/rndm_3_gui_layer_AllowedChoicesServer.h"/>
+        <FILE id="kY9Rz5" name="rndm_4_gui_layer_Randomization.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.cpp"/>
+        <FILE id="Xcwh4r" name="rndm_4_gui_layer_Randomization.h" compile="0"
+              resource="0" file="Source/randomization/rndm_4_gui_layer_Randomization.h"/>
       </GROUP>
       <GROUP id="{F7F45160-78B5-1A74-2E57-C39BB0C416E2}" name="unexposedParameters">
         <FILE id="ESWckI" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

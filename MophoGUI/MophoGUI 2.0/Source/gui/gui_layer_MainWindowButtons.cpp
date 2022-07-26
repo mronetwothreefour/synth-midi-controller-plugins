@@ -12,6 +12,7 @@
 #include "../global/global_1_gui_layer_CommError_SysEx.h"
 #include "../global/global_2_gui_layer_GlobalParams.h"
 #include "../midi/midi_1_EditBufferDataMessage.h"
+#include "../randomization/rndm_4_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_8_gui_layer_VoicesBanks.h"
 
@@ -23,6 +24,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     exposedParams{ exposedParams },
     state{ exposedParams->state.get() },
     info{ exposedParams->info.get() },
+    randomize{ exposedParams->randomize.get() },
     unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
     tooltips{ unexposedParams->getTooltipsOptions() },
@@ -82,6 +84,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
     btn_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
     addAndMakeVisible(btn_ShowGlobalParams);
+
+    btn_Randomize.setComponentID(ID::btn_Randomize.toString());
+    btn_Randomize.addMouseListener(this, false);
+    btn_Randomize.setBounds(800, rowBeneathProgramName_y, GUI::btn_Randomize_w, GUI::redButton_h);
+    addAndMakeVisible(btn_Randomize);
 
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
@@ -270,7 +277,24 @@ void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
     }
 }
 
+void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
+    layer_Randomization = nullptr;
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams });
+    if (layer_Randomization != nullptr) {
+        addAndMakeVisible(layer_Randomization.get());
+        layer_Randomization->setBounds(getLocalBounds());
+        layer_Randomization->grabKeyboardFocus();
+    }
+}
+
 void GUI_Layer_MainWindowButtons::timerCallback() {
+}
+
+void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
+    if (event.mods == ModifierKeys::rightButtonModifier)
+        showRandomizationLayer();
+    else
+        randomize->randomizeAllUnlockedParameters();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
@@ -282,6 +306,8 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_CommError_NRPN = nullptr;
     layer_CommError_SysEx = nullptr;
     layer_GlobalParams = nullptr;
+    layer_Randomization = nullptr;
     shouldShowDescriptionValue.removeListener(this);
     voiceNameEditor.removeListener(this);
+    btn_Randomize.removeMouseListener(this);
 }

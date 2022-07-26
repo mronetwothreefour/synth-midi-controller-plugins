@@ -7,6 +7,8 @@ namespace MophoConstants
 	namespace GUI
 	{
 		const int allowChoiceToggle_h{ 16 };
+		const int allowedChoices_Inset{ 17 };
+		const int allowedChoices_VertGap{ 10 };
 		const int allowRepeatChoicesToggleComponent_h{ 14 };
 		const int allowRepeatChoicesToggleComponent_w{ 70 };
 		const int btn_AllowAll_w{ 72 };

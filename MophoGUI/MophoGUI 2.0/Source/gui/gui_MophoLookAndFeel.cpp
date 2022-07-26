@@ -238,7 +238,7 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
-	if (componentID.startsWith("component_ToggleLock")) {
+	if (componentID.startsWith("comp_ToggleLock")) {
 		PNGImageFormat imageFormat;
 		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };
 		auto lockedIcon{ imageFormat.decodeImage(memInputStream) };

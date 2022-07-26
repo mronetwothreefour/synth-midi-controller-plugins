@@ -84,6 +84,28 @@ namespace MophoConstants
 	};
 
 
+	enum class LockStateGroup {
+		all = 0,
+		osc,
+		lpf,
+		vca,
+		lfo_1,
+		lfo_2,
+		lfo_3,
+		lfo_4,
+		env_3,
+		modulators,
+		midiControllers,
+		pushIt,
+		knobAssign,
+		seqTrack_1,
+		seqTrack_2,
+		seqTrack_3,
+		seqTrack_4,
+		voiceNameChars
+	};
+
+
 	const enum class MIDI_ClockSource {
 		internalClock = 0,
 		internalClock_Send,

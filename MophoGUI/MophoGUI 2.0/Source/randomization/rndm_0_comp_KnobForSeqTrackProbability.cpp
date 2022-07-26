@@ -125,38 +125,38 @@ void KnobForSeqTrackProbability::valueChanged() {
 	}
 }
 
-void KnobForSeqTrackProbability::valueChanged(Value& value)
+void KnobForSeqTrackProbability::valueChanged(Value& /*value*/)
 {
-		auto targetStep{ randomization->targetStepForSeqTrack(track) };
-		switch (knobType)
-		{
-		case KnobType::rest:
-			setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), sendNotification);
-			break;
-		case KnobType::duplicate:
-			if (targetStep == Step::one) {
-				setValue(0.0, dontSendNotification);
-				setEnabled(false);
-			}
-			else {
-				setEnabled(true);
-				setValue((double)randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep), sendNotification);
-			}
-			break;
-		case KnobType::reset:
-			if (targetStep == Step::one) {
-				setValue(0.0, dontSendNotification);
-				setEnabled(false);
-			}
-			else {
-				setEnabled(true);
-				setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), sendNotification);
-			}
-			break;
-		default:
-			break;
+	auto targetStep{ randomization->targetStepForSeqTrack(track) };
+	switch (knobType)
+	{
+	case KnobType::rest:
+		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), sendNotification);
+		break;
+	case KnobType::duplicate:
+		if (targetStep == Step::one) {
+			setValue(0.0, dontSendNotification);
+			setEnabled(false);
 		}
-		updateTooltip();
+		else {
+			setEnabled(true);
+			setValue((double)randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep), sendNotification);
+		}
+		break;
+	case KnobType::reset:
+		if (targetStep == Step::one) {
+			setValue(0.0, dontSendNotification);
+			setEnabled(false);
+		}
+		else {
+			setEnabled(true);
+			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), sendNotification);
+		}
+		break;
+	default:
+		break;
+	}
+	updateTooltip();
 }
 
 KnobForSeqTrackProbability::~KnobForSeqTrackProbability() {

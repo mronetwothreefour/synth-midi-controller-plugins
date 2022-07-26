@@ -3,10 +3,12 @@
 #include <JuceHeader.h>
 
 class ExposedParameters;
+class ExposedParamsRandomizationMethods;
 class GlobalOptions;
 class GUI_Layer_CommError_NRPN;
 class GUI_Layer_CommError_SysEx;
 class GUI_Layer_GlobalParameters;
+class GUI_Layer_Randomization;
 class GUI_Layer_VoicesBanks;
 class InfoForExposedParameters;
 class TooltipsOptions;
@@ -22,6 +24,7 @@ class GUI_Layer_MainWindowButtons :
 	ExposedParameters* exposedParams;
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
+	ExposedParamsRandomizationMethods* randomize;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	TooltipsOptions* tooltips;
@@ -31,6 +34,7 @@ class GUI_Layer_MainWindowButtons :
 	TextButton btn_ReadEditBuffer;
 	TextButton btn_ShowVoicesBanks;
 	TextButton btn_ShowGlobalParams;
+	TextButton btn_Randomize;
 	TextButton btn_Undo;
 	TextButton btn_Redo;
 	HyperlinkButton btn_Hyperlink;
@@ -39,6 +43,7 @@ class GUI_Layer_MainWindowButtons :
 	std::unique_ptr<GUI_Layer_GlobalParameters> layer_GlobalParams;
 	std::unique_ptr<GUI_Layer_CommError_NRPN> layer_CommError_NRPN;
 	std::unique_ptr<GUI_Layer_CommError_SysEx> layer_CommError_SysEx;
+	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
 	Value shouldShowDescriptionValue;
 	int nameCharNum{ -1 };
 	int sequencerStep{ -1 };
@@ -66,9 +71,11 @@ private:
 	void showCommError_SysExLayer();
 	void showCommError_NRPN_Layer();
 	void showGlobalParamsLayer();
+	void showRandomizationLayer();
 	void timerCallback() override;
 
 public:
+	void mouseDown(const MouseEvent& event) override;
 	void valueChanged(Value& value) override;
 	~GUI_Layer_MainWindowButtons();
 
