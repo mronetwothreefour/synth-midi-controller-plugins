@@ -25,6 +25,7 @@ public:
 	uint8 numberOfChoicesFor(const uint8 paramIndex) const;
 	uint8 defaultChoiceFor(const uint8 paramIndex) const;
 	Point<int> centerPointFor(const uint8 paramIndex) const;
+	Point<int> redToggleCenterPointFor(const uint8 paramIndex) const;
 	int widthFor(const uint8 paramIndex) const;
 	int heightFor(const uint8 paramIndex) const;
 	String choiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const;

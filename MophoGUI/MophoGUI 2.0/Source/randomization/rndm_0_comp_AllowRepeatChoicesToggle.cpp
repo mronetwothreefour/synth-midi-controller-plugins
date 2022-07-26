@@ -77,7 +77,7 @@ void AllowRepeatChoicesToggle::valueChanged(Value& /*value*/) {
 		setEnabled(false);
 	}
 	else {
-		toggle_AllowRepeatChoices.setToggleState(false, dontSendNotification);
+		toggle_AllowRepeatChoices.setToggleState(randomization->repeatChoicesAreAllowedForParam(paramIndex), dontSendNotification);
 		setEnabled(true);
 	}
 }

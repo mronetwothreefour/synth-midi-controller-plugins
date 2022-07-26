@@ -170,6 +170,8 @@ namespace MophoConstants
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_NRPN{ "property_NRPN" };
 		static const Identifier property_ParamID{ "property_ParamID" };
+		static const Identifier property_RedToggleCenter_x{ "property_RedToggleCenter_x" };
+		static const Identifier property_RedToggleCenter_y{ "property_RedToggleCenter_y" };
 		static const Identifier property_SeqTrackNum{ "property_SeqTrackNum" };
 		static const Identifier property_SeqTrackStepNum{ "property_SeqTrackStepNum" };
 		static const Identifier property_Width{ "property_Width" };

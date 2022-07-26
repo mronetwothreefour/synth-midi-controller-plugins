@@ -59,7 +59,7 @@ void AllowRepeatChoicesToggle_SeqTrackStep::valueChanged(Value& /*value*/) {
 		setEnabled(false);
 	}
 	else {
-		toggle_AllowRepeatChoices.setToggleState(false, dontSendNotification);
+		toggle_AllowRepeatChoices.setToggleState(randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step), dontSendNotification);
 		setEnabled(true);
 	}
 }

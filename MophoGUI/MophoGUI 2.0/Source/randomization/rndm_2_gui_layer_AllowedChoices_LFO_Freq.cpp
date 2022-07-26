@@ -132,18 +132,31 @@ void GUI_Layer_AllowedChoices_LFO_Freq::paint(Graphics& g) {
 
 void GUI_Layer_AllowedChoices_LFO_Freq::mouseDown(const MouseEvent& event) {
 	auto clickPosition{ event.getPosition() };
+	auto ctrlClicked{ ModifierKeys::leftButtonModifier + ModifierKeys::ctrlModifier };
 
 	Rectangle<int> unsyncedLabelArea{ 436, categoryToggles_y, 79, GUI::redToggle_diameter };
-	if (unsyncedLabelArea.contains(clickPosition))
-		toggle_Unsynced.triggerClick();
+	if (unsyncedLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeCategoryTheOnlyOneAllowed(Category::unsynced);
+		else
+			toggle_Unsynced.triggerClick();
+	}
 
 	Rectangle<int> pitchedLabelArea{ 665, categoryToggles_y, 55, GUI::redToggle_diameter };
-	if (pitchedLabelArea.contains(clickPosition))
-		toggle_Unsynced.triggerClick();
+	if (pitchedLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeCategoryTheOnlyOneAllowed(Category::pitched);
+		else
+			toggle_Pitched.triggerClick();
+	}
 
 	Rectangle<int> syncedLabelArea{ 892, categoryToggles_y, 53, GUI::redToggle_diameter };
-	if (syncedLabelArea.contains(clickPosition))
-		toggle_Unsynced.triggerClick();
+	if (syncedLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeCategoryTheOnlyOneAllowed(Category::synced);
+		else
+			toggle_Synced.triggerClick();
+	}
 }
 
 void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {
@@ -160,6 +173,7 @@ void GUI_Layer_AllowedChoices_LFO_Freq::buttonClicked(Button* button) {
 		if (randomization->noCategoryIsAllowedFor_LFO_FreqParam(paramIndex)) {
 			button->setToggleState(true, dontSendNotification);
 			randomization->setCategoryIsAllowedFor_LFO_FreqParam(clickedCategory, true, paramIndex);
+			categoryIsAllowed = true;
 		}
 		if (clickedCategory == Category::unsynced) {
 			if (categoryIsAllowed)

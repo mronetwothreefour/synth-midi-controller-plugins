@@ -34,7 +34,7 @@ String AllowChoiceToggles_LFO_Freq_Pitched::buildTooltip() {
 		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
 		tip += "CTRL-click a pitched frequency to make it the only one\n";
 		tip += "allowed. SHIFT-click to allow a range of pitched frequencies.\n";
-		tip += "ALT-click to allow a range of pitched frequencies that are";
+		tip += "ALT-click to allow a range of pitched frequencies that are\n";
 		tip += "all in the same note row.";
 	}
 	return tip;

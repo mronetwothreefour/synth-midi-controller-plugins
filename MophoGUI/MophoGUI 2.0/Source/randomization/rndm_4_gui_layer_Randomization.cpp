@@ -52,7 +52,10 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, exposedParams, });
 		paramLockToggles[paramIndex]->addListener(this);
 		paramLockToggles[paramIndex]->addMouseListener(this, false);
-		paramLockToggles[paramIndex]->setCentrePosition(info->centerPointFor(paramIndex));
+		auto controlCenterPoint{ info->centerPointFor(paramIndex) };
+		if (info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::binary)
+			controlCenterPoint = info->redToggleCenterPointFor(paramIndex);
+		paramLockToggles[paramIndex]->setCentrePosition(controlCenterPoint);
 		addAndMakeVisible(paramLockToggles[paramIndex].get());
 	}
 

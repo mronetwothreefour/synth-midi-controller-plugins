@@ -47,18 +47,19 @@ String MainWindowButtonDescription::buildForRedo() {
 
 String MainWindowButtonDescription::buildForShowGlobalParamsLayer() {
     String descriptionString{ "" };
-    descriptionString += "Opens a window where you can change global settings\n";
-    descriptionString += "for the hardware, as well as tooltip display options";
+    descriptionString += "Opens a window where you can change global\n";
+    descriptionString += "settings for the hardware, as well as tooltip\n";
+    descriptionString += "display options. Shortcut key: CTRL+G";
     return descriptionString;
 }
 
 String MainWindowButtonDescription::buildForShowRandomizationLayer() {
     String descriptionString{ "" };
-    descriptionString += "Click to randomize the program settings. Right-click\n";
-    descriptionString += "to open a dialog where you can define which parameters\n";
-    descriptionString += "get randomized and what choices are allowed for each\n";
-    descriptionString += "of them. Right-click any program parameter control to\n";
-    descriptionString += "generate a random setting for that parameter.";
+    descriptionString += "Click to randomize the program settings. Right-click to open an\n";
+    descriptionString += "options window where you can define which parameters get randomized\n";
+    descriptionString += "and what choices are allowed for each of them. Right-click any program\n";
+    descriptionString += "parameter control to generate a random setting for that parameter.\n";
+    descriptionString += "Shortcut keys: CTRL+D to randomize, CTRL+ALT+D to show the options";
     return descriptionString;
 }
 
@@ -71,8 +72,9 @@ String MainWindowButtonDescription::buildForShowVoiceNameEditor() {
 
 String MainWindowButtonDescription::buildForShowVoicesBanksLayer() {
     String descriptionString{ "" };
-    descriptionString += "Opens a window where you can manage the\n";
-    descriptionString += "six storage banks for program presets.";
+    descriptionString += "Opens a window where you can manage\n";
+    descriptionString += "the six storage banks for program\n";
+    descriptionString += "presets. Shortcut key: CTRL+B";
     return descriptionString;
 }
 

@@ -547,7 +547,7 @@ const bool ExposedParamsRandomizationOptions::noChoiceIsAllowedForParam(uint8 pa
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
-	return (bool)paramTree.getProperty(ID::rndm_OnlyOneChoiceIsAllowed) == true;
+	return (bool)paramTree.getProperty(ID::rndm_NoChoiceIsAllowed) == true;
 }
 
 

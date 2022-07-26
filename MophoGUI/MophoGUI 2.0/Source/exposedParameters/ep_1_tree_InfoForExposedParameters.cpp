@@ -28,7 +28,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const int allowedChoicesOffset_Knobs{ GUI::knob_diameter / 2 + 10 };
 	const int allowedChoicesOffset_Toggles{ GUI::toggleLockButton_diameter / 2 + 10 };
 
-	const int firstAllowChoiceRow_PosNeg_127{ 14 };
+	const int firstAllowChoiceRow_PosNeg_127{ 13 };
 
 	const int numberOfAllowChoiceColumns_0_To_127{ 16 };
 	const int numberOfAllowChoiceColumns_ModDestination{ 3 };
@@ -178,6 +178,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, center_y + 11 },
 					{ ID::property_Width, 32 },
 					{ ID::property_Height, 36 },
+					{ ID::property_RedToggleCenter_x, controlsCol_6_x },
+					{ ID::property_RedToggleCenter_y, center_y },
 					{ ID::property_Description, Description::buildForOscKeyTrack(oscNum) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -231,6 +233,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 22 },
 				{ ID::property_Width, 76 },
 				{ ID::property_Height, GUI::redToggle_diameter },
+				{ ID::property_RedToggleCenter_x, 273 },
+				{ ID::property_RedToggleCenter_y, 22 },
 				{ ID::property_Description, Description::buildForOscSync() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -551,6 +555,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, lpfRow_1_center_y },
 				{ ID::property_Width, 34 },
 				{ ID::property_Height, 26 },
+				{ ID::property_RedToggleCenter_x, controlsCol_2_x },
+				{ ID::property_RedToggleCenter_y, 161 },
 				{ ID::property_Description, Description::buildFor_LPF_Type() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -1133,6 +1139,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Center_y, 526 },
 					{ ID::property_Width, 26 },
 					{ ID::property_Height, 36 },
+					{ ID::property_RedToggleCenter_x, 507 + lfoNum * lfoControlsGroup_w },
+					{ ID::property_RedToggleCenter_y, lfoRow_1_center_y },
 					{ ID::property_Description, Description::buildFor_LFO_KeySync(lfoNum + 1) },
 					{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 					{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -1374,6 +1382,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 537 },
 				{ ID::property_Width, 34 },
 				{ ID::property_Height, 26 },
+				{ ID::property_RedToggleCenter_x, controlsCol_1_x },
+				{ ID::property_RedToggleCenter_y, env_3_ControlsRow_1_y },
 				{ ID::property_Description, Description::buildForEnv_3_Repeat() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -1940,6 +1950,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, 116 },
 				{ ID::property_Width, 20 },
 				{ ID::property_Height, 26 },
+				{ ID::property_RedToggleCenter_x, controlsCol_9_x },
+				{ ID::property_RedToggleCenter_y, oscRow_2_center_y },
 				{ ID::property_Description, Description::buildForArpegOnOff() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_NumberOfAllowChoiceToggleColumns, 0 },
@@ -1994,6 +2006,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Center_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Width, 102 },
 				{ ID::property_Height, GUI::redToggle_diameter },
+				{ ID::property_RedToggleCenter_x, 819 },
+				{ ID::property_RedToggleCenter_y, clockAndSequencerControlsRow_y },
 				{ ID::property_Description, Description::buildForSeqOnOff() },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
 				{ ID::property_AllowedChoicesType, (int)AllowedChoicesType::binary },
@@ -2235,6 +2249,14 @@ Point<int> InfoForExposedParameters::centerPointFor(const uint8 paramIndex) cons
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
 	auto center_x{ (int)paramTree.getProperty(ID::property_Center_x) };
 	auto center_y{ (int)paramTree.getProperty(ID::property_Center_y) };
+	return Point<int>{ center_x, center_y };
+}
+
+Point<int> InfoForExposedParameters::redToggleCenterPointFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto center_x{ (int)paramTree.getProperty(ID::property_RedToggleCenter_x) };
+	auto center_y{ (int)paramTree.getProperty(ID::property_RedToggleCenter_y) };
 	return Point<int>{ center_x, center_y };
 }
 

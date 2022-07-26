@@ -28,7 +28,7 @@ GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(
 void GUI_Layer_AllowedChoices_Binary::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	g.setColour(GUI::color_ToggleOn);
-	auto toggleCenter{ info->centerPointFor(paramIndex) };
+	auto toggleCenter{ info->redToggleCenterPointFor(paramIndex) };
 	g.drawEllipse((float)toggleCenter.x - 11.0f, (float)toggleCenter.y - 11.0f, GUI::toggleLockButton_diameter, GUI::toggleLockButton_diameter, 2);
 	g.setColour(GUI::color_Black);
 	g.fillRect(background_x, background_y, background_w, background_h);

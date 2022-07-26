@@ -33,7 +33,7 @@ String AllowChoiceToggles_LFO_Freq_Unsynced::buildTooltip() {
 		tip += "is allowed when generating a random frequency for LFO " + lfoNumString + ".\n";
 		tip += "CTRL-click an un-synced frequency to make it the only one\n";
 		tip += "allowed. SHIFT-click to allow a range of un-synced frequencies.\n";
-		tip += "ALT-click to allow a range of un-synced frequencies that are";
+		tip += "ALT-click to allow a range of un-synced frequencies that are\n";
 		tip += "all in the same row.";
 	}
 	return tip;

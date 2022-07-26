@@ -16,6 +16,7 @@ class UnexposedParameters;
 
 class GUI_Layer_MainWindowButtons :
 	public Component,
+	public Button::Listener,
 	public Label::Listener,
 	public Value::Listener,
 	private MultiTimer,
@@ -76,6 +77,7 @@ private:
 
 public:
 	void mouseDown(const MouseEvent& event) override;
+	void buttonClicked(Button* button) override;
 	void valueChanged(Value& value) override;
 	~GUI_Layer_MainWindowButtons();
 

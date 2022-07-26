@@ -78,16 +78,21 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowVoicesBanks.setComponentID(ID::btn_Banks.toString());
     btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
     btn_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
+    btn_ShowVoicesBanks.addShortcut(KeyPress{ 'b', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowVoicesBanks);
 
     btn_ShowGlobalParams.setComponentID(ID::btn_Global.toString());
     btn_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
     btn_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
+    btn_ShowGlobalParams.addShortcut(KeyPress{ 'g', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowGlobalParams);
 
     btn_Randomize.setComponentID(ID::btn_Randomize.toString());
     btn_Randomize.addMouseListener(this, false);
+    btn_Randomize.addListener(this);
     btn_Randomize.setBounds(800, rowBeneathProgramName_y, GUI::btn_Randomize_w, GUI::redButton_h);
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
     addAndMakeVisible(btn_Randomize);
 
     const int undoRedoButtons_w{ 44 };
@@ -136,6 +141,15 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_Read{ shouldShow ? Description::buildForEditBufferRead() : String{ "" } };
     btn_ReadEditBuffer.setTooltip(tipFor_btn_Read);
+
+    auto tipFor_btn_Banks{ shouldShow ? Description::buildForShowVoicesBanksLayer() : String{ "" } };
+    btn_ShowVoicesBanks.setTooltip(tipFor_btn_Banks);
+
+    auto tipFor_btn_Global{ shouldShow ? Description::buildForShowGlobalParamsLayer() : String{ "" } };
+    btn_ShowGlobalParams.setTooltip(tipFor_btn_Global);
+
+    auto tipFor_btn_Randomize{ shouldShow ? Description::buildForShowRandomizationLayer() : String{ "" } };
+    btn_Randomize.setTooltip(tipFor_btn_Randomize);
 
     auto tipFor_btn_Undo{ shouldShow ? Description::buildForUndo() : String{ "" } };
     btn_Undo.setTooltip(tipFor_btn_Undo);
@@ -297,6 +311,11 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
         randomize->randomizeAllUnlockedParameters();
 }
 
+void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
+    if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
+        showRandomizationLayer();
+}
+
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
     updateTooltips();
 }
@@ -309,5 +328,6 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_Randomization = nullptr;
     shouldShowDescriptionValue.removeListener(this);
     voiceNameEditor.removeListener(this);
+    btn_Randomize.removeListener(this);
     btn_Randomize.removeMouseListener(this);
 }

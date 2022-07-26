@@ -148,26 +148,47 @@ void GUI_Layer_AllowedChoices_OscShape::paint(Graphics& g) {
 
 void GUI_Layer_AllowedChoices_OscShape::mouseDown(const MouseEvent& event) {
 	auto clickPosition{ event.getPosition() };
+	auto ctrlClicked{ ModifierKeys::leftButtonModifier + ModifierKeys::ctrlModifier };
 
-	Rectangle<int> offLabelArea{ 436, shapeTogglesRow_y, 28, GUI::redToggle_diameter };
-	if (offLabelArea.contains(clickPosition))
-		toggle_Off.triggerClick();
+	Rectangle<int> offLabelArea{ 209, shapeTogglesRow_y, 28, GUI::redToggle_diameter };
+	if (offLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeShapeTheOnlyOneAllowed(Shape::off);
+		else
+			toggle_Off.triggerClick();
+	}
 
 	Rectangle<int> sawLabelArea{ 285, shapeTogglesRow_y, 76, GUI::redToggle_diameter };
-	if (sawLabelArea.contains(clickPosition))
-		toggle_Saw.triggerClick();
+	if (sawLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeShapeTheOnlyOneAllowed(Shape::sawtooth);
+		else
+			toggle_Saw.triggerClick();
+	}
 
 	Rectangle<int> triLabelArea{ 411, shapeTogglesRow_y, 66, GUI::redToggle_diameter };
-	if (triLabelArea.contains(clickPosition))
-		toggle_Tri.triggerClick();
+	if (triLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeShapeTheOnlyOneAllowed(Shape::triangle);
+		else
+			toggle_Tri.triggerClick();
+	}
 
 	Rectangle<int> sawTriLabelArea{ 525, shapeTogglesRow_y, 89, GUI::redToggle_diameter };
-	if (sawTriLabelArea.contains(clickPosition))
-		toggle_SawTri.triggerClick();
+	if (sawTriLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeShapeTheOnlyOneAllowed(Shape::sawTriMix);
+		else
+			toggle_SawTri.triggerClick();
+	}
 
 	Rectangle<int> pulseLabelArea{ 384, pulseToggle_y, 41, GUI::redToggle_diameter };
-	if (sawTriLabelArea.contains(clickPosition))
-		toggle_SawTri.triggerClick();
+	if (pulseLabelArea.contains(clickPosition)) {
+		if (event.mods == ctrlClicked)
+			makeShapeTheOnlyOneAllowed(Shape::pulse);
+		else
+			toggle_Pulse.triggerClick();
+	}
 }
 
 void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
@@ -188,6 +209,7 @@ void GUI_Layer_AllowedChoices_OscShape::buttonClicked(Button* button) {
 		if (randomization->noOscShapeIsAllowedForParam(paramIndex)) {
 			button->setToggleState(true, dontSendNotification);
 			randomization->setOscShapeIsAllowedForParam(clickedShape, true, paramIndex);
+			shapeIsAllowed = true;
 		}
 		if (clickedShape == Shape::pulse) {
 			if (shapeIsAllowed)
