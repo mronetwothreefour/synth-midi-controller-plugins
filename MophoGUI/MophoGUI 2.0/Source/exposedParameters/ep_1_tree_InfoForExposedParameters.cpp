@@ -249,7 +249,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 			}
 		}, -1, nullptr);
 
-	auto col_10_AllowedChoices_x{ controlsCol_6_x + 72 };
+	auto col_10_AllowedChoices_x{ controlsCol_10_x + 72 };
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_013", {
 				{ ID::property_ParamID, ID::ep_013_GlideMode.toString() },
@@ -331,7 +331,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_016", {
 				{ ID::property_ParamID, ID::ep_016_NotePriority.toString() },
-				{ ID::property_ExposedName, "Note Priority(Key Assign)" },
+				{ ID::property_ExposedName, "Note Priority (Key Assign)" },
 				{ ID::property_ControlType, (int)ControlType::comboBox },
 				{ ID::property_NRPN, 96 },
 				{ ID::property_NumberOfChoices, 6 },
@@ -1930,7 +1930,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_WidthOfAllowChoiceToggleColumn, 120 },
 				{ ID::property_NumberOfAllowChoiceToggleRows, 5 },
 				{ ID::property_FirstAllowChoiceToggleRow, 0 },
-				{ ID::property_AllowedChoicesBackground_x, 572 },
+				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 110 },
 			}, {
 				ValueTree{ ChoiceNames::buildForArpegMode(concise) },

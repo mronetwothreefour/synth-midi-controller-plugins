@@ -52,32 +52,32 @@ void AllowChoiceToggles_Base::buttonClicked(Button* button) {
 	if (shiftKeyIsDown || (altKeyIsDown && numberOfColumns > 2))
 	{
 		auto increment{ altKeyIsDown ? (uint8)numberOfRows : (uint8)1 };
-		auto nextAllowedChoice{ numberOfChoices };
+		int nextAllowedChoice{ numberOfChoices };
 		for (auto previousChoice = clickedChoice - increment; previousChoice > -1; previousChoice -= increment) {
 			if (choiceIsAllowed((uint8)previousChoice)) {
-				nextAllowedChoice = (uint8)previousChoice;
+				nextAllowedChoice = previousChoice;
 				break;
 			}
 		}
 		if (nextAllowedChoice == numberOfChoices) {
 			for (auto subsequentChoice = clickedChoice + increment; subsequentChoice < numberOfChoices; subsequentChoice += increment) {
 				if (choiceIsAllowed((uint8)subsequentChoice)) {
-					nextAllowedChoice = (uint8)subsequentChoice;
+					nextAllowedChoice = subsequentChoice;
 					break;
 				}
 			}
 		}
 		if (nextAllowedChoice < numberOfChoices) {
 			if (nextAllowedChoice < clickedChoice) {
-				for (auto choice = nextAllowedChoice; choice <= clickedChoice && choice < numberOfChoices; choice += increment) {
+				for (int choice = nextAllowedChoice; choice <= clickedChoice && choice < numberOfChoices; choice += increment) {
 					allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
-					setChoiceIsAllowed(choice, true);
+					setChoiceIsAllowed((uint8)choice, true);
 				}
 			}
 			else {
-				for (auto choice = clickedChoice; choice <= nextAllowedChoice && choice < numberOfChoices; choice += increment) {
+				for (int choice = clickedChoice; choice <= nextAllowedChoice && choice < numberOfChoices; choice += increment) {
 					allowedChoiceToggles[choice]->setToggleState(true, dontSendNotification);
-					setChoiceIsAllowed(choice, true);
+					setChoiceIsAllowed((uint8)choice, true);
 				}
 			}
 		}
