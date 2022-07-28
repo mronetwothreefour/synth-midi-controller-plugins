@@ -150,6 +150,14 @@ namespace MophoConstants
 	};
 
 
+	const enum class SeqTrackStepChoiceCategory {
+		rest = 0,
+		duplicate,
+		reset,
+		numberOrPitch
+	};
+
+
 	const enum class SeqTrackStepNum {
 		all = 0, one, two, three, four, five, six, seven, eight,
 		nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen

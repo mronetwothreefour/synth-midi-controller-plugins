@@ -119,6 +119,7 @@ private:
 	void checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track track, Step step);
 
 public:
+	const float sumOfProbabilitiesForSeqTrackStep(Track track, Step step);
 	const bool repeatChoicesAreAllowedForSeqTrackStep(Track track, Step step);
 	const bool repeatChoicesAreForbiddenForSeqTrackStep(Track track, Step step);
 	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step);

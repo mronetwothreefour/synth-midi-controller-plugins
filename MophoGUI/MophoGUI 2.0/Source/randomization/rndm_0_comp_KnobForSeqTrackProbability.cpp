@@ -111,15 +111,40 @@ void KnobForSeqTrackProbability::valueChanged() {
 	auto newValue{ (float)getValue() };
 	switch (knobType)
 	{
-	case KnobType::rest:
-		randomization->setProbabilityOfRestForSeqTrack_1_Step(newValue, targetStep);
+	case KnobType::rest: {
+		auto sumOfOtherProbabilities{ randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep) +
+			randomization->probabilityOfResetForSeqTrackStep(track, targetStep)
+		};
+		if (sumOfOtherProbabilities + newValue > 1.0000f) {
+			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
+			randomization->setProbabilityOfRestForSeqTrack_1_Step(1.0000f - sumOfOtherProbabilities, targetStep);
+		}
+		else
+			randomization->setProbabilityOfRestForSeqTrack_1_Step(newValue, targetStep);
 		break;
-	case KnobType::duplicate:
-		randomization->setProbabilityOfDuplicateForSeqTrackStep(newValue, track, targetStep);
+	}
+	case KnobType::duplicate: {
+		auto sumOfOtherProbabilities{ track == Track::one ? randomization->probabilityOfRestForSeqTrack_1_Step(targetStep) : 0.0f };
+		sumOfOtherProbabilities += randomization->probabilityOfResetForSeqTrackStep(track, targetStep);
+		if (sumOfOtherProbabilities + newValue > 1.0000f) {
+			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
+			randomization->setProbabilityOfDuplicateForSeqTrackStep(1.0000f - sumOfOtherProbabilities, track, targetStep);
+		}
+		else
+			randomization->setProbabilityOfDuplicateForSeqTrackStep(newValue, track, targetStep);
 		break;
-	case KnobType::reset:
-		randomization->setProbabilityOfResetForSeqTrackStep(newValue, track, targetStep);
+	}
+	case KnobType::reset: {
+		auto sumOfOtherProbabilities{ track == Track::one ? randomization->probabilityOfRestForSeqTrack_1_Step(targetStep) : 0.0f };
+		sumOfOtherProbabilities += randomization->probabilityOfDuplicateForSeqTrackStep(track, targetStep);
+		if (sumOfOtherProbabilities + newValue > 1.0000f) {
+			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
+			randomization->setProbabilityOfResetForSeqTrackStep(1.0000f - sumOfOtherProbabilities, track, targetStep);
+		}
+		else
+			randomization->setProbabilityOfResetForSeqTrackStep(newValue, track, targetStep);
 		break;
+	}
 	default:
 		break;
 	}

@@ -755,6 +755,15 @@ void ExposedParamsRandomizationOptions::checkProbabilitiesAndNumberOfChoicesAllo
 	trackTree.setProperty(noChoiceIsAllowedID, noChoiceIsAllowed ? (bool)true : (bool)false, nullptr);
 }
 
+const float ExposedParamsRandomizationOptions::sumOfProbabilitiesForSeqTrackStep(Track track, Step step) {
+	auto sumOfProbabilities{ 0.0f };
+	if (track == Track::one)
+		sumOfProbabilities += probabilityOfRestForSeqTrack_1_Step(step);
+	sumOfProbabilities += probabilityOfDuplicateForSeqTrackStep(track, step);
+	sumOfProbabilities += probabilityOfResetForSeqTrackStep(track, step);
+	return sumOfProbabilities;
+}
+
 const bool ExposedParamsRandomizationOptions::repeatChoicesAreAllowedForSeqTrackStep(Track track, Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
