@@ -33,8 +33,8 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
 	auto choiceNum{ roundToInt(knob.getValue()) };
 	g.setColour(GUI::color_White);
-	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack1Step_Rest) {
-		if (choiceNum < EP::choiceNumForSeqStep_Reset) {
+	if (choiceNum > -1 && choiceNum <= EP::choiceNumForSeqTrack_1_Step_Rest) {
+		if (choiceNum < EP::choiceNumForSeqTrackStep_Reset) {
 			auto choiceNameString{ info->choiceNameFor((uint8)choiceNum, paramIndex) };
 			if (knob.isModifyingPitch)
 				choiceNameString = choiceNameString.fromFirstOccurrenceOf("(", false, false).upToFirstOccurrenceOf(")", false, false);
@@ -42,9 +42,9 @@ void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
 				choiceNameString = choiceNameString.upToFirstOccurrenceOf(" ", false, false);
 			paintChoiceNameString(g, choiceNameString);
 		}
-		if (choiceNum == EP::choiceNumForSeqStep_Reset)
+		if (choiceNum == EP::choiceNumForSeqTrackStep_Reset)
 			paintResetSequenceArrow(g);
-		if (choiceNum == EP::choiceNumForSeqTrack1Step_Rest)
+		if (choiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
 			paintTrack1RestDot(g);
 	}
 	else

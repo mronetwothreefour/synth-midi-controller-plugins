@@ -6,8 +6,8 @@ namespace MophoConstants
 {
 	namespace EP
 	{
-		const uint8 choiceNumForSeqStep_Reset{ 126 };
-		const uint8 choiceNumForSeqTrack1Step_Rest{ 127 };
+		const uint8 choiceNumForSeqTrackStep_Reset{ 126 };
+		const uint8 choiceNumForSeqTrack_1_Step_Rest{ 127 };
 		const uint8 clockTempoOffset{ 30 };
 		const uint8 firstKnobAssignParamIndex{ 105 };
 		const uint8 firstSeqStepParamIndex{ 109 };

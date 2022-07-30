@@ -124,6 +124,8 @@ public:
 	const bool repeatChoicesAreForbiddenForSeqTrackStep(Track track, Step step);
 	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step);
 
+	ValueTree getCopyOfAllowedChoicesTreeForSeqTrackStep(Track track, Step step);
+
 
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);

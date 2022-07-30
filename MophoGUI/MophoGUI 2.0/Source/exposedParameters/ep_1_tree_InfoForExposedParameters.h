@@ -6,6 +6,9 @@
 
 using namespace MophoConstants;
 
+using Step = SeqTrackStepNum;
+using Track = SeqTrackNum;
+
 class InfoForExposedParameters
 {
 	ValueTree exposedParamsInfoTree;
@@ -18,6 +21,7 @@ private:
 
 public:
 	Identifier IDfor(const uint8 paramIndex) const;
+	Identifier IDfor(Track track, Step step) const;
 	String exposedNameFor(const uint8 paramIndex) const;
 	ControlType controlTypeFor(const uint8 paramIndex) const;
 	uint8 NRPNfor(const uint8 paramIndex) const;
@@ -44,8 +48,8 @@ public:
 	int firstAllowChoiceToggleRowFor(const uint8 paramIndex) const;
 	int allowedChoicesBackground_x_For(const uint8 paramIndex) const;
 	int allowedChoicesBackground_y_For(const uint8 paramIndex) const;
-	int seqTrackNum_For(const uint8 paramIndex) const;
-	int seqTrackStepNum_For(const uint8 paramIndex) const;
+	Track seqTrackFor(const uint8 paramIndex) const;
+	Step seqTrackStepFor(const uint8 paramIndex) const;
 
 private:
 	//==============================================================================

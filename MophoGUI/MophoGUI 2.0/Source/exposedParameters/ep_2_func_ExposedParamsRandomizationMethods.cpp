@@ -23,13 +23,22 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters()
 void ExposedParamsRandomizationMethods::randomizeParameter(uint8 paramIndex) {
 	auto newSetting{ randomlyChooseNewSettingForParam(paramIndex) };
 	auto paramID{ info->IDfor(paramIndex).toString() };
-	auto paramPtr{ state->getParameter(paramID) };
-	if (paramPtr != nullptr)
-		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+	applyNewSettingToExposedParameter(newSetting, paramID);
 }
 
-void ExposedParamsRandomizationMethods::randomizeSeqTrack(Track /*track*/)
-{
+void ExposedParamsRandomizationMethods::randomizeSeqTrackStep(Track track, Step step) {
+	if (step == Step::all) {
+		for (auto stepNum = (int)Step::one; stepNum <= (int)Step::sixteen; ++stepNum) {
+			auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, Step{ stepNum }, true) };
+			auto paramID{ info->IDfor(track, Step{ stepNum }) };
+			applyNewSettingToExposedParameter(newSetting, paramID);
+		}
+	}
+	else {
+		auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, step, false) };
+		auto paramID{ info->IDfor(track, step) };
+		applyNewSettingToExposedParameter(newSetting, paramID);
+	}
 }
 
 uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 paramIndex) {
@@ -49,8 +58,12 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 
 	case MophoConstants::AllowedChoicesType::lfoFreq:
 		newSetting = randomlyChooseNewSettingFor_LFO_FreqParam(paramIndex);
 		break;
-	case MophoConstants::AllowedChoicesType::seqTrackStep:
+	case MophoConstants::AllowedChoicesType::seqTrackStep: {
+		auto track(info->seqTrackFor(paramIndex));
+		auto step(info->seqTrackStepFor(paramIndex));
+		newSetting = randomlyChooseNewSettingForSeqTrackStep(track, step, false);
 		break;
+	}
 	case MophoConstants::AllowedChoicesType::voiceNameChar:
 		newSetting = randomlyChooseNewSettingForStandardOrVoiceNameCharParam(paramIndex);
 		break;
@@ -104,8 +117,8 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 		auto paramID{ info->IDfor(paramIndex).toString() };
 		auto paramPtr{ state->getParameter(paramID) };
 		auto currentSetting{ paramPtr->getValue() };
-		auto currentSettingNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
-		auto currentShape{ currentSettingNum < (int)Shape::pulse ? Shape{ currentSettingNum } : Shape::pulse };
+		auto currentChoiceNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
+		auto currentShape{ currentChoiceNum < (int)Shape::pulse ? Shape{ currentChoiceNum } : Shape::pulse };
 		auto repeatsAreForbidden{ randomization->repeatChoicesAreForbiddenForParam(paramIndex) };
 		if (repeatsAreForbidden) {
 			String shapeToRemovePropertyID{ " " };
@@ -114,7 +127,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 			}
 			else {
 				if (allowedWidths.getNumProperties() == 1) {
-					if (allowedWidths.hasProperty("choice_" + (String)currentSettingNum))
+					if (allowedWidths.hasProperty("choice_" + (String)currentChoiceNum))
 						shapeToRemovePropertyID = "choice_" + String((int)Shape::pulse);
 				}
 			}
@@ -130,7 +143,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 			return uint8((int)allowedShapes[newShapeName]);
 		else {
 			if (repeatsAreForbidden && currentShape == Shape::pulse) {
-				auto currentWidthPropertyID{ "choice_" + (String)currentSettingNum };
+				auto currentWidthPropertyID{ "choice_" + (String)currentChoiceNum };
 				if (allowedWidths.hasProperty(currentWidthPropertyID))
 					allowedWidths.removeProperty(currentWidthPropertyID, nullptr);
 			}
@@ -189,15 +202,15 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 		auto paramID{ info->IDfor(paramIndex).toString() };
 		auto paramPtr{ state->getParameter(paramID) };
 		auto currentSetting{ paramPtr->getValue() };
-		auto currentSettingNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
-		auto currentCategory{ currentSettingNum < EP::first_LFO_PitchedFreqChoice ? Category::unsynced :
-								currentSettingNum >= EP::first_LFO_SyncedFreqChoice ? Category::synced : Category::pitched };
+		auto currentChoiceNum{ roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
+		auto currentCategory{ currentChoiceNum < EP::first_LFO_PitchedFreqChoice ? Category::unsynced :
+								currentChoiceNum >= EP::first_LFO_SyncedFreqChoice ? Category::synced : Category::pitched };
 		auto repeatsAreForbidden{ randomization->repeatChoicesAreForbiddenForParam(paramIndex) };
 		if (repeatsAreForbidden) {
 			switch (currentCategory)
 			{
 			case Category::unsynced: {
-				auto currentFreqPropertyID{ "choice_" + (String)currentSettingNum };
+				auto currentFreqPropertyID{ "choice_" + (String)currentChoiceNum };
 				if (allowedUnsyncedFreq.hasProperty(currentFreqPropertyID))
 					allowedUnsyncedFreq.removeProperty(currentFreqPropertyID, nullptr);
 				}
@@ -208,7 +221,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				}
 				break;
 			case Category::pitched: {
-				auto currentFreqPropertyID{ "choice_" + (String)currentSettingNum };
+				auto currentFreqPropertyID{ "choice_" + (String)currentChoiceNum };
 				if (allowedPitchedFreq.hasProperty(currentFreqPropertyID))
 					allowedPitchedFreq.removeProperty(currentFreqPropertyID, nullptr);
 				}
@@ -219,7 +232,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				}
 				break;
 			case Category::synced: {
-				auto currentFreqPropertyID{ "choice_" + (String)currentSettingNum };
+				auto currentFreqPropertyID{ "choice_" + (String)currentChoiceNum };
 				if (allowedSyncedFreq.hasProperty(currentFreqPropertyID))
 					allowedSyncedFreq.removeProperty(currentFreqPropertyID, nullptr);
 				}
@@ -269,6 +282,89 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 	}
 }
 
-void ExposedParamsRandomizationMethods::timerCallback()
-{
+uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep(Track track, Step step, bool shouldUseAllSteps) {
+	auto paramID{ info->IDfor(track, step).toString() };
+	auto paramPtr{ state->getParameter(paramID) };
+	auto currentSetting{ paramPtr->getValue() };
+	auto currentChoiceNum{ (uint8)roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
+	auto currentChoiceCategory{ SeqTrackStepChoiceCategory::numberOrPitch };
+	if (currentChoiceNum == EP::choiceNumForSeqTrackStep_Reset)
+		currentChoiceCategory = SeqTrackStepChoiceCategory::reset;
+	if (currentChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
+		currentChoiceCategory = SeqTrackStepChoiceCategory::rest;
+	auto repeatsAreAllowed{ randomization->repeatsMustBeAllowedForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) ? true :
+		randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
+	std::vector<SeqTrackStepChoiceCategory> categories;
+	if (track == Track::one && (currentChoiceCategory != SeqTrackStepChoiceCategory::rest || repeatsAreAllowed)) {
+		auto numberOfChancesForRest{ roundToInt(randomization->probabilityOfRestForSeqTrack_1_Step(shouldUseAllSteps ? Step::all : step) * 100.0f) };
+		for (auto i = 0; i != numberOfChancesForRest; ++i)
+			categories.push_back(SeqTrackStepChoiceCategory::rest);
+	}
+	if (step != Step::one) {
+		auto numberOfChancesForDupe{ 
+			roundToInt(randomization->probabilityOfDuplicateForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) * 100.0f)
+		};
+		for (auto i = 0; i != numberOfChancesForDupe; ++i)
+			categories.push_back(SeqTrackStepChoiceCategory::duplicate);
+		if (currentChoiceCategory != SeqTrackStepChoiceCategory::reset || repeatsAreAllowed) {
+			auto numberOfChancesForReset{
+				roundToInt(randomization->probabilityOfResetForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) * 100.0f)
+			};
+			for (auto i = 0; i != numberOfChancesForReset; ++i)
+				categories.push_back(SeqTrackStepChoiceCategory::reset);
+		}
+	}
+	for (auto i = (int)categories.size(); i < 100; ++i)
+		categories.push_back(SeqTrackStepChoiceCategory::numberOrPitch);
+	Random rndmNumGeneratorForCategory{};
+	auto categoryIndex{ (int)floor(rndmNumGeneratorForCategory.nextFloat() * 100.0f) };
+	auto categoryForNewSetting{ categories[categoryIndex] };
+	switch (categoryForNewSetting)
+	{
+	case MophoConstants::SeqTrackStepChoiceCategory::rest:
+		return EP::choiceNumForSeqTrack_1_Step_Rest;
+	case MophoConstants::SeqTrackStepChoiceCategory::duplicate: {
+		jassert(step > Step::one);
+		auto previousStep{ Step{ (int)step - 1 } };
+		auto previousStepID{ info->IDfor(track, previousStep) };
+		auto previousStepParamPtr{ state->getParameter(previousStepID) };
+		auto previousStepSetting{ previousStepParamPtr->getValue() };
+		auto previousStepChoiceNum{ (uint8)roundToInt(previousStepParamPtr->convertFrom0to1(previousStepSetting)) };
+		if (currentChoiceNum == previousStepChoiceNum && repeatsAreAllowed == false)
+			categoryForNewSetting = SeqTrackStepChoiceCategory::numberOrPitch;
+		else
+			return previousStepChoiceNum;
+	}
+	case MophoConstants::SeqTrackStepChoiceCategory::reset:
+		return EP::choiceNumForSeqTrackStep_Reset;
+	case MophoConstants::SeqTrackStepChoiceCategory::numberOrPitch: {
+		auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) };
+		if (repeatsAreAllowed == false) {
+			auto currentChoicePropertyID{ "choice_" + (String)currentChoiceNum };
+			if (allowedChoices.hasProperty(currentChoicePropertyID))
+				allowedChoices.removeProperty(currentChoicePropertyID, nullptr);
+		}
+		auto numberOfChoices{ allowedChoices.getNumProperties() };
+		if (numberOfChoices > 0) {
+			Random rndmNumGeneratorForChoice{};
+			auto choiceIndex{ (int)floor(rndmNumGeneratorForChoice.nextFloat() * numberOfChoices) };
+			auto newChoiceName{ allowedChoices.getPropertyName(choiceIndex) };
+			return uint8((int)allowedChoices[newChoiceName]);
+		}
+		else
+			return (uint8)255;
+	}
+	default:
+		return (uint8)255;
+	}
+	return (uint8)255;
+}
+
+void ExposedParamsRandomizationMethods::applyNewSettingToExposedParameter(uint8 newSetting, Identifier paramID) {
+	auto paramPtr{ state->getParameter(paramID) };
+	if (paramPtr != nullptr)
+		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+}
+
+void ExposedParamsRandomizationMethods::timerCallback() {
 }

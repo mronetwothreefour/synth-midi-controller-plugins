@@ -135,17 +135,17 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 			allowedChoicesLayers.showAllowedChoicesLayerForLFO_FreqParam(paramIndex);
 			break;
 		case MophoConstants::AllowedChoicesType::seqTrackStep: {
-				auto trackNum{ info->seqTrackNum_For(paramIndex) };
-				if (randomization->targetStepForSeqTrack(Track{ trackNum }) != Step::all) {
-					auto clickedStep{ info->seqTrackStepNum_For(paramIndex) };
-					randomization->setTargetStepForSeqTrack(Step{ clickedStep }, Track{ trackNum });
+				auto track{ info->seqTrackFor(paramIndex) };
+				if (randomization->targetStepForSeqTrack(track) != Step::all) {
+					auto clickedStep{ info->seqTrackStepFor(paramIndex) };
+					randomization->setTargetStepForSeqTrack(clickedStep, track);
 				}
-				auto trackDestParamID{ info->IDfor(uint8(100 + trackNum)) };
+				auto trackDestParamID{ info->IDfor(uint8(100 + (int)track)) };
 				auto paramPtr{ exposedParams->state->getParameter(trackDestParamID) };
 				if (paramPtr != nullptr) {
 					auto trackDest{ paramPtr->convertFrom0to1(paramPtr->getValue()) };
 					auto destIsPitched{ trackDest > 0.0f && trackDest < 4.0f };
-					allowedChoicesLayers.showAllowedChoicesLayerForSeqTrack(Track{ trackNum }, destIsPitched);
+					allowedChoicesLayers.showAllowedChoicesLayerForSeqTrack(track, destIsPitched);
 				}
 			}
 			break;

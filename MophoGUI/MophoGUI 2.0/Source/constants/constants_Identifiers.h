@@ -178,8 +178,6 @@ namespace MophoConstants
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
-		static const Identifier rndm_AllowedChoicesForAllSteps{ "rndm_AllowedChoicesForAllSteps" };
-		static const Identifier rndm_AllowedChoicesForStep_{ "rndm_AllowedChoicesForStep_" };
 		static const Identifier rndm_AllowedFreqCategories{ "rndm_AllowedFreqCategories" };
 		static const Identifier rndm_AllowedPitchedFreq{ "rndm_AllowedPitchedFreq" };
 		static const Identifier rndm_AllowedPulseWidths{ "rndm_AllowedPulseWidths" };
@@ -187,8 +185,6 @@ namespace MophoConstants
 		static const Identifier rndm_AllowedSyncedFreq{ "rndm_AllowedSyncedFreq" };
 		static const Identifier rndm_AllowedUnsyncedFreq{ "rndm_AllowedUnsyncedFreq" };
 		static const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
-		static const Identifier rndm_NoChoiceIsAllowedForAllSteps{ "rndm_NoChoiceIsAllowedForAllSteps" };
-		static const Identifier rndm_NoChoiceIsAllowedForStep_{ "rndm_NoChoiceIsAllowedForStep_" };
 		static const Identifier rndm_NoFreqCategoryIsAllowed{ "rndm_NoFreqCategoryIsAllowed" };
 		static const Identifier rndm_NoOscShapeIsAllowed{ "rndm_NoOscShapeIsAllowed" };
 		static const Identifier rndm_NoPitchedFreqIsAllowed{ "rndm_NoPitchedFreqIsAllowed" };
@@ -197,17 +193,11 @@ namespace MophoConstants
 		static const Identifier rndm_NoUnsyncedFreqIsAllowed{ "rndm_NoUnsyncedFreqIsAllowed" };
 		static const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		static const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
-		static const Identifier rndm_ProbabilityOfDupe_AllSteps{ "rndm_ProbabilityOfDupe_AllSteps" };
-		static const Identifier rndm_ProbabilityOfDupe_Step_{ "rndm_ProbabilityOfDupe_Step_" };
-		static const Identifier rndm_ProbabilityOfReset_AllSteps{ "rndm_ProbabilityOfReset_AllSteps" };
-		static const Identifier rndm_ProbabilityOfReset_Step_{ "rndm_ProbabilityOfReset_Step_" };
-		static const Identifier rndm_ProbabilityOfRest_AllSteps{ "rndm_ProbabilityOfRest_AllSteps" };
-		static const Identifier rndm_ProbabilityOfRest_Step_{ "rndm_ProbabilityOfRest_Step_" };
+		static const Identifier rndm_ProbabilityOfDupe{ "rndm_ProbabilityOfDupe" };
+		static const Identifier rndm_ProbabilityOfReset{ "rndm_ProbabilityOfReset" };
+		static const Identifier rndm_ProbabilityOfRest{ "rndm_ProbabilityOfRest" };
 		static const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
-		static const Identifier rndm_RepeatChoicesAreAllowedForAllSteps{ "rndm_RepeatChoicesAreAllowedForAllSteps" };
-		static const Identifier rndm_RepeatChoicesAreAllowedForStep_{ "rndm_RepeatChoicesAreAllowedForStep_" };
-		static const Identifier rndm_RepeatsMustBeAllowedForAllSteps{ "rndm_RepeatsMustBeAllowedForAllSteps" };
-		static const Identifier rndm_RepeatsMustBeAllowedForStep_{ "rndm_RepeatsMustBeAllowedForStep_" };
+		static const Identifier rndm_RepeatChoicesMustBeAllowed{ "rndm_RepeatChoicesMustBeAllowed" };
 		static const Identifier rndm_SeqTrackTargetStep{ "rndm_SeqTrackTargetStep" };
 		static const Identifier rndm_SeqTrack_{ "rndm_SeqTrack_" };
 		static const Identifier rndm_TransmitMethodIsSysEx{ "rndm_TransmitMethodIsSysEx" };

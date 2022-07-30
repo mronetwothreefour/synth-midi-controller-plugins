@@ -2206,6 +2206,15 @@ Identifier InfoForExposedParameters::IDfor(const uint8 paramIndex) const {
 	return Identifier{ paramTree.getProperty(ID::property_ParamID).toString() };
 }
 
+Identifier InfoForExposedParameters::IDfor(Track track, Step step) const {
+	jassert(step != Step::all);
+	auto trackString{ String((int)track) };
+	auto stepString{ String((int)step) };
+	auto paramNumString{ "ep_" + String(EP::firstSeqStepParamIndex + ((int)track - 1) * 16 + ((int)step - 1)) };
+	auto paramID_String{ paramNumString + "_SeqTrack_" + trackString + "_Step_" + stepString };
+	return Identifier{ paramID_String };
+}
+
 String InfoForExposedParameters::exposedNameFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
@@ -2377,14 +2386,18 @@ int InfoForExposedParameters::allowedChoicesBackground_y_For(const uint8 paramIn
 	return (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_y);
 }
 
-int InfoForExposedParameters::seqTrackNum_For(const uint8 paramIndex) const {
+Track InfoForExposedParameters::seqTrackFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_SeqTrackNum);
+	auto trackNum{ (int)paramTree.getProperty(ID::property_SeqTrackNum) };
+	return Track{ trackNum };
 }
 
-int InfoForExposedParameters::seqTrackStepNum_For(const uint8 paramIndex) const {
+Step InfoForExposedParameters::seqTrackStepFor(const uint8 paramIndex) const
+{
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return (int)paramTree.getProperty(ID::property_SeqTrackStepNum);
+	auto stepNum{ (int)paramTree.getProperty(ID::property_SeqTrackStepNum) };
+	return Step{ stepNum };
 }
+

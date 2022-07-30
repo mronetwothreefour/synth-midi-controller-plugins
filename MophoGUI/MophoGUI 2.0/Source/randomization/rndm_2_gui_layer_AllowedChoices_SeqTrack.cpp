@@ -16,7 +16,7 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	randomization{ exposedParams->randomization.get() },
 	btn_Close{ unexposedParams },
 	targetStepSelector{ track, randomization, unexposedParams },
-	btn_Randomize{ track, exposedParams->randomize.get(), unexposedParams}
+	btn_Randomize{ track, exposedParams, unexposedParams}
 {
 	targetStepForSeqTrackValue = { randomization->getTargetStepForSeqTrackValue(track) };
 	targetStepForSeqTrackValue.addListener(this);
@@ -110,7 +110,7 @@ void GUI_Layer_AllowedChoices_SeqTrack::paint(Graphics& g) {
 	auto targetStepBorder_h{ GUI::seqSteps_h + 4 };
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	if (targetStep == Step::all)
-		g.drawRect(targetStep_1_Border_x, targetStepBorder_y, 450, targetStepBorder_h);
+		g.drawRect(targetStep_1_Border_x, targetStepBorder_y, 450, targetStepBorder_h, 2);
 	else {
 		auto targetStepBorder_x{ targetStep_1_Border_x + (28 * ((int)targetStep - 1)) };
 		g.drawRect(targetStepBorder_x, targetStepBorder_y, GUI::seqSteps_w + 4, targetStepBorder_h, 2);

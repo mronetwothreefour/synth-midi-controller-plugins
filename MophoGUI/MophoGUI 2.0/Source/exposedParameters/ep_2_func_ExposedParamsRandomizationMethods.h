@@ -26,7 +26,7 @@ public:
 	explicit ExposedParamsRandomizationMethods(ExposedParameters* exposedParams);
 	void randomizeAllUnlockedParameters();
 	void randomizeParameter(uint8 paramIndex);
-	void randomizeSeqTrack(Track track);
+	void randomizeSeqTrackStep(Track track, Step step);
 
 private:
 	uint8 randomlyChooseNewSettingForParam(uint8 paramIndex);
@@ -34,6 +34,10 @@ private:
 	uint8 randomlyChooseNewSettingForOscShapeParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingForBinaryParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingFor_LFO_FreqParam(uint8 paramIndex);
+	uint8 randomlyChooseNewSettingForSeqTrackStep(Track track, Step step, bool shouldUseAllSteps);
+
+	void applyNewSettingToExposedParameter(uint8 newSetting, Identifier paramID);
+
 	void timerCallback() override;
 
 	//==============================================================================

@@ -5,7 +5,7 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -17,10 +17,13 @@ class RandomizeButtonForAllowedChoices_SeqTrack :
 public:
 	RandomizeButtonForAllowedChoices_SeqTrack() = delete;
 
-	RandomizeButtonForAllowedChoices_SeqTrack(Track track, ExposedParamsRandomizationMethods* randomize, UnexposedParameters* unexposedParams)
+	RandomizeButtonForAllowedChoices_SeqTrack(Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
 	{
 		setComponentID(ID::btn_Randomize.toString());
-		onClick = [track, randomize] { randomize->randomizeSeqTrack(track); };
+		onClick = [track, exposedParams] { 
+			auto step{ exposedParams->randomization->targetStepForSeqTrack(track) };
+			exposedParams->randomize->randomizeSeqTrackStep(track, step); 
+		};
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescription())
 			setTooltip("Click to generate a random setting\nfor the target step in track " + String((int)track) + ".");

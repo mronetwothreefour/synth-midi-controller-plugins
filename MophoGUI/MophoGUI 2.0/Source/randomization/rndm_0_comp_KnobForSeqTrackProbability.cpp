@@ -67,11 +67,11 @@ void KnobForSeqTrackProbability::updateTooltip() {
 	case KnobType::rest:
 		if (targetStep == Step::all) {
 			tip += "Sets the probability that any of the\n";
-			tip += "steps in track 1 will be a rest.";
+			tip += "steps in track 1 will be a rest.\n";
 		}
 		else {
 			tip += "Sets the probability that the target\n";
-			tip += "step in track 1 will be a rest.";
+			tip += "step in track 1 will be a rest.\n";
 		}
 		break;
 	case KnobType::duplicate:
@@ -79,30 +79,32 @@ void KnobForSeqTrackProbability::updateTooltip() {
 			tip += "Sets the probability that any of the\n";
 			tip += "steps in track " + String((int)track) + " will be assigned the\n";
 			tip += "same value as the step preceding it.\n";
-			tip += "(this does not apply to step 1).";
+			tip += "(this does not apply to step 1).\n";
 		}
 		else {
 			tip += "Sets the probability that the target\n";
 			tip += "step in track " + String((int)track) + " will be assigned the\n";
 			tip += "same value as the step preceding it.\n";
-			tip += "(this is disabled for step 1).";
+			tip += "(this is disabled for step 1).\n";
 		}
 		break;
 	case KnobType::reset:
 		if (targetStep == Step::all) {
 			tip += "Sets the probability that any of the\n";
 			tip += "steps in track " + String((int)track) + " will reset the track.\n";
-			tip += "(this does not apply to step 1).";
+			tip += "(this does not apply to step 1).\n";
 		}
 		else {
 			tip += "Sets the probability that the target\n";
 			tip += "step in track " + String((int)track) + " will reset the track.\n";
-			tip += "(this is disabled for step 1).";
+			tip += "(this is disabled for step 1).\n";
 		}
 		break;
 	default:
 		break;
 	}
+	tip += "The sum of all the probabilities\n";
+	tip += "cannot exceed 100 percent.";
 	setTooltip(tip);
 }
 
