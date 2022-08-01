@@ -32,11 +32,13 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	auto inset_y{ background_y + inset };
 	btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 	btn_AllowAll.onClick = [this] { allowAllChoices(); };
+	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all the shapes when\n";
 		tip += "generating a random setting for\n";
-		tip += paramName + ".";
+		tip += paramName + ".\n";
+		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
 	btn_AllowAll.setBounds(inset_x, inset_y, GUI::btn_AllowAll_w, GUI::redButton_h);

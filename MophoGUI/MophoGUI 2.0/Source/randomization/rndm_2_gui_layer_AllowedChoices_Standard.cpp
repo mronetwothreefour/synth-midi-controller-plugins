@@ -32,11 +32,13 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 		randomization->allowAllChoicesForParam(paramIndex);
 		allowChoiceToggles.restoreToggles(); 
 	};
+	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all the choices when\n";
 		tip += "generating a random setting for\n";
-		tip += paramName + ".";
+		tip += paramName + ".\n";
+		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
 	btn_AllowAll.setSize(GUI::btn_AllowAll_w, GUI::redButton_h);

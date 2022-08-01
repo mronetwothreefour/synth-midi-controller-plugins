@@ -40,14 +40,13 @@ ExposedParamsRandomizationOptions::ExposedParamsRandomizationOptions(InfoForExpo
 
 	for (auto trackNum = (int)Track::one; trackNum <= (int)Track::four; ++trackNum) {
 		setTargetStepForSeqTrack(Step::all, Track{ trackNum });
-		for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum) {
+		if (trackNum == (int)Track::one)
+			setProbabilityOfRestForAllSeqTrack_1_Steps(0.13f);
+		setProbabilityOfDupeForAllSeqTrackSteps(0.0f, Track{ trackNum });
+		setProbabilityOfResetForAllSeqTrackSteps(0.0f, Track{ trackNum });
+		allowAllChoicesForAllSeqTrackSteps(Track{ trackNum });
+		for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
 			setRepeatChoicesAreAllowedForSeqTrackStep(false, Track{ trackNum }, Step{ stepNum });
-			if (trackNum == (int)Track::one)
-				setProbabilityOfRestForSeqTrack_1_Step(0.13f, Step{ stepNum });
-			setProbabilityOfDuplicateForSeqTrackStep(0.0f, Track{ trackNum }, Step{ stepNum });
-			setProbabilityOfResetForSeqTrackStep(0.0f, Track{ trackNum }, Step{ stepNum });
-			allowAllChoicesForSeqTrackStep(Track{ trackNum }, Step{ stepNum });
-		}
 	}
 }
 
@@ -612,6 +611,12 @@ const float ExposedParamsRandomizationOptions::probabilityOfRestForSeqTrack_1_St
 	return (float)stepTree.getProperty(ID::rndm_ProbabilityOfRest);
 }
 
+void ExposedParamsRandomizationOptions::setProbabilityOfRestForAllSeqTrack_1_Steps(float newProb) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		setProbabilityOfRestForSeqTrack_1_Step(newProb, Step{ stepNum });
+}
+
 void ExposedParamsRandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
@@ -633,7 +638,13 @@ const float ExposedParamsRandomizationOptions::probabilityOfDupeForSeqTrackStep(
 		return (float)stepTree.getProperty(ID::rndm_ProbabilityOfDupe);
 }
 
-void ExposedParamsRandomizationOptions::setProbabilityOfDuplicateForSeqTrackStep(float newProb, Track track, Step step) {
+void ExposedParamsRandomizationOptions::setProbabilityOfDupeForAllSeqTrackSteps(float newProb, Track track) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		setProbabilityOfDupeForSeqTrackStep(newProb, track, Step{ stepNum });
+}
+
+void ExposedParamsRandomizationOptions::setProbabilityOfDupeForSeqTrackStep(float newProb, Track track, Step step) {
 	jassert(newProb >= 0.0f && newProb <= 1.0f);
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
@@ -651,7 +662,13 @@ const float ExposedParamsRandomizationOptions::probabilityOfResetForSeqTrackStep
 	if (step == Step::one)
 		return 0.0f;
 	else
-		return (float)trackTree.getProperty(ID::rndm_ProbabilityOfReset);
+		return (float)stepTree.getProperty(ID::rndm_ProbabilityOfReset);
+}
+
+void ExposedParamsRandomizationOptions::setProbabilityOfResetForAllSeqTrackSteps(float newProb, Track track) {
+	jassert(newProb >= 0.0f && newProb <= 1.0f);
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		setProbabilityOfResetForSeqTrackStep(newProb, track, Step{ stepNum });
 }
 
 void ExposedParamsRandomizationOptions::setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step) {
@@ -674,6 +691,12 @@ const bool ExposedParamsRandomizationOptions::choiceIsAllowedForSeqTrackStep(uin
 	return ((bool)allowedChoices.hasProperty("choice_" + (String)choiceNum)) == true;
 }
 
+void ExposedParamsRandomizationOptions::setChoiceIsAllowedForAllSeqTrackSteps(uint8 choiceNum, bool shouldBeAllowed, Track track) {
+	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		setChoiceIsAllowedForSeqTrackStep(choiceNum, shouldBeAllowed, track, Step{ stepNum });
+}
+
 void ExposedParamsRandomizationOptions::setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, Track track, Step step) {
 	jassert(choiceNum < EP::numberOfChoicesForSeqTrackSteps);
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
@@ -690,6 +713,11 @@ void ExposedParamsRandomizationOptions::setChoiceIsAllowedForSeqTrackStep(uint8 
 	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
+void ExposedParamsRandomizationOptions::clearAllowedChoicesForAllSeqTrackSteps(Track track) {
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		clearAllowedChoicesForSeqTrackStep(track, Step{ stepNum });
+}
+
 void ExposedParamsRandomizationOptions::clearAllowedChoicesForSeqTrackStep(Track track, Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
@@ -697,6 +725,11 @@ void ExposedParamsRandomizationOptions::clearAllowedChoicesForSeqTrackStep(Track
 	auto stepTree{ trackTree.getChildWithName(stepTreeID) };
 	auto allowedChoices{ stepTree.getChildWithName(ID::rndm_AllowedChoices) };
 	allowedChoices.removeAllProperties(nullptr);
+}
+
+void ExposedParamsRandomizationOptions::allowAllChoicesForAllSeqTrackSteps(Track track) {
+	for (auto stepNum = (int)Step::all; stepNum <= (int)Step::sixteen; ++stepNum)
+		allowAllChoicesForSeqTrackStep(track, Step{ stepNum });
 }
 
 void ExposedParamsRandomizationOptions::allowAllChoicesForSeqTrackStep(Track track, Step step) {

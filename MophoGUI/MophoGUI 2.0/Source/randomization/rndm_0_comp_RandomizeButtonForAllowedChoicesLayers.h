@@ -22,10 +22,11 @@ public:
 	{
 		setComponentID(ID::btn_Randomize.toString());
 		onClick = [this, paramIndex] { randomize->randomizeParameter(paramIndex); };
+		addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescription()) {
 			auto paramName{ exposedParams->info->exposedNameFor(paramIndex) };
-			setTooltip("Click to generate a random setting\nfor " + paramName + ".");
+			setTooltip("Click to generate a random setting\nfor " + paramName + ".\nShortcut key: CTRL+D");
 		}
 		setSize(GUI::btn_Randomize_w, GUI::redButton_h);
 	}

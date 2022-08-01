@@ -33,11 +33,13 @@ GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 		randomization->allowAllChoicesForVoiceNameCharParam(paramIndex);
 		allowChoiceToggles.restoreToggles();
 	};
+	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all characters when\n";
 		tip += "generating a random character for\n";
-		tip += paramName + ".";
+		tip += paramName + ".\n";
+		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
 	btn_AllowAll.setBounds(background_x + GUI::allowedChoices_Inset, allowAllAndCloseButtons_y, GUI::btn_AllowAll_w, GUI::redButton_h);

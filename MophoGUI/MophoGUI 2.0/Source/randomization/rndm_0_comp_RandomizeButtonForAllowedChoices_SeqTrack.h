@@ -24,9 +24,10 @@ public:
 			auto step{ exposedParams->randomization->targetStepForSeqTrack(track) };
 			exposedParams->randomize->randomizeSeqTrackStep(track, step); 
 		};
+		addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescription())
-			setTooltip("Click to generate a random setting\nfor the target step in track " + String((int)track) + ".");
+			setTooltip("Click to generate a random setting\nfor the target step in track " + String((int)track) + ".\nShortcut key: CTRL+D");
 		setSize(GUI::btn_Randomize_w, GUI::redButton_h);
 	}
 

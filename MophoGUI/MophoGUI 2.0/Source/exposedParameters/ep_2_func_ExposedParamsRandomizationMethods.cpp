@@ -30,13 +30,13 @@ void ExposedParamsRandomizationMethods::randomizeParameter(uint8 paramIndex) {
 void ExposedParamsRandomizationMethods::randomizeSeqTrackStep(Track track, Step step) {
 	if (step == Step::all) {
 		for (auto stepNum = (int)Step::one; stepNum <= (int)Step::sixteen; ++stepNum) {
-			auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, Step{ stepNum }, true) };
+			auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, Step{ stepNum }) };
 			auto paramID{ info->IDfor(track, Step{ stepNum }) };
 			applyNewSettingToExposedParameter(newSetting, paramID);
 		}
 	}
 	else {
-		auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, step, false) };
+		auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, step) };
 		auto paramID{ info->IDfor(track, step) };
 		applyNewSettingToExposedParameter(newSetting, paramID);
 	}
@@ -62,7 +62,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForParam(uint8 
 	case MophoConstants::AllowedChoicesType::seqTrackStep: {
 		auto track(info->seqTrackFor(paramIndex));
 		auto step(info->seqTrackStepFor(paramIndex));
-		newSetting = randomlyChooseNewSettingForSeqTrackStep(track, step, false);
+		newSetting = randomlyChooseNewSettingForSeqTrackStep(track, step);
 		break;
 	}
 	case MophoConstants::AllowedChoicesType::voiceNameChar:
@@ -283,7 +283,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 	}
 }
 
-uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep(Track track, Step step, bool shouldUseAllSteps) {
+uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep(Track track, Step step) {
 	auto paramID{ info->IDfor(track, step).toString() };
 	auto paramPtr{ state->getParameter(paramID) };
 	auto currentSetting{ paramPtr->getValue() };
@@ -303,14 +303,14 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 		prevStepChoiceNum = (uint8)roundToInt(prevStepParamPtr->convertFrom0to1(prevStepSetting));
 	}
 
-	auto repeatsAreAllowed{ randomization->repeatsMustBeAllowedForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) ? true :
+	auto repeatsAreAllowed{ randomization->repeatsMustBeAllowedForSeqTrackStep(track, step) ? true :
 		randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
-	auto probOfDupe{ step != Step::one ? randomization->probabilityOfDupeForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) : 0.0f };
-	auto probOfReset{ step != Step::one ? randomization->probabilityOfResetForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) : 0.0f };
+	auto probOfDupe{ step != Step::one ? randomization->probabilityOfDupeForSeqTrackStep(track, step) : 0.0f };
+	auto probOfReset{ step != Step::one ? randomization->probabilityOfResetForSeqTrackStep(track, step) : 0.0f };
 
 	std::vector<StepCategory> categories;
 	if (track == Track::one) {
-		auto probOfRest{ randomization->probabilityOfRestForSeqTrack_1_Step(shouldUseAllSteps ? Step::all : step) };
+		auto probOfRest{ randomization->probabilityOfRestForSeqTrack_1_Step(step) };
 		auto numberOfChancesForRest{ roundToInt(probOfRest * 100.0f) };
 		if (step != Step::one && (currentCategory != StepCategory::rest || repeatsAreAllowed))
 			if (prevStepChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
@@ -345,7 +345,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 					return prevStepChoiceNum;
 			}
 		}
-		auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) };
+		auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForSeqTrackStep(track, step) };
 		if (repeatsAreAllowed == false) {
 			auto currentChoicePropertyID{ "choice_" + (String)currentChoiceNum };
 			if (allowedChoices.hasProperty(currentChoicePropertyID))

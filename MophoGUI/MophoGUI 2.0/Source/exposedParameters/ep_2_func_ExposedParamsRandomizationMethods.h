@@ -34,7 +34,7 @@ private:
 	uint8 randomlyChooseNewSettingForOscShapeParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingForBinaryParam(uint8 paramIndex);
 	uint8 randomlyChooseNewSettingFor_LFO_FreqParam(uint8 paramIndex);
-	uint8 randomlyChooseNewSettingForSeqTrackStep(Track track, Step step, bool shouldUseAllSteps);
+	uint8 randomlyChooseNewSettingForSeqTrackStep(Track track, Step step);
 
 	void applyNewSettingToExposedParameter(uint8 newSetting, Identifier paramID);
 

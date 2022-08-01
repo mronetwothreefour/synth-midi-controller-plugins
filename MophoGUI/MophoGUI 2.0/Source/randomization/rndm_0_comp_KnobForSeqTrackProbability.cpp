@@ -28,25 +28,25 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 	{
 	case KnobType::rest:
 		setDoubleClickReturnValue(true, 10.0);
-		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep));
+		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
 		break;
 	case KnobType::duplicate:
 		if (targetStep == Step::one) {
-			setValue(0.0);
+			setValue(0.0, dontSendNotification);
 			setEnabled(false);
 		}
 		else {
-			setValue((double)randomization->probabilityOfDupeForSeqTrackStep(track, targetStep));
+			setValue((double)randomization->probabilityOfDupeForSeqTrackStep(track, targetStep), dontSendNotification);
 			setDoubleClickReturnValue(true, 0.0);
 		}
 		break;
 	case KnobType::reset:
 		if (targetStep == Step::one) {
-			setValue(0.0);
+			setValue(0.0, dontSendNotification);
 			setEnabled(false);
 		}
 		else {
-			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep));
+			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
 			setDoubleClickReturnValue(true, 0.0);
 		}
 		break;
@@ -110,41 +110,47 @@ void KnobForSeqTrackProbability::updateTooltip() {
 
 void KnobForSeqTrackProbability::valueChanged() {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	auto newValue{ (float)getValue() };
+	auto newProbability{ (float)getValue() };
 	switch (knobType)
 	{
 	case KnobType::rest: {
 		auto sumOfOtherProbabilities{ randomization->probabilityOfDupeForSeqTrackStep(track, targetStep) +
 			randomization->probabilityOfResetForSeqTrackStep(track, targetStep)
 		};
-		if (sumOfOtherProbabilities + newValue > 1.0000f) {
-			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
-			randomization->setProbabilityOfRestForSeqTrack_1_Step(1.0000f - sumOfOtherProbabilities, targetStep);
+		if (sumOfOtherProbabilities + newProbability > 1.0000f) {
+			newProbability = 1.0000f - sumOfOtherProbabilities;
+			setValue(newProbability, dontSendNotification);
 		}
+		if (targetStep == Step::all)
+			randomization->setProbabilityOfRestForAllSeqTrack_1_Steps(newProbability);
 		else
-			randomization->setProbabilityOfRestForSeqTrack_1_Step(newValue, targetStep);
+			randomization->setProbabilityOfRestForSeqTrack_1_Step(newProbability, targetStep);
 		break;
 	}
 	case KnobType::duplicate: {
 		auto sumOfOtherProbabilities{ track == Track::one ? randomization->probabilityOfRestForSeqTrack_1_Step(targetStep) : 0.0f };
 		sumOfOtherProbabilities += randomization->probabilityOfResetForSeqTrackStep(track, targetStep);
-		if (sumOfOtherProbabilities + newValue > 1.0000f) {
-			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
-			randomization->setProbabilityOfDuplicateForSeqTrackStep(1.0000f - sumOfOtherProbabilities, track, targetStep);
+		if (sumOfOtherProbabilities + newProbability > 1.0000f) {
+			newProbability = 1.0000f - sumOfOtherProbabilities;
+			setValue(newProbability, dontSendNotification);
 		}
+		if (targetStep == Step::all)
+			randomization->setProbabilityOfDupeForAllSeqTrackSteps(newProbability, track);
 		else
-			randomization->setProbabilityOfDuplicateForSeqTrackStep(newValue, track, targetStep);
+			randomization->setProbabilityOfDupeForSeqTrackStep(newProbability, track, targetStep);
 		break;
 	}
 	case KnobType::reset: {
 		auto sumOfOtherProbabilities{ track == Track::one ? randomization->probabilityOfRestForSeqTrack_1_Step(targetStep) : 0.0f };
 		sumOfOtherProbabilities += randomization->probabilityOfDupeForSeqTrackStep(track, targetStep);
-		if (sumOfOtherProbabilities + newValue > 1.0000f) {
-			setValue(1.0000f - sumOfOtherProbabilities, dontSendNotification);
-			randomization->setProbabilityOfResetForSeqTrackStep(1.0000f - sumOfOtherProbabilities, track, targetStep);
+		if (sumOfOtherProbabilities + newProbability > 1.0000f) {
+			newProbability = 1.0000f - sumOfOtherProbabilities;
+			setValue(newProbability, dontSendNotification);
 		}
+		if (targetStep == Step::all)
+			randomization->setProbabilityOfResetForAllSeqTrackSteps(newProbability, track);
 		else
-			randomization->setProbabilityOfResetForSeqTrackStep(newValue, track, targetStep);
+			randomization->setProbabilityOfResetForSeqTrackStep(newProbability, track, targetStep);
 		break;
 	}
 	default:
@@ -158,7 +164,7 @@ void KnobForSeqTrackProbability::valueChanged(Value& /*value*/)
 	switch (knobType)
 	{
 	case KnobType::rest:
-		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), sendNotification);
+		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
 		break;
 	case KnobType::duplicate:
 		if (targetStep == Step::one) {
@@ -167,7 +173,7 @@ void KnobForSeqTrackProbability::valueChanged(Value& /*value*/)
 		}
 		else {
 			setEnabled(true);
-			setValue((double)randomization->probabilityOfDupeForSeqTrackStep(track, targetStep), sendNotification);
+			setValue((double)randomization->probabilityOfDupeForSeqTrackStep(track, targetStep), dontSendNotification);
 		}
 		break;
 	case KnobType::reset:
@@ -177,7 +183,7 @@ void KnobForSeqTrackProbability::valueChanged(Value& /*value*/)
 		}
 		else {
 			setEnabled(true);
-			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), sendNotification);
+			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
 		}
 		break;
 	default:

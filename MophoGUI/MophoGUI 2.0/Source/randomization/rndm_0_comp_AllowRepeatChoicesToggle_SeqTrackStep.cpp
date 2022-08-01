@@ -23,6 +23,7 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomization->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
 	};
+	toggle_AllowRepeatChoices.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		String tip{ "" };
@@ -31,7 +32,8 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 		tip += "is not, consecutive randomization operations\n";
 		tip += "can never produce the same setting. Obviously, if\n";
 		tip += "there is only one allowed setting then the\n";
-		tip += "same setting is always going to be produced.";
+		tip += "same setting is always going to be produced.\n";
+		tip += "Shortcut key: CTRL+R";
 		toggle_AllowRepeatChoices.setTooltip(tip);
 	}
 	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::redToggle_diameter, GUI::redToggle_diameter);

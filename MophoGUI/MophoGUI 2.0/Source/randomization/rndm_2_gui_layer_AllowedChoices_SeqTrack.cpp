@@ -46,17 +46,22 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 	btn_AllowAll.onClick = [this, track] {
 		auto targetStep{ randomization->targetStepForSeqTrack(track) };
-		randomization->allowAllChoicesForSeqTrackStep(track, targetStep);
+		if (targetStep == Step::all)
+			randomization->allowAllChoicesForAllSeqTrackSteps(track);
+		else
+			randomization->allowAllChoicesForSeqTrackStep(track, targetStep);
 		if (allowChoiceToggles != nullptr)
 			allowChoiceToggles->restoreToggles();
 	};
+	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all the choices\n";
 		tip += "when generating a random setting\n";
-		tip += "for the target step in track " + String((int)track) + ".";
+		tip += "for the target step in track " + String((int)track) + ".\n";
+		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
 	btn_AllowAll.setSize(GUI::btn_AllowAll_w, GUI::redButton_h);

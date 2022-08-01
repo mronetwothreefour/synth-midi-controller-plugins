@@ -27,6 +27,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 		auto shouldBeAllowed{ toggle_AllowRepeatChoices.getToggleState() };
 		randomization->setRepeatChoicesAreAllowedForParam(shouldBeAllowed ? true : false, paramIndex);
 	};
+	toggle_AllowRepeatChoices.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
@@ -43,7 +44,8 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 		else {
 			tip += "This means that\n";
 			tip += "the toggle will simply alternate between\n";
-			tip += "states with every randomization.";
+			tip += "states with every randomization.\n";
+			tip += "Shortcut key: CTRL+R";
 		}
 		toggle_AllowRepeatChoices.setTooltip(tip);
 	}

@@ -29,11 +29,13 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 
 	btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 	btn_AllowAll.onClick = [this] { allowAllChoices(); };
+	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
 		tip += "Click to allow all the frequencies\n";
 		tip += "when generating a random setting for\n";
-		tip += paramName + ".";
+		tip += paramName + ".\n";
+		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
 	btn_AllowAll.setBounds(378, 177, GUI::btn_AllowAll_w, GUI::redButton_h);

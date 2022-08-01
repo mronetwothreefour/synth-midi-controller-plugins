@@ -60,11 +60,17 @@ const bool AllowChoiceToggles_SeqTrackStep::choiceIsAllowed(uint8 choiceNum) {
 }
 
 void AllowChoiceToggles_SeqTrackStep::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
-	randomization->setChoiceIsAllowedForSeqTrackStep(choiceNum, shouldBeAllowed, track, step);
+	if (step == Step::all)
+		randomization->setChoiceIsAllowedForAllSeqTrackSteps(choiceNum, shouldBeAllowed, track);
+	else
+		randomization->setChoiceIsAllowedForSeqTrackStep(choiceNum, shouldBeAllowed, track, step);
 }
 
 void AllowChoiceToggles_SeqTrackStep::clearAllowedChoices() {
-	randomization->clearAllowedChoicesForSeqTrackStep(track, step);
+	if (step == Step::all)
+		randomization->clearAllowedChoicesForAllSeqTrackSteps(track);
+	else
+		randomization->clearAllowedChoicesForSeqTrackStep(track, step);
 }
 
 const bool AllowChoiceToggles_SeqTrackStep::noChoiceIsAllowed() {
