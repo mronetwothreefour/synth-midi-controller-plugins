@@ -152,7 +152,6 @@ namespace MophoConstants
 
 	const enum class SeqTrackStepChoiceCategory {
 		rest = 0,
-		duplicate,
 		reset,
 		numberOrPitch
 	};

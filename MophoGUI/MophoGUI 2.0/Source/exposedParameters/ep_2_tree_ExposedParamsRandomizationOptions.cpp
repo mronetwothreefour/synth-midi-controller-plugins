@@ -622,7 +622,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(f
 	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track::one, step);
 }
 
-const float ExposedParamsRandomizationOptions::probabilityOfDuplicateForSeqTrackStep(Track track, Step step) {
+const float ExposedParamsRandomizationOptions::probabilityOfDupeForSeqTrackStep(Track track, Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	auto stepTreeID{ trackTreeID + (step == Step::all ? "_AllSteps" : "_Step_" + String((int)step)) };
@@ -660,7 +660,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfResetForSeqTrackStep(flo
 	auto trackTree{ randomizationOptionsTree.getOrCreateChildWithName(trackTreeID, nullptr) };
 	auto stepTreeID{ trackTreeID + (step == Step::all ? "_AllSteps" : "_Step_" + String((int)step)) };
 	auto stepTree{ trackTree.getOrCreateChildWithName(stepTreeID, nullptr) };
-	trackTree.setProperty(ID::rndm_ProbabilityOfReset, step == Step::one ? 0.0f : newProb, nullptr);
+	stepTree.setProperty(ID::rndm_ProbabilityOfReset, step == Step::one ? 0.0f : newProb, nullptr);
 	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
@@ -738,7 +738,7 @@ void ExposedParamsRandomizationOptions::checkProbabilitiesAndNumberOfChoicesAllo
 	auto repeatsMustBeAllowed{ false };
 	if (track == Track::one && probabilityOfRestForSeqTrack_1_Step(step) >= 0.5f)
 		repeatsMustBeAllowed = true;
-	if (probabilityOfDuplicateForSeqTrackStep(track, step) >= 0.5f || probabilityOfResetForSeqTrackStep(track, step) >= 0.5f)
+	if (probabilityOfDupeForSeqTrackStep(track, step) >= 0.5f || probabilityOfResetForSeqTrackStep(track, step) >= 0.5f)
 		repeatsMustBeAllowed = true;
 	auto numberOfChoicesAllowed{ allowedChoices.getNumProperties() };
 	if (numberOfChoicesAllowed == 1) {
@@ -758,7 +758,7 @@ const float ExposedParamsRandomizationOptions::sumOfProbabilitiesForSeqTrackStep
 	auto sumOfProbabilities{ 0.0f };
 	if (track == Track::one)
 		sumOfProbabilities += probabilityOfRestForSeqTrack_1_Step(step);
-	sumOfProbabilities += probabilityOfDuplicateForSeqTrackStep(track, step);
+	sumOfProbabilities += probabilityOfDupeForSeqTrackStep(track, step);
 	sumOfProbabilities += probabilityOfResetForSeqTrackStep(track, step);
 	return sumOfProbabilities;
 }

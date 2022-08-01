@@ -8,6 +8,7 @@
 
 using Category = LFO_FreqCategory;
 using Shape = OscWaveShape;
+using StepCategory = SeqTrackStepChoiceCategory;
 
 ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedParameters* exposedParams) :
 	state{ exposedParams->state.get() },
@@ -287,62 +288,73 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 	auto paramPtr{ state->getParameter(paramID) };
 	auto currentSetting{ paramPtr->getValue() };
 	auto currentChoiceNum{ (uint8)roundToInt(paramPtr->convertFrom0to1(currentSetting)) };
-	auto currentChoiceCategory{ SeqTrackStepChoiceCategory::numberOrPitch };
+	auto currentCategory{ StepCategory::numberOrPitch };
 	if (currentChoiceNum == EP::choiceNumForSeqTrackStep_Reset)
-		currentChoiceCategory = SeqTrackStepChoiceCategory::reset;
+		currentCategory = StepCategory::reset;
 	if (currentChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
-		currentChoiceCategory = SeqTrackStepChoiceCategory::rest;
+		currentCategory = StepCategory::rest;
+
+	auto prevStepChoiceNum{ (uint8)255 };
+	if (step != Step::one) {
+		auto prevStep{ Step{ (int)step - 1 } };
+		auto prevStepID{ info->IDfor(track, prevStep) };
+		auto prevStepParamPtr{ state->getParameter(prevStepID) };
+		auto prevStepSetting{ prevStepParamPtr->getValue() };
+		prevStepChoiceNum = (uint8)roundToInt(prevStepParamPtr->convertFrom0to1(prevStepSetting));
+	}
+
 	auto repeatsAreAllowed{ randomization->repeatsMustBeAllowedForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) ? true :
 		randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
-	std::vector<SeqTrackStepChoiceCategory> categories;
-	if (track == Track::one && (currentChoiceCategory != SeqTrackStepChoiceCategory::rest || repeatsAreAllowed)) {
-		auto numberOfChancesForRest{ roundToInt(randomization->probabilityOfRestForSeqTrack_1_Step(shouldUseAllSteps ? Step::all : step) * 100.0f) };
+	auto probOfDupe{ step != Step::one ? randomization->probabilityOfDupeForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) : 0.0f };
+	auto probOfReset{ step != Step::one ? randomization->probabilityOfResetForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) : 0.0f };
+
+	std::vector<StepCategory> categories;
+	if (track == Track::one) {
+		auto probOfRest{ randomization->probabilityOfRestForSeqTrack_1_Step(shouldUseAllSteps ? Step::all : step) };
+		auto numberOfChancesForRest{ roundToInt(probOfRest * 100.0f) };
+		if (step != Step::one && (currentCategory != StepCategory::rest || repeatsAreAllowed))
+			if (prevStepChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
+				numberOfChancesForRest = roundToInt(probOfDupe * 100.0f);
 		for (auto i = 0; i != numberOfChancesForRest; ++i)
-			categories.push_back(SeqTrackStepChoiceCategory::rest);
+			categories.push_back(StepCategory::rest);
 	}
 	if (step != Step::one) {
-		auto numberOfChancesForDupe{ 
-			roundToInt(randomization->probabilityOfDuplicateForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) * 100.0f)
-		};
-		for (auto i = 0; i != numberOfChancesForDupe; ++i)
-			categories.push_back(SeqTrackStepChoiceCategory::duplicate);
-		if (currentChoiceCategory != SeqTrackStepChoiceCategory::reset || repeatsAreAllowed) {
-			auto numberOfChancesForReset{
-				roundToInt(randomization->probabilityOfResetForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) * 100.0f)
-			};
-			for (auto i = 0; i != numberOfChancesForReset; ++i)
-				categories.push_back(SeqTrackStepChoiceCategory::reset);
-		}
+		auto numberOfChancesForReset{ roundToInt(probOfReset * 100.0f) };
+		if (currentCategory != StepCategory::reset || repeatsAreAllowed)
+			if (prevStepChoiceNum == EP::choiceNumForSeqTrackStep_Reset)
+				numberOfChancesForReset = roundToInt(probOfDupe * 100.0f);
+		for (auto i = 0; i != numberOfChancesForReset; ++i)
+			categories.push_back(StepCategory::reset);
 	}
 	for (auto i = (int)categories.size(); i < 100; ++i)
-		categories.push_back(SeqTrackStepChoiceCategory::numberOrPitch);
+		categories.push_back(StepCategory::numberOrPitch);
 	Random rndmNumGeneratorForCategory{};
 	auto categoryIndex{ (int)floor(rndmNumGeneratorForCategory.nextFloat() * 100.0f) };
 	auto categoryForNewSetting{ categories[categoryIndex] };
 	switch (categoryForNewSetting)
 	{
-	case MophoConstants::SeqTrackStepChoiceCategory::rest:
+	case StepCategory::rest:
 		return EP::choiceNumForSeqTrack_1_Step_Rest;
-	case MophoConstants::SeqTrackStepChoiceCategory::duplicate: {
-		jassert(step > Step::one);
-		auto previousStep{ Step{ (int)step - 1 } };
-		auto previousStepID{ info->IDfor(track, previousStep) };
-		auto previousStepParamPtr{ state->getParameter(previousStepID) };
-		auto previousStepSetting{ previousStepParamPtr->getValue() };
-		auto previousStepChoiceNum{ (uint8)roundToInt(previousStepParamPtr->convertFrom0to1(previousStepSetting)) };
-		if (currentChoiceNum == previousStepChoiceNum && repeatsAreAllowed == false)
-			categoryForNewSetting = SeqTrackStepChoiceCategory::numberOrPitch;
-		else
-			return previousStepChoiceNum;
-	}
-	case MophoConstants::SeqTrackStepChoiceCategory::reset:
+	case StepCategory::reset:
 		return EP::choiceNumForSeqTrackStep_Reset;
-	case MophoConstants::SeqTrackStepChoiceCategory::numberOrPitch: {
+	case StepCategory::numberOrPitch: {
+		Random rndmNumGeneratorForDupe{};
+		if (step != Step::one && prevStepChoiceNum < EP::choiceNumForSeqTrackStep_Reset) {
+			if (currentChoiceNum != prevStepChoiceNum || repeatsAreAllowed) {
+				if (rndmNumGeneratorForDupe.nextFloat() < probOfDupe)
+					return prevStepChoiceNum;
+			}
+		}
 		auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForSeqTrackStep(track, shouldUseAllSteps ? Step::all : step) };
 		if (repeatsAreAllowed == false) {
 			auto currentChoicePropertyID{ "choice_" + (String)currentChoiceNum };
 			if (allowedChoices.hasProperty(currentChoicePropertyID))
 				allowedChoices.removeProperty(currentChoicePropertyID, nullptr);
+			if (step != Step::one) {
+				auto prevStepChoiceID{ "choice_" + (String)prevStepChoiceNum };
+				if (allowedChoices.hasProperty(prevStepChoiceID))
+					allowedChoices.removeProperty(prevStepChoiceID, nullptr);
+			}
 		}
 		auto numberOfChoices{ allowedChoices.getNumProperties() };
 		if (numberOfChoices > 0) {
