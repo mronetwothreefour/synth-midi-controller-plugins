@@ -48,6 +48,8 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	transmitType.setTopLeftPosition(1138, 81);
 	addAndMakeVisible(transmitType);
 
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, exposedParams, });
 		paramLockToggles[paramIndex]->addListener(this);
@@ -57,6 +59,20 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 			controlCenterPoint = info->redToggleCenterPointFor(paramIndex);
 		paramLockToggles[paramIndex]->setCentrePosition(controlCenterPoint);
 		addAndMakeVisible(paramLockToggles[paramIndex].get());
+		if (shouldShowDescriptions) {
+			String tip{ "" };
+			tip += "Click to lock/unlock the parameter.\n";
+			tip += "Right-click to specify the choices\n";
+			tip += "allowed when randomly generating\n";
+			if (info->allowedChoicesTypeFor(paramIndex) == Type::seqTrackStep) {
+				tip += "a new setting for all the steps in\n";
+				tip += "the sequencer track. ALT+right-click\n";
+				tip += "to target a specific step.\n";
+			}
+			else
+				tip += "a new setting for the parameter.";
+			paramLockToggles[paramIndex]->setTooltip(tip);
+		}
 	}
 
 	lockStateButtons_All.setTopLeftPosition(1009, 78);
@@ -115,7 +131,7 @@ void GUI_Layer_Randomization::paint(Graphics& g) {
 }
 
 void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
-	if (event.mods == ModifierKeys::rightButtonModifier) {
+	if (event.mods == ModifierKeys::rightButtonModifier || event.mods == ModifierKeys::altModifier + ModifierKeys::rightButtonModifier) {
 		toggleWasRightClicked = true;
 		auto toggleID{ event.eventComponent->getComponentID() };
 		auto paramIndex{ (uint8)toggleID.fromFirstOccurrenceOf("Param_", false, false).getIntValue() };
@@ -136,10 +152,12 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 			break;
 		case MophoConstants::AllowedChoicesType::seqTrackStep: {
 				auto track{ info->seqTrackFor(paramIndex) };
-				if (randomization->targetStepForSeqTrack(track) != Step::all) {
+				if (event.mods == ModifierKeys::altModifier + ModifierKeys::rightButtonModifier) {
 					auto clickedStep{ info->seqTrackStepFor(paramIndex) };
 					randomization->setTargetStepForSeqTrack(clickedStep, track);
 				}
+				else
+					randomization->setTargetStepForSeqTrack(Step::all, track);
 				auto trackDestParamID{ info->IDfor(uint8(100 + (int)track)) };
 				auto paramPtr{ exposedParams->state->getParameter(trackDestParamID) };
 				if (paramPtr != nullptr) {

@@ -6398,7 +6398,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrack_1_Probabilities.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png">
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probability.png">
       <Filter>MophoGUI 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrackTargetStep.png">

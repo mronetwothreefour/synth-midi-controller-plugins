@@ -225,13 +225,13 @@ namespace BinaryData
     const int            bkgrnd_RepeatChoicesToggle_pngSize = 530;
 
     extern const char*   bkgrnd_SeqTrack_1_Probabilities_png;
-    const int            bkgrnd_SeqTrack_1_Probabilities_pngSize = 2173;
+    const int            bkgrnd_SeqTrack_1_Probabilities_pngSize = 1304;
 
-    extern const char*   bkgrnd_SeqTracks_2_3_4_Probabilities_png;
-    const int            bkgrnd_SeqTracks_2_3_4_Probabilities_pngSize = 1938;
+    extern const char*   bkgrnd_SeqTracks_2_3_4_Probability_png;
+    const int            bkgrnd_SeqTracks_2_3_4_Probability_pngSize = 941;
 
     extern const char*   bkgrnd_SeqTrackTargetStep_png;
-    const int            bkgrnd_SeqTrackTargetStep_pngSize = 776;
+    const int            bkgrnd_SeqTrackTargetStep_pngSize = 769;
 
     extern const char*   bkgrnd_TabForVoicesBank_png;
     const int            bkgrnd_TabForVoicesBank_pngSize = 4287;

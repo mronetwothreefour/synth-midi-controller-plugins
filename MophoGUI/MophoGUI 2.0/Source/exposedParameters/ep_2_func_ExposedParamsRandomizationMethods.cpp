@@ -294,37 +294,25 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 	if (currentChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
 		currentCategory = StepCategory::rest;
 
-	auto prevStepChoiceNum{ (uint8)255 };
-	if (step != Step::one) {
-		auto prevStep{ Step{ (int)step - 1 } };
-		auto prevStepID{ info->IDfor(track, prevStep) };
-		auto prevStepParamPtr{ state->getParameter(prevStepID) };
-		auto prevStepSetting{ prevStepParamPtr->getValue() };
-		prevStepChoiceNum = (uint8)roundToInt(prevStepParamPtr->convertFrom0to1(prevStepSetting));
-	}
-
 	auto repeatsAreAllowed{ randomization->repeatsMustBeAllowedForSeqTrackStep(track, step) ? true :
 		randomization->repeatChoicesAreAllowedForSeqTrackStep(track, step) };
-	auto probOfDupe{ step != Step::one ? randomization->probabilityOfDupeForSeqTrackStep(track, step) : 0.0f };
-	auto probOfReset{ step != Step::one ? randomization->probabilityOfResetForSeqTrackStep(track, step) : 0.0f };
 
 	std::vector<StepCategory> categories;
 	if (track == Track::one) {
-		auto probOfRest{ randomization->probabilityOfRestForSeqTrack_1_Step(step) };
-		auto numberOfChancesForRest{ roundToInt(probOfRest * 100.0f) };
-		if (step != Step::one && (currentCategory != StepCategory::rest || repeatsAreAllowed))
-			if (prevStepChoiceNum == EP::choiceNumForSeqTrack_1_Step_Rest)
-				numberOfChancesForRest = roundToInt(probOfDupe * 100.0f);
-		for (auto i = 0; i != numberOfChancesForRest; ++i)
-			categories.push_back(StepCategory::rest);
+		if (currentCategory != StepCategory::rest || repeatsAreAllowed) {
+			auto probOfRest{ randomization->probabilityOfRestForSeqTrack_1_Step(step) };
+			auto numberOfChancesForRest{ roundToInt(probOfRest * 100.0f) };
+			for (auto i = 0; i != numberOfChancesForRest; ++i)
+				categories.push_back(StepCategory::rest);
+		}
 	}
 	if (step != Step::one) {
-		auto numberOfChancesForReset{ roundToInt(probOfReset * 100.0f) };
-		if (currentCategory != StepCategory::reset || repeatsAreAllowed)
-			if (prevStepChoiceNum == EP::choiceNumForSeqTrackStep_Reset)
-				numberOfChancesForReset = roundToInt(probOfDupe * 100.0f);
-		for (auto i = 0; i != numberOfChancesForReset; ++i)
-			categories.push_back(StepCategory::reset);
+		if (currentCategory != StepCategory::reset || repeatsAreAllowed) {
+			auto probOfReset{ randomization->probabilityOfResetForSeqTrackStep(track, step) };
+			auto numberOfChancesForReset{ roundToInt(probOfReset * 100.0f) };
+			for (auto i = 0; i != numberOfChancesForReset; ++i)
+				categories.push_back(StepCategory::reset);
+		}
 	}
 	for (auto i = (int)categories.size(); i < 100; ++i)
 		categories.push_back(StepCategory::numberOrPitch);
@@ -338,23 +326,11 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 	case StepCategory::reset:
 		return EP::choiceNumForSeqTrackStep_Reset;
 	case StepCategory::numberOrPitch: {
-		Random rndmNumGeneratorForDupe{};
-		if (step != Step::one && prevStepChoiceNum < EP::choiceNumForSeqTrackStep_Reset) {
-			if (currentChoiceNum != prevStepChoiceNum || repeatsAreAllowed) {
-				if (rndmNumGeneratorForDupe.nextFloat() < probOfDupe)
-					return prevStepChoiceNum;
-			}
-		}
 		auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForSeqTrackStep(track, step) };
 		if (repeatsAreAllowed == false) {
 			auto currentChoicePropertyID{ "choice_" + (String)currentChoiceNum };
 			if (allowedChoices.hasProperty(currentChoicePropertyID))
 				allowedChoices.removeProperty(currentChoicePropertyID, nullptr);
-			if (step != Step::one) {
-				auto prevStepChoiceID{ "choice_" + (String)prevStepChoiceNum };
-				if (allowedChoices.hasProperty(prevStepChoiceID))
-					allowedChoices.removeProperty(prevStepChoiceID, nullptr);
-			}
 		}
 		auto numberOfChoices{ allowedChoices.getNumProperties() };
 		if (numberOfChoices > 0) {

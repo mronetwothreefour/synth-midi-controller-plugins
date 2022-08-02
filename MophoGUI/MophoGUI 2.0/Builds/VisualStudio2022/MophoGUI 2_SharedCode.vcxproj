@@ -3450,7 +3450,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_Randomization.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesToggle.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrack_1_Probabilities.png"/>
-    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_SeqTracks_2_3_4_Probability.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SeqTrackTargetStep.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TabForVoicesBank.png"/>
     <None Include="..\..\BinaryResources\icon_Locked.png"/>

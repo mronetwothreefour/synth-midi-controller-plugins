@@ -104,9 +104,6 @@ public:
 	const float probabilityOfRestForSeqTrack_1_Step(Step step);
 	void setProbabilityOfRestForAllSeqTrack_1_Steps(float newProb);
 	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
-	const float probabilityOfDupeForSeqTrackStep(Track track, Step step);
-	void setProbabilityOfDupeForAllSeqTrackSteps(float newProb, Track track);
-	void setProbabilityOfDupeForSeqTrackStep(float newProb, Track track, Step step);
 	const float probabilityOfResetForSeqTrackStep(Track track, Step step);
 	void setProbabilityOfResetForAllSeqTrackSteps(float newProb, Track track);
 	void setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step);
@@ -125,7 +122,6 @@ private:
 	void checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track track, Step step);
 
 public:
-	const float sumOfProbabilitiesForSeqTrackStep(Track track, Step step);
 	const bool repeatChoicesAreAllowedForSeqTrackStep(Track track, Step step);
 	const bool repeatChoicesAreForbiddenForSeqTrackStep(Track track, Step step);
 	void setRepeatChoicesAreAllowedForSeqTrackStep(bool shouldBeAllowed, Track track, Step step);

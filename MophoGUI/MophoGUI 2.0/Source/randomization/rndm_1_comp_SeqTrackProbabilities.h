@@ -18,7 +18,6 @@ class SeqTrackProbabilities :
 {
 	Track track;
 	std::unique_ptr<KnobForSeqTrackProbability> knob_RestProbability;
-	KnobForSeqTrackProbability knob_DuplicateProbability;
 	KnobForSeqTrackProbability knob_ResetProbability;
 
 public:

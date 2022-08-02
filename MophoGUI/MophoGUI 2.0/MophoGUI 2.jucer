@@ -138,10 +138,10 @@
             file="BinaryResources/bkgrnd_Randomization.png"/>
       <FILE id="ntEl5P" name="bkgrnd_RepeatChoicesToggle.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_RepeatChoicesToggle.png"/>
-      <FILE id="FysIqf" name="bkgrnd_SeqTrack_1_Probabilities.png" compile="0"
+      <FILE id="PuspCl" name="bkgrnd_SeqTrack_1_Probabilities.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_SeqTrack_1_Probabilities.png"/>
-      <FILE id="aB6OS2" name="bkgrnd_SeqTracks_2_3_4_Probabilities.png" compile="0"
-            resource="1" file="BinaryResources/bkgrnd_SeqTracks_2_3_4_Probabilities.png"/>
+      <FILE id="lDKrqi" name="bkgrnd_SeqTracks_2_3_4_Probability.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_SeqTracks_2_3_4_Probability.png"/>
       <FILE id="lY496E" name="bkgrnd_SeqTrackTargetStep.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_SeqTrackTargetStep.png"/>
       <FILE id="TeHZ5D" name="bkgrnd_TabForVoicesBank.png" compile="0" resource="1"

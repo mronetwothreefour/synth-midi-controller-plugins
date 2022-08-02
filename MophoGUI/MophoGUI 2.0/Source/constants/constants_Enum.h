@@ -144,9 +144,8 @@ namespace MophoConstants
 
 
 	const enum class SeqTrackProbabilityKnobType {
-		rest = 0,
-		duplicate,
-		reset
+		reset = 0,
+		rest
 	};
 
 

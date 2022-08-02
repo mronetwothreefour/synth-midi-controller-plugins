@@ -24,22 +24,22 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	auto targetStep_x{ 0 };
 	auto btn_Randomize_center_y{ 0 };
 	if (destIsPitched) {
-		background_x = track == Track::one ? 468 : 522;
-		background_y = 29;
-		background_w = track == Track::one ? 334 : 280;
-		background_h = 572;
-		center_x = track == Track::one ? 635 : 662;
-		targetStep_x = background_x + GUI::allowedChoices_Inset;
-		btn_Randomize_center_y = 573;
+		background_x = track == Track::one ? 510 : 540;
+		background_y = 41;
+		background_w = track == Track::one ? 292 : 262;
+		background_h = 548;
+		center_x = track == Track::one ? 656 : 671;
+		targetStep_x = track == Track::one ? 527 : 584;
+		btn_Randomize_center_y = 561;
 	}
 	else {
 		background_x = 430;
-		background_y = 141;
+		background_y = 152;
 		background_w = 372;
-		background_h = 348;
+		background_h = 326;
 		center_x = 616;
-		targetStep_x = track == Track::one ? 463 : 485;
-		btn_Randomize_center_y = 461;
+		targetStep_x = track == Track::one ? 487 : 529;
+		btn_Randomize_center_y = 450;
 	}
 	auto allowAllAndCloseButtons_y{ background_y + GUI::allowedChoices_Inset };
 
@@ -71,7 +71,7 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	btn_Close.setTopRightPosition(background_x + background_w - GUI::allowedChoices_Inset, allowAllAndCloseButtons_y);
 	addAndMakeVisible(btn_Close);
 
-	targetStepSelector.setTopLeftPosition(targetStep_x, background_y + 51);
+	targetStepSelector.setTopLeftPosition(targetStep_x, background_y + 58);
 	addAndMakeVisible(targetStepSelector);
 
 	btn_Randomize.setCentrePosition(center_x, btn_Randomize_center_y);
@@ -85,22 +85,22 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 void GUI_Layer_AllowedChoices_SeqTrack::resetKnobsAndToggles() {
 	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, randomization, unexposedParams });
 	if (repeatChoices != nullptr) {
-		repeatChoices->setCentrePosition(center_x, destIsPitched ? 57 : 169);
+		repeatChoices->setCentrePosition(destIsPitched ? center_x + 10 : center_x, destIsPitched ? 69 : 180);
 		addAndMakeVisible(repeatChoices.get());
 	}
 
 	probabilities.reset(new SeqTrackProbabilities{ track, randomization, unexposedParams });
 	if (probabilities != nullptr) {
-		auto probabilities_x{ track == Track::one ? 601 : 625 };
+		auto probabilities_x{ track == Track::one ? 597 : 639 };
 		if (destIsPitched)
-			probabilities_x = background_x + (track == Track::one ? 149 : 141);
-		probabilities->setTopLeftPosition(probabilities_x, background_y + 51);
+			probabilities_x = track == Track::one ? 637 : 694;
+		probabilities->setTopLeftPosition(probabilities_x, background_y + 47);
 		addAndMakeVisible(probabilities.get());
 	}
 
 	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, destIsPitched, randomization, unexposedParams });
 	if (allowChoiceToggles != nullptr) {
-		allowChoiceToggles->setCentrePosition(center_x, 360);
+		allowChoiceToggles->setCentrePosition(center_x, 349);
 		addAndMakeVisible(allowChoiceToggles.get());
 	}
 
@@ -124,13 +124,6 @@ void GUI_Layer_AllowedChoices_SeqTrack::paint(Graphics& g) {
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + 2, background_y + 2, background_w - 4, background_h - 4);
-	g.setColour(GUI::color_Black);
-	float divider_x;
-	if (destIsPitched)
-		divider_x = background_x + (track == Track::one ? 129.0f : 122.0f);
-	else 
-		divider_x = background_x + (track == Track::one ? 150.0f : 171.0f);
-	g.drawLine(divider_x, background_y + 49.0f, divider_x, background_y + 129.0f, 1.0f);
 }
 
 void GUI_Layer_AllowedChoices_SeqTrack::valueChanged(Value& /*value*/) {
