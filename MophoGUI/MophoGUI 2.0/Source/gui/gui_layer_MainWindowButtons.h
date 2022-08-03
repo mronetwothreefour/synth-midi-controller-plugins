@@ -51,6 +51,7 @@ class GUI_Layer_MainWindowButtons :
 	const int timerID_VoiceNameEdit{ 4 };
 	String voiceName;
 	const String basicASCIIcharacters{ " !\"#$ % &'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" };
+	bool wasRightClicked{ false };
 
 public:
 	GUI_Layer_MainWindowButtons() = delete;

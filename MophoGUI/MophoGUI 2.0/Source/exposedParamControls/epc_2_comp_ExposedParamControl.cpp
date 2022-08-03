@@ -153,8 +153,9 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 	}
 }
 
-void ExposedParamControl::mouseDown(const MouseEvent& /*event*/) {
-	// todo: use this for randomizing control with right-click
+void ExposedParamControl::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::rightButtonModifier)
+		exposedParams->randomize->randomizeParameter(paramIndex);
 }
 
 void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const {

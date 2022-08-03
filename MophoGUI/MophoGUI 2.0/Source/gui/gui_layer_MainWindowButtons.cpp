@@ -90,6 +90,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Randomize.setComponentID(ID::btn_Randomize.toString());
     btn_Randomize.addMouseListener(this, false);
     btn_Randomize.addListener(this);
+    btn_Randomize.onClick = [this] {
+        if (ModifierKeys::currentModifiers != ModifierKeys::ctrlModifier + ModifierKeys::altModifier && wasRightClicked == false)
+            randomize->randomizeAllUnlockedParameters();
+        wasRightClicked = false;
+    };
     btn_Randomize.setBounds(800, rowBeneathProgramName_y, GUI::btn_Randomize_w, GUI::redButton_h);
     btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
     btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
@@ -305,10 +310,12 @@ void GUI_Layer_MainWindowButtons::timerCallback() {
 }
 
 void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
-    if (event.mods == ModifierKeys::rightButtonModifier)
-        showRandomizationLayer();
-    else
-        randomize->randomizeAllUnlockedParameters();
+    if (btn_Randomize.isMouseOver() == true) {
+        if (event.mods == ModifierKeys::rightButtonModifier) {
+            wasRightClicked = true;
+            showRandomizationLayer();
+        }
+    }
 }
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
