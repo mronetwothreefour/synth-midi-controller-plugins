@@ -21,8 +21,10 @@ GroupLockStateButtons::GroupLockStateButtons(LockStateGroup group, ExposedParams
 	case MophoConstants::LockStateGroup::all:
 		btn_Lock.onClick = [this, randomization] { Lock::allParams(randomization, true); };
 		btn_Unlock.onClick = [this, randomization] { Lock::allParams(randomization, false); };
-		btn_Lock.setTooltip(shouldShow ? "Lock all the controls." : "");
-		btn_Unlock.setTooltip(shouldShow ? "Unlock all the controls." : "");
+		btn_Lock.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
+		btn_Unlock.addShortcut(KeyPress{ 'u', ModifierKeys::ctrlModifier, 0 });
+		btn_Lock.setTooltip(shouldShow ? "Lock all the controls.\nShortcut key: CTRL+A" : "");
+		btn_Unlock.setTooltip(shouldShow ? "Unlock all the controls.\nShortcut key: CTRL+U" : "");
 		break;
 	case MophoConstants::LockStateGroup::osc:
 		btn_Lock.onClick = [this, randomization] { Lock::allOscParams(randomization, true); };

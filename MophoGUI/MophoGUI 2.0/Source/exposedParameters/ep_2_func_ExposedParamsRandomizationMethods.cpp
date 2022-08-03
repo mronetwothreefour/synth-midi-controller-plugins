@@ -5,40 +5,75 @@
 #include "ep_3_facade_ExposedParameters.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
+#include "../midi/midi_1_EditBufferDataMessage.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using Category = LFO_FreqCategory;
 using Shape = OscWaveShape;
 using StepCategory = SeqTrackStepChoiceCategory;
 
-ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedParameters* exposedParams) :
+ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	exposedParams{ exposedParams },
 	state{ exposedParams->state.get() },
 	randomization{ exposedParams->randomization.get() },
-	info{ exposedParams->info.get() }
+	info{ exposedParams->info.get() },
+	outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() },
+	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 
-void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters()
-{
+void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
+	if (randomization->transmitMethodIsSysEx() == true) {
+		transmitOptions->dontTransmitParamChanges();
+		for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+			if (paramIndex != EP::indexForArpegOnOff && paramIndex != EP::indexForSeqOnOff) {
+				auto paramID{ info->IDfor(paramIndex) };
+				if (randomization->paramIsUnlocked(paramIndex)) {
+					auto newSetting{ randomlyChooseNewSettingForParam(paramIndex) };
+					applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, 0);
+				}
+			}
+		}
+		randomizeArpAndSeqOnOffParametersAfterDelay(0);
+		EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingMidiBuffers);
+		callAfterDelay(200, [this] { transmitOptions->transmitParamChanges(); });
+	}
+	else {
+		auto delayInMS{ 0 };
+		for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+			if (paramIndex != EP::indexForArpegOnOff && paramIndex != EP::indexForSeqOnOff) {
+				auto paramID{ info->IDfor(paramIndex) };
+				if (randomization->paramIsUnlocked(paramIndex)) {
+					auto newSetting{ randomlyChooseNewSettingForParam(paramIndex) };
+					applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, delayInMS);
+					delayInMS += 50;
+				}
+			}
+		}
+		randomizeArpAndSeqOnOffParametersAfterDelay(delayInMS);
+	}
 }
 
 void ExposedParamsRandomizationMethods::randomizeParameter(uint8 paramIndex) {
 	auto newSetting{ randomlyChooseNewSettingForParam(paramIndex) };
 	auto paramID{ info->IDfor(paramIndex).toString() };
-	applyNewSettingToExposedParameter(newSetting, paramID);
+	applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, 0);
 }
 
 void ExposedParamsRandomizationMethods::randomizeSeqTrackStep(Track track, Step step) {
 	if (step == Step::all) {
+		auto delayInMS{ 0 };
 		for (auto stepNum = (int)Step::one; stepNum <= (int)Step::sixteen; ++stepNum) {
 			auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, Step{ stepNum }) };
 			auto paramID{ info->IDfor(track, Step{ stepNum }) };
-			applyNewSettingToExposedParameter(newSetting, paramID);
+			applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, delayInMS);
+			delayInMS += 50;
 		}
 	}
 	else {
 		auto newSetting{ randomlyChooseNewSettingForSeqTrackStep(track, step) };
 		auto paramID{ info->IDfor(track, step) };
-		applyNewSettingToExposedParameter(newSetting, paramID);
+		applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, 0);
 	}
 }
 
@@ -348,10 +383,55 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 	return (uint8)255;
 }
 
-void ExposedParamsRandomizationMethods::applyNewSettingToExposedParameter(uint8 newSetting, Identifier paramID) {
+void ExposedParamsRandomizationMethods::applyNewSettingToExposedParameterAfterDelay(uint8 newSetting, Identifier paramID, int delayInMs) {
 	auto paramPtr{ state->getParameter(paramID) };
-	if (paramPtr != nullptr)
-		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+	if (paramPtr != nullptr) {
+		auto newNormalizedSetting{ paramPtr->convertTo0to1(newSetting) };
+		callAfterDelay(delayInMs, [paramPtr, newNormalizedSetting] { paramPtr->setValueNotifyingHost(newNormalizedSetting); });
+	}
+}
+
+void ExposedParamsRandomizationMethods::randomizeArpAndSeqOnOffParametersAfterDelay(int delayInMs) {
+	Random rndmNumGenerator{};
+	auto newNormalizedValue{ rndmNumGenerator.nextFloat() };
+	auto transmitMethodIsSysEx{ randomization->transmitMethodIsSysEx() };
+	auto seqDelay{ transmitMethodIsSysEx ? 0 : 50 };
+	auto arpegIsUnlocked{ randomization->paramIsUnlocked(EP::indexForArpegOnOff) };
+	auto arpegIsLocked{ !arpegIsUnlocked };
+	auto seqIsUnlocked{ randomization->paramIsUnlocked(EP::indexForSeqOnOff) };
+	auto seqIsLocked{ !seqIsUnlocked };
+	auto arpegID{ info->IDfor(EP::indexForArpegOnOff) };
+	auto seqID{ info->IDfor(EP::indexForSeqOnOff) };
+	if (arpegIsUnlocked && seqIsUnlocked) {
+		auto arpSeqOnOffChoice{ (int)std::floor(newNormalizedValue * 3) };
+		switch (arpSeqOnOffChoice) {
+		case 0: {
+			applyNewSettingToExposedParameterAfterDelay((uint8)0, arpegID, delayInMs);
+			applyNewSettingToExposedParameterAfterDelay((uint8)0, seqID, delayInMs + seqDelay);
+			break;
+		}
+		case 1: {
+			applyNewSettingToExposedParameterAfterDelay((uint8)1, arpegID, delayInMs);
+			applyNewSettingToExposedParameterAfterDelay((uint8)0, seqID, delayInMs + seqDelay);
+			break;
+		}
+		case 2: {
+			applyNewSettingToExposedParameterAfterDelay((uint8)0, arpegID, delayInMs);
+			applyNewSettingToExposedParameterAfterDelay((uint8)1, seqID, delayInMs + seqDelay);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+	if (arpegIsUnlocked && seqIsLocked) {
+		auto arpOnOffChoice{ (uint8)roundToInt(newNormalizedValue) };
+		applyNewSettingToExposedParameterAfterDelay(arpOnOffChoice, arpegID, delayInMs);
+	}
+	if (arpegIsLocked && seqIsUnlocked) {
+		auto seqOnOffChoice{ (uint8)roundToInt(newNormalizedValue) };
+		applyNewSettingToExposedParameterAfterDelay(seqOnOffChoice, seqID, delayInMs);
+	}
 }
 
 void ExposedParamsRandomizationMethods::timerCallback() {

@@ -11,14 +11,14 @@ using namespace MophoConstants;
 class GUI_Layer_FileNotValidAlert :
 	public Component
 {
-	ButtonForHidingLayer button_Close;
+	ButtonForHidingLayer btn_Close;
 
 public:
 	GUI_Layer_FileNotValidAlert(UnexposedParameters* unexposedParams) :
-		button_Close{ unexposedParams }
+		btn_Close{ unexposedParams }
 	{
-		button_Close.setTopLeftPosition(612, 310);
-		addAndMakeVisible(button_Close);
+		btn_Close.setTopLeftPosition(612, 310);
+		addAndMakeVisible(btn_Close);
 		setSize(GUI::editor_w, GUI::editor_h);
 	}
 

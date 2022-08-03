@@ -16,7 +16,7 @@ using ToggleType = GlobalParamToggleType;
 
 
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
-	button_Close{ unexposedParams },
+	btn_Close{ unexposedParams },
 	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },
 	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams },
 	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams },
@@ -33,8 +33,8 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	label_HardwareOutputBalance{ LabelType::hardwareOutputBalance, unexposedParams },
 	editorForTooltipDelay{ unexposedParams }
 {
-	button_Close.setTopLeftPosition(703, 121);
-	addAndMakeVisible(button_Close);
+	btn_Close.setTopLeftPosition(703, 121);
+	addAndMakeVisible(btn_Close);
 
 	const int knobRow_y{ 153 };
 	knob_GlobalTranspose.setTopLeftPosition(542, knobRow_y);

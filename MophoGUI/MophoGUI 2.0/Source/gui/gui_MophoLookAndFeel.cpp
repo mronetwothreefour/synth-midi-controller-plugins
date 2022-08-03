@@ -124,7 +124,7 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::btn_Banks.toString())
 		mBlock = MemBlock{ isDown ? btn_Banks_Dn_png : btn_Banks_Up_png, isDown ? (s_t)btn_Banks_Dn_pngSize : (s_t)btn_Banks_Up_pngSize };
 
-	if (buttonID.startsWith("button_Cancel"))
+	if (buttonID.startsWith("btn_Cancel"))
 		mBlock = MemBlock{ isDown ? btn_Cancel_Dn_png : btn_Cancel_Up_png, isDown ? (s_t)btn_Cancel_Dn_pngSize : (s_t)btn_Cancel_Up_pngSize };
 
 	if (buttonID == ID::btn_Clear.toString())
@@ -139,7 +139,7 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::btn_Edit.toString())
 		mBlock = MemBlock{ isDown ? btn_Edit_Dn_png : btn_Edit_Up_png, isDown ? (s_t)btn_Edit_Dn_pngSize : (s_t)btn_Edit_Up_pngSize };
 
-	if (buttonID.startsWith("button_Export"))
+	if (buttonID.startsWith("btn_Export"))
 		mBlock = MemBlock{ isDown ? btn_Export_Dn_png : btn_Export_Up_png, isDown ? (s_t)btn_Export_Dn_pngSize : (s_t)btn_Export_Up_pngSize };
 
 	if (buttonID == ID::btn_Global.toString())
@@ -151,7 +151,7 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::btn_GroupUnlock.toString())
 		mBlock = MemBlock{ isDown ? btn_GroupUnlock_Dn_png : btn_GroupUnlock_Up_png, isDown ? (s_t)btn_GroupUnlock_Dn_pngSize : (s_t)btn_GroupUnlock_Up_pngSize };
 
-	if (buttonID.startsWith("button_Import"))
+	if (buttonID.startsWith("btn_Import"))
 		mBlock = MemBlock{ isDown ? btn_Import_Dn_png : btn_Import_Up_png, isDown ? (s_t)btn_Import_Dn_pngSize : (s_t)btn_Import_Up_pngSize };
 
 	if (buttonID == ID::btn_Load.toString())
@@ -160,10 +160,10 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::btn_NewFolder.toString())
 		mBlock = MemBlock{ isDown ? btn_NewFolder_Dn_png : btn_NewFolder_Up_png, isDown ? (s_t)btn_NewFolder_Dn_pngSize : (s_t)btn_NewFolder_Up_pngSize };
 
-	if (buttonID.startsWith("button_Pull"))
+	if (buttonID.startsWith("btn_Pull"))
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
-	if (buttonID.startsWith("button_Push"))
+	if (buttonID.startsWith("btn_Push"))
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
 
 	if (buttonID == ID::btn_Randomize.toString())
@@ -187,7 +187,7 @@ void MophoLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const C
 	if (buttonID == ID::btn_Undo.toString())
 		mBlock = MemBlock{ isDown ? btn_Undo_Dn_png : btn_Undo_Up_png, isDown ? (s_t)btn_Undo_Dn_pngSize : (s_t)btn_Undo_Up_pngSize };
 
-	if (buttonID.startsWith("button_Write"))
+	if (buttonID.startsWith("btn_Write"))
 		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
 
 	PNGImageFormat imageFormat;

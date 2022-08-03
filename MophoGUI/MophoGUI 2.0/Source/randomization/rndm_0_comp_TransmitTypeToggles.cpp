@@ -16,12 +16,14 @@ TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* rand
 	toggle_TransmitViaNRPN.setComponentID(ID::comp_RedToggle.toString());
 	toggle_TransmitViaNRPN.setToggleState(randomization->transmitMethodIsSysEx() == false, dontSendNotification);
 	toggle_TransmitViaNRPN.setRadioGroupId(1, dontSendNotification);
+	toggle_TransmitViaNRPN.addShortcut(KeyPress{ 'n', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
-		tip += "When NRPN is selected, newly generated random parameter settings\n";
-		tip += "will be transmitted to the Mopho hardware via individual NRPN\n";
-		tip += "messages. Updating more than a few parameters will be slow, but\n";
-		tip += "the hardware will not be interrupted if it is generating audio.\n";
+		tip += "When NRPN is selected, new randomly generated parameter\n";
+		tip += "settings will be transmitted to the Mopho hardware via\n";
+		tip += "individual NRPN messages. Updating more than a few param-\n";
+		tip += "eters will be slow, butthe hardware will not be interrupted\n";
+		tip += "if it is generating audio. Shortcut key: CTRL+N";
 		toggle_TransmitViaNRPN.setTooltip(tip);
 	}
 	toggle_TransmitViaNRPN.onClick = [this, randomization] {
@@ -34,12 +36,14 @@ TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* rand
 	toggle_TransmitViaSysEx.setComponentID(ID::comp_RedToggle.toString());
 	toggle_TransmitViaSysEx.setToggleState(randomization->transmitMethodIsSysEx() == true, dontSendNotification);
 	toggle_TransmitViaSysEx.setRadioGroupId(1, dontSendNotification);
+	toggle_TransmitViaNRPN.addShortcut(KeyPress{ 'S', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
 		String tip{ "" };
-		tip += "When SysEx is selected, all newly generated random parameter settings will\n";
-		tip += "be transmitted to the Mopho hardware via a single system exclusive program\n";
-		tip += "edit buffer dump message. This is faster for sending a large number of param-\n";
-		tip += "eter changes, but it will interrupt the hardware if it is generating audio.\n";
+		tip += "When SysEx is selected, all new randomly generated parameter\n";
+		tip += "settings will be transmitted to the Mopho hardware via a single\n";
+		tip += "system exclusive program edit buffer dump message. This is faster\n";
+		tip += "for sending a large number of parameter changes, but it will inter-\n";
+		tip += "rupt the hardware if it is generating audio. Shortcut key: CTRL+S";
 		toggle_TransmitViaSysEx.setTooltip(tip);
 	}
 	toggle_TransmitViaSysEx.onClick = [this, randomization] {

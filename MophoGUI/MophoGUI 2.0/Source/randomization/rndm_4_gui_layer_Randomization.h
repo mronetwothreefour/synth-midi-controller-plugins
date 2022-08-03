@@ -24,7 +24,7 @@ class GUI_Layer_Randomization :
 	ExposedParameters* exposedParams;
 	InfoForExposedParameters* info;
 	ExposedParamsRandomizationOptions* randomization;
-	ButtonForHidingLayer button_Close;
+	ButtonForHidingLayer btn_Close;
 	TransmitTypeToggles transmitType;
 	std::unique_ptr<LockToggleForParam> paramLockToggles[EP::numberOfExposedParams];
 	GUI_Layer_AllowedChoicesServer allowedChoicesLayers;
@@ -46,6 +46,7 @@ class GUI_Layer_Randomization :
 	GroupLockStateButtons lockStateButtons_SeqTrack_3;
 	GroupLockStateButtons lockStateButtons_SeqTrack_4;
 	GroupLockStateButtons lockStateButtons_VoiceNamerChars;
+	TextButton btn_RandomizeAllUnlocked;
 	bool toggleWasRightClicked{ false };
 
 public:

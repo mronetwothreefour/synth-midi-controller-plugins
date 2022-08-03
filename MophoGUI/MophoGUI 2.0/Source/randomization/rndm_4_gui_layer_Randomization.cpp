@@ -18,7 +18,7 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	button_Close{ unexposedParams },
+	btn_Close{ unexposedParams },
 	transmitType{ randomization, unexposedParams },
 	allowedChoicesLayers{ exposedParams, unexposedParams },
 	lockStateButtons_All{ LockStateGroup::all, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
@@ -42,8 +42,8 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 {
 	setInterceptsMouseClicks(false, true);
 
-	button_Close.setTopLeftPosition(1208, 16);
-	addAndMakeVisible(button_Close);
+	btn_Close.setTopLeftPosition(1208, 16);
+	addAndMakeVisible(btn_Close);
 
 	transmitType.setTopLeftPosition(1138, 81);
 	addAndMakeVisible(transmitType);
@@ -116,6 +116,14 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	addAndMakeVisible(lockStateButtons_SeqTrack_3);
 	addAndMakeVisible(lockStateButtons_SeqTrack_4);
 	addAndMakeVisible(lockStateButtons_VoiceNamerChars);
+
+	btn_RandomizeAllUnlocked.setComponentID(ID::btn_Randomize.toString());
+	btn_RandomizeAllUnlocked.onClick = [exposedParams] { exposedParams->randomize->randomizeAllUnlockedParameters(); };
+	btn_RandomizeAllUnlocked.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
+	if (shouldShowDescriptions)
+		btn_RandomizeAllUnlocked.setTooltip("Click to generate random settings\nfor all unlocked parameters.\nShortcut key: CTRL+D");
+	btn_RandomizeAllUnlocked.setBounds(1051, 77, GUI::btn_Randomize_w, GUI::redButton_h);
+	addAndMakeVisible(btn_RandomizeAllUnlocked);
 
 	allowedChoicesLayers.setTopLeftPosition(0, 0);
 	addAndMakeVisible(allowedChoicesLayers);

@@ -39,8 +39,8 @@ class VoiceTransmissionOptions;
 class PluginProcessor :
     public AudioProcessor
 {
-    std::unique_ptr<ExposedParameters> exposedParams;
     std::unique_ptr<UnexposedParameters> unexposedParams;
+    std::unique_ptr<ExposedParameters> exposedParams;
     Array<MidiBuffer, CriticalSection>* bundledOutgoingBuffers;
     std::unique_ptr<ExposedParamChangesHandler> exposedParamChangesHandler;
     std::unique_ptr<IncomingMessageHandler_NRPN> incomingMessageHandler_NRPN;

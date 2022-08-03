@@ -15,9 +15,8 @@ struct EditBufferDataMessage {
         outgoingBuffers->addDataMessage(requestVector);
     }
 
-    static void addEditBufferDataMessageToOutgoingMidiBuffers(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
+    static void addEditBufferDataMessageToOutgoingMidiBuffers(ExposedParameters* exposedParams, OutgoingMidiBuffers* outgoingBuffers) {
         auto dumpDataVector{ createEditBufferDataMessage(exposedParams) };
-        auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
         outgoingBuffers->addDataMessage(dumpDataVector);
     }
 

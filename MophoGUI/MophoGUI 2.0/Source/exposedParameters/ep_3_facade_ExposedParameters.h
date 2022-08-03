@@ -12,6 +12,8 @@ using Randomize = ExposedParamsRandomizationMethods;
 using Randomization = ExposedParamsRandomizationOptions;
 using State = AudioProcessorValueTreeState;
 
+class UnexposedParameters;
+
 class ExposedParameters
 {
 public:
@@ -23,11 +25,11 @@ public:
 
 	ExposedParameters() = delete;
 
-	explicit ExposedParameters(AudioProcessor* processor) :
+	ExposedParameters(AudioProcessor* processor, UnexposedParameters* unexposedParams) :
 		info{ new InfoForExposedParameters },
 		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } },
 		randomization{ new Randomization{ info.get() } },
-		randomize{ new Randomize{ this } }
+		randomize{ new Randomize{ this, unexposedParams } }
 	{
 	}
 

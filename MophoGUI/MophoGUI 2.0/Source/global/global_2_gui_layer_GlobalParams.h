@@ -16,7 +16,7 @@ class UnexposedParameters;
 class GUI_Layer_GlobalParameters :
     public Component
 {
-    ButtonForHidingLayer button_Close;
+    ButtonForHidingLayer btn_Close;
     KnobForGlobalParameter knob_GlobalTranspose;
     KnobForGlobalParameter knob_GlobalFineTune;
     KnobForGlobalParameter knob_HardwareReceiveChannel;

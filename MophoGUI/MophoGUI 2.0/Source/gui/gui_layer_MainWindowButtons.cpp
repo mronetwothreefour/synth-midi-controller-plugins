@@ -55,17 +55,17 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
     addAndMakeVisible(btn_ShowVoiceNameEditor);
 
+    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+
     const int rowBeneathProgramName_y{ 83 };
     const int writeReadButtons_w{ 44 };
     btn_WriteEditBuffer.setComponentID(ID::btn_Write_EditBuffer.toString());
-    btn_WriteEditBuffer.onClick = [exposedParams, unexposedParams] {
-        EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams);
+    btn_WriteEditBuffer.onClick = [exposedParams, outgoingBuffers] {
+        EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingBuffers);
     };
     btn_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     btn_WriteEditBuffer.addShortcut(KeyPress{ 'w', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_WriteEditBuffer);
-
-    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 
     btn_ReadEditBuffer.setComponentID(ID::btn_Read.toString());
     btn_ReadEditBuffer.onClick = [outgoingBuffers] {

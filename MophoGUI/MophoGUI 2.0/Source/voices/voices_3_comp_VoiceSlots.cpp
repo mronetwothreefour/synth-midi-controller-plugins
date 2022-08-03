@@ -44,7 +44,7 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
 		RawDataTools::applyRawDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { 
-			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams); 
+			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams->getOutgoingMidiBuffers()); 
 		});
 	}
 }
