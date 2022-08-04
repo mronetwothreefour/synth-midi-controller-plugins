@@ -13,6 +13,7 @@ using namespace MophoConstants;
 ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
+	randomize{ exposedParams->randomize.get() },
 	unexposedParams{ unexposedParams },
 	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
@@ -20,23 +21,15 @@ ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* expose
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->addListener(this);
-//		exposedParams->addParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
+		auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrig_.toString() + paramID) };
+		rndmTrigParamPtr->addListener(this);
 	}
-//	exposedParams->addParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
+	auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrig_AllUnlocked) };
+	rndmTrigAllParamPtr->addListener(this);
 }
 
 void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, float newValue) {
-	// todo: randomization triggers
-	//if (parameterID.startsWith(ID::rndmTrigFor_.toString())) {
-	//	ParamRandomizationMethods paramRandomizationMethods{ exposedParams, unexposedParams };
-	//	if (parameterID == ID::rndmTrigFor_AllUnlocked.toString())
-	//		paramRandomizationMethods.randomizeAllUnlockedParameters();
-	//	else {
-	//		auto targetParamID{ parameterID.fromFirstOccurrenceOf("For_", false, false) };
-	//		paramRandomizationMethods.randomizeParameter(targetParamID);
-	//	}
-	//}
-	//else {
+	if (changedParamIndex < EP::numberOfExposedParams) {
 		if (transmitOptions->paramChangesShouldBeTransmitted()) {
 			auto paramID{ info->IDfor((uint8)changedParamIndex) };
 			auto nrpn{ info->NRPNfor((uint8)changedParamIndex) };
@@ -50,7 +43,15 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 			if ((paramID == ID::ep_098_ArpegOnOff || paramID == ID::ep_100_SeqOnOff) && outputValue == 1)
 				arpeggiatorAndSequencerCannotBothBeOn(paramID);
 		}
-	//}
+	}
+	else {
+		if (changedParamIndex == EP::numberOfExposedParams)
+			randomize->randomizeAllUnlockedParameters();
+		else {
+			auto paramIndex{ uint8(changedParamIndex - (EP::numberOfExposedParams + 1)) };
+			randomize->randomizeParameter(paramIndex);
+		}
+	}
 }
 
 void ExposedParamChangesHandler::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
@@ -68,11 +69,13 @@ void ExposedParamChangesHandler::arpeggiatorAndSequencerCannotBothBeOn(const Ide
 }
 
 ExposedParamChangesHandler::~ExposedParamChangesHandler() {
-	//exposedParams->removeParameterListener(ID::rndmTrigFor_AllUnlocked.toString(), this);
 	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->removeListener(this);
-		//exposedParams->removeParameterListener(ID::rndmTrigFor_.toString() + paramID, this);
+		auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrig_.toString() + paramID) };
+		rndmTrigParamPtr->removeListener(this);
 	}
+	auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrig_AllUnlocked) };
+	rndmTrigAllParamPtr->removeListener(this);
 }

@@ -177,6 +177,9 @@ namespace MophoConstants
 		static const Identifier property_Width{ "property_Width" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
+		static const Identifier rndmTrig_{ "rndmTrig_" };
+		static const Identifier rndmTrig_AllUnlocked{ "rndmTrig_AllUnlocked" };
+
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
 		static const Identifier rndm_AllowedFreqCategories{ "rndm_AllowedFreqCategories" };
 		static const Identifier rndm_AllowedPitchedFreq{ "rndm_AllowedPitchedFreq" };

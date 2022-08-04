@@ -2,6 +2,10 @@
 
 #include <JuceHeader.h>
 
+#include "ep_2_func_ExposedParamsRandomizationMethods.h"
+
+using Randomize = ExposedParamsRandomizationMethods;
+
 class ExposedParameters;
 class InfoForExposedParameters;
 class UnexposedParameters;
@@ -12,6 +16,7 @@ class ExposedParamChangesHandler :
 {
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
+	Randomize* randomize;
 	UnexposedParameters* unexposedParams;
 	VoiceTransmissionOptions* transmitOptions;
 
