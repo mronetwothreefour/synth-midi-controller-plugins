@@ -554,8 +554,9 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI 2 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug"
-                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" enableIncrementalLinking="1"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI 2" defines="HOST_DOES_NOT_ADD_F0_AND_F7=1"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING&#10;HOST_DOES_NOT_ADD_F0_AND_F7=1"
+                       enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI 2" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING&#10;HOST_DOES_NOT_ADD_F0_AND_F7=1"
                        binaryPath="C:\Users\Public\Documents\VST3 Builds\Release" useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

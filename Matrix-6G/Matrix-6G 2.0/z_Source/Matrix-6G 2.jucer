@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="YtdRqn" name="Matrix-6G 2" projectType="audioplug" jucerFormatVersion="1"
+              version="2.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com/"
+              companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Sound editor/librarian plugin for use with the Oberheim Matrix-6G synthesizer"
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+  <MAINGROUP id="l7DnAO" name="Matrix-6G 2">
+    <GROUP id="{EDC5CFC0-B718-A47B-71D1-C65EF337CA4E}" name="Source">
+      <GROUP id="{2737D6B7-A32A-0DBC-FB87-A31BEBA096AE}" name="core">
+        <FILE id="uMqAja" name="core_PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/core_PluginProcessor.cpp"/>
+        <FILE id="JLdjjY" name="core_PluginProcessor.h" compile="0" resource="0"
+              file="Source/core_PluginProcessor.h"/>
+        <FILE id="kJSIzb" name="core_PluginEditor.cpp" compile="1" resource="0"
+              file="Source/core_PluginEditor.cpp"/>
+        <FILE id="bsEkLi" name="core_PluginEditor.h" compile="0" resource="0"
+              file="Source/core_PluginEditor.h"/>
+      </GROUP>
+      <GROUP id="{7C3FD5B2-5867-42DE-882C-085B4F60185A}" name="global">
+        <FILE id="C4NPwI" name="global_Constants.h" compile="0" resource="0"
+              file="Source/global/global_Constants.h"/>
+        <FILE id="dHNqk1" name="global_GlobalOptionsComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_GlobalOptionsComponent.cpp"/>
+        <FILE id="WogU0g" name="global_GlobalOptionsComponent.h" compile="0"
+              resource="0" file="Source/global/global_GlobalOptionsComponent.h"/>
+        <FILE id="eZrnxp" name="global_SysExIsOffWarningComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.cpp"/>
+        <FILE id="orsgWZ" name="global_SysExIsOffWarningComponent.h" compile="0"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.h"/>
+        <FILE id="yZWucY" name="global_VoicesMapComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_VoicesMapComponent.cpp"/>
+        <FILE id="p9n9ng" name="global_VoicesMapComponent.h" compile="0" resource="0"
+              file="Source/global/global_VoicesMapComponent.h"/>
+        <FILE id="aj1KnP" name="global_VoicesMapSlot.cpp" compile="1" resource="0"
+              file="Source/global/global_VoicesMapSlot.cpp"/>
+        <FILE id="TPdlb5" name="global_VoicesMapSlot.h" compile="0" resource="0"
+              file="Source/global/global_VoicesMapSlot.h"/>
+        <FILE id="jtYK7G" name="global_VoicesMapSlotsColumn.cpp" compile="1"
+              resource="0" file="Source/global/global_VoicesMapSlotsColumn.cpp"/>
+        <FILE id="HklRYj" name="global_VoicesMapSlotsColumn.h" compile="0"
+              resource="0" file="Source/global/global_VoicesMapSlotsColumn.h"/>
+      </GROUP>
+      <GROUP id="{112BC586-2E49-A77D-C951-D9AC91CE4B0B}" name="gui">
+        <FILE id="Ti6uoR" name="gui_Colors.h" compile="0" resource="0" file="Source/gui/gui_Colors.h"/>
+        <FILE id="NR2a0S" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
+        <FILE id="xWKOc2" name="gui_Fonts.h" compile="0" resource="0" file="Source/gui/gui_Fonts.h"/>
+        <FILE id="NKDjjg" name="gui_Layer_Buttons.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_Buttons.cpp"/>
+        <FILE id="hpP9o3" name="gui_Layer_Buttons.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_Buttons.h"/>
+        <FILE id="YkN58d" name="gui_Layer_EnvelopeRenderers.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_EnvelopeRenderers.h"/>
+        <FILE id="nSFzGH" name="gui_Layer_ExposedParamsControls.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.cpp"/>
+        <FILE id="gY0vVA" name="gui_Layer_ExposedParamsControls.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamsControls.h"/>
+        <FILE id="mfGpwI" name="gui_Layer_MatrixMod.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_MatrixMod.cpp"/>
+        <FILE id="xHhNb8" name="gui_Layer_MatrixMod.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_MatrixMod.h"/>
+        <FILE id="AwtP94" name="gui_Layer_VoiceNumberAndName.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_VoiceNumberAndName.cpp"/>
+        <FILE id="eQZ2O8" name="gui_Layer_VoiceNumberAndName.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_VoiceNumberAndName.h"/>
+        <FILE id="hxhqs1" name="gui_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_LookAndFeel.cpp"/>
+        <FILE id="b8ImPm" name="gui_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_LookAndFeel.h"/>
+        <FILE id="kydofC" name="gui_matrixMod_Slot.cpp" compile="1" resource="0"
+              file="Source/gui/gui_matrixMod_Slot.cpp"/>
+        <FILE id="X9iHBy" name="gui_matrixMod_Slot.h" compile="0" resource="0"
+              file="Source/gui/gui_matrixMod_Slot.h"/>
+        <FILE id="WyGEkl" name="gui_Path_LEDcharacters_Singleton.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Path_LEDcharacters_Singleton.cpp"/>
+        <FILE id="wtY6er" name="gui_Path_LEDcharacters_Singleton.h" compile="0"
+              resource="0" file="Source/gui/gui_Path_LEDcharacters_Singleton.h"/>
+        <FILE id="OYOzV9" name="gui_Path_LEDsliderTab.h" compile="0" resource="0"
+              file="Source/gui/gui_Path_LEDsliderTab.h"/>
+        <FILE id="dQClep" name="gui_Path_VerticalBarLED.h" compile="0" resource="0"
+              file="Source/gui/gui_Path_VerticalBarLED.h"/>
+      </GROUP>
+      <GROUP id="{11E19CE5-933C-C862-6AD9-15FD54D33483}" name="guiRenderers">
+        <FILE id="EXt24k" name="guiRenderer_ControlValue.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_ControlValue.h"/>
+        <FILE id="PDSofE" name="guiRenderer_Envelopes.cpp" compile="1" resource="0"
+              file="Source/guiRenderers/guiRenderer_Envelopes.cpp"/>
+        <FILE id="TcxciB" name="guiRenderer_Envelopes.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_Envelopes.h"/>
+        <FILE id="UCbfyn" name="guiRenderer_PopupMenuItem.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_PopupMenuItem.h"/>
+        <FILE id="kJBQ4n" name="guiRenderer_Tracking.cpp" compile="1" resource="0"
+              file="Source/guiRenderers/guiRenderer_Tracking.cpp"/>
+        <FILE id="XhxUPA" name="guiRenderer_Tracking.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_Tracking.h"/>
+      </GROUP>
+      <GROUP id="{41D2C7F7-132C-7288-59AA-D2313EEDD12E}" name="midi">
+        <FILE id="Ugvy3r" name="midi_Constants.h" compile="0" resource="0"
+              file="Source/midi/midi_Constants.h"/>
+        <FILE id="JiZqwa" name="midi_GlobalOptionsDataMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_GlobalOptionsDataMessage.cpp"/>
+        <FILE id="L7KP7I" name="midi_GlobalOptionsDataMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_GlobalOptionsDataMessage.h"/>
+        <FILE id="k33q0T" name="midi_IncomingSysExHandler.cpp" compile="1"
+              resource="0" file="Source/midi/midi_IncomingSysExHandler.cpp"/>
+        <FILE id="Y972EO" name="midi_IncomingSysExHandler.h" compile="0" resource="0"
+              file="Source/midi/midi_IncomingSysExHandler.h"/>
+        <FILE id="r4hp7O" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
+        <FILE id="gAhKl2" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.h"/>
+        <FILE id="pyiaAd" name="midi_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_RawDataTools.cpp"/>
+        <FILE id="UnQtvd" name="midi_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_RawDataTools.h"/>
+        <FILE id="u1k9rc" name="midi_SplitDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_SplitDataMessage.cpp"/>
+        <FILE id="aEvQ0M" name="midi_SplitDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_SplitDataMessage.h"/>
+        <FILE id="FpwsSc" name="midi_VoiceDataMessage.cpp" compile="1" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.cpp"/>
+        <FILE id="N07qzW" name="midi_VoiceDataMessage.h" compile="0" resource="0"
+              file="Source/midi/midi_VoiceDataMessage.h"/>
+      </GROUP>
+      <GROUP id="{5FBF3653-1A60-2484-7D9F-19F4C03DCDA3}" name="params">
+        <FILE id="TZsnTq" name="params_Constants.h" compile="0" resource="0"
+              file="Source/params/params_Constants.h"/>
+        <FILE id="FO3Pfr" name="params_CurrentVoiceOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_CurrentVoiceOptions.cpp"/>
+        <FILE id="BjgAjg" name="params_CurrentVoiceOptions.h" compile="0" resource="0"
+              file="Source/params/params_CurrentVoiceOptions.h"/>
+        <FILE id="WK2pFx" name="params_ExposedParametersListener.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParametersListener.cpp"/>
+        <FILE id="Lr4YbU" name="params_ExposedParametersListener.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParametersListener.h"/>
+        <FILE id="wm7z6z" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.cpp"/>
+        <FILE id="avfGE0" name="params_ExposedParamsInfo_Singleton.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
+        <FILE id="BY502Y" name="params_ExposedParamsLayout_Factory.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
+        <FILE id="dUFlkh" name="params_ExposedParamsLayout_Factory.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
+        <FILE id="jbSaNQ" name="params_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_GlobalOptions.cpp"/>
+        <FILE id="jaSexq" name="params_GlobalOptions.h" compile="0" resource="0"
+              file="Source/params/params_GlobalOptions.h"/>
+        <FILE id="rnPrcY" name="params_Identifiers.h" compile="0" resource="0"
+              file="Source/params/params_Identifiers.h"/>
+        <FILE id="AL9Suk" name="params_IntToContextualStringConverters.cpp"
+              compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
+        <FILE id="K9nC2c" name="params_IntToContextualStringConverters.h" compile="0"
+              resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="sGSn5d" name="params_MatrixModSettings.cpp" compile="1" resource="0"
+              file="Source/params/params_MatrixModSettings.cpp"/>
+        <FILE id="KjRXei" name="params_MatrixModSettings.h" compile="0" resource="0"
+              file="Source/params/params_MatrixModSettings.h"/>
+        <FILE id="Baw5Kz" name="params_RangeTypes.h" compile="0" resource="0"
+              file="Source/params/params_RangeTypes.h"/>
+        <FILE id="vvxMtI" name="params_SplitOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_SplitOptions.cpp"/>
+        <FILE id="n6ESeg" name="params_SplitOptions.h" compile="0" resource="0"
+              file="Source/params/params_SplitOptions.h"/>
+        <FILE id="fljn1t" name="params_TooltipOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_TooltipOptions.cpp"/>
+        <FILE id="o5IGNV" name="params_TooltipOptions.h" compile="0" resource="0"
+              file="Source/params/params_TooltipOptions.h"/>
+        <FILE id="W6iqhy" name="params_UnexposedParameters_Facade.cpp" compile="1"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
+        <FILE id="hpY4YK" name="params_UnexposedParameters_Facade.h" compile="0"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+        <FILE id="bsH11Y" name="params_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.cpp"/>
+        <FILE id="YkHJgd" name="params_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/params/params_VoiceTransmissionOptions.h"/>
+      </GROUP>
+      <GROUP id="{43DB3D97-0148-8EAA-1353-E719854D2AF2}" name="splits">
+        <FILE id="asdVzA" name="splits_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/splits/splits_BankTransmissionComponent.cpp"/>
+        <FILE id="BnFB3L" name="splits_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/splits/splits_BankTransmissionComponent.h"/>
+        <FILE id="TR7wh3" name="splits_Constants.h" compile="0" resource="0"
+              file="Source/splits/splits_Constants.h"/>
+        <FILE id="BVPaei" name="splits_SplitsBank.cpp" compile="1" resource="0"
+              file="Source/splits/splits_SplitsBank.cpp"/>
+        <FILE id="hDXYiN" name="splits_SplitsBank.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitsBank.h"/>
+        <FILE id="V83k8B" name="splits_SplitsComponent.cpp" compile="1" resource="0"
+              file="Source/splits/splits_SplitsComponent.cpp"/>
+        <FILE id="Xgianq" name="splits_SplitsComponent.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitsComponent.h"/>
+        <FILE id="Q64Aoa" name="splits_SplitSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/splits/splits_SplitSlotsComponent.cpp"/>
+        <FILE id="FAW3bJ" name="splits_SplitSlotsComponent.h" compile="0" resource="0"
+              file="Source/splits/splits_SplitSlotsComponent.h"/>
+      </GROUP>
+      <GROUP id="{DC2D9C9F-CE61-5592-7820-A98419FBA5AF}" name="tooltipSetters">
+        <FILE id="VfM9TW" name="tooltipSetter_Base.cpp" compile="1" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
+        <FILE id="uBJ81J" name="tooltipSetter_Base.h" compile="0" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.h"/>
+        <FILE id="n0nIv9" name="tooltipSetter_ForExposedParamComboBoxes.cpp"
+              compile="1" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.cpp"/>
+        <FILE id="VbG928" name="tooltipSetter_ForExposedParamComboBoxes.h"
+              compile="0" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.h"/>
+        <FILE id="lyhrUf" name="tooltipSetter_ForExposedParamSliders.cpp" compile="1"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.cpp"/>
+        <FILE id="GCBWwQ" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.h"/>
+      </GROUP>
+      <GROUP id="{12212230-9C65-3524-3BF0-D40DB561BC01}" name="voices">
+        <FILE id="Tf55Vc" name="voices_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.cpp"/>
+        <FILE id="eCyM3l" name="voices_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_BankTransmissionComponent.h"/>
+        <FILE id="AZMteZ" name="voices_Constants.h" compile="0" resource="0"
+              file="Source/voices/voices_Constants.h"/>
+        <FILE id="rmIvSs" name="voices_FactoryVoiceDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.cpp"/>
+        <FILE id="TLct4o" name="voices_FactoryVoiceDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/voices/voices_FactoryVoiceDataHexStrings_Singleton.h"/>
+        <FILE id="G1MPAP" name="voices_TabbedComponentForVoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabbedComponentForVoicesBanks.cpp"/>
+        <FILE id="EXMON5" name="voices_TabbedComponentForVoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/voices_TabbedComponentForVoicesBanks.h"/>
+        <FILE id="ZCGJx3" name="voices_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.cpp"/>
+        <FILE id="UuQyC3" name="voices_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForCustomVoicesBank.h"/>
+        <FILE id="BIZd8O" name="voices_TabForFactoryVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="ZbXQaS" name="voices_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_TabForFactoryVoicesBank.h"/>
+        <FILE id="FTAQtj" name="voices_VoicesBanks.cpp" compile="1" resource="0"
+              file="Source/voices/voices_VoicesBanks.cpp"/>
+        <FILE id="W27nlj" name="voices_VoicesBanks.h" compile="0" resource="0"
+              file="Source/voices/voices_VoicesBanks.h"/>
+        <FILE id="TbCGDb" name="voices_VoicesBanksComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.cpp"/>
+        <FILE id="c8K4y7" name="voices_VoicesBanksComponent.h" compile="0"
+              resource="0" file="Source/voices/voices_VoicesBanksComponent.h"/>
+        <FILE id="gT0gwk" name="voices_VoiceSlotsComponent.cpp" compile="1"
+              resource="0" file="Source/voices/voices_VoiceSlotsComponent.cpp"/>
+        <FILE id="wBj2DB" name="voices_VoiceSlotsComponent.h" compile="0" resource="0"
+              file="Source/voices/voices_VoiceSlotsComponent.h"/>
+      </GROUP>
+      <GROUP id="{77A907EF-4AAD-6EDF-4C50-7AF6DF493844}" name="widgets_Button">
+        <FILE id="AoSJEl" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+        <FILE id="bOMhy4" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+        <FILE id="IA6zLh" name="widget_ButtonForActivatingQuickEdit.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickEdit.cpp"/>
+        <FILE id="U4cKZV" name="widget_ButtonForActivatingQuickEdit.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForActivatingQuickEdit.h"/>
+        <FILE id="LfEnHM" name="widget_ButtonForPerformingRedo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
+        <FILE id="aUwJ1a" name="widget_ButtonForPerformingRedo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.h"/>
+        <FILE id="KB7mi4" name="widget_ButtonForPerformingUndo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
+        <FILE id="Y1LVKU" name="widget_ButtonForPerformingUndo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
+        <FILE id="Rbia78" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.cpp"/>
+        <FILE id="AdXHPb" name="widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPullingVoiceFromHardwareStorageSlot.h"/>
+        <FILE id="iE2QjT" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.cpp"/>
+        <FILE id="lx8O0d" name="widget_ButtonForPushingVoiceToHardwareStorageSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForPushingVoiceToHardwareStorageSlot.h"/>
+        <FILE id="zt0Y5a" name="widget_ButtonForShowingGlobalOptionsComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalOptionsComponent.cpp"/>
+        <FILE id="MZheDM" name="widget_ButtonForShowingGlobalOptionsComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalOptionsComponent.h"/>
+        <FILE id="gn81r5" name="widget_ButtonForShowingVoicesBanksComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.cpp"/>
+        <FILE id="hF9oDw" name="widget_ButtonForShowingVoicesBanksComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingVoicesBanksComponent.h"/>
+        <FILE id="WOC0PK" name="widget_ButtonForShowingSplitsComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.cpp"/>
+        <FILE id="DufaKi" name="widget_ButtonForShowingSplitsComponent.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForShowingSplitsComponent.h"/>
+        <FILE id="JwE7oX" name="widget_global_ButtonForPushingGlobalOptionsToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_global_ButtonForPushingGlobalOptionsToHardware.cpp"/>
+        <FILE id="ZsVHJ9" name="widget_global_ButtonForPushingGlobalOptionsToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_global_ButtonForPushingGlobalOptionsToHardware.h"/>
+        <FILE id="JrGvZn" name="widget_global_ButtonForShowingVoicesMapComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_global_ButtonForShowingVoicesMapComponent.cpp"/>
+        <FILE id="iutpPp" name="widget_global_ButtonForShowingVoicesMapComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_global_ButtonForShowingVoicesMapComponent.h"/>
+        <FILE id="QBRXou" name="widget_splits_ButtonForLoadingSelectedSplit.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.cpp"/>
+        <FILE id="GsbYgs" name="widget_splits_ButtonForLoadingSelectedSplit.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForLoadingSelectedSplit.h"/>
+        <FILE id="MgpBAc" name="widget_splits_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="NDRc5P" name="widget_splits_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="LZQy4C" name="widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.cpp"/>
+        <FILE id="qnnISY" name="widget_splits_ButtonForPullingSelectedSplitFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPullingSelectedSplitFromHardware.h"/>
+        <FILE id="LeSQbd" name="widget_splits_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="ZbZetT" name="widget_splits_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="OF1LhS" name="widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.cpp"/>
+        <FILE id="WqNUpR" name="widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_splits_ButtonForSavingCurrentSplitSettingsInSelectedSlot.h"/>
+        <FILE id="Wgj0pH" name="widget_voices_ButtonForLoadingSelectedVoice.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.cpp"/>
+        <FILE id="XvwmoM" name="widget_voices_ButtonForLoadingSelectedVoice.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForLoadingSelectedVoice.h"/>
+        <FILE id="OV4Azs" name="widget_voices_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="fmwPdx" name="widget_voices_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="yVUO7k" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.cpp"/>
+        <FILE id="dX1swv" name="widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPullingSelectedVoiceFromHardware.h"/>
+        <FILE id="i0Pe2d" name="widget_voices_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="R81J6R" name="widget_voices_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="bjQMFH" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.cpp"/>
+        <FILE id="BHLOT6" name="widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_voices_ButtonForSavingVoiceIntoSelectedSlot.h"/>
+      </GROUP>
+      <GROUP id="{6BF79D82-0E7C-60A9-D463-82B9462A76C2}" name="widgets_ComboBox">
+        <FILE id="QQhltc" name="widget_BaseComboBoxForOffOnValueTreeProperty.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_BaseComboBoxForOffOnValueTreeProperty.cpp"/>
+        <FILE id="n9CQpP" name="widget_BaseComboBoxForOffOnValueTreeProperty.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_BaseComboBoxForOffOnValueTreeProperty.h"/>
+        <FILE id="HG8uEO" name="widget_ComboBoxWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.cpp"/>
+        <FILE id="bLDLvl" name="widget_ComboBoxWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.h"/>
+        <FILE id="g3uHDt" name="widget_global_ComboBoxForSelectingActiveSensingEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingActiveSensingEnabled.cpp"/>
+        <FILE id="SUlFrj" name="widget_global_ComboBoxForSelectingActiveSensingEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingActiveSensingEnabled.h"/>
+        <FILE id="eXKNcF" name="widget_global_ComboBoxForSelectingControllersEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingControllersEnabled.cpp"/>
+        <FILE id="OzRC4T" name="widget_global_ComboBoxForSelectingControllersEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingControllersEnabled.h"/>
+        <FILE id="ldLhFZ" name="widget_global_ComboBoxForSelectingDescriptionTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingDescriptionTipsEnabled.cpp"/>
+        <FILE id="R4PMtt" name="widget_global_ComboBoxForSelectingDescriptionTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingDescriptionTipsEnabled.h"/>
+        <FILE id="mzSUdg" name="widget_global_ComboBoxForSelectingLocalControlEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingLocalControlEnabled.cpp"/>
+        <FILE id="KVFPDh" name="widget_global_ComboBoxForSelectingLocalControlEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingLocalControlEnabled.h"/>
+        <FILE id="KzOPww" name="widget_global_ComboBoxForSelectingMIDIechoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDIechoEnabled.cpp"/>
+        <FILE id="nkd40A" name="widget_global_ComboBoxForSelectingMIDIechoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDIechoEnabled.h"/>
+        <FILE id="Si9BNM" name="widget_global_ComboBoxForSelectingMIDImonoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDImonoEnabled.cpp"/>
+        <FILE id="O2HTwt" name="widget_global_ComboBoxForSelectingMIDImonoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingMIDImonoEnabled.h"/>
+        <FILE id="S7bAkm" name="widget_global_ComboBoxForSelectingOmniModeEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingOmniModeEnabled.cpp"/>
+        <FILE id="jovOe8" name="widget_global_ComboBoxForSelectingOmniModeEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingOmniModeEnabled.h"/>
+        <FILE id="rGPCaO" name="widget_global_ComboBoxForSelectingSpilloverEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSpilloverEnabled.cpp"/>
+        <FILE id="kppASO" name="widget_global_ComboBoxForSelectingSpilloverEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSpilloverEnabled.h"/>
+        <FILE id="IBAcqO" name="widget_global_ComboBoxForSelectingSplitStereoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSplitStereoEnabled.cpp"/>
+        <FILE id="CvlFCl" name="widget_global_ComboBoxForSelectingSplitStereoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSplitStereoEnabled.h"/>
+        <FILE id="cxzz8T" name="widget_global_ComboBoxForSelectingSQUICKenabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSQUICKenabled.cpp"/>
+        <FILE id="ZxeBeY" name="widget_global_ComboBoxForSelectingSQUICKenabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSQUICKenabled.h"/>
+        <FILE id="QhnyDU" name="widget_global_ComboBoxForSelectingSysExEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSysExEnabled.cpp"/>
+        <FILE id="tu2gp8" name="widget_global_ComboBoxForSelectingSysExEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingSysExEnabled.h"/>
+        <FILE id="RpggY2" name="widget_global_ComboBoxForSelectingValueTipsEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingValueTipsEnabled.cpp"/>
+        <FILE id="zD4N4w" name="widget_global_ComboBoxForSelectingValueTipsEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingValueTipsEnabled.h"/>
+        <FILE id="iCA5hG" name="widget_global_ComboBoxForSelectingVibratoModSource.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoModSource.cpp"/>
+        <FILE id="G5ZMlm" name="widget_global_ComboBoxForSelectingVibratoModSource.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoModSource.h"/>
+        <FILE id="DtNwB3" name="widget_global_ComboBoxForSelectingVibratoWaveType.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoWaveType.cpp"/>
+        <FILE id="bZ5Op1" name="widget_global_ComboBoxForSelectingVibratoWaveType.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVibratoWaveType.h"/>
+        <FILE id="vmhbyg" name="widget_global_ComboBoxForSelectingVoiceChangesEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoiceChangesEnabled.cpp"/>
+        <FILE id="KU2E2I" name="widget_global_ComboBoxForSelectingVoiceChangesEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoiceChangesEnabled.h"/>
+        <FILE id="ZwlZj0" name="widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.cpp"/>
+        <FILE id="rQqNkF" name="widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEchoEnabled.h"/>
+        <FILE id="RrG2CW" name="widget_global_ComboBoxForSelectingVoicesMapEnabled.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEnabled.cpp"/>
+        <FILE id="p185Bk" name="widget_global_ComboBoxForSelectingVoicesMapEnabled.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForSelectingVoicesMapEnabled.h"/>
+        <FILE id="NFqaLN" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.cpp"/>
+        <FILE id="zyKEZD" name="widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingDestinationForMod.h"/>
+        <FILE id="iTrF3p" name="widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.cpp"/>
+        <FILE id="FzFelQ" name="widget_matrixMod_ComboBoxForSelectingSourceForMod.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_matrixMod_ComboBoxForSelectingSourceForMod.h"/>
+        <FILE id="olUGbk" name="widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.cpp"/>
+        <FILE id="pPTkCt" name="widget_splits_ComboBoxForSelectingZoneMIDIout.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneMIDIout.h"/>
+        <FILE id="TTEOJN" name="widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.cpp"/>
+        <FILE id="PYIFUe" name="widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_splits_ComboBoxForSelectingZoneVoiceAssignments.h"/>
+        <FILE id="ifkO64" name="widget_voices_ComboBoxForSelectingVoicesBank.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_voices_ComboBoxForSelectingVoicesBank.cpp"/>
+        <FILE id="v3qrBg" name="widget_voices_ComboBoxForSelectingVoicesBank.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_voices_ComboBoxForSelectingVoicesBank.h"/>
+      </GROUP>
+      <GROUP id="{93DD19EC-05B5-E896-1662-DA903C62E6EC}" name="widgets_ControlsForParameters">
+        <FILE id="ks1X1U" name="widget_ControlForExposedParameter.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.cpp"/>
+        <FILE id="AkxuxK" name="widget_ControlForExposedParameter.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.h"/>
+        <FILE id="SCn615" name="widget_ControlsForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.cpp"/>
+        <FILE id="FYD9gv" name="widget_ControlsForExposedParameters.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"/>
+        <FILE id="rdcFVG" name="widget_ControlTypes.h" compile="0" resource="0"
+              file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
+      </GROUP>
+      <GROUP id="{597D30C1-7E28-A557-D8D2-530C3179F5CD}" name="widgets_Label">
+        <FILE id="G7g9Iv" name="widget_EditableLabel.h" compile="0" resource="0"
+              file="Source/widgets_Label/widget_EditableLabel.h"/>
+      </GROUP>
+      <GROUP id="{84B2F553-C0C5-2019-A2BE-1AC61064A459}" name="widgets_Slider">
+        <FILE id="vBOBrr" name="widget_BaseSliderForSettingControllerNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_BaseSliderForSettingControllerNumber.cpp"/>
+        <FILE id="SYutKm" name="widget_BaseSliderForSettingControllerNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_BaseSliderForSettingControllerNumber.h"/>
+        <FILE id="zAmF7d" name="widget_LinearSliderWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.cpp"/>
+        <FILE id="fyvFzr" name="widget_global_SliderForSettingBasicChannel.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingBasicChannel.cpp"/>
+        <FILE id="fdkd9Z" name="widget_global_SliderForSettingBasicChannel.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingBasicChannel.h"/>
+        <FILE id="FoO2sJ" name="widget_global_SliderForSettingDisplayBrightness.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingDisplayBrightness.cpp"/>
+        <FILE id="Dw2Kfk" name="widget_global_SliderForSettingDisplayBrightness.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingDisplayBrightness.h"/>
+        <FILE id="GYw6U3" name="widget_global_SliderForSettingGlobalTune.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingGlobalTune.cpp"/>
+        <FILE id="lsGEYD" name="widget_global_SliderForSettingGlobalTune.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingGlobalTune.h"/>
+        <FILE id="qZMlnJ" name="widget_global_SliderForSettingLever2Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever2Controller.cpp"/>
+        <FILE id="XVziG3" name="widget_global_SliderForSettingLever2Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever2Controller.h"/>
+        <FILE id="BS5mXh" name="widget_global_SliderForSettingLever3Controller.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever3Controller.cpp"/>
+        <FILE id="uQzhVg" name="widget_global_SliderForSettingLever3Controller.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingLever3Controller.h"/>
+        <FILE id="Ijk3Lg" name="widget_global_SliderForSettingPedalController.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingPedalController.cpp"/>
+        <FILE id="r8KCGW" name="widget_global_SliderForSettingPedalController.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingPedalController.h"/>
+        <FILE id="pqg1EC" name="widget_global_SliderForSettingVibratoAmplitude.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoAmplitude.cpp"/>
+        <FILE id="Tcfx43" name="widget_global_SliderForSettingVibratoAmplitude.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoAmplitude.h"/>
+        <FILE id="pJIyUY" name="widget_global_SliderForSettingVibratoModAmount.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoModAmount.cpp"/>
+        <FILE id="k1Rbun" name="widget_global_SliderForSettingVibratoModAmount.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoModAmount.h"/>
+        <FILE id="gfRcaG" name="widget_global_SliderForSettingVibratoSpeed.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoSpeed.cpp"/>
+        <FILE id="F8Egls" name="widget_global_SliderForSettingVibratoSpeed.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_global_SliderForSettingVibratoSpeed.h"/>
+        <FILE id="NCDuSM" name="widget_LinearSliderWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_LinearSliderWithExposedParamAttacher.h"/>
+        <FILE id="pERCFz" name="widget_matrixMod_SliderForSettingAmountForMod.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_matrixMod_SliderForSettingAmountForMod.cpp"/>
+        <FILE id="NfFXqY" name="widget_matrixMod_SliderForSettingAmountForMod.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_matrixMod_SliderForSettingAmountForMod.h"/>
+        <FILE id="rtMy4Y" name="widget_ModifiedJuceSliders.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
+        <FILE id="VGqW8u" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
+              file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+        <FILE id="mDAkyu" name="widget_RotarySliderForPitchWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderForPitchWithExposedParamAttacher.cpp"/>
+        <FILE id="PkEvBN" name="widget_RotarySliderForPitchWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_RotarySliderForPitchWithExposedParamAttacher.h"/>
+        <FILE id="CB2ll3" name="widget_RotarySliderWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.cpp"/>
+        <FILE id="PAzkfo" name="widget_RotarySliderWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_RotarySliderWithExposedParamAttacher.h"/>
+        <FILE id="eIfbg9" name="widget_SliderForVoiceNumber.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.cpp"/>
+        <FILE id="I1Xozr" name="widget_SliderForVoiceNumber.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_SliderForVoiceNumber.h"/>
+        <FILE id="aD8cMq" name="widget_splits_SliderForSettingZoneLimit.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.cpp"/>
+        <FILE id="TOkH3K" name="widget_splits_SliderForSettingZoneLimit.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneLimit.h"/>
+        <FILE id="ag5wM5" name="widget_splits_SliderForSettingZoneTranspose.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.cpp"/>
+        <FILE id="Q0z0yi" name="widget_splits_SliderForSettingZoneTranspose.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneTranspose.h"/>
+        <FILE id="WlZU71" name="widget_splits_SliderForSettingZoneVoiceNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVoiceNumber.cpp"/>
+        <FILE id="DxBxx4" name="widget_splits_SliderForSettingZoneVoiceNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVoiceNumber.h"/>
+        <FILE id="zup1tp" name="widget_splits_SliderForSettingZoneVolumeBalance.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.cpp"/>
+        <FILE id="vJfamF" name="widget_splits_SliderForSettingZoneVolumeBalance.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_splits_SliderForSettingZoneVolumeBalance.h"/>
+        <FILE id="Pp5sDq" name="widget_voicesMap_SliderForSettingInVoiceForProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingInVoiceForProgramNumber.cpp"/>
+        <FILE id="lO6A6H" name="widget_voicesMap_SliderForSettingInVoiceForProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingInVoiceForProgramNumber.h"/>
+        <FILE id="BLTbQ9" name="widget_voicesMap_SliderForSettingOutProgramNumber.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingOutProgramNumber.cpp"/>
+        <FILE id="ezNdN4" name="widget_voicesMap_SliderForSettingOutProgramNumber.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_voicesMap_SliderForSettingOutProgramNumber.h"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{ACAB5C26-26C1-DB80-037D-577F9CE8BE5B}" name="Resources">
+      <FILE id="mhwpSC" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
+      <FILE id="lEyyjS" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
+      <FILE id="NMBE9d" name="Button-Close-Down.png" compile="0" resource="1"
+            file="Resources/Button-Close-Down.png"/>
+      <FILE id="SSTX9i" name="Button-Close-Up.png" compile="0" resource="1"
+            file="Resources/Button-Close-Up.png"/>
+      <FILE id="VKZzUH" name="Button-Edit-Down.png" compile="0" resource="1"
+            file="Resources/Button-Edit-Down.png"/>
+      <FILE id="Y9F6Da" name="Button-Edit-Up.png" compile="0" resource="1"
+            file="Resources/Button-Edit-Up.png"/>
+      <FILE id="RfcTVl" name="Button-Load-Down.png" compile="0" resource="1"
+            file="Resources/Button-Load-Down.png"/>
+      <FILE id="JGpbmV" name="Button-Load-Up.png" compile="0" resource="1"
+            file="Resources/Button-Load-Up.png"/>
+      <FILE id="PzkX9B" name="Button-Master-Down.png" compile="0" resource="1"
+            file="Resources/Button-Master-Down.png"/>
+      <FILE id="LqI4aF" name="Button-Master-Up.png" compile="0" resource="1"
+            file="Resources/Button-Master-Up.png"/>
+      <FILE id="F0jSf7" name="Button-Patches-Down.png" compile="0" resource="1"
+            file="Resources/Button-Patches-Down.png"/>
+      <FILE id="F4DWAr" name="Button-Patches-Up.png" compile="0" resource="1"
+            file="Resources/Button-Patches-Up.png"/>
+      <FILE id="QF9SrD" name="Button-Pull-Down.png" compile="0" resource="1"
+            file="Resources/Button-Pull-Down.png"/>
+      <FILE id="ieKLV6" name="Button-Pull-Up.png" compile="0" resource="1"
+            file="Resources/Button-Pull-Up.png"/>
+      <FILE id="sb1A6m" name="Button-Push-Down.png" compile="0" resource="1"
+            file="Resources/Button-Push-Down.png"/>
+      <FILE id="DGLHBX" name="Button-Push-Up.png" compile="0" resource="1"
+            file="Resources/Button-Push-Up.png"/>
+      <FILE id="YbywgD" name="Button-Quick-Edit-Down.png" compile="0" resource="1"
+            file="Resources/Button-Quick-Edit-Down.png"/>
+      <FILE id="wbIsVU" name="Button-Quick-Edit-Flash.png" compile="0" resource="1"
+            file="Resources/Button-Quick-Edit-Flash.png"/>
+      <FILE id="i0gduo" name="Button-Quick-Edit-Up.png" compile="0" resource="1"
+            file="Resources/Button-Quick-Edit-Up.png"/>
+      <FILE id="D8QDAK" name="Button-Rand-Down.png" compile="0" resource="1"
+            file="Resources/Button-Rand-Down.png"/>
+      <FILE id="h946w9" name="Button-Rand-Up.png" compile="0" resource="1"
+            file="Resources/Button-Rand-Up.png"/>
+      <FILE id="V7gjtT" name="Button-Redo-Down.png" compile="0" resource="1"
+            file="Resources/Button-Redo-Down.png"/>
+      <FILE id="rNMXD1" name="Button-Redo-Up.png" compile="0" resource="1"
+            file="Resources/Button-Redo-Up.png"/>
+      <FILE id="iLNwbS" name="Button-Reset-Down.png" compile="0" resource="1"
+            file="Resources/Button-Reset-Down.png"/>
+      <FILE id="u9a1IN" name="Button-Reset-Up.png" compile="0" resource="1"
+            file="Resources/Button-Reset-Up.png"/>
+      <FILE id="vmgRTu" name="Button-Retry-Down.png" compile="0" resource="1"
+            file="Resources/Button-Retry-Down.png"/>
+      <FILE id="XfaCKL" name="Button-Retry-Up.png" compile="0" resource="1"
+            file="Resources/Button-Retry-Up.png"/>
+      <FILE id="krDbTG" name="Button-Save-Down.png" compile="0" resource="1"
+            file="Resources/Button-Save-Down.png"/>
+      <FILE id="yQPJy9" name="Button-Save-Up.png" compile="0" resource="1"
+            file="Resources/Button-Save-Up.png"/>
+      <FILE id="Bbc4rR" name="Button-Splits-Down.png" compile="0" resource="1"
+            file="Resources/Button-Splits-Down.png"/>
+      <FILE id="QKLXlc" name="Button-Splits-Up.png" compile="0" resource="1"
+            file="Resources/Button-Splits-Up.png"/>
+      <FILE id="tBGfww" name="Button-Stop-Down.png" compile="0" resource="1"
+            file="Resources/Button-Stop-Down.png"/>
+      <FILE id="ZoqSKv" name="Button-Stop-Up.png" compile="0" resource="1"
+            file="Resources/Button-Stop-Up.png"/>
+      <FILE id="K9CRG6" name="Button-Undo-Down.png" compile="0" resource="1"
+            file="Resources/Button-Undo-Down.png"/>
+      <FILE id="VC2N85" name="Button-Undo-Up.png" compile="0" resource="1"
+            file="Resources/Button-Undo-Up.png"/>
+      <FILE id="k8PSIT" name="Button-X-Down.png" compile="0" resource="1"
+            file="Resources/Button-X-Down.png"/>
+      <FILE id="UtvWbo" name="Button-X-Gray-Down.png" compile="0" resource="1"
+            file="Resources/Button-X-Gray-Down.png"/>
+      <FILE id="F7pZBO" name="Button-X-Gray-Up.png" compile="0" resource="1"
+            file="Resources/Button-X-Gray-Up.png"/>
+      <FILE id="WiGvJ5" name="Button-X-Orange-Down.png" compile="0" resource="1"
+            file="Resources/Button-X-Orange-Down.png"/>
+      <FILE id="qJdqBu" name="Button-X-Orange-Up.png" compile="0" resource="1"
+            file="Resources/Button-X-Orange-Up.png"/>
+      <FILE id="tTe1Ef" name="Button-X-Up.png" compile="0" resource="1" file="Resources/Button-X-Up.png"/>
+      <FILE id="b3xRDG" name="Master-Window.png" compile="0" resource="1"
+            file="Resources/Master-Window.png"/>
+      <FILE id="EBUM6K" name="Matrix-6G-Main-Window-Background.png" compile="0"
+            resource="1" file="Resources/Matrix-6G-Main-Window-Background.png"/>
+      <FILE id="wCy7Rm" name="No-SysEx-Warning-Window.png" compile="0" resource="1"
+            file="Resources/No-SysEx-Warning-Window.png"/>
+      <FILE id="Tru8s0" name="Patch-Map-Window.png" compile="0" resource="1"
+            file="Resources/Patch-Map-Window.png"/>
+      <FILE id="KazyCk" name="Patches-Footer-For-Custom-Banks.png" compile="0"
+            resource="1" file="Resources/Patches-Footer-For-Custom-Banks.png"/>
+      <FILE id="dfBMPx" name="Patches-Footer-For-Factory-Banks.png" compile="0"
+            resource="1" file="Resources/Patches-Footer-For-Factory-Banks.png"/>
+      <FILE id="QOlZEY" name="Patches-Header.png" compile="0" resource="1"
+            file="Resources/Patches-Header.png"/>
+      <FILE id="rI10u6" name="Splits-Window.png" compile="0" resource="1"
+            file="Resources/Splits-Window.png"/>
+      <FILE id="LK5r9v" name="Title-Pulling-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
+      <FILE id="UyJcX7" name="Title-Pushing-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pushing-Entire-Bank.png"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G 2 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G 2" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release"
+                       defines="HOST_DOES_NOT_ADD_F0_AND_F7=1" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

@@ -24,7 +24,7 @@ class PluginEditor :
 
 public:
     PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
-    void paint(Graphics&) override;
+    void paint(Graphics& g) override;
 
 private:
     void timerCallback() override;
@@ -35,5 +35,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginEditor)
 };

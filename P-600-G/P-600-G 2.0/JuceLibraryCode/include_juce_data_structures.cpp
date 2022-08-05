@@ -6,4 +6,4 @@
 */
 
 #include "AppConfig.h"
-#include <juce_audio_plugin_client/juce_audio_plugin_client_RTAS_2.cpp>
+#include <juce_data_structures/juce_data_structures.cpp>

@@ -1,6 +1,6 @@
 /*
 =============================================================================
- THE CODE FOR MOPHOGUI IS PROVIDED "AS IS" WITHOUT ANY WARRANTY, AND ALL
+ THE CODE FOR MOPHOGUI 2 IS PROVIDED "AS IS" WITHOUT ANY WARRANTY, AND ALL
  WARRANTIES, WHETHER EXPRESSED OR IMPLIED, INCLUDING MERCHANTABILITY AND
  FITNESS FOR PURPOSE, ARE DISCLAIMED.
 =============================================================================
@@ -62,7 +62,7 @@ public:
     const String getProgramName(int index) override;
     void changeProgramName(int index, const String& newName) override;
 
-    void processBlock(AudioBuffer<float>&, MidiBuffer&) override;
+    void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
@@ -78,5 +78,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PluginProcessor)
 };

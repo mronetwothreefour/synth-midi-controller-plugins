@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="M58GdQ" name="P-600-G 2" projectType="audioplug" useAppConfig="1"
+              jucerFormatVersion="1" version="2.0.0" companyName="Mister 1-2-3-4 Programming"
+              companyWebsite="http://programming.mr1234.com" companyEmail="programming@mr1234.com"
+              pluginFormats="buildVST3" pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Sound editor/librarian for use with the Sequential Circuits Prophet 600 synthesizer"
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+  <MAINGROUP id="QgKzcN" name="P-600-G 2">
+    <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
+      <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_MainWindow.png"/>
+    </GROUP>
+    <GROUP id="{CA846C30-47F5-2E7C-B1F7-99595E663CFF}" name="Source">
+      <GROUP id="{60411E3B-20C0-1BF1-F416-77D9D4AF2EA7}" name="_core">
+        <FILE id="jOnhG2" name="core_0_PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/core_0_PluginProcessor.cpp"/>
+        <FILE id="chaVOl" name="core_0_PluginProcessor.h" compile="0" resource="0"
+              file="Source/core_0_PluginProcessor.h"/>
+        <FILE id="y0fi2z" name="core_1_PluginEditor.cpp" compile="1" resource="0"
+              file="Source/core_1_PluginEditor.cpp"/>
+        <FILE id="o6zu9W" name="core_1_PluginEditor.h" compile="0" resource="0"
+              file="Source/core_1_PluginEditor.h"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{91BB00F8-AE5A-DBA5-DD28-A959DCA33496}" name="constants">
+      <FILE id="t7TitO" name="constants_GUI_Dimensions.h" compile="0" resource="0"
+            file="Source/constants/constants_GUI_Dimensions.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING&#10;HOST_DOES_NOT_ADD_F0_AND_F7=1"
+                       enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G 2" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING&#10;HOST_DOES_NOT_ADD_F0_AND_F7=1"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
