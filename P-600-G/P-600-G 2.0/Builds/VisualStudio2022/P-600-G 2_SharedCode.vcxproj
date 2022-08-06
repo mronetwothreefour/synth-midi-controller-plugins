@@ -142,6 +142,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2296,7 +2299,14 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\core_0_PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\core_1_PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3197,6 +3207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

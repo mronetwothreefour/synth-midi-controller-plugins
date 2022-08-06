@@ -10,6 +10,8 @@
     <GROUP id="{6320515F-D3C6-723F-F40B-7ABF4C366D9D}" name="BinaryResources">
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
+      <FILE id="M2aKqo" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     </GROUP>
     <GROUP id="{32F88CA1-1526-FB18-BBD8-E3D2E645A60E}" name="Source">
       <GROUP id="{A86CEFF4-8FB1-4EE9-F54A-0F742F9D3BFA}" name="_core">
@@ -23,8 +25,32 @@
               file="Source/core_1_PluginEditor.h"/>
       </GROUP>
       <GROUP id="{64A2EE47-5431-4AC6-9DF7-57B58DED33B8}" name="constants">
+        <FILE id="GpQ18e" name="constants_Enum.h" compile="0" resource="0"
+              file="Source/constants/constants_Enum.h"/>
+        <FILE id="FwfXpe" name="constants_ExposedParameters.h" compile="0"
+              resource="0" file="Source/constants/constants_ExposedParameters.h"/>
         <FILE id="WX4JBq" name="constants_GUI_Dimensions.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Dimensions.h"/>
+        <FILE id="wO0rDk" name="constants_GUI_FontsAndSpecialCharacters.h"
+              compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
+        <FILE id="QbNxA6" name="constants_Identifiers.h" compile="0" resource="0"
+              file="Source/constants/constants_Identifiers.h"/>
+      </GROUP>
+      <GROUP id="{80948424-0ECC-63C5-4F0A-A89D309A618C}" name="descriptions">
+        <FILE id="dkpCPZ" name="build_ExposedParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
+        <FILE id="G1k5S0" name="build_ExposedParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+      </GROUP>
+      <GROUP id="{7C2D81E1-8374-423C-0C7A-78855C0C47A8}" name="exposedParameters">
+        <FILE id="oHBsEe" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.cpp"/>
+        <FILE id="pZ53AT" name="ep_0_build_ChoiceNamesValueTree.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.h"/>
+        <FILE id="QzNsJZ" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
+        <FILE id="SE9396" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

@@ -10,6 +10,9 @@
     <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
       <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
+      <FILE id="UazGl9" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
+      <FILE id="Jv8T7b" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     </GROUP>
     <GROUP id="{CA846C30-47F5-2E7C-B1F7-99595E663CFF}" name="Source">
       <GROUP id="{60411E3B-20C0-1BF1-F416-77D9D4AF2EA7}" name="_core">
@@ -22,10 +25,34 @@
         <FILE id="o6zu9W" name="core_1_PluginEditor.h" compile="0" resource="0"
               file="Source/core_1_PluginEditor.h"/>
       </GROUP>
-    </GROUP>
-    <GROUP id="{91BB00F8-AE5A-DBA5-DD28-A959DCA33496}" name="constants">
-      <FILE id="t7TitO" name="constants_GUI_Dimensions.h" compile="0" resource="0"
-            file="Source/constants/constants_GUI_Dimensions.h"/>
+      <GROUP id="{91BB00F8-AE5A-DBA5-DD28-A959DCA33496}" name="constants">
+        <FILE id="pnkacO" name="constants_Enum.h" compile="0" resource="0"
+              file="Source/constants/constants_Enum.h"/>
+        <FILE id="CRrmRk" name="constants_ExposedParameters.h" compile="0"
+              resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="t7TitO" name="constants_GUI_Dimensions.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Dimensions.h"/>
+        <FILE id="SpPmTp" name="constants_GUI_FontsAndSpecialCharacters.h"
+              compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
+        <FILE id="P84JEh" name="constants_Identifiers.h" compile="0" resource="0"
+              file="Source/constants/constants_Identifiers.h"/>
+      </GROUP>
+      <GROUP id="{08F39EC5-8D87-0EFA-F3A0-483D23EEE650}" name="descriptions">
+        <FILE id="qhGtc3" name="build_ExposedParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
+        <FILE id="xuHauO" name="build_ExposedParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+      </GROUP>
+      <GROUP id="{BA9A0FC6-3FBC-8D36-E171-19EB5587F45F}" name="exposedParameters">
+        <FILE id="vlITbb" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.cpp"/>
+        <FILE id="gquYVv" name="ep_0_build_ChoiceNamesValueTree.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.h"/>
+        <FILE id="oVexWl" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
+        <FILE id="wdCm8k" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

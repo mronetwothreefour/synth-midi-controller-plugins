@@ -8,11 +8,17 @@
     <Filter Include="P-600-G 2\Source\_core">
       <UniqueIdentifier>{4352F1CF-9ECC-264C-90A2-C43B06359923}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\constants">
+      <UniqueIdentifier>{89AAF8F5-F2AA-C263-1028-31DC21849EA1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2\Source\descriptions">
+      <UniqueIdentifier>{9E2769FA-EB33-B06C-8ECE-FED6C40D2D33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2\Source\exposedParameters">
+      <UniqueIdentifier>{1668C243-2841-A953-F0F3-CD43AB3A2540}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source">
       <UniqueIdentifier>{5CE18680-527B-6D71-FCEB-BAE7474785B9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="P-600-G 2\constants">
-      <UniqueIdentifier>{F0155EAF-5FF5-B995-9320-AD0667B93E11}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G 2">
       <UniqueIdentifier>{2FD0CD08-D9B0-7BEC-6EE2-C7FBD3B85DCB}</UniqueIdentifier>
@@ -591,6 +597,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp">
       <Filter>P-600-G 2\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
+      <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2904,8 +2919,29 @@
     <ClInclude Include="..\..\Source\core_1_PluginEditor.h">
       <Filter>P-600-G 2\Source\_core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Enum.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
-      <Filter>P-600-G 2\constants</Filter>
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
+      <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -5601,6 +5637,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

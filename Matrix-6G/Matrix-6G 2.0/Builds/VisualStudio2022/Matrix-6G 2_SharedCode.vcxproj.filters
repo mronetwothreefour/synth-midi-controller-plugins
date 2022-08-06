@@ -11,6 +11,12 @@
     <Filter Include="Matrix-6G 2\Source\constants">
       <UniqueIdentifier>{8B59251C-D628-3B96-9D81-9DA2055BC70D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\descriptions">
+      <UniqueIdentifier>{2CFCE182-8305-725C-8285-38EF38A6CA50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2\Source\exposedParameters">
+      <UniqueIdentifier>{4BCBC974-AF29-2DA2-9CE6-5A551E2BA80E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source">
       <UniqueIdentifier>{906E5EDC-CCE9-25B0-2423-9ED2CD03C9E0}</UniqueIdentifier>
     </Filter>
@@ -591,6 +597,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp">
       <Filter>Matrix-6G 2\Source\_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2904,8 +2919,29 @@
     <ClInclude Include="..\..\Source\core_1_PluginEditor.h">
       <Filter>Matrix-6G 2\Source\_core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Enum.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -5601,6 +5637,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

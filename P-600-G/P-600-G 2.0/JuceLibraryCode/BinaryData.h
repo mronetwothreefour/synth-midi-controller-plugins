@@ -11,8 +11,17 @@ namespace BinaryData
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 1136073;
 
+    extern const char*   SWISSB_TTF;
+    const int            SWISSB_TTFSize = 36852;
+
+    extern const char*   SWISSCK_TTF;
+    const int            SWISSCK_TTFSize = 38696;
+
+    extern const char*   SWISSCL_TTF;
+    const int            SWISSCL_TTFSize = 35064;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 4;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
