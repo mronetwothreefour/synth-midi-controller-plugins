@@ -26,6 +26,31 @@ String ExposedParamChoiceNamesValueTree::convertIntToPitchName(const uint8& i) n
     }
 }
 
+ValueTree ExposedParamChoiceNamesValueTree::buildForKeyboardMode(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Reassign" : "REASGN", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Rotate" : "ROTATE", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Unison" : "UNISON", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Reassign Rob" : "REAROB", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForLeverControl(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Off" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Pitch Bend by Lever 1" : "BEND", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Vibrato by Lever 2" : "VIB", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Modulated by Both Levers" : "BOTH", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOffOn(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Off" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "On" : "ON", nullptr);
+    return choiceNamesTree;
+}
+
 ValueTree ExposedParamChoiceNamesValueTree::buildForOscPitch(const bool verbose) {
     ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum) {
@@ -60,20 +85,82 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscType(const int oscNum, co
     return choiceNamesTree;
 }
 
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_SampleSource(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "None" : "NONE", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Envelope 1" : "ENV1", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Envelope 2" : "ENV2", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Envelope 3" : "ENV3", nullptr);
+    choiceNamesTree.setProperty("choice_4", verbose ? "LFO 1" : "LFO1", nullptr);
+    choiceNamesTree.setProperty("choice_5", verbose ? "LFO 2" : "LFO2", nullptr);
+    choiceNamesTree.setProperty("choice_6", verbose ? "Vibrato LFO" : "VIB", nullptr);
+    choiceNamesTree.setProperty("choice_7", verbose ? "Ramp Generator 1" : "RMP1", nullptr);
+    choiceNamesTree.setProperty("choice_8", verbose ? "Ramp Generator 2" : "RMP2", nullptr);
+    choiceNamesTree.setProperty("choice_9", verbose ? "Keyboard Scaling" : "KEYB", nullptr);
+    choiceNamesTree.setProperty("choice_10", verbose ? "Portamento Speed" : "PORT", nullptr);
+    choiceNamesTree.setProperty("choice_11", verbose ? "Tracking Generator" : "TRAK", nullptr);
+    choiceNamesTree.setProperty("choice_12", verbose ? "Keyboard Note Gate" : "GATE", nullptr);
+    choiceNamesTree.setProperty("choice_13", verbose ? "Keyboard Note Velocity" : "VEL", nullptr);
+    choiceNamesTree.setProperty("choice_14", verbose ? "Keyboard Release Velocity" : "RVEL", nullptr);
+    choiceNamesTree.setProperty("choice_15", verbose ? "Keyboard Pressure (Aftertouch)" : "PRES", nullptr);
+    choiceNamesTree.setProperty("choice_16", verbose ? "Pedal 1" : "PED1", nullptr);
+    choiceNamesTree.setProperty("choice_17", verbose ? "Pedal 2" : "PED2", nullptr);
+    choiceNamesTree.setProperty("choice_18", verbose ? "Lever 1" : "LEV1", nullptr);
+    choiceNamesTree.setProperty("choice_19", verbose ? "Lever 2" : "LEV2", nullptr);
+    choiceNamesTree.setProperty("choice_20", verbose ? "Lever 3" : "LEV3", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_TrigMode(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Off (Free Running)" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Single Trigger" : "STRIG", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Multiple Trigger" : "MTRIG", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "External Single Trigger" : "XTRIG", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_WaveType(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Triangle" : "TRI", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Up (Rising) Sawtooth" : "UPSAW", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Down (Falling) Sawtooth" : "DNSAW", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Square" : "SQUAR", nullptr);
+    choiceNamesTree.setProperty("choice_4", verbose ? "Random" : "RANDM", nullptr);
+    choiceNamesTree.setProperty("choice_5", verbose ? "Noise" : "NOISE", nullptr);
+    choiceNamesTree.setProperty("choice_6", verbose ? "Sampled" : "SAMPL", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_KeyTrack(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
+    return choiceNamesTree;
+}
+
 ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_Sync(const bool verbose) {
     ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    for (auto choiceNum = 0; choiceNum != 4; ++choiceNum) {
-        String choiceName{ "" };
-        if (choiceNum == 0)
-            choiceName = verbose ? "Off (0)" : "OFF";
-        if (choiceNum == 1)
-            choiceName = verbose ? "Soft Sync (1)" : "SOFT";
-        if (choiceNum == 2)
-            choiceName = verbose ? "Medium Sync (2)" : "MED";
-        if (choiceNum == 3)
-            choiceName = verbose ? "Hard Sync (3)" : "HARD";
-        choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
-    }
+    choiceNamesTree.setProperty("choice_0", verbose ? "Off (0)" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Soft Sync (1)" : "SOFT", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Medium Sync (2)" : "MED", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Hard Sync (3)" : "HARD", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_2_And_VCF_KeyTrack(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Key Tracking Is Off" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForPortaMode(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Linear" : "LINEAR", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Constant Time" : "CONST", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Exponential" : "EXPO", nullptr);
     return choiceNamesTree;
 }
 

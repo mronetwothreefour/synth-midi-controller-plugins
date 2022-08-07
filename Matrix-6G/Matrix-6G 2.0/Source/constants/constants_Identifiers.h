@@ -35,7 +35,7 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_26_VCF_KeyTrack{ "ep_26_VCF_KeyTrack" };
 		static const Identifier ep_27_VCA_1_Volume{ "ep_27_VCA_1_Volume" };
 		static const Identifier ep_28_VCA_1_VeloAmt{ "ep_28_VCA_1_VeloAmt" };
-		static const Identifier ep_29_VCA_2_Env2Amt{ "ep_29_VCA_2_Env2Amt" };
+		static const Identifier ep_29_VCA_2_Env_2_Amt{ "ep_29_VCA_2_Env_2_Amt" };
 		static const Identifier ep_30_VCF_FM_Osc_1_Amt{ "ep_30_VCF_FM_Osc_1_Amt" };
 		static const Identifier ep_31_VCF_FM_Env_3_Amt{ "ep_31_VCF_FM_Env_3_Amt" };
 		static const Identifier ep_32_VCF_FM_PressureAmt{ "ep_32_VCF_FM_PressureAmt" };
@@ -43,10 +43,10 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_34_PortaVelo{ "ep_34_PortaVelo" };
 		static const Identifier ep_35_PortaMode{ "ep_35_PortaMode" };
 		static const Identifier ep_36_PortaLegato{ "ep_36_PortaLegato" };
-		static const Identifier ep_37_Keyboard_Mode{ "ep_37_Keyboard_Mode" };
+		static const Identifier ep_37_KeyboardMode{ "ep_37_KeyboardMode" };
 		static const Identifier ep_38_LFO_1_Speed{ "ep_38_LFO_1_Speed" };
 		static const Identifier ep_39_LFO_1_WaveType{ "ep_39_LFO_1_WaveType" };
-		static const Identifier ep_40_LFO_1_Sample{ "ep_40_LFO_1_Sample" };
+		static const Identifier ep_40_LFO_1_SampleSource{ "ep_40_LFO_1_SampleSource" };
 		static const Identifier ep_41_LFO_1_Amp{ "ep_41_LFO_1_Amp" };
 		static const Identifier ep_42_LFO_1_PressureAmt{ "ep_42_LFO_1_PressureAmt" };
 		static const Identifier ep_43_LFO_1_Ramp_1_Amt{ "ep_43_LFO_1_Ramp_1_Amt" };
@@ -55,7 +55,7 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_46_LFO_1_Lag{ "ep_46_LFO_1_Lag" };
 		static const Identifier ep_47_LFO_2_Speed{ "ep_47_LFO_2_Speed" };
 		static const Identifier ep_48_LFO_2_WaveType{ "ep_48_LFO_2_WaveType" };
-		static const Identifier ep_49_LFO_2_Sample{ "ep_49_LFO_2_Sample" };
+		static const Identifier ep_49_LFO_2_SampleSource{ "ep_49_LFO_2_SampleSource" };
 		static const Identifier ep_50_LFO_2_Amp{ "ep_50_LFO_2_Amp" };
 		static const Identifier ep_51_LFO_2_KeyTrackAmt{ "ep_51_LFO_2_KeyTrackAmt" };
 		static const Identifier ep_52_LFO_2_Ramp_2_Amt{ "ep_52_LFO_2_Ramp_2_Amt" };
@@ -106,6 +106,7 @@ namespace Matrix_6G_Constants
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
+		static const Identifier property_DataByteIndex{ "property_DataByteIndex" };
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_Description{ "property_Description" };
 		static const Identifier property_RangeType{ "property_RangeType" };
