@@ -111,12 +111,10 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscPitch(const bool verbose)
     ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum) {
         String choiceName{ "" };
-        if (verbose) {
+        if (verbose)
             choiceName = convertIntToPitchName(choiceNum) + " (MIDI Note " + String(choiceNum) + ")";
-        }
-        else {
+        else
             choiceName = convertIntToPitchName(choiceNum);
-        }
         choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
     }
     return choiceNamesTree;
@@ -138,6 +136,38 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscType(const int oscNum, co
             choiceName = verbose ? "Noise" : "NOISE";
         choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
     }
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_KeyTrack(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_Sync(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Off (0)" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Soft Sync (1)" : "SOFT", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Medium Sync (2)" : "MED", nullptr);
+    choiceNamesTree.setProperty("choice_3", verbose ? "Hard Sync (3)" : "HARD", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_2_And_VCF_KeyTrack(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Key Tracking Is Off" : "OFF", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
+    return choiceNamesTree;
+}
+
+ValueTree ExposedParamChoiceNamesValueTree::buildForPortaMode(const bool verbose) {
+    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", verbose ? "Linear" : "LINEAR", nullptr);
+    choiceNamesTree.setProperty("choice_1", verbose ? "Constant Time" : "CONST", nullptr);
+    choiceNamesTree.setProperty("choice_2", verbose ? "Exponential" : "EXPO", nullptr);
     return choiceNamesTree;
 }
 
@@ -194,38 +224,6 @@ ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_WaveType(const bool ver
     choiceNamesTree.setProperty("choice_4", verbose ? "Random" : "RANDM", nullptr);
     choiceNamesTree.setProperty("choice_5", verbose ? "Noise" : "NOISE", nullptr);
     choiceNamesTree.setProperty("choice_6", verbose ? "Sampled" : "SAMPL", nullptr);
-    return choiceNamesTree;
-}
-
-ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_KeyTrack(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    choiceNamesTree.setProperty("choice_0", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
-    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
-    return choiceNamesTree;
-}
-
-ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_1_Sync(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    choiceNamesTree.setProperty("choice_0", verbose ? "Off (0)" : "OFF", nullptr);
-    choiceNamesTree.setProperty("choice_1", verbose ? "Soft Sync (1)" : "SOFT", nullptr);
-    choiceNamesTree.setProperty("choice_2", verbose ? "Medium Sync (2)" : "MED", nullptr);
-    choiceNamesTree.setProperty("choice_3", verbose ? "Hard Sync (3)" : "HARD", nullptr);
-    return choiceNamesTree;
-}
-
-ValueTree ExposedParamChoiceNamesValueTree::buildForOsc_2_And_VCF_KeyTrack(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    choiceNamesTree.setProperty("choice_0", verbose ? "Key Tracking Is Off" : "OFF", nullptr);
-    choiceNamesTree.setProperty("choice_1", verbose ? "Key Tracking With Portamento" : "PORTA", nullptr);
-    choiceNamesTree.setProperty("choice_2", verbose ? "Normal Key Tracking" : "KEYBD", nullptr);
-    return choiceNamesTree;
-}
-
-ValueTree ExposedParamChoiceNamesValueTree::buildForPortaMode(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    choiceNamesTree.setProperty("choice_0", verbose ? "Linear" : "LINEAR", nullptr);
-    choiceNamesTree.setProperty("choice_1", verbose ? "Constant Time" : "CONST", nullptr);
-    choiceNamesTree.setProperty("choice_2", verbose ? "Exponential" : "EXPO", nullptr);
     return choiceNamesTree;
 }
 

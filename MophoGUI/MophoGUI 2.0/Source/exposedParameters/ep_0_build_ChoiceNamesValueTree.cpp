@@ -357,12 +357,10 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscPitch(const bool verbose)
     ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum) {
         String choiceName{ "" };
-        if (verbose) {
+        if (verbose)
             choiceName = convertIntToPitchName(choiceNum) + " (MIDI Note " + String(choiceNum) + ")";
-        }
-        else {
+        else
             choiceName = convertIntToPitchName(choiceNum);
-        }
         choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
     }
     return choiceNamesTree;

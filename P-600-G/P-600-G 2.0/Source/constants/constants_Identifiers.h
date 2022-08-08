@@ -50,11 +50,16 @@ namespace P_600_G_Constants
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_Description{ "property_Description" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
+		static const Identifier property_FirstBitIndex{ "property_FirstBitIndex" };
+		static const Identifier property_FirstNybbleIndex{ "property_FirstNybbleIndex" };
 		static const Identifier property_Height{ "property_Height" };
+		static const Identifier property_NumberOfBits{ "property_NumberOfBits" };
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
+		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
 	}
 }

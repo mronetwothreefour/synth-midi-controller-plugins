@@ -1,11 +1,19 @@
-/*
-  ==============================================================================
-
-    constants_Enum.h
-    Created: 5 Aug 2022 11:10:42am
-    Author:  socl0
-
-  ==============================================================================
-*/
-
 #pragma once
+
+#include <JuceHeader.h>
+
+namespace P_600_G_Constants
+{
+	enum class ControlType {
+		nullControl = -1,
+		knob,
+		knobForPitch,
+		twoPoleSwitch,
+		threePoleSwitch
+	};
+
+	enum class EnvelopeType {
+		amplifier = 0,
+		filter,
+	};
+}
