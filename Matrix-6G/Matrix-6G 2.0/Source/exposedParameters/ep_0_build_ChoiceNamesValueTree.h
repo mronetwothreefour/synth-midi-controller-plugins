@@ -5,11 +5,16 @@
 struct ExposedParamChoiceNamesValueTree {
 	static String convertIntToPitchName(const uint8& i) noexcept;
 
+	static ValueTree buildForEnvMode(const bool verbose);
+	static ValueTree buildForEnvTrigMode(const bool verbose);
+	static ValueTree buildForEnv_LFO_1_Trig(const bool verbose);
 	static ValueTree buildForKeyboardMode(const bool verbose);
 	static ValueTree buildForLeverControl(const bool verbose);
+	static ValueTree buildForModSource(const bool verbose);
 	static ValueTree buildForOffOn(const bool verbose);
 	static ValueTree buildForOscPitch(const bool verbose);
 	static ValueTree buildForOscType(const int oscNum, const bool verbose);
+	static ValueTree buildForRampTrig(const bool verbose);
 	static ValueTree buildFor_LFO_SampleSource(const bool verbose);
 	static ValueTree buildFor_LFO_TrigMode(const bool verbose);
 	static ValueTree buildFor_LFO_WaveType(const bool verbose);

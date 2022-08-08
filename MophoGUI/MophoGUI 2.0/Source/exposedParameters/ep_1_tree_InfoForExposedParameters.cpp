@@ -2281,6 +2281,12 @@ int InfoForExposedParameters::heightFor(const uint8 paramIndex) const {
 	return (int)paramTree.getProperty(ID::property_Height);
 }
 
+String InfoForExposedParameters::descriptionFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return paramTree.getProperty(ID::property_Description).toString();
+}
+
 String InfoForExposedParameters::choiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const {
 	jassert(choiceNum < numberOfChoicesFor(paramIndex));
 	jassert(paramIndex < EP::numberOfExposedParams);
@@ -2313,12 +2319,6 @@ StringArray InfoForExposedParameters::verboseChoiceNamesListFor(const uint8 para
 	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
 		verboseChoiceNamesList.add(verboseChoiceNameFor(choiceNum, paramIndex));
 	return verboseChoiceNamesList;
-}
-
-String InfoForExposedParameters::descriptionFor(const uint8 paramIndex) const {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return paramTree.getProperty(ID::property_Description).toString();
 }
 
 int InfoForExposedParameters::mouseDragSensitivityFor(const uint8 paramIndex) const {

@@ -4,6 +4,123 @@
 
 using namespace Matrix_6G_Constants;
 
+String ExposedParamDescription::buildForEnvAttack(const String envNumString) {
+    String description{ "" };
+    description += "Sets the length of envelope " + envNumString + GUI::apostrophe + "s attack\n";
+    description += "stage, the amount of time it takes to\n";
+    description += "rise from minimum to maximum level.\n";
+    description += "Range: 0 (instantaneous) to 63 (longest).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvAmp(const String envNumString) {
+    String description{ "" };
+    description += "Sets the maximum output level of envelope " + envNumString + ", which determines\n";
+    description += "the degree to which the envelope modulates its destination.\n";
+    description += "Range: 0 (none) to 63 (maximum).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvDecay(const String envNumString) {
+    String description{ "" };
+    description += "Sets the length of envelope " + envNumString + GUI::apostrophe + "s decay stage,\n";
+    description += "the amount of time it takes to drop from\n";
+    description += "the maximum level to the sustain level.\n";
+    description += "Range: 0 (instantaneous) to 63 (longest).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvDelay(const String envNumString) {
+    String description{ "" };
+    description += "Sets the length of envelope " + envNumString + GUI::apostrophe + "s delay stage,\n";
+    description += "the amount of time after the envelope is\n";
+    description += "triggered before the attack stage begins.\n";
+    description += "Range: 0 (instantaneous) to 63 (longest).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvMode(const String envNumString) {
+    String description{ "" };
+    description += "Selects how envelope " + envNumString + " completes its cycle when triggered.\n";
+    description += "NORMAL: When a note is gated on and the envelope is triggered, the cycle\n";
+    description += "will run through the delay, attack, and decay stages, then hold at the\n";
+    description += "sustain level. Gating off the note will immediately trigger the release\n";
+    description += "stage, even if the sustain stage has not yet been reached.\n";
+    description += "DADR: Delay-Attack-Decay-Release - the release stage begins immediately\n";
+    description += "after the decay stage, whether or not the voice is still gated on. Gating off \n";
+    description += "the voice before the other stages complete will also start the release stage.\n";
+    description += "FREE: Free run - the envelope will completely run through the delay, attack,\n";
+    description += "decay, and release stages, whether or not the note is kept gated on.\n";
+    description += "Keeping the note gated on will hold the sustain level normally.\n";
+    description += "BOTH: Both DADR and free run - like free run mode, except the release stage\n";
+    description += "begins immediately after the decay stage, even if the note is still gated on.";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvRelease(const String envNumString) {
+    String description{ "" };
+    description += "Sets the length of envelope " + envNumString + GUI::apostrophe + "s release stage,\n";
+    description += "the amount of time it takes to drop from\n";
+    description += "the sustain level to the minimum level.\n";
+    description += "Range: 0 (instantaneous) to 63 (longest).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvSustain(const String envNumString) {
+    String description{ "" };
+    description += "Sets envelope " + envNumString + GUI::apostrophe + "s sustain level. After the\n";
+    description += "decay stage completes, output will remain at\n";
+    description += "this level until the voice is gated off.\n";
+    description += "Range: 0 (minimum) to 63 (maximum).";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvTrigMode(const String envNumString) {
+    String description{ "" };
+    description += "Selects what sort of trigger will start envelope " + envNumString + GUI::apostrophe + "s cycle.\n";
+    description += "STRIG: Single trigger (unison mode only) - the cycle will start for\n";
+    description += "a voice only if it is not already playing. Legato playing will not\n";
+    description += "re-trigger the cycle. If the envelope is re-triggered before its cycle\n";
+    description += "completes, it will continue from the point it was at in the cycle.\n";
+    description += "SRESET: Single trigger reset - like single trigger mode, except\n";
+    description += "that if the envelope is re-triggered before its cycle completes,\n";
+    description += "the envelope will reset to the start of the cycle.\n";
+    description += "MTRIG: Multiple trigger - New notes will always re-trigger the envelope,\n";
+    description += "and it will continue from the last point it was at in its cycle.\n";
+    description += "MRESET: Multiple trigger reset - new notes will always re-trigger\n";
+    description += "the envelope and reset it to the beginning of its cycle.\n";
+    description += "The remaining modes behave like their counterparts above, but the trigger\n";
+    description += "comes from a DC pulse (e.g. from a footswitch) sent into the PEDAL 2 jack:\n";
+    description += "XTRIG: External single trigger; XRESET: External single trigger reset;\n";
+    description += "XMTRIG: External multiple trigger; XMRST: External multiple trigger reset.";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnvVeloAmt(const String envNumString) {
+    String description{ "" };
+    description += "Sets whether and to what degree note\n";
+    description += "velocity modulates envelope " + envNumString + GUI::apostrophe + "s amplitude.\n";
+    description += "Range: -63 to +63. 0 is no modulation.\n";
+    description += "Negative values invert the velocity response.\n";
+    description += "NOTE: Negative values cannot be\n";
+    description += "assigned to individual parameters via\n";
+    description += "Quick Patch Edit. Use the PUSH button\n";
+    description += "to send the entire patch instead.";
+    return description;
+}
+
+String ExposedParamDescription::buildForEnv_LFO_1_Trig(const String envNumString) {
+    String description{ "" };
+    description += "Selects whether and how envelope " + envNumString + "s cycle is triggered by LFO 1.\n";
+    description += "NORMAL: The envelope cycle is not triggered by LFO 1.\n";
+    description += "G-LFO1: Gated LFO 1 trigger - LFO 1 will trigger the envelope cycle\n";
+    description += "periodically only if one or more notes are currently gated on.\n";
+    description += "LFO 1: The envelope cycle is triggered periodically by LFO 1.\n";
+    description += "The point in LFO 1" + GUI::apostrophe + "s cycle which actually triggers the envelope\n";
+    description += "cycle is determined by the LFO 1 Retrigger Point parameter.";
+    return description;
+}
+
 String ExposedParamDescription::buildForKeyboardMode() {
     String description{ "" };
     description += "Selects how notes get assigned to the hardware" + GUI::apostrophe + "s six available voices.\n";
@@ -187,6 +304,41 @@ String ExposedParamDescription::buildForPortaVelo() {
     description += "assigned to individual parameters via\n";
     description += "Quick Patch Edit. Use the PUSH button\n";
     description += "to send the entire patch instead.";
+    return description;
+}
+
+String ExposedParamDescription::buildForRampRate(const int rampNum) {
+    String description{ "" };
+    description += "Sets the amount of time it takes for\n";;
+    description += "Ramp " + (String)rampNum + " to complete its control cycle.\n";
+    description += "Range: 0 (instantaneous) to 63 (longest).";
+    return description;
+}
+
+String ExposedParamDescription::buildForRampTrig(const int rampNum) {
+    String description{ "" };
+    description += "Selects the type of trigger that will start ramp " + (String)rampNum + GUI::apostrophe + "s control cycle.\n";
+    description += "STRIG: Single - A new note triggers the ramp only when no other\n";
+    description += "notes are currently held down (only active in unison mode).\n";
+    description += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
+    description += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
+    description += "GATEX: Gated External - an external signal triggers the ramp only when\n";
+    description += "there are one or more notes being played.";
+    return description;
+}
+
+String ExposedParamDescription::buildForTrackInput() {
+    String description{ "" };
+    description += "Selects the modulation source which\n";
+    description += "will be shaped by the tracking generator.";
+    return description;
+}
+
+String ExposedParamDescription::buildForTrackPoint(const int pointNum, int defaultChoice) {
+    String description{ "" };
+    description += "Tracking Point " + (String)pointNum + "\n";
+    description += "Range: 0 to 63.\n";
+    description += "Linear output value: " + (String)defaultChoice + ".";
     return description;
 }
 

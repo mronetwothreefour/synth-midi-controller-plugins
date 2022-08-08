@@ -32,11 +32,11 @@ public:
 	Point<int> redToggleCenterPointFor(const uint8 paramIndex) const;
 	int widthFor(const uint8 paramIndex) const;
 	int heightFor(const uint8 paramIndex) const;
+	String descriptionFor(const uint8 paramIndex) const;
 	String choiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const;
 	String verboseChoiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const;
 	StringArray choiceNamesListFor(const uint8 paramIndex) const;
 	StringArray verboseChoiceNamesListFor(const uint8 paramIndex) const;
-	String descriptionFor(const uint8 paramIndex) const;
 	int mouseDragSensitivityFor(const uint8 paramIndex) const;
 	uint16 msBitPackedByteLocationFor(const uint8 paramIndex) const;
 	uint8 msBitMaskFor(const uint8 paramIndex) const;

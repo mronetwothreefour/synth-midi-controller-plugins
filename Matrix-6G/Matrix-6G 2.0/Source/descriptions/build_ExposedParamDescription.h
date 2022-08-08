@@ -4,6 +4,16 @@
 
 struct ExposedParamDescription
 {
+	static String buildForEnvAttack(const String envNumString);
+	static String buildForEnvAmp(const String envNumString);
+	static String buildForEnvDecay(const String envNumString);
+	static String buildForEnvDelay(const String envNumString);
+	static String buildForEnvMode(const String envNumString);
+	static String buildForEnvRelease(const String envNumString);
+	static String buildForEnvSustain(const String envNumString);
+	static String buildForEnvTrigMode(const String envNumString);
+	static String buildForEnvVeloAmt(const String envNumString);
+	static String buildForEnv_LFO_1_Trig(const String envNumString);
 	static String buildForKeyboardMode();
 	static String buildForOscBalance();
 	static String buildForOscKeyClick();
@@ -21,6 +31,10 @@ struct ExposedParamDescription
 	static String buildForPortaMode();
 	static String buildForPortaRate();
 	static String buildForPortaVelo();
+	static String buildForRampRate(const int rampNum);
+	static String buildForRampTrig(const int rampNum);
+	static String buildForTrackInput();
+	static String buildForTrackPoint(const int pointNum, int defaultChoice);
 	static String buildFor_LFO_1_PressureAmt();
 	static String buildFor_LFO_2_KeyTrackAmt();
 	static String buildFor_LFO_Amp(const int lfoNum);

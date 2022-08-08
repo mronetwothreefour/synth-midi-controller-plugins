@@ -1,41 +1,39 @@
 #include "ep_1_tree_InfoForExposedParameters.h"
 
 #include "ep_0_build_ChoiceNamesValueTree.h"
-#include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_ExposedParamDescription.h"
 
-using namespace Matrix_6G_Constants;
 using Description = ExposedParamDescription;
 using ChoiceNames = ExposedParamChoiceNamesValueTree;
 
 InfoForExposedParameters::InfoForExposedParameters() :
 	exposedParamsInfoTree{ ID::tree_ExposedParamsInfo }
 {
-	const int vertDistBtwnRows{ 28 };
-	const int controlsRow_1_y{ 69 };
-	const int controlsRow_2_y{ controlsRow_1_y + vertDistBtwnRows };
-	const int controlsRow_3_y{ controlsRow_2_y + vertDistBtwnRows };
-	const int controlsRow_4_y{ controlsRow_3_y + vertDistBtwnRows };
-	const int controlsRow_5_y{ controlsRow_4_y + vertDistBtwnRows };
-	const int controlsRow_6_y{ controlsRow_5_y + vertDistBtwnRows };
-	const int controlsRow_7_y{ controlsRow_6_y + vertDistBtwnRows };
-	const int controlsRow_8_y{ controlsRow_7_y + vertDistBtwnRows };
-	const int controlsRow_9_y{ controlsRow_8_y + vertDistBtwnRows };
-	const int controlsRow_10_y{ controlsRow_9_y + vertDistBtwnRows };
-	const int controlsRow_11_y{ controlsRow_10_y + vertDistBtwnRows };
-	const int controlsRow_12_y{ controlsRow_11_y + vertDistBtwnRows };
+	const auto vertDistBtwnRows{ 28 };
+	const auto controlsRow_1_y{ 69 };
+	const auto controlsRow_2_y{ controlsRow_1_y + vertDistBtwnRows };
+	const auto controlsRow_3_y{ controlsRow_2_y + vertDistBtwnRows };
+	const auto controlsRow_4_y{ controlsRow_3_y + vertDistBtwnRows };
+	const auto controlsRow_5_y{ controlsRow_4_y + vertDistBtwnRows };
+	const auto controlsRow_6_y{ controlsRow_5_y + vertDistBtwnRows };
+	const auto controlsRow_7_y{ controlsRow_6_y + vertDistBtwnRows };
+	const auto controlsRow_8_y{ controlsRow_7_y + vertDistBtwnRows };
+	const auto controlsRow_9_y{ controlsRow_8_y + vertDistBtwnRows };
+	const auto controlsRow_10_y{ controlsRow_9_y + vertDistBtwnRows };
+	const auto controlsRow_11_y{ controlsRow_10_y + vertDistBtwnRows };
+	const auto controlsRow_12_y{ controlsRow_11_y + vertDistBtwnRows };
 
 	auto concise{ false };
 	auto verbose{ true };
 
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 
-	const int osc_1_x{ 130 };
-	const int osc_2_x{ 196 };
-	const int osc_w{ 60 };
+	const auto osc_1_x{ 130 };
+	const auto osc_2_x{ 196 };
+	const auto osc_w{ 60 };
 	for (auto oscNum = 1; oscNum != 3; ++oscNum) {
 		exposedParamsInfoTree.addChild(
 			ValueTree{ oscNum == 1 ? "ep_00" : "ep_10", {
@@ -698,7 +696,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
 				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
 			}
-		}, -1, nullptr);
+			}, -1, nullptr);
 
 		exposedParamsInfoTree.addChild(
 			ValueTree{ lfoNum == 1 ? "ep_42" : "ep_51", {
@@ -718,7 +716,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
 				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
 			}
-		}, -1, nullptr);
+			}, -1, nullptr);
 
 		exposedParamsInfoTree.addChild(
 			ValueTree{ lfoNum == 1 ? "ep_43" : "ep_52", {
@@ -738,7 +736,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
 				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
 			}
-		}, -1, nullptr);
+			}, -1, nullptr);
 
 		exposedParamsInfoTree.addChild(
 			ValueTree{ lfoNum == 1 ? "ep_44" : "ep_53", {
@@ -800,4 +798,444 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				}
 			}, -1, nullptr);
 	}
+
+	// -------------------------------------------------------------------------------------------------------------------- Ramp
+
+	const auto ramp_1_x{ 894 };
+	const auto ramp_2_x{ 960 };
+	const auto ramp_w{ 60 };
+	for (auto rampNum = 1; rampNum != 3; ++rampNum) {
+		exposedParamsInfoTree.addChild(
+			ValueTree{ rampNum == 1 ? "ep_56" : "ep_58", {
+					{ ID::property_ParamID, rampNum == 1 ? ID::ep_56_Ramp_1_Rate.toString() : ID::ep_58_Ramp_2_Rate.toString() },
+					{ ID::property_ParamNum, rampNum == 1 ? 40 : 42 },
+					{ ID::property_ExposedName, "Ramp " + (String)rampNum + " Rate" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, rampNum == 1 ? 74 : 76 },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, rampNum == 1 ? ramp_1_x : ramp_2_x },
+					{ ID::property_Center_y, controlsRow_1_y },
+					{ ID::property_Width, ramp_w },
+					{ ID::property_Description, Description::buildForRampRate(rampNum) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		exposedParamsInfoTree.addChild(
+			ValueTree{ rampNum == 1 ? "ep_57" : "ep_59", {
+					{ ID::property_ParamID, rampNum == 1 ? ID::ep_57_Ramp_1_Trig.toString() : ID::ep_59_Ramp_2_Trig.toString() },
+					{ ID::property_ParamNum, rampNum == 1 ? 41 : 43 },
+					{ ID::property_ExposedName, "Ramp " + (String)rampNum + " Trigger" },
+					{ ID::property_ControlType, (int)ControlType::comboBox },
+					{ ID::property_DataByteIndex, rampNum == 1 ? 75 : 77 },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 4 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, rampNum == 1 ? ramp_1_x : ramp_2_x },
+					{ ID::property_Center_y, controlsRow_2_y },
+					{ ID::property_Width, ramp_w },
+					{ ID::property_Description, Description::buildForRampTrig(rampNum) },
+				}, {
+					ValueTree{ ChoiceNames::buildForRampTrig(concise) },
+					ValueTree{ ChoiceNames::buildForRampTrig(verbose) }
+				}
+			}, -1, nullptr);
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------- Tracking
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_60", {
+				{ ID::property_ParamID, ID::ep_60_TrackInput.toString() },
+				{ ID::property_ParamNum, 33 },
+				{ ID::property_ExposedName, "Tracking Generator Input" },
+				{ ID::property_ControlType, (int)ControlType::comboBox },
+				{ ID::property_DataByteIndex, 68 },
+				{ ID::property_RangeType, (int)RangeType::unsignedValue },
+				{ ID::property_NumberOfChoices, 21 },
+				{ ID::property_DefaultChoice, 9 },
+				{ ID::property_Center_x, 943 },
+				{ ID::property_Center_y, 165 },
+				{ ID::property_Width, 94 },
+				{ ID::property_Description, Description::buildForTrackInput() },
+			}, {
+				ValueTree{ ChoiceNames::buildForModSource(concise) },
+				ValueTree{ ChoiceNames::buildForModSource(verbose) }
+			}
+		}, -1, nullptr);
+
+	const auto trackPoint_1_x{ 853 };
+	const auto trackPoint_horizSpacing{ 31 };
+	const auto trackPoint_w{ 26 };
+	const auto trackPoint_y{ 279 };
+	for (auto pointNum = 1; pointNum != 6; ++pointNum) {
+		auto defaultChoice{ 0 };
+		if (pointNum == 2)
+			defaultChoice = 15;
+		if (pointNum > 2)
+			defaultChoice = 15 + (pointNum - 2) * 16;
+		exposedParamsInfoTree.addChild(
+			ValueTree{ "ep_6" + (String)pointNum, {
+					{ ID::property_ParamID, "ep_6" + (String)pointNum + "_TrackPoint_" + (String)pointNum },
+					{ ID::property_ParamNum, 33 + pointNum },
+					{ ID::property_ExposedName, "Tracking Point " + (String)pointNum },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 68 + pointNum },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, defaultChoice },
+					{ ID::property_Center_x, trackPoint_1_x + (pointNum - 1) * trackPoint_horizSpacing },
+					{ ID::property_Center_y, trackPoint_y },
+					{ ID::property_Width, trackPoint_w },
+					{ ID::property_Description, Description::buildForTrackPoint(pointNum, defaultChoice) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+	}
+
+	// --------------------------------------------------------------------------------------------------------------- Envelopes
+
+	const auto envControlsBlock_horizSpacing{ 410 };
+	const auto env_DADSR_horizSpacing{ 50 };
+	const auto env_1_Controls_x{ 134 };
+	const auto env_1_Delay_x{ 198 };
+	const auto env_1_Attack_x{ env_1_Delay_x + env_DADSR_horizSpacing };
+	const auto env_1_Decay_x{ env_1_Attack_x + env_DADSR_horizSpacing };
+	const auto env_1_Sustain_x{ env_1_Decay_x + env_DADSR_horizSpacing };
+	const auto env_1_Release_x{ env_1_Sustain_x + env_DADSR_horizSpacing };
+	const auto envControlsRow_1_y{ 450 };
+	const auto envControlsRow_2_y{ envControlsRow_1_y + vertDistBtwnRows };
+	const auto envControlsRow_3_y{ envControlsRow_2_y + vertDistBtwnRows };
+	const auto envControlsRow_4_y{ envControlsRow_3_y + vertDistBtwnRows };
+	const auto envControlsRow_5_y{ envControlsRow_4_y + vertDistBtwnRows };
+	const auto envControls_w{ 72 };
+	const auto envControls_DADSR_w{ 28 };
+	for (auto envNum = 0; envNum != 3; ++envNum) {
+		auto envNumString{ String(envNum + 1) };
+		auto envOffset{ envNum * 10 };
+		auto epTreeID{ "ep_" + String(66 + envOffset)};
+		auto datByteOffset{ envNum * 9 };
+		auto envBlockOffset{ envNum * envControlsBlock_horizSpacing };
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Amp" },
+					{ ID::property_ParamNum, 55 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Amplitude" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 47 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 40 },
+					{ ID::property_Center_x, env_1_Controls_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_1_y },
+					{ ID::property_Width, envControls_w },
+					{ ID::property_Description, Description::buildForEnvAmp(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(67 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_VeloAmt" },
+					{ ID::property_ParamNum, 56 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Velocity Amount" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 86 + envNum },
+					{ ID::property_RangeType, (int)RangeType::signed_7_bitValue },
+					{ ID::property_NumberOfChoices, 127 },
+					{ ID::property_DefaultChoice, 126 },
+					{ ID::property_Center_x, env_1_Controls_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_2_y },
+					{ ID::property_Width, envControls_w },
+					{ ID::property_Description, Description::buildForEnvVeloAmt(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(68 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_TrigMode" },
+					{ ID::property_ParamNum, 57 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Trigger Mode" },
+					{ ID::property_ControlType, (int)ControlType::comboBox },
+					{ ID::property_DataByteIndex, 41 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 8 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Controls_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_3_y },
+					{ ID::property_Width, envControls_w },
+					{ ID::property_Description, Description::buildForEnvTrigMode(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForEnvTrigMode(concise) },
+					ValueTree{ ChoiceNames::buildForEnvTrigMode(verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(69 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Mode" },
+					{ ID::property_ParamNum, 58 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Mode" },
+					{ ID::property_ControlType, (int)ControlType::comboBox },
+					{ ID::property_DataByteIndex, 49 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 4 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Controls_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_w },
+					{ ID::property_Description, Description::buildForEnvMode(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForEnvMode(concise) },
+					ValueTree{ ChoiceNames::buildForEnvMode(verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(70 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_LFO_1_Trig" },
+					{ ID::property_ParamNum, 59 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " LFO 1 Trigger" },
+					{ ID::property_ControlType, (int)ControlType::comboBox },
+					{ ID::property_DataByteIndex, 48 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 3 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Controls_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_5_y },
+					{ ID::property_Width, envControls_w },
+					{ ID::property_Description, Description::buildForEnv_LFO_1_Trig(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(concise) },
+					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(71 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Delay" },
+					{ ID::property_ParamNum, 50 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Delay Time" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 42 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Delay_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_DADSR_w },
+					{ ID::property_Description, Description::buildForEnvDelay(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(72 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Attack" },
+					{ ID::property_ParamNum, 51 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Attack Time" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 43 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Attack_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_DADSR_w },
+					{ ID::property_Description, Description::buildForEnvAttack(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(73 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Decay" },
+					{ ID::property_ParamNum, 52 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Decay Time" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 44 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Decay_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_DADSR_w },
+					{ ID::property_Description, Description::buildForEnvDecay(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(74 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Sustain" },
+					{ ID::property_ParamNum, 53 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Sustain Level" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 45 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Sustain_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_DADSR_w },
+					{ ID::property_Description, Description::buildForEnvSustain(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+
+		epTreeID = "ep_" + String(75 + envOffset);
+		exposedParamsInfoTree.addChild(
+			ValueTree{ epTreeID, {
+					{ ID::property_ParamID, epTreeID + "_Env_" + envNumString + "_Release" },
+					{ ID::property_ParamNum, 54 + envOffset },
+					{ ID::property_ExposedName, "Envelope " + envNumString + " Release Time" },
+					{ ID::property_ControlType, (int)ControlType::rotarySlider },
+					{ ID::property_DataByteIndex, 46 + datByteOffset },
+					{ ID::property_RangeType, (int)RangeType::unsignedValue },
+					{ ID::property_NumberOfChoices, 64 },
+					{ ID::property_DefaultChoice, 0 },
+					{ ID::property_Center_x, env_1_Release_x + envBlockOffset },
+					{ ID::property_Center_y, envControlsRow_4_y },
+					{ ID::property_Width, envControls_DADSR_w },
+					{ ID::property_Description, Description::buildForEnvRelease(envNumString) },
+				}, {
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				}
+			}, -1, nullptr);
+	}
+}
+
+Identifier InfoForExposedParameters::IDfor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return Identifier{ paramTree.getProperty(ID::property_ParamID).toString() };
+}
+
+uint8 InfoForExposedParameters::paramNumFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return uint8((int)paramTree.getProperty(ID::property_ParamNum));
+}
+
+String InfoForExposedParameters::exposedNameFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return paramTree.getProperty(ID::property_ExposedName).toString();
+}
+
+ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return ControlType{ (int)paramTree.getProperty(ID::property_ControlType) };
+}
+
+uint8 InfoForExposedParameters::dataByteIndexFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return uint8((int)paramTree.getProperty(ID::property_DataByteIndex));
+}
+
+RangeType InfoForExposedParameters::rangeTypeFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return RangeType{ (int)paramTree.getProperty(ID::property_RangeType) };
+}
+
+uint8 InfoForExposedParameters::numberOfChoicesFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return uint8((int)paramTree.getProperty(ID::property_NumberOfChoices));
+}
+
+uint8 InfoForExposedParameters::defaultChoiceFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return uint8((int)paramTree.getProperty(ID::property_DefaultChoice));
+}
+
+Point<int> InfoForExposedParameters::centerPointFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto center_x{ (int)paramTree.getProperty(ID::property_Center_x) };
+	auto center_y{ (int)paramTree.getProperty(ID::property_Center_y) };
+	return Point<int>{ center_x, center_y };
+}
+
+int InfoForExposedParameters::widthFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_Width);
+}
+
+String InfoForExposedParameters::descriptionFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return paramTree.getProperty(ID::property_Description).toString();
+}
+
+String InfoForExposedParameters::choiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const {
+	jassert(choiceNum < numberOfChoicesFor(paramIndex));
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames) };
+	auto choiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
+	return choiceName;
+}
+
+String InfoForExposedParameters::verboseChoiceNameFor(const uint8 choiceNum, const uint8 paramIndex) const {
+	jassert(choiceNum < numberOfChoicesFor(paramIndex));
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	auto choiceNamesTree{ paramTree.getChildWithName(ID::tree_ChoiceNames_Verbose) };
+	auto verboseChoiceName{ choiceNamesTree.getProperty("choice_" + (String)choiceNum).toString() };
+	return verboseChoiceName;
+}
+
+StringArray InfoForExposedParameters::choiceNamesListFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	StringArray choiceNamesList;
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
+		choiceNamesList.add(choiceNameFor(choiceNum, paramIndex));
+	return choiceNamesList;
+}
+
+StringArray InfoForExposedParameters::verboseChoiceNamesListFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	StringArray verboseChoiceNamesList;
+	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoicesFor(paramIndex); ++choiceNum)
+		verboseChoiceNamesList.add(verboseChoiceNameFor(choiceNum, paramIndex));
+	return verboseChoiceNamesList;
+}
+
+int InfoForExposedParameters::mouseDragSensitivityFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	return 80 + roundToInt(numberOfChoicesFor(paramIndex) / 2);
 }
